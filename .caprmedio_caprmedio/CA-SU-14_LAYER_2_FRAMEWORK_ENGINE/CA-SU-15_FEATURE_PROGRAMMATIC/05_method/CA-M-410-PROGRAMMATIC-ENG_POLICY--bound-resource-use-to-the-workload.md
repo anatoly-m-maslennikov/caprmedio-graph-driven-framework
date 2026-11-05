@@ -1,15 +1,22 @@
 ---
 atom_id: CA-M-410
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-410
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
 version: 9
 updated_at: 2026-10-27 19:59:43 +0400
 author: Anatoly Maslennikov
 tier: 3
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-410-PROGRAMMATIC-ENG_POLICY--bound-resource-use-to-the-workload.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

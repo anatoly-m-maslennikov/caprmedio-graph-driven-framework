@@ -1,11 +1,11 @@
 ---
 atom_id: CA-M-461
+ref_id: CA-M-461
 form: Eng Policy
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 version: 2
-relations: {}
 tier: 3
 updated_at: 2026-11-04 09:19:08 +0400
 role: Method

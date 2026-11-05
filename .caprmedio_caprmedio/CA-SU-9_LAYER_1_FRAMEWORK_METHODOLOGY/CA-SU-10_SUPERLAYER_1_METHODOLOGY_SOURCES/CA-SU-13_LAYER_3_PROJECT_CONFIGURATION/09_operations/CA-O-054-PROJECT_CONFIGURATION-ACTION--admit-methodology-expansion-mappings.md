@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/caprmedio/Action//Admit Methodology Expansion Mapping
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Admit Methodology Expansion Mapping
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Expansion Boundary
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
@@ -10,15 +10,21 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 version: 20
 updated_at: 2026-10-27 19:59:45 +0400
-relations: {}
 atom_id: CA-O-054
-content_role: Operations
+ref_id: CA-O-054
+role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-type: Action
+form: Action
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-054-PROJECT_CONFIGURATION-ACTION--admit-methodology-expansion-mappings.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

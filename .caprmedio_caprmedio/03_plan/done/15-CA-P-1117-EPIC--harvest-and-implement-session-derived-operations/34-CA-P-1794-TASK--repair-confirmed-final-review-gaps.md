@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1794
-content_role: Plan
-type: Plan
+ref_id: CA-P-1794
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 34
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Active
 version: 8
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Implementation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Implementation
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
@@ -33,6 +34,12 @@ relations:
   - CA-P-1807
   - CA-P-1808
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 34-CA-P-1794-TASK--repair-confirmed-final-review-gaps.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations
 ---
 # Summary
 

@@ -1,7 +1,7 @@
 ---
 atom_id: CA-M-draft
-content_role: Method
-type: Eng Policy
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 tier: 1
@@ -9,9 +9,9 @@ status: Draft
 author: Anatoly Maslennikov
 version: 2
 updated_at: "2026-10-23 19:11:00 +0400"
-subjects:
-  governs: Subject/Engineering/Implementation Cohesion
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Implementation Cohesion
+  dependencies:
     - Subject/Engineering/Source Unit Responsibility
     - Subject/Engineering/Behavior Ownership
     - Subject/Engineering/Outcome Evidence
@@ -22,6 +22,8 @@ relations:
     - CA-M-419
     - CA-E-364
     - CA-E-539
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

@@ -10,16 +10,23 @@ relations:
   - CA-R-1407
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-2691
+ref_id: CA-R-2691
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-2691-CAPRMEDIO-RULE--keep-nesting-and-sibling-order-distinct.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

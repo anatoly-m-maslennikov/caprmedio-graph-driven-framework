@@ -1,7 +1,8 @@
 ---
 atom_id: CA-A-1009
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1009
+role: Analysis & Advisory
+form: Analysis Report
 label: Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -10,15 +11,21 @@ global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Next subsequent second-partition continuation evidence packet
-  depends_on:
+topics:
+  main_subject: Next subsequent second-partition continuation evidence packet
+  dependencies:
   - CA-P-1291
 version: 3
 updated_at: 2026-11-02 15:49:28 +0400
 relations:
   is_result_of:
   - CA-P-1291
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1009-CAPRMEDIO-REPORT--bounded-evidence-harvest-for-the-frozen-ca-p-1291-selection-all-selected-source-text-native-parts-and-prior-contexts-are-retained-below-no-historical-report-is-promoted-into-current-proof.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

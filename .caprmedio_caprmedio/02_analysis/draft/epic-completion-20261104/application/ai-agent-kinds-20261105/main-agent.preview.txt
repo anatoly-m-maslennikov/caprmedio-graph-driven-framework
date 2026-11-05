@@ -1,0 +1,16 @@
+## Summary
+
+Declare Main Agent
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Main Agent ((NARROWER_THAN)) AI Agent
+```
+
+## Semantics
+
+A Main Agent is the AI Agent responsible for the overall assigned work.

@@ -1,21 +1,21 @@
 ---
 atom_id: CA-P-2694
+ref_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 74
-updated_at: 2026-11-05 18:04:53 +0400
-subjects:
-  active: CAPRMEDIO_MODEL
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: caprmedio
+version: 76
+updated_at: 2026-11-05 20:22:52 +0400
+topics:
+  main_subject: CAPRMEDIO_MODEL
 role: Plan
 form: Plan
 carrier_destination:
   file:
     name: CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
     path: .caprmedio_caprmedio/03_plan
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 
@@ -93,7 +93,7 @@ CA-A-1321@1-draft records the settled design and the 49 live successor Drafts. K
 - The proposed `/` means containment and `//` means narrowing. Preserve relationship direction, inherited rules and endpoint count meaning during review.
 - Formats combine value domains and conditions, including primitive values. Bound names and quantifiers are logical notation.
 - HAS_ALLOWED_VALUE (`:=`) admits alternatives; HAS_VALUE_CONSTRAINT (`::`) constrains formats and counts. `Name :: [string]{::1}` alone allows one string. Qualified Subjects retain `:=`. A fixed model Relation reference uses `Relation//IS_PROPERTY_OF`; it does not need a `$` binding. Relation data endpoints stay literal or constraint data; they do not create Value Nodes.
-- `FOR EACH $atom[<Atom>, (conditions)]: (...)` is accepted, without WITH or IN. Its participant is scoped to its selector and grouped body. Formal Claims are self-contained; subjects.active remains the declared focus. R2778@1-draft records the quantifier. The final live cohort records the current typed-selector, binding and Rule successors, including R2487@15-draft. Their coordinated admission remains required.
+- `FOR EACH $atom[<Atom>, (conditions)]: (...)` is accepted, without WITH or IN. Its participant is scoped to its selector and grouped body. Formal Claims are self-contained. The Main Subject identifies their declared focus and supplies no implicit participant. Current metadata still uses subjects.active until the checked rename to topics.main_subject. R2778@1-draft records the quantifier. The final live cohort records the current typed-selector, binding and Rule successors, including R2487@15-draft. Their coordinated admission remains required.
 - Retain the existing named reverse traversal. No additional compact reverse glyph is required or adopted.
 - Container references use IDs only. Scalar Scope Unit.Path Draft R2530@3 is no longer a Container prerequisite and remains separate from this adoption packet. Keep Current Path authority until its independent proposal is resolved.
 - Put Project Settings defaults on their Property Declarations with `?==`. Preserve sourced values and validation; retire the old Default Settings Artifact requirements only after dependent source reconciliation. Runtime files stay with their owners.
@@ -125,6 +125,14 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 - Keep actual instances distinct from fixed model references. The broader binding rule and conditional derivations still require final semantic review; do not infer a new all-dollar or no-dollar expression mode.
 - Kind alternatives use OR inside one participant selector. VALUES(property) explicitly selects actual direct values. The reviewed VALUES Draft is R2904@1. Earlier 49/55/56-source review counts are bounded checkpoints; the canonical/inverse-alias decision requires a revised final candidate.
 - Earlier pure-inverse Declarations, fixed-name dollar rewrites and Direct/Derived classifications are superseded where they conflict with these decisions. Qualified derivations, including IS_DECLARED_BY, need explicit disposition without losing their conditions.
+
+## Declaration Forms and Topic names
+
+- Operator Declaration, Construct Declaration, Relation Declaration and Function Declaration are Forms under Requirement. Their admission Drafts are R2953–R2956; no new Role or ID letter is introduced.
+- Each language item has an individual Subject in the MODEL namespace: for example, `CAPRMEDIO_MODEL/CFEL/Operator//Equality` and `CAPRMEDIO_MODEL/CFEL/Construct//Conditional`.
+- The reviewed Format, Model Reference and INSTANCE_OF Drafts are R2248@6, R2957@1 and R2476@7. Keep the required definition order: `[]`, then `<>`, then INSTANCE_OF and its Semantics. The broader catalogue and caller review remains open.
+- Rename `subjects.active` to `topics.main_subject` and `subjects.passive` to `topics.dependencies`. Main Subject means the one selected Topic. Dependencies retain their direct contextual meaning; incidental mentions are not automatically dependencies.
+- Apply these names during the checked in-place Current/Draft migration after CFEL review. Source metadata is not globally renamed by this planning update. Keep unresolved Relation-name and conditional-construct choices explicit.
 
 ## Remaining work
 

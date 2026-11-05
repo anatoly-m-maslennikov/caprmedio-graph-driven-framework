@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
@@ -19,12 +19,15 @@ relations:
   - CA-R-1788
   - CA-O-051
 atom_id: CA-E-521
+ref_id: CA-E-521
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 

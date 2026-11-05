@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1061
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1061
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Settings before derived structure reconciliation
-  depends_on:
+topics:
+  main_subject: Settings before derived structure reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Subject/Domain/Node/Continuant/Project.Settings
   - Subject/Domain/Node/Continuant/Project.Framework Settings
@@ -26,6 +27,8 @@ relations:
   - CA-A-1035
   - CA-O-052
   - CA-C-353
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

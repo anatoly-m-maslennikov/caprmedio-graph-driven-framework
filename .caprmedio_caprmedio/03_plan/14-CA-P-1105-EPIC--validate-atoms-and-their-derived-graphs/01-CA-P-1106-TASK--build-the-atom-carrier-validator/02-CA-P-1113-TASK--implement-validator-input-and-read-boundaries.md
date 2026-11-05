@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1113
-content_role: Plan
-type: Plan
+ref_id: CA-P-1113
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -10,9 +11,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 99
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Engineering/Validation
   - Subject/Graph Node/Engineering/Implementation
@@ -24,6 +25,12 @@ relations:
   blocks:
   - CA-P-1115
 tier: 3
+container:
+  atom: CA-P-1106
+carrier_destination:
+  file:
+    name: 2-CA-P-1113-TASK--implement-validator-input-and-read-boundaries.md
+    path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/1-CA-P-1106-TASK--build-the-atom-carrier-validator
 ---
 # Summary
 

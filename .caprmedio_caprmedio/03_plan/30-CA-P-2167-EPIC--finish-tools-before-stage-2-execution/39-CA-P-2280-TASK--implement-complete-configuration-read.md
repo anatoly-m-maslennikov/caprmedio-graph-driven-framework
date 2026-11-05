@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2280
-content_role: Plan
-type: Plan
+ref_id: CA-P-2280
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 39
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Governing Configuration
   - Subject/Graph Node/Engineering/Workflow
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
@@ -26,6 +27,12 @@ relations:
   - CA-P-2269
   - CA-P-2275
 tier: 3
+container:
+  atom: CA-P-2167
+carrier_destination:
+  file:
+    name: 39-CA-P-2280-TASK--implement-complete-configuration-read.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution
 ---
 # Summary
 

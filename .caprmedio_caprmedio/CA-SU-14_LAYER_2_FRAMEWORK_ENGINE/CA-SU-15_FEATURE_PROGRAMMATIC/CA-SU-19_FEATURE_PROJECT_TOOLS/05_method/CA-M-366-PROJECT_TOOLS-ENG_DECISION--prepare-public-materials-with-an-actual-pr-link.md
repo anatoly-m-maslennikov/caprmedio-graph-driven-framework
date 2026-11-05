@@ -1,13 +1,14 @@
 ---
 atom_id: CA-M-366
-content_role: Method
+ref_id: CA-M-366
+role: Method
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation
   - Subject/CAPRMEDIO/Carrier/Pull Request
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History
@@ -16,8 +17,14 @@ updated_at: 2026-10-27 19:59:42 +0400
 relations:
   method_for:
   - CA-R-1923
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-19
+carrier_destination:
+  file:
+    name: CA-M-366-PROJECT_TOOLS-ENG_DECISION--prepare-public-materials-with-an-actual-pr-link.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/05_method
 ---
 # Summary
 

@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Demand)'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
@@ -45,12 +45,19 @@ relations:
   - CA-R-1318
   - CA-R-2514
 atom_id: CA-E-246
+ref_id: CA-E-246
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 6
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

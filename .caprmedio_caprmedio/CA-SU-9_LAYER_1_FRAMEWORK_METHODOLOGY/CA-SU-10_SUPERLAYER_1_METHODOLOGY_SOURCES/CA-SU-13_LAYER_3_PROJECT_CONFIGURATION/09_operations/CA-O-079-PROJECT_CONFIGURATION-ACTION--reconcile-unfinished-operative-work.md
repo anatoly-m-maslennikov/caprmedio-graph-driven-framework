@@ -1,14 +1,15 @@
 ---
 atom_id: CA-O-079
-content_role: Operations
-type: Action
+ref_id: CA-O-079
+role: Operations
+form: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/caprmedio/Action//Reconcile Unfinished Work
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Reconcile Unfinished Work
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan/Type: Plan'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
@@ -27,8 +28,13 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
 version: 22
 updated_at: 2026-10-30 03:11:58 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-079-PROJECT_CONFIGURATION-ACTION--reconcile-unfinished-operative-work.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

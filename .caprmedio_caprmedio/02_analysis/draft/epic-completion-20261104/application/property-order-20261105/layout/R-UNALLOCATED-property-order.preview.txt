@@ -1,0 +1,46 @@
+## Summary
+
+Order Atom Header and Content Properties
+
+## Claim
+
+### Prose Claim
+
+When Workflow.Content.Claim.Mermaid Scheme is declared as a Claim child, it precedes Prose Claim and Formal Claim when those children are present. Other admitted sibling Properties follow the ordered Properties, without a required order among them.
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.ID ;> Atom.Header.Ref ID;
+
+Atom.Header.Ref ID ;> Atom.Header.Container;
+
+Atom.Header.Container ;> Atom.Header.Role;
+
+Atom.Header.Role ;> Atom.Header.Form;
+
+Atom.Header.Form ;> Atom.Header.Label;
+
+Atom.Header.Label ;> Atom.Header.Topics;
+
+Atom.Header.Topics ;> Atom.Header.Tier;
+
+Atom.Header.Tier ;> Atom.Header.Relations;
+
+Atom.Header.Relations ;> Atom.Header.Status;
+
+Atom.Header.Status ;> Atom.Header.Version;
+
+Atom.Header.Version ;> Atom.Header.Updated At;
+
+Atom.Header.Updated At ;> Atom.Header.Carrier Destination;
+
+Atom/(.Header.Role in RMED).Content.Summary ;> Atom/(.Header.Role in RMED).Content.Claim;
+
+Atom/(.Header.Role in RMED).Content.Claim ;> Atom/(.Header.Role in RMED).Content.Semantics;
+
+Atom/(.Header.Role in RMED).Content.Semantics ;> Atom/(.Header.Role in RMED).Content.Details;
+
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim ;> Atom/(.Header.Role in RMED).Content.Claim.Formal Claim
+```

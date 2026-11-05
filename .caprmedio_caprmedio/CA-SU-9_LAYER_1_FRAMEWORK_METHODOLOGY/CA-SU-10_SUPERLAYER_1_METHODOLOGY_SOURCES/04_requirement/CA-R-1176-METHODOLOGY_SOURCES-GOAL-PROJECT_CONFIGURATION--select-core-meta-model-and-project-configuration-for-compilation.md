@@ -1,18 +1,20 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-R-1176
+ref_id: CA-R-1176
 current_scope_unit: METHODOLOGY_SOURCES
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 3
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-10
 ---
 ## Summary
 

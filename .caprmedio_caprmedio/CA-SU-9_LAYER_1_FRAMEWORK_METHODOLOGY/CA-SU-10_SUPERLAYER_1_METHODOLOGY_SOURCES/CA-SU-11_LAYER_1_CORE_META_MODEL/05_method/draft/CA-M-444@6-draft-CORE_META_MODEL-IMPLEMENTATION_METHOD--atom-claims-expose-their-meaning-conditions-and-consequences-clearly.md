@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow {::1+}<+ Atom/(.Header.Role := Operations)/Step
   - CAPRMEDIO_MODEL <+ Atom
@@ -15,6 +15,7 @@ relations:
   child_of:
   - CA-M-113
 atom_id: CA-M-444
+ref_id: CA-M-444@6-draft
 status: Draft
 tier: 5
 role: Method

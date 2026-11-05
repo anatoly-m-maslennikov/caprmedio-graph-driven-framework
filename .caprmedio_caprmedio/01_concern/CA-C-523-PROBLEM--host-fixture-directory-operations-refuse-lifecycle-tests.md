@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-523
-content_role: Concern
-type: Problem
+ref_id: CA-C-523
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
@@ -10,9 +11,9 @@ status: Active
 author: Anatoly Maslennikov
 version: 5
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Atom/Status
-  depends_on:
+topics:
+  main_subject: Atom/Status
+  dependencies:
   - Subject/Domain/Node/Continuant/Atom
   - Subject/Engineering/Test Isolation/Fixture Directory
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
@@ -21,6 +22,12 @@ relations:
   - CA-P-2385
   - CA-P-2389
   - CA-C-520
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-C-523-CAPRMEDIO-PROBLEM--host-fixture-directory-operations-refuse-lifecycle-tests.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 # Summary
 

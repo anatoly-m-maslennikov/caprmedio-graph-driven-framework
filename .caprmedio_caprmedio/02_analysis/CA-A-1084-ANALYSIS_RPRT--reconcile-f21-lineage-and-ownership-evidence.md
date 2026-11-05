@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1084
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1084
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Historical missing lineage and ownership evidence reconciliation
-  depends_on:
+topics:
+  main_subject: Historical missing lineage and ownership evidence reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Atom/Claim
   - Atom/Revision
@@ -30,6 +31,8 @@ relations:
   - CA-O-005
   - CA-O-067
   - CA-C-367
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

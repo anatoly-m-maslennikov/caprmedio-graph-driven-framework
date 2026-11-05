@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
@@ -16,12 +16,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-192
+ref_id: CA-E-192
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Derive Governed Commit Messages from Sealed Actions
 

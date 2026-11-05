@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/Engineering/MCP
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/MCP
+  dependencies:
   - Subject/Engineering/MCP.Tool Invocation Contract
   - Subject/Engineering/Tool
   - Subject/Engineering/MCP
@@ -15,12 +15,15 @@ llm_session_ids:
 - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-1107@24-draft
+ref_id: CA-R-1107@24-draft
 status: Draft
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: MCP
-type: Rule
+form: Rule
 tier: 1
+container:
+  scope_unit: CA-SU-21
 ---
 # Require complete Tool invocation contracts
 

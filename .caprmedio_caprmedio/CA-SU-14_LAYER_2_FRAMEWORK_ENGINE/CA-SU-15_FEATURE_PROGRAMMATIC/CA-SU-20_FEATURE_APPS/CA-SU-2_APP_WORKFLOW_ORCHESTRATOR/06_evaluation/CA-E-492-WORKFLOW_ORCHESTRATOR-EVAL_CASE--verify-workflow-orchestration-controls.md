@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
@@ -22,12 +22,15 @@ relations:
   - CA-R-1523
   - CA-M-302
 atom_id: CA-E-492
+ref_id: CA-E-492
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-type: Eval Case
+form: Eval Case
 tier: 5
+container:
+  scope_unit: CA-SU-2
 ---
 # Verify Workflow orchestration controls
 

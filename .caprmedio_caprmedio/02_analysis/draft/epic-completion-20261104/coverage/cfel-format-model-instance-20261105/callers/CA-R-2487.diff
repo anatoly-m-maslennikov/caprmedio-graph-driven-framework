@@ -1,0 +1,6 @@
+--- CA-R-2487 latest overview preview
++++ caller preview
+@@
+-<Kind> refers to a declared Model kind as a Format
++[Format], <Model>, and instances are distinct; INSTANCE_OF is the instance-host-to-Model cross-case Relation.
++add: VALUES/functions, predicates/modifier/comments/separator classification; ELSE remains proposed only.

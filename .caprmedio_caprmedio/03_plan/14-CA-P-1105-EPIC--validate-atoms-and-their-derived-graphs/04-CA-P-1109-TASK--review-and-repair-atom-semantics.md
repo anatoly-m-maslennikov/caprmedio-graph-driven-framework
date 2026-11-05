@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1109
-content_role: Plan
-type: Plan
+ref_id: CA-P-1109
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 4
 current_scope_unit: caprmedio
@@ -12,9 +13,9 @@ autonomous_confidence_threshold: 99
 status: Active
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Content
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Atom.Content
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/History
   - Subject/Graph Node/Domain/Continuant/Atom.Summary
@@ -31,6 +32,12 @@ relations:
   blocks:
   - CA-P-1110
 tier: 3
+container:
+  atom: CA-P-1105
+carrier_destination:
+  file:
+    name: 4-CA-P-1109-TASK--review-and-repair-atom-semantics.md
+    path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs
 ---
 # Summary
 

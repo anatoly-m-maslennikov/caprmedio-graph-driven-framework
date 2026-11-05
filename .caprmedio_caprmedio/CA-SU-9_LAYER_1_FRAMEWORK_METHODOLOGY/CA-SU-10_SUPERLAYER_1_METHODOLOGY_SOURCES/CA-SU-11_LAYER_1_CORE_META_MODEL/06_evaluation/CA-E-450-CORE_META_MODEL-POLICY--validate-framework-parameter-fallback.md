@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   - CAPRMEDIO_MODEL <+ Project
@@ -16,12 +16,19 @@ relations:
   - CA-M-279
   - CA-R-1441
 atom_id: CA-E-450
+ref_id: CA-E-450
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 5
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-450-CORE_META_MODEL-EVAL_POLICY--validate-framework-parameter-fallback.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 Validate framework parameter fallback

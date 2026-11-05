@@ -1,5 +1,6 @@
 ---
 atom_id: CA-E-681
+ref_id: CA-E-681
 role: Evaluation
 form: Eval Case
 current_scope_unit: WORKBENCH
@@ -8,8 +9,8 @@ status: Active
 version: 1
 author: Anatoly Maslennikov
 tier: 6
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   evaluation_for:
   - CA-R-2786
@@ -20,6 +21,8 @@ carrier_destination:
   file:
     name: CA-E-681-WORKBENCH-EVAL_CASE--verify-workbench-full-reread.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
+container:
+  scope_unit: CA-SU-43
 ---
 
 ## Summary

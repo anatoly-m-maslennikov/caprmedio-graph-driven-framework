@@ -1,5 +1,6 @@
 ---
 atom_id: CA-D-677
+ref_id: CA-D-677
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
 tier: 5
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   delivery_for:
   - CA-R-2782
@@ -20,6 +21,8 @@ carrier_destination:
   file:
     name: CA-D-677-WORKBENCH-ENG_DECISION--expose-workbench-restart-on-the-health-page.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
+container:
+  scope_unit: CA-SU-43
 ---
 
 ## Summary

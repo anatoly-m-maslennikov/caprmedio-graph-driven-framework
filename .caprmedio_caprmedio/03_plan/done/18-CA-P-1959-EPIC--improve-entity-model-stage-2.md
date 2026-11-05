@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-1959
-content_role: Plan
-type: Plan
+ref_id: CA-P-1959
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 18
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Projection
@@ -18,8 +19,13 @@ subjects:
   - Subject/Graph Rule
 version: 176
 updated_at: 2026-10-25 17:32:27 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: 18-CA-P-1959-EPIC--improve-entity-model-stage-2.md
+    path: .caprmedio_caprmedio/03_plan/done
 ---
 # Summary
 

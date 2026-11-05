@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
 version: 31
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
@@ -15,12 +15,15 @@ relations:
   derived_from:
   - CA-A-057
 atom_id: CA-M-142
+ref_id: CA-M-142
 status: Active
-content_role: Method
+role: Method
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eng Policy
+form: Eng Policy
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 
 # Separate Tool runtime from temporary state

@@ -1,13 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Unit Declaration)
   - CAPRMEDIO_MODEL <+ Project
 version: 2
 updated_at: 2026-11-04 09:19:08 +0400
-relations: {}
 atom_id: CA-R-2688
+ref_id: CA-R-2688
 status: Active
 tier: 2
 form: Rule

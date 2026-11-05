@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-165
-content_role: Operations
-type: Action
+ref_id: CA-O-165
+role: Operations
+form: Action
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Action//Validate local release inputs
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Validate local release inputs
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -16,8 +17,13 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
 version: 22
 updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-165-PROJECT_CONFIGURATION-ACTION--validate-local-release-inputs.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

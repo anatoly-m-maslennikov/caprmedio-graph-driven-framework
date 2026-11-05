@@ -1,17 +1,19 @@
 ---
 atom_id: CA-A-1300
-content_role: Analysis & Advisory
-type: Specification Proposal
+ref_id: CA-A-1300
+role: Analysis & Advisory
+form: Specification Proposal
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Done
 author: Anatoly Maslennikov
-subjects:
-  governs: Model
+topics:
+  main_subject: Model
 version: 3
 updated_at: 2026-11-02 15:49:28 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

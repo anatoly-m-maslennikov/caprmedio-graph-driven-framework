@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - CAPRMEDIO_MODEL <+ Project.Settings.Name
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Obsolete Names
@@ -11,12 +11,19 @@ relations:
   child_of:
   - CA-R-1052
 atom_id: CA-D-392
+ref_id: CA-D-392
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Delivery
 form: Decision
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-D-392-CORE_META_MODEL-DECISION--register-obsolete-project-names.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 ---
 ## Summary
 

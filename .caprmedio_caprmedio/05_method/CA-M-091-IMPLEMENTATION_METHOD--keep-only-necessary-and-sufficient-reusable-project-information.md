@@ -5,20 +5,27 @@ relations:
   child_of:
   - CA-M-448
   - CA-M-005
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-091
+ref_id: CA-M-091
 status: Active
 current_scope_unit: caprmedio
 tier: 2
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-091-CAPRMEDIO-IMPLEMENTATION_METHOD--keep-only-necessary-and-sufficient-reusable-project-information.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 

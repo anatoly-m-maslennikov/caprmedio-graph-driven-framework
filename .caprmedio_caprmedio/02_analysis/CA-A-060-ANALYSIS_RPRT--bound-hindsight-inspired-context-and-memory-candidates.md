@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - Project Memory
-  depends_on:
+  dependencies:
     continuant:
       - Project Context
       - Retrieval Integrity

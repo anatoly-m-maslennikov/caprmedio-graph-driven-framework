@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-1894
-content_role: Requirement
+ref_id: CA-R-1894
+role: Requirement
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 20:00:05 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
@@ -17,9 +18,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier/File
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-R-1894-MCP-RULE--refresh-only-accepted-selected-source-pins.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
 ---
 # Summary
 

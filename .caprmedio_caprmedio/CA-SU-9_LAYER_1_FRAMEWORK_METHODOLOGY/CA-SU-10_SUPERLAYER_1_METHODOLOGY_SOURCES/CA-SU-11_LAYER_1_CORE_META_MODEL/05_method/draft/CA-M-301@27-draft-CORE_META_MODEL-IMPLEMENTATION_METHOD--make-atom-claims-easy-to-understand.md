@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Entity/Object/Continuant/Governing Objects/Atom.Content
-  depends_on:
+topics:
+  main_subject: Entity/Object/Continuant/Governing Objects/Atom.Content
+  dependencies:
   - Entity/Term
   - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow {1+}<+{1} Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Step'
   - Entity/Object/Continuant/Governing Objects/Atom
@@ -15,13 +15,16 @@ relations:
   child_of:
   - CA-M-113
 atom_id: CA-M-301@27-draft
-content_role: Method
+ref_id: CA-M-301@27-draft
+role: Method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 tier: 5
-type: Implementation Method
+form: Implementation Method
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

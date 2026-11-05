@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action).Execution Kind'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
@@ -16,12 +16,19 @@ relations:
   - CA-R-1527@21
   - CA-R-2465
 atom_id: CA-E-495
+ref_id: CA-E-495
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-495-CORE_META_MODEL-EVAL_CASE--validate-action-kinds-and-step-contexts.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

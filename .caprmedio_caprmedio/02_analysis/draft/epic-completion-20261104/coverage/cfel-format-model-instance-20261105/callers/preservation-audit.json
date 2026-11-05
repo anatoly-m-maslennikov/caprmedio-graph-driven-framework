@@ -1,0 +1,23 @@
+{
+  "status": "COMPACT_PREVIEWS_ARE_OVERLAYS_NOT_WHOLESALE_REPLACEMENTS",
+  "decision": "Do not replace CA-R-2487, CA-R-2552, or CA-R-2804 wholesale with the compact caller previews. A full successor must retain or explicitly incorporate every mapped obligation.",
+  "source_to_overlay_or_authority": [
+    {"source": "R2487:40-44 CFEL scope and no-creation boundary", "map": "retained R2487 native/overview; omitted from overlay", "status": "MUST_RETAIN"},
+    {"source": "R2487:46 IF/THEN truth, error, and FOR EACH handoff", "map": "R2487 caller preview paragraph 3; R2778 owns FOR EACH", "status": "EQUIVALENT"},
+    {"source": "R2487:48 model/instance comments, selection, population and slots", "map": "R2552 caller preview paragraph 2; R2804 caller preview paragraphs 1-2; R2243/R2552 remain owners", "status": "PARTIAL_OVERLAY_MUST_RETAIN_SOURCE"},
+    {"source": "R2487:50-61 paths, containment, classification, grouping, semicolon", "map": "R2487 caller preview paragraph 2 covers semicolon only; R2809/R2811/R2812/R2801 remain authorities", "status": "MUST_RETAIN"},
+    {"source": "R2487:63 literal quote/backslash escapes and path-escape boundary", "map": "retained R2487 native/overview and R1931 path authority; omitted from overlay", "status": "MUST_RETAIN"},
+    {"source": "R2487:65-80 HAV OR/HVC AND, absent HAV true, cardinalities, parent/leaf and per-bearer identity", "map": "R2487 caller preview paragraph 2 classifies :=/::; R2552 caller preview paragraph 2 preserves per-bearer identity; R2243/R2816/R2826-R2829 remain authorities", "status": "PARTIAL_OVERLAY_MUST_RETAIN_SOURCE"},
+    {"source": "R2487:83-94 named constructs, ?==, AND/OR, delivery, exclusion", "map": "R2487 caller preview paragraph 2 classifies functions/predicates/modifier/comments; dedicated construct Rules remain authorities", "status": "PARTIAL_OVERLAY_MUST_RETAIN_SOURCE"},
+    {"source": "R2487:98-114 aliases, generic Relation Declaration signature, fixed/reverse direction and independent count slots", "map": "R2552 caller preview paragraph 3 covers fixed references and aliases only; R2814/R2808/R2243 remain authorities", "status": "MUST_RETAIN"},
+    {"source": "R2487:116-124 fences, no parser claim, Format/instance boundary, qualified GOVERNS view", "map": "R2487 caller preview paragraphs 1 and 3 cover Format/instance and endpoint-domain limits only; retained R2487/R2552/R2618 authority required", "status": "MUST_RETAIN"},
+    {"source": "R2552 all existing binding, population, property-instance, aggregate, IF and endpoint-count bullets", "map": "R2552 caller preview paragraphs 1-3 are a focused taxonomy overlay; native/latest binding preview remains the normative full body", "status": "MUST_RETAIN"},
+    {"source": "R2804 existing selection, union count, and scope body", "map": "R2804 caller preview paragraphs 1-3 preserves those focused obligations; actual Draft remains full source", "status": "PARTIAL_OVERLAY_MUST_RETAIN_SOURCE"}
+  ],
+  "admitted_inventory_check": {
+    "covered_or_delegated": ["[]", "<>", "INSTANCE_OF", "VALUES", "COUNT", "MAX", "LOOKUP", "FENCED_LABELS", "alias", "UNIQUE", "DETERMINES", "DISTINCT", ";", "#", ":=", "::", "IF", "THEN", "FOR EACH", "AND", "OR"],
+    "must_remain_in_full_overview": ["=", "!=", "<", ">", "<=", ">=", "==", "?==", "in", "not in", "+", ">>", "!()", "*", "**", "literal/backslash escapes", "path escaping", "generic Relation Declaration signature", "unary directional aliases and independent endpoint count slots"],
+    "else": "proposed pending dedicated scope Rule; not admitted"
+  },
+  "metadata": "Requirement is the confirmed role for all four resulting source forms; Subject-item layout remains pending user decision."
+}

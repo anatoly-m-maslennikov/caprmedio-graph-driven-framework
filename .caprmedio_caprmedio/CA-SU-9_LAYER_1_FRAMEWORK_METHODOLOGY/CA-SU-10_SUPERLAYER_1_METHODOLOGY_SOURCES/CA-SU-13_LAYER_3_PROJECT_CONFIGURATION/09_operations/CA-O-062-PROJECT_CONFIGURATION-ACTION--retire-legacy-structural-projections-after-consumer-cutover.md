@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
@@ -15,13 +15,16 @@ relations:
   - CA-D-453
   - CA-D-454
 atom_id: CA-O-062
-content_role: Operations
+ref_id: CA-O-062
+role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-type: Action
+form: Action
 tier: 3
+container:
+  scope_unit: CA-SU-13
 ---
 # Retire legacy structural Projections after consumer cutover
 

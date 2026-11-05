@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-009
-content_role: Delivery
+ref_id: CA-D-009
+role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 cce_version: cce_1
 cce_form: serialization
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
@@ -25,8 +26,14 @@ relations:
   - CA-R-1064
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-D-009-TOOLS-ENG_DECISION--deliver-the-change-record-appender-script.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
 ---
 # Summary
 

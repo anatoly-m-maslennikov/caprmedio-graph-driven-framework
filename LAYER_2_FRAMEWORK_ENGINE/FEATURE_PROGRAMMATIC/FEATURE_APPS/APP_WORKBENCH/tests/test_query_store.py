@@ -1,5 +1,6 @@
 # CA-E-751@1
-# CA-E-676@9
+# CA-E-780@1
+# CA-E-676@11
 # CA-E-677@8
 # CA-M-472@1
 
@@ -20,6 +21,10 @@ APP_ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(APP_ROOT), str(Path(__file__).parent)]
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import (  # noqa: E402
+    QueryExecutionError,
+    WorkbenchUnavailableError,
+)
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_columns import CONTENT_COLUMNS  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.public_rows import ATOM_FIELDS, SCOPE_FIELDS  # noqa: E402
@@ -110,6 +115,7 @@ class QueryStoreTest(unittest.TestCase):
         )["rows"]
         self.assertEqual(
             [["atoms", field] for field in ATOM_FIELDS]
+            + [["change_log", field] for field in ("observed_at", "operation", "old_path", "new_path")]
             + [["scope_units", field] for field in SCOPE_FIELDS],
             schema,
         )
@@ -159,6 +165,11 @@ class QueryStoreTest(unittest.TestCase):
             self.store.run("SELECT * FROM read_csv_auto('/private/tmp/workbench-does-not-exist.csv')")
         with self.assertRaises(RuntimeError):
             self.store.run("SELECT missing FROM atoms")
+        self.assertEqual([[1]], self.store.run("SELECT 1")["rows"])
+
+    def test_native_ctas_conversion_failure_keeps_the_owner_available(self) -> None:
+        with self.assertRaisesRegex(QueryExecutionError, "Could not convert"):
+            self.store.run("SELECT CAST('not-an-integer' AS INTEGER)")
         self.assertEqual([[1]], self.store.run("SELECT 1")["rows"])
 
     def test_file_backed_materialized_pages_preserve_duplicate_metadata(self) -> None:
@@ -446,10 +457,10 @@ class QueryStoreTest(unittest.TestCase):
 
     def test_internal_management_failure_requires_restart(self) -> None:
         stderr = StringIO()
-        with redirect_stderr(stderr), self.assertRaisesRegex(RuntimeError, "restart required"):
+        with redirect_stderr(stderr), self.assertRaisesRegex(WorkbenchUnavailableError, "restart required"):
             self.store.run("SELECT * FROM drop_property_graph()")
         self.assertIn("query store unavailable", stderr.getvalue())
-        with self.assertRaisesRegex(RuntimeError, "restart required"):
+        with self.assertRaisesRegex(WorkbenchUnavailableError, "restart required"):
             self.store.run("SELECT 1")
 
 

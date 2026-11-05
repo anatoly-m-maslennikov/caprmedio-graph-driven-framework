@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1714
-content_role: Plan
-type: Plan
+ref_id: CA-P-1714
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 13
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Initialize first Framework runtime and project-local ca Skill'
-  depends_on:
+topics:
+  main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Initialize first Framework runtime and project-local ca Skill'
+  dependencies:
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier
@@ -29,6 +30,12 @@ relations:
   blocks:
   - CA-P-1624
 tier: 3
+container:
+  atom: CA-P-1620
+carrier_destination:
+  file:
+    name: 5-CA-P-1714-TASK--initialize-the-first-framework-runtime-and-project-local-ca-skill.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/done
 ---
 # Summary
 

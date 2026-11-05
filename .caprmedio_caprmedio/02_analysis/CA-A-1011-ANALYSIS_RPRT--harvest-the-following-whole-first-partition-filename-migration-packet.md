@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1011
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1011
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: First-partition filename-migration and alignment-audit evidence
-  depends_on:
+topics:
+  main_subject: First-partition filename-migration and alignment-audit evidence
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
 version: 4
@@ -23,6 +24,12 @@ relations:
   - CA-P-1126
   - CA-A-1008
   - CA-C-315
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1011-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-following-whole-first-partition-filename-migration-packet.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

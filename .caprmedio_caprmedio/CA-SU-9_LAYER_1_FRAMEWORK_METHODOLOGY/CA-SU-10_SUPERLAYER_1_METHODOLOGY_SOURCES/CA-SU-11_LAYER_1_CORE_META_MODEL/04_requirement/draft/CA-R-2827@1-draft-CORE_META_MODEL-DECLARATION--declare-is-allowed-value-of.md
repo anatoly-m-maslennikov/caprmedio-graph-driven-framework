@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2827
+ref_id: CA-R-2827@1-draft
 status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_ALLOWED_VALUE_OF
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_ALLOWED_VALUE_OF
 version: 1
 tier: 3
 role: Requirement
 form: Declaration
 updated_at: 2026-11-05 16:41:12 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 carrier_destination:
   file:
-    name: CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md
+    name: CA-R-2827@1-draft-DECLARATION--declare-is-allowed-value-of.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 
 ## Summary

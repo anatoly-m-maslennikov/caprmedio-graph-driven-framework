@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1872
-content_role: Plan
-type: Plan
+ref_id: CA-P-1872
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 autonomous_confidence_threshold: 90
 status: Active
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Projection
+  dependencies:
   - Subject
   - Subject/Graph Node/Domain/Continuant/Term
   - Subject/Graph Node/Domain/Continuant/Atom
@@ -29,6 +30,12 @@ relations:
   is_decomposition_of:
   - CA-P-1110
 tier: 3
+container:
+  atom: CA-P-1110
+carrier_destination:
+  file:
+    name: 1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca.md
+    path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators
 ---
 # Summary
 

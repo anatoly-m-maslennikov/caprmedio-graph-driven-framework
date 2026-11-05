@@ -14,9 +14,9 @@ relations:
   - CA-O-020
   - CA-O-021
   - CA-M-239
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
@@ -27,12 +27,15 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-439
+ref_id: CA-E-439
 status: Active
 current_scope_unit: PROJECT_CONFIGURATION
 tier: 4
 claim_target_scope_unit: caprmedio
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 Evaluate the Evaluation-first implementation loop

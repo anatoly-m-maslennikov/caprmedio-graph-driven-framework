@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1360
-content_role: Plan
-type: Plan
+ref_id: CA-P-1360
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 21
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: METHODOLOGY_SOURCES
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
-  depends_on:
+topics:
+  main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
 version: 8
@@ -26,6 +27,8 @@ relations:
   - CA-A-1078
   - CA-C-374
 tier: 3
+container:
+  atom: CA-P-1130
 ---
 # Summary
 

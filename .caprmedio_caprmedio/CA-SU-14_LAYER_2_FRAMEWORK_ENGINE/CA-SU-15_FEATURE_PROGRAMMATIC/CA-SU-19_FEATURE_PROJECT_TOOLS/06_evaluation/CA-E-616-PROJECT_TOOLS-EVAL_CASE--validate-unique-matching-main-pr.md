@@ -1,14 +1,15 @@
 ---
 atom_id: CA-E-616
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-616
+role: Evaluation
+form: Eval Case
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Carrier/Pull Request
   - Subject/CAPRMEDIO/Carrier/Git Repository
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
@@ -19,6 +20,12 @@ relations:
   - CA-R-1926
   - CA-M-368
 tier: 5
+container:
+  scope_unit: CA-SU-19
+carrier_destination:
+  file:
+    name: CA-E-616-PROJECT_TOOLS-EVAL_CASE--validate-unique-matching-main-pr.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/06_evaluation
 ---
 # Summary
 

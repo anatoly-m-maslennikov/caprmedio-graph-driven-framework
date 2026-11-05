@@ -1,22 +1,28 @@
 ---
 atom_id: CA-D-545
-content_role: Delivery
-type: Eng Decision
+ref_id: CA-D-545
+role: Delivery
+form: Eng Decision
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 19:59:27 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   - Subject/CAPRMEDIO/Carrier
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-D-545-PROMPTS-ENG_DECISION--deliver-the-implementation-prompt-input-packet.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/07_delivery
 ---
 # Summary
 

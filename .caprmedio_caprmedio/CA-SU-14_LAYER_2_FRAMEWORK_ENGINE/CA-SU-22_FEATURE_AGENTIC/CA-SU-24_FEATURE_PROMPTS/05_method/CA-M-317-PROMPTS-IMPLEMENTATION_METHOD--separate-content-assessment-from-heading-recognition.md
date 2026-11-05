@@ -1,15 +1,16 @@
 ---
 atom_id: CA-M-317
-content_role: Method
+ref_id: CA-M-317
+role: Method
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 19:59:42 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - Subject/CAPRMEDIO/Carrier
@@ -18,9 +19,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-relations: {}
 tier: 3
-type: Implementation Method
+form: Implementation Method
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-M-317-PROMPTS-IMPLEMENTATION_METHOD--separate-content-assessment-from-heading-recognition.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/05_method
 ---
 # Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2567
-content_role: Plan
-type: Plan
+ref_id: CA-P-2567
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: PROGRAMMATIC
@@ -10,9 +11,8 @@ author: Anatoly Maslennikov
 status: Backlog
 version: 4
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
 relations:
   is_decomposition_of:
   - CA-P-2562
@@ -27,6 +27,12 @@ relations:
   - CA-M-399
   - CA-M-400
 tier: 3
+container:
+  atom: CA-P-2562
+carrier_destination:
+  file:
+    name: 5-CA-P-2567-TASK--verify-docker-image-wide-error-handling-coverage.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/94-CA-P-2562-TASK--cover-all-docker-image-execution-boundaries/001_backlog
 ---
 # Summary
 

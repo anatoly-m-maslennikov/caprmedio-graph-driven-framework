@@ -1,18 +1,24 @@
 ---
 atom_id: CA-R-2153
-content_role: Requirement
-type: Rule
+ref_id: CA-R-2153
+role: Requirement
+form: Rule
 current_scope_unit: ATOM_ACTIONS
 status: Active
 tier: 1
 version: 5
 updated_at: 2026-10-27 20:00:08 +0400
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-relations: {}
+container:
+  scope_unit: CA-SU-35
+carrier_destination:
+  file:
+    name: CA-R-2153-ATOM_ACTIONS-RULE--find-and-replace-logical-atom-properties.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/CA-SU-35_FEATURE_GROUP_ATOM_ACTIONS/04_requirement
 ---
 # Summary
 

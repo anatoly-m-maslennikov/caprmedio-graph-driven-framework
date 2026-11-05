@@ -1,21 +1,25 @@
 ---
 atom_id: CA-P-2646
-content_role: Plan
-type: Plan
+ref_id: CA-P-2646
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject/Graph Relation
+topics:
+  main_subject: Subject/Graph Relation
 version: 2
 updated_at: 2026-10-26 06:39:23 +0400
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2639
 tier: 4
+container:
+  atom: CA-P-2639
+carrier_destination:
+  file:
+    name: 7-CA-P-2646-TASK--retire-the-old-relation-derivation-class.md
+    path: .caprmedio_caprmedio/03_plan/done/CA-P-2639-EPIC--subject-graph-fpf-refinement/done
 ---
 # Summary
 

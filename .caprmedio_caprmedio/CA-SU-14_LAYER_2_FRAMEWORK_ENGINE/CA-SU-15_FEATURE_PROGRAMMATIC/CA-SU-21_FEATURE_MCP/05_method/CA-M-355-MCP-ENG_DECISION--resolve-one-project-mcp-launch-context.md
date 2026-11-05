@@ -1,15 +1,16 @@
 ---
 atom_id: CA-M-355
-content_role: Method
+ref_id: CA-M-355
+role: Method
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 17
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Scope Unit
@@ -19,8 +20,14 @@ subjects:
 relations:
   method_for:
   - CA-R-1900
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-M-355-MCP-ENG_DECISION--resolve-one-project-mcp-launch-context.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/05_method
 ---
 # Summary
 

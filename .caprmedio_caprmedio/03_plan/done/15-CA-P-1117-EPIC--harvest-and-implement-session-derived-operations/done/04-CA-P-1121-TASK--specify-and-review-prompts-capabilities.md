@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1121
-content_role: Plan
-type: Plan
+ref_id: CA-P-1121
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 4
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Prompt
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Prompt
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
 version: 9
@@ -26,6 +27,12 @@ relations:
   - CA-P-1137
   - CA-P-1138
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 4-CA-P-1121-TASK--specify-and-review-prompts-capabilities.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
 ---
 # Summary
 

@@ -1,23 +1,23 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
-  passive:
+atom_id: CA-D-657
+ref_id: CA-D-657@5-draft
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Actor
+tier: 3
+status: Draft
 version: 5
 updated_at: 2026-11-05 13:47:13 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-atom_id: CA-D-657
-status: Draft
-tier: 3
-role: Delivery
-form: Decision
 carrier_destination:
   file:
-    name: CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
+    name: CA-D-657@5-draft-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft
 ---
 ## Summary
@@ -34,11 +34,13 @@ YAML frontmatter of Markdown Atom carriers.
 
 Encode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.
 
+Serialize Header keys in the declared Property order, omitting absent optional Properties. Place other admitted Header Properties after the ordered base Properties, with no required order among them. A present Property has a value or, for a group, nonempty children; omit optional empty Properties.
+
 For Markdown Atom carriers:
 
 - Encode Role and Form as `role` and `form`, each exactly one nonempty string from the applicable domain.
-- Encode identity, Version, Status, Updated At and Tier as `atom_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.
-- Encode Subjects under `subjects` using the Subjects serialization rule. Encode direct Node-instance Relation facts under `relations`; use each Relation's own representation and do not author inverse facts separately.
+- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.
+- Encode Topics under `topics` using the Topics serialization rule. Encode direct Node-instance Relation facts under optional `relations`; each canonical Relation name maps to a nonempty YAML sequence of base Atom IDs. A scalar or empty sequence is invalid; omit the group when it has no children. Do not author inverse facts separately.
 - Do not encode an Atom Author.
 - Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.
 - Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.

@@ -10,14 +10,17 @@ relations:
   child_of:
   - CA-R-1641
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-560
+ref_id: CA-R-560
 tier: 1
-type: Rule
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+container:
+  scope_unit: CA-SU-23
 ---
 # Route operator-added skills
 

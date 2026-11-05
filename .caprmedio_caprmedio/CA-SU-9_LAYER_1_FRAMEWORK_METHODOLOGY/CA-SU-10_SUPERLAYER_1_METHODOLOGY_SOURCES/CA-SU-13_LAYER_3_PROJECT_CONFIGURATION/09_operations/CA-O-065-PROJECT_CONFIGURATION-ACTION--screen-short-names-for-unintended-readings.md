@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/caprmedio/Action//Screen Short Names
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Screen Short Names
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
@@ -11,13 +11,20 @@ relations:
   child_of:
   - CA-M-005
 atom_id: CA-O-065
-content_role: Operations
+ref_id: CA-O-065
+role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-type: Action
+form: Action
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-065-PROJECT_CONFIGURATION-ACTION--screen-short-names-for-unintended-readings.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

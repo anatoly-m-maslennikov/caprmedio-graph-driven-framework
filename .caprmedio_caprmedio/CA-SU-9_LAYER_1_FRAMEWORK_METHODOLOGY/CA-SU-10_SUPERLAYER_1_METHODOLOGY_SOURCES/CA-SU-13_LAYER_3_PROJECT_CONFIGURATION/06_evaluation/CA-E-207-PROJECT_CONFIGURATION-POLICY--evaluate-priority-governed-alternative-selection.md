@@ -9,9 +9,9 @@ relations:
   - CA-M-297
   - CA-O-022
   - CA-O-023
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
@@ -19,12 +19,15 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
 atom_id: CA-E-207
+ref_id: CA-E-207
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 5
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 

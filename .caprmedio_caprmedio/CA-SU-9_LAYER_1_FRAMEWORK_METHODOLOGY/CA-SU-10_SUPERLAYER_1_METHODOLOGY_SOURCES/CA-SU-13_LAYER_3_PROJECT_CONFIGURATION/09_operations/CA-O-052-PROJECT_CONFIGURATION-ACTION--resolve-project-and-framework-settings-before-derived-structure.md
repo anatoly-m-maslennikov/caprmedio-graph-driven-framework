@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
@@ -19,13 +19,20 @@ relations:
   depends_on:
   - CA-M-279
 atom_id: CA-O-052
-content_role: Operations
+ref_id: CA-O-052
+role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-type: Action
+form: Action
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-052-PROJECT_CONFIGURATION-ACTION--resolve-project-and-framework-settings-before-derived-structure.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

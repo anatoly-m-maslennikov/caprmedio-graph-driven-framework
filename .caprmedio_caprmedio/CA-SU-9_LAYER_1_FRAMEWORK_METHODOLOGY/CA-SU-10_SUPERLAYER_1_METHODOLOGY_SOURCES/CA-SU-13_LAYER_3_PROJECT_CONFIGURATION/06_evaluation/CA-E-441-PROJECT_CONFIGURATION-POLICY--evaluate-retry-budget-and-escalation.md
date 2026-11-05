@@ -9,9 +9,9 @@ relations:
   - CA-O-016
   - CA-R-1559
   - CA-M-295
-subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling
@@ -19,12 +19,15 @@ subjects:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
 atom_id: CA-E-441
+ref_id: CA-E-441
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 6
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 

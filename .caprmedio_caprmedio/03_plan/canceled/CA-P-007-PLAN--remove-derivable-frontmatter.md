@@ -3,13 +3,16 @@ artifact_subtype: change_plan
 priority: medium
 version: 3
 updated_at: 2026-10-24 06:26:31 +0400
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 tier: 3
 status: Canceled
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
 atom_id: CA-P-007
+ref_id: CA-P-007
+container:
+  scope_unit: CA-SU-00
 ---
 
 # Remove derivable frontmatter

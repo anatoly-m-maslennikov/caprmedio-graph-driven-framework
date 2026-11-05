@@ -1,12 +1,13 @@
 ---
 atom_id: CA-M-411
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-411
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
 version: 9
 updated_at: 2026-10-27 19:59:43 +0400
@@ -16,6 +17,12 @@ relations:
   derived_from:
   - CA-M-403
 tier: 3
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-411-PROGRAMMATIC-ENG_POLICY--concentrate-requirement-and-delivery-implementation.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-1883
-content_role: Requirement
+ref_id: CA-R-1883
+role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 15
 updated_at: 2026-10-27 20:00:05 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
@@ -16,9 +17,14 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-R-1883-WORKFLOW_ORCHESTRATOR-RULE--recover-only-an-existing-frozen-release-run.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/04_requirement
 ---
 # Summary
 

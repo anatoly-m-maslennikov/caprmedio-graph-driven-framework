@@ -1,0 +1,91 @@
+{
+  "status": "FOCUSED_PREVIEWS_REQUIRE_INDEPENDENT_REVIEW",
+  "sources": [
+    {
+      "id": "CA-R-2720",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "source_sha256": "09a8c0a1d9d658e73f34459ed3819f739817b47966a3f427e600d6745f1e75f6",
+      "status": "PREVIEW_REQUIRES_REVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2720.preview.txt",
+      "preview_sha256": "3976c88883de5d75a18c2020b1f121457fd0b61566eac186a65d2f849582981b",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2720.diff",
+      "diff_sha256": "f285547ba732363d556baf58f2d91cfb65dc52e08b9e1fa71b4df9a417845ff2"
+    },
+    {
+      "id": "CA-R-2278",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md",
+      "source_sha256": "2b93b7bdbf5fdad8202783d942bd7c54068876dccbc2ae2961b1ae90e05544d8",
+      "status": "PREVIEW_REQUIRES_REVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2278.preview.txt",
+      "preview_sha256": "ed4adb1928173ceb91dfa44c8e3189922fade402e5463f411d6615796596faa1",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2278.diff",
+      "diff_sha256": "5a8c039dd77cc60e50d913264dd406617a9c4ca7a21b80fcca043421f8540210"
+    },
+    {
+      "id": "CA-R-2732",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+      "source_sha256": "0a25417fc4cfbcc343cd9246dc257e647f6ad6d74ff65f7f926f9070c512f9d5",
+      "status": "PREVIEW_REQUIRES_REVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2732.preview.txt",
+      "preview_sha256": "fbfd35038ce07176ae9f11d933b302c48ea0601a7437075910885c70c5de2807",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2732.diff",
+      "diff_sha256": "6924b195e786c0da04b6924ae24d60c42ad3a044888d74b0b3520d69983e9dfc"
+    },
+    {
+      "id": "CA-R-2469",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md",
+      "source_sha256": "ede09a6b6a5784bfe06db211cae7a0eed275fd22e248320ec35a6181f3e27a4e",
+      "status": "NO_CHANGE_NEEDED_FOR_RELATION_FORM",
+      "reason": "Node-only rule; Relation is outside Node and the applicable Node Header/Content Declarations retain the Declaration Form."
+    },
+    {
+      "id": "CA-R-2951",
+      "status": "EXISTING_DRAFT_PIN",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2951@1-draft-CORE_META_MODEL-DECLARATION--declare-is-inverse-alias-for.md",
+      "source_sha256": "ed7831745497be10c1c41004a03a2c64c5acb5ddfd819fed5c4a947bdae916ae"
+    },
+    {
+      "id": "CA-R-2955",
+      "status": "EXISTING_DRAFT_PIN",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2955@1-draft-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md",
+      "source_sha256": "f3ddf602c1fa8819e73b9a5321d4cf53b6b6f0755a0684d4f283c4516e65b8f0"
+    },
+    {
+      "id": "CA-R-2817",
+      "status": "EXISTING_DRAFT_PIN",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md",
+      "source_sha256": "101718f123a17a327ea9cf3e7042a290f1213bf2c5b608d17aa5b2c470147164"
+    },
+    {
+      "id": "CA-R-2247",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "source_sha256": "33448b7d88e5825b4f9ce96c5ff5560015762e5ca5c292853a0e658fd3041284",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2247.preview.txt",
+      "preview_sha256": "df0e0e04619ce7bfdc26957ff6ef30cd7f62a8dd7b6df3e31ac041488d478e39",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2247.diff",
+      "diff_sha256": "0b0f4bccac5a43b27e5cdee58c6bba8a08e6bb8c04ba24ea7a9c39116ca9b1e3"
+    },
+    {
+      "id": "CA-R-2243",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "source_sha256": "41805af0c6b093c700a1f2312b2488a8af63c585bd9b92055381de4d468e8829",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2243.preview.txt",
+      "preview_sha256": "579290dec46d3e6512334588442f01d21b59c17ecedb3d489d28ac061194b685",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/prerequisites/CA-R-2243.diff",
+      "diff_sha256": "4f14ad8a3e4fdf6c36a2e31bf0a3df2474dc0fdd6f2bb43fd085bab65361b436"
+    }
+  ],
+  "analysis": [
+    "R2955 Draft admits Relation Declaration as a Requirement Form and says it uses the Declaration contract; R2951 Draft declares IS_INVERSE_ALIAS_FOR and is a separate necessary source prerequisite.",
+    "Current R2720 limits alias to a declared Relation object and one alias per Relation; its narrow preview extends receiver to inverse model names and one short token per written name. R2817 Draft already has the corresponding successor rule.",
+    "Current R2278 qualifies only exact Declaration Form; preview includes admitted specialized Declaration Forms without inventing a Role or string heuristic.",
+    "R2469 counts HAS_ACTIVE_SUBJECT while R2278/R2732 use qualified GOVERNS; their relationship is a separate user decision and is not resolved here.",
+    "R2732 uses the existing in-list qualifier for exactly Declaration and Relation Declaration; its GOVERNS qualification and endpoint transformation remain unchanged. R2469 is Node-only and needs no change for this Relation Form.",
+    "R2247 Current preview makes a narrow inverse-alias model-address exception while preserving qualified derived counterparts as distinct; R2243 Current preview only updates allowed-bound spelling, retaining its existing present-Property value requirement."
+  ],
+  "integration": [
+    "Coordinate Current R2720 with successor R2817 and eventual descriptor retirement; Current R2278 legacy Entity active focus remains another tracked scope hold.",
+    "Preserve inverse alias as model address only; no distinct inverse Declaration or automatic endpoint permission."
+  ],
+  "limits": "No native source, Draft, code, tests, Workflow, Workbench or Git mutation."
+}

@@ -1,17 +1,19 @@
 ---
 atom_id: CA-R-2173@3-draft
-content_role: Requirement
-type: Definition
+ref_id: CA-R-2173@3-draft
+role: Requirement
+form: Definition
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
 status: Draft
-subjects:
-  governs: Formal Model::CAPRMEDIO::Continuant/Implementation
+topics:
+  main_subject: Formal Model::CAPRMEDIO::Continuant/Implementation
 version: 3
 updated_at: 2026-10-28 21:29:37 +0400
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

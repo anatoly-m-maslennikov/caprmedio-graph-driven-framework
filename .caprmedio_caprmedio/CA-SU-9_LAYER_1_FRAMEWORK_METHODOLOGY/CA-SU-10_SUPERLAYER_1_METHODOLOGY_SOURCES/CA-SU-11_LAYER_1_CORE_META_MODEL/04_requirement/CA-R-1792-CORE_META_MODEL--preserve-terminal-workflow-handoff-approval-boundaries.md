@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
@@ -12,14 +12,20 @@ subjects:
   - CAPRMEDIO_MODEL <+ Journal
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-R-1792
+ref_id: CA-R-1792
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1792-CORE_META_MODEL-RULE--preserve-terminal-workflow-handoff-approval-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

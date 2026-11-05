@@ -4,14 +4,13 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER
 version: 1
 updated_at: 2026-11-03 14:19:59 +0400
-relations: {}
 tier: 3
 role: Method
 form: Eng Policy
@@ -19,6 +18,8 @@ carrier_destination:
   file:
     name: CA-M-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

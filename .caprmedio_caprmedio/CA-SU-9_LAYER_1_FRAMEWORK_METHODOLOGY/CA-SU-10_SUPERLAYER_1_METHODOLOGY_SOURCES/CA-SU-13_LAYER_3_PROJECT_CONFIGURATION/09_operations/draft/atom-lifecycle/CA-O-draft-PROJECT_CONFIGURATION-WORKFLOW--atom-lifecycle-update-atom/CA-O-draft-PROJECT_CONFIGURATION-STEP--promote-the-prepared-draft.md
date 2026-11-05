@@ -19,7 +19,7 @@ Promote the prepared Draft
 
 ## Claim scope
 
-Terminal Step of [Atom Lifecycle_Update Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom.md) for one prepared non-container Draft.
+One bound prepared Draft within [Atom Lifecycle_Update Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom.md).
 
 ## Claim
 
@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Saved Draft from Step 1; captured `targetStatus`; applicable model; placement; authorization.
+Bind `savedDraft`, captured `targetStatus`, and `projectContext` to the called Workflow. The original-source bindings remain enclosing-Workflow context.
 
 ### Fixed parameters
 
@@ -37,8 +37,8 @@ None.
 
 ### Runs
 
-The Workflow [Atom Lifecycle_Promote Draft](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+The Workflow [Atom Lifecycle_Promote Draft](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft.md).
 
 ### Outputs
 
-The published Current Atom and completed Draft removal, or explicit error with completed results, passed to the enclosing Workflow.
+The called Workflow's declared Output.

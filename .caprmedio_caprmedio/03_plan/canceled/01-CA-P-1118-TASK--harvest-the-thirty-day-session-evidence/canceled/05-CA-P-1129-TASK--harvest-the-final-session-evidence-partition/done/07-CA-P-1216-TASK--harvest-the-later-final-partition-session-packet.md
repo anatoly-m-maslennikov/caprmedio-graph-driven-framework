@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1216
-content_role: Plan
-type: Plan
+ref_id: CA-P-1216
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
-  depends_on:
+topics:
+  main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
 version: 8
@@ -25,6 +26,12 @@ relations:
   - CA-P-1130
   - CA-P-1155
 tier: 3
+container:
+  atom: CA-P-1129
+carrier_destination:
+  file:
+    name: 7-CA-P-1216-TASK--harvest-the-later-final-partition-session-packet.md
+    path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/5-CA-P-1129-TASK--harvest-the-final-session-evidence-partition/done
 ---
 # Summary
 

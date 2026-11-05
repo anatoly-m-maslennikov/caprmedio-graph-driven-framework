@@ -15,12 +15,15 @@ relations:
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 atom_id: CA-R-621
+ref_id: CA-R-621
 tier: 2
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 Use settings locations defined by the Core Meta-Model

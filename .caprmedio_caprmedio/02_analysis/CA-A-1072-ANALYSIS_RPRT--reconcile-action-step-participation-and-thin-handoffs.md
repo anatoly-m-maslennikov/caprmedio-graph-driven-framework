@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1072
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1072
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F09 Action/Step participation and thin-handoff reconciliation
-  depends_on:
+topics:
+  main_subject: F09 Action/Step participation and thin-handoff reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
   - Subject/Domain/Node/Continuant/Project
@@ -25,6 +26,8 @@ relations:
   - CA-A-1064
   - CA-R-1520
   - CA-C-368
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

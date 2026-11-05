@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     occurrent:
       - Python 3.14 Contract Upgrade Validation
-  depends_on:
+  dependencies:
     continuant:
       - Python Runtime
       - Compatibility

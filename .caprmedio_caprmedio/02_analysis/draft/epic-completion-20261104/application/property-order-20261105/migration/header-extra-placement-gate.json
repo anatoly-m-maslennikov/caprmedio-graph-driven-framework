@@ -1,0 +1,66 @@
+{
+  "status": "DECISION_CONFIRMED_REBUILD_AFTER_REFID_SOURCE_PHASE",
+  "superseded_plan": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/migration/migration-order-plan.json",
+    "sha256": "47148e05841377d3da815326c42d9f8abe069f4a6721f62c77783a529e584a01",
+    "status": "SUPERSEDED_PENDING_REFID_SOURCE_PHASE"
+  },
+  "helper": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/migration/prepare_order.py",
+    "sha256": "ace6af6a690f0dc07f8bd7e96ea9ff88fef75c44297fe1db0f2ab771b6a47eda"
+  },
+  "new_required_header_order": [
+    "atom_id",
+    "ref_id",
+    "container",
+    "role",
+    "form",
+    "label",
+    "topics",
+    "tier",
+    "relations",
+    "status",
+    "version",
+    "updated_at",
+    "carrier_destination"
+  ],
+  "extra_field_policy_choices": [
+    {
+      "key": "after_carrier_destination",
+      "meaning": "Place all unlisted/legacy Header key blocks after carrier_destination, preserving their relative order."
+    },
+    {
+      "key": "after_tier_before_relations",
+      "meaning": "Place all unlisted/legacy Header key blocks after tier and before relations, preserving their relative order."
+    }
+  ],
+  "no_value_policy": "This ordering pass is source-values-preserving. Relation empty/null and generic empty/null validation/cleanup remain in the separate root-owned lane.",
+  "content": "Existing 135 Content reorder candidates were structurally safe in the superseded snapshot; rebuild source hashes and before/after bytes after the RefID/model-source phase.",
+  "native_source_writes": false,
+  "selected_extra_field_policy": "after_carrier_destination",
+  "decision": "Unlisted Header fields go at the end, after carrier_destination. Preserve their source-relative order only as mechanical convenience; their order has no meaning.",
+  "alternative_not_selected": "after_tier_before_relations",
+  "source_refresh_gate": "Do not regenerate this old snapshot; root will publish a fresh Current/Draft inventory after RefID/model-source adoption. Then run prepare_order.py (or import reorder_header with the selected default policy).",
+  "missing_r2962_live_scope_review": {
+    "scope": "Core Meta Model 04_requirement Current/Draft glob and matching nonarchive references only",
+    "result": "No Current carrier with atom_id CA-R-2962 or CA-R-2962 filename was found in the scoped source glob. No matching live reference was found in the scoped Core requirements or 03_plan search.",
+    "draft_replacement_candidate": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
+    "draft_replacement_candidate_sha256": "73b774eb33922cde504b36d03a85334e0206277b6300547d3c875cacba6b90ff",
+    "candidate_id_status": "atom_id CA-R-draft; status Draft; version 1",
+    "neighboring_drafts": [
+      {
+        "id": "CA-R-2961",
+        "sha256": "6e1f475643d7d047b24d3d1b6d3711877ad9a21d19ae9890a19112df1e74b62d"
+      },
+      {
+        "id": "CA-R-2963",
+        "sha256": "a6c5fa17c81348a5854290bc775cf04d12fbfbe84dc26c41f630339d152e33c0"
+      },
+      {
+        "id": "CA-R-2964",
+        "sha256": "a99c67d7d05224216b2695bffcf569f88489dd4ed000a72d45a20fe675852c30"
+      }
+    ],
+    "disposition": "Refresh live Current/Draft inventory after model adoption; do not infer an ID allocation or rewrite the placeholder here."
+  }
+}

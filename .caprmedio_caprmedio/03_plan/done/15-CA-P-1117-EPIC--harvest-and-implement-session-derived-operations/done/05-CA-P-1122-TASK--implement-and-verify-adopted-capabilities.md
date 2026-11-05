@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1122
-content_role: Plan
-type: Plan
+ref_id: CA-P-1122
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: FRAMEWORK_ENGINE
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
-  depends_on:
+topics:
+  main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
 version: 9
@@ -25,6 +26,12 @@ relations:
   - CA-P-1123
   - CA-P-1141
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
 ---
 # Summary
 

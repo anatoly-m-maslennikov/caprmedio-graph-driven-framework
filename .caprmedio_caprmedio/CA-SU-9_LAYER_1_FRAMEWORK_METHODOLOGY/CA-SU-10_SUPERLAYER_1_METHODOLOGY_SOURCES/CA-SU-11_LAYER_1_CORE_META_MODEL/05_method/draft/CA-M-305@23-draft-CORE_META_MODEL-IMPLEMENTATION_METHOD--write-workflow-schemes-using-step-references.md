@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow >{1+} Atom/(.Header.Role := Operations)/Step
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
 version: 23
@@ -10,6 +10,7 @@ relations:
   method_for:
   - CA-R-1570
 atom_id: CA-M-305
+ref_id: CA-M-305@23-draft
 status: Draft
 tier: 3
 role: Method

@@ -19,7 +19,7 @@ Create the Draft for a new Version
 
 ## Claim scope
 
-Entry Step of [Atom Lifecycle_Update Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom.md) for one non-container Current-backed proposal.
+One bound Current-backed proposal within [Atom Lifecycle_Update Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom.md).
 
 ## Claim
 
@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-`sourceCurrent`; requested property changes; Draft destination; applicable model; authorization.
+Bind `sourceCurrent`, requested changes, internal `expectedSource`, and `projectContext` to the called Workflow. Keep `targetStatus` in the enclosing Workflow context.
 
 ### Fixed parameters
 
@@ -37,8 +37,8 @@ None.
 
 ### Runs
 
-The Workflow [Atom Lifecycle_Create Draft](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+The Workflow [Atom Lifecycle_Create Draft](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft.md).
 
 ### Outputs
 
-The saved Draft or explicit error with completed results, passed to the enclosing Workflow.
+The called Workflow's declared Output.

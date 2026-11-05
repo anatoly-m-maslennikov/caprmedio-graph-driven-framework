@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-1805
-content_role: Requirement
+ref_id: CA-R-1805
+role: Requirement
 current_scope_unit: DISCOVER_OPERATIONS
 status: Active
 author: Anatoly Maslennikov
 version: 11
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
-type: Rule
+form: Rule
 tier: 3
+container:
+  scope_unit: CA-SU-4
+carrier_destination:
+  file:
+    name: CA-R-1805-DISCOVER_OPERATIONS-RULE--find-workflows-and-actions-by-outcome.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-4_TOOL_DISCOVER_OPERATIONS/04_requirement
 ---
 # Summary
 

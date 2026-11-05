@@ -1,15 +1,16 @@
 ---
 atom_id: CA-E-585
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-585
+role: Evaluation
+form: Eval Case
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 10
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication/API
@@ -20,6 +21,12 @@ relations:
   - CA-R-1885
   - CA-M-357
 tier: 5
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-E-585-MCP-EVAL_CASE--verify-http-mcp-access-and-secret-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
 # Summary
 

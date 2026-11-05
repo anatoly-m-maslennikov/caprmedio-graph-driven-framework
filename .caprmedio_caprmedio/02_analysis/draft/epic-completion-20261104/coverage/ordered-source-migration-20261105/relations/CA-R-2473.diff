@@ -1,0 +1,22 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/relations/CA-R-2473.preview.txt
+@@ -28,16 +28,16 @@
+ # model
+ $property ((IS_PROPERTY_OF)) $bearer;
+ 
+-Relation//IS_PROPERTY_OF ((HAS_INVERSE)) Relation//HAS_PROPERTY;
++Relation//HAS_PROPERTY ((IS_INVERSE_ALIAS_FOR)) Relation//IS_PROPERTY_OF;
+ 
+-alias(Relation//IS_PROPERTY_OF) == ".";
++alias(Relation//HAS_PROPERTY) == ".";
+ 
+ Relation//IS_PROPERTY_OF ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim
+ 
+-IS_PROPERTY_OF directs a Property to exactly one immediate bearer. HAS_PROPERTY is its derived inverse. The bearer relation is acyclic. `Bearer.Property` addresses the Property.
++IS_PROPERTY_OF directs a Property to exactly one immediate bearer. HAS_PROPERTY is its inverse alias. The bearer relation is acyclic. `Bearer.Property` addresses the Property.
+ 
+ A Property has exactly one immediate bearer; the bearer may be any applicable declared model Entity or instance.
+ 

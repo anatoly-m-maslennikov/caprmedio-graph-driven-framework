@@ -1,22 +1,28 @@
 ---
 atom_id: CA-P-2498
-content_role: Plan
-type: Plan
+ref_id: CA-P-2498
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Atom
 relations:
   is_decomposition_of:
   - CA-P-2494
 version: 6
 updated_at: 2026-10-25 17:32:27 +0400
 tier: 3
+container:
+  atom: CA-P-2494
+carrier_destination:
+  file:
+    name: 2-CA-P-2498-TASK--freeze-current-container-lifecycle-fixture.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/66-CA-P-2494-TASK--compose-recursive-container-lifecycle-actions/done
 ---
 # Summary
 

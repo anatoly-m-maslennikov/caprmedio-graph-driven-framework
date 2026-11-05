@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1093
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1093
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F01 completed-family independent assessment
-  depends_on:
+topics:
+  main_subject: F01 completed-family independent assessment
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Analysis
   - Evaluation
@@ -30,6 +31,8 @@ relations:
   - CA-P-1371
   - CA-A-1063
   - CA-P-1130
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

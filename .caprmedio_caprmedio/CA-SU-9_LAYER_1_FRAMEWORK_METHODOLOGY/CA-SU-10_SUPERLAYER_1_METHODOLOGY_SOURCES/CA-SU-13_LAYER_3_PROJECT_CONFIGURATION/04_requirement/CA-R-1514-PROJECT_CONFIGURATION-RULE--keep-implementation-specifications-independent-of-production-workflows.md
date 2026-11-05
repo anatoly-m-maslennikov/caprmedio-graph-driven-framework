@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
@@ -17,12 +17,19 @@ relations:
   depends_on:
   - CA-R-1519
 atom_id: CA-R-1514
+ref_id: CA-R-1514
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-R-1514-PROJECT_CONFIGURATION-RULE--keep-implementation-specifications-independent-of-production-workflows.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 ---
 ## Summary
 

@@ -5,7 +5,7 @@
   import { syntaxHighlighting } from '@codemirror/language';
   import { classHighlighter } from '@lezer/highlight';
   import { sql } from '@codemirror/lang-sql';
-  import { Compartment, EditorState, Prec } from '@codemirror/state';
+  import { Annotation, Compartment, EditorState, Prec } from '@codemirror/state';
   import { EditorView, keymap } from '@codemirror/view';
   import { onMount } from 'svelte';
   import { statusCompletion } from './editor_helpers.js';
@@ -21,6 +21,7 @@
   let view: EditorView | undefined;
   const editable = new Compartment();
   const completion = new Compartment();
+  const externalUpdate = Annotation.define<boolean>();
 
   const quoted = (name: string) => `"${name.replaceAll('"', '""')}"`;
   function options(currentSchema: Schema): Completion[] {
@@ -58,7 +59,7 @@
           EditorView.contentAttributes.of({ 'aria-label': 'Query editor' }),
           Prec.highest(EditorView.domEventHandlers({ keydown: shortcut })),
           EditorView.updateListener.of((update) => {
-            if (update.docChanged || update.selectionSet) onchange?.(update.state.doc.toString(), update.state.selection.main.head);
+            if ((update.docChanged || update.selectionSet) && !update.transactions.some((transaction) => transaction.annotation(externalUpdate))) onchange?.(update.state.doc.toString(), update.state.selection.main.head);
           }),
         ],
       }),
@@ -70,8 +71,8 @@
     if (!view) return;
     const current = view.state.doc.toString();
     const nextCursor = Math.min(cursor, value.length);
-    if (current !== value) view.dispatch({ changes: { from: 0, to: current.length, insert: value }, selection: { anchor: nextCursor } });
-    else if (view.state.selection.main.head !== nextCursor) view.dispatch({ selection: { anchor: nextCursor } });
+    if (current !== value) view.dispatch({ changes: { from: 0, to: current.length, insert: value }, selection: { anchor: nextCursor }, annotations: externalUpdate.of(true) });
+    else if (view.state.selection.main.head !== nextCursor) view.dispatch({ selection: { anchor: nextCursor }, annotations: externalUpdate.of(true) });
   });
   $effect(() => {
     const currentSchema = schema;

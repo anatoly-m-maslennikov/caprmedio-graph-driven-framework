@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-424
-content_role: Delivery
+ref_id: CA-D-424
+role: Delivery
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: delivery
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_SEARCH
 version: 26
 updated_at: 2026-11-02 19:46:47 +0400
@@ -18,8 +19,14 @@ relations:
   - CA-R-863
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-D-424-CONNECTOR_TOOLS-ENG_DECISION--deliver-atom-search-tool.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/07_delivery
 ---
 # Summary
 

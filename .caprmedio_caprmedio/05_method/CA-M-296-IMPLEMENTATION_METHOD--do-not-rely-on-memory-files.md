@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Atom
@@ -19,11 +19,18 @@ relations:
   child_of:
   - CA-R-2448
 atom_id: CA-M-296
+ref_id: CA-M-296
 status: Active
 current_scope_unit: caprmedio
 tier: 1
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-296-CAPRMEDIO-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 

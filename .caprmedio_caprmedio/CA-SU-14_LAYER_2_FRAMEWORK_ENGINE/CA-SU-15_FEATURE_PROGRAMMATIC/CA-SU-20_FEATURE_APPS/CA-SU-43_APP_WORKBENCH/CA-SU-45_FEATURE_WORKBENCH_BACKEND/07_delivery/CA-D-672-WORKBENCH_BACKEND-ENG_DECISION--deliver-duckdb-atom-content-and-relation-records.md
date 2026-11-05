@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-672
+ref_id: CA-D-672
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 status: Active
-version: 9
+version: 10
 author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
 tier: 4
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   delivery_for:
   - CA-R-2723
@@ -17,9 +18,11 @@ relations:
   - CA-R-2724
 carrier_destination:
   file:
-    name: CA-D-672-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-and-relation-records.md
+    name: CA-D-672-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-property-and-relation-records.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery
-updated_at: 2026-11-04 21:06:25 +0400
+updated_at: 2026-11-05 19:01:58 +0400
+container:
+  scope_unit: CA-SU-45
 ---
 
 ## Summary
@@ -34,7 +37,7 @@ The derived `atoms` and `scope_units` tables and their complete parsed Header, M
 
 ### Prose Claim
 
-The Workbench Projection must read governed source files directly with the Current model parser into a file-backed DuckDB reader. It exposes exactly two public tables, `atoms` and `scope_units`; internal graph mappings and materialized query results remain derived implementation state under the Workbench runtime directory. Source bytes are transient parser input only; do not store source-byte copies, raw frontmatter, intermediate source files or schema files. Release successful parsed-row caches after refresh. Database and spill files are allowed under the owned runtime directory.
+The Workbench Projection must read governed source files directly with the Current model parser into a file-backed DuckDB reader. It exposes exactly two public source tables, `atoms` and `scope_units`; a separate technical `change_log` table may be exposed for watcher observations, but it is not a graph source or source of truth. Internal graph mappings and materialized query results remain derived implementation state under the Workbench runtime directory. Source bytes are transient parser input only; do not store source-byte copies, raw frontmatter, intermediate source files or schema files. Release successful parsed-row caches after refresh. Database and spill files are allowed under the owned runtime directory.
 
 Parse complete YAML Headers and Markdown Content, including nested Header mappings and complete heading paths. The parser preserves native distinctions between a missing key, null, empty value, scalar, list, map, false, and zero. It keeps the original Markdown body and mapped section occurrences. It applies the Current model directly; Declarations do not produce a second schema artifact, and the reader does not evaluate generic CFEL or arbitrary prose. Current Scope Unit Declarations alone define `scope_units`. Applicable Current Declaration changes that govern scope or Relations refresh the actual indexed facts.
 
@@ -80,7 +83,7 @@ The reader retains the complete mapped Content Property occurrences privately. `
 | `relations` | `JSON` | NOT NULL | This Scope Unit's outgoing direct and derived Relations, using the same native JSON shape as `atoms`; `{}` means no outgoing Relation. |
 | `hash` | `VARCHAR` | NOT NULL | SHA-256 of deterministic canonical row JSON with this column excluded. |
 
-`scope_units` contains only Current Scope Unit Declaration rows. A Draft Declaration is an `atoms` row and does not alter the Current Scope Unit structure. Every indexed row, including any internal mapping row, carries the same deterministic row hash; no third public table is created. Each row hash covers the entire indexed row after materialization, including all nested derived Relation facts where present, and excludes only `hash`. No hash is automatically added to arbitrary SQL result rows.
+`scope_units` contains only Current Scope Unit Declaration rows. A Draft Declaration is an `atoms` row and does not alter the Current Scope Unit structure. Every indexed source row, including any internal mapping row, carries the same deterministic row hash; these source-row hash rules do not apply to the separate technical watcher `change_log`, and no third public source table is created. Each row hash covers the entire indexed row after materialization, including all nested derived Relation facts where present, and excludes only `hash`. No hash is automatically added to arbitrary SQL result rows.
 
 DuckPGQ consumes internal vertex and edge mappings derived from these two tables. Vertex identity retains object kind and reference, distinguishing Atom and Scope Unit references and Current and Draft Atom references. Edge mappings retain Relation Type, direction, and whether the fact is derived. Register only declared Relation Types over valid indexed endpoints. The mappings and registered property graph are disposable implementation state; they add no third public source table or independent source of truth.
 

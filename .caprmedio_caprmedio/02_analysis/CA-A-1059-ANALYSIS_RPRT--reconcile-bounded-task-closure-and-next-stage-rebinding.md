@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1059
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1059
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Bounded Task closure and next-stage rebinding reconciliation
-  depends_on:
+topics:
+  main_subject: Bounded Task closure and next-stage rebinding reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - Implementation
@@ -23,6 +24,8 @@ relations:
   - CA-O-017
   - CA-O-079
   - CA-P-1130
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

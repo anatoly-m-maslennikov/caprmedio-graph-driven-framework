@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-459
-content_role: Concern
-type: Question
+ref_id: CA-C-459
+role: Concern
+form: Question
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
@@ -9,9 +10,9 @@ status: Resolved
 author: Anatoly Maslennikov
 version: 4
 updated_at: 2026-10-23 01:47:30 +0400
-subjects:
-  governs: Subject/Engineering/Atom Lifecycle/Draft History
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Atom Lifecycle/Draft History
+  dependencies:
   - Subject/Domain/Node/Continuant/Atom
   - Subject/Engineering/Carrier
   - Subject/Domain/Node/Continuant/History
@@ -19,6 +20,8 @@ subjects:
   - Subject/Engineering/Atom Lifecycle/Dispatch Interface
 relations:
   concern_about: [CA-P-1662, CA-P-1675, CA-D-568, CA-D-570]
+container:
+  scope_unit: CA-SU-16
 ---
 # Summary
 

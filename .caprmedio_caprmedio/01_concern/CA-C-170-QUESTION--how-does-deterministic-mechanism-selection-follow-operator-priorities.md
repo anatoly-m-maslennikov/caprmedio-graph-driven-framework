@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Project/priority model application
-  depends_on:
+topics:
+  main_subject: Project/priority model application
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Domain/Node/Continuant/Atom/Content Role
@@ -13,7 +13,6 @@ version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-170
 ---
 # How does deterministic mechanism selection follow Operator priorities?

@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis/Python
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis/Python
     Code
 version: 23
 updated_at: 2026-11-02 19:44:26 +0400
@@ -15,13 +15,16 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-368
-content_role: Evaluation
+ref_id: CA-E-368
+role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 tier: 6
-type: Eval Case
+form: Eval Case
+container:
+  scope_unit: CA-SU-15
 ---
 # Externalize a large static mapping
 

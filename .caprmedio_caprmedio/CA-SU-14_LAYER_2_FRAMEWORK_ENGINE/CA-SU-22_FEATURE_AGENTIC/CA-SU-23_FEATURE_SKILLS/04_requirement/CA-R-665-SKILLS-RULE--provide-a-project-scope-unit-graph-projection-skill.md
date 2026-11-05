@@ -10,18 +10,21 @@ relations:
   child_of:
   - CAPRMEDIO-REQU-702--define-framework-engine-layer-scope
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-665
+ref_id: CA-R-665
 tier: 1
-type: Rule
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  depends_on:
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+container:
+  scope_unit: CA-SU-23
 ---
 # Provide a Project Scope Unit Graph Projection skill
 

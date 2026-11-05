@@ -1,20 +1,27 @@
 ---
 atom_id: CA-M-400
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-400
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure
     Handling
 relations:
   child_of:
   - CA-M-403
 tier: 2
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-400-PROGRAMMATIC-ENG_POLICY--apply-one-shared-public-operation-error-boundary.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

@@ -1,0 +1,66 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "route": "four reviewed Requirement Form admissions; existing identity lock spans allocation and application",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2953",
+      "version": 1,
+      "admitted_form": "Operator Declaration",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2953@1-draft-CORE_META_MODEL-DECLARATION--declare-operator-declaration-as-a-requirement-form.md",
+      "sha256": "c10434521b9056a282405c848bc196f4c4982b32dcc04c33f261141a86f1c0df"
+    },
+    {
+      "atom_id": "CA-R-2954",
+      "version": 1,
+      "admitted_form": "Construct Declaration",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2954@1-draft-CORE_META_MODEL-DECLARATION--declare-construct-declaration-as-a-requirement-form.md",
+      "sha256": "5d532e5259439d8ebb03d045758730a5ed5b88ae7a1f26fff1f0c9bec3183975"
+    },
+    {
+      "atom_id": "CA-R-2955",
+      "version": 1,
+      "admitted_form": "Relation Declaration",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2955@1-draft-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md",
+      "sha256": "34f7e5c1440a08c7ab7b6ffd1432779bf074b888b4be933c64f0b7d70fc80f3b"
+    },
+    {
+      "atom_id": "CA-R-2956",
+      "version": 1,
+      "admitted_form": "Function Declaration",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2956@1-draft-CORE_META_MODEL-DECLARATION--declare-function-declaration-as-a-requirement-form.md",
+      "sha256": "cea5dc8efae0df0f0bea38f86ddfa0e79ba6aa8781827cca3a1030fa0d52dc8e"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2953@1-draft-CORE_META_MODEL-DECLARATION--declare-operator-declaration-as-a-requirement-form.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2953\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Operator Declaration)\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-05 19:15:20 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2953@1-draft-CORE_META_MODEL-DECLARATION--declare-operator-declaration-as-a-requirement-form.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Operator Declaration as a Requirement Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom//(.Header.Role := Requirement).Header.Form := Operator Declaration;\nAtom//(.Header.Role := Requirement)//(.Header.Form := Operator Declaration)\n```\n\n### Prose Claim\n\nThis Form uses the Declaration contract.\n\n## Semantics\n\nAn Operator Declaration defines notation syntax and its operand rules.\n",
+      "after_sha256": "c10434521b9056a282405c848bc196f4c4982b32dcc04c33f261141a86f1c0df"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2954@1-draft-CORE_META_MODEL-DECLARATION--declare-construct-declaration-as-a-requirement-form.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2954\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Construct Declaration)\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-05 19:15:20 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2954@1-draft-CORE_META_MODEL-DECLARATION--declare-construct-declaration-as-a-requirement-form.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Construct Declaration as a Requirement Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom//(.Header.Role := Requirement).Header.Form := Construct Declaration;\nAtom//(.Header.Role := Requirement)//(.Header.Form := Construct Declaration)\n```\n\n### Prose Claim\n\nThis Form uses the Declaration contract.\n\n## Semantics\n\nA Construct Declaration defines the structure and binding scope of a multi-expression language construct.\n",
+      "after_sha256": "5d532e5259439d8ebb03d045758730a5ed5b88ae7a1f26fff1f0c9bec3183975"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2955@1-draft-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2955\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Relation Declaration)\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-05 19:15:20 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2955@1-draft-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Relation Declaration as a Requirement Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom//(.Header.Role := Requirement).Header.Form := Relation Declaration;\nAtom//(.Header.Role := Requirement)//(.Header.Form := Relation Declaration)\n```\n\n### Prose Claim\n\nThis Form uses the Declaration contract.\n\n## Semantics\n\nA Relation Declaration defines a canonical binary Relation, its endpoint domains and applicable inverse aliases.\n",
+      "after_sha256": "34f7e5c1440a08c7ab7b6ffd1432779bf074b888b4be933c64f0b7d70fc80f3b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2956@1-draft-CORE_META_MODEL-DECLARATION--declare-function-declaration-as-a-requirement-form.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2956\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Function Declaration)\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)\ntier: 3\nrole: Requirement\nform: Declaration\nversion: 1\nupdated_at: 2026-11-05 19:15:20 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2956@1-draft-CORE_META_MODEL-DECLARATION--declare-function-declaration-as-a-requirement-form.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Function Declaration as a Requirement Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom//(.Header.Role := Requirement).Header.Form := Function Declaration;\nAtom//(.Header.Role := Requirement)//(.Header.Form := Function Declaration)\n```\n\n### Prose Claim\n\nThis Form uses the Declaration contract.\n\n## Semantics\n\nA Function Declaration defines a pure function signature, including its input and output Formats; a predicate returns Bool.\n",
+      "after_sha256": "cea5dc8efae0df0f0bea38f86ddfa0e79ba6aa8781827cca3a1030fa0d52dc8e"
+    }
+  ]
+}

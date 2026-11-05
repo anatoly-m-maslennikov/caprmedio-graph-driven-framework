@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2308
-content_role: Plan
-type: Plan
+ref_id: CA-P-2308
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Engineering/Configuration/Shared TOML Connector
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
   - Subject/Graph Node/Engineering/Evaluation
@@ -23,6 +24,12 @@ relations:
   is_decomposition_of:
   - CA-P-2256
 tier: 3
+container:
+  atom: CA-P-2256
+carrier_destination:
+  file:
+    name: 3-CA-P-2308-TASK--preserve-toml-text-during-pure-edits.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/done
 ---
 # Summary
 

@@ -1,5 +1,6 @@
 ---
 atom_id: CA-M-261
+ref_id: CA-M-261
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
@@ -7,14 +8,19 @@ cce_version: cce_1
 cce_form: method
 version: 19
 updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 tier: 1
-subjects:
-  active: CAPRMEDIO_MODEL <+ Package/Implementation
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-261-CAPRMEDIO-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md
+    path: .caprmedio_caprmedio/05_method
 ---
 # Summary
 

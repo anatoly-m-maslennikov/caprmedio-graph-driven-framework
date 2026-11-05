@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-488
-content_role: Concern
-type: Problem
+ref_id: CA-C-488
+role: Concern
+form: Problem
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
@@ -9,13 +10,15 @@ status: active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 01:47:30 +0400
-subjects:
-  governs: Subject/Domain/Node/Continuant/Projection
-  depends_on:
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Projection
+  dependencies:
   - Subject/Engineering/Methodology Compilation/Source Freshness
   - Subject/Engineering/Projection Publication/Changed Sources
 relations:
   concern_about: [CA-P-1761]
+container:
+  scope_unit: CA-SU-16
 ---
 # Summary
 

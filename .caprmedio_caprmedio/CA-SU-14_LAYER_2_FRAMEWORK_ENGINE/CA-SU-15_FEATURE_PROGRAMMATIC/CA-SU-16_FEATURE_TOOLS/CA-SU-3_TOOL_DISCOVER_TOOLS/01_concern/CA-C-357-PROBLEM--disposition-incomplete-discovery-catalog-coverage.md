@@ -1,15 +1,16 @@
 ---
 atom_id: CA-C-357
-content_role: Concern
-type: Problem
+ref_id: CA-C-357
+role: Concern
+form: Problem
 current_scope_unit: DISCOVER_TOOLS
 local_tier: Standard
 global_tier: 14
 author: Anatoly Maslennikov
 status: active
-subjects:
-  governs: Subject/Engineering/Tool Discovery Binding/Catalog Coverage Diagnostics
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Tool Discovery Binding/Catalog Coverage Diagnostics
+  dependencies:
   - Subject/Domain/Node/Continuant/Atom
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Subject/Engineering/Tool Discovery Binding
@@ -17,6 +18,8 @@ version: 2
 updated_at: 2026-10-23 01:47:30 +0400
 relations:
   concern_about: [CA-R-1804, CA-P-1123]
+container:
+  scope_unit: CA-SU-3
 ---
 # Summary
 

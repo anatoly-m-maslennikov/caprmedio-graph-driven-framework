@@ -1,5 +1,6 @@
 ---
 atom_id: CA-R-2793
+ref_id: CA-R-2793
 current_scope_unit: CODEX_EXTENSION
 claim_target_scope_unit: CODEX_EXTENSION
 status: Active
@@ -8,14 +9,15 @@ author: Anatoly Maslennikov
 role: Requirement
 form: Entity Definition
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ View
-relations: {}
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ View
 carrier_destination:
   file:
     name: CA-R-2793-CODEX_EXTENSION-ENTITY_DEFINITION--define-view.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/04_requirement
 updated_at: 2026-11-05 16:45:35 +0400
+container:
+  scope_unit: CA-SU-48
 ---
 
 ## Summary

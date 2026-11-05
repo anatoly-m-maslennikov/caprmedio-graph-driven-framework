@@ -1,16 +1,18 @@
 ---
 atom_id: CA-M-424
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-424@13-draft
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test
+    Design
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
-version: 12
-updated_at: 2026-10-27 19:59:43 +0400
+version: 13
+updated_at: 2026-11-05 23:05:59 +0400
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 relations:
@@ -19,6 +21,12 @@ relations:
   child_of:
   - CA-M-415
 tier: 4
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-424-PROGRAMMATIC-ENG_POLICY--select-software-evaluation-techniques-by-failure-mode.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 
@@ -32,14 +40,16 @@ selection of behavioral software Evaluation techniques for PROGRAMMATIC componen
 
 **to** select behavioral software Evaluation techniques for a PROGRAMMATIC component, the Actor selecting the portfolio **must** take the applicable Spec, declared failure predicates, **and** active Evaluation authority as inputs; identify candidate checks for **every** predicate; evaluate candidate portfolios against the applicable Core **and** General Evaluation policy **and** each selected technique's own acceptance **and** disposition rules; select one admitted portfolio; repeat **until** all predicates are covered **or** no candidate remains; produce the selected Evaluation identities **and** selection rationale; **and** return unresolved predicates for authority **or** design clarification **when** no portfolio is admitted.
 
+Before coding or selecting a check, identify the relevant state transitions, side effects and failure boundaries for the declared behavior, then choose Evaluation cases that can distinguish them.
+
 ## Details
 
 Candidate source: [CA-M-285@14](archive/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode@14.md)
 
-1. enumerate the failure predicates established by applicable authority **and** bind each predicate **to** the observable behavior that can distinguish acceptance from rejection.
+1. enumerate the failure predicates established by applicable authority **and** bind each predicate **to** the observable behavior that can distinguish acceptance from rejection. Include the applicable state transitions, side effects and failure boundary in that predicate description.
 2. identify applicable Evaluation Atoms across test scopes, purposes, boundary-realism choices, execution environments, **and** release stages **without** treating those labels as a universal ranking.
 3. construct candidate portfolios from those Evaluation Atoms. include a specialized technique **only when** its Evaluation applicability **and** evidence preconditions are satisfied.
-4. evaluate **every** candidate portfolio under the Core evidence invariant in CA-E-637, the General portfolio criteria in CA-E-389, **and** the acceptance **and** disposition rules of **every** selected Evaluation Atom. apply the Core exposure invariant in CA-E-638 **and** the General canary criteria in CA-E-536 **when** a candidate includes canary evidence.
+4. evaluate **every** candidate portfolio under the Core evidence invariant in CA-E-637, the General portfolio criteria in CA-E-389, **and** the acceptance **and** disposition rules of **every** selected Evaluation Atom. apply the Core exposure invariant in CA-E-638 **and** the General canary criteria in CA-E-536 **when** a candidate includes canary evidence. A focused pass cannot overrule a failure in the combined suite; retain a regression check for each confirmed fixed failure class.
 5. stop with one traceable admitted portfolio **when** all predicates are covered. **when** no candidate passes, return the uncovered predicates, failed policy conditions, **and** missing evidence rather than inventing a test-count ratio **or** silently accepting incomplete coverage.
 
 ## Sources

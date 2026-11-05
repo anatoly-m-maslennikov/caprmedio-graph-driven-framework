@@ -5,6 +5,7 @@
 # CA-R-1804@13
 # CA-D-512@16
 # CA-D-681@1
+# CA-D-696@1
 
 """Read and write the released MCP tool-catalog projection."""
 
@@ -22,7 +23,7 @@ from typing import Any, Mapping, Sequence
 CATALOG_PARTS = (".caprmedio_runtime", "mcp", "tools_catalog.json")
 GROUPS = ("Workspaces", "Views", "Queries", "Service")
 SERVICE_TOOLS = frozenset({
-    "reload_mcp_implementation", "get_mcp_reload_status", "workbench_reread",
+    "reload_mcp_implementation", "get_mcp_reload_status", "workbench_reread", "workbench_status",
 })
 
 

@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Project.Settings.Name
   - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
@@ -13,6 +13,7 @@ relations:
   child_of:
   - CA-D-364
 atom_id: CA-D-366
+ref_id: CA-D-366
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
@@ -21,8 +22,10 @@ role: Delivery
 form: Decision
 carrier_destination:
   file:
-    name: CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
+    name: CA-D-366-CORE_META_MODEL-DECISION--serialize-project-settings-content-in-toml.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

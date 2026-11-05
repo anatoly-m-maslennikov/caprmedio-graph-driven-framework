@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
 version: 26
 status: Active
 updated_at: 2026-11-02 19:46:47 +0400
@@ -13,13 +13,20 @@ relations:
   - CA-A-058
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-content_role: Method
+role: Method
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 atom_id: CA-M-254
-type: Eng Decision
+ref_id: CA-M-254
+form: Eng Decision
 tier: 4
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-18
+carrier_destination:
+  file:
+    name: CA-M-254-TOOL_WORKFLOWS-ENG_DECISION--change-one-sealed-target-set.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/05_method
 ---
 # Summary
 

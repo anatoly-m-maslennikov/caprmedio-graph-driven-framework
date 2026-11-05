@@ -1,16 +1,22 @@
 ---
 atom_id: CA-R-2597
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2597
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-05 22:47:24 +0400
+carrier_destination:
+  file:
+    name: CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 
 ## Summary
@@ -28,4 +34,4 @@ Operator//ExpressionSeparator == ";"
 
 ## Semantics
 
-Separate complete CFEL expressions; a line break is layout only.
+Separate complete CFEL expressions with `;`; a line break is layout only. Read contiguous `<;` and `;>` as Property-order tokens, not as the standalone separator.

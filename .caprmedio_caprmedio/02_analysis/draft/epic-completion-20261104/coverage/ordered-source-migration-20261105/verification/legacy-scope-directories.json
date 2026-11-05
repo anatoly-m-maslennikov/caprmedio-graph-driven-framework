@@ -1,0 +1,339 @@
+{
+  "schema": "caprmedio.legacy-scope-directories.v1",
+  "status": "BOUNDED_SOURCE_CLASSIFICATION",
+  "scope": "Read-only group-root, live Scope Unit, and duplicate Atom-ID check. No source, folder, code, test, or Git changes.",
+  "pins": {
+    "scope_declaration_inventory": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/scope-declaration-check-20261105/inventory.json",
+      "sha256": "c3409c927f4427a9e6ffea7eb9fec764caed37867fa245d6332f654b0ace81ee"
+    },
+    "property_snapshot": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/snapshot.json",
+      "sha256": "59723f799a305f7519aae2acea0bb7008c3865484ec7afdd19ab89e99be0714d"
+    },
+    "destination_plan_live": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/destinations/plan.json",
+      "sha256": "e08aabd5ada2596e72e989a292e68d784e68bbd8ad5b82ce7cc4ff0048b52e8e"
+    },
+    "destination_plan_readme": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/destinations/README.md",
+      "sha256": "42727a9400906b3d4527ed9fb1a2aa848b171cca42c1556a36eda46e02b594c4"
+    },
+    "core_extensions_scope_declaration": {
+      "id": "CA-R-2665",
+      "scope_id": "CA-SU-26",
+      "name": "CORE_EXTENSIONS",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+      "sha256": "9f462f07ef3086cd6da4d395312f7e1ed48bdcb598786c4bc4977916520d5d90"
+    },
+    "current_git_directory_decision": {
+      "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-436-CORE_EXTENSIONS-ENG_DECISION--bind-git-extension-delivery-place.md",
+      "sha256": "cf647db10a386ee99660d94496826811b07b2944f7fe781758acff5e1b6c9256"
+    },
+    "current_fpf_directory_decision": {
+      "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/07_delivery/CA-D-438-CORE_EXTENSIONS-ENG_DECISION--bind-fpf-extension-delivery-place.md",
+      "sha256": "db40dca27af9060c43ae2e141a9d2a51963956af3473cb03985baee1b11ec51a"
+    }
+  },
+  "old_213_count_reconciliation": {
+    "result": "NOT_REPRODUCED_AS_213_CURRENT_CARRIERS",
+    "evidence": "The prior destination README called 213 a calculated readiness count, not a Current carrier census. The current destination plan has 4,639 rows and a later readiness tally (3,136 calculated_no_local_issues, 1,503 held); neither is a 213 Current-source list.",
+    "current_plan_counts": {
+      "sources": 4639,
+      "readiness": {
+        "held": 1503,
+        "calculated_no_local_issues": 3136
+      },
+      "issues": {
+        "role_missing_or_unresolved": 157,
+        "form_missing_or_unresolved": 165,
+        "summary_slug_requires_source_backed_normalization": 671,
+        "label_token_missing_or_requires_source_backed_normalization": 165,
+        "header_container_missing_or_ambiguous": 480,
+        "role_status_placement_requires_authority": 246,
+        "legacy_target_scope_requires_subject_validation": 125,
+        "base_atom_id_missing_or_noncanonical": 106,
+        "legacy_filename_sequence_needs_property_migration": 32,
+        "atom_parent_bundle_requires_source_resolver": 73,
+        "world_root_declaration_placement_requires_explicit_authority": 2,
+        "draft_id_or_version_unresolved": 18
+      },
+      "duplicate_calculated_targets": 0
+    },
+    "note": "Do not carry forward “213 current native carriers” without its original source list."
+  },
+  "group_roots": [
+    {
+      "root": "CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT",
+      "unarchived_source_count": 7,
+      "status_counts": {
+        "Active": 7
+      },
+      "records": [
+        {
+          "atom_id": "CA-D-436",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-436-CORE_EXTENSIONS-ENG_DECISION--bind-git-extension-delivery-place.md",
+          "sha256": "cf647db10a386ee99660d94496826811b07b2944f7fe781758acff5e1b6c9256"
+        },
+        {
+          "atom_id": "CA-D-448",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-448-CORE_EXTENSIONS-ENG_DECISION--encode-exact-git-references-in-release-evidence.md",
+          "sha256": "4f8080f555850aaeb0465a8c25afffd9ef21578fb108de45d2bda635790101c3"
+        },
+        {
+          "atom_id": "CA-D-384",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-384-CORE_EXTENSIONS-ENG_DECISION--serialize-git-commit-type-tokens.md",
+          "sha256": "9a48f9243cd8cbc4990482f846dc3b197e4f096939c355ed3235cd6fe4e62b5b"
+        },
+        {
+          "atom_id": "CA-D-334",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-334-CORE_EXTENSIONS-ENG_DECISION--serialize-governed-change-commit-messages.md",
+          "sha256": "cb9048f13d5bdb11517cacf73e7ca99457775fe1e3843fecf5b5cf0226dea238"
+        },
+        {
+          "atom_id": "CA-D-335",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-335-CORE_EXTENSIONS-ENG_DECISION--mirror-governed-file-changes-in-journal-and-git.md",
+          "sha256": "6dfac52109320d777b3ef6ce44924ef91bb3701c2ab50046d2b9661391dc5416"
+        },
+        {
+          "atom_id": "CA-E-475",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/06_evaluation/CA-E-475-CORE_EXTENSIONS-EVAL_CASE--validate-git-release-evidence-bindings.md",
+          "sha256": "eb8c5a54e8888c3fc56225cec205d169ad86e3d8f090d70eab336ffb4c0aae5f"
+        },
+        {
+          "atom_id": "CA-R-296",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/04_requirement/CA-R-296-CORE_EXTENSIONS-DEFINITION--distinguish-internal-and-external-git-commits.md",
+          "sha256": "044cfc8c0c585244a46bc80368c495518c1ba311231861771fa748925b00972f"
+        }
+      ]
+    },
+    {
+      "root": "CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF",
+      "unarchived_source_count": 14,
+      "status_counts": {
+        "missing": 2,
+        "Active": 12
+      },
+      "records": [
+        {
+          "atom_id": "CA-C-109",
+          "status": null,
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/01_concern/CA-C-109-FPF-PROBLEM--fpf-is-not-yet-a-caprmedio-aligned-project-extension.md",
+          "sha256": "9791b854344b3e1a0ab62fea7146dec91b5bf5be4e1cef50e78b4351293c868a"
+        },
+        {
+          "atom_id": "CA-C-110",
+          "status": null,
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/01_concern/CA-C-110-FPF-CONFLICT--universal-ca-entry-conflicts-with-direct-fpf-invocation.md",
+          "sha256": "fd2591679464023ddfd76536b718239bd1e884b137484c902b5d8119d8d9fd72"
+        },
+        {
+          "atom_id": "CA-D-439",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/07_delivery/CA-D-439-CORE_EXTENSIONS-ENG_DECISION--serialize-the-project-local-fpf-skill-installation.md",
+          "sha256": "bb08d116c9f836f6243ae4e3565364e1fbf283266c07108289cd23ef50593ae2"
+        },
+        {
+          "atom_id": "CA-D-438",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/07_delivery/CA-D-438-CORE_EXTENSIONS-ENG_DECISION--bind-fpf-extension-delivery-place.md",
+          "sha256": "db40dca27af9060c43ae2e141a9d2a51963956af3473cb03985baee1b11ec51a"
+        },
+        {
+          "atom_id": "CA-E-468",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/06_evaluation/CA-E-468-CORE_EXTENSIONS-EVAL_CASE--verify-one-caprmedio-aligned-fpf-extension-revision.md",
+          "sha256": "f7edecfb598de41bba30482a92057a5dc1e4ae5968549e61fd8931f20c77ba3d"
+        },
+        {
+          "atom_id": "CA-M-290",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/05_method/CA-M-290-CORE_EXTENSIONS-IMPLEMENTATION_METHOD--materialize-install-and-activate-the-fpf-extension.md",
+          "sha256": "8bb4cc64c668d598b90610ab8ca57aaf42b161c30dfec20bbb452fa6581b31e6"
+        },
+        {
+          "atom_id": "CA-R-1477",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1477-CORE_EXTENSIONS-RULE--persist-analysis-reports-in-the-governed-scope-unit.md",
+          "sha256": "7f9ade327b3876b91d89ad36ba05997d4a025121b79446c7d2d72b57d8dcedcb"
+        },
+        {
+          "atom_id": "CA-R-1476",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1476-CORE_EXTENSIONS-RULE--derive-fpf-behavior-from-current-caprmedio-authority.md",
+          "sha256": "f7e6bc077e41cfbbcf6b5514c18bf4360fc1c1c68a88459cb53895091a7fdfa5"
+        },
+        {
+          "atom_id": "CA-R-1481",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1481-CORE_EXTENSIONS-RULE--separate-project-installation-from-extension-activation.md",
+          "sha256": "38bbb069b6826c925c2151a3d1048bfb87103581399af21ce241b644a1f4e899"
+        },
+        {
+          "atom_id": "CA-R-1479",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1479-CORE_EXTENSIONS-RULE--preserve-the-tool-mcp-skill-authority-chain.md",
+          "sha256": "f8fcc193acc426b4b922533890a4c870f1614715d0289a87e7bc0c0911f68bc6"
+        },
+        {
+          "atom_id": "CA-R-1480",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1480-CORE_EXTENSIONS-RULE--keep-triggered-fpf-work-off-the-command-host-path.md",
+          "sha256": "65b78c23929baa7322dbb7d453f45a1db09071150bd33435c1895dd4a6b385e1"
+        },
+        {
+          "atom_id": "CA-R-1478",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1478-CORE_EXTENSIONS-RULE--create-proper-concern-atoms-on-explicit-request.md",
+          "sha256": "302566b13ee0280ad285b6f46fd08c1546423af943826b274bd3a8bedf17fd52"
+        },
+        {
+          "atom_id": "CA-R-1475",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1475-CORE_EXTENSIONS-RULE--materialize-fpf-from-a-pinned-base-and-ordered-overlay.md",
+          "sha256": "025c2af71d7fc2e6eea6950a2f62a8d7e4482779dd81b53f08cbdddd88c1339a"
+        },
+        {
+          "atom_id": "CA-R-1482",
+          "status": "Active",
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/04_requirement/CA-R-1482-FPF-REQUIREMENT--keep-recovery-controls-independent-from-the-active-tool-path.md",
+          "sha256": "721304cbe6f3c1296be7fe98a9bf695d990f5301516b51b0df6e1ab4c92cd57c"
+        }
+      ]
+    }
+  ],
+  "scope_unit_mapping": {
+    "parent": "CA-SU-26 CORE_EXTENSIONS",
+    "separate_scope_declaration_for_201_FEATURE_GIT_or_202_FEATURE_FPF": 0,
+    "meaning": "The two named directories are physical groupings under the declared CORE_EXTENSIONS Scope Unit, not separately declared Scope Units. Current D436 and D438 expressly name the directories as the Git/FPF authority locations."
+  },
+  "duplicate_id_check": {
+    "checked_ids": 21,
+    "source_occurrences": {
+      "live_source": 21,
+      "archive_history": 28
+    },
+    "duplicate_current_locations": 0,
+    "same_id_archive_occurrences": 28,
+    "matching_000_materialization_occurrences": 0,
+    "matching_test_fixture_occurrences": 0,
+    "sample_current_and_history_locations": {
+      "CA-D-436": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-436-CORE_EXTENSIONS-ENG_DECISION--bind-git-extension-delivery-place.md",
+          "class": "live_source",
+          "sha256": "cf647db10a386ee99660d94496826811b07b2944f7fe781758acff5e1b6c9256"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/archive/CA-D-436-GIT-DELIVERY--bind-git-extension-delivery-place@1.md",
+          "class": "archive_history",
+          "sha256": "ced984ae5c00d8a457e7f0a4418bb0e7193341746e2e19b9d8f8f66df0157cbf"
+        }
+      ],
+      "CA-D-334": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/CA-D-334-CORE_EXTENSIONS-ENG_DECISION--serialize-governed-change-commit-messages.md",
+          "class": "live_source",
+          "sha256": "cb9048f13d5bdb11517cacf73e7ca99457775fe1e3843fecf5b5cf0226dea238"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT/07_delivery/archive/CA-D-334-GIT-DELIVERY--serialize-governed-change-commit-messages@7.md",
+          "class": "archive_history",
+          "sha256": "f1cc3a094ef3f4cd464d45a0c7ed3d50cd52fad901cbdb040c87b8efde632691"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-334-MMODEL-CORE-DELIVERY--serialize-governed-change-commit-messages@3.md",
+          "class": "archive_history",
+          "sha256": "4aa8ee60f85fd754a5a657bcc16d7e5ebe828663981783c464a81f4759e7535a"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-334-CORE_META_MODEL-CORE-DELIVERY--serialize-governed-change-commit-messages@4.md",
+          "class": "archive_history",
+          "sha256": "0cfeaf42e28be4d61fa8657d54c9296ddc62dc0181f6c59af8facf97c4afc208"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-334-MMODEL-CORE-DELIVERY--serialize-governed-change-commit-messages@2.md",
+          "class": "archive_history",
+          "sha256": "d4431f8b761bdb5f755941f74fabbb1b40ff4b2f3bcdd8d366fe69034be3b0e3"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-334-CORE_META_MODEL-DELIVERY--serialize-governed-change-commit-messages@6.md",
+          "class": "archive_history",
+          "sha256": "acf9368e579ba67698e252b99f2b155a1fc75639ae6265e0ab5379a19a0e6d46"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-334-MMODEL-CORE-DELIVERY--serialize-governed-change-commit-messages@1.md",
+          "class": "archive_history",
+          "sha256": "bced1b1994dfb54d8c1d15b81e32522e1f0ffed0b1139de04a1b64661cf219f6"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-334-CORE_META_MODEL-DELIVERY--serialize-governed-change-commit-messages@5.md",
+          "class": "archive_history",
+          "sha256": "0a35a260c296895f4ae2570ca3787eb1a553356d3dcc40e838901ea3dbd53341"
+        }
+      ],
+      "CA-D-438": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/07_delivery/CA-D-438-CORE_EXTENSIONS-ENG_DECISION--bind-fpf-extension-delivery-place.md",
+          "class": "live_source",
+          "sha256": "db40dca27af9060c43ae2e141a9d2a51963956af3473cb03985baee1b11ec51a"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/07_delivery/archive/CA-D-438-FPF-DELIVERY--bind-fpf-extension-delivery-place@1.md",
+          "class": "archive_history",
+          "sha256": "372c328bd36ddc483ff4ffbc02b36fe494df2f4c41fab7b904c8b287c14a9010"
+        }
+      ],
+      "CA-E-468": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/06_evaluation/CA-E-468-CORE_EXTENSIONS-EVAL_CASE--verify-one-caprmedio-aligned-fpf-extension-revision.md",
+          "class": "live_source",
+          "sha256": "f7edecfb598de41bba30482a92057a5dc1e4ae5968549e61fd8931f20c77ba3d"
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/06_evaluation/archive/CA-E-468-FPF-QA_CASE--verify-one-caprmedio-aligned-fpf-extension-revision@1.md",
+          "class": "archive_history",
+          "sha256": "8dc550dbb2d3388b1229070f11031d2e891eddbcefd33db47518793add5eb2a8"
+        }
+      ]
+    }
+  },
+  "classification_and_recommendation": [
+    {
+      "root": "CA-SU-26_LAYER_4_CORE_EXTENSIONS/201_FEATURE_GIT",
+      "classification": "LIVE_CANONICAL_SOURCE_GROUP",
+      "evidence": "7 unarchived carriers, all status Active; each ID has one live source path. D436 names this folder as the authority directory.",
+      "recommendation": "Include the 7 native sources for migration review under parent Scope Unit CA-SU-26. Resolve destination from model authority; do not infer a child Scope Unit from the folder name."
+    },
+    {
+      "root": "CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF",
+      "classification": "LIVE_SOURCE_GROUP_WITH_STATUS_GAPS",
+      "evidence": "14 unarchived carriers: 12 status Active and 2 with no status field; each ID has one live source path. D438 names this folder as the authority directory.",
+      "recommendation": "Include all 14 source records; route the two status-missing Concerns through ordinary metadata review. Do not infer a child Scope Unit from the folder name."
+    },
+    {
+      "root": "archive / archived under those groups",
+      "classification": "PRESERVED_HISTORY",
+      "evidence": "28 same-ID prior-version occurrences found for the 21 unarchived group IDs.",
+      "recommendation": "Preserve as history; exclude from current-source migration."
+    },
+    {
+      "root": "000_CAPRMEDIO_framework / TEST-SU roots",
+      "classification": "EXCLUDED_MATERIALIZATION_AND_FIXTURE_TREES",
+      "evidence": "No matching duplicate locations for the 21 checked group IDs. These roots remain excluded by the migration boundary.",
+      "recommendation": "Do not treat as native current sources."
+    }
+  ],
+  "limits": [
+    "The source paths checked here do not reproduce a 213-item current-carrier group.",
+    "The property snapshot excludes these two CA-SU-26 child directories, so its global source totals/duplicate check do not cover them.",
+    "This review does not validate or alter the separate migration implementation or all other non-CA-SU path components."
+  ]
+}

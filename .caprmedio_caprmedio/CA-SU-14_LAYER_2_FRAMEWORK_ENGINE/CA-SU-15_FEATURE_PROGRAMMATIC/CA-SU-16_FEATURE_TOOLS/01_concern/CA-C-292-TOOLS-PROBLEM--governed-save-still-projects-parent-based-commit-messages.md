@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-292
-content_role: Concern
-type: Problem
+ref_id: CA-C-292
+role: Concern
+form: Problem
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 local_tier: Standard
@@ -13,6 +14,8 @@ updated_at: "2026-10-04 06:29:05 +0400"
 relations:
   concern_about:
     - CA-R-805
+container:
+  scope_unit: CA-SU-16
 ---
 # Summary
 

@@ -1,5 +1,6 @@
 ---
 atom_id: CA-D-678
+ref_id: CA-D-678
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
 tier: 5
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
 relations:
   delivery_for:
   - CA-R-2785
@@ -20,6 +21,8 @@ carrier_destination:
     name: CA-D-678-PROGRAMMATIC-ENG_DECISION--store-the-generated-mcp-discovery-catalog.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery
 updated_at: 2026-11-05 18:24:34 +0400
+container:
+  scope_unit: CA-SU-15
 ---
 
 ## Summary

@@ -6,9 +6,9 @@ updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-M-261
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
@@ -19,11 +19,18 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-266
+ref_id: CA-M-266
 status: Active
 current_scope_unit: caprmedio
 tier: 2
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-266-CAPRMEDIO-IMPLEMENTATION_METHOD--follow-the-operator-selected-implementation-mode.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 Follow the Operator-selected implementation mode

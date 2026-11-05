@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2702
-content_role: Plan
-type: Plan
+ref_id: CA-P-2702
+role: Plan
+form: Plan
 label: Task
 current_scope_unit: caprmedio
 claim_target_scope_unit: FRAMEWORK_ENGINE
@@ -10,11 +11,15 @@ author: Anatoly Maslennikov
 tier: 4
 version: 1
 updated_at: 2026-10-29 22:52:28 +0400
-subjects:
-  governs: Entity/Aspect/Engineering/Architecture/Component Structure
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2637
+topics:
+  main_subject: Entity/Aspect/Engineering/Architecture/Component Structure
+
+container:
+  atom: CA-P-2637
+carrier_destination:
+  file:
+    name: CA-P-2702-TASK--reconcile-deferred-engine-scope-goals.md
+    path: .caprmedio_caprmedio/03_plan/CA-P-2637-EPIC--migrate-engine-rmed-atoms/001_backlog
 ---
 ## Summary
 

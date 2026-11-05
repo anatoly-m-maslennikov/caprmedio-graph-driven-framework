@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1063
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1063
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Closed-corpus candidate family register
-  depends_on:
+topics:
+  main_subject: Closed-corpus candidate family register
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
   - Subject/Domain/Node/Continuant/Project
@@ -27,6 +28,8 @@ relations:
   - CA-P-1342
   - CA-P-1343
   - CA-P-1344
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

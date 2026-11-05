@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1454
-content_role: Plan
-type: Plan
+ref_id: CA-P-1454
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 21
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ assignee: AI Agent
 status: Done
 version: 6
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Terms Graph construction
-  depends_on:
+topics:
+  main_subject: Terms Graph construction
+  dependencies:
   - Subject/Graph Node/Engineering/Workflow
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
   - Subject/Graph Node/Engineering/Action

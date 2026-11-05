@@ -1,6 +1,7 @@
 ---
 atom_id: CA-D-250
-content_role: Delivery
+ref_id: CA-D-250
+role: Delivery
 current_scope_unit: PROGRAMMATIC
 status: Active
 version: 25
@@ -13,16 +14,18 @@ relations:
   - CA-M-412
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   - Subject/CAPRMEDIO/Carrier
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-type: Eng Policy
+form: Eng Policy
 tier: 5
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-15
 ---
 # Provide PROGRAMMATIC software carriers
 

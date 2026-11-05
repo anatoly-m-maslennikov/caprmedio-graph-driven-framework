@@ -1,15 +1,16 @@
 ---
 atom_id: CA-R-1901
-content_role: Requirement
+ref_id: CA-R-1901
+role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 20:00:05 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
   - Subject/CAPRMEDIO/Carrier/Docker Image
@@ -17,9 +18,14 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-R-1901-WORKFLOW_ORCHESTRATOR-RULE--admit-one-compatible-project-mcp-runtime.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/04_requirement
 ---
 # Summary
 

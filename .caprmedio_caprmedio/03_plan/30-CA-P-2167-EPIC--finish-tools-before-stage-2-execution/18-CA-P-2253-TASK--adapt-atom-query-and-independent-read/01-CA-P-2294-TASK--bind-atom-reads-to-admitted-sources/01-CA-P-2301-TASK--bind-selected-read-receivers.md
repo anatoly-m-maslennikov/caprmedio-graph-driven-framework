@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2301
-content_role: Plan
-type: Plan
+ref_id: CA-P-2301
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Engineering/Action
@@ -25,6 +26,12 @@ relations:
   blocks:
   - CA-P-2259
 tier: 3
+container:
+  atom: CA-P-2294
+carrier_destination:
+  file:
+    name: 1-CA-P-2301-TASK--bind-selected-read-receivers.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/18-CA-P-2253-TASK--adapt-atom-query-and-independent-read/1-CA-P-2294-TASK--bind-atom-reads-to-admitted-sources
 ---
 # Summary
 

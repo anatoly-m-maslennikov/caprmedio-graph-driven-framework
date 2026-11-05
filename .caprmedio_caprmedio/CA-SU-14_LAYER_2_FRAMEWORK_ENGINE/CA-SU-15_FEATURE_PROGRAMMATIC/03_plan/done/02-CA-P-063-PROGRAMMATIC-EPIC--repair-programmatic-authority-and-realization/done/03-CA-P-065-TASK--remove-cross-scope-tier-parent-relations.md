@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Rule
-  depends_on:
+topics:
+  main_subject: Subject/Graph Rule
+  dependencies:
   - Subject/Graph Relation
   - Subject/Graph Node/Domain/Continuant/Atom.Tier
   - Subject/Graph Node/Domain/Continuant/Scope Unit
@@ -13,11 +13,12 @@ autonomous_confidence_threshold: 98
 status: Done
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-065
+ref_id: CA-P-065
 ---
 # Remove cross-scope Tier-parent relations
 

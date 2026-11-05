@@ -1,22 +1,28 @@
 ---
 atom_id: CA-R-1925
-content_role: Requirement
+ref_id: CA-R-1925
+role: Requirement
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Carrier/Git Commit
   - Subject/CAPRMEDIO/Carrier/Git Repository
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 version: 14
 updated_at: 2026-10-27 20:00:05 +0400
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-19
+carrier_destination:
+  file:
+    name: CA-R-1925-PROJECT_TOOLS-RULE--require-immutable-proof-for-public-push.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/04_requirement
 ---
 # Summary
 

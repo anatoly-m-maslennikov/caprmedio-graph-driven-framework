@@ -8,9 +8,9 @@ relations:
   - CA-M-295
   - CA-D-447
   - CA-O-024
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Implementation Workflow'
@@ -18,12 +18,15 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
 atom_id: CA-E-473
+ref_id: CA-E-473
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 6
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 

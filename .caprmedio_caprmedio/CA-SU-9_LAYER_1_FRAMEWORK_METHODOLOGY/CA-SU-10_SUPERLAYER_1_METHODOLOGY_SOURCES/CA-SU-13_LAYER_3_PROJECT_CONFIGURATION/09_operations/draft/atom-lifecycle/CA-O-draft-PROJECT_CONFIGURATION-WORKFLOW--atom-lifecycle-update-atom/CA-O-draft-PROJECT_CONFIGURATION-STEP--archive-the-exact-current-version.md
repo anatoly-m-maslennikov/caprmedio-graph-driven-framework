@@ -19,7 +19,7 @@ Archive the exact Current Version
 
 ## Claim scope
 
-Second Step of [Atom Lifecycle_Update Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom.md) for one non-container Current source.
+One bound exact Current source within [Atom Lifecycle_Update Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom.md).
 
 ## Claim
 
@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-`sourceCurrent`; applicable model; placement; authorization.
+Bind the original `sourceCurrent`, internal `expectedSource`, and `projectContext` to the called Workflow. `targetStatus` remains enclosing-Workflow context.
 
 ### Fixed parameters
 
@@ -37,8 +37,8 @@ None.
 
 ### Runs
 
-The Workflow [Atom Lifecycle_Archive Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+The Workflow [Atom Lifecycle_Archive Atom](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom.md).
 
 ### Outputs
 
-The saved Archived Atom or explicit error with completed results, passed to the enclosing Workflow.
+The called Workflow's declared Output.

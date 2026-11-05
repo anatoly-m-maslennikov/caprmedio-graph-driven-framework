@@ -1,11 +1,10 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/caprmedio/Extension//FPF
-  depends_on:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis & Advisory/Type:
-    Analysis Report'
+topics:
+  main_subject: Subject/caprmedio/Extension//FPF
+  dependencies:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis & Advisory/Type: Analysis Report'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
@@ -17,13 +16,16 @@ relations:
   - CA-M-290
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-content_role: Evaluation
 current_scope_unit: CORE_EXTENSIONS
 status: Active
 author: Anatoly Maslennikov
 atom_id: CA-E-468
-type: Eval Case
+ref_id: CA-E-468
 tier: 3
+role: Evaluation
+form: Eval Case
+container:
+  scope_unit: CA-SU-26
 ---
 # Verify one CAPRMEDIO-aligned FPF Extension revision
 

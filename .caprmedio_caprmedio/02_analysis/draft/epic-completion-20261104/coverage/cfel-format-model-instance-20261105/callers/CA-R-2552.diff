@@ -1,0 +1,6 @@
+--- CA-R-2552 latest binding preview
++++ caller preview
+@@
+-<Kind> selects existing instances
++<Model> is a Model reference; selected instance hosts reach it through INSTANCE_OF.
++add: no global all-$ mode; fixed Model references use Relation//NAME without $.

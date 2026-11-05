@@ -1,14 +1,15 @@
 ---
 atom_id: CA-D-622
-content_role: Delivery
-type: Eng Decision
+ref_id: CA-D-622
+role: Delivery
+form: Eng Decision
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -27,6 +28,12 @@ relations:
   depends_on:
   - CA-M-372
 tier: 4
+container:
+  scope_unit: CA-SU-18
+carrier_destination:
+  file:
+    name: CA-D-622-TOOL_WORKFLOWS-ENG_DECISION--deliver-logical-atom-and-scope-unit-connectors.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/07_delivery
 ---
 # Summary
 

@@ -7,9 +7,9 @@ llm_session_ids:
 relations:
   child_of:
   - CA-M-446
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
@@ -17,9 +17,16 @@ cce_form: permission
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-644
+ref_id: CA-R-644
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-644-CAPRMEDIO-RULE--admit-necessary-materialized-representations.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

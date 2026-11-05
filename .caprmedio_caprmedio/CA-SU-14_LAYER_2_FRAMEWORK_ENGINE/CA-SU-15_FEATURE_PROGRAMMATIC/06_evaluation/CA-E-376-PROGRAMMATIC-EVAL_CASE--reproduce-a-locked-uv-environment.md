@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
 version: 23
 updated_at: 2026-10-27 19:59:34 +0400
@@ -16,13 +16,16 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-376
-content_role: Evaluation
+ref_id: CA-E-376
+role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 tier: 5
-type: Eval Case
+form: Eval Case
+container:
+  scope_unit: CA-SU-15
 ---
 # Reproduce a locked uv environment
 

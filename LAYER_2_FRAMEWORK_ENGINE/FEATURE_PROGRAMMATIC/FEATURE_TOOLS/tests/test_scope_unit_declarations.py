@@ -143,6 +143,38 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
 
         self.assertEqual(parse_scope_unit_declaration(source.read_bytes(), source).name, "UNIT")
 
+    def test_current_main_subject_replaces_legacy_active_subject(self) -> None:
+        source = self.declaration(
+            "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
+        )
+        source.write_text(source.read_text(encoding="utf-8").replace(
+            "subjects:\n  active:", "topics:\n  main_subject:",
+        ).replace("\n  passive: []", ""), encoding="utf-8")
+
+        self.assertEqual(parse_scope_unit_declaration(source.read_bytes(), source).name, "UNIT")
+
+    def test_missing_or_ambiguous_main_subject_refuses(self) -> None:
+        source = self.declaration(
+            "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
+        )
+        current = source.read_text(encoding="utf-8")
+        missing = current.replace(
+            'subjects:\n  active: "CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT"\n  passive: []\n', "",
+        )
+        ambiguous = current.replace(
+            "subjects:\n", "topics:\n  main_subject: \"CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT\"\nsubjects:\n",
+        )
+        invalid_current = current.replace(
+            "subjects:\n", "topics:\n  main_subject: 1\nsubjects:\n",
+        )
+
+        with self.assertRaisesRegex(ScopeDeclarationError, "requires one main Subject"):
+            parse_scope_unit_declaration(missing.encode(), source)
+        with self.assertRaisesRegex(ScopeDeclarationError, "ambiguous main Subject"):
+            parse_scope_unit_declaration(ambiguous.encode(), source)
+        with self.assertRaisesRegex(ScopeDeclarationError, "ambiguous main Subject"):
+            parse_scope_unit_declaration(invalid_current.encode(), source)
+
     def test_prefixed_active_subject_wrong_branch_refuses(self) -> None:
         source = self.declaration(
             "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
@@ -215,6 +247,24 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         result = read_scope_unit_declarations(self.root, self.control.name)
         self.assertEqual(len(result.paths), 3)
         self.assertNotIn(ordinary, result.paths)
+
+    def test_vanished_ordinary_requirement_does_not_block_declaration_discovery(self) -> None:
+        self.complete_tree()
+        ordinary = self.control / "04_requirement" / "CA-R-99-ordinary.md"
+        ordinary.write_text("ordinary", encoding="utf-8")
+        reader = ReadContext(roots=[str(self.root)], limits=dict(CEILINGS))
+        original_read = reader.read
+
+        def vanish(path: Path, *, remember: bool = True) -> bytes:
+            if path == ordinary:
+                ordinary.unlink()
+            return original_read(path, remember=remember)
+
+        reader.read = vanish  # type: ignore[method-assign]
+
+        result = read_scope_unit_declarations(self.root, self.control.name, reader=reader)
+
+        self.assertEqual({"demo", "PARENT", "CHILD"}, set(result.by_name))
 
     def test_malformed_ordinary_requirement_is_outside_declaration_parser_boundary(self) -> None:
         self.complete_tree()

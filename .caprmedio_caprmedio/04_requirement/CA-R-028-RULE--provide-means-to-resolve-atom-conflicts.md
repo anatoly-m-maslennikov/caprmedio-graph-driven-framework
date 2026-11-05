@@ -7,9 +7,9 @@ llm_session_ids:
 relations:
   child_of:
   - CA-R-2157
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom
 cce_version: cce_1
@@ -17,9 +17,16 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-028
+ref_id: CA-R-028
 tier: 4
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-028-CAPRMEDIO-RULE--provide-means-to-resolve-atom-conflicts.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Provide means to resolve Atom conflicts

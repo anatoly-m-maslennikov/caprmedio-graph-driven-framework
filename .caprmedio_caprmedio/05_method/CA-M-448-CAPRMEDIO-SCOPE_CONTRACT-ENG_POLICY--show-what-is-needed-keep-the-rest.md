@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
 version: 4
 updated_at: 2026-11-02 00:18:22 +0400
@@ -13,11 +13,18 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-448
+ref_id: CA-M-448
 status: Active
 current_scope_unit: caprmedio
 tier: 0
 role: Method
 form: Eng Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-448-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--show-what-is-needed-keep-the-rest.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 

@@ -1,15 +1,16 @@
 ---
 atom_id: CA-R-1847
-content_role: Requirement
+ref_id: CA-R-1847
+role: Requirement
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 23
 updated_at: 2026-11-02 19:46:47 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
@@ -18,9 +19,14 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
-type: Rule
+form: Rule
 tier: 3
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-R-1847-MCP-RULE--expose-selected-workflow-capability-routes.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
 ---
 # Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2320
-content_role: Plan
-type: Plan
+ref_id: CA-P-2320
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Project.Settings
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Project.Settings
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Project.Settings
@@ -23,6 +24,12 @@ relations:
   is_decomposition_of:
   - CA-P-2272
 tier: 3
+container:
+  atom: CA-P-2272
+carrier_destination:
+  file:
+    name: 1-CA-P-2320-TASK--align-canonical-settings-filename.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done
 ---
 # Summary
 

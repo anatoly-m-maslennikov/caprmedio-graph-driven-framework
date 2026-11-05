@@ -1,11 +1,12 @@
 ---
 atom_id: CA-M-385
+ref_id: CA-M-385
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
@@ -18,6 +19,12 @@ relations:
 tier: 4
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

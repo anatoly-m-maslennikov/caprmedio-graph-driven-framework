@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
 version: 25
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
@@ -13,12 +13,15 @@ relations:
   - CA-E-481
   - CA-R-030
 atom_id: CA-E-120
+ref_id: CA-E-120
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject authority cycle
 

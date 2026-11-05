@@ -1,13 +1,14 @@
 ---
 atom_id: CA-D-637@21-draft
-content_role: Delivery
+ref_id: CA-D-637@21-draft
+role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Formal Model::CAPRMEDIO::Continuant/Atom/Content Role: Requirement/Type: Graph Rule.content.claim'
-  depends_on:
+topics:
+  main_subject: 'Formal Model::CAPRMEDIO::Continuant/Atom/Content Role: Requirement/Type: Graph Rule.content.claim'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Rule.Type
   - Subject/CAPRMEDIO/Graph/Rule.Applies To
   - Subject/CAPRMEDIO/Graph/Rule.Condition
@@ -15,11 +16,12 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement/Type: Graph Rule'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Carrier/File
-relations: {}
 version: 21
 updated_at: 2026-10-28 19:24:50 +0400
 tier: 1
-type: Eng Decision
+form: Eng Decision
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

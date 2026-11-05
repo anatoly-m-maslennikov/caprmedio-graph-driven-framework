@@ -7,9 +7,9 @@ relations:
   child_of:
   - CA-M-446
   - CA-M-006
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Project
@@ -17,11 +17,18 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-105
+ref_id: CA-M-105
 status: Active
 current_scope_unit: caprmedio
 tier: 1
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-105-CAPRMEDIO-IMPLEMENTATION_METHOD--one-concept-one-definition.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 

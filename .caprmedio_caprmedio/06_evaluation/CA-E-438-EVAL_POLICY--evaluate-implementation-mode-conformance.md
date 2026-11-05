@@ -9,9 +9,9 @@ relations:
   evaluation_for:
   - CA-M-266
   - CA-M-262
-subjects:
-  active: CAPRMEDIO_MODEL <+ Package/Implementation
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Package/Implementation
@@ -23,11 +23,18 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-438
+ref_id: CA-E-438
 status: Active
 current_scope_unit: caprmedio
 tier: 3
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-E-438-CAPRMEDIO-EVAL_POLICY--evaluate-implementation-mode-conformance.md
+    path: .caprmedio_caprmedio/06_evaluation
 ---
 ## Summary
 Evaluate implementation mode conformance

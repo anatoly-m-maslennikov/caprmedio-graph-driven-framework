@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1123
-content_role: Plan
-type: Plan
+ref_id: CA-P-1123
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: FRAMEWORK_ENGINE
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
 version: 11
@@ -25,6 +26,12 @@ relations:
   - CA-P-1124
   - CA-P-1147
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 6-CA-P-1123-TASK--build-and-verify-docker-images-for-the-complete-runtime.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
 ---
 # Summary
 

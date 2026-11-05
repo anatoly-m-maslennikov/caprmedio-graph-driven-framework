@@ -1,22 +1,25 @@
 ---
 atom_id: CA-E-677
+ref_id: CA-E-677
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 version: 8
 role: Evaluation
 form: Eval Case
 tier: 5
 carrier_destination:
   file:
-    name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
+    name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-changes-and-repaired-validity.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation
 relations:
   evaluation_for: [CA-R-2723, CA-R-2725, CA-M-465, CA-D-672, CA-D-675]
 updated_at: 2026-11-04 23:19:17 +0400
+container:
+  scope_unit: CA-SU-45
 ---
 ## Summary
 

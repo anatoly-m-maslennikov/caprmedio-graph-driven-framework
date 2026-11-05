@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1631
-content_role: Plan
-type: Plan
+ref_id: CA-P-1631
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 40
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Release
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release
+  dependencies:
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Continuant/Tool
@@ -29,6 +30,12 @@ relations:
   - CA-P-1123
   - CA-P-1124
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 40-CA-P-1631-TASK--align-final-coverage-plans-with-release-version.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
 ---
 # Summary
 

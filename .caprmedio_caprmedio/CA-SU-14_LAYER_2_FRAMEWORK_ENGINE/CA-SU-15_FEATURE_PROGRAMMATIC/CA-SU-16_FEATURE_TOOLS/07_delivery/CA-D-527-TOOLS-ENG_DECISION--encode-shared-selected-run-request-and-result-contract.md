@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-527
-content_role: Delivery
+ref_id: CA-D-527
+role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 19:59:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -21,8 +22,14 @@ relations:
   - CA-R-1821
   - CA-R-1822
   - CA-R-1823
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-D-527-TOOLS-ENG_DECISION--encode-shared-selected-run-request-and-result-contract.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
 ---
 # Summary
 

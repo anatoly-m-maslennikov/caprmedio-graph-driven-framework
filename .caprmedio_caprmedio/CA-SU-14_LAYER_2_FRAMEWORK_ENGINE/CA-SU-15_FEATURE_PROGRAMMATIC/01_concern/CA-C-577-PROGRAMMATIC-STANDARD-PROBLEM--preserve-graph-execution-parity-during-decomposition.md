@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-577
-content_role: Concern
-type: Problem
+ref_id: CA-C-577
+role: Concern
+form: Problem
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
@@ -9,13 +10,14 @@ global_tier: 8
 author: Anatoly Maslennikov
 status: Resolved
 priority: high
-subjects:
-  governs: Entity/Node/Continuant/Implementation
-  depends_on: []
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about: [CA-P-2589, CA-P-2590, CA-P-2595, CA-E-539, CA-E-540, CA-M-403, CA-M-405]
 version: 2
 updated_at: "2026-10-22T11:38:21Z"
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

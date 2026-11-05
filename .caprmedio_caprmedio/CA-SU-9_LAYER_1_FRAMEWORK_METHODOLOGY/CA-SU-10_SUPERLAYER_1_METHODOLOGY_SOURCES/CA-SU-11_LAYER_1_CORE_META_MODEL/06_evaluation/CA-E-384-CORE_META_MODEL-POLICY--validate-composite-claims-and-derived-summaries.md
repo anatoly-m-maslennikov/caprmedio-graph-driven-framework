@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
@@ -19,12 +19,19 @@ relations:
   - CA-R-2499
   - CA-R-1273
 atom_id: CA-E-384
+ref_id: CA-E-384
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-384-CORE_META_MODEL-EVAL_POLICY--validate-composite-claims-and-derived-summaries.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

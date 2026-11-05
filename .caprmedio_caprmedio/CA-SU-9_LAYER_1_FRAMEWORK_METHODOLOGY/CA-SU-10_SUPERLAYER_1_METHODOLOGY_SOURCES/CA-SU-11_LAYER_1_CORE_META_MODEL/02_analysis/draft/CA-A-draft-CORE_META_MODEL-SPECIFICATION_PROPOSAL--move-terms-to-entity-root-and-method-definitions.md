@@ -1,17 +1,18 @@
 ---
 atom_id: CA-A-draft
-content_role: Analysis
-type: Specification Proposal
+role: Analysis
+form: Specification Proposal
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Entity/Term
+topics:
+  main_subject: Entity/Term
 version: 1
 updated_at: 2026-10-30 14:16:41 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-289
-content_role: Concern
-type: Problem
+ref_id: CA-C-289
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
@@ -13,6 +14,8 @@ updated_at: "2026-10-04 06:19:35 +0400"
 relations:
   concern_about:
     - CA-P-1117
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

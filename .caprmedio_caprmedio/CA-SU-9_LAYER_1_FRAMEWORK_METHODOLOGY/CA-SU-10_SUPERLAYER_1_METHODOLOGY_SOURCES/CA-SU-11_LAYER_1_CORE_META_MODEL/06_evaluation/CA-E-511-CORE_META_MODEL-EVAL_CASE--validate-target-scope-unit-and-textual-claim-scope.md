@@ -1,14 +1,15 @@
 ---
 atom_id: CA-E-511
+ref_id: CA-E-511
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Scope Unit
 version: 23
@@ -26,6 +27,12 @@ relations:
 tier: 4
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-511-CORE_META_MODEL-EVAL_CASE--validate-target-scope-unit-and-textual-claim-scope.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

@@ -1,19 +1,20 @@
 ---
-subjects:
-  governs: "Entity/Node/Continuant/Atom.Version Number"
-  depends_on:
+topics:
+  main_subject: "Entity/Node/Continuant/Atom.Version Number"
+  dependencies:
     - "Entity/Node/Continuant/Atom"
 version: 1
 updated_at: "2026-10-22T01:39:08+04:00"
-relations: {}
-content_role: Requirement
-type: Graph Rule
+role: Requirement
+form: Graph Rule
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: Core
 global_tier: 9
 status: Draft
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

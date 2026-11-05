@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
   - Subject/CAPRMEDIO/Carrier
 version: 14
@@ -16,12 +16,19 @@ relations:
   - CA-D-480
   - CA-R-1136
 atom_id: CA-E-508
+ref_id: CA-E-508
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-E-508-TOOLS-EVAL_CASE--validate-internally-carried-atom-type.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
 ---
 # Summary
 

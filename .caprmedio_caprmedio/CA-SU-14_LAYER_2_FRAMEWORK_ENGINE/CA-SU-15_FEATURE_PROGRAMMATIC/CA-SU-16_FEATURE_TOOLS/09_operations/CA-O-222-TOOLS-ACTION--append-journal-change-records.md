@@ -1,21 +1,27 @@
 ---
 atom_id: CA-O-222
-content_role: Operations
+ref_id: CA-O-222
+role: Operations
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
-type: Action
+form: Action
 status: Active
 author: Anatoly Maslennikov
 version: 8
 updated_at: 2026-10-27 19:59:48 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-O-222-TOOLS-ACTION--append-journal-change-records.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/09_operations
 ---
 # Summary
 

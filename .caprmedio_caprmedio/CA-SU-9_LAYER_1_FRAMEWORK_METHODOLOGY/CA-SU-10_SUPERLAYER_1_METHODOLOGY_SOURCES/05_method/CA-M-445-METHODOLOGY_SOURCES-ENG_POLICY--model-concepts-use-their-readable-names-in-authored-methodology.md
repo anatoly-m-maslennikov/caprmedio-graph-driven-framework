@@ -1,21 +1,27 @@
 ---
 atom_id: CA-M-445
+ref_id: CA-M-445
 current_scope_unit: METHODOLOGY_SOURCES
 claim_target_scope_unit: METHODOLOGY_SOURCES
 status: Active
 tier: 3
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Text Writing Style
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Text Writing Style
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   - CAPRMEDIO_MODEL <+ Carrier
-relations: {}
 role: Method
 form: Eng Policy
+container:
+  scope_unit: CA-SU-10
+carrier_destination:
+  file:
+    name: CA-M-445-METHODOLOGY_SOURCES-ENG_POLICY--model-concepts-use-their-readable-names-in-authored-methodology.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/05_method
 ---
 ## Summary
 

@@ -6,9 +6,9 @@ relations:
   - CA-R-004
   evaluation_for:
   - CA-R-004
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
@@ -16,11 +16,18 @@ cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-228
+ref_id: CA-E-228
 status: Active
 current_scope_unit: caprmedio
 tier: 5
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-E-228-CAPRMEDIO-EVAL_POLICY--evaluate-operator-control-over-the-caprmedio-instance.md
+    path: .caprmedio_caprmedio/06_evaluation
 ---
 ## Summary
 

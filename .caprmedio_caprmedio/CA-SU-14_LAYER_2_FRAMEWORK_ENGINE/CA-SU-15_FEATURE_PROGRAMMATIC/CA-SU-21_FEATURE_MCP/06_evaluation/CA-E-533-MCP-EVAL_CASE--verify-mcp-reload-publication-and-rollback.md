@@ -1,15 +1,16 @@
 ---
 atom_id: CA-E-533
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-533
+role: Evaluation
+form: Eval Case
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -17,6 +18,12 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-E-533-MCP-EVAL_CASE--verify-mcp-reload-publication-and-rollback.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
 # Summary
 

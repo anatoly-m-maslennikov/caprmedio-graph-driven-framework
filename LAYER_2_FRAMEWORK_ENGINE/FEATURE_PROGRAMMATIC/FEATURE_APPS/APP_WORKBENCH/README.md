@@ -7,20 +7,21 @@ The MCP endpoint is `/caprmedio/mcp`; health is `/caprmedio/health`.
 
 MCP tools:
 
-- `query_run(sql, page_size=100, cursor_position?, save=false, preview?, name?)` returns selected `sql`, a `query_id`, original column metadata,
+- `query_run(sql, page_size=100, cursor_position?, save=false, preview?, name?)` returns original `sql`, a `query_id`, original column metadata,
   positional rows, total counts, offset and `has_more`.
-- `query_page(query_id, offset, page_size=100)` reads the same result without
+- `query_page(query_id, offset, page_size=100, grid?)` reads the same result without
   re-executing SQL. The maximum page size is 1,000.
-- `query_check(sql, cursor_position?)` returns selected `sql`, validity and exact counts without transferring all rows.
+- `query_check(sql, cursor_position?)` returns original `sql`, validity and exact counts without transferring all rows.
 - `query_schema()` returns table/column names and types for completion.
-- `view_save(sql, name?)` saves a whole multi-query script with an optional name.
+- `view_save(sql, name?)` saves the View query text with an optional name.
 - `query_load(reference)` opens a saved ID or full URL without executing it.
 - `query_saved_list(limit=20)` lists the most recent saved queries and Views.
+- `workbench_status()` reads `{syncing, last_synced_at}` without starting the backend.
 - `workbench_restart()` restarts only this Project's Workbench index and query owner.
 - `workbench_reread()` discards the derived DuckDB database and rebuilds it from source, including changed table schemas.
 
 `preview=N` returns at most N rows while preserving an existing SQL LIMIT;
-omitting it adds no limit. `save=true` saves the exact original selected SQL
+omitting it adds no limit. `save=true` saves the exact original SQL
 only after a successful Run. Preview never changes saved SQL. An optional `name`
 requires `save=true`. If saving fails after Run succeeds, the normal response
 keeps its rows and query ID and includes `outcome: "partial"` and `save_error`,
@@ -56,7 +57,7 @@ columns and query-result IDs do not survive. Source files, saved queries,
 Views and their Journal remain unchanged. Failure reports unavailable;
 there is no automatic retry or fallback to the old database.
 
-Ordinary Run and Check do not create permanent saved-item IDs. Every actual Run records SQL, success/fail, error and row/column counts in the separate runtime query log; Check does not. Log records expire after seven days on use and contain no result rows. Saved Views do not expire. Run & Save and Save View
+Ordinary Run and Check do not create permanent saved-item IDs. Every actual Run records SQL, success/fail, error and row/column counts in the separate runtime query log; Check does not. Log records expire after two days (48 hours) on use and contain no result rows. New records append directly to UTC-hour NDJSON batches under `.caprmedio_runtime/workbench/query_log/`; retained entries in the old `query-log.json` remain readable without rewriting that file. Saved Views do not expire. Run & Save and Save View
 create immutable entries in the configured Project Journal, in date-partitioned
 `workbench-saved-items-…-part-N.ndjson` files. Each entry has a canonical UUIDv7,
 kind, exact SQL, optional name and save timestamp. Parts hold about 1,000 entries
@@ -64,13 +65,10 @@ under concurrent appends. Existing runtime `q_….sql` and `w_….json` files re
 read-only compatibility sources; their IDs and URLs keep working.
 A saved URL uses `?query=<id>`. Saved entries are not renamed.
 
-Each editor tab is a View. Run, Check and Run & Save select the statement at the
-cursor; Save View saves the whole script. Semicolons inside SQL literals or
-comments do not split statements. MCP callers may pass `cursor_position` in
-UTF-16 code units; without it, the submitted SQL is used unchanged.
+Each editor tab is a View containing one query. Run, Check and Run & Save validate the whole query and reject multiple statements. Save View preserves its exact query text, including unfinished edits. Semicolons inside SQL literals or comments are allowed. Optional `cursor_position` is validated UTF-16 editor metadata and never selects a statement.
 Cmd+Enter runs and Shift+Cmd+Enter checks. Cmd+P opens the searchable command
 palette for every current UI action. Arrow Up/Ctrl+P and Arrow Down/Ctrl+N move
-the selection; Enter chooses and Escape closes. Settings contains Theme and Zoom.
+the selection; Enter chooses and Escape closes. Settings contains Theme, Text zoom, Interface zoom, Density and result display preferences. Defaults are System, 100%, 100%, and Compact only for explicit `embedded=1` URLs; standalone defaults to Comfortable. Explicit saved preferences win.
 The standalone Workbench chat is disabled; use native Codex chat.
 The next utility tab lists saved queries and Views. Open Saved is available only in the command palette: Cmd+P, choose Open Saved,
 paste an ID or URL, then Enter.
@@ -95,10 +93,7 @@ SessionStart session ID and the existing CAPRMEDIO MCP connection; it adds no
 standalone chat or second server. Local packaging does not install or trust it
 in Codex automatically.
 
-`workspace_open(session_id)` initializes or resumes one Workspace for that native
-chat and Project. Open its `workspace_url` in Codex's native browser beside the
-chat. The URL uses `?workspace=<session_id>`. Existing unbound browser drafts stay
-separate. `workspace_list` and `workspace_get` inspect known state.
+`workspace_open(session_id)` initializes or resumes a Workspace. Embedded Workbench uses the native Codex chat ID; standalone uses its own persisted browser Session ID. An explicit `?workspace=<id>` selects that Workspace. The plugin appends `embedded=1` for placement beside the native chat. Both interfaces use the same Workspace/View API. Existing unbound standalone browser drafts migrate once without executing SQL and remain locally preserved until accepted. `workspace_list` and `workspace_get` inspect known state.
 
 Use `view_create` (first/last), `view_list`, `view_get`, `view_update`, `view_run`,
 `view_check`, `view_fetch`, `view_focus`, `view_rename`, `view_remove` and `view_save`
@@ -113,7 +108,7 @@ The shared HTTP representation is POST `/interface` under the Project Workbench
 URL, with `{operation, arguments}` and the existing outer Project binding.
 
 Web POST endpoints are `/caprmedio/workbench/<project_name>/run`, `/page`, `/check`,
-`/schema`, `/view-save`, `/load` and `/saved-list`. Run & Save uses `/run`
+`/schema`, `/status`, `/view-save`, `/load` and `/saved-list`. Run & Save uses `/run`
 with `save=true`; there is no separate `/save` or MCP `query_save` operation.
 A mismatched Project name returns 404. Static assets stay under `/caprmedio/workbench/assets`.
 A shared MCP server also requires `project_root`.
@@ -148,9 +143,9 @@ The index stores parsed YAML, Markdown sections and derived relations in the reb
 `.caprmedio_runtime/workbench/projection.duckdb` database. Query results stay
 stable across source refresh and are discarded at restart. Spill files remain
 in the same owned runtime directory; source files stay authoritative.
-`watchfiles` watches only the selected repository's CAPRMEDIO source folder,
+`watchdog` watches only the selected repository's CAPRMEDIO source folder,
 even when a larger parent folder is mounted.
-Invalid or ambiguous sources are excluded and reported to stderr.
+Invalid or ambiguous Atom sources are excluded and reported to stderr. Invalid Current Scope Unit Declarations stop indexing until corrected and explicitly restarted. Native watcher events are retained in the technical `change_log` table and NDJSON log for 48 hours or 100,000 rows, whichever removes them first. Moves and renames come from native watcher events. The header shows synchronization status and the last successful sync in local time.
 
 SQL is trusted Operator input. The runtime admits one native read query and
 materializes it through a trusted internal cache write. Public SQL cannot edit
@@ -195,3 +190,20 @@ entries in the selected test Project. No live-server URL is assumed.
 Browser test artifacts are written to `.caprmedio_tmp/workbench/browser-results`, outside application/image inputs.
 
 Result table headers show column names on their own line, with SQL types below in smaller muted text.
+
+## Result grid and retention
+
+The read-only Tabulator grid supports whole-result column filtering, multi-column sorting and one grouping column. Each group shows its exact filtered total, even across pages. Page and View Fetch accept a request-local `grid` specification using zero-based column indices. `row_count` is filtered; `source_row_count` is the original materialized count. Paging and grid changes never rerun SQL.
+
+Right-click a cell to copy or show its full value, a row to copy it, or a column to sort, group, filter or clear a filter. Display defaults to Adaptive page sizing and the first 150 characters per cell. Settings can select Fixed rows or Full content; full underlying values remain available.
+
+Each cached result is kept while younger than the configured TTL **or** its View remains open. Closing a View unpins it; editing SQL preserves its last result. A valid rerun drops the prior result before execution, including when the new query fails. Restart clears transient results but preserves saved items.
+
+The shared backend reads `.caprmedio_runtime/caprmedio_runtime_settings.toml` on start:
+
+```toml
+[workbench]
+result_ttl_seconds = 3600
+```
+
+The TTL must be a positive integer. Apply file edits with Workbench restart or full reread; this setting has no MCP editor or hot reload. Query-log retention is separate and fixed at two days.

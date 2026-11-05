@@ -1,4 +1,6 @@
-# CA-D-673@8
+# CA-D-673@13
+# CA-M-493@1
+# CA-D-697@1
 
 """Column visibility over the complete stored result, independent of pagination."""
 
@@ -19,9 +21,13 @@ def _has_value(name: str, kind: str) -> str:
     return f"count(*) FILTER (WHERE {present}) > 0"
 
 
-def result_columns(connection, table: str, columns: list[dict]) -> tuple[list[dict], int]:
+def result_columns(
+    connection, table: str, columns: list[dict], *, private_ordinal: bool = False,
+) -> tuple[list[dict], int]:
     # CTAS may rename duplicate aliases; bind counts by physical column position.
     stored_names = connection.sql(f"SELECT * FROM workbench_results.{table}").columns
+    if private_ordinal:
+        stored_names = stored_names[1:]
     counts = ", ".join(_has_value(name, column["type"])
                        for name, column in zip(stored_names, columns, strict=True))
     result = connection.execute(

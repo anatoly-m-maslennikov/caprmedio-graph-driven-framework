@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
@@ -16,6 +16,7 @@ relations:
   - CA-R-1510@18
   - CA-R-1511@22
 atom_id: CA-E-486
+ref_id: CA-E-486@24-draft
 status: Draft
 tier: 3
 role: Evaluation

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1105
-content_role: Plan
-type: Plan
+ref_id: CA-P-1105
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 14
 current_scope_unit: caprmedio
@@ -12,9 +13,9 @@ autonomous_confidence_threshold: 99
 status: Active
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Atom
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom.Content
   - Subject/Graph Rule/CCE
   - Subject
@@ -25,8 +26,13 @@ subjects:
   - Subject/Graph Node/Engineering/Autonomous Confidence Threshold
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: 14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs.md
+    path: .caprmedio_caprmedio/03_plan
 ---
 # Summary
 

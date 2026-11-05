@@ -1,12 +1,13 @@
 ---
 atom_id: CA-M-415
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-415
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
@@ -20,6 +21,12 @@ relations:
   child_of:
   - CA-M-261
 tier: 3
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-415-PROGRAMMATIC-ENG_POLICY--implement-programmatic-components-in-python.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

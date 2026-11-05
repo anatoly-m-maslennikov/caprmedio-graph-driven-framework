@@ -9,9 +9,9 @@ relations:
   evaluation_for:
   - CA-R-1407
   - CA-R-007
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term//Artifact
@@ -22,11 +22,18 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-436
+ref_id: CA-E-436
 status: Active
 current_scope_unit: caprmedio
 tier: 2
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-E-436-CAPRMEDIO-EVAL_POLICY--evaluate-graph-of-graphs-connectivity.md
+    path: .caprmedio_caprmedio/06_evaluation
 ---
 ## Summary
 Evaluate graph-of-graphs connectivity

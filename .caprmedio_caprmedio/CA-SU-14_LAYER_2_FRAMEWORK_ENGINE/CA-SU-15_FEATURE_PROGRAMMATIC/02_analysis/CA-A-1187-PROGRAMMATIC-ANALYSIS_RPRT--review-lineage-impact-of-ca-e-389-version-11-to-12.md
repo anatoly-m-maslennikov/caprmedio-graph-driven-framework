@@ -1,7 +1,8 @@
 ---
 atom_id: CA-A-1187
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1187
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
@@ -12,14 +13,16 @@ version: 2
 updated_at: 2026-11-02 15:49:28 +0400
 llm_session_ids:
 - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
-subjects:
-  governs: Lineage Impact Analysis
-  depends_on:
+topics:
+  main_subject: Lineage Impact Analysis
+  dependencies:
   - Atom
   - Atom/Revision
 relations:
   relates_to:
   - CA-E-389
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

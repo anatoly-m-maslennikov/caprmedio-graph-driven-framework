@@ -1,16 +1,22 @@
 ---
 atom_id: CA-R-2469
+ref_id: CA-R-2469
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ (Node, Node.**)
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ (Node, Node.**)
 version: 4
 updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
 tier: 3
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 
 ## Summary
@@ -23,7 +29,7 @@ Require one Declaration for each Node
 
 ```CFEL
 # instances
-Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node.**)
+Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){::1} (Node, Node.**)
 ```
 
 ### Prose Claim

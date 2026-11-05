@@ -1,12 +1,13 @@
 ---
 atom_id: CA-M-422
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-422
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
 version: 10
 updated_at: 2026-10-27 19:59:43 +0400
@@ -20,6 +21,8 @@ relations:
   - CA-R-1473
 tier: 3
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

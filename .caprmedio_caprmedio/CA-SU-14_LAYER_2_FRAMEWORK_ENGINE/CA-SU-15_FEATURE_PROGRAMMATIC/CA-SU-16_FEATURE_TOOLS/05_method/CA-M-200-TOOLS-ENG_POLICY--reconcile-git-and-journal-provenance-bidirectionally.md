@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
 version: 17
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -13,12 +13,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-200
+ref_id: CA-M-200
 status: Active
-content_role: Method
+role: Method
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eng Policy
+form: Eng Policy
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reconcile Git and Journal provenance bidirectionally
 

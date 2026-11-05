@@ -1,5 +1,6 @@
 ---
 atom_id: CA-M-475
+ref_id: CA-M-475@2-draft
 current_scope_unit: WORKBENCH_CODEX
 claim_target_scope_unit: WORKBENCH_CODEX
 status: Draft
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Method
 form: Eng Decision
 tier: 4
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
 relations:
   method_for:
   - CA-R-2791

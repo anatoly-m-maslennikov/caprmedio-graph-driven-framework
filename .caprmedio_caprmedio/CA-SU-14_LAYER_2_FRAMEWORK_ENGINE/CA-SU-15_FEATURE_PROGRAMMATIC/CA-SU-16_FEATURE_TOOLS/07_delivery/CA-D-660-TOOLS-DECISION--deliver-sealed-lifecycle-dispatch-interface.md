@@ -1,13 +1,14 @@
 ---
 atom_id: CA-D-660
-content_role: Delivery
+ref_id: CA-D-660
+role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
@@ -17,8 +18,14 @@ relations:
   delivery_for:
   - CA-R-1825
   - CA-R-1827
-type: Decision
+form: Decision
 tier: 4
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-D-660-TOOLS-DECISION--deliver-sealed-lifecycle-dispatch-interface.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
 ---
 ## Summary
 

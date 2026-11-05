@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-623
+ref_id: CA-C-623
 role: Concern
 form: Question
 status: Active
@@ -8,11 +9,16 @@ updated_at: 2026-11-02 08:06:47 +0400
 current_scope_unit: CORE_META_MODEL
 tier: 3
 priority: medium
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
-relations: {}
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-C-623-CORE_META_MODEL-QUESTION--should-a-future-model-support-non-property-bearer-dependence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern
 ---
 
 ## Summary

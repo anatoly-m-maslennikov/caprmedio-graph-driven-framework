@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1538
-content_role: Plan
-type: Plan
+ref_id: CA-P-1538
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Query Filter Contract
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Query Filter Contract
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Evaluation
@@ -23,6 +24,12 @@ relations:
   blocks:
   - CA-P-1525
 tier: 3
+container:
+  atom: CA-P-1525
+carrier_destination:
+  file:
+    name: 2-CA-P-1538-TASK--complete-shared-filter-semantics-and-bounds.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/8-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/done/5-CA-P-1525-TASK--implement-artifact-query-tool
 ---
 # Summary
 

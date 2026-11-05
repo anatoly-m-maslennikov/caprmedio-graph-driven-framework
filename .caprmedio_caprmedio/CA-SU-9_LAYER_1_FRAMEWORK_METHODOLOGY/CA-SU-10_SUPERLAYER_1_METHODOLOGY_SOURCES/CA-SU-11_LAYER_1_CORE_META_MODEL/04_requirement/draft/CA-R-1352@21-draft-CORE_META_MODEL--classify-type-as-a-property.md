@@ -1,19 +1,21 @@
 ---
-subjects:
-  governs: Entity/Term//Type
-  depends_on:
+topics:
+  main_subject: Entity/Term//Type
+  dependencies:
   - Entity/Term//Property
 version: 21
 updated_at: 2026-10-29 23:03:04 +0400
-relations: {}
 atom_id: CA-R-1352@21-draft
-content_role: Requirement
+ref_id: CA-R-1352@21-draft
+role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 tier: 1
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

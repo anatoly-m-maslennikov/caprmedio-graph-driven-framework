@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
-  depends_on:
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Relation
   - Subject
 version: 22
@@ -16,12 +16,15 @@ relations:
   - CA-E-481
   - CA-R-1137
 atom_id: CA-E-112
+ref_id: CA-E-112
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject self relation
 

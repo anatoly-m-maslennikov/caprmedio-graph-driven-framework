@@ -1,21 +1,28 @@
 ---
 atom_id: CA-R-1930
-content_role: Requirement
+ref_id: CA-R-1930
+role: Requirement
 current_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 20:00:05 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool.Self Description
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool.Self Description
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication/API
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 tier: 1
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-R-1930-TOOLS-RULE--require-uniform-tool-self-description.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement
 ---
 # Summary
 

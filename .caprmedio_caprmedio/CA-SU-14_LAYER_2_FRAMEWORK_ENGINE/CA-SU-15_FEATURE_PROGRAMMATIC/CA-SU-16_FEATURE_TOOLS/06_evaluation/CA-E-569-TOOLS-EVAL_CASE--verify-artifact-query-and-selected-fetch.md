@@ -1,16 +1,17 @@
 ---
 atom_id: CA-E-569
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-569
+role: Evaluation
+form: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-11-02 19:46:47 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - 'Subject/CAPRMEDIO/Carrier/File.Format: Markdown'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
@@ -20,6 +21,12 @@ relations:
   - CA-R-1849
   - CA-R-1850
 tier: 4
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-E-569-TOOLS-EVAL_CASE--verify-artifact-query-and-selected-fetch.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
 ---
 # Summary
 

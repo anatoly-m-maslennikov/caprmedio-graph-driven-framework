@@ -1,16 +1,17 @@
 ---
 atom_id: CA-M-413
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-413@12-draft
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-version: 11
-updated_at: 2026-10-27 19:59:43 +0400
+version: 12
+updated_at: 2026-11-05 23:05:59 +0400
 cce_version: cce_1
 cce_form: method
 relations:
@@ -22,6 +23,12 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 tier: 4
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-413-PROGRAMMATIC-ENG_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 
@@ -30,6 +37,8 @@ Define typed contracts at replaceable technical boundaries
 declare an explicit typed contract wherever a PROGRAMMATIC component depends on
 a replaceable technical implementation, adapter, transport, storage mechanism,
 **or** host boundary.
+
+When the boundary carries user-edited or externally applied mutable state, the contract must distinguish a user's requested change, the applied external state and the acknowledged state, including whether a value is unsaved or synced. At a paged or shared-result boundary, it must identify one owner and one snapshot for rows, page counts, complete or source counts, filters, sort order and values, including null, Unicode and hidden values. Delayed or reordered acknowledgements from two clients must not mix snapshots or let one client overwrite the other.
 
 ## Details
 
@@ -43,9 +52,14 @@ technical implementation for another **or** crosses a host-owned interface.
 ## Procedure
 
 1. define the accepted inputs, outcomes, failure values, ownership boundary,
-   **and** compatibility expectation at the interface.
+   **and** compatibility expectation at the interface. When the boundary carries
+   user-edited or externally applied mutable state, state how requested,
+   applied and acknowledged changes differ, and whether each value is unsaved
+   or synced.
 2. keep callers dependent on that contract rather than on implementation-only
-   state **or** incidental representation.
+   state **or** incidental representation. For paged data, keep rows, counts,
+   filters and sort results tied to one owner and snapshot so delayed or
+   reordered client acknowledgements cannot combine generations.
 3. use a structural `Protocol` **when** consumers need one capability contract
    **without** requiring implementations **to** inherit from a framework base class.
 4. keep substrate-specific behavior **in** a small adapter **and** keep deterministic

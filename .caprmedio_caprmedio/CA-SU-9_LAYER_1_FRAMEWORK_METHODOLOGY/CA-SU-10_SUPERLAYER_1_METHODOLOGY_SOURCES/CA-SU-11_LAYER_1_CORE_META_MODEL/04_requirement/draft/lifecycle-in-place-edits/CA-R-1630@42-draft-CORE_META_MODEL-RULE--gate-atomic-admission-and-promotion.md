@@ -22,8 +22,6 @@ Gate atomic admission and promotion
 
 ### Prose Claim
 
-CAPRMEDIO **must** admit and promote a Draft only when Project authority and the applicable permissions authorize the requested operation and the selected qualified model accepts the Draft for its intended Scope and target identity.
+Admission and promotion check only required-field presence, declared property and Claim formats, and values allowed by Project rules. They have no AI semantic-quality, approval, classification, or history-proof gate. Do not fabricate lineage to admit an operation.
 
-A valid Draft admission checks ordinary authorization/security, expected source/currentness, owning Scope/Project authority, applicable model, mandatory fields, Claim structure, filename/location consistency, and identity/collision constraints. An unmet or ambiguous check returns an explicit error; no new record or confirmation is required.
-
-Promotion reads the Draft marker. An existing-Atom marker retains its canonical ID and proposed Version; a role-only Draft receives a fresh canonical ID at publication and publishes Version 1. Promotion does not silently change Tier or Scope. Identity and Version behavior follow CA-R-1432; `updated_at` initialization, refresh, and retention follow CA-R-1788.
+[CA-R-1432](CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) governs write-boundary protections, semantic identity/Version outcomes, and Scope/Tier constraints; [CA-R-1788](CA-R-1788@19-draft-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md) governs timestamps; [CA-R-807](CA-R-807@35-draft-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md) governs Journal observations.

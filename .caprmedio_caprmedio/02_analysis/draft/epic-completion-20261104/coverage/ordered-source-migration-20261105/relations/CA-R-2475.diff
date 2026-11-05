@@ -1,0 +1,24 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/relations/CA-R-2475.preview.txt
+@@ -28,16 +28,15 @@
+ # model
+ $host ((NARROWER_THAN)) $target;
+ 
+-$direct[<Relation>, (.Name = NARROWER_THAN)];
+-$inverse[<Relation>, (.Name = HAS_NARROWER)];
+ 
+-$direct ((HAS_INVERSE)) $inverse;
+ 
+-alias($direct) == "//";
++Relation//HAS_NARROWER ((IS_INVERSE_ALIAS_FOR)) Relation//NARROWER_THAN;
+ 
+-$direct ((HAS_CLASSIFICATION)) Derivation == Direct
++alias(Relation//HAS_NARROWER) == "//";
++
++Relation//NARROWER_THAN ((HAS_CLASSIFICATION)) Derivation == Direct
+ ```
+ 
+ ### Prose Claim
+ 
+-NARROWER_THAN relates a narrower MODEL kind to a broader MODEL kind. A Property does not narrow. Both endpoints are MODEL kinds; Property bearers and instance populations do not become kinds through this notation. The narrower kind inherits applicable Relation and Property constraints without cloning declarations or instance facts. HAS_NARROWER is its derived inverse. In `X//Y`, Y is narrower than X; traversal runs from broader to narrower.
++NARROWER_THAN relates a narrower MODEL kind to a broader MODEL kind. A Property does not narrow. Both endpoints are MODEL kinds; Property bearers and instance populations do not become kinds through this notation. The narrower kind inherits applicable Relation and Property constraints without cloning declarations or instance facts. HAS_NARROWER is its inverse alias. In `X//Y`, Y is narrower than X; traversal runs from broader to narrower.

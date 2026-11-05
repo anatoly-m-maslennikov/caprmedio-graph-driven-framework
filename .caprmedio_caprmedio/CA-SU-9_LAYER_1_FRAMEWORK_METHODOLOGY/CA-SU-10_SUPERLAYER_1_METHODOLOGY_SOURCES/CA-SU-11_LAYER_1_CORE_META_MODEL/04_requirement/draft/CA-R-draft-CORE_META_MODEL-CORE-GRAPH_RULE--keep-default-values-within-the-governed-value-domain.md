@@ -1,19 +1,20 @@
 ---
-content_role: Requirement
-type: Graph Rule
+role: Requirement
+form: Graph Rule
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: Core
 global_tier: 9
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Entity/Graph Rule.Default Value
-  depends_on:
+topics:
+  main_subject: Entity/Graph Rule.Default Value
+  dependencies:
     - Entity/Graph Rule.Condition
-relations: {}
 version: 1
 updated_at: "2026-10-22T01:39:08+04:00"
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

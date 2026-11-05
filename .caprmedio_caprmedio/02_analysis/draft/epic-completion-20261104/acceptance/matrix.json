@@ -414,7 +414,7 @@
     {
       "requirement_id": "P2694: source history/publication",
       "explicit_requirement": "Preserve source history, exact predecessor links and identity/metadata rules for adopted changes. P2694 separately requires the declared checkpoint push and final checked changes pushed to amm/dev; P2707 alone does not imply a release, commit or push.",
-      "live_evidence": "Manual source batches have plan/receipt and independent readback evidence, including exact predecessor preservation. P2694@74 and P2707@10 remain Active. The local origin/amm/dev tracking ref was observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18; this is a source checkpoint, not the final checked push. Seven current published views are pinned to the 1,167-source selected frontier.",
+      "live_evidence": "Manual source batches have plan/receipt and independent readback evidence, including exact predecessor preservation. P2694@76 and P2707@10 remain Active. The local origin/amm/dev tracking ref was observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18; this is a source checkpoint, not the final checked push. Seven current published views are pinned to the 1,167-source selected frontier.",
       "gap_or_limit": "Final source/archive and published-view pins, all required external gates, and a final checked push still require verification. A local remote-tracking ref is not a fresh network observation, release, native Workflow admission or Journal append.",
       "gate_command_or_check": "Verify declaration checkpoint and final checked changes are committed/pushed to amm/dev with matching local/remote evidence; no release required.",
       "dependencies": [
@@ -440,7 +440,7 @@
     {
       "requirement_id": "P2704–P2709: status and closure boundary",
       "explicit_requirement": "Do not mark Epic Done until all explicit requirements/gates pass or Operator-approved deferrals are recorded; P2707 retains existing verification scope.",
-      "live_evidence": "P2694@74 and P2707@10 are Active. P2704–2706/P2709 retain their reported task results; subsequently adopted source batches and seven pinned views are bounded progress, not final integration evidence.",
+      "live_evidence": "P2694@76 and P2707@10 are Active. P2704–2706/P2709 retain their reported task results; subsequently adopted source batches and seven pinned views are bounded progress, not final integration evidence.",
       "gap_or_limit": "P2707 final stable suite, launcher, Docker query/status, W10, scope-field disposition, MODEL/consumer decisions, final views and final branch push remain open. Workbench and Workflow work belongs to their owners; no gate is waived.",
       "gate_command_or_check": "Final acceptance review against every row; update stale P2694/P2707 narratives before status transition; no status change included here.",
       "dependencies": [
@@ -461,7 +461,7 @@
     }
   ],
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
-  "reviewed_plan_quality": "P2694@74 and P2707@10 remain Active. All 23 original acceptance groups and required external gates remain in force.",
+  "reviewed_plan_quality": "P2694@76 and P2707@10 remain Active. All 23 original acceptance groups and required external gates remain in force.",
   "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-journal-passive-20261105/generation-manifest.json",
   "current_epic_version": 69,
   "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/defer-run-properties-20261105/adoption-receipt.json",
@@ -479,7 +479,7 @@
   },
   "historical_frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-cfel-frontier.json",
   "latest_container_decision": {
-    "epic": "CA-P-2694@74",
+    "epic": "CA-P-2694@76",
     "state": "SOURCE_CONTRACT_AND_MIGRATION_PENDING",
     "container": "Exactly one mapping key: scope_unit with a stable Scope Unit ID or atom with an Atom ID. Relations optional, no duplicate stored containment; formal IS_CONTAINED_BY/CONTAINS remain.",
     "path_encoding": "ScopeUnit.Path R2530@3 is a separate proposal, not a Container prerequisite; names and paths are not reference identity.",
@@ -650,16 +650,26 @@
       "entities_with_missing": 48
     },
     "root_drafts": "10 staged, not promoted",
-    "plans": "P2694@74 and P2707@10 Current; exact predecessors preserved"
+    "plans": "P2694@76 and P2707@10 Current; exact predecessors preserved"
   },
-  "latest_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-canonical-alias-plan-update-20261105/adoption-receipt.json",
-  "latest_plan_receipt_note": "P2694@74 and P2707@10 Current; previous plan receipts are historical.",
+  "latest_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/topics-plan-wording-fix-20261105/adoption-receipt.json",
+  "latest_plan_receipt_note": "P2694@76 and P2707@10 Current; exact P2694@75 predecessor preserved.",
   "latest_cfel_relation_decision": {
     "canonical": "One canonical Relation Declaration; inverse aliases are syntactic sugar linked by IS_INVERSE_ALIAS_FOR.",
     "fixed_model_references": "Relation//CONTAINS style; no $ binding for fixed Model names.",
     "atom_relations": "Atom owns Header.Relations, with Header.Container overriding inherited default.",
     "sequence": "Complete and review specification; mechanically migrate Current and Draft sources in place; then checked CA #3 handoff.",
     "draft_status": "Six specification Draft repairs and R2904 VALUES applied as Drafts; earlier 49/55/56 checkpoints superseded, not final.",
-    "checkpoint": "5e258ff14 last confirmed pushed; no Current CFEL adoption, handoff or runtime pass."
+    "checkpoint": "5e258ff14 last confirmed pushed; no Current CFEL adoption, handoff or runtime pass.",
+    "declaration_forms": "R2953–R2956@1 actual Drafts; R2248@6, R2957@1 and R2476@7 actual Drafts. Seven independently reviewed; Format extra-fact subsequently fixed via application/format-declaration-scope-fix-20261105/."
+  },
+  "latest_topics_decision": {
+    "migration": "subjects.active -> topics.main_subject; subjects.passive -> topics.dependencies",
+    "logical_properties": "Atom.Header.Topics.Main Subject and Dependencies",
+    "semantics": "Existing dependency meaning and cardinality retained; not every mention.",
+    "status": "Decision recorded; global migration not applied.",
+    "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/topics-main-subject-decision-20261105/adoption-receipt.json",
+    "open": "Canonical GOVERNS, ELSE scope and catalogue-owner binding duplication remain unresolved.",
+    "current_metadata": "subjects.active remains Current until checked rename; Main Subject supplies no implicit CFEL binding."
   }
 }

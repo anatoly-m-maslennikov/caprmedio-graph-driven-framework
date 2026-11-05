@@ -36,8 +36,7 @@ Relation//IS_CARRIED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//CARRIES;
 
 Relation//CARRIES ((HAS_CLASSIFICATION)) Derivation == Direct;
 
-# instances
-$carrier[<Carrier>] ((CARRIES)) $represented_entity
+$host ((CARRIES)) $target
 ```
 
 ### Prose Claim

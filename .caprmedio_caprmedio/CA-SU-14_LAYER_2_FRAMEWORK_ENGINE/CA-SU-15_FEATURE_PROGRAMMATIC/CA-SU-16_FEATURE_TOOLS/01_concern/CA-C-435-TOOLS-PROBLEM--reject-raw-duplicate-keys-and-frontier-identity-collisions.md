@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-435
-content_role: Concern
-type: Problem
+ref_id: CA-C-435
+role: Concern
+form: Problem
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 local_tier: Standard
@@ -10,14 +11,16 @@ status: resolved
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Journal raw identity validation
-  depends_on:
+topics:
+  main_subject: Journal raw identity validation
+  dependencies:
   - Subject/Domain/Node/Continuant/History/Journal
   - Event
   - QUERY_FILTER
 relations:
   relates_to: [CA-R-1861, CA-R-1865, CA-M-334, CA-E-577]
+container:
+  scope_unit: CA-SU-16
 ---
 # Summary
 

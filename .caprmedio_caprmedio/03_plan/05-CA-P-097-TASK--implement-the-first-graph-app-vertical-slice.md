@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Engineering/Implementation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Implementation
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Projection
   - Subject/Graph Node/Engineering/Graph Projection
   - Subject/Graph Node/Engineering/Operations
@@ -16,11 +16,14 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-097
+ref_id: CA-P-097
+container:
+  scope_unit: CA-SU-00
 ---
 # Implement the first Graph App vertical slice
 

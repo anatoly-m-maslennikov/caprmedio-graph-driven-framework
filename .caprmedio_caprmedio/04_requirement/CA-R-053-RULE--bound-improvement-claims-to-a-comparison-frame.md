@@ -8,9 +8,9 @@ relations:
   child_of:
   - CA-E-001
   - CA-R-1423
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
@@ -18,9 +18,16 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-053
+ref_id: CA-R-053
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-053-CAPRMEDIO-RULE--bound-improvement-claims-to-a-comparison-frame.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

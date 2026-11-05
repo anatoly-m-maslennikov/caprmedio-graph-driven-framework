@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
@@ -17,12 +17,19 @@ relations:
   - CA-R-1471
   - CA-R-2535
 atom_id: CA-E-466
+ref_id: CA-E-466
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-466-CORE_META_MODEL-EVAL_CASE--validate-single-source-of-truth-in-secondary-graphs.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 Validate Single Source of Truth in secondary graphs

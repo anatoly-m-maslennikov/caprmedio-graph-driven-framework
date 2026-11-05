@@ -7,18 +7,25 @@ llm_session_ids:
 relations:
   child_of:
   - CA-M-447
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-642
+ref_id: CA-R-642
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-642-CAPRMEDIO-RULE--govern-canonical-decomposition-conformance.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

@@ -1,13 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - Entity/Object/Continuant/Governing Objects/Governing Configuration
 version: 40
 updated_at: 2026-11-02 20:07:03 +0400
-relations: {}
 atom_id: CA-E-006
+ref_id: CA-E-006
 status: Active
 tier: 7
 role: Evaluation

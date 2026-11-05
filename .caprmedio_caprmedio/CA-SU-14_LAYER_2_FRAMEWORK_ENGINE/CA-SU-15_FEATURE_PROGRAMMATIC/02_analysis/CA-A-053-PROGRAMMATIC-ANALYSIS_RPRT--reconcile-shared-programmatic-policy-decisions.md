@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     occurrent:
       - Programmatic Policy Decision Reconciliation
-  depends_on:
+  dependencies:
     continuant:
       - Programmatic Policy
       - Method Authority

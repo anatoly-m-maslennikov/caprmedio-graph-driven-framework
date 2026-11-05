@@ -9,18 +9,25 @@ relations:
   - CA-R-1407
   - CA-M-447
   - CA-M-446
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-007
+ref_id: CA-R-007
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-007-CAPRMEDIO-RULE--full-minimal-traceability.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

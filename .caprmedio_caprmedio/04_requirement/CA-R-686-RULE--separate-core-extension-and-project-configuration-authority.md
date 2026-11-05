@@ -8,9 +8,9 @@ relations:
   child_of:
   - CA-M-447
   - CA-M-006
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
@@ -20,9 +20,16 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-686
+ref_id: CA-R-686
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-686-CAPRMEDIO-RULE--separate-core-extension-and-project-configuration-authority.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

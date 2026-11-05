@@ -1,8 +1,7 @@
-# CA-R-2903@1
-# CA-M-476@1
-# CA-D-681@1
+# CA-R-2903@2
+# CA-D-698@1
 
-"""Seven-day Workbench query-attempt log without result data."""
+"""Two-day Workbench query-attempt log without result data."""
 
 from __future__ import annotations
 
@@ -16,10 +15,12 @@ import uuid
 class QueryLog:
     """Persist temporary attempt metadata for one selected Project."""
 
-    _TTL = dt.timedelta(days=7)
+    _TTL = dt.timedelta(hours=48)
 
     def __init__(self, root: Path) -> None:
-        self._path = Path(root) / ".caprmedio_runtime" / "workbench" / "query-log.json"
+        runtime = Path(root) / ".caprmedio_runtime" / "workbench"
+        self._directory = runtime / "query_log"
+        self._legacy_path = runtime / "query-log.json"
 
     @staticmethod
     def _now() -> dt.datetime:
@@ -28,7 +29,9 @@ class QueryLog:
     @staticmethod
     def _record(value: object) -> dict[str, Any]:
         keys = {"log_id", "at", "sql", "outcome", "error", "row_count", "column_count"}
-        if not isinstance(value, dict) or set(value) != keys or not all(isinstance(value[key], str) for key in ("log_id", "at", "sql", "outcome")):
+        if not isinstance(value, dict) or set(value) != keys or not all(
+            isinstance(value[key], str) for key in ("log_id", "at", "sql", "outcome")
+        ):
             raise ValueError("query log is unavailable")
         if value["outcome"] not in {"success", "failed"} or value["error"] is not None and not isinstance(value["error"], str):
             raise ValueError("query log is unavailable")
@@ -37,63 +40,103 @@ class QueryLog:
                 raise ValueError("query log is unavailable")
         return dict(value)
 
-    def _read(self) -> list[dict[str, Any]]:
-        if not self._path.exists():
+    @staticmethod
+    def _at(record: dict[str, Any]) -> dt.datetime:
+        try:
+            value = dt.datetime.fromisoformat(record["at"])
+        except ValueError as error:
+            raise ValueError("query log is unavailable") from error
+        if value.tzinfo is None:
+            raise ValueError("query log is unavailable")
+        return value
+
+    def _hour_path(self, at: dt.datetime) -> Path:
+        value = at.astimezone(dt.UTC)
+        return self._directory / value.strftime("query-log-%Y-%m-%d-%H.ndjson")
+
+    def _read_hour(self, path: Path) -> list[dict[str, Any]]:
+        try:
+            lines = path.read_text(encoding="utf-8").splitlines()
+        except (OSError, UnicodeError) as error:
+            raise ValueError("query log is unavailable") from error
+        try:
+            return [self._record(json.loads(line)) for line in lines if line]
+        except json.JSONDecodeError as error:
+            raise ValueError("query log is unavailable") from error
+
+    def _read_legacy(self) -> list[dict[str, Any]]:
+        if not self._legacy_path.exists():
             return []
         try:
-            value = json.loads(self._path.read_text(encoding="utf-8"))
+            value = json.loads(self._legacy_path.read_text(encoding="utf-8"))
         except (OSError, UnicodeError, json.JSONDecodeError) as error:
             raise ValueError("query log is unavailable") from error
         if not isinstance(value, list):
             raise ValueError("query log is unavailable")
         return [self._record(item) for item in value]
 
-    def _write(self, records: list[dict[str, Any]]) -> None:
-        self._path.parent.mkdir(parents=True, exist_ok=True)
-        temporary = self._path.with_suffix(".tmp")
-        temporary.write_text(json.dumps(records, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-        temporary.replace(self._path)
+    @classmethod
+    def _retain(cls, records: list[dict[str, Any]], now: dt.datetime) -> list[dict[str, Any]]:
+        cutoff = now - cls._TTL
+        return [record for record in records if cls._at(record) > cutoff]
 
-    def _retain(self, records: list[dict[str, Any]]) -> list[dict[str, Any]]:
-        cutoff = self._now() - self._TTL
+    @staticmethod
+    def _write_hour(path: Path, records: list[dict[str, Any]]) -> None:
+        if not records:
+            path.unlink(missing_ok=True)
+            return
+        content = "".join(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n" for record in records)
+        path.write_text(content, encoding="utf-8")
+
+    def _hourly_records(self, now: dt.datetime) -> list[dict[str, Any]]:
+        if not self._directory.is_dir():
+            return []
         retained: list[dict[str, Any]] = []
-        for record in records:
-            try:
-                observed = dt.datetime.fromisoformat(record["at"])
-            except ValueError as error:
-                raise ValueError("query log is unavailable") from error
-            if observed.tzinfo is None:
-                raise ValueError("query log is unavailable")
-            if observed >= cutoff:
-                retained.append(record)
+        for path in sorted(self._directory.glob("query-log-*.ndjson")):
+            records = self._read_hour(path)
+            current = self._retain(records, now)
+            if current != records:
+                self._write_hour(path, current)
+            retained.extend(current)
         return retained
+
+    def _retained(self, now: dt.datetime) -> list[dict[str, Any]]:
+        return self._hourly_records(now) + self._retain(self._read_legacy(), now)
 
     def append(self, sql: str, result: dict[str, Any]) -> dict[str, Any]:
         if not isinstance(sql, str):
             raise ValueError("SQL must be a string")
+        now = self._now()
+        self._hourly_records(now)
         record = {
-            "log_id": str(uuid.uuid7()), "at": self._now().isoformat(), "sql": sql,
+            "log_id": str(uuid.uuid7()), "at": now.isoformat(), "sql": sql,
             "outcome": "success" if result["status"] == "success" else "failed",
             "error": result["error"], "row_count": result["row_count"], "column_count": result["column_count"],
         }
-        records = self._retain(self._read())
-        records.append(record)
-        self._write(records)
+        path = self._hour_path(now)
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            with path.open("a", encoding="utf-8") as handle:
+                handle.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
+        except (OSError, UnicodeError) as error:
+            raise ValueError("query log is unavailable") from error
         return record
 
-    def list(self, limit: object = 20) -> dict[str, list[dict[str, Any]]]:
-        if isinstance(limit, bool) or not isinstance(limit, int) or not 1 <= limit <= 1000:
+    @staticmethod
+    def _limit(value: object) -> int:
+        if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 1000:
             raise ValueError("limit must be an integer from 1 to 1000")
-        records = self._retain(self._read())
-        self._write(records)
-        return {"items": list(reversed(records[-limit:]))}
+        return value
+
+    def list(self, limit: object = 20) -> dict[str, list[dict[str, Any]]]:
+        limit = self._limit(limit)
+        records = sorted(self._retained(self._now()), key=self._at, reverse=True)
+        return {"items": records[:limit]}
 
     def get(self, log_id: object) -> dict[str, Any]:
         if not isinstance(log_id, str) or not log_id:
             raise ValueError("log_id must be a non-empty string")
-        records = self._retain(self._read())
-        self._write(records)
-        for record in records:
+        for record in self._retained(self._now()):
             if record["log_id"] == log_id:
                 return record
         raise ValueError("unknown log_id")

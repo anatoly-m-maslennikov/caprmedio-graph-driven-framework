@@ -1,0 +1,162 @@
+{
+  "verdict": "PASS_SEVEN_DRAFTS_AFTER_SCOPE_FIX",
+  "receipts": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/format-model-instance-drafts-20261105",
+      "applied": true,
+      "plan_sha_match": true,
+      "count": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-declaration-form-drafts-20261105",
+      "applied": true,
+      "plan_sha_match": true,
+      "count": 4
+    }
+  ],
+  "outputs": [
+    {
+      "id": "CA-R-2248",
+      "target": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-OPERATOR_DECLARATION--define-value-format.md",
+      "sha256": "43386cc46eb7763732f97a93ff67e2df65be23265b1f04cfec947484403b8d7a",
+      "plan_hash_matches": true,
+      "plan_bytes_match": true,
+      "body_matches_reviewed_preview": true,
+      "metadata_valid": true,
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Format",
+      "form": "Operator Declaration",
+      "destination_valid": true,
+      "old_path_consumed": true
+    },
+    {
+      "id": "CA-R-2957",
+      "target": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2957@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md",
+      "sha256": "dcfa3eaad80e87f1bc7a1900cd42c2a9526f0b48a8025a4683eba3f4a769457d",
+      "plan_hash_matches": true,
+      "plan_bytes_match": true,
+      "body_matches_reviewed_preview": true,
+      "metadata_valid": true,
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Model Reference",
+      "form": "Operator Declaration",
+      "destination_valid": true,
+      "old_path_consumed": null,
+      "native_id_paths": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2957@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md"
+      ],
+      "native_id_unique": true
+    },
+    {
+      "id": "CA-R-2476",
+      "target": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-RELATION_DECLARATION--define-instance-of.md",
+      "sha256": "f78ce05f5a293595c5deea956d401e8305c817b90be1cea9a24acc53411f843e",
+      "plan_hash_matches": true,
+      "plan_bytes_match": true,
+      "body_matches_reviewed_preview": true,
+      "metadata_valid": true,
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//INSTANCE_OF",
+      "form": "Relation Declaration",
+      "destination_valid": true,
+      "old_path_consumed": true
+    },
+    {
+      "id": "CA-R-2953",
+      "target": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2953@1-draft-CORE_META_MODEL-DECLARATION--declare-operator-declaration-as-a-requirement-form.md",
+      "sha256": "c10434521b9056a282405c848bc196f4c4982b32dcc04c33f261141a86f1c0df",
+      "plan_hash_matches": true,
+      "plan_bytes_match": true,
+      "body_matches_reviewed_preview": true,
+      "metadata_valid": true,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Operator Declaration)",
+      "form": "Declaration",
+      "destination_valid": true,
+      "old_path_consumed": null,
+      "native_id_paths": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2953@1-draft-CORE_META_MODEL-DECLARATION--declare-operator-declaration-as-a-requirement-form.md"
+      ],
+      "native_id_unique": true
+    },
+    {
+      "id": "CA-R-2954",
+      "target": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2954@1-draft-CORE_META_MODEL-DECLARATION--declare-construct-declaration-as-a-requirement-form.md",
+      "sha256": "5d532e5259439d8ebb03d045758730a5ed5b88ae7a1f26fff1f0c9bec3183975",
+      "plan_hash_matches": true,
+      "plan_bytes_match": true,
+      "body_matches_reviewed_preview": true,
+      "metadata_valid": true,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Construct Declaration)",
+      "form": "Declaration",
+      "destination_valid": true,
+      "old_path_consumed": null,
+      "native_id_paths": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2954@1-draft-CORE_META_MODEL-DECLARATION--declare-construct-declaration-as-a-requirement-form.md"
+      ],
+      "native_id_unique": true
+    },
+    {
+      "id": "CA-R-2955",
+      "target": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2955@1-draft-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md",
+      "sha256": "34f7e5c1440a08c7ab7b6ffd1432779bf074b888b4be933c64f0b7d70fc80f3b",
+      "plan_hash_matches": true,
+      "plan_bytes_match": true,
+      "body_matches_reviewed_preview": true,
+      "metadata_valid": true,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Relation Declaration)",
+      "form": "Declaration",
+      "destination_valid": true,
+      "old_path_consumed": null,
+      "native_id_paths": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2955@1-draft-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md"
+      ],
+      "native_id_unique": true
+    },
+    {
+      "id": "CA-R-2956",
+      "target": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2956@1-draft-CORE_META_MODEL-DECLARATION--declare-function-declaration-as-a-requirement-form.md",
+      "sha256": "cea5dc8efae0df0f0bea38f86ddfa0e79ba6aa8781827cca3a1030fa0d52dc8e",
+      "plan_hash_matches": true,
+      "plan_bytes_match": true,
+      "body_matches_reviewed_preview": true,
+      "metadata_valid": true,
+      "subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Function Declaration)",
+      "form": "Declaration",
+      "destination_valid": true,
+      "old_path_consumed": null,
+      "native_id_paths": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2956@1-draft-CORE_META_MODEL-DECLARATION--declare-function-declaration-as-a-requirement-form.md"
+      ],
+      "native_id_unique": true
+    }
+  ],
+  "current_predecessors_readback": {
+    "CA-R-2248": [
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+        "sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e"
+      }
+    ],
+    "CA-R-2476": [
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+        "sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e"
+      }
+    ]
+  },
+  "semantics": [
+    "R2957 generic x example is a scoped illustrative Model reference and does not create x or an instance.",
+    "Four Form-admission Drafts and three sequential Drafts are not Current adoption."
+  ],
+  "limits": "Readback only; no native/code/tests/Git mutations or runtime admission.",
+  "prior_finding_resolved": {
+    "id": "CA-R-2248",
+    "issue": "Formal Claim `CFEL / Format` asserts an immediate containment fact for Format under CFEL, whereas the confirmed active item Subject is CAPRMEDIO_MODEL/CFEL/Operator//Format. That expression is not the confirmed item address and introduces an extra or conflicting structural assertion.",
+    "minimal_fix": "Remove the one-expression Formal Claim and its heading/fence; keep the existing Prose Claim and Semantics defining the Format operator. Do not invent a new fact."
+  },
+  "scope_fix_readback": {
+    "status": "PASS",
+    "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/format-declaration-scope-fix-20261105/adoption-plan.json",
+    "actual_sha256": "9b2e06a538023e3846586313bc804e885c6230d5020718cf176d2609adb564e9",
+    "before_sha256": "43386cc46eb7763732f97a93ff67e2df65be23265b1f04cfec947484403b8d7a",
+    "exact_change": "Removed only the Formal Claim heading and CFEL / Format fenced expression; metadata and remaining body byte-identical.",
+    "receipt_plan_hash_matches": true
+  }
+}

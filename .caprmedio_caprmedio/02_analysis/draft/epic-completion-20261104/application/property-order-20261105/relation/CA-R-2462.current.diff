@@ -1,0 +1,17 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2462.current.preview.txt
+@@ -43,6 +43,14 @@
+ 
+ Node.** {::1}((IS_PROPERTY_OF)) (Node, Node.**);
+ 
++Atom.Header.** {::0..1}((IS_ORDERED_RIGHT_AFTER)) Atom.Header.**;
++
++Atom.Header.** {::0..1}((IS_ORDERED_RIGHT_BEFORE)) Atom.Header.**;
++
++Atom.Content.** {::0..1}((IS_ORDERED_RIGHT_AFTER)) Atom.Content.**;
++
++Atom.Content.** {::0..1}((IS_ORDERED_RIGHT_BEFORE)) Atom.Content.**;
++
+ (Node, Node.**) {::0+}((HAS_PROPERTY)) Node.**;
+ 
+ Node.** {::0+}((HAS_INSTANCE)) Node.**//;

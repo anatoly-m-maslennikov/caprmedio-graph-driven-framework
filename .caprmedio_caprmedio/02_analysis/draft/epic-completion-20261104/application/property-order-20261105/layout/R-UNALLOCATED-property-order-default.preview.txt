@@ -1,0 +1,9 @@
+## Summary
+
+Order remaining sibling Properties last
+
+## Claim
+
+### Prose Claim
+
+Sibling Properties that do not participate in an IS_ORDERED_RIGHT_AFTER Relation follow the participating sibling Properties; their mutual order is unspecified. A Property participates when it is either endpoint of the Relation.

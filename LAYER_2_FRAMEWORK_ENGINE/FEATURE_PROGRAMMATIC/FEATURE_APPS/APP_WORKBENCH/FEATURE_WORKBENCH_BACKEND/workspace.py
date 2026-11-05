@@ -1,8 +1,8 @@
 # CA-R-2792@2
 # CA-R-2793@2
-# CA-R-2902@1
-# CA-M-476@1
-# CA-D-681@1
+# CA-R-2902@2
+# CA-M-476@2
+# CA-D-681@4
 
 """Persistent Workspace documents; result tables remain process-local."""
 
@@ -149,7 +149,10 @@ class WorkspaceStore:
         view = self._view(document, view_id)
         return {"workspace_id": document["workspace_id"], "view_id": view["id"]} | self._public_view(view, True)
 
-    def update(self, workspace_id: object, view_id: object, sql: object, expected_revision: object, cursor: object) -> tuple[dict[str, Any], str | None]:
+    def update(
+        self, workspace_id: object, view_id: object, sql: object,
+        expected_revision: object, cursor: object,
+    ) -> dict[str, Any]:
         text = self.text(sql, "sql", required=False)
         if text is None:
             raise ValueError("sql must be a string")
@@ -157,12 +160,11 @@ class WorkspaceStore:
         view = self._view(document, view_id)
         if view["revision"] != self.revision(expected_revision):
             raise ValueError("expected_revision does not match")
-        prior = self._clear(view)
         view["sql"], view["revision"] = text, view["revision"] + 1
         if cursor is not None:
             view["cursor_position"] = self.cursor(cursor)
         self._write(document)
-        return self.get_view(workspace_id, view_id), prior
+        return self.get_view(workspace_id, view_id)
 
     @staticmethod
     def _clear(view: dict[str, Any]) -> str | None:

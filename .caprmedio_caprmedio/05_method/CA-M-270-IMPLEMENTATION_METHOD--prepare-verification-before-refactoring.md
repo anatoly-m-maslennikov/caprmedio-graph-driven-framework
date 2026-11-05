@@ -6,9 +6,9 @@ updated_at: 2026-11-02 18:35:20 +0400
 relations:
   child_of:
   - CA-M-261
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
@@ -18,11 +18,18 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-270
+ref_id: CA-M-270
 status: Active
 current_scope_unit: caprmedio
 tier: 2
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-270-CAPRMEDIO-IMPLEMENTATION_METHOD--prepare-verification-before-refactoring.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 Prepare verification before refactoring

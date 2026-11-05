@@ -1,0 +1,125 @@
+{
+  "verdict": "HOLD",
+  "checks": {
+    "refid_receipt": true,
+    "empty_receipt": true,
+    "refid_outputs": true,
+    "empty_outputs": true,
+    "failed_preflight_preserved_plan_sha": true
+  },
+  "counts": {
+    "refid_ok": 4428,
+    "refid_overlap_empty": 1698,
+    "empty_relations_removed": 1594,
+    "empty_cleanup_ok": 1841,
+    "empty_dependencies_removed": 254
+  },
+  "explicit_refid_holds": 206,
+  "already_correct_refids": 25,
+  "failures": [
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-397-PROGRAMMATIC-ENG_POLICY--contain-invalid-input-and-project-artifact-failures.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-405-PROGRAMMATIC-ENG_POLICY--report-outcomes-from-observed-evidence.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-413-PROGRAMMATIC-ENG_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-421-PROGRAMMATIC-ENG_POLICY--reuse-suitable-established-solutions.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-424-PROGRAMMATIC-ENG_POLICY--select-software-evaluation-techniques-by-failure-mode.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-397@14-draft-PROGRAMMATIC-ENG_POLICY--contain-invalid-input-and-project-artifact-failures.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-397@14-draft-PROGRAMMATIC-ENG_POLICY--contain-invalid-input-and-project-artifact-failures.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-405@10-draft-PROGRAMMATIC-ENG_POLICY--report-outcomes-from-observed-evidence.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-405@10-draft-PROGRAMMATIC-ENG_POLICY--report-outcomes-from-observed-evidence.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-413@12-draft-PROGRAMMATIC-ENG_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-413@12-draft-PROGRAMMATIC-ENG_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-421@10-draft-PROGRAMMATIC-ENG_POLICY--reuse-suitable-established-solutions.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-421@10-draft-PROGRAMMATIC-ENG_POLICY--reuse-suitable-established-solutions.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-424@13-draft-PROGRAMMATIC-ENG_POLICY--select-software-evaluation-techniques-by-failure-mode.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-424@13-draft-PROGRAMMATIC-ENG_POLICY--select-software-evaluation-techniques-by-failure-mode.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-257-PROGRAMMATIC-EVAL_CASE--verify-owned-state-and-lifecycle-boundary.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-258-PROGRAMMATIC-EVAL_CASE--recover-an-interrupted-stateful-lifecycle-after-restart.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-389-PROGRAMMATIC-POLICY--combine-complementary-software-behavior-evidence.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-397-PROGRAMMATIC-EVAL_CASE--verify-machine-contract-compatibility.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/CA-E-647-PROGRAMMATIC-POLICY--evaluate-public-operation-error-boundaries.md",
+      "reason": "ref id, hash, unrelated data, body, or final mismatch"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-257@26-draft-PROGRAMMATIC-EVAL_CASE--verify-owned-state-and-lifecycle-boundary.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-257@26-draft-PROGRAMMATIC-EVAL_CASE--verify-owned-state-and-lifecycle-boundary.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-258@25-draft-PROGRAMMATIC-EVAL_CASE--recover-an-interrupted-stateful-lifecycle-after-restart.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-258@25-draft-PROGRAMMATIC-EVAL_CASE--recover-an-interrupted-stateful-lifecycle-after-restart.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-389@27-draft-PROGRAMMATIC-POLICY--combine-complementary-software-behavior-evidence.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-389@27-draft-PROGRAMMATIC-POLICY--combine-complementary-software-behavior-evidence.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-397@20-draft-PROGRAMMATIC-EVAL_CASE--verify-machine-contract-compatibility.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-397@20-draft-PROGRAMMATIC-EVAL_CASE--verify-machine-contract-compatibility.md'"
+    },
+    {
+      "stage": "refid",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-647@13-draft-PROGRAMMATIC-POLICY--evaluate-public-operation-error-boundaries.md",
+      "reason": "[Errno 2] No such file or directory: '.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-647@13-draft-PROGRAMMATIC-POLICY--evaluate-public-operation-error-boundaries.md'"
+    }
+  ],
+  "failure_count": 20,
+  "sequence": "Empty cleanup preceded Ref ID batch; 1,698 overlapping rows chain exactly.",
+  "failed_preflight": "Receipt reports no writes after concurrent source drift; compressed failed plan hash verified.",
+  "limits": "Readback of the two scoped data operations only; held identities remain unresolved and legacy invalid Relation targets are not declared valid."
+}

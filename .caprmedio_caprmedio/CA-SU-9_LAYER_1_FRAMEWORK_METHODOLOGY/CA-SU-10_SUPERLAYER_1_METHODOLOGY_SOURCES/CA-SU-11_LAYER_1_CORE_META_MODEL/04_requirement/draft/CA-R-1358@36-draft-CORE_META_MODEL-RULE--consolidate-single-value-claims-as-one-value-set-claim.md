@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL
@@ -11,17 +11,18 @@ relations:
   child_of:
   - CA-R-2102
   - CA-R-1596
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-1358
+ref_id: CA-R-1358@36-draft
 status: Draft
 tier: 3
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-1358@36-draft-CORE_META_MODEL-RULE--consolidate-single-value-claims-as-one-value-set-claim.md
+    name: CA-R-1358@36-draft-RULE--consolidate-single-value-claims-as-one-value-set-claim.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

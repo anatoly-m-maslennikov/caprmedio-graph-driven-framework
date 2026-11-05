@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Property
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Term//Property
@@ -11,7 +11,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Projection
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
@@ -37,12 +37,19 @@ relations:
   - CA-R-1438@25
   - CA-R-1456
 atom_id: CA-E-449
+ref_id: CA-E-449
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 Validate Entities Graph

@@ -1,15 +1,15 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - CAPRMEDIO_MODEL <+ Scope Unit/Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
 version: 27
 updated_at: 2026-11-02 20:07:03 +0400
-relations: {}
 atom_id: CA-R-1430
+ref_id: CA-R-1430
 status: Active
 tier: 2
 role: Requirement

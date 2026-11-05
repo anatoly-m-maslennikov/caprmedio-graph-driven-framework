@@ -1,19 +1,21 @@
 ---
-subjects:
-  governs: "Entity/Relation/Type: method_for"
-  depends_on:
+topics:
+  main_subject: "Entity/Relation/Type: method_for"
+  dependencies:
     ["Entity/Relation"]
 version: 16
 updated_at: "2026-10-20 12:30:27 +0000"
-relations: {}
 atom_id: "CA-R-1017@draft"
-content_role: "Requirement"
+ref_id: CA-R-1017@16-draft
+role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Core"
 status: "Draft"
 author: "Anatoly Maslennikov"
 global_tier: 9
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

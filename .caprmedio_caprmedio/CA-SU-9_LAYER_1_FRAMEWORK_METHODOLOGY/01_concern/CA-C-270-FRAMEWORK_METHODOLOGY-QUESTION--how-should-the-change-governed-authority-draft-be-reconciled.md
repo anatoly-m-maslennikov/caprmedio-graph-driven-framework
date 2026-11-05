@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: "Atom"
-  depends_on:
+topics:
+  main_subject: "Atom"
+  dependencies:
     - "Atom/Claim"
     - "Artifact/Revision"
     - "Project"

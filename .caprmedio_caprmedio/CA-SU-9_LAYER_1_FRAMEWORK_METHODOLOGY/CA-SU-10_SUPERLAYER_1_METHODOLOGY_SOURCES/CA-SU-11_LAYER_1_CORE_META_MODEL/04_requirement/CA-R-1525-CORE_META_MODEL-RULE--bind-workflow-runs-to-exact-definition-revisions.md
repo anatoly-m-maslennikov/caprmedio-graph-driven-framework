@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
@@ -11,8 +11,8 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 version: 25
 updated_at: 2026-11-03 23:17:14 +0400
-relations: {}
 atom_id: CA-R-1525
+ref_id: CA-R-1525
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
@@ -23,6 +23,8 @@ carrier_destination:
   file:
     name: CA-R-1525-CORE_META_MODEL-RULE--bind-workflow-runs-to-exact-definition-revisions.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

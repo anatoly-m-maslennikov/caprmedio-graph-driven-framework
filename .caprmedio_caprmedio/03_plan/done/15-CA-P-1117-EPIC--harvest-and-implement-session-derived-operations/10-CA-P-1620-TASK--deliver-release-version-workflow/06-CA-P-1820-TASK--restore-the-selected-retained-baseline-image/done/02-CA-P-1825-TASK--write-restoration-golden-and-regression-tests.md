@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1825
-content_role: Plan
-type: Plan
+ref_id: CA-P-1825
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Evaluation Implementation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Evaluation Implementation
+  dependencies:
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Framework Package
@@ -28,6 +29,12 @@ relations:
   - CA-P-1823
   - CA-P-1824
 tier: 3
+container:
+  atom: CA-P-1820
+carrier_destination:
+  file:
+    name: 2-CA-P-1825-TASK--write-restoration-golden-and-regression-tests.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/6-CA-P-1820-TASK--restore-the-selected-retained-baseline-image/done
 ---
 # Summary
 

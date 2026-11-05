@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
@@ -12,13 +12,20 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 cce_version: cce_1
 cce_form: obligation
-content_role: Requirement
+role: Requirement
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 atom_id: CA-R-864
+ref_id: CA-R-864
 tier: 3
-type: Rule
+form: Rule
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-R-864-CONNECTOR_TOOLS-RULE--read-caprmedio-markdown-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/04_requirement
 ---
 # Summary
 

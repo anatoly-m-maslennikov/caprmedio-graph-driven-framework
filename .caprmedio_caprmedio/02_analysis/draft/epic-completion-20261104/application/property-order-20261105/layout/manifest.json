@@ -1,0 +1,82 @@
+{
+  "status": "provisional_preview_not_native",
+  "outputs": [
+    {
+      "id": "R2719",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "source_sha256": "32b6cafe3e7260bea3a2eb9f6d8623d825d9bc6adfa66b228bfb70ce056233ca",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2719.preview.md",
+      "preview_sha256": "f5427fd295d9e2e8c8611b5a73685a9392bc0d91b11f39a0eb3b63ff448516c3"
+    },
+    {
+      "id": "R2498",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "source_sha256": "d276c1982df220464b1ccc33390fe3f84be237fc5e23292fe6c8b83ba6e83481",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2498.preview.md",
+      "preview_sha256": "06ea7affbefb964b51ff301ba3c5f2793edb3377b3c92d912be93e7771c5af10"
+    },
+    {
+      "id": "R2500",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "source_sha256": "47f3fe9aa70d54ad18884aa36dd8d4060d57d693b0a0b10440a7b01ad559dc52",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2500.preview.md",
+      "preview_sha256": "1081e45dde0f02527215b06023d27af0d8338fe82cddb269daa54d20b94faf03"
+    },
+    {
+      "id": "R2961",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2961@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim.md",
+      "source_sha256": "6e1f475643d7d047b24d3d1b6d3711877ad9a21d19ae9890a19112df1e74b62d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2961.preview.md",
+      "preview_sha256": "ac4a5fba3d26f18563fbeec7ef7c2acd01b6854fbc130a7ec5229c3d2bc74478"
+    },
+    {
+      "id": "D479",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@31-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "source_sha256": "aa4b55f7fb921b10c32520ef101efd4259804f0ef81cd36a0cbd867209ca00ae",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D479.preview.md",
+      "preview_sha256": "2f7d9738325a8ec011aaa3b2a8ae33f20da097dcab38d777c36b3234a761435c"
+    },
+    {
+      "id": "R2709",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "source_sha256": "de125e2eb575eda6cf890b21074c9dd20d3f251ddb535ad4da78b2f214913f36",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2709.preview.md",
+      "preview_sha256": "82d813ac13ac608dbca57a418d6343d9f13c9e4376bf560029eca353f9022ba2"
+    },
+    {
+      "id": "D657-current",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "source_sha256": "e29f22e01381bd5f03f64eb9617d457e3c624491ca1c9e3fcf093711b1d37356",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D657-current.preview.md",
+      "preview_sha256": "7944eb19002cc93a84196617eff9159a5504f6d0ca9a8f87529c297fbde06244"
+    },
+    {
+      "id": "D657-draft",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "source_sha256": "e2ae56ca4997cddfd2bd71f028f08b67ad0aa148a0e87d558596c9f19d324854",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D657-draft.preview.md",
+      "preview_sha256": "bc3b1f3e8df4c525d11b4bb192f93de184235b13b60eb7a96ace6a3b34ade0f0"
+    },
+    {
+      "id": "D479-current",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "source_sha256": "a6613b33f5070c4f0f788f5fd3efd8e1920fcaf7da1167bccc7a93e9aa6ebad1",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D479-current.preview.md",
+      "preview_sha256": "da887204d42fcabee264b4c5fe821f528ff7c0cbde97eeb11bafbaae2b4b9289"
+    }
+  ],
+  "new_candidates": [
+    {
+      "id": "UNALLOCATED",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Ref ID",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R-UNALLOCATED-ref-id.preview.txt",
+      "preview_sha256": "bac48917675eb2fb1c74298e4c28f38a9ee5e9404304ff02e18c8a1abb6e9855"
+    },
+    {
+      "id": "UNALLOCATED_ORDER_DEFAULT_RULE",
+      "main_subject": "CAPRMEDIO_MODEL <+ Node.**",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R-UNALLOCATED-property-order-default.preview.txt",
+      "preview_sha256": "437452aa90fc057170fb5ce1dd42f6dfa617bd485d485606dd0fe981590d1009"
+    }
+  ]
+}

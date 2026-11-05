@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1196
-content_role: Plan
-type: Plan
+ref_id: CA-P-1196
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/History
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/History
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
 version: 7
@@ -24,6 +25,12 @@ relations:
   - CA-P-1130
   - CA-P-1155
 tier: 3
+container:
+  atom: CA-P-1118
+carrier_destination:
+  file:
+    name: 7-CA-P-1196-TASK--confirm-the-candidate-session-window.md
+    path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/done
 ---
 # Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1950
-content_role: Plan
-type: Plan
+ref_id: CA-P-1950
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 7
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Projection
+  dependencies:
   - Subject
   - Subject/Graph Node/Domain/Continuant/Term
   - Subject/Graph Node/Domain/Continuant/Atom
@@ -24,6 +25,12 @@ relations:
   is_decomposition_of:
   - CA-P-1931
 tier: 3
+container:
+  atom: CA-P-1931
+carrier_destination:
+  file:
+    name: 7-CA-P-1950-TASK--join-the-reviewed-core-node-batch-3-slices.md
+    path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/23-CA-P-1907-TASK--mark-entity-drop-and-consolidation-candidates-without-deleting/done/4-CA-P-1931-TASK--review-third-core-node-disposition-batch/done
 ---
 # Summary
 

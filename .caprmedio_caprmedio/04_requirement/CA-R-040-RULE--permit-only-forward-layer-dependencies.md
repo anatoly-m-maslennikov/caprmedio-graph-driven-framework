@@ -12,11 +12,18 @@ relations:
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-040
+ref_id: CA-R-040
 tier: 2
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-040-CAPRMEDIO-RULE--permit-only-forward-layer-dependencies.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Permit only forward Layer dependencies

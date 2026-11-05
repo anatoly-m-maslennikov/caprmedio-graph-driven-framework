@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-564
-content_role: Concern
-type: Problem
+ref_id: CA-C-564
+role: Concern
+form: Problem
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
@@ -9,13 +10,18 @@ global_tier: 8
 author: Anatoly Maslennikov
 status: Active
 priority: medium
-subjects:
-  governs: Entity/Node/Continuant/Implementation
-  depends_on: []
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about: [CA-P-2527, CA-P-2529, CA-M-332, CA-E-539]
 version: 3
 updated_at: "2026-10-21T13:22:06Z"
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-C-564-PROGRAMMATIC-PROBLEM--refresh-local-release-source-conformance-evidence.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

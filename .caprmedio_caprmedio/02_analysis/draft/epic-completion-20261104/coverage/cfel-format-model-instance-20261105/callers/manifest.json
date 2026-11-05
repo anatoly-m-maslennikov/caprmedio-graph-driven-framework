@@ -1,0 +1,10 @@
+{
+  "status": "SOURCE_ONLY_FULL_CONTENT_CALLER_SUCCESSORS",
+  "scope": "Three full-body caller successors; no native, code, test, Workflow, Workbench, or Git mutation.",
+  "callers": [
+    {"id":"CA-R-2804","source":".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2804@1-draft-CORE_META_MODEL-RULE--bind-selected-instances.md","source_sha256":"ada4536d1422e89a289c73a101fed7063924f6d7d2ad2b67ef1667488f26409e","preview":"CA-R-2804.caller.preview.md","preview_sha256":"ab812229a2f20aa43544cf93f75f9ac87f531eed88c382419207fed0c9837035","diff":"CA-R-2804.diff","diff_sha256":"81c9118d5a8756a63770562564db04bae7077840483c2332406a20944b6049cd"},
+    {"id":"CA-R-2552","source":".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/binding-rule-repair/CA-R-2552.preview.txt","source_sha256":"83eb6f96f30a81f404d52b6bf94c6c566e0b47a115ea581868c811795b3051cc","preview":"CA-R-2552.caller.preview.md","preview_sha256":"fc00a79b9243e328a083f99a931faae4ae51ae6a63237aedc0b08ae125b4d21c","diff":"CA-R-2552.diff","diff_sha256":"5279ca71e7af0cc1de3bcef434319b13f7a1bb37c691a842dd39ddf19e9cd74b"},
+    {"id":"CA-R-2487","source":".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/overview-values-reference/CA-R-2487.preview.txt","source_sha256":"8ec2273a60d0fc58c205de0c08bf5786035c62df456593f76fc523554cc428c3","preview":"CA-R-2487.caller.preview.md","preview_sha256":"d21f9c9495bfb0019d448e1457df5a8fff0bb986aeb435eedc73dc5f0607918e","diff":"CA-R-2487.diff","diff_sha256":"a628df360c4dd1d0dababe2cc31fc307d96cb377fe51e301f6ce9be571768860"}
+  ],
+  "holds":["ELSE scope and definition state is tracked outside Atom content.","Subject-item layout remains pending user decision.","Retain all nonduplicated source obligations; R2732 duplication needs exact proof before deletion."]
+}

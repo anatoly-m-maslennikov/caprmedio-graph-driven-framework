@@ -11,15 +11,16 @@ relations:
   - CA-R-1076
   - CA-M-153
 author: Anatoly Maslennikov
-content_role: Delivery
+role: Delivery
 current_scope_unit: APPS
 status: Active
 atom_id: CA-D-005
-type: Eng Decision
+ref_id: CA-D-005
+form: Eng Decision
 tier: 2
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
 ---
 # Deliver the Requirement Projection browser locally

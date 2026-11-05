@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-474
-content_role: Concern
-type: Problem
+ref_id: CA-C-474
+role: Concern
+form: Problem
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 local_tier: Standard
 global_tier: 14
@@ -9,9 +10,9 @@ status: active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Compiler Action execution-root binding
-  depends_on:
+topics:
+  main_subject: Compiler Action execution-root binding
+  dependencies:
   - Subject/Engineering/Runtime
   - Subject/Domain/Node/Occurrent/Execution/Workflow Run
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
@@ -19,6 +20,8 @@ subjects:
   - Journal
 relations:
   concern_about: [CA-P-1714, CA-P-1624]
+container:
+  scope_unit: CA-SU-2
 ---
 # Summary
 

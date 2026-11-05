@@ -1,15 +1,16 @@
 ---
 atom_id: CA-E-600
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-600
+role: Evaluation
+form: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 19
 updated_at: 2026-10-27 19:59:38 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
   - Subject/CAPRMEDIO/Carrier/Docker Image
@@ -21,6 +22,12 @@ relations:
   - CA-R-1901
   - CA-M-356
 tier: 5
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-E-600-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-project-mcp-image-and-runtime-admission.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/06_evaluation
 ---
 # Summary
 

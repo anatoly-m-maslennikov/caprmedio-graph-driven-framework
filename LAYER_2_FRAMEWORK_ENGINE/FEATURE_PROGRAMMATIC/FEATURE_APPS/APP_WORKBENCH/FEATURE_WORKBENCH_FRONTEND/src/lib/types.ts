@@ -1,4 +1,5 @@
-// CA-D-674@14
+// CA-R-2727@14
+// CA-D-674@18
 export type Column = { name: string; type: string; has_values?: boolean };
 
 export type SavedIdentity = {
@@ -19,6 +20,9 @@ export type QueryResult = {
   offset: number;
   page_size: number;
   has_more: boolean;
+  filtered_row_count?: number;
+  source_row_count?: number;
+  groups?: Array<{ value: unknown; count: number }>;
   outcome?: 'partial';
   save_error?: string;
   query_log_error?: string;
@@ -26,6 +30,16 @@ export type QueryResult = {
   saved_query_url?: string;
   kind?: 'query';
   name?: string;
+};
+
+export type GridSort = { column: number; direction: 'asc' | 'desc' };
+export type GridFilter = { column: number; operator: 'contains'; value: string };
+export type GridState = { sort: GridSort[]; filters: GridFilter[]; group_by?: GridSort };
+export type ResultDisplayPreferences = {
+  rowSizing: 'adaptive' | 'fixed';
+  fixedPageSize: number;
+  content: 'limited' | 'full';
+  contentLimit: number;
 };
 
 export type CheckResult = { valid: boolean; row_count: number; column_count: number };
@@ -81,3 +95,5 @@ export type QueryLogItem = {
   row_count?: number | null;
   column_count?: number | null;
 };
+
+export type SourceSyncStatus = { syncing: boolean; last_synced_at: string | null };

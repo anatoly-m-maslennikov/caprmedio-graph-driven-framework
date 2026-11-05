@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-1810
-content_role: Requirement
+ref_id: CA-R-1810
+role: Requirement
 current_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
@@ -16,9 +17,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-R-1810-TOOLS-RULE--derive-one-current-capability-catalog.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement
 ---
 # Summary
 

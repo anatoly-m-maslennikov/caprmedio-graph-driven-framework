@@ -1,16 +1,17 @@
 ---
 atom_id: CA-C-443
-content_role: Concern
-type: Problem
+ref_id: CA-C-443
+role: Concern
+form: Problem
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Legacy Projection and Runtime Journal Consumer Alignment
-  depends_on:
+topics:
+  main_subject: Legacy Projection and Runtime Journal Consumer Alignment
+  dependencies:
   - Implementation
   - Subject/Domain/Node/Continuant/Projection
   - Journal
@@ -18,6 +19,12 @@ subjects:
 version: 3
 updated_at: 2026-10-23 03:14:50 +0400
 relations: {concern_about: [CA-M-153, CA-E-067, CA-M-154, CA-E-068, CA-M-104, CA-D-354, CA-R-1059, CA-R-1068]}
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-C-443-PROGRAMMATIC-PROBLEM--migrate-legacy-projection-and-runtime-log-consumer-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

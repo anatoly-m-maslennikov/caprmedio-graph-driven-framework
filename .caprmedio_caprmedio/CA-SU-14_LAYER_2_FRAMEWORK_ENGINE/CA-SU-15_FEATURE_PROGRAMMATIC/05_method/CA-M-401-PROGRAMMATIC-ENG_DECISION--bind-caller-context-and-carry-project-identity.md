@@ -1,19 +1,22 @@
 ---
 atom_id: CA-M-401
-content_role: Method
-type: Eng Decision
+ref_id: CA-M-401
+role: Method
+form: Eng Decision
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
 relations:
   method_for:
   - CA-R-2008
 tier: 5
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

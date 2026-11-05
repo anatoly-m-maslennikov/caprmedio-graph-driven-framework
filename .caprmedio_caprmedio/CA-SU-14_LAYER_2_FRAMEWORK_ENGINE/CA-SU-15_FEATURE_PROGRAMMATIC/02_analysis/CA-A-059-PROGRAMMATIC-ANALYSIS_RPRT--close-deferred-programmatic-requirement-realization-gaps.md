@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - programmatic-policy
     occurrent:

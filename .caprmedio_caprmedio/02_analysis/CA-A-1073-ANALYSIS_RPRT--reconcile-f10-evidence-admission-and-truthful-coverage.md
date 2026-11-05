@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1073
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1073
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F10 complete saved-comparison rollup
-  depends_on:
+topics:
+  main_subject: F10 complete saved-comparison rollup
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Analysis
   - Evaluation
@@ -33,6 +34,8 @@ relations:
   - CA-A-1135
   - CA-C-376
   - CA-P-1372
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

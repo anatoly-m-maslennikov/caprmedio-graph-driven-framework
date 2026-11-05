@@ -1,23 +1,23 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
   - CAPRMEDIO_MODEL <+ Node.**
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_PROPERTY
 version: 25
 updated_at: 2026-11-04 18:25:15 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-1259
+ref_id: CA-R-1259@25-draft
 status: Draft
 tier: 2
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-1259@25-draft-CORE_META_MODEL-RULE--permit-zero-or-more-properties-on-every-entity.md
+    name: CA-R-1259@25-draft-RULE--permit-zero-or-more-properties-on-every-entity.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

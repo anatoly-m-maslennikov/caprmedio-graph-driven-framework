@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  dependencies:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
@@ -20,12 +20,15 @@ relations:
   - CA-R-1067
   - CA-M-144
 atom_id: CA-E-065
+ref_id: CA-E-065
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 3
+container:
+  scope_unit: CA-SU-16
 ---
 # Common Tool interface conformance
 

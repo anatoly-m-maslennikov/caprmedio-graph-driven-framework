@@ -1,0 +1,39 @@
+{
+  "verdict": "PASS_BOUNDED_KEY_ONLY_PLAN_WITH_EXPLICIT_HOLDS",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/metadata/safe-topic-key-plan.json",
+  "sha256": "af04383f382d52d64023fdff8839f197527dde02a825975eea915e829e45299d",
+  "inventory_count": 4639,
+  "operation_count": 4544,
+  "holds": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-065-ANALYSIS_RPRT--compare-caprmedio-work-execution-architectures.md",
+      "before_sha256": "093ce58ea7de2f8f710cee5730a354ba6ea697534c3889d3506bb7e44700efd4",
+      "atom_id": "CA-A-065",
+      "status": null,
+      "foreign_owner": false,
+      "reason": "unmapped subject keys: ['declared']"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-066-ANALYSIS_RPRT--recommend-a-staged-caprmedio-work-execution-direction.md",
+      "before_sha256": "6b87a05725d42502de7cba7f5a722b8de60d4e613f5c400de750eaedc8143746",
+      "atom_id": "CA-A-066",
+      "status": null,
+      "foreign_owner": false,
+      "reason": "unmapped subject keys: ['declared']"
+    }
+  ],
+  "verification": {
+    "all_planned_sources_match_before_hash": true,
+    "all_operation_before_after_hashes_and_key_token_transform": true,
+    "yaml_values_and_body_unchanged_by_planner": true,
+    "duplicate_inventory_paths": 0,
+    "protected_history_path_rows": 0
+  },
+  "historical_mapping_basis": "Root confirms prior authorized governs\u2192active and depends_on\u2192passive transition; latest decision maps active\u2192main_subject and passive\u2192dependencies.",
+  "stage2_findings": "18 legacy governs maps and 15 legacy depends_on maps retain their original decoded values but must be assessed for declared Topic shapes; no selection or stringification is authorized. Two subjects.declared sources remain held.",
+  "limitations": [
+    "Selection is a native-path classifier, not independent proof that every carrier or owner is complete; reconcile the provisional census and foreign ownership.",
+    "Apply-time adoption helper hash guard was not independently verified in this review; require pinned-plan recheck before writing.",
+    "No Current adoption, physical movement or runtime validation follows from this review."
+  ]
+}

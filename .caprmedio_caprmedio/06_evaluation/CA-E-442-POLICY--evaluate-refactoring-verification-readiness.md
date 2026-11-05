@@ -9,9 +9,9 @@ relations:
   evaluation_for:
   - CA-M-270
   - CA-M-262
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
@@ -21,11 +21,18 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-442
+ref_id: CA-E-442
 status: Active
 current_scope_unit: caprmedio
 tier: 3
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-E-442-CAPRMEDIO-EVAL_POLICY--evaluate-refactoring-verification-readiness.md
+    path: .caprmedio_caprmedio/06_evaluation
 ---
 ## Summary
 Evaluate refactoring verification readiness

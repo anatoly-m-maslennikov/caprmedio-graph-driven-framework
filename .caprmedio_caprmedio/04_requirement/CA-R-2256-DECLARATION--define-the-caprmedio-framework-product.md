@@ -1,15 +1,21 @@
 ---
 atom_id: CA-R-2256
+ref_id: CA-R-2256
 current_scope_unit: caprmedio
 status: Active
 tier: 1
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Node/Continuant//CAPRMEDIO Framework
-relations: {}
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Node/Continuant//CAPRMEDIO Framework
 version: 4
 role: Requirement
 form: Declaration
 updated_at: 2026-11-02 08:06:47 +0400
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-2256-CAPRMEDIO-DECLARATION--define-the-caprmedio-framework-product.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 
@@ -21,7 +27,7 @@ Define the CAPRMEDIO Framework product
 
 ```CFEL
 # model
-Node/Continuant//CAPRMEDIO Framework{:1}
+Node/Continuant//CAPRMEDIO Framework{::1}
 ```
 
 ## Semantics

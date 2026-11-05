@@ -1,17 +1,18 @@
 ---
 atom_id: CA-R-draft
-content_role: Requirement
-type: Definition
+role: Requirement
+form: Definition
 status: Draft
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Model::CAPRMEDIO::Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Requirement'
+topics:
+  main_subject: 'Model::CAPRMEDIO::Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Requirement'
 version: 1
 updated_at: 2026-10-29 00:04:17 +0400
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

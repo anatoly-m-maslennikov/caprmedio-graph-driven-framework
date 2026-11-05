@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: definition
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
@@ -14,14 +14,16 @@ version: 17
 updated_at: 2026-11-02 15:49:28 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-O-035
+ref_id: CA-O-035
 status: Active
-content_role: Operations
+role: Operations
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Action
+form: Action
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Ingest one external Analysis
 

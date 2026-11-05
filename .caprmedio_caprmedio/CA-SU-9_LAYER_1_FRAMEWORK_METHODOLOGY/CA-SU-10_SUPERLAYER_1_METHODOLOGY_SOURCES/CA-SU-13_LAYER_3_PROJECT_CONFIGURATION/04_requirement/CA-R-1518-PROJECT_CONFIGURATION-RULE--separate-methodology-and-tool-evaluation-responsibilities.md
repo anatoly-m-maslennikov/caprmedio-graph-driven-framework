@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_MODEL <+ Scope Unit
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
@@ -18,12 +18,19 @@ relations:
   - CA-R-1018
   - CA-E-486
 atom_id: CA-R-1518
+ref_id: CA-R-1518
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 ---
 ## Summary
 

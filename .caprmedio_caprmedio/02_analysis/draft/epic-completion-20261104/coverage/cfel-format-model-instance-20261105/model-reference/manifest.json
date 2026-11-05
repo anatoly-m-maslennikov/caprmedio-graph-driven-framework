@@ -1,0 +1,32 @@
+{
+  "status": "PROSPECTIVE_UNALLOCATED_REVIEW_REQUIRED",
+  "preview": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-format-model-instance-20261105/model-reference/CA-R-UNALLOCATED-model-reference.preview.txt",
+    "sha256": "8892e0877f6eeff2b5deacd52bff1868bfb84f15109b50c0067c589faa45b80c"
+  },
+  "source_pins": {
+    "CA-R-2248@6": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "sha256": "2dc58fd7387e13ffa38ca19bc60fb840eb9844151eea608f5902b634905f546a"
+    },
+    "CA-R-2804@1": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2804@1-draft-CORE_META_MODEL-RULE--bind-selected-instances.md",
+      "sha256": "ada4536d1422e89a289c73a101fed7063924f6d7d2ad2b67ef1667488f26409e"
+    },
+    "CA-R-2476@7": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937"
+    },
+    "CA-R-2821@1": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2821@1-draft-CORE_META_MODEL-RULE--define-boolean-disjunction-with-or.md",
+      "sha256": "56b5e2df5772786557ecf6bf0d79a53bdb5f8424a1ec61332399ab7318f2260b"
+    }
+  },
+  "dependencies": [
+    "R2248 defines [] Format and needs integrated alignment; this Rule identifies the declared Model reference inside it.",
+    "R2804 defines binding and typed union; preserve existing IF scope and no-shadow rules.",
+    "INSTANCE_OF authority and endpoint declarations determine admitted instance-to-model links; this Rule creates no additional edge or permission."
+  ],
+  "limitations": "No modeled CFEL Operator entity, new Model kind or native Draft is introduced. The <> Form and individual Subject address are not yet admitted; []/<>/INSTANCE_OF integration remains under review.",
+  "form_and_subject": "User approved individual CFEL/Operator and CFEL/Construct Subjects; active Model Reference and Operator Declaration Form use that layout. Formal Role/Form admission remains a source integration dependency."
+}

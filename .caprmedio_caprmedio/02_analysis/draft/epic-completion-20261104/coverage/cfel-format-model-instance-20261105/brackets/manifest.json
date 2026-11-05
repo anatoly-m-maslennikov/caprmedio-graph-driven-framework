@@ -1,0 +1,38 @@
+{
+  "status": "PREVIEW_WITH_AUTHORIZED_INDIVIDUAL_OPERATOR_METADATA_REVIEW_REQUIRED",
+  "id": "CA-R-2248@6-draft",
+  "draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+  "draft_sha256": "2dc58fd7387e13ffa38ca19bc60fb840eb9844151eea608f5902b634905f546a",
+  "current": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2248-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+  "current_sha256": "e10f65588d725a5463ba1f257aa2d5e5a6eb97fd9c848e1e7184952efd9d193e",
+  "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-format-model-instance-20261105/brackets/CA-R-2248.preview.txt",
+  "preview_sha256": "8b5035cefad0886d57695e804e5c4683e534939740954758afb242f1a5070fc9",
+  "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-format-model-instance-20261105/brackets/CA-R-2248.diff",
+  "diff_sha256": "47aa844794871e33d133bcddfcd262b65c64b7d9c0317a0bdd37e10a59eb7eeb",
+  "references": [
+    {
+      "id": "CA-R-2243",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+    },
+    {
+      "id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f"
+    }
+  ],
+  "obligations": [
+    "Value Format and conditions restrict each direct value independently of occurrence/value cardinality and uniqueness.",
+    "Existing carrier sequence, mapping, nested Properties, null and empty-string count semantics retained; no inferred admissibility.",
+    "Markdown explicitly admitted as value Format; no conflation with its Carrier encoding.",
+    "OR Model-kind domain references delegated to the separately owned <> rule; no instance binding semantics duplicated.",
+    "Bracket location distinguishes direct-value Formats from immediate/recursive dependent-name Formats; name counts and value counts remain separate."
+  ],
+  "empty_brackets": "Current R2243 defines only the context p.*[]{:0}: no declared immediate dependents after local and inherited resolution. It does not establish a general meaning for empty []; no broader rule invented.",
+  "scope": "Whole Draft-content preview only; no native, code, tests or Git writes. Summary, Version and Updated At unchanged; active Subject and Form intentionally changed to approved Operator metadata. Carrier destination remains predecessor value for root-managed rename.",
+  "form_admission": {
+    "id": "CA-R-2953@1-draft",
+    "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-declaration-form-drafts-20261105/adoption-receipt.json",
+    "status": "Actual Draft; coordinated adoption pending"
+  }
+}

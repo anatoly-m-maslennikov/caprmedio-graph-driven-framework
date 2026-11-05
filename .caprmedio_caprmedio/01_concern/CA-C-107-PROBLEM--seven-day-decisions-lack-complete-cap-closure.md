@@ -1,11 +1,11 @@
 ---
 cce_version: cce_1
 cce_form: concern_problem
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - Decision Closure
-  depends_on:
+  dependencies:
     continuant:
       - Project Backlog
     occurrent:

@@ -1,16 +1,17 @@
 ---
 atom_id: CA-E-524
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-524
+role: Evaluation
+form: Eval Case
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 20
 updated_at: 2026-10-30 03:11:57 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
@@ -33,6 +34,12 @@ relations:
   - CA-R-1802
   - CA-R-2447
 tier: 4
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-E-524-PROMPTS-EVAL_CASE--verify-rmed-review-prompt-coverage-and-completion.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/06_evaluation
 ---
 # Summary
 

@@ -12,11 +12,18 @@ relations:
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-038
+ref_id: CA-R-038
 tier: 2
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Relations
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-038-CAPRMEDIO-RULE--permit-incomplete-prmedo-topology-in-casual-mode.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Permit incomplete PRMEDO topology in casual mode

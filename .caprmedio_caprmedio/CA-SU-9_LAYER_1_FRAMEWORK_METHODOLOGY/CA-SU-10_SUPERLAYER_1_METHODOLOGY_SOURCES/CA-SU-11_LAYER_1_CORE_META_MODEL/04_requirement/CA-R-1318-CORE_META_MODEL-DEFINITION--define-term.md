@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Term
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Term
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Term//Entity
   - CAPRMEDIO_MODEL <+ Term.Name
@@ -11,18 +11,18 @@ subjects:
   - CAPRMEDIO_MODEL <+ Term//Property
 version: 37
 updated_at: 2026-11-04 22:22:34 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-1318
+ref_id: CA-R-1318
 status: Active
 tier: 1
 role: Requirement
 form: Declaration
 carrier_destination:
   file:
-    name: CA-R-1318-CORE_META_MODEL-DEFINITION--define-term.md
+    name: CA-R-1318-DECLARATION--define-term.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 
@@ -34,15 +34,15 @@ Define Term
 
 ```CFEL
 # model
-Term.*[in (Name)]{:1};
+Term.*[in (Name)]{::1};
 
-Term.** {:1}((IS_PROPERTY_OF)) (Term, Term.**);
-(Term, Term.**) {:0+}((HAS_PROPERTY)) Term.**;
+Term.** {::1}((IS_PROPERTY_OF)) (Term, Term.**);
+(Term, Term.**) {::0+}((HAS_PROPERTY)) Term.**;
 
 # instances
 Term//$term;
-$term.** {:1}((IS_PROPERTY_OF)) ($term, $term.**);
-($term, $term.**) {:0+}((HAS_PROPERTY)) $term.**;
+$term.** {::1}((IS_PROPERTY_OF)) ($term, $term.**);
+($term, $term.**) {::0+}((HAS_PROPERTY)) $term.**;
 ```
 
 ### Prose Claim

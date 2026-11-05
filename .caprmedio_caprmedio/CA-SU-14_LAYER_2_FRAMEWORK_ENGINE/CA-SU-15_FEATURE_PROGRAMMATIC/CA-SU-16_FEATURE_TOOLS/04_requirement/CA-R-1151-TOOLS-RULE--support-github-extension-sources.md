@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
 version: 19
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
@@ -10,12 +10,15 @@ relations:
   child_of:
   - CA-R-1150
 atom_id: CA-R-1151
+ref_id: CA-R-1151
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Rule
+form: Rule
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Support GitHub Extension sources
 

@@ -1,0 +1,73 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "route": "reviewed sequential Format, Model reference and INSTANCE_OF Drafts; authorized Form/Subject and carrier-name updates",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2248",
+      "version": 6,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "source_sha256": "2dc58fd7387e13ffa38ca19bc60fb840eb9844151eea608f5902b634905f546a",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-OPERATOR_DECLARATION--define-value-format.md",
+      "sha256": "43386cc46eb7763732f97a93ff67e2df65be23265b1f04cfec947484403b8d7a",
+      "form": "Operator Declaration",
+      "active_subject": "CAPRMEDIO_MODEL/CFEL/Operator//Format"
+    },
+    {
+      "atom_id": "CA-R-2957",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2957@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md",
+      "sha256": "dcfa3eaad80e87f1bc7a1900cd42c2a9526f0b48a8025a4683eba3f4a769457d",
+      "form": "Operator Declaration",
+      "active_subject": "CAPRMEDIO_MODEL/CFEL/Operator//Model Reference"
+    },
+    {
+      "atom_id": "CA-R-2476",
+      "version": 7,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "source_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-RELATION_DECLARATION--define-instance-of.md",
+      "sha256": "f78ce05f5a293595c5deea956d401e8305c817b90be1cea9a24acc53411f843e",
+      "form": "Relation Declaration",
+      "active_subject": "CAPRMEDIO_MODEL/CFEL/Relation//INSTANCE_OF"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md",
+      "before": "---\natom_id: CA-R-2248\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Format\nversion: 6\nupdated_at: 2026-11-05 03:25:14 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2248@6-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-value-format.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Value Format\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nCFEL / Format\n```\n\n### Prose Claim\n\n\nFormat defines the admissible value domain of each direct Property value,\nseparately from its cardinality. In CFEL, `Format` is the language element for\nexpressing that value domain. Data Type names the value domain. Uniqueness\nSelection names the comparison population. List and map are Carrier\nstructures, not Value Formats. A YAML sequence carries multiple values, and a\nmapping carries dependent Properties. `ref` is not a Value Format. Identifying\nvalues use the `string` Format; their Definition identifies the referenced\nobject. Nested Properties have independent Formats and cardinalities. A Model object kind referenced as `<Kind>` may also supply an object Format alongside primitive Formats such as `int`; a Format specifies the admissible domain and does not create an instance or turn a literal into a Node. `[<Workflow Run> OR <Step Run>]` admits either declared Model kind as one union domain; a participant selected from it is one binding. Bracketed Format conditions constrain values in that domain. In `p{::occ} :: [<Kind>]{::valuecount}`, the bounds count Property occurrences and direct values respectively, not every instance of Kind in the Project. YAML\nnull and an empty string each count as one direct value when present; Format\nand prose conditions determine admissibility.\n\n\n\n## Semantics\n\nFormat annotations constrain direct values. Markdown, YAML, TOML and JSON are\nCarrier representation formats, not value Formats. The initial scalar\nvocabulary\u2014bool, datetime, decimal, float, int and string\u2014is provisional. A\nformat annotation selects a value domain; it does not impose uniqueness.\n\n",
+      "before_sha256": "2dc58fd7387e13ffa38ca19bc60fb840eb9844151eea608f5902b634905f546a",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2248@6-draft-CORE_META_MODEL-OPERATOR_DECLARATION--define-value-format.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2248\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL/CFEL/Operator//Format\nversion: 6\nupdated_at: 2026-11-05 19:33:47 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 1\nrole: Requirement\nform: Operator Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2248@6-draft-CORE_META_MODEL-OPERATOR_DECLARATION--define-value-format.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine Value Format\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nCFEL / Format\n```\n\n### Prose Claim\n\nSquare brackets enclose a Format and any conditions. After a Property they restrict its direct-value domain: `[int]` selects the integer Format and `[int, 0..100]` restricts it to that inclusive range. In `p.*[name format]` and `p.**[name format]`, the Format constrains selected immediate and recursive dependent Property names, respectively; those name counts remain separate from direct-value counts. Multiple conditions apply together as AND; parentheses specify the grouping of mixed conditions. A Model kind referenced through `<Kind>` can supply an object Format, and OR can combine Model-kind domains under the separate Model-kind Format rule. A Format constrains each direct Property value separately from Property occurrence and value cardinality; it does not create an instance or turn a literal into a Node.\n\nData Type names a value domain. Uniqueness Selection names the comparison population. List and map are Carrier structures, not Value Formats. A YAML sequence carries multiple values, and a mapping carries dependent Properties. `ref` is not a Value Format. Identifying values use the `string` Format; their Definition identifies the referenced object. Nested Properties have independent Formats and cardinalities. YAML null and an empty string each count as one direct value when present; Format and applicable conditions determine admissibility.\n\nIn `p{::occ} :: [<Kind>]{::valuecount}`, the bounds count Property occurrences and direct values respectively, not every instance of Kind in the Project.\n\n## Semantics\n\nA Format describes the admissible values. Markdown is a value Format for Markdown content; a Format does not impose uniqueness.\n",
+      "after_sha256": "43386cc46eb7763732f97a93ff67e2df65be23265b1f04cfec947484403b8d7a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2957@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2957\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL/CFEL/Operator//Model Reference\nversion: 1\ntier: 3\nrole: Requirement\nform: Operator Declaration\nupdated_at: 2026-11-05 19:33:47 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2957@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nReference a Model entity in a CFEL Format\n\n## Claim\n\n### Prose Claim\n\n`<x>` refers to the declared Model entity `x`. When used as `[<x>]`, it supplies the Format domain of existing instances of that entity, including its narrower kinds where applicable. It does not create a Model entity, an instance, or a literal value. Model Properties may supply such a domain when their instances are admitted.\n\nA fixed Model Relation name such as `Relation//IS_CONTAINED_BY` is a Model reference and does not introduce a `$` participant. A typed participant such as `$a[<Atom>]` binds an existing instance. A Claim may relate that instance to a bare Model entity only when the applicable Relation Declaration admits those endpoint domains. For a declared kind `x`, `$a[<x>] ((INSTANCE_OF)) x` illustrates such a mixed instance-to-Model relation when its endpoints are admitted.\n\nIn `$container[<Workflow Run> OR <Step Run>]`, the alternatives define one union domain for one participant. A Relation count applies to the selected union as a whole, not separately to each alternative.\n\nThe paired `<` and `>` around the Model reference are Format markers. Binary numeric `<` and `>` are comparisons governed by their respective CFEL Rules.\n\n## Semantics\n\nA Model reference identifies a declared Model entity for use in a Format.\n",
+      "after_sha256": "dcfa3eaad80e87f1bc7a1900cd42c2a9526f0b48a8025a4683eba3f4a769457d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "before": "---\natom_id: CA-R-2476\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF\nversion: 7\nupdated_at: 2026-11-05 06:30:39 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine INSTANCE_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$host ((INSTANCE_OF)) $target;\n\n$direct[<Relation>, (.Name = INSTANCE_OF)];\n$inverse[<Relation>, (.Name = HAS_INSTANCE)];\n\n$direct ((HAS_INVERSE)) $inverse;\n\n$direct ((HAS_CLASSIFICATION)) Derivation == Direct\n```\n\n### Prose Claim\n\nThe Host is an instance of the Target declared kind. A Property instance is borne by its data bearer and is an instance of its corresponding model Property, which remains borne by its model bearer. A Property instance has no independent Carrier; its bearer and kind Relations are distinct and may coexist.\n\nForward `Host ((INSTANCE_OF)) Target` and reverse `Target <((INSTANCE_OF)) Host` are views of the same Relation fact.\nINSTANCE_OF relates instance of a declared kind to declared kind.\n",
+      "before_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-RELATION_DECLARATION--define-instance-of.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2476\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL/CFEL/Relation//INSTANCE_OF\nversion: 7\nupdated_at: 2026-11-05 19:33:47 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Relation Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2476@7-draft-CORE_META_MODEL-RELATION_DECLARATION--define-instance-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine INSTANCE_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$host ((INSTANCE_OF)) $target;\n\nRelation//HAS_INSTANCE ((IS_INVERSE_ALIAS_FOR)) Relation//INSTANCE_OF;\n\nRelation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct\n```\n\n### Prose Claim\n\nThe Host is an instance of the Target declared Model entity. A Property instance is borne by its data bearer and is an instance of its corresponding model Property, which remains borne by its model bearer. A Property instance has no independent Carrier; its bearer and kind Relations are distinct and may coexist.\n\nHAS_INSTANCE is the inverse alias of INSTANCE_OF. Both writings identify the same fact, with endpoints reversed; the alias does not grant an endpoint permission or add a fact.\n\nFor a declared Model entity `x`, `$a[<x>] ((INSTANCE_OF)) x` is a generic example: `$a` selects an existing instance of `x`; bare `x` denotes that Model entity. The example does not create either participant.\n\n## Semantics\n\nINSTANCE_OF relates an instance to its declared Model entity.\n",
+      "after_sha256": "f78ce05f5a293595c5deea956d401e8305c817b90be1cea9a24acc53411f843e"
+    }
+  ]
+}

@@ -23,10 +23,14 @@ One exactly selected non-container Atom and its requested changes.
 
 ## Claim
 
-Resolve the exact non-container target once. Validate requested fields against the applicable model/schema, mandatory fields, expected source/currentness, permissions, identity, collision and placement; never overwrite another target.
+Derive carrier filename and location under [CA-D-568](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/lifecycle-in-place-edits/CA-D-568@20-draft-CORE_META_MODEL-DECISION--bind-draft-identity-continuity-evidence.md). Resolve the exact non-container target once, preserve expected source/currentness, and apply [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) safety checks and identity/Version rules; [CA-R-1788@19-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1788@19-draft-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md) governs timestamps.
 
-- **Draft:** edit content in place, preserve Version and Updated At, and leave Current untouched. Unchanged Summary/Role retains the canonical intent marker and proposed Version. A Summary/Role change switches to a role-only marker and filename, keeps Draft Version/time, and allocates no stable canonical ID; later promotion publishes the canonical Atom at Version 1.
-- **Current:** allow only technical in-place edits preserving meaning, identity, Summary, Role, Status, Version, and Updated At; synchronize filename/location. A semantic request is an explicit error; the caller may separately select Update.
-- **Archived:** allow only technical in-place edits preserving identity, meaning, Status, Version, and Updated At; synchronize filename/location. Do not publish Current or promote a Draft; semantic or identity changes are explicit errors.
+- **Draft:** edit content in place, including semantic Draft edits, and leave Current untouched.
+- **Current:** allow only technical in-place edits preserving meaning, identity, Summary, Role and Status; synchronize filename/location. A semantic request is an explicit error; the caller may separately select Update.
+- **Archived:** allow only technical in-place edits preserving identity, meaning and Status; synchronize filename/location. Do not publish Current or promote a Draft; semantic or identity changes are explicit errors.
 
-Save and read back the carrier's content, metadata and location, then return it. Journal records business events only and is nonblocking.
+Save and read back the carrier. For an actual business event, append its Journal record under [CA-R-807@35-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-807@35-draft-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md).
+
+### Outputs
+
+`savedAtom`: the verified saved carrier. Diagnostic/failure results follow [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md); Journal append warnings follow [CA-R-807@35-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-807@35-draft-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md).

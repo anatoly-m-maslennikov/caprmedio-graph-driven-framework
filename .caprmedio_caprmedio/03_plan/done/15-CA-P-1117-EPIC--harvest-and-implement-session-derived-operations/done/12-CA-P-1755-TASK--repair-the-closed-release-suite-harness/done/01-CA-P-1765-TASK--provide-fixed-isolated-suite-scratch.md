@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1765
-content_role: Plan
-type: Plan
+ref_id: CA-P-1765
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 9
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Testing/Executor Admission
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Testing/Executor Admission
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Engineering/Workflow
@@ -23,6 +24,12 @@ relations:
   is_decomposition_of:
   - CA-P-1755
 tier: 3
+container:
+  atom: CA-P-1755
+carrier_destination:
+  file:
+    name: 1-CA-P-1765-TASK--provide-fixed-isolated-suite-scratch.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/12-CA-P-1755-TASK--repair-the-closed-release-suite-harness/done
 ---
 # Summary
 

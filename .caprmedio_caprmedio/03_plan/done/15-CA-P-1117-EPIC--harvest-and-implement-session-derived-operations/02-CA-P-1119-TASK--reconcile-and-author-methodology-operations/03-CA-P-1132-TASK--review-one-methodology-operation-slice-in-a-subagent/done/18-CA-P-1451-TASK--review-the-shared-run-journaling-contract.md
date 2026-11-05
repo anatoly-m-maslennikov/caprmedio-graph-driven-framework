@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1451
-content_role: Plan
-type: Plan
+ref_id: CA-P-1451
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 18
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ assignee: AI Agent
 status: Done
 version: 7
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Journal Operations
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Journal Operations
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'

@@ -1,5 +1,6 @@
 ---
 atom_id: CA-E-752
+ref_id: CA-E-752
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Evaluation
 form: Eval Case
 tier: 6
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   evaluation_for:
   - CA-C-702
@@ -17,9 +18,11 @@ relations:
   - CA-M-396
 carrier_destination:
   file:
-    name: CA-E-752-WORKBENCH_BACKEND-EVAL_CASE--verify-query-failure-severity-and-runtime-health.md
+    name: CA-E-752-WORKBENCH_BACKEND-EVAL_CASE--verify-query-failure-severity-and-runtime-availability.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation
 updated_at: 2026-11-05 17:43:47 +0400
+container:
+  scope_unit: CA-SU-45
 ---
 
 ## Summary

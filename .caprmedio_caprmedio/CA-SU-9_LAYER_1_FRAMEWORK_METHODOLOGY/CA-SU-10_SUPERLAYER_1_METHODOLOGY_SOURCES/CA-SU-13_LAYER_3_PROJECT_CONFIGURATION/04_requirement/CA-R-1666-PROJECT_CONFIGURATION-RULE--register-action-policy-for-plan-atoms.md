@@ -1,18 +1,25 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Form'
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Form'
 version: 37
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
   depends_on:
   - CA-R-1286
 atom_id: CA-R-1666
+ref_id: CA-R-1666
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-R-1666-PROJECT_CONFIGURATION-RULE--register-action-policy-for-plan-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 ---
 ## Summary
 

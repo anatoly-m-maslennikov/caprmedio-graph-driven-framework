@@ -4,13 +4,16 @@ subject_scopes:
 - scope-topology
 version: 8
 updated_at: 2026-10-24 13:39:34 +0400
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 tier: 3
 status: Canceled
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
 atom_id: CA-P-014
+ref_id: CA-P-014
+container:
+  scope_unit: CA-SU-00
 ---
 # Apply compact Structural-unit prefixes and finish the Structural migration
 

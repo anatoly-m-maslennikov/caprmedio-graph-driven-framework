@@ -1,9 +1,10 @@
 ---
 atom_id: CA-C-108
+ref_id: CA-C-108
 priority: low
-subjects:
-  governs: Entity
-  depends_on:
+topics:
+  main_subject: Entity
+  dependencies:
   - Entity/Continuant/Object/Atom
   - Atom/Claim
   - Subject/Domain/Node/Continuant/Atom.Subjects
@@ -13,15 +14,16 @@ subjects:
   - Atom/Tier/Local Tier
 version: 7
 updated_at: 2026-10-23 03:14:50 +0400
-relations: {}
-content_role: "Concern"
+role: "Concern"
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Standard"
 status: "active"
 author: "Anatoly Maslennikov"
-type: "Question"
+form: "Question"
 global_tier: 11
+container:
+  scope_unit: CA-SU-11
 ---
 # How many R and D Atoms may govern one Entity?
 

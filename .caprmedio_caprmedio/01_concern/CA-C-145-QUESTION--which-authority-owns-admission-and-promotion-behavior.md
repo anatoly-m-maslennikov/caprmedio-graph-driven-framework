@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Subject/Domain/Node/Continuant/Atom/Content Role
-  depends_on:
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Atom/Content Role
+  dependencies:
   - Atom/Claim
   - Subject/Domain/Node/Continuant/Actor
   - Subject/Domain/Node/Continuant/Project.Framework Settings
@@ -13,7 +13,6 @@ version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-145
 ---
 # Which authority owns admission and promotion behavior?

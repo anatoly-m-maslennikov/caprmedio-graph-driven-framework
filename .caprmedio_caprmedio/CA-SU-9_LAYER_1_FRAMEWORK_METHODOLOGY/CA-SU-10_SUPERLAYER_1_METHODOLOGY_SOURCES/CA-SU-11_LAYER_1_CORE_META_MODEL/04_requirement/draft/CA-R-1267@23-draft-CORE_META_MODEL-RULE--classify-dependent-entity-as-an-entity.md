@@ -1,21 +1,23 @@
 ---
-subjects:
-  governs: Entity/Dependent Entity
-  depends_on:
+topics:
+  main_subject: Entity/Dependent Entity
+  dependencies:
   - Entity
   - Entity/Term//Dependent Entity
   - Entity/Graph Syntax > Relation//IS_BORNE_BY
 version: 23
 updated_at: 2026-10-29 21:54:09 +0400
-relations: {}
 atom_id: CA-R-1267@23-draft
-content_role: Requirement
+ref_id: CA-R-1267@23-draft
+role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 tier: 1
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

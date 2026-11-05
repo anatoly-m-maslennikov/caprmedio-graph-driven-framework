@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1137
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1137
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F10 evidence admission and truthful coverage final packet
-  depends_on:
+topics:
+  main_subject: F10 evidence admission and truthful coverage final packet
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Evaluation
   - Atom/Revision
@@ -29,6 +30,8 @@ relations:
   - CA-O-104
   - CA-O-118
   - CA-C-376
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

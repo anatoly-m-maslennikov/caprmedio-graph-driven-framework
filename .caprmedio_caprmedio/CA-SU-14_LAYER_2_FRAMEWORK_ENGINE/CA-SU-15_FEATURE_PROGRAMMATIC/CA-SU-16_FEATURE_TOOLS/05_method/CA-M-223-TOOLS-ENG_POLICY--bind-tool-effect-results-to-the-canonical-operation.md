@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool.Effect Result
 version: 21
 updated_at: 2026-10-27 19:59:40 +0400
@@ -15,12 +15,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-223
+ref_id: CA-M-223
 status: Active
-content_role: Method
+role: Method
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eng Policy
+form: Eng Policy
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Bind Tool effect results to the canonical operation
 

@@ -1,19 +1,26 @@
 ---
 atom_id: CA-E-643
-content_role: Evaluation
-type: Policy
+ref_id: CA-E-643
+role: Evaluation
+form: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
 relations:
   evaluation_for:
   - CA-M-410
 tier: 4
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-E-643-PROGRAMMATIC-POLICY--evaluate-workload-resource-bounds.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
 # Summary
 

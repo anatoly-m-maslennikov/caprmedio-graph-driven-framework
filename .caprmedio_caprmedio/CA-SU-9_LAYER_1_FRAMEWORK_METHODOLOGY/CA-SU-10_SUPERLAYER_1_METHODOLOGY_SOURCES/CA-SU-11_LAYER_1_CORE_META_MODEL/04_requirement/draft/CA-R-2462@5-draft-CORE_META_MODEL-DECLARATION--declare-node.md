@@ -1,19 +1,19 @@
 ---
 atom_id: CA-R-2462
-status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL <+ Node
-version: 5
-updated_at: 2026-11-05 16:33:24 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-tier: 3
+ref_id: CA-R-2462@5-draft
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Node
+tier: 3
+status: Draft
+version: 5
+updated_at: 2026-11-05 16:33:24 +0400
 carrier_destination:
   file:
-    name: CA-R-2462@5-draft-CORE_META_MODEL-DECLARATION--declare-node.md
+    name: CA-R-2462@5-draft-DECLARATION--declare-node.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
 ---
 
@@ -22,6 +22,10 @@ carrier_destination:
 Declare Node
 
 ## Claim
+
+### Prose Claim
+
+In the selected effective MODEL, each logical model entity selected by Node or Node.** has exactly one outgoing IS_DECLARED_BY Relation to its qualified canonical declaring Requirement/Form Declaration Atom. This named outgoing permission applies to model entities, including Node Properties, and does not impose an ownership requirement on runtime instances. Derive the view only from a GOVERNS fact satisfying the declaring ownership qualification; do not store a second fact or infer any other inverse permission. The target-omitted bound counts each selected model entity’s outgoing links within the Relation Declaration’s qualified endpoint domain.
 
 ### Formal Claim
 
@@ -44,6 +48,14 @@ Node {::0+}((NARROWER_THAN)) Node;
 Node {::0+}((HAS_NARROWER)) Node;
 
 Node.** {::1}((IS_PROPERTY_OF)) (Node, Node.**);
+
+Atom.Header.** {::0..1}((IS_ORDERED_RIGHT_AFTER)) Atom.Header.**;
+
+Atom.Header.** {::0..1}((IS_ORDERED_RIGHT_BEFORE)) Atom.Header.**;
+
+Atom.Content.** {::0..1}((IS_ORDERED_RIGHT_AFTER)) Atom.Content.**;
+
+Atom.Content.** {::0..1}((IS_ORDERED_RIGHT_BEFORE)) Atom.Content.**;
 
 (Node, Node.**) {::0+}((HAS_PROPERTY)) Node.**;
 
@@ -79,10 +91,6 @@ $node.** {::1}((INSTANCE_OF)) Node.**;
 
 ($node, $node.**) {::0+}((HAS_PROPERTY)) $node.**;
 ```
-
-### Prose Claim
-
-In the selected effective MODEL, each logical model entity selected by Node or Node.** has exactly one outgoing IS_DECLARED_BY Relation to its qualified canonical declaring Requirement/Form Declaration Atom. This named outgoing permission applies to model entities, including Node Properties, and does not impose an ownership requirement on runtime instances. Derive the view only from a GOVERNS fact satisfying the declaring ownership qualification; do not store a second fact or infer any other inverse permission. The target-omitted bound counts each selected model entity’s outgoing links within the Relation Declaration’s qualified endpoint domain.
 
 ## Semantics
 

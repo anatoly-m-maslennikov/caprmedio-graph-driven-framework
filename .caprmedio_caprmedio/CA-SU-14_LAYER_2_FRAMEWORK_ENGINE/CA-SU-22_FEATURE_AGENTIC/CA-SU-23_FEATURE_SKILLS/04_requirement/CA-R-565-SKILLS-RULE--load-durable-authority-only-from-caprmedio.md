@@ -11,14 +11,17 @@ relations:
   - CA-R-564
   - CAPRMEDIO-METHODOLOGY-REQU-509-FRAMEWORK_METHODOLOGY-REQUIREMENT--govern-session-engine-rehydration-behavior
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-565
-type: Rule
+ref_id: CA-R-565
+form: Rule
 tier: 2
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+container:
+  scope_unit: CA-SU-23
 ---
 # Load durable authority only from CAPRMEDIO
 

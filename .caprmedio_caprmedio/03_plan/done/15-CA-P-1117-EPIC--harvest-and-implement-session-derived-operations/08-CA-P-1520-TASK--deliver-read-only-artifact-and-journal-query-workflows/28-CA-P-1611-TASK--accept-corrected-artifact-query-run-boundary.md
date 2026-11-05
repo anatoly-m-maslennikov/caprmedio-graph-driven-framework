@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-1611
-content_role: Plan
-type: Plan
+ref_id: CA-P-1611
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 28
 current_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Evaluation
+  dependencies:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
@@ -25,6 +26,12 @@ relations:
   - CA-P-1527
   - CA-P-1528
 tier: 3
+container:
+  atom: CA-P-1520
+carrier_destination:
+  file:
+    name: 28-CA-P-1611-TASK--accept-corrected-artifact-query-run-boundary.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/8-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/done
 ---
 # Summary
 

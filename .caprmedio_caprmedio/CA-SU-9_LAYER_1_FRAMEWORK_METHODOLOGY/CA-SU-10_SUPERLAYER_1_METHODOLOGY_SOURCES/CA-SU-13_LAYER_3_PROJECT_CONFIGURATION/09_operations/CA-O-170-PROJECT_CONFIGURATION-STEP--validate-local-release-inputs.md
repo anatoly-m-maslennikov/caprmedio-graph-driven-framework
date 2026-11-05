@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-170
-content_role: Operations
-type: Step
+ref_id: CA-O-170
+role: Operations
+form: Step
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/caprmedio/Step//Release Version/Step: validate local inputs'
-  depends_on:
+topics:
+  main_subject: 'Subject/caprmedio/Step//Release Version/Step: validate local inputs'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
@@ -20,6 +21,12 @@ relations:
   invokes:
   - CA-O-165
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-170-PROJECT_CONFIGURATION-STEP--validate-local-release-inputs.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

@@ -1,0 +1,16 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "source_inventory": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/live-census.json",
+  "inventory_key": "inventory",
+  "prepared_operations": "prepared-operations.json",
+  "scope": "Only carriers enumerated by the current adoption-plan inventory. Within a carrier: front-matter keys, then CFEL/GFEL fences inside Claim only; no writes.",
+  "deterministic_operations": [
+    {"kind":"metadata","match":"front-matter subjects.active only","replace":"topics.main_subject","logical_path":"Atom.Header.Subjects.Active -> Atom.Header.Topics.Main Subject"},
+    {"kind":"metadata","match":"front-matter subjects.passive only","replace":"topics.dependencies","logical_path":"Atom.Header.Subjects.Passive -> Atom.Header.Topics.Dependencies"},
+    {"kind":"metadata","match":"front-matter subjects mapping only","replace":"topics mapping","logical_path":"Atom.Header.Subjects -> Atom.Header.Topics"},
+    {"kind":"CFEL","match":"unquoted Formal Claim allowed-value format separator : [format]","replace":":: [format]"},
+    {"kind":"CFEL","match":"unquoted Formal Claim allowed-count token {:x}","replace":"{::x}"},
+    {"kind":"CFEL","match":"Atom.Header.Subjects.Active/Passive/parent address in an unquoted Claim CFEL/GFEL fence","replace":"Atom.Header.Topics.Main Subject/Dependencies/Topics"}
+  ],
+  "holds": ["Do not alter = conditions, == required/derived conclusions, or := admissions.","Do not replace slash notation blindly.","Do not transform comments, quoted data, non-CFEL/GFEL fences, Markdown prose, path escapes, or ambiguous colon use.","Every prepared occurrence is pinned to the current source SHA and a predicted postimage SHA.","90% guard per context: require all scope, masking, exact-token, and current-pin checks; otherwise hold the span."]
+}

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-466
-content_role: Concern
-type: Question
+ref_id: CA-C-466
+role: Concern
+form: Question
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
@@ -9,9 +10,9 @@ status: active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Prior-image rollback retention
-  depends_on:
+topics:
+  main_subject: Prior-image rollback retention
+  dependencies:
   - Image
   - Manifest
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
@@ -19,6 +20,8 @@ subjects:
   - Evaluation
 relations:
   concern_about: [CA-P-1697, CA-O-169, CA-R-1880]
+container:
+  scope_unit: CA-SU-16
 ---
 # Summary
 

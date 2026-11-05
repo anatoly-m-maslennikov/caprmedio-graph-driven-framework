@@ -1,14 +1,14 @@
 ---
 atom_id: CA-R-2640
+ref_id: CA-R-2640@2-draft
 role: Requirement
 form: Scope Unit Declaration
 status: Draft
 version: 2
 updated_at: 2026-11-05 12:58:42 +0400
 tier: 3
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Project//caprmedio
-relations: {}
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Project//caprmedio
 container:
   scope_unit: CA-SU--1
 carrier_destination:

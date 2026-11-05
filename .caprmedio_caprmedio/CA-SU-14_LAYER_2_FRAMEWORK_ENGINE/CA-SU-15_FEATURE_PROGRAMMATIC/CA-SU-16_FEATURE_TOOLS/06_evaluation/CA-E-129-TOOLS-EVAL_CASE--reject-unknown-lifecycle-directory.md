@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
@@ -16,12 +16,15 @@ relations:
   - CA-R-1308
   - CA-R-1137
 atom_id: CA-E-129
+ref_id: CA-E-129
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject unknown lifecycle directory
 

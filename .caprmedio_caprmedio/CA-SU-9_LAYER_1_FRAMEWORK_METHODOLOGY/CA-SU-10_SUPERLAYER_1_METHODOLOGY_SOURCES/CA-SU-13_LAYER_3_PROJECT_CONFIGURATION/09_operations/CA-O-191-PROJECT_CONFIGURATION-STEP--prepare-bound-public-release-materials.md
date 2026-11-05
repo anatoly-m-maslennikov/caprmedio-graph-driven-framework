@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-191
-content_role: Operations
-type: Step
+ref_id: CA-O-191
+role: Operations
+form: Step
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/caprmedio/Step//Public release/Step: prepare materials'
-  depends_on:
+topics:
+  main_subject: 'Subject/caprmedio/Step//Public release/Step: prepare materials'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation
   - Subject/CAPRMEDIO/Carrier/Pull Request
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History
@@ -21,6 +22,12 @@ relations:
   invokes:
   - CA-O-192
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-191-PROJECT_CONFIGURATION-STEP--prepare-bound-public-release-materials.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

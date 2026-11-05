@@ -1,17 +1,19 @@
 ---
 atom_id: CA-R-2220@2-draft
-content_role: Requirement
-type: Definition
+ref_id: CA-R-2220@2-draft
+role: Requirement
+form: Definition
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Model::CAPRMEDIO::Continuant/Structural Unit/Scope Unit/Project
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Structural Unit/Scope Unit/Project
 version: 2
 updated_at: 2026-10-29 00:04:17 +0400
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

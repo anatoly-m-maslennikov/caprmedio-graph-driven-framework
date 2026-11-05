@@ -1,9 +1,8 @@
-// CA-R-2729@7
-// CA-R-2776@4
-// CA-D-673@11
-// CA-R-2791@1
-// CA-D-680@1
-import type { CheckResult, QueryResult, QueryLogItem, SavedIdentity, SavedItem, Schema, ViewRunResponse, WorkspaceState, WorkspaceView } from './types';
+// CA-R-2727@14
+// CA-R-2952@1
+// CA-D-674@18
+// CA-D-681@4
+import type { CheckResult, GridState, QueryResult, QueryLogItem, SavedIdentity, SavedItem, Schema, SourceSyncStatus, ViewRunResponse, WorkspaceState, WorkspaceView } from './types';
 
 export class WorkbenchApi {
   constructor(private readonly base: string, private readonly projectRoot: string | null) {}
@@ -33,17 +32,18 @@ export class WorkbenchApi {
     return this.post('view-save', { sql, ...(name ? { name } : {}) });
   }
 
-  page(queryId: string, offset: number, pageSize: number): Promise<QueryResult> {
-    return this.post('page', { query_id: queryId, offset, page_size: pageSize });
+  page(queryId: string, offset: number, pageSize: number, grid?: GridState): Promise<QueryResult> {
+    return this.post('page', { query_id: queryId, offset, page_size: pageSize, ...(grid ? { grid } : {}) });
   }
 
   schema(): Promise<Schema> { return this.post('schema', {}); }
+  status(): Promise<SourceSyncStatus> { return this.post('status', {}); }
   load(reference: string): Promise<SavedIdentity> { return this.post('load', { reference }); }
   savedList(): Promise<{ items: SavedItem[] }> { return this.post('saved-list', { limit: 20 }); }
 }
 
-// CA-R-2902@1
-// CA-D-681@1
+// CA-R-2902@2
+// CA-D-681@4
 export class WorkspaceApi {
   constructor(
     private readonly base: string, private readonly projectRoot: string | null, readonly workspaceId: string,
@@ -76,8 +76,8 @@ export class WorkspaceApi {
   check(viewId: string, cursorPosition: number): Promise<CheckResult> {
     return this.call('view_check', { workspace_id: this.workspaceId, view_id: viewId, cursor_position: cursorPosition });
   }
-  fetch(viewId: string, offset = 0, pageSize = 100): Promise<QueryResult> {
-    return this.call('view_fetch', { workspace_id: this.workspaceId, view_id: viewId, offset, page_size: pageSize });
+  fetch(viewId: string, offset = 0, pageSize = 100, grid?: GridState): Promise<QueryResult> {
+    return this.call('view_fetch', { workspace_id: this.workspaceId, view_id: viewId, offset, page_size: pageSize, ...(grid ? { grid } : {}) });
   }
   focus(viewId: string): Promise<{ workspace_id: string; active_view_id: string }> { return this.call('view_focus', { workspace_id: this.workspaceId, view_id: viewId }); }
   rename(viewId: string, name: string): Promise<WorkspaceView> { return this.call('view_rename', { workspace_id: this.workspaceId, view_id: viewId, name }); }

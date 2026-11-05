@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1520
-content_role: Plan
-type: Plan
+ref_id: CA-P-1520
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 8
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: FRAMEWORK_ENGINE
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Workflow
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Workflow
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Workflow
@@ -28,6 +29,12 @@ relations:
   - CA-P-1124
   - CA-P-1655
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 8-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations
 ---
 # Summary
 

@@ -1,20 +1,20 @@
 ---
 atom_id: CA-P-2681
-content_role: Plan
-type: Plan
+ref_id: CA-P-2681
+role: Plan
+form: Plan
 label: Task
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject
+topics:
+  main_subject: Subject
 version: 4
 updated_at: 2026-10-29 21:51:04 +0400
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2673
 tier: 4
+container:
+  atom: CA-P-2673
 ---
 # Summary
 

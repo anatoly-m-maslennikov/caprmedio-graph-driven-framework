@@ -1,11 +1,11 @@
 ---
 atom_id: CA-R-2526
+ref_id: CA-R-2526
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit.ID
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.ID
 version: 4
 updated_at: 2026-11-04 05:21:15 +0400
-relations: {}
 tier: 3
 role: Requirement
 form: Declaration
@@ -20,13 +20,13 @@ Declare Scope Unit ID
 
 ```CFEL
 # model
-Scope Unit.ID: [string]{:0..1};
+Scope Unit.ID:: [string]{::0..1};
 
-Scope Unit.ID.*[]{:0};
+Scope Unit.ID.*[]{::0};
 
 # instances
 IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit))
-THEN ($unit.ID{:1})
+THEN ($unit.ID{::1})
 ```
 
 ## Semantics

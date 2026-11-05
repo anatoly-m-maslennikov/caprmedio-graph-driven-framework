@@ -7,9 +7,9 @@ relations:
   child_of:
   - CA-M-006
   - CA-R-2157
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Package
@@ -19,12 +19,15 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-1424
+ref_id: CA-R-1424
 status: Active
 current_scope_unit: caprmedio
 tier: 4
 claim_target_scope_unit: FRAMEWORK_ENGINE
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 Provide tools to maintain methodology alignment

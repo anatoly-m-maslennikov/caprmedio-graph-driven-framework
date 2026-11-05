@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
@@ -13,17 +13,18 @@ relations:
   - CA-R-1583@26
   - CA-R-1592
   - CA-D-471
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-E-504
+ref_id: CA-E-504
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Case
 carrier_destination:
   file:
-    name: CA-E-504-CORE_META_MODEL-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md
+    name: CA-E-504-EVAL_CASE--validate-plan-blocking-and-parallel-readiness.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

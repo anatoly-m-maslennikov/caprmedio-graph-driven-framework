@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1086
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1086
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Scoped Operator-choice gap acceptance
-  depends_on:
+topics:
+  main_subject: Scoped Operator-choice gap acceptance
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
   - Journal
@@ -25,6 +26,8 @@ relations:
   - CA-A-1128
   - CA-P-1347
   - CA-P-1130
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

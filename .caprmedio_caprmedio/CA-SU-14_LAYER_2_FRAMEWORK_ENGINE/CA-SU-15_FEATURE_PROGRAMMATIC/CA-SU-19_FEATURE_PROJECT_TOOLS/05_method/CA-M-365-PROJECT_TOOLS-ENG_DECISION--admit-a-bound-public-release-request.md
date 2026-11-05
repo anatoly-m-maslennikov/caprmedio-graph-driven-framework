@@ -1,13 +1,14 @@
 ---
 atom_id: CA-M-365
-content_role: Method
+ref_id: CA-M-365
+role: Method
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Carrier/Git Repository
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
@@ -18,8 +19,14 @@ relations:
   method_for:
   - CA-R-1920
   - CA-R-1921
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-19
+carrier_destination:
+  file:
+    name: CA-M-365-PROJECT_TOOLS-ENG_DECISION--admit-a-bound-public-release-request.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/05_method
 ---
 # Summary
 

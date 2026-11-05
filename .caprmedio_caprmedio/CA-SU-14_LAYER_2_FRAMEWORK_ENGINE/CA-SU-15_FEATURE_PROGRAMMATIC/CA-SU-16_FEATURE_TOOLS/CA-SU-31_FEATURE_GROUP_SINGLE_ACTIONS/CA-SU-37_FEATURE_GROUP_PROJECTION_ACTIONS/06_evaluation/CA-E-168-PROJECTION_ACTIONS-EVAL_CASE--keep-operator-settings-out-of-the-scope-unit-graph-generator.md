@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
@@ -15,13 +15,16 @@ relations:
   evaluation_for:
   - CA-R-1070
 atom_id: CA-E-168
+ref_id: CA-E-168
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
-type: Eval Case
+form: Eval Case
 tier: 2
 claim_target_scope_unit: PROJECTION_ACTIONS
+container:
+  scope_unit: CA-SU-37
 ---
 # Keep operator settings out of the Scope Unit Graph generator
 

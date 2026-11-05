@@ -1,17 +1,18 @@
 ---
 atom_id: CA-R-draft
-content_role: Requirement
-type: Rule
+role: Requirement
+form: Rule
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject
+topics:
+  main_subject: Subject
 version: 1
 updated_at: 2026-10-28 17:07:35 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

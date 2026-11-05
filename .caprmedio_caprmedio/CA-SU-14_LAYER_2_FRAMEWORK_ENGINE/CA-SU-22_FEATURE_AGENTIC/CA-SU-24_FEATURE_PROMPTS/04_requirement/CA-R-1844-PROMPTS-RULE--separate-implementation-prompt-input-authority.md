@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-1844
-content_role: Requirement
-type: Rule
+ref_id: CA-R-1844
+role: Requirement
+form: Rule
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 11
 updated_at: 2026-10-27 20:00:04 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-R-1844-PROMPTS-RULE--separate-implementation-prompt-input-authority.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/04_requirement
 ---
 # Summary
 

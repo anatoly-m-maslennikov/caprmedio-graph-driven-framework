@@ -1,23 +1,29 @@
 ---
 atom_id: CA-E-527
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-527
+role: Evaluation
+form: Eval Case
 current_scope_unit: GET_EXECUTION_CONTEXT
 status: Active
 author: Anatoly Maslennikov
 version: 9
 updated_at: 2026-10-27 19:59:36 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-5
+carrier_destination:
+  file:
+    name: CA-E-527-GET_EXECUTION_CONTEXT-EVAL_CASE--verify-get-execution-context.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-5_TOOL_GET_EXECUTION_CONTEXT/06_evaluation
 ---
 # Summary
 

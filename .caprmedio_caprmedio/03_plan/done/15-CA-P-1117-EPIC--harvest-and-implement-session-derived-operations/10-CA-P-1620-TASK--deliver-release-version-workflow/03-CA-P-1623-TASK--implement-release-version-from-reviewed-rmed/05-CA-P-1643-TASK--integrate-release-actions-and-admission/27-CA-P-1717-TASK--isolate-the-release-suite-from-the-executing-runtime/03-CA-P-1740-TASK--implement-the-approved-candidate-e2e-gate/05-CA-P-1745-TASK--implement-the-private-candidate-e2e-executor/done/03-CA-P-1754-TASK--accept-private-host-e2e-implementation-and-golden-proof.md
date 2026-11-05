@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1754
-content_role: Plan
-type: Plan
+ref_id: CA-P-1754
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 11
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Evaluation Implementation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Evaluation Implementation
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Implementation Evaluation
   - Subject/Graph Node/Engineering/Workflow

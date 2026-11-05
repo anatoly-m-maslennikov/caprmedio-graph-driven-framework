@@ -3,15 +3,16 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
 version: 1
 updated_at: 2026-10-29 00:04:17 +0400
-relations: {}
 tier: 4
 atom_id: CA-E-draft
-content_role: Evaluation
-type: Eval Case
+role: Evaluation
+form: Eval Case
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1119
-content_role: Plan
-type: Plan
+ref_id: CA-P-1119
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: METHODOLOGY_SOURCES
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Operations
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Operations
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
 version: 9
@@ -27,6 +28,12 @@ relations:
   - CA-P-1133
   - CA-P-1135
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 2-CA-P-1119-TASK--reconcile-and-author-methodology-operations.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
 ---
 # Summary
 

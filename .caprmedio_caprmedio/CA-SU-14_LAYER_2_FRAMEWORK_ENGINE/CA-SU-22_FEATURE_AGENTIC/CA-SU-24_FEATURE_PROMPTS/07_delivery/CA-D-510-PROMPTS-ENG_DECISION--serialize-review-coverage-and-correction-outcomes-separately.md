@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-510
-content_role: Delivery
+ref_id: CA-D-510
+role: Delivery
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 19:59:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
@@ -17,9 +18,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
-relations: {}
 tier: 3
-type: Eng Decision
+form: Eng Decision
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-D-510-PROMPTS-ENG_DECISION--serialize-review-coverage-and-correction-outcomes-separately.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/07_delivery
 ---
 # Summary
 

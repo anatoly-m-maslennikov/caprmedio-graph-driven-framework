@@ -1,16 +1,18 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
 version: 7
 updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-R-2154
+ref_id: CA-R-2154
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: ACTION_ENGINE
-type: Rule
+form: Rule
 tier: 1
+container:
+  scope_unit: CA-SU-34
 ---
 # Control registered background services
 

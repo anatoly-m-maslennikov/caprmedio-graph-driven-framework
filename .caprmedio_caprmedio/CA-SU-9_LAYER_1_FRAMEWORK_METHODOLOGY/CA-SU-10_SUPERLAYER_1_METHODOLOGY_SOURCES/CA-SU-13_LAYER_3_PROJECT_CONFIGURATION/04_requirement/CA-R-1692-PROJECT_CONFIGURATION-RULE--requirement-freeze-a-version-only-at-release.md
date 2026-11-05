@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
@@ -17,12 +17,19 @@ relations:
   depends_on:
   - CA-R-1712
 atom_id: CA-R-1692
+ref_id: CA-R-1692
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 3
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-R-1692-PROJECT_CONFIGURATION-RULE--requirement-freeze-a-version-only-at-release.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 ---
 ## Summary
 

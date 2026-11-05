@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-2412
-content_role: Plan
-type: Plan
+ref_id: CA-P-2412
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool//ATOM_UPDATE
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool//ATOM_UPDATE
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Term//Property
@@ -21,6 +22,12 @@ relations:
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
 tier: 3
+container:
+  atom: CA-P-2405
+carrier_destination:
+  file:
+    name: 2-CA-P-2412-TASK--review-the-first-observed-mcp-atom-update-partition.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/4-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/done
 ---
 # Summary
 

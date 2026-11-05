@@ -1,16 +1,17 @@
 ---
 atom_id: CA-C-362
-content_role: Concern
-type: Problem
+ref_id: CA-C-362
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F16 saved-candidate evidence read-boundary failure
-  depends_on:
+topics:
+  main_subject: F16 saved-candidate evidence read-boundary failure
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Analysis & Advisory'
 version: 6
@@ -21,6 +22,8 @@ relations:
   relates_to:
   - CA-A-1079
   - CA-A-933
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

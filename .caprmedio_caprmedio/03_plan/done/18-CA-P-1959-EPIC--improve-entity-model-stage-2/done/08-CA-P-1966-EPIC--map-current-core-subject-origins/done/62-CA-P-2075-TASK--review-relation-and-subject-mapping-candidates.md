@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2075
-content_role: Plan
-type: Plan
+ref_id: CA-P-2075
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 62
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Projection
@@ -23,6 +24,12 @@ relations:
   is_decomposition_of:
   - CA-P-1966
 tier: 3
+container:
+  atom: CA-P-1966
+carrier_destination:
+  file:
+    name: 62-CA-P-2075-TASK--review-relation-and-subject-mapping-candidates.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/done
 ---
 # Summary
 

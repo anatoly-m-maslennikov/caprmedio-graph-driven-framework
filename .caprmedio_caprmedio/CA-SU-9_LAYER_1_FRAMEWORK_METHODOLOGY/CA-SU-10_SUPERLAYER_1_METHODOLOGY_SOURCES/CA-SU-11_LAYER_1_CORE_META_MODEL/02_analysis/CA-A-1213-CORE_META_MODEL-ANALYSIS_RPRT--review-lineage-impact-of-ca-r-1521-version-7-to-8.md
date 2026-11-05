@@ -1,7 +1,8 @@
 ---
 atom_id: CA-A-1213
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1213
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: Standard
@@ -10,14 +11,16 @@ status: Done
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-11-02 15:49:28 +0400
-subjects:
-  governs: Lineage Impact Analysis
-  depends_on:
+topics:
+  main_subject: Lineage Impact Analysis
+  dependencies:
   - Entity/Continuant/Object/Atom
   - 'Entity/Continuant/History/Revision/Type: Atom'
 relations:
   relates_to:
   - CA-R-1521
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

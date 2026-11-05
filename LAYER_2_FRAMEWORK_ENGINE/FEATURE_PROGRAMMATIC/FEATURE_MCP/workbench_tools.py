@@ -1,15 +1,19 @@
 # CA-R-2728@6
-# CA-R-2776@5
-# CA-M-470@6
-# CA-D-673@12
-# CA-R-2902@1
-# CA-R-2903@1
-# CA-D-681@1
+# CA-R-2776@6
+# CA-M-470@7
+# CA-D-673@13
+# CA-R-2902@2
+# CA-R-2903@2
+# CA-D-681@4
 # CA-R-2782@2
 # CA-D-676@2
 # CA-R-2786@1
 # CA-M-474@1
 # CA-D-679@1
+# CA-R-2953@1
+# CA-R-2952@1
+# CA-M-491@1
+# CA-D-696@1
 
 """Native MCP adapters for the Project-owned Workbench service."""
 
@@ -19,19 +23,28 @@ import asyncio
 from pathlib import Path
 import sys
 import threading
-from typing import Any
+from typing import TYPE_CHECKING, Any, NoReturn
 
 from mcp import types
 
+if TYPE_CHECKING:
+    from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService
+
 tools = str(Path(__file__).resolve().parents[1] / "FEATURE_TOOLS")
-if tools not in sys.path:
-    sys.path.insert(0, tools)
+apps = str(Path(__file__).resolve().parents[1] / "FEATURE_APPS")
+for location in (tools, apps):
+    if location not in sys.path:
+        sys.path.insert(0, location)
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import (  # noqa: E402
+    QueryExecutionError, WorkbenchUnavailableError,
+)
 
 RUN, PAGE, CHECK, SCHEMA = "query_run", "query_page", "query_check", "query_schema"
 SAVE_VIEW, LOAD, SAVED_LIST = "view_save", "query_load", "query_saved_list"
 RESTART = "workbench_restart"
 REREAD = "workbench_reread"
+SYNC_STATUS = "workbench_status"
 WORKSPACE_OPEN, WORKSPACE_LIST, WORKSPACE_GET = "workspace_open", "workspace_list", "workspace_get"
 VIEW_CREATE, VIEW_LIST, VIEW_GET, VIEW_UPDATE = "view_create", "view_list", "view_get", "view_update"
 VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS = "view_run", "view_check", "view_fetch", "view_focus"
@@ -42,13 +55,17 @@ INTERFACE_TOOLS = (
     VIEW_UPDATE, VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS, VIEW_RENAME, VIEW_REMOVE,
     QUERY_LOG_LIST, QUERY_LOG_GET,
 )
-NATIVE_TOOLS = (RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, LOAD, SAVED_LIST, *INTERFACE_TOOLS, RESTART, REREAD)
+NATIVE_TOOLS = (RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, LOAD, SAVED_LIST, *INTERFACE_TOOLS, RESTART, REREAD, SYNC_STATUS)
 
 _CURSOR = {"type": "integer", "minimum": 0}
 _SQL = {"type": "string"}
 _RUN_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}, "cursor_position": _CURSOR, "preview": {"type": "integer", "minimum": 0}, "save": {"type": "boolean", "default": False}, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
 _CHECK_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "cursor_position": _CURSOR}, "required": ["sql"], "additionalProperties": False}
-_PAGE_SCHEMA = {"type": "object", "properties": {"query_id": _SQL, "offset": {"type": "integer", "minimum": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}}, "required": ["query_id", "offset"], "additionalProperties": False}
+_COLUMN_INDEX = {"type": "integer", "minimum": 0}
+_GRID_ORDER = {"type": "object", "properties": {"column": _COLUMN_INDEX, "direction": {"type": "string", "enum": ["asc", "desc"]}}, "required": ["column", "direction"], "additionalProperties": False}
+_GRID_FILTER = {"type": "object", "properties": {"column": _COLUMN_INDEX, "operator": {"type": "string", "enum": ["contains"]}, "value": _SQL}, "required": ["column", "operator", "value"], "additionalProperties": False}
+_GRID_SCHEMA = {"type": "object", "properties": {"sort": {"type": "array", "items": _GRID_ORDER}, "filters": {"type": "array", "items": _GRID_FILTER}, "group_by": _GRID_ORDER}, "additionalProperties": False}
+_PAGE_SCHEMA = {"type": "object", "properties": {"grid": _GRID_SCHEMA,"query_id": _SQL, "offset": {"type": "integer", "minimum": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}}, "required": ["query_id", "offset"], "additionalProperties": False}
 _VIEW_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
 _LOAD_SCHEMA = {"type": "object", "properties": {"reference": _SQL}, "required": ["reference"], "additionalProperties": False}
 _LIST_SCHEMA = {"type": "object", "properties": {"limit": {"type": "integer", "minimum": 1, "maximum": 1000}}, "additionalProperties": False}
@@ -63,7 +80,7 @@ _VIEW_CREATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPA
 _VIEW_GET_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_UPDATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "sql": _SQL, "cursor_position": _CURSOR, "expected_revision": {"type": "integer", "minimum": 0}}, "required": ["workspace_id", "view_id", "sql", "expected_revision"], "additionalProperties": False}
 _VIEW_RUN_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "cursor_position": _CURSOR, "preview": _PREVIEW, "save": {"type": "boolean", "default": False}, "name": _SQL}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
-_VIEW_FETCH_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "offset": {"type": "integer", "minimum": 0, "default": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000, "default": 100}, "preview": _PREVIEW}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
+_VIEW_FETCH_SCHEMA = {"type": "object", "properties": {"grid": _GRID_SCHEMA,"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "offset": {"type": "integer", "minimum": 0, "default": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000, "default": 100}, "preview": _PREVIEW}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_CHECK_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "cursor_position": _CURSOR}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_RENAME_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "name": _SQL}, "required": ["workspace_id", "view_id", "name"], "additionalProperties": False}
 _QUERY_LOG_GET_SCHEMA = {"type": "object", "properties": {"log_id": _WORKSPACE_ID}, "required": ["log_id"], "additionalProperties": False}
@@ -81,11 +98,13 @@ def native_tools() -> tuple[types.Tool, ...]:
                VIEW_CHECK: _VIEW_CHECK_SCHEMA, VIEW_FETCH: _VIEW_FETCH_SCHEMA,
                VIEW_FOCUS: _VIEW_GET_SCHEMA, VIEW_RENAME: _VIEW_RENAME_SCHEMA,
                VIEW_REMOVE: _VIEW_GET_SCHEMA, QUERY_LOG_LIST: _LIST_SCHEMA,
-               QUERY_LOG_GET: _QUERY_LOG_GET_SCHEMA, RESTART: _EMPTY_SCHEMA, REREAD: _EMPTY_SCHEMA}
+               QUERY_LOG_GET: _QUERY_LOG_GET_SCHEMA, RESTART: _EMPTY_SCHEMA, REREAD: _EMPTY_SCHEMA,
+               SYNC_STATUS: _EMPTY_SCHEMA}
     writes = {RUN, SAVE_VIEW, WORKSPACE_OPEN, VIEW_CREATE, VIEW_UPDATE, VIEW_RUN, VIEW_FOCUS,
               VIEW_RENAME, VIEW_REMOVE, RESTART, REREAD}
     descriptions = {
-        WORKSPACE_OPEN: "Initialize or resume the Workspace bound to one native session.",
+        SYNC_STATUS: "Read source-indexing status without starting or restarting Workbench.",
+        WORKSPACE_OPEN: "Initialize or resume the Workspace bound to one browser or native session.",
         WORKSPACE_LIST: "List known Workspace IDs for the selected Project.",
         WORKSPACE_GET: "Get Workspace Views, active View, and result metadata without result rows.",
         VIEW_CREATE: "Create a stable View in a Workspace.",
@@ -113,14 +132,12 @@ class WorkbenchTools:
     """One lazy Workbench owner per Project Gateway."""
 
     def __init__(self, root: Path) -> None:
-        self.root, self._service = root, None
+        self.root = root
+        self._service: WorkbenchService | None = None
         self._lifecycle_lock = threading.RLock()
 
-    def _owner(self) -> Any:
+    def _owner(self) -> WorkbenchService:
         if self._service is None:
-            apps = str(Path(__file__).resolve().parents[1] / "FEATURE_APPS")
-            if apps not in sys.path:
-                sys.path.insert(0, apps)
             from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService
             self._service = WorkbenchService(self.root)
         return self._service
@@ -133,6 +150,10 @@ class WorkbenchTools:
 
     def _call(self, name: str, arguments: Any) -> dict[str, Any]:  # noqa: C901
         """Keep an owner alive for the complete synchronous Workbench operation."""
+        if name == SYNC_STATUS:
+            self._empty(arguments)
+            owner = self._service
+            return owner.sync_status() if owner is not None else {"syncing": False, "last_synced_at": None}
         with self._lifecycle_lock:
             if name in INTERFACE_TOOLS:
                 return self._owner().interface_call(name, arguments)
@@ -146,8 +167,8 @@ class WorkbenchTools:
                 sql, cursor = self._sql(arguments, {"sql", "cursor_position"})
                 return self._owner().check(sql, cursor_position=cursor)
             if name == PAGE:
-                query_id, offset, page_size = self._page(arguments)
-                return self._owner().page(query_id, offset, page_size=page_size)
+                query_id, offset, page_size, grid = self._page(arguments)
+                return self._owner().page(query_id, offset, page_size=page_size, grid=grid)
             if name == SCHEMA:
                 self._empty(arguments)
                 return self._owner().schema()
@@ -178,15 +199,13 @@ class WorkbenchTools:
             raise ValueError("Unknown Workbench tool")
 
     @staticmethod
-    def _raise_known(error: Exception) -> None:
+    def _raise_known(error: Exception) -> NoReturn:
         if isinstance(error, ValueError):
             raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
-        if isinstance(error, RuntimeError):
-            reason = str(error)
-            if reason.startswith(("query failed:", "query result delivery failed:", "query page failed:", "query page delivery failed:")):
-                raise ExplicitBlockingRuntimeFailure("query_error", reason) from error
-            if reason == "query store unavailable; Workbench restart required" or reason.startswith(("Workbench indexing failed; restart required:", "Workbench startup failed; restart required:")):
-                raise ExplicitBlockingRuntimeFailure("workbench_unavailable", "Workbench unavailable; restart required") from error
+        if isinstance(error, QueryExecutionError):
+            raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
+        if isinstance(error, WorkbenchUnavailableError):
+            raise ExplicitBlockingRuntimeFailure("workbench_unavailable", "Workbench unavailable; restart required") from error
         raise error
 
     @staticmethod
@@ -231,15 +250,17 @@ class WorkbenchTools:
             raise ValueError("name is only valid when save is true")
         return sql, self._page_size(arguments), cursor, save, preview, query_name
 
-    def _page(self, arguments: Any) -> tuple[str, int, int]:
-        if not isinstance(arguments, dict) or set(arguments) - {"query_id", "offset", "page_size"} or {"query_id", "offset"} - set(arguments):
-            raise ValueError("Expected query_id, offset, and optional page_size")
+    def _page(self, arguments: Any) -> tuple[str, int, int, Any]:
+        if not isinstance(arguments, dict) or set(arguments) - {"query_id", "offset", "page_size", "grid"} or {"query_id", "offset"} - set(arguments):
+            raise ValueError("Expected query_id, offset, optional page_size and grid")
+        if "grid" in arguments and not isinstance(arguments["grid"], dict):
+            raise ValueError("grid must be an object")
         query_id, offset = arguments["query_id"], arguments["offset"]
         if not isinstance(query_id, str):
             raise ValueError("query_id must be a string")
         if isinstance(offset, bool) or not isinstance(offset, int) or offset < 0:
             raise ValueError("offset must be a non-negative integer")
-        return query_id, offset, self._page_size(arguments)
+        return query_id, offset, self._page_size(arguments), arguments.get("grid")
 
     @staticmethod
     def _empty(arguments: Any) -> None:
@@ -265,4 +286,4 @@ class WorkbenchTools:
                 self._service = None
 
 
-__all__ = ["CHECK", "INTERFACE_TOOLS", "LOAD", "NATIVE_TOOLS", "PAGE", "QUERY_LOG_GET", "QUERY_LOG_LIST", "REREAD", "RESTART", "RUN", "SAVED_LIST", "SAVE_VIEW", "SCHEMA", "VIEW_CHECK", "VIEW_CREATE", "VIEW_FETCH", "VIEW_FOCUS", "VIEW_GET", "VIEW_LIST", "VIEW_REMOVE", "VIEW_RENAME", "VIEW_RUN", "VIEW_UPDATE", "WORKSPACE_GET", "WORKSPACE_LIST", "WORKSPACE_OPEN", "WorkbenchTools", "native_tools"]
+__all__ = ["CHECK", "INTERFACE_TOOLS", "LOAD", "NATIVE_TOOLS", "PAGE", "QUERY_LOG_GET", "QUERY_LOG_LIST", "REREAD", "RESTART", "RUN", "SAVED_LIST", "SAVE_VIEW", "SCHEMA", "SYNC_STATUS", "VIEW_CHECK", "VIEW_CREATE", "VIEW_FETCH", "VIEW_FOCUS", "VIEW_GET", "VIEW_LIST", "VIEW_REMOVE", "VIEW_RENAME", "VIEW_RUN", "VIEW_UPDATE", "WORKSPACE_GET", "WORKSPACE_LIST", "WORKSPACE_OPEN", "WorkbenchTools", "native_tools"]

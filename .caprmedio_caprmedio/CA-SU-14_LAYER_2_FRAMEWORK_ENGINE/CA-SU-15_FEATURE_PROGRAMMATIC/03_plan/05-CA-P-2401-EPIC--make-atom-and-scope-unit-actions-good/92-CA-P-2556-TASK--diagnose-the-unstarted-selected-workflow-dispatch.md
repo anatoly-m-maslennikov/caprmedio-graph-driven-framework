@@ -1,22 +1,28 @@
 ---
 atom_id: CA-P-2556
-content_role: Plan
-type: Plan
+ref_id: CA-P-2556
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 92
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 status: Backlog
-subjects:
-  governs: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
 relations:
   is_decomposition_of:
   - CA-P-2401
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
 tier: 3
+container:
+  atom: CA-P-2401
+carrier_destination:
+  file:
+    name: 92-CA-P-2556-TASK--diagnose-the-unstarted-selected-workflow-dispatch.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/001_backlog
 ---
 # Summary
 

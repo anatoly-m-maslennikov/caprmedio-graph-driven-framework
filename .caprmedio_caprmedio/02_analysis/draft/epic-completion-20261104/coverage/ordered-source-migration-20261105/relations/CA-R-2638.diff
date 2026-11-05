@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2638@4-draft-CORE_META_MODEL-DECLARATION--define-runs.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/relations/CA-R-2638.preview.txt
+@@ -26,14 +26,14 @@
+ 
+ ```CFEL
+ # model
+-Relation//RUNS ((HAS_INVERSE)) Relation//IS_RUN_BY;
++Relation//IS_RUN_BY ((IS_INVERSE_ALIAS_FOR)) Relation//RUNS;
+ 
+ Relation//RUNS ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+ # instances
+-Step//$step ((RUNS)) (in (Action, Workflow))//$selected
++$step[<Step>] ((RUNS)) $selected[<Action> OR <Workflow>]
+ ```
+ 
+ ### Prose Claim
+ 
+-RUNS binds a Step to its Action or Workflow target. Its inverse is IS_RUN_BY.
++RUNS binds a Step to its Action or Workflow target. IS_RUN_BY is its inverse alias.

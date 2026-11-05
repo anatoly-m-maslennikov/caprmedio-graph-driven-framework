@@ -1,15 +1,17 @@
 ---
 atom_id: CA-C-626
+ref_id: CA-C-626
 current_scope_unit: caprmedio
 status: Resolved
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
 version: 3
-relations: {}
 tier: 3
 role: Concern
 form: Question
 updated_at: 2026-11-02 17:02:39 +0400
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 

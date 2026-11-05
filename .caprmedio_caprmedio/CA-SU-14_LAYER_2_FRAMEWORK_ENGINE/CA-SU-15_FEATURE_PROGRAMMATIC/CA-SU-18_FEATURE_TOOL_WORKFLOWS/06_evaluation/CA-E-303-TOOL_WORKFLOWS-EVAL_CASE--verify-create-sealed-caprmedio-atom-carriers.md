@@ -1,14 +1,15 @@
 ---
 atom_id: CA-E-303
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-303
+role: Evaluation
+form: Eval Case
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
@@ -22,6 +23,12 @@ relations:
   - CA-O-032
   - CA-D-508
 tier: 4
+container:
+  scope_unit: CA-SU-18
+carrier_destination:
+  file:
+    name: CA-E-303-TOOL_WORKFLOWS-EVAL_CASE--verify-create-sealed-caprmedio-atom-carriers.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/06_evaluation
 ---
 # Summary
 

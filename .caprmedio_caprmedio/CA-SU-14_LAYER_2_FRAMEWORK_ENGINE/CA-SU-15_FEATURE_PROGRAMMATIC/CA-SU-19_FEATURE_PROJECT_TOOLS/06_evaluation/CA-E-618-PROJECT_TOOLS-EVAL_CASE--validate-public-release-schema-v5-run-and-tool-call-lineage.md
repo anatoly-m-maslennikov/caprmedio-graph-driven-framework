@@ -1,14 +1,15 @@
 ---
 atom_id: CA-E-618
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-618
+role: Evaluation
+form: Eval Case
 current_scope_unit: PROJECT_TOOLS
 claim_target_scope_unit: PROJECT_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
@@ -20,6 +21,12 @@ relations:
   evaluation_for:
   - CA-R-1928
 tier: 4
+container:
+  scope_unit: CA-SU-19
+carrier_destination:
+  file:
+    name: CA-E-618-PROJECT_TOOLS-EVAL_CASE--validate-public-release-schema-v5-run-and-tool-call-lineage.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/06_evaluation
 ---
 # Summary
 

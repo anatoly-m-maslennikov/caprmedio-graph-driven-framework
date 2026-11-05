@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1784
-content_role: Plan
-type: Plan
+ref_id: CA-P-1784
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Testing/Executor Admission
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Testing/Executor Admission
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation Implementation
   - Subject/Graph Node/Domain/Continuant/History/Journal
@@ -23,6 +24,12 @@ relations:
   relates_to:
   - CA-C-498
 tier: 3
+container:
+  atom: CA-P-1782
+carrier_destination:
+  file:
+    name: 2-CA-P-1784-TASK--repair-the-retained-e2e-and-image-fixture-premises.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/31-CA-P-1782-TASK--repair-the-sealed-n9-unit-failure-groups/done
 ---
 # Summary
 

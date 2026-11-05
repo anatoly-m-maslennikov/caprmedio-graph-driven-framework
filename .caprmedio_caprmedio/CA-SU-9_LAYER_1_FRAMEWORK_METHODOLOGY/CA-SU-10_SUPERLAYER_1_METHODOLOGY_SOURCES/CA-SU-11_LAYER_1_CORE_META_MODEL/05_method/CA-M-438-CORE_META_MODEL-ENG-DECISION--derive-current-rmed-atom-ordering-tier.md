@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
@@ -20,12 +20,19 @@ relations:
   - CA-R-2132
   - CA-R-2149
 atom_id: CA-M-438
+ref_id: CA-M-438
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 tier: 4
 status: Active
 role: Method
 form: Eng Decision
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-438-CORE_META_MODEL-ENG_DECISION--derive-current-rmed-atom-ordering-tier.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

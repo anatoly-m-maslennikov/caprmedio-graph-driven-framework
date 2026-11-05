@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings.Name
   - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
   - CAPRMEDIO_MODEL <+ Project.Settings
@@ -22,6 +22,7 @@ relations:
   - CA-D-375
   - CA-D-658
 atom_id: CA-E-459
+ref_id: CA-E-459
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
@@ -30,8 +31,10 @@ role: Evaluation
 form: Eval Policy
 carrier_destination:
   file:
-    name: CA-E-459-CORE_META_MODEL-POLICY--validate-authoritative-project-settings-artifact.md
+    name: CA-E-459-CORE_META_MODEL-EVAL_POLICY--validate-authoritative-project-settings-artifact.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

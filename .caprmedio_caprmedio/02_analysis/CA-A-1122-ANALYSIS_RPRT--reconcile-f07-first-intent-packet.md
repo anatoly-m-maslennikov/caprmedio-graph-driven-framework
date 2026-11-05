@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1122
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1122
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F07 first saved-intent packet reconciliation
-  depends_on:
+topics:
+  main_subject: F07 first saved-intent packet reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Evaluation
   - Journal
@@ -24,6 +25,8 @@ relations:
   - CA-P-1352
   - CA-P-1130
   - CA-C-377
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

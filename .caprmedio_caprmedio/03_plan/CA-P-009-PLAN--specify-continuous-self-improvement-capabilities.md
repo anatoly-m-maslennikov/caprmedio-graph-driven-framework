@@ -1,17 +1,20 @@
 ---
 atom_id: CA-P-009
+ref_id: CA-P-009
 subject_scopes:
 - continuous-improvement
 version: 7
 updated_at: 2026-10-24 06:26:31 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 tier: 3
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
+container:
+  scope_unit: CA-SU-00
 ---
 # Specify continuous self-improvement capabilities
 

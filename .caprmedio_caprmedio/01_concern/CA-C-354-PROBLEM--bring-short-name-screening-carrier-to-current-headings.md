@@ -1,16 +1,17 @@
 ---
 atom_id: CA-C-354
-content_role: Concern
-type: Problem
+ref_id: CA-C-354
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: active
-subjects:
-  governs: Short-name screening Operation carrier
-  depends_on:
+topics:
+  main_subject: Short-name screening Operation carrier
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Markdown Atom Carrier/Structure
 version: 2
@@ -22,6 +23,8 @@ relations:
   relates_to:
     - CA-D-479
     - CA-A-1062
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

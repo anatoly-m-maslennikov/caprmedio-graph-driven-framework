@@ -10,15 +10,18 @@ relations:
   child_of:
   - CA-M-261
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-564
-type: Rule
+ref_id: CA-R-564
+form: Rule
 tier: 1
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
     Structure
+container:
+  scope_unit: CA-SU-23
 ---
 # Use one portable shared Skill runtime
 

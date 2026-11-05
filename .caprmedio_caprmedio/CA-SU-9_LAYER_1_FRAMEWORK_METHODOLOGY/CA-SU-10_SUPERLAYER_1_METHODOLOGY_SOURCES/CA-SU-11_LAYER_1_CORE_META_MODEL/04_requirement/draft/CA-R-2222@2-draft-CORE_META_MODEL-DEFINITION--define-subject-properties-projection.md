@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-2222@2-draft
-content_role: Requirement
-type: Definition
+ref_id: CA-R-2222@2-draft
+role: Requirement
+form: Definition
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph Properties'
-  depends_on:
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Subject Graph Properties'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
 relations:
@@ -17,6 +18,8 @@ relations:
 tier: 2
 version: 2
 updated_at: 2026-10-28 16:27:23 +0400
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

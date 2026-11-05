@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Journal
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Journal
+  dependencies:
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom
@@ -15,12 +15,19 @@ relations:
   - CA-D-308
   - CA-D-340
 atom_id: CA-E-476
+ref_id: CA-E-476
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

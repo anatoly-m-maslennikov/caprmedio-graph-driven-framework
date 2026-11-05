@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
 version: 27
 updated_at: 2026-11-03 23:17:14 +0400
 llm_session_ids:
@@ -13,13 +13,20 @@ relations:
   derived_from:
   - CA-A-057
 atom_id: CA-E-067
-content_role: Evaluation
+ref_id: CA-E-067
+role: Evaluation
 status: Active
 current_scope_unit: GRAPH_UI
 claim_target_scope_unit: GRAPH_UI
-type: Eval Case
+form: Eval Case
 tier: 4
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-44
+carrier_destination:
+  file:
+    name: CA-E-067-GRAPH_UI-EVAL_CASE--interactive-html-graph-view-behavior.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-44_APP_GRAPH_UI/06_evaluation
 ---
 # Summary
 

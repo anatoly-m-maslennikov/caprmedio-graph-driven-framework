@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1803
-content_role: Plan
-type: Plan
+ref_id: CA-P-1803
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 7
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Testing/Executor Admission
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Testing/Executor Admission
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation Implementation
 relations:
@@ -22,6 +23,12 @@ relations:
   relates_to:
   - CA-C-508
 tier: 3
+container:
+  atom: CA-P-1801
+carrier_destination:
+  file:
+    name: 2-CA-P-1803-TASK--repair-n12-image-gate-fixtures.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/35-CA-P-1801-TASK--repair-actual-n12-unit-failure-groups/done
 ---
 # Summary
 

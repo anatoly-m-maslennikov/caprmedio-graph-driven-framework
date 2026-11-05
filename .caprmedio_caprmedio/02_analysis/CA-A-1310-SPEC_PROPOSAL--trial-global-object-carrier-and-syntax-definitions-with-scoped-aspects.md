@@ -1,16 +1,22 @@
 ---
 atom_id: CA-A-1310
-content_role: Analysis & Advisory
-type: Spec Proposal
+ref_id: CA-A-1310
+role: Analysis & Advisory
+form: Spec Proposal
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 tier: 3
 version: 4
 updated_at: 2026-11-02 15:49:28 +0400
-subjects:
-  governs: Entity
-relations: {}
+topics:
+  main_subject: Entity
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1310-CAPRMEDIO-SPEC_PROPOSAL--trial-global-object-carrier-and-graph-syntax-definitions-with-scoped-aspects.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 ## Summary
 

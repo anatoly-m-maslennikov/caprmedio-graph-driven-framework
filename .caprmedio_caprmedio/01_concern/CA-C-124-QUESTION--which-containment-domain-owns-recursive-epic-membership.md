@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Structural Entity/Recursive Containment
-  depends_on:
+topics:
+  main_subject: Structural Entity/Recursive Containment
+  dependencies:
   - Structural Entity/Direct Containment
   - 'Atom Collection/Type: Epic'
   - Subject/Domain/Node/Continuant/Project.Structure
@@ -13,7 +13,6 @@ version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-124
 ---
 # Which containment domain owns recursive Epic membership?

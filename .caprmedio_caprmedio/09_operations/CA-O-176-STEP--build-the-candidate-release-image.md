@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-176
-content_role: Operations
-type: Step
+ref_id: CA-O-176
+role: Operations
+form: Step
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/caprmedio/Step//Release Version/Step: build candidate image'
-  depends_on:
+topics:
+  main_subject: 'Subject/caprmedio/Step//Release Version/Step: build candidate image'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
@@ -23,6 +24,12 @@ relations:
   invokes:
   - CA-O-168
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-O-176-CAPRMEDIO-STEP--build-the-candidate-release-image.md
+    path: .caprmedio_caprmedio/09_operations
 ---
 # Summary
 

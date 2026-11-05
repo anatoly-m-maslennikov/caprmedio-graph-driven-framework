@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  dependencies:
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Projection
@@ -12,12 +12,19 @@ relations:
   - CA-M-135
   - CA-R-2535
 atom_id: CA-E-624
+ref_id: CA-E-624
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-624-CORE_META_MODEL-EVAL_POLICY--validate-generated-only-provenance-boundary.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

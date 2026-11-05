@@ -1,14 +1,15 @@
 ---
 atom_id: CA-D-589
-content_role: Delivery
+ref_id: CA-D-589
+role: Delivery
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 18
 updated_at: 2026-10-27 19:59:27 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
@@ -22,8 +23,14 @@ relations:
   delivery_for:
   - CA-R-1895
   - CA-M-351
-type: Eng Decision
+form: Eng Decision
 tier: 5
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-D-589-WORKFLOW_ORCHESTRATOR-ENG_DECISION--carry-operator-authorized-unknown-release-effect-resolution.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/07_delivery
 ---
 # Summary
 

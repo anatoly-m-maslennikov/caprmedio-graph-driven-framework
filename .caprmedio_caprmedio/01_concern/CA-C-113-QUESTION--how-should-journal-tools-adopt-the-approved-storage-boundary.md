@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Subject/Engineering/Carrier/Journal Serialization
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Carrier/Journal Serialization
+  dependencies:
   - Subject/Domain/Node/Continuant/History/Journal.Record
   - Subject/Engineering/Carrier
   - Atom/Revision
@@ -12,7 +12,6 @@ version: 20
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 priority: medium
 atom_id: CA-C-113
 ---

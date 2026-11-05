@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-499
-content_role: Concern
-type: Question
+ref_id: CA-C-499
+role: Concern
+form: Question
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
@@ -9,9 +10,9 @@ status: Active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Release Unit deadline sufficiency
-  depends_on:
+topics:
+  main_subject: Release Unit deadline sufficiency
+  dependencies:
   - Subject/Domain/Node/Continuant/Project.Framework Settings
   - Test Suite
   - Subject/Engineering/Carrier/File Carrier
@@ -19,6 +20,12 @@ subjects:
   - Subject/Domain/Node/Occurrent/Execution/Workflow Run
 relations:
   concern_about: [CA-P-1792, CA-P-1782, CA-D-579, CA-D-580]
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-C-499-TOOLS-QUESTION--is-the-source-defined-unit-deadline-sufficient.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern
 ---
 # Summary
 

@@ -1,18 +1,25 @@
 ---
 atom_id: CA-M-417
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-417
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Carrier
 version: 9
 updated_at: 2026-10-27 19:59:43 +0400
 author: Anatoly Maslennikov
 tier: 3
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-417-PROGRAMMATIC-ENG_POLICY--pass-validated-configuration-through-one-shared-boundary.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

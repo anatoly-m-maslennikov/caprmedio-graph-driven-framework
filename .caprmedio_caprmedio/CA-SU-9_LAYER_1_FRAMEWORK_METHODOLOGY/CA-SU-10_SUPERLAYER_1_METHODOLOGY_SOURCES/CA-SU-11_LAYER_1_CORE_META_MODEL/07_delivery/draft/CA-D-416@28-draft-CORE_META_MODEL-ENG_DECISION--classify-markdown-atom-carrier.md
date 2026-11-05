@@ -1,21 +1,23 @@
 ---
-subjects:
-  governs: Entity/Carrier/File
-  depends_on:
+topics:
+  main_subject: Entity/Carrier/File
+  dependencies:
   - Entity/Carrier/File
   - Entity/Term
   - Entity/Graph Syntax > Relation//NARROWER_THAN
 version: 28
 updated_at: 2026-10-30 00:34:52 +0400
-relations: {}
 atom_id: CA-D-416@28-draft
-content_role: Delivery
+ref_id: CA-D-416@28-draft
+role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 tier: 1
-type: Decision
+form: Decision
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 Classify Markdown Atom Carrier

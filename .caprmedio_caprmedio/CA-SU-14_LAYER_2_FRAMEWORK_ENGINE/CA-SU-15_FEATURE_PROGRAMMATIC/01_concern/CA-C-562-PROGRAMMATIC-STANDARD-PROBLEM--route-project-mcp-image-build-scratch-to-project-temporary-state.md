@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-562
-content_role: Concern
-type: Problem
+ref_id: CA-C-562
+role: Concern
+form: Problem
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
@@ -9,13 +10,18 @@ global_tier: 8
 author: Anatoly Maslennikov
 status: Active
 priority: high
-subjects:
-  governs: Entity/Node/Continuant/Implementation
-  depends_on: []
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about: [CA-R-1901, CA-M-356]
 version: 1
 updated_at: "2026-10-21T09:20:17Z"
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-C-562-PROGRAMMATIC-PROBLEM--route-project-mcp-image-build-scratch-to-project-temporary-state.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

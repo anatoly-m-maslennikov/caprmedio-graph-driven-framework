@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1422
-content_role: Plan
-type: Plan
+ref_id: CA-P-1422
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Action
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Action
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
   - Subject/Graph Node/Engineering/Evaluation Technique Selection
@@ -24,6 +25,8 @@ relations:
   - CA-P-1132
   - CA-P-1157
 tier: 3
+container:
+  atom: CA-P-1131
 ---
 # Summary
 

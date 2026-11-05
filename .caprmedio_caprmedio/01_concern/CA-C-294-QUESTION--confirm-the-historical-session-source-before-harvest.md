@@ -1,16 +1,17 @@
 ---
 atom_id: CA-C-294
-content_role: Concern
-type: Question
+ref_id: CA-C-294
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: active
-subjects:
-  governs: Project session metadata corpus/Source identity
-  depends_on:
+topics:
+  main_subject: Project session metadata corpus/Source identity
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 version: 4
@@ -22,6 +23,8 @@ relations:
     - CA-P-1127
     - CA-P-1128
     - CA-P-1129
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

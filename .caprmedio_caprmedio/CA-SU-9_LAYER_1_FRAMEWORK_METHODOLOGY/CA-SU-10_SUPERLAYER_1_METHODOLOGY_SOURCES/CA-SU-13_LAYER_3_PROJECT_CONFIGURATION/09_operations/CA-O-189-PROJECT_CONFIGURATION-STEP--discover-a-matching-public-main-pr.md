@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-189
-content_role: Operations
-type: Step
+ref_id: CA-O-189
+role: Operations
+form: Step
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/caprmedio/Step//Public release/Step: discover matching main PR'
-  depends_on:
+topics:
+  main_subject: 'Subject/caprmedio/Step//Public release/Step: discover matching main PR'
+  dependencies:
   - Subject/CAPRMEDIO/Carrier/Pull Request
   - Subject/CAPRMEDIO/Carrier/Git Repository
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
@@ -19,6 +20,12 @@ relations:
   invokes:
   - CA-O-190
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-189-PROJECT_CONFIGURATION-STEP--discover-a-matching-public-main-pr.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

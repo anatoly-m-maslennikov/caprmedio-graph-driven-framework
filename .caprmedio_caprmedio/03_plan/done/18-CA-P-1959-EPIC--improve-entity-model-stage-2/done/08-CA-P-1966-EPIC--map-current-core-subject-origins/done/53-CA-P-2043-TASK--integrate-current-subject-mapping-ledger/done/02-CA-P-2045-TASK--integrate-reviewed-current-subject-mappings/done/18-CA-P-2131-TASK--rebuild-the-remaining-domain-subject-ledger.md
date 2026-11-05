@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2131
-content_role: Plan
-type: Plan
+ref_id: CA-P-2131
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 18
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Projection
@@ -25,6 +26,12 @@ relations:
   - CA-P-2129
   - CA-P-2130
 tier: 3
+container:
+  atom: CA-P-2045
+carrier_destination:
+  file:
+    name: 18-CA-P-2131-TASK--rebuild-the-remaining-domain-subject-ledger.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/done/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger/done/2-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done
 ---
 # Summary
 

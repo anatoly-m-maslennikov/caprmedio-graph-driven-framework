@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2332
-content_role: Plan
-type: Plan
+ref_id: CA-P-2332
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Atom
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Atom.Version Number
   - Subject/Graph Node/Domain/Continuant/Atom.Updated At
@@ -23,6 +24,12 @@ relations:
   is_decomposition_of:
   - CA-P-2264
 tier: 3
+container:
+  atom: CA-P-2264
+carrier_destination:
+  file:
+    name: 5-CA-P-2332-TASK--clarify-ancestor-only-carrier-movement.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/29-CA-P-2264-TASK--bind-atom-placement-and-status-changes
 ---
 # Summary
 

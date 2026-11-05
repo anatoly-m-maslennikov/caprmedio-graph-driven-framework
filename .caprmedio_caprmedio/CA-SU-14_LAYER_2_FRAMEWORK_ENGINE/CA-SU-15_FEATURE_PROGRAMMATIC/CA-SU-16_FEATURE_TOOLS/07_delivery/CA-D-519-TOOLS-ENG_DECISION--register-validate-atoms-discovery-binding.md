@@ -1,14 +1,15 @@
 ---
 atom_id: CA-D-519
-content_role: Delivery
+ref_id: CA-D-519
+role: Delivery
 current_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 15
 updated_at: 2026-11-02 19:46:47 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
@@ -18,9 +19,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-D-519-TOOLS-ENG_DECISION--register-validate-atoms-discovery-binding.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
 ---
 # Summary
 

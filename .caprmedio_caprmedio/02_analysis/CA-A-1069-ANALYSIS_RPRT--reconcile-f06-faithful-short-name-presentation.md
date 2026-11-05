@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1069
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1069
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Faithful presentation reconciliation
-  depends_on:
+topics:
+  main_subject: Faithful presentation reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Analysis
   - Methodology Sources
@@ -27,6 +28,8 @@ relations:
   - CA-C-374
   - CA-C-379
   - CA-C-380
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

@@ -19,7 +19,7 @@ Promote the selected Atom Draft
 
 ## Claim scope
 
-This Step operates on the one exact non-container Draft selected by its parent Workflow. It has no descendant selection, cascade, or earlier Step output.
+One exact non-container Draft binding within [Atom Lifecycle_Promote Draft](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-promote-draft.md).
 
 ## Claim
 
@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Selected Draft; applicable model; destination; explicit Current Status.
+Selected Draft, `targetStatus`, and `projectContext`.
 
 ### Fixed parameters
 
@@ -37,9 +37,8 @@ None.
 
 ### Runs
 
-The Action [Promote one Atom Draft](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--promote-one-atom-draft.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+The Action [Promote one Atom Draft](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--promote-one-atom-draft.md).
 
 ### Outputs
 
-The Action's published Current Atom and completed Draft removal, or its explicit error with completed results, passed unchanged.
-
+The called Action's declared Outputs.

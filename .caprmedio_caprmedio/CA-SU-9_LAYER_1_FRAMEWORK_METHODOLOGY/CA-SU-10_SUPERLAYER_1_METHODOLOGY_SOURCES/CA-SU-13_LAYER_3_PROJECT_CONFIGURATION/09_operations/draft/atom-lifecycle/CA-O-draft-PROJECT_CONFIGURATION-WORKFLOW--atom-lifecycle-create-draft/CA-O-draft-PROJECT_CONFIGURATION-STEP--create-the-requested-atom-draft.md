@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Either `newAtom` properties, or one exact `sourceCurrent` selector with changed properties; Draft destination; applicable model; authorization.
+Validated `parameters`, warnings, `projectContext`, and any internal `expectedSource` from the enclosing Workflow.
 
 ### Fixed parameters
 
@@ -37,9 +37,8 @@ None.
 
 ### Runs
 
-The Action [Create one Atom Draft](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--create-one-atom-draft.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+The Action [Create one Atom Draft](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--create-one-atom-draft.md).
 
 ### Outputs
 
-The Action's saved Draft or its explicit error with completed results, passed unchanged.
-
+The called Action's declared Outputs.

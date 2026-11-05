@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1609
-content_role: Plan
-type: Plan
+ref_id: CA-P-1609
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 65
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/MCP
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/MCP
+  dependencies:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/MCP
   - Subject/Graph Node/Engineering/Action
@@ -26,6 +27,12 @@ relations:
   - CA-P-1527
   - CA-P-1528
 tier: 3
+container:
+  atom: CA-P-1137
+carrier_destination:
+  file:
+    name: 65-CA-P-1609-TASK--expose-registered-query-routes-in-discovery.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/1-CA-P-1137-TASK--implement-one-programmatic-capability-slice/done
 ---
 # Summary
 

@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     occurrent:
       - Shared Programmatic Evaluation Coverage Mapping
-  depends_on:
+  dependencies:
     continuant:
       - Programmatic Policy
       - Evaluation Coverage

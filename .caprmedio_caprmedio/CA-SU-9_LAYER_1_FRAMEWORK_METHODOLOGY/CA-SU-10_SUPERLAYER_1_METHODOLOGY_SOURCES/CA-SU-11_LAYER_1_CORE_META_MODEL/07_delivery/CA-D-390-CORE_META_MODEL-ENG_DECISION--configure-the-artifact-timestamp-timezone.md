@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings.Artifact Timestamp Timezone
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Artifact Timestamp Timezone
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - CAPRMEDIO_MODEL <+ Carrier
 version: 28
@@ -11,6 +11,7 @@ relations:
   - CA-D-311
   - CA-R-1402@27
 atom_id: CA-D-390
+ref_id: CA-D-390
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
@@ -19,8 +20,10 @@ role: Delivery
 form: Decision
 carrier_destination:
   file:
-    name: CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md
+    name: CA-D-390-CORE_META_MODEL-DECISION--configure-the-artifact-timestamp-timezone.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

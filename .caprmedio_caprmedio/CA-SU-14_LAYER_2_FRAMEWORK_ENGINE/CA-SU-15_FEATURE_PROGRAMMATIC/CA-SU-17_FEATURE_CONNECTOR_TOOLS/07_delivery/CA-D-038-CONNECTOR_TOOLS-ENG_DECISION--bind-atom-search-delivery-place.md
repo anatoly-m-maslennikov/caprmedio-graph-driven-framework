@@ -1,12 +1,13 @@
 ---
 atom_id: CA-D-038
-content_role: Delivery
+ref_id: CA-D-038
+role: Delivery
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
 version: 24
 updated_at: 2026-11-02 19:46:47 +0400
 relations:
@@ -14,8 +15,14 @@ relations:
   - CA-R-2690
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-D-038-CONNECTOR_TOOLS-ENG_DECISION--bind-atom-search-delivery-place.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/07_delivery
 ---
 # Summary
 

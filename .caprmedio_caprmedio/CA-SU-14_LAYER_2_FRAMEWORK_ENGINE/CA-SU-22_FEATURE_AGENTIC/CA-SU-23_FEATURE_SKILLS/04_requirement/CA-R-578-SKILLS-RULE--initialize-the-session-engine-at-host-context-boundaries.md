@@ -10,14 +10,17 @@ relations:
   child_of:
   - CAPRMEDIO-METHODOLOGY-REQU-507-FRAMEWORK_METHODOLOGY-CORE-REQUIREMENT--automatically-initialize-the-session-engine
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-578
-type: Rule
+ref_id: CA-R-578
+form: Rule
 tier: 1
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+container:
+  scope_unit: CA-SU-23
 ---
 # Initialize the session engine at host context boundaries
 

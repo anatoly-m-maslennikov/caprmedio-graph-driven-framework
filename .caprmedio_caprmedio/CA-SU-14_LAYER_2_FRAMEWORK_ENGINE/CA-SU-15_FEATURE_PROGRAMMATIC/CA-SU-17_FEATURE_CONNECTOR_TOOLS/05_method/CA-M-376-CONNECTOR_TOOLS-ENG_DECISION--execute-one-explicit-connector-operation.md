@@ -1,21 +1,27 @@
 ---
 atom_id: CA-M-376
-content_role: Method
-type: Eng Decision
+ref_id: CA-M-376
+role: Method
+form: Eng Decision
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 19:59:42 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant/Workflow
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-M-376-CONNECTOR_TOOLS-ENG_DECISION--execute-one-explicit-connector-operation.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/05_method
 ---
 # Summary
 

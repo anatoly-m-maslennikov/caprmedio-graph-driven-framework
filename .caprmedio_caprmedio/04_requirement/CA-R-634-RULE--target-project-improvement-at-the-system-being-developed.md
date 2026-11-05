@@ -7,9 +7,9 @@ llm_session_ids:
 relations:
   child_of:
   - CA-R-632
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Package/Implementation
@@ -18,9 +18,16 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-634
+ref_id: CA-R-634
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-634-CAPRMEDIO-RULE--target-project-improvement-at-the-system-being-developed.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Target Project improvement at the system being developed

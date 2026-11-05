@@ -1,21 +1,24 @@
 ---
 atom_id: CA-C-353
-content_role: Concern
-type: Problem
+ref_id: CA-C-353
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: unresolved
-subjects:
-  governs: "O052 source Carrier body headings"
-  depends_on: [Operations, "Markdown Atom Carrier/Main Content"]
+topics:
+  main_subject: "O052 source Carrier body headings"
+  dependencies: [Operations, "Markdown Atom Carrier/Main Content"]
 version: 1
 updated_at: "2026-10-04 12:38:54 +0000"
 relations:
   concern_about: [CA-O-052]
   relates_to: [CA-P-1343, CA-A-1061, CA-D-479]
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

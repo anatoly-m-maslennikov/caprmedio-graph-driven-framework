@@ -1,15 +1,15 @@
 ---
 cce_version: cce_1
 cce_form: rationale
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - programmatic-tool-language-options
       - programmatic-tool-stack-profiles
     occurrent:
       - state-of-the-art-harvest
       - comparative-analysis
-  depends_on:
+  dependencies:
     continuant:
       - TOOLS
 relations:

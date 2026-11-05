@@ -1,14 +1,15 @@
 ---
 atom_id: CA-D-516
-content_role: Delivery
+ref_id: CA-D-516
+role: Delivery
 current_scope_unit: RESUME_EXECUTION_CONTEXT
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-11-02 19:46:47 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
@@ -18,9 +19,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-7
+carrier_destination:
+  file:
+    name: CA-D-516-RESUME_EXECUTION_CONTEXT-ENG_DECISION--encode-resume-execution-context-tool-binding.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-7_TOOL_RESUME_EXECUTION_CONTEXT/07_delivery
 ---
 # Summary
 

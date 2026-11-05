@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-509
-content_role: Delivery
+ref_id: CA-D-509
+role: Delivery
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-11-02 19:30:12 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
@@ -18,9 +19,14 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-relations: {}
 tier: 3
-type: Eng Decision
+form: Eng Decision
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-D-509-PROMPTS-ENG_DECISION--store-the-rmed-review-prompt-package.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/07_delivery
 ---
 # Summary
 

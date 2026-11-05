@@ -1,7 +1,8 @@
-# CA-R-2729@4
-# CA-D-673@8
+# CA-R-2729@7
+# CA-R-2776@6
+# CA-D-673@13
 
-"""Select a Worksheet statement with DuckDB's native tokenizer."""
+"""Validate caret metadata while DuckDB admits one complete query."""
 
 from __future__ import annotations
 
@@ -50,27 +51,8 @@ def token_spans(sql: str) -> list[tuple[bytes, Any]]:
 
 
 def select_statement(sql: str, cursor_position: int | None = None) -> str:
-    """Return whole SQL without a cursor, otherwise the native-tokenized statement."""
-    raw = _utf8(sql)
-    if cursor_position is None:
-        return sql
-    cursor = _utf8_offset(sql, cursor_position)
-    try:
-        import duckdb
-
-        tokens = duckdb.tokenize(sql)
-    except Exception:
-        # Save invalid SQL unchanged; native admission reports the real query error later.
-        return sql
-    delimiters = [
-        position
-        for index, (position, _kind) in enumerate(tokens)
-        if raw[position:position + 1] == b";"
-        and any(kind != duckdb.token_type.comment for _next, kind in tokens[index + 1:])
-    ]
-    start = 0
-    for delimiter in delimiters:
-        if cursor <= delimiter + 1:
-            return raw[start:delimiter + 1].decode("utf-8")
-        start = delimiter + 1
-    return raw[start:].decode("utf-8")
+    """Return the complete SQL; an optional caret is editor metadata only."""
+    _utf8(sql)
+    if cursor_position is not None:
+        _utf8_offset(sql, cursor_position)
+    return sql

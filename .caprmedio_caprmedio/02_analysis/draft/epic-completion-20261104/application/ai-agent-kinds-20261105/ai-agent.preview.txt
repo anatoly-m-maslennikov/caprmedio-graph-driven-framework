@@ -1,0 +1,16 @@
+## Summary
+
+Declare AI Agent
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+AI Agent ((NARROWER_THAN)) Actor
+```
+
+## Semantics
+
+An AI Agent is an Actor that performs delegated work using an AI model.

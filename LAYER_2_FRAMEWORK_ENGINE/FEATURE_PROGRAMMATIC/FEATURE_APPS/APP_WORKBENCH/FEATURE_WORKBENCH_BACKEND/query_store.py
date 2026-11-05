@@ -1,39 +1,44 @@
-# CA-R-2728@5
+# CA-R-2728@6
 # CA-R-2729@7
-# CA-M-462@9
-# CA-M-463@5
-# CA-D-673@11
+# CA-R-2953@1
+# CA-M-462@10
+# CA-M-463@6
+# CA-M-493@1
+# CA-D-673@13
+# CA-D-697@1
+# CA-R-2950@1
+# CA-R-2724@3
+# CA-M-490@1
+# CA-D-695@1
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
 from __future__ import annotations
 
-import base64
-import datetime as dt
-import math
+from dataclasses import dataclass
+import json
 import sys
 import threading
+import time
 import uuid
-from collections.abc import Mapping
-from decimal import Decimal
 from pathlib import Path
 from typing import Any
 
+from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .graph_store import quote_identifier
 from .public_rows import insert_rows
 from .result_columns import result_columns
+from .result_values import group_key, result_value
+from .result_view import Grid, build_page_query, ctas_source_sql, parse_grid, validate_columns
 from .statements import token_spans
-
-
-_SAFE_INTEGER = 2**53 - 1
-_UNREPRESENTABLE = object()
+from .watcher_change_log import WatcherChangeLog, validate_change_record
 
 
 def _connect(extension_directory: Path | None, database_path: Path | None) -> Any:
     try:
         import duckdb
     except ImportError as exc:
-        raise RuntimeError("DuckDB runtime is unavailable") from exc
+        raise WorkbenchUnavailableError("DuckDB runtime is unavailable") from exc
     config: dict[str, str | bool | int | float | list[str]] = {"temp_directory": "", "memory_limit": "256MB"}
     database = ":memory:"
     if database_path is not None:
@@ -54,39 +59,16 @@ def _connect(extension_directory: Path | None, database_path: Path | None) -> An
         connection.execute("SET lock_configuration = true")
     except Exception as exc:
         connection.close()
-        raise RuntimeError("DuckPGQ runtime initialization failed") from exc
+        raise WorkbenchUnavailableError("DuckPGQ runtime initialization failed") from exc
     return connection
 
 
-def _result_scalar(value: Any) -> Any:
-    if value is None or isinstance(value, (str, bool)):
-        return value
-    if isinstance(value, int):
-        return str(value) if abs(value) > _SAFE_INTEGER else value
-    if isinstance(value, float):
-        if not math.isfinite(value):
-            raise ValueError("query result contains NaN or infinity")
-        return value
-    if isinstance(value, Decimal):
-        return str(value)
-    if isinstance(value, bytes):
-        return "base64:" + base64.b64encode(value).decode("ascii")
-    if isinstance(value, (dt.datetime, dt.date, dt.time)):
-        return value.isoformat()
-    return _UNREPRESENTABLE
+def _is_duckdb_internal(error: Exception) -> bool:
+    """Classify the native fatal boundary by exception type, never its message."""
 
+    import duckdb
 
-def _result_value(value: Any) -> Any:
-    scalar = _result_scalar(value)
-    if scalar is not _UNREPRESENTABLE:
-        return scalar
-    if isinstance(value, (list, tuple)):
-        return [_result_value(item) for item in value]
-    if isinstance(value, Mapping):
-        if any(not isinstance(key, str) for key in value):
-            raise ValueError("query result mapping keys must be strings")
-        return {key: _result_value(item) for key, item in value.items()}
-    raise ValueError(f"unsupported query result value: {type(value).__name__}")
+    return isinstance(error, duckdb.InternalException)
 
 
 def _token_words(sql: str) -> list[str]:
@@ -113,19 +95,33 @@ def _is_one_tokenized_read_query(sql: str) -> bool:
     return words[0].upper() in {"SELECT", "WITH", "FROM"}
 
 
+@dataclass
+class _Result:
+    columns: list[dict[str, Any]]
+    row_count: int
+    sql: str
+    stored_columns: tuple[str, ...]
+    created_at: float
+    pinned: bool = False
+
+
 class QueryStore:
     """Serialize trusted refresh and paged public native SQL over one DuckDB connection."""
 
     def __init__(
         self, *, extension_directory: Path | None = None, database_path: Path | None = None,
+        result_ttl_seconds: int = 3600,
     ) -> None:
+        if type(result_ttl_seconds) is not int or result_ttl_seconds <= 0:
+            raise ValueError("result_ttl_seconds must be a positive integer")
         self._extension_directory = extension_directory
         self._database_path = database_path
+        self._result_ttl_seconds = result_ttl_seconds
         self._lock = threading.RLock()
         self._connection = _connect(extension_directory, database_path)
         self._available = True
         self._initialized = False
-        self._results: dict[str, tuple[list[dict[str, Any]], int, str]] = {}
+        self._results: dict[str, _Result] = {}
         self._clear_startup_projection()
         self.replace([], [])
 
@@ -137,15 +133,20 @@ class QueryStore:
             self._connection.execute("DROP SCHEMA IF EXISTS workbench_results CASCADE")
             self._connection.execute("DROP TABLE IF EXISTS main.atoms")
             self._connection.execute("DROP TABLE IF EXISTS main.scope_units")
+            self._connection.execute("DROP TABLE IF EXISTS main.change_log")
             self._connection.execute("CREATE SCHEMA workbench_results")
+            self._connection.execute(
+                "CREATE TABLE main.change_log (observed_at TIMESTAMPTZ NOT NULL, "
+                "operation VARCHAR NOT NULL, old_path VARCHAR, new_path VARCHAR)"
+            )
         except Exception as exc:
             self._connection.close()
-            raise RuntimeError("query store initialization failed") from exc
+            raise WorkbenchUnavailableError("query store initialization failed") from exc
 
     def replace(self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]]) -> None:
         with self._lock:
             if not self._available:
-                raise RuntimeError("query store unavailable; Workbench restart required")
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             try:
                 self._connection.execute("BEGIN TRANSACTION")
                 if self._initialized:
@@ -159,7 +160,48 @@ class QueryStore:
             except Exception as exc:
                 self._available = False
                 print(f"query store refresh failed: {exc}", file=sys.stderr)
-                raise RuntimeError("query store unavailable; Workbench restart required") from exc
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
+
+    @staticmethod
+    def _change_log_rows(rows: object) -> list[dict[str, str | None]]:
+        if not isinstance(rows, list):
+            raise ValueError("change log rows must be a list")
+        return [validate_change_record(row) for row in rows]
+
+    def replace_change_log(self, rows: object) -> None:
+        """Replace the technical table with the NDJSON owner's retained event set."""
+        retained = self._change_log_rows(rows)
+        with self._lock:
+            if not self._available:
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
+            try:
+                self._connection.execute("BEGIN TRANSACTION")
+                self._connection.execute("DELETE FROM main.change_log")
+                if retained:
+                    self._connection.execute(
+                        "INSERT INTO main.change_log "
+                        "SELECT json_extract_string(value, '$.observed_at')::TIMESTAMPTZ, "
+                        "json_extract_string(value, '$.operation'), "
+                        "json_extract_string(value, '$.old_path'), "
+                        "json_extract_string(value, '$.new_path') "
+                        "FROM json_each(?::JSON)",
+                        [json.dumps(retained, separators=(",", ":"))],
+                    )
+                self._connection.execute("COMMIT")
+            except Exception as exc:
+                self._available = False
+                print(f"query store change-log refresh failed: {exc}", file=sys.stderr)
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
+
+    def sync_change_log(
+        self, log: WatcherChangeLog, events: list[dict[str, str | None]] | None = None,
+        *, initialize: bool = False,
+    ) -> None:
+        """Synchronize one retained NDJSON event set under the database-owner lock."""
+        with self._lock:
+            rows, changed = log.append(events) if events is not None else log.prune()
+            if changed or initialize:
+                self.replace_change_log(rows)
 
     def _admit(self, sql: str) -> None:
         if not isinstance(sql, str):
@@ -203,9 +245,9 @@ class QueryStore:
             raise ValueError("preview must be a non-negative integer")
         return value
 
-    def _materialize(self, sql: str, preview: int | None = None) -> tuple[str, list[dict[str, Any]], int]:
+    def _materialize(self, sql: str, preview: int | None = None) -> tuple[str, _Result]:
         if not self._available:
-            raise RuntimeError("query store unavailable; Workbench restart required")
+            raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
         try:
             self._admit(sql)
             self._verify_read_only(sql)
@@ -214,7 +256,7 @@ class QueryStore:
             raise
         except Exception as exc:
             print(f"query failed: {exc}", file=sys.stderr)
-            raise RuntimeError(f"query failed: {exc}") from exc
+            raise QueryExecutionError(f"query failed: {exc}") from exc
         try:
             relation = self._connection.sql(sql)
             if preview is not None:
@@ -225,54 +267,70 @@ class QueryStore:
             ]
         except Exception as exc:
             print(f"query failed: {exc}", file=sys.stderr)
-            raise RuntimeError(f"query failed: {exc}") from exc
+            raise QueryExecutionError(f"query failed: {exc}") from exc
         query_id = uuid.uuid4().hex
-        table = quote_identifier(f"query_{query_id}")
+        table_name = f"query_{query_id}"
+        table = quote_identifier(table_name)
+        private_ordinal = f"__workbench_snapshot_{query_id}"
         try:
-            # The caller's SQL is already admitted read-only.  This write transaction is
-            # solely the trusted, generated cache table that evaluates it once.
-            self._connection.execute("BEGIN TRANSACTION")
-            materialized_sql = sql if preview is None else relation.sql_query()
-            self._connection.execute(f"CREATE TABLE workbench_results.{table} AS {materialized_sql}")
-            columns, row_count = result_columns(self._connection, table, columns)
-            self._connection.execute("COMMIT")
+            # The generated CTAS is one DuckDB statement-atomic cache write.  Do not wrap it
+            # in an explicit transaction: a user-data conversion error then remains recoverable.
+            materialized_sql = ctas_source_sql(relation.sql_query())
+            self._connection.execute(
+                f"CREATE TABLE workbench_results.{table} AS "
+                f"SELECT row_number() OVER () AS {quote_identifier(private_ordinal)}, * "
+                f"FROM ({materialized_sql}) AS source"
+            )
+            stored_columns = tuple(self._connection.sql(f"SELECT * FROM workbench_results.{table}").columns)
+            columns, row_count = result_columns(self._connection, table, columns, private_ordinal=True)
         except Exception as exc:
-            self._available = False
-            print(f"query store unavailable: {exc}", file=sys.stderr)
+            if _is_duckdb_internal(exc):
+                self._available = False
+                print(f"query store unavailable: {exc}", file=sys.stderr)
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
             print(f"query failed: {exc}", file=sys.stderr)
-            raise RuntimeError("query store unavailable; Workbench restart required") from exc
-        return query_id, columns, row_count
+            raise QueryExecutionError(f"query failed: {exc}") from exc
+        return query_id, _Result(columns, row_count, sql, stored_columns, time.monotonic())
 
     def _read_page(
-        self, query_id: str, columns: list[dict[str, Any]], row_count: int,
-        offset: int, page_size: int, sql: str,
+        self, query_id: str, result: _Result, offset: int, page_size: int, grid: Grid,
     ) -> dict[str, Any]:
         try:
-            table = quote_identifier(f"query_{query_id}")
-            cursor = self._connection.execute(
-                f"SELECT * FROM workbench_results.{table} ORDER BY rowid LIMIT ? OFFSET ?",
-                [page_size, offset],
+            query = build_page_query(
+                f"query_{query_id}", result.stored_columns, grid, page_size=page_size, offset=offset,
             )
-            rows = cursor.fetchmany(page_size)
-            shaped_rows = [[_result_value(value) for value in row] for row in rows]
+            row_count = self._connection.execute(query.count_sql, query.count_parameters).fetchone()[0]
+            rows = self._connection.execute(query.page_sql, query.page_parameters).fetchall()
+            shaped_rows = [[result_value(value) for value in row[1:len(result.columns) + 1]] for row in rows]
         except ValueError as exc:
             print(f"query result delivery failed: {exc}", file=sys.stderr)
             raise ValueError(f"query result delivery failed: {exc}") from exc
         except Exception as exc:
             self._available = False
             print(f"query store unavailable: {exc}", file=sys.stderr)
-            raise RuntimeError("query store unavailable; Workbench restart required") from exc
+            raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
         result = {
             "query_id": query_id,
-            "sql": sql,
-            "columns": columns,
+            "sql": result.sql,
+            "columns": result.columns,
             "rows": shaped_rows,
             "row_count": row_count,
-            "column_count": len(columns),
+            "source_row_count": result.row_count,
+            "column_count": len(result.columns),
             "offset": offset,
             "page_size": page_size,
             "has_more": offset + len(shaped_rows) < row_count,
         }
+        if query.group_column is not None:
+            groups: list[dict[str, Any]] = []
+            seen: set[str] = set()
+            for values, raw in zip(shaped_rows, rows, strict=True):
+                value = values[query.group_column]
+                key = group_key(value)
+                if key not in seen:
+                    seen.add(key)
+                    groups.append({"value": value, "count": raw[-1]})
+            result["groups"] = groups
         return result
 
     def run(
@@ -284,15 +342,15 @@ class QueryStore:
         if type(include_rows) is not bool:
             raise ValueError("include_rows must be a boolean")
         with self._lock:
-            query_id, columns, row_count = self._materialize(sql, preview)
-            self._results[query_id] = (columns, row_count, sql)
+            query_id, result = self._materialize(sql, preview)
+            self._results[query_id] = result
             if not include_rows:
                 return {
-                    "query_id": query_id, "sql": sql, "columns": columns,
-                    "row_count": row_count, "column_count": len(columns),
+                    "query_id": query_id, "sql": sql, "columns": result.columns,
+                    "row_count": result.row_count, "column_count": len(result.columns),
                 }
             try:
-                return self._read_page(query_id, columns, row_count, 0, page_size, sql)
+                return self._read_page(query_id, result, 0, page_size, Grid((), (), None))
             except ValueError:
                 self.drop(query_id)
                 raise
@@ -309,48 +367,72 @@ class QueryStore:
             except Exception as exc:
                 self._available = False
                 print(f"query store unavailable: {exc}", file=sys.stderr)
-                raise RuntimeError("query store unavailable; Workbench restart required") from exc
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
+
+    def pin(self, query_id: str) -> None:
+        """Keep an existing result while its owner View remains open."""
+        with self._lock:
+            if not isinstance(query_id, str) or query_id not in self._results:
+                raise ValueError("unknown query_id")
+            self._results[query_id].pinned = True
+
+    def unpin(self, query_id: str) -> None:
+        """Release a View pin without dropping a still-young result."""
+        with self._lock:
+            if not isinstance(query_id, str) or query_id not in self._results:
+                raise ValueError("unknown query_id")
+            self._results[query_id].pinned = False
+
+    def prune_results(self) -> None:
+        """Drop expired unpinned results when the existing owner performs cleanup."""
+        with self._lock:
+            now = time.monotonic()
+            expired = [
+                query_id for query_id, result in self._results.items()
+                if not result.pinned and now - result.created_at >= self._result_ttl_seconds
+            ]
+            for query_id in expired:
+                self.drop(query_id)
 
     def page(
         self, query_id: str, offset: int, page_size: int = 100, *, preview: int | None = None,
+        grid: object = None,
     ) -> dict[str, Any]:
         offset = self._offset(offset)
         page_size = self._page_size(page_size)
         preview = self._preview(preview)
+        parsed_grid = parse_grid(grid)
+        if not isinstance(query_id, str):
+            raise ValueError("unknown query_id")
         with self._lock:
             if not self._available:
-                raise RuntimeError("query store unavailable; Workbench restart required")
-            if not isinstance(query_id, str) or query_id not in self._results:
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
+            if query_id not in self._results:
                 raise ValueError("unknown query_id")
-            columns, row_count, sql = self._results[query_id]
-            if preview == 0:
-                return {
-                    "query_id": query_id, "sql": sql, "columns": columns, "rows": [],
-                    "row_count": row_count, "column_count": len(columns), "offset": offset,
-                    "page_size": 0, "has_more": offset < row_count,
-                }
+            result = self._results[query_id]
+            validate_columns(parsed_grid, len(result.columns))
             if preview is not None:
                 page_size = min(page_size, preview)
-            return self._read_page(query_id, columns, row_count, offset, page_size, sql)
+            return self._read_page(query_id, result, offset, page_size, parsed_grid)
 
     def check(self, sql: str) -> dict[str, Any]:
         with self._lock:
-            query_id, columns, row_count = self._materialize(sql)
+            query_id, result = self._materialize(sql)
             table = quote_identifier(f"query_{query_id}")
             try:
                 self._connection.execute(f"DROP TABLE workbench_results.{table}")
             except Exception as exc:
                 self._available = False
                 print(f"query store unavailable: {exc}", file=sys.stderr)
-                raise RuntimeError("query store unavailable; Workbench restart required") from exc
-        return {"valid": True, "row_count": row_count, "column_count": len(columns), "sql": sql}
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
+        return {"valid": True, "row_count": result.row_count, "column_count": len(result.columns), "sql": sql}
 
     def schema(self) -> dict[str, dict[str, list[dict[str, Any]]]]:
         with self._lock:
             if not self._available:
-                raise RuntimeError("query store unavailable; Workbench restart required")
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             tables: dict[str, list[dict[str, Any]]] = {}
-            for name in ("atoms", "scope_units"):
+            for name in ("atoms", "scope_units", "change_log"):
                 rows = self._connection.execute(
                     "SELECT column_name, data_type FROM information_schema.columns "
                     "WHERE table_schema = 'main' AND table_name = ? ORDER BY ordinal_position",

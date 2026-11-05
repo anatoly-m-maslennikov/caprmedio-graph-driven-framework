@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2233
-content_role: Plan
-type: Plan
+ref_id: CA-P-2233
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 40
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Canceled
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Term
@@ -26,6 +27,12 @@ relations:
   is_decomposition_of:
   - CA-P-2193
 tier: 3
+container:
+  atom: CA-P-2193
+carrier_destination:
+  file:
+    name: 40-CA-P-2233-TASK--review-current-subject-packet-review-d-006.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/canceled/120-CA-P-2193-EPIC--re-review-all-current-core-subjects/canceled
 ---
 # Summary
 

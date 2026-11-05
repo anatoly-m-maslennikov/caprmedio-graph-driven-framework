@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
   - Subject/CAPRMEDIO/Carrier
 version: 23
@@ -14,12 +14,15 @@ relations:
   - CA-D-285
   - CA-R-1136
 atom_id: CA-E-086
+ref_id: CA-E-086
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject unknown tier
 

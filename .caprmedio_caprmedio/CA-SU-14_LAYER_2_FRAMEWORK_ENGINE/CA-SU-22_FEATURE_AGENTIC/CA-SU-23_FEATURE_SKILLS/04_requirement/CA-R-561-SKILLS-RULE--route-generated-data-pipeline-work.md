@@ -14,14 +14,17 @@ relations:
   - CA-R-1059
   - CA-R-1060
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-561
-type: Rule
+ref_id: CA-R-561
+form: Rule
 tier: 1
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+container:
+  scope_unit: CA-SU-23
 ---
 # Route generated-data pipeline work
 

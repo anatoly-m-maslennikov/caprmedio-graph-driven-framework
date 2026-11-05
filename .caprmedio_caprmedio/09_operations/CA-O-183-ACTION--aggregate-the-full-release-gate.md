@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-183
-content_role: Operations
-type: Action
+ref_id: CA-O-183
+role: Operations
+form: Action
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Action//Aggregate the full Release Gate
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Aggregate the full Release Gate
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
@@ -16,8 +17,13 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 version: 14
 updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-O-183-CAPRMEDIO-ACTION--aggregate-the-full-release-gate.md
+    path: .caprmedio_caprmedio/09_operations
 ---
 # Summary
 

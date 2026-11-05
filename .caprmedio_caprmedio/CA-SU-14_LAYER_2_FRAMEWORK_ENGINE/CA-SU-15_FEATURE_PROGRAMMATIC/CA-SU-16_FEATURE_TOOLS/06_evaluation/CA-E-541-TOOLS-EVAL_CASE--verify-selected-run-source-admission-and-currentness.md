@@ -1,16 +1,17 @@
 ---
 atom_id: CA-E-541
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-541
+role: Evaluation
+form: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Source Admission
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Source Admission
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -21,6 +22,12 @@ relations:
   evaluation_for:
   - CA-R-1821
 tier: 4
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-E-541-TOOLS-EVAL_CASE--verify-selected-run-source-admission-and-currentness.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
 ---
 # Summary
 

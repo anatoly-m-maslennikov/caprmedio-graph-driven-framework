@@ -1,14 +1,15 @@
 ---
 atom_id: CA-M-350
-content_role: Method
+ref_id: CA-M-350
+role: Method
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 19:59:42 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
@@ -17,9 +18,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier/File
-relations: {}
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-M-350-MCP-ENG_DECISION--derive-the-registered-selected-pin-refresh.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/05_method
 ---
 # Summary
 

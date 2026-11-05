@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-616
-content_role: Concern
-type: Question
+ref_id: CA-C-616
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 status: Active
 priority: medium
@@ -9,9 +10,14 @@ author: Anatoly Maslennikov
 tier: 3
 version: 1
 updated_at: 2026-10-29 10:51:19 +0400
-subjects:
-  governs: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Policy'
-relations: {}
+topics:
+  main_subject: 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Policy'
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-C-616-CAPRMEDIO-QUESTION--should-delivery-policy-ownership-require-child-scope-units.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 ## Summary
 

@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-172
-content_role: Operations
-type: Step
+ref_id: CA-O-172
+role: Operations
+form: Step
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/caprmedio/Step//Release Version/Step: deliver active sources'
-  depends_on:
+topics:
+  main_subject: 'Subject/caprmedio/Step//Release Version/Step: deliver active sources'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -24,6 +25,12 @@ relations:
   invokes:
   - CA-O-166
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-172-PROJECT_CONFIGURATION-STEP--deliver-active-methodology-sources.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

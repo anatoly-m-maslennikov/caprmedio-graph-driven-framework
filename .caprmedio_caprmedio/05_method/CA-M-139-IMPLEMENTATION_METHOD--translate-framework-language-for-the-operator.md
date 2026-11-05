@@ -6,9 +6,9 @@ relations:
   - CA-M-005
   method_for:
   - CA-R-1057
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
@@ -17,6 +17,7 @@ cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-139
+ref_id: CA-M-139
 status: Active
 current_scope_unit: caprmedio
 tier: 3
@@ -24,8 +25,10 @@ role: Method
 form: Implementation Method
 carrier_destination:
   file:
-    name: CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md
+    name: CA-M-139-CAPRMEDIO-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md
     path: .caprmedio_caprmedio/05_method
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 Translate framework language for the operator

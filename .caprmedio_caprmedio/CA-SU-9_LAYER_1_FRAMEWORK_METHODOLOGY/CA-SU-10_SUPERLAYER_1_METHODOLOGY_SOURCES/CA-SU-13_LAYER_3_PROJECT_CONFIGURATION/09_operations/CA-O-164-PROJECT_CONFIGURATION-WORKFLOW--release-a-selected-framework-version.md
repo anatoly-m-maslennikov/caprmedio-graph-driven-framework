@@ -1,16 +1,17 @@
 ---
 atom_id: CA-O-164
-content_role: Operations
-type: Workflow
+ref_id: CA-O-164
+role: Operations
+form: Workflow
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
 version: 34
 updated_at: 2026-11-02 19:46:47 +0400
 tier: 3
-subjects:
-  governs: Subject/caprmedio/Workflow//Local Release
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Workflow//Local Release
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -24,7 +25,12 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-164-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-framework-version.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

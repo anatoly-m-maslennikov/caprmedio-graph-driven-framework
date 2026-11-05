@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Engineering/Methodology
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Methodology
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
 version: 6
 updated_at: 2026-10-25 17:32:27 +0400
@@ -11,11 +11,12 @@ autonomous_confidence_threshold: 98
 status: Done
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-074
+ref_id: CA-P-074
 ---
 # Reconcile PROGRAMMATIC specializations
 

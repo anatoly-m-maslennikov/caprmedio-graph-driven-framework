@@ -1,0 +1,9 @@
+{
+  "status": "WAITING_FOR_ORDERED_PRECONDITIONS_AND_DESTINATION_AUTHORITY",
+  "helper": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/physical/preflight.py",
+  "helper_sha256": "04a03c168e2d54d7df4f967c040407c7142cdbfb63119ec518468d84d43656a1",
+  "syntax_parse": "PASS",
+  "known_collision_count": null,
+  "reason": "No reviewed authority-derived destination plan; source migration and property checks not yet completed.",
+  "operation": "read-only preflight; no native moves"
+}

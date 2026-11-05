@@ -4,13 +4,15 @@ status: Done
 author: Anatoly Maslennikov
 version: 5
 updated_at: 2026-11-02 15:49:28 +0400
-subjects:
-  governs: Entity
+topics:
+  main_subject: Entity
 atom_id: CA-A-1307
-content_role: Analysis & Advisory
-type: Spec Proposal
+ref_id: CA-A-1307
+role: Analysis & Advisory
+form: Spec Proposal
 tier: 3
-relations: {}
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 

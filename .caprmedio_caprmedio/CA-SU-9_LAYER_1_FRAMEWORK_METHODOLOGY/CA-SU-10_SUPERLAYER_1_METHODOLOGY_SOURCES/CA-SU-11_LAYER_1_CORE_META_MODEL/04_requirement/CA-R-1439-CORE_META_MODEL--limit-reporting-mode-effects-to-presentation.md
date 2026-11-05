@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings.Interaction
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Interaction
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
 version: 24
 updated_at: 2026-11-04 09:30:21 +0400
@@ -9,6 +9,7 @@ relations:
   child_of:
   - CA-R-1402@27
 atom_id: CA-R-1439
+ref_id: CA-R-1439
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
@@ -17,8 +18,10 @@ role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-1439-CORE_META_MODEL--limit-reporting-mode-effects-to-presentation.md
+    name: CA-R-1439-CORE_META_MODEL-RULE--limit-reporting-mode-effects-to-presentation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

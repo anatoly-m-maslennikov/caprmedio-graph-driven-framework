@@ -1,0 +1,17 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1993-CORE_META_MODEL-DECLARATION--define-carries.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/relations/CA-R-1993.preview.txt
+@@ -32,12 +32,11 @@
+ 
+ ```CFEL
+ # model
+-Relation//CARRIES ((HAS_INVERSE)) Relation//IS_CARRIED_BY;
++Relation//IS_CARRIED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//CARRIES;
+ 
+ Relation//CARRIES ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+-# instances
+-Carrier//$carrier ((CARRIES)) $represented_entity
++$host ((CARRIES)) $target
+ ```
+ 
+ ### Prose Claim

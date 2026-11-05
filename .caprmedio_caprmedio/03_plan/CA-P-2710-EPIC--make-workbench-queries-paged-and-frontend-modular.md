@@ -1,21 +1,21 @@
 ---
 atom_id: CA-P-2710
+ref_id: CA-P-2710
 label: Epic
 status: Active
 tier: 3
-version: 28
-updated_at: 2026-11-05 18:32:00 +0400
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: caprmedio
+version: 34
+updated_at: 2026-11-05 23:07:35 +0400
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 role: Plan
 form: Plan
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
     path: .caprmedio_caprmedio/03_plan
+container:
+  scope_unit: CA-SU-00
 ---
 
 ## Summary
@@ -24,185 +24,80 @@ Make Workbench queries paged and the frontend modular
 
 ## Objective
 
-Improve Workbench usability and saved queries/Worksheets according to the reviewed RMEDO.
+Improve Workbench queries, Views and the read-only result grid according to the reviewed RMEDO.
 
 ## Scope
 
-Workbench RMEDO, implementation, tests, documentation and local deployment. Unrelated Engine and methodology migrations remain outside this Epic.
+Workbench RMEDO, implementation, tests, documentation and local deployment. Unrelated Engine and methodology migrations remain outside this Epic. Design belongs in RMED, not in task descriptions.
 
-## Completed work (0.4.4.19)
+## Completed work
 
-- [x] Update RMEDO for the approved Workbench changes.
-- [x] Review the RMEDO against the latest Operator input and related Current sources; fix issues.
-- [x] Adopt the reviewed RMEDO.
-- [x] Compile applicable PROGRAMMATIC Method Policies into one implementation prompt.
-- [x] Implement the adopted RMEDO using that prompt.
-- [x] Update callers, tests, fixtures and documentation.
-- [x] Replace duplicate implementation-level checks with behavior-focused end-to-end tests.
-- [x] Run the relevant tests and frontend checks; fix failures.
-- [x] Perform local release.
-- [x] Verify the released Workbench in the browser and through MCP.
-- [x] Record completion.
+- [x] Implement and release the shared paged SQL backend, Svelte frontend and saved-item Journal.
+- [x] Implement and verify MCP query/discovery, Project context and full reread.
+- [x] Declare CODEX_EXTENSION and implement Workspace/View controls and the plugin package.
+- [x] Fix the four reported defects, record Resolved Problems C700–C703 and retain linked regression Evaluations E750–E753.
+- [x] Correct the local-release startup caller and complete local release 0.4.4.23.
+- [x] Prepare, review and adopt watcher change-log and initial sync/interface RMED.
+- [x] Implement the watcher, change log, nonblocking status, initial interface refinements and ordinary-file disappearance fix in source.
 
-## Tasks
+## Current implementation cycle
 
-- [x] Update and review RMEDO for the requested Workbench refinements.
-- [x] Implement the reviewed RMEDO.
-- [x] Update behavior-focused tests and run the relevant checks.
-- [x] Release locally and verify the deployed result.
-- [x] Record completion.
+- [x] Create remaining RMED for the requested Workbench changes.
+- [x] Review against the latest Operator input and related Current sources; fix contradictions and gaps.
+- [x] Adopt the reviewed RMED.
+- [x] Gather or reuse applicable Method Policies from PROGRAMMATIC through each target Scope Unit and compile one implementation prompt for that Scope Unit.
+- [x] Gather the adopted Requirements, Evaluations, Delivery and non-Policy Methods for each implementation scope.
+- [x] Implement those sources and reconcile callers, fixtures, configuration and documentation.
+- [ ] Implement and run behavior-focused end-to-end tests.
+- [x] Review and fix the integrated changes.
+- [ ] Perform local release and verify the running MCP and browser behavior.
+- [ ] Record verified completion.
 
-## Sources
+The reviewed source packets cover the result grid, display settings, unified Views, transient result retention and hourly query-log batches. Query-log retention is now two days, following the latest Operator decision. Temporary result retention follows its separate Workbench contract.
 
-Design is in CA-R-2727, CA-R-2728, CA-R-2729, CA-R-2763, CA-R-2776, CA-M-468, CA-M-469, CA-M-470, CA-M-472, CA-D-673, CA-D-674, CA-E-676, CA-E-678 and CA-O-240.
+## Scoped lanes
 
-## Previous verification
+| Scope Unit | Owner responsibility |
+| --- | --- |
+| WORKBENCH | Shared capability RMED and integrated acceptance. |
+| WORKBENCH_BACKEND | Backend RMED, database, watcher, result pages and lifecycle. |
+| WORKBENCH_FRONTEND | Frontend RMED, interface, result grid and browser checks. |
+| CODEX_EXTENSION | Native integration and unified Workspace/View delivery sources. |
 
-Done. Workbench 0.4.4.19 is deployed at `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`. Its eight MCP operations and live command-palette Ctrl+P/Ctrl+N navigation were verified.
+Each subagent works within one Scope Unit. The main agent owns adoption, transport integration, shared-state changes, Git and release. Ready independent lanes may run in parallel. Drafts, tests and deployed runtime are distinct outcomes.
 
-Verification:
+## Other open tasks
 
-- Local release: 45 selected tests and all launcher integration groups passed.
-- After test refinement: 72 Workbench host tests and 3 remaining frontend state-boundary tests passed; TypeScript and Vite build passed.
-- One-container MCP/HTTP/watcher/browser suite: 4 tests passed in 79 seconds. Its browser check executes 3 real user flows; no backend mocks or extra server container.
-- Retired 11 duplicate or implementation-coupled unit tests. Focused checks for uncovered behavior remain.
-- No source Atom was changed by query execution; no container out-of-memory kill occurred.
-
-Receipts: `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-compact-journal-final.md`, `.caprmedio_tmp/workbench/compact-names/live-proof.json` and `.caprmedio_tmp/workbench/compact-names/docker-browser-verified.log`.
-
-The final test refinement changes test/development files and its RMED, not deployed application behavior. The full repository suite was not rerun for this Workbench-only iteration. Unrelated methodology and Engine work remains outside this Epic.
-
-## Last deployment
-
-Workbench 0.4.4.21 is deployed at `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`.
-
-Open Saved is available only in the command palette; the standalone toolbar button and dedicated shortcut are removed. Its ID/URL modal still opens with input focused. Result headers show actual column names and SQL types on separate lines, with types smaller and muted. The SQL schema is unchanged.
-
-The standard local release completed. All 4 selected Docker/API/watcher/browser tests and all launcher groups passed, including the 3 real browser flows. Frontend state tests, TypeScript and Vite build passed. The live browser confirmed `id` and `status_group` are separated from `VARCHAR`, palette-only opening works, and the verification query created no saved entry.
-
-Receipt: `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-palette-column-headers.md`.
-Test log: `.caprmedio_tmp/simple_local_release/workbench-20261105-palette-column-headers-tests-a2mf46jn.log`.
-Adoption, method prompt and live proof: `.caprmedio_tmp/workbench/palette-headers/`.
-
-The previous header, explicit-save and browser autosave behavior remains verified. Earlier iteration details are retained in archived Epic versions. The full repository suite was not rerun for this UI-only refinement.
-
-
-## Audit follow-up tasks
-
-- [x] Review Workbench implementation traces, architecture, leftovers and watcher coverage.
-- [x] Prepare a Spec Proposal for PROGRAMMATIC Policies, the implementation prompt and workflow.
-- [x] Record the Operator decision on invalid Scope Unit Declaration handling in CA-A-1322.
-- [x] Record the Operator decision on transient query-result retention.
-- [x] Prepare, review and adopt RMED for the requested MCP service operation.
-- [x] Implement the adopted MCP service operation and its behavior checks.
-- [x] Prepare, review and adopt RMED for the requested health-page control.
-- [x] Implement the approved health-page control and its behavior checks.
-- [ ] Implement the approved result-retention behavior.
 - [ ] Review and adopt the general PROGRAMMATIC Policy proposals in CA-A-1322.
-- [ ] Fix confirmed Workbench defects and the selected trace and performance issues.
-- [ ] Add the missing real lifecycle and browser behavior checks.
-- [ ] Run the affected checks and independent review; fix remaining issues.
-- [ ] Perform local release and verify the deployed result.
-- [ ] Record completion and close the Epic.
+- [ ] Finish the remaining confirmed Workbench audit and trace issues recorded there.
+- [ ] Install the local Codex plugin and trust its SessionStart hook in the desktop app.
+- [ ] Review final Epic acceptance before closing it.
+
+## Deferred
+
+Standalone chat is disabled. Its remaining implementation, lifecycle repairs, tests and deployment stay deferred by the Operator and do not block the embedded Workbench.
 
 ## Current status
 
-Active. CODEX_EXTENSION, its Workspace/View controls, the seven-day query log and the reported source defects are implemented and verified in source. The native MCP/HTTP boundary, full repository source capture, plugin package and real browser checks passed. Standalone chat remains disabled and deferred. The tested 0.4.4.22 image is running through the existing Project bootstrap. Native MCP query parameters and Workspace/View controls passed live checks. The automated release startup caller and catalog completion are being corrected; native-plugin installation and hook trust remain pending. Other audit and general Policy tasks remain open.
+Active. Version 0.4.4.23 is the last deployed version; the next local release is pending. The watcher, sync and initial UI changes are implemented in source but not yet released. The remaining grid, unified View, retention and hourly query-log sources passed scoped independent review and are adopted. Each implementation lane has a Current source index and a prompt compiled from 41 verified applicable Method Policies. Backend, frontend and integrated acceptance work is running in parallel. Existing invalid Scope Unit Declarations still stop indexing; an ordinary file disappearing before admission is skipped. No unrelated source migration is included.
 
-Design and review findings: CA-A-1322, `../CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/draft/CA-A-1322@1-draft-PROGRAMMATIC-SPECIFICATION_PROPOSAL--simplify-programmatic-implementation-policies-and-workflow.md`.
+## Source and verification index
 
-Verification of service restart: `.caprmedio_tmp/workbench/service-restart/verification.json`. No new generic service registry, container controls, automatic recovery, browser-crash handling or MCP Release result operation were added.
+- General Policy proposal: CA-A-1322.
+- MCP/discovery proposal: CA-A-1323.
+- Source packets and adoption records: `.caprmedio_tmp/workbench/watcher-change-log/`, `sync-status/`, `grid-workbench/`, `result-display/`, `grid-backend/`, `unified-views/` and `result-retention/`.
+- Per-scope Policy prompts and implementation source indices: `.caprmedio_tmp/workbench/scoped-implementation/`.
+- Last standard release: `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-codex-extension-3.md`.
+- Last live native MCP proof: `.caprmedio_tmp/workbench/codex-extension/live-release-23.json`.
 
+The last release passed 42 selected tests and all launcher integration groups. A fresh native MCP client verified the same 42 catalog/tool names, current query parameters, metadata-only View Run, paged fetch and focus. The native plugin is not installed or trusted. Earlier release details remain in archived Epic versions.
 
-## MCP query and discovery refinement tasks
+## Current verification
 
-- [x] Prepare, review and adopt the requested RMEDO refinements.
-- [x] Implement the adopted query operations and update their callers.
-- [x] Implement the adopted root discovery catalog and its release integration.
-- [x] Update and run the relevant native SQL, MCP/HTTP, frontend and release checks.
-- [ ] Review the completed changes and fix confirmed issues.
-- [ ] Perform local release and verify the installed result.
+The full isolated browser gate passed 13 flows in 27.3 seconds. The native MCP/HTTP boundary suite passed 6 tests; the ordinary SQL error-classification regression passed. Frontend TypeScript, build and 13 state tests passed. Backend native host checks and independent scoped reviews passed. Real Docker acceptance and live release verification remain pending.
 
-Design is recorded in CA-A-1323 and its RMED index. This adds MCP catalog generation and its local-release hook to scope. Existing unrelated methodology/Engine migrations remain excluded. General Policy adoption and result-retention implementation remain separate pending tasks.
+The browser regression retains the delayed acknowledgement/latest-edit case. Its final stall was caused by test keyboard input missing the foreground editor; the helper now edits the named contenteditable after focus settles. No test was removed or retried to obtain this result.
 
+- [x] Review, fix and adopt the learned Method/Evaluation prevention amendments.
 
-## MCP Project context and full-reread tasks
-
-- [x] Prepare, review and adopt the Project-context RMED.
-- [x] Reuse and verify the compiled PROGRAMMATIC M Policy prompt.
-- [x] Implement the adopted Project-context contract.
-- [x] Prepare, review and adopt RMED for full reread.
-- [x] Implement the adopted full-reread contract and its interface controls.
-- [x] Run the affected real MCP, HTTP and database checks.
-- [ ] Review and fix the completed implementation.
-- [ ] Release locally and verify both capabilities.
-
-## Standalone chat — deferred
-
-- [x] Prepare, review and adopt the initial standalone chat sources.
-- [x] Preserve the unfinished standalone implementation and review findings.
-- [x] Disable the standalone chat pane, bridge route and release startup.
-- Remaining standalone chat implementation, lifecycle repairs, tests and deployment are deferred by the Operator. They are not acceptance gates for the Codex extension.
-
-## Codex extension tasks
-
-- [x] Declare CODEX_EXTENSION within WORKBENCH.
-- [x] Prepare RMEDO for the embedded Workbench and Workspace/View controls.
-- [x] Review against the latest Operator decisions and related RMEDO; fix issues.
-- [x] Adopt the reviewed sources.
-- [x] Reuse the applicable PROGRAMMATIC M Policy prompt and gather implementation sources.
-- [x] Implement the adopted sources, reusing existing query execution, pagination and saving.
-- [x] Add real MCP/HTTP and interface behavior checks; review and fix issues.
-- [ ] Release locally and verify the embedded Workbench.
-
-The extension uses the existing Codex chat, with one Workspace per chat and at least one View. Workspace/View behavior and extension delivery belong in RMEDO, not in task design. The requested operations include listing Workspaces; creating a View first/last; listing, updating, running, fetching paged results, focusing, renaming, removing and saving Views. Standalone chat remains disabled and deferred. Existing unrelated audit tasks remain open.
-
-Project context and full reread have passed focused source checks. The tested image is now running; the automated release caller and catalog completion remain separate from that runtime verification.
-
-
-Extension source index and review: `.caprmedio_tmp/workbench/codex-extension/adoption.json` and `review.md`. Design is in R2901–R2903, R2792–R2793, M476 and D681; E684 covers observable acceptance. Source conflicts found during review were corrected.
-
-
-## Reported defect tasks
-
-- [x] Check and correct the role-only Draft indexing defect.
-- [x] Check and correct unreachable cached results after failed first-page delivery.
-- [x] Correct recoverable query-error diagnostics and retain runtime-failure severity.
-- [x] Verify the old deployed query schema and add a real MCP regression for current parameters.
-- [x] Correct the new Scope Unit Declaration carrier and recheck source loading.
-- [x] Fix browser integration failures and rerun the affected flows.
-- [x] Activate the tested implementation and verify the current query parameters in the running MCP.
-
-The decisions for the reported defects are recorded in M462, M463 and M465. Building or testing source does not update the running container.
-
-
-## Reported Problems and regression Evaluations
-
-- [x] Record the four reported defects as Problems and link reusable regression Evaluations.
-- [x] Resolve the three verified source defects.
-- [x] Verify the deployed query boundary and resolve CA-C-703.
-
-CA-C-700, CA-C-701, CA-C-702 and CA-C-703 are Resolved. CA-E-750, CA-E-751, CA-E-752 and CA-E-753 remain Active regression cases, linked through evaluation_for. Carrier paths and statuses are indexed in `.caprmedio_tmp/workbench/codex-extension/problems.json`. No deployed success is inferred from source tests.
-
-
-## Release completion follow-up
-
-- [x] Verify the tested image through a fresh native MCP client.
-- [x] Correct the local-release startup caller and its catalog environment.
-- [ ] Complete independent review and the corrected local release.
-- [ ] Verify the released catalog and the running interface.
-- [ ] Install the local Codex plugin and trust its hook in the desktop app.
-
-The previous automated release stopped at startup. The existing Project bootstrap restored the tested 0.4.4.22 image. A native client verified 42 tool descriptors, `preview: 0, save: false`, Workspace/View creation, SQL update, metadata-only Run, paged fetch and focus. This does not claim a successful automatic release receipt or a native plugin installation. Evidence: `.caprmedio_tmp/workbench/codex-extension/live-proof.json`.
-
-## Watcher change-log tasks
-
-- [x] Prepare RMED Drafts for the requested watcher change log.
-- [ ] Review the Drafts against the Operator input and existing watcher; resolve open decisions.
-- [ ] Adopt the reviewed RMED.
-- [ ] Reuse the implementation prompt and implement the adopted RMED.
-- [ ] Add and run end-to-end checks for the adopted behavior.
-- [ ] Review and fix the changes.
-- [ ] Release locally and verify the result.
-
-Draft source index: CA-R-2950, CA-M-490, CA-D-695, CA-E-780 and CA-R-2724. The packet and open decisions are tracked in `.caprmedio_tmp/workbench/watcher-change-log/drafts.json`. These Drafts are not Current contracts or implemented behavior.
+The five Method and five Evaluation amendments passed independent review and are Current. Scoped prompts include their prevention checklist. Current Declaration topic headers are now supported by the shared reader; 24 focused tests and live Project resolution pass. The first release preflight stopped before deployment on that reader mismatch; the retry follows the fix.

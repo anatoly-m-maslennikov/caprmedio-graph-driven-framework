@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1248
-content_role: Plan
-type: Plan
+ref_id: CA-P-1248
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 15
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Documentation/README
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Documentation/README
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
 version: 7
@@ -25,6 +26,12 @@ relations:
   - CA-P-1130
   - CA-P-1155
 tier: 3
+container:
+  atom: CA-P-1129
+carrier_destination:
+  file:
+    name: 15-CA-P-1248-TASK--harvest-the-final-readme-session-evidence.md
+    path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/5-CA-P-1129-TASK--harvest-the-final-session-evidence-partition/done
 ---
 # Summary
 

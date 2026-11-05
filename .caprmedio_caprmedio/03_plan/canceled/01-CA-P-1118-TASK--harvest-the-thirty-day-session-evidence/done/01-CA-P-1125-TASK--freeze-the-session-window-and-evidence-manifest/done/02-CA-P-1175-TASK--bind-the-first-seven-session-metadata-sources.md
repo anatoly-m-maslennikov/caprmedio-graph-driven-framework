@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1175
-content_role: Plan
-type: Plan
+ref_id: CA-P-1175
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Manifest
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Manifest
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
@@ -31,6 +32,12 @@ relations:
   - CA-P-1128
   - CA-P-1129
 tier: 3
+container:
+  atom: CA-P-1125
+carrier_destination:
+  file:
+    name: 2-CA-P-1175-TASK--bind-the-first-seven-session-metadata-sources.md
+    path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/done/1-CA-P-1125-TASK--freeze-the-session-window-and-evidence-manifest/done
 ---
 # Summary
 

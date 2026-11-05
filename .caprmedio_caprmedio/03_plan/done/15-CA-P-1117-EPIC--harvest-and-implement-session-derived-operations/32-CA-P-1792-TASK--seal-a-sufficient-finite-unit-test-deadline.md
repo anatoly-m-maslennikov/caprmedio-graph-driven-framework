@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1792
-content_role: Plan
-type: Plan
+ref_id: CA-P-1792
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 32
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Active
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release
+  dependencies:
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
   - Subject/Graph Node/Engineering/Continuant/Carrier/Framework Instance Settings TOML Serialization
@@ -26,6 +27,12 @@ relations:
   - CA-C-499
   - CA-P-1782
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 32-CA-P-1792-TASK--seal-a-sufficient-finite-unit-test-deadline.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations
 ---
 # Summary
 

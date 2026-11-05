@@ -1,17 +1,19 @@
 ---
 atom_id: CA-A-1239@1-draft
-content_role: Analysis
-type: Specification Proposal
+ref_id: CA-A-1239@1-draft
+role: Analysis
+form: Specification Proposal
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
-subjects:
-  governs: Model
+topics:
+  main_subject: Model
 tier: 3
 status: Draft
 author: Anatoly Maslennikov
 version: 1
 updated_at: 2026-10-29 05:35:13 +0400
-relations: {}
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

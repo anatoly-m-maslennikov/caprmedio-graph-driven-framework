@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1133
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1133
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F08 third eighteen saved intent references
-  depends_on:
+topics:
+  main_subject: F08 third eighteen saved intent references
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Analysis
   - Methodology Sources
@@ -27,6 +28,8 @@ relations:
   - CA-C-391
   - CA-C-376
   - CA-C-380
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

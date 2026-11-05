@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1744
-content_role: Plan
-type: Plan
+ref_id: CA-P-1744
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 4
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Engineering/Workflow

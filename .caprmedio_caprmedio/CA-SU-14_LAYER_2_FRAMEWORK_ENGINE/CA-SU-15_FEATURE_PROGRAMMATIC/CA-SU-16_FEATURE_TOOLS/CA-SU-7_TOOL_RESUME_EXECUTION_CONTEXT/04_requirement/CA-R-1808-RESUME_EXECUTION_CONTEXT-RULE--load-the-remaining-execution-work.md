@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-1808
-content_role: Requirement
+ref_id: CA-R-1808
+role: Requirement
 current_scope_unit: RESUME_EXECUTION_CONTEXT
 status: Active
 author: Anatoly Maslennikov
 version: 11
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
-type: Rule
+form: Rule
 tier: 3
+container:
+  scope_unit: CA-SU-7
+carrier_destination:
+  file:
+    name: CA-R-1808-RESUME_EXECUTION_CONTEXT-RULE--load-the-remaining-execution-work.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-7_TOOL_RESUME_EXECUTION_CONTEXT/04_requirement
 ---
 # Summary
 

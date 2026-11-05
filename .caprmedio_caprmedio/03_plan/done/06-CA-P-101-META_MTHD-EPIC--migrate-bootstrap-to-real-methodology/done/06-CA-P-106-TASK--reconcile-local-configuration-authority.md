@@ -1,20 +1,20 @@
 ---
 atom_id: CA-P-106
+ref_id: CA-P-106
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Governing Configuration
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Governing Configuration
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Governing Configuration
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
-relations: {}
 status: Done
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 ---

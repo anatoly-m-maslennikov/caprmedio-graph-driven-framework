@@ -3,13 +3,16 @@ subject_scopes:
 - development-flow
 version: 23
 updated_at: 2026-10-24 13:39:34 +0400
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 tier: 3
 status: Canceled
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
 atom_id: CA-P-016
+ref_id: CA-P-016
+container:
+  scope_unit: CA-SU-00
 ---
 # Reconcile the active Plan lifecycle
 

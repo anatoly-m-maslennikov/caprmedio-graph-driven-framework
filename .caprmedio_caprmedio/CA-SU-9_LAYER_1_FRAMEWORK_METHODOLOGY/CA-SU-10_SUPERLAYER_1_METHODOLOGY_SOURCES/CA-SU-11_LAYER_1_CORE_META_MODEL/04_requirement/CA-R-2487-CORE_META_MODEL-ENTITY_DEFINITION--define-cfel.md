@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2487
+ref_id: CA-R-2487
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
 version: 13
 updated_at: 2026-11-04 20:33:16 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 3
 role: Requirement
 form: Declaration
 carrier_destination:
   file:
-    name: CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md
+    name: CA-R-2487-DECLARATION--define-cfel.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 
@@ -26,13 +26,13 @@ Define CFEL
 
 ```CFEL
 # model
-p{:occurrence}: [value format]{:value count};
+p{:occurrence}:: [value format]{:value count};
 
 p.*[name format]{:immediate name count};
 
 p.**[name format]{:recursive name count};
 
-p.*[name format]{:immediate name count}: [value format]{:value count}
+p.*[name format]{:immediate name count}:: [value format]{:value count}
 ```
 
 ### Prose Claim

@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1066
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1066
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Saved F03 execution and rebinding intents
-  depends_on:
+topics:
+  main_subject: Saved F03 execution and rebinding intents
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
@@ -32,6 +33,8 @@ relations:
   - CA-O-106
   - CA-O-111
   - CA-O-118
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

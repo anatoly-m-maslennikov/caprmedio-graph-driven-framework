@@ -1,20 +1,27 @@
 ---
 atom_id: CA-R-1816
-content_role: Requirement
+ref_id: CA-R-1816
+role: Requirement
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-R-1816-MCP-RULE--report-server-and-client-refresh-separately.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
 ---
 # Summary
 

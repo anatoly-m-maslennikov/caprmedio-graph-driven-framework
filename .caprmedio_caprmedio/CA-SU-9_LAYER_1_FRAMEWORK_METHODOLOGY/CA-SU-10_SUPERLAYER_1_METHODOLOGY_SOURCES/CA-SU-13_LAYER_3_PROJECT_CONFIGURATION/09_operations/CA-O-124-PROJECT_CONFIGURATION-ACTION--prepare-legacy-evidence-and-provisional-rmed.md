@@ -1,14 +1,15 @@
 ---
 atom_id: CA-O-124
-content_role: Operations
-type: Action
+ref_id: CA-O-124
+role: Operations
+form: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/caprmedio/Action//Legacy Evidence and Provisional RMED Preparation
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Legacy Evidence and Provisional RMED Preparation
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
@@ -19,8 +20,13 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
 version: 15
 updated_at: 2026-10-27 19:59:46 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-124-PROJECT_CONFIGURATION-ACTION--prepare-legacy-evidence-and-provisional-rmed.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

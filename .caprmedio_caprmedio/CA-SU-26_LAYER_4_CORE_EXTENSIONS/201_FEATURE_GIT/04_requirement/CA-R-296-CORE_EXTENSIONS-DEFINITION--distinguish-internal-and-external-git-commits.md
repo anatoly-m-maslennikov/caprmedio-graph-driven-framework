@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: separation
-subjects:
-  governs: Subject/CAPRMEDIO/Carrier/Git Commit
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Carrier/Git Commit
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 version: 27
@@ -11,14 +11,16 @@ updated_at: 2026-10-27 20:00:09 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 author: Anatoly Maslennikov
-content_role: Requirement
 current_scope_unit: CORE_EXTENSIONS
 status: Active
 atom_id: CA-R-296
-type: Rule
+ref_id: CA-R-296
 tier: 1
+role: Requirement
+form: Rule
+container:
+  scope_unit: CA-SU-26
 ---
 # Distinguish internal and external Git commits
 

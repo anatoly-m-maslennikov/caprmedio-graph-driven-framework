@@ -1,17 +1,24 @@
 ---
 atom_id: CA-M-421
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-421@10-draft
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-version: 9
-updated_at: 2026-10-27 19:59:43 +0400
+version: 10
+updated_at: 2026-11-05 23:05:59 +0400
 author: Anatoly Maslennikov
 tier: 3
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-421-PROGRAMMATIC-ENG_POLICY--reuse-suitable-established-solutions.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 
@@ -25,12 +32,14 @@ New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters 
 
 **To** implement declared PROGRAMMATIC behavior, prefer well-adopted, well-suited existing libraries, approaches and tools over reimplementing their mechanics; use custom mechanics **when** existing solutions cannot meet a declared requirement **or** the custom choice provides a concrete benefit.
 
+At the real library boundary, verify the selected solution's public API, actual defaults and event behavior; do not let assumed local behavior contradict the system contract.
+
 ## Details
 
 Candidate source: [CA-M-391@2](archive/CA-M-391-PROGRAMMATIC-CORE--reuse-suitable-established-solutions@2.md)
 
 - Check existing Project capabilities and established solutions for actual fit, not popularity alone.
 - Consider the complexity and dependency cost introduced by the choice.
-- Keep custom work limited to the unmet requirement or demonstrated benefit. This Method selects no mandatory product or technology.
+- Keep custom work limited to the unmet requirement or demonstrated benefit. This Method selects no mandatory product or technology. A library default is not evidence of contract conformance: verify the real boundary for behavior such as sorting scope or popup theme and zoom, then configure or adapt it when the default conflicts with the declared behavior.
 
 The Operator explicitly selected reuse of well-adopted and suitable libraries, approaches and tools instead of reinventing the wheel on 2026-10-15.

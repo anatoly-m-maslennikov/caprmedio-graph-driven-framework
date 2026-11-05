@@ -12,11 +12,18 @@ relations:
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-637
+ref_id: CA-R-637
 tier: 2
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-637-CAPRMEDIO-RULE--establish-recurrence-protection.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

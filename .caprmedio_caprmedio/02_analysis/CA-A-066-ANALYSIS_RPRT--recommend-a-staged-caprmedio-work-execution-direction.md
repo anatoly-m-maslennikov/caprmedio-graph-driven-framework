@@ -2,18 +2,16 @@
 atom_id: CA-A-066
 cce_version: cce_1
 cce_form: rationale
-subjects:
-  declared:
-    continuant:
-      - work-execution-architecture
-      - execution-admission-contract
-      - context-policy
-    occurrent:
-      - work-routing
-      - workflow-execution
-      - progressive-workflow-migration
 version: 2
 updated_at: 2026-09-06 01:45:12 +0400
+topics:
+  main_subject: Work Execution Architecture
+  dependencies:
+  - execution-admission-contract
+  - context-policy
+  - work-routing
+  - workflow-execution
+  - progressive-workflow-migration
 ---
 # Recommend a staged CAPRMEDIO work-execution direction
 

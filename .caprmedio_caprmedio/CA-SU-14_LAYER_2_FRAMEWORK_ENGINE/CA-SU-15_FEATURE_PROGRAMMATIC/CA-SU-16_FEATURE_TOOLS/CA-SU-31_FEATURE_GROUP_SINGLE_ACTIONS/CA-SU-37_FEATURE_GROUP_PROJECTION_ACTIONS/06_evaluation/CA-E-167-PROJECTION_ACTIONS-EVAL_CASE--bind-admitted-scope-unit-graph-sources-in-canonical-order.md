@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  dependencies:
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
@@ -16,13 +16,16 @@ relations:
   - CA-M-149
   - CA-R-1070
 atom_id: CA-E-167
+ref_id: CA-E-167
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
-type: Eval Case
+form: Eval Case
 tier: 3
 claim_target_scope_unit: PROJECTION_ACTIONS
+container:
+  scope_unit: CA-SU-37
 ---
 # Bind admitted Scope Unit Graph sources in canonical order
 

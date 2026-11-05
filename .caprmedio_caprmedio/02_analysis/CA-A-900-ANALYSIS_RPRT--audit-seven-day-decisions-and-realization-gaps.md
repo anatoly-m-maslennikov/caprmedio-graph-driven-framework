@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     occurrent:
       - Decision Realization Audit
-  depends_on:
+  dependencies:
     continuant:
       - Development Flow
       - Project Configuration

@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-1819
-content_role: Requirement
+ref_id: CA-R-1819
+role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Carrier
-relations: {}
-type: Rule
+form: Rule
 tier: 3
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-R-1819-WORKFLOW_ORCHESTRATOR-RULE--isolate-agent-proposals-from-project-writes.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/04_requirement
 ---
 # Summary
 

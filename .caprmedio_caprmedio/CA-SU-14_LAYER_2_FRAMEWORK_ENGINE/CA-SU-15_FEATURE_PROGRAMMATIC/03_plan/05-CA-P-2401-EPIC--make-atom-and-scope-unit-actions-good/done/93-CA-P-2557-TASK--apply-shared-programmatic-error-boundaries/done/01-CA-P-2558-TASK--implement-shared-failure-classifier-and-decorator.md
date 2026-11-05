@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2558
-content_role: Plan
-type: Plan
+ref_id: CA-P-2558
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
@@ -10,9 +11,8 @@ author: Anatoly Maslennikov
 status: Done
 version: 8
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Runtime Failure Classification
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Engineering/Runtime Failure Classification
 relations:
   is_decomposition_of:
   - CA-P-2557
@@ -23,6 +23,12 @@ relations:
   - CA-M-399
   - CA-M-400
 tier: 3
+container:
+  atom: CA-P-2557
+carrier_destination:
+  file:
+    name: 1-CA-P-2558-TASK--implement-shared-failure-classifier-and-decorator.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/93-CA-P-2557-TASK--apply-shared-programmatic-error-boundaries/done
 ---
 # Summary
 

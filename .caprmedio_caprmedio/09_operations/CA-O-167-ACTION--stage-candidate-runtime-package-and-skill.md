@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-167
-content_role: Operations
-type: Action
+ref_id: CA-O-167
+role: Operations
+form: Action
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Carrier
@@ -17,8 +18,13 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 version: 18
 updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-O-167-CAPRMEDIO-ACTION--stage-candidate-runtime-package-and-skill.md
+    path: .caprmedio_caprmedio/09_operations
 ---
 # Summary
 

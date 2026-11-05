@@ -1,5 +1,6 @@
 ---
 atom_id: CA-R-2723
+ref_id: CA-R-2723
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
@@ -8,14 +9,15 @@ role: Requirement
 form: Rule
 tier: 3
 version: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-relations: {}
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 carrier_destination:
   file:
-    name: CA-R-2723-WORKBENCH-RULE--derive-query-projection-only-from-governed-atom-sources.md
+    name: CA-R-2723-WORKBENCH-RULE--derive-the-query-projection-only-from-governed-atom-sources.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
 updated_at: 2026-11-04 07:39:08 +0400
+container:
+  scope_unit: CA-SU-43
 ---
 ## Summary
 

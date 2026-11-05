@@ -1,16 +1,17 @@
 ---
 atom_id: CA-E-644
-content_role: Evaluation
-type: Policy
+ref_id: CA-E-644
+role: Evaluation
+form: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-10-27 19:59:38 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
 relations:
   evaluation_for:
@@ -18,6 +19,12 @@ relations:
   - CA-M-403
   - CA-M-411
 tier: 4
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-E-644-PROGRAMMATIC-POLICY--evaluate-declared-behavior-and-canonical-ownership.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
 # Summary
 

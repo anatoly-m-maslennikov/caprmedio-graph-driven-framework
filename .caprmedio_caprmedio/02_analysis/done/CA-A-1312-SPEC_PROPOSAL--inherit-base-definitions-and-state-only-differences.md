@@ -1,7 +1,8 @@
 ---
 atom_id: CA-A-1312
-content_role: Analysis & Advisory
-type: Spec Proposal
+ref_id: CA-A-1312
+role: Analysis & Advisory
+form: Spec Proposal
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Done
@@ -9,9 +10,10 @@ author: Anatoly Maslennikov
 tier: 3
 version: 3
 updated_at: 2026-11-02 15:49:28 +0400
-subjects:
-  governs: Entity
-relations: {}
+topics:
+  main_subject: Entity
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 

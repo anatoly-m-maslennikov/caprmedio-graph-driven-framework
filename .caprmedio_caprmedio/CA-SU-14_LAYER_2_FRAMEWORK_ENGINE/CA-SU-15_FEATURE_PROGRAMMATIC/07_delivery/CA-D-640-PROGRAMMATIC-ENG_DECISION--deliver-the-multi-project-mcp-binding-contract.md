@@ -1,19 +1,22 @@
 ---
 atom_id: CA-D-640
-content_role: Delivery
+ref_id: CA-D-640
+role: Delivery
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 15
 updated_at: 2026-11-02 19:46:47 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
 relations:
   delivery_for:
   - CA-R-2008
-type: Eng Decision
+form: Eng Decision
 tier: 5
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

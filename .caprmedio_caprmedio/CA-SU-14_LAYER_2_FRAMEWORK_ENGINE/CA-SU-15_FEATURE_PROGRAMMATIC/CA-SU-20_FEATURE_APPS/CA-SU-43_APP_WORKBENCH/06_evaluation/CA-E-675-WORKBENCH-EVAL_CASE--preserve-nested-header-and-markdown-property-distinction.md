@@ -1,22 +1,25 @@
 ---
 atom_id: CA-E-675
+ref_id: CA-E-675
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 version: 5
 role: Evaluation
 form: Eval Case
 tier: 5
 carrier_destination:
   file:
-    name: CA-E-675-WORKBENCH-EVAL_CASE--preserve-nested-header-and-markdown-property-distinction.md
+    name: CA-E-675-WORKBENCH-EVAL_CASE--preserve-nested-header-and-markdown-property-distinctions.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
 relations:
   evaluation_for: [CA-R-2726, CA-M-464, CA-D-672]
 updated_at: 2026-11-04 21:06:25 +0400
+container:
+  scope_unit: CA-SU-43
 ---
 ## Summary
 

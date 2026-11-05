@@ -1,11 +1,12 @@
 ---
 atom_id: CA-R-1616
+ref_id: CA-R-1616
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection/(.Form := Realization Graph)
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Realization Graph)
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   - CAPRMEDIO_MODEL <+ Entity
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
@@ -22,6 +23,12 @@ tier: 3
 role: Requirement
 form: Rule
 updated_at: 2026-11-02 18:35:20 +0400
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 ---
 ## Summary
 

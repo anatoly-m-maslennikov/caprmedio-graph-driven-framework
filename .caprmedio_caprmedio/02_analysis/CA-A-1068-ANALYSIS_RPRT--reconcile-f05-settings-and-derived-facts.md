@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1068
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1068
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F05 settings and derived facts reconciliation
-  depends_on:
+topics:
+  main_subject: F05 settings and derived facts reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Subject/Domain/Node/Continuant/Project.Structure
   - Subject/Domain/Node/Continuant/Project.Framework Settings
@@ -25,6 +26,8 @@ relations:
   - CA-A-1061
   - CA-C-353
   - CA-C-380
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

@@ -1,14 +1,15 @@
 ---
 atom_id: CA-M-341
-content_role: Method
+ref_id: CA-M-341
+role: Method
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 19:59:42 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
@@ -17,8 +18,14 @@ subjects:
 relations:
   method_for:
   - CA-R-1884
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-M-341-MCP-ENG_DECISION--reuse-the-hot-reload-gateway-for-http.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/05_method
 ---
 # Summary
 

@@ -1,0 +1,34 @@
+---
+atom_id: <unallocated>
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Relation Declaration)
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+tier: 3
+role: Requirement
+form: Declaration
+version: <unallocated>
+---
+
+## Summary
+
+Declare Relation Declaration as a Requirement Form
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom//(.Header.Role := Requirement).Header.Form := Relation Declaration;
+Atom//(.Header.Role := Requirement)//(.Header.Form := Relation Declaration)
+```
+
+### Prose Claim
+
+This Form uses the Declaration contract.
+
+## Semantics
+
+A Relation Declaration defines a canonical binary Relation, its endpoint domains and applicable inverse aliases.

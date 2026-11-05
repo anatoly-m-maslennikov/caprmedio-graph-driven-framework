@@ -1,14 +1,15 @@
 ---
 atom_id: CA-O-030@36-draft
-content_role: Operations
-type: Action
+ref_id: CA-O-030@36-draft
+role: Operations
+form: Action
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Draft
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_UPDATE
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
@@ -17,8 +18,9 @@ subjects:
   - Subject/CAPRMEDIO/Carrier
 version: 36
 updated_at: 2026-10-30 14:16:53 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-18
 ---
 # Summary
 

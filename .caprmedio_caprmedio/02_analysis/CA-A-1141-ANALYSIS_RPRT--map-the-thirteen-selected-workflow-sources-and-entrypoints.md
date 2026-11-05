@@ -1,7 +1,8 @@
 ---
 atom_id: CA-A-1141
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1141
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
@@ -10,9 +11,9 @@ status: Active
 author: Anatoly Maslennikov
 version: 3
 updated_at: 2026-11-02 15:49:28 +0400
-subjects:
-  governs: Selected Workflow source and entrypoint mapping
-  depends_on:
+topics:
+  main_subject: Selected Workflow source and entrypoint mapping
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Implementation
   - Analysis
@@ -27,6 +28,8 @@ relations:
   - CA-P-1132
   - CA-P-1157
   - CA-C-412
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

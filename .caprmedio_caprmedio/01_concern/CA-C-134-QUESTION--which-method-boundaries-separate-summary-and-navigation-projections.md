@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Atom/Summary
-  depends_on:
+topics:
+  main_subject: Atom/Summary
+  dependencies:
   - Atom/Claim
   - Subject/Domain/Node/Continuant/Projection
   - Translation
@@ -14,7 +14,6 @@ version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-134
 ---
 # Which Method boundaries separate Summary and navigation Projections?

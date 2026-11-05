@@ -23,6 +23,10 @@ One exact non-container Current Atom and one requested Status in its qualified m
 
 ## Claim
 
-Validate schema and mandatory fields, exact source currentness, authorization, the requested Status in the model's Current group, collision/no-overwrite, and placement.
+Derive carrier filename and location under [CA-D-568](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/lifecycle-in-place-edits/CA-D-568@20-draft-CORE_META_MODEL-DECISION--bind-draft-identity-continuity-evidence.md). Preserve exact source currentness and apply [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) safety checks; [CA-R-1521@33-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1521@33-draft-CORE_META_MODEL-RULE--resolve-lifecycle-changes-from-applicable-status-models.md) governs whether the requested Status is in the model's Current group.
 
-Change only Status in place, synchronize filename/location, and read back the saved carrier. Return it or the explicit error with completed outputs.
+Change only Status, synchronize location and read back the carrier under [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md).
+
+### Outputs
+
+`savedCurrentAtom`: the verified Current carrier. Diagnostic/failure results follow [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md).

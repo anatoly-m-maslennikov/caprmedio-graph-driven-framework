@@ -1,0 +1,55 @@
+{
+  "verdict": "PASS_FOUR_INDIVIDUAL_FORM_ADMISSIONS",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/manifest.json",
+  "manifest_sha256": "fac3d4945e9d7daf206bbc4404b4d29713d3f5e17e6b84f20ca19f1ca043e657",
+  "forms": [
+    {
+      "form": "Operator Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/operator-declaration.preview.txt",
+      "sha256": "9537d8c04acba9720affdb171f20950fe447b86c2d2d922215bce111d5b0b1c9",
+      "pin_matches": true,
+      "review": "PASS_INDIVIDUAL_ADMISSION"
+    },
+    {
+      "form": "Construct Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/construct-declaration.preview.txt",
+      "sha256": "7b8f758583e4b6f70cbb479b23dac386b1d6539f2667d0aeda0a21c759660160",
+      "pin_matches": true,
+      "review": "PASS_INDIVIDUAL_ADMISSION"
+    },
+    {
+      "form": "Relation Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/relation-declaration.preview.txt",
+      "sha256": "af9dd97e6c260e7272695949678d4bdacad80b405c5725fe815e50435092f760",
+      "pin_matches": true,
+      "review": "PASS_INDIVIDUAL_ADMISSION"
+    },
+    {
+      "form": "Function Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/function-declaration.preview.txt",
+      "sha256": "ef2e44c60699ac76ec855caf79fb4e20af2e721f0938f11b2646b079f97c70a8",
+      "pin_matches": true,
+      "review": "PASS_INDIVIDUAL_ADMISSION"
+    }
+  ],
+  "authority": [
+    {
+      "id": "CA-R-2516",
+      "sha256": "52fc54576f57e2cd13a7678d19ba23c10019a3e612a0c49817b0eefb2434f567",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-2765",
+      "sha256": "06c5863629ae52cc481f2b2472dec3cb2e1bfcf1fd2d109f470a98f07809ef62",
+      "pin_matches": true
+    }
+  ],
+  "findings": [],
+  "basis": [
+    "Each candidate admits one Form under existing Requirement Role using the existing qualified-Subject Declaration pattern and gives its own focused Semantics.",
+    "R2516 supplies the generic one-Subject Declaration contract; no exhaustive Form list, new Role or Role ID is asserted.",
+    "Operator/Construct item Subject layout and runtime metadata remain open and are not approved by this admission review."
+  ],
+  "limits": "Unallocated prospective source previews; Operator/Construct item Subject layout remains undecided; no Current or runtime admission, native edits, code, tests or Git.",
+  "final_refresh": "Formal Claims now use // narrowing; every Claim explicitly invokes the existing Declaration contract. Legacy Subject metadata retained for coordinated migration."
+}

@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - Programmatic Method and Evaluation Target
-  depends_on:
+  dependencies:
     continuant:
       - Programmatic Policy
       - Method Authority

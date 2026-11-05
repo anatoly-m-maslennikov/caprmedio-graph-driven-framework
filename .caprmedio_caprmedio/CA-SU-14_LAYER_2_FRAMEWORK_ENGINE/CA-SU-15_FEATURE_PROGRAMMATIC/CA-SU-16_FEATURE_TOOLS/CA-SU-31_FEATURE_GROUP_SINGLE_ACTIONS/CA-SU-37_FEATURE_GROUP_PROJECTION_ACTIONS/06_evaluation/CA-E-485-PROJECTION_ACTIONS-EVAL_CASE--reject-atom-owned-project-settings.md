@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+  dependencies:
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
@@ -16,13 +16,16 @@ relations:
   - CA-R-1070
   - CAPRMEDIO-META-REQU-619
 atom_id: CA-E-485
+ref_id: CA-E-485
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
-type: Eval Case
+form: Eval Case
 tier: 2
 claim_target_scope_unit: PROJECTION_ACTIONS
+container:
+  scope_unit: CA-SU-37
 ---
 # Reject Atom-owned Project Settings
 

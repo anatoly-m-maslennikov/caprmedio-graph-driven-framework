@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1075
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1075
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Implementation and functional-runtime guarantee reconciliation
-  depends_on:
+topics:
+  main_subject: Implementation and functional-runtime guarantee reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Implementation
   - Evaluation
@@ -34,6 +35,8 @@ relations:
   - CA-M-285
   - CA-E-389
   - CA-E-536
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

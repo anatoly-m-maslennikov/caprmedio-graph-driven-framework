@@ -1,24 +1,30 @@
 ---
 atom_id: CA-R-1822
-content_role: Requirement
+ref_id: CA-R-1822
+role: Requirement
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 11
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Provenance
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Provenance
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-R-1822-TOOLS-RULE--bind-selected-run-identities-revisions-and-lineage.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement
 ---
 # Summary
 

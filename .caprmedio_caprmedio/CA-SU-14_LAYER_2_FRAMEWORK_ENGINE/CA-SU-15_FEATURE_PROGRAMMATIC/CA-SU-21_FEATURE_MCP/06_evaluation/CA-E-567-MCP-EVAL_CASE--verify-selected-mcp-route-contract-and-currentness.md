@@ -1,16 +1,17 @@
 ---
 atom_id: CA-E-567
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-567
+role: Evaluation
+form: Eval Case
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
@@ -22,6 +23,12 @@ relations:
   - CA-R-1847
   - CA-R-1848
 tier: 4
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-E-567-MCP-EVAL_CASE--verify-selected-mcp-route-contract-and-currentness.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
 # Summary
 

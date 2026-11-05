@@ -6,16 +6,23 @@ updated_at: 2026-11-02 19:44:26 +0400
 relations:
   child_of:
   - CA-R-2452
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
 atom_id: CA-M-447
+ref_id: CA-M-447
 status: Active
 current_scope_unit: caprmedio
 tier: 0
 role: Method
 form: Eng Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-M-447-CAPRMEDIO-SCOPE_CONTRACT-ENG_POLICY--mece-cover-the-whole-with-non-overlapping-parts.md
+    path: .caprmedio_caprmedio/05_method
 ---
 ## Summary
 

@@ -12,11 +12,18 @@ relations:
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-033
+ref_id: CA-R-033
 tier: 5
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-033-CAPRMEDIO-RULE--preserve-ancestor-core-authority-across-structural-levels.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Preserve ancestor Core authority across structural levels

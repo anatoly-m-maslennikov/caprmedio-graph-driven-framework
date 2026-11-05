@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom
 version: 31
@@ -10,12 +10,19 @@ relations:
   child_of:
   - CA-M-122
 atom_id: CA-M-127
+ref_id: CA-M-127
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 6
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-127-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-set-valued-property-membership.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

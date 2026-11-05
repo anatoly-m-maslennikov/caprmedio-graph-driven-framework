@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Atom/Scope
-  depends_on:
+topics:
+  main_subject: Atom/Scope
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - Core Meta-Model
   - Project Configuration
@@ -15,7 +15,6 @@ version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-165
 ---
 # Which Project Core rules are product commitments rather than reusable Methodology?

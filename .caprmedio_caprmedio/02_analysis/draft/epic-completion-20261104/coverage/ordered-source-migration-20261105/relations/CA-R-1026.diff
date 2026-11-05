@@ -1,0 +1,26 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1026-CORE_META_MODEL-DECLARATION--register-depends-on-and-required-by-relation-pair.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/relations/CA-R-1026.preview.txt
+@@ -30,12 +30,11 @@
+ 
+ ```CFEL
+ # model
+-Relation//depends_on ((HAS_INVERSE)) Relation//required_by;
++Relation//required_by ((IS_INVERSE_ALIAS_FOR)) Relation//depends_on;
+ 
+ Relation//depends_on ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+-# instances
+-$dependent ((depends_on)) $prerequisite
++$host ((depends_on)) $target
+ ```
+ 
+ ### Prose Claim
+@@ -43,7 +42,7 @@
+ #### Claim scope
+ the `depends_on` **and** `required_by` relation pair.
+ 
+-`depends_on` **means** a direct dependency-ordering relation from a dependent Artifact **to** its prerequisite Artifact, with `required_by` as its inverse-derived view. Plan start dependencies use the Plan Graph's `BLOCKS` under CA-R-1580 instead; this Relation Kind **must not** duplicate that scheduling fact.
++`depends_on` **means** a direct dependency-ordering relation from a dependent Artifact **to** its prerequisite Artifact, with `required_by` as its inverse alias. Plan start dependencies use the Plan Graph's `BLOCKS` under CA-R-2762 instead; this Relation Kind **must not** duplicate that scheduling fact.
+ 
+ Both endpoints are Artifacts: the Host is dependent and the Target is its prerequisite.
+ Forward `Host ((depends_on)) Target` and reverse `Target <((depends_on)) Host` are views of the same Relation fact.

@@ -1,7 +1,7 @@
 ---
 atom_id: CA-E-draft
-content_role: Evaluation
-type: Evaluation Approach
+role: Evaluation
+form: Evaluation Approach
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 tier: 2
@@ -9,15 +9,17 @@ status: Draft
 author: Anatoly Maslennikov
 version: 2
 updated_at: "2026-10-23 19:06:37 +0400"
-subjects:
-  governs: Subject/Engineering/Source Unit Responsibility
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Source Unit Responsibility
+  dependencies:
     - Subject/Engineering/Source Check Adoption
 relations:
   relates_to:
     - CA-E-539
     - CA-M-419
     - CA-M-411
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

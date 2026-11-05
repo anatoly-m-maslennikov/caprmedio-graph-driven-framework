@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2255
-content_role: Plan
-type: Plan
+ref_id: CA-P-2255
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 20
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Engineering/Action
@@ -34,6 +35,12 @@ relations:
   - CA-P-2269
   - CA-P-2274
 tier: 3
+container:
+  atom: CA-P-2167
+carrier_destination:
+  file:
+    name: 20-CA-P-2255-TASK--implement-private-carrier-edits.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution
 ---
 # Summary
 

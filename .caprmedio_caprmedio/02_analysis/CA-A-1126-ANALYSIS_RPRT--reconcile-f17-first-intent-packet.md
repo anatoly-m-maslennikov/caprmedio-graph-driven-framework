@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1126
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1126
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F17 first intent-packet reconciliation
-  depends_on:
+topics:
+  main_subject: F17 first intent-packet reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
   - Atom/Claim
@@ -24,6 +25,8 @@ relations:
   - CA-A-1063
   - CA-C-379
   - CA-C-374
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

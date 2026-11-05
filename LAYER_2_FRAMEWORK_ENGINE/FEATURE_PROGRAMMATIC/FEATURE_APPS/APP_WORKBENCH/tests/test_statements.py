@@ -1,4 +1,4 @@
-# CA-E-676@7
+# CA-E-785@1
 
 """Native statement selection keeps SQL lexical boundaries authoritative."""
 
@@ -18,29 +18,15 @@ def _utf16_position(value: str, text: str) -> int:
 
 
 class StatementTests(unittest.TestCase):
-    def test_without_a_cursor_preserves_the_original_script(self):
-        sql = " select 1; -- trailing\n"
-        self.assertEqual(sql, select_statement(sql))
-
-    def test_cursor_uses_native_tokens_for_unicode_strings_comments_and_dollar_quotes(self):
+    def test_cursor_is_metadata_and_the_complete_script_is_preserved(self):
         sql = "select '😀;'; -- ;\n  select $$;$$ as value; /* ; */"
-        cursor = _utf16_position(sql, "value")
-        self.assertEqual(" -- ;\n  select $$;$$ as value; /* ; */", select_statement(sql, cursor))
+        self.assertEqual(sql, select_statement(sql, _utf16_position(sql, "value")))
 
-    def test_semicolon_belongs_to_the_left_statement_and_leading_space_to_the_right(self):
+    def test_multiple_statements_remain_visible_for_native_admission(self):
         sql = "select '😀';  select 2"
-        semicolon = _utf16_position(sql, ";")
-        second = _utf16_position(sql, "2")
-        self.assertEqual("select '😀';", select_statement(sql, semicolon))
-        self.assertEqual("select '😀';", select_statement(sql, semicolon + 1))
-        self.assertEqual("  select 2", select_statement(sql, second))
+        self.assertEqual(sql, select_statement(sql, _utf16_position(sql, "2")))
 
-    def test_final_comments_belong_to_the_final_statement(self):
-        sql = "select 1; /* final comment */  \n"
-        cursor = len(sql.encode("utf-16-le")) // 2
-        self.assertEqual(sql, select_statement(sql, cursor))
-
-    def test_invalid_sql_with_a_cursor_is_saved_as_the_original_for_later_admission(self):
+    def test_invalid_sql_with_a_cursor_is_preserved_for_native_admission(self):
         sql = "select 'unterminated"
         self.assertEqual(sql, select_statement(sql, 0))
 

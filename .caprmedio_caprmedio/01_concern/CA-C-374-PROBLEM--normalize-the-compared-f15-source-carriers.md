@@ -1,16 +1,17 @@
 ---
 atom_id: CA-C-374
-content_role: Concern
-type: Problem
+ref_id: CA-C-374
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: active
-subjects:
-  governs: Compared F15 source carrier conformance
-  depends_on:
+topics:
+  main_subject: Compared F15 source carrier conformance
+  dependencies:
   - Markdown Atom Carrier/Structure
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Method
@@ -27,6 +28,8 @@ relations:
   - CA-P-1360
   - CA-A-1078
   - CA-D-479
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

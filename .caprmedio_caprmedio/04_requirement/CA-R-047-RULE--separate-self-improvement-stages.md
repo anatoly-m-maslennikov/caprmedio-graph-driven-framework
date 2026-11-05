@@ -7,9 +7,9 @@ llm_session_ids:
 relations:
   child_of:
   - CA-R-1423
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
@@ -27,9 +27,16 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-047
+ref_id: CA-R-047
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-047-CAPRMEDIO-RULE--separate-self-improvement-stages.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

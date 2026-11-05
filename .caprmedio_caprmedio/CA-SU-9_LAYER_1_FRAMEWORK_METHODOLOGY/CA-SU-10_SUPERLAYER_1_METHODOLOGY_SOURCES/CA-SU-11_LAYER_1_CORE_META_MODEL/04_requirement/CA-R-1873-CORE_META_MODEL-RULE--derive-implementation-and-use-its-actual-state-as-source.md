@@ -1,20 +1,26 @@
 ---
 atom_id: CA-R-1873
+ref_id: CA-R-1873
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Package/Implementation
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Carrier
 version: 20
 updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

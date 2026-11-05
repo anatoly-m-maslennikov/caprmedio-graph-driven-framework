@@ -1,0 +1,7 @@
+--- CA-R-2804 actual Draft
++++ caller preview
+@@
+-<Kind> references a declared Model kind
++[Format] constrains values; <Model> references a Model; INSTANCE_OF connects an instance host to that Model.
+-$container[<Workflow Run> OR <Step Run>] binds one participant over the union
++preserved: one participant and one whole-union cardinality count.

@@ -1,24 +1,26 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//CORE_META_MODEL
 version: 11
 updated_at: 2026-10-27 19:59:55 +0400
-relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-content_role: Requirement
+role: Requirement
 current_scope_unit: CORE_EXTENSIONS
 status: Active
 author: Anatoly Maslennikov
 atom_id: CA-R-1469
-type: Goal
+ref_id: CA-R-1469
+form: Goal
 tier: 1
+container:
+  scope_unit: CA-SU-26
 ---
 # Provide optional Git integration
 

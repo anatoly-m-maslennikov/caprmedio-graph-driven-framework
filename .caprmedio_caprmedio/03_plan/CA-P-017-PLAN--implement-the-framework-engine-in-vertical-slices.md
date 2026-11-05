@@ -1,15 +1,18 @@
 ---
 atom_id: CA-P-017
+ref_id: CA-P-017
 subject_scopes:
 - development-flow
 version: 8
 updated_at: 2026-10-24 06:26:31 +0400
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 tier: 3
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
+container:
+  scope_unit: CA-SU-00
 ---
 # Implement the FRAMEWORK_ENGINE in vertical slices
 

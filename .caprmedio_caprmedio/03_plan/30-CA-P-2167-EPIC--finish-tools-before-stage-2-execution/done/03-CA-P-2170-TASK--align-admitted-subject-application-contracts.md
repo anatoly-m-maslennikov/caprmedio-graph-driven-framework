@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2170
-content_role: Plan
-type: Plan
+ref_id: CA-P-2170
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Atom.Version Number
@@ -28,6 +29,12 @@ relations:
   - CA-P-2171
   - CA-P-2173
 tier: 3
+container:
+  atom: CA-P-2167
+carrier_destination:
+  file:
+    name: 3-CA-P-2170-TASK--align-admitted-subject-application-contracts.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done
 ---
 # Summary
 

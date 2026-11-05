@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
 version: 21
 updated_at: 2026-10-27 19:59:32 +0400
@@ -13,12 +13,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-310
+ref_id: CA-E-310
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-type: Eval Case
+form: Eval Case
 tier: 1
+container:
+  scope_unit: CA-SU-15
 ---
 # Verify reconcile independent git and journal provenance
 

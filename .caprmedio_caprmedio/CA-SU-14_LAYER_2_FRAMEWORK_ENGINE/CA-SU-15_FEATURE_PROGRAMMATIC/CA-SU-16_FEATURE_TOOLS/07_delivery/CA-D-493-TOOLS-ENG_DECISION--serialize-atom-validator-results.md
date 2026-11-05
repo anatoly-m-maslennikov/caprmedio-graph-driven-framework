@@ -1,13 +1,14 @@
 ---
 atom_id: CA-D-493
-content_role: Delivery
+ref_id: CA-D-493
+role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
@@ -18,8 +19,14 @@ relations:
   delivery_for:
   - CA-R-1622
   - CA-R-1623
-type: Eng Decision
+form: Eng Decision
 tier: 5
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-D-493-TOOLS-ENG_DECISION--serialize-atom-validator-results.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
 ---
 # Summary
 

@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Relation Kind
-  depends_on:
+topics:
+  main_subject: Relation Kind
+  dependencies:
   - CAPRMEDIO Graph
   - Artifact
   - Subject/Domain/Node/Continuant/Scope Unit
@@ -14,7 +14,6 @@ version: 6
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-191
 ---
 # Which schemas govern generic Artifact selectors and Relation patches?

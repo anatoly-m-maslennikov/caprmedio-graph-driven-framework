@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
 version: 26
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -15,12 +15,15 @@ llm_session_ids:
 cce_version: cce_1
 cce_form: evaluation
 atom_id: CA-E-178
+ref_id: CA-E-178
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 3
+container:
+  scope_unit: CA-SU-16
 ---
 # Produce equivalent context through both input paths
 

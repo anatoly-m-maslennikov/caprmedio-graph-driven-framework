@@ -1,0 +1,20 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2246@9-draft-CORE_META_MODEL-DECLARATION--define-records-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/relations/CA-R-2246.preview.txt
+@@ -29,14 +29,14 @@
+ 
+ ```CFEL
+ # model
+-Relation//RECORDS ((HAS_INVERSE)) Relation//IS_RECORDED_BY;
++Relation//IS_RECORDED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//RECORDS;
+ 
+ Relation//RECORDS ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+ # instances
+-Event Record//$event_record((RECORDS)) Event//$event
++$event_record[<Event Record>]((RECORDS)) $event[<Event>]
+ ```
+ 
+ ## Semantics
+ 
+-RECORDS is the stored Relation from an Event Record to the Event it describes. Its declared inverse IS_RECORDED_BY is a derived view; an Event Record is distinct from the Event.
++RECORDS relates an Event Record to the Event it describes. IS_RECORDED_BY is its inverse alias; an Event Record is distinct from the Event.

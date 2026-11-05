@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
@@ -23,12 +23,19 @@ relations:
   - CA-D-460
   - CA-D-470
 atom_id: CA-E-506
+ref_id: CA-E-506
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-506-CORE_META_MODEL-EVAL_CASE--validate-self-sufficient-atom-carriers.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

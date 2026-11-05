@@ -1,24 +1,24 @@
 ---
 atom_id: CA-M-439
+ref_id: CA-M-439
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Actor
 version: 4
 updated_at: 2026-11-04 18:28:33 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 3
 role: Method
 form: Implementation Method
 carrier_destination:
   file:
-    name: CA-M-439-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-term-definition-content.md
+    name: CA-M-439-IMPLEMENTATION_METHOD--write-term-definition-content.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

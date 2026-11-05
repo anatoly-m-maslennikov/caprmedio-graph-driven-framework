@@ -126,10 +126,15 @@ def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str]:
         raise ScopeDeclarationError(f"{path}: declaration requires an assigned CA-R identity")
     if type(version) is not int or version < 1:
         raise ScopeDeclarationError(f"{path}: declaration Version must be a positive integer")
+    topics = value.get("topics")
     subjects = value.get("subjects")
-    active = subjects.get("active") if isinstance(subjects, Mapping) else None
+    has_main_subject = isinstance(topics, Mapping) and "main_subject" in topics
+    has_legacy_active = isinstance(subjects, Mapping) and "active" in subjects
+    if has_main_subject and has_legacy_active:
+        raise ScopeDeclarationError(f"{path}: declaration has ambiguous main Subject metadata")
+    active = topics["main_subject"] if has_main_subject else subjects.get("active") if has_legacy_active else None
     if not isinstance(active, str):
-        raise ScopeDeclarationError(f"{path}: declaration requires one active Subject")
+        raise ScopeDeclarationError(f"{path}: declaration requires one main Subject")
     return atom_id, version, _local_subject(active, path)
 
 

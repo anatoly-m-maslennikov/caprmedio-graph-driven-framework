@@ -1,16 +1,17 @@
 ---
 atom_id: CA-E-580
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-580
+role: Evaluation
+form: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Action Run
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
@@ -19,6 +20,12 @@ relations:
   evaluation_for:
   - CA-R-1867
 tier: 4
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-E-580-TOOLS-EVAL_CASE--verify-actual-query-run-journaling-through-shared-support.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
 ---
 # Summary
 

@@ -6,22 +6,29 @@ relations:
   - CA-R-1487
   depends_on:
   - CA-M-297
-subjects:
-  governs: Subject/caprmedio/Action//Select Priority-Governed Alternative
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Select Priority-Governed Alternative
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
 atom_id: CA-O-023
-content_role: Operations
+ref_id: CA-O-023
+role: Operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-type: Action
+form: Action
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-023-PROJECT_CONFIGURATION-ACTION--select-an-alternative-under-active-priorities.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

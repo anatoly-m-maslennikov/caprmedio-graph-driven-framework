@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1480
-content_role: Plan
-type: Plan
+ref_id: CA-P-1480
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 47
 current_scope_unit: caprmedio
@@ -10,9 +11,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Evaluation
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'

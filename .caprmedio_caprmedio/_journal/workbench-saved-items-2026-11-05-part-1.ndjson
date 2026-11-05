@@ -1,0 +1,1 @@
+{"kind":"query","saved_at":"2026-11-05T14:44:41.418012+00:00","saved_query_id":"01a1ac2b-4d4a-711e-b2ee-94f5c5165f6b","sql":"SELECT id, role, status, \"content.summary\" FROM atoms WHERE status = 'Active' LIMIT 20"}

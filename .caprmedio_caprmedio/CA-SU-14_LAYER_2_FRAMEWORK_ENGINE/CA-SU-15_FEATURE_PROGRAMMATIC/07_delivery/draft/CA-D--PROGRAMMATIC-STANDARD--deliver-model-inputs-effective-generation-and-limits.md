@@ -1,17 +1,17 @@
 ---
-content_role: Delivery
+role: Delivery
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 status: Draft
-subjects:
-  governs: PROGRAMMATIC
-  depends_on: []
+topics:
+  main_subject: PROGRAMMATIC
 version: 1
 updated_at: "2026-10-20 02:52:15 +0400"
-relations: {}
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

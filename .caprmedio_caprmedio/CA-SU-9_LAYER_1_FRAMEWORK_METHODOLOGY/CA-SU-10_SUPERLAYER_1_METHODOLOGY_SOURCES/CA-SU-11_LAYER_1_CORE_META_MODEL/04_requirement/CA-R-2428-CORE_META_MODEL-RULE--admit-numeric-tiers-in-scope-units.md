@@ -1,10 +1,10 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Goal)
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
 relations:
   child_of:
@@ -12,12 +12,19 @@ relations:
 version: 3
 updated_at: 2026-11-04 09:19:08 +0400
 atom_id: CA-R-2428
+ref_id: CA-R-2428
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 tier: 3
 status: Active
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-2428-CORE_META_MODEL-RULE--admit-numeric-tiers-in-scope-units.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

@@ -10,14 +10,17 @@ relations:
   child_of:
   - CA-R-1056
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-563
-type: Rule
+ref_id: CA-R-563
+form: Rule
 tier: 1
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Guidance
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Guidance
+container:
+  scope_unit: CA-SU-23
 ---
 # Calibrate guidance to current adequacy
 

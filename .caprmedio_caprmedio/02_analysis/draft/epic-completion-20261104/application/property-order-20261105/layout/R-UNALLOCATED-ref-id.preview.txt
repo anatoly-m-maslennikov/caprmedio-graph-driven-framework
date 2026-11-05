@@ -1,0 +1,18 @@
+## Summary
+
+Declare Atom.Header.Ref ID
+
+## Claim
+
+### Prose Claim
+
+For a Current Atom, Ref ID is its base Atom ID. For an Archived Atom, Ref ID is `<ID>@<Version>`. For a Draft Atom, Ref ID is `<ID>@<Version>-draft`.
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.Ref ID{::1} :: [string]{::1};
+
+Atom.Header.Ref ID.*[]{::0}
+```

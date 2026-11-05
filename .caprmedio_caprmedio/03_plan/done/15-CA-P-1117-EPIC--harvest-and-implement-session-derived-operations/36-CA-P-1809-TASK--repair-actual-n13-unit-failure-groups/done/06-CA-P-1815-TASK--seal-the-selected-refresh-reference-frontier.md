@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1815
-content_role: Plan
-type: Plan
+ref_id: CA-P-1815
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 8
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Manifest
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Manifest
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
@@ -26,6 +27,12 @@ relations:
   relates_to:
   - CA-C-514
 tier: 3
+container:
+  atom: CA-P-1809
+carrier_destination:
+  file:
+    name: 6-CA-P-1815-TASK--seal-the-selected-refresh-reference-frontier.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/36-CA-P-1809-TASK--repair-actual-n13-unit-failure-groups/done
 ---
 # Summary
 

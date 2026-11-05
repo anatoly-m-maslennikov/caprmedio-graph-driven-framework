@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   - Subject/caprmedio/Extension//FPF
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
@@ -23,13 +23,16 @@ relations:
   - CA-R-1482
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-content_role: Method
 current_scope_unit: CORE_EXTENSIONS
 status: Active
 author: Anatoly Maslennikov
 atom_id: CA-M-290
-type: Implementation Method
+ref_id: CA-M-290
 tier: 2
+role: Method
+form: Implementation Method
+container:
+  scope_unit: CA-SU-26
 ---
 # Materialize, install, and activate the FPF Extension
 

@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1082
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1082
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F19 historical lifecycle and minimum-model reconciliation
-  depends_on:
+topics:
+  main_subject: F19 historical lifecycle and minimum-model reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
 version: 4
@@ -27,6 +28,8 @@ relations:
   - CA-O-051
   - CA-O-058
   - CA-C-365
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

@@ -1,18 +1,21 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
 version: 29
 updated_at: 2026-11-02 19:46:47 +0400
 llm_session_ids:
 - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-1154
+ref_id: CA-R-1154
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Definition
+form: Definition
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Define the GRAPH_CHECK Tool unit
 

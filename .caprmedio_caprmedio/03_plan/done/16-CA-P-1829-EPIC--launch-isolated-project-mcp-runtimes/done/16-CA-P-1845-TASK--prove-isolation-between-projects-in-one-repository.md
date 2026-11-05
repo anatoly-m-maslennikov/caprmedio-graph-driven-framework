@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1845
-content_role: Plan
-type: Plan
+ref_id: CA-P-1845
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 16
 current_scope_unit: caprmedio
@@ -10,9 +11,9 @@ status: Done
 author: Anatoly Maslennikov
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Runtime
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Runtime
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Domain/Continuant/Project.Settings
   - Subject/Graph Node/Domain/Continuant/Project.Structure
@@ -30,6 +31,12 @@ relations:
   blocks:
   - CA-P-1847
 tier: 3
+container:
+  atom: CA-P-1829
+carrier_destination:
+  file:
+    name: 16-CA-P-1845-TASK--prove-isolation-between-projects-in-one-repository.md
+    path: .caprmedio_caprmedio/03_plan/done/16-CA-P-1829-EPIC--launch-isolated-project-mcp-runtimes/done
 ---
 # Summary
 

@@ -1,7 +1,7 @@
 ---
 atom_id: CA-R-draft
-content_role: Requirement
-type: Requirement
+role: Requirement
+form: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 tier: 2
@@ -9,9 +9,9 @@ status: Draft
 author: Anatoly Maslennikov
 version: 2
 updated_at: "2026-10-23 19:11:00 +0400"
-subjects:
-  governs: Subject/Engineering/Source Unit Responsibility
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Source Unit Responsibility
+  dependencies:
     - Subject/Engineering/Implementation Cohesion
     - Subject/Engineering/Behavior Ownership
     - Subject/Engineering/Outcome Evidence
@@ -21,6 +21,8 @@ relations:
     - CA-M-431
     - CA-E-653
     - CA-M-411
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

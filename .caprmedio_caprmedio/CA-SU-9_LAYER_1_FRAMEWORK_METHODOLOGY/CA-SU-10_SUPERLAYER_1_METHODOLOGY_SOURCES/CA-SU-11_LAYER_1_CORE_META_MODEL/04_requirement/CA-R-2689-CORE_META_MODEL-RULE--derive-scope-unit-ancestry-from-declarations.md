@@ -1,14 +1,14 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit.Path
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.Path
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
   - Entity/Object/Continuant/Structural Unit/Scope Unit.Children
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
-relations: {}
 atom_id: CA-R-2689
+ref_id: CA-R-2689
 status: Active
 tier: 2
 role: Requirement

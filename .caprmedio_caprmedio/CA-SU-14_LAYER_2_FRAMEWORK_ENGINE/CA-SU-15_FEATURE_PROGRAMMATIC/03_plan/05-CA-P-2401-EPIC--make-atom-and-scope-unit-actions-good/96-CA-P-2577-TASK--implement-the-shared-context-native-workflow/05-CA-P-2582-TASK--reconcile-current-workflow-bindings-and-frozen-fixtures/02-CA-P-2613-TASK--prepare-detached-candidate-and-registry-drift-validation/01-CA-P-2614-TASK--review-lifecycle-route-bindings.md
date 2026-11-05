@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2614
-content_role: Plan
-type: Plan
+ref_id: CA-P-2614
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
@@ -10,9 +11,8 @@ author: Anatoly Maslennikov
 status: Done
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
 relations:
   is_decomposition_of:
   - CA-P-2613
@@ -24,6 +24,12 @@ relations:
   - CA-C-583
   - CA-C-584
 tier: 3
+container:
+  atom: CA-P-2613
+carrier_destination:
+  file:
+    name: 1-CA-P-2614-TASK--review-lifecycle-route-bindings.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/5-CA-P-2582-TASK--reconcile-current-workflow-bindings-and-frozen-fixtures/2-CA-P-2613-TASK--prepare-the-detached-candidate-and-registry-drift-validation/done
 ---
 # Summary
 

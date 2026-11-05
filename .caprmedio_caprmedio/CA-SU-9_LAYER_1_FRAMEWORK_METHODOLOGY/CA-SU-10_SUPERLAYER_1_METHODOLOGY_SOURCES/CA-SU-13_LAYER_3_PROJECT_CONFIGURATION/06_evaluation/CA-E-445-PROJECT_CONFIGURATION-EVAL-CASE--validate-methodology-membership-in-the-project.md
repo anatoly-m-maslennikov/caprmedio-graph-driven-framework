@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
@@ -18,12 +18,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-445
+ref_id: CA-E-445
 status: Active
 current_scope_unit: PROJECT_CONFIGURATION
 tier: 4
 claim_target_scope_unit: caprmedio
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 

@@ -1,18 +1,24 @@
 ---
 atom_id: CA-P-2639
-content_role: Plan
-type: Plan
+ref_id: CA-P-2639
+role: Plan
+form: Plan
 label: Epic
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject
+topics:
+  main_subject: Subject
 version: 14
 updated_at: 2026-10-26 22:56:54 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-P-2639-EPIC--subject-graph-fpf-refinement.md
+    path: .caprmedio_caprmedio/03_plan/done
 ---
 # Summary
 

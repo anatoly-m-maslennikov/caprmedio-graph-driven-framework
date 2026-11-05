@@ -1,22 +1,22 @@
 ---
 atom_id: CA-P-112
+ref_id: CA-P-112
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Selection//Scope Unit Goals
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Selection//Scope Unit Goals
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Goal'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement/Type: Project Goal'
   - Subject/Graph Node/Domain/Continuant/Scope Unit
 version: 8
 updated_at: 2026-10-25 17:32:27 +0400
 autonomous_confidence_threshold: 99
-relations: {}
 status: Done
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 ---

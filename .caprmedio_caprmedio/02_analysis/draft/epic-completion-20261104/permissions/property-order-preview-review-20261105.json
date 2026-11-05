@@ -1,0 +1,280 @@
+{
+  "verdict": "PASS_MODEL_PREVIEWS_WITH_MIGRATION_VALIDATION_HOLDS",
+  "packets": [
+    {
+      "packet": "relation",
+      "manifest_sha256": "ca382958f29f97c581e5fe0713773aa426a2753b9853980d05e5f78e9ccb8c03",
+      "rows": [
+        {
+          "id": "UNALLOCATED_RELATION",
+          "pins": [
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/IS_ORDERED_RIGHT_AFTER.unallocated.preview.txt",
+              "sha256": "ab49027487df9bf45362bd225107b807b16a2e54472b188997967d4be540ee57",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        },
+        {
+          "id": "CA-R-2798",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2798@1-draft-CORE_META_MODEL-RULE--define-cfel-expression-separator-syntax.md",
+              "sha256": "7a5a9e548686252fd63341c92f1036bec8059168ec58f215b1de47f2b2cb5686",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2798.preview.txt",
+              "sha256": "94902c6c93270af13f2f5127359f5f191ef399c74ffab17d72a231d3093022db",
+              "matches": true
+            },
+            {
+              "kind": "diff",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2798.diff",
+              "sha256": "54fd4be5320d4a301f7b1c86ea62cac5a08309a10fc87bc2aa686c322019aa14",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        },
+        {
+          "id": "CA-R-2462",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2462@5-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+              "sha256": "048bbb66a0f3d0e0cb522e0c75d83ed1675d11c163ad86d3c2a03d260971f29b",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2462.preview.txt",
+              "sha256": "8bd8104257b4525d79e5b9120bb9ecd7d7f377e874e5b37c8e3360de1c0df13f",
+              "matches": true
+            },
+            {
+              "kind": "diff",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2462.diff",
+              "sha256": "29bc6de8c303af67f30989e8038aa159f4f6ff17426087bfcbb67be08364fdcd",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        }
+      ]
+    },
+    {
+      "packet": "layout",
+      "manifest_sha256": "4496dc2d54cb33305d9b65d1c773c1b5167d05608029c92e1b91daba94011ee7",
+      "rows": [
+        {
+          "id": "R2719",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+              "sha256": "32b6cafe3e7260bea3a2eb9f6d8623d825d9bc6adfa66b228bfb70ce056233ca",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2719.preview.md",
+              "sha256": "b178d87dba8252e4ffd71dd254375763bff486ed069929cbcb5ae52cf86c999b",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        },
+        {
+          "id": "R2498",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+              "sha256": "d276c1982df220464b1ccc33390fe3f84be237fc5e23292fe6c8b83ba6e83481",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2498.preview.md",
+              "sha256": "06ea7affbefb964b51ff301ba3c5f2793edb3377b3c92d912be93e7771c5af10",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        },
+        {
+          "id": "R2500",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+              "sha256": "47f3fe9aa70d54ad18884aa36dd8d4060d57d693b0a0b10440a7b01ad559dc52",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2500.preview.md",
+              "sha256": "1081e45dde0f02527215b06023d27af0d8338fe82cddb269daa54d20b94faf03",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        },
+        {
+          "id": "R2961",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2961@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim.md",
+              "sha256": "6e1f475643d7d047b24d3d1b6d3711877ad9a21d19ae9890a19112df1e74b62d",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2961.preview.md",
+              "sha256": "ac4a5fba3d26f18563fbeec7ef7c2acd01b6854fbc130a7ec5229c3d2bc74478",
+              "matches": true
+            }
+          ],
+          "review": "PASS_VIA_WORKFLOW_ATOM_INHERITANCE"
+        },
+        {
+          "id": "D479",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@31-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+              "sha256": "1e6f25aea6be2e33e7158202c50307775afc242fbbea7e94d93e36af80c71376",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D479.preview.md",
+              "sha256": "7d7e7487ea84ffa72d6678d5479b3352b0aeda1c9c7a1b0d2e288ff8810f4278",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        },
+        {
+          "id": "D657",
+          "pins": [
+            {
+              "kind": "source",
+              "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+              "sha256": "e2ae56ca4997cddfd2bd71f028f08b67ad0aa148a0e87d558596c9f19d324854",
+              "matches": true
+            },
+            {
+              "kind": "preview",
+              "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D657.preview.md",
+              "sha256": "1061a13d80f21025416ab8afc7eb4c7259c03745bb8d9f1bd49eff7f4979d306",
+              "matches": true
+            }
+          ],
+          "review": "PASS_SCOPED_PREVIEW"
+        }
+      ]
+    }
+  ],
+  "resolved": [
+    "R2798 distinguishes contiguous <; and ;> from standalone ;.",
+    "R2719 chain was replaced by separate binary order expressions."
+  ],
+  "checks": [
+    "New Relation is model-only; same-bearer immediate siblings, reversed alias and one ordering fact; no automatic instance permission or numeric endpoint grant.",
+    "Optional Header and Content Properties are not invented by the ordering statements.",
+    "All available source, candidate and diff pins match.",
+    "IS_ORDERED_RIGHT_BEFORE is an inverse writing of the canonical fact, not a separate endpoint permission; R2462 adds only scoped canonical outgoing allowances."
+  ],
+  "pending": [
+    "Migration packet not yet available; Current/Draft scope, byte-preserving permutation and exclusions remain unverified.",
+    "Relation/format/lexer prospective adoption and runtime/parser implementation remain separate."
+  ],
+  "prior_finding_resolved": [
+    {
+      "id": "R2961",
+      "issue": "Ordering facts are declared for Workflow.Content.Claim children, while the new Relation domain and R2462 model permissions admit only Atom.Header.** and Atom.Content.**. No reviewed evidence establishes that Workflow.Content is in that domain.",
+      "fix": "Supply existing authority demonstrating the shared domain or hold the Workflow facts until an explicitly authorized applicable domain and permission are available."
+    }
+  ],
+  "workflow_inheritance_resolution": {
+    "verdict": "PASS",
+    "evidence": [
+      {
+        "id": "CA-R-2464",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+        "sha256": "3c9af3e32a346391039b850d418cb549f99901f9136463786d4ec9ea0d5f8b1d"
+      },
+      {
+        "id": "CA-R-1563",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1563-CORE_META_MODEL-RULE--define-the-workflow-operations-atom-type.md",
+        "sha256": "f3162a1cd6c4dbf35e7eb5583818ae6e81a3f0c01bf464db37a7b2855f82fa81"
+      }
+    ],
+    "reason": "Current R2464 declares Workflow under Atom/(Role Operations), and Current R1563 explicitly defines Workflow as an Operations Atom type. Workflow.Content inherits Atom.Content under the approved narrowing semantics; R2961 sibling Property endpoints therefore fall in the Atom.Content model domain."
+  },
+  "prior_final_findings_resolved": {
+    "relation_manifest_sha256": "5f9a43f22d664064a4243268997aca834b00915cf901a56be1e741f5801266d7",
+    "prerequisite_manifest_sha256": "2d0750c1be64ee819a4bbb2d6cab40079d84aea087af0a3deec94aad5001b5f5",
+    "layout_manifest_sha256": "4496dc2d54cb33305d9b65d1c773c1b5167d05608029c92e1b91daba94011ee7",
+    "migration_plan_sha256": "29ab5adf756013d53556551ce23b2721ec3d28496fb556918ae6bd2897378857",
+    "migration_counts": {
+      "sources": 4665,
+      "operations": 4646,
+      "source_hash_drift": 0,
+      "yaml_value_or_hash_failures": 0,
+      "duplicate_yaml_maps": 0,
+      "body_changed_requirement": 133,
+      "body_changed_delivery": 2,
+      "protected_path_operations": 0,
+      "unlisted_header_keys_between_ordered_keys": 4344,
+      "priority_interleaved": 208,
+      "work_sequence_number_interleaved": 1463
+    },
+    "findings": [
+      {
+        "issue": "Header reorder sorts the 12 selected keys only within their prior known-key slots; declared or undeclared remaining keys can occur between the allegedly immediate ordered siblings.",
+        "example": "CA-C-111 has relations, llm_session_ids, version, priority, updated_at; priority is a declared Header Property.",
+        "fix": "Reconcile explicit immediate-sibling ordering with serialization and preserve all unlisted values; hold or replan affected rows until source policy specifies where other properties belong."
+      },
+      {
+        "issue": "D657 preview still directs serializing Subjects under subjects, after the Topics naming migration.",
+        "fix": "Update to Topics/main_subject/dependencies while preserving other Claim semantics."
+      }
+    ],
+    "scope_notes": [
+      "R2732 currently covers Declaration and Relation Declaration only, sufficient to qualify the bounded Relation but not the other three proposed specialized Forms.",
+      "The Relation has scoped explicit 0..1 outgoing permissions in both named directions and same-bearer acyclic adjacency; inverse aliases are one fact, not an implicit permission.",
+      "R2798 and R2597 candidates disambiguate order tokens from semicolon separator. R2951 and R2955 remain Draft prerequisites until coordinated adoption.",
+      "Optional Relations and per-name nonempty Atom-ID lists need their own coordinated source authority, not an assumed runtime migration result."
+    ]
+  },
+  "latest_review": {
+    "manifests": {
+      "relation": "5f9a43f22d664064a4243268997aca834b00915cf901a56be1e741f5801266d7",
+      "relation/prerequisites": "ba1044e7d0ea98909ab8435c49176f2cf44d3fa09a8ddc9160f60ffdfa44e7ac",
+      "layout": "18edee4f7400963d85bfcfd5236a5f2b591e171a239cdb28cd9b227244408495"
+    },
+    "all_current_manifest_pins_match": true,
+    "confirmed": [
+      "Separate default Rule applies only to Properties participating in neither endpoint of an explicit order; they follow participating siblings and have no required order among themselves.",
+      "Header and Content explicit order remain in their declaring Claims; Ref ID is required for Current, Draft, and Archived forms under the new candidate.",
+      "R2709 preserves optional Relations group and requires a nonempty child set and each child one or more string values; D657 requires canonical Relation keys and nonempty YAML lists of base Atom IDs.",
+      "D657 Topics wording is updated; both named ordering directions have scoped model-only 0..1 allowances.",
+      "R2951 inverse alias and R2955 Form remain coordinated Current source prerequisites; R2732 two-Form qualifier only supports the bounded Relation Declaration transition.",
+      "Workflow.Atom inheritance supports R2961 Draft; Current D479 does not itself promote or invent Workflow Claims."
+    ],
+    "open_holds": [
+      "The previous 4,646-operation migration plan is explicitly superseded pending Ref ID and other source phases; regenerate and independently review the actual successor plan before apply.",
+      "A provisional live scan found 88 preexisting Relation child entries containing values other than nonempty lists solely of CA Atom base IDs; resolve or explicitly hold at property validation, do not invent replacements. One snapshot path changed during the scan, so repin before relying on the count.",
+      "Optional empty Relations/Dependencies cleanup must target only truly empty optional values and preserve all other data; verify actual successor plan.",
+      "Do not infer that all other specialized Form declaration owners are covered by the two-Form R2732 qualifier."
+    ]
+  }
+}

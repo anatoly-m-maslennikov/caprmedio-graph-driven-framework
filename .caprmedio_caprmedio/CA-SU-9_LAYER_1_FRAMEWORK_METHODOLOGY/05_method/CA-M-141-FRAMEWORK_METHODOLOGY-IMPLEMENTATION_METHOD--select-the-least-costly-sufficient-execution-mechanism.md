@@ -10,15 +10,22 @@ relations:
   child_of:
   - CA-M-098
   - CA-M-099
-content_role: Method
+role: Method
 status: Active
 current_scope_unit: FRAMEWORK_METHODOLOGY
 author: Anatoly Maslennikov
 atom_id: CA-M-141
-type: Implementation Method
+ref_id: CA-M-141
+form: Implementation Method
 tier: 1
-subjects:
-  governs: Entity/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Entity/Aspect/Engineering/Execution Control
+container:
+  scope_unit: CA-SU-9
+carrier_destination:
+  file:
+    name: CA-M-141-FRAMEWORK_METHODOLOGY-IMPLEMENTATION_METHOD--select-the-least-costly-sufficient-execution-mechanism.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/05_method
 ---
 ## Summary
 Select the least costly sufficient execution mechanism

@@ -1,22 +1,22 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+  dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 38
 updated_at: 2026-11-05 16:33:24 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-M-228
+ref_id: CA-M-228@38-draft
 status: Draft
 tier: 3
 role: Method
 form: Implementation Method
 carrier_destination:
   file:
-    name: CA-M-228@38-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md
+    name: CA-M-228@38-draft-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

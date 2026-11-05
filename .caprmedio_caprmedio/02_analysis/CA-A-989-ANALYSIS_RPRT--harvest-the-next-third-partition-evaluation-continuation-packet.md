@@ -1,15 +1,16 @@
 ---
 atom_id: CA-A-989
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-989
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Third-partition evaluation evidence
-  depends_on:
+topics:
+  main_subject: Third-partition evaluation evidence
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
 version: 3
@@ -17,6 +18,12 @@ updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1271
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-989-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-next-third-partition-evaluation-continuation-packet.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

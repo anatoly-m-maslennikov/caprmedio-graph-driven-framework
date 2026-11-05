@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-515
-content_role: Concern
-type: Question
+ref_id: CA-C-515
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
@@ -9,9 +10,9 @@ status: active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Per-route candidate Run evidence retention
-  depends_on:
+topics:
+  main_subject: Per-route candidate Run evidence retention
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Domain/Node/Continuant/History/Journal
@@ -19,6 +20,8 @@ subjects:
   - Evaluation
 relations:
   concern_about: [CA-P-1816, CA-P-1124]
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

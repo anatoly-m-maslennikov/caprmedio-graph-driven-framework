@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2778
+ref_id: CA-R-2778@1-draft
 status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
 version: 1
 role: Requirement
 form: Rule
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 3
 updated_at: 2026-11-05 16:33:24 +0400
 carrier_destination:
   file:
-    name: CA-R-2778@1-draft-CORE_META_MODEL-RULE--declare-cfel-universal-quantification.md
+    name: CA-R-2778@1-draft-RULE--declare-cfel-universal-quantification.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

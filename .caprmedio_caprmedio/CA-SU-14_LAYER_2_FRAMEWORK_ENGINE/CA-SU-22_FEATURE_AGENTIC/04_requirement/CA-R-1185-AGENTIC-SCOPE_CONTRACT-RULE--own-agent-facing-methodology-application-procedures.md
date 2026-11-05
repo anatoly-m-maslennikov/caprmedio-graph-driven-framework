@@ -1,23 +1,29 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  dependencies:
   - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
 version: 21
 updated_at: 2026-10-29 22:26:56 +0400
-relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-1185
+ref_id: CA-R-1185
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: AGENTIC
-type: Rule
+form: Rule
 tier: 0
 claim_target_scope_unit: AGENTIC
+container:
+  scope_unit: CA-SU-22
+carrier_destination:
+  file:
+    name: CA-R-1185-AGENTIC-SCOPE_CONTRACT-RULE--own-agent-facing-methodology-application-procedures.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/04_requirement
 ---
 ## Summary
 

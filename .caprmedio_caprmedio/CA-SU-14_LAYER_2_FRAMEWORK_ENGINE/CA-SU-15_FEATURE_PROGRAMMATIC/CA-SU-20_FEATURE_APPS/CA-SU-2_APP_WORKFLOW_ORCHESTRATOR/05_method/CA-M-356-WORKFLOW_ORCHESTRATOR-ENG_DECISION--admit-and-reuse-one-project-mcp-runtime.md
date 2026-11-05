@@ -1,15 +1,16 @@
 ---
 atom_id: CA-M-356
-content_role: Method
+ref_id: CA-M-356
+role: Method
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 19:59:42 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
   - Subject/CAPRMEDIO/Carrier/Docker Image
@@ -19,8 +20,14 @@ subjects:
 relations:
   method_for:
   - CA-R-1901
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-M-356-WORKFLOW_ORCHESTRATOR-ENG_DECISION--admit-and-reuse-one-project-mcp-runtime.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/05_method
 ---
 # Summary
 

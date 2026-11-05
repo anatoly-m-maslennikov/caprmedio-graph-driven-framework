@@ -1,21 +1,25 @@
 ---
 atom_id: CA-P-2657
-content_role: Plan
-type: Plan
+ref_id: CA-P-2657
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 18
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
+topics:
+  main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
 version: 1
 updated_at: 2026-10-26 17:56:09 +0400
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2639
 tier: 4
+container:
+  atom: CA-P-2639
+carrier_destination:
+  file:
+    name: 18-CA-P-2657-TASK--align-step-structure-and-retire-on-result.md
+    path: .caprmedio_caprmedio/03_plan/done/CA-P-2639-EPIC--subject-graph-fpf-refinement/done
 ---
 # Summary
 

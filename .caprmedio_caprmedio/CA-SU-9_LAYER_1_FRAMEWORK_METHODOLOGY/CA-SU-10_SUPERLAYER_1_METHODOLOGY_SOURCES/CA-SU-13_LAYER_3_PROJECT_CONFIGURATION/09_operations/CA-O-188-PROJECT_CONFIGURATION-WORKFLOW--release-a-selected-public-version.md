@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-188
-content_role: Operations
-type: Workflow
+ref_id: CA-O-188
+role: Operations
+form: Workflow
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Workflow//Public Release
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Workflow//Public Release
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation
@@ -23,6 +24,12 @@ relations:
   - CA-O-195
   - CA-O-197
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-188-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-public-version.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

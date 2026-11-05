@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2576
-content_role: Plan
-type: Plan
+ref_id: CA-P-2576
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 95
 current_scope_unit: PROGRAMMATIC
@@ -10,9 +11,8 @@ author: Anatoly Maslennikov
 status: Active
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/MCP.selected Workflow capability routes
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Engineering/MCP.selected Workflow capability routes
 relations:
   is_decomposition_of:
   - CA-P-2401
@@ -24,6 +24,12 @@ relations:
   - CA-M-399
   - CA-M-400
 tier: 3
+container:
+  atom: CA-P-2401
+carrier_destination:
+  file:
+    name: 95-CA-P-2576-TASK--serve-all-projects-through-one-host-mcp.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good
 ---
 # Summary
 

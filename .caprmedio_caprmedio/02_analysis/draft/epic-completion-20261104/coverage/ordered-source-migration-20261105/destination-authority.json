@@ -1,0 +1,242 @@
+{
+  "status": "BOUNDED_AUTHORITY_REPORT_NO_MIGRATION",
+  "sequence": [
+    "1 migrate source content; 2 validate Properties; 3 calculate and populate Atom.Header.Carrier Destination.File.Name and File.Path from other authoritative Properties; 4 align physical files and verify."
+  ],
+  "source_pins": [
+    {
+      "id": "CA-D-282",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-282-CORE_META_MODEL-ENG_DECISION--serialize-filename-summary-slug-from-summary.md",
+      "sha256": "9fbff750c189fcd90b8d58a72a5f41d815673150f789e8ce36457ad6c459b215",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-283",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "sha256": "014728099a6fb976c46006ecd6e5b2a936b6ca54277c1ef26eb85dcadeb8e15c",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-284",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-284-CORE_META_MODEL-ENG_DECISION--serialize-filename-token-case.md",
+      "sha256": "e5ecc654abb47cb2a74dddfa7471afa0f788116b4870d85ddce76e7cf88d4599",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-289",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-289-CORE_META_MODEL-ENG_DECISION--serialize-archive-revision-version-suffixes.md",
+      "sha256": "bc3bca6d64669800aab3c661cbc2cc6e1756fa84db0438617d6f09dd3f0314e0",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-292",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md",
+      "sha256": "90f4a9c9fd47a0b13afe0dbf8a2667a9d8c45841e5be6adea9705d3469bbd037",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-296",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-296-CORE_META_MODEL-ENG_DECISION--materialize-content-role-directories-on-first-artifact.md",
+      "sha256": "df8611f5c4a0b990a063b70aaa831cdc0b66c09f8f4169d0b862fdabfc9b21bc",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-381",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-381-CORE_META_MODEL-ENG_DECISION--serialize-work-sequence-numbers.md",
+      "sha256": "bdd4dade4b1fd254f87df66c1731400fa894b13c084e6d01ad112ce6fb21cc38",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-399",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-399-CORE_META_MODEL-ENG_DECISION--serialize-requirement-type-tokens.md",
+      "sha256": "f391fcbaaba6521daeedec1acd25b19587c99fe3d9a2dcd1804e46b3fafb98aa",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-400",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-400-CORE_META_MODEL-ENG_DECISION--serialize-evaluation-type-tokens.md",
+      "sha256": "8dccc08440171849ed368d98a6051a72f0bf677ea919a7f263de568ef65d91d4",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-401",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-401-CORE_META_MODEL-ENG_DECISION--serialize-concern-type-tokens.md",
+      "sha256": "717d2f1576496ef3b0308befc4a2a00a3ed82aa94bf888a6bf739cb04eca5e10",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-402",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md",
+      "sha256": "02f482cfb55830b82af1772ddfef915d96fcfc130edc30de73619e47fed590bd",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-404",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-404-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "sha256": "daca79b4a9fc832c5c625183a05e19f9d6047bfda01e1c334d941fd6c9b91bca",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-434",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-434-CORE_META_MODEL-ENG_DECISION--place-authoritative-operations-atom-carriers.md",
+      "sha256": "ef7383cbf8eaa21e520dc7601e88737b4e75d3d9377a716e266f59a56c55e780",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-457",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-ENG_DECISION--serialize-operations-atom-type-tokens.md",
+      "sha256": "36288e9ea2929bfed587077cc3949930fb35232ad74d24cf415ada9d4ff0d043",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-460",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-ENG_DECISION--serialize-plan-atom-carrier-bundles.md",
+      "sha256": "bf786fa1d18d11cb24288eff12fc6648a792b839ecc3d66b052a1c6567de9bed",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-461",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md",
+      "sha256": "cac8ddb6e9a7dfa759e3b35e386cce2486406bf8ded702b34de8bf30e0339fba",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-469",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-469-CORE_META_MODEL-ENG_DECISION--serialize-plan-carrier-stems.md",
+      "sha256": "72401c19390051d0932e25f9a023d70cbb45da582befad261bdae3072fce7ead",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-650",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "69fbce9dc843bbfa91c2ab8f6cfd1d7f1e19cccb5e474145f910ba926c47d104",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-651",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-651-CORE_META_MODEL-DECISION--serialize-numeric-tier-filename-tokens.md",
+      "sha256": "2dfdbda9ccdf53d1d433b651de8be0989ddbc867ce0bef511368f343aea332c4",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-652",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-652-CORE_META_MODEL-ENG_DECISION--omit-default-numeric-tier-tokens-from-filenames.md",
+      "sha256": "0be530436df5356e3ddd9a8a1f8ea162a350ed491b3560429d29722f00aae0d9",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-664",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "751a86d2ae43330bf75ba0d41c1887cb418c24caa2b5ba4885970fb02427e5aa",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-667",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+      "sha256": "eb19c71a039a3c3086a9e8ab35f4266eef431579f73065d5f7c088fb007b4ec6",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-R-2705",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "sha256": "10aa1de37838a749b0309925b90b395999f8ddff50a2c0b28fdc1fed94085f44",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-R-2712",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "sha256": "5734c23d03209bdbb4735f1a6938942dfa1353c50fa093a371ca539543d0cbf7",
+      "authority": "Current"
+    },
+    {
+      "id": "CA-D-264",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-264@30-draft-CORE_META_MODEL-DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "sha256": "e73341362c579f4814bd96357f4e28bb090c84846471ac15c5479900ad323a75",
+      "authority": "Draft; not Current"
+    },
+    {
+      "id": "CA-D-266",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "867bf372bb0c3a3f862be62556b35823f3c53e55d9ce73e7903377f3ae449c66",
+      "authority": "Draft; not Current"
+    },
+    {
+      "id": "CA-D-268",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "sha256": "3a2fc6db5e6783fd9676591ee64182c0abc8b238fd7e275bb0e32e1917c70b33",
+      "authority": "Draft; not Current"
+    },
+    {
+      "id": "CA-R-2779",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "e0cac2dad37a8cf81d4e9f0635cd5cc3595789dce333c1d661624062c1bd9bae",
+      "authority": "Draft; not Current"
+    },
+    {
+      "id": "CA-R-2712",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2712@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "sha256": "cf6a67b6762a039fa4969681781a016e29cda7e6c7f2673cdbf74c3c21923e2a",
+      "authority": "Draft; not Current"
+    },
+    {
+      "id": "CA-R-2640@2",
+      "path": ".caprmedio_caprmedio/04_requirement/draft/CA-R-2640@2-draft-WORLD-SCOPE_UNIT_DECLARATION--declare-caprmedio.md",
+      "sha256": "ce3cb74e78540a0eac2d455ef34110ce3db51ecf80b69ae0765f34d4baf5fe58",
+      "authority": "Draft; not Current"
+    }
+  ],
+  "api_pins": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py",
+      "sha256": "9a0fbf1b8f4c6fe92daae86a1a78f55c46e6464b9e3ce1ed8cfea7687d2bb6b0"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/current_atom_locator.py",
+      "sha256": "524709556e81e8ee6ae8e20124ab489065e8648cf98a17393a25050a6e1fa2af"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py",
+      "sha256": "216901e6872d928b2fd6d364e0a4fe65c35f2f03935c9488f3417e5ea06ff046"
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py",
+      "sha256": "0aa75b09def0435032e2c2dfe2176a3fd2b1e2c1cb3e715e25edb647f93e076b"
+    }
+  ],
+  "formulas": {
+    "output": "Name is complete expected basename including .md; Path is containing directory relative to repository root (D664).",
+    "ordinary_C_A_R_M_E_D_O": "D283: <ATOM_ID>[-<CURRENT_SCOPE>][-<TIER>][-<LABEL>][-<TARGET_SCOPE>]--<SUMMARY_SLUG>.md; derive effective Label from explicit Header.Label else Form (R2705); D284 uppercase ASCII underscore structured tokens; D282 complete Summary lowercase ASCII kebab-case. Requirement Form values Operator/Construct/Relation/Function Declaration are Requirement Form inputs, not new Role letters. Resolve optional-token inclusion by applicable specific grammar, not copied basename. O current placement governed separately by D434.",
+    "plan": "D469: [<WORK_SEQUENCE_NUMBER>-]<ATOM_ID>[-<LABEL>]--<SUMMARY_SLUG>.md. Sequence is the positive optional Header.Work Sequence Number (R2712), decimal when rendered (D381), with direct decomposition default from D469. Same stem for parent directory; do not confuse sequence with identity or blocking.",
+    "draft_archive": "D650 Draft ID segment <canonical-ID>@<proposed-version>-draft; D289 archive segment <canonical-ID>@<unchanged-version> exactly once. Current normal ID unqualified. Explicitly retained historic legacy filenames are not automatically renamed.",
+    "external_project_goal": "D292 Current requires canonical-ID[-or @version] + registered OPERATOR_NAMES + DEFINES_GOAL_FOR + exact Project Settings Name + Summary slug; its attribution token conflicts with latest single-person direction and source needs separately approved reconciliation. Do not silently remove or invent token.",
+    "scope_unit_folder": "D667: Project Authority .caprmedio_<project name>; nonroot path recursively follows declared parent with ordered <id>_<label>_<order>_<name> or unordered <id>_<label>_<name>; omit absent Label and unordered order segment. Stable IDs/declared names/parent/ordered/number come from Scope Unit Declarations, not path guessing.",
+    "atom_container_plan": "D460/D469/D461: resolve exact declared containing Atom identity and its same-stem Directory Carrier; for contained Current Plan Active is directly in parent bundle, Backlog/Done/Canceled use local Status subdir. Draft and Archived Plan placement uses owning Scope Unit shared 03_plan/draft or 03_plan/archived; no archived ancestor tree. Status rules govern other roles independently.",
+    "role_directories": "D434 explicitly gives Operations 09_operations; D296 governs role directory materialization. current_atom_locator.py maps C 01_concern, A 02_analysis, P 03_plan, R 04_requirement, M 05_method, E 06_evaluation, D 07_delivery, O 09_operations. This is implementation evidence, not alone a source Declaration of every mapping.",
+    "world_bootstrap": "Accepted Draft R2779 gives root Project Declaration Atom scope_unit CA-SU--1 (predefined world, no Declaration/Carrier/folder); Scope Unit Project root itself remains parentless. D264@30 Draft says physical placement readback matches Container; no world folder or generic ordinary default follows. Root Project Declaration Atom exact external placement must be resolved from admitted root-specific Delivery authority, not by synthesizing a world folder."
+  },
+  "inputs": {
+    "direct_properties": [
+      "base Atom ID, Status, Version, Role, Form, explicit Label if any, Tier, complete Summary, Header.Container, Plan Work Sequence Number when present",
+      "Scope Unit ID, Name, Label, ordered state, order.number and parent; registered Project Name; admitted status-to-directory mapping",
+      "active Subject-derived target when a specific filename grammar requires it, and explicit Operator mapping only where still applicable Current D292 requires it"
+    ],
+    "existing_carrier_evidence": [
+      "A stored work_sequence_number is the logical source; if absent in a legacy carrier, a leading decimal is visible historical carrier representation but not by itself proof of a valid logical field. Reconcile under the chosen explicit migration/validation disposition before promoting that value; do not invent or renumber.",
+      "Likewise existing labels, scope/target tokens and filename segments are evidence to validate, not a blanket source of reconstructed Properties. Exact source bytes/version are available for preimage checks."
+    ],
+    "unresolved_when_missing": [
+      "D283 describes optional segments; the exact per-role presence and permissible target/scope token encoding must be resolved from applicable current source, not guessed.",
+      "Authority for an external world-contained root Declaration destination and an Atom-container folder when no admitted parent bundle exists must be resolved; no world folder is implied.",
+      "No guessed transliteration/slug algorithm beyond the declared ASCII kebab/structured-token constraints; collisions and unrepresentable values require source-backed handling."
+    ]
+  },
+  "existing_helpers": [
+    "proposed_carrier.source_context_from_project captures source-backed context; _current_containment_target/_current_containment_owner currently read legacy relations.IS_CONTAINED_BY rather than new Header.Container, and restrict Atom-parent eligibility to Plan. They are not evidence that the new mapping/world is already supported.",
+    "proposed_carrier._current_plan_parent_placement validates existing nested Plan placement; current_atom_locator maps role IDs to directories; neither is a complete generator for all new destinations.",
+    "atom_operations._filename_parts extracts existing filename fragments and _upgrade_filename reuses them; it is not an independent calculation from all logical Properties. lifecycle_intents._update_current_destination updates already-present destination fields for a chosen path, not a derivation engine."
+  ],
+  "limits": [
+    "Read-only source and implementation inspection; no code, tests, native source or Git changes.",
+    "Current authority and prospective Draft agreements are labeled separately; no native Current adoption, runtime support or file movement implied."
+  ]
+}

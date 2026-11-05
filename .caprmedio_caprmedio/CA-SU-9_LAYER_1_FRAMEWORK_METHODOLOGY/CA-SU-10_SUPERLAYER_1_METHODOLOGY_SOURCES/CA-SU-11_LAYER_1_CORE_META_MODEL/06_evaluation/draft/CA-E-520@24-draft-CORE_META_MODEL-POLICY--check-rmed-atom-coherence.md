@@ -1,16 +1,17 @@
 ---
 atom_id: CA-E-520@24-draft
-content_role: Evaluation
-type: Policy
+ref_id: CA-E-520@24-draft
+role: Evaluation
+form: Policy
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 version: 24
 updated_at: 2026-10-29 00:04:17 +0400
-subjects:
-  governs: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
-  depends_on:
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
@@ -39,6 +40,8 @@ relations:
   - CA-R-1624
   - CA-R-1799
 tier: 5
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

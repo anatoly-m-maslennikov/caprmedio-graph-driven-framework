@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1062
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1062
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Short-name screening reconciliation
-  depends_on:
+topics:
+  main_subject: Short-name screening reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 version: 4
@@ -22,6 +23,12 @@ relations:
   - CA-A-1035
   - CA-O-065
   - CA-C-354
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1062-CAPRMEDIO-ANALYSIS_REPORT--reconcile-short-name-screening.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

@@ -2,23 +2,30 @@
 cce_version: cce_1
 cce_form: evaluation
 atom_id: CA-E-653
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-653
+role: Evaluation
+form: Eval Case
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 version: 10
 updated_at: 2026-10-27 19:59:38 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
 relations:
   evaluation_for:
   - CA-R-2117
   - CA-M-431
 tier: 5
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-E-653-PROGRAMMATIC-EVAL_CASE--verify-rmed-implementation-traceability.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
 # Summary
 

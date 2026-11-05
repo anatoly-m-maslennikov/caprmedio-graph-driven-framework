@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-1906
-content_role: Plan
-type: Plan
+ref_id: CA-P-1906
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 22
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Projection
+  dependencies:
   - Subject
   - Subject/Graph Node/Domain/Continuant/Term
   - Subject/Graph Node/Domain/Continuant/Atom
@@ -45,6 +46,12 @@ relations:
   - CA-P-1948
   - CA-P-1949
 tier: 3
+container:
+  atom: CA-P-1872
+carrier_destination:
+  file:
+    name: 22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints.md
+    path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done
 ---
 # Summary
 

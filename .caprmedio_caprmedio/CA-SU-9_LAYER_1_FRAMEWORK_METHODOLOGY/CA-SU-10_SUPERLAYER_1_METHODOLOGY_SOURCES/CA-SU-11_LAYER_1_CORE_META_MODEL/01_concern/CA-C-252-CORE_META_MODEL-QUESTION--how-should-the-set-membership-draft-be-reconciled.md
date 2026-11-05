@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Entity/Continuant/Object/Atom
-  depends_on:
+topics:
+  main_subject: Entity/Continuant/Object/Atom
+  dependencies:
   - Atom/Claim
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
@@ -9,16 +9,18 @@ subjects:
 priority: medium
 version: 8
 updated_at: 2026-10-23 03:14:50 +0400
-relations: {}
 atom_id: "CA-C-252"
-content_role: "Concern"
+ref_id: CA-C-252
+role: "Concern"
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Standard"
 status: "active"
 author: "Anatoly Maslennikov"
-type: "Question"
+form: "Question"
 global_tier: 11
+container:
+  scope_unit: CA-SU-11
 ---
 # How should the Set membership draft be reconciled?
 

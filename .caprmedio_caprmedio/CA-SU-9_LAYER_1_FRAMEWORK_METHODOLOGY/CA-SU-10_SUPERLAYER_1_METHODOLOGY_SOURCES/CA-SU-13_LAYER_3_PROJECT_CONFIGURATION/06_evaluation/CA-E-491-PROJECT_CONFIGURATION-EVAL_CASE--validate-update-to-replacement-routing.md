@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Atom Update Identity'
@@ -19,12 +19,15 @@ relations:
   - CA-R-1464
   - CA-R-1520
 atom_id: CA-E-491
+ref_id: CA-E-491
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 

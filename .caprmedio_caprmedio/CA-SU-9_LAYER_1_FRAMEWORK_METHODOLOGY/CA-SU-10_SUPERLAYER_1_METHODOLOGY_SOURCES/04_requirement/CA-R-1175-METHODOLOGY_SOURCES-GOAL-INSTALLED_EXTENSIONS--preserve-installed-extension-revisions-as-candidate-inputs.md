@@ -1,18 +1,20 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Source Selection
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Source Selection
+  dependencies:
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
 version: 25
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
 atom_id: CA-R-1175
+ref_id: CA-R-1175
 current_scope_unit: METHODOLOGY_SOURCES
 claim_target_scope_unit: INSTALLED_EXTENSIONS
 status: Active
 tier: 3
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-10
 ---
 ## Summary
 

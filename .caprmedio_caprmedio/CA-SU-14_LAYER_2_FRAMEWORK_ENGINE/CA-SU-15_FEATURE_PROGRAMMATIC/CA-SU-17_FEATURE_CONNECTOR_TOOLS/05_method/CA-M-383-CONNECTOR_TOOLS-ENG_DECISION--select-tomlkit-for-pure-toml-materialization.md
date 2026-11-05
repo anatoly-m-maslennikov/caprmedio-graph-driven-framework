@@ -1,13 +1,14 @@
 ---
 atom_id: CA-M-383
-content_role: Method
+ref_id: CA-M-383
+role: Method
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - Subject/CAPRMEDIO/Carrier
@@ -20,8 +21,14 @@ relations:
   depends_on:
   - CA-M-415
   - CA-O-204
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-M-383-CONNECTOR_TOOLS-ENG_DECISION--select-tomlkit-for-pure-toml-materialization.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/05_method
 ---
 # Summary
 

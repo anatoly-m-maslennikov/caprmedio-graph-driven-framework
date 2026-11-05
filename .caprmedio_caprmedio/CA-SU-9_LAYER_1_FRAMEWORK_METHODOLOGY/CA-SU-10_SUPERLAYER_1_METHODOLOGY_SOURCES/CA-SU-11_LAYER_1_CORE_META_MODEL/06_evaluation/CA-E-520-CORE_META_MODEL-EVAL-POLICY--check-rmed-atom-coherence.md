@@ -1,14 +1,15 @@
 ---
 atom_id: CA-E-520
+ref_id: CA-E-520
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 version: 32
 updated_at: 2026-11-02 18:35:20 +0400
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Content.Details
@@ -37,6 +38,12 @@ relations:
 tier: 5
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-520-CORE_META_MODEL-EVAL_POLICY--check-rmed-atom-coherence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

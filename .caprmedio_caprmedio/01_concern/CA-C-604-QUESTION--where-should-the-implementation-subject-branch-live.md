@@ -1,19 +1,25 @@
 ---
 atom_id: CA-C-604
-content_role: Concern
-type: Question
+ref_id: CA-C-604
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 tier: 3
 version: 1
 updated_at: 2026-10-27 15:50:10 +0400
-subjects:
-  governs: Subject/Graph Node
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node
+  dependencies:
   - Subject/Graph Node/Implementation
   - Subject/Graph Node/Domain/Continuant/Atom
-relations: {}
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-C-604-CAPRMEDIO-QUESTION--where-should-the-implementation-subject-branch-live.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 # Summary
 

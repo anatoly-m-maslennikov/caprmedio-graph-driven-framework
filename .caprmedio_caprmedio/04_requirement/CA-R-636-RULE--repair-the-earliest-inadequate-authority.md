@@ -12,11 +12,18 @@ relations:
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-636
+ref_id: CA-R-636
 tier: 2
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-636-CAPRMEDIO-RULE--repair-the-earliest-inadequate-authority.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

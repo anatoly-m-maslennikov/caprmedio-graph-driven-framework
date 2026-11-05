@@ -10,14 +10,21 @@ relations:
   child_of:
   - CA-R-040
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: FRAMEWORK_METHODOLOGY
 status: Active
 atom_id: CA-R-515
-type: Rule
+ref_id: CA-R-515
+form: Rule
 tier: 1
-subjects:
-  governs: Entity/Object/Continuant/Structural Unit/Scope Unit
+topics:
+  main_subject: Entity/Object/Continuant/Structural Unit/Scope Unit
+container:
+  scope_unit: CA-SU-9
+carrier_destination:
+  file:
+    name: CA-R-515-FRAMEWORK_METHODOLOGY-RULE--propose-peer-scope-remodeling-for-backward-coupling.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement
 ---
 ## Summary
 Propose peer-scope remodeling for backward coupling

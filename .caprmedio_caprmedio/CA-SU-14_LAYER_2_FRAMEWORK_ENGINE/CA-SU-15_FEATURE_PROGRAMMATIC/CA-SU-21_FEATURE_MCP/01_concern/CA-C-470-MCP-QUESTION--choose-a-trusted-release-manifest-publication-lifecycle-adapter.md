@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-470
-content_role: Concern
-type: Question
+ref_id: CA-C-470
+role: Concern
+form: Question
 current_scope_unit: MCP
 local_tier: Standard
 global_tier: 11
@@ -9,9 +10,9 @@ status: active
 author: Anatoly Maslennikov
 version: 3
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: MCP/Release manifest publication lifecycle adapter
-  depends_on:
+topics:
+  main_subject: MCP/Release manifest publication lifecycle adapter
+  dependencies:
   - MCP
   - Subject/Domain/Node/Continuant/Projection
   - Manifest
@@ -20,6 +21,8 @@ subjects:
   - Subject/Engineering/Runtime
 relations:
   concern_about: [CA-M-339, CA-E-582, CA-D-576]
+container:
+  scope_unit: CA-SU-21
 ---
 # Summary
 

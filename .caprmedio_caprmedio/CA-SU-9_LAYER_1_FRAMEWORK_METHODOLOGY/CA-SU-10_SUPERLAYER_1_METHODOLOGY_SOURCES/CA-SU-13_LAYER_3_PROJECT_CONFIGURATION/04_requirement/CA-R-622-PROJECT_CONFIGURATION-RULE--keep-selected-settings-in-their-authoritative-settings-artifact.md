@@ -14,9 +14,9 @@ relations:
   - CA-R-1421
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Project.Settings
   - CAPRMEDIO_MODEL <+ Term//Artifact
@@ -25,6 +25,7 @@ subjects:
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 atom_id: CA-R-622
+ref_id: CA-R-622
 tier: 1
 claim_target_scope_unit: caprmedio
 role: Requirement
@@ -33,6 +34,8 @@ carrier_destination:
   file:
     name: CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 Keep selected settings in their authoritative Settings Artifact

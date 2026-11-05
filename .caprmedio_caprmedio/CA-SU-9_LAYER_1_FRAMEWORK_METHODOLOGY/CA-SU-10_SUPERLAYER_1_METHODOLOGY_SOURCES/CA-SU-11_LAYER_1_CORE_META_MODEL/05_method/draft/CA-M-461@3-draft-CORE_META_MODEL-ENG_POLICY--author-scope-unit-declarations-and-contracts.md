@@ -1,20 +1,20 @@
 ---
 atom_id: CA-M-461
+ref_id: CA-M-461@3-draft
 form: Eng Policy
 status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 version: 3
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 3
 updated_at: 2026-11-05 12:58:42 +0400
 role: Method
 carrier_destination:
   file:
-    name: CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md
+    name: CA-M-461@3-draft-ENG_POLICY--author-scope-unit-declarations-and-contracts.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

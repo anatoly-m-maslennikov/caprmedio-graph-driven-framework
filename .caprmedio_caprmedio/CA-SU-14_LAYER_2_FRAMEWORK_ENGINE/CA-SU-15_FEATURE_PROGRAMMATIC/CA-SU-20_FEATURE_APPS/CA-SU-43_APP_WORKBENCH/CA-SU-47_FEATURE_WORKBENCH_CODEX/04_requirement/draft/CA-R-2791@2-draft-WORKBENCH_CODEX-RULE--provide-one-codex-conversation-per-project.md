@@ -1,5 +1,6 @@
 ---
 atom_id: CA-R-2791
+ref_id: CA-R-2791@2-draft
 current_scope_unit: WORKBENCH_CODEX
 claim_target_scope_unit: WORKBENCH_CODEX
 status: Draft
@@ -8,9 +9,8 @@ author: Anatoly Maslennikov
 role: Requirement
 form: Rule
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-relations: {}
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
 carrier_destination:
   file:
     name: CA-R-2791@2-draft-WORKBENCH_CODEX-RULE--provide-one-codex-conversation-per-project.md

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-290
-content_role: Concern
-type: Conflict
+ref_id: CA-C-290
+role: Concern
+form: Conflict
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: Standard
@@ -13,6 +14,8 @@ updated_at: "2026-10-04 06:19:35 +0400"
 relations:
   concern_about:
     - CA-D-470
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

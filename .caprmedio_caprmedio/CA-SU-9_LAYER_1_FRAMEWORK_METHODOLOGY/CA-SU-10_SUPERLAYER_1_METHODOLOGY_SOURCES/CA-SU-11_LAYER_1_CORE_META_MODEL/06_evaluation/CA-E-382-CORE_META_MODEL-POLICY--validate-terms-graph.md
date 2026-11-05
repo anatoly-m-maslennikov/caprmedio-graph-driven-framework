@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Package
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Eval Package
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package/Runtime Package
@@ -33,17 +33,18 @@ relations:
   - CA-R-1454
   - CA-R-1437
   - CA-R-1472
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-E-382
+ref_id: CA-E-382
 status: Active
 tier: 3
 role: Evaluation
 form: Eval Policy
 carrier_destination:
   file:
-    name: CA-E-382-CORE_META_MODEL-POLICY--validate-terms-graph.md
+    name: CA-E-382-EVAL_POLICY--validate-terms-graph.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

@@ -1,15 +1,21 @@
-# CA-E-684@1
-# CA-D-681@1
+# CA-E-684@2
+# CA-D-681@4
+# CA-E-781@1
+# CA-D-696@1
 
 """Real MCP and HTTP boundary proof for Workspace Views."""
 
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
+import asyncio
+import datetime as dt
 from pathlib import Path
 import sys
 import tempfile
+import threading
 import unittest
+from unittest.mock import patch
 
 import httpx2
 from mcp.client.session import ClientSession
@@ -25,6 +31,7 @@ for location in (MCP, PROGRAMMATIC / "FEATURE_TOOLS", APP.parent, APP / "tests")
         sys.path.insert(0, str(location))
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader  # noqa: E402
 from http_paths import MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from http_server import create_app  # noqa: E402
 from hot_reload import startup_selection  # noqa: E402
@@ -94,6 +101,45 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
 
     async def interface_call(self, client: httpx2.AsyncClient, operation: str, arguments: dict):
         return await client.post(self.interface, json={"operation": operation, "arguments": arguments})
+
+    async def test_sync_status_is_shared_and_readable_during_initial_capture(self) -> None:
+        async with self.session() as (session, client):
+            initial = {"syncing": False, "last_synced_at": None}
+            self.assertEqual(initial, await self.tool(session, "workbench_status", {}))
+            self.assertIsNone(self.app.gateway.workbench._service)
+            endpoint = f"{WORKBENCH_PATH}/fixture/status"
+            response = await client.post(endpoint, json={})
+            self.assertEqual(200, response.status_code)
+            self.assertEqual(initial, response.json())
+            self.assertIsNone(self.app.gateway.workbench._service)
+
+            entered, release = threading.Event(), threading.Event()
+            capture = SourceReader.capture
+
+            def paused(reader):
+                entered.set()
+                if not release.wait(10):
+                    raise RuntimeError("capture release timed out")
+                return capture(reader)
+
+            with patch.object(SourceReader, "capture", paused):
+                query = asyncio.create_task(self.tool(session, "query_run", {"sql": "SELECT 1"}))
+                try:
+                    self.assertTrue(await asyncio.to_thread(entered.wait, 5))
+                    running = {"syncing": True, "last_synced_at": None}
+                    self.assertEqual(running, await asyncio.wait_for(self.tool(session, "workbench_status", {}), 2))
+                    response = await asyncio.wait_for(client.post(endpoint, json={}), 2)
+                    self.assertEqual(running, response.json())
+                finally:
+                    release.set()
+                    await query
+
+            finished = await self.tool(session, "workbench_status", {})
+            self.assertEqual({"syncing", "last_synced_at"}, set(finished))
+            self.assertFalse(finished["syncing"])
+            self.assertIsNotNone(dt.datetime.fromisoformat(finished["last_synced_at"]).tzinfo)
+            self.assertEqual(finished, (await client.post(endpoint, json={})).json())
+            self.assertEqual(400, (await client.post(endpoint, json={"unexpected": True})).status_code)
 
     async def test_native_mcp_workspace_flow_matches_http_state(self) -> None:
         async with self.session() as (session, client):
@@ -166,7 +212,7 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual("SELECT 1", (await self.tool(session, "query_load", {"reference": saved["saved_query_id"]}))["sql"])
             revision = (await self.tool(session, "view_get", {"workspace_id": "logs", "view_id": view}))["revision"]
             await self.tool(session, "view_update", {
-                "workspace_id": "logs", "view_id": view, "sql": "SELECT FROM", "expected_revision": revision,
+                "workspace_id": "logs", "view_id": view, "sql": 'SELECT * FROM "restart required"', "expected_revision": revision,
             })
             failed = await self.tool(session, "view_run", {"workspace_id": "logs", "view_id": view})
             self.assertEqual("failed", failed["status"])
@@ -183,6 +229,58 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(0, preview["row_count"])
             self.assertEqual(1, preview["column_count"])
             self.assertNotIn("saved_query_id", preview)
+
+
+    async def test_view_run_preserves_workbench_unavailable_boundary(self) -> None:
+        async with self.session() as (session, client):
+            opened = await self.tool(session, "workspace_open", {"session_id": "invalid-settings"})
+            identity = {"workspace_id": opened["workspace_id"], "view_id": opened["active_view_id"]}
+            await self.tool(session, "view_update", identity | {"sql": "SELECT 1", "expected_revision": 0})
+            settings = self.root / ".caprmedio_runtime" / "caprmedio_runtime_settings.toml"
+            settings.parent.mkdir(parents=True, exist_ok=True)
+            settings.write_text("[workbench]\nresult_ttl_seconds = 0\n", encoding="utf-8")
+            failed = await session.call_tool("view_run", identity)
+            self.assertTrue(failed.is_error)
+            self.assertIn("workbench_unavailable", str(failed.structured_content))
+            response = await self.interface_call(client, "view_run", identity)
+            self.assertEqual(400, response.status_code)
+            self.assertIn("Workbench unavailable", response.json()["error"])
+
+    async def test_grid_page_contract_matches_http_and_rejects_invalid_indices(self) -> None:
+        async with self.session() as (session, client):
+            opened = await self.tool(session, "workspace_open", {"session_id": "grid-session"})
+            identity = {"workspace_id": opened["workspace_id"], "view_id": opened["active_view_id"]}
+            await self.tool(session, "view_update", identity | {
+                "sql": "SELECT i % 3 AS bucket, i AS rowid, 'DRAFT%' AS label FROM range(12) AS t(i)",
+                "expected_revision": 0,
+            })
+            run = await self.tool(session, "view_run", identity)
+            grid = {"sort": [{"column": 1, "direction": "desc"}],
+                    "filters": [{"column": 2, "operator": "contains", "value": "draft%"}],
+                    "group_by": {"column": 0, "direction": "asc"}}
+            args = {"query_id": run["query_id"], "offset": 0, "page_size": 2, "grid": grid}
+            native = await self.tool(session, "query_page", args)
+            response = await client.post(f"{WORKBENCH_PATH}/fixture/page", json=args)
+            self.assertEqual(200, response.status_code, response.text)
+            self.assertEqual(native, response.json())
+            self.assertEqual([[0, 9, "DRAFT%"], [0, 6, "DRAFT%"]], native["rows"])
+            self.assertEqual(12, native["source_row_count"])
+            self.assertEqual(12, native["row_count"])
+            self.assertEqual([{"value": 0, "count": 4}], native["groups"])
+            fetched = await self.tool(session, "view_fetch", identity | {
+                "offset": 0, "page_size": 2, "grid": grid,
+            })
+            self.assertEqual(native["rows"], fetched["rows"])
+            self.assertEqual(native["groups"], fetched["groups"])
+            for bad in ({"sort": [{"column": 99, "direction": "asc"}]}, {"unknown": True}, None, []):
+                rejected = await session.call_tool("query_page", args | {"grid": bad})
+                self.assertTrue(rejected.is_error)
+                response = await client.post(f"{WORKBENCH_PATH}/fixture/page", json=args | {"grid": bad})
+                self.assertEqual(400, response.status_code)
+            invalid_fetch = await self.interface_call(client, "view_fetch", identity | {"grid": None})
+            self.assertEqual(400, invalid_fetch.status_code)
+            self.assertEqual(native, await self.tool(session, "query_page", args))
+
 
 
 if __name__ == "__main__":  # pragma: no cover

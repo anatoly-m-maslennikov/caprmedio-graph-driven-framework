@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1567
-content_role: Plan
-type: Plan
+ref_id: CA-P-1567
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 29
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Evaluation Implementation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Evaluation Implementation
+  dependencies:
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Implementation
@@ -26,6 +27,12 @@ relations:
   - CA-P-1564
   - CA-P-1519
 tier: 3
+container:
+  atom: CA-P-1564
+carrier_destination:
+  file:
+    name: 29-CA-P-1567-TASK--finish-native-golden-request-admission.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/1-CA-P-1137-TASK--implement-one-programmatic-capability-slice/done/26-CA-P-1564-TASK--prepare-current-fifteen-route-golden-requests/done
 ---
 # Summary
 

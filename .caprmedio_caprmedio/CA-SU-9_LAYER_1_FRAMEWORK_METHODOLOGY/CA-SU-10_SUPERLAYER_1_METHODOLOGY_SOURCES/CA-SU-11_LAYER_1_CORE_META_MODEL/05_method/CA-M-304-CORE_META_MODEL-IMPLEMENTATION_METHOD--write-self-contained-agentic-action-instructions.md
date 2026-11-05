@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
@@ -19,12 +19,19 @@ relations:
   - CA-R-1792
   - CA-R-1793
 atom_id: CA-M-304
+ref_id: CA-M-304
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 Write self-contained agentic Action instructions

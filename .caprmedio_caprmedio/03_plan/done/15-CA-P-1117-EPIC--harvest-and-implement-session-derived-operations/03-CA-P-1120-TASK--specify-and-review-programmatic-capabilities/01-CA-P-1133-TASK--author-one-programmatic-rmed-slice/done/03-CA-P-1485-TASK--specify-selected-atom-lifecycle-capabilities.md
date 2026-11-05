@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1485
-content_role: Plan
-type: Plan
+ref_id: CA-P-1485
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Atom Lifecycle
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Atom Lifecycle
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action

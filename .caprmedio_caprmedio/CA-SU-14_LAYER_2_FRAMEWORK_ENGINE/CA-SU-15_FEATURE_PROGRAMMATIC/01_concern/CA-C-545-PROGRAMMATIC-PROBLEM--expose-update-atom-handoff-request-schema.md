@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-545
-content_role: Concern
-type: Problem
+ref_id: CA-C-545
+role: Concern
+form: Problem
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
@@ -9,13 +10,18 @@ global_tier: 8
 author: Anatoly Maslennikov
 status: Active
 priority: high
-subjects:
-  governs: Subject/Domain/Node/Continuant/Atom
-  depends_on: []
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Atom
 relations:
   concern_about: [CA-P-2401, CA-O-127, CA-O-145]
 version: 4
 updated_at: 2026-10-23 03:06:32 +0400
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-C-545-PROGRAMMATIC-PROBLEM--expose-the-selected-update-atom-handoff-request-schema.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

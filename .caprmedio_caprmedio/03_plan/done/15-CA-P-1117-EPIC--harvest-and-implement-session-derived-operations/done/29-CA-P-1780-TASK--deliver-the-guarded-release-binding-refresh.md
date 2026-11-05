@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1780
-content_role: Plan
-type: Plan
+ref_id: CA-P-1780
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 29
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release
+  dependencies:
   - Subject/Graph Node/Engineering/Manifest
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
   - Subject/Graph Node/Engineering/Evaluation
@@ -33,6 +34,12 @@ relations:
   - CA-P-1717
   - CA-P-1721
 tier: 3
+container:
+  atom: CA-P-1117
+carrier_destination:
+  file:
+    name: 29-CA-P-1780-TASK--deliver-the-guarded-release-binding-refresh.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
 ---
 # Summary
 

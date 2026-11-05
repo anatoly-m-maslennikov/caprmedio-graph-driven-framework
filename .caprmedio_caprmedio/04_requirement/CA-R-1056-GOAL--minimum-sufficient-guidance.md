@@ -7,20 +7,23 @@ llm_session_ids:
 relations:
   child_of:
   - CA-M-005
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 atom_id: CA-R-1056
+ref_id: CA-R-1056
 status: Active
 current_scope_unit: caprmedio
 tier: 1
 claim_target_scope_unit: FRAMEWORK_ENGINE
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 

@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-1804
-content_role: Requirement
+ref_id: CA-R-1804
+role: Requirement
 current_scope_unit: DISCOVER_TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-11-05 14:23:38 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -17,13 +18,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
-type: Rule
+form: Rule
 tier: 3
 carrier_destination:
   file:
     name: CA-R-1804-DISCOVER_TOOLS-RULE--find-tools-by-capability.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-3_TOOL_DISCOVER_TOOLS/04_requirement
+container:
+  scope_unit: CA-SU-3
 ---
 # Summary
 

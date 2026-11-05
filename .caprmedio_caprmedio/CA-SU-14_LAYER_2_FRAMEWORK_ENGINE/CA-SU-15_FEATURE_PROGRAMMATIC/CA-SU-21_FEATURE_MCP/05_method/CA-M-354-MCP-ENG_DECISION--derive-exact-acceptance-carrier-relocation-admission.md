@@ -1,23 +1,29 @@
 ---
 atom_id: CA-M-354
-content_role: Method
+ref_id: CA-M-354
+role: Method
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 19:59:42 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   - Subject/CAPRMEDIO/Carrier/File
-relations: {}
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-M-354-MCP-ENG_DECISION--derive-exact-acceptance-carrier-relocation-admission.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/05_method
 ---
 # Summary
 

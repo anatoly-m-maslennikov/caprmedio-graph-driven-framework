@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1344
-content_role: Plan
-type: Plan
+ref_id: CA-P-1344
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: METHODOLOGY_SOURCES
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Operations
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Operations
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
   - Subject/Graph Node/Engineering/Implementation
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
@@ -27,6 +28,8 @@ relations:
   - CA-A-1062
   - CA-C-354
 tier: 3
+container:
+  atom: CA-P-1130
 ---
 # Summary
 

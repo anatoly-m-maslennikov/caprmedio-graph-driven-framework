@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2772
+ref_id: CA-R-2772
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Format
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Format
 version: 2
 updated_at: 2026-11-04 20:33:17 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 1
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-2772-CORE_META_MODEL-RULE--cfel-format-constraint-intersection.md
+    name: CA-R-2772-RULE--cfel-format-constraint-intersection.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 
@@ -26,7 +26,7 @@ CFEL Format constraint intersection
 
 ```CFEL
 # model
-p: [int, 0..100]{:value count}
+p:: [int, 0..100]{:value count}
 ```
 
 ### Prose Claim

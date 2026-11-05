@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: "Subject/Domain/Node/Continuant/Atom.Status: Draft"
-  depends_on:
+topics:
+  main_subject: "Subject/Domain/Node/Continuant/Atom.Status: Draft"
+  dependencies:
     ["Subject/Domain/Node/Continuant/Atom.ID", "Subject/Domain/Node/Continuant/Atom.Status: Draft", "Subject/Domain/Node/Continuant/Actor/Type: Operator"]
 priority: high
 version: 5
@@ -15,14 +15,17 @@ relations:
     - CA-D-569
     - CA-D-570
 atom_id: "CA-C-452"
-content_role: "Concern"
+ref_id: CA-C-452
+role: "Concern"
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Standard"
 status: "active"
 author: "Anatoly Maslennikov"
-type: "Question"
+form: "Question"
 global_tier: 11
+container:
+  scope_unit: CA-SU-11
 ---
 # How should a Draft Carrier establish identity continuity?
 

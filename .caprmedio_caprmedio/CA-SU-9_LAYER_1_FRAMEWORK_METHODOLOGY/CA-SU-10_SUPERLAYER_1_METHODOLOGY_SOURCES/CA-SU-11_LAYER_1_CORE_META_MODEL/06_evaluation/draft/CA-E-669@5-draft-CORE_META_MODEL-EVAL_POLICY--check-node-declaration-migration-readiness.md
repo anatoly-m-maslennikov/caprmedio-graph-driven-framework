@@ -1,20 +1,20 @@
 ---
 atom_id: CA-E-669
+ref_id: CA-E-669@5-draft
 status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL <+ Node
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Node
 version: 5
 updated_at: 2026-11-05 02:57:58 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 3
 role: Evaluation
 form: Eval Policy
 carrier_destination:
   file:
-    name: CA-E-669@5-draft-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md
+    name: CA-E-669@5-draft-EVAL_POLICY--check-node-declaration-migration-readiness.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

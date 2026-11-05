@@ -7,18 +7,25 @@ llm_session_ids:
 relations:
   child_of:
   - CA-R-1423
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-635
+ref_id: CA-R-635
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-635-CAPRMEDIO-RULE--prevent-recurrence-of-resolved-failures.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

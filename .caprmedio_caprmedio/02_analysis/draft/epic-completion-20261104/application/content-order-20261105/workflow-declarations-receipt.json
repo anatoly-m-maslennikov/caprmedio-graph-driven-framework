@@ -1,0 +1,26 @@
+{
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2961",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2961@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim.md",
+      "sha256": "8d61838f4a2597ee4ee8d1182b42efeb25c1ee1d207430eea9cdc0d78d8f9895"
+    },
+    {
+      "atom_id": "CA-R-2962",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
+      "sha256": "e9dd098d506955c42151b8a9917058955d6b6290ec2ea42bc46c79e4fea52a41"
+    },
+    {
+      "atom_id": "CA-R-2963",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2963@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-prose-claim.md",
+      "sha256": "a16ccdfd80369f6fea683a32bd7faa56fe638ea99319c370dbdeec135856ef74"
+    },
+    {
+      "atom_id": "CA-R-2964",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2964@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-formal-claim.md",
+      "sha256": "634cee7ab8b4c1cf61383df35d73cb45b58e299d18a18e589f6554eb6366cc7b"
+    }
+  ]
+}

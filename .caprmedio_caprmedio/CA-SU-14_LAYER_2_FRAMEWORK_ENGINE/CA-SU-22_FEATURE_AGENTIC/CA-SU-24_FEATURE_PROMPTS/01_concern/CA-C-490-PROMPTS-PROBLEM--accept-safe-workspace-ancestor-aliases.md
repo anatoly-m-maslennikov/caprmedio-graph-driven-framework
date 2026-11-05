@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-490
-content_role: Concern
-type: Problem
+ref_id: CA-C-490
+role: Concern
+form: Problem
 current_scope_unit: PROMPTS
 local_tier: Standard
 global_tier: 11
@@ -9,15 +10,17 @@ status: active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Implementation Workflow/workspace admission
-  depends_on:
+topics:
+  main_subject: Implementation Workflow/workspace admission
+  dependencies:
   - Implementation
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Engineering/Carrier
 relations:
   concern_about: [CA-P-1764]
+container:
+  scope_unit: CA-SU-24
 ---
 # Summary
 

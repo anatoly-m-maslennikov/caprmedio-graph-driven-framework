@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-432
-content_role: Concern
-type: Problem
+ref_id: CA-C-432
+role: Concern
+form: Problem
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Resolved

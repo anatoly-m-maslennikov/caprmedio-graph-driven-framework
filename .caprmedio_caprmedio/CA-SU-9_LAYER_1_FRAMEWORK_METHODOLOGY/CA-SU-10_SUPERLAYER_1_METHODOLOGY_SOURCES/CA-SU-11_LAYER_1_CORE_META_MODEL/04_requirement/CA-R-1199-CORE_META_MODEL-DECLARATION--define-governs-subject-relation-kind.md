@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
@@ -12,6 +12,7 @@ relations:
   depends_on:
   - CA-R-1275
 atom_id: CA-R-1199
+ref_id: CA-R-1199
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
@@ -22,6 +23,8 @@ carrier_destination:
   file:
     name: CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

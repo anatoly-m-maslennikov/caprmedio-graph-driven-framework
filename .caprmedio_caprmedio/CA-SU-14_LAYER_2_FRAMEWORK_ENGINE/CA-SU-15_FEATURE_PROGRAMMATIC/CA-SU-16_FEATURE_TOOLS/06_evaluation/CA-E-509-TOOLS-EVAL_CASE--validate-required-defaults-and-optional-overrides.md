@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
 version: 14
@@ -16,12 +16,19 @@ relations:
   - CA-D-485
   - CA-R-1136
 atom_id: CA-E-509
+ref_id: CA-E-509
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-E-509-TOOLS-EVAL_CASE--validate-required-defaults-and-optional-overrides.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
 ---
 # Summary
 

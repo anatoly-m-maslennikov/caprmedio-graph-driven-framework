@@ -1,5 +1,6 @@
 ---
 atom_id: CA-M-467
+ref_id: CA-M-467
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Method
 form: Eng Decision
 tier: 4
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   method_for:
   - CA-R-2727
@@ -18,6 +19,8 @@ carrier_destination:
     name: CA-M-467-WORKBENCH_FRONTEND-ENG_DECISION--keep-workbench-frontend-files-small.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method
 updated_at: 2026-11-04 17:55:47 +0400
+container:
+  scope_unit: CA-SU-46
 ---
 
 ## Summary

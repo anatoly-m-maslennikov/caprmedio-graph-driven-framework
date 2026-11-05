@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Release Readiness'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Release Readiness'
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Release Readiness'
@@ -24,12 +24,19 @@ relations:
   - CA-R-1692
   - CA-R-1646
 atom_id: CA-E-474
+ref_id: CA-E-474
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 ---
 ## Summary
 

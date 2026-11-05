@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Subject/Domain/Node/Continuant/History/Journal.Record
-  depends_on:
+topics:
+  main_subject: Subject/Domain/Node/Continuant/History/Journal.Record
+  dependencies:
   - Atom/Revision
   - Subject/Engineering/Carrier
   - Subject/Graph/Relation
@@ -11,7 +11,6 @@ version: 4
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 priority: medium
 atom_id: CA-C-112
 ---

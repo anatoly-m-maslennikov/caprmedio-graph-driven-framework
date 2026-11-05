@@ -1,5 +1,6 @@
 ---
 atom_id: CA-M-474
+ref_id: CA-M-474
 role: Method
 form: Eng Decision
 current_scope_unit: WORKBENCH
@@ -8,16 +9,18 @@ status: Active
 version: 1
 author: Anatoly Maslennikov
 tier: 5
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   method_for:
   - CA-R-2786
 updated_at: 2026-11-05 13:52:40 +0400
 carrier_destination:
   file:
-    name: CA-M-474-WORKBENCH-ENG_DECISION--recreate-derived-state-from-source.md
+    name: CA-M-474-WORKBENCH-ENG_DECISION--recreate-workbench-derived-state-from-source.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method
+container:
+  scope_unit: CA-SU-43
 ---
 
 ## Summary

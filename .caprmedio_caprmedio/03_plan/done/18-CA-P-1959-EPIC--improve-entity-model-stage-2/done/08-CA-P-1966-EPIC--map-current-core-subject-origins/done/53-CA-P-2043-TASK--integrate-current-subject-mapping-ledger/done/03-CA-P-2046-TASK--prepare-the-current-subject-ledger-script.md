@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2046
-content_role: Plan
-type: Plan
+ref_id: CA-P-2046
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Projection
@@ -23,6 +24,12 @@ relations:
   is_decomposition_of:
   - CA-P-2043
 tier: 3
+container:
+  atom: CA-P-2043
+carrier_destination:
+  file:
+    name: 3-CA-P-2046-TASK--prepare-the-current-subject-ledger-script.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/done/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger/done
 ---
 # Summary
 

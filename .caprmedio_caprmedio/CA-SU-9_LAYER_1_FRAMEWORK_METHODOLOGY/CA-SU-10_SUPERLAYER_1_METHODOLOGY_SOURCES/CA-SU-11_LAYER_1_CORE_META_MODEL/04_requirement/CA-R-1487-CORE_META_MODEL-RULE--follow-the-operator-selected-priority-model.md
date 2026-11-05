@@ -4,19 +4,26 @@ updated_at: 2026-11-02 00:18:22 +0400
 relations:
   child_of:
   - CA-R-815
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
 atom_id: CA-R-1487
+ref_id: CA-R-1487
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1487-CORE_META_MODEL-RULE--follow-the-operator-selected-priority-model.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

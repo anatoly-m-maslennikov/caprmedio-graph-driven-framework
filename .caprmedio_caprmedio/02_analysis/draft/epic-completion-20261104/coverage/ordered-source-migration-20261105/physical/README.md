@@ -1,0 +1,9 @@
+# Physical move preflight
+
+This read-only helper checks a reviewed destination plan after source migration, property checks, and authority-based destination calculation. It does not calculate names, move files, rename folders, or change canonical sources.
+
+Run `python3 preflight.py path/to/reviewed-plan.json` and capture its JSON output. The input must contain `source_migration_applied`, `property_checks_passed`, and `destination_authority_reviewed` as true, and a nonempty `moves` array. Each move requires repository-relative `source` and full-file `destination`, `source_sha256`, `atom_id`, `version`, `owner`, and `destination_authority` identifying the reviewed Scope Unit or Atom Container derivation. Supply `other_owner` as an explicit boolean, true for Workbench or Workflow ownership; those rows remain held for owner routing.
+
+Paths must remain beneath `.caprmedio_caprmedio`, without symlinks or protected archive, Journal, snapshot, projection, or withdrawn paths. The helper checks source bytes and identity, flags duplicate planned destinations, distinguishes a same-ID/version duplicate from different or unknown destination identity, and never overwrites a collision. A vacant destination is only a preflight result: recheck all source hashes and target absence immediately before a separately authorized atomic move. An authority reference supplied in the plan is not independently verified by the helper.
+
+No destination map has been supplied or reviewed yet. Thus actual destination collision counts are **unknown**; no zero-collision conclusion is supported. The next lane must supply resolved full paths and pinned evidence from the declaration authorities, rather than deriving desired names from existing filenames. Source-property migration and checks must precede this calculation.

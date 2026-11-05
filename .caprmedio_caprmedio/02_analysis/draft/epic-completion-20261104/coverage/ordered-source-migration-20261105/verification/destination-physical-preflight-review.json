@@ -1,0 +1,107 @@
+{
+  "verdict": "HOLD_ELIGIBLE_SUBSET_NEEDS_PHYSICAL_PREFLIGHT_REPAIRS",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/destinations/plan.json",
+  "plan_sha256": "e08aabd5ada2596e72e989a292e68d784e68bbd8ad5b82ce7cc4ff0048b52e8e",
+  "readiness": "3136 no-local-issue calculation rows are candidates, not property-valid or physical-move approval; 1503 held rows excluded.",
+  "counts": {
+    "calculated_no_local_issue": 3136,
+    "held": 1503,
+    "unchanged_path": 1217,
+    "vacant_target": 1918,
+    "case_only_same_inode": 1,
+    "occupied_different_inode": 0,
+    "casefolded_duplicate_planned_targets": 0,
+    "source_hash_drift": 0,
+    "symlink_rows": 0,
+    "overlong_component": 13,
+    "parent_calculation_mismatch": 0,
+    "parent_calculated_rows": 1187,
+    "overlong_directory_dependent_rows": 0,
+    "eligible_subset": 3123
+  },
+  "overlong": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-406-PROGRAMMATIC-ENG_POLICY--adopt-current-python-idioms-only-for-declared-benefit.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-406-PROGRAMMATIC-ENG_POLICY--adopt-current-python-idioms-only-for-declared-benefit-adopt-a-stable-idiom-available-in-the-selected-python-boundary-only-when-it-improves-a-named-project-quality-such-as-correctness-understandability-safety-or-measured-performance-preserve-the-simpler-supported-idiom-when-a-newer-construct-adds-no-useful-distinction.md",
+      "name_bytes": 355
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-407-PROGRAMMATIC-ENG_POLICY--allocate-deterministic-transformations-to-functions.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-407-PROGRAMMATIC-ENG_POLICY--allocate-deterministic-transformations-to-functions-use-a-side-effect-free-function-as-the-default-unit-of-programmatic-behavior-implement-one-deterministic-transformation-as-a-function-when-its-result-follows-only-from-its-declared-inputs-and-the-responsibility-needs-no-identity-across-calls.md",
+      "name_bytes": 330
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-408-PROGRAMMATIC-ENG_POLICY--allocate-owned-state-and-lifecycle-to-objects.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-408-PROGRAMMATIC-ENG_POLICY--allocate-owned-state-and-lifecycle-to-objects-introduce-an-object-only-when-one-programmatic-responsibility-needs-identity-across-calls-because-it-owns-mutable-technical-state-preserves-an-invariant-manages-a-resource-or-lifecycle-or-implements-a-replaceable-adapter-do-not-create-an-object-merely-to-group-functions-or-to-perform-a-bounded-one-shot-effect.md",
+      "name_bytes": 393
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-413-PROGRAMMATIC-ENG_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-413-PROGRAMMATIC-ENG_POLICY--define-typed-contracts-at-replaceable-technical-boundaries-declare-an-explicit-typed-contract-wherever-a-programmatic-component-depends-on-a-replaceable-technical-implementation-adapter-transport-storage-mechanism-or-host-boundary.md",
+      "name_bytes": 267
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-414-PROGRAMMATIC-ENG_POLICY--emit-structured-operational-diagnostics.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-414-PROGRAMMATIC-ENG_POLICY--emit-structured-operational-diagnostics-emit-structured-operational-diagnostics-for-programmatic-work-under-the-active-logging-policy-in-caprmedio-gov-requ-315-including-its-error-warning-info-and-debug-meanings-this-method-applies-that-authority-to-programmatic-diagnosis-it-does-not-own-the-level-vocabulary-level-meanings-or-journal-meaning.md",
+      "name_bytes": 380
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-416-PROGRAMMATIC-ENG_POLICY--measure-before-optimizing-programmatic-performance.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-416-PROGRAMMATIC-ENG_POLICY--measure-before-optimizing-programmatic-performance-measure-a-programmatic-performance-concern-before-accepting-an-optimization-use-a-representative-workload-for-its-hook-interactive-batch-mcp-app-or-background-surface-rather-than-treating-one-surface-as-universal.md",
+      "name_bytes": 300
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-418-PROGRAMMATIC-ENG_POLICY--preserve-declared-interface-compatibility-boundaries.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-418-PROGRAMMATIC-ENG_POLICY--preserve-declared-interface-compatibility-boundaries-preserve-or-explicitly-replace-every-declared-programmatic-interface-or-host-compatibility-boundary-do-not-infer-a-broader-support-claim-from-local-use-stale-workflow-configuration-or-one-implementation.md",
+      "name_bytes": 292
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-419-PROGRAMMATIC-ENG_POLICY--ratchet-hand-authored-python-source-boundaries.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-419-PROGRAMMATIC-ENG_POLICY--ratchet-hand-authored-python-source-boundaries-to-construct-bounded-hand-authored-programmatic-python-source-decompose-code-by-responsibility-under-ca-m-407-ca-m-408-and-ca-m-425-choose-smaller-coherent-units-and-external-data-carriers-and-use-measurements-to-guide-the-next-construction-choice-ca-e-539-owns-source-size-complexity-exception-and-ratchet-acceptance-policy.md",
+      "name_bytes": 408
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-420-PROGRAMMATIC-ENG_POLICY--ratchet-typing-and-automation-adoption.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-420-PROGRAMMATIC-ENG_POLICY--ratchet-typing-and-automation-adoption-advance-programmatic-typing-and-automation-through-bounded-target-selection-explicit-tool-configuration-and-deliberate-expansion-evaluation-authority-owns-acceptance-profiles-and-regression-policy-under-ca-e-539-ca-e-540-and-the-applicable-behavioral-evaluation.md",
+      "name_bytes": 337
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-422-PROGRAMMATIC-ENG_POLICY--route-all-temporary-carriers-through-project-temp.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-422-PROGRAMMATIC-ENG_POLICY--route-all-temporary-carriers-through-project-temp-resolve-the-configured-project-temporary-state-root-before-a-programmatic-component-creates-a-temporary-carrier-or-invokes-a-dependency-that-can-create-one-allocate-a-component-owned-and-when-concurrency-is-possible-run-specific-descendant-below-caprmedio-tmp-pass-that-descendant-explicitly-to-temporary-file-apis-and-configure-dependency-cache-temporary-staging-build-and-evaluation-paths-before-invocation-materialize-shared-development-tool-cache-paths-through-the-root-pyproject-toml-provide-explicit-run-specific-paths-through-launch-carriers-for-dependencies-that-do-not-read-that-file-do-not-rely-on-an-ambient-host-temporary-directory-or-the-process-working-directory-route-python-bytecode-cache-output-to-caprmedio-tmp-cache-python-before-importing-project-modules-or-disable-bytecode-writes-for-an-isolated-process-do-not-create-pycache-or-pyc-carriers-below-caprmedio-runtime-for-an-atomic-replacement-create-its-staging-carrier-below-the-project-temporary-state-root-and-verify-that-the-staging-and-destination-carriers-satisfy-the-required-same-filesystem-atomicity-boundary-before-the-first-mutation-stop-without-falling-back-to-a-destination-sibling-or-host-temporary-location-when-that-precondition-is-false-attempt-bounded-cleanup-when-the-owning-operation-ends-treat-interrupted-or-denied-cleanup-as-retained-non-authoritative-temporary-state-report-its-owned-path-and-leave-it-confined-below-caprmedio-tmp-never-weaken-placement-because-cleanup-is-best-effort-keep-executable-releases-shared-implementation-libraries-registries-stable-launchers-hook-carriers-runtime-logs-sessions-databases-service-state-resumable-state-and-governed-artifacts-outside-the-temporary-state-root-in-their-applicable-authority-or-runtime-places.md",
+      "name_bytes": 1831
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-425-PROGRAMMATIC-ENG_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-425-PROGRAMMATIC-ENG_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle-keep-programmatic-decisions-in-a-function-based-deterministic-core-apply-filesystem-process-clock-environment-network-persistence-or-logging-export-effects-through-a-specifically-named-bounded-one-shot-function-when-no-identity-or-ownership-is-required-or-through-a-specifically-named-method-on-an-object-that-owns-state-an-invariant-a-resource-a-lifecycle-or-a-replaceable-adapter.md",
+      "name_bytes": 484
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-429-PROGRAMMATIC-ENG_POLICY--use-uv-as-the-default-python-workflow-frontend.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-429-PROGRAMMATIC-ENG_POLICY--use-uv-as-the-default-python-workflow-frontend-use-uv-as-the-default-frontend-for-every-admitted-python-workflow-capability-that-uv-provides-this-method-owns-that-tool-selection-configuration-and-implementation-materialize-it-delivery-governs-its-carriers-operations-defines-reusable-workflow-behavior-and-journal-records-carry-evidence-of-actual-workflow-execution.md",
+      "name_bytes": 402
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-430-PROGRAMMATIC-ENG_POLICY--validate-untrusted-structured-data-with-pydantic.md",
+      "target": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/CA-M-430-PROGRAMMATIC-ENG_POLICY--validate-untrusted-structured-data-with-pydantic-use-pydantic-when-untrusted-structured-data-crosses-an-admitted-python-boundary-validate-once-at-the-boundary-and-pass-accepted-typed-values-into-the-deterministic-core-without-making-pydantic-the-universal-internal-model.md",
+      "name_bytes": 307
+    }
+  ],
+  "case_only_same_inode": [
+    {
+      "source": ".caprmedio_caprmedio/04_requirement/CA-R-2691-caprmedio-RULE--keep-nesting-and-sibling-order-distinct.md",
+      "target": ".caprmedio_caprmedio/04_requirement/CA-R-2691-CAPRMEDIO-RULE--keep-nesting-and-sibling-order-distinct.md"
+    }
+  ],
+  "different_inode_collisions": [],
+  "source_drift": [],
+  "symlink_rows": [],
+  "parent_calculation_mismatch": [],
+  "findings": [
+    "Thirteen target filename components exceed 255 bytes; hold and resolve Summary extraction or a source-backed filename disposition. Do not truncate automatically.",
+    "CA-R-2691 target differs only in filename case and resolves to the same inode; handle via separately reviewed case-only rename procedure, never overwrite or call it a distinct-ID collision.",
+    "The physical helper currently requires whole-plan property_checks_passed; support an evidence-backed eligible subset without representing held rows as passing. Its authoritativeness and helper input conversions require independent verification."
+  ],
+  "authority": "D283 governs ordinary full filename and extension; D469 governs Plan stem and .md; D667 derives Scope Unit folders and D264 binds placement to declared Container. Checked calculated Plan child destinations against calculated parent bundles, not old source filenames.",
+  "limits": "Read-only state at pinned plan hash; not a source, property-validity, destination-field application, move authorization, or complete migration verdict.",
+  "eligibility_subset": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/verification/destination-eligible-subset.json"
+}

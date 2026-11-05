@@ -1,19 +1,25 @@
 ---
 atom_id: CA-M-329
-content_role: Method
-type: Implementation Method
+ref_id: CA-M-329
+role: Method
+form: Implementation Method
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-10-27 19:59:42 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-M-329-PROMPTS-IMPLEMENTATION_METHOD--compile-and-reuse-the-active-method-projection.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/05_method
 ---
 # Summary
 

@@ -1,12 +1,13 @@
 ---
 atom_id: CA-M-406
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-406
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
 version: 11
 updated_at: 2026-10-27 19:59:43 +0400
@@ -21,6 +22,8 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 tier: 4
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

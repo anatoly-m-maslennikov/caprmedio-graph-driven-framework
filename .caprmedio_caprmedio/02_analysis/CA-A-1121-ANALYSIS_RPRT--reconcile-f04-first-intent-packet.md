@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1121
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1121
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F04 first loss-preserving intent packet
-  depends_on:
+topics:
+  main_subject: F04 first loss-preserving intent packet
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
 version: 3
@@ -26,6 +27,8 @@ relations:
   - CA-O-058
   - CA-O-067
   - CA-C-373
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

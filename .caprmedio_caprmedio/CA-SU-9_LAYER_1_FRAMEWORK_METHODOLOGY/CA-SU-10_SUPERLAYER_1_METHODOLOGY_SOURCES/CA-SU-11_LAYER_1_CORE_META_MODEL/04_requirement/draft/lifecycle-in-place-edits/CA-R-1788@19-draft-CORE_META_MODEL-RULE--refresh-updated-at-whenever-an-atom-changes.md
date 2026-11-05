@@ -25,12 +25,8 @@ Refresh Updated At whenever an Atom changes
 
 ### Prose Claim
 
-canonical Atom publication timestamps.
-
-A newly created Draft initializes `updated_at` to its actual creation instant. Successful initial canonical publication or publication of a new Version **must** initialize or refresh the published Atom's `updated_at` to the actual Project-time publication instant. Draft edits, technical Current/Archived in-place edits, Current-to-Current status-only edits, and standalone archival retain their existing Updated At; these operations do not refresh `updated_at`.
-
-When publication archives its predecessor, the Archive Carrier **must** retain the predecessor's prior Updated At and unrelated content; Git history preserves the exact pre-archive bytes. Publication time is assigned only when the canonical Atom is successfully published.
+A newly created Draft initializes `updated_at` to its actual creation instant. Only successful initial canonical publication or publication of a new Version assigns the published Atom's actual Project-time publication instant. Every other admitted operation retains the existing `updated_at`, including Draft edits, technical Current/Archived edits, Current-status-only edits, archival (standalone or preceding publication), and filename, ownership, or placement changes.
 
 ## Details
 
-an ancestor-only move that changes an Atom's repository locator **without** changing its own bytes, identity, direct owner **or** placement relative **to** that owner is **not** an edit **to** that Atom and retains its Updated At under CA-R-1432. A direct Status, filename, ownership, or local-placement change is handled by its authorized operation; it refreshes Updated At only when that operation successfully performs an initial publication or publishes a new Version. timestamp encoding follows `CA-D-270`.
+Timestamp encoding follows `CA-D-270`. Relocation is defined by [CA-R-1432](CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md); prior-byte retention follows [CA-R-1521](CA-R-1521@33-draft-CORE_META_MODEL-RULE--resolve-lifecycle-changes-from-applicable-status-models.md).

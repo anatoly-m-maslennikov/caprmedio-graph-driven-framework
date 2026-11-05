@@ -1,22 +1,24 @@
 ---
-subjects:
-  governs: Entity/Graph Syntax > Relation//IS_BORNE_BY
-  depends_on:
+topics:
+  main_subject: Entity/Graph Syntax > Relation//IS_BORNE_BY
+  dependencies:
   - Entity/Graph Syntax > Relation
   - Entity/Term//Dependent Entity
   - Entity/Dependent Entity
   - 'Entity/Object/Continuant/Projection/Type: Entities Graph'
 version: 33
 updated_at: 2026-10-29 21:54:09 +0400
-relations: {}
 atom_id: CA-R-1260@33-draft
-content_role: Requirement
+ref_id: CA-R-1260@33-draft
+role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 tier: 1
-type: Relation Definition
+form: Relation Definition
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

@@ -1,11 +1,12 @@
 ---
 atom_id: CA-E-513
+ref_id: CA-E-513
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
@@ -20,6 +21,12 @@ relations:
 tier: 4
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-E-513-PROJECT_CONFIGURATION-EVAL_CASE--validate-the-atom-carrier-validation-workflow-definition.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 ---
 ## Summary
 

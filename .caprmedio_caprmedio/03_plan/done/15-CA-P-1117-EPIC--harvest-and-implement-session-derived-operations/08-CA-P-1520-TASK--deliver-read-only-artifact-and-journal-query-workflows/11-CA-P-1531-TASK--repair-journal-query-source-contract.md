@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1531
-content_role: Plan
-type: Plan
+ref_id: CA-P-1531
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 11
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Journal Event Query
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Journal Event Query
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
@@ -26,6 +27,12 @@ relations:
   blocks:
   - CA-P-1533
 tier: 3
+container:
+  atom: CA-P-1520
+carrier_destination:
+  file:
+    name: 11-CA-P-1531-TASK--repair-journal-query-source-contract.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/8-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/done
 ---
 # Summary
 

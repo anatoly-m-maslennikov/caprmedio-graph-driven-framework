@@ -10,14 +10,17 @@ relations:
   child_of:
   - CAPRMEDIO-METHODOLOGY-REQU-509-FRAMEWORK_METHODOLOGY-REQUIREMENT--govern-session-engine-rehydration-behavior
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-519
+ref_id: CA-R-519
 tier: 1
-type: Rule
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
+container:
+  scope_unit: CA-SU-23
 ---
 # Persist bounded session-engine state
 

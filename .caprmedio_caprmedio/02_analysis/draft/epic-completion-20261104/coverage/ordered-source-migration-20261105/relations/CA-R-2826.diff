@@ -1,0 +1,21 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/relations/CA-R-2826.preview.txt
+@@ -27,15 +27,13 @@
+ 
+ ```CFEL
+ # model
+-$relation[<Relation>, (.Name = HAS_ALLOWED_VALUE)];
+ 
+-$inverse[<Relation>, (.Name = IS_ALLOWED_VALUE_OF)];
+ 
+-$relation ((HAS_INVERSE)) $inverse;
++Relation//IS_ALLOWED_VALUE_OF ((IS_INVERSE_ALIAS_FOR)) Relation//HAS_ALLOWED_VALUE;
+ 
+-$relation ((HAS_CLASSIFICATION)) Derivation == Direct;
++Relation//HAS_ALLOWED_VALUE ((HAS_CLASSIFICATION)) Derivation == Direct;
+ 
+-alias($relation) == ":=";
++alias(Relation//HAS_ALLOWED_VALUE) == ":=";
+ 
+ $host ((HAS_ALLOWED_VALUE)) $target
+ ```

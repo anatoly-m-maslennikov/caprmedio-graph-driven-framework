@@ -1,12 +1,12 @@
 ---
 atom_id: CA-R-2516
+ref_id: CA-R-2516
 status: Active
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
 version: 5
 updated_at: 2026-11-02 19:17:40 +0400
-relations: {}
 form: Declaration
 role: Requirement
 ---

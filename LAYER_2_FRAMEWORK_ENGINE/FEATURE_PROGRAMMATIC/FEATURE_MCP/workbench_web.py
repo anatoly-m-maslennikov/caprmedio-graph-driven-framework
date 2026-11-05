@@ -1,21 +1,23 @@
-# CA-R-2902@1
-# CA-R-2903@1
-# CA-D-681@1
+# CA-R-2902@2
+# CA-R-2903@2
+# CA-D-681@4
+# CA-R-2952@1
+# CA-D-696@1
 
 """Small HTTP representation of the shared Project Workbench connector."""
 
 from __future__ import annotations
 
 import json
-from collections.abc import Mapping
+from collections.abc import Awaitable, Callable, Iterator, Mapping
 from pathlib import Path
 import sys
-from typing import Any
+from typing import Any, cast
 
 from mcp import types
 from starlette.requests import Request
-from starlette.responses import FileResponse, JSONResponse, StreamingResponse
-from starlette.routing import Mount, Route
+from starlette.responses import FileResponse, JSONResponse, Response, StreamingResponse
+from starlette.routing import BaseRoute, Mount, Route
 from starlette.staticfiles import StaticFiles
 
 from http_paths import WORKBENCH_PATH
@@ -26,7 +28,7 @@ from project_tool_context import native_arguments
 from runtime_failure_diagnostics import report_failure
 from workbench_links import public_saved, public_workspace, validate_reference
 from workbench_tools import (
-    CHECK, INTERFACE_TOOLS, LOAD, PAGE, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA,
+    CHECK, INTERFACE_TOOLS, LOAD, PAGE, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA, SYNC_STATUS,
     WORKSPACE_GET, WORKSPACE_OPEN,
 )
 
@@ -61,7 +63,7 @@ async def _arguments(request: Request, shared: bool, name: str) -> dict[str, Any
         limit = value.get("limit", 20)
         if type(limit) is not int or not 1 <= limit <= 1000:
             raise ExplicitBlockingRuntimeFailure("query_error", "limit must be an integer from 1 to 1000")
-    elif name != SCHEMA and not isinstance(value.get("sql"), str):
+    elif name not in (SCHEMA, SYNC_STATUS) and not isinstance(value.get("sql"), str):
         raise ExplicitBlockingRuntimeFailure("query_error", "sql must be a string")
     if shared and not isinstance(value.get("project_root"), str):
         raise ExplicitBlockingRuntimeFailure("query_error", "project_root must be a string")
@@ -76,7 +78,7 @@ def _error(gateway: Any, request: Request, selection: Any, arguments: dict[str, 
     return JSONResponse({"error": failure.message}, status_code=400)
 
 
-def _json_stream(value: dict[str, Any]):
+def _json_stream(value: dict[str, Any]) -> Iterator[str]:
     return json.JSONEncoder(ensure_ascii=False, allow_nan=False, separators=(",", ":")).iterencode(value)
 
 
@@ -98,11 +100,12 @@ def _selection(gateway: Any, request: Request, shared: bool) -> Any:
 
 async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: bool) -> dict[str, Any]:
     if not shared:
-        if name in (*INTERFACE_TOOLS, SAVE_VIEW) and name in getattr(gateway, "tool_blacklist", frozenset()):
+        if name in (*INTERFACE_TOOLS, SAVE_VIEW, SYNC_STATUS) and name in getattr(gateway, "tool_blacklist", frozenset()):
             raise ExplicitBlockingRuntimeFailure("query_error", "Unknown Tool")
-        return await gateway.workbench.call(
+        result: dict[str, Any] = await gateway.workbench.call(
             name, {key: value for key, value in arguments.items() if key != "project_root"}
         )
+        return result
     response = await gateway.call(
         None,
         types.CallToolRequestParams(name=name, arguments=arguments),
@@ -111,8 +114,8 @@ async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: b
     if response.is_error:
         raise ExplicitBlockingRuntimeFailure(
             "query_error",
-            value.get("error") if isinstance(value, dict) and isinstance(value.get("error"), str)
-            else value.get("diagnostics", ["query failed"])[0] if isinstance(value, dict) else "query failed",
+            cast(str, value.get("error") if isinstance(value, dict) and isinstance(value.get("error"), str)
+                 else value.get("diagnostics", ["query failed"])[0] if isinstance(value, dict) else "query failed"),
         )
     if not isinstance(value, dict):
         raise RuntimeError("Workbench returned an invalid result")
@@ -139,8 +142,8 @@ async def _interface_arguments(request: Request, shared: bool) -> tuple[str, dic
     return name, arguments
 
 
-def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
-    async def page(request: Request):
+def routes(gateway: Any, *, shared: bool = False) -> list[BaseRoute]:  # noqa: C901
+    async def page(request: Request) -> Response:
         project_name = request.path_params["project_name"]
         try:
             selection = _selection(gateway, request, shared)
@@ -154,8 +157,8 @@ def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
             )
         return FileResponse(_FRONTEND / "index.html")
 
-    def operation(name: str):
-        async def endpoint(request: Request):  # noqa: C901
+    def operation(name: str) -> Callable[[Request], Awaitable[Response]]:
+        async def endpoint(request: Request) -> Response:  # noqa: C901
             arguments: dict[str, Any] = {}
             selection = None
             try:
@@ -163,6 +166,11 @@ def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
                 selection = gateway._selection(arguments["project_root"]) if shared else getattr(gateway, "selection", None)
                 if not _project_name_matches(selection, request.path_params["project_name"]):
                     return _unknown_project()
+                if name == SYNC_STATUS and not shared:
+                    try:
+                        arguments = native_arguments(arguments, selection, gateway.root)
+                    except ValueError as error:
+                        raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
                 if name == LOAD:
                     try:
                         arguments["reference"] = validate_reference(
@@ -179,7 +187,7 @@ def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
                 return _error(gateway, request, selection, arguments, error)
         return endpoint
 
-    async def interface(request: Request):
+    async def interface(request: Request) -> Response:
         arguments: dict[str, Any] = {}
         selection = None
         try:
@@ -204,7 +212,7 @@ def routes(gateway: Any, *, shared: bool = False) -> list[Route]:  # noqa: C901
         Route(f"{WORKBENCH_PATH}/{{project_name}}", page),
         Route(f"{WORKBENCH_PATH}/{{project_name}}/interface", interface, methods=["POST"]),
         *[Route(f"{WORKBENCH_PATH}/{{project_name}}/{path}", operation(name), methods=["POST"])
-          for path, name in (("run", RUN), ("page", PAGE), ("check", CHECK), ("schema", SCHEMA),
+          for path, name in (("run", RUN), ("page", PAGE), ("check", CHECK), ("schema", SCHEMA), ("status", SYNC_STATUS),
                              ("view-save", SAVE_VIEW), ("load", LOAD),
                              ("saved-list", SAVED_LIST))],
         Mount(

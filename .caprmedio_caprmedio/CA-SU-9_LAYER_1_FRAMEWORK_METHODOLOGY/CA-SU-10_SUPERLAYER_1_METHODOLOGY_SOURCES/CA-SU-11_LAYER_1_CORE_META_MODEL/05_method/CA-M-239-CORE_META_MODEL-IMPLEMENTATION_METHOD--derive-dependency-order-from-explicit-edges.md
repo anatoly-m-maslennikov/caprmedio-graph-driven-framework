@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//depends_on
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//depends_on
+  dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Term//Artifact
@@ -12,12 +12,19 @@ relations:
   child_of:
   - CA-M-120
 atom_id: CA-M-239
+ref_id: CA-M-239
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 4
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-239-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-dependency-order-from-explicit-edges.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

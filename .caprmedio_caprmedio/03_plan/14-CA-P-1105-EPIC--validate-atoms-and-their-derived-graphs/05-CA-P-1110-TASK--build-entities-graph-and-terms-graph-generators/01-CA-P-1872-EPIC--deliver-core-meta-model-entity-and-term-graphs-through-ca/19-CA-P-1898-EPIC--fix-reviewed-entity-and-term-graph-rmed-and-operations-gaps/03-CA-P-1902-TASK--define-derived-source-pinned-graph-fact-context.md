@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1902
-content_role: Plan
-type: Plan
+ref_id: CA-P-1902
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Projection
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
   - Subject/Graph Node/Engineering/Evaluation
@@ -26,6 +27,12 @@ relations:
   blocks:
   - CA-P-1903
 tier: 3
+container:
+  atom: CA-P-1898
+carrier_destination:
+  file:
+    name: 3-CA-P-1902-TASK--define-derived-source-pinned-graph-fact-context.md
+    path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/19-CA-P-1898-EPIC--fix-reviewed-entity-and-term-graph-rmed-and-operations-gaps
 ---
 # Summary
 

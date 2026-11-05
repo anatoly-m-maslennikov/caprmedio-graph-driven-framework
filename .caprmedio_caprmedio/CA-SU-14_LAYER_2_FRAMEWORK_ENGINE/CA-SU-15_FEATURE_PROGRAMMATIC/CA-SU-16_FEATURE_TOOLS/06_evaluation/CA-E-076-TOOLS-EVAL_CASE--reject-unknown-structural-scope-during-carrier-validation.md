@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  dependencies:
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
@@ -19,12 +19,15 @@ relations:
   derived_from:
   - CA-A-057
 atom_id: CA-E-076
+ref_id: CA-E-076
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject unknown structural scope during carrier validation
 

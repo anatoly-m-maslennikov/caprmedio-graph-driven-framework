@@ -10,20 +10,27 @@ relations:
   - CA-R-941
   depends_on:
   - CA-R-1273
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Term
 atom_id: CA-M-294
+ref_id: CA-M-294
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

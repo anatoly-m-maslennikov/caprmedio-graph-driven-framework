@@ -21,16 +21,19 @@ relations:
   realization_input:
   - ./PROGRAMMATIC/MCP
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: FRAMEWORK_ENGINE
 status: Active
 atom_id: CA-R-2151
+ref_id: CA-R-2151
 tier: 1
-type: Rule
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
+container:
+  scope_unit: CA-SU-14
 ---
 # Supply the MCP Tool interface to SKILLS
 

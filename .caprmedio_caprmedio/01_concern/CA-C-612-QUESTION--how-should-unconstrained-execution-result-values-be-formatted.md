@@ -1,16 +1,22 @@
 ---
 atom_id: CA-C-612
-content_role: Concern
-type: Question
+ref_id: CA-C-612
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 tier: 3
 version: 1
 updated_at: 2026-10-29 09:04:02 +0400
-subjects:
-  governs: Entity/Object/Occurrent/Execution.Result
-relations: {}
+topics:
+  main_subject: Entity/Object/Occurrent/Execution.Result
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-C-612-CAPRMEDIO-QUESTION--how-should-unconstrained-execution-result-values-be-formatted.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 ## Summary
 

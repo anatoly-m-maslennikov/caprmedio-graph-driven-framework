@@ -1,14 +1,12 @@
 ---
 atom_id: CA-R-2003
+ref_id: CA-R-2003@17-draft
 status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL <+ Node.**
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Node.**
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 version: 17
 updated_at: 2026-11-05 04:29:34 +0400
 tier: 1
@@ -16,8 +14,10 @@ role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-2003@17-draft-CORE_META_MODEL--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md
+    name: CA-R-2003@17-draft-RULE--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

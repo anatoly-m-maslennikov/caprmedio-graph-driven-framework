@@ -1,19 +1,22 @@
 ---
 atom_id: CA-E-650
-content_role: Evaluation
-type: Policy
+ref_id: CA-E-650
+role: Evaluation
+form: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
 relations:
   evaluation_for:
   - CA-M-193
 tier: 5
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

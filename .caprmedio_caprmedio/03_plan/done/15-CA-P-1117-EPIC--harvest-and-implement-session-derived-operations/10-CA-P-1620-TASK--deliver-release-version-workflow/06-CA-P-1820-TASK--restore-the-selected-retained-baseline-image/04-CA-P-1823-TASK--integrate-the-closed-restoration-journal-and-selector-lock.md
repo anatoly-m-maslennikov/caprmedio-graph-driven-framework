@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1823
-content_role: Plan
-type: Plan
+ref_id: CA-P-1823
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 4
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Active
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Version
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Version
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Framework Package
@@ -26,6 +27,12 @@ relations:
   blocks:
   - CA-P-1623
 tier: 3
+container:
+  atom: CA-P-1820
+carrier_destination:
+  file:
+    name: 4-CA-P-1823-TASK--integrate-the-closed-restoration-journal-and-selector-lock.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/6-CA-P-1820-TASK--restore-the-selected-retained-baseline-image
 ---
 # Summary
 

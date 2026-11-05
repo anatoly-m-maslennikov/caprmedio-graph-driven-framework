@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode := silent
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode := silent
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
   - CAPRMEDIO_MODEL <+ Project.Settings.Interaction
   - CAPRMEDIO_MODEL <+ Term//Artifact
@@ -13,6 +13,7 @@ relations:
   depends_on:
   - CA-R-1440
 atom_id: CA-M-277
+ref_id: CA-M-277
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
@@ -23,6 +24,8 @@ carrier_destination:
   file:
     name: CA-M-277-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-silent-mode.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method
+container:
+  scope_unit: CA-SU-13
 ---
 ## Summary
 

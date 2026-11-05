@@ -1,25 +1,25 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Term
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Term
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Term//Empty
   - CAPRMEDIO_MODEL <+ Term//ID
 version: 31
 updated_at: 2026-11-04 18:28:33 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-1319
+ref_id: CA-R-1319
 status: Active
 tier: 1
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-1319-CORE_META_MODEL--define-governed-term.md
+    name: CA-R-1319-RULE--define-governed-term.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

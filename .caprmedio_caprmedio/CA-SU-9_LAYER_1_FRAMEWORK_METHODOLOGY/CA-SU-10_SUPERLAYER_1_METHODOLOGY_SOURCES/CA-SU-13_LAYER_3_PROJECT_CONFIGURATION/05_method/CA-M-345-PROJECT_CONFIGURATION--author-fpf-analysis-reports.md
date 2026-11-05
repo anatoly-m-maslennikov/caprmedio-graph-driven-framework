@@ -1,11 +1,12 @@
 ---
 atom_id: CA-M-345
+ref_id: CA-M-345
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
 version: 20
@@ -16,6 +17,12 @@ relations:
 tier: 3
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-M-345-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--author-fpf-analysis-reports.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method
 ---
 ## Summary
 

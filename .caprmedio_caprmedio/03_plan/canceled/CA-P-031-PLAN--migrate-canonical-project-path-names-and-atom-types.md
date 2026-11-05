@@ -10,13 +10,16 @@ llm_session_ids:
 relations:
   child_of:
   - CAPRMEDIO-P-020-CHANGE_PLAN--orchestrate-bootstrap-seed-migration
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 tier: 3
 status: Canceled
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
 atom_id: CA-P-031
+ref_id: CA-P-031
+container:
+  scope_unit: CA-SU-00
 ---
 # Migrate canonical Project path names and Atom Types
 

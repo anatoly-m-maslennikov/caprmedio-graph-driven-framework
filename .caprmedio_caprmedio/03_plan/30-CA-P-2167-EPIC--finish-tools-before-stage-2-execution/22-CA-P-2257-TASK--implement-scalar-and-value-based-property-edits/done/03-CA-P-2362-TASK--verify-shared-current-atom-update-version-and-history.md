@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2362
-content_role: Plan
-type: Plan
+ref_id: CA-P-2362
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Atom.Version Number
   - Subject/Graph Node/Domain/Continuant/Atom.Updated At
@@ -23,6 +24,12 @@ relations:
   is_decomposition_of:
   - CA-P-2257
 tier: 3
+container:
+  atom: CA-P-2257
+carrier_destination:
+  file:
+    name: 3-CA-P-2362-TASK--verify-shared-current-atom-update-version-and-history.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits/done
 ---
 # Summary
 

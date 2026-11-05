@@ -1,5 +1,6 @@
 ---
 atom_id: CA-M-472
+ref_id: CA-M-472
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
@@ -8,8 +9,8 @@ role: Method
 form: Eng Decision
 tier: 4
 version: 1
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   method_for:
   - CA-R-2727
@@ -20,6 +21,8 @@ carrier_destination:
     name: CA-M-472-WORKBENCH-ENG_DECISION--test-workbench-through-its-public-interfaces.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method
 updated_at: 2026-11-05 02:30:51 +0400
+container:
+  scope_unit: CA-SU-43
 ---
 
 ## Summary

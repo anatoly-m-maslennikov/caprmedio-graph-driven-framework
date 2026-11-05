@@ -1,15 +1,16 @@
 ---
 atom_id: CA-A-1185
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1185
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 6
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: programmatic software
-  depends_on:
+topics:
+  main_subject: programmatic software
+  dependencies:
   - Atom/Content Role: Method
   - Implementation
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
@@ -17,7 +18,12 @@ subjects:
   - Subject/Domain/Node/Continuant/Scope Unit
 version: 4
 updated_at: 2026-11-02 15:49:28 +0400
-relations: {}
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-A-1185-PROGRAMMATIC-ANALYSIS_REPORT--keep-implementation-policy-in-active-rmed.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis
 ---
 # Summary
 

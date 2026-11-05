@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1028
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1028
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: First-partition audit resolution Plan approval evidence
-  depends_on:
+topics:
+  main_subject: First-partition audit resolution Plan approval evidence
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
@@ -22,6 +23,12 @@ relations:
   - CA-P-1126
   - CA-A-1023
   - CA-C-330
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1028-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-first-partition-audit-resolution-plan-approval.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

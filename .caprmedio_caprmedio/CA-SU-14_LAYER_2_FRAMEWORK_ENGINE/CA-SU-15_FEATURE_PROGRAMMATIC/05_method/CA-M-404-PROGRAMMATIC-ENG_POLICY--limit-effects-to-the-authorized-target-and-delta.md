@@ -1,17 +1,24 @@
 ---
 atom_id: CA-M-404
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-404
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
 version: 9
 updated_at: 2026-10-27 19:59:43 +0400
 author: Anatoly Maslennikov
 tier: 1
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-404-PROGRAMMATIC-ENG_POLICY--limit-effects-to-the-authorized-target-and-delta.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

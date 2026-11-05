@@ -10,14 +10,17 @@ relations:
   child_of:
   - CA-M-447
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: FRAMEWORK_ENGINE
 status: Active
 atom_id: CA-R-700
-type: Definition
+ref_id: CA-R-700
+form: Definition
 tier: 1
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+container:
+  scope_unit: CA-SU-14
 ---
 # Define FRAMEWORK_ENGINE Feature topology
 

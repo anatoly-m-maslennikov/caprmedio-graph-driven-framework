@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: 'Subject/Graph Node/Product: CAPRMEDIO Framework'
-  depends_on:
+topics:
+  main_subject: 'Subject/Graph Node/Product: CAPRMEDIO Framework'
+  dependencies:
   - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
 version: 7
 updated_at: 2026-10-25 17:32:27 +0400
@@ -14,11 +14,14 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-100
+ref_id: CA-P-100
+container:
+  scope_unit: CA-SU-00
 ---
 # Publish the final carp-and-harp logo
 

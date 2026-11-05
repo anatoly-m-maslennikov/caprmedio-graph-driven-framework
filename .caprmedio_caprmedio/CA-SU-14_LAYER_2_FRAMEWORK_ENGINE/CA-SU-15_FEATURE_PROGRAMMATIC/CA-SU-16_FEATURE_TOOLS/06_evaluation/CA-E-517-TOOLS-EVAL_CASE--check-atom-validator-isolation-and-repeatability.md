@@ -1,14 +1,15 @@
 ---
 atom_id: CA-E-517
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-517
+role: Evaluation
+form: Eval Case
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
@@ -22,6 +23,12 @@ relations:
   - CA-D-493
   - CA-R-1623
 tier: 6
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-E-517-TOOLS-EVAL_CASE--check-atom-validator-isolation-and-repeatability.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
 ---
 # Summary
 

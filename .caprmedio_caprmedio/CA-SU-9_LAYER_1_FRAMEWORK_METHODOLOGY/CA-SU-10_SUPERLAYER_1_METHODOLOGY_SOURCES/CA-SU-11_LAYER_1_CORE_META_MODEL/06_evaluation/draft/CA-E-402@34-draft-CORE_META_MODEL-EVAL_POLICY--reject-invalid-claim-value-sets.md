@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ CFEL
@@ -11,17 +11,18 @@ relations:
   evaluation_for:
   - CA-R-1359
   - CA-M-237
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-E-402
+ref_id: CA-E-402@34-draft
 status: Draft
 tier: 5
 role: Evaluation
 form: Eval Policy
 carrier_destination:
   file:
-    name: CA-E-402@34-draft-CORE_META_MODEL-EVAL_POLICY--reject-invalid-claim-value-sets.md
+    name: CA-E-402@34-draft-EVAL_POLICY--reject-invalid-claim-value-sets.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1640
-content_role: Plan
-type: Plan
+ref_id: CA-P-1640
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Evaluation Implementation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Evaluation Implementation
+  dependencies:
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Continuant/Tool
@@ -29,6 +30,12 @@ relations:
   blocks:
   - CA-P-1643
 tier: 3
+container:
+  atom: CA-P-1623
+carrier_destination:
+  file:
+    name: 2-CA-P-1640-TASK--build-release-version-contract-golden-tests.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/done
 ---
 # Summary
 

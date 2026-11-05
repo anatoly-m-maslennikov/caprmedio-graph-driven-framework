@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1707
-content_role: Plan
-type: Plan
+ref_id: CA-P-1707
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 19
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Version/Project-Owned Image Retention
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Version/Project-Owned Image Retention
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project.Framework Settings
   - Subject/Graph Node/Engineering/Manifest
   - Subject/Graph Node/Engineering/Image
@@ -26,6 +27,12 @@ relations:
   - CA-P-1697
   - CA-P-1644
 tier: 3
+container:
+  atom: CA-P-1643
+carrier_destination:
+  file:
+    name: 19-CA-P-1707-TASK--retire-the-approved-exact-unused-prior-image.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/5-CA-P-1643-TASK--integrate-release-actions-and-admission
 ---
 # Summary
 

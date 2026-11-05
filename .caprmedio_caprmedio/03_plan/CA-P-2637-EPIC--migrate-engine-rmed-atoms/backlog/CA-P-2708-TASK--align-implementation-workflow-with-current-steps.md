@@ -1,5 +1,6 @@
 ---
 atom_id: CA-P-2708
+ref_id: CA-P-2708
 role: Plan
 form: Plan
 label: Task
@@ -8,11 +9,15 @@ version: 1
 updated_at: 2026-11-02 20:36:56 +0400
 tier: 4
 current_scope_unit: caprmedio
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Workflow//Implement Evaluations before required behavior
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2637
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Workflow//Implement Evaluations before required behavior
+
+container:
+  atom: CA-P-2637
+carrier_destination:
+  file:
+    name: CA-P-2708-TASK--align-implementation-workflow-with-current-steps.md
+    path: .caprmedio_caprmedio/03_plan/CA-P-2637-EPIC--migrate-engine-rmed-atoms/001_backlog
 ---
 ## Summary
 

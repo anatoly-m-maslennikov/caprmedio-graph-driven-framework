@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-563
-content_role: Concern
-type: Question
+ref_id: CA-C-563
+role: Concern
+form: Question
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
@@ -9,13 +10,14 @@ global_tier: 8
 author: Anatoly Maslennikov
 status: Resolved
 priority: medium
-subjects:
-  governs: Entity/Node/Continuant/Implementation
-  depends_on: []
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about: [CA-P-2526, CA-P-2527, CA-O-169, CA-D-564]
 version: 2
 updated_at: "2026-10-21T10:42:00Z"
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

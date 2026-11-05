@@ -2,13 +2,13 @@
 atom_id: CA-A-902
 cce_version: cce_1
 cce_form: rationale
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - ontology-term-adoption
       - Governed Term
       - Core Meta-Model
-  depends_on:
+  dependencies:
     continuant:
       - Project Configuration
       - ontology-like-authority

@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Project.Settings.Name
@@ -9,18 +9,18 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
 version: 1
 updated_at: 2026-11-04 09:30:21 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-2748
+ref_id: CA-R-2748
 status: Active
 tier: 1
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-2748-CORE_META_MODEL-RULE--unify-operator-selected-project-settings.md
+    name: CA-R-2748-RULE--unify-operator-selected-project-settings.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

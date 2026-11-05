@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1810
-content_role: Plan
-type: Plan
+ref_id: CA-P-1810
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Active
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Testing/Executor Admission
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Testing/Executor Admission
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation Implementation
   - Subject/Graph Node/Engineering/Workflow
@@ -25,6 +26,12 @@ relations:
   relates_to:
   - CA-C-514
 tier: 3
+container:
+  atom: CA-P-1809
+carrier_destination:
+  file:
+    name: 1-CA-P-1810-TASK--repair-n13-image-fixture-order-and-resource-failures.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/36-CA-P-1809-TASK--repair-actual-n13-unit-failure-groups
 ---
 # Summary
 

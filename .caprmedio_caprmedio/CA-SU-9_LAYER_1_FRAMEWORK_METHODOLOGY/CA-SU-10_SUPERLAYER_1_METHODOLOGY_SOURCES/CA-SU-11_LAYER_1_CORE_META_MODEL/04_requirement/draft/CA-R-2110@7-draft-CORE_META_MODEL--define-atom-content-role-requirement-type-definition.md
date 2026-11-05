@@ -1,19 +1,21 @@
 ---
 atom_id: CA-R-2110@7-draft
-content_role: Requirement
+ref_id: CA-R-2110@7-draft
+role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Model::CAPRMEDIO::Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Definition'
-  depends_on:
+topics:
+  main_subject: 'Model::CAPRMEDIO::Continuant/Governing Objects/Atom/Content Role: Requirement/Type: Definition'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-relations: {}
-type: Definition
+form: Definition
 version: 7
 updated_at: 2026-10-29 05:35:13 +0400
 tier: 1
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

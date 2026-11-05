@@ -95,7 +95,10 @@ def _declaration_candidates(
     for path in _direct_markdown_paths(reader, directory):
         if root and not path.name.startswith("CA-R-"):
             continue
-        raw = reader.read(path, remember=False)
+        try:
+            raw = reader.read(path, remember=False)
+        except FileNotFoundError:
+            continue
         if not _is_projection(raw) and _selects_declaration_form(raw):
             candidates.append((path, raw))
     return tuple(candidates)

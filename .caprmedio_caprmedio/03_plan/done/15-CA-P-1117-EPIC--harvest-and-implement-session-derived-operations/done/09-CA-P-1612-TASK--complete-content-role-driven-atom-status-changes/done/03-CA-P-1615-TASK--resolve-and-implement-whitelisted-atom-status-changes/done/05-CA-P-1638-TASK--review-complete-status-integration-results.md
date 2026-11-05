@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1638
-content_role: Plan
-type: Plan
+ref_id: CA-P-1638
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 5
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Atom.Status
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Atom.Status
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Atom/Content Role
   - Subject/Graph Node/Domain/Continuant/Atom.Status
@@ -27,6 +28,12 @@ relations:
   blocks:
   - CA-P-1616
 tier: 3
+container:
+  atom: CA-P-1615
+carrier_destination:
+  file:
+    name: 5-CA-P-1638-TASK--review-complete-status-integration-results.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/9-CA-P-1612-TASK--complete-content-role-driven-atom-status-changes/done/3-CA-P-1615-TASK--resolve-and-implement-whitelisted-atom-status-changes/done
 ---
 # Summary
 

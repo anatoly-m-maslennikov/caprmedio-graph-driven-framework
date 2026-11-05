@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-1880
-content_role: Requirement
+ref_id: CA-R-1880
+role: Requirement
 current_scope_unit: PROJECT_TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 20:00:05 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Action Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - Subject/CAPRMEDIO/Carrier/Docker Image
-relations: {}
-type: Rule
+form: Rule
 tier: 3
+container:
+  scope_unit: CA-SU-19
+carrier_destination:
+  file:
+    name: CA-R-1880-PROJECT_TOOLS-RULE--preserve-the-prior-release-and-truthful-failure-recording.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/04_requirement
 ---
 # Summary
 

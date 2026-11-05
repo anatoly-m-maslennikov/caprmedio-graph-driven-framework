@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-907
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-907
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Second-partition primary session evidence packet
-  depends_on:
+topics:
+  main_subject: Second-partition primary session evidence packet
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
@@ -21,6 +22,12 @@ relations:
   - CA-P-1181
   - CA-P-1127
   - CA-P-1191
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-907-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-first-bound-second-partition-packet.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

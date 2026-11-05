@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
 version: 12
 updated_at: 2026-10-27 19:59:36 +0400
@@ -13,12 +13,15 @@ relations:
   evaluation_for:
   - CA-R-1137
 atom_id: CA-E-484
+ref_id: CA-E-484
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Ignore Finder metadata during project validation
 

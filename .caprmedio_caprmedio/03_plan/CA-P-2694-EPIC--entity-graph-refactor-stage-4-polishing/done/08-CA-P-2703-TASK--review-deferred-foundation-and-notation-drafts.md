@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2703
-content_role: Plan
-type: Plan
+ref_id: CA-P-2703
+role: Plan
+form: Plan
 label: Task
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -10,11 +11,11 @@ author: Anatoly Maslennikov
 tier: 4
 version: 6
 updated_at: 2026-10-30 01:03:17 +0400
-subjects:
-  governs: Entity
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2694
+topics:
+  main_subject: Entity
+
+container:
+  atom: CA-P-2694
 ---
 ## Summary
 

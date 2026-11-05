@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-514
-content_role: Concern
-type: Problem
+ref_id: CA-C-514
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
@@ -9,9 +10,9 @@ status: active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: N13 Unit gate failures
-  depends_on:
+topics:
+  main_subject: N13 Unit gate failures
+  dependencies:
   - Implementation
   - Evaluation
   - Subject/Engineering/Carrier/File Carrier
@@ -20,6 +21,8 @@ subjects:
   - Journal
 relations:
   concern_about: [CA-P-1809, CA-P-1801, CA-P-1117]
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

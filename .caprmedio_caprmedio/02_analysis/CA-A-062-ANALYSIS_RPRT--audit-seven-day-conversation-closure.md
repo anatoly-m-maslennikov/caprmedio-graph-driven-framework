@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     occurrent:
       - Conversation Audit
-  depends_on:
+  dependencies:
     continuant:
       - Decision Closure
       - Project Backlog

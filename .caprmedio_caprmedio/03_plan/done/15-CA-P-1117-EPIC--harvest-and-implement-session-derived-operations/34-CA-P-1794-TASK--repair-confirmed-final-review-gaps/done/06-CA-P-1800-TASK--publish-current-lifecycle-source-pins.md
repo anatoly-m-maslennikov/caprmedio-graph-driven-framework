@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1800
-content_role: Plan
-type: Plan
+ref_id: CA-P-1800
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 6
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Atom Lifecycle
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Atom Lifecycle
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Projection
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
@@ -30,6 +31,12 @@ relations:
   - CA-E-593
   - CA-D-588
 tier: 3
+container:
+  atom: CA-P-1794
+carrier_destination:
+  file:
+    name: 6-CA-P-1800-TASK--publish-current-lifecycle-source-pins.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/34-CA-P-1794-TASK--repair-confirmed-final-review-gaps/done
 ---
 # Summary
 

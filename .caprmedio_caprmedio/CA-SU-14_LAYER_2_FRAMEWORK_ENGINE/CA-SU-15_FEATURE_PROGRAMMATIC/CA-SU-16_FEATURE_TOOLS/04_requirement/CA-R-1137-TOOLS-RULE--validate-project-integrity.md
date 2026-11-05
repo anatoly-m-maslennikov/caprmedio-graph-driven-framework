@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
@@ -13,12 +13,15 @@ llm_session_ids:
 version: 22
 updated_at: 2026-10-27 19:59:51 +0400
 atom_id: CA-R-1137
+ref_id: CA-R-1137
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Rule
+form: Rule
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Validate project integrity
 

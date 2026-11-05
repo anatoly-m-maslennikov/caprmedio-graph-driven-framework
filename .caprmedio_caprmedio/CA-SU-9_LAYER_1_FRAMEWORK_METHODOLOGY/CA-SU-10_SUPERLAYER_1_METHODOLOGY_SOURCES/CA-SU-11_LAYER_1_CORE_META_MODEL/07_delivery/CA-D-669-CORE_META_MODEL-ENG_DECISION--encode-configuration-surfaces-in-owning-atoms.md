@@ -1,13 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Project.Settings
 version: 2
 updated_at: 2026-11-04 09:30:21 +0400
-relations: {}
 atom_id: CA-D-669
+ref_id: CA-D-669
 status: Active
 tier: 3
 role: Delivery

@@ -1,12 +1,13 @@
 ---
 atom_id: CA-M-402
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-402
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
@@ -21,6 +22,12 @@ relations:
   derived_from:
   - CA-A-1185
 tier: 1
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-402-PROGRAMMATIC-ENG_POLICY--implement-only-declared-business-logic.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

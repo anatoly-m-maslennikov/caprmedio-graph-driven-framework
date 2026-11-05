@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-2183
-content_role: Plan
-type: Plan
+ref_id: CA-P-2183
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 8
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Engineering/Continuant/Carrier
@@ -25,6 +26,12 @@ relations:
   blocks:
   - CA-P-1966
 tier: 3
+container:
+  atom: CA-P-2167
+carrier_destination:
+  file:
+    name: 8-CA-P-2183-TASK--stage-and-validate-subject-preview-candidates.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done
 ---
 # Summary
 

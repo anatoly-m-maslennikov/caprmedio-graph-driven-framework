@@ -1,0 +1,34 @@
+---
+atom_id: <unallocated>
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Construct Declaration)
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+tier: 3
+role: Requirement
+form: Declaration
+version: <unallocated>
+---
+
+## Summary
+
+Declare Construct Declaration as a Requirement Form
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom//(.Header.Role := Requirement).Header.Form := Construct Declaration;
+Atom//(.Header.Role := Requirement)//(.Header.Form := Construct Declaration)
+```
+
+### Prose Claim
+
+This Form uses the Declaration contract.
+
+## Semantics
+
+A Construct Declaration defines the structure and binding scope of a multi-expression language construct.

@@ -1,15 +1,16 @@
 ---
 atom_id: CA-M-462
+ref_id: CA-M-462
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 status: Active
-version: 9
+version: 10
 author: Anatoly Maslennikov
 role: Method
 form: Eng Decision
 tier: 4
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   method_for:
   - CA-R-2728
@@ -17,7 +18,9 @@ carrier_destination:
   file:
     name: CA-M-462-WORKBENCH_BACKEND-ENG_DECISION--constrain-public-duckdb-queries-to-native-read-only-access.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method
-updated_at: 2026-11-05 17:09:51 +0400
+updated_at: 2026-11-05 20:32:03 +0400
+container:
+  scope_unit: CA-SU-45
 ---
 
 ## Summary
@@ -30,11 +33,15 @@ Trusted public SQL and internal result materialization for one Project.
 
 ## Claim
 
-Admit one read query from trusted Operator input through MCP or the Workbench web interface with DuckDB's native parsing and query APIs, including DuckPGQ's SQL/PGQ grammar. Use native tokenization where statement extraction does not support that grammar. Do not introduce a SQL parser, function sandbox or second query language.
+Admit one whole read query from trusted Operator input through MCP or the Workbench web interface with DuckDB's native parsing and query APIs, including DuckPGQ's SQL/PGQ grammar. A public Run or Check contains exactly one whole query; a cursor position never selects a statement or a SQL fragment. Use native tokenization where statement extraction does not support that grammar. Do not introduce a SQL parser, function sandbox or second query language.
 
 Execute the accepted query once into a generated internal result table in the Project's derived DuckDB database. This trusted cache write uses a normal native transaction with COMMIT; public input remains SELECT-only and cannot submit DDL or DML. Read native ordered column metadata before materialization and retain it separately, including duplicate names. Deliver bounded pages from that stable result, not the entire result in a Python list. If query_run receives a non-negative preview, apply DuckDB's native relation.limit(N) to cap the result at most at N rows while preserving an existing SQL LIMIT; do not rewrite the submitted SQL or its text, and support GRAPH_TABLE and CTE queries. Counts and pagination describe that capped execution.
 
-Run returns the exact selected SQL, including comments, Unicode and any existing LIMIT. When query_run requests save, append the saved query only after the successful materialization, using the exact selected SQL. A save failure does not discard the completed result: return its query ID and rows with outcome partial and save_error, without retry or rollback. A failed query never creates a saved entry. Run without save, Check and Page have no Journal effect.
+Run returns the exact submitted SQL, including comments, Unicode and any existing LIMIT. When query_run requests save, append the saved query only after the successful materialization, using the exact submitted SQL. A save failure does not discard the completed result: return its query ID and rows with outcome partial and save_error, without retry or rollback. A failed query never creates a saved entry. Run without save, Check and Page have no Journal effect.
+
+Page transforms, including grid filters, ordering and grouping, operate only over the existing native materialized result table. They never rerun, parse, append to or rewrite public SQL, and do not create a second result cache. The public result metadata and result identity remain those of the original whole cache.
+
+The dedicated materialized-result lifecycle owns cache retention, View pinning, restart disposal and runtime-setting reads. Public SQL admission neither writes settings nor manages manual staging. Result tables remain DuckDB-owned disposable runtime data.
 
 Trusted startup loads the bundled DuckPGQ extension before disabling external access, extension autoinstall/autoload and public configuration changes. Permit database and spill writes only in the owned Workbench runtime directory. Source files remain unchanged.
 

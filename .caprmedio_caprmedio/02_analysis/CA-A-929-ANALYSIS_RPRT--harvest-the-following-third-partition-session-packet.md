@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-929
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-929
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Following third-partition primary session evidence packet
-  depends_on:
+topics:
+  main_subject: Following third-partition primary session evidence packet
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
 version: 3
@@ -25,6 +26,12 @@ relations:
   - CA-A-905
   - CA-A-910
   - CA-A-917
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-929-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-following-third-partition-session-packet.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

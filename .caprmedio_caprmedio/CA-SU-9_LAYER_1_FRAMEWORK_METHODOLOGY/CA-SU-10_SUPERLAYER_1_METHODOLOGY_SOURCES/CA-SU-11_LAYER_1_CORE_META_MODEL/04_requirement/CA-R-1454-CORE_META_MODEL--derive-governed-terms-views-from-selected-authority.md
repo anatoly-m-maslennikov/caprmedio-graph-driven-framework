@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Atom.Content
@@ -15,17 +15,18 @@ relations:
   - CA-R-1335@31
   - CA-R-1319
   - CA-R-1437
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-1454
+ref_id: CA-R-1454
 status: Active
 tier: 2
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-1454-CORE_META_MODEL--derive-governed-terms-views-from-selected-authority.md
+    name: CA-R-1454-RULE--derive-governed-terms-views-from-selected-authority.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

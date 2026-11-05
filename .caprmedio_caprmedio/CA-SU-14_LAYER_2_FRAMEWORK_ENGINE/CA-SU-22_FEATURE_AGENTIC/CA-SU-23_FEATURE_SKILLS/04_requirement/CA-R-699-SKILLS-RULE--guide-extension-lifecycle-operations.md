@@ -11,14 +11,17 @@ relations:
   - CA-R-1722
   - CAPRMEDIO-REQU-702--define-framework-engine-layer-scope
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-699
+ref_id: CA-R-699
 tier: 1
-type: Rule
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Decision
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Decision
+container:
+  scope_unit: CA-SU-23
 ---
 # Guide Extension lifecycle operations
 

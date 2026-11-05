@@ -1,0 +1,25 @@
+{
+  "route": "user-authorized manual Draft creation",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2958",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2958@1-draft-CORE_META_MODEL-DECLARATION--declare-ai-agent.md",
+      "sha256": "b89e4c35ff1d103a3e8695e50baed25ee04315cd9fd4599028ac6c4072451c85",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node/Continuant/Actor/AI Agent"
+    },
+    {
+      "atom_id": "CA-R-2959",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2959@1-draft-CORE_META_MODEL-DECLARATION--declare-subagent.md",
+      "sha256": "115c45ccaf1cc56809222d4bd556a3c82601fe9ce030ea93d985ffdf8b87d937",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node/Continuant/Actor/AI Agent//Subagent"
+    },
+    {
+      "atom_id": "CA-R-2960",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2960@1-draft-CORE_META_MODEL-DECLARATION--declare-main-agent.md",
+      "sha256": "795c83409ed6ed4293dc17a2625860faafde3d1013b957b247ba2ae604d6b2a4",
+      "active_subject": "CAPRMEDIO_MODEL <+ Node/Continuant/Actor/AI Agent//Main Agent"
+    }
+  ]
+}

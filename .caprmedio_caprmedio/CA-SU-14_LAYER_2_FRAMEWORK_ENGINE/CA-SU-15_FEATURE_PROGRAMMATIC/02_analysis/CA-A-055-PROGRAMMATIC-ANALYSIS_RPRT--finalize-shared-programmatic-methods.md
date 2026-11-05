@@ -1,9 +1,9 @@
 ---
-subjects:
-  governs:
+topics:
+  main_subject:
     occurrent:
       - Shared Programmatic Method Finalization
-  depends_on:
+  dependencies:
     continuant:
       - Programmatic Policy
       - Method Authority

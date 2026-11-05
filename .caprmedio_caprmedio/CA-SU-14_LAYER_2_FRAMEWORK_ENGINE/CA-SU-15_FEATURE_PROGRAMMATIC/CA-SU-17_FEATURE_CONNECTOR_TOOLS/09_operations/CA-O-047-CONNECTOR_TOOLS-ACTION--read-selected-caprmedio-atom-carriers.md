@@ -1,16 +1,17 @@
 ---
 atom_id: CA-O-047
-content_role: Operations
-type: Action
+ref_id: CA-O-047
+role: Operations
+form: Action
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: definition
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_READ
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
@@ -26,6 +27,8 @@ relations:
   - CA-M-376
   - CA-D-625
 tier: 3
+container:
+  scope_unit: CA-SU-17
 ---
 # Read selected CAPRMEDIO Atom carriers
 

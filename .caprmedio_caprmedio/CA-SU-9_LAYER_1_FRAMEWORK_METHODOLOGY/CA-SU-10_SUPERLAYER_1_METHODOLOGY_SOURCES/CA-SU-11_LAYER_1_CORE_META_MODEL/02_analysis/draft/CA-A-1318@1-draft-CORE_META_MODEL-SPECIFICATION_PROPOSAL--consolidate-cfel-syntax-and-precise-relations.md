@@ -1,20 +1,20 @@
 ---
 atom_id: CA-A-1318
+ref_id: CA-A-1318@1-draft
 version: 1
 status: Draft
 role: Analysis
 form: Specification Proposal
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
 updated_at: 2026-11-05 04:33:40 +0400
 carrier_destination:
   file:
-    name: CA-A-1318@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--consolidate-cfel-syntax-and-precise-relations.md
+    name: CA-A-1318@1-draft-SPECIFICATION_PROPOSAL--consolidate-cfel-syntax-and-precise-relations.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

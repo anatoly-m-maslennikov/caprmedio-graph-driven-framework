@@ -1,13 +1,14 @@
 ---
 atom_id: CA-R-1799
+ref_id: CA-R-1799
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 version: 20
 updated_at: 2026-11-02 18:35:20 +0400
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
@@ -18,6 +19,12 @@ relations:
 tier: 4
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-1799-CAPRMEDIO-RULE--provide-capabilities-without-forcing-their-execution.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

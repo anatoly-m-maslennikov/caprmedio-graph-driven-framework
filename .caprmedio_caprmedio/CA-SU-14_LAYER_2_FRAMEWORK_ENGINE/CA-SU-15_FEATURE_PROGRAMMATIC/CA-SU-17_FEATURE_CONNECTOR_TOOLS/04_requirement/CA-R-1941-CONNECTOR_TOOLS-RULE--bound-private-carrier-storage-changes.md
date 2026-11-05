@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-1941
-content_role: Requirement
-type: Rule
+ref_id: CA-R-1941
+role: Requirement
+form: Rule
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
+  dependencies:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant/Workflow
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
@@ -20,6 +21,12 @@ relations:
   depends_on:
   - CA-R-1936
 tier: 3
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-R-1941-CONNECTOR_TOOLS-RULE--bound-private-carrier-storage-changes.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/04_requirement
 ---
 # Summary
 

@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
     Structure
 cce_version: cce_1
 cce_form: obligation
@@ -9,12 +9,15 @@ updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-802
+ref_id: CA-R-802
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Definition
+form: Definition
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Define asynchronous commit-provenance Tool topology
 

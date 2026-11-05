@@ -1,10 +1,10 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
@@ -23,17 +23,18 @@ relations:
   - CA-R-2462
   - CA-R-1406
   - CA-R-1437
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-R-1456
+ref_id: CA-R-1456@40-draft
 status: Draft
 tier: 3
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-1456@40-draft-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md
+    name: CA-R-1456@40-draft-RULE--derive-entities-views-from-selected-authority.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

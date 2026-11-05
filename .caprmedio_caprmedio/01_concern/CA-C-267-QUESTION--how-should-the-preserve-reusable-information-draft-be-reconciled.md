@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Subject/Domain/Node/Continuant/Atom
-  depends_on:
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Atom
+  dependencies:
   - Atom/Claim
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
@@ -13,7 +13,6 @@ version: 4
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-267
 ---
 # How should the Preserve reusable information draft be reconciled?

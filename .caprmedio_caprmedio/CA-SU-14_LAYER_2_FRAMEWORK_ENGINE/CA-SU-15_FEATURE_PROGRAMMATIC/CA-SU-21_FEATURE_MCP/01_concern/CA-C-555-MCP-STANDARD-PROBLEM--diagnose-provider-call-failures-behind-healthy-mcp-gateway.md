@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-555
-content_role: Concern
-type: Problem
+ref_id: CA-C-555
+role: Concern
+form: Problem
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
 local_tier: Standard
@@ -11,13 +12,18 @@ author: Anatoly Maslennikov
 version: 3
 updated_at: 2026-10-30 03:11:57 +0400
 priority: high
-subjects:
-  governs: Entity/Node/Continuant/Implementation
-  depends_on: []
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about:
   - CA-R-1811
   - CA-R-2446
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-C-555-MCP-PROBLEM--diagnose-provider-call-failures-behind-healthy-mcp-gateway.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/01_concern
 ---
 # Summary
 

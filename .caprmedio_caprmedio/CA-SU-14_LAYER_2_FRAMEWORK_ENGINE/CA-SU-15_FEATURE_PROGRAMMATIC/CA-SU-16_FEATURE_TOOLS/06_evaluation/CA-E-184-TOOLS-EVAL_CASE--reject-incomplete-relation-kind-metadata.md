@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Relation/Type
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Relation/Type
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -9,12 +9,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-184
+ref_id: CA-E-184
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject incomplete relation-kind metadata
 

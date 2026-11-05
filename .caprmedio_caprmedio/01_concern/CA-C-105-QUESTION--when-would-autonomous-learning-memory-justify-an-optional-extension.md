@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - autonomous-learning-memory
 version: 3

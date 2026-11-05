@@ -1,15 +1,16 @@
 ---
 atom_id: CA-P-2283
-content_role: Plan
-type: Plan
+ref_id: CA-P-2283
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: FRAMEWORK_ENGINE
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
+topics:
+  main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Method'
   - Subject/Graph Node/Engineering/Evaluation
@@ -34,6 +35,12 @@ relations:
   - CA-P-2289
   - CA-P-2292
 tier: 3
+container:
+  atom: CA-P-2281
+carrier_destination:
+  file:
+    name: 2-CA-P-2283-TASK--bind-the-workflow-to-the-new-tools.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/2-CA-P-2281-EPIC--implement-an-rmed-guided-engine-workflow
 ---
 # Summary
 

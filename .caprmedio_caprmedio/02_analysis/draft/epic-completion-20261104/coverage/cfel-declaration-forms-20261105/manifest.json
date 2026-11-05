@@ -1,0 +1,46 @@
+{
+  "status": "FOUR_UNALLOCATED_FORM_ADMISSION_PREVIEWS_REVIEW_REQUIRED",
+  "decision": "Four new Forms under existing Requirement Role; each admitted individually. No new Role, ID letter or Operator descriptor instance.",
+  "rows": [
+    {
+      "form": "Operator Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/operator-declaration.preview.txt",
+      "sha256": "9537d8c04acba9720affdb171f20950fe447b86c2d2d922215bce111d5b0b1c9",
+      "fresh_id_required": true
+    },
+    {
+      "form": "Construct Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/construct-declaration.preview.txt",
+      "sha256": "7b8f758583e4b6f70cbb479b23dac386b1d6539f2667d0aeda0a21c759660160",
+      "fresh_id_required": true
+    },
+    {
+      "form": "Relation Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/relation-declaration.preview.txt",
+      "sha256": "af9dd97e6c260e7272695949678d4bdacad80b405c5725fe815e50435092f760",
+      "fresh_id_required": true
+    },
+    {
+      "form": "Function Declaration",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-declaration-forms-20261105/function-declaration.preview.txt",
+      "sha256": "ef2e44c60699ac76ec855caf79fb4e20af2e721f0938f11b2646b079f97c70a8",
+      "fresh_id_required": true
+    }
+  ],
+  "authority": [
+    {
+      "id": "CA-R-2516",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-atom-role-requirement-form-declaration.md",
+      "sha256": "52fc54576f57e2cd13a7678d19ba23c10019a3e612a0c49817b0eefb2434f567"
+    },
+    {
+      "id": "CA-R-2765",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "sha256": "06c5863629ae52cc481f2b2472dec3cb2e1bfcf1fd2d109f470a98f07809ef62"
+    }
+  ],
+  "limits": [
+    "One Form admission per preview, no enumeration list.",
+    "No native/code/tests/Git mutation; root allocates IDs after review."
+  ]
+}

@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-1968
-content_role: Plan
-type: Plan
+ref_id: CA-P-1968
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 10
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Term
   - Subject/Graph Node/Domain/Continuant/Term//Property
@@ -30,6 +31,12 @@ relations:
   blocks:
   - CA-P-1969
 tier: 3
+container:
+  atom: CA-P-1959
+carrier_destination:
+  file:
+    name: 10-CA-P-1968-EPIC--apply-approved-subject-migration-batches.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done
 ---
 # Summary
 

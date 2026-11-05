@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Atom/Relation
-  depends_on:
+topics:
+  main_subject: Atom/Relation
+  dependencies:
   - Subject/Domain/Node/Continuant/Atom
   - Structural Level
   - Subject/Domain/Node/Continuant/Scope Unit
@@ -14,7 +14,6 @@ version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-159
 ---
 # Which lineage should survive retirement of the Project structural-level alias?

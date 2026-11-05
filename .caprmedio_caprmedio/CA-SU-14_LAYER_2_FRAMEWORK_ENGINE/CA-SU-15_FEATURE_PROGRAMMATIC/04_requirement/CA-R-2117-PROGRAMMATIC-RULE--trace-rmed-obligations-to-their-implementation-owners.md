@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-2117
-content_role: Requirement
-type: Rule
+ref_id: CA-R-2117
+role: Requirement
+form: Rule
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-11-04 23:19:17 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-relations: {}
 tier: 2
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-R-2117-PROGRAMMATIC-RULE--trace-rmed-obligations-to-their-implementation-owners.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
 ---
 # Summary
 

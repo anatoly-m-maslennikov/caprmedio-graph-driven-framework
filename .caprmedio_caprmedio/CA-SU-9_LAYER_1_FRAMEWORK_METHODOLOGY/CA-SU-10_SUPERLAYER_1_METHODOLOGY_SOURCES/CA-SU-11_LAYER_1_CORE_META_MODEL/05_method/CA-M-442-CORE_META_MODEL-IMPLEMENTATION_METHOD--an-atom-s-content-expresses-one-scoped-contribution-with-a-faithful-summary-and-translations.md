@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
@@ -12,12 +12,19 @@ relations:
   - CA-R-2503
   - CA-R-2499
 atom_id: CA-M-442
+ref_id: CA-M-442
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-442-CORE_META_MODEL-IMPLEMENTATION_METHOD--an-atom-s-content-expresses-one-scoped-contribution-with-a-faithful-summary-and-translations.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

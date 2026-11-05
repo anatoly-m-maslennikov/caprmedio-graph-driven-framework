@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Content.Claim'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Content.Claim'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
@@ -13,12 +13,19 @@ relations:
   depends_on:
   - CA-M-264
 atom_id: CA-M-312
+ref_id: CA-M-312
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 6
 role: Method
 form: Eng Decision
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

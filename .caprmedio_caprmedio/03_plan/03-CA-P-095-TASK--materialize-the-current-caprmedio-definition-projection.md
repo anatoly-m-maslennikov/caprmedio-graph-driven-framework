@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Projection
+  dependencies:
   - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
   - Subject/Graph Node/Domain/Continuant/Projection
 version: 10
@@ -15,11 +15,14 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-095
+ref_id: CA-P-095
+container:
+  scope_unit: CA-SU-00
 ---
 # Materialize the current CAPRMEDIO Definition projection
 

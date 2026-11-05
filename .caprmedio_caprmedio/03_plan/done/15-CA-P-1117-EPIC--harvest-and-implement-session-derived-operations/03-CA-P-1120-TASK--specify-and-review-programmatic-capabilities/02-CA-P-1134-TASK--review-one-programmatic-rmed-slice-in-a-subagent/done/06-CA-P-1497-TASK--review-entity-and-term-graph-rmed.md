@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1497
-content_role: Plan
-type: Plan
+ref_id: CA-P-1497
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Implementation Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Implementation Evaluation
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
   - Subject/Graph Node/Engineering/Workflow

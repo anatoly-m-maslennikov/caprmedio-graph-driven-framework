@@ -14,11 +14,7 @@ subjects:
 relations: {}
 ---
 
-```mermaid
-graph TD;
-    step1["Create the requested Atom Draft"];
-    click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--create-the-requested-atom-draft.md" "Open Step";
-```
+
 
 ## Summary
 
@@ -26,37 +22,58 @@ Atom Lifecycle_Create Draft
 
 ## Claim scope
 
-One non-container Draft request under its applicable model: a new Atom or a new Version from one exact Current selector.
+The invocation domain of [Create one Atom Draft](CA-O-draft-PROJECT_CONFIGURATION-ACTION--create-one-atom-draft.md).
 
 ## Claim
 
-This Workflow's Purpose is Runtime. Step order follows [CA-R-1570](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md).
+### Mermaid Scheme
+
+```mermaid
+graph TD;
+    read["Read Workflow input"];
+    check{"Check Draft input"};
+    request[/Request Draft input/];
+    create["Create the requested Atom Draft"];
+    read --> check;
+    check -->|valid input| create;
+    check -->|requested_input| request;
+    request -->|supplied corrections| check;
+    click read "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--read-workflow-input.md" "Open Step";
+    click check "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--check-draft-input.md" "Open Step";
+    click request "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--request-draft-input.md" "Open Step";
+    click create "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--create-the-requested-atom-draft.md" "Open Step";
+```
+
+This Workflow's Purpose is Runtime; its scheme follows [CA-R-1570](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md).
 
 ### Input
 
-Either `newAtom` properties, or an exact `sourceCurrent` selector plus the requested property changes.
+The [Read Workflow input](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--read-workflow-input.md) invocation-port contract supplies either `newAtom` properties, or an exact `sourceCurrent` selector plus requested property changes.
 
-The Project, applicable model, authorization and required destinations are bound from the request and Project configuration. They are execution context, not additional proof or receipt inputs.
+The `projectContext` input port binds the Project, applicable model, and authorization.
+
+A nested `sourceCurrent` invocation also binds the internal `expectedSource` defined by [CA-R-1432](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md).
 
 ### Output
 
-The saved Draft, including its carried marker, Version and location. No canonical ID is allocated for a role-only Draft.
-
-On failure, return the explicit error and actual completed results under [CA-R-1432](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md). A partially completed operation does not report uncompleted effects as successful.
+The `savedDraft`, `requested_input`, intermediate results, warnings, and failure result.
 
 ### Step handoffs
 
-| Step | Receives | Produces | Next |
-| --- | --- | --- | --- |
-| [Create the requested Atom Draft](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--create-the-requested-atom-draft.md) | The selected input form and execution context | Saved Draft | Return the Draft |
+| Step | Receives | Produces |
+| --- | --- | --- |
+| [Read Workflow input](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--read-workflow-input.md) | invocation dictionary and `projectContext` | accumulated `parameters` |
+| [Check Draft input](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--check-draft-input.md) | accumulated `parameters` and `projectContext` | logical `parameters`, `requested_input`, and warnings |
+| [Request Draft input](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--request-draft-input.md) | `parameters`, `requested_input`, warnings, and `projectContext` | supplied corrections, warnings and intermediate results |
+| [Create the requested Atom Draft](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-create-draft/CA-O-draft-PROJECT_CONFIGURATION-STEP--create-the-requested-atom-draft.md) | validated caller-bound `parameters`, warnings, `projectContext`, and any internal `expectedSource` | `savedDraft`, warnings, or a failure result |
 
 ### Logical switches
 
-This Workflow has one Step and no alternate Step route. These cases are selected or rejected inside its Action; they do not add Workflow Steps.
-
 | Condition | Behavior |
 | --- | --- |
-| Current source supplied | The Action reads all Current properties and applies only the supplied changes; omitted properties are retained. |
-| New Atom requested | The Action uses the supplied new-Atom properties. |
-| Merged Summary and Role match the Current | The Action creates an existing-Atom Draft marker proposing Version N+1. |
-| New Atom, or changed Summary/Role | The Action creates a role-only Draft; its fresh canonical ID is allocated during Promote. |
+| Entry | Read Workflow input, then Check Draft input. |
+| Check Draft input returns empty `requested_input` | Run Create the requested Atom Draft. |
+| Check Draft input returns nonempty `requested_input` | Run Request Draft input and keep this Workflow incomplete while it waits. |
+| Request Draft input supplies corrections | Check Draft input again; its Step defines the correction merge. |
+| Create the requested Atom Draft returns `savedDraft` | Complete successfully. |
+| A failure result is returned | Terminate under [CA-R-1432](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md). |

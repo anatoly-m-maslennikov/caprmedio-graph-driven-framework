@@ -1,11 +1,12 @@
 ---
 atom_id: CA-R-2156
+ref_id: CA-R-2156
 current_scope_unit: caprmedio
 status: Active
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Actor
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Actor
+  dependencies:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
@@ -18,6 +19,12 @@ cce_version: cce_1
 cce_form: classification
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-2156-CAPRMEDIO-RULE--distinguish-human-operators-from-ai-agents.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

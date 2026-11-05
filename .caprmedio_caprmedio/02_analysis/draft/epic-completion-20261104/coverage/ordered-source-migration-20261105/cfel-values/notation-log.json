@@ -1,0 +1,7 @@
+{
+  "status":"CONTEXT_REVIEW_REQUIRED_NOT_APPLIED",
+  "safe_contexts":["YAML front-matter subjects mapping","Claim-contained CFEL/GFEL fence outside quoted literals and comments"],
+  "transform_order":["metadata subjects to topics","Claim address Subjects.Active/Passive/parent to Topics","allowed-count {:x} to {::x}","allowed-value format : [format] to :: [format]"],
+  "ambiguous_or_held":["colon block delimiters","quoted strings and escapes","comments","path syntax","conditions =","conclusions ==","any slash occurrence","unknown Relation endpoint context"],
+  "preservation":"The prepared packet records current preimage and predicted postimage SHA plus absolute span, old text, new text, and context for every replacement. Format operations alter only the colon character, so quoted format contents are preserved. protect/restore masking preserves quoted values and comments; any non-token span is a hold."
+}

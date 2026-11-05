@@ -1,11 +1,11 @@
 ---
 atom_id: CA-R-2735
+ref_id: CA-R-2735
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)
 version: 1
 updated_at: '2026-11-04 00:31:19 +0400'
-relations: {}
 tier: 3
 role: Requirement
 form: Declaration

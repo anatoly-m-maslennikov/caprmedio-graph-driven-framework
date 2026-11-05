@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1716
-content_role: Plan
-type: Plan
+ref_id: CA-P-1716
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Active
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release
+  dependencies:
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Implementation
@@ -26,6 +27,12 @@ relations:
   blocks:
   - CA-P-1624
 tier: 3
+container:
+  atom: CA-P-1713
+carrier_destination:
+  file:
+    name: 1-CA-P-1716-TASK--connect-explicit-release-recovery-to-queue-and-mcp.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/5-CA-P-1643-TASK--integrate-release-actions-and-admission/25-CA-P-1713-TASK--persist-and-recover-typed-release-frontiers
 ---
 # Summary
 

@@ -2,13 +2,13 @@
 atom_id: CA-A-901
 cce_version: cce_1
 cce_form: rationale
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - ontology-like-authority
       - Core Meta-Model
       - Framework Methodology
-  depends_on:
+  dependencies:
     continuant:
       - Project Configuration
       - CAPRMEDIO Graph

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-482
-content_role: Concern
-type: Question
+ref_id: CA-C-482
+role: Concern
+form: Question
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 local_tier: Standard
 global_tier: 14
@@ -9,9 +10,9 @@ status: active
 author: Anatoly Maslennikov
 version: 3
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Release Version/Host Executor
-  depends_on:
+topics:
+  main_subject: Release Version/Host Executor
+  dependencies:
   - Release Version
   - Subject/Domain/Node/Occurrent/Execution/Workflow Run
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
@@ -21,6 +22,8 @@ subjects:
   - Implementation
 relations:
   concern_about: [CA-R-1891, CA-M-347, CA-D-583, CA-E-590]
+container:
+  scope_unit: CA-SU-2
 ---
 # Summary
 

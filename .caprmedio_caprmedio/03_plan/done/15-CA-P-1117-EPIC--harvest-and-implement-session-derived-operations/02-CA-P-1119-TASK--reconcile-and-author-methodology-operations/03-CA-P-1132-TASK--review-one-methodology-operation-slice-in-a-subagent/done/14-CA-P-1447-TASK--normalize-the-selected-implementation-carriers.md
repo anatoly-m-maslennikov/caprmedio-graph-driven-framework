@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1447
-content_role: Plan
-type: Plan
+ref_id: CA-P-1447
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 14
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ assignee: AI Agent
 status: Done
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Carrier
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Carrier
+  dependencies:
   - Subject/Graph Node/Engineering/Workflow
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
   - Subject/Graph Node/Engineering/Action

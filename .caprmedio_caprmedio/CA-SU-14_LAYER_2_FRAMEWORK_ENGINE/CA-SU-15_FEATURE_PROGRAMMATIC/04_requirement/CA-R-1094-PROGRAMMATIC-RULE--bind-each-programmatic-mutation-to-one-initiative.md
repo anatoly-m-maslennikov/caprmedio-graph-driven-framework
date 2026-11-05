@@ -1,18 +1,24 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect
     Authorization
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 atom_id: CA-R-1094
-content_role: Requirement
+ref_id: CA-R-1094
+role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-R-1094-PROGRAMMATIC-RULE--bind-each-programmatic-mutation-to-one-initiative.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
 ---
 # Summary
 

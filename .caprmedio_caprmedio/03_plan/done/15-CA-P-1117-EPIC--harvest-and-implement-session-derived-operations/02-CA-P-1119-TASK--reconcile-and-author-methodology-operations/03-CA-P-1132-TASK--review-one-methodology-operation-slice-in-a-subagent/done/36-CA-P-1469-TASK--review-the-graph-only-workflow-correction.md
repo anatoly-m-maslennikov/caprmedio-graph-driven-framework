@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1469
-content_role: Plan
-type: Plan
+ref_id: CA-P-1469
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 36
 current_scope_unit: caprmedio
@@ -10,9 +11,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-subjects:
-  governs: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
+topics:
+  main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'

@@ -1,18 +1,21 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
 llm_session_ids:
 - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 atom_id: CA-R-1069
+ref_id: CA-R-1069
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Rule
+form: Rule
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Generate active Atom history
 

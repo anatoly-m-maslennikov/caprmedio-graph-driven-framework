@@ -8,9 +8,9 @@ relations:
   - CA-R-1421
   - CA-R-815
   - CA-M-006
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
@@ -19,12 +19,15 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-832
+ref_id: CA-R-832
 status: Active
 current_scope_unit: caprmedio
 tier: 5
 claim_target_scope_unit: FRAMEWORK_ENGINE
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 Select optional capabilities through Configuration

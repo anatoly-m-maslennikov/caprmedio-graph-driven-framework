@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
@@ -15,17 +15,18 @@ relations:
   - CA-R-2465
   - CA-M-305
   - CA-D-467
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-E-500
+ref_id: CA-E-500@29-draft
 status: Draft
 tier: 4
 role: Evaluation
 form: Eval Case
 carrier_destination:
   file:
-    name: CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md
+    name: CA-E-500@29-draft-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

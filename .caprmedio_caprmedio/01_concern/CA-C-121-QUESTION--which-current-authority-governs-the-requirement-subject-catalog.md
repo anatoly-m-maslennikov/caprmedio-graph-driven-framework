@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Requirement Subject Catalog
-  depends_on:
+topics:
+  main_subject: Requirement Subject Catalog
+  dependencies:
   - Subject/Domain/Node/Continuant/Atom.Subjects
   - Atom/Local Tier
   - Subject/Domain/Node/Continuant/Scope Unit
@@ -14,7 +14,6 @@ version: 5
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-121
 ---
 # Which current authority governs the Requirement Subject Catalog?

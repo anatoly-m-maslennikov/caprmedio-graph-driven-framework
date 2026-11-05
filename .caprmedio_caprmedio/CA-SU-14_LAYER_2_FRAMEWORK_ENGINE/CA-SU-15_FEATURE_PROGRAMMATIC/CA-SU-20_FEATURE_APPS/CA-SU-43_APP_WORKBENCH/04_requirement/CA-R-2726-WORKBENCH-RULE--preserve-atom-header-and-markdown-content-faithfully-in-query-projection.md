@@ -1,5 +1,6 @@
 ---
 atom_id: CA-R-2726
+ref_id: CA-R-2726
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
@@ -8,14 +9,15 @@ role: Requirement
 form: Rule
 tier: 3
 version: 4
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-relations: {}
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 carrier_destination:
   file:
-    name: CA-R-2726-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-query-projection.md
+    name: CA-R-2726-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-the-query-projection.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
 updated_at: 2026-11-04 21:06:25 +0400
+container:
+  scope_unit: CA-SU-43
 ---
 ## Summary
 

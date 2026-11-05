@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1140
-content_role: Plan
-type: Plan
+ref_id: CA-P-1140
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 4
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: FRAMEWORK_ENGINE
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Implementation Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Implementation Evaluation
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
 version: 6
@@ -20,6 +21,12 @@ relations:
   is_decomposition_of:
   - CA-P-1122
 tier: 3
+container:
+  atom: CA-P-1122
+carrier_destination:
+  file:
+    name: 4-CA-P-1140-TASK--review-and-functionally-verify-one-implementation-slice.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities
 ---
 # Summary
 

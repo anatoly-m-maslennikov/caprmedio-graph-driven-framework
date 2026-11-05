@@ -19,7 +19,7 @@ Apply the requested Direct Atom Update
 
 ## Claim scope
 
-The sole Step of [Atom Lifecycle_Update Atom Directly](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom-directly.md), for one non-container Atom.
+One bound non-container Atom within [Atom Lifecycle_Update Atom Directly](../CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom-directly.md).
 
 ## Claim
 
@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Exact non-container target; requested changes; applicable model; Scope Unit; expected source/currentness; placement; authorization.
+Selected Atom; requested changes; `projectContext`; and any existing expected-source binding.
 
 ### Fixed parameters
 
@@ -37,8 +37,8 @@ None.
 
 ### Runs
 
-The Action [Apply one Direct Atom Update](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--apply-one-direct-atom-update.md) under [CA-R-2638](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2638-CORE_META_MODEL-DECLARATION--define-runs.md). Bind the inputs under [CA-R-2639](../../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2639-CORE_META_MODEL-RULE--bind-step-parameters.md).
+The Action [Apply one Direct Atom Update](../CA-O-draft-PROJECT_CONFIGURATION-ACTION--apply-one-direct-atom-update.md).
 
 ### Outputs
 
-The Action's saved Atom or its explicit error with completed results, passed unchanged.
+The called Action's declared Outputs.

@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Relation/Type: child_of'
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
@@ -10,12 +10,15 @@ relations:
   evaluation_for:
   - CA-R-1137
 atom_id: CA-E-115
+ref_id: CA-E-115
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject same scope tier direction
 

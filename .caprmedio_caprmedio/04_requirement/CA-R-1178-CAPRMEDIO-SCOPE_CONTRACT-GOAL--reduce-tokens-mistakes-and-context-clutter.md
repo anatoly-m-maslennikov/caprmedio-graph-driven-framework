@@ -1,24 +1,26 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_MODEL <+ Project
 version: 28
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-1178
+ref_id: CA-R-1178
 status: Active
 current_scope_unit: caprmedio
 tier: 0
 claim_target_scope_unit: FRAMEWORK_ENGINE
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 

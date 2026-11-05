@@ -1,16 +1,22 @@
 ---
 atom_id: CA-C-610
-content_role: Concern
-type: Question
+ref_id: CA-C-610
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 tier: 3
 version: 1
 updated_at: 2026-10-29 08:44:43 +0400
-subjects:
-  governs: 'Entity/Aspect/Product: CAPRMEDIO Framework'
-relations: {}
+topics:
+  main_subject: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-C-610-CAPRMEDIO-QUESTION--which-runtime-owns-automatic-context-initialization.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 ## Summary
 

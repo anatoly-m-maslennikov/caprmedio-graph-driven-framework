@@ -1,16 +1,17 @@
 ---
 atom_id: CA-M-377
-content_role: Method
-type: Eng Decision
+ref_id: CA-M-377
+role: Method
+form: Eng Decision
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-11-02 19:44:26 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Scope Unit
@@ -20,6 +21,12 @@ relations:
   - CA-M-376
   - CA-D-625
 tier: 3
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-M-377-CONNECTOR_TOOLS-ENG_DECISION--construct-a-declared-scope-unit-query-adapter.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/05_method
 ---
 # Summary
 

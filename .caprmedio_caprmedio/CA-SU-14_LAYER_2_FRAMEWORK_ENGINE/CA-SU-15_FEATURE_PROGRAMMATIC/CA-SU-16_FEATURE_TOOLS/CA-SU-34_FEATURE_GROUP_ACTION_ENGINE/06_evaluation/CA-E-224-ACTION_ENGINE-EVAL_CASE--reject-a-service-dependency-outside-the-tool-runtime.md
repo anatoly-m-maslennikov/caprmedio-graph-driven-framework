@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
     Structure
 version: 21
 updated_at: 2026-11-02 19:44:26 +0400
@@ -11,13 +11,16 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-224
+ref_id: CA-E-224
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: ACTION_ENGINE
-type: Eval Case
+form: Eval Case
 tier: 3
 claim_target_scope_unit: ACTION_ENGINE
+container:
+  scope_unit: CA-SU-34
 ---
 # Reject a service dependency outside the Tool runtime
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1979
-content_role: Plan
-type: Plan
+ref_id: CA-P-1979
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Requirement'
@@ -30,6 +31,12 @@ relations:
   - CA-P-1980
   - CA-P-1982
 tier: 3
+container:
+  atom: CA-P-1978
+carrier_destination:
+  file:
+    name: 1-CA-P-1979-TASK--review-current-subject-tool-rmedo.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/1-CA-P-1978-TASK--review-and-update-rmedo-for-subject-tools/done
 ---
 # Summary
 

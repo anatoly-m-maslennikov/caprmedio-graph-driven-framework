@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1083
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1083
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Historical Evaluation serialization and eligibility reconciliation
-  depends_on:
+topics:
+  main_subject: Historical Evaluation serialization and eligibility reconciliation
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Evaluation
   - Atom/Revision
@@ -26,6 +27,8 @@ relations:
   - CA-A-1023
   - CA-A-1028
   - CA-C-366
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

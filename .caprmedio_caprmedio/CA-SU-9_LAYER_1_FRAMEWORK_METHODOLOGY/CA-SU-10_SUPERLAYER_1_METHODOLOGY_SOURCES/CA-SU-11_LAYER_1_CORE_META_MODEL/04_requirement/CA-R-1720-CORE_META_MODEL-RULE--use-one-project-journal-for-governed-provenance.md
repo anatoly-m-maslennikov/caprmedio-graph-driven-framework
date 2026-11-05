@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Journal
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Journal
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   - CAPRMEDIO_MODEL <+ Project
@@ -19,12 +19,19 @@ relations:
   child_of:
   - CA-R-007
 atom_id: CA-R-1720
+ref_id: CA-R-1720
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

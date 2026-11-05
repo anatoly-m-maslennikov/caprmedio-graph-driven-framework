@@ -1,0 +1,336 @@
+{
+  "status": "PROPOSAL_NOT_NATIVE_AUTHORITY",
+  "source_inventory": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-final-review-20261105/syntax-coverage.json",
+    "sha256": "ee932fc1cf4077742280d325fb76ab8b97dce70767522bc0a48a7b9bd1613bbe"
+  },
+  "scope": "49 syntax items mapped to individual approved Subject layout and one of four Declaration Forms, or retained generic CFEL language Declaration. Names are proposed semantic labels, not new entity declarations; no Category carrier.",
+  "rows": [
+    {
+      "item": "+",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Addition"
+    },
+    {
+      "item": "==",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Required Value"
+    },
+    {
+      "item": "=",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Equality"
+    },
+    {
+      "item": ">=",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Greater Than or Equal"
+    },
+    {
+      "item": ">",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Greater Than"
+    },
+    {
+      "item": "<=",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Less Than or Equal"
+    },
+    {
+      "item": "<",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Less Than"
+    },
+    {
+      "item": "!=",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Inequality"
+    },
+    {
+      "item": "()",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Grouping"
+    },
+    {
+      "item": "*",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Immediate Property Selection"
+    },
+    {
+      "item": "**",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Recursive Property Selection"
+    },
+    {
+      "item": "$ participant selection",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Participant Binding"
+    },
+    {
+      "item": "[] Format",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Format"
+    },
+    {
+      "item": "<> Model reference",
+      "proposed_form": "Operator Declaration",
+      "status": "USER_APPROVED_LAYOUT",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Model Reference"
+    },
+    {
+      "item": "in",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Membership"
+    },
+    {
+      "item": "not in",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Membership"
+    },
+    {
+      "item": "!() delivery exclusion",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Delivery Exclusion"
+    },
+    {
+      "item": ">> delivery",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Delivery"
+    },
+    {
+      "item": "?== default",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Default"
+    },
+    {
+      "item": "AND",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Conjunction"
+    },
+    {
+      "item": "OR",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Disjunction"
+    },
+    {
+      "item": "FOR EACH",
+      "proposed_form": "Construct Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Construct//Universal Quantification"
+    },
+    {
+      "item": "IF / THEN",
+      "proposed_form": "Construct Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Construct//Conditional",
+      "note": "Conditional construct."
+    },
+    {
+      "item": "IF / THEN / ELSE",
+      "proposed_form": "Construct Declaration",
+      "status": "ELSE_SEMANTICS_PENDING",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Construct//Conditional",
+      "note": "ELSE behavior and binding scope remain pending."
+    },
+    {
+      "item": "((Relation))",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Relation Direction",
+      "note": "Generic named direction notation; individual semantic name requires review; concrete Relations own their meanings."
+    },
+    {
+      "item": "<((Relation))",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Relation Direction",
+      "note": "Generic named direction notation; individual semantic name requires review; concrete Relations own their meanings."
+    },
+    {
+      "item": "HAS_ALLOWED_VALUE :=",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//HAS_ALLOWED_VALUE",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "HAS_VALUE_CONSTRAINT ::",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//HAS_VALUE_CONSTRAINT",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "IS_PROPERTY_OF .",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//IS_PROPERTY_OF",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "HAS_NARROWER //",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//HAS_NARROWER",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "CONTAINS /",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//CONTAINS",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "IS_CONTAINED_BY +>",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//IS_CONTAINED_BY",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "HAS_CLASSIFICATION >| and |<",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//HAS_CLASSIFICATION",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "HAS_INVERSE <-->",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//HAS_INVERSE",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "qualified Subject :=",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//HAS_ALLOWED_VALUE",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": "VALUES",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//VALUES",
+      "note": "Pure function."
+    },
+    {
+      "item": "COUNT",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//COUNT",
+      "note": "Pure function."
+    },
+    {
+      "item": "MAX",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//MAX",
+      "note": "Pure function."
+    },
+    {
+      "item": "LOOKUP",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//LOOKUP",
+      "note": "Pure function."
+    },
+    {
+      "item": "FENCED_LABELS",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//FENCED_LABELS",
+      "note": "Pure function."
+    },
+    {
+      "item": "alias",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//alias",
+      "note": "Pure function."
+    },
+    {
+      "item": "UNIQUE",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//UNIQUE",
+      "note": "Boolean-result predicate."
+    },
+    {
+      "item": "DETERMINES",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//DETERMINES",
+      "note": "Boolean-result predicate."
+    },
+    {
+      "item": "DISTINCT",
+      "proposed_form": "Function Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Function//COUNT",
+      "note": "DISTINCT is a modifier owned by COUNT, not its own Function."
+    },
+    {
+      "item": ";",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Expression Separator"
+    },
+    {
+      "item": "# model / # instances",
+      "proposed_form": "retained generic CFEL language Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL",
+      "note": "Ordering comments are whole-language syntax."
+    },
+    {
+      "item": ": FOR EACH delimiter",
+      "proposed_form": "Construct Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Construct//Universal Quantification",
+      "note": "Header punctuation belongs to construct."
+    },
+    {
+      "item": "| HAV alternatives",
+      "proposed_form": "Relation Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Relation//HAS_ALLOWED_VALUE",
+      "note": "Relation alias or contextual spelling; review canonical direction and inverse-alias ownership."
+    },
+    {
+      "item": ", in list",
+      "proposed_form": "Operator Declaration",
+      "status": "PROPOSED_NAME_REVIEW",
+      "subject": "CAPRMEDIO_MODEL/CFEL/Operator//Membership",
+      "note": "List punctuation belongs to membership syntax."
+    }
+  ],
+  "unresolved": [
+    "Semantic names beyond explicitly approved Model Reference and Conditional require source ownership review.",
+    "ELSE behavior and binding scope remain pending.",
+    "Canonical relation ownership and inverse-alias direction require integration review; fixed Model references follow settled policy."
+  ],
+  "model_reference_preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-format-model-instance-20261105/model-reference/CA-R-UNALLOCATED-model-reference.preview.txt"
+}

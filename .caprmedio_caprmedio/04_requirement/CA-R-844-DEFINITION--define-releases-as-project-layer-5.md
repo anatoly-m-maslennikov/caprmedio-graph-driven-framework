@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit.Project Boundary Position
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.Project Boundary Position
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Scope Unit.order.number
@@ -14,12 +14,19 @@ relations:
   child_of:
   - CA-R-2450
 atom_id: CA-R-844
+ref_id: CA-R-844
 status: Active
 current_scope_unit: caprmedio
 tier: 1
 claim_target_scope_unit: caprmedio
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-844-CAPRMEDIO-RULE--define-releases-as-project-layer-5.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

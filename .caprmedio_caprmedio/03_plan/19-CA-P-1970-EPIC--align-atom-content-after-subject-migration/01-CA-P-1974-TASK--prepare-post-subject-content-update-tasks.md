@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1974
-content_role: Plan
-type: Plan
+ref_id: CA-P-1974
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Projection
@@ -24,6 +25,12 @@ relations:
   is_decomposition_of:
   - CA-P-1970
 tier: 3
+container:
+  atom: CA-P-1970
+carrier_destination:
+  file:
+    name: 1-CA-P-1974-TASK--prepare-post-subject-content-update-tasks.md
+    path: .caprmedio_caprmedio/03_plan/19-CA-P-1970-EPIC--align-atom-content-after-subject-migration
 ---
 # Summary
 

@@ -6,9 +6,9 @@ relations:
   - CA-R-846
   evaluation_for:
   - CA-R-846
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
@@ -19,11 +19,18 @@ cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-230
+ref_id: CA-E-230
 status: Active
 current_scope_unit: caprmedio
 tier: 5
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-E-230-CAPRMEDIO-EVAL_CASE--evaluate-operator-control-of-ai-permissions.md
+    path: .caprmedio_caprmedio/06_evaluation
 ---
 ## Summary
 

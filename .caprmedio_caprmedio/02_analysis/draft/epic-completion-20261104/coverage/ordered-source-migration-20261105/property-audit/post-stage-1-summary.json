@@ -1,0 +1,81 @@
+{
+  "status": "POST_STAGE_1_PROPERTY_SHAPE_CHECK_NOT_FULL_SCHEMA_VALIDATION",
+  "receipt": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/metadata/adoption-receipt.json",
+    "sha256": "c1ab6dc0f7a85778253e434c2f57d829cb7e24d8da362f299e4988ff3e6fc415",
+    "operation_count": 4544
+  },
+  "snapshot": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/snapshot.json",
+    "sha256": "59723f799a305f7519aae2acea0bb7008c3865484ec7afdd19ab89e99be0714d"
+  },
+  "counts": {
+    "carriers": 4639,
+    "classes": {
+      "Current": 4386,
+      "Draft": 253
+    },
+    "checks": {
+      "carrier_destination.file.name:missing": 4217,
+      "carrier_destination.file.name:ok": 422,
+      "carrier_destination.file.path:missing": 4217,
+      "carrier_destination.file.path:ok": 422,
+      "container:effective_default": 1,
+      "container:missing": 4637,
+      "container:ok": 1,
+      "form:missing": 3209,
+      "form:ok": 1430,
+      "role:missing": 3209,
+      "role:ok": 1430,
+      "role_form_admission:declared_unknown": 4636,
+      "role_form_admission:ok_staged": 3,
+      "topics.dependencies:inconsistent": 17,
+      "topics.dependencies:missing_optional": 1334,
+      "topics.dependencies:ok": 3288,
+      "topics.main_subject:inconsistent": 18,
+      "topics.main_subject:missing": 95,
+      "topics.main_subject:ok": 4526
+    }
+  },
+  "findings": [
+    {
+      "field": "topics.main_subject",
+      "missing": 95,
+      "of_missing_with_legacy_subjects": 2,
+      "missing_without_legacy_subjects": 93,
+      "inconsistent": 18,
+      "inconsistent_shapes": "all 18 are mappings, not strings",
+      "interpretation": "prospective one-string decision; preserve inherited legacy values and choose meaning with evidence."
+    },
+    {
+      "field": "topics.dependencies",
+      "inconsistent": 17,
+      "inconsistent_shapes": "15 mappings and 2 lists containing non-string entries",
+      "missing_optional": 1334,
+      "interpretation": "zero entries permitted; invalid shapes need per-carrier review rather than value guessing."
+    },
+    {
+      "field": "role/form",
+      "missing_each": 3209,
+      "interpretation": "required scalar fields per Current declarations; many legacy sources need evidence-based mapping; role/Form pair admission remains unverified except staged four forms."
+    },
+    {
+      "field": "carrier_destination.file.name/path",
+      "missing_each": 4217,
+      "interpretation": "Current required properties; target directory and filename require an approved destination plan; do not infer a Draft target from its present carrier."
+    },
+    {
+      "field": "container",
+      "missing": 4637,
+      "root_effective_default": 1,
+      "present_shape_ok": 1,
+      "interpretation": "prospective Draft schema, Current still uses legacy relations; inspect each legacy target before converting."
+    }
+  ],
+  "limits": [
+    "Missing optional fields and declared_unknown are not failures.",
+    "This checks specified field shapes only, not every Atom Property or full semantics.",
+    "User-defined Topics obligations and Container Draft are not yet Current; do not describe them as violations of Current source.",
+    "Source scope and bytes can change; refresh on later migration stages."
+  ]
+}

@@ -1,15 +1,16 @@
 ---
 atom_id: CA-M-463
+ref_id: CA-M-463
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 status: Active
-version: 5
+version: 6
 author: Anatoly Maslennikov
 role: Method
 form: Eng Decision
 tier: 4
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   method_for:
   - CA-R-2725
@@ -18,7 +19,9 @@ carrier_destination:
   file:
     name: CA-M-463-WORKBENCH_BACKEND-ENG_DECISION--keep-duckdb-projection-ownership-in-the-existing-server.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method
-updated_at: 2026-11-05 17:09:51 +0400
+updated_at: 2026-11-05 20:32:03 +0400
+container:
+  scope_unit: CA-SU-45
 ---
 
 ## Summary
@@ -37,6 +40,8 @@ Keep one serialized DuckDB owner in the existing application. Store its rebuilda
 
 Materialize each Run once. Direct query_run returns a stable query ID, original column metadata, exact total counts and its first page; View Run returns only execution metadata and a query ID, and its rows are fetched separately. Read subsequent pages from that materialized result, including after source refresh. Default to 100 rows per page and allow 1 through 1,000. Reject invalid sizes, offsets and unknown IDs explicitly. No hidden row limit changes the query result.
 
-Keep reachable materialized Run results until their View replaces/removes them or the owner closes. If first-page conversion fails before the caller receives a query ID, remove that result registration and cache table before returning the error. A later page-conversion error keeps the caller's known result ID available for other pages. Rebuild the Projection and clear old query results at startup; result IDs do not survive restart. Check counts without transferring all result rows to Python and discards its own materialized result.
+Keep a materialized Run result while its age is less than the positive `result_ttl_seconds` setting, or while its owner View is open. Read `[workbench].result_ttl_seconds` from `.caprmedio_runtime/caprmedio_runtime_settings.toml` only when the Workbench starts; its default is `3600`, it must be a positive integer, and an edit takes effect only through explicit Workbench restart. Do not hot-reload or edit this setting through MCP. Closing a View only unpins its result, so a young closed-View result remains reachable. Editing a View's SQL preserves its last Run result until a valid rerun begins. Validate structured Run/View arguments before releasing an existing result. Once valid rerun execution begins, release the old View result before native execution, even when the new SQL then fails. Rebuild the Projection and clear all old query results at startup; result IDs do not survive restart.
+
+Query result tables are DuckDB-owned disposable runtime data. Do not add a manual result-file or configuration staging layer, write settings, create a second cache, or restore discarded result state. If first-page conversion fails before the caller receives a query ID, remove that result registration and cache table before returning the error. A later page-conversion error keeps the caller's known result ID available for other pages. Check counts without transferring all result rows to Python and discards its own materialized result.
 
 Serialize source refresh, Run, Page and Check through the same owner. Requests remain synchronous. Do not add a database server, queue, planner, scheduler, orchestrator or background query worker. Release successful parsed-source caches after refresh; retain failed-source signatures so unchanged invalid inputs are not retried.

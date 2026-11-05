@@ -1,17 +1,23 @@
 ---
 atom_id: CA-A-1291
-content_role: Analysis & Advisory
-type: Specification Proposal
+ref_id: CA-A-1291
+role: Analysis & Advisory
+form: Specification Proposal
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Model::CAPRMEDIO::Graph Syntax.Format Notation
+topics:
+  main_subject: Model::CAPRMEDIO::Graph Syntax.Format Notation
 version: 2
-relations: {}
 tier: 3
 updated_at: 2026-11-02 15:49:28 +0400
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1291-CAPRMEDIO-SPECIFICATION_PROPOSAL--materialize-value-expressions-inside-format-conditions.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

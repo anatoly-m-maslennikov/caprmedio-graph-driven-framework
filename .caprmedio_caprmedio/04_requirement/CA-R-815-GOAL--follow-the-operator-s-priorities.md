@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
@@ -15,12 +15,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-815
+ref_id: CA-R-815
 status: Active
 current_scope_unit: caprmedio
 tier: 4
 claim_target_scope_unit: FRAMEWORK_ENGINE
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 Follow the Operator's priorities

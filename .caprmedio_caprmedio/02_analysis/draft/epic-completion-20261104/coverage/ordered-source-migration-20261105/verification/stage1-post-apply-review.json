@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS_STAGE1_WITH_HELD_DECLARED_KEYS",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/metadata/adoption-plan.json",
+  "plan_sha256": "dbbd4a2b5ccb7cfc0f13f3acf231c36426dcdf3a9967401eac4fbc6d9fc9ba3c",
+  "receipt_status": "APPLIED_VERIFIED",
+  "receipt_hash_match": true,
+  "operation_count": 4544,
+  "output_count": 4544,
+  "unique_operation_paths": 4544,
+  "output_path_set_matches_operations": true,
+  "failure_count": 0,
+  "failures": [],
+  "topic_value_types_preserved": {
+    "dict": 33,
+    "str": 4526,
+    "list": 3290
+  },
+  "explicit_holds": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-065-ANALYSIS_RPRT--compare-caprmedio-work-execution-architectures.md",
+      "unchanged": true,
+      "reason": "unmapped subject keys: ['declared']"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/CA-A-066-ANALYSIS_RPRT--recommend-a-staged-caprmedio-work-execution-direction.md",
+      "unchanged": true,
+      "reason": "unmapped subject keys: ['declared']"
+    }
+  ],
+  "checks": "Compared actual bytes and each plan before/after hash, independently decoded YAML headers preserving all unchanged fields and renamed Topic values, and compared Markdown body bytes.",
+  "scope": "Stage 1 key rename applied to selected native Current and Draft carriers; legacy Topic value conformance, property checks, destination calculation, physical movement, CFEL specification promotion and runtime are not established."
+}

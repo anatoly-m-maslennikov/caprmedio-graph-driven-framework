@@ -1,23 +1,23 @@
 ---
 atom_id: CA-R-2276
+ref_id: CA-R-2276@7-draft
 status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 version: 7
 updated_at: 2026-11-04 18:25:15 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 1
 role: Requirement
 form: Rule
 carrier_destination:
   file:
-    name: CA-R-2276@7-draft-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md
+    name: CA-R-2276@7-draft-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

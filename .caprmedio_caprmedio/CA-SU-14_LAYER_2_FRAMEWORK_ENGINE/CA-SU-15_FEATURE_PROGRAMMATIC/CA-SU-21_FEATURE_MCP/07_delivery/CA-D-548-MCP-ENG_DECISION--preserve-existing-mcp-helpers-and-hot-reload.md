@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-548
-content_role: Delivery
+ref_id: CA-D-548
+role: Delivery
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 11
 updated_at: 2026-10-27 19:59:27 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
@@ -19,8 +20,14 @@ relations:
   delivery_for:
   - CA-R-1847
   - CA-R-1848
-type: Eng Decision
+form: Eng Decision
 tier: 4
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-D-548-MCP-ENG_DECISION--preserve-existing-mcp-helpers-and-hot-reload.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/07_delivery
 ---
 # Summary
 

@@ -1,7 +1,7 @@
 ---
 atom_id: CA-E-draft
-content_role: Evaluation
-type: QA Case
+role: Evaluation
+form: QA Case
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 tier: 3
@@ -9,9 +9,9 @@ status: Draft
 author: Anatoly Maslennikov
 version: 2
 updated_at: "2026-10-23 19:09:45 +0400"
-subjects:
-  governs: "Subject/Engineering/Source Unit Responsibility"
-  depends_on:
+topics:
+  main_subject: "Subject/Engineering/Source Unit Responsibility"
+  dependencies:
     - "Subject/Engineering/Implementation Cohesion"
     - "Subject/Engineering/Outcome Evidence"
 relations:
@@ -20,6 +20,8 @@ relations:
     - CA-R-2117
     - CA-M-431
     - CA-M-411
+container:
+  scope_unit: CA-SU-15
 ---
 # Summary
 

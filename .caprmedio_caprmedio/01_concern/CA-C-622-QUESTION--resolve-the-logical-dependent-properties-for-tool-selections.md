@@ -1,15 +1,17 @@
 ---
 atom_id: CA-C-622
+ref_id: CA-C-622
 current_scope_unit: caprmedio
 status: Canceled
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
 version: 3
-relations: {}
 tier: 3
 role: Concern
 form: Question
 updated_at: 2026-11-02 16:48:11 +0400
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 

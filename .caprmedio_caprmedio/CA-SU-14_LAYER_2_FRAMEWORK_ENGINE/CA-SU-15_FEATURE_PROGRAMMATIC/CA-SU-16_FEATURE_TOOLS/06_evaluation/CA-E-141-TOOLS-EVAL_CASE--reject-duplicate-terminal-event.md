@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
 version: 20
@@ -14,12 +14,15 @@ relations:
   - CAPRMEDIO-GOV-REQU-367
   - CA-R-1137
 atom_id: CA-E-141
+ref_id: CA-E-141
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject duplicate terminal event
 

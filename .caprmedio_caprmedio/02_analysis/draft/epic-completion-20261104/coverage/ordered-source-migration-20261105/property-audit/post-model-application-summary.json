@@ -1,0 +1,74 @@
+{
+  "status": "POST_MODEL_APPLICATION_NATIVE_SNAPSHOT",
+  "receipt": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/model-application/adoption-receipt.json",
+    "sha256": "ddca4b3808fa1328a1e9a7b2fc93d5635b364fae20ff1496f59735a319b19886",
+    "status": "APPLIED_VERIFIED",
+    "operations": 61,
+    "outputs": 33
+  },
+  "snapshot": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/snapshot.json",
+    "sha256": "380658e0c9041555ea15af20e652aa04d9ee8d6b37b0cd666577e7dd5a01ac25"
+  },
+  "counts": {
+    "carriers": 4679,
+    "classes": {
+      "Current": 4412,
+      "Draft": 267
+    },
+    "checks": {
+      "carrier_destination.file.name:missing": 1522,
+      "carrier_destination.file.name:ok": 3157,
+      "carrier_destination.file.path:missing": 1522,
+      "carrier_destination.file.path:ok": 3157,
+      "container:missing": 482,
+      "container:ok": 4197,
+      "form:missing": 167,
+      "form:ok": 4512,
+      "ref_id:missing": 4654,
+      "ref_id:ok": 25,
+      "role:missing": 159,
+      "role:ok": 4520,
+      "role_form_admission:declared_unknown": 4674,
+      "role_form_admission:ok_staged": 5,
+      "topics.dependencies:inconsistent": 17,
+      "topics.dependencies:missing_optional": 1339,
+      "topics.dependencies:ok": 3323,
+      "topics.main_subject:inconsistent": 18,
+      "topics.main_subject:missing": 93,
+      "topics.main_subject:ok": 4568
+    }
+  },
+  "previous_carriers": 4665,
+  "net_change": 14,
+  "regular_nonhistorical_paths_confirmed": true,
+  "nonregular_or_excluded": [],
+  "legacy_git_fpf_count": 21,
+  "unallocated_mermaid_drafts": [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md"
+  ],
+  "expected_current_ids_present": {
+    "CA-R-2965": true,
+    "CA-R-2966": true,
+    "CA-R-2967": true,
+    "CA-R-2955": true,
+    "CA-R-2951": true,
+    "CA-R-2779": true,
+    "CA-R-2783": true,
+    "CA-R-2784": true
+  },
+  "retired_ids_not_in_live_census": {
+    "CA-R-2698": true,
+    "CA-R-2699": true,
+    "CA-R-2700": true,
+    "CA-R-2962": true
+  },
+  "boundaries": [
+    "Ref ID check is field presence and string shape only; derived identity and status/version semantics remain unvalidated.",
+    "Physical header key sequence captured for each source; model order and effective default constraints remain for a dedicated validation, not assumed passed.",
+    "GIT/FPF 21 paths are live sources; location remains held pending D436/D438.",
+    "The +14 net reflects the full live census during concurrent work; not attributed solely to the 61 operations."
+  ]
+}

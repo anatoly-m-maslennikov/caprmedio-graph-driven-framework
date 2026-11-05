@@ -34,10 +34,8 @@ None.
 
 ### Effect
 
-Read the intake dictionary supplied with the bound MCP request. Do not infer, supplement or read input from another Project, Run, request, file, environment or historical context.
-
-Validate the Project and Run binding and validate the dictionary against the receiving Workflow's declared input fields. The Action does not ask for additional input or mutate a carrier.
+At MCP entry, read the dictionary bound to the Project Run and invocation; when called by a Workflow, read its actual caller-bound dictionary, never the parent MCP query. Validate only that binding and the dictionary envelope. Do not infer, supplement, validate fields or mutate a carrier.
 
 ### Outputs
 
-Return the validated intake dictionary unchanged. On failure, return the explicit error and actual completed results under [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md).
+Return the dictionary unchanged. [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) governs failures.

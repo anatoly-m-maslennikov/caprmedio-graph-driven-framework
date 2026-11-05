@@ -1,5 +1,6 @@
 ---
 atom_id: CA-O-241
+ref_id: CA-O-241
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Operations
 form: Action
 tier: 6
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   depends_on:
   - CA-R-2723
@@ -25,6 +26,8 @@ carrier_destination:
     name: CA-O-241-WORKBENCH_BACKEND-ACTION--reconcile-the-duckdb-query-projection.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations
 updated_at: 2026-11-04 17:55:47 +0400
+container:
+  scope_unit: CA-SU-45
 ---
 
 ## Summary

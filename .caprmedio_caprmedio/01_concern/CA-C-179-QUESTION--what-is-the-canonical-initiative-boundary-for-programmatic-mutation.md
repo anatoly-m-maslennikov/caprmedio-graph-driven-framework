@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
-  depends_on:
+topics:
+  main_subject: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
+  dependencies:
   - Subject/Domain/Node/Continuant/Actor
   - Subject/Domain/Node/Continuant/History/Journal.Record
   - 'Atom/Content Role: Plan/Type: Task'
@@ -13,7 +13,6 @@ version: 4
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-179
 ---
 # What is the canonical Initiative boundary for programmatic mutation?

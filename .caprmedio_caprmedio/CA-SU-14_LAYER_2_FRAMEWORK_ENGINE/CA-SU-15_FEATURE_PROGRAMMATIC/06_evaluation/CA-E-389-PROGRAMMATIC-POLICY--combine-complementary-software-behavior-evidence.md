@@ -1,26 +1,34 @@
 ---
 atom_id: CA-E-389
-content_role: Evaluation
-type: Policy
+ref_id: CA-E-389@27-draft
+role: Evaluation
+form: Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test
+    Design
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-version: 26
-updated_at: 2026-10-27 19:59:34 +0400
+version: 27
+updated_at: 2026-11-05 23:05:59 +0400
 relations:
   evaluation_for:
   - CA-M-424
   derived_from:
   - CA-A-053
 tier: 5
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-E-389-PROGRAMMATIC-POLICY--combine-complementary-software-behavior-evidence.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
 # Summary
 
@@ -32,25 +40,25 @@ admission of a behavioral software Evaluation portfolio for a PROGRAMMATIC compo
 
 ## Claim
 
-given the applicable Spec, declared failure predicates, proposed Evaluation portfolio, **and** replay evidence, accept the portfolio **only when** **every** predicate is covered by **`>=1`** reproducible check at the least costly stable observable boundary established by the evidence; no check makes acceptance depend solely on replaceable private Implementation structure **when** a semantic **or** public behavior boundary can expose the predicate; **every** retained higher-boundary duplicate has an explicit emergent-risk **or** defense-in-depth purpose; **and** an installed end-to-end check is retained **only when** a narrower boundary cannot expose its critical journey **or** emergent failure. reject a portfolio that violates any condition, **and** return unresolved **when** boundary stability, coverage, **or** relative cost cannot be established from the supplied evidence.
+given the applicable Spec, declared failure predicates, proposed Evaluation portfolio, **and** replay evidence, accept the portfolio **only when** **every** predicate is covered by **`>=1`** reproducible check at the least costly stable observable boundary established by the evidence; no check makes acceptance depend solely on replaceable private Implementation structure **when** a semantic **or** public behavior boundary can expose the predicate; **every** retained higher-boundary duplicate has an explicit emergent-risk **or** defense-in-depth purpose; **and** an installed end-to-end check is retained **only when** a narrower boundary cannot expose its critical journey **or** emergent failure. reject a portfolio that violates any condition, **and** return unresolved **when** boundary stability, coverage, **or** relative cost cannot be established from the supplied evidence. Identify relevant state transitions, side effects and failure boundaries before selecting the checks. A focused pass cannot overrule a combined-suite failure; retain a regression check for every confirmed fixed failure class.
 
 ## Details
 
 ### Inputs and evidence
 
-- identify each failure predicate, the authority that establishes it, the check that exposes it, the observed boundary, replay inputs, expected **and** actual results, runtime, flakiness, maintenance burden, **and** failure-localization evidence.
+- identify each failure predicate, the authority that establishes it, the check that exposes it, the observed boundary, replay inputs, expected **and** actual results, runtime, flakiness, maintenance burden, **and** failure-localization evidence. Record the relevant state transitions, side effects and failure boundary, and preserve a regression check after a confirmed fix.
 - classify each check separately by test scope, test purpose, boundary realism, execution environment, **and** release stage. functional testing is a purpose that may occur at multiple scopes; canary evaluation is a release stage rather than another test scope.
 
 ### Boundary checks
 
 - admit small semantic checks for pure transformations, invariants, dense edge cases, **and** precise diagnosis. reject assertions that merely mirror private helpers, internal call order, object arrangement, **or** mock choreography **unless** that interaction is itself governed behavior.
-- admit focused integration **and** public-interface functional checks for files, Git, subprocesses, packaging, protocols, adapters, **and** other real boundaries. controlled external inputs **or** dependencies may be substituted; the Implementation under evaluation is not substituted for itself.
+- admit focused integration **and** public-interface functional checks for files, Git, subprocesses, packaging, protocols, adapters, **and** other real boundaries. controlled external inputs **or** dependencies may be substituted; the Implementation under evaluation is not substituted for itself. When a predicate concerns a library, verify its actual public interface, defaults and events at that real boundary rather than relying only on a local mock.
 - admit installed end-to-end checks for critical operator journeys **or** emergent failures that narrower checks cannot expose. end-to-end is not the universal first **or** dominant acceptance boundary.
 - remove a duplicate higher-boundary check **when** a cheaper stable check fully exposes the same predicate **unless** retained duplication has recorded emergent-risk **or** defense-in-depth purpose.
 
 ### Sufficiency and disposition
 
-- judge sufficiency by failure-predicate coverage **and** portfolio cost rather than fixed test counts, fixed scope ratios, **or** raw coverage percentages. coverage, mutation results, runtime, flakiness, churn, localization cost, **and** escaped defects guide selection but do not independently prove correctness.
+- judge sufficiency by failure-predicate coverage **and** portfolio cost rather than fixed test counts, fixed scope ratios, **or** raw coverage percentages. coverage, mutation results, runtime, flakiness, churn, localization cost, **and** escaped defects guide selection but do not independently prove correctness. Run both focused and combined evidence when the failure mode crosses their boundaries; a passing focused check cannot cancel a combined-suite failure.
 - pass with the admitted portfolio identities **and** rationale. fail with the uncovered **or** policy-violating predicates. return unresolved with the exact missing boundary, cost, **or** replay evidence.
 
 ## Sources

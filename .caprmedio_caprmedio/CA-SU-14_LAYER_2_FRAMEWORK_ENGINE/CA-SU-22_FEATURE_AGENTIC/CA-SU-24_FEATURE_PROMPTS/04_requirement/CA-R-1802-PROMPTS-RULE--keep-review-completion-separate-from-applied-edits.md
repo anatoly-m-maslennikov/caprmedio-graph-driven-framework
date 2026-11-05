@@ -1,22 +1,28 @@
 ---
 atom_id: CA-R-1802
-content_role: Requirement
+ref_id: CA-R-1802
+role: Requirement
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-R-1802-PROMPTS-RULE--keep-review-completion-separate-from-applied-edits.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/04_requirement
 ---
 # Summary
 

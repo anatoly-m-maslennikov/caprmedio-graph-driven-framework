@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 version: 26
@@ -16,12 +16,15 @@ relations:
   - CA-R-1062
   - CA-M-145
 atom_id: CA-E-066
+ref_id: CA-E-066
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 5
+container:
+  scope_unit: CA-SU-16
 ---
 # Requirement Subject Catalog correctness
 

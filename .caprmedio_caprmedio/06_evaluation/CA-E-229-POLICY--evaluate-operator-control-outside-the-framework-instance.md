@@ -6,9 +6,9 @@ relations:
   - CA-R-827
   evaluation_for:
   - CA-R-827
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
@@ -18,11 +18,18 @@ cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-229
+ref_id: CA-E-229
 status: Active
 current_scope_unit: caprmedio
 tier: 5
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-E-229-CAPRMEDIO-EVAL_POLICY--evaluate-operator-control-outside-the-framework-instance.md
+    path: .caprmedio_caprmedio/06_evaluation
 ---
 ## Summary
 

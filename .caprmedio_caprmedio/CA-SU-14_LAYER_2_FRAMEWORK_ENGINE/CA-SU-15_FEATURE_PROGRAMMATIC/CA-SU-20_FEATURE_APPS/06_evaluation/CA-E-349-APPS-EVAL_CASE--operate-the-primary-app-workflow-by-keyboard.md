@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Accessibility
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Accessibility
 version: 15
 updated_at: 2026-11-02 19:44:26 +0400
 relations:
@@ -11,12 +11,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-349
+ref_id: CA-E-349
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: APPS
-type: Eval Case
+form: Eval Case
 tier: 1
+container:
+  scope_unit: CA-SU-20
 ---
 # Operate the primary App workflow by keyboard
 

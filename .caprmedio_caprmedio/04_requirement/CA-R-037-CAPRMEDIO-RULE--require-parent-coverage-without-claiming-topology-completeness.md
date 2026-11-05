@@ -14,11 +14,18 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-037
+ref_id: CA-R-037
 tier: 2
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Relations
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-037-CAPRMEDIO-RULE--require-parent-coverage-without-claiming-topology-completeness.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Require parent coverage without claiming topology completeness

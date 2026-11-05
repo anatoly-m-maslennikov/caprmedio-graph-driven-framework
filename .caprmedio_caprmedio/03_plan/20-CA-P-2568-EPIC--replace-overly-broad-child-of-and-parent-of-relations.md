@@ -1,20 +1,25 @@
 ---
 atom_id: CA-P-2568
-content_role: Plan
-type: Plan
+ref_id: CA-P-2568
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 20
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/Graph Relation
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Relation
 version: 4
 updated_at: 2026-10-25 17:32:27 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: 20-CA-P-2568-EPIC--replace-overly-broad-child-of-and-parent-of-relations.md
+    path: .caprmedio_caprmedio/03_plan
 ---
 # Summary
 

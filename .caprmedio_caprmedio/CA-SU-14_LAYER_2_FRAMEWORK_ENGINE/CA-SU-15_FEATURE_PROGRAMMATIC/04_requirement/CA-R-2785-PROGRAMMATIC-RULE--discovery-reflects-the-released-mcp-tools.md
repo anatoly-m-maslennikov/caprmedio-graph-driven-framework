@@ -1,5 +1,6 @@
 ---
 atom_id: CA-R-2785
+ref_id: CA-R-2785
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
@@ -8,13 +9,15 @@ author: Anatoly Maslennikov
 role: Requirement
 form: Rule
 tier: 3
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
 carrier_destination:
   file:
     name: CA-R-2785-PROGRAMMATIC-RULE--discovery-reflects-the-released-mcp-tools.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
 updated_at: 2026-11-05 16:56:06 +0400
+container:
+  scope_unit: CA-SU-15
 ---
 
 ## Summary

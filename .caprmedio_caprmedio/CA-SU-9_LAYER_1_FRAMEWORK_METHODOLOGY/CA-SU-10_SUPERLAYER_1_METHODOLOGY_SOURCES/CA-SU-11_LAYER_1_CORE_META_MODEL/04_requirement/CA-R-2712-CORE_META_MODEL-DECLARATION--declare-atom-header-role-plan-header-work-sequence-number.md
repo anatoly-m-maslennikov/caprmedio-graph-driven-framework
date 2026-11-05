@@ -1,20 +1,22 @@
 ---
 atom_id: CA-R-2712
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
-version: 2
-relations: {}
-tier: 3
-updated_at: 2026-11-04 05:21:15 +0400
+ref_id: CA-R-2712
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
+tier: 3
+status: Active
+version: 4
+updated_at: 2026-11-05 22:47:24 +0400
 carrier_destination:
   file:
     name: CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
@@ -26,9 +28,9 @@ Declare Atom/(.Header.Role := Plan).Header.Work Sequence Number
 
 ```CFEL
 # model
-Atom/(.Header.Role: Plan).Header.Work Sequence Number: [int]{:0..1};
+Atom/(.Header.Role: Plan).Header.Work Sequence Number:: [int]{::0..1};
 
-Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{:0};
+Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{::0};
 
 # instances
 Atom/(.Header.Role: Plan)//$atom;
@@ -38,13 +40,13 @@ THEN ($atom.Header.Work Sequence Number > 0);
 
 UNIQUE(
   Atom/(.Header.Role: Plan)//$atom_2,
-  (.Header.Relations.IS_CONTAINED_BY.atom, .Header.Work Sequence Number),
-  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.atom{=1})
+  (.Header.Container.atom, .Header.Work Sequence Number),
+  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container.atom{=1})
 );
 
 UNIQUE(
   Atom/(.Header.Role: Plan)//$atom_3,
-  (.Header.Relations.IS_CONTAINED_BY.scope_unit, .Header.Work Sequence Number),
-  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Relations.IS_CONTAINED_BY.scope_unit{=1})
+  (.Header.Container.scope_unit, .Header.Work Sequence Number),
+  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container.scope_unit{=1})
 )
 ```

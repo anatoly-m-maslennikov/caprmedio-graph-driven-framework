@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Relation.Target Reference
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Relation.Target Reference
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
   - Subject/CAPRMEDIO/Graph/Relation
@@ -16,12 +16,15 @@ relations:
   - CAPRMEDIO-GOV-EVAL-005
   - CA-R-1137
 atom_id: CA-E-106
+ref_id: CA-E-106
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject inactive relation target
 

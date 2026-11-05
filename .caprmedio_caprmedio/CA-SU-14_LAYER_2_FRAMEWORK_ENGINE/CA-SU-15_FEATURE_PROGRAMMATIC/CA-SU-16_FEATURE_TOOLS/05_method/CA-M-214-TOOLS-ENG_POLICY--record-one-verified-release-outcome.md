@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
 version: 25
@@ -16,12 +16,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-214
+ref_id: CA-M-214
 status: Active
-content_role: Method
+role: Method
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eng Policy
+form: Eng Policy
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Record one verified release outcome
 

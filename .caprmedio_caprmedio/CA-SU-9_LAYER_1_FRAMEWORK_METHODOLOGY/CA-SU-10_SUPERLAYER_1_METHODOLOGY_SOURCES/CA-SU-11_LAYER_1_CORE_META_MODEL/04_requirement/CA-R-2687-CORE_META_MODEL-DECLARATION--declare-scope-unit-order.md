@@ -1,16 +1,16 @@
 ---
 atom_id: CA-R-2687
+ref_id: CA-R-2687
 role: Requirement
 form: Declaration
 status: Active
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit.order
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.order
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
-relations: {}
 ---
 ## Summary
 
@@ -22,9 +22,9 @@ Declare Scope Unit.order
 
 ```CFEL
 # model
-Scope Unit.order: []{:0};
+Scope Unit.order:: []{::0};
 
-Scope Unit.order.*[in (ordered, number)]{:1..2}
+Scope Unit.order.*[in (ordered, number)]{::1..2}
 ```
 
 ## Semantics

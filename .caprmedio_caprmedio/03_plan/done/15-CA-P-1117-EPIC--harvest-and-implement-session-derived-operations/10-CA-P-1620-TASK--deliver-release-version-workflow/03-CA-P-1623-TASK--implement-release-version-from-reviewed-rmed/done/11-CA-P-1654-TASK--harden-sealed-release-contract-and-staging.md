@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1654
-content_role: Plan
-type: Plan
+ref_id: CA-P-1654
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 11
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Release
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - Subject/Graph Node/Engineering/Continuant/Tool
@@ -26,6 +27,12 @@ relations:
   - CA-P-1650
   - CA-P-1643
 tier: 3
+container:
+  atom: CA-P-1623
+carrier_destination:
+  file:
+    name: 11-CA-P-1654-TASK--harden-sealed-release-contract-and-staging.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/done
 ---
 # Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2579
-content_role: Plan
-type: Plan
+ref_id: CA-P-2579
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: PROGRAMMATIC
@@ -10,9 +11,8 @@ author: Anatoly Maslennikov
 status: Done
 version: 11
 updated_at: 2026-10-30 03:11:57 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Workflow Orchestration/Action Realization
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Engineering/Workflow Orchestration/Action Realization
 relations:
   is_decomposition_of:
   - CA-P-2577
@@ -24,6 +24,12 @@ relations:
   - CA-O-239
   - CA-E-652
 tier: 3
+container:
+  atom: CA-P-2577
+carrier_destination:
+  file:
+    name: 2-CA-P-2579-TASK--validate-current-shared-workflow-packets-and-sources.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/done
 ---
 # Summary
 

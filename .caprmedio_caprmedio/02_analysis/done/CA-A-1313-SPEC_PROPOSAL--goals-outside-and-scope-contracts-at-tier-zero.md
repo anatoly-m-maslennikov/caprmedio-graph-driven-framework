@@ -1,12 +1,12 @@
 ---
 atom_id: CA-A-1313
+ref_id: CA-A-1313
 status: Done
 tier: 3
 version: 9
 updated_at: 2026-11-02 19:17:40 +0400
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-relations: {}
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 form: Spec Proposal
 role: Analysis & Advisory
 ---

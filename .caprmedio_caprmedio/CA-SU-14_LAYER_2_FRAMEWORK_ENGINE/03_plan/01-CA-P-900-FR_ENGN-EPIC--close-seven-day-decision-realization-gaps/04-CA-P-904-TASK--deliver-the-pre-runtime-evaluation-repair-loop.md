@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Engineering/Implementation Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Implementation Evaluation
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation Evaluation
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
   - Realization
@@ -16,11 +16,12 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-904
+ref_id: CA-P-904
 ---
 # Deliver the pre-runtime Evaluation repair loop
 

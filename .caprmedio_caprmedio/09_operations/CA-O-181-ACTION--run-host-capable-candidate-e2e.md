@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-181
-content_role: Operations
-type: Action
+ref_id: CA-O-181
+role: Operations
+form: Action
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Action//Run host-capable Candidate E2E
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Run host-capable Candidate E2E
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
@@ -17,8 +18,13 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 version: 14
 updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-O-181-CAPRMEDIO-ACTION--run-host-capable-candidate-e2e.md
+    path: .caprmedio_caprmedio/09_operations
 ---
 # Summary
 

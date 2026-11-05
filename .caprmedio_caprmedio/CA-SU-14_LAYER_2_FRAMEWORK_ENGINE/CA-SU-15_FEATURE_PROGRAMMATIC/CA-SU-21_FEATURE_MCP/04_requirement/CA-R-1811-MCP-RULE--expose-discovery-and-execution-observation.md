@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-1811
-content_role: Requirement
+ref_id: CA-R-1811
+role: Requirement
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 20:00:03 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
@@ -16,9 +17,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-R-1811-MCP-RULE--expose-discovery-and-execution-observation.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
 ---
 # Summary
 

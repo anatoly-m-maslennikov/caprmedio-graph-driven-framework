@@ -1,14 +1,15 @@
 ---
 atom_id: CA-R-1896
-content_role: Requirement
+ref_id: CA-R-1896
+role: Requirement
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 16
 updated_at: 2026-10-27 20:00:05 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -16,9 +17,14 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code
   - Subject/CAPRMEDIO/Carrier
-relations: {}
 tier: 3
-type: Rule
+form: Rule
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-R-1896-WORKFLOW_ORCHESTRATOR-RULE--stop-an-idle-release-host-worker-through-private-ipc.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/04_requirement
 ---
 # Summary
 

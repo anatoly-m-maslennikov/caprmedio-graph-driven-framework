@@ -1,17 +1,18 @@
 ---
 atom_id: CA-R-draft
-content_role: Requirement
-type: Entity Definition
+role: Requirement
+form: Entity Definition
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Model::CAPRMEDIO::Continuant/Projection/Terms Projection
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Projection/Terms Projection
 version: 1
 updated_at: 2026-10-29 05:12:27 +0400
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

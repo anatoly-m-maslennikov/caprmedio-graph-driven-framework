@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2143
-content_role: Plan
-type: Plan
+ref_id: CA-P-2143
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 107
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Projection
@@ -29,6 +30,12 @@ relations:
   - CA-P-2141
   - CA-P-2142
 tier: 3
+container:
+  atom: CA-P-1966
+carrier_destination:
+  file:
+    name: 107-CA-P-2143-TASK--reprove-governance-subjects-from-core-only.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/done
 ---
 # Summary
 

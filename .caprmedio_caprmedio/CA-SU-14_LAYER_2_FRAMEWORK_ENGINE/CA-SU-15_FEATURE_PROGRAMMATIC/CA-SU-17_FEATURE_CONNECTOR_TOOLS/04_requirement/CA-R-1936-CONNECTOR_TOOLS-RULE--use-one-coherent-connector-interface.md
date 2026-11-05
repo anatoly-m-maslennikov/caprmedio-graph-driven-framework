@@ -1,22 +1,28 @@
 ---
 atom_id: CA-R-1936
-content_role: Requirement
-type: Rule
+ref_id: CA-R-1936
+role: Requirement
+form: Rule
 current_scope_unit: CONNECTOR_TOOLS
 claim_target_scope_unit: CONNECTOR_TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-10-27 20:00:05 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-17
+carrier_destination:
+  file:
+    name: CA-R-1936-CONNECTOR_TOOLS-RULE--use-one-coherent-connector-interface.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/04_requirement
 ---
 # Summary
 

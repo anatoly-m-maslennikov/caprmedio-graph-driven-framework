@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1039
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1039
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Other-primary first-partition Python-versus-Go research evidence
-  depends_on:
+topics:
+  main_subject: Other-primary first-partition Python-versus-Go research evidence
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
@@ -24,6 +25,12 @@ relations:
   - CA-A-910
   - CA-A-917
   - CA-C-337
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1039-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-earliest-other-primary-first-partition-packet.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

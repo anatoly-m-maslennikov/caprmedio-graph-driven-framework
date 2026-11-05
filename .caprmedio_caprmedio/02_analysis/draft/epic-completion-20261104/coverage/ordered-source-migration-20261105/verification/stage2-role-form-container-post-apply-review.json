@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS_BOUNDED_APPLIED_BATCHES",
+  "role_form_plan_sha256": "60c9782848b95d83aaf41fe2b02a83bdbc2145113f18a144b0aeb548cecc11a1",
+  "container_application_plan_sha256": "fe49df1497da9ca98136f473fab857d2b6468285f5e1682ce10fb1dc938ed561",
+  "container_preparation_sha256": "cb8911f036e5d88927ec46adc601b5f6967bfd3a1b07e28b4b77f91fee55d489",
+  "checks": {
+    "role_receipt": true,
+    "container_receipt": true,
+    "container_plan_pin": true,
+    "source_set_matches": true
+  },
+  "counts": {
+    "role_form_pass": 3052,
+    "role_form_overlapping_container": 2811,
+    "scope_or_plan_fallback": 3877,
+    "container_pass": 4158,
+    "explicit_atom_list_preserved": 66,
+    "explicit_mapping_preserved": 212,
+    "explicit_project_name_to_id": 2,
+    "project_root_world_explicit_user_exception": 1
+  },
+  "failures_count": 0,
+  "failures": [],
+  "limitations": [
+    "The 3,052 Role/Form and 4,158 Container rows are checked; no generic full migration claim.",
+    "Fallback proof matches recorded resolution fields; Scope and Plan carrier hashes were checked through Container successors. Root/world pending Current admission remains separate.",
+    "No code, source, runtime, physical-path or test mutation by this review."
+  ],
+  "root_world_note": "R2640 explicitly selects predefined world CA-SU--1 under the accepted prospective bootstrap decision; it is not inferred from ordinary Scope Unit evidence. Parser/bootstrap Current admission remains a separate gate.",
+  "scope_authority_pins": {
+    "counts": {
+      "unchanged": 44,
+      "expected_container_successor": 3
+    },
+    "unexplained_drift": []
+  },
+  "plan_carrier_authority_pins": {
+    "counts": {
+      "expected_container_successor": 1173,
+      "unchanged": 52
+    },
+    "unexplained_drift": []
+  }
+}

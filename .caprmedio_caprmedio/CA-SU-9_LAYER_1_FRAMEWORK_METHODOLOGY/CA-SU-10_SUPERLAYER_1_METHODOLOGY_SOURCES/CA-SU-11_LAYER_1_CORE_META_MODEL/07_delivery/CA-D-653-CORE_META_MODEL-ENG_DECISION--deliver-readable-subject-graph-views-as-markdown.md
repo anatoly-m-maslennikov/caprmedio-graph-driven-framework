@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
@@ -20,12 +20,19 @@ relations:
   - CA-R-2224@3
   - CA-R-2225
 atom_id: CA-D-653
+ref_id: CA-D-653
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 tier: 3
 status: Active
 role: Delivery
 form: Decision
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-D-653-CORE_META_MODEL-DECISION--deliver-readable-subject-graph-views-as-markdown.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 ---
 ## Summary
 

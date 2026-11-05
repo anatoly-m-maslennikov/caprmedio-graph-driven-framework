@@ -1,0 +1,37 @@
+---
+atom_id: CA-R-2950
+ref_id: CA-R-2950
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+status: Active
+version: 1
+author: Anatoly Maslennikov
+role: Requirement
+form: Rule
+tier: 3
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+carrier_destination:
+  file:
+    name: CA-R-2950-WORKBENCH-RULE--record-observed-workbench-source-changes-in-a-bounded-technical-change-log.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
+updated_at: 2026-11-05 18:48:47 +0400
+container:
+  scope_unit: CA-SU-43
+---
+## Summary
+
+Record observed Workbench source changes in a bounded technical change log
+
+## Claim
+
+### Prose Claim
+
+The Workbench change log must expose observed changes from only the selected repository's `control_root`.
+
+- Expose `create`, `update`, `rename`, `move` and `remove` operations with repository-relative paths. A `create` or `update` has a `new_path`, a `remove` has an `old_path`, and a `rename` or `move` has both paths.
+- A same-parent basename change is `rename`. A parent change is `move`, even when the basename also changes. Preserve the old and new paths reported by the watcher.
+- A move into the watched `control_root` is `create`; a move out of it is `remove`; a move with both paths inside it is `rename` or `move` by the path rule above.
+- Represent the same retained event set in the technical watcher log file and the read-only DuckDB `change_log` table.
+- Apply a 48-hour time-to-live and a fixed 100,000-row cap to both stores. Remove expired or oldest rows from both stores together before returning the log.
+

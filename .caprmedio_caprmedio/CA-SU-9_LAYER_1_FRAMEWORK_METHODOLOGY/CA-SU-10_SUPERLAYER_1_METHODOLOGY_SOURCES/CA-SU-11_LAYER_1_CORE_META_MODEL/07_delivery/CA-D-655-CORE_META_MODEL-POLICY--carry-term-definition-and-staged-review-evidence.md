@@ -1,23 +1,23 @@
 ---
 atom_id: CA-D-655
+ref_id: CA-D-655
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
 version: 4
 updated_at: 2026-11-04 18:28:33 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 3
 role: Delivery
 form: Policy
 carrier_destination:
   file:
-    name: CA-D-655-CORE_META_MODEL-POLICY--carry-term-definition-and-staged-review-evidence.md
+    name: CA-D-655-POLICY--carry-term-definition-and-staged-review-evidence.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

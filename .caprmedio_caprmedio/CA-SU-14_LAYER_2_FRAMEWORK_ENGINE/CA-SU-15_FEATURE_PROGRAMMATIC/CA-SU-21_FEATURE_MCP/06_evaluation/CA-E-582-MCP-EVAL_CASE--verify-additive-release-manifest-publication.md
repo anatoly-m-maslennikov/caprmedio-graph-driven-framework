@@ -1,15 +1,16 @@
 ---
 atom_id: CA-E-582
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-582
+role: Evaluation
+form: Eval Case
 current_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
 version: 15
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Carrier/File
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
@@ -24,6 +25,12 @@ relations:
   - CA-M-339
   - CA-D-576
 tier: 4
+container:
+  scope_unit: CA-SU-21
+carrier_destination:
+  file:
+    name: CA-E-582-MCP-EVAL_CASE--verify-additive-release-manifest-publication.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
 # Summary
 

@@ -1,5 +1,6 @@
 ---
 atom_id: CA-M-473
+ref_id: CA-M-473
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Method
 form: Eng Decision
 tier: 4
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
 relations:
   method_for:
   - CA-R-2785
@@ -18,6 +19,8 @@ carrier_destination:
     name: CA-M-473-PROGRAMMATIC-ENG_DECISION--generate-discovery-from-the-released-mcp-registry.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 updated_at: 2026-11-05 16:56:06 +0400
+container:
+  scope_unit: CA-SU-15
 ---
 
 ## Summary

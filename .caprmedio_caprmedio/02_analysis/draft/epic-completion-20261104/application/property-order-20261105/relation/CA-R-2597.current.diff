@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2597.current.preview.txt
+@@ -34,4 +34,4 @@
+ 
+ ## Semantics
+ 
+-Separate complete CFEL expressions; a line break is layout only.
++Separate complete CFEL expressions with `;`; a line break is layout only. Read contiguous `<;` and `;>` as Property-order tokens, not as the standalone separator.

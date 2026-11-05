@@ -8,9 +8,9 @@ relations:
   - CA-E-001
   evaluation_for:
   - CA-R-1424
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Package
@@ -20,11 +20,18 @@ subjects:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-E-437
+ref_id: CA-E-437
 status: Active
 current_scope_unit: caprmedio
 tier: 5
 role: Evaluation
 form: Eval Policy
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-E-437-CAPRMEDIO-EVAL_POLICY--evaluate-methodology-alignment-support.md
+    path: .caprmedio_caprmedio/06_evaluation
 ---
 ## Summary
 Evaluate methodology alignment support

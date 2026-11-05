@@ -1,5 +1,6 @@
 ---
 atom_id: CA-P-2709
+ref_id: CA-P-2709
 role: Plan
 form: Plan
 label: Task
@@ -8,13 +9,13 @@ version: 2
 updated_at: 2026-11-03 18:44:41 +0400
 tier: 4
 current_scope_unit: caprmedio
-subjects:
-  active: CAPRMEDIO_MODEL
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL
+  dependencies:
   - CAPRMEDIO_STRUCTURE
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2694
+
+container:
+  atom: CA-P-2694
 ---
 ## Summary
 

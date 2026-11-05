@@ -1,14 +1,15 @@
 ---
 atom_id: CA-O-178
-content_role: Operations
-type: Step
+ref_id: CA-O-178
+role: Operations
+form: Step
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/caprmedio/Step//Release Version/Step: install product and refresh
+topics:
+  main_subject: 'Subject/caprmedio/Step//Release Version/Step: install product and refresh
     Project MCP'
-  depends_on:
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -27,6 +28,12 @@ relations:
   invokes:
   - CA-O-169
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-178-PROJECT_CONFIGURATION-STEP--install-the-runtime-and-project-local-ca-skill.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

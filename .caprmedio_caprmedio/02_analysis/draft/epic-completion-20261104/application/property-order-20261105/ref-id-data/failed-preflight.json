@@ -1,0 +1,6 @@
+{
+  "status": "NO_WRITES_PREFLIGHT_DRIFT",
+  "plan_sha256": "21b1a192f324fdf5179f981e4db2e7f5a5c28cd388aaad33cb81ec545d5d3579",
+  "compressed_plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/ref-id-data/failed-preflight-plan.json.gz",
+  "reason": "Concurrent edit of CA-M-397@14 Draft before write preflight."
+}

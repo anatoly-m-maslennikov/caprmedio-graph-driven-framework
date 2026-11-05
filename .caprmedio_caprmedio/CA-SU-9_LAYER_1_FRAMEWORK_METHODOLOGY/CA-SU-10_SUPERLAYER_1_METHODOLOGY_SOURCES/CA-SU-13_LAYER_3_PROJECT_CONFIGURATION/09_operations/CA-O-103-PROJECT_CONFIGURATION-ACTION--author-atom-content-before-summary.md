@@ -1,14 +1,15 @@
 ---
 atom_id: CA-O-103
-content_role: Operations
-type: Action
+ref_id: CA-O-103
+role: Operations
+form: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Action//Atom Content Authoring
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Atom Content Authoring
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
@@ -22,6 +23,12 @@ relations:
 version: 16
 updated_at: 2026-10-27 19:59:45 +0400
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-103-PROJECT_CONFIGURATION-ACTION--author-atom-content-before-summary.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

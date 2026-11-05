@@ -11,14 +11,21 @@ relations:
   - CA-M-006
   - CA-R-686
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: FRAMEWORK_METHODOLOGY
 status: Active
 atom_id: CA-R-690
-type: Rule
+ref_id: CA-R-690
+form: Rule
 tier: 1
-subjects:
-  governs: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+topics:
+  main_subject: 'Entity/Aspect/Product: CAPRMEDIO Framework'
+container:
+  scope_unit: CA-SU-9
+carrier_destination:
+  file:
+    name: CA-R-690-FRAMEWORK_METHODOLOGY-RULE--govern-discipline-extension-and-project-adaptation-applicability.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement
 ---
 ## Summary
 Govern discipline Extension and Project Adaptation applicability

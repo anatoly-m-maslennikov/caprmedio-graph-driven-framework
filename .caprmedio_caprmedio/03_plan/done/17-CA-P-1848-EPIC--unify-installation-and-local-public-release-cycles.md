@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1848
-content_role: Plan
-type: Plan
+ref_id: CA-P-1848
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 17
 current_scope_unit: caprmedio
@@ -10,9 +11,9 @@ status: Done
 author: Anatoly Maslennikov
 version: 25
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Version
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Version
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
@@ -37,8 +38,13 @@ subjects:
   - Subject/Graph Node/Domain/Continuant/Project.Settings
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Engineering/Continuant/Tool
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: 17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles.md
+    path: .caprmedio_caprmedio/03_plan/done
 ---
 # Summary
 

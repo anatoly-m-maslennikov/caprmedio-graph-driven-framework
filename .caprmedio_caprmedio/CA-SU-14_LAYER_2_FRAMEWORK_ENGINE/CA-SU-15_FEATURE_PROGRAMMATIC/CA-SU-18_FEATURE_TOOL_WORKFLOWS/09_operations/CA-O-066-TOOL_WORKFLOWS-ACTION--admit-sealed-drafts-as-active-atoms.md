@@ -1,16 +1,17 @@
 ---
 atom_id: CA-O-066
-content_role: Operations
-type: Action
+ref_id: CA-O-066
+role: Operations
+form: Action
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
 cce_version: cce_1
 cce_form: definition
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_PROMOTE
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
@@ -21,8 +22,9 @@ version: 15
 updated_at: 2026-10-27 19:59:45 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-18
 ---
 # Admit sealed drafts as active Atoms
 

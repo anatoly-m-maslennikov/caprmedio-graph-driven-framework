@@ -7,9 +7,9 @@ llm_session_ids:
 relations:
   child_of:
   - CA-R-1423
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
@@ -17,9 +17,16 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-632
+ref_id: CA-R-632
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-632-CAPRMEDIO-RULE--distinguish-framework-and-project-improvement-targets.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

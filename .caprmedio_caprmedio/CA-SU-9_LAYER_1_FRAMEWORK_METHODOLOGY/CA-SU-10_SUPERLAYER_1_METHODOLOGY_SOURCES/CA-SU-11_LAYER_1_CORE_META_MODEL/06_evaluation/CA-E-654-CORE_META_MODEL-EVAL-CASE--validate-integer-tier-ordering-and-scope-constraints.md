@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
@@ -22,12 +22,19 @@ relations:
   - CA-R-2149
   - CA-M-438
 atom_id: CA-E-654
+ref_id: CA-E-654
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 5
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-654-CORE_META_MODEL-EVAL_CASE--validate-integer-tier-ordering-and-scope-constraints.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
 ## Summary
 

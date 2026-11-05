@@ -1,7 +1,8 @@
 ---
 atom_id: CA-A-1047
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1047
+role: Analysis & Advisory
+form: Analysis Report
 label: Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -9,9 +10,9 @@ local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Other PRIMARY PYAML third-partition opening evidence
-  depends_on:
+topics:
+  main_subject: Other PRIMARY PYAML third-partition opening evidence
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
 version: 3
@@ -19,6 +20,12 @@ updated_at: 2026-11-02 15:49:28 +0400
 relations:
   is_result_of:
   - CA-P-1329
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-1047-CAPRMEDIO-REPORT--harvest-the-other-primary-pyaml-third-opening.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

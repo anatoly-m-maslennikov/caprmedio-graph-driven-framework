@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-661
-content_role: Delivery
+ref_id: CA-D-661
+role: Delivery
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 status: Active
 author: Anatoly Maslennikov
 version: 2
 updated_at: "2026-10-30 15:50:46 +0400"
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
@@ -20,8 +21,14 @@ relations:
   - CA-R-1836
   - CA-R-1837
   - CA-R-1838
-type: Decision
+form: Decision
 tier: 4
+container:
+  scope_unit: CA-SU-16
+carrier_destination:
+  file:
+    name: CA-D-661-TOOLS-DECISION--bind-strict-graph-request-and-result-contract.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
 ---
 ## Summary
 

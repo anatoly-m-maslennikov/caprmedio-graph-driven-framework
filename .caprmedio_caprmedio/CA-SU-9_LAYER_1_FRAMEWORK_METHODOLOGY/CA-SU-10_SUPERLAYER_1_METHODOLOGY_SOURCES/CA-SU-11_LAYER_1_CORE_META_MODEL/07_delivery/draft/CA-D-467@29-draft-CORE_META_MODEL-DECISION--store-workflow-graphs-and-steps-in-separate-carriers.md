@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Carrier/Directory
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
@@ -13,17 +13,18 @@ relations:
   delivery_for:
   - CA-R-1570
   - CA-R-2465
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-D-467
+ref_id: CA-D-467@29-draft
 status: Draft
 tier: 3
 role: Delivery
 form: Decision
 carrier_destination:
   file:
-    name: CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
+    name: CA-D-467@29-draft-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

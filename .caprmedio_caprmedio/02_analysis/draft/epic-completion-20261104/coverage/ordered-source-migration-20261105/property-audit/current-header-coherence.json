@@ -1,0 +1,155 @@
+{
+  "status": "FRESH_PROPERTY_SHAPES_AND_CURRENT_HEADER_COHERENCE_GAPS",
+  "scope": "Read-only 4,665-carrier snapshot after listed source migrations; GIT/FPF group-root 21 included with location held. Current MODEL Header authority inspected independently from Draft proposals. Unknown checks are not failures.",
+  "snapshot": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/snapshot.json",
+    "sha256": "33adac65375653e9fa3a15bf3c82ed6a750b25c27b6443c304f95ae1fc917493"
+  },
+  "authority_pins": [
+    {
+      "id": "CA-R-2708",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2708-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-passive.md",
+      "sha256": "a57a80a0a10692904bc03229a204860a49d964bb134bdedf230c43dd721fab5d",
+      "source": "Current"
+    },
+    {
+      "id": "CA-R-2713",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+      "sha256": "8a87a7d88febb85e12c3a6ee671b42ceae4931a88afb226f40bf899f03b3f36e",
+      "source": "Current"
+    },
+    {
+      "id": "CA-R-2714",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+      "sha256": "8828eafb8a50968e31f9a9bf16f16d3703f69556e6289ea475ff701793e849c9",
+      "source": "Current"
+    },
+    {
+      "id": "CA-R-2719",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "5b8d27dbc7dd927a1e4a637a19e98d6cc03ad271355d81b85e738016ade11d9b",
+      "source": "Current"
+    },
+    {
+      "id": "CA-R-2717",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md",
+      "sha256": "e05789fc3cb9e391aa87336b26bef65bbd29e53ae6b13f0d268767c2738a8b4a",
+      "source": "Current"
+    },
+    {
+      "id": "CA-R-2718",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2718-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-path.md",
+      "sha256": "d909d0bad9a56ddb9cef5c7a57651038003eb15e14e199da90290278dd8b2ce8",
+      "source": "Current"
+    },
+    {
+      "id": "CA-R-2719",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "b6df98df9e249b72033f983fc92e3fcfb4b449f5a921c0644a2dda5f9a7d5356",
+      "source": "Draft"
+    },
+    {
+      "id": "CA-R-2779",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "a340e27096671ccca898dbf1ac32a56a5b9b285127d5b5a88037f36af954a115",
+      "source": "Draft"
+    }
+  ],
+  "counts": {
+    "carriers": 4665,
+    "classes": {
+      "Current": 4407,
+      "Draft": 258
+    },
+    "checks": {
+      "carrier_destination.file.name:missing": 1518,
+      "carrier_destination.file.name:ok": 3147,
+      "carrier_destination.file.path:missing": 1518,
+      "carrier_destination.file.path:ok": 3147,
+      "container:missing": 482,
+      "container:ok": 4183,
+      "form:missing": 167,
+      "form:ok": 4498,
+      "role:missing": 159,
+      "role:ok": 4506,
+      "role_form_admission:declared_unknown": 4662,
+      "role_form_admission:ok_staged": 3,
+      "topics.dependencies:inconsistent": 17,
+      "topics.dependencies:missing_optional": 1336,
+      "topics.dependencies:ok": 3312,
+      "topics.main_subject:inconsistent": 18,
+      "topics.main_subject:missing": 93,
+      "topics.main_subject:ok": 4554
+    }
+  },
+  "positive_invariants": {
+    "topics_main_subject_nonempty_strings": 4554,
+    "dependencies_lists_of_strings": 3312,
+    "dependencies_legitimately_absent": 1336,
+    "role_nonempty_strings": 4506,
+    "form_nonempty_strings": 4498,
+    "container_shape_valid": 4183,
+    "destination_name_and_path_nonempty_strings_each": 3147
+  },
+  "current_header_gaps": [
+    {
+      "id": "header_whitelist",
+      "current": "R2719@1 still admits Subjects, excludes Topics and Container.",
+      "existing_draft": "R2719@2 admits Container but still uses Subjects; it does not resolve Topics.",
+      "candidate_scope": "Update whitelist with complete current intended Header properties; preserve its Header focus and all other fields."
+    },
+    {
+      "id": "topics_children",
+      "current": "R2713@2 governs Atom.Header.Topics but whitelists Active and Passive; migrated properties are Main Subject and Dependencies.",
+      "existing_draft": "No R2713 successor was found.",
+      "candidate_scope": "Reconcile parent children with Topic Declarations; Summary/name identity changes require fresh ID when applicable."
+    },
+    {
+      "id": "dependencies",
+      "current": "R2708@1 Prose still says Passive Subjects; COUNT(...: $) uses obsolete value selection and Atom//$atom uses obsolete instance binding.",
+      "existing_draft": "No R2708 successor was found.",
+      "candidate_scope": "Preserve dependency uniqueness and meaning; use VALUES and typed binding under the adopted design; evaluate changed Summary identity."
+    },
+    {
+      "id": "main_subject",
+      "current": "R2714@2 describes Main Subject as optional except when Atom Status Group is Current; latest decision requires one. Atom//$atom also uses obsolete binding.",
+      "existing_draft": "No R2714 successor was found.",
+      "candidate_scope": "Reconcile one-required requirement with root/legacy source cases and no invented Subjects; preserve identity/version policy."
+    },
+    {
+      "id": "destination_constraints",
+      "current": "R2717@3 and R2718@3 contain `: {::1}` old value syntax, while R2716 specifies their string Format.",
+      "existing_draft": "No R2717/R2718 successor was found.",
+      "candidate_scope": "Context-aware :: migration preserving required scalar count, Name semantics, and Path directory semantics."
+    }
+  ],
+  "next_question_queue": [
+    {
+      "priority": 1,
+      "topic": "93 carriers without main_subject and without old Subjects",
+      "issue": "Which existing governed focus is intended where the source does not identify one? Group by source evidence before individual questions; no blanket mapping."
+    },
+    {
+      "priority": 2,
+      "topic": "18 mapping-shaped main_subject and 17 dependency values not lists of strings",
+      "issue": "How should each legacy mapping resolve into declared Subject references? Preserve originals and use source evidence; do not flatten business meaning by guess."
+    },
+    {
+      "priority": 3,
+      "topic": "482 missing Container and 1518 missing destination fields",
+      "issue": "Separate source-resolvable ownership/placement from true choices; GIT/FPF locations remain held under D436/D438. Do not conflate missing destination with permission to move files."
+    },
+    {
+      "priority": 4,
+      "topic": "159 missing Role and 167 missing Form",
+      "issue": "Use Role/Form registration and source content to derive only proven cases; ask only for unresolved semantic classification."
+    }
+  ],
+  "limits": [
+    "Snapshot checks field shape; it does not validate all declared properties, uniqueness or graph resolution.",
+    "Role/Form pair admission remains unknown except four staged forms.",
+    "Topics mandatory one and Container are latest decisions/staged semantics; do not conflate with Current R2714 conditional or prior Current subtree.",
+    "Target path string and existing directory shape do not authorize physical moves.",
+    "Header source repairs are not applied here."
+  ]
+}

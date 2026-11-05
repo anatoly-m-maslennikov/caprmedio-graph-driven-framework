@@ -1,11 +1,11 @@
 ---
 atom_id: CA-R-2524
+ref_id: CA-R-2524
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
 version: 3
 updated_at: 2026-11-02 19:17:40 +0400
-relations: {}
 tier: 3
 role: Requirement
 form: Declaration
@@ -28,15 +28,15 @@ Project >| (Container == yes);
 Project ((NARROWER_THAN)) Scope Unit;
 
 # instances
-Scope Unit/Project//$scope_unit{:1};
+Scope Unit/Project//$scope_unit{::1};
 
-Project//$project {:0}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
+Project//$project {::0}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
 
 Project//$project_2.order.ordered == false;
 
-Project//$project_3.order.number: []{:0};
+Project//$project_3.order.number:: []{::0};
 
-Project//$project_4.ID: []{:0}
+Project//$project_4.ID:: []{::0}
 ```
 
 ### Prose Claim

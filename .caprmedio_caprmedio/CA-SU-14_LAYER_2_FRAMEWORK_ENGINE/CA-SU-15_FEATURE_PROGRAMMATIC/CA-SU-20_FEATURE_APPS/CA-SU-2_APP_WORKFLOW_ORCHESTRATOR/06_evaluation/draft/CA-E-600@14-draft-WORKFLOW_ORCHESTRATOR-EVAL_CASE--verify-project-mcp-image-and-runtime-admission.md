@@ -1,15 +1,16 @@
 ---
 atom_id: CA-E-600@14-draft
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-600@14-draft
+role: Evaluation
+form: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Draft
 author: Anatoly Maslennikov
 version: 14
 updated_at: 2026-10-24 23:59:51 +0400
-subjects:
-  governs: Subject/Engineering/Tool//PROJECT_MCP_RUNTIME_ADMISSION.Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Tool//PROJECT_MCP_RUNTIME_ADMISSION.Evaluation
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - Subject/Engineering/MCP
   - Subject/Engineering/Runtime/Docker Runtime
@@ -27,6 +28,8 @@ relations:
   - CA-E-584
   - CA-E-585
 tier: 5
+container:
+  scope_unit: CA-SU-2
 ---
 # Summary
 

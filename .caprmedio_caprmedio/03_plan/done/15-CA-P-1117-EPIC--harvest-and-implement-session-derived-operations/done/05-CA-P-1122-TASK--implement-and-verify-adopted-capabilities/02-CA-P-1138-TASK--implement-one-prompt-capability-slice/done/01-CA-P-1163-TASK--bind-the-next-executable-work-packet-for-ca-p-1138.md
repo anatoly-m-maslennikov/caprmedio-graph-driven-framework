@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1163
-content_role: Plan
-type: Plan
+ref_id: CA-P-1163
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Prompt
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Prompt
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
 version: 8
@@ -22,6 +23,12 @@ relations:
   is_decomposition_of:
   - CA-P-1138
 tier: 3
+container:
+  atom: CA-P-1138
+carrier_destination:
+  file:
+    name: 1-CA-P-1163-TASK--bind-the-next-executable-work-packet-for-ca-p-1138.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/2-CA-P-1138-TASK--implement-one-prompt-capability-slice/done
 ---
 # Summary
 

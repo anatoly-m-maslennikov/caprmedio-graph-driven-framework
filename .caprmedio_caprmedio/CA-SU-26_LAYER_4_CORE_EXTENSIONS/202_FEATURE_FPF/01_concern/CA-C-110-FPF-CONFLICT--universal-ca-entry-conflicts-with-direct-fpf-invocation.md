@@ -3,14 +3,13 @@ atom_id: CA-C-110
 cce_version: cce_1
 cce_form: concern_conflict
 priority: high
-subjects:
-  governs: "FPF"
-  depends_on:
-    - "Skill"
-    - "Extension"
+topics:
+  main_subject: FPF
+  dependencies:
+  - Skill
+  - Extension
 version: 1
-updated_at: "2026-09-15 02:22:01 +0400"
-relations: {}
+updated_at: 2026-09-15 02:22:01 +0400
 ---
 # Universal `ca` entry conflicts with direct FPF invocation
 

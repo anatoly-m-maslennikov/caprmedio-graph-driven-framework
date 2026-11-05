@@ -1,22 +1,28 @@
 ---
 atom_id: CA-E-565
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-565
+role: Evaluation
+form: Eval Case
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-E-565-PROMPTS-EVAL_CASE--verify-implementation-prompt-context-and-handoff-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/06_evaluation
 ---
 # Summary
 

@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Actor
@@ -14,14 +14,20 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Property
 version: 47
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-M-125
+ref_id: CA-M-125
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-M-125-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
 ## Summary
 

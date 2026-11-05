@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1064
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1064
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Generic completed-work handoff gap adjudication
-  depends_on:
+topics:
+  main_subject: Generic completed-work handoff gap adjudication
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
@@ -30,6 +31,8 @@ relations:
   - CA-R-1583
   - CA-R-1599
   - CA-P-1130
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

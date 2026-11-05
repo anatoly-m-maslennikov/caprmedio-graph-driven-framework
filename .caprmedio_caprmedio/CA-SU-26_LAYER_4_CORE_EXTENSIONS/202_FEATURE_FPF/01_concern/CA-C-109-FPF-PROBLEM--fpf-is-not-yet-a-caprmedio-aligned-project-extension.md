@@ -3,20 +3,19 @@ atom_id: CA-C-109
 cce_version: cce_1
 cce_form: concern_problem
 priority: high
-subjects:
-  governs: "FPF"
-  depends_on:
-    - "Extension"
-    - "Applicable Methodology"
-    - "Project Configuration"
-    - "Tool"
-    - "MCP"
-    - "Skill"
-    - "Analysis Report"
-    - "Atom/Content Role: Concern"
+topics:
+  main_subject: FPF
+  dependencies:
+  - Extension
+  - Applicable Methodology
+  - Project Configuration
+  - Tool
+  - MCP
+  - Skill
+  - Analysis Report
+  - 'Atom/Content Role: Concern'
 version: 1
-updated_at: "2026-09-15 02:22:01 +0400"
-relations: {}
+updated_at: 2026-09-15 02:22:01 +0400
 ---
 # FPF is not yet a CAPRMEDIO-aligned Project Extension
 

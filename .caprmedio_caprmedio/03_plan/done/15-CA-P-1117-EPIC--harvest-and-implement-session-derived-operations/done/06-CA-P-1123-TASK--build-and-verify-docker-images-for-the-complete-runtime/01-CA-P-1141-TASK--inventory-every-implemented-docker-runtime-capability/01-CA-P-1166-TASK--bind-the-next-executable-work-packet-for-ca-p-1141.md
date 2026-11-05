@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1166
-content_role: Plan
-type: Plan
+ref_id: CA-P-1166
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: FRAMEWORK_ENGINE
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Occurrent/Runtime
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime
+  dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
 version: 7
@@ -20,6 +21,12 @@ relations:
   is_decomposition_of:
   - CA-P-1141
 tier: 3
+container:
+  atom: CA-P-1141
+carrier_destination:
+  file:
+    name: 1-CA-P-1166-TASK--bind-the-next-executable-work-packet-for-ca-p-1141.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/6-CA-P-1123-TASK--build-and-verify-docker-images-for-the-complete-runtime/1-CA-P-1141-TASK--inventory-every-implemented-docker-runtime-capability
 ---
 # Summary
 

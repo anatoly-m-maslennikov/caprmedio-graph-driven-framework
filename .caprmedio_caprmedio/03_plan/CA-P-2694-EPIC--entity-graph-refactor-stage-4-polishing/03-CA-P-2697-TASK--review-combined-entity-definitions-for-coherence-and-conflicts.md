@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2697
-content_role: Plan
-type: Plan
+ref_id: CA-P-2697
+role: Plan
+form: Plan
 label: Task
 current_scope_unit: caprmedio
 status: Done
@@ -9,13 +10,13 @@ author: Anatoly Maslennikov
 tier: 4
 version: 4
 updated_at: 2026-10-29 17:18:14 +0400
-subjects:
-  governs: Entity
+topics:
+  main_subject: Entity
 relations:
-  IS_CONTAINED_BY:
-  - CA-P-2694
   BLOCKS:
   - CA-P-2698
+container:
+  atom: CA-P-2694
 ---
 ## Summary
 

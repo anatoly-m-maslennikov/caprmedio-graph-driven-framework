@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Event Record
@@ -13,12 +13,19 @@ relations:
   - CA-D-435
   - CA-D-339
 atom_id: CA-E-465
+ref_id: CA-E-465
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 4
 role: Evaluation
 form: Eval Case
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-E-465-PROJECT_CONFIGURATION-EVAL_CASE--validate-replacement-event-schema-encoding.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 ---
 ## Summary
 

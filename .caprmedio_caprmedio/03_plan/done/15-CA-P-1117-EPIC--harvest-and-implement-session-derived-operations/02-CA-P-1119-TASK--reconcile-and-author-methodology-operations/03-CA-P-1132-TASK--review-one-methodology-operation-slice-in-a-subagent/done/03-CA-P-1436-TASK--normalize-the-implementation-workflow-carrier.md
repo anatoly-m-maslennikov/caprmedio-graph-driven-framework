@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1436
-content_role: Plan
-type: Plan
+ref_id: CA-P-1436
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
 assignee: AI Agent
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Carrier
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Carrier
+  dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'

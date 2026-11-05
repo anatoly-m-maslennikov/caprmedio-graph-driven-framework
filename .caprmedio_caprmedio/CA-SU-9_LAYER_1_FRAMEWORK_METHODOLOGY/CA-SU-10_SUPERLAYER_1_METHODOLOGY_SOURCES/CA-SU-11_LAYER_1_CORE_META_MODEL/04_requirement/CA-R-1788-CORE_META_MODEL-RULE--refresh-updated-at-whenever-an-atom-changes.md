@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Carrier
@@ -12,11 +12,18 @@ relations:
   child_of:
   - CA-R-1416
 atom_id: CA-R-1788
+ref_id: CA-R-1788
 current_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

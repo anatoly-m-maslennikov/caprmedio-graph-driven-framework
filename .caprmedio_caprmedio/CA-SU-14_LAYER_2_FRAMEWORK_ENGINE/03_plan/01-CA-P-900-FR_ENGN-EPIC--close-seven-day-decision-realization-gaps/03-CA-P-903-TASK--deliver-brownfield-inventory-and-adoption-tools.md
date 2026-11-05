@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Brownfield Inventory and Adoption Tool Delivery
-  depends_on:
+topics:
+  main_subject: Brownfield Inventory and Adoption Tool Delivery
+  dependencies:
   - Subject/Graph Node/Engineering/Source Check Adoption
   - Tool Authority
   - Realization
@@ -16,11 +16,12 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-903
+ref_id: CA-P-903
 ---
 # Deliver brownfield Inventory and adoption Tools
 

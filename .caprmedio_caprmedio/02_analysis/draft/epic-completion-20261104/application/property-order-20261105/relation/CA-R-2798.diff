@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2798@1-draft-CORE_META_MODEL-RULE--define-cfel-expression-separator-syntax.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2798.preview.txt
+@@ -24,4 +24,4 @@
+ 
+ ### Prose Claim
+ 
+-`;` separates complete CFEL expressions; a line break is layout only.
++`;` separates complete CFEL expressions; a line break is layout only. The contiguous tokens `;>` and `<;` express Property ordering and are read as complete tokens, not as the standalone separator.

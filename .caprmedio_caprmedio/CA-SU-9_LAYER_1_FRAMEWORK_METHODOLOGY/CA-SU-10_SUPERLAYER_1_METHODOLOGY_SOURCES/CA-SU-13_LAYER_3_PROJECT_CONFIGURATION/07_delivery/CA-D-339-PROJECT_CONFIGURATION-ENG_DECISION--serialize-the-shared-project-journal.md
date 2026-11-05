@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Project
@@ -10,14 +10,20 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
 version: 29
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
 atom_id: CA-D-339
+ref_id: CA-D-339
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 3
 role: Delivery
 form: Decision
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-D-339-PROJECT_CONFIGURATION-DECISION--serialize-the-shared-project-journal.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery
 ---
 ## Summary
 

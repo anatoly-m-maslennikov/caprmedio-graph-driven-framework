@@ -1,11 +1,12 @@
 ---
 atom_id: CA-R-2158
+ref_id: CA-R-2158
 current_scope_unit: caprmedio
 status: Active
 tier: 4
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
 version: 12
@@ -17,6 +18,12 @@ cce_version: cce_1
 cce_form: permission
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-2158-CAPRMEDIO-RULE--ai-agents-act-within-permission.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 

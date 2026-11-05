@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1138
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1138
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F13 second save-boundary and interruption-recovery packet
-  depends_on:
+topics:
+  main_subject: F13 second save-boundary and interruption-recovery packet
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
   - Subject/Domain/Node/Continuant/Project
@@ -26,6 +27,8 @@ relations:
   - CA-A-1125
   - CA-A-1060
   - CA-A-1061
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

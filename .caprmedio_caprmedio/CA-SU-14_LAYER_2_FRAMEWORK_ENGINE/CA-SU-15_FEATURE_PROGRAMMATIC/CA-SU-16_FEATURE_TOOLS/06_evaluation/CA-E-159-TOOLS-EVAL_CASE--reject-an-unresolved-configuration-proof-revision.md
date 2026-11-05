@@ -1,6 +1,6 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
 version: 21
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
@@ -10,12 +10,15 @@ relations:
   evaluation_for:
   - CA-R-1137
 atom_id: CA-E-159
+ref_id: CA-E-159
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject an unresolved configuration proof revision
 

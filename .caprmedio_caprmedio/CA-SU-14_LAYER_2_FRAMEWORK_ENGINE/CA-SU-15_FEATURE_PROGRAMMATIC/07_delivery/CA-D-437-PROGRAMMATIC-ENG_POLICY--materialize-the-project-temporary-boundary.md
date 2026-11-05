@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+  dependencies:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
 llm_session_ids:
@@ -16,12 +16,15 @@ relations:
   - CA-R-1473
   - CA-M-289
 atom_id: CA-D-437
+ref_id: CA-D-437
 status: Active
-content_role: Delivery
+role: Delivery
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-type: Eng Policy
+form: Eng Policy
 tier: 2
+container:
+  scope_unit: CA-SU-15
 ---
 # Materialize the Project temporary boundary
 

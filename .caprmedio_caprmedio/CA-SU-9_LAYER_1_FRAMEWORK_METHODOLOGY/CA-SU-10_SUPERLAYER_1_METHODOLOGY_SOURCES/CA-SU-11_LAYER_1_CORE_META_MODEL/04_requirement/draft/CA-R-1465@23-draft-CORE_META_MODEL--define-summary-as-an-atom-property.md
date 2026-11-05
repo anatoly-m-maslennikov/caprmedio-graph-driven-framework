@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content.summary
-  depends_on:
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content.summary
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
@@ -9,15 +9,17 @@ subjects:
   - Subject/CAPRMEDIO/Carrier/File.Main Content
 version: 23
 updated_at: 2026-10-29 00:04:17 +0400
-relations: {}
 atom_id: CA-R-1465@23-draft
-content_role: Requirement
+ref_id: CA-R-1465@23-draft
+role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 tier: 1
-type: Definition
+form: Definition
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

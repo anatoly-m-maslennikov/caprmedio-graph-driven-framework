@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Relation
   - Subject/CAPRMEDIO/Carrier
 version: 22
@@ -13,12 +13,15 @@ relations:
   evaluation_for:
   - CA-R-1137
 atom_id: CA-E-148
+ref_id: CA-E-148
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Return deterministic project diagnostics
 

@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+  dependencies:
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
@@ -15,13 +15,16 @@ relations:
   method_for:
   - CA-R-1070
 atom_id: CA-M-149
+ref_id: CA-M-149
 status: Active
-content_role: Method
+role: Method
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
-type: Eng Decision
+form: Eng Decision
 tier: 2
 claim_target_scope_unit: PROJECTION_ACTIONS
+container:
+  scope_unit: CA-SU-37
 ---
 # Generate the Project Scope Unit Graph from Configuration Authority
 

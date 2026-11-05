@@ -1,14 +1,14 @@
 ---
 atom_id: CA-M-draft
-content_role: Method
-type: Term Definition
+role: Method
+form: Term Definition
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Entity/Term//Dependent Entity
-  depends_on:
+topics:
+  main_subject: Entity/Term//Dependent Entity
+  dependencies:
   - Entity/Term
   - Entity/Dependent Entity
   - Entity/Graph Syntax > Relation//IS_BORNE_BY
@@ -16,8 +16,9 @@ subjects:
   - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Method/Type: Term Definition'
 version: 1
 updated_at: 2026-10-29 21:54:09 +0400
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

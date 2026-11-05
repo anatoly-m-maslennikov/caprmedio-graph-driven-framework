@@ -1,5 +1,6 @@
 ---
 atom_id: CA-E-679
+ref_id: CA-E-679
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Evaluation
 form: Eval Case
 tier: 5
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 updated_at: 2026-11-05 05:49:16 +0400
 carrier_destination:
   file:
@@ -18,6 +19,8 @@ carrier_destination:
 relations:
   evaluation_for:
   - CA-R-2782
+container:
+  scope_unit: CA-SU-43
 ---
 
 ## Summary

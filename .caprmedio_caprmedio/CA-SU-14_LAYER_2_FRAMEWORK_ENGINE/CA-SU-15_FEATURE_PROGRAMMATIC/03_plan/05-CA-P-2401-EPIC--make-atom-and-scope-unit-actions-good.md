@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-2401
-content_role: Plan
-type: Plan
+ref_id: CA-P-2401
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 5
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Tool
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Term//Property
@@ -18,10 +19,15 @@ subjects:
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - Subject/Graph Node/Domain/Continuant/Project.Structure
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
-relations: {}
 version: 114
 updated_at: 2026-10-25 17:32:27 +0400
 tier: 3
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: 5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan
 ---
 # Summary
 

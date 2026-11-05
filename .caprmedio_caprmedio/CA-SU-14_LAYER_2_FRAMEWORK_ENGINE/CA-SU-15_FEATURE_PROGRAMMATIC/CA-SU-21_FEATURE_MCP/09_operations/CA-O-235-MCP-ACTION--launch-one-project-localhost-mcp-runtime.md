@@ -1,14 +1,15 @@
 ---
 atom_id: CA-O-235
-content_role: Operations
-type: Action
+ref_id: CA-O-235
+role: Operations
+form: Action
 current_scope_unit: MCP
 claim_target_scope_unit: MCP
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
@@ -17,8 +18,9 @@ subjects:
   - Subject/CAPRMEDIO/Carrier
 version: 12
 updated_at: 2026-11-04 16:35:58 +0400
-relations: {}
 tier: 1
+container:
+  scope_unit: CA-SU-21
 ---
 # launch one Project localhost MCP runtime
 

@@ -1,7 +1,11 @@
 # CA-E-753@1
-# CA-D-673@12
+# CA-D-673@13
 # CA-E-676@11
-# CA-E-683@1
+# CA-E-683@2
+# CA-E-780@1
+# CA-E-784@1
+# CA-E-785@1
+# CA-E-787@1
 
 """Real Workbench MCP/HTTP proof against the full-suite current-code image."""
 
@@ -28,8 +32,6 @@ TOOLS_ROOT = REPOSITORY / "LAYER_2_FRAMEWORK_ENGINE" / "FEATURE_PROGRAMMATIC" / 
 MCP_ROOT = REPOSITORY / "LAYER_2_FRAMEWORK_ENGINE" / "FEATURE_PROGRAMMATIC" / "FEATURE_MCP"
 sys.path[:0] = [str(APP_ROOT / "tests"), str(APP_ROOT), str(TOOLS_ROOT), str(MCP_ROOT)]
 
-from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
-from smalltest_support import source_path, write_atom, write_settings  # noqa: E402
 from workbench_docker_support import (  # noqa: E402
     assert_legacy_files_unchanged,
     assert_legacy_saved,
@@ -45,13 +47,15 @@ from workbench_docker_support import (  # noqa: E402
 )
 from http_paths import HEALTH_PATH, MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from work_journal import configured_journal_root  # noqa: E402
+from workbench_grid_checks import WorkbenchGridDockerMixin  # noqa: E402
+from workbench_watcher_checks import WorkbenchWatcherDockerMixin  # noqa: E402
 
 
-class WorkbenchDockerE2E(unittest.TestCase):
+class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, unittest.TestCase):
     """One owned container; tests make no image, project, or Docker-global changes."""
 
     @classmethod
-    def setUpClass(cls) -> None:
+    def setUpClass(cls) -> None:  # noqa: C901
         image = os.environ.get("CAPRMEDIO_IMAGE")
         if not image:
             raise RuntimeError("CAPRMEDIO_IMAGE is required; the full suite builds the current-code image once")
@@ -67,6 +71,9 @@ class WorkbenchDockerE2E(unittest.TestCase):
         cls.workbench_path = f"{WORKBENCH_PATH}/{cls.project_name}"
         cls.journal_relative = configured_journal_root(REPOSITORY)
         cls.runtime = tempfile.TemporaryDirectory()
+        cls.runtime_root = Path(cls.runtime.name) / "runtime"
+        cls.runtime_root.mkdir()
+        cls.runtime_root.chmod(0o777)
         cls.workbench_state = Path(cls.runtime.name) / "workbench"
         cls.workbench_state.mkdir()
         cls.workbench_state.chmod(0o777)
@@ -97,8 +104,8 @@ class WorkbenchDockerE2E(unittest.TestCase):
                 "--label", "caprmedio.test=workbench-e2e",
                 "--memory=1536m", "--memory-swap=1536m",
                 "--tmpfs", "/tmp:rw,nosuid,nodev,size=256m",
-                "--tmpfs", "/project/.caprmedio_runtime:rw,nosuid,nodev,size=64m,mode=1777",
                 "-p", f"127.0.0.1:{cls.port}:8092", "-v", f"{REPOSITORY}:/project:ro",
+                "-v", f"{cls.runtime_root}:/project/.caprmedio_runtime:rw",
                 "-v", f"{cls.workbench_state}:/project/.caprmedio_runtime/workbench:rw",
                 "-v", f"{cls.journal_state}:{cls.journal_mount}:rw",
                 image, "mcp-http",
@@ -121,6 +128,10 @@ class WorkbenchDockerE2E(unittest.TestCase):
                     project_mounts = [mount for mount in json.loads(mounts) if mount["Destination"] == "/project"]
                     if len(project_mounts) != 1 or project_mounts[0]["RW"]:
                         raise RuntimeError("Workbench MCP project mount is not read-only")
+                    runtime_mounts = [mount for mount in json.loads(mounts) if mount["Destination"] == "/project/.caprmedio_runtime"]
+                    if (len(runtime_mounts) != 1 or not runtime_mounts[0]["RW"]
+                            or Path(runtime_mounts[0]["Source"]).resolve() != cls.runtime_root.resolve()):
+                        raise RuntimeError("Workbench runtime root is not the owned writable host directory")
                     state_mounts = [mount for mount in json.loads(mounts) if mount["Destination"] == "/project/.caprmedio_runtime/workbench"]
                     if (len(state_mounts) != 1 or not state_mounts[0]["RW"]
                             or Path(state_mounts[0]["Source"]).resolve() != cls.workbench_state.resolve()):
@@ -425,83 +436,6 @@ class WorkbenchDockerE2E(unittest.TestCase):
         status, _ = request(self.url + f"{WORKBENCH_PATH}/not-{self.project_name}")
         self.assertEqual(404, status)
         self.assertEqual(self.before_hash, hashlib.sha256(self.target.read_bytes()).hexdigest())
-
-    def test_watchfiles_reloads_source_from_writable_docker_bind_mount(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            root.chmod(0o755)
-            control = write_settings(root)
-            fixture_project_name = read_project_name(control)
-            workbench_path = f"{WORKBENCH_PATH}/{fixture_project_name}"
-            declarations = write_scope_unit_declarations(root, control_root=control)
-            target = write_atom(
-                source_path(declarations, "fixture", "04_requirement", "CA-R-901-docker.md"),
-                "CA-R-901",
-            )
-            name = f"caprmedio-workbench-watch-{uuid4().hex}"
-            port = free_port()
-            url = f"http://127.0.0.1:{port}"
-            stdout = tempfile.TemporaryFile(mode="w+t", encoding="utf-8")
-            stderr = tempfile.TemporaryFile(mode="w+t", encoding="utf-8")
-            process = subprocess.Popen(
-                [
-                    "docker", "run", "--rm", "--name", name,
-                    "--label", "caprmedio.test=workbench-watch",
-                    "--tmpfs", "/tmp:rw,nosuid,nodev,size=256m",
-                    "--tmpfs", "/project/.caprmedio_runtime:rw,nosuid,nodev,size=64m,mode=1777",
-                    "-p", f"127.0.0.1:{port}:8092", "-v", f"{root}:/project:rw",
-                    self.image, "mcp-http",
-                ],
-                cwd=REPOSITORY, stdout=stdout, stderr=stderr, text=True,
-            )
-            try:
-                deadline = time.monotonic() + 45
-                while time.monotonic() < deadline:
-                    if process.poll() is not None:
-                        stdout.seek(0)
-                        stderr.seek(0)
-                        raise AssertionError(
-                            f"watcher container exited during startup\nstdout:\n{stdout.read()}\nstderr:\n{stderr.read()}"
-                        )
-                    try:
-                        if request(url + HEALTH_PATH)[0] == 200:
-                            break
-                    except OSError:
-                        pass
-                    time.sleep(0.2)
-                else:
-                    self.fail("watcher container did not become ready within 45 seconds")
-
-                initial = request(
-                    url + f"{workbench_path}/run", method="POST",
-                    payload={"sql": "SELECT version FROM atoms WHERE id = 'CA-R-901'"},
-                )
-                self.assertEqual(200, initial[0])
-                self.assertEqual([[1]], initial[1]["rows"])
-                write_atom(target, "CA-R-901", version=2, body="# Summary\n\nChanged from the host.\n")
-                deadline = time.monotonic() + 20
-                while time.monotonic() < deadline:
-                    status, result = request(
-                        url + f"{workbench_path}/run", method="POST",
-                        payload={"sql": "SELECT version FROM atoms WHERE id = 'CA-R-901'"},
-                    )
-                    if status == 200 and result["rows"] == [[2]]:
-                        return
-                    time.sleep(0.2)
-                self.fail("watcher did not deliver the writable bind-mount edit")
-            finally:
-                if process.poll() is None:
-                    process.terminate()
-                    try:
-                        process.wait(timeout=10)
-                    except subprocess.TimeoutExpired:
-                        process.kill()
-                subprocess.run(
-                    ["docker", "container", "rm", "-f", name],
-                    capture_output=True, text=True, check=False,
-                )
-                stdout.close()
-                stderr.close()
 
 
 if __name__ == "__main__":

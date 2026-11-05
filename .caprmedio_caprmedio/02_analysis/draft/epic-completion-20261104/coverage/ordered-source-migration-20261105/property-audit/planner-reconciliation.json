@@ -1,0 +1,31 @@
+{
+  "status": "RECONCILED_PLANNER_SNAPSHOT_PLUS_SIX_EXPLICIT_CARRIERS_AND_THREE_NEW_DRAFTS",
+  "planner_pin": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/metadata/safe-topic-key-plan.json",
+    "sha256": "7ad6ffae7c3be64322fef900533d1c2b9c0e04a69e33c40e22ebfc3ece032cc1"
+  },
+  "planner_paths": 4630,
+  "property_paths": 4639,
+  "planner_missing_in_property": [],
+  "property_extra": [
+    ".caprmedio_caprmedio/CA-R-2452-ANATOLY-MASLENNIKOV-DEFINES_GOAL_FOR-caprmedio--create-and-evolve-a-working-caprmedio-framework.md",
+    ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+    ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R--PROGRAMMATIC-STANDARD--compose-expandable-and-overridable-model-declarations.md",
+    ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md",
+    ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E--PROGRAMMATIC-STANDARD-EVALUATION_APPROACH--check-model-extension-override-and-refresh-contracts.md",
+    ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery/draft/CA-D--PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2958@1-draft-CORE_META_MODEL-DECLARATION--declare-ai-agent.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2959@1-draft-CORE_META_MODEL-DECLARATION--declare-subagent.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2960@1-draft-CORE_META_MODEL-DECLARATION--declare-main-agent.md"
+  ],
+  "extra_breakdown": {
+    "root_atoms": 2,
+    "unnumbered_double_hyphen_drafts": 4,
+    "new_after_plan_drafts": [
+      "CA-R-2958@1",
+      "CA-R-2959@1",
+      "CA-R-2960@1"
+    ]
+  },
+  "semantics": "Planner holds included. Legacy Subject values must be preserved through key rename; whether a resulting main_subject is a modern string is a distinct property audit, never grounds for changing its business content. Both snapshots can drift; regenerate after stage 1."
+}

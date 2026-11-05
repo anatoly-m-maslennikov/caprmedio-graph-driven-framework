@@ -10,14 +10,17 @@ relations:
   child_of:
   - CA-R-1640
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-517
+ref_id: CA-R-517
 tier: 1
-type: Rule
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+container:
+  scope_unit: CA-SU-23
 ---
 # Provide a deterministic routing engine
 

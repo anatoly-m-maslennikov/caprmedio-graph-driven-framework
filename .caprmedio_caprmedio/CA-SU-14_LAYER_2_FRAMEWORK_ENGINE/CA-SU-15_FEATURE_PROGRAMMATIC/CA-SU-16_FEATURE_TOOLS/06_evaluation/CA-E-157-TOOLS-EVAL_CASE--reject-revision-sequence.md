@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
   - Subject/CAPRMEDIO/Carrier
@@ -16,12 +16,15 @@ relations:
   - CA-R-1492
   - CA-R-1137
 atom_id: CA-E-157
+ref_id: CA-E-157
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject revision sequence
 

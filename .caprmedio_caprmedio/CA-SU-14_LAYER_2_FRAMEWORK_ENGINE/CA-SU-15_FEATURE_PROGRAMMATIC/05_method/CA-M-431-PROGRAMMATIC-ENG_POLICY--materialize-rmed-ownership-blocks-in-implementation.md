@@ -1,16 +1,17 @@
 ---
 atom_id: CA-M-431
-content_role: Method
-type: Eng Policy
+ref_id: CA-M-431
+role: Method
+form: Eng Policy
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 version: 11
 updated_at: 2026-11-04 23:19:17 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
 relations:
   method_for:
@@ -19,6 +20,12 @@ relations:
   - CA-M-411
   - CA-M-405
 tier: 4
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-M-431-PROGRAMMATIC-ENG_POLICY--materialize-rmed-ownership-blocks-in-implementation.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
 # Summary
 

@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Markdown Atom ID Resolution
-  depends_on:
+topics:
+  main_subject: Markdown Atom ID Resolution
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom.ID
   - Tool Authority
   - Realization
@@ -16,11 +16,12 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-901
+ref_id: CA-P-901
 ---
 # Resolve every Markdown Atom ID through Atom Tools
 

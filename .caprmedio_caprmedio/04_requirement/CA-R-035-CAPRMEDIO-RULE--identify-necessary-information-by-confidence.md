@@ -7,9 +7,9 @@ llm_session_ids:
 relations:
   child_of:
   - CA-M-448
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
@@ -21,9 +21,16 @@ cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-035
+ref_id: CA-R-035
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-035-CAPRMEDIO-RULE--identify-necessary-information-by-confidence.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Identify necessary information by confidence

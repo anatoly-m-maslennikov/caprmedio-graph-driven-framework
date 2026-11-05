@@ -1,13 +1,14 @@
 ---
 claim_target_scope_unit: CONNECTOR_TOOLS
 current_scope_unit: CONNECTOR_TOOLS
-content_role: Delivery
+role: Delivery
 atom_id: CA-D-423
+ref_id: CA-D-423
 cce_version: cce_1
 cce_form: delivery
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//ATOM_READ
 version: 21
 status: Active
@@ -17,9 +18,11 @@ relations:
   - CA-R-864
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-type: Eng Decision
+form: Eng Decision
 tier: 4
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-17
 ---
 # Deliver ATOM_READ Tool
 

@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection.Form
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection.Form
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
 version: 26
@@ -10,12 +10,19 @@ relations:
   depends_on:
   - CA-D-311
 atom_id: CA-D-397
+ref_id: CA-D-397
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 3
 role: Delivery
 form: Decision
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-D-397-PROJECT_CONFIGURATION-DECISION--register-caprmedio-type-prefixes.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery
 ---
 ## Summary
 

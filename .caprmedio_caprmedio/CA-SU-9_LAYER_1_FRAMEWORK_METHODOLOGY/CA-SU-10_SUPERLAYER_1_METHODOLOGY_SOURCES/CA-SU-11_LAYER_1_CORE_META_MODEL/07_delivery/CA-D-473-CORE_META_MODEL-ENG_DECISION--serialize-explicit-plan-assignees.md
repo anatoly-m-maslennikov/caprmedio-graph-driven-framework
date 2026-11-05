@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
   - CAPRMEDIO_MODEL <+ Carrier/File
@@ -11,12 +11,19 @@ relations:
   delivery_for:
   - CA-R-1585
 atom_id: CA-D-473
+ref_id: CA-D-473
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 3
 role: Delivery
 form: Decision
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-D-473-CORE_META_MODEL-DECISION--serialize-explicit-plan-assignees.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 ---
 ## Summary
 

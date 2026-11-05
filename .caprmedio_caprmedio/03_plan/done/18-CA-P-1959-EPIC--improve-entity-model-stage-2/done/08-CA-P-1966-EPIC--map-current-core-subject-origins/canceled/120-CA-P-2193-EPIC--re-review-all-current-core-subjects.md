@@ -1,16 +1,17 @@
 ---
 atom_id: CA-P-2193
-content_role: Plan
-type: Plan
+ref_id: CA-P-2193
+role: Plan
+form: Plan
 label: Epic
 work_sequence_number: 120
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Canceled
-subjects:
-  governs: Subject
-  depends_on:
+topics:
+  main_subject: Subject
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject
   - Subject/Graph Node/Domain/Continuant/Term
@@ -25,6 +26,12 @@ relations:
   is_decomposition_of:
   - CA-P-1966
 tier: 3
+container:
+  atom: CA-P-1966
+carrier_destination:
+  file:
+    name: 120-CA-P-2193-EPIC--re-review-all-current-core-subjects.md
+    path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/canceled
 ---
 # Summary
 

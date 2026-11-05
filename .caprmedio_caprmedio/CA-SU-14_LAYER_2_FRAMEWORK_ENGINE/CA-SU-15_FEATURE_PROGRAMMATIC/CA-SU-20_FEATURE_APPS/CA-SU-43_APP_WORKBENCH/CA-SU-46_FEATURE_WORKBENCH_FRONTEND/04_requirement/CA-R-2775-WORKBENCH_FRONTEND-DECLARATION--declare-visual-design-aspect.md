@@ -1,5 +1,6 @@
 ---
 atom_id: CA-R-2775
+ref_id: CA-R-2775
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
@@ -8,16 +9,18 @@ role: Requirement
 form: Declaration
 tier: 4
 version: 1
-subjects:
-  active: PROJECT_STRUCTURE <+ Aspect//Visual Design
+topics:
+  main_subject: PROJECT_STRUCTURE <+ Aspect//Visual Design
 relations:
   depends_on:
   - CA-R-2543
 carrier_destination:
   file:
-    name: CA-R-2775-WORKBENCH_FRONTEND-DECLARATION--declare-visual-design-aspect.md
+    name: CA-R-2775-WORKBENCH_FRONTEND-DECLARATION--declare-visual-design-aspect-for-workbench-frontend.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/04_requirement
 updated_at: 2026-11-04 23:19:17 +0400
+container:
+  scope_unit: CA-SU-46
 ---
 
 ## Summary

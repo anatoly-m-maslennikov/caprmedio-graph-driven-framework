@@ -1,10 +1,10 @@
 ---
 atom_id: CA-A-057
-subjects:
-  governs:
+topics:
+  main_subject:
     occurrent:
       - Programmatic Specialization Authority Reconciliation
-  depends_on:
+  dependencies:
     continuant:
       - Programmatic Policy
       - Method Authority

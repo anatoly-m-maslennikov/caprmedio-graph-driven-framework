@@ -1,13 +1,14 @@
 ---
 atom_id: CA-O-198
-content_role: Operations
-type: Action
+ref_id: CA-O-198
+role: Operations
+form: Action
 current_scope_unit: PROJECT_CONFIGURATION
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Action//Finalize actual public Version History link
-  depends_on:
+topics:
+  main_subject: Subject/caprmedio/Action//Finalize actual public Version History link
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History
   - Subject/CAPRMEDIO/Carrier/Pull Request
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Git Commits
@@ -15,8 +16,13 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 version: 13
 updated_at: 2026-10-27 19:59:48 +0400
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-198-PROJECT_CONFIGURATION-ACTION--finalize-the-actual-public-history-link.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

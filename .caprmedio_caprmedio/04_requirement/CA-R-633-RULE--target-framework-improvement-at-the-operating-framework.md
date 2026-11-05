@@ -7,18 +7,25 @@ llm_session_ids:
 relations:
   child_of:
   - CA-R-632
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
 cce_version: cce_1
 cce_form: obligation
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-633
+ref_id: CA-R-633
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-633-CAPRMEDIO-RULE--target-framework-improvement-at-the-operating-framework.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Target framework improvement at the operating framework

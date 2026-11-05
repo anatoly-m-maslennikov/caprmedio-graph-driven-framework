@@ -1,19 +1,21 @@
 ---
-subjects:
-  governs: "Entity/Node/Continuant/Relation"
-  depends_on:
+topics:
+  main_subject: "Entity/Node/Continuant/Relation"
+  dependencies:
     ["Entity/Node/Continuant/Projection", "Entity/Node/Continuant/Atom", "Entity/Node", "Entity/Node/Continuant/History/Journal", "Entity/Relation"]
 version: 9
 updated_at: "2026-10-20 12:30:27 +0000"
-relations: {}
 atom_id: "CA-R-1472@draft"
-content_role: "Requirement"
+ref_id: CA-R-1472@9-draft
+role: "Requirement"
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "General"
 status: "Draft"
 author: "Anatoly Maslennikov"
 global_tier: 10
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

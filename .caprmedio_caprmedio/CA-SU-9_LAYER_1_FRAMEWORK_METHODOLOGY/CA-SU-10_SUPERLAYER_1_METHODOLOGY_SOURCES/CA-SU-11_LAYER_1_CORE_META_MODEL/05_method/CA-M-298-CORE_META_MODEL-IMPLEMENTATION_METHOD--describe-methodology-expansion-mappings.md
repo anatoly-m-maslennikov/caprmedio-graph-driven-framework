@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
-  passive:
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
@@ -13,12 +13,15 @@ relations:
   method_for:
   - CA-R-1375
 atom_id: CA-M-298
+ref_id: CA-M-298
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 2
 role: Method
 form: Implementation Method
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

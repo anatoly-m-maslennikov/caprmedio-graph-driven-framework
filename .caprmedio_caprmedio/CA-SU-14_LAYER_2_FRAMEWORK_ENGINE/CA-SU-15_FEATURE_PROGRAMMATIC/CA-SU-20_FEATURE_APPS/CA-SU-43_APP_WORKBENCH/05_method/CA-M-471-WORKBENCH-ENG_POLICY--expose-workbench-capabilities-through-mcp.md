@@ -1,5 +1,6 @@
 ---
 atom_id: CA-M-471
+ref_id: CA-M-471
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
@@ -8,8 +9,8 @@ role: Method
 form: Eng Policy
 tier: 4
 version: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   method_for:
   - CA-R-2728
@@ -17,9 +18,11 @@ relations:
   - CA-R-2776
 carrier_destination:
   file:
-    name: CA-M-471-WORKBENCH-ENG_POLICY--expose-workbench-capabilities-through-mcp.md
+    name: CA-M-471-WORKBENCH-ENG_POLICY--expose-every-workbench-backend-capability-through-mcp.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method
 updated_at: 2026-11-05 16:45:35 +0400
+container:
+  scope_unit: CA-SU-43
 ---
 
 ## Summary

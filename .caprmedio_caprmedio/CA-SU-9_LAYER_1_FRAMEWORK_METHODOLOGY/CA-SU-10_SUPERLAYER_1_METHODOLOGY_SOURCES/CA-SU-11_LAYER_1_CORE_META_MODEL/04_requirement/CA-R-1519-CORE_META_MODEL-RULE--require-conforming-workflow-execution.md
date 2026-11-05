@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
@@ -11,14 +11,20 @@ subjects:
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
 version: 25
 updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
 atom_id: CA-R-1519
+ref_id: CA-R-1519
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1519-CORE_META_MODEL-RULE--require-conforming-workflow-execution.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

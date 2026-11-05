@@ -1,20 +1,22 @@
 ---
 atom_id: CA-R-2003@11-draft
-content_role: Requirement
-type: Graph Rule
+ref_id: CA-R-2003@11-draft
+role: Requirement
+form: Graph Rule
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: 'Formal Model::CAPRMEDIO::Graph Relation/Type: IS_BORNE_BY'
-  depends_on:
+topics:
+  main_subject: 'Formal Model::CAPRMEDIO::Graph Relation/Type: IS_BORNE_BY'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Relation
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Dependent Entity Occurrences
-relations: {}
 version: 11
 updated_at: 2026-10-28 19:24:50 +0400
 tier: 1
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Project
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-D-463
+ref_id: CA-D-463
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 role: Delivery
 form: Decision
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-D-463-CORE_META_MODEL-DECISION--give-every-atom-revision-one-authoritative-carrier-bundle.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 ---
 ## Summary
 

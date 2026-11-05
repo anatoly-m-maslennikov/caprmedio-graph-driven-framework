@@ -1,5 +1,6 @@
 ---
 atom_id: CA-A-1323
+ref_id: CA-A-1323
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Done
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Analysis & Advisory
 form: Specification Proposal
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 updated_at: 2026-11-05 13:04:02 +0400
 carrier_destination:
   file:
@@ -33,6 +34,8 @@ relations:
   - CA-E-525
   - CA-R-1804
   - CA-O-112
+container:
+  scope_unit: CA-SU-15
 ---
 
 ## Summary

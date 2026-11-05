@@ -1,15 +1,15 @@
 ---
 atom_id: CA-R-2684
+ref_id: CA-R-2684
 status: Active
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Unit Declaration)
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Unit Declaration)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Scope Unit
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
-relations: {}
 form: Rule
 role: Requirement
 ---

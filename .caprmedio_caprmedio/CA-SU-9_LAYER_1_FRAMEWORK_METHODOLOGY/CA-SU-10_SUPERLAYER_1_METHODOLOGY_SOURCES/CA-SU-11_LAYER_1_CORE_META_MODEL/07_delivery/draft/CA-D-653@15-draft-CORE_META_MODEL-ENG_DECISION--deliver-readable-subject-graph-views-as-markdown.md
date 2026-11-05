@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Entity/Object/Continuant/Projection
-  depends_on:
+topics:
+  main_subject: Entity/Object/Continuant/Projection
+  dependencies:
   - Entity/Object/Continuant/Projection.Type
   - Entity/Object/Continuant/Selection
   - Entity/Object/Continuant/Governing Objects/Atom
@@ -23,13 +23,16 @@ relations:
   - CA-R-2224
   - CA-R-2225
 atom_id: CA-D-653@15-draft
-content_role: Delivery
-type: Decision
+ref_id: CA-D-653@15-draft
+role: Delivery
+form: Decision
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 tier: 3
 status: Draft
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

@@ -1,16 +1,17 @@
 ---
 atom_id: CA-C-293
-content_role: Concern
-type: Problem
+ref_id: CA-C-293
+role: Concern
+form: Problem
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 status: Active
 author: Anatoly Maslennikov
-subjects:
-  governs: Project/verification environment
-  depends_on:
+topics:
+  main_subject: Project/verification environment
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - Implementation
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
@@ -21,6 +22,12 @@ relations:
     - CA-P-1176
 version: 5
 updated_at: 2026-10-23 03:14:50 +0400
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-C-293-CAPRMEDIO-PROBLEM--project-python-environment-cannot-run-preflight-validation.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 # Summary
 

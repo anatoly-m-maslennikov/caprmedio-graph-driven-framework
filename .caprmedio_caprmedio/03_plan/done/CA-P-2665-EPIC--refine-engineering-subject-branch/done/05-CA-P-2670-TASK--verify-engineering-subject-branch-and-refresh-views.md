@@ -1,21 +1,25 @@
 ---
 atom_id: CA-P-2670
-content_role: Plan
-type: Plan
+ref_id: CA-P-2670
+role: Plan
+form: Plan
 label: Task
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering
+topics:
+  main_subject: Subject/Graph Node/Engineering
 version: 3
 updated_at: 2026-10-27 06:19:16 +0400
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2665
 tier: 4
 work_sequence_number: 5
+container:
+  atom: CA-P-2665
+carrier_destination:
+  file:
+    name: 5-CA-P-2670-TASK--verify-engineering-subject-branch-and-refresh-views.md
+    path: .caprmedio_caprmedio/03_plan/done/CA-P-2665-EPIC--refine-engineering-subject-branch/done
 ---
 # Summary
 

@@ -1,20 +1,26 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
-  passive:
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
 version: 21
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
 atom_id: CA-R-1506
+ref_id: CA-R-1506
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 1
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1506-CORE_META_MODEL-RULE--separate-check-mechanism-labels-from-evaluation-atom-types.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

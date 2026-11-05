@@ -1,15 +1,16 @@
 ---
 atom_id: CA-E-537
-content_role: Evaluation
-type: Eval Case
+ref_id: CA-E-537
+role: Evaluation
+form: Eval Case
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 19:59:37 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
@@ -23,6 +24,12 @@ relations:
   - CA-D-525
   - CA-D-526
 tier: 4
+container:
+  scope_unit: CA-SU-2
+carrier_destination:
+  file:
+    name: CA-E-537-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-docker-lifecycle-and-workflow-recovery.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/06_evaluation
 ---
 # Summary
 

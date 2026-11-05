@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-2596
-content_role: Plan
-type: Plan
+ref_id: CA-P-2596
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: PROGRAMMATIC
@@ -10,9 +11,8 @@ author: Anatoly Maslennikov
 status: Done
 version: 7
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
-  depends_on: []
+topics:
+  main_subject: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
 relations:
   is_decomposition_of:
   - CA-P-2581
@@ -27,6 +27,12 @@ relations:
   - CA-D-544
   - CA-O-016
 tier: 3
+container:
+  atom: CA-P-2581
+carrier_destination:
+  file:
+    name: 1-CA-P-2596-TASK--persist-the-bound-integrated-step-frontier.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/done/4-CA-P-2581-TASK--integrate-shared-workflow-continuation-and-retry-state/done
 ---
 # Summary
 

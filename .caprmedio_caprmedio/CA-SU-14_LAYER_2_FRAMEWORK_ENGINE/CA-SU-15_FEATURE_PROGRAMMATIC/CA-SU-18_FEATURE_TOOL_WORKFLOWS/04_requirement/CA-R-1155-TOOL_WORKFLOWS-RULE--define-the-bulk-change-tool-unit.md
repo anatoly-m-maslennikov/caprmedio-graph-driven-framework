@@ -1,19 +1,26 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
 version: 32
 status: Active
 updated_at: 2026-11-02 19:46:47 +0400
 llm_session_ids:
 - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-content_role: Requirement
+role: Requirement
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 atom_id: CA-R-1155
+ref_id: CA-R-1155
 tier: 3
-type: Rule
+form: Rule
 author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-18
+carrier_destination:
+  file:
+    name: CA-R-1155-TOOL_WORKFLOWS-RULE--define-the-bulk-change-tool-unit.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/04_requirement
 ---
 # Summary
 

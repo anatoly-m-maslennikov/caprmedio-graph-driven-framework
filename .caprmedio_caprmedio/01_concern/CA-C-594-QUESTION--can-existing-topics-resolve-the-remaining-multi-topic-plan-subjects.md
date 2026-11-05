@@ -1,19 +1,25 @@
 ---
 atom_id: CA-C-594
-content_role: Concern
-type: Question
+ref_id: CA-C-594
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 status: Active
 author: Anatoly Maslennikov
 tier: 3
 version: 1
 updated_at: 2026-10-24 07:20:16 +0400
-subjects:
-  governs: Subject/Domain/Node/Continuant/Atom.Subjects
-  depends_on:
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Atom.Subjects
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - Subject/Domain/Node/Continuant/Selection
-relations: {}
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-C-594-CAPRMEDIO-QUESTION--can-existing-topics-resolve-the-remaining-multi-topic-plan-subjects.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 # Summary
 

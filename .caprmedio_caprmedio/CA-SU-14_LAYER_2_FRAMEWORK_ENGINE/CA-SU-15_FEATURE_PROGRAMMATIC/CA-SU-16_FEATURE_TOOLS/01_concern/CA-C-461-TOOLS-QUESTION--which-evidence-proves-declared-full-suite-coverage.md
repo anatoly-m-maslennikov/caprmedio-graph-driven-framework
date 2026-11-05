@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-461
-content_role: Concern
-type: Question
+ref_id: CA-C-461
+role: Concern
+form: Question
 current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
@@ -9,12 +10,14 @@ status: active
 author: Anatoly Maslennikov
 version: 2
 updated_at: 2026-10-23 01:47:30 +0400
-subjects:
-  governs: Subject/Engineering/Test Coverage/Evidence
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Test Coverage/Evidence
+  dependencies:
   - Subject/Engineering/Test Results/JUnit Reports
 relations:
   concern_about: [CA-P-1688]
+container:
+  scope_unit: CA-SU-16
 ---
 # Summary
 

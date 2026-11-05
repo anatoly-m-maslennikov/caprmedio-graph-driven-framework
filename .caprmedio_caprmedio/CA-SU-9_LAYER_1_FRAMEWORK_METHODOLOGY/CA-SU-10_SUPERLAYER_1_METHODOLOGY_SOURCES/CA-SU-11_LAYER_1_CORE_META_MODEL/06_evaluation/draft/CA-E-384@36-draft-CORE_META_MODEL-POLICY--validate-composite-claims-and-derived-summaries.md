@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
-  depends_on:
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
@@ -19,13 +19,16 @@ relations:
   - CA-R-1465
   - CA-R-1273
 atom_id: CA-E-384@36-draft
-content_role: Evaluation
+ref_id: CA-E-384@36-draft
+role: Evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-type: Policy
+form: Policy
 tier: 3
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: evaluation
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Carrier
 version: 20
@@ -15,13 +15,16 @@ relations:
   derived_from:
   - CA-A-053
 atom_id: CA-E-454
-content_role: Evaluation
+ref_id: CA-E-454
+role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 tier: 5
-type: Eval Case
+form: Eval Case
+container:
+  scope_unit: CA-SU-15
 ---
 # Use one Settings Reader across Engine software
 

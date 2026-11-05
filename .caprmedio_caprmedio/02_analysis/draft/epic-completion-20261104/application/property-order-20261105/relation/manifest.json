@@ -1,0 +1,55 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "sources": [
+    {
+      "id": "UNALLOCATED_RELATION",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/IS_ORDERED_RIGHT_AFTER.unallocated.preview.txt",
+      "preview_sha256": "c9e09eaa3c85c7fd829de2ede67702f8aa9ea24fdd7666d2e13ff4b10d6a6640"
+    },
+    {
+      "id": "CA-R-2798",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2798@1-draft-CORE_META_MODEL-RULE--define-cfel-expression-separator-syntax.md",
+      "source_sha256": "7a5a9e548686252fd63341c92f1036bec8059168ec58f215b1de47f2b2cb5686",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2798.preview.txt",
+      "preview_sha256": "94902c6c93270af13f2f5127359f5f191ef399c74ffab17d72a231d3093022db",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2798.diff",
+      "diff_sha256": "54fd4be5320d4a301f7b1c86ea62cac5a08309a10fc87bc2aa686c322019aa14"
+    },
+    {
+      "id": "CA-R-2462",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2462@5-draft-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "source_sha256": "048bbb66a0f3d0e0cb522e0c75d83ed1675d11c163ad86d3c2a03d260971f29b",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2462.preview.txt",
+      "preview_sha256": "5fb7ae9e86b536c3205fa12f0f975f88161ffd2030d473b0047f1056e420e724",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2462.diff",
+      "diff_sha256": "7045c5222a4a4ae3bd922dfcf4b565f873796f1b7626861bb9627e46fc9574cb"
+    },
+    {
+      "id": "CA-R-2462-Current",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "source_sha256": "82381a8c7168c3fdf6d77727eda8afe49814106f524033e6b102174afdfc3ecf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2462.current.preview.txt",
+      "preview_sha256": "b5608e6f8929c9985e085d1ffe82f3c9ff133dc235fdff753ee44eb677323637",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2462.current.diff",
+      "diff_sha256": "337580084b37b78dd79ad415ed72b2066dbeb63b5784e5b28480d746c4dc77d9"
+    },
+    {
+      "id": "CA-R-2597-Current",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "76b55aa7340d3390a0731103e4fdb0f9fadd4d2a804650ce2d1eaa2cd6d478d5",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2597.current.preview.txt",
+      "preview_sha256": "598a2d92560ff64cea73c1b72d6f34c6b9ca4077ca33ed7ab6e0c0a6e99be42d",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/relation/CA-R-2597.current.diff",
+      "diff_sha256": "c2ebc339da88dea50c1607059b2e3b1cce3c4894c107fbe3a38037c211afbe5b"
+    }
+  ],
+  "direction": "Canonical IS_ORDERED_RIGHT_AFTER alias <; means Host follows Target; inverse alias IS_ORDERED_RIGHT_BEFORE alias ;> means Host precedes Target. Both write one model-order fact.",
+  "admission": "Both named directions receive separate model-only 0..1 permissions for Atom.Header.** and Atom.Content.**; Relation prose requires same immediate bearer. No runtime Property-instance permission is introduced.",
+  "syntax": "R2798 preserves standalone ; as expression separator and recognizes contiguous ;> and <; as whole ordering tokens.",
+  "dependencies": [
+    "Review exact selector scope, acyclic sibling adjacency and both explicit named outgoing permissions; preserve Current and Draft source alignment.",
+    "Canonical Relation and inverse-alias binding require R2951 and existing alias() authority.",
+    "Root owns Current source revisions, predecessor archives, ID allocation and subsequent coordinated migration; no parser implementation is implied."
+  ],
+  "limits": "No native Current/Draft, code, tests, Workflow, Workbench, Git or ID allocation."
+}

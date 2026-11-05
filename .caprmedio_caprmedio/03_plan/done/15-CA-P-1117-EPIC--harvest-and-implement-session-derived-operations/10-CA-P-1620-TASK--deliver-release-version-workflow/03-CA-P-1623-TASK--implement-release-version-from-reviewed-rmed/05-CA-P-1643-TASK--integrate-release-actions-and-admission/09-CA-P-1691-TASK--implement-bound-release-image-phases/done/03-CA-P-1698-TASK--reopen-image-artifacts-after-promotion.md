@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1698
-content_role: Plan
-type: Plan
+ref_id: CA-P-1698
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 3
 current_scope_unit: caprmedio
@@ -9,9 +10,9 @@ author: Anatoly Maslennikov
 assignee: AI Agent
 autonomous_confidence_threshold: 90
 status: Done
-subjects:
-  governs: Subject/Graph Node/Engineering/Image
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Image
+  dependencies:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Image
   - Subject/Graph Node/Engineering/Occurrent/Runtime
@@ -25,6 +26,12 @@ relations:
   - CA-P-1693
   - CA-P-1697
 tier: 3
+container:
+  atom: CA-P-1691
+carrier_destination:
+  file:
+    name: 3-CA-P-1698-TASK--reopen-image-artifacts-after-promotion.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/5-CA-P-1643-TASK--integrate-release-actions-and-admission/9-CA-P-1691-TASK--implement-bound-release-image-phases/done
 ---
 # Summary
 

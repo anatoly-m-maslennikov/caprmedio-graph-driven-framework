@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
 llm_session_ids:
@@ -10,12 +10,15 @@ llm_session_ids:
 version: 23
 updated_at: 2026-10-27 19:59:51 +0400
 atom_id: CA-R-1147
+ref_id: CA-R-1147
 status: Active
-content_role: Requirement
+role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Rule
+form: Rule
 tier: 1
+container:
+  scope_unit: CA-SU-16
 ---
 # Record a release outcome
 

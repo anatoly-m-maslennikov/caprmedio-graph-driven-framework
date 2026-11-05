@@ -1,13 +1,14 @@
 ---
 atom_id: CA-D-532
-content_role: Delivery
+ref_id: CA-D-532
+role: Delivery
 current_scope_unit: TOOL_WORKFLOWS
 claim_target_scope_unit: TOOL_WORKFLOWS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  dependencies:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
 version: 15
@@ -16,8 +17,14 @@ relations:
   delivery_for:
   - CA-R-1826
   - CA-R-1828
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-18
+carrier_destination:
+  file:
+    name: CA-D-532-TOOL_WORKFLOWS-ENG_DECISION--deliver-lifecycle-result-carriers.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/07_delivery
 ---
 # Summary
 

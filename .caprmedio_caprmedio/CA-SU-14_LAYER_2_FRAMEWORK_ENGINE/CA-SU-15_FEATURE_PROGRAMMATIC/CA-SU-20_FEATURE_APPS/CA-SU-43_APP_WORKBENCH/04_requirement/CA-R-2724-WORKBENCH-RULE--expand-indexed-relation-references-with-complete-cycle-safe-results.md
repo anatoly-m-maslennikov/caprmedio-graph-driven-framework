@@ -1,5 +1,6 @@
 ---
 atom_id: CA-R-2724
+ref_id: CA-R-2724
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 status: Active
@@ -7,23 +8,20 @@ author: Anatoly Maslennikov
 role: Requirement
 form: Rule
 tier: 3
-version: 2
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-relations: {}
+version: 3
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 carrier_destination:
   file:
     name: CA-R-2724-WORKBENCH-RULE--expand-indexed-relation-references-with-complete-cycle-safe-results.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
-updated_at: 2026-11-04 00:38:14 +0400
+updated_at: 2026-11-05 18:48:47 +0400
+container:
+  scope_unit: CA-SU-43
 ---
 ## Summary
 
 Expand indexed Relation references with complete cycle-safe results
-
-## Claim scope
-
-Expansion of an unambiguous seed reference through indexed registered Relation Types.
 
 ## Claim
 
@@ -38,3 +36,5 @@ Relation expansion **must**:
 - use only indexed Relation facts; it **must not** infer links from prose or interpret Formal Claims as graph declarations.
 - resolve each declared derived counterpart from its direct source fact without creating a second direct fact or traversing an inverse twice.
 - reflect the applicable source and Declaration state after its query Projection is refreshed.
+- use only `atoms` and `scope_units` as Relation-expansion source tables. The separate technical `change_log` table records watcher observations and is not a graph vertex, edge, Atom or Scope Unit source.
+

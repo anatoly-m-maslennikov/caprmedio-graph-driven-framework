@@ -2,11 +2,11 @@
 atom_id: CA-A-904
 cce_version: cce_1
 cce_form: rationale
-subjects:
-  governs:
+topics:
+  main_subject:
     continuant:
       - langwatch-ideas-for-caprmedio-tools-apps-mcp
-  depends_on:
+  dependencies:
     continuant:
       - FRAMEWORK_ENGINE
 relations:

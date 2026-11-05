@@ -1,22 +1,24 @@
 ---
-subjects:
-  governs: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content.claim_scope
-  depends_on:
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content.claim_scope
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Target Scope Unit
   - Subject/CAPRMEDIO/Carrier/File
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
 version: 21
 updated_at: 2026-10-29 00:04:17 +0400
-relations: {}
 atom_id: CA-D-495@21-draft
-content_role: Delivery
+ref_id: CA-D-495@21-draft
+role: Delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
 tier: 1
-type: Eng Decision
+form: Eng Decision
+container:
+  scope_unit: CA-SU-11
 ---
 # Summary
 

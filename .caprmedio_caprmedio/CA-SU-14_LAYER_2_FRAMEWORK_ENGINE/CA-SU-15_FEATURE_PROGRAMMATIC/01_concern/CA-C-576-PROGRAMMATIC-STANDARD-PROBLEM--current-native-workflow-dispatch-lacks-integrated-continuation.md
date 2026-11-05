@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-576
-content_role: Concern
-type: Problem
+ref_id: CA-C-576
+role: Concern
+form: Problem
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
@@ -9,14 +10,19 @@ global_tier: 8
 author: Anatoly Maslennikov
 status: Active
 priority: high
-subjects:
-  governs: Entity/Node/Continuant/Implementation
-  depends_on: []
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about: [CA-R-1527, CA-R-1843, CA-R-1845, CA-O-016, CA-P-2581]
   relates_to: [CA-C-583, CA-C-584, CA-P-2613]
 version: 7
 updated_at: "2026-10-23T12:49:37+0400"
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-C-576-PROGRAMMATIC-PROBLEM--current-native-workflow-dispatch-lacks-integrated-continuation.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

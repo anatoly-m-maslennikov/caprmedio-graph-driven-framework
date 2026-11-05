@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: 'Atom/Content Role: Analysis & Advisory/Type: Rationale'
-  depends_on:
+topics:
+  main_subject: 'Atom/Content Role: Analysis & Advisory/Type: Rationale'
+  dependencies:
   - Rationale For Relation
   - Subject/Domain/Node/Continuant/Atom/Content Role
   - Atom/Claim
@@ -13,7 +13,6 @@ version: 4
 updated_at: 2026-11-02 15:49:28 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-140
 ---
 # Which Atoms may a Rationale explain?

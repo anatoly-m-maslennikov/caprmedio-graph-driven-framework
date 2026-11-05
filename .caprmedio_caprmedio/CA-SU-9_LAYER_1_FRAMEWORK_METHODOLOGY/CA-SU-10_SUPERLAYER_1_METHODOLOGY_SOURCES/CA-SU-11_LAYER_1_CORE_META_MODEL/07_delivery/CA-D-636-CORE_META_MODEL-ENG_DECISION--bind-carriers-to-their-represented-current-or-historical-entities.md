@@ -1,11 +1,12 @@
 ---
 atom_id: CA-D-636
+ref_id: CA-D-636
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
@@ -17,6 +18,12 @@ updated_at: 2026-11-02 00:18:22 +0400
 tier: 1
 role: Delivery
 form: Policy
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-D-636-CORE_META_MODEL-POLICY--bind-carriers-to-their-represented-current-or-historical-entities.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 ---
 ## Summary
 

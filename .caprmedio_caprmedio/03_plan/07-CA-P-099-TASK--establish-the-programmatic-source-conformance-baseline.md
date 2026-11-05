@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Engineering/Implementation Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Implementation Evaluation
+  dependencies:
   - Subject/Graph Node/Engineering/programmatic software
   - Subject/Graph Node/Engineering/Continuant/Tool.Source Architecture
   - Subject/Graph Node/Domain/Continuant/Project.Settings
@@ -17,11 +17,14 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-099
+ref_id: CA-P-099
+container:
+  scope_unit: CA-SU-00
 ---
 # Establish the PROGRAMMATIC source conformance baseline
 

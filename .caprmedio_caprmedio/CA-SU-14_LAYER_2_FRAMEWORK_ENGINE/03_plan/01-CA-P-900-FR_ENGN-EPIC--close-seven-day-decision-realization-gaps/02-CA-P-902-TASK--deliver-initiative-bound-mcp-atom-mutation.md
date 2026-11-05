@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Initiative-Bound MCP Atom Mutation Delivery
-  depends_on:
+topics:
+  main_subject: Initiative-Bound MCP Atom Mutation Delivery
+  dependencies:
   - Subject/Graph Node/Engineering/MCP
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Realization
@@ -16,11 +16,12 @@ relations:
 status: Active
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
-content_role: Plan
-type: Plan
+role: Plan
+form: Plan
 label: Task
 tier: 3
 atom_id: CA-P-902
+ref_id: CA-P-902
 ---
 # Deliver Initiative-bound MCP Atom mutation
 

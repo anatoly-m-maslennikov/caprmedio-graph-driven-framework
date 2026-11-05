@@ -1,5 +1,6 @@
 ---
 atom_id: CA-E-683
+ref_id: CA-E-683
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 status: Active
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Evaluation
 form: Eval Case
 tier: 5
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 relations:
   evaluation_for:
   - CA-R-2727
@@ -23,6 +24,8 @@ carrier_destination:
     name: CA-E-683-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-views-and-display-controls.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation
 updated_at: 2026-11-05 16:45:35 +0400
+container:
+  scope_unit: CA-SU-46
 ---
 
 ## Summary

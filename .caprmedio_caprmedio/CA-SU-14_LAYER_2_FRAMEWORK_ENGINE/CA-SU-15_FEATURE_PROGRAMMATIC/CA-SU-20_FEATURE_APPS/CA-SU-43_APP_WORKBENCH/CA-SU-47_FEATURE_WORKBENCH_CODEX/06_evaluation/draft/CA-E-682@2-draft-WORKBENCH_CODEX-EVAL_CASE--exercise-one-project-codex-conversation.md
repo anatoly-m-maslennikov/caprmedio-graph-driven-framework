@@ -1,5 +1,6 @@
 ---
 atom_id: CA-E-682
+ref_id: CA-E-682@2-draft
 current_scope_unit: WORKBENCH_CODEX
 claim_target_scope_unit: WORKBENCH_CODEX
 status: Draft
@@ -8,8 +9,8 @@ author: Anatoly Maslennikov
 role: Evaluation
 form: Eval Case
 tier: 5
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
 relations:
   evaluation_for:
   - CA-R-2791

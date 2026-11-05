@@ -12,14 +12,17 @@ relations:
   - CA-R-053
   - CAPRMEDIO-REQU-702--define-framework-engine-layer-scope
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-581
-type: Definition
+ref_id: CA-R-581
+form: Definition
 tier: 1
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
+container:
+  scope_unit: CA-SU-23
 ---
 # Use repeat correction rate as the primary self-improvement metric
 

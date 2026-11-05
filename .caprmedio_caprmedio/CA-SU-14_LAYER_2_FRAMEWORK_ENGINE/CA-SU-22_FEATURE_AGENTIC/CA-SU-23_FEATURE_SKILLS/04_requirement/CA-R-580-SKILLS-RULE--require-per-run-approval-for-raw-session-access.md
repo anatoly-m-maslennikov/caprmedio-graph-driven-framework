@@ -12,14 +12,17 @@ relations:
   - CA-R-1423
   - CAPRMEDIO-REQU-702--define-framework-engine-layer-scope
 author: Anatoly Maslennikov
-content_role: Requirement
+role: Requirement
 current_scope_unit: SKILLS
 status: Active
 atom_id: CA-R-580
-type: Rule
+ref_id: CA-R-580
+form: Rule
 tier: 1
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+container:
+  scope_unit: CA-SU-23
 ---
 # Require per-run approval for raw session access
 

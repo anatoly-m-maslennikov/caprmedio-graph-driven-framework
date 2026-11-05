@@ -1,14 +1,15 @@
 ---
 atom_id: CA-O-122
-content_role: Operations
-type: Action
+ref_id: CA-O-122
+role: Operations
+form: Action
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  depends_on:
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
@@ -25,6 +26,12 @@ relations:
   - CA-R-1599
   - CA-R-1580
 tier: 3
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 ---
 # Summary
 

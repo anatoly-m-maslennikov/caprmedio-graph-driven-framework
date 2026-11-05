@@ -12,11 +12,18 @@ relations:
 current_scope_unit: caprmedio
 status: Active
 atom_id: CA-R-025
+ref_id: CA-R-025
 tier: 3
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-R-025-CAPRMEDIO-RULE--preserve-higher-tier-authority-in-cross-tier-conflicts.md
+    path: .caprmedio_caprmedio/04_requirement
 ---
 ## Summary
 Preserve higher-tier authority in cross-tier conflicts

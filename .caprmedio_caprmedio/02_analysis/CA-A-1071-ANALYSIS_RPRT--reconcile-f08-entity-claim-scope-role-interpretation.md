@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-1071
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-1071
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: F08 family reconciliation rollup
-  depends_on:
+topics:
+  main_subject: F08 family reconciliation rollup
+  dependencies:
   - Analysis
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
@@ -34,6 +35,8 @@ relations:
   - CA-C-376
   - CA-C-380
   - CA-C-391
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 

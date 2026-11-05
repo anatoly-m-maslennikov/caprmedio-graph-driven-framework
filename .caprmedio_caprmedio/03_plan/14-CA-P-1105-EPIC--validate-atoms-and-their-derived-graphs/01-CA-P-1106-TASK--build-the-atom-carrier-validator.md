@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1106
-content_role: Plan
-type: Plan
+ref_id: CA-P-1106
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -12,9 +13,9 @@ autonomous_confidence_threshold: 99
 status: Active
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: Subject/Graph Node/Engineering/Continuant/Carrier
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Carrier
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Engineering/Continuant/Carrier/File Carrier.YAML Frontmatter
   - Subject/Graph Node/Domain/Continuant/Atom.Content
@@ -30,6 +31,12 @@ relations:
   blocks:
   - CA-P-1107
 tier: 3
+container:
+  atom: CA-P-1105
+carrier_destination:
+  file:
+    name: 1-CA-P-1106-TASK--build-the-atom-carrier-validator.md
+    path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs
 ---
 # Summary
 

@@ -1,9 +1,9 @@
 ---
 cce_version: cce_1
 cce_form: concern_question
-subjects:
-  governs: Relational Atom
-  depends_on:
+topics:
+  main_subject: Relational Atom
+  dependencies:
   - Atom/Claim
   - Subject/Domain/Node/Continuant/Scope Unit
   - 'Atom Collection/Type: Epic'
@@ -16,7 +16,6 @@ version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {}
 atom_id: CA-C-118
 ---
 # How should Plan targeting follow the Goal and Demand boundary?

@@ -1,16 +1,17 @@
 ---
 atom_id: CA-A-905
-content_role: Analysis & Advisory
-type: Analysis Report
+ref_id: CA-A-905
+role: Analysis & Advisory
+form: Analysis Report
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Project session metadata corpus
-  depends_on:
+topics:
+  main_subject: Project session metadata corpus
+  dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
@@ -21,6 +22,12 @@ relations:
   - CA-P-1125
   - CA-P-1176
   - CA-P-1175
+container:
+  scope_unit: CA-SU-00
+carrier_destination:
+  file:
+    name: CA-A-905-CAPRMEDIO-ANALYSIS_REPORT--inventory-the-session-evidence-corpus.md
+    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

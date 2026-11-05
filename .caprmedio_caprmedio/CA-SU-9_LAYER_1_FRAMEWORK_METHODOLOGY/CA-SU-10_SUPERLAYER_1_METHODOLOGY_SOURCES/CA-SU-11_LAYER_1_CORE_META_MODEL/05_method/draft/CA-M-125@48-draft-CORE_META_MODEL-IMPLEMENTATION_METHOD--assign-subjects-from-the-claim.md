@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Actor
@@ -14,18 +14,18 @@ subjects:
   - CAPRMEDIO_MODEL <+ Node.**
 version: 48
 updated_at: 2026-11-04 18:25:15 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 atom_id: CA-M-125
+ref_id: CA-M-125@48-draft
 status: Draft
 tier: 3
 role: Method
 form: Implementation Method
 carrier_destination:
   file:
-    name: CA-M-125@48-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md
+    name: CA-M-125@48-draft-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

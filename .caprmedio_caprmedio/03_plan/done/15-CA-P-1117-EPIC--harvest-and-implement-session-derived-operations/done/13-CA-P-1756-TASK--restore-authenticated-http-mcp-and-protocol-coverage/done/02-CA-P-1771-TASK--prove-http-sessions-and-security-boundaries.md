@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1771
-content_role: Plan
-type: Plan
+ref_id: CA-P-1771
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 2
 current_scope_unit: caprmedio
@@ -11,9 +12,9 @@ autonomous_confidence_threshold: 90
 status: Done
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/MCP/HTTP Access Boundary Evaluation
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/MCP/HTTP Access Boundary Evaluation
+  dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Implementation Evaluation
   - Subject/Graph Node/Engineering/Workflow
@@ -25,6 +26,12 @@ relations:
   blocks:
   - CA-P-1772
 tier: 3
+container:
+  atom: CA-P-1756
+carrier_destination:
+  file:
+    name: 2-CA-P-1771-TASK--prove-http-sessions-and-security-boundaries.md
+    path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/13-CA-P-1756-TASK--restore-authenticated-http-mcp-and-protocol-coverage/done
 ---
 # Summary
 

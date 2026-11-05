@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
 version: 26
 updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
 atom_id: CA-D-435
+ref_id: CA-D-435
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
 tier: 3
 role: Delivery
 form: Decision
+container:
+  scope_unit: CA-SU-13
+carrier_destination:
+  file:
+    name: CA-D-435-PROJECT_CONFIGURATION-DECISION--serialize-atom-replacement-event-references.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery
 ---
 ## Summary
 

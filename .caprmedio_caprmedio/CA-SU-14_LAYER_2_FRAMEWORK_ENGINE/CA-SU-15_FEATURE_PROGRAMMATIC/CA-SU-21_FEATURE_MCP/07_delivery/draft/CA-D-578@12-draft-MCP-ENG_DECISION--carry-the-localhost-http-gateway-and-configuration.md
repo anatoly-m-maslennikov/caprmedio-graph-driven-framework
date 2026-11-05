@@ -1,14 +1,15 @@
 ---
 atom_id: CA-D-578@12-draft
-content_role: Delivery
+ref_id: CA-D-578@12-draft
+role: Delivery
 current_scope_unit: MCP
 status: Draft
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-24 23:59:51 +0400
-subjects:
-  governs: Subject/Engineering/Carrier
-  depends_on:
+topics:
+  main_subject: Subject/Engineering/Carrier
+  dependencies:
   - Subject/Engineering/MCP
   - Subject/Engineering/HTTP
   - Subject/Engineering/Gateway
@@ -21,8 +22,10 @@ relations:
   - CA-R-1885
   - CA-M-341
   - CA-M-357
-type: Eng Decision
+form: Eng Decision
 tier: 5
+container:
+  scope_unit: CA-SU-21
 ---
 # Summary
 

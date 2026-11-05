@@ -1,15 +1,16 @@
 ---
 atom_id: CA-D-638
-content_role: Delivery
+ref_id: CA-D-638
+role: Delivery
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 status: Active
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-27 19:59:28 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
@@ -17,8 +18,14 @@ subjects:
 relations:
   delivery_for:
   - CA-M-395
-type: Eng Policy
+form: Eng Policy
 tier: 5
+container:
+  scope_unit: CA-SU-15
+carrier_destination:
+  file:
+    name: CA-D-638-PROGRAMMATIC-ENG_POLICY--deliver-a-closed-reproducible-fixture-and-package-boundary.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery
 ---
 # Summary
 

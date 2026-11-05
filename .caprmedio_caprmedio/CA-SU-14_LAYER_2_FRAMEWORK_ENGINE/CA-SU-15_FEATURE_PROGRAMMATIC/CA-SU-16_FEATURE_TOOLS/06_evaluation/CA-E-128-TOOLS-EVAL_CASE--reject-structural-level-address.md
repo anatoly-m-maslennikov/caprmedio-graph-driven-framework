@@ -1,7 +1,7 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Scope Unit
   - Subject/CAPRMEDIO/Carrier
@@ -17,12 +17,15 @@ relations:
   - CA-R-2688
   - CA-R-1137
 atom_id: CA-E-128
+ref_id: CA-E-128
 status: Active
-content_role: Evaluation
+role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-type: Eval Case
+form: Eval Case
 tier: 2
+container:
+  scope_unit: CA-SU-16
 ---
 # Reject structural level address
 

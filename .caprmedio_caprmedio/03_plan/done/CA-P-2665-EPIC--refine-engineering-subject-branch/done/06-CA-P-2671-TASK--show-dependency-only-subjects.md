@@ -1,21 +1,25 @@
 ---
 atom_id: CA-P-2671
-content_role: Plan
-type: Plan
+ref_id: CA-P-2671
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 6
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 author: Anatoly Maslennikov
 status: Done
-subjects:
-  governs: Subject/Graph Node/Domain/Continuant/Projection
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Projection
 version: 2
 updated_at: 2026-10-27 06:19:16 +0400
-relations:
-  IS_CONTAINED_BY:
-  - CA-P-2665
 tier: 4
+container:
+  atom: CA-P-2665
+carrier_destination:
+  file:
+    name: 6-CA-P-2671-TASK--show-dependency-only-subjects.md
+    path: .caprmedio_caprmedio/03_plan/done/CA-P-2665-EPIC--refine-engineering-subject-branch/done
 ---
 # Summary
 

@@ -1,9 +1,10 @@
 ---
 atom_id: CA-R-2245
+ref_id: CA-R-2245@9-draft
 status: Draft
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF
+  dependencies:
   - CAPRMEDIO_MODEL <+ Workflow Run
   - CAPRMEDIO_MODEL <+ Step Run
   - CAPRMEDIO_MODEL <+ Action Run
@@ -11,17 +12,16 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action
 version: 9
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
 tier: 1
 updated_at: 2026-11-04 16:07:35 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
   file:
-    name: CA-R-2245@9-draft-CORE_META_MODEL-DECLARATION--define-is-execution-of-relation.md
+    name: CA-R-2245@9-draft-DECLARATION--define-is-execution-of-relation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

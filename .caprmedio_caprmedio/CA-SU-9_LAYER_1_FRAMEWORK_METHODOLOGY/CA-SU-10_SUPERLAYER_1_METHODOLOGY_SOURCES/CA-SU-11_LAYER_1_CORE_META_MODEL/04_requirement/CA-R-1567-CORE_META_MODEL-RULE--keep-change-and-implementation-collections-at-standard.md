@@ -1,7 +1,7 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Package/Implementation
@@ -10,14 +10,20 @@ subjects:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-R-1567
+ref_id: CA-R-1567
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Active
 tier: 2
 role: Requirement
 form: Rule
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
 

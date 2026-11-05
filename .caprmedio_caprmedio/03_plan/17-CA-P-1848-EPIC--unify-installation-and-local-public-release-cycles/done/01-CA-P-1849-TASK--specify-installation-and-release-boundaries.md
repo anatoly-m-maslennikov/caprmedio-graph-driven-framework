@@ -1,7 +1,8 @@
 ---
 atom_id: CA-P-1849
-content_role: Plan
-type: Plan
+ref_id: CA-P-1849
+role: Plan
+form: Plan
 label: Task
 work_sequence_number: 1
 current_scope_unit: caprmedio
@@ -10,9 +11,9 @@ status: Done
 author: Anatoly Maslennikov
 version: 13
 updated_at: 2026-10-25 17:32:27 +0400
-subjects:
-  governs: Subject/Graph Node/Engineering/Release Version
-  depends_on:
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release Version
+  dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'

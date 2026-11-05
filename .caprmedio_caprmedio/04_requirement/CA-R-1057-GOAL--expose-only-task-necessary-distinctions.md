@@ -8,20 +8,23 @@ relations:
   child_of:
   - CA-M-448
   - CA-M-263
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 cce_version: cce_1
 cce_form: obligation
 atom_id: CA-R-1057
+ref_id: CA-R-1057
 status: Active
 current_scope_unit: caprmedio
 tier: 2
 claim_target_scope_unit: FRAMEWORK_ENGINE
 role: Requirement
 form: Goal
+container:
+  scope_unit: CA-SU-00
 ---
 ## Summary
 Expose only task necessary distinctions

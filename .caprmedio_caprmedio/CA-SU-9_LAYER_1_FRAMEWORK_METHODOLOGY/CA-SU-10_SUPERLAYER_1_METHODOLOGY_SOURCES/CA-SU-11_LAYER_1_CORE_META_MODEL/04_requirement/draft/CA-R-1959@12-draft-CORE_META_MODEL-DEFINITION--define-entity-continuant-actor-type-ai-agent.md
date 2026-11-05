@@ -1,13 +1,14 @@
 ---
 atom_id: CA-R-1959@12-draft
-content_role: Requirement
+ref_id: CA-R-1959@12-draft
+role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 status: Draft
 author: Anatoly Maslennikov
-subjects:
-  governs: Entity/Object/Continuant/Actor/AI Agent
-  depends_on:
+topics:
+  main_subject: Entity/Object/Continuant/Actor/AI Agent
+  dependencies:
   - Entity/Object/Continuant/Actor
   - Entity/Object/Continuant/Actor/AI Agent.Permissions
 relations:
@@ -16,7 +17,9 @@ relations:
 version: 12
 updated_at: 2026-10-30 08:45:17 +0400
 tier: 3
-type: Entity Definition
+form: Entity Definition
+container:
+  scope_unit: CA-SU-11
 ---
 ## Summary
 

@@ -1,8 +1,8 @@
 ---
 cce_version: cce_1
 cce_form: method
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
 version: 21
 updated_at: 2026-11-03 23:17:14 +0400
 relations:
@@ -13,12 +13,15 @@ relations:
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-M-196
+ref_id: CA-M-196
 status: Active
-content_role: Method
+role: Method
 author: Anatoly Maslennikov
 current_scope_unit: APPS
-type: Eng Decision
+form: Eng Decision
 tier: 2
+container:
+  scope_unit: CA-SU-20
 ---
 # Register the APPS Scope Unit topology
 

@@ -1,0 +1,48 @@
+{
+  "verdict": "PASS_BOUNDED_PLANNING_UPDATE",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/topics-main-subject-decision-20261105/adoption-plan.json",
+  "receipt_applied": true,
+  "receipt_plan_hash_matches": true,
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+      "actual_sha256": "2076af341aaf9b4d8b217caf13a157c04c2a9d0dd484b9cab5ef1ba7a80250a9",
+      "matches_after": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing@74.md",
+      "actual_sha256": "69a6b8f1d8cbe8856b50b5f081a7be1229ce49b3ccfa28d387974a7f6dfbacfc",
+      "matches_after": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "actual_sha256": "87db6d1e5760d34273b011d037c675131293cb385cff04e5e6cbab0c8d8db165",
+      "matches_after": true
+    }
+  ],
+  "archive_74_exact_prior_plan": true,
+  "plan_75_version": true,
+  "p2707_readback": [
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+      "version": "10"
+    }
+  ],
+  "scope": "P75 and A1321 planning/naming only; no global metadata rename or native admission was performed.",
+  "previous_finding_resolved": "P2694@75 still says subjects.active remains the declared focus in its Declarative notation proposal, while the new decision records topics.main_subject as replacement. Clarify that subjects.active is Current until migration and topics.main_subject is the intended name; neither supplies an implicit binding.",
+  "wording_fix_readback": {
+    "verdict": "PASS",
+    "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/topics-plan-wording-fix-20261105/adoption-plan.json",
+    "checks": {
+      "receipt_applied": true,
+      "plan_sha_matches": true,
+      "actual_operations_match": true,
+      "archive_exact_version75": true,
+      "wording_present": true,
+      "version76": true,
+      "p2707_version10": true
+    },
+    "version76_sha256": "b167b6c9da04bc01da0e2bbd67a0e32ab5eb8d7559a83fc7dedfb3432c0bc9ed",
+    "archive75_sha256": "87db6d1e5760d34273b011d037c675131293cb385cff04e5e6cbab0c8d8db165"
+  }
+}

@@ -1,0 +1,16 @@
+## Summary
+
+Declare Subagent
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Subagent ((NARROWER_THAN)) AI Agent
+```
+
+## Semantics
+
+A Subagent is an AI Agent carrying out work delegated to it by another AI Agent.

@@ -1,25 +1,27 @@
 ---
 cce_version: cce_1
 cce_form: obligation
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
-  depends_on:
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Carrier
 version: 15
 updated_at: 2026-10-27 19:59:55 +0400
-relations: {}
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-content_role: Requirement
 current_scope_unit: CORE_EXTENSIONS
 status: Active
 author: Anatoly Maslennikov
 atom_id: CA-R-1478
-type: Rule
+ref_id: CA-R-1478
 tier: 1
+role: Requirement
+form: Rule
+container:
+  scope_unit: CA-SU-26
 ---
 # Create proper Concern Atoms on explicit request
 

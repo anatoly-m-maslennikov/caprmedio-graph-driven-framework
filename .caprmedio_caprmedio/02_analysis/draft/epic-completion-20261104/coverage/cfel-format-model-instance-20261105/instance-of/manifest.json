@@ -1,0 +1,16 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+  "source_sha256": "1af71d260bfa51ab09b0cdc673e229176819d9e45a81f0cba113e73062e75937",
+  "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-format-model-instance-20261105/instance-of/CA-R-2476.preview.txt",
+  "preview_sha256": "70bc3b44fd16ba43544380f0e654d16a63d2d45074ce405106a89bbb1b3c85e9",
+  "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-format-model-instance-20261105/instance-of/CA-R-2476.diff",
+  "diff_sha256": "438833d1dc3eca72ab4aee6c40961450aa61428afe3d3350ef33ccf605f97f97",
+  "dependencies": [
+    "IS_INVERSE_ALIAS_FOR canonical model binding must be adopted; obsolete HAS_INSTANCE Declaration is retired only with coordinated migration.",
+    "The <> Model-reference rule and [] Format authority are owned by adjacent lanes; no code or instance facts are created.",
+    "Current Header.Subject syntax is preserved pending coordinated metadata migration."
+  ],
+  "limits": "No native source, code, tests, Workflow, Workbench or Git changes.",
+  "metadata_decision": "Requirement / Relation Declaration; active Subject CAPRMEDIO_MODEL/CFEL/Relation//INSTANCE_OF. Root owns native filename/destination normalization."
+}

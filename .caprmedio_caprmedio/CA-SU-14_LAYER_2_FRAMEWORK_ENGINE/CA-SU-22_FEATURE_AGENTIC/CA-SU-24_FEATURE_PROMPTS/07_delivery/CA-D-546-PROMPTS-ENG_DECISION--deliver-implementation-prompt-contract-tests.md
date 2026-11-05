@@ -1,21 +1,27 @@
 ---
 atom_id: CA-D-546
-content_role: Delivery
-type: Eng Decision
+ref_id: CA-D-546
+role: Delivery
+form: Eng Decision
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 status: Active
 author: Anatoly Maslennikov
 version: 12
 updated_at: 2026-10-27 19:59:27 +0400
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
-  depends_on:
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - Subject/CAPRMEDIO/Carrier
-relations: {}
 tier: 3
+container:
+  scope_unit: CA-SU-24
+carrier_destination:
+  file:
+    name: CA-D-546-PROMPTS-ENG_DECISION--deliver-implementation-prompt-contract-tests.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/07_delivery
 ---
 # Summary
 

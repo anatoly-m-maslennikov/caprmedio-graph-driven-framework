@@ -1,19 +1,26 @@
 ---
 atom_id: CA-M-259
-content_role: Method
+ref_id: CA-M-259
+role: Method
 current_scope_unit: PROJECTION_ACTIONS
 claim_target_scope_unit: PROJECTION_ACTIONS
 author: Anatoly Maslennikov
 status: Active
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
 version: 18
 updated_at: 2026-11-03 23:17:14 +0400
 relations:
   method_for:
   - CA-R-1387
-type: Eng Decision
+form: Eng Decision
 tier: 3
+container:
+  scope_unit: CA-SU-37
+carrier_destination:
+  file:
+    name: CA-M-259-PROJECTION_ACTIONS-ENG_DECISION--derive-one-entity-and-term-graph-projection.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/CA-SU-37_FEATURE_GROUP_PROJECTION_ACTIONS/05_method
 ---
 # Summary
 

@@ -1,7 +1,8 @@
 ---
 atom_id: CA-C-516
-content_role: Concern
-type: Question
+ref_id: CA-C-516
+role: Concern
+form: Question
 current_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
@@ -9,9 +10,9 @@ status: active
 author: Anatoly Maslennikov
 version: 3
 updated_at: 2026-10-23 03:14:50 +0400
-subjects:
-  governs: Early interruption of a known-incompatible Unit attempt
-  depends_on:
+topics:
+  main_subject: Early interruption of a known-incompatible Unit attempt
+  dependencies:
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
@@ -20,6 +21,8 @@ subjects:
   - Docker Image
 relations:
   concern_about: [CA-P-1117, CA-P-1809, CA-P-1815]
+container:
+  scope_unit: CA-SU-00
 ---
 # Summary
 
