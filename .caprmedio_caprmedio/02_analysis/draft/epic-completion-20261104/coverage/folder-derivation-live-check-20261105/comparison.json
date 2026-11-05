@@ -1623,5 +1623,69 @@
     "D667 specifies derivation and parent placement; this comparison alone does not establish that every declared Scope Unit must have materialized Authority and Delivery directories. Missing folders are reported as absent, not mislabeled as derivation mismatches.",
     "No folder moves, source edits, implementations, tests, workflows or Git operations were performed."
   ],
-  "directory_comparison_note": "D667 provides an explicit Delivery naming formula. Exact present/absent status is reported per derived path; three actual directories use the Authority-form ID prefix at the expected Delivery parent and are therefore name mismatches."
+  "directory_comparison_note": "D667 provides an explicit Delivery naming formula. Exact present/absent status is reported per derived path; three actual directories use the Authority-form ID prefix at the expected Delivery parent and are therefore name mismatches.",
+  "post_move_actual_verification": {
+    "review_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/delivery-folder-move-actual-review-20261105.json",
+    "review_sha256": "8da04b22a79f151bd89ec3452c83c47d1b5aaa69d71a03b6c68f6e0e278993db",
+    "plan_sha256": "e0520e4c10b35849306d8dfe8154d775f2e12dd1c82b7504221bb16810c29ea3",
+    "receipt_sha256": "c71727bf8b4c1e896d6d6555c5f2636de76ca01648158ff7d7335e461bcb4c5f",
+    "destination_files_verified": 1069,
+    "delivery_directories_present": 30,
+    "delivery_directories_absent": [
+      "CA-SU-17",
+      "CA-SU-18",
+      "CA-SU-30",
+      "CA-SU-31",
+      "CA-SU-32",
+      "CA-SU-33",
+      "CA-SU-34",
+      "CA-SU-35",
+      "CA-SU-36",
+      "CA-SU-37",
+      "CA-SU-38",
+      "CA-SU-39",
+      "CA-SU-40",
+      "CA-SU-41",
+      "CA-SU-42"
+    ],
+    "authority_directories_present": 38,
+    "authority_directories_absent": [
+      "CA-SU-33",
+      "CA-SU-36",
+      "CA-SU-38",
+      "CA-SU-39",
+      "CA-SU-40",
+      "CA-SU-41",
+      "CA-SU-42"
+    ],
+    "current_declaration_source_pins_unchanged": true,
+    "declaration_carrier_parent_placements_unchanged": true,
+    "pre_move_name_mismatches_preserved_under_delivery_directory_comparison": [
+      {
+        "scope_unit_id": "CA-SU-11",
+        "name": "CORE_META_MODEL",
+        "order_number": 1,
+        "expected_delivery_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_1_CORE_META_MODEL",
+        "observed_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL",
+        "finding": "Observed directory uses Authority name (includes Scope Unit ID); D667 Delivery name omits the ID."
+      },
+      {
+        "scope_unit_id": "CA-SU-12",
+        "name": "INSTALLED_EXTENSIONS",
+        "order_number": 2,
+        "expected_delivery_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_2_INSTALLED_EXTENSIONS",
+        "observed_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-12_LAYER_2_INSTALLED_EXTENSIONS",
+        "finding": "Observed directory uses Authority name (includes Scope Unit ID); D667 Delivery name omits the ID."
+      },
+      {
+        "scope_unit_id": "CA-SU-13",
+        "name": "PROJECT_CONFIGURATION",
+        "order_number": 3,
+        "expected_delivery_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_3_PROJECT_CONFIGURATION",
+        "observed_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION",
+        "finding": "Observed directory uses Authority name (includes Scope Unit ID); D667 Delivery name omits the ID."
+      }
+    ],
+    "pre_move_mismatch_count_preserved": 3
+  }
 }

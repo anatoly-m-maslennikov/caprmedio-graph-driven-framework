@@ -1,0 +1,150 @@
+{
+  "schema": "delivery-folder-move-actual-review/1",
+  "status": "PASS_PINNED_DESTINATION_CONTENT_AND_CURRENT_SOURCE_PINS",
+  "source_plan": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/delivery-folder-names-20261105/move-plan.json",
+    "sha256": "e0520e4c10b35849306d8dfe8154d775f2e12dd1c82b7504221bb16810c29ea3"
+  },
+  "move_receipt": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/delivery-folder-names-20261105/move-receipt.json",
+    "sha256": "c71727bf8b4c1e896d6d6555c5f2636de76ca01648158ff7d7335e461bcb4c5f",
+    "plan_sha256_matches_receipt": true,
+    "receipt_status": "APPLIED_AND_BYTE_VERIFIED",
+    "receipt_file_count": 1069
+  },
+  "review_scope": "Read-only post-move verification; no directory/file/source/code mutation, tests, or Git changes.",
+  "operations": [
+    {
+      "scope_unit_id": "CA-SU-11",
+      "old_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL",
+      "old_path_absent": true,
+      "destination": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_1_CORE_META_MODEL",
+      "destination_exists": true,
+      "destination_name_matches_D667": true,
+      "planned_file_count": 895,
+      "actual_file_count": 895,
+      "planned_destination_files_all_hash_match": true,
+      "destination_files_sha256_by_plan": true
+    },
+    {
+      "scope_unit_id": "CA-SU-12",
+      "old_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-12_LAYER_2_INSTALLED_EXTENSIONS",
+      "old_path_absent": true,
+      "destination": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_2_INSTALLED_EXTENSIONS",
+      "destination_exists": true,
+      "destination_name_matches_D667": true,
+      "planned_file_count": 1,
+      "actual_file_count": 1,
+      "planned_destination_files_all_hash_match": true,
+      "destination_files_sha256_by_plan": true
+    },
+    {
+      "scope_unit_id": "CA-SU-13",
+      "old_path": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION",
+      "old_path_absent": true,
+      "destination": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_3_PROJECT_CONFIGURATION",
+      "destination_exists": true,
+      "destination_name_matches_D667": true,
+      "planned_file_count": 173,
+      "actual_file_count": 173,
+      "planned_destination_files_all_hash_match": true,
+      "destination_files_sha256_by_plan": true
+    }
+  ],
+  "aggregate": {
+    "planned_files": 1069,
+    "destination_files_checked": 1069,
+    "all_paths_and_content_hashes_match_move_plan": true,
+    "old_directories_remaining": [],
+    "plan_file_set_or_hash_mismatches": [],
+    "current_authority_atom_counterparts_checked": 1067,
+    "counterpart_ID_matches": 1067,
+    "counterpart_bytes_match": 1067,
+    "counterpart_missing_or_different": 0,
+    "native_Atom_file_count_excluding_gitkeep": 1067
+  },
+  "governing_folder_authorities": [
+    {
+      "id": "CA-D-667",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+      "sha256": "eb19c71a039a3c3086a9e8ab35f4266eef431579f73065d5f7c088fb007b4ec6",
+      "matches": true
+    },
+    {
+      "id": "CA-D-442",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115",
+      "matches": true
+    },
+    {
+      "id": "CA-D-302",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-302-CORE_META_MODEL-ENG_DECISION--serialize-scope-unit-references-as-filename-tokens.md",
+      "sha256": "5297750894ea0b49ac6a8e9aa8f6a16ba8c0163c31adcfecc32e6c8714657a60",
+      "matches": true
+    },
+    {
+      "id": "CA-D-466",
+      "version": 22,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-466-CORE_META_MODEL-ENG_DECISION--place-carriers-by-applicable-status-delivery.md",
+      "sha256": "dcd0762c4a64841de241ab40163b435eeaef9d6cbc8f6c8c467eee31b8260e31",
+      "matches": true
+    },
+    {
+      "id": "CA-R-2524",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "matches": true
+    }
+  ],
+  "current_scope_declaration_check": {
+    "comparison_source": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/folder-derivation-live-check-20261105/comparison.json",
+    "comparison_preimage_sha256": "262d05ac48a796d9f77c4ede4642fae735e7c03c8d5e808e54f4966e096da1cb",
+    "source_pin_count": 46,
+    "source_pins_unchanged": true,
+    "pin_errors": [],
+    "declaration_carrier_parent_placements_unchanged": true,
+    "placement_errors": [],
+    "authority_directories_present": 38,
+    "authority_directories_absent": [
+      "CA-SU-33",
+      "CA-SU-36",
+      "CA-SU-38",
+      "CA-SU-39",
+      "CA-SU-40",
+      "CA-SU-41",
+      "CA-SU-42"
+    ],
+    "delivery_directories_present": 30,
+    "delivery_directories_absent": [
+      "CA-SU-17",
+      "CA-SU-18",
+      "CA-SU-30",
+      "CA-SU-31",
+      "CA-SU-32",
+      "CA-SU-33",
+      "CA-SU-34",
+      "CA-SU-35",
+      "CA-SU-36",
+      "CA-SU-37",
+      "CA-SU-38",
+      "CA-SU-39",
+      "CA-SU-40",
+      "CA-SU-41",
+      "CA-SU-42"
+    ],
+    "three_renamed_units_now_exact_D667_paths": true
+  },
+  "preimage_findings_preserved": {
+    "three_D667_delivery_name_mismatches_were_recorded_before_move": true,
+    "pre_move_comparison_section_retained": true,
+    "other_absent_delivery_units_remain_unmaterialized_and_are_not_counted_as_mismatches": true
+  },
+  "limitations": [
+    "The move receipt states runtime writer verification remains separate and was not performed by the source operation.",
+    "No Workflow instance, Workbench, runtime writer, or test behavior was changed or verified."
+  ]
+}

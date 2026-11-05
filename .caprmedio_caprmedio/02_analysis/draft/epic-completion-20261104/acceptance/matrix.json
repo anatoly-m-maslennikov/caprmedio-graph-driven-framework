@@ -53,8 +53,8 @@
     {
       "requirement_id": "P2698",
       "explicit_requirement": "Every confirmed coherence finding fixed or explicitly Operator-disposed; complete reviewed model and projections rechecked.",
-      "live_evidence": "Earlier task and applied MODEL batches remain bounded evidence. Seven published views are pinned to the later 1,167-source selected frontier; the current audit reports 55 missing and 23 unresolved.",
-      "gap_or_limit": "The 55/23 audit and remaining non-Terms findings require disposition; this bounded selection is not full model conformance.",
+      "live_evidence": "Earlier task and applied MODEL batches remain bounded evidence. Seven published views are pinned to the later 1,167-source selected frontier; the current audit reports 54 missing and 23 unresolved.",
+      "gap_or_limit": "The latest audit reports 54 missing and 23 unresolved cases. These require disposition; bounded source checks do not prove full MODEL conformance.",
       "gate_command_or_check": "Re-open result and current projection pins; settle current explicit holds before epic closure.",
       "dependencies": [
         "P2697"
@@ -166,18 +166,20 @@
     {
       "requirement_id": "P2694: folder derivation",
       "explicit_requirement": "Rename existing Authority/Delivery folders to derived names; only non-root Authority names include Scope Unit ID; Project Authority remains .caprmedio_<project name>.",
-      "live_evidence": "All 46 Declaration Carriers match their parent Authority placement. Of 45 nonroot units, 38 Authority folders and 27 Delivery folders are materialized. Three Delivery folders for CA-SU-11, CA-SU-12 and CA-SU-13 retain an ID prefix contrary to D667. Seven Authority folders and 15 other Delivery paths are absent; materialization is not assumed mandatory.",
-      "gap_or_limit": "Three Delivery name mismatches need impact review and repair. External code and Workflow ownership remains intact. Missing materialization is separate from incorrect names.",
+      "live_evidence": "The live source comparison verifies all 46 Declaration Carrier placements. Three Delivery directories now match D667. Independent readback verifies all 1,069 moved files and confirms that 1,067 Markdown copies still match canonical Current Authority sources. Old directories are absent. Materialized counts are 38/45 Authority and 30/45 Delivery folders.",
+      "gap_or_limit": "No name mismatch remains in the checked materialized set. CA #3 must verify dynamic writers and runtime. Seven unmaterialized Authority folders and 15 unmaterialized Delivery paths are recorded separately; the rule does not require empty materialization.",
       "gate_command_or_check": "Run the path derivation/readback check from scope-unit-governance packet on live tree.",
       "dependencies": [
         "P2705",
         "P2706",
         "P2707"
       ],
-      "assessment": "live_source_check_three_delivery_mismatches_open",
+      "assessment": "materialized_names_and_source_placements_verified_writer_runtime_external",
       "evidence_refs": [
         ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/README.md",
-        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/folder-derivation-live-check-20261105/comparison.json"
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/folder-derivation-live-check-20261105/comparison.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/delivery-folder-names-20261105/move-receipt.json",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/delivery-folder-move-actual-review-20261105.json"
       ]
     },
     {
@@ -289,7 +291,7 @@
     {
       "requirement_id": "P2694: CFEL semantic preservation",
       "explicit_requirement": "Preserve named references, inheritance, cardinality and endpoint meanings; distinguish model entities from concrete instances; no formal claims inside Subjects. Keep Term Definitions in scope; defer only Terms Graph work and its specifically pinned projection occurrences. Resolve non-Terms model coverage, endpoint, Settings and named-view items or record authorized dispositions.",
-      "live_evidence": "Focused source and reader evidence preserves named references, unary scopes and target omission; Current Requirement/Declaration evidence drives the seven published views. The latest selected-frontier audit records 55 missing and 23 unresolved.",
+      "live_evidence": "Focused source and reader evidence preserves named references, unary scopes and target omission; Current Requirement/Declaration evidence drives the seven published views. The latest selected-frontier audit records 54 missing and 23 unresolved.",
       "gap_or_limit": "The 11 Occurrent kind choices are settled; the corresponding endpoint/Relation source gates and other non-Terms gaps still require disposition. Current Plan confidence and Project.Settings retry Declarations exist, while broader consumer alignment remains open. Terms Graph alone remains deferred; Term Definitions remain in scope.",
       "gate_command_or_check": "Reconcile all final-frontier coverage and unresolved flags (the historical snapshot had 64/26) with lane findings; exclude only the pinned Terms Graph deferment, retain Term Definitions in scope, and resolve or explicitly disposition every other flag. Verify each Projection Form and required Scope Unit reference and seven published views against current sources.",
       "dependencies": [
@@ -411,7 +413,7 @@
     {
       "requirement_id": "P2694: source history/publication",
       "explicit_requirement": "Preserve source history, exact predecessor links and identity/metadata rules for adopted changes. P2694 separately requires the declared checkpoint push and final checked changes pushed to amm/dev; P2707 alone does not imply a release, commit or push.",
-      "live_evidence": "Manual source batches have plan/receipt and independent readback evidence, including exact predecessor preservation. P2694@62 and P2707@5 remain Active. The local origin/amm/dev tracking ref was observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18; this is a source checkpoint, not the final checked push. Seven current published views are pinned to the 1,167-source selected frontier.",
+      "live_evidence": "Manual source batches have plan/receipt and independent readback evidence, including exact predecessor preservation. P2694@68 and P2707@6 remain Active. The local origin/amm/dev tracking ref was observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18; this is a source checkpoint, not the final checked push. Seven current published views are pinned to the 1,167-source selected frontier.",
       "gap_or_limit": "Final source/archive and published-view pins, all required external gates, and a final checked push still require verification. A local remote-tracking ref is not a fresh network observation, release, native Workflow admission or Journal append.",
       "gate_command_or_check": "Verify declaration checkpoint and final checked changes are committed/pushed to amm/dev with matching local/remote evidence; no release required.",
       "dependencies": [
@@ -437,7 +439,7 @@
     {
       "requirement_id": "P2704\u2013P2709: status and closure boundary",
       "explicit_requirement": "Do not mark Epic Done until all explicit requirements/gates pass or Operator-approved deferrals are recorded; P2707 retains existing verification scope.",
-      "live_evidence": "P2694@62 and P2707@5 are Active. P2704\u20132706/P2709 retain their reported task results; subsequently adopted source batches and seven pinned views are bounded progress, not final integration evidence.",
+      "live_evidence": "P2694@68 and P2707@6 are Active. P2704\u20132706/P2709 retain their reported task results; subsequently adopted source batches and seven pinned views are bounded progress, not final integration evidence.",
       "gap_or_limit": "P2707 final stable suite, launcher, Docker query/status, W10, scope-field disposition, MODEL/consumer decisions, final views and final branch push remain open. Workbench and Workflow work belongs to their owners; no gate is waived.",
       "gate_command_or_check": "Final acceptance review against every row; update stale P2694/P2707 narratives before status transition; no status change included here.",
       "dependencies": [
@@ -482,9 +484,17 @@
     "path_encoding": "Actual declared Scope Unit Names along the containment chain; Project root /. No ~ENGINE alias.",
     "actual_drafts": [
       "CA-R-2779@1",
-      "CA-R-2530@3"
+      "CA-R-2530@3",
+      "CA-R-2508@7",
+      "CA-R-2719@2",
+      "CA-R-2709@2",
+      "CA-R-2712@3",
+      "CA-R-2511@6",
+      "CA-E-240@50",
+      "CA-D-268@31",
+      "CA-D-266@30"
     ],
-    "world": "The root Project Declaration uses world as a literal bootstrap value. It creates no containment graph link or World entity."
+    "world": "For a root Project Declaration, an omitted Header.Container has the effective literal default world. A valid explicit value overrides it. The literal creates no containment graph link or World entity."
   },
   "latest_notation_decision": {
     "allowed_value": "::",

@@ -1,0 +1,61 @@
+{
+  "verdict": "PASS_PRIOR_TRACKING_FINDINGS_RESOLVED",
+  "pins": {
+    "proposal_plan": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/container-world-proposal-update-20261105/adoption-plan.json",
+      "sha256": "bf88b446928baa1daa4d97190177ffdfc44a66614eb9971023b68bdd8e1a8a5a"
+    },
+    "proposal_draft": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "sha256": "72d68a8a2ecbce7b31b977bd67ac284eb8eb07df125048277988c84b38925165"
+    },
+    "matrix": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json",
+      "sha256": "cde74c92444585f47d045580ca72965a1ac45028ce1c95cded99b1e906509864"
+    },
+    "current_state": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/current-state.md",
+      "sha256": "e88efb8557620c92cc51366ff38e454bf890185b8a8876674c0c9c7fe30b84d3"
+    },
+    "projection_manifest": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-journal-passive-20261105/generation-manifest.json",
+      "sha256": "d6e4a7fe6b40c28fbdb690eef945709bde84d7d3c27f9dc1abb03bc51a9aea0b"
+    }
+  },
+  "verified": [
+    "Actual A1319 Draft matches plan/receipt pins and records omission-only literal world, explicit valid override, no graph link or World entity; R2508@7 and rebased R2779@1 are listed and Run reference Format remains pending.",
+    "All 23 acceptance requirement identifiers match the earlier matrix in order. P2704 reports only source/static evidence, with runtime enforcement unclaimed. Folder derivation row records three specific Delivery mismatches and does not infer materialization or runtime success."
+  ],
+  "actionable_issues": [
+    {
+      "location": "acceptance/matrix.json requirements P2698 and P2694: CFEL semantic preservation, live_evidence",
+      "finding": "Each still calls 55 missing Subjects the current/latest audit, despite the pinned journal-passive generation manifest reporting 54 missing and 23 unresolved. P2698 gap_or_limit already says 54.",
+      "fix": "Update both live_evidence strings to 54 missing, 23 unresolved while preserving historical 55 only if explicitly marked historical."
+    },
+    {
+      "location": "acceptance/matrix.json requirements P2694: source history/publication and P2704\u2013P2709: status and closure boundary, live_evidence",
+      "finding": "Both call P2694@62 and P2707@5 Active; native Current headers are P2694@68 and P2707@6. Matrix top-level fields already record 68 and 6.",
+      "fix": "Update the two live_evidence strings to current versions or explicitly identify the earlier versions as historical evidence."
+    },
+    {
+      "location": "acceptance/matrix.json latest_container_decision.world",
+      "finding": "\u201cThe root Project Declaration uses world\u201d omits the omission-only fallback and valid explicit override documented correctly in A1319 and current-state.",
+      "fix": "State world is the effective default when root Container is omitted, and a valid explicit value overrides it; keep literal/no graph link/no World entity."
+    }
+  ],
+  "limits": [
+    "No Current, tracking, code, tests, Git or runtime state modified by this review."
+  ],
+  "recheck": {
+    "matrix_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/acceptance/matrix.json",
+    "matrix_sha256": "25f79cecec9175740ac468b4e7f437910c863e4f0e793583598302238425406d",
+    "resolved": [
+      "Both current audit rows now say 54 missing and 23 unresolved.",
+      "Both status/publication rows now identify P2694@68 and P2707@6.",
+      "world explicitly applies on omission and permits an explicit valid override; literal creates no graph link or World entity."
+    ],
+    "delivery_record": "The matrix reports three Delivery folder moves applied, 1,069 file bytes preserved, independent post-move readback pending and CA #3 dynamic writer/runtime checks open. This is tracking verification only; the separate checker owns physical move verification.",
+    "acceptance_count": 23
+  },
+  "original_finding_status": "All three original actionable findings resolved; original details retained above."
+}

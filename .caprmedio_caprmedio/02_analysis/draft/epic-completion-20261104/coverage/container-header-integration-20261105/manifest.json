@@ -175,5 +175,10 @@
     "No Current or native Draft carrier changed.",
     "No instance, Workflow, Workbench, implementation, test or Git work.",
     "R2711 preserves a formal MODEL Relation lookup; R2511 and D264 are held for the precise distinctions recorded above."
-  ]
+  ],
+  "latest_world_resolution": {
+    "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/manifest.json",
+    "actual_application": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/container-world-drafts-20261105/adoption-receipt.json",
+    "state": "R2508@7 and rebased R2779@1 actual Drafts independently verified. Original R2508 preview remains historical and is superseded. Coordinated Current adoption remains pending."
+  }
 }

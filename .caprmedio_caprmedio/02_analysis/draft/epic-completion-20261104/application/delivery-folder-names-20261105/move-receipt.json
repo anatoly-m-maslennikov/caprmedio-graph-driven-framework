@@ -1,0 +1,27 @@
+{
+  "status": "APPLIED_AND_BYTE_VERIFIED",
+  "plan_sha256": "e0520e4c10b35849306d8dfe8154d775f2e12dd1c82b7504221bb16810c29ea3",
+  "operations": [
+    {
+      "source": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL",
+      "destination": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_1_CORE_META_MODEL",
+      "verified_files": 895
+    },
+    {
+      "source": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-12_LAYER_2_INSTALLED_EXTENSIONS",
+      "destination": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_2_INSTALLED_EXTENSIONS",
+      "verified_files": 1
+    },
+    {
+      "source": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION",
+      "destination": "LAYER_1_FRAMEWORK_METHODOLOGY/SUPERLAYER_1_METHODOLOGY_SOURCES/LAYER_3_PROJECT_CONFIGURATION",
+      "verified_files": 173
+    }
+  ],
+  "file_count": 1069,
+  "canonical_authority_paths_outside_move": true,
+  "content_changes": false,
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "runtime_writer_verification": "Required from CA #3; not executed by this source operation."
+}

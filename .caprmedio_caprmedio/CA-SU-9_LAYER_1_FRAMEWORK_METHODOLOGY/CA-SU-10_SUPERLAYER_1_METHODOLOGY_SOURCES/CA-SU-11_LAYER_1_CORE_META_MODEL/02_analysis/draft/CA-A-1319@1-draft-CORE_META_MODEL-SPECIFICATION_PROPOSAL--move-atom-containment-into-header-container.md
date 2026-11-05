@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 03:55:43 +0400
+updated_at: 2026-11-05 04:13:24 +0400
 carrier_destination:
   file:
     name: CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md
@@ -24,7 +24,7 @@ Move Atom containment into Header.Container
 
 - Store one immediate Container in Atom.Header.Container.
 - Its ordinary value is a full Scope Unit path string or a base Atom ID.
-- For a root Project Declaration Atom, an omitted Container has the effective default `world`. An explicit valid value overrides that default.
+- For a root Project Declaration Atom, an omitted Container has the effective default `world`. An explicit valid value overrides that default. `world` is a literal bootstrap value and produces no containment graph link or World entity.
 - Build paths from exact declared Scope Unit Names along their containment chain. Project root is `/`. The earlier `/~ENGINE/...` was illustrative.
 - Current examples are `/FRAMEWORK_ENGINE` and `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`. These are logical paths, independent of Carrier folder names.
 - A base Atom ID selects Current by default.
@@ -59,6 +59,7 @@ The Header, consumer, Delivery and planning previews are listed in the Epic pack
 - CA-R-2779@1-draft declares Atom.Header.Container, including its root default and declared-Name paths.
 - CA-R-2530@3-draft defines the scalar logical Scope Unit path.
 
+- CA-R-2508@7-draft preserves logical containment: zero links for `world`, one for a valid Atom or Scope Unit reference.
 - CA-R-2719@2-draft adds Container to Header.
 - CA-R-2709@2-draft makes Relations optional.
 - CA-R-2712@3-draft keys sequence-number uniqueness by Container.
@@ -67,4 +68,4 @@ The Header, consumer, Delivery and planning previews are listed in the Epic pack
 - CA-D-268@31-draft serializes containment once.
 - CA-D-266@30-draft separates Atom containment from directory-derived containment.
 
-Actual Draft readbacks are independently reviewed. R2508 remains held for logical containment permission and the root `world` case. D264's legacy Artifact identity boundary remains held. Coordinated syntax, Header, Delivery and schema integration precedes promotion and mechanical migration.
+Actual Draft readbacks are independently reviewed. R2508 and the rebased R2779 now record the settled literal `world` case. The Run Container reference Format remains a separate question. D264's legacy Artifact identity boundary remains held. Coordinated syntax, Header, Delivery and schema integration precedes promotion and mechanical migration.

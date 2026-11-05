@@ -22,3 +22,10 @@ Three present directories at expected Delivery parents use the Authority-form na
 Another 15 expected Delivery paths are absent without that specific alternate directory; they are listed individually in `comparison.json`.
 
 This report distinguishes missing materialization from a name mismatch. D667 defines the derived names but this check does not establish that every declared Scope Unit must have an Authority and Delivery directory. The sibling `000_CAPRMEDIO_framework` and Applicable Methodology trees were not treated as Scope Unit paths; their package/copy status remains outside this comparison.
+
+
+## After-state verification
+
+Independent read-only review: [`.caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/delivery-folder-move-actual-review-20261105.json`](../../../permissions/delivery-folder-move-actual-review-20261105.json), SHA-256 `8da04b22a79f151bd89ec3452c83c47d1b5aaa69d71a03b6c68f6e0e278993db`. The pinned plan and move receipt agree (`e0520e4c10b35849306d8dfe8154d775f2e12dd1c82b7504221bb16810c29ea3`); all 1069 destination files match the plan by relative path and SHA-256, and all three old directories are absent. The three D667 Delivery names now exist exactly. All 1067 Markdown files have byte-identical native Current Authority counterparts.
+
+Current Scope Unit declarations remain unchanged: 46 of 46 source pins match and all declaration carriers remain under their expected parent Authority folders. Authority folders remain 38/45 present; Delivery folders are 30/45 present. The other 15 Delivery paths remain absent and are separate from the three resolved name mismatches. The pre-move mismatch list above is retained unchanged. This review does not cover runtime writer behavior, Workbench, or tests.
