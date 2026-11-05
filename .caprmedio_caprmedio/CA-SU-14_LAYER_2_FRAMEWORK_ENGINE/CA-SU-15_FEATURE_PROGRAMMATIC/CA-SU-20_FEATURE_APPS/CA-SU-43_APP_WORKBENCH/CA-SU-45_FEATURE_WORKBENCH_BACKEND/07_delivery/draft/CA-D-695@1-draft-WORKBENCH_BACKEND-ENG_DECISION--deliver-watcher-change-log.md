@@ -40,16 +40,14 @@ The file and table expose only these event fields:
 | `operation` | `VARCHAR` | NOT NULL | One of `create`, `update`, `rename`, `move` or `remove`. |
 | `old_path` | `VARCHAR` | NULL | Repository-relative selected-source path before the event, when one exists. |
 | `new_path` | `VARCHAR` | NULL | Repository-relative selected-source path after the event, when one exists. |
-| `technical_file_identity` | `VARCHAR` | NULL | Stable technical file identity used for a `rename` or `move`, when observed. |
 
-For `create` and `update`, `new_path` is present; for `remove`, `old_path` is present; for `rename` and `move`, both paths and the stable identity are present. Do not deliver `error`, source-kind, content-hash, event-id, raw-source, Journal or graph-mapping columns.
+For `create` and `update`, `new_path` is present; for `remove`, `old_path` is present; for `rename` and `move`, both paths are present. A same-parent basename change is `rename`; a parent change is `move`, even when the basename also changes. Do not deliver identity, error, source-kind, content-hash, event-id, raw-source, Journal or graph-mapping columns.
 
 The Workbench settings are:
 
 - `ttl_hours`: fixed at `48` for both the file and table.
-- `limit_mode`: exactly one of `rows` or `mb`.
-- `limit_value`: a positive configured row count or megabyte value for the selected mode; the carrier does not silently choose an unlimited value.
-- cleanup: before log reads and source refreshes, plus an existing watcher wake or timeout/yield when available.
+- `max_rows`: fixed at `100000` for both the file and table.
+- cleanup: the existing watcher owner timeout, plus reread at owner start and on a full reread.
 
-When a cap or TTL removes data, remove the oldest events from the file and table together. Do not add a daemon, scheduler, retry or recovery path. Do not report watcher-log failures as source-change events.
+When the cap or TTL removes data, remove the oldest events from the file and table together. Do not report watcher-log failures as source-change events.
 

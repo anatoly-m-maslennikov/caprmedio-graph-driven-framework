@@ -28,13 +28,9 @@ Retain a bounded watcher change log
 
 ### Prose Claim
 
-Use the existing server watcher and its `watchfiles` grouped events as the only input to a technical change log. Watch only the selected repository's CAPRMEDIO source folder. Build no historical backfill: the initial index establishes the baseline, and later grouped observations produce `create`, `update` and `remove` records.
+Use a `watchdog` `Observer` in the existing server and watch only the selected repository's `control_root`. Group its native callbacks through the existing owner before refresh. `on_created`, `on_modified` and `on_deleted` report their observed operation directly; `on_moved(src_path, dest_path)` reports the old and new paths directly. A same-parent basename change is `rename`; a parent change is `move`, even when the basename also changes. Do not pair add/delete events by inode, hash or content. An observation outside the selected repository is ignored.
 
-Use a stable technical file identity from the existing observed file state to classify an old/new path pair as `rename` or `move`. Classify only an unambiguous path change; do not match by content or hash, and do not synthesize a rename or move when identity is unavailable. An observation outside the selected source folder is ignored.
+Under the existing database-owner lock, write the same event to the owned runtime NDJSON log and the DuckDB `change_log` table. Reread the retained log at owner start and on a full reread so restart does not discard still-live events. This is technical derived state, not a business Journal append and not a source or graph fact.
 
-Under the existing database-owner lock, write the same event to the owned runtime NDJSON log and the DuckDB `change_log` table. Keep only the event fields defined by the Delivery carrier. This is technical derived state, not a business Journal append and not a source or graph fact.
-
-Before a log read or source refresh, and whenever the existing watcher loop wakes, remove events older than 48 hours from both stores. Enforce one configured retention cap: row-count mode removes the oldest rows after the cap, while megabyte mode removes the oldest rows until the UTF-8 NDJSON file is within the cap; both stores retain the same events. Prefer row-count mode because it bounds event count without encoding-dependent size behavior.
-
-Use an existing watcher timeout or yield only when it already exists to make an idle cleanup check. Do not add a daemon, scheduler, queue, retry loop, recovery procedure, or new Workflow. A storage or write failure follows the existing server error boundary and is not converted into an event row.
+Use the existing owner timeout to remove events older than 48 hours while idle, and retain at most 100,000 rows in both stores by removing the oldest events together. Do not add a daemon, scheduler, queue, retry loop, recovery procedure or new Workflow. A storage or write failure follows the existing server error boundary and is not converted into an event row.
 
