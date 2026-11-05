@@ -42,3 +42,15 @@ The local marketplace was registered and plugin `caprmedio-workbench@caprmedio-l
 Local release `0.4.4.26` serves the probe through the existing MCP connection. Live checks passed for 45 tool descriptors, the exact package-local HTML resource, both read-only tools and the Workbench HTTP page. A separate live browser check confirmed the clean standalone URL and preserved local identity after reload.
 
 The agent still has no exposed CAPRMEDIO tool handles in this chat. Native Codex rendering and its host bridge remain unverified. The complete native Workbench interface is not delivered. Next: invoke `workbench_ui_probe` from a Codex chat where the refreshed connection is available and observe the component and button.
+
+## Operator screenshot: file preview
+
+The Operator opened `workbench/codex-ui-probe/probe.html` in a file preview. It displayed “Tool bridge failed: Inline visualizations cannot call tools” and “Waiting for the host tool result.” This confirms HTML rendering in that preview, but not an MCP App launched by `workbench_ui_probe`. No native tool result or successful tool bridge was observed. The native-host acceptance gate remains open; do not count this screenshot as a successful plugin launch or infer that a genuine MCP App launch is unsupported.
+
+## After Codex reload
+
+CAPRMEDIO tool handles became available in this chat. The agent invoked `workbench_ui_probe` through that connection and received the expected structured message. The MCP Apps side-panel inventory was empty; an inline component, if shown, is not exposed through that inventory until expanded. Native component rendering and the button bridge remain awaiting observation. No HTML file or browser page was opened as a substitute.
+
+## Successful inline native test
+
+The Operator confirmed that the actual component is inside the Codex session, not the right panel. Their latest screenshot shows both “CAPRMEDIO MCP App resource loaded” and “Tool bridge passed”. This establishes native inline rendering, receipt of the initial tool result and a successful UI-initiated MCP call. It does not establish a persistent right-panel surface or the full Workbench interface. The earlier failed file-preview observation is superseded for the inline native capability check.

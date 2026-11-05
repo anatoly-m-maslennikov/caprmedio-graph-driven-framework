@@ -15,8 +15,8 @@ relations:
   - CA-M-476
   - CA-D-681
 status: Active
-version: 3
-updated_at: 2026-11-06 01:46:23 +0400
+version: 4
+updated_at: 2026-11-06 03:34:15 +0400
 carrier_destination:
   file:
     name: CA-E-684-CODEX_EXTENSION-EVAL_CASE--exercise-workbench-workspace-views-and-query-log.md
@@ -63,3 +63,9 @@ Open the default standalone page and verify that it stays free of a workspace pa
 ## Native UI compatibility check
 
 Call the read-only `workbench_ui_probe` through the existing MCP connection. Verify that its component renders inside Codex, displays the initial host tool result and reports a successful separate `workbench_ui_ping` call from its button. Verify the resource and both tools also work over the real MCP transport, reject unexpected arguments or unknown resource URIs, and do not start the Workbench data service. A synthetic host test verifies the component protocol only; it does not establish native Codex rendering or complete Workbench delivery.
+
+## Presentation compatibility check
+
+Verify that the probe declares inline and fullscreen support, displays the host mode and enables Expand only when the host offers fullscreen. Exercise acceptance, a response that keeps inline, a rejected request, and a host with no fullscreen support. Verify the actual returned mode is shown and no unavailable mode is requested. These browser cases test protocol behavior; observe Codex separately before claiming right-panel support.
+
+In the real Codex host, observe where expansion is presented. If Codex offers a move-to-panel control, exercise it and verify the same MCP App resource, initial result and tool bridge still work in the right panel. If no such action is available or only fullscreen/inline is observed, record right-panel delivery as unproven. Do not invent a host API or substitute a browser page.

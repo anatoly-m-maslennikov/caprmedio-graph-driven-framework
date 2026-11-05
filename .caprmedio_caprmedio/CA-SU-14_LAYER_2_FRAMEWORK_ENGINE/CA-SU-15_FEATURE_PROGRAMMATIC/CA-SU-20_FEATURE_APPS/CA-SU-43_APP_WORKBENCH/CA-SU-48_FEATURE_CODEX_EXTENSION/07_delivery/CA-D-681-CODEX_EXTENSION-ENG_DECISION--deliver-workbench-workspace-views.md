@@ -15,8 +15,8 @@ relations:
   - CA-M-476
   - CA-E-684
 status: Active
-version: 5
-updated_at: 2026-11-06 01:46:23 +0400
+version: 6
+updated_at: 2026-11-06 03:34:15 +0400
 carrier_destination:
   file:
     name: CA-D-681-CODEX_EXTENSION-ENG_DECISION--deliver-workbench-workspace-views.md
@@ -87,4 +87,10 @@ Result-cache TTL is separate from parent-owned query-log retention and uses the 
 
 ## Native UI compatibility check
 
-Expose `workbench_ui_probe` and `workbench_ui_ping` through the existing CAPRMEDIO MCP connection. Both are read-only, take no native arguments and return a fixed message without reading Project data or starting Workbench. The existing public Project selector still applies. Only `workbench_ui_probe` links to `ui://caprmedio/workbench-compatibility.html` with MIME type `text/html;profile=mcp-app`. The HTML uses the standard MCP Apps initialization, receives the host tool result and calls the separate ping through the host tool bridge. It opens no browser and starts no second server. This check establishes host compatibility; it is not the complete Workbench UI.
+Expose `workbench_ui_probe` and `workbench_ui_ping` through the existing CAPRMEDIO MCP connection. Both are read-only, take no native arguments and return a fixed message without reading Project data or starting Workbench. The existing public Project selector still applies. Only `workbench_ui_probe` links to `ui://caprmedio/workbench-compatibility-v2.html` with MIME type `text/html;profile=mcp-app`. The HTML uses the standard MCP Apps initialization, receives the host tool result and calls the separate ping through the host tool bridge. It opens no browser and starts no second server. This check establishes host compatibility; it is not the complete Workbench UI.
+
+## Presentation compatibility check
+
+The probe declares support for inline and fullscreen in `appCapabilities.availableDisplayModes` during standard MCP Apps initialization. Show the current display mode and the modes offered by the host. Enable an Expand button only when the host offers fullscreen. The button requests fullscreen with `ui/request-display-mode` and reports the actual mode returned; it must not claim success when the host keeps inline or rejects the request. Merge `ui/notifications/host-context-changed` updates and check `hostContext.availableDisplayModes` before requesting fullscreen. Do not treat fullscreen as proof of a persistent right panel.
+
+In the real Codex host, observe where expansion is presented. If Codex offers a move-to-panel control, exercise it and verify the same MCP App resource, initial result and tool bridge still work in the right panel. If no such action is available or only fullscreen/inline is observed, record right-panel delivery as unproven. Do not invent a host API or substitute a browser page.

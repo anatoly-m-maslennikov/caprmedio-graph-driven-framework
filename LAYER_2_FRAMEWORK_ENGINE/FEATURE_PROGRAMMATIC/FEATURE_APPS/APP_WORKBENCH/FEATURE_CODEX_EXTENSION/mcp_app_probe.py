@@ -1,4 +1,4 @@
-# CA-D-681@5
+# CA-D-681@6
 
 """Read-only MCP Apps compatibility probe, served by the existing MCP gateway."""
 
@@ -7,7 +7,7 @@ from typing import Any
 
 from mcp import MCPError, types
 
-URI = "ui://caprmedio/workbench-compatibility.html"
+URI = "ui://caprmedio/workbench-compatibility-v2.html"
 MIME_TYPE = "text/html;profile=mcp-app"
 TOOL_NAMES = ("workbench_ui_probe", "workbench_ui_ping")
 

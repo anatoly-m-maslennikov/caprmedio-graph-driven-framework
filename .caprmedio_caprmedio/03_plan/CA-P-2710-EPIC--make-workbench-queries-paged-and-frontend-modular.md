@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 40
-updated_at: 2026-11-06 01:55:52 +0400
+version: 41
+updated_at: 2026-11-06 03:32:42 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -111,7 +111,7 @@ Automatic property-column discovery and schema generation were not implemented i
 
 ## Codex plugin cycle
 
-- [ ] Verify a supported Codex custom-UI integration with a minimal rendering proof.
+- [x] Verify a supported Codex custom-UI integration with a minimal rendering proof.
 - [x] Create, review and adopt the corresponding RMED.
 - [x] Reuse the applicable Policy prompt and gather the accepted implementation sources.
 - [ ] Implement and test the plugin.
@@ -126,9 +126,9 @@ An ordinary page opened in the Codex browser is insufficient for the requested p
 - [x] Register and install the local plugin package.
 - [x] Correct and verify the standalone URL in source and isolated browser tests.
 - [x] Release the tested changes and verify the running MCP.
-- [ ] Observe native Codex rendering and the host tool bridge before implementing the full native UI.
+- [x] Observe native inline rendering and the host tool bridge before implementing the full native UI.
 
-Plugin package 0.1.1 is installed through the local marketplace. This does not establish native UI activation. The current chat does not expose the CAPRMEDIO tools to the agent, although the configured endpoint is correct; actual host tool refresh remains unverified. Computer-use access to Codex was refused.
+Plugin package 0.1.1 is installed through the local marketplace. This does not establish native UI activation. After Codex reload, CAPRMEDIO tools are exposed and the inline native probe passes. Computer-use access to Codex was refused.
 
 Checks passed: seven native MCP/HTTP cases, two shared-project MCP cases, one component browser bridge case, four plugin package cases, 16 Workbench browser flows, 13 frontend state cases, build, TypeScript, and focused Python lint/type checks. Synthetic component tests do not count as native Codex rendering.
 
@@ -136,6 +136,17 @@ Checks passed: seven native MCP/HTTP cases, two shared-project MCP cases, one co
 
 The project MCP is healthy on the existing port. Both read-only probe tools and the exact UI resource were exercised through the deployed MCP; discovery contains 45 tools. The standalone page was checked in a fresh real browser: its URL stays clean and the same local Workspace identity survives reload, without SQL execution or uncaught errors.
 
-The local plugin is installed and enabled at version 0.1.1. The complete native Workbench interface is still unfinished. This chat has no exposed CAPRMEDIO tool handles, so an actual Codex render/bridge observation requires host tool refresh or a chat where the connection is available. Do not count the server verification or synthetic host browser test as native rendering.
+The local plugin is installed and enabled at version 0.1.1. The complete native Workbench interface is still unfinished. The Operator verified the native inline component after reloading Codex. Do not count the server verification or synthetic host browser test as native rendering.
 
 Source commit: `539f0f555a77dac6c2ce1c9de8d7eb9b0953f93e`. Live proof: `.caprmedio_tmp/workbench/codex-plugin-panel/live-proof.json`. Standalone proof: `.caprmedio_tmp/workbench/clean-standalone-url/live-proof.json`.
+
+## Native inline proof and presentation check
+
+The Operator screenshot shows the actual in-session component with the initial MCP result and “Tool bridge passed”. Inline rendering and the UI-to-MCP bridge are verified. It is not on the right panel; that presentation is not verified. The full Workbench interface remains unfinished.
+
+- [x] Record the native inline result.
+- [x] Create the presentation-check RMED Drafts.
+- [ ] Review, fix and adopt those Drafts.
+- [ ] Reuse the scoped Policy prompt and gather implementation sources.
+- [ ] Implement and test the accepted source changes.
+- [ ] Verify the actual host presentation before counting the right-panel target complete.

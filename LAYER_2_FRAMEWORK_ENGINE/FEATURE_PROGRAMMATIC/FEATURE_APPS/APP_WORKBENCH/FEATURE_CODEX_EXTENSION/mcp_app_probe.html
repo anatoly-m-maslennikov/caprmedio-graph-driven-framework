@@ -1,4 +1,4 @@
-<!-- CA-D-681@5 -->
+<!-- CA-D-681@6 -->
 <!doctype html>
 <html lang="en">
 <meta charset="utf-8">
@@ -13,12 +13,26 @@
 <p id="status" role="status">HTML rendered; waiting for host bridge.</p>
 <p id="result">Waiting for the host tool result.</p>
 <button id="ping" disabled>Test tool bridge</button>
+<p id="presentation" role="status">Presentation: waiting for host.</p>
+<p id="display-error" role="alert"></p>
+<button id="expand" disabled>Expand</button>
 <script>
   const status = document.querySelector('#status');
   const button = document.querySelector('#ping');
+  const expand = document.querySelector('#expand');
+  const presentation = document.querySelector('#presentation');
+  const displayError = document.querySelector('#display-error');
+  let hostContext = {};
+  let expanding = false;
   let nextId = 1;
   let projectRoot;
   const requests = new Map();
+  function updatePresentation(context = {}) {
+    hostContext = { ...hostContext, ...context };
+    const modes = hostContext.availableDisplayModes ?? [];
+    presentation.textContent = `Presentation: ${hostContext.displayMode ?? 'unknown'}; available: ${modes.join(', ') || 'not declared'}`;
+    expand.disabled = expanding || !modes.includes('fullscreen') || hostContext.displayMode === 'fullscreen';
+  }
   function request(method, params) {
     const id = nextId++;
     const promise = new Promise((resolve, reject) => requests.set(id, { resolve, reject }));
@@ -28,6 +42,10 @@
   window.addEventListener('message', event => {
     if (event.source !== window.parent || event.data?.jsonrpc !== '2.0') return;
     const message = event.data;
+    if (message.method === 'ui/notifications/host-context-changed') {
+      updatePresentation(message.params);
+      return;
+    }
     if (message.method === 'ui/notifications/tool-input') {
       projectRoot = message.params?.arguments?.project_root;
       return;
@@ -57,11 +75,28 @@
       button.disabled = false;
     }
   };
+  expand.onclick = async () => {
+    if (!hostContext.availableDisplayModes?.includes('fullscreen')) return;
+    displayError.textContent = '';
+    expanding = true;
+    updatePresentation();
+    try {
+      const result = await request('ui/request-display-mode', { mode: 'fullscreen' });
+      updatePresentation({ displayMode: result.mode });
+    } catch (error) {
+      displayError.textContent = `Expansion failed: ${error.message}`;
+    } finally {
+      expanding = false;
+      const modes = hostContext.availableDisplayModes ?? [];
+      expand.disabled = !modes.includes('fullscreen') || hostContext.displayMode === 'fullscreen';
+    }
+  };
   request('ui/initialize', {
-    appInfo: { name: 'CAPRMEDIO UI compatibility probe', version: '0.0.1' },
-    appCapabilities: {},
+    appInfo: { name: 'CAPRMEDIO UI compatibility probe', version: '0.0.2' },
+    appCapabilities: { availableDisplayModes: ['inline', 'fullscreen'] },
     protocolVersion: '2026-01-26',
-  }).then(() => {
+  }).then(result => {
+    updatePresentation(result.hostContext);
     window.parent.postMessage({ jsonrpc: '2.0', method: 'ui/notifications/initialized', params: {} }, '*');
     status.textContent = 'Host bridge connected';
     button.disabled = false;
