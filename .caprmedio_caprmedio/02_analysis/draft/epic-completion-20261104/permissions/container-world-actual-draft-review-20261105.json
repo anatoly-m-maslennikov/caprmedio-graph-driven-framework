@@ -1,0 +1,42 @@
+{
+  "verdict": "PASS_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "e285b5275d4d9a8d0165f04e2c320852ecace343afd2bc5ad34e08fc617b73cd",
+  "receipt_plan_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-2508",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_expected": true,
+      "containment_metadata_normalized": false,
+      "obsolete_fields_removed": true,
+      "destination_correct": true,
+      "status": "Draft",
+      "version": 7,
+      "source_preimage_verified": true,
+      "native_id_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md"
+      ]
+    },
+    {
+      "id": "CA-R-2779",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_expected": true,
+      "containment_metadata_normalized": false,
+      "obsolete_fields_removed": true,
+      "destination_correct": true,
+      "status": "Draft",
+      "version": 1,
+      "source_preimage_verified": true,
+      "native_id_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md"
+      ]
+    }
+  ],
+  "boundary": "Draft readback only; coordinated Header, Relation and notation adoption remains pending; no Current/runtime claim."
+}
