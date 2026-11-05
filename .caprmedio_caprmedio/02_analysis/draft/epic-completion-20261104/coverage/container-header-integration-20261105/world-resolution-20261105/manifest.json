@@ -1,0 +1,31 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "operator_decision": "world is a literal bootstrap value; it is not an entity and supplies no graph link.",
+  "entries": [
+    {
+      "id": "CA-R-2508",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2508.preview.txt",
+      "preview_sha256": "a02dd777cedb7ae46b09a0ae7d2706c413795688979d8baf4504c36aedd081ba",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2508.diff",
+      "diff_sha256": "a4e46d9566aad149286f165605bfc5d8e070e69fbe1865b09cf74386a8c8bc93"
+    },
+    {
+      "id": "CA-R-2779",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_sha256": "f6addbf5d5a3bfbd6bc6694f788801cb5cebe1faf27acb9514bbad9cba636aec",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2779.preview.txt",
+      "preview_sha256": "8eb27272c2b5f52d9bfddd4e9b260c19db056a5f413dc00350f04883f2c4f8f7",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2779.diff",
+      "diff_sha256": "4cc0ebefbe411b6b1be4ddd219c8cffd2207c8d2a5471e7d96aefa8feca49cf4"
+    }
+  ],
+  "notes": [
+    "R2508 uses a single $atom binding for local unary constraints; UNIQUE retains a separate typed binding with fresh name to avoid shadowing while preserving its existing uniqueness scope.",
+    "Proposed :: notation requires coordinated syntax source adoption; no ELSE, inverse permission, new entity or new storage.",
+    "R2779 preserves the root-Project-only effective default and all unrelated text.",
+    "An invalid non-world reference remains invalid under Header.Container authority; the positive count does not validate or create its target.",
+    "Source-only previews, not native Draft or Current mutations."
+  ]
+}

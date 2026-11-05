@@ -1,0 +1,9 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2779.preview.txt
+@@ -49,4 +49,6 @@
+ 
+ For a root Project Declaration Atom, an omitted Header.Container has the effective default `world`. An explicit valid value overrides that default.
+ 
++The literal bootstrap value `world` produces zero containment links.
++
+ Header.Container is the sole stored Atom-containment value.

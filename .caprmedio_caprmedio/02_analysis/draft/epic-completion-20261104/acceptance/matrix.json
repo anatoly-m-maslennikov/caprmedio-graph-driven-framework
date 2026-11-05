@@ -4,7 +4,7 @@
   "as_of": "2026-11-05",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
   "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-journal-passive-frontier-20261105.json",
-  "current_frontier_note": "Seven published MODEL views match the bounded selected 1,167-source frontier; audit reports 55 missing and 23 unresolved. This is not final model, runtime or data conformance.",
+  "current_frontier_note": "Same1,167 selectedCurrentsuppliers; R1644@39 passiveHistoryrepair. Publishedjournal-passiveMODELviews report54missing,23unresolved,47passive-only. Sourcecoherence/runtimegatesremainopen.",
   "requirements": [
     {
       "requirement_id": "P2695",
@@ -151,31 +151,33 @@
     {
       "requirement_id": "P2704",
       "explicit_requirement": "Remove five obsolete authority-mode overrides from Declaration Drafts and retire field.",
-      "live_evidence": "P2704 Done; 44 Declarations adopted via P2705.",
-      "gap_or_limit": "No live scan evidence included in current P2704 text.",
+      "live_evidence": "All46CurrentScopeUnitDeclarationpinschecked; noauthority_mode/AuthorityMode/strict override wording. Pinnedstaticproductionreader/parser/modelinspect showsnoauthority_modefieldorfallback. Historicalconversionreport recordsfive removedoverrides.",
+      "gap_or_limit": "Source/staticfieldretirementverified; historicalfiveoldoverridesnotindependentlyreconstructed. Runtimeinputrejection/testsremainwithCA#3andnotclaimed.",
       "gate_command_or_check": "Search Current Declarations and production readers for retired field/override; compare against archived predecessors.",
       "dependencies": [
         "P2705"
       ],
-      "assessment": "reported_satisfied_live_scan_needed",
+      "assessment": "source_static_retirement_verified_runtime_enforcement_not_claimed",
       "evidence_refs": [
-        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md"
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/done/09-CA-P-2704-TASK--remove-obsolete-scope-authority-mode-overrides.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/p2704-authority-field-live-check-20261105.json"
       ]
     },
     {
       "requirement_id": "P2694: folder derivation",
       "explicit_requirement": "Rename existing Authority/Delivery folders to derived names; only non-root Authority names include Scope Unit ID; Project Authority remains .caprmedio_<project name>.",
-      "live_evidence": "P2706 adoption packet/README describes folder migration; P2707 retains cutover check.",
-      "gap_or_limit": "Need current filesystem-vs-Declaration check after latest source updates.",
+      "live_evidence": "Live46Declarationcomparison: all46DeclarationcarriersmatchparentAuthorityplacement;38/45Authorityfoldersand27/45Deliveryfoldersmaterialized. ThreeDeliveryfolders CA-SU11/12/13 carryIDprefix contrarytoD667; sevenAuthorityand15otherDeliverypathsabsent withoutassumingmaterializationrequired.",
+      "gap_or_limit": "ThreeconcreteDeliveryname mismatchesneedimpactreviewandrepair; externalcode/Workflowownersretained. Absenceseparatefromwrongnames.",
       "gate_command_or_check": "Run the path derivation/readback check from scope-unit-governance packet on live tree.",
       "dependencies": [
         "P2705",
         "P2706",
         "P2707"
       ],
-      "assessment": "reported_satisfied_live_check_needed",
+      "assessment": "live_source_check_three_delivery_mismatches_open",
       "evidence_refs": [
-        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/README.md"
+        ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/README.md",
+        ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/folder-derivation-live-check-20261105/comparison.json"
       ]
     },
     {
@@ -481,7 +483,8 @@
     "actual_drafts": [
       "CA-R-2779@1",
       "CA-R-2530@3"
-    ]
+    ],
+    "world": "LiteralbootstrapvalueforrootProjectDeclaration; zero containmentgraphlinks; noWorldentity."
   },
   "latest_notation_decision": {
     "allowed_value": "::",

@@ -1,0 +1,44 @@
+{
+  "verdict": "PASS_WITH_TRACKING_FINDING",
+  "plan_receipt_hash_matches": true,
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing@67.md",
+      "after_matches": true,
+      "before_valid": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "after_matches": true,
+      "before_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md",
+      "after_matches": true,
+      "before_valid": true
+    }
+  ],
+  "matrix_requirement_count": 23,
+  "projection_audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3239,
+      "parsed_subjects": 373,
+      "unresolved_subjects": 9,
+      "unresolved_occurrences": 42,
+      "active_subjects": 328,
+      "passive_only_subjects": 47
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 54,
+      "unresolved": 23
+    },
+    "entity_definition_summary": {
+      "entities": 252,
+      "entities_with_any_missing": 48
+    }
+  },
+  "finding": "Matrix current_frontier_note says 55 missing for projections-journal-passive-20261105; that projection manifest reports 54 missing, 23 unresolved and 47 passive-only, matching P2694@68. Refresh the matrix note; this is tracking drift, not evidence of model closure.",
+  "scope_evidence": "P2694@68 and A1317 preserve the two settled parentage cases while holding Run reference Format and Header contracts. P2694 remains Active, links all 23 acceptance groups, and retains CA #3 and Workflow/Workbench external gates. Historical 44-source digest and current 46-source pins are distinct; later historical-digest review records reproduction, with no assertion current bytes equal historical.",
+  "git_observation": "a3874990ae6228a21d29ec2d6e66ce8344ef00e6 exists as chore(release): simple local validate inputs; no ownership of that commit is claimed.",
+  "limits": "No runtime, external gate or promotion inferred from source planning readback."
+}

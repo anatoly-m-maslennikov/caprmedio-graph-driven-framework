@@ -1,0 +1,39 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2508.preview.txt
+@@ -28,18 +28,22 @@
+ # model
+ Atom;
+ 
+-Atom.*[string,in(Header,Content)]{:2};
++Atom.*[string,in(Header,Content)]{::2};
+ 
+ Atom ((NARROWER_THAN)) Continuant;
+ 
+ # instances
+-Atom//$atom {:1}((IS_CONTAINED_BY));
++Atom//$atom;
+ 
+-Atom//$atom {:0..1}((HAS_ACTIVE_SUBJECT));
++IF ($atom.Header.Container = "world") THEN ($atom {::0}((IS_CONTAINED_BY)));
+ 
+-Atom//$atom {:0..1}((GOVERNS));
++IF ($atom.Header.Container != "world") THEN ($atom {::1}((IS_CONTAINED_BY)));
+ 
+-UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
++$atom {::0..1}((HAS_ACTIVE_SUBJECT));
++
++$atom {::0..1}((GOVERNS));
++
++UNIQUE(Atom//$identity_atom, (.Header.ID, .Header.Version));
+ ```
+ 
+ ### Prose Claim
+@@ -48,7 +52,7 @@
+ 
+ For each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom’s outgoing links within each Relation Declaration’s admissible endpoint domain; they do not create links.
+ 
+-Each Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Relations.IS_CONTAINED_BY.
++For an Atom whose effective Header.Container is a valid base Atom ID or Scope Unit path, its outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from that value. Header.Container is the sole stored Atom-containment value. The literal bootstrap value "world" creates no containment link.
+ 
+ ## Semantics
+ 
