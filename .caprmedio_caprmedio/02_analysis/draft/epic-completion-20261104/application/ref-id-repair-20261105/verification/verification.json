@@ -1,0 +1,101 @@
+{
+  "verdict": "PASS_WITH_D409_REF_ID_FOLLOWUP",
+  "original_35": {
+    "result": "PASS at earlier bounded readback: 21+14 exact outputs; all old paths absent; body/status/version/Ref IDs preserved; no duplicate assigned ID/version in native source tree. Five pre-existing carrier_destination names were updated to the renamed actual files.",
+    "limits": "Recorded earlier readback; does not assert no later concurrent edits."
+  },
+  "historical_5": [
+    {
+      "id": "CA-R-2990",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2990@1-draft-CORE_META_MODEL-DEFINITION--define-asset-file.md",
+      "sha256": "7b8daf0c76d215c8f925073eb1e3a2b32e887770ee5309c298217670c2606b2b",
+      "initial_output_exact": true,
+      "subsequent_reference_repair_exact": false,
+      "body_preserved_or_link_retarget": true,
+      "status_id_version_ref_correct": true,
+      "old_path_absent": true
+    },
+    {
+      "id": "CA-R-2991",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2991@1-draft-CORE_META_MODEL-DEFINITION--define-model.md",
+      "sha256": "54e6f12fea3426c85cd4f2650b722369190de3ca8f77640ac0521c7c5fd01b12",
+      "initial_output_exact": true,
+      "subsequent_reference_repair_exact": false,
+      "body_preserved_or_link_retarget": true,
+      "status_id_version_ref_correct": true,
+      "old_path_absent": true
+    },
+    {
+      "id": "CA-R-2992",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2992@1-draft-CORE_META_MODEL-DEFINITION--define-test-package.md",
+      "sha256": "be27b979792812dc616c2987a2691a9c81d69f414d9ce0841fb0d630ed29bc65",
+      "initial_output_exact": true,
+      "subsequent_reference_repair_exact": false,
+      "body_preserved_or_link_retarget": true,
+      "status_id_version_ref_correct": true,
+      "old_path_absent": true
+    },
+    {
+      "id": "CA-R-2993",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2993@1-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md",
+      "sha256": "4d5c96a9a53c84ef54a59526aed675c9cec1bdfc388ab4a266341d724d4c037e",
+      "initial_output_exact": true,
+      "subsequent_reference_repair_exact": false,
+      "body_preserved_or_link_retarget": true,
+      "status_id_version_ref_correct": true,
+      "old_path_absent": true
+    },
+    {
+      "id": "CA-M-497",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-497@1-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md",
+      "sha256": "807c5da7df9a6eaf34f1684f37250ea15b800c7c42c007a38df3ef047d20d031",
+      "initial_output_exact": false,
+      "subsequent_reference_repair_exact": true,
+      "body_preserved_or_link_retarget": true,
+      "status_id_version_ref_correct": true,
+      "old_path_absent": true
+    }
+  ],
+  "historical_plan_receipt_hash_matches": true,
+  "later_reference_plan_receipt_hash_matches": true,
+  "recovery_2": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2962@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
+      "after_sha256_matches": true,
+      "old_path_absent_or_inplace": true,
+      "preimage_recovered_from_git": true,
+      "body_preserved": true,
+      "before_status_version": [
+        "Draft",
+        1
+      ],
+      "after_status_version": [
+        "Draft",
+        1
+      ],
+      "atom_id": "CA-R-2962",
+      "ref_id": "CA-R-2962@1-draft"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place.md",
+      "after_sha256_matches": true,
+      "old_path_absent_or_inplace": true,
+      "preimage_recovered_from_git": true,
+      "body_preserved": true,
+      "before_status_version": [
+        null,
+        7
+      ],
+      "after_status_version": [
+        null,
+        7
+      ],
+      "atom_id": "CA-D-409",
+      "ref_id": null
+    }
+  ],
+  "recovery_plan_receipt_match": true,
+  "duplicate_scan": "Read-only native CA-SU source tree scan of historical five and recovery two found no duplicate (atom_id,version); D409 archived versions are distinct.",
+  "finding": "D409 recovery adds atom_id CA-D-409 but leaves explicit ref_id and status absent, as in its recovered preimage; version 7 and body preserved. Treat the missing explicit Ref ID as follow-up rather than claiming it was repaired.",
+  "boundary": "No native source, tests, runtime or Git changes."
+}

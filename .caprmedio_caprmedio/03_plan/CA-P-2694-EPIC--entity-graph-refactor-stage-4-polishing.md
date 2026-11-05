@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL
 tier: 3
 status: Active
-version: 77
-updated_at: 2026-11-05 23:20:15 +0400
+version: 78
+updated_at: 2026-11-05 23:55:27 +0400
 carrier_destination:
   file:
     name: CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
@@ -142,6 +142,13 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 - Ref ID is base ID for Current, ID@Version for Archived and ID@Version-draft for Draft. The final census has 4,463 formula-matching values and zero mismatches. 206 records remain held for missing or unallocated identity/state: 177 lack explicit ID or Status and 29 have unallocated or invalid IDs. No missing data was invented. Fifty-five legacy Relation-list strings need separate domain review; they were preserved.
 - Actual Workflow schema work and anonymous Mermaid Drafts from the other owner were preserved; this ordering change does not promote those schemas. Parser, lifecycle maintenance, projection regeneration and runtime/test gates remain CA #3 dependencies. The full Epic remains Active.
 - Evidence: [model/data/ordering packet](../02_analysis/draft/epic-completion-20261104/application/property-order-20261105/README.md), [independent readback](../02_analysis/draft/epic-completion-20261104/permissions/property-order-final-readback-20261105.json), [final Header check](../02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/final-header-check.json).
+
+## Ref ID repair — 2026-11-05
+
+- Of the original 206 identity/Status holds, 41 now have formula-valid Ref IDs. Forty existing v1 Drafts received numeric IDs; Workflow Mermaid Draft R2962@1 recovered its recorded identity. Their bodies, Versions and Draft state were preserved; withdrawn proposals remain withdrawn.
+- D409 recovered its explicit archived ID. Its Status and Ref ID remain held. Exact filename references and related Markdown targets were repaired without changing frozen evidence.
+- The remaining 165 holds comprise 159 missing Status values and six unnumbered Version 2/3 Drafts. Eight of the Status holds also lack independently established IDs. Status defaults and unresolved identity choices await the Operator; no state was guessed.
+- Evidence: [repair packet](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json). No promotion or implementation gate is claimed. The Epic remains Active.
 
 ## Remaining work
 
