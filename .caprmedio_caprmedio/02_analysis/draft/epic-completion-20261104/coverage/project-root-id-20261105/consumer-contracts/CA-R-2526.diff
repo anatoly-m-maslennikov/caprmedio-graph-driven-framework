@@ -1,0 +1,21 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-R-2526.preview.txt
+@@ -20,15 +20,13 @@
+ 
+ ```CFEL
+ # model
+-Scope Unit.ID: [string]{:0..1};
++Scope Unit.ID: [string]{:1};
+ 
+ Scope Unit.ID.*[]{:0};
+ 
+-# instances
+-IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit))
+-THEN ($unit.ID{:1})
++
+ ```
+ 
+ ## Semantics
+ 
+-A non-root Scope Unit keeps its ID through moves and renames. The ID distinguishes those operations from removing that Scope Unit. The Project root has no Scope Unit ID because it cannot be moved or renamed through Scope Unit operations.
++A Scope Unit keeps its ID. For a non-root Scope Unit, the ID distinguishes moves and renames from removal.

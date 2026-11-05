@@ -1,0 +1,150 @@
+{
+  "status": "ROOT_DECLARATION_PREVIEW_READY_RULE_CONFLICT_AND_CHILD_REFS_RECORDED",
+  "decision_basis": "User explicitly selected CA-SU-00 as Project root Scope Unit ID.",
+  "source": {
+    "atom_id": "CA-R-2640",
+    "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+    "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9",
+    "version": 1
+  },
+  "candidate": {
+    "atom_id": "CA-R-2640",
+    "declared_scope_unit_id": "CA-SU-00",
+    "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/root-declaration/CA-R-2640@2-root-id.preview.md",
+    "candidate_sha256": "150f8fb7539f54f79d3244cdbbfba600ea3c76be3a42e48c1eaf4b40a812bb65",
+    "existing_atom_id_preserved": true,
+    "existing_subject_preserved": true,
+    "existing_name_preserved": true,
+    "current_scope_unit_preserved": true,
+    "ordered": "inherited from the existing shared Project-unordered rule; no redundant assertion added",
+    "order_number": "omitted",
+    "formal_parent": "omitted",
+    "root_folder_path_or_name_changed": false
+  },
+  "authority_pins": [
+    {
+      "id": "CA-R-2640",
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9"
+    },
+    {
+      "id": "CA-R-2688",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff"
+    },
+    {
+      "id": "CA-R-2684",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "sha256": "14a60cabd55349140c38bf8e0a3191016ff2ea78718d4043b3a80de163d67bbc"
+    },
+    {
+      "id": "CA-R-2687",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+      "sha256": "425b43b853867bda555b74525c164f602466704c3c9b8ebfc2416246a2ad2eec"
+    },
+    {
+      "id": "CA-R-2686",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+      "sha256": "c5c55335a6fe2d5eb3cea0a7f919af0666b371b18b8502d0496ecaa974bf627f"
+    }
+  ],
+  "direct_live_parent_references": [
+    {
+      "atom_id": "CA-R-2648",
+      "version": 1,
+      "status": "Active",
+      "form": "Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2648-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--declare-framework-methodology.md",
+      "sha256": "06421ef44ef225732161056345fc8236fd4516e9fafca5e1e22edb6995bc384b",
+      "line": 33,
+      "current_reference": "Scope Unit instance IS_CONTAINED_BY Project//caprmedio",
+      "required_resolution": "bind this parent to the Project Scope Unit whose ID is CA-SU-00; retain the child declaration name and Subject; exact ID-selector migration syntax is not authored in this packet"
+    },
+    {
+      "atom_id": "CA-R-2653",
+      "version": 1,
+      "status": "Active",
+      "form": "Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2653-caprmedio-DEFINES_SCOPE_FOR-FRAMEWORK_ENGINE--declare-framework-engine.md",
+      "sha256": "e72067c7138f8deb947f81464ba3ded26d3a6192c2208954d1d76ae395a0fc9a",
+      "line": 33,
+      "current_reference": "Scope Unit instance IS_CONTAINED_BY Project//caprmedio",
+      "required_resolution": "bind this parent to the Project Scope Unit whose ID is CA-SU-00; retain the child declaration name and Subject; exact ID-selector migration syntax is not authored in this packet"
+    },
+    {
+      "atom_id": "CA-R-2664",
+      "version": 1,
+      "status": "Active",
+      "form": "Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2664-caprmedio-DEFINES_SCOPE_FOR-OPERATOR_DOCUMENTATION--declare-operator-documentation.md",
+      "sha256": "b526dc9c75145be139d328cd10db537dead1f895de34262feec9cc0c2a50729d",
+      "line": 33,
+      "current_reference": "Scope Unit instance IS_CONTAINED_BY Project//caprmedio",
+      "required_resolution": "bind this parent to the Project Scope Unit whose ID is CA-SU-00; retain the child declaration name and Subject; exact ID-selector migration syntax is not authored in this packet"
+    },
+    {
+      "atom_id": "CA-R-2665",
+      "version": 1,
+      "status": "Active",
+      "form": "Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2665-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md",
+      "sha256": "9f462f07ef3086cd6da4d395312f7e1ed48bdcb598786c4bc4977916520d5d90",
+      "line": 33,
+      "current_reference": "Scope Unit instance IS_CONTAINED_BY Project//caprmedio",
+      "required_resolution": "bind this parent to the Project Scope Unit whose ID is CA-SU-00; retain the child declaration name and Subject; exact ID-selector migration syntax is not authored in this packet"
+    },
+    {
+      "atom_id": "CA-R-2666",
+      "version": 1,
+      "status": "Active",
+      "form": "Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2666-caprmedio-DEFINES_SCOPE_FOR-RELEASES--declare-releases.md",
+      "sha256": "fbe5d9b714e7175103368a2758bafce98b29c70647bc2f0b8a31cc4f32c1ad67",
+      "line": 33,
+      "current_reference": "Scope Unit instance IS_CONTAINED_BY Project//caprmedio",
+      "required_resolution": "bind this parent to the Project Scope Unit whose ID is CA-SU-00; retain the child declaration name and Subject; exact ID-selector migration syntax is not authored in this packet"
+    },
+    {
+      "atom_id": "CA-R-2667",
+      "version": 1,
+      "status": "Active",
+      "form": "Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2667-caprmedio-DEFINES_SCOPE_FOR-COMMUNITY_EXTENSIONS--declare-community-extensions.md",
+      "sha256": "176e254a087a299b327cb28a1a288c4fde37aaed65a2f8017d0890136677b2f1",
+      "line": 31,
+      "current_reference": "Scope Unit instance IS_CONTAINED_BY Project//caprmedio",
+      "required_resolution": "bind this parent to the Project Scope Unit whose ID is CA-SU-00; retain the child declaration name and Subject; exact ID-selector migration syntax is not authored in this packet"
+    },
+    {
+      "atom_id": "CA-R-2668",
+      "version": 1,
+      "status": "Active",
+      "form": "Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/04_requirement/CA-R-2668-caprmedio-DEFINES_SCOPE_FOR-FIELD--declare-field.md",
+      "sha256": "ca0994f759185a8ebe322bf031b817a7660bff34c7fa6d44a8827e7c66b01d13",
+      "line": 31,
+      "current_reference": "Scope Unit instance IS_CONTAINED_BY Project//caprmedio",
+      "required_resolution": "bind this parent to the Project Scope Unit whose ID is CA-SU-00; retain the child declaration name and Subject; exact ID-selector migration syntax is not authored in this packet"
+    }
+  ],
+  "excluded_reference_examples": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+      "reason": "Delivery serialization example, not a Scope Unit Declaration or MODEL parent edge; no prose replacement proposed here. Duplicate materialized copy under 000_CAPRMEDIO_framework is not separately authoritative."
+    }
+  ],
+  "rule_conflict": {
+    "id": "CA-R-2688",
+    "current_claim": "Project is unordered and has neither Scope Unit ID nor order.number.",
+    "impact": "The user-selected CA-SU-00 requires a coordinated successor to R2688 allowing a stable ID for Project while retaining unordered/no-order.number/no-parent constraints. This packet does not edit R2688.",
+    "authority_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+    "sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff"
+  },
+  "boundaries": [
+    "R2640 Atom ID remains CA-R-2640; CA-SU-00 is the Project Scope Unit stable ID.",
+    "The active Subject remains CAPRMEDIO_STRUCTURE <+ Project//caprmedio and Name remains caprmedio.",
+    "No root directory or name rename is proposed.",
+    "No child source, authority path, D635 prose, actual Workflow/Workbench source, Current, code, tests, or Git changes.",
+    "This preview uses only existing fields ID, Name and order.ordered; it adds no parent edge or order.number."
+  ]
+}

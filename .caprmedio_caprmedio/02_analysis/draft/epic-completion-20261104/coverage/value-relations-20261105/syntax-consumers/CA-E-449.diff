@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@46-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-E-449.preview.txt
+@@ -112,7 +112,7 @@
+ For the readable view specified by CA-R-1456 and delivered under CA-D-634, check that:
+ 
+ - the output is a Markdown file with YAML frontmatter identifying Projection form, Entities Graph Type, completed rebuild time and every contributing source Atom as ID plus Version;
+-- the Inherency view uses its selected NARROWER_THAN and IS_PROPERTY_OF Relations and source-backed allowed-value qualifications as value annotations, not graph Relations;
++- the Inherency view uses its selected NARROWER_THAN and IS_PROPERTY_OF Relations and source-backed allowed-value qualifications as value annotations while retaining their governing HAS_ALLOWED_VALUE Relation evidence;
+ - the main Inherency tree excludes Properties; each primary entity with Properties has exactly one detail section, in first-appearance order, including qualified properties and their allowed values;
+ - a shared entity appears under every applicable parent without creating new identities or repeated detail sections;
+ - declared sibling order is preserved; unordered siblings are alphabetical with deterministic ties; tree indentation uses literal tabs in fenced text blocks, while YAML uses spaces;

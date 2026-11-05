@@ -29,7 +29,8 @@ Declare the Occurrent hierarchy and its execution-event Relations.
 - Session is narrower than External Remote Runtime.
 - Local means on the Operator's machine.
 - Internal means part of the CAPRMEDIO application.
-- Each Event Record records one Event. Its existing fields remain in place.
+- Each Event Record records one Event. Its other retained recording fields remain in place.
+- Event author attribution is not included in the staged Event Record declaration. Retirement of R2582, R2583 and R2622 is planned as part of coordinated adoption; they remain Current until then.
 - Executions produce Events and run in Runtimes.
 - Step is recursive. Each Step uses exactly one execution form: RUNS one Action, RUNS one Workflow, or CONTAINS one or more Steps.
 - Retire the separate Substep kind. Step Run executes Step at any nesting level. Actual Workflow instances remain with their owners.

@@ -1,0 +1,23 @@
+---
+atom_id: UNALLOCATED_SUCCESSOR
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL
+version: UNALLOCATED_VERSION
+updated_at: 2026-11-05 00:49:39 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Admit an allowed value
+
+## Claim
+
+### Prose Claim
+
+`X :: Y` admits Y as an allowed value of X in a Formal Claim. Allowed cardinality bounds use `{::n}`, `{::n+}` or `{::n..m}` and specify the allowed count of the qualified selection, not the number of distinct values in its domain. Neither form is assignment or an IS_ALLOWED_VALUE_OF Relation.

@@ -1,0 +1,31 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom
+  passive:
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold'
+version: 26
+updated_at: 2026-11-02 18:35:20 +0400
+relations:
+  child_of:
+  - CA-M-261
+atom_id: CA-R-1559
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 2
+role: Requirement
+form: Rule
+---
+## Summary
+
+Gate governing Atom changes during implementation
+
+## Claim
+
+### Prose Claim
+
+Changes to governing RMED Atoms during implementation.
+
+Before a governing RMED Atom changes, resolve the effective Plan AI Agent Confidence Threshold under CA-R-2711, applicable permissions and additional Operator constraints. When confidence is below the threshold or an additional rule requires approval, request Operator disposition before changing the Atom. Autonomous change is allowed only when confidence meets the threshold and all applicable permissions and Operator constraints allow it. A prohibition remains a prohibition; confidence does not create permission.
+
+An authorized RMED change establishes a new baseline under CA-M-262; resolve the affected work and Evaluations again against that baseline.

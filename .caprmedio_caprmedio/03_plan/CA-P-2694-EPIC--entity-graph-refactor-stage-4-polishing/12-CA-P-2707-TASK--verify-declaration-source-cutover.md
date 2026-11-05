@@ -4,8 +4,8 @@ role: Plan
 form: Plan
 label: Task
 status: Active
-version: 7
-updated_at: 2026-11-05 04:32:31 +0400
+version: 9
+updated_at: 2026-11-05 16:54:20 +0400
 tier: 4
 subjects:
   active: CAPRMEDIO_MODEL <+ Scope Unit
@@ -46,6 +46,32 @@ Required behavior:
 4. Verify that the next copy produces `LAYER_1_CORE_META_MODEL`, `LAYER_2_INSTALLED_EXTENSIONS` and `LAYER_3_PROJECT_CONFIGURATION`, without recreating their ID-prefixed siblings.
 
 The static trace is in `coverage/folder-derivation-live-check-20261105/writer-static-audit.json` in the completion packet. CA #3 owns the implementation and focused writer verification, followed by the existing final integration gates. The source lane has made no implementation change.
+
+## Root ID and bootstrap cutover — CA #3
+
+The accepted Project root ID is `CA-SU-00`. `CA-SU--1` identifies the predefined Scope Unit named `world`, without a Declaration. The root Declaration Atom uses `container.scope_unit: CA-SU--1`; the Project Scope Unit itself keeps no formal parent.
+
+The current reader accepts only the root Name statement and identifies the root by an absent ID. Its model/validator rejects a root ID. Before promotion:
+
+1. Accept the root Declaration's ID and preserve both zeroes in `CA-SU-00` as text. Root identity follows the Project kind, not an absent ID. Shared rules support other Project ID namespaces.
+2. Resolve `CA-SU--1` to predefined world without requiring or creating a World Declaration, Carrier or folder. Reject a supplied Declaration reusing that reserved ID.
+3. Include the Project root in declared-ID uniqueness checks. Keep world separate from the Declaration count: the current baseline is 46 Declarations plus predefined world.
+4. Read the one-key `Header.Container` mapping. Resolve base Atom IDs to Current and Scope Unit IDs to the declared or predefined Scope Unit. Apply the omitted-root-Declaration default mapping to world. Store no duplicate containment fact in Relations.
+5. Preserve unordered/no-number/no-parent Project behavior and `.caprmedio_<project name>` root naming. Verify the bootstrap Declaration's adapter admission and placement before carrier migration.
+6. Keep the source Current until the compatible reader, model, validator and adapter are ready. Verify the coordinated candidate through the existing admission and integration gates below.
+
+The pinned static evidence is `coverage/project-root-id-20261105/static-impact/report.json` in the completion packet. Source Draft writes are not reader acceptance or runtime evidence.
+
+## CFEL and single-person source cutover — CA #3
+
+The reviewed candidate is `coverage/value-relations-20261105/final-live-cohort.json` in the completion packet. Its 49 Drafts are not Current syntax. Before coordinated source and data migration:
+
+1. Distinguish HAS_ALLOWED_VALUE (`:=`, OR across applicable and inherited admissions) from HAS_VALUE_CONSTRAINT (`::`, AND across applicable and inherited constraints). With no admissions, omit that group. Preserve qualified-Subject `:=` and `{::n}` allowed cardinalities.
+2. Support the accepted typed logical participants, `//` narrowing, `/` containment, scoped IF/THEN and FOR EACH groups, explicit bindings, and `# model` / `# instances`. Remove modeled CFEL Operator descriptor dependencies while preserving Actor/Operator.
+3. Permit literal or constraint-data endpoints only for the declared value Relation families and their inverse views. Keep ordinary Relation endpoint checks, explicit inverse permissions and zero-default bounds.
+4. Coordinate Header.Container and single-person schema/registry changes. Current R1559@28 and E440@38 already govern threshold-and-permission approval; the other attribution and root-ID changes remain staged. Preserve accepted historical records.
+5. Use the existing Project-global identity boundary for allocation and application. The repaired value Relation IDs are R2826–R2829; retained history and all statuses reserve IDs. Keep other owners' Workbench sources intact.
+6. Record semantic/parser/admission and integration results on one stable candidate through the five checks below. Source receipts and refreshed projections alone do not satisfy them.
 
 ## Remaining checks
 

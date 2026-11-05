@@ -1,0 +1,185 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "3453dcc334a332a38c4a277d4132fed6b0f71eba74eecb7a27acbf0c91bb6515",
+  "receipt_pin": true,
+  "reviewed_scope": "Seven model/root/consumer Drafts only; R2523/R2779/R2508 excluded as separately reviewed.",
+  "rows": [
+    {
+      "id": "CA-R-2524",
+      "actual_sha256": "ec428df304da75ae109f5cd5a07dd7ef807308c64f25d4b6fcd78c22995df730",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "source_current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "identity_version_status": [
+        "CA-R-2524",
+        4,
+        "Draft"
+      ],
+      "above_prior_native_max": true,
+      "prior_native_versions": [
+        3
+      ],
+      "destination_relative_correct": true,
+      "root_bootstrap_metadata_expected": null,
+      "metadata_normalization": "Empty Current relations normalized to Draft IS_CONTAINED_BY CA-SU-11."
+    },
+    {
+      "id": "CA-R-2526",
+      "actual_sha256": "2670beccf668c46d9559702af6b8876e84c0c030055fc3725a10e0cb569b94f9",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "source_current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "identity_version_status": [
+        "CA-R-2526",
+        5,
+        "Draft"
+      ],
+      "above_prior_native_max": true,
+      "prior_native_versions": [
+        3,
+        4
+      ],
+      "destination_relative_correct": true,
+      "root_bootstrap_metadata_expected": null,
+      "metadata_normalization": "Empty Current relations normalized to Draft IS_CONTAINED_BY CA-SU-11."
+    },
+    {
+      "id": "CA-R-2688",
+      "actual_sha256": "dc79c83f2ab14ef8a89790b731e04a12d30e7c245de842a46c34dd6f2aa6528b",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "source_current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "identity_version_status": [
+        "CA-R-2688",
+        3,
+        "Draft"
+      ],
+      "above_prior_native_max": true,
+      "prior_native_versions": [
+        1,
+        2
+      ],
+      "destination_relative_correct": true,
+      "root_bootstrap_metadata_expected": null,
+      "metadata_normalization": "Empty Current relations normalized to Draft IS_CONTAINED_BY CA-SU-11."
+    },
+    {
+      "id": "CA-M-461",
+      "actual_sha256": "b7759e1c2bc91bac908a4f75fe97a25fea7770bca89cfc01a5a3d24a0c6db036",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "source_current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "identity_version_status": [
+        "CA-M-461",
+        3,
+        "Draft"
+      ],
+      "above_prior_native_max": true,
+      "prior_native_versions": [
+        1,
+        2
+      ],
+      "destination_relative_correct": true,
+      "root_bootstrap_metadata_expected": null,
+      "metadata_normalization": "Empty Current relations normalized to Draft IS_CONTAINED_BY CA-SU-11."
+    },
+    {
+      "id": "CA-E-670",
+      "actual_sha256": "88b51c4d115012b193e17ee72a777b302af29412f939c6eafa6ed79d13862d21",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "source_current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "identity_version_status": [
+        "CA-E-670",
+        2,
+        "Draft"
+      ],
+      "above_prior_native_max": true,
+      "prior_native_versions": [
+        1
+      ],
+      "destination_relative_correct": true,
+      "root_bootstrap_metadata_expected": null,
+      "metadata_normalization": "Empty Current relations normalized to Draft IS_CONTAINED_BY CA-SU-11."
+    },
+    {
+      "id": "CA-D-442",
+      "actual_sha256": "a15fc810a4b84182ca24f61d7ef2c821486d8e47f303bde9d93f8fff79fb3759",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "source_current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "identity_version_status": [
+        "CA-D-442",
+        27,
+        "Draft"
+      ],
+      "above_prior_native_max": true,
+      "prior_native_versions": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        26
+      ],
+      "destination_relative_correct": true,
+      "root_bootstrap_metadata_expected": null,
+      "metadata_normalization": "Empty Current relations normalized to Draft IS_CONTAINED_BY CA-SU-11."
+    },
+    {
+      "id": "CA-R-2640",
+      "actual_sha256": "ce3cb74e78540a0eac2d455ef34110ce3db51ecf80b69ae0765f34d4baf5fe58",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "source_current_unchanged": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "identity_version_status": [
+        "CA-R-2640",
+        2,
+        "Draft"
+      ],
+      "above_prior_native_max": true,
+      "prior_native_versions": [
+        1
+      ],
+      "destination_relative_correct": true,
+      "root_bootstrap_metadata_expected": true
+    }
+  ],
+  "semantics": "Exact reviewed bodies preserve generic Project ID scope, specific CA-SU-00 root, predefined no-Declaration CA-SU--1 world and reserved-ID rejection, root parentless and unordered. Root Draft container metadata and WORLD filename are staging, not World Declaration or Carrier.",
+  "gates": [
+    "Current root reader/model/validator rejects root IDs; no Current promotion before compatible implementation and coordinated migration.",
+    "No World Declaration/Carrier/folder created. CA-SU--1 is predefined; CA-SU-00 assigned only to current Project root.",
+    "Coherent source/metadata/schema/body notation and reader/adapter cutover remain required."
+  ],
+  "boundary": "Draft readback only; native reader/bootstrap adapter and placement require resolution before Current promotion. No native source, code, test, Workflow, Workbench or Git mutations."
+}

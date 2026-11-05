@@ -1,0 +1,13 @@
+--- Current CA-R-2594
++++ Prospective CA-R-2594 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Condition
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator =
++Define CFEL equality-condition syntax =
+-### Formal Claim
+-Operator//Condition == "="
++### Prose Claim
++`=` tests equality in a Formal Claim or IF condition; it is not assignment.

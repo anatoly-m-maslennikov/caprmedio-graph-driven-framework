@@ -1,0 +1,19 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-M-461.preview.txt
+@@ -20,14 +20,14 @@
+ 
+ 
+ - Keep the Operator’s wording as close as possible. Correct grammar and organize it into coherent statements with the simplest syntax possible. Preserve clear terms and key concepts; do not replace them with polished synonyms.
+-- Write one external Scope Unit Declaration for each declared Scope Unit. Use Role Requirement and Form Scope Unit Declaration. Set its active Subject (`subjects.active`) to that specific Scope Unit; do not add another binding field or an additional per-unit Definition Atom.
++- Write one external Scope Unit Declaration for each declared Scope Unit. The predefined Scope Unit `world` (`CA-SU--1`) has no Declaration. Use Role Requirement and Form Scope Unit Declaration. Set its active Subject (`subjects.active`) to that specific Scope Unit; do not add another binding field or an additional per-unit Definition Atom.
+ - Keep one or more Goals separate from the Declaration and outside the declared Scope Unit; link them without duplicating their content.
+ - A Scope Constraint is external to the governed Scope Unit and may be part of its Declaration.
+ - Keep Scope Contract Atoms inside the governed Scope Unit at tier 0. Use applicable RMEDO roles; do not impose a minimum count, exactly one Contract, or every role. A Scope Unit may have no local Contract Atoms.
+ 
+ ## Details
+ 
+-A Declaration states the Scope Unit ID where applicable, Name, ordered state, optional Label, conditional order.number and direct containment. Do not add Navigation Number to Scope Unit Declarations. Keep the Project Declaration outside the Project, with external Operator ownership.
++A Declaration states the Scope Unit ID, Name, ordered state, optional Label, conditional order.number and direct containment. Do not add Navigation Number to Scope Unit Declarations. Keep the Project Declaration outside the Project, with external Operator ownership.
+ 
+ Authority and Delivery Folder names are derived. Only non-root Authority Folder names include the Scope Unit ID prefix. The Project Authority Folder is `.caprmedio_<project name>`, without an ID. Do not author derived paths in individual Scope Unit Declarations.
+ 

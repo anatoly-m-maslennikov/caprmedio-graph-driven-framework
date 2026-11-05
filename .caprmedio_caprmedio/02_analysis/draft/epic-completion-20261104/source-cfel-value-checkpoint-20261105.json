@@ -1,0 +1,86 @@
+{
+  "status": "REVIEWED_SOURCE_CHECKPOINT_NOT_RUNTIME_CUTOVER",
+  "current_epic_version": 73,
+  "current_verification_task_version": 9,
+  "live_cfel_drafts": 49,
+  "current_approval_rules": {
+    "CA-R-1559": 28,
+    "CA-E-440": 38
+  },
+  "value_relations": {
+    "HAS_ALLOWED_VALUE": {
+      "id": "CA-R-2826",
+      "alias": ":=",
+      "aggregate": "OR",
+      "absent_group": "omitted"
+    },
+    "HAS_VALUE_CONSTRAINT": {
+      "id": "CA-R-2828",
+      "alias": "::",
+      "aggregate": "AND"
+    },
+    "inverse_ids": [
+      "CA-R-2827",
+      "CA-R-2829"
+    ]
+  },
+  "qualified_subject_alias": ":=",
+  "reviews": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/value-cohort-final-20261105.json",
+      "sha256": "8e1ca9f36a2160cf8c616d22dfcec0c2cc4679a06866af38918c614b529ed53a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/final-value-plans-proposals-review-20261105.json",
+      "sha256": "1574ea24bfca9a43c7eb56dd4bcb4b3cbe6711cbd9291cb06c57da33edecbbc5"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/single-person-approval-current-projections-review-20261105.json",
+      "sha256": "80b34c700687e514a8ef66625f9e9f86879562d27b534fbe43f06c17946b85df"
+    }
+  ],
+  "lane_table": [
+    {
+      "deliverable": "tracking",
+      "owner": "model_legacy_cleanup",
+      "scope": "README,current-state,matrix",
+      "status": "done",
+      "acceptance": "23 acceptance groups retained"
+    },
+    {
+      "deliverable": "proposals",
+      "owner": "model_selector_parser",
+      "scope": "A1317,A1321",
+      "status": "done",
+      "acceptance": "49 exact live Draft references; no false adoption"
+    },
+    {
+      "deliverable": "cohort review",
+      "owner": "model_subject_syntax",
+      "scope": "read-only49Drafts",
+      "status": "done",
+      "acceptance": "49 exact hashes and consistent value semantics"
+    },
+    {
+      "deliverable": "reference handoff",
+      "owner": "cfel_rule_consumers",
+      "scope": "read-only mappings",
+      "status": "done",
+      "acceptance": "ambiguous live mappings held"
+    },
+    {
+      "deliverable": "plan review",
+      "owner": "property_instance_relations_review",
+      "scope": "read-only plans and proposals",
+      "status": "done",
+      "acceptance": "P2707 five checks unchanged; baseline fix verified"
+    }
+  ],
+  "limits": [
+    "CFEL, root-ID and Event-author source cutovers remain staged.",
+    "CA #3 owns implementation, runtime, fixtures and tests.",
+    "Workbench and actual Workflows excluded.",
+    "No native workflow admission or Journal append claimed.",
+    "Other owners edits excluded from checkpoint."
+  ]
+}

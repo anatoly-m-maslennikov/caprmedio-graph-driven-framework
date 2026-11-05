@@ -1,0 +1,217 @@
+{
+  "verdict": "PASS_BOUNDED_PREVIEW_REVIEW",
+  "value_manifest_sha256": "ff6c2bf53a35e273d0dc094ffe44479ca28dde292215a491a468abfd823071a8",
+  "control_manifest_sha256": "f814cff8a15d93d47f948e99fc57ed1b9ee09c6d7b5a16f1abf0a43f90b610cc",
+  "rows": [
+    {
+      "id": "CA-R-1346",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": false,
+      "preview_sha256": "a3ed0010a8cd42bdf27c64bbd2380ceaee8d52abbe088b99bbea39ce4ce270bd"
+    },
+    {
+      "id": "CA-R-2591",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "5352f6f77d1a9da1c0290797b99d38793b93619129dbf46812d458a177317e30"
+    },
+    {
+      "id": "CA-R-2592",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "accd0afc404f15d9af4488511c9da196f7bf4346c87116c0d22efa62ba31b2ad"
+    },
+    {
+      "id": "CA-R-2593",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "bd5d0fde81cbb99187273e57fcbee54dd18380beca19c45bb812574ffe09f8c6"
+    },
+    {
+      "id": "CA-R-2594",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "4a60417196b006d3e8c93254e603db403f377eae190c5f4a71d6d6aa1d556d6c"
+    },
+    {
+      "id": "CA-R-2596",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "ff93dc30e2d650d5722ea409436d5c1e50789e5676044387e4a5e9b401886272"
+    },
+    {
+      "id": "CA-R-2597",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "45c189f4684499fe563245414ebf80cf548b29ecf95d1b341e5c4e8a77da6a3f"
+    },
+    {
+      "id": "CA-R-2599",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "fac822ca806d1fdd8a437c97247cca5102b506d9763ec6284c52edf82ef50b38"
+    },
+    {
+      "id": "CA-R-2600",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "c75bd170bffcb08cab7e9dc81c6e7a9d81594b3a75d326e36ca3a6b802547146"
+    },
+    {
+      "id": "CA-R-2601",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "b464b6173fda4789f28a89176645ce4cbd0adf3812c49bc4440bbea98e2382a3"
+    },
+    {
+      "id": "CA-R-2612",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "30a284687c155d4c1908275f2f3141b9fd35abcb98207c91432dd1b2705ab58e"
+    },
+    {
+      "id": "CA-R-2613",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "78ac9b784309b89deb276a79ac6f908fb61e288735f47e3d2d826d56752f6a24"
+    },
+    {
+      "id": "CA-R-2614",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "f1f919e4578c02b730be33b18394875c6fd69b96287cf0e954f50340bd79e04d"
+    },
+    {
+      "id": "CA-R-2615",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "67f95de58338c1e7504d317ac968811132ddfc7d93f96e1c7bab5c01d0912d24"
+    },
+    {
+      "id": "CA-R-2720",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "a048282e62693ce5b2a11c28f2f627609c7ef1c963675003e3516c4f5c44112c"
+    },
+    {
+      "id": "CA-R-2769",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "7e33fcdd7ca1c85dbaf32cdad343d85cb6c85982ef82b5b254ed64f352b1430b"
+    },
+    {
+      "id": "CA-R-2770",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "720adbaa7d7ebd90595110bb2af9afd1274d33236fb763db69d56f5307b8dc6a"
+    },
+    {
+      "id": "CA-R-2773",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "daa9d23e0cdd3ae3620b29544e481ebd533f04285d7113cfa410a7ee3cae3878"
+    },
+    {
+      "id": "CA-R-2774",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "form": "Rule",
+      "fresh_id_required": true,
+      "preview_sha256": "ab620ff3faa8afa982e8c5c3ce822ee0c571854f205cd89e71104a9843b2d826"
+    }
+  ],
+  "r2720_existing_draft_pin": true,
+  "r2616_retirement_source_pin": true,
+  "findings": [],
+  "preserved": [
+    "R2613 retains untyped endpoint signature only inside Relation Declaration Formal Claims, model entities or instances, no literal/fact/instance creation.",
+    "R2720 uses already-bound Relation participant, max-one alias and rejects conflicts, with no inferred endpoint permissions.",
+    "R2769 keeps missing-only default, explicit valid value, invalid-value distinction and no Carrier write; R2770 preserves lookup/error behavior.",
+    "R2616 retirement is a held proposal until descriptor children and consumers are reconciled; no Current effect.",
+    "R2768 control candidate excluded from review and integration because separately owned."
+  ],
+  "gates": [
+    "Changed Summary or Form successors require fresh IDs; any same-ID Rule preserves Summary.",
+    "Coordinated full CFEL syntax/source migration and consumer/reader integration remain required before Current promotion."
+  ],
+  "boundary": "19 candidate previews only; no native Draft, Current, code, tests, Workflow, Workbench or Git changes.",
+  "resolved_findings": [
+    "R1346 uses := for both qualifiers and retains Term/Term//Property dependencies.",
+    "R2592 states an allowed count of the qualified selection.",
+    "R2773 states conjunction iff both operands true."
+  ]
+}

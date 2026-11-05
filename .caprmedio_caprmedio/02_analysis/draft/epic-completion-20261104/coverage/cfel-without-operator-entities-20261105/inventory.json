@@ -1,0 +1,1316 @@
+{
+  "status": "INVENTORY_ONLY_USER_CLARIFICATION_PENDING",
+  "scope": "Canonical active native source carriers and latest version per same-ID native Draft in .caprmedio_caprmedio; excludes archives, analysis, plan, projections/old trees. Textual matching limited to CFEL Operator paths and descriptor references, not ordinary Actor/Operator occurrences; counts describe source rows, not necessarily unique semantic operators or complete indirect dependencies.",
+  "counts": {
+    "current_cfel_operator_active_sources": 30,
+    "distinct_active_subjects": 29,
+    "other_current_matching_dependency_sources": 15,
+    "latest_native_draft_matching_sources": 8,
+    "latest_native_drafts_active_cfel_operator": 6
+  },
+  "current_active": [
+    {
+      "id": "CA-R-1346",
+      "version": 28,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Permit reused Terms **in** qualified value domains",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "803ebe3f727ac959afe20ce369e6d4f643dbc98b93a8380bf18e764cdb3f7313",
+      "references": [
+        {
+          "line": 3,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2591",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator +",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Addition",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2591-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b8e1b543122d6cbbd22bfb82a4f71235fced9baef76ab83b6a22374a896ced29",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Addition"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator +"
+        },
+        {
+          "line": 26,
+          "text": "Operator//Addition == \"+\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2592",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator :",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator :"
+        },
+        {
+          "line": 26,
+          "text": "Operator//AllowedValue == \":\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2593",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ==",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Conclusion",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Conclusion"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator =="
+        },
+        {
+          "line": 26,
+          "text": "Operator//Conclusion == \"==\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2594",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator =",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Condition",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2594-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f711324330e0121142be66a52968fcb4aec80a21a114e248bf4bbf94a777ac8b",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Condition"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator ="
+        },
+        {
+          "line": 26,
+          "text": "Operator//Condition == \"=\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2596",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator >>",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Delivery",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2596-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "65a827af8666e6bfa9108874737413eb1c766f3d16cc16a7c6317e5f075d9d09",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Delivery"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator >>"
+        },
+        {
+          "line": 26,
+          "text": "Operator//Delivery == \">>\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2597",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ;",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "3cb07cdad515b08107f9bbdb1b852fa114282941fbddc4061f4803dcd8896875",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator ;"
+        },
+        {
+          "line": 26,
+          "text": "Operator//ExpressionSeparator == \";\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2599",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator >=",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterOrEqual",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2599-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "de8a7fd7f46beafa80f0da140a93bb53463708db21b5ec9b243c07446961899a",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterOrEqual"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator >="
+        },
+        {
+          "line": 26,
+          "text": "Operator//GreaterOrEqual == \">=\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2600",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator >",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterThan",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2600-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "dcb8187fe92cfb528f7c2449333c255b7b50e1e9f5690472ea330a1f31e22dac",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterThan"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator >"
+        },
+        {
+          "line": 26,
+          "text": "Operator//GreaterThan == \">\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2601",
+      "version": 3,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ()",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "d31d8e02dedf8afe62ad100733208ff77c8f069666397b86480ae4d5da4de9a0",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping"
+        },
+        {
+          "line": 22,
+          "text": "Declare CFEL operator ()"
+        },
+        {
+          "line": 30,
+          "text": "Operator//Grouping == \"()\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2602",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator *",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//ImmediateWildcard",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2602-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "a19112ba4a5e3efd207fa49b3185a9994c25280e13a6d6956c14c060f7c8867d",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//ImmediateWildcard"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator *"
+        },
+        {
+          "line": 26,
+          "text": "Operator//ImmediateWildcard == \"*\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2603",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator !=",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Inequality",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2603-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "2c84a31d2e9221be3b8c555613091b401534e9cf4f87119127c3577a9470a3c2",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Inequality"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator !="
+        },
+        {
+          "line": 26,
+          "text": "Operator//Inequality == \"!=\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2604",
+      "version": 3,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator $",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2604-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f2b03e857aa8bc2e30beba8bac5f4b9b78d12af35061ab865d3c8e3ff07bdc5d",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding"
+        },
+        {
+          "line": 22,
+          "text": "Declare CFEL operator $"
+        },
+        {
+          "line": 30,
+          "text": "Operator//InstanceBinding == \"$\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2605",
+      "version": 3,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator //",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Instance",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "af4f7fe4d92d3e39b9fc2026a93fa3e39147075d26d35c4a1f96330debebb1d0",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Instance"
+        },
+        {
+          "line": 22,
+          "text": "Declare CFEL operator //"
+        },
+        {
+          "line": 30,
+          "text": "Operator//Instance == \"//\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2606",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator <=",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//LessOrEqual",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2606-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b416a70c35580654731070f54a336efe18cc2bc5b8e6c49649c1fd2f664e7242",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//LessOrEqual"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator <="
+        },
+        {
+          "line": 26,
+          "text": "Operator//LessOrEqual == \"<=\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2607",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator <",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//LessThan",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2607-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "f19cc3a45cc28b40e88a10d4571159412b2947f01d184addeb9ff4ee56b26c39",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//LessThan"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator <"
+        },
+        {
+          "line": 26,
+          "text": "Operator//LessThan == \"<\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2608",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator in / not in",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Membership",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2608-CORE_META_MODEL-DECLARATION--declare-cfel-operator-in-not-in.md",
+      "sha256": "b8ec5e164ffbd2806513a9ec34a3c1e47d89dcb0308cb8bad619ad6c3d8c0566",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Membership"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator in / not in"
+        },
+        {
+          "line": 26,
+          "text": "Operator//Membership == \"in / not in\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2609",
+      "version": 2,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator named Relation direction",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//NamedRelationDirection",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//NamedRelationDirection"
+        },
+        {
+          "line": 21,
+          "text": "Declare CFEL operator named Relation direction"
+        },
+        {
+          "line": 29,
+          "text": "Operator//NamedRelationDirection == \"((RELATION)) / <((RELATION))\""
+        },
+        {
+          "line": 34,
+          "text": "`Source ((RELATION)) Target` is forward and `Target <((RELATION)) Source` is reverse writing of the same canonical Relation fact. Counts stay on written endpoints; reverse normalization swaps canonical Host/Target and count slots. The declared Relation name is matched exactly. This CFEL operator is distinct from the named graph Relation. It grants no inverse permission and creates no second stored fact."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2610",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator /",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Narrowing",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Narrowing"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator /"
+        },
+        {
+          "line": 26,
+          "text": "Operator//Narrowing == \"/\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2611",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator .",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Property",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2611-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "c99568372f8861dbc3c9cbca0ae47aa47dcf8f63964d4d5a6a588ace72bac516",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Property"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator ."
+        },
+        {
+          "line": 26,
+          "text": "Operator//Property == \".\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2612",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator **",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//RecursiveWildcard",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2612-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "eb5f5da21d2b84babfc030cf1af078022cbee417f98c8f69b1a85df06e0d3035",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//RecursiveWildcard"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator **"
+        },
+        {
+          "line": 26,
+          "text": "Operator//RecursiveWildcard == \"**\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2613",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL Relation endpoint signature",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//RelationEndpointSignature",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md",
+      "sha256": "deb55e82a43174ac74898393143ff987ae64141e5d8f5c80aea5bc7f7fa6e5ae",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//RelationEndpointSignature"
+        },
+        {
+          "line": 26,
+          "text": "Operator//RelationEndpointSignature == \"$host ((RELATION)) $target\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2614",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator !()",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//SelectionExclusion",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2614-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "2941b1d241ed6ad422b246decd08b6a7f397bbc6485b771c8ebc958151350e01",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//SelectionExclusion"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator !()"
+        },
+        {
+          "line": 26,
+          "text": "Operator//SelectionExclusion == \"!()\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2615",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator :=",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//SubjectValueSelection",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "31da9c3927f1e8bd2bfab42511c7b80fcffd3547022ef5a18bdd3984dc0259ef",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//SubjectValueSelection"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL operator :="
+        },
+        {
+          "line": 26,
+          "text": "Operator//SubjectValueSelection == \":=\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2616",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL Operator",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator"
+        },
+        {
+          "line": 18,
+          "text": "Declare CFEL Operator"
+        },
+        {
+          "line": 25,
+          "text": "A CFEL Operator is one declared language component with one token or bounded construct meaning. Each individual operator-instance Declaration supplies its own token semantics. A CFEL Operator is distinct from a graph Relation and does not create a Node, Relation fact, Property occurrence, Carrier fact, or runtime operation. Its declared operator descriptor may be a graph endpoint where a Relation signature admits declared model entities; a glyph or literal operand is not another model entity."
+        },
+        {
+          "line": 29,
+          "text": "CFEL<+Operator//Name identifies a declared CFEL operator by semantic name."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2720",
+      "version": 1,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator alias",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Alias",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+      "references": [
+        {
+          "line": 7,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Alias"
+        },
+        {
+          "line": 21,
+          "text": "Declare CFEL operator alias"
+        },
+        {
+          "line": 29,
+          "text": "Operator//Alias == \"alias(Relation//RELATION_NAME) == \\\"notation token\\\"\""
+        },
+        {
+          "line": 36,
+          "text": "This CFEL operator binds notation metadata; it does not construct a literal-to-Node graph Relation or equate different Relation identities. The token follows the owning Relation Declaration's directional reading and grants no endpoint permission, cardinality or second authored fact. In a graph expression, `Relation//NAME` references a Relation object as an endpoint, whereas `((NAME))` invokes that Relation between endpoints."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2769",
+      "version": 2,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ?==",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Fallback",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "69ccd7b57a93be95871f29e4ad180044249983448172352d2c791273b680e4fa",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Fallback"
+        },
+        {
+          "line": 22,
+          "text": "Declare CFEL operator ?=="
+        },
+        {
+          "line": 30,
+          "text": "Operator//Fallback == \"?==\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2770",
+      "version": 2,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator LOOKUP(R, q)",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Lookup",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2770-CORE_META_MODEL-DECLARATION--declare-cfel-operator-lookup-r-q.md",
+      "sha256": "33e9b2e573ddc8e875a44660aa62312b4e34523f2296ccee10986528d1fa4a24",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Lookup"
+        },
+        {
+          "line": 21,
+          "text": "Declare CFEL operator LOOKUP(R, q)"
+        },
+        {
+          "line": 29,
+          "text": "Operator//Lookup == \"LOOKUP(R, q)\""
+        },
+        {
+          "line": 40,
+          "text": "`Operator//Lookup` identifies the declared CFEL value-expression operator. The traversal semantics above are its complete existing contract."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2773",
+      "version": 2,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator AND",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Conjunction",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2773-CORE_META_MODEL-DECLARATION--declare-cfel-operator-and.md",
+      "sha256": "2777ea18c3218819bd0ebe35460d0ecfe1ca4dc29465352d48bd4f29ef05ab11",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Conjunction"
+        },
+        {
+          "line": 21,
+          "text": "Declare CFEL operator AND"
+        },
+        {
+          "line": 29,
+          "text": "Operator//Conjunction == \"AND\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2774",
+      "version": 2,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator OR",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Disjunction",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2774-CORE_META_MODEL-DECLARATION--declare-cfel-operator-or.md",
+      "sha256": "ba6201d96f4e360c018d10ceca4f0200bfd44c7cca22691cfa3026a6fb54fad4",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Disjunction"
+        },
+        {
+          "line": 21,
+          "text": "Declare CFEL operator OR"
+        },
+        {
+          "line": 29,
+          "text": "Operator//Disjunction == \"OR\""
+        }
+      ]
+    }
+  ],
+  "current_dependencies": [
+    {
+      "id": "CA-E-383",
+      "version": 46,
+      "status": "Current",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Reject Invalid Subject Expressions",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "sha256": "8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c",
+      "references": [
+        {
+          "line": 11,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        },
+        {
+          "line": 92,
+          "text": "Accept `Node//$x{:1..3}` as a count of the distinct selected logical instances in context, not a one-row count for `$x`; repeated references or Carrier representations of an instance do not multiply the count. Preserve `Kind//{:n}` as a readable historical population selector. Named `Relation//NAME` and `Operator//NAME` addresses and quoted strings retain their identity and text. MODEL Relation descriptor variables stay MODEL evidence; a binder does not create an entity, a Relation fact, an inverse permission or endpoint cardinality."
+        }
+      ]
+    },
+    {
+      "id": "CA-E-402",
+      "version": 33,
+      "status": "Current",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Reject Invalid Claim Value Sets",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Content",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-402-CORE_META_MODEL-EVAL_POLICY--reject-invalid-claim-value-sets.md",
+      "sha256": "3017762d12c5a0f8de451508e86851afa02d1cb06b9e96c53b0d007335cfaf45",
+      "references": [
+        {
+          "line": 7,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-E-403",
+      "version": 36,
+      "status": "Current",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Report Exact Claim Value-Set Consolidation Candidates",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Content",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-403-CORE_META_MODEL-EVAL_POLICY--report-exact-claim-value-set-consolidation-candidates.md",
+      "sha256": "181df626b42d6f10606017d2f6146953de4bdb51b63638473a7eca81199f5b28",
+      "references": [
+        {
+          "line": 8,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-E-449",
+      "version": 44,
+      "status": "Current",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Validate Entities Graph",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-449-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "sha256": "caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5",
+      "references": [
+        {
+          "line": 11,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-M-228",
+      "version": 37,
+      "status": "Current",
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Write Subject Expressions with Bearer and Value Qualification",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "sha256": "81388ad9d846bac3e326c4c737b634d16b1cfde6b7603153042478e019a29401",
+      "references": [
+        {
+          "line": 47,
+          "text": "Keep MODEL Relation descriptor variables in the MODEL group and preserve named `Relation//NAME` and `Operator//NAME` addresses. A `//` spelling alone does not make a named MODEL object a runtime constraint. Preserve inherited Property contracts at the declared bearer; a reference to an inherited Property does not create another Declaration."
+        }
+      ]
+    },
+    {
+      "id": "CA-M-237",
+      "version": 33,
+      "status": "Current",
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Author Claim Value Sets",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Content",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-237-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md",
+      "sha256": "5e82230031bb8c0a08fae9cb63dde23b4889f00d37c61e0e78c6d61b2002202a",
+      "references": [
+        {
+          "line": 8,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1245",
+      "version": 28,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Qualify Allowed Values with Colon",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md",
+      "sha256": "0dbf7796de969c987d6fa8380af15191629f19b005875b4cfdc88975ffcee674",
+      "references": [
+        {
+          "line": 5,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        },
+        {
+          "line": 30,
+          "text": "**in** a Subject Expression, `X:Y` **must** admit Y as one possible value of X in X's qualified context, irrespective of X's kind or path. This qualification is a CFEL operator, not a graph Relation. It does not assign Y to an occurrence or determine direct-value cardinality."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1358",
+      "version": 35,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Consolidate Single-Value Claims as One Value-Set Claim",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Content",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1358-CORE_META_MODEL-RULE--consolidate-single-value-claims-as-one-value-set-claim.md",
+      "sha256": "fb90a002ecb1f78b3ce59c02e46f9e91007bb44263fc110f4e73efcc230ed317",
+      "references": [
+        {
+          "line": 7,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1359",
+      "version": 30,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Define Claim Value Set",
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Content",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1359-CORE_META_MODEL-RULE--define-claim-value-set.md",
+      "sha256": "2e48c8574f14663dacf2668ec6259e9b418587750779dbc39ef9a1ad8e534ea8",
+      "references": [
+        {
+          "line": 6,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1405",
+      "version": 29,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Register Core Artifact Type Values",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.md",
+      "sha256": "3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5",
+      "references": [
+        {
+          "line": 8,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1456",
+      "version": 39,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Derive Entities views from selected authority",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md",
+      "sha256": "3d803bf5beae93141a965c02a859affdd334b3f69bdca71a7c92b82515651c4b",
+      "references": [
+        {
+          "line": 12,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 13,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define CFEL",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045",
+      "references": [
+        {
+          "line": 87,
+          "text": "`LOOKUP(R, q)` and `?==` are admitted CFEL operators with their own operator"
+        },
+        {
+          "line": 93,
+          "text": "reads its Property. Each non-graph CFEL operator has its own Declaration;"
+        },
+        {
+          "line": 98,
+          "text": "The reusable metadata family `Operator//Name == \"notation literal\"` binds a"
+        },
+        {
+          "line": 99,
+          "text": "declared operator descriptor to its token or bounded construct spelling. Its"
+        },
+        {
+          "line": 107,
+          "text": "Property or allowed value, not a graph endpoint. A non-graph CFEL operator is"
+        },
+        {
+          "line": 108,
+          "text": "not itself a graph Relation, but its declared operator descriptor is a model"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2552",
+      "version": 4,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Bind instance variables",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
+      "sha256": "202ab2c725dd5698a671a3e6a02b5229be01417f70255e5c795ec3734822e8be",
+      "references": [
+        {
+          "line": 37,
+          "text": "In one CFEL Formal Claim fence, the full-line comments `# model` and `# instances` distinguish MODEL constraints from instance constraints. When both are present, write `# model` first. These comments are not operators, Properties, or values. Named MODEL addresses such as `Relation//NAME` and `Operator//NAME` retain their declared identity; a Relation descriptor variable in the MODEL group does not make it a runtime instance constraint."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2618",
+      "version": 3,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare HAS_ACTIVE_SUBJECT",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "sha256": "3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0",
+      "references": [
+        {
+          "line": 37,
+          "text": "HAS_ACTIVE_SUBJECT links an Atom to the declared model entity or instance named by its active Subject. This includes a Requirement/Form Declaration's target and is not restricted to the Node branch. Carrier entities, CFEL operator descriptors, graph Relation types and their declared instances are admitted when selected by the active Subject. Literal values and operator glyphs are not endpoints."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2768",
+      "version": 2,
+      "status": "Current",
+      "role": "Requirement",
+      "form": "Rule",
+      "summary": "Assign a default when an Object Property is absent",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "f2fa2c56c05167ce4ab6be038fe223657f01189e2fcf4d8791a5c08ce4556626",
+      "references": [
+        {
+          "line": 40,
+          "text": "- `LOOKUP(R, q)` is an admitted fallback expression; its value and traversal semantics are defined by the Operator//Lookup Declaration."
+        }
+      ]
+    }
+  ],
+  "latest_native_drafts": [
+    {
+      "id": "CA-E-449",
+      "version": 45,
+      "status": "Draft",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "summary": "Validate Entities Graph",
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@45-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "sha256": "dafb8f4c459becad2348dc51f17e2d2334c8ae90f12723021fd6acd720831b5c",
+      "references": [
+        {
+          "line": 11,
+          "text": "- CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 14,
+      "status": "Draft",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Define CFEL",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "active_cfel_operator": false,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "bcf9f4f21dc789909587a4fd008a727d1b612f51d2266086dc2a9a5c9e77ae17",
+      "references": [
+        {
+          "line": 87,
+          "text": "`LOOKUP(R, q)` and `?==` are admitted CFEL operators with their own operator"
+        },
+        {
+          "line": 93,
+          "text": "reads its Property. Each non-graph CFEL operator has its own Declaration;"
+        },
+        {
+          "line": 98,
+          "text": "The reusable metadata family `Operator//Name == \"notation literal\"` binds a"
+        },
+        {
+          "line": 99,
+          "text": "declared operator descriptor to its token or bounded construct spelling. Its"
+        },
+        {
+          "line": 107,
+          "text": "Property or allowed value, not a graph endpoint. A non-graph CFEL operator is"
+        },
+        {
+          "line": 108,
+          "text": "not itself a graph Relation, but its declared operator descriptor is a model"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2604",
+      "version": 4,
+      "status": "Draft",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator $",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@4-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "5943a9f239122d2cb79bc0136c30e59ec3ce78ca595c38c9750c3ae7382ecb50",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//InstanceBinding"
+        },
+        {
+          "line": 22,
+          "text": "Declare CFEL operator $"
+        },
+        {
+          "line": 30,
+          "text": "Operator//InstanceBinding == \"$\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2720",
+      "version": 2,
+      "status": "Draft",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator alias",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Alias",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2720@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+      "sha256": "5bdad8125dcd42d020773e602e6c38b81625c8cebefd202445c8efa11d916ac7",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Alias"
+        },
+        {
+          "line": 21,
+          "text": "Declare CFEL operator alias"
+        },
+        {
+          "line": 29,
+          "text": "Operator//Alias == \"alias($r) == \\\"notation token\\\"\""
+        },
+        {
+          "line": 36,
+          "text": "This CFEL operator binds notation metadata; it does not construct a literal-to-Node graph Relation or equate different Relation identities. The token follows the owning Relation Declaration's directional reading and grants no endpoint permission, cardinality or second authored fact. In a graph expression, an already bound Relation participant references that Relation object as an endpoint, whereas `((NAME))` invokes that Relation between endpoints."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2777",
+      "version": 1,
+      "status": "Draft",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator ::",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2777@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "83232d511f576d09b22acabf65d4e647f991123a2db6a9f941dc2d34e458fb00",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue"
+        },
+        {
+          "line": 22,
+          "text": "Declare CFEL operator ::"
+        },
+        {
+          "line": 30,
+          "text": "Operator//AllowedValue == \"::\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2778",
+      "version": 1,
+      "status": "Draft",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL universal quantification",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//UniversalQuantification",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
+      "sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//UniversalQuantification"
+        },
+        {
+          "line": 29,
+          "text": "Operator//UniversalQuantification == \"FOR EACH\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2780",
+      "version": 1,
+      "status": "Draft",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL operator //",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Narrowing",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Narrowing"
+        },
+        {
+          "line": 22,
+          "text": "Declare CFEL operator //"
+        },
+        {
+          "line": 30,
+          "text": "Operator//Narrowing == \"//\""
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2781",
+      "version": 1,
+      "status": "Draft",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare CFEL containment operator /",
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Containment",
+      "active_cfel_operator": true,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md",
+      "sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd",
+      "references": [
+        {
+          "line": 5,
+          "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Containment"
+        },
+        {
+          "line": 30,
+          "text": "Operator//Containment == \"/\""
+        }
+      ]
+    }
+  ],
+  "migration_approach_if_confirmed": [
+    "For each Operator-entity Declaration, map its operative token/construct semantics to a CFEL-governing Rule without declaring a new Operator entity. Changing Declaration Form or Summary requires native lifecycle review and potentially a fresh ID under applicable identity policy; do not presume all need fresh IDs without comparing final Summary.",
+    "Inventory literal metadata `Operator//Name == ...`, Operator endpoint/descriptor references, and all active/passive Subject targets before removing branch; preserve symbol semantics, bounds, parsing contexts and validations in reviewed successor Claims.",
+    "Preserve graph Relation entities, their HAS_INVERSE/alias contracts and named Relation traversal; separate any metadata literal representation change from Relation semantics. Do not invent a replacement descriptor entity or property.",
+    "Coordinate existing native Drafts and prior source plans against exact pins, preserving substantive fixes; do not repurpose Actor/Operator or AI Agent and do not infer this removes other operator-like ordinary terms.",
+    "No syntax change, code migration, data projection or runtime validation follows merely from this inventory."
+  ],
+  "important_conflict": "R2616 defines modeled CFEL Operator; R2487 describes operator descriptors and their graph endpoint admissibility, while other sources use descriptor Subjects and literal metadata. Removing that class has cross-source consequences; alias Relation metadata and actor Operator are distinct.",
+  "boundary": "Pending confirmation of user scope. No Current, native Draft, Actor/Operator, code, tests, workflow/workbench or Git changes."
+}

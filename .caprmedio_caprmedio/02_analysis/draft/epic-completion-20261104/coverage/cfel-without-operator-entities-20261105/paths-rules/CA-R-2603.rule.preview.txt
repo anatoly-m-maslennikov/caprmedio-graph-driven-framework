@@ -1,0 +1,23 @@
+---
+atom_id: UNALLOCATED_SUCCESSOR
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL
+version: UNALLOCATED_VERSION
+updated_at: 2026-11-02 08:06:47 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Test value inequality
+
+## Claim
+
+### Prose Claim
+
+`!=` tests inequality between resolved values.

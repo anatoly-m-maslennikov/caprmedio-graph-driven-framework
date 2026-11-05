@@ -1,0 +1,199 @@
+{
+  "status": "TWELVE_RULE_PREVIEWS_THREE_RETIREMENT_PROPOSALS",
+  "decision": "Remove modeled CFEL Operator/descriptors; symbols remain CFEL Rule Claims. Do not alter Actor/Operator or AI Agent.",
+  "candidate_rows": [
+    {
+      "source_id": "CA-R-2602",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2602-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "a19112ba4a5e3efd207fa49b3185a9994c25280e13a6d6956c14c060f7c8867d",
+      "basis_status": "Current",
+      "basis_summary": "Declare CFEL operator *",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2602.rule.preview.txt",
+      "preview_sha256": "534d1c281bbf189b2fc9834287f3de782a7ee9150e82135fa668ff9b35e38eaf",
+      "proposed_summary": "Select immediate dependent Properties",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2603",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2603-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "2c84a31d2e9221be3b8c555613091b401534e9cf4f87119127c3577a9470a3c2",
+      "basis_status": "Current",
+      "basis_summary": "Declare CFEL operator !=",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2603.rule.preview.txt",
+      "preview_sha256": "3efcaa63b97b452471be4db384e24722e4886b01aa7b2fb294b3ed8bb80d8593",
+      "proposed_summary": "Test value inequality",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2604",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2604@4-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "5943a9f239122d2cb79bc0136c30e59ec3ce78ca595c38c9750c3ae7382ecb50",
+      "basis_status": "Draft",
+      "basis_summary": "Declare CFEL operator $",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2604.rule.preview.txt",
+      "preview_sha256": "9bb63a9bda1a80422d6f280cac0d9e4c3ef244999372fcf74d107e8bd2910674",
+      "proposed_summary": "Bind selected instances",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2606",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2606-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "b416a70c35580654731070f54a336efe18cc2bc5b8e6c49649c1fd2f664e7242",
+      "basis_status": "Current",
+      "basis_summary": "Declare CFEL operator <=",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2606.rule.preview.txt",
+      "preview_sha256": "f784fbfcdf380b32bf878035b174eb059b89c6c9839989d56dab8210ea83bef5",
+      "proposed_summary": "Test less than or equal",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2607",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2607-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "f19cc3a45cc28b40e88a10d4571159412b2947f01d184addeb9ff4ee56b26c39",
+      "basis_status": "Current",
+      "basis_summary": "Declare CFEL operator <",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2607.rule.preview.txt",
+      "preview_sha256": "f03bfa99b2eb52bbdbe3fc5bef69fb887cfce79e61493d29405446b668de228b",
+      "proposed_summary": "Test less than",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2608",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2608-CORE_META_MODEL-DECLARATION--declare-cfel-operator-in-not-in.md",
+      "basis_sha256": "b8ec5e164ffbd2806513a9ec34a3c1e47d89dcb0308cb8bad619ad6c3d8c0566",
+      "basis_status": "Current",
+      "basis_summary": "Declare CFEL operator in / not in",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2608.rule.preview.txt",
+      "preview_sha256": "607b8e480cea69575ea67cf81d53f8c4dd13c5b80957b0ace9107a1f6a248451",
+      "proposed_summary": "Test set membership",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2609",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md",
+      "basis_sha256": "283b73c01297ffe141727a7007b77ea4a9d3508e5dc25059e0d66f6ab913d919",
+      "basis_status": "Current",
+      "basis_summary": "Declare CFEL operator named Relation direction",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2609.rule.preview.txt",
+      "preview_sha256": "38274ab268004a6aadddcca6dc67147801efcc17888e73603441fa2b26533cf2",
+      "proposed_summary": "Write named Relation directions",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2611",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2611-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "c99568372f8861dbc3c9cbca0ae47aa47dcf8f63964d4d5a6a588ace72bac516",
+      "basis_status": "Current",
+      "basis_summary": "Declare CFEL operator .",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2611.rule.preview.txt",
+      "preview_sha256": "221b65c0e1aa991c180428122e3ed371f6431f9727f0f491abe14d8eeff1d02a",
+      "proposed_summary": "Address a dependent Property",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2777",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2777@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "83232d511f576d09b22acabf65d4e647f991123a2db6a9f941dc2d34e458fb00",
+      "basis_status": "Draft",
+      "basis_summary": "Declare CFEL operator ::",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2777.rule.preview.txt",
+      "preview_sha256": "41d29c19032b466a29454c882669a88242e10b4f0f5e27355995e026b1e616bb",
+      "proposed_summary": "Admit an allowed value",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2780",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "basis_sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221",
+      "basis_status": "Draft",
+      "basis_summary": "Declare CFEL operator //",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2780.rule.preview.txt",
+      "preview_sha256": "ebfde4a65c7b1a7675df55f8db9bb176b67e4a37b368716cee65d24e56a92705",
+      "proposed_summary": "Select a narrower Model kind",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2781",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md",
+      "basis_sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd",
+      "basis_status": "Draft",
+      "basis_summary": "Declare CFEL containment operator /",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2781.rule.preview.txt",
+      "preview_sha256": "29830f462e5edce7e5efb9489f872ac40e9eca5f194ec2a0b57d375f81f38c3d",
+      "proposed_summary": "Write immediate containment",
+      "fresh_id_required": true,
+      "status": "PROPOSAL_WITH_ALLOCATION_HOLD",
+      "notes": "Existing Descriptor equality removed; one CFEL active Subject; Rule form. Draft metadata placeholders are not native allocation."
+    },
+    {
+      "source_id": "CA-R-2778",
+      "basis_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-universal-quantification.md",
+      "basis_sha256": "1562a014a018cc42a30468ead86a326037cacb79e1695732906a6704d9a6027d",
+      "basis_status": "Draft",
+      "basis_summary": "Declare CFEL universal quantification",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2778.rule.preview.txt",
+      "preview_sha256": "a63d8888e52d0881509b6e4b67c01e3fc91bcfff593ada66e24e1b76d3ea0e84",
+      "proposed_summary": "Declare CFEL universal quantification",
+      "fresh_id_required": false,
+      "status": "PREVIEW_REVIEW_FORM_CHANGE",
+      "notes": "Summary and Draft ID retained for identity review; Form change requires native validation. Descriptor equality removed; quantifier Claim and scope preserved."
+    }
+  ],
+  "retirement_rows": [
+    {
+      "id": "CA-R-2605",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2605-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "af4f7fe4d92d3e39b9fc2026a93fa3e39147075d26d35c4a1f96330debebb1d0",
+      "reason": "Obsolete // instance selector; typed/anonymous instance selection is preserved under revised R2604.",
+      "status": "PROPOSED_RETIREMENT_PENDING_ATOMIC_SOURCE_MIGRATION"
+    },
+    {
+      "id": "CA-R-2610",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190",
+      "reason": "Obsolete / narrowing; successor // narrowing from R2780. Preserve named NARROWER_THAN Relation semantics independently.",
+      "status": "PROPOSED_RETIREMENT_PENDING_ATOMIC_SOURCE_MIGRATION"
+    },
+    {
+      "id": "CA-R-2592",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792",
+      "reason": "Superseded by the single integrated R2777-based allowed-value Rule candidate, which retains allowed-count precision. The separate values candidate is analysis evidence only and excluded from native creation.",
+      "status": "PROPOSED_RETIREMENT_PENDING_ATOMIC_SOURCE_MIGRATION",
+      "superseding_candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2777.rule.preview.txt",
+      "previous_values_candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/values-rules/CA-R-2592.preview.txt",
+      "previous_values_candidate_sha256": "accd0afc404f15d9af4488511c9da196f7bf4346c87116c0d22efa62ba31b2ad"
+    }
+  ],
+  "covered_scope": "Eight Current active CFEL Operator rows 2602,2603,2604,2606,2607,2608,2609,2611; two Current rows 2605/2610 retired; latest Drafts 2777/2778/2780/2781 included.",
+  "integration_gates": [
+    "Every changed Summary has an unallocated ID placeholder; never adopt candidate placeholders or presume retirement until native allocation, reference reconciliation and atomic migration. R2778 same Summary keeps existing Draft identity pending Form/Subject validation.",
+    "Current and latest native Draft pins must be guarded; existing typed grammar, :: cardinality, Relation aliases, descriptor elimination and FOR EACH must be reviewed as one compatible source set.",
+    "R2604 retains IF membership binding, no shadowing and block lifetime; R2778 retains scoped universal quantification, self-contained Claim and active Subject focus.",
+    "Old `Kind//$x` and `Kind//` are not reintroduced as active syntax; historical migrations and old descriptor references require context-specific handling.",
+    "Other Operator source IDs and R2487/R2616 descriptor endpoint claims are owned outside this bounded packet and must be reconciled before removing the entity layer.",
+    "No synthetic Operator catalog, descriptor name, glyph, graph Entity or runtime behavior is added.",
+    "R2592 and R2777 resolve to one integrated R2777-based allowed-value Rule; do not create the separate R2592 candidate."
+  ],
+  "boundary": "Source previews only. No native Draft, Current, code, tests, Workbench/Workflow sources or Git changes."
+}

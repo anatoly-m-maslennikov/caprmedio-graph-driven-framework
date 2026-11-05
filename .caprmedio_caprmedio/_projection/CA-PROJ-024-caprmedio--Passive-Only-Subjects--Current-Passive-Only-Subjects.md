@@ -206,7 +206,7 @@ source:
   - CA-E-437@27
   - CA-E-438@29
   - CA-E-439@29
-  - CA-E-440@36
+  - CA-E-440@38
   - CA-E-441@35
   - CA-E-442@26
   - CA-E-443@34
@@ -586,7 +586,7 @@ source:
   - CA-R-1556@26
   - CA-R-1557@21
   - CA-R-1558@23
-  - CA-R-1559@26
+  - CA-R-1559@28
   - CA-R-1560@19
   - CA-R-1561@28
   - CA-R-1562@27
@@ -1173,7 +1173,7 @@ source:
   - CA-R-992@36
   - CA-R-997@34
   - CA-R-999@26
-updated_at: 2026-11-05 04:05:44 +0400
+updated_at: 2026-11-05 13:56:09 +0400
 ---
 
 # Subjects Used Only Passively
@@ -1195,7 +1195,7 @@ Cardinalities, formats and Formal Claims come only from Current Requirement / De
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action).Execution Kind` — pins: CA-E-495@19, CA-R-1789@21, CA-R-1790@19, CA-R-1791@18, CA-R-1792@18, CA-R-1793@18; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Action).Execution Kind:Agentic` — pins: CA-M-304@26; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/(.Header.Form:=Workflow)` — pins: CA-D-457@26, CA-D-549@19, CA-E-487@28, CA-E-488@25, CA-E-494@20, CA-E-495@19, CA-E-513@23, CA-E-523@18, CA-E-652@22, CA-M-304@26, CA-M-314@24, CA-R-1200@41, CA-R-1312@28, CA-R-1463@26, CA-R-1514@27, CA-R-1515@25, CA-R-1517@18, CA-R-1518@25, CA-R-1520@22, CA-R-1525@25, CA-R-1565@21, CA-R-1567@25, CA-R-1683@45, CA-R-1799@20, CA-R-1800@19; keys: passive
-- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Autonomous Confidence Threshold` — pins: CA-E-440@36, CA-E-441@35, CA-R-1559@26; keys: passive
+- `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Autonomous Confidence Threshold` — pins: CA-E-441@35; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Content.Details` — pins: CA-D-470@29, CA-E-501@30; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.Status:Done` — pins: CA-E-504@24, CA-R-1580@29, CA-R-1592@23; keys: passive
 - `CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Implementation Retry Limit` — pins: CA-D-447@30, CA-M-295@32; keys: passive

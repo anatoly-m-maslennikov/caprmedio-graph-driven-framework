@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-05 04:12:41 +0400
+updated_at: 2026-11-05 12:58:42 +0400
 carrier_destination:
   file:
     name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md
@@ -26,9 +26,9 @@ Declare Atom.Header.Container
 
 ```CFEL
 # model
-Atom.Header.Container{::1} :: [string]{::1};
+Atom.Header.Container{::1} :: []{::0};
 
-Atom.Header.Container.*[]{::0};
+Atom.Header.Container.*[in(atom,scope_unit)]{::1};
 
 # instances
 Atom//$atom;
@@ -39,16 +39,7 @@ $atom.Header.Container{::1}
 
 Header.Container identifies the Atom's immediate Container.
 
-Allowed values:
+Header.Container contains exactly one key: `atom` names the containing Atom by its base Atom ID, or `scope_unit` names the containing Scope Unit by its stable ID. A base Atom ID selects Current by default.
 
-1. A full canonical Scope Unit path: one slash-delimited string formed from the exact Scope Unit.Name values in the declared parent chain. The Project root path is `/`, with no Project name segment. For example, `FRAMEWORK_ENGINE` is `/FRAMEWORK_ENGINE`; `CORE_META_MODEL` is `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`.
-2. The base Atom ID of the containing Atom.
-3. `world`, for a root Project Declaration Atom.
-
-A base Atom ID selects Current by default.
-
-For a root Project Declaration Atom, an omitted Header.Container has the effective default `world`. An explicit valid value overrides that default.
-
-The literal bootstrap value `world` produces zero containment links.
-
+For a root Project Declaration Atom, an omitted Header.Container has the effective default mapping with `scope_unit` equal to `CA-SU--1`, identifying the predefined Scope Unit `world`. An explicit valid value overrides that default.
 Header.Container is the sole stored Atom-containment value.

@@ -20,145 +20,50 @@ carrier_destination:
 
 Unify declarative CFEL paths and instance Formats
 
-## Purpose
+## Proposal
 
-CFEL declares constraints, relationships and required values. Workflows and adapters perform changes. The notation below is a proposed successor; Current syntax remains active until its source revisions, review and migration are complete.
+CFEL is declarative: Claims state participants, scope, constraints and required values; they do not perform I/O or business actions. A Formal Claim is self-contained. `subjects.active` remains the declared focus and is not an implicit operand or binding.
 
-## Latest Operator input
-
-- `/` expresses containment, like a folder path.
-- `//` expresses narrowing with inheritance.
-- Container stores a stable Scope Unit ID or Atom ID in a one-key mapping. Names and paths are derived; they are not reference identity.
-- `[format, conditions]` constrains a value. Primitive formats include `int`; Model kinds also supply object Formats.
-- `<Node>` explicitly refers to a Model-defined object kind. This spelling is accepted.
-- `$<Node>` selects an anonymous instance; `$x[<Node>]` names an instance participant.
-- A specific Model Relation uses the same filtered form: `$x[<Relation>, (.Name = IS_PROPERTY_OF)]`. The final user correction rejects `IS_PROPERTY_OF[<Relation>]`; the old `Relation//IS_PROPERTY_OF` instance meaning is not retained in the proposed syntax.
-- CFEL consists of declarative statements, rather than a program with mutable variables or procedural calls.
-- Allowed-value `:` becomes `::` everywhere in CFEL, including `{::1}` and `{::0+}`. Subject `:=` remains unchanged. YAML separators and literal colons retain their meanings.
-
-## Current and proposed notation
-
-| Meaning | Current | Proposed direction |
-|---|---|---|
-| Broader kind to narrower kind | `Node/Continuant/Atom` | `Node//Continuant//Atom` |
-| Whole contains part | `Whole <+ Part` | `Whole/Part` |
-| Typed instance participant | `Node//$x` | `$x[<Node>]` |
-| Anonymous instance selector | `Node//` | `$<Node>` |
-| Primitive Format and value conditions | `[int, 0..100]` | Same mechanism; `[int, 1+]` is a proposed positive-integer example |
-| Reference to an object kind used as a Format | Bare kind in existing selector syntax | `<Node>` |
-| Property access | `.` | Retain |
-| Logical grouping | `()` | Retain |
-| Allowed value / domain | `:` | `::` |
-| Allowed cardinality | `{:n}` | `{::n}` |
-| Qualified Subject selection | `:=` | Retain |
-| Predicate test | `=` | Retain as a condition |
-| Required value / definition | `==` described as assignment | Clarify as a declarative definition, without an action |
-| Default | `?==` | Conditional definition for omission, with existing validation and no implicit Carrier write |
-
-`Node//Atom` keeps the current path orientation: Atom is narrower than Node. The existing named reverse form remains available; no new compact reverse glyph is needed. Specific named Model instances are selected by Format and conditions.
-
-## Declarative reading
-
-- `$x` is a bound logical name, rather than a mutable program variable.
-- A typed participant denotes an existing selected value or instance; it creates nothing.
-- Universal quantification uses `FOR EACH $atom[<Atom>, (conditions)]:` followed by a parenthesized body. The paired `<Atom>` is retained. The selector carries the domain and conditions; `WITH` and `IN` are absent from this header.
-- The participant is bound in its selector and body. It keeps one identity within that scope and is out of scope after the group. Existing no-shadowing rules remain.
-- A Formal Claim states its participants, scope and constraints explicitly. `subjects.active` remains the Atom's declared focus; it supplies no implicit participant binding.
-- `IF ... THEN ...` expresses implication. Current bounded-name introduction in IF remains authoritative; adding FOR EACH does not revoke that earlier decision.
-- Mathematical terms describe values and invariants; they perform no I/O or business action. A conflicting supplied value fails its required-value constraint; the statement does not overwrite it. An authorized Workflow can separately change the supplied data.
-- Existing explicit grouping for mixed AND/OR and quote/backslash rules remain applicable.
-
-Illustrative successor expressions:
-
-```CFEL
-# model
-CAPRMEDIO_MODEL/Node//Continuant//Atom;
-
-# instances
-$x[<Node>];
-$atom[<Atom>, (.Header.Status = Active)];
-$relation[<Relation>, (.Name = IS_PROPERTY_OF)];
-$n[int, 1+];
-```
-
-## Allowed-value decision
-
-The Operator selected `::` for allowed values and allowed cardinalities. `:=` remains the Subject qualification operator.
-
-```CFEL
-# model
-Atom.Header.Role :: Method;
-Atom.Header.ID :: [string]{::1};
-```
-
-These expressions declare allowed values, rather than test or replace a stored value. `=` tests a condition; `==` states a required or derived value; `?==` supplies a default when the effective value is missing. Preserve validation and absence rules. Separate allowed-value Declarations contribute the admitted alternatives.
-
-The accepted migration includes Formats, Property-name constraints and `{::n}` bounds. It preserves `:=`, conditions, required values, YAML separators, quoted text and literal path strings. The four defining source previews are in the Epic packet's `coverage/declarative-notation-review/allowed-value-double-colon-20261105/` directory. Their actual Drafts are listed below and have passed bounded readback; source-consumer integration and review remain required before admission.
-
-## Related reference decisions
-
-- A base Atom ID such as `CA-P-123` identifies the ID shared by its Versions; lookup by that base selects Current by default.
-- The proposed Term “Atom Reference” also covers `CA-P-123@3` for Archived and `CA-P-123@3-draft` for Draft. This suffix is address data, not restoration of the retired `@` entity-call operator.
-- Atom.Header.Container is a one-key mapping: `scope_unit` holds a Scope Unit ID, or `atom` holds an Atom ID. Optional Header.Relations has no duplicate containment entry. Runs receive no Header or ID Properties.
-- Keep IS_CONTAINED_BY and CONTAINS available for Formal Claims. Their glyph changes are part of this notation proposal.
-
-## Migration boundary
-
-1. Resolve the remaining grammar questions one at a time.
-2. Create and review defining Requirement/Declaration Drafts and affected RMED successors. List their actual IDs here after creation.
-3. Update the Epic while retaining all 23 acceptance groups and external checks.
-4. Push the reviewed source checkpoint before the mechanical migration.
-5. Migrate by parsed context. Named-instance `//`, narrowing `/`, literal path strings and quoted text have different meanings.
-6. Rebuild and verify all seven MODEL views against the final Source Versions.
-7. CA #3 owns implementation, parser, fixtures and test execution. Workbench and Workflow owners retain their sources.
-
-## Open design questions
-
-- Coordinate the existing named reverse notation with the new forward aliases; no additional compact reverse is required.
-- Definitions and default cases must retain absence, validation and conflict safeguards in the revised operator sources.
-- Finish IDs-only Container group/leaf contracts and resolve the Project root/bootstrap encoding. R2530@3 is a separate Path proposal, not a Container prerequisite.
+- `X//Y` selects a narrower kind with inheritance; `Whole/Part` expresses immediate containment. The coordinated source and consumer migration is not yet adopted.
+- `<Kind>` identifies a Model kind used as an object Format. `$x[<Kind>, (conditions)]` selects a named participant, and `$<Kind>` an anonymous instance; selection creates nothing.
+- `FOR EACH $x[<Kind>, (conditions)]: ( ... )` expresses universal quantification. The body contains semicolon-separated expressions; no `WITH` or `IN` header keyword is used. Existing bounded IF binding and no-shadowing remain.
+- Formal Claims use `# model` before `# instances` when both groups occur. `=` tests a condition, `==` states a required or derived value, and `?==` supplies a default under its own rule.
+- HAS_ALLOWED_VALUE (`:=`, CA-R-2826) supplies allowed literal alternatives; applicable local and inherited alternatives combine by OR. HAS_VALUE_CONSTRAINT (`::`, CA-R-2828) supplies applicable local and inherited constraints combined by AND. Final admissibility is the allowed-value OR group AND the constraint AND group. When no allowed-value group exists, omit it (true): there is no enumeration restriction. Qualified Subjects retain `:=`.
+- CA-R-2827 and CA-R-2829 declare the respective inverse Relations. Literal values remain values, not newly invented Nodes.
+- CFEL has no modeled Operator descriptor catalog in this proposal. Actor Operator and AI Agent remain distinct Actor kinds.
 
 ## Rationale
 
-Containment paths resemble folder paths. Narrowing uses a separate separator. Formats share one mechanism for primitive values and Model object kinds. Angle brackets make the Model reference visible. Named participants express identity across constraints without introducing a program.
+One declarative notation separates value admission, value constraints and required results while retaining source identity and inherited meaning. Model kinds, instances and Relation facts remain distinct.
 
-## Draft packet
+## Staged Draft cohort
 
-Actual allowed-value notation Drafts:
+The following **49 actual Draft Atoms** are the pinned language and value-Relation cohort. They are staged evidence, not Current authority or implementation.
 
-- CA-R-2777@1-draft: `::` operator; replaces R2592 on adoption because its Summary changes.
-- CA-R-2243@13-draft: allowed cardinalities.
-- CA-R-2471@8-draft: notation distinctions.
-- CA-R-2487@14-draft: CFEL overview.
-- CA-R-1321@36-draft: Subject expression consumers.
-- CA-R-2588@6-draft: default Relation cardinality consumers.
-- CA-R-2778@1-draft: FOR EACH universal quantification.
-- CA-R-2248@6-draft: object kinds as Formats.
-- CA-R-2604@4-draft: typed bindings, anonymous selection and scope.
-- CA-R-1931@19-draft: rebased separator and recursive-Step examples; legacy scope and coherence holds remain.
+### Value and arithmetic Rules
 
-R2487@14-draft is rebased to include the typed-selector and FOR EACH changes while retaining the allowed-value changes.
+CA-R-1346@29, CA-R-2794@1, CA-R-2795@1, CA-R-2796@1, CA-R-2797@1, CA-R-2798@1, CA-R-2799@1, CA-R-2800@1, CA-R-2801@1
 
-These Drafts require source-consumer integration and review before promotion and contextual migration. Typed object-Format and binding Drafts have passed independent actual-Draft readback; coordinated adoption remains. The quantifier Draft alone does not admit those dependencies. Other proposed path and instance changes have no admitted successor yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.
+### Path and binding Rules
 
-## Path notation Drafts
+CA-R-2802@1, CA-R-2803@1, CA-R-2804@1, CA-R-2805@1, CA-R-2806@1, CA-R-2807@1, CA-R-2808@1, CA-R-2809@1, CA-R-2811@1, CA-R-2812@1, CA-R-2778@1
 
-- CA-R-2780@1-draft: `//` narrowing; replaces R2610 at the coordinated cutover.
-- CA-R-2781@1-draft: `/` immediate containment.
-- CA-R-2475@6-draft: NARROWER_THAN alias `//`.
-- CA-R-2476@7-draft: removes the old INSTANCE_OF alias `//`.
-- CA-R-2617@3-draft: CONTAINS alias `/` replaces `<+`; `+>` remains IS_CONTAINED_BY.
+### Control and expression Rules
 
-Retire R2605's old instance operator only with typed-selector adoption and consumer migration. These actual Drafts are reviewed; existing metadata/descriptor spellings and related consumer Drafts still require coordinated rebasing before promotion. Preserve quoted data, Scope Unit paths and `@version` address suffixes.
+CA-R-2813@1, CA-R-2814@1, CA-R-2815@1, CA-R-2816@1, CA-R-2817@1, CA-R-2818@1, CA-R-2819@1, CA-R-2820@1, CA-R-2821@1
 
-## Accepted quantifier shape
+### Consumers
 
-```CFEL
-FOR EACH $atom[<Atom>, (.Header.Status = Done)]:
-(
-expression1;
-expression2;
-)
-```
+CA-E-383@47, CA-E-402@34, CA-E-403@37, CA-E-449@46, CA-M-228@38, CA-M-237@34, CA-R-1358@36, CA-R-1359@31, CA-R-1405@30, CA-R-1456@40, CA-R-2487@15, CA-R-2552@5, CA-R-2618@4, CA-R-2768@3
 
-This is a syntax illustration. Its conditions and body are supplied by the authored Claim. The colon after the header introduces the group; `::` remains the allowed-value operator.
+### Model Declarations
+
+CA-R-2247@12, CA-R-2462@5
+
+### Value Relations
+
+CA-R-2826@1, CA-R-2827@1, CA-R-2828@1, CA-R-2829@1
+
+## Integration boundary
+
+The predecessor allowed-value `::` Rule Draft CA-R-2810 was withdrawn and preserved as evidence; do not recreate it. Apply compatible source changes and reference replacements together after review. Preserve Current grammar until the coordinated adoption and migration. Rebuild affected MODEL projections after source acceptance; CA #3 owns implementation, data conversion, fixtures and tests.

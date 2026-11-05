@@ -1,0 +1,118 @@
+{
+  "status": "PREVIEWS_WITH_ATOMIC_DEPENDENCIES_HELD",
+  "decision": "Single-person scope does not attribute actions or Atoms to authors. Retain Actor, Operator, AI Agent and historical Author/Journal data.",
+  "rows": [
+    {
+      "id": "CA-D-657",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "source_sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-657.preview.txt",
+      "preview_sha256": "e48f4e33e2fde487586c7e085e6e9b9816712030cae81ec52348b5ebae846b46",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-657.diff",
+      "diff_sha256": "b88b92a39dd4e5915292285463eda27d16f99e3c23bef65e5d666104c4cc9795",
+      "disposition": "REVIEW_WITH_EVENT_CONTRACT_ATOMIC_CLOSURE"
+    },
+    {
+      "id": "CA-D-494",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-ENG_DECISION--store-operator-registry-in-project-root.md",
+      "source_sha256": "aa3aca414d163ac7ead82f39827362a2cb7fd1315f33c9a9f1e35047231c9cc1",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-494.preview.txt",
+      "preview_sha256": "737d69cda2ba013a0a742f0eb68f11e2086c503f5398214121ad174d1be2ce8d",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-494.diff",
+      "diff_sha256": "e3cb94c52f3885ed0ee433cd9ca7df0a2ace3dfa2f4041b2883f7d2929286274",
+      "disposition": "PARTIAL_HELD_LEGACY_ACTIVE_SUBJECT_AND_REGISTRY_CONSUMER_MIGRATION"
+    },
+    {
+      "id": "CA-R-1014",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "source_sha256": "912f1e4aa77afc21b6fb063857737bcd760b86657ba2ea28294691312c312baf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1014.preview.txt",
+      "preview_sha256": "b171b064142f93e0e5f89bdaa07e1951817054cfc0ab345e7d9626d08f7f1743",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1014.diff",
+      "diff_sha256": "982dcc88be885572ebadfd265cb3bfb74f60a7b52f6050fe143a9e7557564423",
+      "disposition": "CONTAINER_CHAIN_PREVIEW_REVIEW_REQUIRED"
+    },
+    {
+      "id": "CA-M-273",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+      "source_sha256": "a8b6e1aa64e471c9766bf3605175e5e9145a2f581573b2c2d9c3850c1d6741d6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-M-273.preview.txt",
+      "preview_sha256": "b43137213ee2d05c860ec2cbcb68afdc2a62cfd131adb91de36b38592e1396f2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-M-273.diff",
+      "diff_sha256": "69c13ec68604dd3811db2abcea83f6899304fee0ade543421fcb053513bf01ab",
+      "disposition": "PARTIAL_HELD_OBSOLETE_TARGET_SCOPE_CLAUSES"
+    },
+    {
+      "id": "CA-R-1559",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md",
+      "source_sha256": "9fa28ec46e58ca59d5683b5302029595d8b8d8969e964886cd6a7c9f1dcff16d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1559.preview.txt",
+      "preview_sha256": "91269bf241e4f1e19f880d335e50f8bf3de0b67c5e957fbda7b500e8c16783a2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1559.diff",
+      "diff_sha256": "d25c976b61fad9bfa03146b64ab530eef0c8801b4068bd4510b618d73fcb84da",
+      "disposition": "REVIEW_REQUIRED_ACTIVE_SUBJECT_CHANGED_TO_CURRENT_ATOM_FROZEN_REFS_PRESERVED"
+    },
+    {
+      "id": "CA-E-440",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-POLICY--evaluate-governing-atom-change-approval.md",
+      "source_sha256": "b781523f3c7fcd54b575903f42512e5e21e4c6de83ea3ece46d5279c89bd935d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-E-440.preview.txt",
+      "preview_sha256": "8593079bf9a0007547063a7aa58cffc7ba585dccfd1d7c12cc92d92b9f1de1f7",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-E-440.diff",
+      "diff_sha256": "5b6982bc7ac1c38812cd7d8cf4ae96b9d45c617e16e8a277b83853a8e7a2e50f",
+      "disposition": "REVIEW_REQUIRED_ACTIVE_SUBJECT_CHANGED_TO_CURRENT_ATOM_OBSOLETE_AUTHOR_EVALUATION_TARGET_REMOVED"
+    }
+  ],
+  "related_pins": [
+    {
+      "id": "CA-R-1014",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "sha256": "912f1e4aa77afc21b6fb063857737bcd760b86657ba2ea28294691312c312baf"
+    },
+    {
+      "id": "CA-M-273",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+      "sha256": "a8b6e1aa64e471c9766bf3605175e5e9145a2f581573b2c2d9c3850c1d6741d6"
+    },
+    {
+      "id": "CA-R-1559",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md",
+      "sha256": "9fa28ec46e58ca59d5683b5302029595d8b8d8969e964886cd6a7c9f1dcff16d"
+    },
+    {
+      "id": "CA-E-440",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-POLICY--evaluate-governing-atom-change-approval.md",
+      "sha256": "b781523f3c7fcd54b575903f42512e5e21e4c6de83ea3ece46d5279c89bd935d"
+    },
+    {
+      "id": "CA-R-2102",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+      "sha256": "2ac017dcc7bafcccd74830f85f3367334164b8d67b792d4887a89ca9031dc66a"
+    },
+    {
+      "id": "CA-D-340",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-340-CORE_META_MODEL-DECISION--serialize-work-journal-event-properties.md",
+      "sha256": "6cd15a398deb9a47541c62a03a959d9f1b238543c38ddd7d1d9e15da0d5855bc"
+    },
+    {
+      "id": "CA-R-1220",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1220-CORE_META_MODEL-RULE--require-immutable-installed-extension-candidate-provenance.md",
+      "sha256": "90d76ad6f5e01e5039262de6eeb294e9063291818c3f8ebf3c490f0634355afc"
+    },
+    {
+      "id": "CA-R-2711@6",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "0506c8ab90381874d50fd3f368b97217a392271e555c495b2b03d47bcf8267c3"
+    }
+  ],
+  "dispositions": {
+    "CA-D-657": "Narrowly removes assertion of Event authorship authority; preserves explicit no Atom Author and all unrelated encoding. Coordinate with event contract source retirement; preview is not actual Draft or promotion.",
+    "CA-D-494": "Remove journal_author and carried Atom-author membership rules while retaining Operator registry, names, roles, uniqueness, valid fields and permission boundary. Existing legacy Entity active Subject and registry/tool consumers require separate reconciliation; partial prospective body is not promotion-ready; do not erase existing registry history.",
+    "CA-R-1014 and CA-M-273": "Container-chain replacement prepared: follow Atom references to a Scope Unit ID, accepting predefined world. No ordinary missing-Container default or directory-derived owner. M273 remains partial/held: its separate stored target-field/default clauses require coordinated migration; frontier completeness and target-set clauses preserved.",
+    "CA-R-1559 and CA-E-440": "User settled effective Plan AI Agent Confidence Threshold plus permissions. Candidates remove authorship distinctions and preserve threshold, permission, approval and rebaseline safeguards. Active Subjects deliberately change from obsolete Actor path to canonical Atom. E440 removes only obsolete CA-R-1080@29 author Definition evaluation target from successor; exact Current and archived history retain it. Other evaluation links remain unchanged.",
+    "CA-R-2102": "Already states Author is not an Atom Property; no change.",
+    "CA-D-340": "Preserves supplied historical Author values; retain exact history, do not delete. New event attribution contract belongs to Event/Journal owner.",
+    "CA-R-1220": "Extension Candidate third-party provenance references Author; not automatically an attribution of a project Atom or action. Retain pending specific scope decision."
+  },
+  "limits": "No native, actual Operations instances, Workbench, tests, code or Git edits. Existing Authors in history remain preserved. IDs, Summaries, versions, timestamps preserved in previews; successor and atomic sequence owned by root."
+}

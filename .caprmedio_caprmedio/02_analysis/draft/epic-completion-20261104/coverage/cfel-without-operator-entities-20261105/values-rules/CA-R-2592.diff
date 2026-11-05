@@ -1,0 +1,13 @@
+--- Current CA-R-2592
++++ Prospective CA-R-2592 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator :
++Define CFEL allowed-value syntax ::
+-### Formal Claim
+-Operator//AllowedValue == ":"
++### Prose Claim
++`::` admits an allowed value in a Formal Claim; `{::n}` specifies the allowed count of a qualified selection.

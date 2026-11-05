@@ -1,0 +1,13 @@
+--- Current CA-R-2593
++++ Prospective CA-R-2593 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Conclusion
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator ==
++Define CFEL required-value syntax ==
+-### Formal Claim
+-Operator//Conclusion == "=="
++### Prose Claim
++`==` states a required value or derived conclusion.

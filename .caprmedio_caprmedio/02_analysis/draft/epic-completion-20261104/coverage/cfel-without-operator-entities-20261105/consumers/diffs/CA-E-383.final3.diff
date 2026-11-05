@@ -1,0 +1,5 @@
+--- a/consumers/previews/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.preview.md
++++ b/consumers/previews/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.preview.md
+@@ residual cardinality example repair @@
+-A Step count of zero fails `Workflow {::1+}/{::1} Step`; zero Substeps is admitted by `Step {::0+}/{::1} Sub-step`.
++`$journal[<Journal>] {::0}((CONTAINS))` and `$journal[<Journal>] {::1+}((CONTAINS))` exercise zero and positive outgoing containment bounds over all admissible Event Record targets; an omitted reverse slot remains unspecified.

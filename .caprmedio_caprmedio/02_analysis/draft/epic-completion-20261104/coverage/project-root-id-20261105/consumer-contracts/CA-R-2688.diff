@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-R-2688.preview.txt
+@@ -27,7 +27,7 @@
+ 
+ Every specific Scope Unit, including Project, has exactly one external Requirement Atom with Form `Scope Unit Declaration` and an active Subject naming that Scope Unit. The Declaration is the sole structural authority for its declared values.
+ 
+-The Declaration carries the Scope Unit Name, ordered state, optional Label, conditional order.number and direct containment. A non-root Scope Unit also has a stable ID. Project is unordered and has neither Scope Unit ID nor order.number. A non-root Scope Unit has one direct Parent; Project has none.
++The Declaration carries the Scope Unit stable ID, Name, ordered state, optional Label, conditional order.number and direct containment. Project is unordered and has no order.number. A non-root Scope Unit has one direct Parent; Project has none.
+ 
+ Authority and Delivery folder names are derived from the Declaration. `project_structure.toml` is not a governing source.
+ 

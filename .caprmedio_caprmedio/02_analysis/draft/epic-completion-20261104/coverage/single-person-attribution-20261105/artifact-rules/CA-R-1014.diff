@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1014.preview.txt
+@@ -31,4 +31,4 @@
+ Atom Scope.
+ 
+ 
+-an Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-657-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim.
++an Atom Scope **must** include the Scope Unit resolved from its `Header.Container` chain, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim. Follow Atom container references until a Scope Unit ID is reached; predefined `world` (`CA-SU--1`) is a valid Scope Unit.

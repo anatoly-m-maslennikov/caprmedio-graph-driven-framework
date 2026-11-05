@@ -1,0 +1,494 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "route": "user-authorized manual source-helper Draft creation/rebase",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "prepared_at": "2026-11-05 12:58:42 +0400",
+  "outputs": [
+    {
+      "id": "CA-R-2524",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "source_sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2524.preview.txt",
+      "preview_sha256": "27ee0f57ae317724ec829db7a146c821da9df950469498269388212c7869a2cb",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2524.diff",
+      "diff_sha256": "b72b3bcdcf3ad89c2a1b431436e47da0f016b080302ac57223a36c0eaa5ac59a",
+      "atom_id": "CA-R-2524",
+      "version": 4,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2524@4-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "ec428df304da75ae109f5cd5a07dd7ef807308c64f25d4b6fcd78c22995df730",
+      "new_draft": true
+    },
+    {
+      "id": "CA-R-2526",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "source_sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2526.preview.txt",
+      "preview_sha256": "e96fc5958553521998eb8a44655f9fb68f232f15bc88df417577880c56060403",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2526.diff",
+      "diff_sha256": "619f746761ce95f9a4d61444f39026b4ea092e8b42f82339d9dd4fa7be573022",
+      "atom_id": "CA-R-2526",
+      "version": 5,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2526@5-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "2670beccf668c46d9559702af6b8876e84c0c030055fc3725a10e0cb569b94f9",
+      "new_draft": true
+    },
+    {
+      "id": "CA-R-2688",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "source_sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2688.preview.txt",
+      "preview_sha256": "85ea59d827b575ca65a538352365a64d15d546c8b2814ab7f1941c0e4c1ea74b",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2688.diff",
+      "diff_sha256": "4024524205f53524e0e2b968ab367033d4bb0d472ba5d0cbe2067d1c3cf2c238",
+      "atom_id": "CA-R-2688",
+      "version": 3,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2688@3-draft-CORE_META_MODEL-RULE--require-one-scope-unit-declaration.md",
+      "sha256": "dc79c83f2ab14ef8a89790b731e04a12d30e7c245de842a46c34dd6f2aa6528b",
+      "new_draft": true
+    },
+    {
+      "id": "CA-M-461",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "source_sha256": "73b9c1c7925080f15c4cf72b97544522919eddda79fd2ef259265941ffc62932",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-M-461.preview.txt",
+      "preview_sha256": "b0e2edc38c089954a83c417f81d9d3c333224eb1b7ea758263b9f05617f9cb73",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-M-461.diff",
+      "diff_sha256": "0fd4570c1ab9a11f3e47c81481220be268237a5fbd4f50602c3182ed97238324",
+      "native_draft_found": false,
+      "atom_id": "CA-M-461",
+      "version": 3,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "b7759e1c2bc91bac908a4f75fe97a25fea7770bca89cfc01a5a3d24a0c6db036",
+      "new_draft": true
+    },
+    {
+      "id": "CA-E-670",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+      "source_sha256": "9a85be5776c63a775ce5fae302dabee2a6e77492ea92802c299ccfa70d984de2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-E-670.preview.txt",
+      "preview_sha256": "0f2db3c6c6a05f741b7df90476af8ffe7d69d496c25068a22d9e1a349cfaaa7c",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-E-670.diff",
+      "diff_sha256": "6179b69f365bfe1c558f7f8370ab17f984ea08f4b15c1248c821d2d3ace7ecd8",
+      "native_draft_found": false,
+      "atom_id": "CA-E-670",
+      "version": 2,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-670@2-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+      "sha256": "88b51c4d115012b193e17ee72a777b302af29412f939c6eafa6ed79d13862d21",
+      "new_draft": true
+    },
+    {
+      "id": "CA-D-442",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "source_sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-D-442.preview.txt",
+      "preview_sha256": "4287ddba732d97d5d6508690dd9742d9c29982c2d1defe6eaa8614616f9281ce",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-D-442.diff",
+      "diff_sha256": "2a487761c7c97f8ba21db2ce8b9e578f11d40d261db5d5777c4aa698b5cf7af3",
+      "status": "READY_FOR_REVIEW",
+      "atom_id": "CA-D-442",
+      "version": 27,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-442@27-draft-CORE_META_MODEL-DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "a15fc810a4b84182ca24f61d7ef2c821486d8e47f303bde9d93f8fff79fb3759",
+      "new_draft": true
+    },
+    {
+      "id": "CA-R-2779",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "disposition": "PREVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2779.preview.txt",
+      "preview_sha256": "846addfe6cb075bd46c18216bf412660bbeb3cee613a5760fed16f8ab59a71c2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2779.diff",
+      "diff_sha256": "33eb70ab6d8d303fb8d221979767ba89f972feeb0e70166498478c7454af8f4a",
+      "atom_id": "CA-R-2779",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "e0cac2dad37a8cf81d4e9f0635cd5cc3595789dce333c1d661624062c1bd9bae",
+      "new_draft": false
+    },
+    {
+      "id": "CA-R-2508",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3",
+      "disposition": "PREVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2508.preview.txt",
+      "preview_sha256": "357771e8d62b5b0e296a4e6dffac6229b9093e315b0b09847e8f450a368849ca",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2508.diff",
+      "diff_sha256": "0ec1159029d9d0f2e7711fded2f62518b70f77e566034637bc5c2580d7acbe04",
+      "atom_id": "CA-R-2508",
+      "version": 7,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "0a40a675928873e0da4b6b45929fbd33c9b547bbf9ba21a6bdc296761d97af53",
+      "new_draft": false
+    },
+    {
+      "id": "CA-R-2523",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "source_sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+      "disposition": "PREVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2523.preview.txt",
+      "preview_sha256": "d09092c6fb694d05c5817f6863ab0f01b586d970568f2a7e26e7c2ff0aca0b84",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2523.diff",
+      "diff_sha256": "e61ce8241f26a499a9d1ff2a312f3f41a9c53b36bf2e29e083d979d0e69fcc81",
+      "atom_id": "CA-R-2523",
+      "version": 4,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2523@4-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "847e4ef27bc25839b2ce17aca4be55b9f90c59447d0a81e1b40fbb4b18537f72",
+      "new_draft": true
+    },
+    {
+      "id": "CA-R-2640",
+      "source": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "source_sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/root-declaration/CA-R-2640@2-root-id.preview.md",
+      "preview_sha256": "150f8fb7539f54f79d3244cdbbfba600ea3c76be3a42e48c1eaf4b40a812bb65",
+      "atom_id": "CA-R-2640",
+      "version": 2,
+      "target_path": ".caprmedio_caprmedio/04_requirement/draft/CA-R-2640@2-draft-WORLD-SCOPE_UNIT_DECLARATION--declare-caprmedio.md",
+      "sha256": "ce3cb74e78540a0eac2d455ef34110ce3db51ecf80b69ae0765f34d4baf5fe58",
+      "new_draft": true
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2524@4-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2524\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Project\nversion: 4\nupdated_at: 2026-11-05 12:58:42 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2524@4-draft-CORE_META_MODEL-DECLARATION--declare-project.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Project\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nScope Unit/Project;\n\nProject >| (Container == yes);\n\nProject ((NARROWER_THAN)) Scope Unit;\n\n# instances\nScope Unit/Project//$scope_unit{:1};\n\nProject//$project {:0}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;\n\nProject//$project_2.order.ordered == false;\n\nProject//$project_3.order.number: []{:0}\n```\n\n### Prose Claim\n\n\nA Project uses CAPRMEDIO's MODEL.\n\n\n## Semantics\n\nA Project is the root Scope Unit. The Project is not renamed or moved through Scope Unit operations. It has a stable Scope Unit ID. The shared model makes it Unordered with no order.number; individual Project Declarations inherit these facts.\n",
+      "after_sha256": "ec428df304da75ae109f5cd5a07dd7ef807308c64f25d4b6fcd78c22995df730"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2526@5-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2526\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit.ID\nversion: 5\nupdated_at: 2026-11-05 12:58:42 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2526@5-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Scope Unit ID\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nScope Unit.ID: [string]{:1};\n\nScope Unit.ID.*[]{:0};\n\n# instances\nScope Unit//$unit;\n\n$unit.ID{:1}\n```\n\n## Semantics\n\nEvery Scope Unit has a stable ID. A non-root Scope Unit keeps its ID through moves and renames; the ID distinguishes those operations from removal. `CA-SU--1` identifies the predefined Scope Unit named `world`.\n",
+      "after_sha256": "2670beccf668c46d9559702af6b8876e84c0c030055fc3725a10e0cb569b94f9"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2688@3-draft-CORE_META_MODEL-RULE--require-one-scope-unit-declaration.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Unit Declaration)\n  - CAPRMEDIO_MODEL <+ Project\nversion: 3\nupdated_at: 2026-11-05 12:58:42 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-2688\nstatus: Draft\ntier: 2\nform: Rule\nrole: Requirement\ncarrier_destination:\n  file:\n    name: CA-R-2688@3-draft-CORE_META_MODEL-RULE--require-one-scope-unit-declaration.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nRequire one Scope Unit Declaration\n\n## Claim\n\n### Prose Claim\n\n\nEach Scope Unit, including Project.\n\n\nEvery specific Scope Unit, including Project, except the predefined Scope Unit `world`, has exactly one external Requirement Atom with Form `Scope Unit Declaration` and an active Subject naming that Scope Unit. The Declaration is the sole structural authority for its declared values. `world` has ID `CA-SU--1` and has no Scope Unit Declaration.\n\nThe Declaration carries the Scope Unit Name, stable ID, ordered state, optional Label, conditional order.number and direct containment. Project has a stable ID, is unordered and has no order.number. Each non-root Scope Unit other than `world` has one direct Parent; Project has none.\n\nAuthority and Delivery folder names are derived from the Declaration. `project_structure.toml` is not a governing source.\n\n## Details\n\nThe Project Declaration is externally Operator-owned. The Operator is an Actor, not a Scope Unit.\n",
+      "after_sha256": "dc79c83f2ab14ef8a89790b731e04a12d30e7c245de842a46c34dd6f2aa6528b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-M-461\nform: Eng Policy\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\nversion: 3\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 12:58:42 +0400\nrole: Method\ncarrier_destination:\n  file:\n    name: CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft\n---\n## Summary\n\nAuthor Scope Unit Declarations and Contracts\n\n## Claim\n\n### Prose Claim\n\n\n- Keep the Operator\u2019s wording as close as possible. Correct grammar and organize it into coherent statements with the simplest syntax possible. Preserve clear terms and key concepts; do not replace them with polished synonyms.\n- Write one external Scope Unit Declaration for each declared Scope Unit. The predefined Scope Unit `world` (`CA-SU--1`) has no Declaration. Use Role Requirement and Form Scope Unit Declaration. Set its active Subject (`subjects.active`) to that specific Scope Unit; do not add another binding field or an additional per-unit Definition Atom.\n- Keep one or more Goals separate from the Declaration and outside the declared Scope Unit; link them without duplicating their content.\n- A Scope Constraint is external to the governed Scope Unit and may be part of its Declaration.\n- Keep Scope Contract Atoms inside the governed Scope Unit at tier 0. Use applicable RMEDO roles; do not impose a minimum count, exactly one Contract, or every role. A Scope Unit may have no local Contract Atoms.\n\n## Details\n\nA Declaration states the Scope Unit ID, Name, ordered state, optional Label, conditional order.number and direct containment. Do not add Navigation Number to Scope Unit Declarations. Keep the Project Declaration outside the Project, with external Operator ownership.\n\nAuthority and Delivery Folder names are derived. Only non-root Authority Folder names include the Scope Unit ID prefix. The Project Authority Folder is `.caprmedio_<project name>`, without an ID. Do not author derived paths in individual Scope Unit Declarations.\n\nUse the declared direct parent, not physical nesting, to establish logical parentage. Do not author Structural Level or Structural Coordinate. Keep Label independent of ordered state. Distinguish a declared Scope Unit, its materialized Carriers and its Goal coverage.\n",
+      "after_sha256": "b7759e1c2bc91bac908a4f75fe97a25fea7770bca89cfc01a5a3d24a0c6db036"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-670@2-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-E-670\nform: Eval Policy\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\nversion: 2\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 12:58:42 +0400\nrole: Evaluation\ncarrier_destination:\n  file:\n    name: CA-E-670@2-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft\n---\n## Summary\n\nCheck Scope Unit Declarations, Goals and Contracts\n\n## Claim\n\n### Prose Claim\n\n\nIdentify Scope Unit Declaration Atoms by Role Requirement, Form Scope Unit Declaration and active Subject (`subjects.active`) naming the specific Scope Unit. Count exactly one matching Declaration for every Scope Unit except the predefined Scope Unit `world` (`CA-SU--1`), which has no Declaration; do not count other Requirements about that Scope Unit as Declarations.\n\nCheck the selected sources for one external Declaration per Scope Unit except predefined `world`, its declared ID, Name, ordered state, optional Label, conditional order.number and direct containment. Check that Project is unordered and has no order.number. Check that its Declaration is outside Project with external Operator ownership.\n\nCheck that folder names are derived by the shared naming Policy rather than copied into a Declaration. Ordered names include order.number; unordered names omit the order segment and separator.\n\nReject the selected Declaration set when:\n\n- a Scope Unit ID or Name is duplicated or invalid;\n- a Scope Unit Declaration uses the ID `CA-SU--1` reserved for predefined `world`;\n- a non-Project Scope Unit other than predefined `world` has a missing direct parent, or a declared direct parent is unresolved, self-referential or in another Project;\n- parentage has a cycle;\n- a retained ancestry or path disagrees with the declared parent chain;\n- ordering fields or Labels are invalid, ordered siblings share a number, or an Unordered unit has a number;\n- derived paths collide, escape the Project boundary or leave lookup ambiguous;\n- unsupported fields or expressions are used as structural declarations.\n\nLabel does not determine ordered state. Check a valid example and a falsifying example for each applicable condition.\n",
+      "after_sha256": "88b51c4d115012b193e17ee72a777b302af29412f939c6eafa6ed79d13862d21"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-442@27-draft-CORE_META_MODEL-DECISION--encode-scope-unit-declaration-fields.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\n  passive:\n  - CAPRMEDIO_MODEL <+ Carrier\nversion: 27\nupdated_at: 2026-11-05 12:58:42 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-D-442\nform: Decision\nstatus: Draft\ntier: 3\nrole: Delivery\ncarrier_destination:\n  file:\n    name: CA-D-442@27-draft-CORE_META_MODEL-DECISION--encode-scope-unit-declaration-fields.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\n---\n## Summary\n\nEncode Scope Unit declaration fields\n\n## Claim\n\n### Prose Claim\n\n\nCarry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL.\n\nThe shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number from the Project model. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration.\n",
+      "after_sha256": "a15fc810a4b84182ca24f61d7ef2c821486d8e47f303bde9d93f8fff79fb3759"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "before": "---\natom_id: CA-R-2779\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 04:12:41 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header.Container\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container{::1} :: [string]{::1};\n\nAtom.Header.Container.*[]{::0};\n\n# instances\nAtom//$atom;\n$atom.Header.Container{::1}\n```\n\n### Prose Claim\n\nHeader.Container identifies the Atom's immediate Container.\n\nAllowed values:\n\n1. A full canonical Scope Unit path: one slash-delimited string formed from the exact Scope Unit.Name values in the declared parent chain. The Project root path is `/`, with no Project name segment. For example, `FRAMEWORK_ENGINE` is `/FRAMEWORK_ENGINE`; `CORE_META_MODEL` is `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`.\n2. The base Atom ID of the containing Atom.\n3. `world`, for a root Project Declaration Atom.\n\nA base Atom ID selects Current by default.\n\nFor a root Project Declaration Atom, an omitted Header.Container has the effective default `world`. An explicit valid value overrides that default.\n\nThe literal bootstrap value `world` produces zero containment links.\n\nHeader.Container is the sole stored Atom-containment value.\n",
+      "before_sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "after": "---\natom_id: CA-R-2779\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 12:58:42 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header.Container\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container{::1} :: []{::0};\n\nAtom.Header.Container.*[in(atom,scope_unit)]{::1};\n\n# instances\nAtom//$atom;\n$atom.Header.Container{::1}\n```\n\n### Prose Claim\n\nHeader.Container identifies the Atom's immediate Container.\n\nHeader.Container contains exactly one key: `atom` names the containing Atom by its base Atom ID, or `scope_unit` names the containing Scope Unit by its stable ID. A base Atom ID selects Current by default.\n\nFor a root Project Declaration Atom, an omitted Header.Container has the effective default mapping with `scope_unit` equal to `CA-SU--1`, identifying the predefined Scope Unit `world`. An explicit valid value overrides that default.\nHeader.Container is the sole stored Atom-containment value.\n",
+      "after_sha256": "e0cac2dad37a8cf81d4e9f0635cd5cc3595789dce333c1d661624062c1bd9bae"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "before": "---\natom_id: CA-R-2508\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 7\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 04:12:41 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{::2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom;\n\nIF ($atom.Header.Container = \"world\") THEN ($atom {::0}((IS_CONTAINED_BY)));\n\nIF ($atom.Header.Container != \"world\") THEN ($atom {::1}((IS_CONTAINED_BY)));\n\n$atom {::0..1}((HAS_ACTIVE_SUBJECT));\n\n$atom {::0..1}((GOVERNS));\n\nUNIQUE(Atom//$identity_atom, (.Header.ID, .Header.Version));\n```\n\n### Prose Claim\n\nFor each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\nFor an Atom whose effective Header.Container is a valid base Atom ID or Scope Unit path, its outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from that value. Header.Container is the sole stored Atom-containment value. The literal bootstrap value \"world\" creates no containment link.\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "before_sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3",
+      "after": "---\natom_id: CA-R-2508\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 7\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 12:58:42 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{::2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom;\n\n$atom {::1}((IS_CONTAINED_BY));\n\n$atom {::0..1}((HAS_ACTIVE_SUBJECT));\n\n$atom {::0..1}((GOVERNS));\n\nUNIQUE(Atom//$identity_atom, (.Header.ID, .Header.Version));\n```\n\n### Prose Claim\n\nFor each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\nEach Atom instance\u2019s outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from its effective Header.Container. Header.Container is the sole stored Atom-containment value.\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "after_sha256": "0a40a675928873e0da4b6b45929fbd33c9b547bbf9ba21a6bdc296761d97af53"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2523@4-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2523\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Scope Unit\nversion: 4\nupdated_at: 2026-11-05 12:58:42 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2523@4-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Scope Unit\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nScope Unit >| (Container == yes);\n\nScope Unit ((NARROWER_THAN)) Continuant;\n\n# instances\nScope Unit//$scope_unit {:0+}((CONTAINS)) Atom//$atom;\n\nScope Unit//$scope_unit{:0..1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;\n\nScope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;\n\nScope Unit//$unit;\n\nIF (($unit not in (Scope Unit/Project//$scope_unit_5)) AND ($unit.ID != \"CA-SU--1\"))\nTHEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6);\n```\n\n## Semantics\n\nA Scope Unit defines a boundary of responsibility for Atoms.\n",
+      "after_sha256": "847e4ef27bc25839b2ce17aca4be55b9f90c59447d0a81e1b40fbb4b18537f72"
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/draft/CA-R-2640@2-draft-WORLD-SCOPE_UNIT_DECLARATION--declare-caprmedio.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2640\nrole: Requirement\nform: Scope Unit Declaration\nstatus: Draft\nversion: 2\nupdated_at: 2026-11-05 12:58:42 +0400\ntier: 3\nsubjects:\n  active: CAPRMEDIO_STRUCTURE <+ Project//caprmedio\nrelations: {}\ncontainer:\n  scope_unit: CA-SU--1\ncarrier_destination:\n  file:\n    name: CA-R-2640@2-draft-WORLD-SCOPE_UNIT_DECLARATION--declare-caprmedio.md\n    path: .caprmedio_caprmedio/04_requirement/draft\n---\n## Summary\n\nDeclare caprmedio\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# instances\nProject//caprmedio.ID == \"CA-SU-00\";\n\nProject//caprmedio.Name == \"caprmedio\"\n```\n",
+      "after_sha256": "ce3cb74e78540a0eac2d455ef34110ce3db51ecf80b69ae0765f34d4baf5fe58"
+    }
+  ],
+  "version_evidence": {
+    "CA-R-2640": [
+      {
+        "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+        "version": 1
+      }
+    ],
+    "CA-D-442": [
+      {
+        "path": ".caprmedio_caprmedio/TEST-SU-1_METHODOLOGY_METHODOLOGY_SOURCES/TEST-SU-2_METHODOLOGY_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+        "version": 8
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 26
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 26
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 26
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields@6.md",
+        "version": 6
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@11-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+        "version": 11
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@20-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 20
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@22-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 22
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields@7.md",
+        "version": 7
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields@10.md",
+        "version": 10
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL-DELIVERY--encode-scope-unit-declaration-fields@3.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields@8.md",
+        "version": 8
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@18-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 18
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL--encode-scope-unit-declaration-fields@9.md",
+        "version": 9
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@17-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 17
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL-DELIVERY--encode-scope-unit-declaration-fields@2.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL-DELIVERY--encode-scope-unit-declaration-fields@5.md",
+        "version": 5
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL-DELIVERY--encode-scope-unit-declaration-fields@1.md",
+        "version": 1
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@25-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 25
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@15-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+        "version": 15
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@21-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 21
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@23-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 23
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442-CORE_META_MODEL-DELIVERY--encode-scope-unit-declaration-fields@4.md",
+        "version": 4
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@14-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+        "version": 14
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@19-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 19
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@16-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+        "version": 16
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-442@13-CORE_META_MODEL--encode-scope-unit-declaration-fields.md",
+        "version": 13
+      }
+    ],
+    "CA-E-670": [
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+        "version": 1
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+        "version": 1
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+        "version": 1
+      }
+    ],
+    "CA-M-461": [
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/archive/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts@1.md",
+        "version": 1
+      }
+    ],
+    "CA-R-2688": [
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations@1.md",
+        "version": 1
+      }
+    ],
+    "CA-R-2508": [
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+        "version": 6
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+        "version": 6
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+        "version": 6
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+        "version": 7
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@2.md",
+        "version": 2
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@5.md",
+        "version": 5
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@4.md",
+        "version": 4
+      }
+    ],
+    "CA-R-2524": [
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2524@2-CORE_META_MODEL-DECLARATION--declare-project.md",
+        "version": 2
+      }
+    ],
+    "CA-R-2526": [
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+        "version": 4
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+        "version": 4
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+        "version": 4
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id@3.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2526@2-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+        "version": 2
+      }
+    ],
+    "CA-R-2523": [
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+        "version": 3
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit@2.md",
+        "version": 2
+      }
+    ],
+    "CA-R-2779": [
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+        "version": 1
+      }
+    ]
+  },
+  "metadata_note": "Root Declaration Draft has flat Header.Container scope_unit CA-SU--1; WORLD filename context in root Requirement Draft collection is staging. Bootstrap Carrier admission/placement remains an adapter gate. Other fresh model Drafts retain existing Relation containment until coordinated Header migration.",
+  "holds": [
+    "Current root reader/model/validator rejects root IDs; no Current promotion before compatible implementation and coordinated migration.",
+    "No World Declaration/Carrier/folder created. CA-SU--1 is predefined; CA-SU-00 assigned only to current Project root.",
+    "Coherent source/metadata/schema/body notation and reader/adapter cutover remain required."
+  ],
+  "preflight_note": "Initial review-schema assertion rejected before all writes; corrected to honor status field BOUNDED_PASS_WITH_ADOPTION_GATES."
+}

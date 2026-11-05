@@ -1,0 +1,13 @@
+--- Current CA-R-2591
++++ Prospective CA-R-2591 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Addition
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator +
++Define CFEL addition syntax +
+-### Formal Claim
+-Operator//Addition == "+"
++### Prose Claim
++`+` returns the numeric sum of two resolved numeric operands.

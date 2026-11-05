@@ -1,0 +1,13 @@
+--- Current CA-R-2596
++++ Prospective CA-R-2596 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Delivery
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator >>
++Define CFEL delivery syntax >>
+-### Formal Claim
+-Operator//Delivery == ">>"
++### Prose Claim
++`>>` delivers an Object or selection to a referenced Carrier or Carrier part.

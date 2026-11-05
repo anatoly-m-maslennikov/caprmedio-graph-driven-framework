@@ -1,0 +1,111 @@
+{
+  "verdict": "PASS_NINE_REBASE_PREVIEWS_R1245_SUPERSEDED",
+  "manifest_sha256": "5ad199bfb2b490857273abe446fd29e12945de41392fabf782796eca8c64be22",
+  "rows": [
+    {
+      "id": "CA-R-2816",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "91bae9cfb0f9cde6616be1d0b989c0e622bd9e21ed697b7a8e368edcb31dee9d"
+    },
+    {
+      "id": "CA-R-2778",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "703e70000186abd7647660b2cbc11ed425d1cfa621023679118b838ea80676db"
+    },
+    {
+      "id": "CA-R-2487",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "b385890db2b50cc55e03b461b0bae452d170d8b07691d35cc630fef0059ff34f"
+    },
+    {
+      "id": "CA-R-1245",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": true,
+      "candidate_sha256": "387a9a52eae788cade49ba1bad4f3bb75f8a14cb73e8695235388d689ca1f4e8"
+    },
+    {
+      "id": "CA-M-228",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "ae494b059d75fac0f2e47ccac8c767b58493f13e42e6f93e161ffa34cfcbd110"
+    },
+    {
+      "id": "CA-M-237",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "368fd35442537346b9cf0b39f95b2d3a8be3613d64e27939e5dbc7353daba363"
+    },
+    {
+      "id": "CA-E-383",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "99b7a71dd7e5ceb4695b383ace67da4374805a3bc44d0c82f5089f8c258d53f3"
+    },
+    {
+      "id": "CA-E-449",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "c425190b84f67df7b5083b71bd56a784f5dabe46f82019c67e58be6fc3b881e6"
+    },
+    {
+      "id": "CA-R-1456",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "0f62ac864b38e48e9ac62167e6f0479de9542afc70384bcc28c4268d627a5986"
+    },
+    {
+      "id": "CA-R-1346",
+      "draft_pin": true,
+      "candidate_pin": true,
+      "diff_pin": true,
+      "metadata_equal": true,
+      "fresh_id_required": false,
+      "candidate_sha256": "723fd16184d0539453e814f9df3d90f13ee6e8b944e7a2ad2d3f2a0459417128"
+    }
+  ],
+  "r1245_disposition": "SUPERSEDED_NO_NEW_ID_NO_SUCCESSOR: HAV Declaration covers qualified model Subject/instance and R2816 Property selection. Preserve Current and frozen history until coordinated authority/reference cutover; do not create duplicate successor.",
+  "preserved": [
+    "R2487 states HAV OR/HVC AND, inherited group semantics and absence of HAV restriction; literals remain values, not Nodes.",
+    "M228 removes obsolete FOR prohibition; R2778 keeps header colon distinct; R1346 retains Term passives and full canonical identity.",
+    "Source/preview/diff pins reflect 10 specific native Drafts; separate R2814 relation signature review not duplicated."
+  ],
+  "gates": [
+    "Root-owned HAS_ALLOWED_VALUE and HAS_VALUE_CONSTRAINT direct Relation declarations/alias rules must be reviewed and applied with the syntax consumers; this packet does not duplicate them.",
+    "R2487 graph Relation endpoint statement must be reconciled with the new value Relation declarations; literals remain values, never invented data Nodes.",
+    "R2810 allowed :: Rule has been withdrawn and preserved by separate receipt; do not recreate it.",
+    "`{::n}` cardinality bounds, `=` tests, `==` conclusions, YAML and quoted literals unchanged.",
+    "Do not create a standalone R1245 successor; preserve Current until coordinated HAS_ALLOWED_VALUE / R2816 adoption and reference reconciliation."
+  ],
+  "boundary": "Preview review only; no native Draft, Current, code, tests, Workflow, Workbench or Git edits.",
+  "resolved_finding": "R2816 now requires effective admissibility: inherited HAV alternatives only when present, AND inherited HVC constraints; it retains := selection and does not mandate HAV."
+}

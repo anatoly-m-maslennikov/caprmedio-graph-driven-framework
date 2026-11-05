@@ -1,0 +1,147 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "route": "repair own unpromoted identities after confirmed concurrent project-global allocation collisions",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "relation_name": "HAS_ALLOWED_VALUE",
+      "old_atom_id": "CA-R-2822",
+      "atom_id": "CA-R-2826",
+      "version": 1,
+      "old_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2822@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "snapshot_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2822@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "snapshot_sha256": "c75c602953243e2ddec844955f6a4b7fab5e852a4899c5055f356b3e0d941a41",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "sha256": "34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f",
+      "body_sha256": "fa1c1e9e227145f8613796c463beb73de7815245874df11c45f9cbb36f967d5d"
+    },
+    {
+      "relation_name": "IS_ALLOWED_VALUE_OF",
+      "old_atom_id": "CA-R-2823",
+      "atom_id": "CA-R-2827",
+      "version": 1,
+      "old_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2823@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "snapshot_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2823@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "snapshot_sha256": "a51ea623081a94e05510eb9dd5a9815cbfc26d4c9435aff1ec08a1a8aa1e0947",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "sha256": "3004048941f4bb7949bdcb75097ef0ce59f1dcb4558b09f134b42584b8f6131b",
+      "body_sha256": "6288b5c0ba51878618ce5047d26f549407585ed112fd94e02c140816620047f2"
+    },
+    {
+      "relation_name": "HAS_VALUE_CONSTRAINT",
+      "old_atom_id": "CA-R-2824",
+      "atom_id": "CA-R-2828",
+      "version": 1,
+      "old_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2824@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "snapshot_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2824@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "snapshot_sha256": "d3a846c0668e7d6a43d01aeddc91e751059ecdcd94f81b7d5030c4033c02b9e2",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "sha256": "662f48405701ac625c033482e8fabaed653a9774c0eba6ec74ec38e16f4a4bc7",
+      "body_sha256": "685e11ce6cf8e24167bd0961833f9ca063466f89c369e029569d61aca504b462"
+    },
+    {
+      "relation_name": "IS_VALUE_CONSTRAINT_OF",
+      "old_atom_id": "CA-R-2825",
+      "atom_id": "CA-R-2829",
+      "version": 1,
+      "old_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2825@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "snapshot_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2825@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "snapshot_sha256": "3506345d27c0e71b21b2dbc449a772d8c558730d3d7d6cf2ad0cea0813d101fd",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "sha256": "80c2beabf7a5d01e0dfc327e47686ab44dec29235be294e5b6b2f9841c72506a",
+      "body_sha256": "566b366849bb4243037ebd7009e2427c38b189d8beed548879094897533659f4"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2822@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2822\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ALLOWED_VALUE\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2822@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare HAS_ALLOWED_VALUE\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = HAS_ALLOWED_VALUE)];\n\n$inverse[<Relation>, (.Name = IS_ALLOWED_VALUE_OF)];\n\n$relation ((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Direct;\n\nalias($relation) == \":=\";\n\n$host ((HAS_ALLOWED_VALUE)) $target\n```\n\n### Prose Claim\n\nThe Host is the qualified model Subject or instance to which the allowed-value expression applies. The Target is its admitted literal value or a set of literal alternatives; neither is a model Node. For the same qualified Subject, all applicable HAS_ALLOWED_VALUE expressions, including inherited expressions, combine by OR. If none applies, omit the allowed-value group: it imposes no enumeration restriction. `x := a | b` writes alternatives. In a qualified Subject such as `Atom//(.Role := Method)`, `:=` retains its admitted-value and Subject-selection meaning; OR across applicable values in that qualified scope does not remove the selection condition. The final admissibility condition is the OR of applicable HAS_ALLOWED_VALUE expressions AND the AND of applicable HAS_VALUE_CONSTRAINT expressions.\n\n## Semantics\n\nHAS_ALLOWED_VALUE expresses the direct value rule.\n",
+      "after_sha256": "c75c602953243e2ddec844955f6a4b7fab5e852a4899c5055f356b3e0d941a41"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2826\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ALLOWED_VALUE\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:41:12 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare HAS_ALLOWED_VALUE\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = HAS_ALLOWED_VALUE)];\n\n$inverse[<Relation>, (.Name = IS_ALLOWED_VALUE_OF)];\n\n$relation ((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Direct;\n\nalias($relation) == \":=\";\n\n$host ((HAS_ALLOWED_VALUE)) $target\n```\n\n### Prose Claim\n\nThe Host is the qualified model Subject or instance to which the allowed-value expression applies. The Target is its admitted literal value or a set of literal alternatives; neither is a model Node. For the same qualified Subject, all applicable HAS_ALLOWED_VALUE expressions, including inherited expressions, combine by OR. If none applies, omit the allowed-value group: it imposes no enumeration restriction. `x := a | b` writes alternatives. In a qualified Subject such as `Atom//(.Role := Method)`, `:=` retains its admitted-value and Subject-selection meaning; OR across applicable values in that qualified scope does not remove the selection condition. The final admissibility condition is the OR of applicable HAS_ALLOWED_VALUE expressions AND the AND of applicable HAS_VALUE_CONSTRAINT expressions.\n\n## Semantics\n\nHAS_ALLOWED_VALUE expresses the direct value rule.\n",
+      "after_sha256": "34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2822@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+      "before": "---\natom_id: CA-R-2822\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ALLOWED_VALUE\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2822@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare HAS_ALLOWED_VALUE\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = HAS_ALLOWED_VALUE)];\n\n$inverse[<Relation>, (.Name = IS_ALLOWED_VALUE_OF)];\n\n$relation ((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Direct;\n\nalias($relation) == \":=\";\n\n$host ((HAS_ALLOWED_VALUE)) $target\n```\n\n### Prose Claim\n\nThe Host is the qualified model Subject or instance to which the allowed-value expression applies. The Target is its admitted literal value or a set of literal alternatives; neither is a model Node. For the same qualified Subject, all applicable HAS_ALLOWED_VALUE expressions, including inherited expressions, combine by OR. If none applies, omit the allowed-value group: it imposes no enumeration restriction. `x := a | b` writes alternatives. In a qualified Subject such as `Atom//(.Role := Method)`, `:=` retains its admitted-value and Subject-selection meaning; OR across applicable values in that qualified scope does not remove the selection condition. The final admissibility condition is the OR of applicable HAS_ALLOWED_VALUE expressions AND the AND of applicable HAS_VALUE_CONSTRAINT expressions.\n\n## Semantics\n\nHAS_ALLOWED_VALUE expresses the direct value rule.\n",
+      "before_sha256": "c75c602953243e2ddec844955f6a4b7fab5e852a4899c5055f356b3e0d941a41",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2823@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2823\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_ALLOWED_VALUE_OF\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2823@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_ALLOWED_VALUE_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = IS_ALLOWED_VALUE_OF)];\n\n$inverse[<Relation>, (.Name = HAS_ALLOWED_VALUE)];\n\n$relation <((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n$host ((IS_ALLOWED_VALUE_OF)) $target\n```\n\n### Prose Claim\n\nThe Host is an admitted literal value or literal-alternative set and the Target is the qualified model Subject or instance. This is the inverse view of HAS_ALLOWED_VALUE.\n\n## Semantics\n\nIS_ALLOWED_VALUE_OF expresses the derived inverse view.\n",
+      "after_sha256": "a51ea623081a94e05510eb9dd5a9815cbfc26d4c9435aff1ec08a1a8aa1e0947"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2827\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_ALLOWED_VALUE_OF\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:41:12 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_ALLOWED_VALUE_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = IS_ALLOWED_VALUE_OF)];\n\n$inverse[<Relation>, (.Name = HAS_ALLOWED_VALUE)];\n\n$relation <((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n$host ((IS_ALLOWED_VALUE_OF)) $target\n```\n\n### Prose Claim\n\nThe Host is an admitted literal value or literal-alternative set and the Target is the qualified model Subject or instance. This is the inverse view of HAS_ALLOWED_VALUE.\n\n## Semantics\n\nIS_ALLOWED_VALUE_OF expresses the derived inverse view.\n",
+      "after_sha256": "3004048941f4bb7949bdcb75097ef0ce59f1dcb4558b09f134b42584b8f6131b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2823@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+      "before": "---\natom_id: CA-R-2823\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_ALLOWED_VALUE_OF\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2823@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_ALLOWED_VALUE_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = IS_ALLOWED_VALUE_OF)];\n\n$inverse[<Relation>, (.Name = HAS_ALLOWED_VALUE)];\n\n$relation <((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n$host ((IS_ALLOWED_VALUE_OF)) $target\n```\n\n### Prose Claim\n\nThe Host is an admitted literal value or literal-alternative set and the Target is the qualified model Subject or instance. This is the inverse view of HAS_ALLOWED_VALUE.\n\n## Semantics\n\nIS_ALLOWED_VALUE_OF expresses the derived inverse view.\n",
+      "before_sha256": "a51ea623081a94e05510eb9dd5a9815cbfc26d4c9435aff1ec08a1a8aa1e0947",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2824@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2824\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_VALUE_CONSTRAINT\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2824@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare HAS_VALUE_CONSTRAINT\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];\n\n$inverse[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];\n\n$relation ((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Direct;\n\nalias($relation) == \"::\";\n\n$host ((HAS_VALUE_CONSTRAINT)) $target\n```\n\n### Prose Claim\n\nThe Host is the qualified model Subject or instance to which the constraint applies. The Target is constraint data, including a Format or cardinality constraint, not a model Node. For the same qualified Subject, all applicable HAS_VALUE_CONSTRAINT expressions, including inherited expressions, combine by AND. If none applies, that group contributes true. Final admissibility combines this AND group with the applicable HAS_ALLOWED_VALUE OR group. `x :: [string]` and `x :: {::1}` may be written together as `x :: [string]{::1}`.\n\n## Semantics\n\nHAS_VALUE_CONSTRAINT expresses the direct value rule.\n",
+      "after_sha256": "d3a846c0668e7d6a43d01aeddc91e751059ecdcd94f81b7d5030c4033c02b9e2"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2828\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_VALUE_CONSTRAINT\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:41:12 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare HAS_VALUE_CONSTRAINT\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];\n\n$inverse[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];\n\n$relation ((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Direct;\n\nalias($relation) == \"::\";\n\n$host ((HAS_VALUE_CONSTRAINT)) $target\n```\n\n### Prose Claim\n\nThe Host is the qualified model Subject or instance to which the constraint applies. The Target is constraint data, including a Format or cardinality constraint, not a model Node. For the same qualified Subject, all applicable HAS_VALUE_CONSTRAINT expressions, including inherited expressions, combine by AND. If none applies, that group contributes true. Final admissibility combines this AND group with the applicable HAS_ALLOWED_VALUE OR group. `x :: [string]` and `x :: {::1}` may be written together as `x :: [string]{::1}`.\n\n## Semantics\n\nHAS_VALUE_CONSTRAINT expresses the direct value rule.\n",
+      "after_sha256": "662f48405701ac625c033482e8fabaed653a9774c0eba6ec74ec38e16f4a4bc7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2824@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+      "before": "---\natom_id: CA-R-2824\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_VALUE_CONSTRAINT\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2824@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare HAS_VALUE_CONSTRAINT\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];\n\n$inverse[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];\n\n$relation ((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Direct;\n\nalias($relation) == \"::\";\n\n$host ((HAS_VALUE_CONSTRAINT)) $target\n```\n\n### Prose Claim\n\nThe Host is the qualified model Subject or instance to which the constraint applies. The Target is constraint data, including a Format or cardinality constraint, not a model Node. For the same qualified Subject, all applicable HAS_VALUE_CONSTRAINT expressions, including inherited expressions, combine by AND. If none applies, that group contributes true. Final admissibility combines this AND group with the applicable HAS_ALLOWED_VALUE OR group. `x :: [string]` and `x :: {::1}` may be written together as `x :: [string]{::1}`.\n\n## Semantics\n\nHAS_VALUE_CONSTRAINT expresses the direct value rule.\n",
+      "before_sha256": "d3a846c0668e7d6a43d01aeddc91e751059ecdcd94f81b7d5030c4033c02b9e2",
+      "after": null,
+      "after_sha256": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2825@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2825\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_VALUE_CONSTRAINT_OF\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2825@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_VALUE_CONSTRAINT_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];\n\n$inverse[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];\n\n$relation <((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n$host ((IS_VALUE_CONSTRAINT_OF)) $target\n```\n\n### Prose Claim\n\nThe Host is constraint data and the Target is the qualified model Subject or instance. This is the inverse view of HAS_VALUE_CONSTRAINT.\n\n## Semantics\n\nIS_VALUE_CONSTRAINT_OF expresses the derived inverse view.\n",
+      "after_sha256": "3506345d27c0e71b21b2dbc449a772d8c558730d3d7d6cf2ad0cea0813d101fd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2829\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_VALUE_CONSTRAINT_OF\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:41:12 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_VALUE_CONSTRAINT_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];\n\n$inverse[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];\n\n$relation <((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n$host ((IS_VALUE_CONSTRAINT_OF)) $target\n```\n\n### Prose Claim\n\nThe Host is constraint data and the Target is the qualified model Subject or instance. This is the inverse view of HAS_VALUE_CONSTRAINT.\n\n## Semantics\n\nIS_VALUE_CONSTRAINT_OF expresses the derived inverse view.\n",
+      "after_sha256": "80c2beabf7a5d01e0dfc327e47686ab44dec29235be294e5b6b2f9841c72506a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2825@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+      "before": "---\natom_id: CA-R-2825\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_VALUE_CONSTRAINT_OF\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 16:33:24 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2825@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare IS_VALUE_CONSTRAINT_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$relation[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];\n\n$inverse[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];\n\n$relation <((HAS_INVERSE)) $inverse;\n\n$relation ((HAS_CLASSIFICATION)) Derivation == Derived;\n\n$host ((IS_VALUE_CONSTRAINT_OF)) $target\n```\n\n### Prose Claim\n\nThe Host is constraint data and the Target is the qualified model Subject or instance. This is the inverse view of HAS_VALUE_CONSTRAINT.\n\n## Semantics\n\nIS_VALUE_CONSTRAINT_OF expresses the derived inverse view.\n",
+      "before_sha256": "3506345d27c0e71b21b2dbc449a772d8c558730d3d7d6cf2ad0cea0813d101fd",
+      "after": null,
+      "after_sha256": null
+    }
+  ],
+  "allocation_lock": "One existing identity lock spans reservation, preparation and application. Nested helper locking reuses the already-held outer lock; path/hash guards remain unchanged.",
+  "limits": [
+    "Other agents files unchanged. Four exact old preimages retained as non-native history.",
+    "No Current source, Relation meaning, Summary or version changed; these are unpromoted Draft IDs."
+  ]
+}

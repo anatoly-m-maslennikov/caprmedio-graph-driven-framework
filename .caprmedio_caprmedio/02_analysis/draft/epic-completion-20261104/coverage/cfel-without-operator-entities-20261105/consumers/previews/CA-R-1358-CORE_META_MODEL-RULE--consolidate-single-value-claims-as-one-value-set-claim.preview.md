@@ -1,0 +1,34 @@
+---
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom.Content
+  passive:
+  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
+  - CAPRMEDIO_MODEL <+ Term//Property
+  - CAPRMEDIO_MODEL <+ CFEL
+version: 35
+updated_at: 2026-11-02 08:06:47 +0400
+relations:
+  child_of:
+  - CA-R-2102
+  - CA-R-1596
+atom_id: CA-R-1358
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Consolidate Single-Value Claims as One Value-Set Claim
+
+## Claim
+
+### Prose Claim
+
+
+multiple Claims with the same Atom Scope, Claim Target Scope Unit, textual Claim Scope, **and** Property X.
+
+
+multiple Claims with the same Atom Scope, Claim Target Scope Unit, textual Claim Scope, **and** Property X **must** be consolidated as **`=1`** Claim Value Set **if** they differ **only** by one allowed value of X.

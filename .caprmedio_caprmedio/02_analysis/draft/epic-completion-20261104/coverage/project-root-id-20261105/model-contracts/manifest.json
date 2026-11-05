@@ -1,0 +1,42 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "operator_decision": "The current Project root Scope Unit has ID CA-SU-00, assigned in its specific R2640 Declaration; shared Project and Scope Unit ID rules do not require that prefix or ID for every Project. world is the predefined Scope Unit CA-SU--1 without a Scope Unit Declaration.",
+  "candidates": [
+    {
+      "id": "CA-R-2524",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "source_sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2524.preview.txt",
+      "preview_sha256": "27ee0f57ae317724ec829db7a146c821da9df950469498269388212c7869a2cb",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2524.diff",
+      "diff_sha256": "b72b3bcdcf3ad89c2a1b431436e47da0f016b080302ac57223a36c0eaa5ac59a"
+    },
+    {
+      "id": "CA-R-2526",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "source_sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2526.preview.txt",
+      "preview_sha256": "e96fc5958553521998eb8a44655f9fb68f232f15bc88df417577880c56060403",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2526.diff",
+      "diff_sha256": "619f746761ce95f9a4d61444f39026b4ea092e8b42f82339d9dd4fa7be573022"
+    },
+    {
+      "id": "CA-R-2688",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "source_sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2688.preview.txt",
+      "preview_sha256": "85ea59d827b575ca65a538352365a64d15d546c8b2814ab7f1941c0e4c1ea74b",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2688.diff",
+      "diff_sha256": "4024524205f53524e0e2b968ab367033d4bb0d472ba5d0cbe2067d1c3cf2c238"
+    }
+  ],
+  "format_finding": "Current R2526 declares Scope Unit.ID as string and does not prohibit leading zero. The current Project-specific declaration must preserve literal CA-SU-00 exactly; no shared prefix or numeric normalization is inferred.",
+  "dependencies": [
+    "The specific R2640 root Project Declaration must receive CA-SU-00, preserving no parent and unordered/no order.number.",
+    "Current E670 and D442 explicitly say root has no ID and require coordinated source correction; M461 says ID where applicable and should align.",
+    "Retain D667/M461 root Project Authority folder .caprmedio_<project name> without an ID prefix; do not infer folder rename.",
+    "Coordinated Container group/bootstrap and dependent source/data migration remain outside this packet.",
+    "R2523 non-Project parent condition must exempt predefined world; see container-contracts packet."
+  ],
+  "limits": "No Current or native Draft, code, tests, actual Workflow, Workbench or Git mutation."
+}

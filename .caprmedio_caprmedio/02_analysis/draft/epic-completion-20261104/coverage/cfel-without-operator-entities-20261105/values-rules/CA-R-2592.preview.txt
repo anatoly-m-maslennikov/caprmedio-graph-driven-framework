@@ -1,0 +1,23 @@
+---
+atom_id: CA-R-2592
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+status: Active
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL
+version: 1
+updated_at: 2026-11-02 08:06:47 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Define CFEL allowed-value syntax ::
+
+## Claim
+
+### Prose Claim
+
+`::` admits an allowed value in a Formal Claim; `{::n}` specifies the allowed count of a qualified selection. Neither form is assignment or an `IS_ALLOWED_VALUE_OF` Relation.

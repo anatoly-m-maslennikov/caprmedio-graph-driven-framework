@@ -1,0 +1,202 @@
+{
+  "status": "READBACK_PASS_AFTER_ID_REPAIR",
+  "scope": "Readback of the seven requested value-cohort outputs only. No native, code, test, or Git changes.",
+  "application": {
+    "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-drafts-20261105/adoption-plan.json",
+    "plan_sha256": "e9e178509625d59b9f339c3253122eea00f83638585492299ff3842c8759905d",
+    "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-drafts-20261105/adoption-receipt.json",
+    "receipt_sha256": "7deeb429b6ac7507ccf779b778611c374203d605b7c13638c4163537295d059d",
+    "receipt_status": "APPLIED_VERIFIED",
+    "receipt_output_count": 16
+  },
+  "outputs": [
+    {
+      "id": "CA-R-2822@1",
+      "label": "HAS_ALLOWED_VALUE",
+      "sha256": "c75c602953243e2ddec844955f6a4b7fab5e852a4899c5055f356b3e0d941a41",
+      "body_matches_reviewed_preview": true,
+      "metadata": "expected Draft identity/version and non-placeholder Updated At"
+    },
+    {
+      "id": "CA-R-2823@1",
+      "label": "IS_ALLOWED_VALUE_OF",
+      "sha256": "a51ea623081a94e05510eb9dd5a9815cbfc26d4c9435aff1ec08a1a8aa1e0947",
+      "body_matches_reviewed_preview": true,
+      "metadata": "expected Draft identity/version and non-placeholder Updated At"
+    },
+    {
+      "id": "CA-R-2824@1",
+      "label": "HAS_VALUE_CONSTRAINT",
+      "sha256": "d3a846c0668e7d6a43d01aeddc91e751059ecdcd94f81b7d5030c4033c02b9e2",
+      "body_matches_reviewed_preview": true,
+      "metadata": "expected Draft identity/version and non-placeholder Updated At"
+    },
+    {
+      "id": "CA-R-2825@1",
+      "label": "IS_VALUE_CONSTRAINT_OF",
+      "sha256": "3506345d27c0e71b21b2dbc449a772d8c558730d3d7d6cf2ad0cea0813d101fd",
+      "body_matches_reviewed_preview": true,
+      "metadata": "expected Draft identity/version and non-placeholder Updated At"
+    },
+    {
+      "id": "CA-R-2247@12",
+      "label": "general_relation_candidate",
+      "sha256": "e6ac609fc4b816168d4bf28173d7cb9d5859d69c68b41de90e25d712a9a9f470",
+      "body_matches_reviewed_preview": true,
+      "current_predecessor_unchanged": true,
+      "summary_preserved": true
+    },
+    {
+      "id": "CA-R-2814@1",
+      "label": "generic_signature_candidate",
+      "sha256": "019d4162a32d91ea740a7e44632f8798d9000631aa313a6b9e369141c666d552",
+      "body_matches_reviewed_preview": true,
+      "source_draft_pin_matched_before_rebase": true,
+      "summary_preserved": true
+    },
+    {
+      "id": "CA-R-2462@5",
+      "label": "node-value-permissions",
+      "sha256": "d25623eb1b41382fde84676da54fc396a93c89cec1ce0b6607a72cadf2ee9b26",
+      "body_matches_reviewed_preview": true,
+      "current_predecessor_unchanged": true,
+      "summary_preserved": true
+    }
+  ],
+  "cohort_checks": {
+    "target_hashes_match_plan": true,
+    "all_seven_bodies_match_reviewed_previews": true,
+    "frontmatter_ids_versions_and_statuses_match_plan": true,
+    "new_relations_group_generic_signature_under_model_heading": true,
+    "no_Value_Node_or_Operator_Name_reference_in_four_relation_drafts": true,
+    "inverse_permissions_not_added_by_R2462": true,
+    "Current_R2247_and_R2462_sources_unchanged": true
+  },
+  "identity_collision": {
+    "status": "BLOCKER_IF_ATOM_ID_IS_GLOBAL",
+    "finding": "The four selected IDs are unique within this batch, but three collide with existing same-ID, same-version Draft Atoms elsewhere in the repository. R1432 requires each distinct Atom revision to have a unique (Atom ID, Version) pair across all Atoms, including Drafts. Resolve the identity allocation or establish an authoritative Scope Unit-scoped ID rule before claiming uniqueness/adopting.",
+    "collisions": [
+      {
+        "id": "CA-R-2822@1",
+        "existing": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/draft/CA-R-2822@1-draft-WORKBENCH-SCOPE_UNIT_DECLARATION--declare-codex-extension.md",
+        "sha256": "44fc53b0808850a1e5cb7509540a9fd69cd4ab9715c61080282f2439a9ae5222"
+      },
+      {
+        "id": "CA-R-2823@1",
+        "existing": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/04_requirement/draft/CA-R-2823@1-draft-CODEX_EXTENSION-RULE--operate-workbench-workspace-views.md",
+        "sha256": "cd4d93e575b064506d9d794049dec40229b87582350274bcacb5d98dff06939b"
+      },
+      {
+        "id": "CA-R-2824@1",
+        "existing": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/04_requirement/draft/CA-R-2824@1-draft-CODEX_EXTENSION-RULE--record-workbench-query-log.md",
+        "sha256": "8048c7a5a441973ef0818f6dceac3fea4cf9e4ae821d14f869f1c102303e6809"
+      }
+    ],
+    "noncolliding_new_id": "CA-R-2825@1",
+    "resolution_status": "RESOLVED_FOR_THE_FOUR_VALUE_RELATION_DRAFTS_BY_RENUMBERING; ORIGINAL_COLLISION_HISTORY_PRESERVED",
+    "resolution": {
+      "repair_plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/adoption-plan.json",
+      "plan_sha256": "ffc1a9b3f8decc45689ea324d4fdc3b8edc246075887b8fcde31ab2199c59a59",
+      "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/adoption-receipt.json",
+      "receipt_sha256": "b62cfa93d564a3674fcd0b63d8ad0a60becedebb3e782332109369e45a85b8f8",
+      "mapping": [
+        {
+          "old": "CA-R-2822@1",
+          "new": "CA-R-2826@1"
+        },
+        {
+          "old": "CA-R-2823@1",
+          "new": "CA-R-2827@1"
+        },
+        {
+          "old": "CA-R-2824@1",
+          "new": "CA-R-2828@1"
+        },
+        {
+          "old": "CA-R-2825@1",
+          "new": "CA-R-2829@1"
+        }
+      ],
+      "workbench_preexisting_atoms_untouched": true
+    }
+  },
+  "remaining_gates": [
+    "The content and Draft readback pass does not establish Current promotion, parser/runtime activation, or implementation behavior.",
+    "The three duplicate ID/version pairs require resolution before identity uniqueness can be affirmed."
+  ],
+  "adjacent_cfel_id_scan": {
+    "status": "NO_COLLISION_FOUND_IN_REPOSITORY_SCAN",
+    "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-language-rule-drafts-20261105/adoption-plan.json",
+    "plan_sha256": "a917133ffee7a744e0ed203122e49a5aa11f8e763c68621c9811abf9bb6758d3",
+    "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/cfel-language-rule-drafts-20261105/adoption-receipt.json",
+    "receipt_sha256": "bda1136bd581f1782db99e3fae09d7785e022dbfca9fe244073e56acf0385def",
+    "scope": "Exact atom_id scan across repository Markdown for the fresh CFEL allocation block CA-R-2794 through CA-R-2821, separate from the four value-Relation IDs above.",
+    "result": "Each scanned ID occurred once; CA-R-2810 appears only in the recorded withdrawn snapshot. No duplicate ID@version pair found in this CFEL block.",
+    "method": "Read-only rg atom_id scan; no files changed by the audit."
+  },
+  "repaired_readback": {
+    "status": "PASS",
+    "receipt_status": "APPLIED_VERIFIED",
+    "output_count": 4,
+    "operation_count": 12,
+    "new_outputs": [
+      {
+        "new_id": "CA-R-2826",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+        "sha256": "34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f",
+        "matches_plan": true
+      },
+      {
+        "new_id": "CA-R-2827",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2827@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+        "sha256": "3004048941f4bb7949bdcb75097ef0ce59f1dcb4558b09f134b42584b8f6131b",
+        "matches_plan": true
+      },
+      {
+        "new_id": "CA-R-2828",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2828@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+        "sha256": "662f48405701ac625c033482e8fabaed653a9774c0eba6ec74ec38e16f4a4bc7",
+        "matches_plan": true
+      },
+      {
+        "new_id": "CA-R-2829",
+        "version": 1,
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2829@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+        "sha256": "80c2beabf7a5d01e0dfc327e47686ab44dec29235be294e5b6b2f9841c72506a",
+        "matches_plan": true
+      }
+    ],
+    "saved_old_preimages": [
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2822@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md",
+        "sha256": "c75c602953243e2ddec844955f6a4b7fab5e852a4899c5055f356b3e0d941a41",
+        "matches_recorded_preimage": true
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2823@1-draft-CORE_META_MODEL-DECLARATION--declare-is-allowed-value-of.md",
+        "sha256": "a51ea623081a94e05510eb9dd5a9815cbfc26d4c9435aff1ec08a1a8aa1e0947",
+        "matches_recorded_preimage": true
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2824@1-draft-CORE_META_MODEL-DECLARATION--declare-has-value-constraint.md",
+        "sha256": "d3a846c0668e7d6a43d01aeddc91e751059ecdcd94f81b7d5030c4033c02b9e2",
+        "matches_recorded_preimage": true
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/value-relation-identity-repair-20261105/preimages/CA-R-2825@1-draft-CORE_META_MODEL-DECLARATION--declare-is-value-constraint-of.md",
+        "sha256": "3506345d27c0e71b21b2dbc449a772d8c558730d3d7d6cf2ad0cea0813d101fd",
+        "matches_recorded_preimage": true
+      }
+    ],
+    "all_four_new_bodies_and_summaries_match_originals": true,
+    "version_1_preserved": true,
+    "old_core_draft_targets_absent": true,
+    "old_preimage_bytes_preserved": true,
+    "Current_R2247_and_R2462_unchanged": true,
+    "all_32_fresh_ids_globally_unique_after_repair": true,
+    "global_scan": "CA-R-2794..CA-R-2821 each occurred once (CA-R-2810 only in withdrawn snapshot); CA-R-2826..CA-R-2829 each occurred once. Original CA-R-2822..2824 Workbench atoms remain untouched."
+  }
+}

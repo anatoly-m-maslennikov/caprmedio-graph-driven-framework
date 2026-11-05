@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-657.preview.txt
+@@ -35,7 +35,7 @@
+ - Encode Role and Form as `role` and `form`, each exactly one nonempty string from the applicable domain.
+ - Encode identity, Version, Status, Updated At and Tier as `atom_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.
+ - Encode Subjects under `subjects` using the Subjects serialization rule. Encode direct Node-instance Relation facts under `relations`; use each Relation's own representation and do not author inverse facts separately.
+-- Do not encode an Atom Author. Event authorship is governed by the Event Record model.
++- Do not encode an Atom Author.
+ - Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.
+ - Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.
+ 

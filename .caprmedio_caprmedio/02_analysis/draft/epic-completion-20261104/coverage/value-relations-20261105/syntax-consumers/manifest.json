@@ -1,0 +1,166 @@
+{
+  "status": "TEN_PINNED_PREVIEWS_RELATION_DECLARATIONS_SEPARATE",
+  "decision": "HAS_ALLOWED_VALUE uses := with OR across applicable/inherited alternatives. HAS_VALUE_CONSTRAINT uses :: with AND across applicable/inherited constraints. Final admissibility requires the constraint conjunction and any existing allowed-value disjunction; absent allowed-value group imposes no enumeration restriction. Qualified Subjects retain := as functional selector notation.",
+  "candidates": [
+    {
+      "id": "CA-R-2816",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2816@1-draft-CORE_META_MODEL-RULE--define-property-value-selection-with.md",
+      "draft_sha256": "b3a49042cb290eda2d36daa65ccfc384c0b1fa5e0fadc624010cce26e537cbf4",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2816.preview.txt",
+      "candidate_sha256": "91bae9cfb0f9cde6616be1d0b989c0e622bd9e21ed697b7a8e368edcb31dee9d",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2816.diff",
+      "diff_sha256": "f3db59b39997f2bb80e44140d70f3a07c64396319d21c5b56dcba3e5d993985b",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Preserves := qualified selection; evaluates optional HAV disjunction and HVC conjunction with inherited restrictions, no spurious mandatory HAV group."
+      ]
+    },
+    {
+      "id": "CA-R-2778",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-RULE--declare-cfel-universal-quantification.md",
+      "draft_sha256": "1abfc0eb1d70fc1ad0c11adce77be4be569ae439adbf56064302b764dd37ef98",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2778.preview.txt",
+      "candidate_sha256": "703e70000186abd7647660b2cbc11ed425d1cfa621023679118b838ea80676db",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2778.diff",
+      "diff_sha256": "da898059bbb976e57a053f569aa193aff69dec1d727bc05b7e18e3798f3d7cc1",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Distinguishes header colon from both value Relations."
+      ]
+    },
+    {
+      "id": "CA-R-2487",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@15-draft-CORE_META_MODEL-DECLARATION--define-cfel.md",
+      "draft_sha256": "b660b18b75da107c738021ff500847379fe3a77d64f1ce9ccbb5f26a8535ef5c",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2487.preview.txt",
+      "candidate_sha256": "b385890db2b50cc55e03b461b0bae452d170d8b07691d35cc630fef0059ff34f",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2487.diff",
+      "diff_sha256": "ef40757d3fbd9385a6949688110833e3ff690c6fdbe35074ee793b37147bee65",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Preserves := Subject selection and records inherited HAV OR / HVC AND with the absent-HAV case and settled grouping examples; literal values remain values, not Nodes."
+      ]
+    },
+    {
+      "id": "CA-R-1245",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1245@29-draft-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md",
+      "draft_sha256": "e08e9c047ff400a2b44dd088165e09163fa2c2c4dc0f4e1e2b76eed7639c7952",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1245.preview.txt",
+      "candidate_sha256": "387a9a52eae788cade49ba1bad4f3bb75f8a14cb73e8695235388d689ca1f4e8",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1245.diff",
+      "diff_sha256": "5828d37580cec62b4d61f2260bbd495f41e09aeb676f46da1594a05dab55bca7",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "SUPERSEDED_NO_NEW_ID_NO_SUCCESSOR",
+      "notes": [
+        "Standalone candidate excluded from native creation: HAS_ALLOWED_VALUE Relation Declaration covers qualified model Subjects and instances, and R2816 covers qualified Property selection. Current R1245 remains until coordinated reference replacement; no Current retirement occurs here."
+      ]
+    },
+    {
+      "id": "CA-M-228",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-228@38-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.md",
+      "draft_sha256": "caf9a1ced2eeabbd977170be932fc878f1f7789515455dd248a359c1d3cd5afe",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-M-228.preview.txt",
+      "candidate_sha256": "ae494b059d75fac0f2e47ccac8c767b58493f13e42e6f93e161ffa34cfcbd110",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-M-228.diff",
+      "diff_sha256": "b9bd8a34ca869644530bdddb4770c9fe4404b1b73f8daa62b0ef846f48c6de4c",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Obsolete prohibition on FOR removed because FOR EACH is approved; other binding and authoring guidance retained."
+      ]
+    },
+    {
+      "id": "CA-M-237",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-237@34-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md",
+      "draft_sha256": "74d186ee46c607ccac68f594647c68233e040fc33f3b8a22172a5f5045736467",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-M-237.preview.txt",
+      "candidate_sha256": "368fd35442537346b9cf0b39f95b2d3a8be3613d64e27939e5dbc7353daba363",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-M-237.diff",
+      "diff_sha256": "62088b621d1a81cd0ebe2589dab80e41c84bc1e32dc86dd33a62de58568d003f",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Preserves set grouping and uniqueness while recording the actual Relation; does not infer a new glyph."
+      ]
+    },
+    {
+      "id": "CA-E-383",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-383@47-draft-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "draft_sha256": "185bea65e8ccd7417b280c9d0691f3534bc276c4a719dd4d5129c8385dea320e",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-E-383.preview.txt",
+      "candidate_sha256": "99b7a71dd7e5ceb4695b383ace67da4374805a3bc44d0c82f5089f8c258d53f3",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-E-383.diff",
+      "diff_sha256": "8f47478b8f66c5a42574e2f72d913979f3ca5585a7a5839393ad7c8bbb1b1944",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Exact value-admission evaluation examples changed; unrelated syntax/evaluation rules held for separate review."
+      ]
+    },
+    {
+      "id": "CA-E-449",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-449@46-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.md",
+      "draft_sha256": "d4bfb929b500fbf48813517491d9843c50b1d3e2eb7ded420ee74960aa87f228",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-E-449.preview.txt",
+      "candidate_sha256": "c425190b84f67df7b5083b71bd56a784f5dabe46f82019c67e58be6fc3b881e6",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-E-449.diff",
+      "diff_sha256": "40a0bf020412550012d8d0469f098c0674c61231d67b13221afa734c396e0fa1",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Preserves view form while allowing Relation provenance."
+      ]
+    },
+    {
+      "id": "CA-R-1456",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1456@40-draft-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md",
+      "draft_sha256": "a7fe768ba609484f658d920231fec8193d0f97679a0dc4205bb45f12a6157731",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1456.preview.txt",
+      "candidate_sha256": "0f62ac864b38e48e9ac62167e6f0479de9542afc70384bcc28c4268d627a5986",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1456.diff",
+      "diff_sha256": "1841620eddf587d64a28da20e5a3b5dc304f84ec788b0126fbb705fbd8977654",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Preserves annotation view, literal non-Node distinction and actual Relation provenance. Other old path syntax remains held."
+      ]
+    },
+    {
+      "id": "CA-R-1346",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1346@29-draft-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "draft_sha256": "1cb93f7a02c150bb7f50898bfc1c36c4005436dc35d49fee38d81c36f70a7678",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1346.preview.txt",
+      "candidate_sha256": "723fd16184d0539453e814f9df3d90f13ee6e8b944e7a2ad2d3f2a0459417128",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1346.diff",
+      "diff_sha256": "828b844d65d2922970257346f59c9ec36b11020bc0a23ec2abd74afa83c452cc",
+      "draft_header_preserved": true,
+      "fresh_id_required_due_summary_change": false,
+      "status": "REVIEW_ONLY_ATOMIC_VALUE_RELATION_GATED",
+      "notes": [
+        "Replaces allowed-value entity-name wording with literal value contexts, retaining Term references, Summary, distinct entity naming and no transfer between contexts."
+      ]
+    }
+  ],
+  "no_change_or_held": [],
+  "atomic_gates": [
+    "Root-owned HAS_ALLOWED_VALUE and HAS_VALUE_CONSTRAINT direct Relation declarations/alias rules must be reviewed and applied with the syntax consumers; this packet does not duplicate them.",
+    "R2487 graph Relation endpoint statement must be reconciled with the new value Relation declarations; literals remain values, never invented data Nodes.",
+    "R2810 allowed :: Rule has been withdrawn and preserved by separate receipt; do not recreate it.",
+    "`{::n}` cardinality bounds, `=` tests, `==` conclusions, YAML and quoted literals unchanged.",
+    "Do not create a standalone R1245 successor; preserve Current until coordinated HAS_ALLOWED_VALUE / R2816 adoption and reference reconciliation."
+  ],
+  "boundary": "Proposal-only, exact native Drafts re-read and pinned; no Current, Draft, implementation, tests, Git, Workbench or Workflow edits.",
+  "r1245_disposition": "SUPERSEDED_NO_NEW_ID_NO_SUCCESSOR: new HAS_ALLOWED_VALUE Relation Declaration preserves qualified model Subject and instance coverage, while R2816 preserves qualified Property selection. Withdraw unpromoted CFEL Draft and retain Current until coordinated source/reference replacement."
+}

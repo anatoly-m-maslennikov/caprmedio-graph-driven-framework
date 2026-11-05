@@ -1,0 +1,91 @@
+{
+  "status": "PASS_BOUNDED_REVIEW",
+  "scope": "Independent review of four value-Relation declarations, R2247 general Relation prose, and R2814 generic Relation Declaration endpoint rule. No native Current/Draft, code, tests, Workflow, Workbench, or Git changes.",
+  "manifest": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/manifest.json",
+    "sha256": "90706aa09e7d9fdd84ba9267b97037429847bf51352fde59cfab2caec0eca63b",
+    "all_manifest_candidate_source_preview_diff_pins_match": true
+  },
+  "relation_candidates": [
+    {
+      "name": "HAS_ALLOWED_VALUE",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/HAS_ALLOWED_VALUE.preview.txt",
+      "sha256": "1462678053fe6a802c9a9d0276c2e60eaba494536fcac332f19af57805d98308",
+      "disposition": "PASS_FOR_DRAFT_PREPARATION",
+      "checks": [
+        "Direct Relation and inverse are explicitly paired; HAS_ALLOWED_VALUE is Direct and IS_ALLOWED_VALUE_OF is Derived.",
+        "Host is an admitted qualified model Subject or instance; target is literal value data, with no Value Node introduced.",
+        "The := alias and OR combination, including inherited expressions, match the settled rule; absence of this group imposes no enumeration restriction.",
+        "The qualified-Subject filter using := remains intact."
+      ]
+    },
+    {
+      "name": "IS_ALLOWED_VALUE_OF",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/IS_ALLOWED_VALUE_OF.preview.txt",
+      "sha256": "dc1215f359bc4ca93ecff0f0711139f2d041cefd8b73bb7ff7ec0547ae46441f",
+      "disposition": "PASS_FOR_DRAFT_PREPARATION",
+      "checks": [
+        "Derived inverse is explicit and reverses the value/Subject endpoints without adding an automatic inverse-permission rule."
+      ]
+    },
+    {
+      "name": "HAS_VALUE_CONSTRAINT",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/HAS_VALUE_CONSTRAINT.preview.txt",
+      "sha256": "d20a541b77a02e9c5927c0f63641b6bb6f64390231787c91207fef7b916cbc12",
+      "disposition": "PASS_FOR_DRAFT_PREPARATION",
+      "checks": [
+        "Direct Relation and inverse are explicitly paired; HAS_VALUE_CONSTRAINT is Direct and IS_VALUE_CONSTRAINT_OF is Derived.",
+        "Host is an admitted qualified model Subject or instance; target is constraint data, not a model Node.",
+        "The :: alias, AND combination, and conjunction with the optional HAS_ALLOWED_VALUE OR group match the settled rule.",
+        "The example combines Format and cardinality constraints without changing cardinality meaning."
+      ]
+    },
+    {
+      "name": "IS_VALUE_CONSTRAINT_OF",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/IS_VALUE_CONSTRAINT_OF.preview.txt",
+      "sha256": "aaead6c8b5a348a4c5bad01e1f4e5ab5d7b0b9666bde04d0b8c40f4889c9aec2",
+      "disposition": "PASS_FOR_DRAFT_PREPARATION",
+      "checks": [
+        "Derived inverse is explicit and reverses constraint-data/Subject endpoints without adding an automatic inverse-permission rule."
+      ]
+    }
+  ],
+  "general_relation_candidate": {
+    "id": "CA-R-2247@11",
+    "source_sha256": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22",
+    "preview_sha256": "cb40dc11cfc8c3b3e1538131e13cccffd0f6fe29a379a40179c6796e178422ea",
+    "diff_sha256": "d27074e59595f512d889873b4d148eb79876eab87449b90757fb5b6b2d03d7d8",
+    "disposition": "PASS_FOR_DRAFT_REBASE",
+    "finding": "The narrow endpoint exception covers literal/constraint data only for the two direct value Relations and their derived inverses. CFEL glyphs and syntax are not endpoints. Existing one-directional fact-storage language is preserved."
+  },
+  "generic_signature_candidate": {
+    "id": "CA-R-2814@1-draft",
+    "source_sha256": "2acc5ac7b1a5e0edf50832db267163a72970ea151eeb5ae93695dabb1aff7fc0",
+    "preview_sha256": "ecf7b2f9fcdc6473b4bdc327a8b7d89f78d70eeffdd72a8131b768001192224a",
+    "diff_sha256": "15124d74c04e3a33810bc821d6118e821e6ad88c1eb779c2b1268bf77ef98430",
+    "disposition": "PASS_FOR_DRAFT_REBASE",
+    "finding": "The generic $host/$target signature remains limited to Relation Declaration Formal Claims and to endpoint domains admitted by each Relation Declaration; the exception names only the value Relation pair and inverses. It does not widen untyped variables in other CFEL contexts."
+  },
+  "unchanged_control": {
+    "id": "CA-R-2618@4-draft",
+    "sha256": "7b8b45a939152fa07f0d2b51d731643dd756f784bed03484be8001d0fc7d00d4",
+    "disposition": "PASS_UNCHANGED",
+    "finding": "HAS_ACTIVE_SUBJECT continues to exclude literal values and glyphs; the new value endpoint exception does not widen it."
+  },
+  "separate_gates": [
+    "This review does not establish outgoing endpoint permissions or override inherited zero-default permissions; those remain a separate source gate.",
+    "CFEL parser/runtime support and coordinated syntax/source adoption remain separate gates. The preview review does not claim either is active."
+  ],
+  "reviewer_note": "No semantic conflict found in the six reviewed candidates under the stated decisions.",
+  "grouping_recheck": {
+    "status": "PASS",
+    "checked_after_manifest_refresh": true,
+    "candidate_hashes": {
+      "HAS_ALLOWED_VALUE": "1462678053fe6a802c9a9d0276c2e60eaba494536fcac332f19af57805d98308",
+      "IS_ALLOWED_VALUE_OF": "dc1215f359bc4ca93ecff0f0711139f2d041cefd8b73bb7ff7ec0547ae46441f",
+      "HAS_VALUE_CONSTRAINT": "d20a541b77a02e9c5927c0f63641b6bb6f64390231787c91207fef7b916cbc12",
+      "IS_VALUE_CONSTRAINT_OF": "aaead6c8b5a348a4c5bad01e1f4e5ab5d7b0b9666bde04d0b8c40f4889c9aec2"
+    },
+    "finding": "All four generic $host/$target signatures are within # model, with no # instances heading; this matches R2814 generic-signature scope. No relation domain or meaning changed in this grouping recheck."
+  }
+}

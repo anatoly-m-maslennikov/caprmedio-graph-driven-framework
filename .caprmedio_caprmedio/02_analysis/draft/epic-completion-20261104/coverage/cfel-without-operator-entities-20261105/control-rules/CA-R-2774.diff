@@ -1,0 +1,46 @@
+--- CA-R-2774-CORE_META_MODEL-DECLARATION--declare-cfel-operator-or.md
++++ CA-R-2774.rule.preview.md
+@@ -1,34 +1,23 @@
+ ---
+-atom_id: CA-R-2774
+-status: Active
++atom_id: ROOT_ALLOCATES_NEW_ID_FOR_CA_R_2774
++status: Draft
+ subjects:
+-  active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Disjunction
+-version: 2
++  active: CAPRMEDIO_MODEL <+ CFEL
++version: 1
++updated_at: 2026-11-05 13:19:19 +0400
+ relations:
+   IS_CONTAINED_BY:
+     scope_unit: CA-SU-11
+ tier: 3
+ role: Requirement
+-form: Declaration
+-updated_at: 2026-11-04 20:33:17 +0400
+-carrier_destination:
+-  file:
+-    name: CA-R-2774-CORE_META_MODEL-DECLARATION--declare-cfel-operator-or.md
+-    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
++form: Rule
+ ---
+ ## Summary
+ 
+-Declare CFEL operator OR
++Define Boolean disjunction with `OR`
+ 
+ ## Claim
+ 
+-### Formal Claim
++### Prose Claim
+ 
+-```CFEL
+-# model
+-Operator//Disjunction == "OR"
+-```
+-
+-## Semantics
+-
+-At least one Boolean operand must be true. Parenthesize mixed AND/OR expressions to make grouping explicit.
++`A OR B` is true when at least one Boolean operand is true. Parenthesize mixed AND/OR expressions to make grouping explicit.

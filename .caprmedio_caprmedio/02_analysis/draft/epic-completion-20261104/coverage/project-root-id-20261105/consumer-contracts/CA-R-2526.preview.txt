@@ -1,0 +1,32 @@
+---
+atom_id: CA-R-2526
+status: Active
+subjects:
+  active: CAPRMEDIO_MODEL <+ Scope Unit.ID
+version: 4
+updated_at: 2026-11-04 05:21:15 +0400
+relations: {}
+tier: 3
+role: Requirement
+form: Declaration
+---
+## Summary
+
+Declare Scope Unit ID
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Scope Unit.ID: [string]{:1};
+
+Scope Unit.ID.*[]{:0};
+
+
+```
+
+## Semantics
+
+A Scope Unit keeps its ID. For a non-root Scope Unit, the ID distinguishes moves and renames from removal.

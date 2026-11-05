@@ -1,0 +1,219 @@
+{
+  "status": "DRAFT_REBASE_READY_CURRENT_RETIREMENTS_COORDINATED",
+  "candidate": {
+    "id": "CA-R-2557@5-draft",
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+    "source_sha256": "2f3347ee081765f3c4801dc8ad24fdba2ef393e1c3793e08d12c90f212dbb8ad",
+    "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/occurrent/CA-R-2557.preview.txt",
+    "preview_sha256": "87be70e2f5dbf4281022efee82852cc164236479fa4fd5c2c5a405bab8900b54",
+    "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/occurrent/CA-R-2557.diff",
+    "diff_sha256": "343c5a779debe197edbd3b81f2133ab5f9ad4f5f21f9f0c81d340f3f6fed4f9c",
+    "change": "Remove only HAS_EVENT_AUTHOR outgoing requirement; preserve one RECORDS Event, containment, immutability and all other Claim content."
+  },
+  "current_sources": [
+    {
+      "id": "CA-R-2557",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2557-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "0357e59cb3366ebbb2e13d0ef139d29e8fd24a449729014686c438555e535dcb"
+    },
+    {
+      "id": "CA-R-2581",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2581-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md",
+      "sha256": "81b63ab16c5cdf89ff246590b2c1755b49594f2aa22728976fdaadbbea925850"
+    },
+    {
+      "id": "CA-R-2582",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2582-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+      "sha256": "ea46fd6885fc0b8c07bb6e35e9c26ee6350b01459e914f5aa36b2892f6f5bfde"
+    },
+    {
+      "id": "CA-R-2583",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md",
+      "sha256": "afbd2d65a6d8942764b91094b800fae52c2edff98e8e7cdee2950e212a81347c"
+    },
+    {
+      "id": "CA-R-2622",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+      "sha256": "ccad12aa39c516e384ebd4ae9ee64eb7d4fe772548a0efa42609164774503eea"
+    },
+    {
+      "id": "CA-R-2568",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2568-CORE_META_MODEL-DECLARATION--declare-event-record-happened-at.md",
+      "sha256": "f8ad86f2bdd3ea30324e7e5530ae96801fc23c6be029328bd7d7ab4004777187"
+    },
+    {
+      "id": "CA-R-2569",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2569-CORE_META_MODEL-DECLARATION--declare-event-record-inserted-at.md",
+      "sha256": "af8281055152d393a51ee16f5d7363178f6ab62db174ebec789ae711340e499b"
+    },
+    {
+      "id": "CA-R-2572",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2572-CORE_META_MODEL-DECLARATION--declare-event-record-object-input.md",
+      "sha256": "ad9921c0f42b37f2f05f83ef1c527fe24700126beb24dced84a623f0d0885cc8"
+    },
+    {
+      "id": "CA-R-2573",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2573-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-id.md",
+      "sha256": "0b4491882b6b01f439ed1e2e672d1d536a4a30c3ab1d25f857ef790a3d60ded9"
+    },
+    {
+      "id": "CA-R-2574",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2574-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-version.md",
+      "sha256": "f2fa27e7ba696155c96618cc6cb2248b5d2236f38bc163d942774d0b5f4dbb03"
+    },
+    {
+      "id": "CA-R-2575",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2575-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-updated-at.md",
+      "sha256": "1e4a47ef864cb70821a42f31a93657562fa65008e8db69cb897154885d16d655"
+    },
+    {
+      "id": "CA-R-2576",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2576-CORE_META_MODEL-DECLARATION--declare-event-record-object-output.md",
+      "sha256": "445f54d51975e15e8ac63a2b2e994c6200ab7d64ae67205aca90948673ad78e9"
+    },
+    {
+      "id": "CA-R-2577",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2577-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-id.md",
+      "sha256": "a3d2cdd7eef9c276ead2eef02fc7696616e58683b73131f23d5dac33df5f2d7a"
+    },
+    {
+      "id": "CA-R-2578",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2578-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-version.md",
+      "sha256": "def460aa385a6a12596831495da3b5da15fcc8cb2562ccd0ba218ae7eb3c2c22"
+    },
+    {
+      "id": "CA-R-2579",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2579-CORE_META_MODEL-DECLARATION--declare-event-record-object-output-updated-at.md",
+      "sha256": "e05284ecb6dffa3062e24e67833b2676dfa9452e5d9c07239498b3e58863cef2"
+    },
+    {
+      "id": "CA-R-2580",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2580-CORE_META_MODEL-DECLARATION--declare-event-record-action.md",
+      "sha256": "d9cd2f18956cbe62ea822bc164982e04c4cefb5457f602d7c00f1b83c5407203"
+    }
+  ],
+  "proposed_retirements": [
+    "CA-R-2582@2 Event Record author Property",
+    "CA-R-2583@5 HAS_EVENT_AUTHOR direct Relation",
+    "CA-R-2622@2 IS_EVENT_AUTHOR_OF derived Relation"
+  ],
+  "exact_native_reference_scan": {
+    "scope": "Native methodology sources under CA-SU-9, excluding archive/archived, Draft, plans and Operations; exact author relation names/IDs and Event authorship wording. Not an actual Journal record or external owner scan.",
+    "matches": [
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+        "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+        "matches": [
+          {
+            "line": 38,
+            "text": "- Do not encode an Atom Author. Event authorship is governed by the Event Record model."
+          }
+        ]
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md",
+        "sha256": "afbd2d65a6d8942764b91094b800fae52c2edff98e8e7cdee2950e212a81347c",
+        "matches": [
+          {
+            "line": 2,
+            "text": "atom_id: CA-R-2583"
+          },
+          {
+            "line": 7,
+            "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_EVENT_AUTHOR"
+          },
+          {
+            "line": 16,
+            "text": "name: CA-R-2583-CORE_META_MODEL-DECLARATION--define-has-event-author.md"
+          },
+          {
+            "line": 21,
+            "text": "Define HAS_EVENT_AUTHOR"
+          },
+          {
+            "line": 29,
+            "text": "Relation//HAS_EVENT_AUTHOR ((HAS_INVERSE)) Relation//IS_EVENT_AUTHOR_OF;"
+          },
+          {
+            "line": 31,
+            "text": "Relation//HAS_EVENT_AUTHOR ((HAS_CLASSIFICATION)) Derivation == Direct;"
+          },
+          {
+            "line": 34,
+            "text": "Event Record//$event_record ((HAS_EVENT_AUTHOR)) Actor//$actor;"
+          },
+          {
+            "line": 39,
+            "text": "HAS_EVENT_AUTHOR identifies the Actor who performed the recorded event."
+          },
+          {
+            "line": 41,
+            "text": "Forward `Host ((HAS_EVENT_AUTHOR)) Target` and reverse `Target <((HAS_EVENT_AUTHOR)) Host` are views of the same Relation fact."
+          },
+          {
+            "line": 42,
+            "text": "HAS_EVENT_AUTHOR relates Event Record instance to Actor instance."
+          }
+        ]
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2582-CORE_META_MODEL-DECLARATION--declare-event-record-event-author.md",
+        "sha256": "ea46fd6885fc0b8c07bb6e35e9c26ee6350b01459e914f5aa36b2892f6f5bfde",
+        "matches": [
+          {
+            "line": 2,
+            "text": "atom_id: CA-R-2582"
+          },
+          {
+            "line": 7,
+            "text": "active: CAPRMEDIO_MODEL <+ Event Record.Relations.HAS_EVENT_AUTHOR"
+          },
+          {
+            "line": 17,
+            "text": "Declare Event Record.Relations.HAS_EVENT_AUTHOR"
+          },
+          {
+            "line": 25,
+            "text": "Event Record.Relations.HAS_EVENT_AUTHOR.*[]{:0};"
+          },
+          {
+            "line": 28,
+            "text": "Event Record.Relations.HAS_EVENT_AUTHOR{:1}: [Actor//$actor]{:1};"
+          }
+        ]
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md",
+        "sha256": "ccad12aa39c516e384ebd4ae9ee64eb7d4fe772548a0efa42609164774503eea",
+        "matches": [
+          {
+            "line": 2,
+            "text": "atom_id: CA-R-2622"
+          },
+          {
+            "line": 11,
+            "text": "active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EVENT_AUTHOR_OF"
+          },
+          {
+            "line": 15,
+            "text": "name: CA-R-2622-CORE_META_MODEL-DECLARATION--declare-is-event-author-of.md"
+          },
+          {
+            "line": 20,
+            "text": "Declare IS_EVENT_AUTHOR_OF"
+          },
+          {
+            "line": 28,
+            "text": "Relation//IS_EVENT_AUTHOR_OF <((HAS_INVERSE)) Relation//HAS_EVENT_AUTHOR"
+          }
+        ]
+      }
+    ]
+  },
+  "coordination": [
+    "CA-D-657 says Event authorship is governed by Event Record model; its source owner must revise that statement before the author declarations retire.",
+    "Reconcile all selected-source references, direct/derived Relation projections, affected event/Journal schema consumers and separately owned Workflow/Workbench implementations before coordinated adoption.",
+    "Keep Actor, Operator and AI Agent model declarations. Preserve existing Event Record time, action, input/output and identity sources; do not erase historical record attribution or metadata.",
+    "Native Drafts and current source remain unchanged; no runtime, Journal, code or tests touched."
+  ]
+}

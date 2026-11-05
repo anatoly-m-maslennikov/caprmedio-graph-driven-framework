@@ -1,0 +1,5 @@
+--- a/consumers/previews/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.preview.md
++++ b/consumers/previews/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.preview.md
+@@ final2 narrow-filter repair @@
+-  expression in a Formal Claim: `X/(.p := V)` combines an admitted Property
++  expression in a Formal Claim: `X//(.p := V)` combines an admitted Property

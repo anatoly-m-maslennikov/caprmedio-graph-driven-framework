@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2814@1-draft-CORE_META_MODEL-RULE--define-generic-relation-declaration-endpoint-signature.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/CA-R-2814.preview.txt
+@@ -24,4 +24,4 @@
+ 
+ ### Prose Claim
+ 
+-Within a Relation Declaration Formal Claim only, `$host ((RELATION)) $target` is the reusable generic endpoint signature. `$host` and `$target` range over declared model entities or instances, including Carrier and CFEL, and exclude literals. This signature creates neither a Relation fact nor instance data. Known endpoint kinds remain typed selectors; the generic signature does not extend untyped variables to any other CFEL context.
++Within a Relation Declaration Formal Claim only, `$host ((RELATION)) $target` is the reusable generic endpoint signature. `$host` and `$target` range over the endpoint domains explicitly admitted by the Relation Declaration. Those domains are declared model entities or instances, including Carrier and CFEL, except for the literal values and constraint data explicitly admitted as endpoints of HAS_ALLOWED_VALUE, HAS_VALUE_CONSTRAINT and their declared derived inverses. CFEL glyphs are not endpoints. This signature creates neither a Relation fact nor instance data. Known endpoint kinds remain typed selectors; the generic signature does not extend untyped variables to any other CFEL context.

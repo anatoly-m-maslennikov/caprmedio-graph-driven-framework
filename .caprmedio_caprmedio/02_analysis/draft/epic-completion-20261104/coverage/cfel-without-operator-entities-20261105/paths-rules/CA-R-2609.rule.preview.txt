@@ -1,0 +1,23 @@
+---
+atom_id: UNALLOCATED_SUCCESSOR
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL
+version: UNALLOCATED_VERSION
+updated_at: 2026-11-03 20:00:05 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+tier: 3
+role: Requirement
+form: Rule
+---
+## Summary
+
+Write named Relation directions
+
+## Claim
+
+### Prose Claim
+
+`Source ((RELATION)) Target` is forward and `Target <((RELATION)) Source` is reverse writing of the same canonical Relation fact. Counts stay on written endpoints; reverse normalization swaps canonical Host/Target and count slots. Match the declared Relation name exactly. The writing grants no inverse permission and creates no second stored fact.

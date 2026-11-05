@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-RULE--declare-cfel-universal-quantification.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2778.preview.txt
+@@ -24,7 +24,7 @@
+ 
+ ### Prose Claim
+ 
+-A `FOR EACH` construct has a typed, optionally filtered participant selector of the form `$name[<Kind>, (conditions)]`, followed by `:` and a parenthesized body. The paired `<Kind>` denotes the selected Model kind. It states that every selected instance satisfying the selector conditions satisfies each complete body expression. The header colon is a block delimiter, not the allowed-value operator `::`.
++A `FOR EACH` construct has a typed, optionally filtered participant selector of the form `$name[<Kind>, (conditions)]`, followed by `:` and a parenthesized body. The paired `<Kind>` denotes the selected Model kind. It states that every selected instance satisfying the selector conditions satisfies each complete body expression. The header colon is a block delimiter, not the `:=` allowed-value or `::` value-constraint notation.
+ 
+ The Claim explicitly declares its participant and scope; its active Subject identifies the governed focus and does not implicitly bind a participant. The participant is a logical binding available in its selector conditions and matching body. Each reference to that participant denotes the same selected instance. A new binding must use a name different from an already bound outer variable. The participant introduced by the `FOR EACH` construct is not in scope after its matching body. Existing IF binding rules remain applicable.
+ 

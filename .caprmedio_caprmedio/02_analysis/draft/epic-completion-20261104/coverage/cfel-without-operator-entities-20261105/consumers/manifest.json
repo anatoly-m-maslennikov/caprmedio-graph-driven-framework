@@ -1,0 +1,70 @@
+{
+  "schema": "cfel-without-operator-entities-consumers/1",
+  "scope": "15 inventory current dependencies; analysis previews only; no Current, native Draft, Actor/Operator, runtime, fixture, test, workflow, Workbench, or Git mutation.",
+  "decision": "CFEL syntax meanings are governed by CFEL Rules, not by modeled CFEL Operator descriptors. This does not alter the Actor/Operator kind or AI Agent model.",
+  "review_repair": {
+    "review_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/cfel-rules-paths-consumers-preview-review-20261105.json",
+    "review_sha256": "3633cc33b0392c81485e3907dc7b0fdba3432d2239df9f98673ebdb8f050afcb",
+    "result": "All six concrete consumer fixes are applied: allowed-value glyph, literal endpoint exclusion, typed participants/named Relation selectors, model narrowing Actor/Operator, immediate containment, and bound-Relation aliases."
+  },
+  "final2_repair": {
+    "scope": "Only CA-E-383 and CA-R-2487 operative-claim corrections after the model-relation-contract review; CA-R-2552's sole actual CFEL fence already uses the standard # instances heading.",
+    "preview_pins": {
+      "CA-E-383": "0a9a0468581269694befa94d964f9eef7603c9a2727b9e40f5b9f4158d5b6c8c",
+      "CA-R-2487": "a5568f7287fd48b5df59c65b71e9c9b28710b69d96da1fdf0c2a8192aee1a243"
+    },
+    "diffs": {
+      "CA-E-383": {"path":"diffs/CA-E-383.final2.diff","sha256":"de3373bd7216e730f3233e377d726ec3d5878a6bf54e257f442d90f86be691d5"},
+      "CA-R-2487": {"path":"diffs/CA-R-2487.final2.diff","sha256":"24ff0da21345e412f1bc0101b5f112748fc2008fc66a1b2def4b2c236946a586"}
+    },
+    "result": "E383 now uses slash containment and double-colon constraint bounds without inferring one parent from unqualified containment; R2487 uses X//(.p := V), preserving :=."
+  },
+  "residual2_repair": {
+    "scope": "Only the final R2487 prose heading normalization and E383 retired Sub-step example replacement.",
+    "preview_pins": {
+      "CA-E-383": "ed56695558edf9bfc12a985cbff1ccaec8511d12669ec5e05101479420f9805f",
+      "CA-R-2487": "fb9712886b1012e55f861b7c83ff7257e1286c9d9291469b46ec9023a5c16e7e"
+    },
+    "diffs": {
+      "CA-E-383": {"path":"diffs/CA-E-383.final3.diff","sha256":"0ccc00c47ccf3222f25194d5d0d0ce1349e4f85fb82d45246c9f29f678d2e162"},
+      "CA-R-2487": {"path":"diffs/CA-R-2487.final3.diff","sha256":"209f3993e32b5a1b3e669b1641366fc4fc31e701ed39665c9c60780c6a37727e"}
+    },
+    "result": "All R2487 prose and fenced headings use # model/# instances. E383 removes Sub-step and uses the valid typed Journal CONTAINS zero/positive examples without adding a new model kind."
+  },
+  "source_dispositions": [
+    {"id":"CA-E-383","source":"Current@46","source_sha256":"8503b8391a73bfae63174a5c414f5be4b1d23fac8403951be0cbb4272817c78c","baseline":"Current","status":"READY","change":"replace the passive AllowedValue Operator Subject and descriptor-address claims; use typed selectors and preserve Actor//Operator as model narrowing."},
+    {"id":"CA-E-402","source":"Current@33","source_sha256":"3017762d12c5a0f8de451508e86851afa02d1cb06b9e96c53b0d007335cfaf45","baseline":"Current","status":"READY","change":"replace only the passive AllowedValue Operator Subject."},
+    {"id":"CA-E-403","source":"Current@36","source_sha256":"181df626b42d6f10606017d2f6146953de4bdb51b63638473a7eca81199f5b28","baseline":"Current","status":"READY","change":"replace only the passive AllowedValue Operator Subject."},
+    {"id":"CA-E-449","source":"Current@44","source_sha256":"caca33e72e9b323d2570792e5cff4b1f1e8cb77adceb2fda24c0cbb4473cb6e5","baseline":"native Draft@45","baseline_sha256":"dafb8f4c459becad2348dc51f17e2d2334c8ae90f12723021fd6acd720831b5c","status":"READY","change":"rebase the latest same-ID native Draft; replace only its passive AllowedValue Operator Subject."},
+    {"id":"CA-M-228","source":"Current@37","source_sha256":"81388ad9d846bac3e326c4c737b634d16b1cfde6b7603153042478e019a29401","baseline":"Current","status":"READY","change":"replace descriptor and legacy instance/address claims with typed participants, named Relation selectors and bound Relation aliases; retain Relation and Property claims."},
+    {"id":"CA-M-237","source":"Current@33","source_sha256":"5e82230031bb8c0a08fae9cb63dde23b4889f00d37c61e0e78c6d61b2002202a","baseline":"Current","status":"READY","change":"replace only the passive AllowedValue Operator Subject."},
+    {"id":"CA-R-1245","source":"Current@28","source_sha256":"0dbf7796de969c987d6fa8380af15191629f19b005875b4cfdc88975ffcee674","baseline":"Current","status":"READY","change":"replace the passive AllowedValue Operator Subject; use X::Y for CFEL allowed values and classify qualification as CFEL syntax, not a graph Relation."},
+    {"id":"CA-R-1358","source":"Current@35","source_sha256":"fb90a002ecb1f78b3ce59c02e46f9e91007bb44263fc110f4e73efcc230ed317","baseline":"Current","status":"READY","change":"replace only the passive AllowedValue Operator Subject."},
+    {"id":"CA-R-1359","source":"Current@30","source_sha256":"2e48c8574f14663dacf2668ec6259e9b418587750779dbc39ef9a1ad8e534ea8","baseline":"Current","status":"READY","change":"replace only the passive AllowedValue Operator Subject."},
+    {"id":"CA-R-1405","source":"Current@29","source_sha256":"3cf75410940a71d7357a8c701a2d182f9aa503665bddff7034902415cd48a5c5","baseline":"Current","status":"READY","change":"replace only the passive AllowedValue Operator Subject."},
+    {"id":"CA-R-1456","source":"Current@39","source_sha256":"3d803bf5beae93141a965c02a859affdd334b3f69bdca71a7c92b82515651c4b","baseline":"Current","status":"READY","change":"replace only the passive AllowedValue Operator Subject."},
+    {"id":"CA-R-2487","source":"Current@13","source_sha256":"d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045","baseline":"native Draft@14","baseline_sha256":"bcf9f4f21dc789909587a4fd008a727d1b612f51d2266086dc2a9a5c9e77ae17","status":"READY","change":"rebase the latest same-ID native Draft; use typed participants/named Relation selectors, Whole/Part containment and alias($boundRelation), then remove descriptor/entity endpoint and metadata claims."},
+    {"id":"CA-R-2552","source":"Current@4","source_sha256":"202ab2c725dd5698a671a3e6a02b5229be01417f70255e5c795ec3734822e8be","baseline":"Current","status":"READY","change":"replace the named Operator descriptor address and legacy instance/address forms with typed participants and named Relation selectors."},
+    {"id":"CA-R-2618","source":"Current@3","source_sha256":"3dbe86364921d2cf506ab40a264a4499484f21f629d88627854e37b1f9bdf4c0","baseline":"Current","status":"READY","change":"remove CFEL descriptor endpoints; retain Carrier and Relation endpoints and forbid all literal values and CFEL syntax glyphs as endpoints."},
+    {"id":"CA-R-2768","source":"Current@2","source_sha256":"f2fa2c56c05167ce4ab6be038fe223657f01189e2fcf4d8791a5c08ce4556626","baseline":"Current","status":"READY","change":"replace the Lookup descriptor Declaration reference with its CFEL Rule."}
+  ],
+  "ready": ["CA-E-383","CA-E-402","CA-E-403","CA-E-449","CA-M-228","CA-M-237","CA-R-1245","CA-R-1358","CA-R-1359","CA-R-1405","CA-R-1456","CA-R-2487","CA-R-2552","CA-R-2618","CA-R-2768"],
+  "held": [],
+  "summary_identity": "Every preview preserves its existing Summary. CA-R-1245 retains 'with Colon' because it describes the double-colon family; no Summary changed and no fresh ID is allocated or requested.",
+  "review_fix_diffs": [
+    {"id":"CA-E-383","preview_sha256":"0a9a0468581269694befa94d964f9eef7603c9a2727b9e40f5b9f4158d5b6c8c","diff":"typed selector migration; Actor//Operator model narrowing retained; final2 slash-containment and explicit-endpoint-cardinality correction."},
+    {"id":"CA-M-228","preview_sha256":"5fc8a39a7fe1adc6d998bccdb3087f897ddb75a887d548690e6f55e3a3edb499","diff":"typed participant, named Relation selector and alias($relation) migration."},
+    {"id":"CA-R-1245","preview_sha256":"0b3b4f3d2267e10c57f583de9f5e904e8654737df91de39eb9a7f5a3dc347fbc","diff":"normative allowed-value spelling X:Y to X::Y only."},
+    {"id":"CA-R-2487","preview_sha256":"a5568f7287fd48b5df59c65b71e9c9b28710b69d96da1fdf0c2a8192aee1a243","diff":"typed selectors, Whole/Part containment, alias($boundRelation), and final2 X//(.p := V) narrow-filter correction."},
+    {"id":"CA-R-2552","preview_sha256":"26ae68ac4437d8a95739aed30ffed6039cceb3447704bd15fa32cbdf436753d8","diff":"legacy instance/address forms to typed participants and named Relation selector."},
+    {"id":"CA-R-2618","preview_sha256":"04f70231702e2f38d3af8a508321f684e917bfac4f7098ff57f7ac428d64a707","diff":"restore literal values and CFEL syntax glyph endpoint exclusion."}
+  ],
+  "retirement_dependency_closure": {
+    "retired_source": {"id":"CA-R-2616","version":1,"status":"Active","source_sha256":"55ac3acdcfc6fb5ead5e7849def26ef4e82aa1a7fc5c70ec38458023e6a59cf9"},
+    "closure_status":"READY_FOR_REVIEW_NOT_APPLIED",
+    "consumer_result":"No preview retains a CFEL<+Operator Subject, Operator// address, descriptor entity, or descriptor endpoint dependency. R2487 and R2618 state that syntax literals are not graph endpoints.",
+    "outside_this_lane":"The replacement CFEL Rule previews and retirement/promotion lifecycle action for CA-R-2616 are owned by adjacent work; this consumer packet neither retires nor changes CA-R-2616."
+  },
+  "preserved_boundaries": ["Actor/Operator remains in CA-E-383 as an Actor-model path.","Relation descriptors, Relation endpoint claims, Property, format and cardinality claims remain.","No replacement descriptor catalogue, grammar, parser, evaluator, runtime or syntax expansion is introduced."],
+  "verification": {"preview_count":15,"no_cfel_operator_descriptor_matches":true,"actor_operator_preserved":true}
+}

@@ -1,0 +1,91 @@
+{
+  "status": "FOUR_SOURCE_PREVIEWS_FOR_REVIEW_ATOMIC_ROOT_ADOPTION",
+  "decision": "Project root Scope Unit ID CA-SU-00. Predefined Scope Unit world has ID CA-SU--1 and no Declaration; the root Project Declaration Atom Header.Container.scope_unit is CA-SU--1, while the Project Scope Unit has no formal parent. Preserve arbitrary non-root IDs.",
+  "rows": [
+    {
+      "id": "CA-M-461",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "source_sha256": "73b9c1c7925080f15c4cf72b97544522919eddda79fd2ef259265941ffc62932",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-M-461.preview.txt",
+      "preview_sha256": "b0e2edc38c089954a83c417f81d9d3c333224eb1b7ea758263b9f05617f9cb73",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-M-461.diff",
+      "diff_sha256": "0fd4570c1ab9a11f3e47c81481220be268237a5fbd4f50602c3182ed97238324",
+      "native_draft_found": false
+    },
+    {
+      "id": "CA-E-670",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+      "source_sha256": "9a85be5776c63a775ce5fae302dabee2a6e77492ea92802c299ccfa70d984de2",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-E-670.preview.txt",
+      "preview_sha256": "0f2db3c6c6a05f741b7df90476af8ffe7d69d496c25068a22d9e1a349cfaaa7c",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-E-670.diff",
+      "diff_sha256": "6179b69f365bfe1c558f7f8370ab17f984ea08f4b15c1248c821d2d3ace7ecd8",
+      "native_draft_found": false
+    },
+    {
+      "id": "CA-D-442",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "source_sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-D-442.preview.txt",
+      "preview_sha256": "4287ddba732d97d5d6508690dd9742d9c29982c2d1defe6eaa8614616f9281ce",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-D-442.diff",
+      "diff_sha256": "2a487761c7c97f8ba21db2ce8b9e578f11d40d261db5d5777c4aa698b5cf7af3",
+      "status": "READY_FOR_REVIEW"
+    }
+  ],
+  "other_authority_pins": [
+    {
+      "id": "CA-D-667",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+      "sha256": "eb19c71a039a3c3086a9e8ab35f4266eef431579f73065d5f7c088fb007b4ec6"
+    },
+    {
+      "id": "CA-D-635",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+      "sha256": "20a57bce956acaac8a98cee243b18d040161894000dbe77e256ff548d4285d42"
+    },
+    {
+      "id": "CA-R-1943",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md",
+      "sha256": "cb7d14ede2018974e6ffd21074d5fec576273c08d8ab053ac9e14829e516024d"
+    },
+    {
+      "id": "CA-R-2736",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2736-CORE_META_MODEL-DECLARATION--declare-projection-scope-unit.md",
+      "sha256": "e0257f2bd5bfafa0799fcf1f9737ee0cf0a7b6fd5689bc58180d088892969b0c"
+    }
+  ],
+  "dispositions": [
+    "D667 retains Project Authority folder .caprmedio_<project name> without an ID in the folder name; having an ID does not change that naming rule.",
+    "D635 currently states root Projection scope_unit reference Project//caprmedio. All seven 020\u2013026 carriers have that same root reference. Preserve Projection IDs and resolved root identity; exact successor carrier encoding is not selected by this packet and must be reconciled after the root ID and bootstrap contracts are settled.",
+    "R2526 and R2688 previews here are superseded duplicates; model-contracts worker owns them. R2524 and R2640 belong to other lanes.",
+    "No general non-root ID format or root folder rename invented.",
+    "Predefined world is an actual Scope Unit without a Declaration, not a separate bootstrap marker; Project Scope Unit remains without a formal parent.",
+    "Projection R2736 permits a Scope Unit instance reference and D635 specifies Project//caprmedio; neither requires an ID-only Projection reference. No D635 encoding change is inferred."
+  ],
+  "limits": "Source previews keep Current metadata, Summary, ID, Version and updated_at; actual successor allocation, syntax migration and adoption require coordinated review. No native/code/Git writes.",
+  "superseded_duplicate_rows": [
+    {
+      "id": "CA-R-2526",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "source_sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-R-2526.preview.txt",
+      "preview_sha256": "4d96e4e38d60552092ac79dd4eb2958ed7b8fd89cf3f383e2aa84b4a3c54423e",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-R-2526.diff",
+      "diff_sha256": "46e239ca7f665150f8cab9f278e10c00e91aeba5741ae2035487e45aa37b9f39",
+      "native_draft_found": false,
+      "status": "SUPERSEDED_DUPLICATE_SEPARATE_OWNER_DO_NOT_APPLY"
+    },
+    {
+      "id": "CA-R-2688",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "source_sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-R-2688.preview.txt",
+      "preview_sha256": "55eff9d41b0b3ea7f2f06f27cc4b3afa8d1a33afc1eaa5c533ec1d2eabe1a61b",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-R-2688.diff",
+      "diff_sha256": "aba734cd46056d41f6dcafe18e7255a8253ba0b8df2dd21a186905e679445f2a",
+      "native_draft_found": false,
+      "status": "SUPERSEDED_DUPLICATE_SEPARATE_OWNER_DO_NOT_APPLY"
+    }
+  ]
+}

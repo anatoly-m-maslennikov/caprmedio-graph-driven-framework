@@ -1,0 +1,103 @@
+{
+  "status": "BOUNDED_PASS_WITH_ADOPTION_GATES",
+  "packet_manifest_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/manifest.json",
+  "packet_manifest_sha256": "fc11b85affe9fd3b02c9e9db3c0a86c29feb71555e67bcd8afa33928ee0d0b9d",
+  "decision_reviewed": "Root Project Scope Unit ID CA-SU-00; predefined Scope Unit CA-SU--1 named world has no Scope Unit Declaration; root Project Declaration Atom defaults to a scope_unit mapping to world.",
+  "proposal_reviews": [
+    {
+      "id": "CA-R-2779",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "source_pin_matches": true,
+      "disposition": "PREVIEW",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2779.preview.txt",
+      "preview_sha256": "846addfe6cb075bd46c18216bf412660bbeb3cee613a5760fed16f8ab59a71c2",
+      "preview_pin_matches": true,
+      "diff_sha256": "33eb70ab6d8d303fb8d221979767ba89f972feeb0e70166498478c7454af8f4a",
+      "diff_pin_matches": true,
+      "verdict": "PASS_BOUNDED",
+      "finding": "Formal form models one Header.Container object with exactly one key selected from `atom` or `scope_unit`; no direct scalar/list value is admitted. Prose makes the root Project Declaration omission an effective fallback mapping whose only key is scope_unit=CA-SU--1, and allows an explicit valid override. It does not assert both keys or require a world carrier/folder."
+    },
+    {
+      "id": "CA-R-2508",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3",
+      "source_pin_matches": true,
+      "disposition": "PREVIEW",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2508.preview.txt",
+      "preview_sha256": "357771e8d62b5b0e296a4e6dffac6229b9093e315b0b09847e8f450a368849ca",
+      "preview_pin_matches": true,
+      "diff_sha256": "0ec1159029d9d0f2e7711fded2f62518b70f77e566034637bc5c2580d7acbe04",
+      "diff_pin_matches": true,
+      "verdict": "PASS_BOUNDED",
+      "finding": "Every Atom, including the root Project Declaration Atom, has exactly one outgoing IS_CONTAINED_BY resolved from effective Header.Container. The preview removes the world zero-edge exception and says Header.Container is the sole stored Atom-containment value; this is consistent with a derived edge and adds no duplicate Header.Relations value."
+    },
+    {
+      "id": "CA-R-2784",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+      "source_sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293",
+      "source_pin_matches": true,
+      "disposition": "REVIEWED_UNCHANGED",
+      "draft_unchanged": true,
+      "verdict": "PASS_BOUNDED_UNCHANGED",
+      "finding": "The leaf property is an optional string whose existing semantics identify a stable Scope Unit ID. R2779 supplies exactly one key and requires stable-ID resolution."
+    },
+    {
+      "id": "CA-R-2783",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+      "source_sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d",
+      "source_pin_matches": true,
+      "disposition": "REVIEWED_UNCHANGED",
+      "draft_unchanged": true,
+      "verdict": "PASS_BOUNDED_UNCHANGED",
+      "finding": "The leaf property permits only an optional base Atom ID. R2779 supplies the required exactly-one-key group. No additional path or version syntax is introduced."
+    },
+    {
+      "id": "CA-R-2523",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "source_sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+      "source_pin_matches": true,
+      "disposition": "PREVIEW",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2523.preview.txt",
+      "preview_sha256": "d09092c6fb694d05c5817f6863ab0f01b586d970568f2a7e26e7c2ff0aca0b84",
+      "preview_pin_matches": true,
+      "diff_sha256": "e61ce8241f26a499a9d1ff2a312f3f41a9c53b36bf2e29e083d979d0e69fcc81",
+      "diff_pin_matches": true,
+      "verdict": "PASS_SEMANTICALLY_BOUNDED_WITH_SOURCE_GATE",
+      "finding": "The preview excludes Project and ID CA-SU--1 from the exactly-one-parent requirement. It preserves the existing 0..1 general parent bound; it does not assert that world has zero or one parent. Project having no parent must come from the separate Project rule, not this exemption."
+    }
+  ],
+  "dependent_root_model_contract_previews": [
+    {
+      "id": "CA-R-2526",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "current_sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e",
+      "proposal_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2526.preview.txt",
+      "proposal_sha256": "e96fc5958553521998eb8a44655f9fb68f232f15bc88df417577880c56060403",
+      "proposal_status": "preview only; not Current"
+    },
+    {
+      "id": "CA-R-2688",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "current_sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff",
+      "proposal_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/model-contracts/CA-R-2688.preview.txt",
+      "proposal_sha256": "85ea59d827b575ca65a538352365a64d15d546c8b2814ab7f1941c0e4c1ea74b",
+      "proposal_status": "preview only; not Current"
+    }
+  ],
+  "world_presence_check": {
+    "current_source_matches": [],
+    "current_world_or_CA_SU_1_directories": [],
+    "finding": "No Current world/CA-SU--1 source declaration or physical folder was found in the scanned markdown authority tree. The proposed bootstrap identity is not materialized as a carrier or folder."
+  },
+  "adoption_gates": [
+    "The R2523 change is a preview of Current R2523@3; it must be rebased into a fresh Draft/successor before any source adoption, and the accepted :: count-syntax migration must be reconciled in that full body.",
+    "R2688 current source still requires declarations for every Scope Unit and forbids a Project ID. The separately pinned model-contract preview exempts world and gives Project a stable ID, but remains only a proposal; coordinate it with R2526 and the specific R2640 root declaration.",
+    "Current-to-Delivery reader validation for the new effective Header.Container-to-IS_CONTAINED_BY mapping remains a separate gate; this review does not validate runtime/materialization."
+  ],
+  "limits": [
+    "No Current/Draft, code, tests, Workflow/Workbench or Git files were modified.",
+    "R2523 exemption does not itself assert world parent cardinality.",
+    "No folder, Carrier, or Scope Unit Declaration for world is proposed."
+  ]
+}

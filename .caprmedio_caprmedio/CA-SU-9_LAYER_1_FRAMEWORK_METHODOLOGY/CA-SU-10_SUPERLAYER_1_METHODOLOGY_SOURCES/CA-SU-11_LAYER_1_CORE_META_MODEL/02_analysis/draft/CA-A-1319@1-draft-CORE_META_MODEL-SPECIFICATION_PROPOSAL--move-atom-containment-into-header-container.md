@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 06:18:20 +0400
+updated_at: 2026-11-05 13:01:22 +0400
 carrier_destination:
   file:
     name: CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md
@@ -23,51 +23,58 @@ Move Atom containment into Header.Container
 ## Decisions
 
 - Header.Container is one mapping with exactly one key.
-- `scope_unit` stores a stable Scope Unit ID, for example `CA-SU-11`.
-- `atom` stores an Atom ID, for example `CA-P-123`.
-- Store no Scope Unit name, name suffix or path in the reference.
-- Resolve current names and physical destinations from the ID.
-- The referenced container determines placement. D264 reads back that same containment fact from the nearest eligible Directory Carrier.
-- Header.Relations is optional and stores no duplicate containment fact.
-- D264 and D266 remain. Earlier retirement and dependent-link-removal previews are superseded.
-- Runs have no Properties in this version. Their parentage uses formal Relations only.
-- The Current Project root has no Scope Unit ID. Its future ID/reference case remains pending.
-- Preserve the settled world bootstrap meaning: no World entity or graph link. Reconcile its encoding with the one-key mapping before admission.
+- `scope_unit` stores the containing Scope Unit ID.
+- `atom` stores the containing Atom's base ID; it selects Current by default.
+- Names, name suffixes and paths are resolved from the ID.
+- The CAPRMEDIO Project Scope Unit has ID `CA-SU-00`.
+- `CA-SU--1` is the predefined Scope Unit named `world`, without a Declaration.
+- The root Project Declaration Atom uses `scope_unit: CA-SU--1`. If omitted, that mapping is its effective default.
+- The Project Scope Unit itself stays unordered, without order.number or a formal parent.
+- Header.Relations is optional and carries no duplicate containment fact.
+- D264 and D266 remain. The declared Container and placement readback identify the same fact.
+- Runs use formal containment Relations. Run Properties remain deferred.
 
 ## Rationale
 
-An ID keeps the reference stable when a Scope Unit is renamed or moved. The same declared identity governs physical placement and the derived containment view. A Scope Unit Declaration Atom and the unit it declares remain distinct.
+IDs preserve references through Scope Unit renames and moves. The Project and its Declaration Atom are different objects. Predefined world supplies the Declaration Atom's bootstrap Container without another Declaration or a scalar exception.
 
 ## Source changes
 
-1. Rebase the Container group and declare its two alternative leaf Properties.
-2. Transfer the old typed containment wrapper contracts from Header.Relations.
-3. Keep explicit direct and inverse permissions; update Atom and Plan consumers.
-4. Align D264, D266, D268 and affected placement Rules with the same containment fact.
-5. Review and push the source checkpoint before mechanical migration.
-6. Verify migrated carriers and the seven MODEL views. CA #3 owns implementation and tests; Workflow and Workbench owners retain their sources.
+1. Require stable IDs on declared Scope Units; assign the root ID in its specific Declaration.
+2. Exempt predefined world from Declaration coverage and the ordinary non-Project parent requirement.
+3. Declare the Container mapping and its two ID-valued leaf Properties.
+4. Reconcile Header, Relation serialization, placement and validation consumers.
+5. Adopt the reviewed source/schema packet with compatible readers, then migrate carriers and refresh the seven MODEL views.
 
-## Existing Drafts
+## Drafts
 
-- CA-R-2779@1-draft: Container group; its earlier scalar schema needs rebasing.
+Root/bootstrap Drafts created or rebased in `application/project-root-id-drafts-20261105`:
+
+- CA-R-2523@4-draft: Scope Unit parent exception.
+- CA-R-2524@4-draft: Project ID allowance.
+- CA-R-2526@5-draft: stable Scope Unit IDs and reserved bootstrap ID.
+- CA-R-2640@2-draft: CAPRMEDIO Project ID `CA-SU-00`.
+- CA-R-2688@3-draft: Declaration coverage with the world exception.
+- CA-M-461@3-draft: Declaration authoring.
+- CA-E-670@2-draft: ID, coverage and reserved-ID checks.
+- CA-D-442@27-draft: Declaration delivery.
+- CA-R-2779@1-draft: Container mapping and bootstrap default.
+- CA-R-2508@7-draft: one effective containment link per Atom.
+
+Other existing Drafts remain part of coordinated integration:
+
 - CA-R-2783@1-draft: Container.atom ID value.
-- CA-R-2784@1-draft: Container.scope_unit stable ID value.
-- CA-R-2508@7-draft: Atom containment; scalar-world comparisons need rebasing.
+- CA-R-2784@1-draft: Container.scope_unit ID value.
 - CA-R-2719@2-draft: Header members.
 - CA-R-2709@2-draft: optional Relations.
 - CA-R-2712@3-draft: sequence uniqueness by Container.
 - CA-R-2511@6-draft: Plan containment permissions.
 - CA-E-240@50-draft: Container validation.
-- CA-D-264@30-draft: placement readback of the same declared containment fact.
-- CA-D-266@30-draft: derived containment protection; placement agreement rebased.
-- CA-D-268@31-draft: direct-only serialization; placement agreement rebased.
-- CA-D-467@29-draft: recursive Step placement aligned with declared containment.
-- CA-E-500@29-draft: placement agreement checks aligned.
+- CA-D-264@30-draft, CA-D-266@30-draft and CA-D-268@31-draft: containment readback and serialization.
+- CA-D-467@29-draft and CA-E-500@29-draft: recursive Step placement agreement.
 
-These five Draft writes passed pinned source-helper readback in `application/container-placement-drafts-20261105`. Their Current predecessors remain unchanged.
-
-CA-R-2530@3-draft is a separate scalar Path proposal, not a prerequisite for ID-based Container references. Current Path authority remains unchanged.
+CA-R-2530@3-draft is a separate Path proposal, not a Container prerequisite. Current Path authority stays unchanged.
 
 ## Adoption gates
 
-Resolve the Project root and bootstrap encoding. Finish the group/leaf and consumer rebases, then review and promote the coordinated packet. No Current Container schema or carrier-data migration is claimed here.
+The root/bootstrap choices are settled. The current reader rejects a root ID; compatible reader/model/validator and bootstrap adapter changes belong to CA #3 and are recorded in P2707. Finish consumer and syntax integration before promotion and carrier migration. No Current root update, reader admission or carrier migration is claimed by these Draft writes.

@@ -4,7 +4,7 @@
   "as_of": "2026-11-05",
   "purpose": "Read-only completeness assessment; not authority to change Current or transition status.",
   "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-journal-passive-frontier-20261105.json",
-  "current_frontier_note": "The same 1,167 selected Current suppliers are retained, with the R1644@39 passive History repair. Published journal-passive MODEL views report 54 missing, 23 unresolved and 47 passive-only Subjects. Source coherence and runtime gates remain open.",
+  "current_frontier_note": "Seven views 020–026 published via post-single-person-approval-frontier-20261105.json after Current R1559@28 and E440@38 promotion. Audit remains 54 missing, 23 unresolved, 47 passive-only Subjects, 252 entities and 48 with missing coverage; runtime and source coherence gates remain open.",
   "requirements": [
     {
       "requirement_id": "P2695",
@@ -131,7 +131,7 @@
     },
     {
       "requirement_id": "P2694: declaration model",
-      "explicit_requirement": "Promote 44 Scope Unit Declarations and shared ordering/Project/identity model; 43 non-root stable IDs; Current baseline Project root has no ID and is Unordered; its future ID decision remains pending without order.number.",
+      "explicit_requirement": "Promote 44 Scope Unit Declarations and shared ordering/Project/identity model; 43 non-root stable IDs; Current baseline Project root has no ID or order.number; accepted successor assigns this Project root CA-SU-00.",
       "live_evidence": "The independent source census verifies 46 Current Declarations, 45 unique nonroot IDs and nine Ordered units. The Project root has no ID or order.number through inherited Current R2524. The original 44-source digest is reproduced from preserved bytes.",
       "gap_or_limit": "Final candidate recheck and separate mandatory Declaration Atom Header.Container admission remain open.",
       "gate_command_or_check": "Read Declarations and assert counts/unique root/IDs/order rules against Current.",
@@ -165,9 +165,9 @@
     },
     {
       "requirement_id": "P2694: folder derivation",
-      "explicit_requirement": "Rename existing Authority/Delivery folders to derived names; under the Current baseline only non-root Authority names include Scope Unit ID; root ID decision remains pending; Project Authority remains .caprmedio_<project name>.",
+      "explicit_requirement": "Rename existing Authority/Delivery folders to derived names; under the Current baseline only non-root Authority names include Scope Unit ID; accepted Project root ID is CA-SU-00; Project Authority remains .caprmedio_<project name>.",
       "live_evidence": "The live source comparison verifies all 46 Declaration Carrier placements. Three Delivery directories now match D667. Independent readback verifies all 1,069 moved files and confirms that 1,067 Markdown copies still match canonical Current Authority sources. Old directories are absent. Materialized counts are 38/45 Authority and 30/45 Delivery folders.",
-      "gap_or_limit": "The static production trace confirms that local_release.py discards delivery_path and would recreate ID-prefixed directories. P2707@7 assigns the fix and writer verification to CA #3. The current physical move remains verified; seven unmaterialized Authority and 15 unmaterialized Delivery paths are separate.",
+      "gap_or_limit": "The static production trace confirms that local_release.py discards delivery_path and would recreate ID-prefixed directories. P2707@9 assigns the fix and writer verification to CA #3. The current physical move remains verified; seven unmaterialized Authority and 15 unmaterialized Delivery paths are separate.",
       "gate_command_or_check": "Run the path derivation/readback check from scope-unit-governance packet on live tree.",
       "dependencies": [
         "P2705",
@@ -222,7 +222,7 @@
       "requirement_id": "P2694: Claim/model notation",
       "explicit_requirement": "Adopt Atom.Header / Atom.Content grouping; empty Claim container with Formal Claim and Prose Claim children; remove Claim Scope; symbolic aliases; minimal declared relation counterparts; declaration-based heading interpretation. Apply current Property contracts: inherited format without repeated local value counts; present Property instances have value, schema and bearer links; every Atom has exactly one immediate Container in Atom.Header.Container, expressed as one mapping with exactly one scope_unit ID or atom ID; Header.Relations is optional and does not duplicate Container; IS_CONTAINED_BY and CONTAINS remain MODEL/Formal Claim relations, with notation changes subject to coordinated admission; optional Subjects grouping does not weaken required Active subject on complete Current Atoms.",
       "live_evidence": "Reviewed MODEL, Property and Projection declarations were applied with exact predecessor evidence. The source-only CFEL operator, binding/range, Relation, Term and specialization batches have independently checked promotion receipts; the latest seven published views use the selected 1,167-source frontier.",
-      "gap_or_limit": "The 11 Occurrent kind choices are settled, but their endpoint/Relation source gates and Workbench/Workflow-owned work remain separate. Current R2711 supplies Plan confidence lookup, and Project.Settings retry remains declared by R2532/R2635; do not describe those existing sources as unadopted. Broader confidence/retry consumers and final parser/runtime conformance remain open. IDs-only Container group/leaf contracts, Header/Delivery integration, root ID/bootstrap encoding and carrier migration remain open.",
+      "gap_or_limit": "The 11 Occurrent kind choices are settled, but their endpoint/Relation source gates and Workbench/Workflow-owned work remain separate. Current R2711 supplies Plan confidence lookup, and Project.Settings retry remains declared by R2532/R2635; do not describe those existing sources as unadopted. Broader confidence/retry consumers and final parser/runtime conformance remain open. IDs-only Container group/leaf contracts, Header/Delivery integration, source promotion, bootstrap Carrier placement and carrier migration remain open.",
       "gate_command_or_check": "Verify the adopted property-source receipts and relation/selector/parser behavior against the current frontier; integrate only reviewed identity packet changes, rebuild seven views, and confirm direct immediate containment and Subject Active semantics. Preserve opaque CFEL where evaluation is unspecified.",
       "dependencies": [
         "CFEL lane",
@@ -414,7 +414,7 @@
     {
       "requirement_id": "P2694: source history/publication",
       "explicit_requirement": "Preserve source history, exact predecessor links and identity/metadata rules for adopted changes. P2694 separately requires the declared checkpoint push and final checked changes pushed to amm/dev; P2707 alone does not imply a release, commit or push.",
-      "live_evidence": "Manual source batches have plan/receipt and independent readback evidence, including exact predecessor preservation. P2694@70 and P2707@7 remain Active. The local origin/amm/dev tracking ref was observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18; this is a source checkpoint, not the final checked push. Seven current published views are pinned to the 1,167-source selected frontier.",
+      "live_evidence": "Manual source batches have plan/receipt and independent readback evidence, including exact predecessor preservation. P2694@73 and P2707@9 remain Active. The local origin/amm/dev tracking ref was observed at d4b745b2086f35714bd9febf3ad4f697b10dfd18; this is a source checkpoint, not the final checked push. Seven current published views are pinned to the 1,167-source selected frontier.",
       "gap_or_limit": "Final source/archive and published-view pins, all required external gates, and a final checked push still require verification. A local remote-tracking ref is not a fresh network observation, release, native Workflow admission or Journal append.",
       "gate_command_or_check": "Verify declaration checkpoint and final checked changes are committed/pushed to amm/dev with matching local/remote evidence; no release required.",
       "dependencies": [
@@ -440,7 +440,7 @@
     {
       "requirement_id": "P2704–P2709: status and closure boundary",
       "explicit_requirement": "Do not mark Epic Done until all explicit requirements/gates pass or Operator-approved deferrals are recorded; P2707 retains existing verification scope.",
-      "live_evidence": "P2694@70 and P2707@7 are Active. P2704–2706/P2709 retain their reported task results; subsequently adopted source batches and seven pinned views are bounded progress, not final integration evidence.",
+      "live_evidence": "P2694@73 and P2707@9 are Active. P2704–2706/P2709 retain their reported task results; subsequently adopted source batches and seven pinned views are bounded progress, not final integration evidence.",
       "gap_or_limit": "P2707 final stable suite, launcher, Docker query/status, W10, scope-field disposition, MODEL/consumer decisions, final views and final branch push remain open. Workbench and Workflow work belongs to their owners; no gate is waived.",
       "gate_command_or_check": "Final acceptance review against every row; update stale P2694/P2707 narratives before status transition; no status change included here.",
       "dependencies": [
@@ -461,7 +461,7 @@
     }
   ],
   "reviewed_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/planning-checkpoint/adoption-receipt.json",
-  "reviewed_plan_quality": "P2694@70 and P2707@7 remain Active. All 23 original acceptance groups and required external gates remain in force.",
+  "reviewed_plan_quality": "P2694@73 and P2707@9 remain Active. All 23 original acceptance groups and required external gates remain in force.",
   "latest_projection_checkpoint": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/projections-journal-passive-20261105/generation-manifest.json",
   "current_epic_version": 69,
   "latest_planning_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/defer-run-properties-20261105/adoption-receipt.json",
@@ -479,7 +479,7 @@
   },
   "historical_frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-cfel-frontier.json",
   "latest_container_decision": {
-    "epic": "CA-P-2694@70",
+    "epic": "CA-P-2694@73",
     "state": "SOURCE_CONTRACT_AND_MIGRATION_PENDING",
     "container": "Exactly one mapping key: scope_unit with a stable Scope Unit ID or atom with an Atom ID. Relations optional, no duplicate stored containment; formal IS_CONTAINED_BY/CONTAINS remain.",
     "path_encoding": "ScopeUnit.Path R2530@3 is a separate proposal, not a Container prerequisite; names and paths are not reference identity.",
@@ -495,9 +495,9 @@
       "CA-D-268@31",
       "CA-D-266@30"
     ],
-    "world": "Root Project ID decision and world bootstrap encoding remain pending; prior literal-world proposals require reconciliation. No World entity or graph link is introduced.",
+    "world": "Predefined Scope Unit world (CA-SU--1) has no Declaration, Carrier or folder. Root Project Declaration Atom Header.Container.scope_unit is CA-SU--1; the Project Scope Unit has no formal parent. Supersedes the former literal-world/no-entity/no-link proposal.",
     "placement": "D264/D266 retained; declared Container, formal containment and nearest eligible directory readback agree as the same fact. Earlier retirement and link-removal previews superseded.",
-    "adoption": "Five actual placement Draft writes independently reviewed; existing scalar Container Drafts require rebasing. Coordinated Current promotion and mechanical migration remain open.",
+    "adoption": "Ten actual root ID and Container Draft writes passed readback; Current source promotion, adapter, bootstrap Carrier placement, migration and integration remain open.",
     "placement_actual_drafts": [
       "CA-D-264@30",
       "CA-D-266@30",
@@ -513,20 +513,42 @@
       "CA-R-2784@1: scope_unit [string], stable Scope Unit ID"
     ],
     "leaf_draft_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/container-leaf-drafts-20261105/adoption-receipt.json",
-    "leaf_review": "Independent actual-Draft review passed; group and bootstrap held; no Current promotion.",
-    "leaf_review_report": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/container-leaf-actual-review-20261105.json"
+    "leaf_review": "Independent actual-Draft review passed; group rebase reviewed; Current promotion and bootstrap Carrier placement held.",
+    "leaf_review_report": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/container-leaf-actual-review-20261105.json",
+    "project_root_id": "CA-SU-00 for this CAPRMEDIO Project; Current root/model sources unchanged until coordinated promotion.",
+    "root_actual_drafts": [
+      "CA-R-2524@4",
+      "CA-R-2526@5",
+      "CA-R-2688@3",
+      "CA-M-461@3",
+      "CA-E-670@2",
+      "CA-D-442@27",
+      "CA-R-2779@1",
+      "CA-R-2508@7",
+      "CA-R-2523@4",
+      "CA-R-2640@2"
+    ],
+    "root_draft_batch": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/project-root-id-drafts-20261105",
+    "root_actual_reviews": [
+      ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/project-root-id-model-actual-review-20261105.json",
+      ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/permissions/project-root-id-container-actual-review-20261105.json"
+    ],
+    "plan_update": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/project-root-id-plan-proposal-update-20261105",
+    "static_impact": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/static-impact/report.json",
+    "runtime_handoff": "CA #3 reader currently rejects root ID, classifies root by ID absence, and rejects the Container mapping or predefined world; implementation and verification remain open.",
+    "separate_question": "Operator.Name and typed address remain pending."
   },
   "latest_notation_decision": {
-    "allowed_value": "::",
-    "allowed_cardinality": "{::n}",
-    "subject_qualification": ":= unchanged",
+    "allowed_value": "Draft successor := (OR); no applicable group means no enumeration restriction",
+    "allowed_cardinality": "Draft successor :: constraint AND, including {::n}",
+    "subject_qualification": ":= retained",
     "actual_drafts": [
       "CA-R-2777@1",
       "CA-R-2243@13",
       "CA-R-2471@8",
       "CA-R-2487@14"
     ],
-    "adoption": "pending consumer integration, review and contextual migration",
+    "adoption": "49 live CFEL/value Drafts pending coordinated Current promotion, consumer integration and contextual migration; Current syntax not yet cut over",
     "path_actual_drafts": [
       "CA-R-2780@1",
       "CA-R-2781@1",
@@ -601,6 +623,38 @@
     "actual_readback": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/occurrent-event-record-binding-rebase-20261105",
     "term_definitions": "M451@7 and M453@6 preserved; Node-only M453 preview rejected given Relation and Term Property grants.",
     "supplier_recheck": "Preservation proof verifies all 1167 selected Current supplier hashes unchanged after both actual batches; no projection regeneration for Draft-only changes.",
-    "pending": "Descriptor addressing, Project root ID and external CA #3 gates remain open."
-  }
+    "pending": "Descriptor addressing, Operator.Name/typed address, bootstrap Carrier placement and external CA #3 gates remain open."
+  },
+  "latest_value_relation_cohort": {
+    "status": "49_LIVE_DRAFTS_NOT_ADOPTED",
+    "cohort": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/final-live-cohort.json",
+    "has_allowed_value": "CA-R-2826 := OR; absent group imposes no enumeration restriction",
+    "has_value_constraint": "CA-R-2828 :: AND",
+    "inverse_drafts": [
+      "CA-R-2827",
+      "CA-R-2829"
+    ],
+    "qualified_subjects": ":= retained",
+    "four_own_id_collisions": "repaired",
+    "holds": "No Current CFEL/root/Event-author cutover or runtime acceptance claimed."
+  },
+  "latest_single_person_approval": {
+    "current": [
+      "CA-R-1559@28",
+      "CA-E-440@38"
+    ],
+    "frontier": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-single-person-approval-frontier-20261105.json",
+    "views": "published 020–026",
+    "audit": {
+      "missing": 54,
+      "unresolved": 23,
+      "passive_only": 47,
+      "entities": 252,
+      "entities_with_missing": 48
+    },
+    "root_drafts": "10 staged, not promoted",
+    "plans": "P2694@73 and P2707@9 Current; exact predecessors preserved"
+  },
+  "latest_plan_receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/plan-baseline-wording-fix-20261105/adoption-receipt.json",
+  "latest_plan_receipt_note": "P2694@73 baseline wording fix preserves exact @72 predecessor; P2707@9 remains Current. Earlier value-semantics plan receipt is historical."
 }

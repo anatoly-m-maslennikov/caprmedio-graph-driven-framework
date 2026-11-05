@@ -1,0 +1,200 @@
+{
+  "status": "STATIC_SOURCE_AND_RUNTIME_IMPACT",
+  "decision": "The Project root Scope Unit ID is the exact string CA-SU-00; do not strip zeroes, infer a new normalization scheme, or change physical paths.",
+  "source_pins": [
+    {
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "19bcc51fd4d3b34ac705cd9bad108a17cc816820c95ec4505485c900525151db",
+      "version": 3,
+      "relevant_lines": [
+        {
+          "line": 39,
+          "text": "Project//$project_4.ID: []{:0}"
+        },
+        {
+          "line": 50,
+          "text": "A Project is the root Scope Unit. The Project is not renamed or moved through Scope Unit operations. It has no Scope Unit ID. The shared model makes it Unordered with no order.number; individual Project Declarations inherit these facts."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2526",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "171eacde51c1cde1cf249e599c4919ce638e477acdbaf1e1697b081b678eee9e",
+      "version": 4,
+      "relevant_lines": [
+        {
+          "line": 15,
+          "text": "Declare Scope Unit ID"
+        },
+        {
+          "line": 23,
+          "text": "Scope Unit.ID: [string]{:0..1};"
+        },
+        {
+          "line": 34,
+          "text": "A non-root Scope Unit keeps its ID through moves and renames. The ID distinguishes those operations from removing that Scope Unit. The Project root has no Scope Unit ID because it cannot be moved or renamed through Scope Unit operations."
+        }
+      ]
+    },
+    {
+      "id": "CA-R-2688",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "sha256": "f6d0af9f8d82ac2994c2c7be70659947eaf9baf48edab3d8c1f233c6f36b47ff",
+      "version": 2,
+      "relevant_lines": [
+        {
+          "line": 30,
+          "text": "The Declaration carries the Scope Unit Name, ordered state, optional Label, conditional order.number and direct containment. A non-root Scope Unit also has a stable ID. Project is unordered and has neither Scope Unit ID nor order.number. A non-root Scope Unit has one direct Parent; Project has none."
+        }
+      ]
+    },
+    {
+      "id": "CA-D-442",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115",
+      "version": 26,
+      "relevant_lines": [
+        {
+          "line": 26,
+          "text": "The shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number and Scope Unit ID from the Project model. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration."
+        }
+      ]
+    },
+    {
+      "id": "CA-D-667",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md",
+      "sha256": "eb19c71a039a3c3086a9e8ab35f4266eef431579f73065d5f7c088fb007b4ec6",
+      "version": 2,
+      "relevant_lines": [
+        {
+          "line": 28,
+          "text": "The Project Authority Folder is `.caprmedio_<project name>`, without a Scope Unit ID."
+        },
+        {
+          "line": 37,
+          "text": "`<id>` is the stable Scope Unit ID. `<order>` is `order.number`. For an Unordered unit, omit the order segment and its separator. When Label is absent, omit its segment and separator."
+        }
+      ]
+    }
+  ],
+  "root_source": {
+    "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+    "sha256": "3ce1eb9ecfcf32685bc249bdeae55264809c9581a171895e8f158d80b0caaef9",
+    "finding": "Current Project declaration supplies Name only; no ID assertion."
+  },
+  "format_authority": {
+    "finding": "Current R2526 declares Scope Unit.ID as string; no exact CA-SU-number regex or zero-padding rule was found in the inspected source. Historical formal-instance-conversion records non-root CA-SU-<number> as operational evidence, not current authority for forbidding 00. Exact root CA-SU-00 comes from the latest user decision.",
+    "historical_path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/scope-unit-governance-20261031/formal-instance-conversion.json",
+    "historical_sha256": "33d985aaed5677fbb5d66a63d4f0d1e8523a364b97a7239319f798686f48b4e5"
+  },
+  "source_promotion_dependencies": [
+    "R2524 explicitly forbids Project ID in Formal Claim and Semantics; R2526 and R2688 likewise assert root has no ID; D442 repeats the old rule. Reconcile these and the root declaration atomically, with independent review of every affected source and consumer.",
+    "D667 states the root Authority Folder remains .caprmedio_<project name> without a Scope Unit ID in the folder name. A root logical ID does not by itself require a physical path rename.",
+    "Source Drafts for CA-SU-00 / CA-SU--1 may be prepared now. Promoting the root Declaration to Current must be coordinated with the CA #3 reader/model/validator changes: the live reader requires one Project.Name statement and identifies the Project root by scope_unit_id is None; an additional root ID assertion is rejected or misclassified. Proposed Header.Container also requires consumer support as the predefined world Scope Unit without a Declaration."
+  ],
+  "static_runtime_impacts": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_declaration_parse.py",
+      "sha256": "3927b0641fba90ee11ae3fae85be826bcffedc32b5e0f5dd0364543eecd0dea6",
+      "lines": [
+        25,
+        32,
+        112,
+        210,
+        217,
+        228,
+        229,
+        238,
+        243,
+        247,
+        269,
+        280,
+        284,
+        356,
+        362,
+        364,
+        366,
+        369,
+        398
+      ],
+      "finding": "Root parser accepts only a single Project.Name statement; adding an explicit Project ID statement falls into the non-root parser, which recognizes Scope Unit properties and containment instead. Root identity is implemented as scope_unit_id is None. Assembler uniqueness set covers nonroot IDs only, so introducing root ID requires explicit root classification and uniqueness across root and nonroot while preserving root-path behavior. _safe_component treats CA-SU-00 as a string safe path component and has no numeric/zero-padding check; this observation does not prove root parsing accepts it."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_unit_declarations.py",
+      "sha256": "2ada98b60b656e6456d131ab15633d6d8ed003b762176645940088669a200fba",
+      "lines": [
+        104,
+        105,
+        143,
+        145,
+        150,
+        164,
+        165
+      ],
+      "finding": "Admission uses declaration.is_root to distinguish root from child; altering root identity representation must preserve traversal and root location semantics. Child path derivation uses child ID; no root path move is implied."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/check_structure_extended.py",
+      "sha256": "661fa9592332707274f715083f172022ed777e4fb563600975791807a96070be",
+      "lines": [
+        85,
+        95,
+        98,
+        99,
+        100,
+        101
+      ],
+      "finding": "Structure validation currently rejects any root row whose scope_unit_id is not None; it must recognize the decided exact Project ID while retaining root parent and location constraints."
+    }
+  ],
+  "handoff": "CA #3 owns reader/model, uniqueness and validator changes, exact literal preservation of CA-SU-00 and CA-SU--1, root classification independent of ID absence, root-vs-nonroot predicates throughout reader/admission/assembly/validator, root-inclusive ID uniqueness, predefined world resolution without Declaration, and the Scope Unit Declaration coverage exception for world only. Root Declaration Atom Header.Container is scope_unit:CA-SU--1; Project CA-SU-00 has no formal parent. Preserve root path/placement, do not create a world Declaration or Carrier, and do not coerce identifiers to numbers or change folders. Appropriate tests and readback remain CA #3 work.",
+  "boundary": "Read-only static source inspection; no imports of implementation, tests, runtime execution, source promotion or Git operations. Source authority changes are source-level prerequisite; static runtime incompatibility is a CA #3 integration gate, not proof that manual source promotion is mechanically impossible.",
+  "bootstrap_marker": {
+    "value": "CA-SU--1",
+    "status": "USER_SETTLED_PREDEFINED_SCOPE_UNIT_WITHOUT_DECLARATION",
+    "static_findings": [
+      {
+        "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/scope_declaration_parse.py",
+        "lines": [
+          112,
+          115,
+          217,
+          228,
+          229,
+          238,
+          243,
+          280,
+          284,
+          356,
+          366,
+          369,
+          398
+        ],
+        "finding": "_safe_component is a nonempty path-component string check, not a CA-SU numeric regex; it does not itself reject the literal CA-SU--1, but that does not establish admission as a root, Scope Unit, or containment target. Root detection uses absence of an ID; assembler excludes root from the ID uniqueness set."
+      },
+      {
+        "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py",
+        "sha256": "9a0fbf1b8f4c6fe92daae86a1a78f55c46e6464b9e3ce1ed8cfea7687d2bb6b0",
+        "lines": [
+          539,
+          542,
+          545,
+          548,
+          553,
+          554,
+          632,
+          637,
+          644,
+          648,
+          652
+        ],
+        "finding": "Current containment parsing expects `relations.IS_CONTAINED_BY` with exactly one scope_unit or atom target, requiring a nonempty string; it does not parse the proposed ordinary Header.Container field. Scope-unit resolution uses exact matches against declared structure rows, or the Project name for the root; an undeclared bootstrap marker has no special resolution in this inspected path. There is no numeric-ID regex here. The implementation must resolve CA-SU--1 as the predefined world Scope Unit even though it has no Declaration, without inventing a Carrier or a formal parent for the Project."
+      }
+    ],
+    "caution": "This is a bounded inspection of these functions, not evidence that every parser currently accepts the token or that Header.Container is supported.",
+    "decision": "CA-SU--1 is the predefined bootstrap Scope Unit named world. It is a real Scope Unit referent and resolves without a Scope Unit Declaration. The root Declaration Atom uses Header.Container mapping `scope_unit: CA-SU--1`; Project CA-SU-00 has no formal parent.",
+    "coverage": "world is the sole exception to Scope Unit Declaration coverage. The present census is 46 declarations plus predefined world, not 47 declarations. No world Declaration, Carrier or folder is inferred."
+  }
+}

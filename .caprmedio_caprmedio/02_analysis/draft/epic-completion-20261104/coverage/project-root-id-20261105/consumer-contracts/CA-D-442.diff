@@ -1,0 +1,8 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/consumer-contracts/CA-D-442.preview.txt
+@@ -23,4 +23,4 @@
+ 
+ Carry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL.
+ 
+-The shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number and Scope Unit ID from the Project model. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration.
++The shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number from the Project model. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration.

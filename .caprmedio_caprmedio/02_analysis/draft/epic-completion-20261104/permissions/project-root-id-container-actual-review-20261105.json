@@ -1,0 +1,91 @@
+{
+  "status": "THREE_DRAFT_READBACKS_MATCH_APPROVED_PREVIEWS",
+  "application_receipt_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/project-root-id-drafts-20261105/adoption-receipt.json",
+  "receipt_status": "APPLIED_VERIFIED",
+  "plan_sha256": "3453dcc334a332a38c4a277d4132fed6b0f71eba74eecb7a27acbf0c91bb6515",
+  "operation_count": 10,
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "drafts": [
+    {
+      "id": "CA-R-2779",
+      "version": 1,
+      "new_draft": false,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "actual_sha256": "e0cac2dad37a8cf81d4e9f0635cd5cc3595789dce333c1d661624062c1bd9bae",
+      "receipt_sha256": "e0cac2dad37a8cf81d4e9f0635cd5cc3595789dce333c1d661624062c1bd9bae",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2779.preview.txt",
+      "preview_sha256": "846addfe6cb075bd46c18216bf412660bbeb3cee613a5760fed16f8ab59a71c2",
+      "metadata_updated_at": "2026-11-05 12:58:42 +0400",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_preimage_sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "source_preimage_matches_manifest": true,
+      "actual_sha256_matches_receipt": true,
+      "actual_body_matches_approved_preview": true,
+      "candidate_preview_pin_matches_plan": true
+    },
+    {
+      "id": "CA-R-2508",
+      "version": 7,
+      "new_draft": false,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "actual_sha256": "0a40a675928873e0da4b6b45929fbd33c9b547bbf9ba21a6bdc296761d97af53",
+      "receipt_sha256": "0a40a675928873e0da4b6b45929fbd33c9b547bbf9ba21a6bdc296761d97af53",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2508.preview.txt",
+      "preview_sha256": "357771e8d62b5b0e296a4e6dffac6229b9093e315b0b09847e8f450a368849ca",
+      "metadata_updated_at": "2026-11-05 12:58:42 +0400",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_preimage_sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3",
+      "source_preimage_matches_manifest": true,
+      "actual_sha256_matches_receipt": true,
+      "actual_body_matches_approved_preview": true,
+      "candidate_preview_pin_matches_plan": true
+    },
+    {
+      "id": "CA-R-2523",
+      "version": 4,
+      "new_draft": true,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2523@4-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "actual_sha256": "847e4ef27bc25839b2ce17aca4be55b9f90c59447d0a81e1b40fbb4b18537f72",
+      "receipt_sha256": "847e4ef27bc25839b2ce17aca4be55b9f90c59447d0a81e1b40fbb4b18537f72",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2523.preview.txt",
+      "preview_sha256": "d09092c6fb694d05c5817f6863ab0f01b586d970568f2a7e26e7c2ff0aca0b84",
+      "metadata_updated_at": "2026-11-05 12:58:42 +0400",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "source_preimage_sha256": null,
+      "source_preimage_matches_manifest": null,
+      "actual_sha256_matches_receipt": true,
+      "actual_body_matches_approved_preview": true,
+      "candidate_preview_pin_matches_plan": true,
+      "source_preimage_match_status": "not applicable; fresh @4 Draft created, Current R2523 separately matches its pinned source hash"
+    }
+  ],
+  "current_r2523": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+    "actual_sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+    "manifest_source_sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+    "unchanged_matches_source_pin": true
+  },
+  "unchanged_leaf_drafts": [
+    {
+      "id": "CA-R-2783",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+      "actual_sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d",
+      "manifest_sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d",
+      "matches_manifest": true
+    },
+    {
+      "id": "CA-R-2784",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+      "actual_sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293",
+      "manifest_sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293",
+      "matches_manifest": true
+    }
+  ],
+  "bootstrap_readback": "R2779 actual body exactly matches the approved preview: only an omitted root Project Declaration Atom receives the effective scope_unit=CA-SU--1 mapping; explicit valid mappings override, with exactly one key. R2508 actual body requires one derived IS_CONTAINED_BY link for each Atom from its effective Header.Container. No world Declaration, Carrier, or folder was added by this batch.",
+  "limits": [
+    "Staging/source Draft changes only; Current admission and reader/validator gates remain held.",
+    "Root Declaration Atom metadata review belongs to the other lane.",
+    "No code, tests, Workflow/Workbench or Git changes."
+  ]
+}

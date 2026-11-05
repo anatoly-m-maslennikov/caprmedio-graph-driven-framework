@@ -1,0 +1,262 @@
+{
+  "verdict": "PASS_BOUNDED_RULE_AND_CONSUMER_PREVIEWS",
+  "paths": [
+    {
+      "id": "CA-R-2602",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2603",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2604",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2606",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2607",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2608",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2609",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2611",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2777",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2780",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2781",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    },
+    {
+      "id": "CA-R-2778",
+      "basis_hash_matches": true,
+      "preview_hash_matches": true,
+      "disposition": "PASS_BOUNDED_NEW_RULE_REQUIRES_FRESH_ID"
+    }
+  ],
+  "consumers": [
+    {
+      "id": "CA-E-383",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.preview.md",
+      "sha256": "9715f1eeed43642d1c482dc531fd76e807fb33cbf80184c9ca8c5fda6bcb4b84",
+      "disposition": "HOLD_INTEGRATION_FIX",
+      "reason": "Contains operative Kind//Instance and other old instance-selector examples; integrate new selector/address grammar before admission."
+    },
+    {
+      "id": "CA-E-402",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-E-402-CORE_META_MODEL-EVAL_POLICY--reject-invalid-claim-value-sets.preview.md",
+      "sha256": "ed30b8f35fcab414868888588aa943c36ed47c581ec521b73024c19b2a28a42b",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-E-403",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-E-403-CORE_META_MODEL-EVAL_POLICY--report-exact-claim-value-set-consolidation-candidates.preview.md",
+      "sha256": "57d8ba34f67a1d9b98ac96bebc619f3ac1db4a6fc146f12d9ddcc50eb3befee4",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-E-449",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-E-449@45-draft-CORE_META_MODEL-EVAL_POLICY--validate-entities-graph.preview.md",
+      "sha256": "87b9d5efdc6f7657e3d80f12b249205144603c17971566783b541b633a367d45",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-M-228",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.preview.md",
+      "sha256": "f76fb49a71ef4ebcab40685cb2240070c8ee5c36baee4e1ddd2954692781eb4a",
+      "disposition": "HOLD_INTEGRATION_FIX",
+      "reason": "Still directs Kind//$x, union // binders and Relation//NAME addresses; integrate new grammar."
+    },
+    {
+      "id": "CA-M-237",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-M-237-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.preview.md",
+      "sha256": "751b2fc64bb1cc7a7783252c6f018097c9e9a32ae039b84a860db9f727b3e3c7",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-R-1245",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.preview.md",
+      "sha256": "162a285c0ba71b6b2e1d948544ad62ab22b052d5818f8229c8b09b4521d6fda6",
+      "disposition": "HOLD_INTEGRATION_FIX",
+      "reason": "Claim still prescribes X:Y as allowed-value syntax; use X::Y while preserving non-CFEL YAML/literal colons. Colon in Summary may still accurately describe ::; fresh ID only if Summary changes."
+    },
+    {
+      "id": "CA-R-1358",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-1358-CORE_META_MODEL-RULE--consolidate-single-value-claims-as-one-value-set-claim.preview.md",
+      "sha256": "fd0484469e5d5dfddc2c3cc731bea56e7ac1dce3046a610e844ef301043352f5",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-R-1359",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-1359-CORE_META_MODEL-RULE--define-claim-value-set.preview.md",
+      "sha256": "8afd23857629828e09a9d7541edf9605803a64d51e09577f55a63bb170eba191",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-R-1405",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-1405-CORE_META_MODEL-RULE--register-core-artifact-type-values.preview.md",
+      "sha256": "ec9dafd9d116c01f5d8ca2691aa587ad7a60c5d2d0b06abc3267edd962748898",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-R-1456",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.preview.md",
+      "sha256": "5b9e256d37d4cdb94e9f2f17e9277ed851043ee3d5aa41510546d7d68ba06ec8",
+      "disposition": "PASS_BOUNDED_DESCRIPTOR_REMOVAL",
+      "reason": ""
+    },
+    {
+      "id": "CA-R-2487",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.preview.md",
+      "sha256": "5bdccebf3f26310006e1db6142e20c4f0399fe2a4606f8ae4c600baa08177ed0",
+      "disposition": "HOLD_INTEGRATION_FIX",
+      "reason": "Normatively retains Kind//$x, <+ and Relation//NAME / alias(Relation//NAME) metadata despite successor grammar; integrate typed selectors, containment and Relation references while retaining Relation/Format/Cardinality rules."
+    },
+    {
+      "id": "CA-R-2552",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.preview.md",
+      "sha256": "5d8dd77fcbdba2f6790c6644fc54aaeceb670b8c5730234a54cea0022dad341b",
+      "disposition": "HOLD_INTEGRATION_FIX",
+      "reason": "Retains operative Relation//NAME and old typed binding syntax; integrate successor address/binding rules."
+    },
+    {
+      "id": "CA-R-2618",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.preview.md",
+      "sha256": "03150bbff50496c64c270f10959c090100aa7dd67098de8b5453cc49b24275de",
+      "disposition": "HOLD_INTEGRATION_FIX",
+      "reason": "Revised endpoint exclusion says only CFEL syntax literals are excluded; restore original exclusion of all literal values and glyphs while removing operator descriptor endpoints."
+    },
+    {
+      "id": "CA-R-2768",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.preview.md",
+      "sha256": "85dab87a85ffb1d0a0458964fa9718c85a837abc7998efb8a94a6a7c0b8da7b1",
+      "disposition": "EXCLUDE_DUPLICATE_OWNER_PREVIEW",
+      "reason": ""
+    }
+  ],
+  "global_gate": "Fresh IDs required for changed Summaries; replace R2605/R2610 only with coordinated successor grammar and contextual consumer migration. Existing Current syntax, YAML colons, quoted literals and @version data remain intact until adoption.",
+  "claim_checks": [
+    "Twelve Rule previews preserve their direct operative meanings and latest Draft source basis within bounded review; FOR EACH scope/no-shadow and selected-instance population rules remain.",
+    "The earlier R2720 alias rebase and R2768 duplicate preview are outside this lane; choose the owning consumer preview and reconcile it with final grammar.",
+    "Actor/Operator and AI Agent are distinct from removed CFEL descriptor entities and remain."
+  ],
+  "limits": "Preview review only; bounded descriptor-removal PASS does not certify all unrelated legacy Subjects, full consumer migration, code or runtime.",
+  "recheck": {
+    "verdict": "HOLD_TWO_CONSUMERS",
+    "rows": [
+      {
+        "id": "CA-R-1245",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.preview.md",
+        "sha256": "0b3b4f3d2267e10c57f583de9f5e904e8654737df91de39eb9a7f5a3dc347fbc",
+        "status": "PASS_BOUNDED_FIX"
+      },
+      {
+        "id": "CA-R-2618",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.preview.md",
+        "sha256": "04f70231702e2f38d3af8a508321f684e917bfac4f7098ff57f7ac428d64a707",
+        "status": "PASS_BOUNDED_FIX"
+      },
+      {
+        "id": "CA-R-2487",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.preview.md",
+        "sha256": "452ad5c5492dcbd32dc0a75115f9b87ffb3f0b6a4baaee2378b49a66f83ad285",
+        "status": "HOLD"
+      },
+      {
+        "id": "CA-E-383",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.preview.md",
+        "sha256": "7f82f3d2a74434a6327522d44d620a75fc8c9096adc2fbf40ef286b58bdd9214",
+        "status": "HOLD"
+      },
+      {
+        "id": "CA-M-228",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-M-228-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-subject-expressions-with-bearer-and-value-qualification.preview.md",
+        "sha256": "5fc8a39a7fe1adc6d998bccdb3087f897ddb75a887d548690e6f55e3a3edb499",
+        "status": "PASS_BOUNDED_FIX"
+      },
+      {
+        "id": "CA-R-2552",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.preview.md",
+        "sha256": "26ae68ac4437d8a95739aed30ffed6039cceb3447704bd15fa32cbdf436753d8",
+        "status": "PASS_BOUNDED_FIX"
+      }
+    ],
+    "findings": [
+      "E383 still uses old <+ containment, old allowed-count forms, and an unsupported automatic exact-one parent assertion; reconcile Claim examples and preserve literal/header contexts.",
+      "R2487 still uses X/(.p := V) as narrowing while / means containment; reconcile qualified Subject syntax. Its #model/#instances ordering comments disagree with # model/# instances declared in R2552."
+    ],
+    "limits": "Four corrected previews pass their bounded rechecks; full source migration and non-owned R2768 remain separately gated."
+  },
+  "final_recheck": {
+    "verdict": "PASS_BOUNDED_SIX_CONSUMER_FIXES",
+    "latest_two": [
+      {
+        "id": "CA-E-383",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.preview.md",
+        "sha256": "ed56695558edf9bfc12a985cbff1ccaec8511d12669ec5e05101479420f9805f",
+        "status": "PASS_BOUNDED_FINAL_FIX"
+      },
+      {
+        "id": "CA-R-2487",
+        "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/consumers/previews/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.preview.md",
+        "sha256": "fb9712886b1012e55f861b7c83ff7257e1286c9d9291469b46ec9023a5c16e7e",
+        "status": "PASS_BOUNDED_FINAL_FIX"
+      }
+    ],
+    "evidence": "E383 uses admitted Journal zero/positive containment counts and no retired Substep; R2487 uses # model and # instances. Four previous fixes were reviewed separately.",
+    "limits": "Bounded preview readiness for actual Draft creation only. Coordinated notation/consumer source integration and promotion remain required; R2768 duplicate remains excluded."
+  },
+  "merge_approval": {
+    "verdict": "PASS_BOUNDED",
+    "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-without-operator-entities-20261105/paths-rules/CA-R-2777.rule.preview.txt",
+    "sha256": "41d29c19032b466a29454c882669a88242e10b4f0f5e27355995e026b1e616bb",
+    "assessment": "One R2777-based Rule retains the allowed-value meaning, all three bound forms and R2592’s distinction between qualified-selection counts and distinct domain values; it preserves non-assignment and no IS_ALLOWED_VALUE_OF Relation. Retire/replace source identities and consumers in the coordinated grammar batch; do not create a duplicate R2592 successor."
+  }
+}

@@ -1,0 +1,13 @@
+--- Current CA-R-2600
++++ Prospective CA-R-2600 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterThan
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator >
++Define CFEL greater-than syntax >
+-### Formal Claim
+-Operator//GreaterThan == ">"
++### Prose Claim
++`>` tests that the left numeric value is greater than the right numeric value.

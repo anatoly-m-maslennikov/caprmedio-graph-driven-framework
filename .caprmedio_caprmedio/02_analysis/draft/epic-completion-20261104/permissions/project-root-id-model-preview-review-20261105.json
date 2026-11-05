@@ -1,0 +1,81 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_PREPARATION",
+  "rows": [
+    {
+      "id": "CA-R-2524",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "27ee0f57ae317724ec829db7a146c821da9df950469498269388212c7869a2cb"
+    },
+    {
+      "id": "CA-R-2526",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "e96fc5958553521998eb8a44655f9fb68f232f15bc88df417577880c56060403"
+    },
+    {
+      "id": "CA-R-2688",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "85ea59d827b575ca65a538352365a64d15d546c8b2814ab7f1941c0e4c1ea74b"
+    },
+    {
+      "id": "CA-M-461",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "b0e2edc38c089954a83c417f81d9d3c333224eb1b7ea758263b9f05617f9cb73"
+    },
+    {
+      "id": "CA-E-670",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "0f2db3c6c6a05f741b7df90476af8ffe7d69d496c25068a22d9e1a349cfaaa7c"
+    },
+    {
+      "id": "CA-D-442",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "preview_sha256": "4287ddba732d97d5d6508690dd9742d9c29982c2d1defe6eaa8614616f9281ce"
+    },
+    {
+      "id": "CA-R-2640",
+      "source_pin": true,
+      "preview_pin": true,
+      "preview_sha256": "150f8fb7539f54f79d3244cdbbfba600ea3c76be3a42e48c1eaf4b40a812bb65",
+      "source_version": 1,
+      "candidate_version": 2,
+      "active_subject_unchanged": true
+    }
+  ],
+  "findings": [],
+  "preserved": [
+    "Generic Project requires a stable Scope Unit ID without universal CA prefix or fixed CA-SU-00; R2640 alone sets literal CA-SU-00.",
+    "R2526 uses string value and world CA-SU--1 exactly; no numeric normalization, World Declaration, Carrier or folder introduced.",
+    "Project remains unordered, without order.number and formal parent; M461 keeps D667 root folder naming.",
+    "R2640 preview changes only proposed root Scope Unit ID with Atom identity and active Subject intact; related child references and native reader compatibility remain separate adoption gates."
+  ],
+  "gates": [
+    "Consumer duplicate R2526/R2688 previews are superseded; only model-contracts versions reviewed.",
+    "Native reader presently rejects root ID, so promotion requires reader and coordinated source/data migration; Draft preparation is distinct."
+  ],
+  "boundary": "Preview-only source review; no Current, native Draft, Workflow, Workbench, code, tests or Git edits.",
+  "resolved_findings": [
+    "R2688 exempts world from the non-root parent rule.",
+    "E670 requires a Declaration for every Scope Unit except world and exempts Project/world from missing-parent check.",
+    "R2640 preview only adds CA-SU-00 and preserves inherited unordered behavior.",
+    "E670 explicitly rejects any Declaration using the predefined world reserved ID CA-SU--1, closing the selected-set collision gap."
+  ],
+  "final_consumer_manifest_sha256": "030108b310a36c63f02eef4c49e421dfee06d72db3f2748fb76a71d1fe493ae0"
+}

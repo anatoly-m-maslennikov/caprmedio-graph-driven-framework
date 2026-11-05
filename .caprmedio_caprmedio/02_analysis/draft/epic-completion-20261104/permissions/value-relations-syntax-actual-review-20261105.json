@@ -1,0 +1,177 @@
+{
+  "verdict": "PASS_BOUNDED_SYNTAX_DRAFT_READBACK",
+  "plan_sha256": "e9e178509625d59b9f339c3253122eea00f83638585492299ff3842c8759905d",
+  "receipt_pin": true,
+  "batch_reported_outputs": 16,
+  "batch_receipt_outputs": 16,
+  "note": "Applied batch has 16 outputs and 18 operations; review scope remains nine syntax rebases.",
+  "rows": [
+    {
+      "id": "CA-R-2816",
+      "actual_sha256": "9271c05015ae300309b481ab0fb5b6bc035db2cbaa3b0e442ed255bc7831e305",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-2816",
+        1,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": "fresh_rule_no_current"
+    },
+    {
+      "id": "CA-R-2778",
+      "actual_sha256": "981aa504288e4513abf5def56486f49656a58166fd9ef47f63436eae0bde2660",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-2778",
+        1,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": "fresh_rule_no_current"
+    },
+    {
+      "id": "CA-R-2487",
+      "actual_sha256": "dd0b210db2876994455e684fb83855c97488bf61273f4ed2ed835506aaf90b70",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-2487",
+        15,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": true
+    },
+    {
+      "id": "CA-M-228",
+      "actual_sha256": "53666fa117ca7f05b30d989eb7ca858191e2422b27248916f8ea5c74b6aaf71c",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-M-228",
+        38,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": true
+    },
+    {
+      "id": "CA-M-237",
+      "actual_sha256": "25e77d9808bbef4cbdf647f6c624a9498f8ea9e6881ebbe546aefe8f83ab1898",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-M-237",
+        34,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": true
+    },
+    {
+      "id": "CA-E-383",
+      "actual_sha256": "81a8e4b90b6b2d35124d9f4a500265fbad2c4d588e1b1f320921c6565ed10821",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-E-383",
+        47,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": true
+    },
+    {
+      "id": "CA-E-449",
+      "actual_sha256": "4fc41a422fc8bf0f6cff4dd32eefdef879683753092fc12a899302c8bad0509c",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-E-449",
+        46,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": true
+    },
+    {
+      "id": "CA-R-1456",
+      "actual_sha256": "c5516a2ef04a3496a6130e98c59e0a92fef73161314c80016cf0dbfc32c3848e",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-1456",
+        40,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": true
+    },
+    {
+      "id": "CA-R-1346",
+      "actual_sha256": "178547bd1fba8db2fc6248cc7ce4ee60681554efe345790ce7dff35bfd30058e",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-1346",
+        29,
+        "Draft"
+      ],
+      "destination_relative_correct": true,
+      "current_pin_unchanged": true
+    }
+  ],
+  "r1245_withdrawal": {
+    "draft_absent": true,
+    "snapshot_sha256": "e08e9c047ff400a2b44dd088165e09163fa2c2c4dc0f4e1e2b76eed7639c7952",
+    "snapshot_pin": true,
+    "current_unchanged": true,
+    "history_boundary": "Current and frozen history retained; snapshot is non-native withdrawn Draft history."
+  },
+  "semantic_readback": "Exact approved R2487/R2816 bodies preserve qualified Subject := and final inherited HAV OR (true if absent) AND HVC constraints; no separate current adoption asserted.",
+  "gates": [
+    "Coherent source, Subject, alias, metadata, parser and code-binding migration remains required before Current adoption.",
+    "No automatic inverse permission; generic data endpoint signature is limited to these value Relation pairs.",
+    "Current R1245 and old Operator Definitions remain until coordinated replacement/reference cutover."
+  ],
+  "boundary": "Nine syntax Drafts only; no Current, runtime, code, tests or Git changes."
+}

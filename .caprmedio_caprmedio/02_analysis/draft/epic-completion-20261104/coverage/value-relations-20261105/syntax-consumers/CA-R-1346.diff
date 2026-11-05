@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1346@29-draft-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1346.preview.txt
+@@ -27,7 +27,7 @@
+ 
+ ### Prose Claim
+ 
+-A reusable Term **may** occur in allowed-value entity names in multiple qualified Property contexts when it retains the same approved meaning and governing authority admits the value separately in every context; distinct modeled entities **must** have distinct complete canonical names, and admission in one context does **not** admit the value in another. Within these allowed-value contexts, this permits component reuse and does not make one Term the complete canonical entity name of another Entity.
++A reusable Term **may** occur in literal allowed values in multiple qualified Property contexts when it retains the same approved meaning and governing authority admits the value separately in every context; distinct modeled entities **must** have distinct complete canonical names, and admission in one context does **not** admit the value in another. Reusing a Term in literal values does not create a value Node or make that Term another Entity’s complete canonical name.
+ 
+ ## Details
+ 

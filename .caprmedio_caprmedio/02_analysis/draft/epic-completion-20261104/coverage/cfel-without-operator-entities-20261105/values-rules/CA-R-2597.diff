@@ -1,0 +1,13 @@
+--- Current CA-R-2597
++++ Prospective CA-R-2597 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator ;
++Define CFEL expression-separator syntax ;
+-### Formal Claim
+-Operator//ExpressionSeparator == ";"
++### Prose Claim
++`;` separates complete CFEL expressions; a line break is layout only.

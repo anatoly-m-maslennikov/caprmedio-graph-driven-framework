@@ -1,0 +1,29 @@
+{
+  "status": "PASS_BOUNDED_AUDIT",
+  "cohort": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/final-live-cohort.json",
+  "cohort_sha256": "2a09b40f4428467c91823b3ff6da560a6684aa1f1ad9fe631438614105bb6681",
+  "inventory_check": {
+    "declared_count": 49,
+    "entries": 49,
+    "all_target_files_exist": true,
+    "all_target_hashes_match": true,
+    "all_atom_ids_and_versions_match": true,
+    "cohort_ids_unique": true
+  },
+  "key_carriers": [
+    {"id":"CA-R-2826@1","path":".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2826@1-draft-CORE_META_MODEL-DECLARATION--declare-has-allowed-value.md","sha256":"34046b65a580ad65c4579de43478d88043939083f1d884ca178efa25a27d3f8f"},
+    {"id":"CA-R-2816@1","path":".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2816@1-draft-CORE_META_MODEL-RULE--define-property-value-selection-with.md","sha256":"9271c05015ae300309b481ab0fb5b6bc035db2cbaa3b0e442ed255bc7831e305"},
+    {"id":"CA-R-2487@15","path":".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@15-draft-CORE_META_MODEL-DECLARATION--define-cfel.md","sha256":"dd0b210db2876994455e684fb83855c97488bf61273f4ed2ed835506aaf90b70"},
+    {"id":"CA-R-2247@12","path":".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md","sha256":"e6ac609fc4b816168d4bf28173d7cb9d5859d69c68b41de90e25d712a9a9f470"},
+    {"id":"CA-R-2814@1","path":".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2814@1-draft-CORE_META_MODEL-RULE--define-generic-relation-declaration-endpoint-signature.md","sha256":"019d4162a32d91ea740a7e44632f8798d9000631aa313a6b9e369141c666d552"}
+  ],
+  "semantic_checks": {
+    "absence_of_HAV_group": "PASS: R2826, R2816, and R2487 each say to omit the group when no HAS_ALLOWED_VALUE applies; it imposes no enumeration restriction.",
+    "HAV_OR_and_HVC_AND_including_inheritance": "PASS: R2826, R2816, and R2487 specify OR across all applicable HAS_ALLOWED_VALUE alternatives and AND across all applicable HAS_VALUE_CONSTRAINT restrictions, including inherited expressions; final admissibility combines both groups.",
+    "qualified_subject_selection": "PASS: the `:=` filter remains in qualified-Subject examples and is explicitly retained as selection syntax in R2816/R2487.",
+    "old_operator_instances": "PASS: no Operator//, Operator.Name, Operator[...] or $operator instance/descriptor forms occur in any of the 49 cohort targets.",
+    "endpoint_exceptions": "PASS: R2247 and R2814 both limit literal/constraint data endpoints to HAS_ALLOWED_VALUE, HAS_VALUE_CONSTRAINT, and their declared derived inverses. The generic $host/$target signature remains within Relation Declaration Formal Claims. No Value Node or implicit inverse permission is introduced."
+  },
+  "new_issue": "NONE_FOUND",
+  "existing_gate": "The cohort remains Draft-only. Current adoption, parser/runtime conformance, and coordinated source/CFEL cutover remain the previously documented gates; this audit does not claim activation."
+}

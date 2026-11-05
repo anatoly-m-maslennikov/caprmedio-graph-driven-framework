@@ -1,0 +1,13 @@
+--- Current CA-R-2599
++++ Prospective CA-R-2599 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterOrEqual
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-Declare CFEL operator >=
++Define CFEL greater-or-equal syntax >=
+-### Formal Claim
+-Operator//GreaterOrEqual == ">="
++### Prose Claim
++`>=` tests that the left numeric value is greater than or equal to the right numeric value.

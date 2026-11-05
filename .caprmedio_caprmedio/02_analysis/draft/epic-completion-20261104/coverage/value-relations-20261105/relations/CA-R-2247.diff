@@ -1,0 +1,10 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/relations/CA-R-2247.preview.txt
+@@ -39,6 +39,6 @@
+ 
+ ### Prose Claim
+ 
+-Relation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); persist each direct fact once. An actual edge does not create a separate Relation ID. Endpoints are declared model Entities or instances, including Carrier and CFEL descriptors, and exclude literal values and glyphs. An operator is distinct from a graph Relation even when its notation spells a Relation traversal. Its declared descriptor may be an endpoint.
++Relation defines a reusable directed graph Relation Type with a Name and Meaning. Each actual link is a tuple (Host, Relation Type, Target); persist each direct fact once. An actual edge does not create a separate Relation ID. Endpoints are declared model Entities or instances, including Carrier and Relation descriptors, except that HAS_ALLOWED_VALUE and HAS_VALUE_CONSTRAINT have literal or constraint-data Targets, and their declared derived inverses have those data as Hosts. CFEL glyphs are not endpoints. CFEL syntax does not itself create an endpoint.
+ 
+ A direct Relation Declaration owns shared meaning, endpoint signature and any counterpart binding. A derived counterpart remains a distinct Relation with its own Declaration; its meaning and endpoints are inferred through that binding. An alias supplies lexical notation for one Relation; it does not create a new Relation, a Node or a separate Relation ID.

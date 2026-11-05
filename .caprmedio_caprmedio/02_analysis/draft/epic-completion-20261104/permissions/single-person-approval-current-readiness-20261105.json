@@ -1,0 +1,112 @@
+{
+  "verdict": "READY_BOUNDED_PAIRED_CURRENT_SOURCE_ADOPTION",
+  "rows": [
+    {
+      "id": "CA-R-1559",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md",
+      "current_sha256": "9fa28ec46e58ca59d5683b5302029595d8b8d8969e964886cd6a7c9f1dcff16d",
+      "current_pin": true,
+      "preview_sha256": "91269bf241e4f1e19f880d335e50f8bf3de0b67c5e957fbda7b500e8c16783a2",
+      "preview_pin": true,
+      "diff_pin": true
+    },
+    {
+      "id": "CA-E-440",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-POLICY--evaluate-governing-atom-change-approval.md",
+      "current_sha256": "b781523f3c7fcd54b575903f42512e5e21e4c6de83ea3ece46d5279c89bd935d",
+      "current_pin": true,
+      "preview_sha256": "8593079bf9a0007547063a7aa58cffc7ba585dccfd1d7c12cc92d92b9f1de1f7",
+      "preview_pin": true,
+      "diff_pin": true
+    }
+  ],
+  "authority_pins": {
+    "R2508": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    },
+    "R2711": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "0506c8ab90381874d50fd3f368b97217a392271e555c495b2b03d47bcf8267c3"
+    },
+    "R1552": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1552-CORE_META_MODEL-RULE--require-active-delegation-for-ai-agent-actions.md",
+      "sha256": "17a5820534c23076f91bb2bee93f2145ea048c6fe1acb08790c6265028c2c8fe"
+    },
+    "R1591": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1591-CORE_META_MODEL-RULE--apply-autonomous-confidence-thresholds-to-plan-execution.md",
+      "sha256": "2bf0af1b02316b85fdf64693bf9bfc188f6eb7d4b66ebebb976efda0e015acad"
+    },
+    "R2102": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2102-CORE_META_MODEL-RULE--require-the-base-properties-of-every-current-atom.md",
+      "sha256": "2ac017dcc7bafcccd74830f85f3367334164b8d67b792d4887a89ca9031dc66a"
+    },
+    "D657": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f"
+    },
+    "R853": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-853-CORE_META_MODEL-RULE--attribute-each-governed-action-to-its-actor.md",
+      "sha256": "4678c5deef52f04244716e4de4a38a6d24f40d04ad6bb3708ee437cdc5f0676a"
+    },
+    "E441": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-441-PROJECT_CONFIGURATION-POLICY--evaluate-retry-budget-and-escalation.md",
+      "sha256": "74779476a7ecf98826b7c52ddea0af93f70759c1787e353e30b12edd3058bad8"
+    }
+  },
+  "findings": [
+    "R2508 Current declares Atom; the new active Atom Subject exists. R2711 defines the Plan threshold and R1591 continues to require Operator disposition below effective threshold.",
+    "R1552 delegation remains applicable as a permission; the successor explicitly requires all applicable permissions and preserves prohibitions. R2102 and D657 already forbid Atom Author.",
+    "E441 Current references R1559 and retains its retry/approval check without an authorship branch. E440 evaluation links R1559/R1591/R1552 remain; only historical Author definition link is removed in the proposed successor.",
+    "R853 still requires initiating Actor and authorization for governed actions. That is a separate outstanding conflict with the broader no-action-attribution decision; it does not itself mandate Atom Author or invalidate the bounded R1559/E440 change. Do not claim whole attribution migration complete."
+  ],
+  "adoption_conditions": [
+    "Promote the reviewed R1559 and E440 successors together with exact source preimages and source history; no dependency on Event Author removal or root Container schema is identified for these two source Claims.",
+    "Retain other independent permission/delegation rules. No inference that static zero Python references proves implementation or runtime readiness."
+  ],
+  "boundary": "Source-only readiness assessment. No Current promotion, code, tests, Workflow, runtime or Git edits.",
+  "actual_pair_readback": {
+    "verdict": "PASS",
+    "plan_sha256": "ec2f8fe5d870ff12323e1ad22fc0e58583441eb2de1907490a7112dead909f14",
+    "receipt_pin": true,
+    "native_workflow_admission": false,
+    "journal_append": false,
+    "rows": [
+      {
+        "id": "CA-R-1559",
+        "draft_sha256": "563e5d7746f5b7472ebdc995d135f2ced51d1e3798ec1a1f9d065d663baded65",
+        "draft_pin": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "body_exact": true,
+        "metadata_expected": true,
+        "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+        "current_unchanged": true,
+        "identity_version_status": [
+          "CA-R-1559",
+          27,
+          "Draft"
+        ],
+        "destination_relative_correct": true
+      },
+      {
+        "id": "CA-E-440",
+        "draft_sha256": "a61c02c923192f2570a05e51d30d8aac8817d863d949c0a453c7693df5103177",
+        "draft_pin": true,
+        "operation_exact": true,
+        "preview_pin": true,
+        "body_exact": true,
+        "metadata_expected": true,
+        "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+        "current_unchanged": true,
+        "identity_version_status": [
+          "CA-E-440",
+          37,
+          "Draft"
+        ],
+        "destination_relative_correct": true
+      }
+    ],
+    "D657_current_unchanged": true
+  }
+}

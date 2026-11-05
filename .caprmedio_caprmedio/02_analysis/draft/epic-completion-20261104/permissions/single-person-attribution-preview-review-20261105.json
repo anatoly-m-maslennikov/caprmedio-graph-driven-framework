@@ -1,0 +1,91 @@
+{
+  "verdict": "PASS_BOUNDED_PREVIEW_REVIEW_WITH_EXPLICIT_HOLDS",
+  "manifest_sha256": "6958964be47c21b31e8a50528f43bd5e9416bf1b6bbedcaf994e57ad2ea195ba",
+  "rows": [
+    {
+      "id": "CA-D-657",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "source_version": 4,
+      "candidate_version": 4,
+      "summary_identity_retained": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Carrier/File",
+      "disposition": "REVIEW_WITH_EVENT_CONTRACT_ATOMIC_CLOSURE",
+      "preview_sha256": "e48f4e33e2fde487586c7e085e6e9b9816712030cae81ec52348b5ebae846b46"
+    },
+    {
+      "id": "CA-D-494",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "source_version": 17,
+      "candidate_version": 17,
+      "summary_identity_retained": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry",
+      "disposition": "PARTIAL_HELD_LEGACY_ACTIVE_SUBJECT_AND_REGISTRY_CONSUMER_MIGRATION",
+      "preview_sha256": "737d69cda2ba013a0a742f0eb68f11e2086c503f5398214121ad174d1be2ce8d"
+    },
+    {
+      "id": "CA-R-1014",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "source_version": 40,
+      "candidate_version": 40,
+      "summary_identity_retained": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Local Scope Unit",
+      "disposition": "CONTAINER_CHAIN_PREVIEW_REVIEW_REQUIRED",
+      "preview_sha256": "b171b064142f93e0e5f89bdaa07e1951817054cfc0ab345e7d9626d08f7f1743"
+    },
+    {
+      "id": "CA-M-273",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "source_version": 38,
+      "candidate_version": 38,
+      "summary_identity_retained": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection",
+      "disposition": "PARTIAL_HELD_OBSOLETE_TARGET_SCOPE_CLAUSES",
+      "preview_sha256": "b43137213ee2d05c860ec2cbcb68afdc2a62cfd131adb91de36b38592e1396f2"
+    },
+    {
+      "id": "CA-R-1559",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "source_version": 26,
+      "candidate_version": 26,
+      "summary_identity_retained": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "disposition": "REVIEW_REQUIRED_ACTIVE_SUBJECT_CHANGED_TO_CURRENT_ATOM_FROZEN_REFS_PRESERVED",
+      "preview_sha256": "91269bf241e4f1e19f880d335e50f8bf3de0b67c5e957fbda7b500e8c16783a2"
+    },
+    {
+      "id": "CA-E-440",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "source_version": 36,
+      "candidate_version": 36,
+      "summary_identity_retained": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "disposition": "REVIEW_REQUIRED_ACTIVE_SUBJECT_CHANGED_TO_CURRENT_ATOM_OBSOLETE_AUTHOR_EVALUATION_TARGET_REMOVED",
+      "preview_sha256": "8593079bf9a0007547063a7aa58cffc7ba585dccfd1d7c12cc92d92b9f1de1f7"
+    }
+  ],
+  "related_pin_failures": [],
+  "semantic_checks": [
+    "R1559 and E440 apply effective Plan AI Agent Confidence Threshold and applicable permissions to governing Atom changes without Author branching; prohibitions and new-baseline/re-evaluation safeguards remain. R2711 Current pin is retained.",
+    "E440 successor removes only the obsolete CA-R-1080@29 evaluation_for entry; other evaluation links remain, Current/history unmodified.",
+    "R1014 and M273 use the Container chain to resolve Scope Unit including predefined world, not Author or inferred directory ownership. M273 frontier and four set definitions remain.",
+    "D657 keeps no Atom Author; D494 keeps registry identity/roles, membership resolution and permission boundaries, while the author mapping is removed only from the proposed successor."
+  ],
+  "whole_promotion_holds": [
+    "D494 retains legacy active Actor Entity path and requires registry/tool consumer migration; its body-only preview is not promotion-ready.",
+    "M273 retains obsolete target-field/default clauses; coordinate target-scope migration before promotion.",
+    "Container mapping/bootstrap, event contract and relevant governing/evaluation sources require coordinated adoption; historical Author/Journal data remains preserved."
+  ],
+  "boundary": "Preview review only; no native Draft, Current, historical source, code, tests, Workflow, Workbench or Git changes."
+}

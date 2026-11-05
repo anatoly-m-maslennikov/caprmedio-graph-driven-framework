@@ -8,7 +8,7 @@ relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
 tier: 3
-updated_at: 2026-11-05 04:12:41 +0400
+updated_at: 2026-11-05 12:58:42 +0400
 role: Requirement
 form: Declaration
 carrier_destination:
@@ -35,9 +35,7 @@ Atom ((NARROWER_THAN)) Continuant;
 # instances
 Atom//$atom;
 
-IF ($atom.Header.Container = "world") THEN ($atom {::0}((IS_CONTAINED_BY)));
-
-IF ($atom.Header.Container != "world") THEN ($atom {::1}((IS_CONTAINED_BY)));
+$atom {::1}((IS_CONTAINED_BY));
 
 $atom {::0..1}((HAS_ACTIVE_SUBJECT));
 
@@ -52,7 +50,7 @@ For each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality
 
 For each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom’s outgoing links within each Relation Declaration’s admissible endpoint domain; they do not create links.
 
-For an Atom whose effective Header.Container is a valid base Atom ID or Scope Unit path, its outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from that value. Header.Container is the sole stored Atom-containment value. The literal bootstrap value "world" creates no containment link.
+Each Atom instance’s outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from its effective Header.Container. Header.Container is the sole stored Atom-containment value.
 
 ## Semantics
 

@@ -1,0 +1,45 @@
+--- CA-R-2615-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
++++ CA-R-2615.rule.preview.md
+@@ -1,31 +1,23 @@
+ ---
+-atom_id: CA-R-2615
+-current_scope_unit: CORE_META_MODEL
+-claim_target_scope_unit: CORE_META_MODEL
+-status: Active
++atom_id: ROOT_ALLOCATES_NEW_ID_FOR_CA_R_2615
++status: Draft
+ subjects:
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//SubjectValueSelection
++  active: CAPRMEDIO_MODEL <+ CFEL
+ version: 1
+-updated_at: 2026-11-02 08:06:47 +0400
+-relations: {}
++updated_at: 2026-11-05 13:19:19 +0400
++relations:
++  IS_CONTAINED_BY:
++    scope_unit: CA-SU-11
+ tier: 3
+ role: Requirement
+-form: Declaration
++form: Rule
+ ---
+-
+ ## Summary
+ 
+-Declare CFEL operator :=
++Define Property-value selection with `:=`
+ 
+ ## Claim
+ 
+-### Formal Claim
++### Prose Claim
+ 
+-```CFEL
+-# model
+-Operator//SubjectValueSelection == ":="
+-```
+-
+-## Semantics
+-
+-In a Subject or a filtered Node expression in a Formal Claim, combine an admitted Property value with selection; for example, `Workflow/(.Purpose := Runtime)`. It is not assignment.
++In a Subject or filtered Node expression in a Formal Claim, `:=` combines an admitted Property value with selection, as in `Workflow/(.Purpose := Runtime)`. It is selection syntax, not assignment.

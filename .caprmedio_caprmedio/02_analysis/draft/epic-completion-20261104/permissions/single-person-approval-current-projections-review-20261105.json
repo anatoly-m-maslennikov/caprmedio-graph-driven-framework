@@ -1,0 +1,128 @@
+{
+  "verdict": "PASS_BOUNDED_CURRENT_AND_PROJECTION_READBACK",
+  "promotion_plan_sha256": "a82dde42f1f26d78fe982c7c30cdb29429597d89c91ed889d2a8129d4066f4f5",
+  "receipt_pin": true,
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "current": [
+    {
+      "id": "CA-R-1559",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "archive_exact_preimage": true,
+      "draft_consumed": true,
+      "draft_preimage_pin": true,
+      "approved_body_exact": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "id_version_status": [
+        "CA-R-1559",
+        28,
+        "Active"
+      ]
+    },
+    {
+      "id": "CA-E-440",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "archive_exact_preimage": true,
+      "draft_consumed": true,
+      "draft_preimage_pin": true,
+      "approved_body_exact": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "id_version_status": [
+        "CA-E-440",
+        38,
+        "Active"
+      ]
+    }
+  ],
+  "D657_unchanged": true,
+  "generation_manifest_sha256": "be9997c60a8c56bdb6899d236d9781e10b4b49ddc15804bf0162b7b04e85774a",
+  "frontier_pin": true,
+  "source_counts": [
+    1167,
+    1167
+  ],
+  "same_supplier_ids": true,
+  "changed_sources": [
+    "CA-E-440",
+    "CA-R-1559"
+  ],
+  "source_hash_version_status_failures": [],
+  "views": [
+    {
+      "id": "CA-PROJ-020",
+      "published_pin": true,
+      "staged_pin": true,
+      "identity_form_scope_unchanged": true
+    },
+    {
+      "id": "CA-PROJ-021",
+      "published_pin": true,
+      "staged_pin": true,
+      "identity_form_scope_unchanged": true
+    },
+    {
+      "id": "CA-PROJ-022",
+      "published_pin": true,
+      "staged_pin": true,
+      "identity_form_scope_unchanged": true
+    },
+    {
+      "id": "CA-PROJ-023",
+      "published_pin": true,
+      "staged_pin": true,
+      "identity_form_scope_unchanged": true
+    },
+    {
+      "id": "CA-PROJ-024",
+      "published_pin": true,
+      "staged_pin": true,
+      "identity_form_scope_unchanged": true
+    },
+    {
+      "id": "CA-PROJ-025",
+      "published_pin": true,
+      "staged_pin": true,
+      "identity_form_scope_unchanged": true
+    },
+    {
+      "id": "CA-PROJ-026",
+      "published_pin": true,
+      "staged_pin": true,
+      "identity_form_scope_unchanged": true
+    }
+  ],
+  "frozen_014_019": {
+    "CA-PROJ-014-CAPRMEDIO--Subject-Graph-Primary-Subjects--Current-Methodology-and-Project-RMED.md": true,
+    "CA-PROJ-016-CAPRMEDIO--Subject-Graph-Instances--Current-Methodology-and-Project-RMED.md": true,
+    "CA-PROJ-017-CAPRMEDIO--Model-Graph--Current-MODEL-Declarations.md": true,
+    "CA-PROJ-015-CAPRMEDIO--Subject-Graph-Properties--Current-Methodology-and-Project-RMED.md": true,
+    "CA-PROJ-018-CAPRMEDIO--Entities-Graph--Current-Subject-Narrowing-Tree.md": true,
+    "CA-PROJ-019-CAPRMEDIO--MODEL-Formal-Contracts.md": true
+  },
+  "formal_claims": {
+    "count_current": 829,
+    "count_prior": 829,
+    "exact_order_and_text_equal": true
+  },
+  "audit_counts": {
+    "passive_only_subjects": {
+      "subject_occurrences": 3221,
+      "parsed_subjects": 373,
+      "unresolved_subjects": 9,
+      "unresolved_occurrences": 42,
+      "active_subjects": 328,
+      "passive_only_subjects": 47
+    },
+    "subjects_without_declaration_coverage": {
+      "known_missing": 54,
+      "unresolved": 23
+    },
+    "entity_definition_summary": {
+      "entities": 252,
+      "entities_with_any_missing": 48
+    }
+  },
+  "boundary": "Source/published view readback only; no native Workflow admission, Journal append, implementation, tests or runtime conformance asserted."
+}

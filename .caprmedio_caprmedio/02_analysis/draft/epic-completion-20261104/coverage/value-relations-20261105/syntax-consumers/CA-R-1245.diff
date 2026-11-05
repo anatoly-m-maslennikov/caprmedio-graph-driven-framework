@@ -1,0 +1,17 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1245@29-draft-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-1245.preview.txt
+@@ -21,7 +21,7 @@
+ ---
+ ## Summary
+ 
+-Qualify Allowed Values with Colon
++Qualify Allowed Values in Subject Expressions
+ 
+ ## Claim
+ 
+@@ -31,4 +31,4 @@
+ allowed-value qualification in a Subject Expression.
+ 
+ 
+-**in** a Subject Expression, `X::Y` **must** admit Y as one possible value of X in X's qualified context, irrespective of X's kind or path. This qualification is CFEL syntax, not a graph Relation. It does not assign Y to an occurrence or determine direct-value cardinality.
++**in** a Subject Expression, `X := Y` expresses the HAS_ALLOWED_VALUE Relation from X to Y in X's qualified context, irrespective of X's kind or path. It does not assign Y to an occurrence or determine direct-value cardinality. In a qualified Subject selection such as `X//(.p := Y)`, retain `:=` for the allowed-value qualification and selection; the applicable authority must admit Y.

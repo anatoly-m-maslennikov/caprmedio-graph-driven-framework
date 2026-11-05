@@ -1,0 +1,39 @@
+---
+atom_id: <unallocated>
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_VALUE_CONSTRAINT_OF
+version: <unallocated>
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare IS_VALUE_CONSTRAINT_OF
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+$relation[<Relation>, (.Name = IS_VALUE_CONSTRAINT_OF)];
+
+$inverse[<Relation>, (.Name = HAS_VALUE_CONSTRAINT)];
+
+$relation <((HAS_INVERSE)) $inverse;
+
+$relation ((HAS_CLASSIFICATION)) Derivation == Derived;
+
+$host ((IS_VALUE_CONSTRAINT_OF)) $target
+```
+
+### Prose Claim
+
+The Host is constraint data and the Target is the qualified model Subject or instance. This is the inverse view of HAS_VALUE_CONSTRAINT.
+
+## Semantics
+
+IS_VALUE_CONSTRAINT_OF expresses the derived inverse view.

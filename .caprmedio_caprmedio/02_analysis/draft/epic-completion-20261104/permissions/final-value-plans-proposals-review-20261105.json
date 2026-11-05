@@ -1,0 +1,63 @@
+{
+  "verdict": "PASS_BOUNDED_PLANS_PROPOSALS_READBACK",
+  "plan_sha256": "0eaab86df41f1eccd6306d7b809113b8dec9e48dd87515b6f95bb1e10e723635",
+  "receipt_pin": true,
+  "plans": [
+    {
+      "id": "CA-P-2694",
+      "version": 72,
+      "actual_sha256": "6fabd2c1094a81dd7b595b23623656c52e3eb7c34e4793212a08fe4430276228",
+      "pin": true,
+      "exact_plan": true,
+      "archive_exact": true
+    },
+    {
+      "id": "CA-P-2707",
+      "version": 9,
+      "actual_sha256": "148358e4e036c6109961f61a1beba6f032851b51fd9d7874408aeb5c9a6cd616",
+      "pin": true,
+      "exact_plan": true,
+      "archive_exact": true
+    }
+  ],
+  "proposals": {
+    "1317": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md",
+      "sha256": "e7fd91683f768a66b881d7d2cbf9c3307150a601164bbe9c173592739872c8f2"
+    },
+    "1321": {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+      "sha256": "fbbf1a653c676e8804dc720f64346592200e82d3a21057ef0daf3486c05c8962"
+    }
+  },
+  "cohort": {
+    "listed": 49,
+    "unique": 49,
+    "matches_pinned_cohort": true,
+    "actual_pin_failures": []
+  },
+  "acceptance_groups": 23,
+  "p2707_remaining_checks_exactly_match_predecessor": true,
+  "checks": [
+    "A1321 and P2694/P2707 retain inherited HAV OR, HVC AND, absent HAV true, qualified Subject :=, and distinguish 49 Drafts from Current.",
+    "A1317 records Event author relations as Current pending coordinated retirement and Run Properties deferred.",
+    "Root, reader, runtime, Current grammar and non-approval attribution changes remain gated; no completion inferred."
+  ],
+  "boundary": "Plan/proposal review only; no native source, code, tests or Git changes.",
+  "baseline_wording_fix_readback": {
+    "verdict": "PASS_BASELINE_WORDING_READBACK",
+    "plan_sha256": "0de51ea56455ea5377189f99f43c2878985168422c9b179f6556575a65b63494",
+    "receipt_pin": true,
+    "actual_pin": true,
+    "actual_exact_plan": true,
+    "archive_exact_predecessor": true,
+    "historical_baselines_labeled": true,
+    "gates_unchanged": {
+      "Responsibility and external dependencies": true,
+      "Remaining work": true,
+      "Definition of Done": true
+    },
+    "p2707_unchanged": true
+  },
+  "resolved_finding": "P2694@73 explicitly labels 1,159 suppliers and 56 missing cases as earlier baselines; latest 1,167 and 54 remain current."
+}

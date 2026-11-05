@@ -1,0 +1,23 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@15-draft-CORE_META_MODEL-DECLARATION--define-cfel.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-R-2487.preview.txt
+@@ -62,8 +62,7 @@
+ 
+ Text values use double quotes when needed to distinguish literal text from CFEL syntax; otherwise an unambiguous value may remain bare, including a multiword value such as `Scope Contract`. For example, `"A/B"` is text containing a slash. A name or path used as a reference retains its declared identity; a text value does not become a model reference. Within double-quoted text, `\"` represents a literal double quote and `\\` represents a literal backslash. Reject every other escape and any incomplete trailing backslash; JSON escape rules are not imported. This applies to values in Formal Claims and Subject selectors.
+ 
+-In Formal Claims, `X:: Y` admits Y as an allowed value of X regardless of X's
+-kind or preceding path; it is not assignment. `=` and `!=` test conditions,
++In Formal Claims, `X := Y` expresses an allowed literal value and `X :: C` expresses a value constraint. All applicable HAS_ALLOWED_VALUE alternatives, including inherited alternatives, combine by OR; all applicable HAS_VALUE_CONSTRAINT restrictions, including inherited restrictions, combine by AND. Final admissibility is `(HAV := #1 OR #2 OR ...) AND (HVC :: #1 AND #2 AND ...)`. If no HAS_ALLOWED_VALUE group exists, omit that group (true): there is no enumeration restriction. For example, `x := a; x := b` can be written `x := a | b`; `x :: [string]; x :: {::1}` can be written `x :: [string]{::1}`. These Relations do not assign a value to an occurrence. `=` and `!=` test conditions,
+ and `==` states a required or derived conclusion. `in` and `not in` are the
+ admitted membership tests. Numeric comparison and addition use the separately
+ defined `>`, `>=`, `<`, `<=` and `+`; they are distinct from Relation
+@@ -99,9 +98,7 @@
+ 
+ A direct Relation Declaration owns shared meaning and endpoints. A derived inverse Declaration retains the reverse HAS_INVERSE binding and its own alias, when present. A qualified or other non-inverse derived view retains its source, endpoint transformation and qualification; derivation alone does not imply unconditional endpoint reversal. `alias($boundRelation) == "token"` binds an already-bound exact Relation name to lexical notation. `$direct[<Relation>, (.Name = DIRECT)] <--> $derived[<Relation>, (.Name = DERIVED)]` binds distinct inverse Relations in the direct Declaration. It never equates their identities. These metadata forms do not create literal-to-Node graph links.
+ 
+-A graph Relation connects declared model entities or declared instances,
+-including Carrier and CFEL; it is not limited to `Node/**`. A literal remains a
+-Property or allowed value, not a graph endpoint. A CFEL syntax literal is not a
++A graph Relation connects its declared endpoint domains, including declared model entities or instances and, where a value Relation declares them, literal values or value constraints. A literal remains a value, not a model entity. A CFEL syntax literal is not a
+ graph Relation or model entity, and its glyph or literal operand does not create
+ another model entity. Each direct Relation Declaration supplies shared meaning and a
+ formal Host/Target signature with typed selectors whose universe is known, or

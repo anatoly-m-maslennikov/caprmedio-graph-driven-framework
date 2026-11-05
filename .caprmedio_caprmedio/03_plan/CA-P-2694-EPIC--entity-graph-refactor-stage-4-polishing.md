@@ -3,8 +3,8 @@ atom_id: CA-P-2694
 label: Epic
 status: Active
 tier: 3
-version: 70
-updated_at: 2026-11-05 06:06:44 +0400
+version: 73
+updated_at: 2026-11-05 16:56:20 +0400
 subjects:
   active: CAPRMEDIO_MODEL
 relations:
@@ -29,7 +29,7 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 - Remove the five obsolete authority-mode overrides.
 - Promote 44 Declaration Atoms and the shared ordering, Project and identity model. Preserve source history; merge existing model Definitions rather than create duplicates.
-- Non-root units have stable IDs. The Project root has no Scope Unit ID; it is Unordered and has no order.number.
+- Every declared Scope Unit has a stable ID. The CAPRMEDIO Project root receives CA-SU-00. It stays Unordered, has no order.number and no formal parent. CA-SU--1 is the predefined Scope Unit named world, without a Declaration.
 - Move and rename existing Authority and Delivery folders to the derived names. Derive Authority and Delivery folder names. Only non-root Authority names include the Scope Unit ID; Project Authority remains .caprmedio_<project name>.
 - Retire project_structure.toml as a concept, source file and executable dependency: governing Atoms, readers, row writers, file-only bindings, fixtures and documentation.
 - Use Declaration Atoms directly. Do not retain a fallback, generated compatibility TOML or second authored registry.
@@ -38,7 +38,7 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 - Keep MODEL entities distinct from their instances. Use the latest Operator decisions when earlier wording conflicts.
 - Keep Atom.Header and Atom.Content, an empty Claim container with one or two Formal Claim / Prose Claim children, declared heading interpretation, explicit counterpart identities, aliases, and the removal of the @ reference operator.
-- Atom.Header.Container is one mapping with exactly one key: scope_unit for a stable Scope Unit ID, or atom for an Atom ID. Store no Scope Unit name, name suffix or path. Resolve current names and physical destinations from the referenced identity. The Project root ID exception and world bootstrap encoding remain pending. Header.Relations stays optional and carries no duplicate containment fact. Formal Scope Unit parentage remains in its Declaration.
+- Atom.Header.Container is one mapping with exactly one key: scope_unit for a stable Scope Unit ID, or atom for an Atom ID. Store no Scope Unit name, name suffix or path. Resolve current names and physical destinations from the referenced identity. The root Project Declaration Atom uses scope_unit: CA-SU--1. This resolves to predefined world; it is not an unlinked scalar literal. Header.Relations stays optional and carries no duplicate containment fact. Formal Scope Unit parentage remains in its Declaration.
 - Retire Substep and make Step recursive: exactly one Action, one Workflow, or one or more contained Steps. Step Run covers Step at every nesting level. Each Step has one Container and its Container chain ends at a Workflow. Preserve the separate actual Workflow-owner migration boundary.
 - Runs are not Atoms. Defer Run Properties, including Header, Container and ID. Keep formal containment only: a Step Run has one Workflow Run or Step Run parent; an Action Run launched by a Step Run belongs to that Step Run. Add explicit directional permissions without a general Run root or child-execution-count rule.
 - Keep # model / # instances groups and explicit $x bindings. Inherit declared formats without copying local value counts. A present Property has a value and has schema and bearer links.
@@ -48,14 +48,14 @@ Complete declaration-based Scope Unit authority and the latest MODEL/CFEL conten
 
 - P2695–P2706 and P2709 have recorded completed, bounded results. Preserve their history. P2708 owns the separately deferred O016 desired-behavior item.
 - The Scope Unit source cutover, TOML retirement, Header/Claim/alias migration, Subject-root migration and CFEL grouping migration have application and preservation evidence.
-- The seven published MODEL projections use 1,159 pinned Current suppliers and Project root ownership. The graph reader passed 426 tests; the projection generator passed ten tests. Current admission passed 588 tests. These are focused results, not the final integration gate.
+- The earlier seven-view MODEL projection baseline used 1,159 pinned Current suppliers and Project root ownership. The graph reader passed 426 tests; the projection generator passed ten tests. Current admission passed 588 tests. These are focused results, not the final integration gate.
 - A 2026-11-05 source census found 46 Current Scope Unit Declarations: one Project root, 45 unique non-root IDs and nine Ordered units. The older 44-source cutover remains historical evidence. One original Declaration is archived and three Workbench Declarations were added; all 43 surviving original Claims and metadata match after the reviewed namespace and Formal Claim wrapping changes. This bounded source snapshot does not close stable-candidate integration.
 - The previous Epic version preserves the detailed checkpoint history. The acceptance matrix retains all 23 requirement groups and their evidence. These baselines do not close the remaining gates.
 
 - The Goal/Tier batch has 15 verified source contributions and exact predecessors. Seventeen reviewed Settings contributions merge logical ownership under Project.Settings; 25 ambiguous Settings sources remain held. R2747 and R2748 use fresh IDs because their Summaries changed.
 - Source checkpoint a02ac7b83bf4561c7ad18b69ce9b6436dcbb02bf is reported pushed to amm/dev. It includes Goal/Tier, Settings, capability-deferral, containment-permission and refreshed-view source batches. Later code/runtime and fixture repairs remain uncommitted; this checkpoint is not final integration evidence.
 
-- The capability deferral batch preserves confidence constraints in two revised Declarations and retires three redundant Tool/Extension Settings sources. Exact archives and frozen references remain. The refreshed audit reports 56 missing and 23 unresolved Declaration-coverage cases.
+- The capability deferral batch preserves confidence constraints in two revised Declarations and retires three redundant Tool/Extension Settings sources. Exact archives and frozen references remain. That earlier refreshed audit reported 56 missing and 23 unresolved Declaration-coverage cases.
 
 ## Responsibility and external dependencies
 
@@ -76,7 +76,7 @@ Term Definition is now an admitted Method Form under R2765. M450 is the sole Cur
 2. Each Atom governs one actual active Subject; its normative Claims stay within that Subject.
 3. Vocabulary and notation are coherent. Keep necessary meaning, constraints and brief Relation Semantics; remove staging notes and redundant rules.
 4. Use simple explicit syntax. Resolve ambiguity with the Operator before admission.
-5. The Operator selected `::` for allowed values and `{::n}` for allowed cardinalities; Subject `:=` remains unchanged. Review source successors and contextual migration before declaring the new syntax active. `?==` defines a missing effective Property value, `=` tests a condition, and `==` states a required or derived value. The Project confidence default is 90 in the integer range 0..100. Do not infer a Property rename.
+5. HAS_ALLOWED_VALUE uses `:=`; applicable and inherited admissions combine with OR. HAS_VALUE_CONSTRAINT uses `::`; applicable and inherited constraints combine with AND. Omit an absent allowed-value group. Combine the present groups with AND. Qualified Subjects retain `:=`; allowed cardinalities use `{::n}`. Review the staged successors and migrate by context before activating the new syntax. `?==` defines a missing effective Property value, `=` tests a condition, and `==` states a required or derived value. The Project confidence default is 90 in the integer range 0..100. Do not infer a Property rename.
 6. IF bindings last through the condition and matching THEN group; standalone typed bindings last through the CFEL block. A new binding uses another name.
 7. Mixed AND/OR uses parentheses. Quote text when needed; use escaped double quotes and backslashes.
 8. Review the full Current CFEL specification census semantically; operator-use scans and hash checks alone do not prove this audit complete.
@@ -85,32 +85,43 @@ Workbench and Workflow definitions remain owned by other agents. Their illustrat
 
 ## Declarative notation proposal
 
-CA-A-1321@1-draft records the latest design and its open grammar questions. Keep Current syntax until reviewed successor Declarations and migration are ready.
+CA-A-1321@1-draft records the settled design and the 49 live successor Drafts. Keep Current syntax until coordinated source adoption and migration are ready.
 
 - CFEL states constraints, relationships and required values; Workflows perform changes.
 - The Operator accepted `<Node>` for a Model-defined object kind used as a Format.
 - The proposed instance forms are anonymous `$<Node>` and named `$x[<Node>]`.
 - The proposed `/` means containment and `//` means narrowing. Preserve relationship direction, inherited rules and endpoint count meaning during review.
 - Formats combine value domains and conditions, including primitive values. Bound names and quantifiers are logical notation.
-- Allowed values use `::`, including `{::n}` bounds; `:=` stays unchanged. A specific Relation participant uses `$x[<Relation>, .Name = IS_PROPERTY_OF]`. These Operator decisions are settled; their defining source revisions and migration remain open.
-- `FOR EACH $atom[<Atom>, (conditions)]: (...)` is accepted, without WITH or IN. Its participant is scoped to its selector and grouped body. Formal Claims are self-contained; subjects.active remains the declared focus. R2778@1-draft records the quantifier. Typed Format/binding successors R2248@6 and R2604@4 are created; R2487@14-draft is rebased. Their coordinated review, readback and admission remain required.
+- HAS_ALLOWED_VALUE (`:=`) admits alternatives; HAS_VALUE_CONSTRAINT (`::`) constrains formats and counts. `Name :: [string]{::1}` alone allows one string. Qualified Subjects retain `:=`. A specific Relation participant uses `$x[<Relation>, (.Name = IS_PROPERTY_OF)]`. Relation data endpoints stay literal or constraint data; they do not create Value Nodes.
+- `FOR EACH $atom[<Atom>, (conditions)]: (...)` is accepted, without WITH or IN. Its participant is scoped to its selector and grouped body. Formal Claims are self-contained; subjects.active remains the declared focus. R2778@1-draft records the quantifier. The final live cohort records the current typed-selector, binding and Rule successors, including R2487@15-draft. Their coordinated admission remains required.
 - Retain the existing named reverse traversal. No additional compact reverse glyph is required or adopted.
 - Container references use IDs only. Scalar Scope Unit.Path Draft R2530@3 is no longer a Container prerequisite and remains separate from this adoption packet. Keep Current Path authority until its independent proposal is resolved.
 - Put Project Settings defaults on their Property Declarations with `?==`. Preserve sourced values and validation; retire the old Default Settings Artifact requirements only after dependent source reconciliation. Runtime files stay with their owners.
 
 A narrow Journal source repair is Current as R1644@39; its Claim is unchanged and its undeclared passive History reference is removed. Seven refreshed MODEL views use 1,167 pinned Current sources: 54 missing Declaration cases, 23 unresolved cases and 47 passive-only Subjects. The historical 44-source digest is reproduced from preserved bytes; all 46 Current Declaration pins have a separately verified digest. These source checks do not close the final candidate or external gates.
 
+The root/bootstrap decisions are settled. Ten native source Draft writes implement them; their Current predecessors are unchanged. The current parser rejects a root ID and identifies root through an absent ID. Promotion must wait for the P2707 reader/model/validator and bootstrap adapter changes. World has no Declaration, Carrier or folder. The seven MODEL views stay pinned to Current suppliers until source adoption.
+
 D264 and D266 remain. Declared Container determines placement; the nearest eligible Directory Carrier reads back the same containment fact. Physical placement and the declared identity must agree; no second authored parent or Carrier graph is added. Earlier retirement and link-removal proposals are superseded.
 
 Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2617@3. CONTAINS changes its sole alias from `<+` to `/`; IS_CONTAINED_BY keeps `+>`. R2605 instance syntax retirement and R2610 replacement require the common typed-selector and consumer migration.
 
+## Reviewed source checkpoint — 2026-11-05
+
+- Current R1559@28 and E440@38 use the Plan AI confidence threshold and applicable permissions for governing-Atom changes. They retain explicit prohibitions, required approval and re-baselining safeguards.
+- Seven published MODEL views use the post-approval frontier of 1,167 Current suppliers. The latest counts remain 54 missing Declarations, 23 unresolved cases, 47 passive-only Subjects, and 252 entities including 48 without defining authority.
+- The final CFEL cohort contains 49 live Drafts: 29 language Rules, 14 consumers, four value Relation Declarations and two model Declarations. It removes modeled CFEL Operator introspection; Actor/Operator remains.
+- R2826 / R2827 declare HAS_ALLOWED_VALUE and its inverse. R2828 / R2829 declare HAS_VALUE_CONSTRAINT and its inverse. Their old unpromoted IDs were repaired after a concurrent allocation collision; other owners' sources are unchanged.
+- Single-person attribution changes remain staged outside the promoted approval pair. Event author Relations are not yet retired. Current root-ID and CFEL sources are unchanged pending coordinated cutover.
+- CA #3 owns parser, registry, adapter and runtime compatibility and its verification. This source checkpoint does not establish enforcement.
+
 ## Remaining work
 
 1. **Relation permissions.** Verify the adopted outgoing permissions, model/instance scope, endpoint bounds and qualifications against final sources. Retain separate direct/inverse permissions and source-linked unary bounds in projections.
-2. **Property contracts and containment.** Resolve the conditional cases from applicable Declarations. Update source and schema authority for the required Atom.Header.Container, optional Header.Relations and retained formal containment Relations; do not duplicate containment in Header.Relations. Verify one formal Container per non-Project Scope Unit and none for the Project root, separately from the mandatory Container of its Declaration Atom. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
+2. **Property contracts and containment.** Resolve the conditional cases from applicable Declarations. Update source and schema authority for the required Atom.Header.Container, optional Header.Relations and retained formal containment Relations; do not duplicate containment in Header.Relations. Verify one formal Container per ordinary non-Project Scope Unit and none for the Project root. Predefined world is exempt from the ordinary parent requirement. Separately verify each Declaration Atom has its own Container. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
 3. **MODEL coverage.** Disposition every remaining flag in the latest pinned coverage audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. The Occurrent hierarchy is settled by the latest Operator decision; finish the reviewed endpoint/inverse-permission and Event Record Relation source gates rather than reopening that decision. Reconcile Settings ownership, preserve operative Claims and exact history, and retain only explicitly authorized deferrals.
 4. **Projection identity.** Verify the adopted Form + Scope Unit constraints, required Scope Unit reference and distinct Forms across Delivery, readers, identity checks and published instances. Keep all seven views at the Project root. Preserve versioned source references and the explicit Terms Graph deferral.
-5. **CFEL and faithful projections.** Create and review the `::` and `{::n}` source successors, commit their checkpoint, then migrate allowed-value expressions by context while preserving `:=`, YAML and literals. Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
+5. **CFEL and faithful projections.** Review the final 49-Draft cohort, commit its checkpoint, then adopt and migrate by context. Preserve qualified-Subject `:=`, YAML and literal text. Apply the distinct `:=` OR / `::` AND mechanisms, including inherited rules and the absent-admission case. Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.
 6. **Current carrier admission.** The source lane reconciles live Delivery authority, source closure and Current Atom requirements. CA #3 owns the corresponding registry, validator and runtime implementation, fixtures and execution. Remove dependencies on retired D274 using Current authority; preserve fail-closed checks. Reconcile Header/Claim, role/form, Author removal and required fields with their Current authority before enabling admission. Live admission remains a required external gate.
 7. **P2707.** The source lane verifies Current Scope Declaration counts, identities and hashes and explains source-set drift. CA #3 owns code/runtime changes, fixtures and execution of the live Project admission, complete current-source suite, launcher, fresh Docker query/status and W10 lifecycle checks. These required external gates must pass on one stable candidate, with one authoritative result tied to its source, implementation and image identities; focused or mixed-state results do not close them.
 8. **Independent closure.** Audit every requirement in the acceptance matrix against live evidence. Verify exact predecessors, metadata/identity rules, actual published projections and the requested remote checkpoint. Mark the Epic Done only after every required item passes or the Operator explicitly changes its scope.

@@ -1,0 +1,36 @@
+{
+  "status": "PASS_BOUNDED_REVIEW",
+  "scope": "Review of the R2462 permission preview only. No native source, code, tests, or Git changes.",
+  "manifest": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/permissions/manifest.json",
+    "sha256": "ce5a70b20c6610ad292e7a1f84682859c4080d2991f03739d9af5664609c0d58",
+    "all_manifest_source_preview_diff_and_dependency_pins_match": true
+  },
+  "candidate": {
+    "id": "CA-R-2462@4 preview",
+    "source_sha256": "ea99c8561634527d41dfd9e74dc16f62694b767f4c0c1c3be2e24559f4c37e6c",
+    "preview_sha256": "2a12e5daf547c4e5e495d6ce2776652a370a3bfee1df7838df6c3dd7204baf1d",
+    "diff_sha256": "885a60d969616352771021a7aec79a5cf907c2694410452a8e49503338689385",
+    "disposition": "PASS_FOR_DRAFT_PREPARATION",
+    "findings": [
+      "Adds explicit zero-or-more permissions for HAS_ALLOWED_VALUE and HAS_VALUE_CONSTRAINT at both the model `(Node, Node.**)` layer and the instance `($node, $node.**)` layer, matching R2462's existing property-bearing selector structure.",
+      "The existing deny-by-default rule remains unchanged; the two named permissions are explicit exceptions only for the direct value Relations.",
+      "No permission is added for inverse Relations, HAS_VALUE, or other Relations; no inheritance ban or required-value constraint is loosened.",
+      "The Relation declarations reviewed separately admit qualified model Subjects or instances as Hosts. R2247/R2814 provide the narrow literal/constraint-data Target exception; this preview introduces no literal Node or Value Node."
+    ]
+  },
+  "dependencies": {
+    "relation_previews": {
+      "HAS_ALLOWED_VALUE": "f27a26232bbb7b3f845001da732f344c4fb05931aa0ccdc6cccb69a5e6ebcfca",
+      "HAS_VALUE_CONSTRAINT": "afa87c9249ef6fd77bea744bded00d5acbf3b918ee17e7a8ae88bc7973f14008"
+    },
+    "relation_endpoint_authority": {
+      "CA-R-2247": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22",
+      "CA-R-2814@1-draft": "2acc5ac7b1a5e0edf50832db267163a72970ea151eeb5ae93695dabb1aff7fc0"
+    }
+  },
+  "limits": [
+    "This review validates the proposed source permission shape; it does not claim current activation or runtime behavior.",
+    "Relation declaration, endpoint-permission, and CFEL syntax/source adoption remain coordinated gates."
+  ]
+}

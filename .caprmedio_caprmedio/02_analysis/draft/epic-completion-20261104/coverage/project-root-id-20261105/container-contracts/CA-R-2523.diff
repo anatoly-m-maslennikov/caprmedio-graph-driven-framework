@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2523.preview.txt
+@@ -38,7 +38,9 @@
+ 
+ Scope Unit//$scope_unit_3{:0+}((CONTAINS)) Scope Unit//$scope_unit_4;
+ 
+-IF (Scope Unit//$unit not in (Scope Unit/Project//$scope_unit_5))
++Scope Unit//$unit;
++
++IF (($unit not in (Scope Unit/Project//$scope_unit_5)) AND ($unit.ID != "CA-SU--1"))
+ THEN ($unit {==1}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_6);
+ ```
+ 

@@ -1,0 +1,57 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "decision": "world is predefined Scope Unit CA-SU--1 with no own Declaration; Project Scope Unit CA-SU-00 has no formal parent. The root Declaration Atom defaults to a scope_unit mapping selecting world.",
+  "sources": [
+    {
+      "id": "CA-R-2779",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "disposition": "PREVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2779.preview.txt",
+      "preview_sha256": "846addfe6cb075bd46c18216bf412660bbeb3cee613a5760fed16f8ab59a71c2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2779.diff",
+      "diff_sha256": "33eb70ab6d8d303fb8d221979767ba89f972feeb0e70166498478c7454af8f4a"
+    },
+    {
+      "id": "CA-R-2508",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3",
+      "disposition": "PREVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2508.preview.txt",
+      "preview_sha256": "357771e8d62b5b0e296a4e6dffac6229b9093e315b0b09847e8f450a368849ca",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2508.diff",
+      "diff_sha256": "0ec1159029d9d0f2e7711fded2f62518b70f77e566034637bc5c2580d7acbe04"
+    },
+    {
+      "id": "CA-R-2784",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+      "source_sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293",
+      "disposition": "REVIEWED_UNCHANGED"
+    },
+    {
+      "id": "CA-R-2783",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+      "source_sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d",
+      "disposition": "REVIEWED_UNCHANGED"
+    },
+    {
+      "id": "CA-R-2523",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "source_sha256": "d5656fcb6fdc9497abac2f3e08b7d7fdda49af4300ea1cdbc3e3fe6d68ad48a5",
+      "disposition": "PREVIEW",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2523.preview.txt",
+      "preview_sha256": "d09092c6fb694d05c5817f6863ab0f01b586d970568f2a7e26e7c2ff0aca0b84",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/container-contracts/CA-R-2523.diff",
+      "diff_sha256": "e61ce8241f26a499a9d1ff2a312f3f41a9c53b36bf2e29e083d979d0e69fcc81"
+    }
+  ],
+  "dependencies": [
+    "R2526/R2688 model-contracts candidates reserve IDs and exempt only predefined world from external Declaration requirement.",
+    "R2523 candidate exempts world from the non-Project parent requirement; it does not assert whether world has a parent.",
+    "R2783 and R2784 already specify independent optional leaf values; mandatory one-of-two is supplied by R2779.",
+    "Retire or migrate R2698/R2699/R2700 and consumers atomically; no inverse permission follows automatically.",
+    "Current model-derived projection/source readers may assume all Scope Units have Declarations; treat predefined world as a distinct bootstrap case.",
+    "Coordinated :: syntax adoption and Project root source update are required."
+  ],
+  "limits": "No Current or native Draft, code, tests, Workflow, Workbench or Git mutation."
+}

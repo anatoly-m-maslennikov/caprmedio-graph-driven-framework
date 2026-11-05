@@ -1,0 +1,12 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-237@34-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--author-claim-value-sets.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/value-relations-20261105/syntax-consumers/CA-M-237.preview.txt
+@@ -38,7 +38,7 @@
+ **to** author one Claim Value Set, the Author **must**:
+ 
+ 1. identify **`=1`** Property X within **`=1`** Claim;
+-2. write its finite allowed-value set as `X: (A, B, C)`;
++2. write its finite allowed-value set as `X := A | B | C`;
+ 3. include **`>=1`** unique canonical values **and** treat their order as non-authoritative;
+ 4. retain the complete set as **`=1`** Claim **only** **if** **all** values **must** be accepted, replaced, **and** retired together;
+-5. interpret `:` as Claim Value-Set syntax inside that Claim **and** as one allowed-value qualification inside a Subject Expression; neither use creates a graph Relation or assigns an instance value.
++5. interpret `:=` as HAS_ALLOWED_VALUE and `|` as alternatives in that Claim; retain `:=` for allowed-value qualification in a Subject Expression. Neither use assigns an instance value.

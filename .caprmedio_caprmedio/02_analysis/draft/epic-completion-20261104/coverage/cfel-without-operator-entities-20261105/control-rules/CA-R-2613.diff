@@ -1,0 +1,49 @@
+--- CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md
++++ CA-R-2613.rule.preview.md
+@@ -1,35 +1,23 @@
+ ---
+-atom_id: CA-R-2613
+-current_scope_unit: CORE_META_MODEL
+-claim_target_scope_unit: CORE_META_MODEL
+-status: Active
++atom_id: ROOT_ALLOCATES_NEW_ID_FOR_CA_R_2613
++status: Draft
+ subjects:
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//RelationEndpointSignature
++  active: CAPRMEDIO_MODEL <+ CFEL
+ version: 1
+-updated_at: 2026-11-02 08:06:47 +0400
+-relations: {}
++updated_at: 2026-11-05 13:19:19 +0400
++relations:
++  IS_CONTAINED_BY:
++    scope_unit: CA-SU-11
+ tier: 3
+ role: Requirement
+-form: Declaration
++form: Rule
+ ---
+-
+ ## Summary
+ 
+-Declare CFEL Relation endpoint signature
++Define generic Relation Declaration endpoint signature
+ 
+ ## Claim
+ 
+-### Formal Claim
++### Prose Claim
+ 
+-```CFEL
+-# model
+-Operator//RelationEndpointSignature == "$host ((RELATION)) $target"
+-```
+-
+-## Semantics
+-
+-Within a Relation Declaration Formal Claim only, `$host` and `$target`
+-range over declared model entities or instances, including Carrier and CFEL,
+-and exclude literals. The signature creates neither a Relation fact nor
+-instance data. Known endpoint kinds remain typed selectors; this does not extend
+-untyped variables to other CFEL contexts.
++Within a Relation Declaration Formal Claim only, `$host ((RELATION)) $target` is the reusable generic endpoint signature. `$host` and `$target` range over declared model entities or instances, including Carrier and CFEL, and exclude literals. This signature creates neither a Relation fact nor instance data. Known endpoint kinds remain typed selectors; the generic signature does not extend untyped variables to any other CFEL context.

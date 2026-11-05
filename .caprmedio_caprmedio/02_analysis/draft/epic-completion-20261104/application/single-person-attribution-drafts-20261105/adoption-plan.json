@@ -1,0 +1,169 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "route": "authorized source-helper Draft creation/rebase",
+  "outputs": [
+    {
+      "id": "CA-D-657",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "source_sha256": "6604d4753f9373babb1e30ecf1ecf362890c312122015ccdb192717e16f7f26f",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-657.preview.txt",
+      "preview_sha256": "e48f4e33e2fde487586c7e085e6e9b9816712030cae81ec52348b5ebae846b46",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-657.diff",
+      "diff_sha256": "b88b92a39dd4e5915292285463eda27d16f99e3c23bef65e5d666104c4cc9795",
+      "disposition": "REVIEW_WITH_EVENT_CONTRACT_ATOMIC_CLOSURE",
+      "atom_id": "CA-D-657",
+      "version": 5,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "f742ce1eaace49a811943ebbb8b2a8631e35aebc6f39b5f96890c58a14b656d1",
+      "new_draft": true
+    },
+    {
+      "id": "CA-D-494",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-494-CORE_META_MODEL-ENG_DECISION--store-operator-registry-in-project-root.md",
+      "source_sha256": "aa3aca414d163ac7ead82f39827362a2cb7fd1315f33c9a9f1e35047231c9cc1",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-494.preview.txt",
+      "preview_sha256": "737d69cda2ba013a0a742f0eb68f11e2086c503f5398214121ad174d1be2ce8d",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-D-494.diff",
+      "diff_sha256": "e3cb94c52f3885ed0ee433cd9ca7df0a2ace3dfa2f4041b2883f7d2929286274",
+      "disposition": "PARTIAL_HELD_LEGACY_ACTIVE_SUBJECT_AND_REGISTRY_CONSUMER_MIGRATION",
+      "atom_id": "CA-D-494",
+      "version": 18,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-494@18-draft-CORE_META_MODEL-DECISION--store-operator-registry-in-project-root.md",
+      "sha256": "127f9de6d8df2374bf88198b24717e7b7a16a2bd018abcae0a197b9dc2bab967",
+      "new_draft": true
+    },
+    {
+      "id": "CA-R-1014",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "source_sha256": "912f1e4aa77afc21b6fb063857737bcd760b86657ba2ea28294691312c312baf",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1014.preview.txt",
+      "preview_sha256": "b171b064142f93e0e5f89bdaa07e1951817054cfc0ab345e7d9626d08f7f1743",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1014.diff",
+      "diff_sha256": "982dcc88be885572ebadfd265cb3bfb74f60a7b52f6050fe143a9e7557564423",
+      "disposition": "CONTAINER_CHAIN_PREVIEW_REVIEW_REQUIRED",
+      "atom_id": "CA-R-1014",
+      "version": 41,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1014@41-draft-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "sha256": "bd5c2dca9139c556ac12618fe24de5991b6b8c6f9d1b35818c32d246c22bfd02",
+      "new_draft": true
+    },
+    {
+      "id": "CA-M-273",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+      "source_sha256": "a8b6e1aa64e471c9766bf3605175e5e9145a2f581573b2c2d9c3850c1d6741d6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-M-273.preview.txt",
+      "preview_sha256": "b43137213ee2d05c860ec2cbcb68afdc2a62cfd131adb91de36b38592e1396f2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-M-273.diff",
+      "diff_sha256": "69c13ec68604dd3811db2abcea83f6899304fee0ade543421fcb053513bf01ab",
+      "disposition": "PARTIAL_HELD_OBSOLETE_TARGET_SCOPE_CLAUSES",
+      "atom_id": "CA-M-273",
+      "version": 39,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-273@39-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+      "sha256": "89215c9f6f9f67416a31f7fce207eb20ade61633b762bc45431353c801588f6b",
+      "new_draft": true
+    },
+    {
+      "id": "CA-R-1559",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md",
+      "source_sha256": "9fa28ec46e58ca59d5683b5302029595d8b8d8969e964886cd6a7c9f1dcff16d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1559.preview.txt",
+      "preview_sha256": "91269bf241e4f1e19f880d335e50f8bf3de0b67c5e957fbda7b500e8c16783a2",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-R-1559.diff",
+      "diff_sha256": "d25c976b61fad9bfa03146b64ab530eef0c8801b4068bd4510b618d73fcb84da",
+      "disposition": "REVIEW_REQUIRED_ACTIVE_SUBJECT_CHANGED_TO_CURRENT_ATOM_FROZEN_REFS_PRESERVED",
+      "atom_id": "CA-R-1559",
+      "version": 27,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1559@27-draft-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md",
+      "sha256": "563e5d7746f5b7472ebdc995d135f2ced51d1e3798ec1a1f9d065d663baded65",
+      "new_draft": true
+    },
+    {
+      "id": "CA-E-440",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-440-CORE_META_MODEL-POLICY--evaluate-governing-atom-change-approval.md",
+      "source_sha256": "b781523f3c7fcd54b575903f42512e5e21e4c6de83ea3ece46d5279c89bd935d",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-E-440.preview.txt",
+      "preview_sha256": "8593079bf9a0007547063a7aa58cffc7ba585dccfd1d7c12cc92d92b9f1de1f7",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/artifact-rules/CA-E-440.diff",
+      "diff_sha256": "5b6982bc7ac1c38812cd7d8cf4ae96b9d45c617e16e8a277b83853a8e7a2e50f",
+      "disposition": "REVIEW_REQUIRED_ACTIVE_SUBJECT_CHANGED_TO_CURRENT_ATOM_OBSOLETE_AUTHOR_EVALUATION_TARGET_REMOVED",
+      "atom_id": "CA-E-440",
+      "version": 37,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-440@37-draft-CORE_META_MODEL-EVAL_POLICY--evaluate-governing-atom-change-approval.md",
+      "sha256": "a61c02c923192f2570a05e51d30d8aac8817d863d949c0a453c7693df5103177",
+      "new_draft": true
+    },
+    {
+      "id": "CA-R-2557",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "source_sha256": "2f3347ee081765f3c4801dc8ad24fdba2ef393e1c3793e08d12c90f212dbb8ad",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/occurrent/CA-R-2557.preview.txt",
+      "preview_sha256": "87be70e2f5dbf4281022efee82852cc164236479fa4fd5c2c5a405bab8900b54",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/single-person-attribution-20261105/occurrent/CA-R-2557.diff",
+      "diff_sha256": "343c5a779debe197edbd3b81f2133ab5f9ad4f5f21f9f0c81d340f3f6fed4f9c",
+      "change": "Remove only HAS_EVENT_AUTHOR outgoing requirement; preserve one RECORDS Event, containment, immutability and all other Claim content.",
+      "atom_id": "CA-R-2557",
+      "version": 5,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "sha256": "6da6d701668da7341df7637963b6f2ede253874a96731a821fe3eb0f4373879f",
+      "new_draft": false
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Carrier/File\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Actor\nversion: 5\nupdated_at: 2026-11-05 13:47:13 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-D-657\nstatus: Draft\ntier: 3\nrole: Delivery\nform: Decision\ncarrier_destination:\n  file:\n    name: CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\n---\n## Summary\n\nYAML Frontmatter encodes Atom Properties with minimal syntax\n\n## Claim\n\n### Prose Claim\n\n\nYAML frontmatter of Markdown Atom carriers.\n\n\nEncode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.\n\nFor Markdown Atom carriers:\n\n- Encode Role and Form as `role` and `form`, each exactly one nonempty string from the applicable domain.\n- Encode identity, Version, Status, Updated At and Tier as `atom_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.\n- Encode Subjects under `subjects` using the Subjects serialization rule. Encode direct Node-instance Relation facts under `relations`; use each Relation's own representation and do not author inverse facts separately.\n- Do not encode an Atom Author.\n- Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.\n- Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.\n\nLegacy `content_role`, `type`, `subjects.governs` and `subjects.depends_on` remain readable during migration. Conflicting old and new names for the same Property are invalid in any carrier; equal pairs are readable during transition and do not create duplicate logical values. Compatibility does not make the old names canonical in the migrated model.\n\n## Details\n\nThe remaining applicable Status, Version, identity, Tier, Label, Summary, conditional-field, Projection, Draft identity and reference constraints remain governed by their own sources. A generated Projection is not an authored source. A new field requires its own applicable authority. Summary and Claim remain body Properties, not frontmatter copies.\n\n### Conditional fields and expansion\n\n- A Plan Header AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value as the top-level integer frontmatter field `ai_agent_confidence_threshold`; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.\n- `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. Additional Plan, Operations, proof, **or** other Role-specific fields require an applicable Property Declaration and Delivery encoding; their occurrence **in** old Carriers does **not** admit them.\n- The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.\n- A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.\n- Apply explicitly governed migration exceptions **only** within their declared boundary. legacy presence alone is **not** an exception; retired fields under the canonical Property location rules remain rejected.\n\n### Subjects-only edit-draft exception\n\nThe explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `atom_id: <canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `atom_id: <canonical-ID>@draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry exactly one Atom ID; marker and filename rules remain governed by the Draft ID marker and Draft filename marker rules. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.\n",
+      "after_sha256": "f742ce1eaace49a811943ebbb8b2a8631e35aebc6f39b5f96890c58a14b656d1"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-494@18-draft-CORE_META_MODEL-DECISION--store-operator-registry-in-project-root.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-494\nstatus: Draft\nversion: 18\nupdated_at: 2026-11-05 13:47:13 +0400\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry\n  passive:\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Journal\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Delivery\nform: Decision\ncarrier_destination:\n  file:\n    name: CA-D-494@18-draft-CORE_META_MODEL-DECISION--store-operator-registry-in-project-root.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\n---\n## Summary\n\nStore Operator Registry in Project Root\n\n## Claim\n\n### Prose Claim\n\n\nthe authoritative Operator registry of a Project.\n\n\nthe authoritative Operator registry **must** use **`=1`** `operators_registry.toml` file **in** the Project authority root, alongside Project Settings.\n\n- the root has **`=1`** key, `operators`, containing **`>=1`** `[[operators]]` table.\n- **every** table has **`=1`** `name` **and** **`=1`** `role`, both nonempty strings. names are unique. additional keys **or** duplicate identities make the registry invalid.\n- `role` describes the Operator; it does **not** replace the name **or** independently grant execution permission.\n- concrete Operator names **and** roles belong **only** **in** the Project's registry, **not** **in** reusable methodology **or** Tool code. a missing, unreadable, malformed, **or** stale registry leaves membership unresolved; it is **not** an empty valid registry.\n\n",
+      "after_sha256": "127f9de6d8df2374bf88198b24717e7b7a16a2bd018abcae0a197b9dc2bab967"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1014@41-draft-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active\n  - CAPRMEDIO_MODEL <+ Atom.Content\nversion: 41\nupdated_at: 2026-11-05 13:47:13 +0400\nrelations:\n  child_of:\n  - CA-R-1596\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1014\nstatus: Draft\ntier: 3\nrole: Requirement\nform: Rule\ncarrier_destination:\n  file:\n    name: CA-R-1014@41-draft-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nResolve Atom Scope Contextually\n\n## Claim\n\n### Prose Claim\n\n\nAtom Scope.\n\n\nan Atom Scope **must** include the Scope Unit resolved from its `Header.Container` chain, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim. Follow Atom container references until a Scope Unit ID is reached; predefined `world` (`CA-SU--1`) is a valid Scope Unit.\n",
+      "after_sha256": "bd5c2dca9139c556ac12618fe24de5991b6b8c6f9d1b35818c32d246c22bfd02"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-273@39-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  passive:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Carrier\n  - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ Carrier/Directory\nversion: 39\nupdated_at: 2026-11-05 13:47:13 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-M-273\nstatus: Draft\ntier: 3\nrole: Method\nform: Implementation Method\ncarrier_destination:\n  file:\n    name: CA-M-273@39-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft\n---\n## Summary\n\nDerive Ownership **and** Claim-target Atom Sets\n\n## Claim\n\n### Prose Claim\n\n\nselection of Owned Atoms, Targeting Atoms, Subtree-owned Atoms, **and** Subtree-targeting Atoms for a Scope Unit.\n\n\n**to** derive the four Atom sets for a selected Scope Unit, the resolver **must** perform **all** of:\n\n1. establish the complete authoritative source frontier, including Atoms outside the selected subtree that can target a Scope Unit inside it; scanning **only** locally stored Atoms is insufficient for Targeting Atoms **or** Subtree-targeting Atoms.\n2. resolve **every** candidate Atom's containing Scope Unit from its `Header.Container` chain: follow Atom container references until reaching a Scope Unit ID. The predefined Scope Unit `world` (`CA-SU--1`) is valid. Do **not** infer ownership from directory nesting **or** invent a Scope Unit owner.\n3. resolve **every** candidate's Claim Target Scope Unit independently of ownership. read the internally carried target; absence of a required value is invalid, **not** permission **to** infer it from placement; apply CA-R-1588-CORE_META_MODEL-RULE--default-plan-target-to-the-enclosing-scope-unit for Plans within Plan containment. an unresolved required target remains unresolved. a reference **to** another Scope Unit **must not** transfer ownership, **and** the target **must** resolve **to** a Scope Unit, **not** a Hub Atom **or** another non-Scope-Unit object. Claim Scope restrictions remain **in** the body sections registered by CA-D-495, including Scope for RMED, **and** do **not** create extra targets.\n4. derive Owned Atoms, Targeting Atoms, Subtree-owned Atoms, **and** Subtree-targeting Atoms under CA-R-1447-CORE_META_MODEL-GENERAL-REQUIREMENT--define-owned-atoms, CA-R-1448-CORE_META_MODEL-GENERAL-REQUIREMENT--define-targeting-atoms, CA-R-942-CORE_META_MODEL-DEFINITION--define-subtree-owned-atoms, **and** CA-R-1449-CORE_META_MODEL-GENERAL-REQUIREMENT--define-subtree-targeting-atoms respectively. use the Scope Unit tree for descendant coverage; do **not** substitute physical subtree membership for Claim targeting **or** inferred inherited applicability for an explicit **or** default Claim target.\n5. retain source Atom **and** Revision references **without** creating additional authoritative Atom copies. apply Content Role, Status, **and** other requested filters **after** resolving the selected set; the alias `spec` selects the Active RMED subset under CA-M-288-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-spec-as-an-alias-for-active-rmed-subtree-targeting-atoms, independently of numeric Tier.\n6. report the exact missing source, owner, target, ancestry, **or** required filter value **and** withhold a complete affected result **when** it is unresolved **or** contradictory. a complete empty set remains empty; an incomplete frontier **must not** be reported as a complete empty set.\n",
+      "after_sha256": "89215c9f6f9f67416a31f7fce207eb20ade61633b762bc45431353c801588f6b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1559@27-draft-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold\nversion: 27\nupdated_at: 2026-11-05 13:47:13 +0400\nrelations:\n  child_of:\n  - CA-M-261\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\natom_id: CA-R-1559\nstatus: Draft\ntier: 2\nrole: Requirement\nform: Rule\ncarrier_destination:\n  file:\n    name: CA-R-1559@27-draft-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nGate governing Atom changes during implementation\n\n## Claim\n\n### Prose Claim\n\nChanges to governing RMED Atoms during implementation.\n\nBefore a governing RMED Atom changes, resolve the effective Plan AI Agent Confidence Threshold under CA-R-2711, applicable permissions and additional Operator constraints. When confidence is below the threshold or an additional rule requires approval, request Operator disposition before changing the Atom. Autonomous change is allowed only when confidence meets the threshold and all applicable permissions and Operator constraints allow it. A prohibition remains a prohibition; confidence does not create permission.\n\nAn authorized RMED change establishes a new baseline under CA-M-262; resolve the affected work and Evaluations again against that baseline.\n",
+      "after_sha256": "563e5d7746f5b7472ebdc995d135f2ced51d1e3798ec1a1f9d065d663baded65"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-440@37-draft-CORE_META_MODEL-EVAL_POLICY--evaluate-governing-atom-change-approval.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nversion: 37\nupdated_at: 2026-11-05 13:47:13 +0400\nrelations:\n  child_of:\n  - CA-E-001\n  evaluation_for:\n  - CA-R-1559\n  - CA-R-1591\n  - CA-R-1552\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\n  passive:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold\natom_id: CA-E-440\nstatus: Draft\ntier: 4\nrole: Evaluation\nform: Eval Policy\ncarrier_destination:\n  file:\n    name: CA-E-440@37-draft-CORE_META_MODEL-EVAL_POLICY--evaluate-governing-atom-change-approval.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft\n---\n## Summary\n\nEvaluate governing Atom change approval\n\n## Claim\n\n### Prose Claim\n\nGoverning Atom changes.\n\nThe governing-Atom change Evaluation must fail if a change proceeds below the effective Plan AI Agent Confidence Threshold without Operator disposition, bypasses an applicable permission or Operator constraint, or proceeds without approval required by an additional rule. Meeting the threshold does not override a prohibition or create permission.\n\nThe Evaluation must also fail if an authorized RMED change is reported against the old unchanged baseline, or its affected work and Evaluations are not resolved again against the new baseline.\n",
+      "after_sha256": "a61c02c923192f2570a05e51d30d8aac8817d863d949c0a453c7693df5103177"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md",
+      "before": "---\natom_id: CA-R-2557\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Event Record\nversion: 5\nupdated_at: 2026-11-05 06:25:03 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Event Record\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nEvent Record {:0}((IS_PROPERTY_OF));\n\nEvent Record ((NARROWER_THAN)) Continuant;\n\n# instances\nEvent Record//$event_record {::1}((IS_CONTAINED_BY)) Journal//$journal;\n\n$event_record {::1}((RECORDS)) Event//$event;\n\n$event_record {::1}((HAS_EVENT_AUTHOR)) Actor//$actor\n```\n\n### Prose Claim\n\n\nAn Event Record is immutable.\n\n\n## Semantics\n\nAn Event Record is a persistent description of an event and its recorded evidence.\n",
+      "before_sha256": "2f3347ee081765f3c4801dc8ad24fdba2ef393e1c3793e08d12c90f212dbb8ad",
+      "after": "---\natom_id: CA-R-2557\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Event Record\nversion: 5\nupdated_at: 2026-11-05 13:47:13 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2557@5-draft-CORE_META_MODEL-DECLARATION--declare-event-record.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Event Record\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nEvent Record {:0}((IS_PROPERTY_OF));\n\nEvent Record ((NARROWER_THAN)) Continuant;\n\n# instances\nEvent Record//$event_record {::1}((IS_CONTAINED_BY)) Journal//$journal;\n\n$event_record {::1}((RECORDS)) Event//$event\n```\n\n### Prose Claim\n\n\nAn Event Record is immutable.\n\n\n## Semantics\n\nAn Event Record is a persistent description of an event and its recorded evidence.\n",
+      "after_sha256": "6da6d701668da7341df7637963b6f2ede253874a96731a821fe3eb0f4373879f"
+    }
+  ],
+  "holds": [
+    "D494 active Subject/registry and M273 target-field migration remain held.",
+    "Event author-property/Relation retirements and D657 source adoption remain coordinated; historical records are untouched.",
+    "R1559/E440 separately source-reviewed for independent paired adoption."
+  ]
+}

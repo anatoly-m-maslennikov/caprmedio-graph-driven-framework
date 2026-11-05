@@ -1,0 +1,595 @@
+{
+  "verdict": "PASS_READBACK_NOT_CURRENT_READY_LATEST_VALUE_SEMANTICS_PENDING",
+  "plan_sha256": "a917133ffee7a744e0ed203122e49a5aa11f8e763c68621c9811abf9bb6758d3",
+  "receipt_pin": true,
+  "receipt_native_workflow_admission": false,
+  "receipt_journal_append": false,
+  "rows": [
+    {
+      "source_id": "CA-R-1346",
+      "id": "CA-R-1346",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        29
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": false,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 28,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md"
+        },
+        {
+          "version": 29,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1346@29-draft-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md"
+        },
+        {
+          "version": 2,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-CORE-REQUIREMENT--limit-direct-allowed-value-parents@2.md"
+        },
+        {
+          "version": 6,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-reused-terms-in-qualified-value-domains@6.md"
+        },
+        {
+          "version": 11,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-reused-terms-in-qualified-value-domains@11.md"
+        },
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-MMODEL-CORE-REQUIREMENT--limit-direct-allowed-value-parents@1.md"
+        },
+        {
+          "version": 9,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-reused-terms-in-qualified-value-domains@9.md"
+        },
+        {
+          "version": 3,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-GENERAL-REQUIREMENT--limit-direct-allowed-value-parents@3.md"
+        },
+        {
+          "version": 10,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-reused-terms-in-qualified-value-domains@10.md"
+        },
+        {
+          "version": 4,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-reused-terms-in-qualified-value-domains@4.md"
+        },
+        {
+          "version": 5,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1346-CORE_META_MODEL-GENERAL-REQUIREMENT--permit-reused-terms-in-qualified-value-domains@5.md"
+        },
+        {
+          "version": 24,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains@24.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2591",
+      "id": "CA-R-2794",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2794@1-draft-CORE_META_MODEL-RULE--define-cfel-addition-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2593",
+      "id": "CA-R-2795",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2795@1-draft-CORE_META_MODEL-RULE--define-cfel-required-value-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2594",
+      "id": "CA-R-2796",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2796@1-draft-CORE_META_MODEL-RULE--define-cfel-equality-condition-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2596",
+      "id": "CA-R-2797",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2797@1-draft-CORE_META_MODEL-RULE--define-cfel-delivery-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2597",
+      "id": "CA-R-2798",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2798@1-draft-CORE_META_MODEL-RULE--define-cfel-expression-separator-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2599",
+      "id": "CA-R-2799",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2799@1-draft-CORE_META_MODEL-RULE--define-cfel-greater-or-equal-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2600",
+      "id": "CA-R-2800",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2800@1-draft-CORE_META_MODEL-RULE--define-cfel-greater-than-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2601",
+      "id": "CA-R-2801",
+      "lane": "values-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2801@1-draft-CORE_META_MODEL-RULE--define-cfel-grouping-syntax.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2612",
+      "id": "CA-R-2813",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2813@1-draft-CORE_META_MODEL-RULE--define-recursive-property-selection-with.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2613",
+      "id": "CA-R-2814",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2814@1-draft-CORE_META_MODEL-RULE--define-generic-relation-declaration-endpoint-signature.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2614",
+      "id": "CA-R-2815",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2815@1-draft-CORE_META_MODEL-RULE--define-delivery-selection-exclusion-with.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2615",
+      "id": "CA-R-2816",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2816@1-draft-CORE_META_MODEL-RULE--define-property-value-selection-with.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2720",
+      "id": "CA-R-2817",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2817@1-draft-CORE_META_MODEL-RULE--define-relation-alias-syntax-with-alias-r.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2769",
+      "id": "CA-R-2818",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2818@1-draft-CORE_META_MODEL-RULE--define-conditional-default-assignment-with.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2770",
+      "id": "CA-R-2819",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2819@1-draft-CORE_META_MODEL-RULE--define-relation-guided-lookup-with-lookup-r-q.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2773",
+      "id": "CA-R-2820",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2820@1-draft-CORE_META_MODEL-RULE--define-boolean-conjunction-with-and.md"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "source_id": "CA-R-2774",
+      "id": "CA-R-2821",
+      "lane": "control-rules",
+      "current_pin": true,
+      "preview_pin": true,
+      "actual_pin": true,
+      "plan_exact": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "status_version": [
+        "Draft",
+        1
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL",
+      "role_form": [
+        "Requirement",
+        "Rule"
+      ],
+      "fresh_id_flag": true,
+      "fresh_identity_respected": true,
+      "native_identity_matches": [
+        {
+          "version": 1,
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2821@1-draft-CORE_META_MODEL-RULE--define-boolean-disjunction-with-or.md"
+        }
+      ],
+      "destination_correct": true
+    }
+  ],
+  "latest_decision_gate": "The new HAS_ALLOWED_VALUE := OR / HAS_VALUE_CONDITION :: AND semantics supersede older allowed-value interpretations. Value-family Drafts and affected consumers require targeted revision; do not treat this readback as Current readiness. Qualified Subjects retain :=.",
+  "limits": "Partition values-rules/control-rules only; R2810 is separately withdrawn/owned. Current checks cover only this CFEL input cohort, not all Current sources. No code, tests, native source or Git mutation."
+}

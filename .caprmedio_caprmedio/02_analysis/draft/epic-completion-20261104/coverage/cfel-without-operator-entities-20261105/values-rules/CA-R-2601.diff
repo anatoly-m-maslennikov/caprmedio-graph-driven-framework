@@ -1,0 +1,15 @@
+--- Current CA-R-2601
++++ Prospective CA-R-2601 Rule
+@@
+-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping
++  active: CAPRMEDIO_MODEL <+ CFEL
+-form: Declaration
++form: Rule
+-    name: CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
++    name: CA-R-2601-CORE_META_MODEL-RULE--define-cfel-grouping-syntax.md
+-Declare CFEL operator ()
++Define CFEL grouping syntax ()
+-### Formal Claim
+-Operator//Grouping == "()"
++### Prose Claim
++`()` groups one CFEL expression and does not create a Node or Relation.

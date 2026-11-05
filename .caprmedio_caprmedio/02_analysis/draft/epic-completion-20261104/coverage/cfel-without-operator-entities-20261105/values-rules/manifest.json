@@ -1,0 +1,110 @@
+{
+  "status": "EIGHT_SEMANTICALLY_READY_PREVIEWS_HELD_FOR_FRESH_ID_ALLOCATION;_ONE_READY_WITH_EXISTING_ID;_R2592_MERGED_INTO_R2777_SUCCESSOR",
+  "scope": "Source-only prospective Rule previews for inventory current_active rows 1-10. No Current, native Draft, history, code, test, Workflow, Workbench, or Git mutation.",
+  "semantic_basis": [
+    "No modeled CFEL Operator descriptor entity, Operator.Name lookup, or $<Operator> introspection is retained.",
+    "Each language Rule has exactly one active Subject: CAPRMEDIO_MODEL <+ CFEL.",
+    "Latest stated notation governs: :: admits allowed values and {::n} expresses the allowed count of a qualified selection; = is a condition; == is a required value; ?== is a default; := is allowed-plus-condition in Subjects; // narrows; / contains; $x[<Kind>,(conditions)] and $<Kind> select instances; ; separates expressions; mixed AND/OR requires parentheses; text is quoted only when needed and backslash escapes.",
+    "The old literal : declaration is retired rather than preserved. Actor/Operator/AI Agent taxonomy is outside this language-only scope."
+  ],
+  "candidates": [
+    {
+      "id": "CA-R-1346",
+      "source": {"version": 28, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md", "sha256": "803ebe3f727ac959afe20ce369e6d4f643dbc98b93a8380bf18e764cdb3f7313"},
+      "preview": {"path": "CA-R-1346.preview.txt", "sha256": "a3ed0010a8cd42bdf27c64bbd2380ceaee8d52abbe088b99bbea39ce4ce270bd"},
+      "diff": {"path": "CA-R-1346.diff", "sha256": "d3fb28986bffe8619bf3b063d762c1667a678698ec8c91c06d73d77c3f86cba3"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Rule -> Rule", "summary": "unchanged", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue -> CAPRMEDIO_MODEL <+ CFEL", "passive_subjects": "unchanged: Term and Term//Property", "fresh_id_required": false},
+      "preserved_constraints": "Separate contextual admission; one context does not admit another; complete canonical names remain distinct; component reuse does not create an entity or transfer admission; the qualified Subject example uses := rather than ==.",
+      "disposition": "READY_WITH_EXISTING_ID"
+    },
+    {
+      "id": "CA-R-2591",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2591-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "b8e1b543122d6cbbd22bfb82a4f71235fced9baef76ab83b6a22374a896ced29"},
+      "preview": {"path": "CA-R-2591.preview.txt", "sha256": "5352f6f77d1a9da1c0290797b99d38793b93619129dbf46812d458a177317e30"},
+      "diff": {"path": "CA-R-2591.diff", "sha256": "baa718dfc6acd67eba5b0e25c0ef0649182c748c2b1b3e4b7adc51ca50a10ba8"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator + -> Define CFEL addition syntax +", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Addition -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Two resolved numeric operands yield their numeric sum.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    },
+    {
+      "id": "CA-R-2592",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2592-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "15d757b8c771d83ec24a431d28d5ee0728bbc3240a827b214839da8c765de792"},
+      "preview": {"path": "CA-R-2592.preview.txt", "sha256": "accd0afc404f15d9af4488511c9da196f7bf4346c87116c0d22efa62ba31b2ad"},
+      "diff": {"path": "CA-R-2592.diff", "sha256": "11aa03eeb75771c7cf630f07564344240f92b60aff0716f90eb43b4f1329cd9b"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator : -> Define CFEL allowed-value syntax ::", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": false},
+      "preserved_constraints": "Allowed-value admission is not assignment or an IS_ALLOWED_VALUE_OF Relation; {::n} constrains the allowed count of a qualified selection, not the number of distinct values in a domain.",
+      "retirement": "The Current single-colon literal is superseded and must not be carried forward.",
+      "disposition": "MERGED_INTO_R2777_SUCCESSOR",
+      "successor": {"source_id": "CA-R-2777", "manifest_path": "../paths-rules/manifest.json", "preview_path": "../paths-rules/CA-R-2777.rule.preview.txt", "reason": "The R2777 successor already incorporates :: admission plus {::n}, {::n+}, and {::n..m} qualified-selection count bounds; avoid a duplicate Rule or independent fresh ID/native Draft."},
+      "coordinated_adoption_hold": "Current CA-R-2592 retirement remains pending coordinated adoption of the R2777 successor."
+    },
+    {
+      "id": "CA-R-2593",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2593-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "80a4f7213199aa5e5818b18d515e03f49e1bdc539b34e8d9d384065696e31949"},
+      "preview": {"path": "CA-R-2593.preview.txt", "sha256": "bd5d0fde81cbb99187273e57fcbee54dd18380beca19c45bb812574ffe09f8c6"},
+      "diff": {"path": "CA-R-2593.diff", "sha256": "160479b6e8d8bffa7a2a355e6cad69eb26e900746326c20797ed51b805c006d4"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator == -> Define CFEL required-value syntax ==", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Conclusion -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Required value or derived conclusion.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    },
+    {
+      "id": "CA-R-2594",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2594-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "f711324330e0121142be66a52968fcb4aec80a21a114e248bf4bbf94a777ac8b"},
+      "preview": {"path": "CA-R-2594.preview.txt", "sha256": "4a60417196b006d3e8c93254e603db403f377eae190c5f4a71d6d6aa1d556d6c"},
+      "diff": {"path": "CA-R-2594.diff", "sha256": "d5d24b95d639f2a264524af2105065f0a4ac0f322e061ffd687a0cc81ee4c870"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator = -> Define CFEL equality-condition syntax =", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Condition -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Equality test in a Formal Claim or IF condition; never assignment.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    },
+    {
+      "id": "CA-R-2596",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2596-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "65a827af8666e6bfa9108874737413eb1c766f3d16cc16a7c6317e5f075d9d09"},
+      "preview": {"path": "CA-R-2596.preview.txt", "sha256": "ff93dc30e2d650d5722ea409436d5c1e50789e5676044387e4a5e9b401886272"},
+      "diff": {"path": "CA-R-2596.diff", "sha256": "a0c937a981eb95df8e716186cddbff2fff6c1e95cd74609ed0f15597932c7a58"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator >> -> Define CFEL delivery syntax >>", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Delivery -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Delivery of an Object or selection to a referenced Carrier or Carrier part.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    },
+    {
+      "id": "CA-R-2597",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "3cb07cdad515b08107f9bbdb1b852fa114282941fbddc4061f4803dcd8896875"},
+      "preview": {"path": "CA-R-2597.preview.txt", "sha256": "45c189f4684499fe563245414ebf80cf548b29ecf95d1b341e5c4e8a77da6a3f"},
+      "diff": {"path": "CA-R-2597.diff", "sha256": "668394671a32f97889ea8bcfb58eca2abb677563b3b776d754d5fff010104c6d"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator ; -> Define CFEL expression-separator syntax ;", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Separates complete expressions; a line break is layout only.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    },
+    {
+      "id": "CA-R-2599",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2599-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "de8a7fd7f46beafa80f0da140a93bb53463708db21b5ec9b243c07446961899a"},
+      "preview": {"path": "CA-R-2599.preview.txt", "sha256": "fac822ca806d1fdd8a437c97247cca5102b506d9763ec6284c52edf82ef50b38"},
+      "diff": {"path": "CA-R-2599.diff", "sha256": "fc7c9da446f15af4e654cbb31bd1ada5aa1032956654393eae06ce981d3bfd88"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator >= -> Define CFEL greater-or-equal syntax >=", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterOrEqual -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Left numeric value is greater than or equal to right numeric value.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    },
+    {
+      "id": "CA-R-2600",
+      "source": {"version": 1, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2600-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "dcb8187fe92cfb528f7c2449333c255b7b50e1e9f5690472ea330a1f31e22dac"},
+      "preview": {"path": "CA-R-2600.preview.txt", "sha256": "c75bd170bffcb08cab7e9dc81c6e7a9d81594b3a75d326e36ca3a6b802547146"},
+      "diff": {"path": "CA-R-2600.diff", "sha256": "93a7134722d75ce7cf91e6f53aaef9654d0a33457d5d1bca220cd27fd346b158"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator > -> Define CFEL greater-than syntax >", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterThan -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Left numeric value is greater than right numeric value.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    },
+    {
+      "id": "CA-R-2601",
+      "source": {"version": 3, "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md", "sha256": "d31d8e02dedf8afe62ad100733208ff77c8f069666397b86480ae4d5da4de9a0"},
+      "preview": {"path": "CA-R-2601.preview.txt", "sha256": "b464b6173fda4789f28a89176645ce4cbd0adf3812c49bc4440bbea98e2382a3"},
+      "diff": {"path": "CA-R-2601.diff", "sha256": "b9b10df36cd430cfc5a39b4557f1e05b903104d3b9a7ccc9a5658a379450caba"},
+      "changes": {"role": "Requirement -> Requirement", "form": "Declaration -> Rule", "summary": "Declare CFEL operator () -> Define CFEL grouping syntax ()", "active_subject": "CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping -> CAPRMEDIO_MODEL <+ CFEL", "fresh_id_required": true},
+      "preserved_constraints": "Groups one expression without creating a Node or Relation; mixed AND/OR grouping is explicit and neither has implicit precedence.",
+      "disposition": "HELD_FRESH_ID_REQUIRED"
+    }
+  ],
+  "ready": ["CA-R-1346 prospective revision"],
+  "held": ["CA-R-2591", "CA-R-2593", "CA-R-2594", "CA-R-2596", "CA-R-2597", "CA-R-2599", "CA-R-2600", "CA-R-2601"],
+  "hold_reason": "Each held preview changes Summary to a meaningful syntax label, therefore requires a fresh Atom ID; no ID has been allocated here.",
+  "merged": ["CA-R-2592 evidence is retained here but its prospective content is merged into the CA-R-2777 paths-rules successor; no independent fresh ID or native Draft."],
+  "limits": ["Previews do not authorize promotion, retirement, source overwrite, parser/runtime behavior, or notation migration outside these ten source rows.", "No modeled replacement syntax catalog or descriptor branch is introduced."]
+}

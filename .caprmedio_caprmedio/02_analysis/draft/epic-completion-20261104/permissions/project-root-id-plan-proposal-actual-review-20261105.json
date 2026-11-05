@@ -1,0 +1,65 @@
+{
+  "verdict": "PASS",
+  "plan_receipt_match": true,
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing@70.md",
+      "actual_matches_after": true,
+      "before_hash_valid": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "actual_matches_after": true,
+      "before_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/archive/12-CA-P-2707-TASK--verify-declaration-source-cutover@7.md",
+      "actual_matches_after": true,
+      "before_hash_valid": null
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+      "actual_matches_after": true,
+      "before_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "actual_matches_after": true,
+      "before_hash_valid": true
+    }
+  ],
+  "plans": [
+    {
+      "id": "CA-P-2694",
+      "archive_equals_preimage": true,
+      "summary_same": true,
+      "active": true,
+      "same_id": true
+    },
+    {
+      "id": "CA-P-2707",
+      "archive_equals_preimage": true,
+      "summary_same": true,
+      "active": true,
+      "same_id": true
+    }
+  ],
+  "ten_draft_ids": [
+    "CA-D-442@27",
+    "CA-E-670@2",
+    "CA-M-461@3",
+    "CA-R-2508@7",
+    "CA-R-2523@4",
+    "CA-R-2524@4",
+    "CA-R-2526@5",
+    "CA-R-2640@2",
+    "CA-R-2688@3",
+    "CA-R-2779@1"
+  ],
+  "missing_from_A1319": [],
+  "matrix_requirements_count": 23,
+  "static_reader_report": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/project-root-id-20261105/static-impact/report.json",
+  "static_reader_report_exists": true,
+  "assessment": "The plan diffs preserve prior required gates; P2707 retains its five remaining checks and adds explicit reader/model/validator/bootstrap handoff. Both plans remain Active with unchanged IDs and Summaries. Root and world choices are represented as Draft work; source Current, reader admission and runtime migration remain unclaimed. Workflow and Workbench ownership is preserved.",
+  "limits": "Readback only; no runtime, code or test conclusion."
+}

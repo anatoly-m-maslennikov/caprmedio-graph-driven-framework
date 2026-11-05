@@ -1,0 +1,23 @@
+---
+atom_id: UNALLOCATED_SUCCESSOR
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ CFEL
+version: UNALLOCATED_VERSION
+tier: 3
+role: Requirement
+form: Rule
+updated_at: 2026-11-05 05:13:56 +0400
+relations:
+  IS_CONTAINED_BY:
+    scope_unit: CA-SU-11
+---
+## Summary
+
+Write immediate containment
+
+## Claim
+
+### Prose Claim
+
+`Whole/Part` expresses the immediate CONTAINS Relation from Whole to Part. Its corresponding direct IS_CONTAINED_BY fact runs from Part to Whole. Containment does not imply narrowing or inheritance. When directional cardinality slots are present, the slot before `/` counts outgoing CONTAINS links per Whole, and the slot after `/` counts reverse IS_CONTAINED_BY links per Part. Omitted slots remain unspecified. A Relation declaration or applicable endpoint permission supplies its own bounds.
