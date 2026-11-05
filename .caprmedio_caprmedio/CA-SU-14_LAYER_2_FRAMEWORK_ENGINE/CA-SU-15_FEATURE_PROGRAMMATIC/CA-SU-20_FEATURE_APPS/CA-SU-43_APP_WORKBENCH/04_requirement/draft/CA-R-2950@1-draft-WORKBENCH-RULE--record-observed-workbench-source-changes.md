@@ -25,13 +25,10 @@ Record observed Workbench source changes in a bounded technical change log
 
 ### Prose Claim
 
-The Workbench source watcher must record observed changes from only the selected repository's CAPRMEDIO source folder.
+The Workbench change log must expose observed changes from only the selected repository's `control_root`.
 
-- Consume the existing `watchfiles` grouped file events. Map observed additions, modifications and deletions to `create`, `update` and `remove` records.
-- Record `rename` or `move` only when one stable technical file identity is observed at both the old and new paths. A matching hash, name or content alone must never infer a rename or move; without stable identity, retain the observed additions and deletions instead.
-- Keep repository-relative `old_path` and `new_path` values. A `create` or `update` has a `new_path`, a `remove` has an `old_path`, and a `rename` or `move` has both. `technical_file_identity` is optional and is required for an inferred rename or move.
-- Represent the same retained event set in the technical watcher log file and the read-only DuckDB `change_log` table. Each event has only `observed_at`, `operation`, `old_path`, `new_path` and optional `technical_file_identity` fields.
-- Apply a 48-hour time-to-live to both stores. At every cleanup boundary, remove events older than `observed_at < now - 48 hours` before returning them.
-- Bound retention with one configured limit mode, either a row count or UTF-8 log-file megabytes, and remove the oldest events from both stores together when the limit is reached.
-- Keep this log technical and separate from business Journal history, Atom or Scope Unit source data, and Relation graph facts. Do not add error rows, automatic retries, recovery, a scheduler, or a new watcher service.
+- Expose `create`, `update`, `rename`, `move` and `remove` operations with repository-relative paths. A `create` or `update` has a `new_path`, a `remove` has an `old_path`, and a `rename` or `move` has both paths.
+- A same-parent basename change is `rename`. A parent change is `move`, even when the basename also changes. Preserve the old and new paths reported by the watcher.
+- Represent the same retained event set in the technical watcher log file and the read-only DuckDB `change_log` table.
+- Apply a 48-hour time-to-live and a fixed 100,000-row cap to both stores. Remove expired or oldest rows from both stores together before returning the log.
 
