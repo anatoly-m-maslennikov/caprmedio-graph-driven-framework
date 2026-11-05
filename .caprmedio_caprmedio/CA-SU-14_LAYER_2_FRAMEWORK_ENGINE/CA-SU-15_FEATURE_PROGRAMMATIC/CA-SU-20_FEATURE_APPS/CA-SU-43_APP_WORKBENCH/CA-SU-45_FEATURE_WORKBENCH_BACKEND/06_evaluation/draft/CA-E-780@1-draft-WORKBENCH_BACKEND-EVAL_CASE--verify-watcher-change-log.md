@@ -30,20 +30,23 @@ Verify the Workbench watcher change log
 
 ### Prose Claim
 
-With the existing server watcher observing only a selected repository source folder, verify that the file and DuckDB table retain the same technical event rows:
+With the existing server `watchdog` Observer observing only a selected repository `control_root`, verify that the file and DuckDB table retain the same technical event rows:
 
 | Case | Expected result |
 | --- | --- |
 | A selected source file is added, modified or deleted | One corresponding `create`, `update` or `remove` record with the appropriate new or old repository-relative path. |
-| The same stable technical file identity is observed under a new name in the same parent | One `rename` record with both paths and the identity. |
-| The same stable technical file identity is observed under a different parent with the same name | One `move` record with both paths and the identity. |
-| A path changes in a way that is not unambiguous, or only matching content/hash is available | Do not infer `rename` or `move`; retain only the underlying observed add/remove events. |
+| A native `on_moved(src_path, dest_path)` callback changes the basename in the same parent | One `rename` record with the callback's old and new paths. |
+| A native `on_moved(src_path, dest_path)` callback changes the parent | One `move` record with the callback's old and new paths, even when the basename also changes. |
+| An add/delete pair occurs without a native move callback | Do not promote the pair to `rename` or `move`. |
 | A change occurs outside the selected repository source folder | No change-log row. |
 | A grouped watcher batch contains several observations | Preserve each observed operation; do not invent a Workflow or business Journal record. |
-| An event reaches 48 hours of age before a cleanup boundary | Remove it from both the NDJSON file and `change_log`; no stale copy remains queryable after cleanup. |
-| The configured row or megabyte cap is exceeded | Remove the oldest events from both stores until the selected cap is satisfied, preserving the same retained set. |
-| The watcher is idle | Use only an existing wake, timeout/yield, log read or source refresh for cleanup; do not start a new daemon, scheduler, retry or recovery path. |
+| An event reaches 48 hours of age before an existing owner-timeout cleanup | Remove it from both the NDJSON file and `change_log`; no stale copy remains queryable after cleanup. |
+| The 100,000-row cap is exceeded | Remove the oldest events from both stores until the same retained set has at most 100,000 rows. |
+| The owner restarts or performs a full reread | Reread retained log rows, preserve still-live events, and apply the same 48-hour TTL and 100,000-row cap. |
+| The watcher is idle | The existing owner timeout performs cleanup; no new daemon, scheduler, retry or recovery path is started. |
 | A source or log write fails | Keep the existing error boundary; do not create an `error` event row or Journal entry. |
 
-Verify that `change_log` is not used as an `atoms`/`scope_units` source, graph vertex or Relation fact, and that the delivered columns are limited to `observed_at`, `operation`, `old_path`, `new_path` and optional `technical_file_identity`.
+Run a real Docker end-to-end check on a bind-mounted temporary repository and selected `control_root`. Perform actual file creation, modification, same-parent rename, and parent-changing move operations while the Observer is running; verify the native callback paths and matching file/table rows. Keep the owner idle through the existing timeout and verify 48-hour expiry in both stores using the real runtime path. Do not fabricate paired add/delete events or call an internal callback directly.
+
+Verify that `change_log` is not used as an `atoms`/`scope_units` source, graph vertex or Relation fact, and that the delivered columns are limited to `observed_at`, `operation`, `old_path` and `new_path`.
 
