@@ -1,16 +1,11 @@
 ---
 atom_id: CA-P-1843
 ref_id: CA-P-1843
+container:
+  atom: CA-P-1829
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 14
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/MCP
   dependencies:
@@ -25,6 +20,7 @@ topics:
   - Subject/Graph Node/Engineering/Evaluation
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1829
@@ -32,13 +28,17 @@ relations:
   - CA-P-1844
   - CA-P-1845
   - CA-P-1846
-tier: 3
-container:
-  atom: CA-P-1829
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 14-CA-P-1843-TASK--expose-the-project-mcp-launcher-command.md
     path: .caprmedio_caprmedio/03_plan/done/16-CA-P-1829-EPIC--launch-isolated-project-mcp-runtimes/done
+work_sequence_number: 14
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,14 +1,11 @@
 ---
 atom_id: CA-P-1617
 ref_id: CA-P-1617
+container:
+  atom: CA-P-1137
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 67
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Artifact Query
   dependencies:
@@ -17,20 +14,23 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Evaluation
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1137
   blocks:
   - CA-P-1618
-tier: 3
-container:
-  atom: CA-P-1137
+status: Done
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 67-CA-P-1617-TASK--correct-artifact-snapshot-and-run-order.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/1-CA-P-1137-TASK--implement-one-programmatic-capability-slice/done
+work_sequence_number: 67
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1721
 ref_id: CA-P-1721
+container:
+  atom: CA-P-1717
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Active
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release
   dependencies:
@@ -19,18 +13,24 @@ topics:
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Evaluation
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1717
   blocks:
   - CA-P-1624
-tier: 3
-container:
-  atom: CA-P-1717
+status: Active
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1721-TASK--bind-the-release-suite-to-an-immutable-runtime-image.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/5-CA-P-1643-TASK--integrate-release-actions-and-admission/27-CA-P-1717-TASK--isolate-the-release-suite-from-the-executing-runtime
+work_sequence_number: 1
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

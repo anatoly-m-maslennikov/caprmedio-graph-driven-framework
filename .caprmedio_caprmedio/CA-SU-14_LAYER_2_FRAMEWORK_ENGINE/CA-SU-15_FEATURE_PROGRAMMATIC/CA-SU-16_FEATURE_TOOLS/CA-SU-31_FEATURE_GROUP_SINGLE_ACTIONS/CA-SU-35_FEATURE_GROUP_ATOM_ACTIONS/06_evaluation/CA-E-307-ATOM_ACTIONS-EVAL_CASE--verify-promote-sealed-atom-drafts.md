@@ -1,13 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
 atom_id: CA-E-307
 ref_id: CA-E-307
+container:
+  scope_unit: CA-SU-35
 role: Evaluation
-current_scope_unit: ATOM_ACTIONS
-claim_target_scope_unit: ATOM_ACTIONS
-author: Anatoly Maslennikov
-status: Active
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   dependencies:
@@ -17,19 +14,22 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 23
-updated_at: 2026-10-27 19:59:32 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-O-066
   - CA-R-869
   - CA-D-450
+status: Active
+version: 23
+updated_at: 2026-10-27 19:59:32 +0400
+cce_version: cce_1
+cce_form: evaluation
+current_scope_unit: ATOM_ACTIONS
+claim_target_scope_unit: ATOM_ACTIONS
+author: Anatoly Maslennikov
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-tier: 3
-form: Eval Case
-container:
-  scope_unit: CA-SU-35
 ---
 # Verify promote sealed atom drafts
 

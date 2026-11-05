@@ -3,12 +3,12 @@ atom_id: CA-R-2730
 ref_id: CA-R-2730
 role: Requirement
 form: Scope Unit Declaration
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH
+tier: 3
 status: Active
 version: 1
 updated_at: 2026-11-03 23:17:14 +0400
-tier: 3
-topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH
 ---
 ## Summary
 

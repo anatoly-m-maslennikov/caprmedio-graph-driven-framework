@@ -1,13 +1,10 @@
 ---
 atom_id: CA-R-1900
 ref_id: CA-R-1900
+container:
+  scope_unit: CA-SU-21
 role: Requirement
-current_scope_unit: MCP
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 16
-updated_at: 2026-11-02 19:44:26 +0400
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   dependencies:
@@ -19,13 +16,16 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 16
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-R-1900-MCP-RULE--select-one-project-mcp-launch-context.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
+current_scope_unit: MCP
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,28 +1,28 @@
 ---
 atom_id: CA-P-2499
 ref_id: CA-P-2499
+container:
+  atom: CA-P-2494
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 3
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Atom
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2494
+status: Active
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2494
 carrier_destination:
   file:
     name: 3-CA-P-2499-TASK--compose-sealed-container-lifecycle-runs.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/66-CA-P-2494-TASK--compose-recursive-container-lifecycle-actions
+work_sequence_number: 3
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

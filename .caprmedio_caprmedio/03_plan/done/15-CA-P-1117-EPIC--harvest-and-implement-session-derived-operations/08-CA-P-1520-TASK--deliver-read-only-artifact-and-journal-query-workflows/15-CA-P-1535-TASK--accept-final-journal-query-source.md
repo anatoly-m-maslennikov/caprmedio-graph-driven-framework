@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1535
 ref_id: CA-P-1535
+container:
+  atom: CA-P-1520
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 15
-current_scope_unit: caprmedio
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Evaluation
   dependencies:
@@ -18,20 +14,24 @@ topics:
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1520
   blocks:
   - CA-P-1526
-tier: 3
-container:
-  atom: CA-P-1520
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 15-CA-P-1535-TASK--accept-final-journal-query-source.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/8-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows/done
+work_sequence_number: 15
+current_scope_unit: caprmedio
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

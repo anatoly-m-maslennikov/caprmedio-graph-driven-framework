@@ -4,14 +4,6 @@ ref_id: CA-P-1744
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release
   dependencies:
@@ -22,6 +14,7 @@ topics:
   - Subject/Graph Node/Engineering/Image
   - Subject/Graph Node/Engineering/Release Testing/Executor Admission
   - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1740
@@ -29,7 +22,14 @@ relations:
   - CA-P-1745
   - CA-P-1746
   - CA-P-1747
-tier: 3
+status: Done
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 4
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

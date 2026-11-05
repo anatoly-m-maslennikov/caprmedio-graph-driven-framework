@@ -1,13 +1,16 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-365
+ref_id: CA-E-365
+container:
+  scope_unit: CA-SU-15
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-version: 23
-updated_at: 2026-10-27 19:59:33 +0400
+tier: 6
 relations:
   evaluation_for:
   - CA-M-419
@@ -15,19 +18,16 @@ relations:
   - CA-E-539
   derived_from:
   - CA-A-053
+status: Active
+version: 23
+updated_at: 2026-10-27 19:59:33 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-365
-ref_id: CA-E-365
-role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-status: Active
 author: Anatoly Maslennikov
-tier: 6
-form: Eval Case
-container:
-  scope_unit: CA-SU-15
 ---
 # Reject unchecked cyclomatic complexity
 

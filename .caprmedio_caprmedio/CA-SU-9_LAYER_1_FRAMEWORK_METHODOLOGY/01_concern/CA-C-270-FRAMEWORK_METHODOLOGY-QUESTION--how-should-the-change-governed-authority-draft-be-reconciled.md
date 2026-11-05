@@ -1,6 +1,4 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
 topics:
   main_subject: "Atom"
   dependencies:
@@ -8,12 +6,14 @@ topics:
     - "Artifact/Revision"
     - "Project"
     - "Operator"
-priority: medium
+relations: {"relates_to": ["CA-R-1530", "CA-R-1565", "CA-M-314", "CA-R-1552", "CA-R-1558", "CA-R-852", "CA-R-1551", "CA-R-1557", "CA-O-028", "CA-O-008", "CA-M-271", "CAPRMEDIO-META-REQU-144"]}
 version: 3
 updated_at: "2026-09-23 17:20:35 +0000"
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"relates_to": ["CA-R-1530", "CA-R-1565", "CA-M-314", "CA-R-1552", "CA-R-1558", "CA-R-852", "CA-R-1551", "CA-R-1557", "CA-O-028", "CA-O-008", "CA-M-271", "CAPRMEDIO-META-REQU-144"]}
 ---
 # Summary
 

@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-525
 ref_id: CA-D-525
+container:
+  scope_unit: CA-SU-2
 role: Delivery
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 16
-updated_at: 2026-11-02 19:46:47 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Carrier
   dependencies:
@@ -18,14 +16,16 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-form: Eng Decision
 tier: 3
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 16
+updated_at: 2026-11-02 19:46:47 +0400
 carrier_destination:
   file:
     name: CA-D-525-WORKFLOW_ORCHESTRATOR-ENG_DECISION--carry-the-docker-runtime-and-persistent-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/07_delivery
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

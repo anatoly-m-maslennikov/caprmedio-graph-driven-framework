@@ -1,12 +1,10 @@
 ---
 atom_id: CA-E-518
 ref_id: CA-E-518
+container:
+  scope_unit: CA-SU-16
 role: Evaluation
 form: Eval Case
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   dependencies:
@@ -15,20 +13,22 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
-version: 16
-updated_at: 2026-10-27 19:59:36 +0400
+tier: 6
 relations:
   evaluation_for:
   - CA-R-1622
   - CA-M-316
   - CA-D-492
-tier: 6
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 16
+updated_at: 2026-10-27 19:59:36 +0400
 carrier_destination:
   file:
     name: CA-E-518-TOOLS-EVAL_CASE--check-validate-atoms-against-its-action.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

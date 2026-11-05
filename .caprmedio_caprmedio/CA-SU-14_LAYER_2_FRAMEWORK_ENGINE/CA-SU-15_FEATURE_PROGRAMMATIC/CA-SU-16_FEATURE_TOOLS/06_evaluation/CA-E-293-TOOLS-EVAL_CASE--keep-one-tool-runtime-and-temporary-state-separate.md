@@ -1,28 +1,28 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-293
+ref_id: CA-E-293
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
-version: 22
-updated_at: 2026-11-02 19:44:26 +0400
-llm_session_ids:
-- codex:01a0263a-7510-7672-bce4-58830bc4d184
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 3
 relations:
   evaluation_for:
   - CA-M-142
   derived_from:
   - CA-A-057
-atom_id: CA-E-293
-ref_id: CA-E-293
 status: Active
-role: Evaluation
+version: 22
+updated_at: 2026-11-02 19:44:26 +0400
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a0263a-7510-7672-bce4-58830bc4d184
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eval Case
-tier: 3
-container:
-  scope_unit: CA-SU-16
 ---
 # Keep one Tool runtime and temporary state separate
 

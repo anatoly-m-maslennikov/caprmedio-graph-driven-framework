@@ -1,32 +1,32 @@
 ---
 atom_id: CA-P-1171
 ref_id: CA-P-1171
+container:
+  atom: CA-P-1146
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: FRAMEWORK_ENGINE
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1146
-tier: 3
-container:
-  atom: CA-P-1146
+status: Active
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1171-TASK--bind-the-next-executable-work-packet-for-ca-p-1146.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/6-CA-P-1123-TASK--build-and-verify-docker-images-for-the-complete-runtime/6-CA-P-1146-TASK--review-image-coverage-and-runtime-boundaries-in-a-subagent
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

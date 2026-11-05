@@ -1,10 +1,10 @@
 ---
 atom_id: CA-M-414
 ref_id: CA-M-414
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -12,21 +12,21 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 13
-updated_at: 2026-10-27 19:59:43 +0400
-cce_version: cce_1
-cce_form: method
+tier: 4
 relations:
   derived_from:
   - CA-A-053
   child_of:
   - CA-M-415
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:43 +0400
+current_scope_unit: PROGRAMMATIC
+cce_version: cce_1
+cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-tier: 4
 author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

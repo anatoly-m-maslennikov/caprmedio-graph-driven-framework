@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2390
 ref_id: CA-P-2390
+container:
+  atom: CA-P-2385
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 5
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -18,18 +14,22 @@ topics:
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Workflow
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2385
-tier: 3
-container:
-  atom: CA-P-2385
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 5-CA-P-2390-TASK--verify-connected-mcp-status-behavior.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/61-CA-P-2385-TASK--remove-history-and-journal-gates-from-atom-status-operations/done
+work_sequence_number: 5
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

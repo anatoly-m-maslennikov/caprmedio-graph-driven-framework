@@ -1,21 +1,21 @@
 ---
-cce_version: cce_1
-cce_form: obligation
+atom_id: CA-R-1076
+ref_id: CA-R-1076
+role: Requirement
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+tier: 1
+status: Active
+version: 30
+updated_at: 2026-11-03 23:17:14 +0400
+cce_version: cce_1
+cce_form: obligation
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 30
-updated_at: 2026-11-03 23:17:14 +0400
-atom_id: CA-R-1076
-ref_id: CA-R-1076
-status: Active
-role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: APPS
-form: Rule
-tier: 1
 ---
 # Render interconnected HTML graph views
 

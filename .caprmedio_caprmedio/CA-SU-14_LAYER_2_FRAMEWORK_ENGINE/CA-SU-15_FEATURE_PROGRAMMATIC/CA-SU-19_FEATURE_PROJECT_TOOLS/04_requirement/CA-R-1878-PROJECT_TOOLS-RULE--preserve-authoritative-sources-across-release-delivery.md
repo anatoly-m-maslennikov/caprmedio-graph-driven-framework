@@ -1,12 +1,10 @@
 ---
 atom_id: CA-R-1878
 ref_id: CA-R-1878
+container:
+  scope_unit: CA-SU-19
 role: Requirement
-current_scope_unit: PROJECT_TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-10-27 20:00:05 +0400
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   dependencies:
@@ -15,14 +13,16 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
-form: Rule
 tier: 3
-container:
-  scope_unit: CA-SU-19
+status: Active
+version: 17
+updated_at: 2026-10-27 20:00:05 +0400
 carrier_destination:
   file:
     name: CA-R-1878-PROJECT_TOOLS-RULE--preserve-authoritative-sources-across-release-delivery.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/04_requirement
+current_scope_unit: PROJECT_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

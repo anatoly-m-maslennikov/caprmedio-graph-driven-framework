@@ -1,6 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-468
+ref_id: CA-E-468
+container:
+  scope_unit: CA-SU-26
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/caprmedio/Extension//FPF
   dependencies:
@@ -9,23 +13,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
-version: 20
-updated_at: 2026-11-02 15:49:28 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-M-290
+status: Active
+version: 20
+updated_at: 2026-11-02 15:49:28 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 current_scope_unit: CORE_EXTENSIONS
-status: Active
 author: Anatoly Maslennikov
-atom_id: CA-E-468
-ref_id: CA-E-468
-tier: 3
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-26
 ---
 # Verify one CAPRMEDIO-aligned FPF Extension revision
 

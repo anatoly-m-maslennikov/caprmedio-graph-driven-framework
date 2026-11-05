@@ -1,18 +1,18 @@
 ---
 atom_id: CA-A-1308
 ref_id: CA-A-1308
-role: Analysis & Advisory
-form: Spec Proposal
-current_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-tier: 3
-version: 3
-updated_at: 2026-11-02 15:49:28 +0400
-topics:
-  main_subject: Entity
 container:
   scope_unit: CA-SU-00
+role: Analysis & Advisory
+form: Spec Proposal
+topics:
+  main_subject: Entity
+tier: 3
+status: Done
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 ## Summary
 

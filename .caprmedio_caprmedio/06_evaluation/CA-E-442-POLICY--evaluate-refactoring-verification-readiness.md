@@ -1,14 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
-version: 26
-updated_at: 2026-11-02 18:35:20 +0400
-relations:
-  child_of:
-  - CA-E-001
-  evaluation_for:
-  - CA-M-270
-  - CA-M-262
+atom_id: CA-E-442
+ref_id: CA-E-442
+container:
+  scope_unit: CA-SU-00
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
   dependencies:
@@ -18,21 +14,25 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Test Design
   - CAPRMEDIO_MODEL <+ Project
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-442
-ref_id: CA-E-442
-status: Active
-current_scope_unit: caprmedio
 tier: 3
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-E-001
+  evaluation_for:
+  - CA-M-270
+  - CA-M-262
+status: Active
+version: 26
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-E-442-CAPRMEDIO-EVAL_POLICY--evaluate-refactoring-verification-readiness.md
     path: .caprmedio_caprmedio/06_evaluation
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 Evaluate refactoring verification readiness

@@ -1,17 +1,17 @@
 ---
+atom_id: CA-E-672
+ref_id: CA-E-672
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
   - Entity/Object/Continuant/Projection/Type: Scope Unit Graph
+tier: 6
+status: Active
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
-atom_id: CA-E-672
-ref_id: CA-E-672
-status: Active
-tier: 6
-role: Evaluation
-form: Eval Policy
 ---
 ## Summary
 

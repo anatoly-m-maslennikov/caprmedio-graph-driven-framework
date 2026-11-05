@@ -1,34 +1,34 @@
 ---
 atom_id: CA-P-1207
 ref_id: CA-P-1207
+container:
+  atom: CA-P-1193
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/History
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1193
   blocks:
   - CA-P-1203
-tier: 3
-container:
-  atom: CA-P-1193
+status: Done
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1207-TASK--save-the-completed-final-partition-harvest.md
     path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/5-CA-P-1129-TASK--harvest-the-final-session-evidence-partition/done/3-CA-P-1193-TASK--harvest-the-second-final-partition-session-packet/done
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

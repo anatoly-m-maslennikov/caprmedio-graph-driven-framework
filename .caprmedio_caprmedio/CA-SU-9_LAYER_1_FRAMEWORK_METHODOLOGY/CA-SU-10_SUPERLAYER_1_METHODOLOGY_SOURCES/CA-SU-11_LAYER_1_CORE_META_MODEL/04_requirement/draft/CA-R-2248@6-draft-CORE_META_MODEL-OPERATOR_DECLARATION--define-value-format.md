@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2248
 ref_id: CA-R-2248@6-draft
-status: Draft
-topics:
-  main_subject: CAPRMEDIO_MODEL/CFEL/Operator//Format
-version: 6
-updated_at: 2026-11-05 19:33:47 +0400
-tier: 1
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Operator Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL/CFEL/Operator//Format
+tier: 1
+status: Draft
+version: 6
+updated_at: 2026-11-05 19:33:47 +0400
 carrier_destination:
   file:
     name: CA-R-2248@6-draft-OPERATOR_DECLARATION--define-value-format.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

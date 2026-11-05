@@ -1,14 +1,10 @@
 ---
 atom_id: CA-A-1061
 ref_id: CA-A-1061
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Settings before derived structure reconciliation
   dependencies:
@@ -17,8 +13,6 @@ topics:
   - Subject/Domain/Node/Continuant/Project.Framework Settings
   - Subject/Domain/Node/Continuant/Project.Structure
   - Journal
-version: 3
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1343
@@ -27,8 +21,14 @@ relations:
   - CA-A-1035
   - CA-O-052
   - CA-C-353
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

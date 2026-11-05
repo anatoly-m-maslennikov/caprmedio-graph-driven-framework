@@ -1,26 +1,26 @@
 ---
 atom_id: CA-D-586
 ref_id: CA-D-586
+container:
+  scope_unit: CA-SU-16
 role: Delivery
-current_scope_unit: TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-11-02 19:46:47 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   dependencies:
   - Subject/CAPRMEDIO/Carrier/File
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Package
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Module
-form: Eng Decision
 tier: 3
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 13
+updated_at: 2026-11-02 19:46:47 +0400
 carrier_destination:
   file:
     name: CA-D-586-TOOLS-ENG_DECISION--package-the-release-tool-private-reader-closure.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
+current_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

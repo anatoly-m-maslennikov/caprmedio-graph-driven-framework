@@ -1,19 +1,19 @@
 ---
-topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-version: 19
-updated_at: 2026-11-02 19:44:26 +0400
 atom_id: CA-R-1096
 ref_id: CA-R-1096
-role: Requirement
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-tier: 3
-form: Rule
 container:
   scope_unit: CA-SU-15
+role: Requirement
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+tier: 3
+status: Active
+version: 19
+updated_at: 2026-11-02 19:44:26 +0400
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

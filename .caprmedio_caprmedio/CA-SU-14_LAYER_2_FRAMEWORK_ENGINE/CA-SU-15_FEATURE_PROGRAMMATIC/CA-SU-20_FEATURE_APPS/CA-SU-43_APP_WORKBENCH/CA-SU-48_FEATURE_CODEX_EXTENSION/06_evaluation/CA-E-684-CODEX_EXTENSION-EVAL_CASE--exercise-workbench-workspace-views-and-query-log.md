@@ -1,29 +1,29 @@
 ---
 atom_id: CA-E-684
 ref_id: CA-E-684
-current_scope_unit: CODEX_EXTENSION
-claim_target_scope_unit: CODEX_EXTENSION
-status: Active
-version: 2
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-48
 role: Evaluation
 form: Eval Case
-tier: 5
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Workspace
+tier: 5
 relations:
   evaluation_for:
   - CA-R-2902
   - CA-R-2903
   - CA-M-476
   - CA-D-681
+status: Active
+version: 2
+updated_at: 2026-11-05 20:32:45 +0400
 carrier_destination:
   file:
     name: CA-E-684-CODEX_EXTENSION-EVAL_CASE--exercise-workbench-workspace-views-and-query-log.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/06_evaluation
-updated_at: 2026-11-05 20:32:45 +0400
-container:
-  scope_unit: CA-SU-48
+current_scope_unit: CODEX_EXTENSION
+claim_target_scope_unit: CODEX_EXTENSION
+author: Anatoly Maslennikov
 ---
 
 ## Summary

@@ -1,25 +1,25 @@
 ---
 atom_id: CA-P-2672
 ref_id: CA-P-2672
+container:
+  atom: CA-P-2665
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 7
-current_scope_unit: caprmedio
-claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
+tier: 4
+status: Done
 version: 3
 updated_at: 2026-10-27 06:19:16 +0400
-tier: 4
-container:
-  atom: CA-P-2665
 carrier_destination:
   file:
     name: 7-CA-P-2672-TASK--draft-release-workflow-model-in-project-configuration.md
     path: .caprmedio_caprmedio/03_plan/done/CA-P-2665-EPIC--refine-engineering-subject-branch/done
+work_sequence_number: 7
+current_scope_unit: caprmedio
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

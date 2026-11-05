@@ -1,22 +1,22 @@
 ---
 atom_id: CA-C-472
 ref_id: CA-C-472
+container:
+  scope_unit: CA-SU-16
 role: Concern
 form: Problem
-current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
-status: active
-author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-05 16:49:29 +0000"
 topics:
   main_subject: "Release suite isolation"
   dependencies: [Implementation, Skill, Methodology, Evaluation, Image, Manifest]
 relations:
   concern_about: [CA-P-1717, CA-R-1879, CA-E-574]
-container:
-  scope_unit: CA-SU-16
+status: active
+version: 1
+updated_at: "2026-10-05 16:49:29 +0000"
+current_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,6 +1,15 @@
 ---
-version: 38
-updated_at: 2026-11-05 13:55:01 +0400
+atom_id: CA-E-440
+ref_id: CA-E-440
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
+tier: 4
 relations:
   child_of:
   - CA-E-001
@@ -8,22 +17,13 @@ relations:
   - CA-R-1559
   - CA-R-1591
   - CA-R-1552
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom
-  dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
-atom_id: CA-E-440
-ref_id: CA-E-440
 status: Active
-tier: 4
-role: Evaluation
-form: Eval Policy
+version: 38
+updated_at: 2026-11-05 13:55:01 +0400
 carrier_destination:
   file:
     name: CA-E-440-EVAL_POLICY--evaluate-governing-atom-change-approval.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

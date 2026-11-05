@@ -1,26 +1,26 @@
 ---
 atom_id: CA-D-676
 ref_id: CA-D-676
-current_scope_unit: WORKBENCH
-claim_target_scope_unit: WORKBENCH
-status: Active
-version: 2
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-43
 role: Delivery
 form: Eng Decision
-tier: 5
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 5
 relations:
   delivery_for:
   - CA-R-2782
+status: Active
+version: 2
 updated_at: 2026-11-05 06:00:43 +0400
 carrier_destination:
   file:
     name: CA-D-676-WORKBENCH-ENG_DECISION--expose-workbench-restart-through-mcp.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
-container:
-  scope_unit: CA-SU-43
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+author: Anatoly Maslennikov
 ---
 
 ## Summary

@@ -1,24 +1,24 @@
 ---
+atom_id: CA-D-055
+ref_id: CA-D-055
+container:
+  scope_unit: CA-SU-37
+role: Delivery
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-version: 22
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 2
 relations:
   delivery_for:
   - CA-R-1070
+status: Active
+version: 22
+updated_at: 2026-11-02 19:46:47 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-D-055
-ref_id: CA-D-055
-status: Active
-role: Delivery
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
-form: Eng Decision
-tier: 2
 claim_target_scope_unit: PROJECTION_ACTIONS
-container:
-  scope_unit: CA-SU-37
 ---
 # Deliver the Project Graph State generator
 

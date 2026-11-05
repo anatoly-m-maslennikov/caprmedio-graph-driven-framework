@@ -1,28 +1,28 @@
 ---
 atom_id: CA-E-588
 ref_id: CA-E-588
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   - CAPRMEDIO_MODEL <+ Carrier
-version: 20
-updated_at: 2026-11-02 19:33:47 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1889
-tier: 3
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-13
+status: Active
+version: 20
+updated_at: 2026-11-02 19:33:47 +0400
 carrier_destination:
   file:
     name: CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

@@ -1,14 +1,11 @@
 ---
 atom_id: CA-P-1968
 ref_id: CA-P-1968
+container:
+  atom: CA-P-1959
 role: Plan
 form: Plan
 label: Epic
-work_sequence_number: 10
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject
   dependencies:
@@ -20,8 +17,7 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Projection
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 15
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1959
@@ -30,13 +26,17 @@ relations:
   - CA-P-2045
   blocks:
   - CA-P-1969
-tier: 3
-container:
-  atom: CA-P-1959
+status: Done
+version: 15
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 10-CA-P-1968-EPIC--apply-approved-subject-migration-batches.md
     path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done
+work_sequence_number: 10
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

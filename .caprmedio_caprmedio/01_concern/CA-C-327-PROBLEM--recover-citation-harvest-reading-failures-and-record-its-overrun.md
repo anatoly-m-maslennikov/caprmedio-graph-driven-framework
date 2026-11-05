@@ -1,26 +1,26 @@
 ---
 atom_id: CA-C-327
 ref_id: CA-C-327
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
 label: Problem
+topics:
+  main_subject: Citation harvest reading and orchestration recovery
+  dependencies:
+  - Subject/Domain/Node/Continuant/Project
+relations:
+  concern_about:
+    - CA-P-1307
+status: active
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: active
-topics:
-  main_subject: Citation harvest reading and orchestration recovery
-  dependencies:
-  - Subject/Domain/Node/Continuant/Project
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
-relations:
-  concern_about:
-    - CA-P-1307
-container:
-  scope_unit: CA-SU-00
 ---
 # Summary
 

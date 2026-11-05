@@ -1,12 +1,10 @@
 ---
 atom_id: CA-E-304
 ref_id: CA-E-304
+container:
+  scope_unit: CA-SU-18
 role: Evaluation
 form: Eval Case
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   dependencies:
@@ -15,8 +13,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
   - Subject/CAPRMEDIO/Carrier
-version: 45
-updated_at: 2026-11-02 15:49:28 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-866
@@ -24,13 +21,16 @@ relations:
   - CA-R-1464
   - CA-R-1415
   - CA-R-1371
-tier: 4
-container:
-  scope_unit: CA-SU-18
+status: Active
+version: 45
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-E-304-TOOL_WORKFLOWS-EVAL_CASE--verify-update-sealed-caprmedio-atom-carriers.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/06_evaluation
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
 ---
 # Summary
 

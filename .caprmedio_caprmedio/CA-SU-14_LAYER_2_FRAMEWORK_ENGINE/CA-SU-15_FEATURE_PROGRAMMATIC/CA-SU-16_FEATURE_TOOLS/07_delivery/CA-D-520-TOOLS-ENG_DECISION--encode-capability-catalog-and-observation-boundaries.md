@@ -1,13 +1,10 @@
 ---
 atom_id: CA-D-520
 ref_id: CA-D-520
+container:
+  scope_unit: CA-SU-16
 role: Delivery
 form: Eng Decision
-current_scope_unit: TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-11-02 19:30:12 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
@@ -22,12 +19,15 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 tier: 3
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 13
+updated_at: 2026-11-02 19:30:12 +0400
 carrier_destination:
   file:
     name: CA-D-520-TOOLS-ENG_DECISION--encode-capability-catalog-and-observation-boundaries.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
+current_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

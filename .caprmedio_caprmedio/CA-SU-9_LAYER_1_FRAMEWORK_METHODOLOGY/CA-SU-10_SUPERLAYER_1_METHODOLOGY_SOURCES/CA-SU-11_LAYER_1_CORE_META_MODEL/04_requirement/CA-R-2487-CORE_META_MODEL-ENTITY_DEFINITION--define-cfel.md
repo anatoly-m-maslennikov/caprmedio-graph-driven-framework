@@ -1,39 +1,26 @@
 ---
 atom_id: CA-R-2487
 ref_id: CA-R-2487
-status: Active
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL
-version: 13
-updated_at: 2026-11-04 20:33:16 +0400
-tier: 3
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 13
+updated_at: 2026-11-04 20:33:16 +0400
 carrier_destination:
   file:
     name: CA-R-2487-DECLARATION--define-cfel.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 
 Define CFEL
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-p{:occurrence}:: [value format]{:value count};
-
-p.*[name format]{:immediate name count};
-
-p.**[name format]{:recursive name count};
-
-p.*[name format]{:immediate name count}:: [value format]{:value count}
-```
 
 ### Prose Claim
 
@@ -134,3 +121,16 @@ existing source binding that declares it. No value-format-to-instance rewrite
 is implied by the CFEL overview.
 
 `Relation//IS_DECLARED_BY` is the qualified derived view of a GOVERNS fact whose source is a Requirement/Form Declaration; it reverses that selected fact while retaining the qualification. It is not a general inverse of GOVERNS or a permission for every Relation.
+### Formal Claim
+
+```CFEL
+# model
+p{:occurrence}:: [value format]{:value count};
+
+p.*[name format]{:immediate name count};
+
+p.**[name format]{:recursive name count};
+
+p.*[name format]{:immediate name count}:: [value format]{:value count}
+```
+

@@ -1,8 +1,5 @@
 ---
 atom_id: CA-C-110
-cce_version: cce_1
-cce_form: concern_conflict
-priority: high
 topics:
   main_subject: FPF
   dependencies:
@@ -10,6 +7,9 @@ topics:
   - Extension
 version: 1
 updated_at: 2026-09-15 02:22:01 +0400
+cce_version: cce_1
+cce_form: concern_conflict
+priority: high
 ---
 # Universal `ca` entry conflicts with direct FPF invocation
 

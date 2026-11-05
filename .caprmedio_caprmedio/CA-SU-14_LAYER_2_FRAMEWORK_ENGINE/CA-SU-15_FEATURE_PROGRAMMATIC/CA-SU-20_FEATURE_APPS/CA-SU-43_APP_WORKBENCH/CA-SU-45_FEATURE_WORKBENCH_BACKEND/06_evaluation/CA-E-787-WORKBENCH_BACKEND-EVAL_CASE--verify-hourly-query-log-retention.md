@@ -1,27 +1,27 @@
 ---
 atom_id: CA-E-787
 ref_id: CA-E-787
-current_scope_unit: WORKBENCH_BACKEND
-claim_target_scope_unit: WORKBENCH_BACKEND
-status: Active
-version: 1
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-45
 role: Evaluation
 form: Eval Case
-tier: 5
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 5
 relations:
   evaluation_for:
   - CA-M-476
   - CA-D-698
+status: Active
+version: 1
+updated_at: 2026-11-05 20:32:03 +0400
 carrier_destination:
   file:
     name: CA-E-787-WORKBENCH_BACKEND-EVAL_CASE--verify-hourly-query-log-retention.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation
-updated_at: 2026-11-05 20:32:03 +0400
-container:
-  scope_unit: CA-SU-45
+current_scope_unit: WORKBENCH_BACKEND
+claim_target_scope_unit: WORKBENCH_BACKEND
+author: Anatoly Maslennikov
 ---
 
 ## Summary

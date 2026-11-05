@@ -1,10 +1,10 @@
 ---
 atom_id: CA-M-402
 ref_id: CA-M-402
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
   dependencies:
@@ -15,19 +15,19 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-version: 11
-updated_at: 2026-10-27 19:59:43 +0400
-author: Anatoly Maslennikov
+tier: 1
 relations:
   derived_from:
   - CA-A-1185
-tier: 1
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 11
+updated_at: 2026-10-27 19:59:43 +0400
 carrier_destination:
   file:
     name: CA-M-402-PROGRAMMATIC-ENG_POLICY--implement-only-declared-business-logic.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

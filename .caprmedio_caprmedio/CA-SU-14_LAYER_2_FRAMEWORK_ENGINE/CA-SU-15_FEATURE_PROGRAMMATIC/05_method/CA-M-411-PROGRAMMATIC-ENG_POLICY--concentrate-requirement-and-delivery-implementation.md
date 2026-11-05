@@ -1,28 +1,28 @@
 ---
 atom_id: CA-M-411
 ref_id: CA-M-411
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-version: 9
-updated_at: 2026-10-27 19:59:43 +0400
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
+tier: 3
 relations:
   derived_from:
   - CA-M-403
-tier: 3
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 9
+updated_at: 2026-10-27 19:59:43 +0400
 carrier_destination:
   file:
     name: CA-M-411-PROGRAMMATIC-ENG_POLICY--concentrate-requirement-and-delivery-implementation.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

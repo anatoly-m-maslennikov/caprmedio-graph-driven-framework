@@ -1,8 +1,13 @@
 ---
 atom_id: CA-A-1315
 ref_id: CA-A-1315
-status: Active
-version: 4
+container:
+  scope_unit: CA-SU-11
+role: Analysis & Advisory
+form: Specification Proposal
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
 relations:
   depends_on:
   - CA-R-2487
@@ -11,18 +16,13 @@ relations:
   - CA-R-2552
   - CA-R-2566
   - CA-R-2585
-tier: 3
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL
-role: Analysis & Advisory
-form: Specification Proposal
+status: Active
+version: 4
 updated_at: 2026-11-04 20:33:16 +0400
 carrier_destination:
   file:
     name: CA-A-1315-SPECIFICATION_PROPOSAL--add-basic-cfel-queries-with-ctes-and-sql-aliases.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis
-container:
-  scope_unit: CA-SU-11
 ---
 
 ## Summary

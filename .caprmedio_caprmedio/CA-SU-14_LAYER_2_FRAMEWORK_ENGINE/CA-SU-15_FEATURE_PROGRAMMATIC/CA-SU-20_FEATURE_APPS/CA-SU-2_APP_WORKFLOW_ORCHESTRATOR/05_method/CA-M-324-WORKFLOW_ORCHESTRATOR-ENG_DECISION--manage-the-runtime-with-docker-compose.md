@@ -1,12 +1,10 @@
 ---
 atom_id: CA-M-324
 ref_id: CA-M-324
+container:
+  scope_unit: CA-SU-2
 role: Method
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 19:59:42 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -18,14 +16,16 @@ topics:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
-form: Eng Decision
 tier: 3
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:42 +0400
 carrier_destination:
   file:
     name: CA-M-324-WORKFLOW_ORCHESTRATOR-ENG_DECISION--manage-the-runtime-with-docker-compose.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/05_method
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

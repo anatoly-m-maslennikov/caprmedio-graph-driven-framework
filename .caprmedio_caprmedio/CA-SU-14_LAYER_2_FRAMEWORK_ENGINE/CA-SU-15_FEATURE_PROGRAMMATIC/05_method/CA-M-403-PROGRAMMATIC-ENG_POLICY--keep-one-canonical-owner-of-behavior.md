@@ -1,24 +1,24 @@
 ---
 atom_id: CA-M-403
 ref_id: CA-M-403
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+tier: 1
+status: Active
 version: 9
 updated_at: 2026-10-27 19:59:43 +0400
-author: Anatoly Maslennikov
-tier: 1
-container:
-  scope_unit: CA-SU-15
 carrier_destination:
   file:
     name: CA-M-403-PROGRAMMATIC-ENG_POLICY--keep-one-canonical-owner-of-behavior.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

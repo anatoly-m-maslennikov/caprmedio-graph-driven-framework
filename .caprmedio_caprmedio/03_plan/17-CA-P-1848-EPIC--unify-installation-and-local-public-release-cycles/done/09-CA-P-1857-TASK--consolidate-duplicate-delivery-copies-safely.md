@@ -4,13 +4,6 @@ ref_id: CA-P-1857
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 9
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Carrier/Directory Carrier
   dependencies:
@@ -26,12 +19,19 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Domain/Continuant/Projection
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1848
   blocks:
   - CA-P-1858
-tier: 3
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 9
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,21 +1,21 @@
 ---
 atom_id: CA-C-292
 ref_id: CA-C-292
+container:
+  scope_unit: CA-SU-16
 role: Concern
 form: Problem
+relations:
+  concern_about:
+    - CA-R-805
+status: active
+version: 1
+updated_at: "2026-10-04 06:29:05 +0400"
 current_scope_unit: TOOLS
 claim_target_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
-status: active
-version: 1
-updated_at: "2026-10-04 06:29:05 +0400"
-relations:
-  concern_about:
-    - CA-R-805
-container:
-  scope_unit: CA-SU-16
 ---
 # Summary
 

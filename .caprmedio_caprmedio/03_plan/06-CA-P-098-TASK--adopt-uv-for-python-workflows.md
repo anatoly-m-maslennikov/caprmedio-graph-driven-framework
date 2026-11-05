@@ -1,27 +1,27 @@
 ---
-cce_version: cce_1
-cce_form: obligation
-topics:
-  main_subject: Subject/Graph Node/Engineering/Python Environment Frontend
-  dependencies:
-  - Subject/Graph Node/Engineering/Python Environment Frontend
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
-autonomous_confidence_threshold: 98
-relations:
-  derived_from:
-  - CA-A-062
-status: Active
-author: Anatoly Maslennikov
-current_scope_unit: caprmedio
-role: Plan
-form: Plan
-label: Task
-tier: 3
 atom_id: CA-P-098
 ref_id: CA-P-098
 container:
   scope_unit: CA-SU-00
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Python Environment Frontend
+  dependencies:
+  - Subject/Graph Node/Engineering/Python Environment Frontend
+tier: 3
+relations:
+  derived_from:
+  - CA-A-062
+status: Active
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
+autonomous_confidence_threshold: 98
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
 ---
 # Adopt uv for Python workflows
 

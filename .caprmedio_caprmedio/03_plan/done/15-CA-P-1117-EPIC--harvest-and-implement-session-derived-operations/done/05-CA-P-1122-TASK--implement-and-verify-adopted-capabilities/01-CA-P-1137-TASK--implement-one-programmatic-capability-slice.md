@@ -1,35 +1,35 @@
 ---
 atom_id: CA-P-1137
 ref_id: CA-P-1137
+container:
+  atom: CA-P-1122
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Implementation
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1122
   blocks:
   - CA-P-1164
   - CA-P-1139
-tier: 3
-container:
-  atom: CA-P-1122
+status: Active
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1137-TASK--implement-one-programmatic-capability-slice.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

@@ -1,29 +1,29 @@
 ---
 atom_id: CA-P-1118
 ref_id: CA-P-1118
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Canceled
 topics:
   main_subject: Subject/Graph Node/Engineering/Operations
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
+tier: 3
+status: Canceled
 version: 25
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-00
 carrier_destination:
   file:
     name: 1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence.md
     path: .caprmedio_caprmedio/03_plan/canceled
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

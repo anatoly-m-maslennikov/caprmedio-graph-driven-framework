@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1674
 ref_id: CA-P-1674
+container:
+  atom: CA-P-1643
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Release
   dependencies:
@@ -20,18 +16,22 @@ topics:
   - Subject/Graph Node/Engineering/Manifest
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 9
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1643
-tier: 3
-container:
-  atom: CA-P-1643
+status: Done
+version: 9
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: 2-CA-P-1674-TASK--review-additive-release-route-source.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/5-CA-P-1643-TASK--integrate-release-actions-and-admission/done
+work_sequence_number: 2
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

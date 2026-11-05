@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-521
 ref_id: CA-D-521
+container:
+  scope_unit: CA-SU-2
 role: Delivery
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 20
-updated_at: 2026-11-02 19:46:47 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -18,14 +16,16 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
-form: Eng Decision
 tier: 3
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 20
+updated_at: 2026-11-02 19:46:47 +0400
 carrier_destination:
   file:
     name: CA-D-521-WORKFLOW_ORCHESTRATOR-ENG_DECISION--encode-orchestrator-requests-and-durable-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/07_delivery
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

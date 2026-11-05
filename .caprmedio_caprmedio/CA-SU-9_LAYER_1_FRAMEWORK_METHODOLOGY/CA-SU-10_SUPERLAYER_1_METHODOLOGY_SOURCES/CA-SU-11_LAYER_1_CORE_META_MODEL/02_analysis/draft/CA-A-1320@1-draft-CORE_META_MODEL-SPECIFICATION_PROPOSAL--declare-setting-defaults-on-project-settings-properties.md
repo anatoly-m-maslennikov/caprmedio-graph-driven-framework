@@ -1,20 +1,20 @@
 ---
 atom_id: CA-A-1320
 ref_id: CA-A-1320@1-draft
-version: 1
-status: Draft
+container:
+  scope_unit: CA-SU-11
 role: Analysis
 form: Specification Proposal
-tier: 3
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+tier: 3
+status: Draft
+version: 1
 updated_at: 2026-11-04 23:09:29 +0400
 carrier_destination:
   file:
     name: CA-A-1320@1-draft-SPECIFICATION_PROPOSAL--declare-setting-defaults-on-project-settings-properties.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

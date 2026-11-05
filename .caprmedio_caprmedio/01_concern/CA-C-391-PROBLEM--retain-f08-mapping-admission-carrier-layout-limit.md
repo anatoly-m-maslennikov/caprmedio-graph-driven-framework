@@ -1,24 +1,24 @@
 ---
 atom_id: CA-C-391
 ref_id: CA-C-391
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
+topics:
+  main_subject: "F08 mapping-admission Operation Carrier layout limit"
+  dependencies: [Operations, "Markdown Atom Carrier/Main Content"]
+relations:
+  concern_about: [CA-O-054]
+  relates_to: [CA-P-1413, CA-A-1133, CA-D-479, CA-C-376, CA-C-380]
+status: unresolved
+version: 1
+updated_at: "2026-10-04 13:48:00 +0000"
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: unresolved
-topics:
-  main_subject: "F08 mapping-admission Operation Carrier layout limit"
-  dependencies: [Operations, "Markdown Atom Carrier/Main Content"]
-version: 1
-updated_at: "2026-10-04 13:48:00 +0000"
-relations:
-  concern_about: [CA-O-054]
-  relates_to: [CA-P-1413, CA-A-1133, CA-D-479, CA-C-376, CA-C-380]
-container:
-  scope_unit: CA-SU-00
 ---
 # Summary
 

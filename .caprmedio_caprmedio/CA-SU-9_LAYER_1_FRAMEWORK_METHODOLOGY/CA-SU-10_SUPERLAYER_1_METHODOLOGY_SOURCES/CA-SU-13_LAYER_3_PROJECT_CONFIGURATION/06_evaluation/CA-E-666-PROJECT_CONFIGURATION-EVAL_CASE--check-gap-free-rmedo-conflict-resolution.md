@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-666
+ref_id: CA-E-666
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//RMEDO Conflict Resolution'
   dependencies:
@@ -12,28 +18,22 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Event Record
-version: 4
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-O-028
   - CA-O-005
   - CA-O-006
   - CA-O-008
-atom_id: CA-E-666
-ref_id: CA-E-666
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-13
+version: 4
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

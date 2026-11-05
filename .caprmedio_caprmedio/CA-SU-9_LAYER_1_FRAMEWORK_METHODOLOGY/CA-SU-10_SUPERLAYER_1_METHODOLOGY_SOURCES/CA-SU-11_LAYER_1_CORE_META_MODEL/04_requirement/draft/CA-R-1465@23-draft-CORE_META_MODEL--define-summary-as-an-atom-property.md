@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1465@23-draft
+ref_id: CA-R-1465@23-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Definition
 topics:
   main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content.summary
   dependencies:
@@ -7,19 +13,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
   - Subject/CAPRMEDIO/Carrier/File.Main Content
+tier: 1
+status: Draft
 version: 23
 updated_at: 2026-10-29 00:04:17 +0400
-atom_id: CA-R-1465@23-draft
-ref_id: CA-R-1465@23-draft
-role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Draft
 author: Anatoly Maslennikov
-tier: 1
-form: Definition
-container:
-  scope_unit: CA-SU-11
 ---
 # Summary
 

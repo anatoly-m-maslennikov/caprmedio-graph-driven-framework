@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1766
 ref_id: CA-P-1766
+container:
+  atom: CA-P-1755
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
-version: 9
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Testing/Executor Admission
   dependencies:
@@ -20,16 +14,22 @@ topics:
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1755
-tier: 3
-container:
-  atom: CA-P-1755
+status: Done
+version: 9
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: 2-CA-P-1766-TASK--isolate-suite-child-temporaries-and-imports.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/12-CA-P-1755-TASK--repair-the-closed-release-suite-harness/done
+work_sequence_number: 2
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

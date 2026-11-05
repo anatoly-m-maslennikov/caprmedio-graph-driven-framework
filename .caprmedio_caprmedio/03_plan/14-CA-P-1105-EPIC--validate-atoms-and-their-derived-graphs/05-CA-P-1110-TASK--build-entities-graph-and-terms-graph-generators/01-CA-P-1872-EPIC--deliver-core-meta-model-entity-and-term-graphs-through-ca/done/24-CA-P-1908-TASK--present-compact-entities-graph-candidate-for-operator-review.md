@@ -1,14 +1,11 @@
 ---
 atom_id: CA-P-1908
 ref_id: CA-P-1908
+container:
+  atom: CA-P-1872
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 24
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Projection
   dependencies:
@@ -18,20 +15,23 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Term//Property
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 13
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1872
   blocks:
   - CA-P-1909
-tier: 3
-container:
-  atom: CA-P-1872
+status: Done
+version: 13
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 24-CA-P-1908-TASK--present-compact-entities-graph-candidate-for-operator-review.md
     path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done
+work_sequence_number: 24
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

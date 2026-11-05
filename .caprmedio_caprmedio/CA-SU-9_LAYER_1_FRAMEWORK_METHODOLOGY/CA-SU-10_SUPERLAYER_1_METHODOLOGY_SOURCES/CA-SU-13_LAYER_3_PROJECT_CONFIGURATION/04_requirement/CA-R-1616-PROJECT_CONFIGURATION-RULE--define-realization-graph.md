@@ -1,9 +1,10 @@
 ---
 atom_id: CA-R-1616
 ref_id: CA-R-1616
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Realization Graph)
   dependencies:
@@ -13,22 +14,21 @@ topics:
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 25
+tier: 3
 relations:
   depends_on:
   - CA-R-1493
   - CA-R-1568
   - CA-R-2535
-tier: 3
-role: Requirement
-form: Rule
+status: Active
+version: 25
 updated_at: 2026-11-02 18:35:20 +0400
-container:
-  scope_unit: CA-SU-13
 carrier_destination:
   file:
     name: CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

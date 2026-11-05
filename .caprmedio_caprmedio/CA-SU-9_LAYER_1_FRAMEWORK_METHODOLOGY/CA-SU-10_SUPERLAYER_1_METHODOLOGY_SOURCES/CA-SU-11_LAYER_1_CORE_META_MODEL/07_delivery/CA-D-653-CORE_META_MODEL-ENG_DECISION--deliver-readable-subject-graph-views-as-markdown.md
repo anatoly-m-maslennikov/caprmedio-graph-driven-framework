@@ -1,4 +1,10 @@
 ---
+atom_id: CA-D-653
+ref_id: CA-D-653
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
   dependencies:
@@ -9,8 +15,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Carrier
-version: 16
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
 relations:
   delivery_for:
   - CA-R-2150@15
@@ -19,20 +24,15 @@ relations:
   - CA-R-2223@4
   - CA-R-2224@3
   - CA-R-2225
-atom_id: CA-D-653
-ref_id: CA-D-653
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-tier: 3
 status: Active
-role: Delivery
-form: Decision
-container:
-  scope_unit: CA-SU-11
+version: 16
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-D-653-CORE_META_MODEL-DECISION--deliver-readable-subject-graph-views-as-markdown.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

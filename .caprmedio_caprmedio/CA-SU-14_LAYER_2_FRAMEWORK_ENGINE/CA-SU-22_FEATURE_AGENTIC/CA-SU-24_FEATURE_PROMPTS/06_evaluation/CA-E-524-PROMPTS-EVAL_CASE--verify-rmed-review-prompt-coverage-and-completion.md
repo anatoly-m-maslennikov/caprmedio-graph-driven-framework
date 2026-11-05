@@ -1,14 +1,10 @@
 ---
 atom_id: CA-E-524
 ref_id: CA-E-524
+container:
+  scope_unit: CA-SU-24
 role: Evaluation
 form: Eval Case
-current_scope_unit: PROMPTS
-claim_target_scope_unit: PROMPTS
-status: Active
-author: Anatoly Maslennikov
-version: 20
-updated_at: 2026-10-30 03:11:57 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
   dependencies:
@@ -24,6 +20,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+tier: 4
 relations:
   evaluation_for:
   - CA-D-509
@@ -33,13 +30,16 @@ relations:
   - CA-R-1801
   - CA-R-1802
   - CA-R-2447
-tier: 4
-container:
-  scope_unit: CA-SU-24
+status: Active
+version: 20
+updated_at: 2026-10-30 03:11:57 +0400
 carrier_destination:
   file:
     name: CA-E-524-PROMPTS-EVAL_CASE--verify-rmed-review-prompt-coverage-and-completion.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/06_evaluation
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1601
 ref_id: CA-P-1601
+container:
+  atom: CA-P-1137
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 57
-current_scope_unit: caprmedio
-claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Workflow
   dependencies:
@@ -18,20 +14,24 @@ topics:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1137
   blocks:
   - CA-P-1519
-tier: 3
-container:
-  atom: CA-P-1137
+status: Active
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 57-CA-P-1601-TASK--prove-immutable-image-routes-w06-w10.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/1-CA-P-1137-TASK--implement-one-programmatic-capability-slice
+work_sequence_number: 57
+current_scope_unit: caprmedio
+claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

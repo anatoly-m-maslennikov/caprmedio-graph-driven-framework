@@ -1,14 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
-version: 29
-updated_at: 2026-11-02 08:06:47 +0400
-relations:
-  child_of:
-  - CA-E-001
-  evaluation_for:
-  - CA-M-266
-  - CA-M-262
+atom_id: CA-E-438
+ref_id: CA-E-438
+container:
+  scope_unit: CA-SU-00
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
   dependencies:
@@ -20,21 +16,25 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-438
-ref_id: CA-E-438
-status: Active
-current_scope_unit: caprmedio
 tier: 3
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-E-001
+  evaluation_for:
+  - CA-M-266
+  - CA-M-262
+status: Active
+version: 29
+updated_at: 2026-11-02 08:06:47 +0400
 carrier_destination:
   file:
     name: CA-E-438-CAPRMEDIO-EVAL_POLICY--evaluate-implementation-mode-conformance.md
     path: .caprmedio_caprmedio/06_evaluation
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 Evaluate implementation mode conformance

@@ -1,24 +1,24 @@
 ---
+atom_id: CA-M-102
+ref_id: CA-M-102
+container:
+  scope_unit: CA-SU-16
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
     Structure
-version: 22
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 2
 relations:
   method_for:
   - CA-R-1072
+status: Active
+version: 22
+updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-M-102
-ref_id: CA-M-102
-status: Active
-role: Method
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eng Decision
-tier: 2
-container:
-  scope_unit: CA-SU-16
 ---
 # Derive structural CRMED drafts from the Inventory
 

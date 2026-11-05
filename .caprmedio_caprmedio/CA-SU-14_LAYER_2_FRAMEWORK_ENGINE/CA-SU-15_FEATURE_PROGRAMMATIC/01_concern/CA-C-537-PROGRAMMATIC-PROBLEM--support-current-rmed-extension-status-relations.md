@@ -1,27 +1,27 @@
 ---
 atom_id: CA-C-537
 ref_id: CA-C-537
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Atom
+relations:
+  concern_about: [CA-R-1676, CA-P-2401]
+status: Active
+version: 2
+updated_at: 2026-10-23 03:06:32 +0400
+carrier_destination:
+  file:
+    name: CA-C-537-PROGRAMMATIC-PROBLEM--support-current-rmed-extension-status-relations.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
 priority: medium
-topics:
-  main_subject: Subject/Domain/Node/Continuant/Atom
-relations:
-  concern_about: [CA-R-1676, CA-P-2401]
-version: 2
-updated_at: 2026-10-23 03:06:32 +0400
-container:
-  scope_unit: CA-SU-15
-carrier_destination:
-  file:
-    name: CA-C-537-PROGRAMMATIC-PROBLEM--support-current-rmed-extension-status-relations.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

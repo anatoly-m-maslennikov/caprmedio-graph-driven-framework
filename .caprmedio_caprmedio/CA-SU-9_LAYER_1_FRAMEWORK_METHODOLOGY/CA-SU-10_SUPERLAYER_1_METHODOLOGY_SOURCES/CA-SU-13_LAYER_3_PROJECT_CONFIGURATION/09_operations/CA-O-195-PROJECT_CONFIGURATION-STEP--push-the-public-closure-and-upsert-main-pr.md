@@ -1,31 +1,31 @@
 ---
 atom_id: CA-O-195
 ref_id: CA-O-195
+container:
+  scope_unit: CA-SU-13
 role: Operations
 form: Step
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
 topics:
   main_subject: 'Subject/caprmedio/Step//Public release/Step: push and upsert main PR'
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Git Commits
   - Subject/CAPRMEDIO/Carrier/Git Repository
   - Subject/CAPRMEDIO/Carrier/Pull Request
-version: 11
-updated_at: 2026-10-27 19:59:47 +0400
+tier: 3
 relations:
   part_of:
   - CA-O-188
   invokes:
   - CA-O-196
-tier: 3
-container:
-  scope_unit: CA-SU-13
+status: Active
+version: 11
+updated_at: 2026-10-27 19:59:47 +0400
 carrier_destination:
   file:
     name: CA-O-195-PROJECT_CONFIGURATION-STEP--push-the-public-closure-and-upsert-main-pr.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

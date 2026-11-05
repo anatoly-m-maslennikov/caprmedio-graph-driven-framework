@@ -1,19 +1,19 @@
 ---
 atom_id: CA-R-2446
 ref_id: CA-R-2446
+container:
+  scope_unit: CA-SU-15
 role: Requirement
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-11-02 19:44:26 +0400
+form: Goal
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
 tier: 4
-form: Goal
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 2
+updated_at: 2026-11-02 19:44:26 +0400
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 ## Summary
 

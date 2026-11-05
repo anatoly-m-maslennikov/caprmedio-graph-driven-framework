@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1794
 ref_id: CA-P-1794
+container:
+  atom: CA-P-1117
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 34
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Active
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Implementation
   dependencies:
@@ -20,6 +14,7 @@ topics:
   - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Action
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1117
@@ -33,13 +28,18 @@ relations:
   - CA-P-1800
   - CA-P-1807
   - CA-P-1808
-tier: 3
-container:
-  atom: CA-P-1117
+status: Active
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 34-CA-P-1794-TASK--repair-confirmed-final-review-gaps.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations
+work_sequence_number: 34
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

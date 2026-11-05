@@ -1,18 +1,18 @@
 ---
 atom_id: CA-D-draft
-role: Delivery
-form: Eng Decision
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
-topics:
-  main_subject: Model::CAPRMEDIO::Continuant/Package>Module
-version: 1
-updated_at: 2026-10-29 00:04:17 +0400
-tier: 1
 container:
   scope_unit: CA-SU-11
+role: Delivery
+form: Eng Decision
+topics:
+  main_subject: Model::CAPRMEDIO::Continuant/Package>Module
+tier: 1
+status: Draft
+version: 1
+updated_at: 2026-10-29 00:04:17 +0400
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

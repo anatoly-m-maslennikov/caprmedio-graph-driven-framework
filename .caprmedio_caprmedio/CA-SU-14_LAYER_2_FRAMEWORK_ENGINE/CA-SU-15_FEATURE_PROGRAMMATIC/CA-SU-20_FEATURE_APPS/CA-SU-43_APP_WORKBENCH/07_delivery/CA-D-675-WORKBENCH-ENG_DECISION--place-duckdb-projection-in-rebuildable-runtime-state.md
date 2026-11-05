@@ -1,27 +1,27 @@
 ---
 atom_id: CA-D-675
 ref_id: CA-D-675
-current_scope_unit: WORKBENCH
-claim_target_scope_unit: WORKBENCH
-status: Active
-version: 10
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-43
 role: Delivery
 form: Eng Decision
-tier: 4
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 4
 relations:
   delivery_for:
   - CA-R-2723
   - CA-R-2728
+status: Active
+version: 10
+updated_at: 2026-11-05 20:27:41 +0400
 carrier_destination:
   file:
     name: CA-D-675-WORKBENCH-ENG_DECISION--place-the-duckdb-projection-in-rebuildable-runtime-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
-updated_at: 2026-11-05 20:27:41 +0400
-container:
-  scope_unit: CA-SU-43
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+author: Anatoly Maslennikov
 ---
 
 ## Summary

@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2315
 ref_id: CA-P-2315
+container:
+  atom: CA-P-2270
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Project.Structure
   dependencies:
@@ -17,18 +13,22 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Atom
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2270
-tier: 3
-container:
-  atom: CA-P-2270
+status: Done
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-2315-TASK--resolve-graph-authority-from-declared-sources.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/35-CA-P-2270-TASK--refresh-authority-consumers-and-release-admission/done
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

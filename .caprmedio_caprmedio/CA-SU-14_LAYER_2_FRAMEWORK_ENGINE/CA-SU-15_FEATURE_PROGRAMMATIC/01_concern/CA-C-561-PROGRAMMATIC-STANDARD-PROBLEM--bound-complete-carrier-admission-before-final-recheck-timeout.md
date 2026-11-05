@@ -1,27 +1,27 @@
 ---
 atom_id: CA-C-561
 ref_id: CA-C-561
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
+relations:
+  concern_about: [CA-C-560, CA-P-2521]
+status: Active
+version: 1
+updated_at: "2026-10-21T09:06:55Z"
+carrier_destination:
+  file:
+    name: CA-C-561-PROGRAMMATIC-PROBLEM--bound-complete-carrier-admission-before-final-recheck-timeout.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
 priority: high
-topics:
-  main_subject: Entity/Node/Continuant/Implementation
-relations:
-  concern_about: [CA-C-560, CA-P-2521]
-version: 1
-updated_at: "2026-10-21T09:06:55Z"
-container:
-  scope_unit: CA-SU-15
-carrier_destination:
-  file:
-    name: CA-C-561-PROGRAMMATIC-PROBLEM--bound-complete-carrier-admission-before-final-recheck-timeout.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

@@ -1,4 +1,10 @@
 ---
+atom_id: CA-O-053
+ref_id: CA-O-053
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
   dependencies:
@@ -11,27 +17,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-version: 21
-updated_at: 2026-10-29 23:58:03 +0400
+tier: 3
 relations:
   child_of:
   - CA-M-443
   - CA-R-380
-atom_id: CA-O-053
-ref_id: CA-O-053
-role: Operations
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-author: Anatoly Maslennikov
-form: Action
-tier: 3
-container:
-  scope_unit: CA-SU-13
+version: 21
+updated_at: 2026-10-29 23:58:03 +0400
 carrier_destination:
   file:
     name: CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

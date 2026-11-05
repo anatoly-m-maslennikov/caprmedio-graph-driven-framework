@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-600@14-draft
 ref_id: CA-E-600@14-draft
+container:
+  scope_unit: CA-SU-2
 role: Evaluation
 form: Eval Case
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Draft
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-24 23:59:51 +0400
 topics:
   main_subject: Subject/Engineering/Tool//PROJECT_MCP_RUNTIME_ADMISSION.Evaluation
   dependencies:
@@ -19,6 +16,7 @@ topics:
   - Subject/Engineering/Secret Handling
   - Subject/Engineering/Carrier
   - Subject/Domain/Node/Continuant/Project.Settings
+tier: 5
 relations:
   evaluation_for:
   - CA-R-1901
@@ -27,9 +25,11 @@ relations:
   - CA-E-537
   - CA-E-584
   - CA-E-585
-tier: 5
-container:
-  scope_unit: CA-SU-2
+status: Draft
+version: 14
+updated_at: 2026-10-24 23:59:51 +0400
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

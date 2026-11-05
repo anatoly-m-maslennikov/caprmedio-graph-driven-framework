@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2711
 ref_id: CA-R-2711
-status: Active
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
-version: 6
-tier: 3
-updated_at: 2026-11-04 21:11:03 +0400
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
+tier: 3
+status: Active
+version: 6
+updated_at: 2026-11-04 21:11:03 +0400
 carrier_destination:
   file:
     name: CA-R-2711-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

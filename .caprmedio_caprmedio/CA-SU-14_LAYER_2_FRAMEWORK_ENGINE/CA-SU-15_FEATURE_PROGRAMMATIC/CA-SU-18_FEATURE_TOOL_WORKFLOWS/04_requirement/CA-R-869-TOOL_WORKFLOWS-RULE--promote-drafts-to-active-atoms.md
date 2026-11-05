@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-869
+ref_id: CA-R-869
+container:
+  scope_unit: CA-SU-18
+role: Requirement
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   dependencies:
@@ -6,25 +12,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - Subject/CAPRMEDIO/Carrier
-atom_id: CA-R-869
-ref_id: CA-R-869
-author: Anatoly Maslennikov
+tier: 3
 status: Active
 version: 25
 updated_at: 2026-10-27 20:00:11 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-role: Requirement
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
-tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-18
 carrier_destination:
   file:
     name: CA-R-869-TOOL_WORKFLOWS-RULE--promote-drafts-to-active-atoms.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/04_requirement
+author: Anatoly Maslennikov
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
 ---
 # Summary
 

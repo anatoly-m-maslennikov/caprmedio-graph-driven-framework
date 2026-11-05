@@ -1,14 +1,11 @@
 ---
 atom_id: CA-P-2418
 ref_id: CA-P-2418
+container:
+  atom: CA-P-2402
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/MCP
   dependencies:
@@ -16,18 +13,21 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Term//Property
   - Subject/Graph Node/Engineering/Workflow
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2402
+status: Done
 version: 7
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2402
 carrier_destination:
   file:
     name: 4-CA-P-2418-TASK--verify-project-attribution-and-immutable-session-input-prefixes.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/1-CA-P-2402-TASK--freeze-the-exact-five-day-project-session-mcp-call-corpus/done
+work_sequence_number: 4
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

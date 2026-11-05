@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-522
+ref_id: CA-E-522
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier
   dependencies:
@@ -11,8 +17,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-version: 19
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-D-308
@@ -22,20 +27,15 @@ relations:
   - CA-R-1468@20
   - CA-R-1720
   - CA-R-2536
-atom_id: CA-E-522
-ref_id: CA-E-522
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-11
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-E-522-CORE_META_MODEL-EVAL_CASE--storage-boundary-classification-interpretability.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

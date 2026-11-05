@@ -1,33 +1,33 @@
 ---
 atom_id: CA-M-428
 ref_id: CA-M-428
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
-version: 11
-updated_at: 2026-10-27 19:59:43 +0400
-cce_version: cce_1
-cce_form: method
+tier: 4
 relations:
   derived_from:
   - CA-A-053
   child_of:
   - CA-M-415
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-tier: 4
-author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 11
+updated_at: 2026-10-27 19:59:43 +0400
 carrier_destination:
   file:
     name: CA-M-428-PROGRAMMATIC-ENG_POLICY--use-ruff-for-python-formatting-linting-and-complexity-use-ruff-as-the-selected-formatter-and-linter-for-hand-authored-programmatic-python-source-including-cyclomatic-complexity-lint-for-changed-executable-units.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
 ---
 # Summary
 

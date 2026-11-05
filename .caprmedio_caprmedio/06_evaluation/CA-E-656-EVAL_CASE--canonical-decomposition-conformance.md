@@ -1,35 +1,35 @@
 ---
-version: 21
-updated_at: 2026-11-02 19:44:26 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-E-656
+ref_id: CA-E-656
+container:
+  scope_unit: CA-SU-00
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+tier: 2
 relations:
   evaluation_for:
   - CA-M-447
   - CA-R-642
   child_of:
   - CA-R-642
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
-  dependencies:
-  - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
-cce_version: cce_1
-cce_form: evaluation
-current_scope_unit: caprmedio
 status: Active
-atom_id: CA-E-656
-ref_id: CA-E-656
-tier: 2
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-00
+version: 21
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-E-656-CAPRMEDIO-EVAL_CASE--canonical-decomposition-conformance.md
     path: .caprmedio_caprmedio/06_evaluation
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+cce_version: cce_1
+cce_form: evaluation
+current_scope_unit: caprmedio
 ---
 ## Summary
 

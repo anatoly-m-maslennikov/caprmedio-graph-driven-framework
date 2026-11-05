@@ -121,7 +121,7 @@ class WorkbenchWatcherDockerMixin:
                     status, result = request(
                         url + f"{workbench_path}/run", method="POST",
                         payload={
-                            "sql": f"SELECT version, source_path FROM atoms WHERE id = '{atom_id}'",
+                            "sql": f"SELECT version, \"relative path\", filename FROM atoms WHERE id = '{atom_id}'",
                         },
                     )
                     if status == 200 and isinstance(result, dict) and result.get("rows") == expected_rows:
@@ -205,18 +205,18 @@ class WorkbenchWatcherDockerMixin:
 
                 created = source_directory / "CA-R-902-created.md"
                 write_atom(created, "CA-R-902")
-                wait_for_atom(url, "CA-R-902", [[1, relative(created)]])
+                wait_for_atom(url, "CA-R-902", [[1, relative(created.parent), created.name]])
                 observe("create", None, created)
                 write_atom(created, "CA-R-902", version=2, body="# Summary\n\nChanged from the host.\n")
-                wait_for_atom(url, "CA-R-902", [[2, relative(created)]])
+                wait_for_atom(url, "CA-R-902", [[2, relative(created.parent), created.name]])
                 observe("update", None, created)
                 renamed = source_directory / "renamed.md"
                 created.rename(renamed)
-                wait_for_atom(url, "CA-R-902", [[2, relative(renamed)]])
+                wait_for_atom(url, "CA-R-902", [[2, relative(renamed.parent), renamed.name]])
                 observe("rename", created, renamed)
                 moved = moved_parent / "moved-name.md"
                 renamed.rename(moved)
-                wait_for_atom(url, "CA-R-902", [[2, relative(moved)]])
+                wait_for_atom(url, "CA-R-902", [[2, relative(moved.parent), moved.name]])
                 observe("move", renamed, moved)
                 moved.unlink()
                 wait_for_atom(url, "CA-R-902", [])
@@ -233,7 +233,7 @@ class WorkbenchWatcherDockerMixin:
 
                 entered = source_directory / "entered.md"
                 incoming.rename(entered)
-                wait_for_atom(url, "CA-R-903", [[1, relative(entered)]])
+                wait_for_atom(url, "CA-R-903", [[1, relative(entered.parent), entered.name]])
                 observe("create", None, entered)
                 outgoing = outside / "outgoing.md"
                 entered.rename(outgoing)

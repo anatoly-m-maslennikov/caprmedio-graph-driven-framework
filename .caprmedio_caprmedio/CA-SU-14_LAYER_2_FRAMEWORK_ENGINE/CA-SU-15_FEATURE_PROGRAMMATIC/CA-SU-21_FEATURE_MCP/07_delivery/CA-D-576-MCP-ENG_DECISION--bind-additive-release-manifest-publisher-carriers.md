@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-576
 ref_id: CA-D-576
+container:
+  scope_unit: CA-SU-21
 role: Delivery
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-27 19:59:27 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
   dependencies:
@@ -18,18 +16,20 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
 relations:
   delivery_for:
   - CA-R-1882
   - CA-M-339
-form: Eng Decision
-tier: 3
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 14
+updated_at: 2026-10-27 19:59:27 +0400
 carrier_destination:
   file:
     name: CA-D-576-MCP-ENG_DECISION--bind-additive-release-manifest-publisher-carriers.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/07_delivery
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

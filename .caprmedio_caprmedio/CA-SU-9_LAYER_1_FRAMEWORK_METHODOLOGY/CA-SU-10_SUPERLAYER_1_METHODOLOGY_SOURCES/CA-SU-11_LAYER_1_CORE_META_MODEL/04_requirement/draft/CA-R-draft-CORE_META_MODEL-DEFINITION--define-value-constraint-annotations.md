@@ -1,21 +1,21 @@
 ---
 atom_id: CA-R-draft
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Definition
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
 topics:
   main_subject: Model::CAPRMEDIO::Graph Syntax.Format Notation
   dependencies:
   - Model::CAPRMEDIO::Graph Syntax::Format
   - Model::CAPRMEDIO::Continuant/Selection
-version: 1
 tier: 1
+status: Draft
+version: 1
 updated_at: 2026-10-29 03:22:57 +0400
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

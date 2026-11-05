@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2571
 ref_id: CA-P-2571
+container:
+  atom: CA-P-2576
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 3
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Backlog
-version: 5
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Control Adapter
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2576
@@ -25,13 +21,17 @@ relations:
   - CA-M-398
   - CA-M-399
   - CA-M-400
-tier: 3
-container:
-  atom: CA-P-2576
+status: Backlog
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 3-CA-P-2571-TASK--implement-host-settings-and-shared-docker-launch.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/95-CA-P-2576-TASK--serve-all-projects-through-one-host-mcp/001_backlog
+work_sequence_number: 3
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -168,8 +168,9 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
         from mcp.client.session import ClientSession
         from mcp.client.streamable_http import streamable_http_client
 
+        run_sql = "SELECT 'λ' AS unicode_value"
         worksheet_sql = "SELECT 'λ'; SELECT 2"
-        cursor_position = len("SELECT 'λ'; ".encode("utf-16-le")) // 2
+        cursor_position = len("SELECT 'λ' ".encode("utf-16-le")) // 2
         journal_before = journal_snapshot(self.journal_state)
 
         async def exercise() -> tuple[dict, ...]:
@@ -195,7 +196,7 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
                     schema = await client.call_tool("query_schema", {})
                     self.assertFalse(schema.is_error)
                     ran = await client.call_tool("query_run", {
-                        "sql": worksheet_sql, "cursor_position": cursor_position,
+                        "sql": run_sql, "cursor_position": cursor_position,
                     })
                     self.assertFalse(ran.is_error)
                     page = await client.call_tool("query_page", {
@@ -203,14 +204,14 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
                     })
                     self.assertFalse(page.is_error, page.structured_content or page.content)
                     checked = await client.call_tool("query_check", {
-                        "sql": worksheet_sql, "cursor_position": cursor_position,
+                        "sql": run_sql, "cursor_position": cursor_position,
                     })
                     self.assertFalse(checked.is_error)
                     invalid = await client.call_tool("query_run", {"sql": "SELECT FROM"})
                     self.assertTrue(invalid.is_error)
                     assert_journal_unchanged(self, self.journal_state, journal_before)
                     saved = await client.call_tool("query_run", {
-                        "sql": worksheet_sql, "cursor_position": cursor_position,
+                        "sql": run_sql, "cursor_position": cursor_position,
                         "save": True, "name": "MCP query",
                     })
                     worksheet = await client.call_tool("view_save", {
@@ -239,28 +240,28 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
 
         (schema, ran, page, checked, saved, worksheet, loaded_by_id, loaded_by_url, recent,
          legacy_query, legacy_worksheet, invalid, invalid_is_error) = asyncio.run(exercise())
-        self.assertEqual({"atoms", "scope_units"}, set(schema["tables"]))
+        self.assertEqual({"atoms", "scope_units", "change_log"}, set(schema["tables"]))
         status_column = next(column for column in schema["tables"]["atoms"] if column["name"] == "status")
         self.assertTrue(all(isinstance(value, str) for value in status_column.get("values", [])))
-        self.assertEqual([[2]], ran["rows"])
+        self.assertEqual([["λ"]], ran["rows"])
         self.assertIsInstance(ran.get("query_id"), str)
-        self.assertEqual(" SELECT 2", ran["sql"])
+        self.assertEqual(run_sql, ran["sql"])
         assert_not_saved(self, ran)
         self.assertEqual(ran["query_id"], page["query_id"])
-        self.assertEqual(" SELECT 2", page["sql"])
+        self.assertEqual(run_sql, page["sql"])
         assert_not_saved(self, page)
         self.assertTrue(checked["valid"])
-        self.assertEqual(" SELECT 2", checked["sql"])
+        self.assertEqual(run_sql, checked["sql"])
         assert_not_saved(self, checked)
         self.assertIsInstance(saved.get("query_id"), str)
         self.assertNotEqual(saved["query_id"], saved["saved_query_id"])
-        self.assertEqual([[2]], saved["rows"])
-        assert_saved(self, saved, url=self.url, workbench_path=self.workbench_path, kind="query", sql=" SELECT 2")
+        self.assertEqual([["λ"]], saved["rows"])
+        assert_saved(self, saved, url=self.url, workbench_path=self.workbench_path, kind="query", sql=run_sql)
         self.assertEqual("MCP query", saved["name"])
         self.assertNotIn("query_id", worksheet)
         assert_saved(self, worksheet, url=self.url, workbench_path=self.workbench_path, kind="view", sql=worksheet_sql)
         self.assertEqual("MCP worksheet", worksheet["name"])
-        assert_saved(self, loaded_by_id, url=self.url, workbench_path=self.workbench_path, kind="query", sql=" SELECT 2")
+        assert_saved(self, loaded_by_id, url=self.url, workbench_path=self.workbench_path, kind="query", sql=run_sql)
         assert_saved(self, loaded_by_url, url=self.url, workbench_path=self.workbench_path, kind="view", sql=worksheet_sql)
         assert_legacy_saved(
             self, legacy_query, url=self.url, workbench_path=self.workbench_path,
@@ -317,39 +318,40 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
         for asset_path in asset_paths:
             asset_status, _ = request(self.url + asset_path)
             self.assertEqual(200, asset_status, asset_path)
+        run_sql = "SELECT 'λ' AS unicode_value"
         worksheet_sql = "SELECT 'λ'; SELECT 2"
-        cursor_position = len("SELECT 'λ'; ".encode("utf-16-le")) // 2
+        cursor_position = len("SELECT 'λ' ".encode("utf-16-le")) // 2
         journal_before = journal_snapshot(self.journal_state)
         status, schema = request(self.url + f"{self.workbench_path}/schema", method="POST", payload={})
         self.assertEqual(200, status, schema)
-        self.assertEqual({"atoms", "scope_units"}, set(schema["tables"]))
+        self.assertEqual({"atoms", "scope_units", "change_log"}, set(schema["tables"]))
         status_column = next(column for column in schema["tables"]["atoms"] if column["name"] == "status")
         self.assertTrue(all(isinstance(value, str) for value in status_column.get("values", [])))
         status, ran = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": worksheet_sql, "cursor_position": cursor_position},
+            payload={"sql": run_sql, "cursor_position": cursor_position},
         )
         self.assertEqual(200, status, ran)
-        self.assertEqual([[2]], ran["rows"])
-        self.assertEqual(" SELECT 2", ran["sql"])
+        self.assertEqual([["λ"]], ran["rows"])
+        self.assertEqual(run_sql, ran["sql"])
         self.assertIsInstance(ran.get("query_id"), str)
         assert_not_saved(self, ran)
         status, checked = request(
             self.url + f"{self.workbench_path}/check", method="POST",
-            payload={"sql": worksheet_sql, "cursor_position": cursor_position},
+            payload={"sql": run_sql, "cursor_position": cursor_position},
         )
         self.assertEqual(200, status, checked)
         self.assertTrue(checked["valid"])
-        self.assertEqual(" SELECT 2", checked["sql"])
+        self.assertEqual(run_sql, checked["sql"])
         assert_not_saved(self, checked)
         assert_journal_unchanged(self, self.journal_state, journal_before)
         status, saved = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": worksheet_sql, "cursor_position": cursor_position, "save": True, "name": "HTTP query"},
+            payload={"sql": run_sql, "cursor_position": cursor_position, "save": True, "name": "HTTP query"},
         )
         self.assertEqual(200, status, saved)
         self.assertIsInstance(saved.get("query_id"), str)
-        assert_saved(self, saved, url=self.url, workbench_path=self.workbench_path, kind="query", sql=" SELECT 2")
+        assert_saved(self, saved, url=self.url, workbench_path=self.workbench_path, kind="query", sql=run_sql)
         self.assertEqual("HTTP query", saved["name"])
         status, worksheet = request(
             self.url + f"{self.workbench_path}/view-save", method="POST",
@@ -364,7 +366,7 @@ class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, 
             payload={"reference": saved["saved_query_id"]},
         )
         self.assertEqual(200, status, loaded_by_id)
-        assert_saved(self, loaded_by_id, url=self.url, workbench_path=self.workbench_path, kind="query", sql=" SELECT 2")
+        assert_saved(self, loaded_by_id, url=self.url, workbench_path=self.workbench_path, kind="query", sql=run_sql)
         status, loaded_by_url = request(
             self.url + f"{self.workbench_path}/load", method="POST",
             payload={"reference": worksheet["saved_query_url"]},

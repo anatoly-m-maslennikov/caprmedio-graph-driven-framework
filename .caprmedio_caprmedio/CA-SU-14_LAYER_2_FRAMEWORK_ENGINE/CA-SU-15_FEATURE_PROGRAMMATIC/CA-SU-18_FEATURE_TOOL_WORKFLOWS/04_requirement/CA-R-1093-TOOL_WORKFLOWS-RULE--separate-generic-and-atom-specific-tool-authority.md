@@ -1,30 +1,30 @@
 ---
 atom_id: CA-R-1093
 ref_id: CA-R-1093
+container:
+  scope_unit: CA-SU-18
+role: Requirement
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Rule
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-cce_version: cce_1
-cce_form: obligation
-version: 24
-status: Active
-updated_at: 2026-10-27 19:59:50 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-role: Requirement
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
 tier: 1
-form: Rule
-author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-18
+status: Active
+version: 24
+updated_at: 2026-10-27 19:59:50 +0400
 carrier_destination:
   file:
     name: CA-R-1093-TOOL_WORKFLOWS-RULE--separate-generic-and-atom-specific-tool-authority.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/04_requirement
+cce_version: cce_1
+cce_form: obligation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
 ---
 # Summary
 

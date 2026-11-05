@@ -1,26 +1,26 @@
 ---
 atom_id: CA-R-2003
 ref_id: CA-R-2003
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity/Property
   dependencies:
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Property Occurrences
+tier: 1
+status: Active
 version: 16
 updated_at: 2026-11-02 19:46:47 +0400
-tier: 1
-role: Requirement
-form: Rule
-container:
-  scope_unit: CA-SU-11
 carrier_destination:
   file:
     name: CA-R-2003-CORE_META_MODEL-RULE--require-exactly-one-immediate-bearer-for-each-dependent-entity-occurrence.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

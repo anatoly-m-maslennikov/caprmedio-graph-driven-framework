@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1823
 ref_id: CA-P-1823
+container:
+  atom: CA-P-1820
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Active
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Version
   dependencies:
@@ -21,18 +15,24 @@ topics:
   - Subject/Graph Node/Engineering/Image
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1820
   blocks:
   - CA-P-1623
-tier: 3
-container:
-  atom: CA-P-1820
+status: Active
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 4-CA-P-1823-TASK--integrate-the-closed-restoration-journal-and-selector-lock.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/6-CA-P-1820-TASK--restore-the-selected-retained-baseline-image
+work_sequence_number: 4
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

@@ -1,12 +1,12 @@
 ---
 atom_id: CA-A-043
+version: 2
+updated_at: 2026-09-06 01:45:12 +0400
 subject_scopes:
   - authority
   - requirement-topology
   - scope-topology
   - carrier-format
-version: 2
-updated_at: 2026-09-06 01:45:12 +0400
 ---
 
 ## Task, scope, and boundaries

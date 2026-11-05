@@ -1,31 +1,31 @@
 ---
-subject_scopes:
-- routing
-version: 19
-updated_at: 2026-10-29 09:30:11 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-M-141
+ref_id: CA-M-141
+container:
+  scope_unit: CA-SU-9
+role: Method
+form: Implementation Method
+topics:
+  main_subject: Entity/Aspect/Engineering/Execution Control
+tier: 1
 relations:
   child_of:
   - CA-M-098
   - CA-M-099
-role: Method
 status: Active
-current_scope_unit: FRAMEWORK_METHODOLOGY
-author: Anatoly Maslennikov
-atom_id: CA-M-141
-ref_id: CA-M-141
-form: Implementation Method
-tier: 1
-topics:
-  main_subject: Entity/Aspect/Engineering/Execution Control
-container:
-  scope_unit: CA-SU-9
+version: 19
+updated_at: 2026-10-29 09:30:11 +0400
 carrier_destination:
   file:
     name: CA-M-141-FRAMEWORK_METHODOLOGY-IMPLEMENTATION_METHOD--select-the-least-costly-sufficient-execution-mechanism.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/05_method
+subject_scopes:
+- routing
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: FRAMEWORK_METHODOLOGY
+author: Anatoly Maslennikov
 ---
 ## Summary
 Select the least costly sufficient execution mechanism

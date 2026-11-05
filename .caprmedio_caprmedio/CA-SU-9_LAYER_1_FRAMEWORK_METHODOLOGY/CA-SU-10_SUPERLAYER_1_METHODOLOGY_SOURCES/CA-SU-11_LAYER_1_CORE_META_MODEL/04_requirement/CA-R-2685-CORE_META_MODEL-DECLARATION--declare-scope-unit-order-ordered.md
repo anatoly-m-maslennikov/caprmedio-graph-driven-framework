@@ -1,17 +1,17 @@
 ---
 atom_id: CA-R-2685
 ref_id: CA-R-2685
-status: Active
+role: Requirement
+form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit.order
   - CAPRMEDIO_MODEL <+ CFEL <+ Format/bool
+tier: 3
+status: Active
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
-tier: 3
-role: Requirement
-form: Declaration
 ---
 ## Summary
 

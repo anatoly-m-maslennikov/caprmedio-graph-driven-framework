@@ -1,21 +1,13 @@
 ---
 atom_id: CA-A-1323
 ref_id: CA-A-1323
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Done
-version: 1
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-15
 role: Analysis & Advisory
 form: Specification Proposal
-tier: 3
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
-updated_at: 2026-11-05 13:04:02 +0400
-carrier_destination:
-  file:
-    name: CA-A-1323-PROGRAMMATIC-SPECIFICATION_PROPOSAL--refine-mcp-discovery-and-query-execution.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/done
+tier: 3
 relations:
   depends_on:
   - CA-R-2729
@@ -34,8 +26,16 @@ relations:
   - CA-E-525
   - CA-R-1804
   - CA-O-112
-container:
-  scope_unit: CA-SU-15
+status: Done
+version: 1
+updated_at: 2026-11-05 13:04:02 +0400
+carrier_destination:
+  file:
+    name: CA-A-1323-PROGRAMMATIC-SPECIFICATION_PROPOSAL--refine-mcp-discovery-and-query-execution.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/done
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 
 ## Summary

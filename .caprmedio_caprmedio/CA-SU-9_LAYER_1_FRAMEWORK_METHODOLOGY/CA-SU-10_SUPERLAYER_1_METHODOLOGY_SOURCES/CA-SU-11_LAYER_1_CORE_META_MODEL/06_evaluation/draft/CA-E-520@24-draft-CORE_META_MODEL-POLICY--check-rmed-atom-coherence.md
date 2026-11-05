@@ -1,14 +1,10 @@
 ---
 atom_id: CA-E-520@24-draft
 ref_id: CA-E-520@24-draft
+container:
+  scope_unit: CA-SU-11
 role: Evaluation
 form: Policy
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
-version: 24
-updated_at: 2026-10-29 00:04:17 +0400
 topics:
   main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
   dependencies:
@@ -24,6 +20,7 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+tier: 5
 relations:
   evaluation_for:
   - CA-D-269
@@ -39,9 +36,12 @@ relations:
   - CA-R-1465
   - CA-R-1624
   - CA-R-1799
-tier: 5
-container:
-  scope_unit: CA-SU-11
+status: Draft
+version: 24
+updated_at: 2026-10-29 00:04:17 +0400
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

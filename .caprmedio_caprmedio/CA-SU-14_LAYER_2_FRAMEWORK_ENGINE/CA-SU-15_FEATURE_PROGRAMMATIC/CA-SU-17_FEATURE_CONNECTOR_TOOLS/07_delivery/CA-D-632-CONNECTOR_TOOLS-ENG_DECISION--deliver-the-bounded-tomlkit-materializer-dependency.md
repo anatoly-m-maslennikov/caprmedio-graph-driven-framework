@@ -1,19 +1,17 @@
 ---
 atom_id: CA-D-632
 ref_id: CA-D-632
+container:
+  scope_unit: CA-SU-17
 role: Delivery
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-version: 15
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 5
 relations:
   delivery_for:
   - CA-R-1936
@@ -21,14 +19,16 @@ relations:
   - CA-M-383
   - CA-D-250
   - CA-E-254
-form: Eng Decision
-tier: 5
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 15
+updated_at: 2026-11-02 19:46:47 +0400
 carrier_destination:
   file:
     name: CA-D-632-CONNECTOR_TOOLS-ENG_DECISION--deliver-the-bounded-tomlkit-materializer-dependency.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/07_delivery
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

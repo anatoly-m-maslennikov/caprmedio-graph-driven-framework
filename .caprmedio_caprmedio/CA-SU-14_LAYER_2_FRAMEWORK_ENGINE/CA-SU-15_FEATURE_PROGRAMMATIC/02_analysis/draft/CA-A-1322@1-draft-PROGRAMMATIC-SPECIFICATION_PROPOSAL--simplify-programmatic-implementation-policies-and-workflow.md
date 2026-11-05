@@ -1,16 +1,13 @@
 ---
 atom_id: CA-A-1322
 ref_id: CA-A-1322@1-draft
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Draft
-version: 1
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-15
 role: Analysis & Advisory
 form: Specification Proposal
-tier: 3
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+tier: 3
 relations:
   depends_on:
   - CA-M-402
@@ -22,13 +19,16 @@ relations:
   - CA-M-463
   - CA-M-465
   - CA-M-472
+status: Draft
+version: 1
 updated_at: 2026-11-05 06:14:51 +0400
 carrier_destination:
   file:
     name: CA-A-1322@1-draft-PROGRAMMATIC-SPECIFICATION_PROPOSAL--simplify-programmatic-implementation-policies-and-workflow.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/draft
-container:
-  scope_unit: CA-SU-15
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 
 ## Summary

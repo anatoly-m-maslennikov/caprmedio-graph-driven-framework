@@ -10,13 +10,13 @@ topics:
       - Method Authority
       - Evaluation Coverage
       - Scope Ownership
-version: 2
-updated_at: 2026-08-30 17:21:33 +0400
 relations:
   derived_from:
     - CA-A-053
     - CA-A-055
     - CA-A-056
+version: 2
+updated_at: 2026-08-30 17:21:33 +0400
 ---
 # Reconcile PROGRAMMATIC specialization authority
 

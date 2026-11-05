@@ -1,12 +1,10 @@
 ---
 atom_id: CA-O-203
 ref_id: CA-O-203
+container:
+  scope_unit: CA-SU-18
 role: Operations
 form: Action
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   dependencies:
@@ -15,18 +13,20 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-version: 11
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 3
 relations:
   depends_on:
   - CA-D-442
-tier: 3
-container:
-  scope_unit: CA-SU-18
+status: Active
+version: 11
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-O-203-TOOL_WORKFLOWS-ACTION--create-one-scope-unit.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/09_operations
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
 ---
 # Summary
 

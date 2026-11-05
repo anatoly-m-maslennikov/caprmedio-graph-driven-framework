@@ -1,16 +1,16 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-201
 topics:
   main_subject: Subject/Domain/Node/Continuant/Projection
   dependencies:
   - Evaluation
-priority: medium
 version: 5
 updated_at: 2026-10-23 03:18:40 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-C-201
 ---
 # Which registered data stage is mandatory for the skipped-stage test?
 

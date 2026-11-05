@@ -1,22 +1,22 @@
 ---
-current_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 7
-updated_at: 2026-10-29 17:18:14 +0400
-topics:
-  main_subject: Entity
 atom_id: CA-P-2696
 ref_id: CA-P-2696
+container:
+  atom: CA-P-2694
 role: Plan
 form: Plan
 label: Task
+topics:
+  main_subject: Entity
 tier: 4
 relations:
   BLOCKS:
   - CA-P-2697
-container:
-  atom: CA-P-2694
+status: Done
+version: 7
+updated_at: 2026-10-29 17:18:14 +0400
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 ## Summary
 

@@ -1,16 +1,13 @@
 ---
 atom_id: CA-A-1316
 ref_id: CA-A-1316
-current_scope_unit: FRAMEWORK_ENGINE
-claim_target_scope_unit: FRAMEWORK_ENGINE
-status: Done
-version: 7
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-14
 role: Analysis & Advisory
 form: Specification Proposal
-tier: 3
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 3
 relations:
   depends_on:
   - CA-R-2719
@@ -20,13 +17,16 @@ relations:
   - CA-R-2722
   - CA-R-2547
   - CA-D-663
+status: Done
+version: 7
 updated_at: 2026-11-04 07:39:08 +0400
 carrier_destination:
   file:
     name: CA-A-1316-FRAMEWORK_ENGINE-SPECIFICATION_PROPOSAL--query-atoms-through-a-synchronized-duckdb-projection.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/done
-container:
-  scope_unit: CA-SU-14
+current_scope_unit: FRAMEWORK_ENGINE
+claim_target_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
 ---
 
 ## Summary

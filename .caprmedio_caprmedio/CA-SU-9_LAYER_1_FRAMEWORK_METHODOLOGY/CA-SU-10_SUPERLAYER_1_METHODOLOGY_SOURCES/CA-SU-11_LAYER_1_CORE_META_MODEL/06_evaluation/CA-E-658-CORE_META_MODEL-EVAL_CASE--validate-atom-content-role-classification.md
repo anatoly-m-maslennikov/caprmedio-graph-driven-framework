@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-658
+ref_id: CA-E-658
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
   dependencies:
@@ -9,8 +15,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Carrier
-version: 14
-updated_at: 2026-11-02 17:54:42 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1548
@@ -20,20 +25,15 @@ relations:
   - CA-R-2513
   - CA-R-2463
   - CA-R-2465
-atom_id: CA-E-658
-ref_id: CA-E-658
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 3
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-11
+version: 14
+updated_at: 2026-11-02 17:54:42 +0400
 carrier_destination:
   file:
     name: CA-E-658-CORE_META_MODEL-EVAL_CASE--validate-atom-content-role-classification.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 Validate Atom Content Role classification

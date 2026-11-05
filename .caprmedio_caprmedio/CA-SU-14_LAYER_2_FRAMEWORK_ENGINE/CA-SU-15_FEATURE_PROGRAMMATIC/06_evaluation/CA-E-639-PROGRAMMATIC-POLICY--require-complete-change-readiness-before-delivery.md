@@ -1,17 +1,14 @@
 ---
 atom_id: CA-E-639
 ref_id: CA-E-639
+container:
+  scope_unit: CA-SU-15
 role: Evaluation
 form: Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
     Structure
+tier: 5
 relations:
   evaluation_for:
   - CA-M-395
@@ -20,13 +17,16 @@ relations:
   - CA-M-402
   - CA-M-403
   - CA-M-405
-tier: 5
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 15
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-E-639-PROGRAMMATIC-POLICY--require-complete-change-readiness-before-delivery.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

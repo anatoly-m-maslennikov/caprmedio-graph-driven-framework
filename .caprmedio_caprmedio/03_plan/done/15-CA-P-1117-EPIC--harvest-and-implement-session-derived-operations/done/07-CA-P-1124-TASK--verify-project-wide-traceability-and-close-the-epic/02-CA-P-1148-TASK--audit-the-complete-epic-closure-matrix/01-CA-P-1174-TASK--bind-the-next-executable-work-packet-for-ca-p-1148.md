@@ -1,32 +1,32 @@
 ---
 atom_id: CA-P-1174
 ref_id: CA-P-1174
+container:
+  atom: CA-P-1148
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Evaluation
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1148
-tier: 3
-container:
-  atom: CA-P-1148
+status: Active
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1174-TASK--bind-the-next-executable-work-packet-for-ca-p-1148.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/7-CA-P-1124-TASK--verify-project-wide-traceability-and-close-the-epic/2-CA-P-1148-TASK--audit-the-complete-epic-closure-matrix
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

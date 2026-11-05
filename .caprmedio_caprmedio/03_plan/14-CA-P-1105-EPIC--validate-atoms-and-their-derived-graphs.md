@@ -1,18 +1,11 @@
 ---
 atom_id: CA-P-1105
 ref_id: CA-P-1105
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 label: Epic
-work_sequence_number: 14
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 99
-status: Active
-cce_version: cce_1
-cce_form: obligation
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Atom
   dependencies:
@@ -24,15 +17,22 @@ topics:
   - Subject/Graph Node/Engineering/Statement Authority
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
   - Subject/Graph Node/Engineering/Autonomous Confidence Threshold
+tier: 3
+status: Active
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-00
 carrier_destination:
   file:
     name: 14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs.md
     path: .caprmedio_caprmedio/03_plan
+work_sequence_number: 14
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 99
+cce_version: cce_1
+cce_form: obligation
 ---
 # Summary
 

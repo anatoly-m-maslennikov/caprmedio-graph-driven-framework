@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2465
 ref_id: CA-R-2465@5-draft
-status: Draft
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
-version: 5
-updated_at: 2026-11-05 02:41:45 +0400
-tier: 3
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+tier: 3
+status: Draft
+version: 5
+updated_at: 2026-11-05 02:41:45 +0400
 carrier_destination:
   file:
     name: CA-R-2465@5-draft-DECLARATION--declare-step.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 
 ## Summary
@@ -22,6 +22,10 @@ container:
 Declare Step
 
 ## Claim
+
+### Prose Claim
+
+Every Step’s Container chain ends at a Workflow.
 
 ### Formal Claim
 
@@ -44,10 +48,6 @@ IF $step {=0}((CONTAINS)) THEN $step {::1}((RUNS)) (in (Action, Workflow))//$sel
 
 Step//$definition {::0+}((HAS_EXECUTION)) Step Run//$run
 ```
-
-### Prose Claim
-
-Every Step’s Container chain ends at a Workflow.
 
 ## Semantics
 

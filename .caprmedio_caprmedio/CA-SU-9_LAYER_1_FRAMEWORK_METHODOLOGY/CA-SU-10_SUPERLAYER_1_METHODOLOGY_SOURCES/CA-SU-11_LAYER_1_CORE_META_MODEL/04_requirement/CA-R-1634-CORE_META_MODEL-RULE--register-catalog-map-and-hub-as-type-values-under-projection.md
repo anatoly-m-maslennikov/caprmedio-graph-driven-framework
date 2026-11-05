@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1634
+ref_id: CA-R-1634
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection.Form
   dependencies:
@@ -8,22 +14,16 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Map)'
   - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Hub)'
   - CAPRMEDIO_MODEL <+ Atom.Content
+tier: 2
+status: Active
 version: 45
 updated_at: 2026-11-02 08:06:47 +0400
-atom_id: CA-R-1634
-ref_id: CA-R-1634
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
-container:
-  scope_unit: CA-SU-11
 carrier_destination:
   file:
     name: CA-R-1634-CORE_META_MODEL-RULE--register-catalog-map-and-hub-as-type-values-under-projection.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

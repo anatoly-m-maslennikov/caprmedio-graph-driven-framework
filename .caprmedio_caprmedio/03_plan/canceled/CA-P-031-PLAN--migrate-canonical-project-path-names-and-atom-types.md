@@ -1,25 +1,25 @@
 ---
-subject_scopes:
-- artifact-identity
-- carrier-format
-- carrier-placement
-version: 10
-updated_at: 2026-10-24 13:39:34 +0400
-llm_session_ids:
-- codex:01a01cb6-4ee4-7553-b68d-0823dda35094
-relations:
-  child_of:
-  - CAPRMEDIO-P-020-CHANGE_PLAN--orchestrate-bootstrap-seed-migration
-role: Plan
-form: Plan
-tier: 3
-status: Canceled
-author: Anatoly Maslennikov
-current_scope_unit: caprmedio
 atom_id: CA-P-031
 ref_id: CA-P-031
 container:
   scope_unit: CA-SU-00
+role: Plan
+form: Plan
+tier: 3
+relations:
+  child_of:
+  - CAPRMEDIO-P-020-CHANGE_PLAN--orchestrate-bootstrap-seed-migration
+status: Canceled
+version: 10
+updated_at: 2026-10-24 13:39:34 +0400
+subject_scopes:
+- artifact-identity
+- carrier-format
+- carrier-placement
+llm_session_ids:
+- codex:01a01cb6-4ee4-7553-b68d-0823dda35094
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
 ---
 # Migrate canonical Project path names and Atom Types
 

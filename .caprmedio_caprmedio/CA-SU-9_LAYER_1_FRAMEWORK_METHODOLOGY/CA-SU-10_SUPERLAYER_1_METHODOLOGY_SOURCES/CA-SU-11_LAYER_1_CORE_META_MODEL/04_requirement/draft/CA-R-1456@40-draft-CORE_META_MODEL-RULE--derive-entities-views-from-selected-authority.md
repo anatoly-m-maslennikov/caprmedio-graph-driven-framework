@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1456
+ref_id: CA-R-1456@40-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
   dependencies:
@@ -15,26 +21,20 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Carrier
-version: 40
-updated_at: 2026-11-05 16:33:24 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1438@25
   - CA-R-2462
   - CA-R-1406
   - CA-R-1437
-atom_id: CA-R-1456
-ref_id: CA-R-1456@40-draft
 status: Draft
-tier: 3
-role: Requirement
-form: Rule
+version: 40
+updated_at: 2026-11-05 16:33:24 +0400
 carrier_destination:
   file:
     name: CA-R-1456@40-draft-RULE--derive-entities-views-from-selected-authority.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

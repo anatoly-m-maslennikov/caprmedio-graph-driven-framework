@@ -1,7 +1,5 @@
 ---
 atom_id: CA-A-903
-cce_version: cce_1
-cce_form: rationale
 topics:
   main_subject:
     continuant:
@@ -15,6 +13,8 @@ relations:
     - CA-R-1426
 version: 1
 updated_at: 2026-09-15 05:09:46
+cce_version: cce_1
+cce_form: rationale
 ---
 # Assess Trace Engineering ideas for CAPRMEDIO
 

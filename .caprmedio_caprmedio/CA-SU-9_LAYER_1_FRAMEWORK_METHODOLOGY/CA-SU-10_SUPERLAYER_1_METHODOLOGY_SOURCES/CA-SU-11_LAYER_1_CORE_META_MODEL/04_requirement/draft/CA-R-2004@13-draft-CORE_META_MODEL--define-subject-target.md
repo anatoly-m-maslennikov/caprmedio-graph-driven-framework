@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-2004@13-draft
+ref_id: CA-R-2004@13-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: Entity/Object/Continuant/Governing Objects/Atom.Subjects
   dependencies:
@@ -6,19 +12,13 @@ topics:
   - Entity/Object/Continuant/Governing Objects/Atom
   - Entity/Object/Continuant/Governing Objects/Atom.Content Role
   - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Requirement)'
-atom_id: CA-R-2004@13-draft
-ref_id: CA-R-2004@13-draft
-role: Requirement
-form: Rule
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
+tier: 1
 status: Draft
 version: 13
 updated_at: 2026-10-30 08:49:46 +0400
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
-tier: 1
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

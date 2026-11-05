@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-484
 ref_id: CA-C-484
+container:
+  scope_unit: CA-SU-16
 role: Concern
 form: Problem
-current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
-status: active
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-10-23 01:47:30 +0400
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -17,8 +12,13 @@ topics:
   - Subject/Engineering/Filesystem Mutation/Collision Refusal
 relations:
   concern_about: [CA-P-1758]
-container:
-  scope_unit: CA-SU-16
+status: active
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
+current_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
 ---
 # Summary
 

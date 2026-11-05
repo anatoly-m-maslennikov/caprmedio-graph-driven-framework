@@ -1,26 +1,26 @@
 ---
 atom_id: CA-M-draft
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-tier: 1
-status: Draft
-author: Anatoly Maslennikov
-version: 1
-updated_at: "2026-10-23 19:01:35 +0400"
 topics:
   main_subject: Subject/Engineering/Source Unit Responsibility
   dependencies:
     - Subject/Engineering/Implementation Cohesion
     - Subject/Engineering/Behavior Ownership
+tier: 1
 relations:
   relates_to:
     - CA-M-403
     - CA-M-411
     - CA-M-419
-container:
-  scope_unit: CA-SU-15
+status: Draft
+version: 1
+updated_at: "2026-10-23 19:01:35 +0400"
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

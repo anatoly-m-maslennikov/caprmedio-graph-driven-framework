@@ -1,19 +1,19 @@
 ---
 atom_id: CA-P-2706
 ref_id: CA-P-2706
+container:
+  atom: CA-P-2694
 role: Plan
 form: Plan
 label: Task
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+tier: 4
 status: Done
 version: 3
 updated_at: 2026-11-02 23:30:39 +0400
-tier: 4
 current_scope_unit: caprmedio
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 author: Anatoly Maslennikov
-container:
-  atom: CA-P-2694
 ---
 ## Summary
 

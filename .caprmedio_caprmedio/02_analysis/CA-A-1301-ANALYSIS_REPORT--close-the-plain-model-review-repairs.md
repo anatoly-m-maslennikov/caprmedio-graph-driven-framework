@@ -1,19 +1,19 @@
 ---
 atom_id: CA-A-1301
 ref_id: CA-A-1301
-role: Analysis & Advisory
-form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-topics:
-  main_subject: Model
-version: 2
-updated_at: 2026-11-02 15:49:28 +0400
-tier: 3
 container:
   scope_unit: CA-SU-00
+role: Analysis & Advisory
+form: Analysis Report
+topics:
+  main_subject: Model
+tier: 3
+status: Done
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

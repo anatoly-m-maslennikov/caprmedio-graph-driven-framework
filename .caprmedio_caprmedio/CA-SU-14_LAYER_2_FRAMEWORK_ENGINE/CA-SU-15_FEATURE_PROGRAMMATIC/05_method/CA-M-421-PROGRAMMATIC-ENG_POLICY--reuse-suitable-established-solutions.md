@@ -1,24 +1,24 @@
 ---
 atom_id: CA-M-421
-ref_id: CA-M-421@10-draft
+ref_id: CA-M-421
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+tier: 3
+status: Active
 version: 10
 updated_at: 2026-11-05 23:05:59 +0400
-author: Anatoly Maslennikov
-tier: 3
-container:
-  scope_unit: CA-SU-15
 carrier_destination:
   file:
     name: CA-M-421-PROGRAMMATIC-ENG_POLICY--reuse-suitable-established-solutions.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

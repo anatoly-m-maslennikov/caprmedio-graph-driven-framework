@@ -1,32 +1,32 @@
 ---
 atom_id: CA-P-1148
 ref_id: CA-P-1148
+container:
+  atom: CA-P-1124
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Evaluation
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1124
-tier: 3
-container:
-  atom: CA-P-1124
+status: Active
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 2-CA-P-1148-TASK--audit-the-complete-epic-closure-matrix.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/7-CA-P-1124-TASK--verify-project-wide-traceability-and-close-the-epic
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

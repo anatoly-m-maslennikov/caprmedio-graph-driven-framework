@@ -1,17 +1,17 @@
 ---
+atom_id: CA-R-2688
+ref_id: CA-R-2688
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Unit Declaration)
   - CAPRMEDIO_MODEL <+ Project
+tier: 2
+status: Active
 version: 2
 updated_at: 2026-11-04 09:19:08 +0400
-atom_id: CA-R-2688
-ref_id: CA-R-2688
-status: Active
-tier: 2
-form: Rule
-role: Requirement
 ---
 ## Summary
 

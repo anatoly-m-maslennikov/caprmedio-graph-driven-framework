@@ -1,4 +1,5 @@
 ---
+atom_id: CA-A-053
 topics:
   main_subject:
     occurrent:
@@ -10,7 +11,6 @@ topics:
       - Evaluation Coverage
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
-atom_id: CA-A-053
 ---
 # Reconcile shared PROGRAMMATIC policy decisions
 

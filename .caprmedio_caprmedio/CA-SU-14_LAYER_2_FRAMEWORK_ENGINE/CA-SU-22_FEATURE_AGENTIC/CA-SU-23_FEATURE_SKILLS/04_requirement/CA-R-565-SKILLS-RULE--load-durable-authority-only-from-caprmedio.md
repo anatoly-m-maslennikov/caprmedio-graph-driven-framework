@@ -1,27 +1,27 @@
 ---
-subject_scopes:
-- skill-boundary
-version: 12
-updated_at: 2026-10-27 20:00:09 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+atom_id: CA-R-565
+ref_id: CA-R-565
+container:
+  scope_unit: CA-SU-23
+role: Requirement
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+tier: 2
 relations:
   child_of:
   - CA-R-564
   - CAPRMEDIO-METHODOLOGY-REQU-509-FRAMEWORK_METHODOLOGY-REQUIREMENT--govern-session-engine-rehydration-behavior
-author: Anatoly Maslennikov
-role: Requirement
-current_scope_unit: SKILLS
 status: Active
-atom_id: CA-R-565
-ref_id: CA-R-565
-form: Rule
-tier: 2
-topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
-container:
-  scope_unit: CA-SU-23
+version: 12
+updated_at: 2026-10-27 20:00:09 +0400
+subject_scopes:
+- skill-boundary
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
+current_scope_unit: SKILLS
 ---
 # Load durable authority only from CAPRMEDIO
 

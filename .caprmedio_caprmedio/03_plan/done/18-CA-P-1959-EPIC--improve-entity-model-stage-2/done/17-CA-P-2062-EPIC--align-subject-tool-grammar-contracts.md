@@ -1,14 +1,11 @@
 ---
 atom_id: CA-P-2062
 ref_id: CA-P-2062
+container:
+  atom: CA-P-1959
 role: Plan
 form: Plan
 label: Epic
-work_sequence_number: 17
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject
   dependencies:
@@ -18,20 +15,23 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - Subject/Graph Node/Domain/Continuant/Projection
-version: 12
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1959
   blocks:
   - CA-P-1965
-tier: 3
-container:
-  atom: CA-P-1959
+status: Done
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 17-CA-P-2062-EPIC--align-subject-tool-grammar-contracts.md
     path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done
+work_sequence_number: 17
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

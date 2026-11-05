@@ -1,22 +1,22 @@
 ---
+atom_id: CA-R-1747@27-draft
+ref_id: CA-R-1747@27-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: Entity
   dependencies:
   - Entity/Carrier
   - Entity/Term//Artifact
+tier: 1
+status: Draft
 version: 27
 updated_at: 2026-10-30 00:13:29 +0400
-atom_id: CA-R-1747@27-draft
-ref_id: CA-R-1747@27-draft
-role: Requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Draft
 author: Anatoly Maslennikov
-tier: 1
-form: Rule
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

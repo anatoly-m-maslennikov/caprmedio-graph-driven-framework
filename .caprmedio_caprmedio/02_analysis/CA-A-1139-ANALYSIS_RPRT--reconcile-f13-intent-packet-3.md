@@ -1,22 +1,16 @@
 ---
 atom_id: CA-A-1139
 ref_id: CA-A-1139
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: F13 final save-boundary and recovery packet
   dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Methodology Sources
   - Journal
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1419
@@ -26,8 +20,14 @@ relations:
   - CA-A-1125
   - CA-A-1060
   - CA-A-1061
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

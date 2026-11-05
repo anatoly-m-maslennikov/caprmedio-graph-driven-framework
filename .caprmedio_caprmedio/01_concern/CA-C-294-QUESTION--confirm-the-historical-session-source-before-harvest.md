@@ -1,21 +1,15 @@
 ---
 atom_id: CA-C-294
 ref_id: CA-C-294
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Question
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: active
 topics:
   main_subject: Project session metadata corpus/Source identity
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 4
-updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
     - CA-P-1125
@@ -23,8 +17,14 @@ relations:
     - CA-P-1127
     - CA-P-1128
     - CA-P-1129
-container:
-  scope_unit: CA-SU-00
+status: active
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

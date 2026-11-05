@@ -1,12 +1,10 @@
 ---
 atom_id: CA-E-625
 ref_id: CA-E-625
+container:
+  scope_unit: CA-SU-18
 role: Evaluation
 form: Eval Case
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   dependencies:
@@ -14,8 +12,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
-version: 13
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1093
@@ -27,13 +24,16 @@ relations:
   - CA-R-868
   - CA-R-1933
   - CA-R-1934
-tier: 4
-container:
-  scope_unit: CA-SU-18
+status: Active
+version: 13
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-E-625-TOOL_WORKFLOWS-EVAL_CASE--verify-logical-atom-and-scope-unit-connectors.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/06_evaluation
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
 ---
 # Summary
 

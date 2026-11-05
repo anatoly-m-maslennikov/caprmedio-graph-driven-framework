@@ -1,22 +1,22 @@
 ---
 atom_id: CA-A-1314
 ref_id: CA-A-1314
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-version: 1
-tier: 3
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Carrier Destination
-role: Analysis & Advisory
-form: Specification Proposal
-updated_at: 2026-11-03 00:20:05 +0400
 container:
   scope_unit: CA-SU-11
+role: Analysis & Advisory
+form: Specification Proposal
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Carrier Destination
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-11-03 00:20:05 +0400
 carrier_destination:
   file:
     name: CA-A-1314-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-stored-atom-carrier-destinations.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

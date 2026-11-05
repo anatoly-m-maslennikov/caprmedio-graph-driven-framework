@@ -1,23 +1,23 @@
 ---
 atom_id: CA-C-560
 ref_id: CA-C-560
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
+relations:
+  concern_about: [CA-P-2518, CA-P-2520, CA-R-1901]
+status: Resolved
+version: 2
+updated_at: "2026-10-21T09:42:22Z"
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Resolved
 priority: high
-topics:
-  main_subject: Entity/Node/Continuant/Implementation
-relations:
-  concern_about: [CA-P-2518, CA-P-2520, CA-R-1901]
-version: 2
-updated_at: "2026-10-21T09:42:22Z"
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

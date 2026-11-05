@@ -1,35 +1,28 @@
 ---
 atom_id: CA-R-2327
 ref_id: CA-R-2327
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Cardinality
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
-tier: 1
-role: Requirement
-form: Declaration
 container:
   scope_unit: CA-SU-11
+role: Requirement
+form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Cardinality
+tier: 1
+status: Active
+version: 6
+updated_at: 2026-11-03 23:25:51 +0400
 carrier_destination:
   file:
     name: CA-R-2327-CORE_META_MODEL-DECLARATION--define-cardinality.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
 Define Cardinality
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-CFEL <+ Cardinality
-```
 
 ### Prose Claim
 
@@ -40,4 +33,11 @@ dependent Properties, Relation instances or contained parts.
 
 
 The forms are `{:n}`, `{:n+}` and `{:n..m}` with non-negative integer bounds.
+
+### Formal Claim
+
+```CFEL
+# model
+CFEL <+ Cardinality
+```
 

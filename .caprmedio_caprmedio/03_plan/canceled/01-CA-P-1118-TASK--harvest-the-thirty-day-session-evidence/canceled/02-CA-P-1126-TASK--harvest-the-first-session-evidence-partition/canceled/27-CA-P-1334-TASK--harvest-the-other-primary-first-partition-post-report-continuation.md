@@ -1,33 +1,33 @@
 ---
 atom_id: CA-P-1334
 ref_id: CA-P-1334
+container:
+  atom: CA-P-1126
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 27
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Canceled
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/History
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1126
-tier: 3
-container:
-  atom: CA-P-1126
+status: Canceled
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 27-CA-P-1334-TASK--harvest-the-other-primary-first-partition-post-report-continuation.md
     path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/2-CA-P-1126-TASK--harvest-the-first-session-evidence-partition/canceled
+work_sequence_number: 27
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

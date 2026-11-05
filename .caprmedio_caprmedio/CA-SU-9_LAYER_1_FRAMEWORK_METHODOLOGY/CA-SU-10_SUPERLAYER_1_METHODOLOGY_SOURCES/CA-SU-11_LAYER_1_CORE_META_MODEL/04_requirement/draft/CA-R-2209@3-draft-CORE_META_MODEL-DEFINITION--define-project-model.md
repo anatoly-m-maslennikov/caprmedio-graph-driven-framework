@@ -1,19 +1,19 @@
 ---
 atom_id: CA-R-2209@3-draft
 ref_id: CA-R-2209@3-draft
-role: Requirement
-form: Definition
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
-topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model
-version: 3
-updated_at: 2026-10-28 16:27:23 +0400
-tier: 1
 container:
   scope_unit: CA-SU-11
+role: Requirement
+form: Definition
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model
+tier: 1
+status: Draft
+version: 3
+updated_at: 2026-10-28 16:27:23 +0400
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

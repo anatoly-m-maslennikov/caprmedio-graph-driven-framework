@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1879
 ref_id: CA-P-1879
+container:
+  atom: CA-P-1878
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Projection
   dependencies:
@@ -24,20 +20,24 @@ topics:
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1878
   blocks:
   - CA-P-1881
-tier: 3
-container:
-  atom: CA-P-1878
+status: Active
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1879-TASK--implement-current-term-hierarchy-extraction.md
     path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/6-CA-P-1878-EPIC--complete-term-extraction-and-admitted-relation-coverage
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

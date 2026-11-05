@@ -1,26 +1,26 @@
 ---
 atom_id: CA-M-466
 ref_id: CA-M-466
-current_scope_unit: WORKBENCH_FRONTEND
-claim_target_scope_unit: WORKBENCH_FRONTEND
-status: Active
-version: 5
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-46
 role: Method
 form: Eng Decision
-tier: 4
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 4
 relations:
   method_for:
   - CA-R-2727
+status: Active
+version: 5
+updated_at: 2026-11-04 21:06:25 +0400
 carrier_destination:
   file:
     name: CA-M-466-WORKBENCH_FRONTEND-ENG_DECISION--use-svelte-typescript-and-vite-for-workbench.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method
-updated_at: 2026-11-04 21:06:25 +0400
-container:
-  scope_unit: CA-SU-46
+current_scope_unit: WORKBENCH_FRONTEND
+claim_target_scope_unit: WORKBENCH_FRONTEND
+author: Anatoly Maslennikov
 ---
 
 ## Summary

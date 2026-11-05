@@ -1,14 +1,10 @@
 ---
 atom_id: CA-A-1079
 ref_id: CA-A-1079
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: F16 legacy behavior extraction and RMED reconstruction reconciliation
   dependencies:
@@ -16,8 +12,6 @@ topics:
   - Implementation
   - Spec
   - Subject/Domain/Node/Continuant/Projection
-version: 5
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1361
@@ -32,8 +26,14 @@ relations:
   - CA-O-008
   - CA-O-019
   - CA-C-362
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

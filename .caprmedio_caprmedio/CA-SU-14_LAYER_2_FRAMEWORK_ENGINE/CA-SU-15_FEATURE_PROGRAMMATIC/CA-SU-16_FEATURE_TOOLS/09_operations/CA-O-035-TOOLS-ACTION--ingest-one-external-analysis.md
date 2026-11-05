@@ -1,6 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: definition
+atom_id: CA-O-035
+ref_id: CA-O-035
+container:
+  scope_unit: CA-SU-16
+role: Operations
+form: Action
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   dependencies:
@@ -10,20 +14,16 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Analysis & Advisory'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Carrier
+tier: 1
+status: Active
 version: 17
 updated_at: 2026-11-02 15:49:28 +0400
+cce_version: cce_1
+cce_form: definition
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-O-035
-ref_id: CA-O-035
-status: Active
-role: Operations
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Action
-tier: 1
-container:
-  scope_unit: CA-SU-16
 ---
 # Ingest one external Analysis
 

@@ -1,28 +1,28 @@
 ---
 atom_id: CA-D-639
 ref_id: CA-D-639
+container:
+  scope_unit: CA-SU-21
 role: Delivery
-current_scope_unit: MCP
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-11-05 06:00:43 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
+tier: 5
 relations:
   delivery_for:
   - CA-R-2446
   depends_on:
   - CA-D-677
-form: Eng Decision
-tier: 5
+status: Active
+version: 15
+updated_at: 2026-11-05 06:00:43 +0400
 carrier_destination:
   file:
     name: CA-D-639-MCP-ENG_DECISION--deliver-the-same-port-mcp-health-browser-view.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/07_delivery
-container:
-  scope_unit: CA-SU-21
+current_scope_unit: MCP
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

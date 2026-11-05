@@ -1,20 +1,20 @@
 ---
-role: Analysis
-form: Specification Proposal
-tier: 3
-topics:
-  main_subject: CAPRMEDIO_MODEL
 atom_id: CA-A-1317
 ref_id: CA-A-1317@1-draft
-version: 1
+container:
+  scope_unit: CA-SU-11
+role: Analysis
+form: Specification Proposal
+topics:
+  main_subject: CAPRMEDIO_MODEL
+tier: 3
 status: Draft
+version: 1
 updated_at: 2026-11-05 06:06:44 +0400
 carrier_destination:
   file:
     name: CA-A-1317@1-draft-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

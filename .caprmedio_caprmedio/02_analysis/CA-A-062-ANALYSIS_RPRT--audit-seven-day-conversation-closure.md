@@ -1,4 +1,5 @@
 ---
+atom_id: CA-A-062
 topics:
   main_subject:
     occurrent:
@@ -8,12 +9,11 @@ topics:
       - Decision Closure
       - Project Backlog
       - Realized Project State
-version: 7
-updated_at: 2026-10-23 03:17:34 +0400
 relations:
   analysis_of:
     - CA-C-107
-atom_id: CA-A-062
+version: 7
+updated_at: 2026-10-23 03:17:34 +0400
 ---
 # Audit seven-day conversation closure
 

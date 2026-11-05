@@ -1,30 +1,30 @@
 ---
+atom_id: CA-E-070
+ref_id: CA-E-070
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-version: 24
-updated_at: 2026-10-27 19:59:28 +0400
-llm_session_ids:
-- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1060
   - CA-R-1061
   - CA-R-1062
   - CA-M-147
-atom_id: CA-E-070
-ref_id: CA-E-070
 status: Active
-role: Evaluation
+version: 24
+updated_at: 2026-10-27 19:59:28 +0400
+llm_session_ids:
+- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eval Case
-tier: 3
-container:
-  scope_unit: CA-SU-16
 ---
 # Current active Atom snapshot correctness
 

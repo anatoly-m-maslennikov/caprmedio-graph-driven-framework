@@ -75,6 +75,7 @@ test('binds two browser contexts to one Workspace and observes external state', 
       });
       await secondPage.bringToFront();
       await secondPage.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => resolve())));
+      await expect(editor(secondPage)).toBeEditable();
       await replaceSql(secondPage, 'SELECT 1 AS first_draft');
       await expect(editor(secondPage)).toContainText('SELECT 1 AS first_draft');
       await firstPage.bringToFront();

@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2341
 ref_id: CA-P-2341
+container:
+  atom: CA-P-2295
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -20,18 +16,22 @@ topics:
   - Subject/Graph Node/Engineering/Scope Unit Declaration Read Adapter Construction
   - Subject/Graph Node/Engineering/Workflow
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2295
-tier: 3
-container:
-  atom: CA-P-2295
+status: Active
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 2-CA-P-2341-TASK--verify-selected-scope-read-receiver.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/19-CA-P-2254-TASK--implement-scope-unit-query-and-read/1-CA-P-2295-TASK--bind-scope-unit-reads-to-admitted-sources
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

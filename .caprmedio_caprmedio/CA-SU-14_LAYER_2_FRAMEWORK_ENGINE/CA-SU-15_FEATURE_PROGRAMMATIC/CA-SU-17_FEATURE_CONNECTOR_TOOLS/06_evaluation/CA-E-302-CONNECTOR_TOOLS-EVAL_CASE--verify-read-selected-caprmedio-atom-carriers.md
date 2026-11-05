@@ -1,31 +1,31 @@
 ---
-claim_target_scope_unit: CONNECTOR_TOOLS
-current_scope_unit: CONNECTOR_TOOLS
-role: Evaluation
 atom_id: CA-E-302
 ref_id: CA-E-302
-cce_version: cce_1
-cce_form: evaluation
+container:
+  scope_unit: CA-SU-17
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 28
-status: Active
-updated_at: 2026-10-27 19:59:32 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-864
   - CA-O-047
+status: Active
+version: 28
+updated_at: 2026-10-27 19:59:32 +0400
+claim_target_scope_unit: CONNECTOR_TOOLS
+current_scope_unit: CONNECTOR_TOOLS
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-tier: 4
-form: Eval Case
 author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-17
 ---
 # Verify read selected caprmedio atom carriers
 

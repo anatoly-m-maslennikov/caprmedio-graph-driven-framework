@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-153
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom/Content Role
   dependencies:
@@ -10,12 +9,13 @@ topics:
   - 'Atom/Local Tier: Principle'
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
   - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
-priority: medium
 version: 3
 updated_at: 2026-10-23 03:18:40 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-C-153
 ---
 # How should the remaining Plan Action Policies be classified?
 

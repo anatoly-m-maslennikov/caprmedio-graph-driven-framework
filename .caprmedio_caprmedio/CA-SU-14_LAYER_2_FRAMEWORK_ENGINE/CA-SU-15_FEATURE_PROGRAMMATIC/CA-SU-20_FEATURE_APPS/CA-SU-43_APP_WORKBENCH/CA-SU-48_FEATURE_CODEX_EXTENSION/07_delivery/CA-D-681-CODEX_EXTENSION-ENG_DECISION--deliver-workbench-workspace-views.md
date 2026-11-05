@@ -1,29 +1,29 @@
 ---
 atom_id: CA-D-681
 ref_id: CA-D-681
-current_scope_unit: CODEX_EXTENSION
-claim_target_scope_unit: CODEX_EXTENSION
-status: Active
-version: 4
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-48
 role: Delivery
 form: Eng Decision
-tier: 4
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Workspace
+tier: 4
 relations:
   delivery_for:
   - CA-R-2902
   - CA-R-2903
   - CA-M-476
   - CA-E-684
+status: Active
+version: 4
+updated_at: 2026-11-05 20:32:45 +0400
 carrier_destination:
   file:
     name: CA-D-681-CODEX_EXTENSION-ENG_DECISION--deliver-workbench-workspace-views.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/07_delivery
-updated_at: 2026-11-05 20:32:45 +0400
-container:
-  scope_unit: CA-SU-48
+current_scope_unit: CODEX_EXTENSION
+claim_target_scope_unit: CODEX_EXTENSION
+author: Anatoly Maslennikov
 ---
 
 ## Summary

@@ -1,31 +1,31 @@
 ---
-version: 21
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-R-1487
-  method_for:
-  - CA-R-1487
+atom_id: CA-M-297
+ref_id: CA-M-297
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-atom_id: CA-M-297
-ref_id: CA-M-297
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
 tier: 4
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
+relations:
+  child_of:
+  - CA-R-1487
+  method_for:
+  - CA-R-1487
+status: Active
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-M-297-CORE_META_MODEL-IMPLEMENTATION_METHOD--compare-by-priority-order.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

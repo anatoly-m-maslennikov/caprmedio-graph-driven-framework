@@ -1,11 +1,10 @@
 ---
 atom_id: CA-M-316
 ref_id: CA-M-316
+container:
+  scope_unit: CA-SU-16
 role: Method
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-status: Active
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   dependencies:
@@ -13,20 +12,21 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-version: 19
-updated_at: 2026-10-27 19:59:42 +0400
+tier: 5
 relations:
   method_for:
   - CA-R-1622
   - CA-R-1623
-form: Eng Decision
-tier: 5
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 19
+updated_at: 2026-10-27 19:59:42 +0400
 carrier_destination:
   file:
     name: CA-M-316-TOOLS-ENG_DECISION--implement-atom-validation-checks-from-source-authority.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/05_method
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

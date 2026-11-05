@@ -1,25 +1,25 @@
 ---
 atom_id: CA-E-673
 ref_id: CA-E-673
-current_scope_unit: WORKBENCH
-claim_target_scope_unit: WORKBENCH
-status: Active
-author: Anatoly Maslennikov
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-version: 3
+container:
+  scope_unit: CA-SU-43
 role: Evaluation
 form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 5
+relations:
+  evaluation_for: [CA-R-2729, CA-R-2727, CA-D-673, CA-D-674]
+status: Active
+version: 3
+updated_at: 2026-11-04 16:59:55 +0400
 carrier_destination:
   file:
     name: CA-E-673-WORKBENCH-EVAL_CASE--align-mcp-run-check-and-simple-web-query-results.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
-relations:
-  evaluation_for: [CA-R-2729, CA-R-2727, CA-D-673, CA-D-674]
-updated_at: 2026-11-04 16:59:55 +0400
-container:
-  scope_unit: CA-SU-43
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+author: Anatoly Maslennikov
 ---
 
 ## Summary

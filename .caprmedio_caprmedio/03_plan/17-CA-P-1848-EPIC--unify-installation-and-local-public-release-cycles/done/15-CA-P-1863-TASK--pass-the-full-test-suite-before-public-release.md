@@ -4,13 +4,6 @@ ref_id: CA-P-1863
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 15
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Version
   dependencies:
@@ -22,12 +15,19 @@ topics:
   - Subject/Graph Node/Engineering/Implementation Evaluation
   - Subject/Graph Node/Engineering/Framework Package
   - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1848
   blocks:
   - CA-P-1864
-tier: 3
+status: Done
+version: 13
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 15
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

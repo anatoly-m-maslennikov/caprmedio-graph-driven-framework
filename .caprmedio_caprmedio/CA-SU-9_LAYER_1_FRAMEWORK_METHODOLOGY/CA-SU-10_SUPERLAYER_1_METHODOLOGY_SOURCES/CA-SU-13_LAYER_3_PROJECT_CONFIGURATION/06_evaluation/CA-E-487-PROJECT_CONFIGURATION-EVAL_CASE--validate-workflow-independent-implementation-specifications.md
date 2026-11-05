@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-487
+ref_id: CA-E-487
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   dependencies:
@@ -11,25 +17,19 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-version: 28
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1514
-atom_id: CA-E-487
-ref_id: CA-E-487
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-tier: 3
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-13
+version: 28
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1818
 ref_id: CA-P-1818
+container:
+  atom: CA-P-1117
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 38
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release
   dependencies:
@@ -19,6 +13,7 @@ topics:
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
   - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1117
@@ -28,13 +23,18 @@ relations:
   - CA-E-594
   - CA-D-589
   - CA-C-517
-tier: 3
-container:
-  atom: CA-P-1117
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 38-CA-P-1818-TASK--record-the-approved-unknown-n15-release-effect.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
+work_sequence_number: 38
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2607
 ref_id: CA-P-2607
+container:
+  atom: CA-P-2581
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 9
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
-version: 6
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Implementation Binding
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2581
@@ -20,13 +16,17 @@ relations:
   - CA-R-2117
   - CA-M-431
   - CA-E-653
-tier: 3
-container:
-  atom: CA-P-2581
+status: Done
+version: 6
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: 9-CA-P-2607-TASK--record-the-implementation-trace-rmed-authorities.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/done/4-CA-P-2581-TASK--integrate-shared-workflow-continuation-and-retry-state/done
+work_sequence_number: 9
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,26 +1,26 @@
 ---
 atom_id: CA-C-601
 ref_id: CA-C-601
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Question
-current_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
-tier: 3
-version: 1
-updated_at: 2026-10-24 11:17:52 +0400
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom.Subjects
   dependencies:
   - Subject/Domain/Node/Continuant/Atom.Local Scope Unit
   - Subject/Domain/Node/Continuant/Atom.Target Scope Unit
   - Subject/Domain/Node/Continuant/Atom.Substance Scope
-container:
-  scope_unit: CA-SU-00
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-10-24 11:17:52 +0400
 carrier_destination:
   file:
     name: CA-C-601-CAPRMEDIO-QUESTION--which-scope-does-atom-scope-mean-in-the-move-evaluation.md
     path: .caprmedio_caprmedio/01_concern
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,19 +1,19 @@
 ---
 atom_id: CA-R-2328@2-draft
 ref_id: CA-R-2328@2-draft
-role: Requirement
-form: Entity Definition
-current_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
-tier: 1
-topics:
-  main_subject: Entity/Graph Syntax <+ Format
-version: 2
-updated_at: 2026-10-30 08:44:43 +0400
-claim_target_scope_unit: CORE_META_MODEL
 container:
   scope_unit: CA-SU-11
+role: Requirement
+form: Entity Definition
+topics:
+  main_subject: Entity/Graph Syntax <+ Format
+tier: 1
+status: Draft
+version: 2
+updated_at: 2026-10-30 08:44:43 +0400
+current_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

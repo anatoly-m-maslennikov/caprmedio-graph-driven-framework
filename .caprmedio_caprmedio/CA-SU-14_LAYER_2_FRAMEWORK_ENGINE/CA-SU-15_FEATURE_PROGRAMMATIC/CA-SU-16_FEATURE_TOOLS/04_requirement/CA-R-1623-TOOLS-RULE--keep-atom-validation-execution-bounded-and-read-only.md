@@ -1,11 +1,10 @@
 ---
 atom_id: CA-R-1623
 ref_id: CA-R-1623
+container:
+  scope_unit: CA-SU-16
 role: Requirement
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-status: Active
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -13,19 +12,20 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 10
-updated_at: 2026-10-27 19:59:59 +0400
+tier: 4
 relations:
   child_of:
   - CA-R-1622
-form: Rule
-tier: 4
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 10
+updated_at: 2026-10-27 19:59:59 +0400
 carrier_destination:
   file:
     name: CA-R-1623-TOOLS-RULE--keep-atom-validation-execution-bounded-and-read-only.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

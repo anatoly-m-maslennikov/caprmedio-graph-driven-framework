@@ -1,27 +1,27 @@
 ---
 atom_id: CA-C-533
 ref_id: CA-C-533
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Atom
+relations:
+  concern_about: [CA-P-2401, CA-P-1959, CA-D-446]
+status: Active
+version: 5
+updated_at: 2026-10-23 03:06:32 +0400
+carrier_destination:
+  file:
+    name: CA-C-533-PROGRAMMATIC-PROBLEM--align-edit-draft-markers-with-no-id-draft-identity.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
 priority: medium
-topics:
-  main_subject: Subject/Domain/Node/Continuant/Atom
-relations:
-  concern_about: [CA-P-2401, CA-P-1959, CA-D-446]
-version: 5
-updated_at: 2026-10-23 03:06:32 +0400
-container:
-  scope_unit: CA-SU-15
-carrier_destination:
-  file:
-    name: CA-C-533-PROGRAMMATIC-PROBLEM--align-edit-draft-markers-with-no-id-draft-identity.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

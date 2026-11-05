@@ -1,20 +1,20 @@
 ---
 atom_id: CA-E-670
 ref_id: CA-E-670@2-draft
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
 form: Eval Policy
-status: Draft
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
-version: 2
 tier: 3
+status: Draft
+version: 2
 updated_at: 2026-11-05 12:58:42 +0400
-role: Evaluation
 carrier_destination:
   file:
     name: CA-E-670@2-draft-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

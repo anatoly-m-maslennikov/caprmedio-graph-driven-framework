@@ -1,25 +1,25 @@
 ---
+atom_id: CA-D-453
+ref_id: CA-D-453
+container:
+  scope_unit: CA-SU-13
+role: Delivery
+form: Decision
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier
+tier: 3
+status: Active
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
-atom_id: CA-D-453
-ref_id: CA-D-453
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
-role: Delivery
-form: Decision
-container:
-  scope_unit: CA-SU-13
 carrier_destination:
   file:
     name: CA-D-453-PROJECT_CONFIGURATION-DECISION--place-project-scope-unit-graph-sources-projection.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

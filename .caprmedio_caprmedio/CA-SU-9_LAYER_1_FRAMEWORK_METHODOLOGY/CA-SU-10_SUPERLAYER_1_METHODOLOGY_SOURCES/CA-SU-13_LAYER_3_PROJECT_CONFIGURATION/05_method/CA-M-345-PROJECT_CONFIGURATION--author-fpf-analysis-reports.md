@@ -1,28 +1,28 @@
 ---
 atom_id: CA-M-345
 ref_id: CA-M-345
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
+container:
+  scope_unit: CA-SU-13
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-version: 20
-updated_at: 2026-11-02 19:33:47 +0400
+tier: 3
 relations:
   method_for:
   - CA-R-1889
-tier: 3
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-13
+status: Active
+version: 20
+updated_at: 2026-11-02 19:33:47 +0400
 carrier_destination:
   file:
     name: CA-M-345-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--author-fpf-analysis-reports.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

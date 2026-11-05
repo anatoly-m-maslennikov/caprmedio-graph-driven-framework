@@ -1,25 +1,25 @@
 ---
 atom_id: CA-C-591
 ref_id: CA-C-591
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Question
-current_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
-tier: 3
-version: 1
-updated_at: 2026-10-24 06:45:25 +0400
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom.Subjects
   dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - Subject/Engineering/Methodology
-container:
-  scope_unit: CA-SU-00
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-10-24 06:45:25 +0400
 carrier_destination:
   file:
     name: CA-C-591-CAPRMEDIO-QUESTION--which-existing-topics-best-describe-legacy-plan-subject-tags.md
     path: .caprmedio_caprmedio/01_concern
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

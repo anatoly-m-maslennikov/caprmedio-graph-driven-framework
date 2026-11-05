@@ -1,16 +1,10 @@
 ---
 atom_id: CA-C-438
 ref_id: CA-C-438
+container:
+  scope_unit: CA-SU-16
 role: Concern
 form: Conflict
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
-status: resolved
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-10-23 01:47:30 +0400
 topics:
   main_subject: Subject/Domain/Node/Continuant/Selection
   dependencies:
@@ -19,8 +13,14 @@ topics:
   - Subject/Domain/Node/Continuant/History/Journal.Record
 relations:
   concern_about: [CA-R-1850, CA-R-1869, CA-E-575, CA-P-1533]
-container:
-  scope_unit: CA-SU-16
+status: resolved
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
 ---
 # Summary
 

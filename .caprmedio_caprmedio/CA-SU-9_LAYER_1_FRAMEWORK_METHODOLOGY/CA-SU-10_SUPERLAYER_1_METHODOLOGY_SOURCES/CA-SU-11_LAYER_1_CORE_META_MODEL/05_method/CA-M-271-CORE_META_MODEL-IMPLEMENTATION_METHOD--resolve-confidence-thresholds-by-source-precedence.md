@@ -1,4 +1,10 @@
 ---
+atom_id: CA-M-271
+ref_id: CA-M-271
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   dependencies:
@@ -7,25 +13,19 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-version: 29
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1428
-atom_id: CA-M-271
-ref_id: CA-M-271
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 3
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
+version: 29
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 Resolve confidence thresholds by source precedence

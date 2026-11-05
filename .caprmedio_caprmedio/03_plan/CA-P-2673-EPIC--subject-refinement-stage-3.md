@@ -1,24 +1,24 @@
 ---
 atom_id: CA-P-2673
 ref_id: CA-P-2673
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 label: Epic
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject
+tier: 3
+status: Done
 version: 17
 updated_at: 2026-10-29 21:51:04 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-00
 carrier_destination:
   file:
     name: CA-P-2673-EPIC--subject-refinement-stage-3.md
     path: .caprmedio_caprmedio/03_plan/done
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

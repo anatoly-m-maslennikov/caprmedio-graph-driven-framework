@@ -1,11 +1,10 @@
 ---
 atom_id: CA-R-1626
 ref_id: CA-R-1626
+container:
+  scope_unit: CA-SU-23
 role: Requirement
-current_scope_unit: SKILLS
-claim_target_scope_unit: SKILLS
-author: Anatoly Maslennikov
-status: Active
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction
   dependencies:
@@ -20,20 +19,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step.Agentic Execution Context'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-version: 20
-updated_at: 2026-10-27 19:59:59 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1124
   - CA-R-643
-form: Rule
-tier: 3
-container:
-  scope_unit: CA-SU-23
+status: Active
+version: 20
+updated_at: 2026-10-27 19:59:59 +0400
 carrier_destination:
   file:
     name: CA-R-1626-SKILLS-RULE--keep-ca-and-specialist-skills-thin.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement
+current_scope_unit: SKILLS
+claim_target_scope_unit: SKILLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,21 +1,21 @@
 ---
 atom_id: CA-C-291
 ref_id: CA-C-291
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
+relations:
+  concern_about:
+    - CA-P-1117
+status: resolved
+version: 1
+updated_at: "2026-10-04 06:19:35 +0400"
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: resolved
-version: 1
-updated_at: "2026-10-04 06:19:35 +0400"
-relations:
-  concern_about:
-    - CA-P-1117
-container:
-  scope_unit: CA-SU-00
 ---
 # Summary
 

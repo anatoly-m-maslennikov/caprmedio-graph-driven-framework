@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-520
 ref_id: CA-C-520
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Question
-current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: Active
-author: Anatoly Maslennikov
-version: 4
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Release Version/Source publication recovery
   dependencies:
@@ -21,12 +16,17 @@ topics:
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
   concern_about: [CA-P-1620, CA-P-1823, CA-R-1878, CA-D-567]
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-10-23 03:14:50 +0400
 carrier_destination:
   file:
     name: CA-C-520-CAPRMEDIO-QUESTION--resolve-the-stopped-n22-source-publication.md
     path: .caprmedio_caprmedio/01_concern
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

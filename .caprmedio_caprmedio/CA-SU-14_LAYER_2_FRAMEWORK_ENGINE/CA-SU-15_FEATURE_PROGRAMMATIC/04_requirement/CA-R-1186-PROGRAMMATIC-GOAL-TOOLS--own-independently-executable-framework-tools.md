@@ -1,21 +1,21 @@
 ---
+atom_id: CA-R-1186
+ref_id: CA-R-1186
+container:
+  scope_unit: CA-SU-15
+role: Requirement
+form: Goal
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+tier: 3
+status: Active
 version: 19
 updated_at: 2026-10-27 19:59:51 +0400
-atom_id: CA-R-1186
-ref_id: CA-R-1186
-role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: TOOLS
-status: Active
 author: Anatoly Maslennikov
-form: Goal
-tier: 3
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

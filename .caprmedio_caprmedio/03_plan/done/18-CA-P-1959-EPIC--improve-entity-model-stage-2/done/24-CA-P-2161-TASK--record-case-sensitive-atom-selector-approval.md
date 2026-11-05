@@ -1,35 +1,35 @@
 ---
 atom_id: CA-P-2161
 ref_id: CA-P-2161
+container:
+  atom: CA-P-1959
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 24
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 4
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1959
   depends_on:
   - CA-P-2157
-tier: 3
-container:
-  atom: CA-P-1959
+status: Done
+version: 4
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 24-CA-P-2161-TASK--record-case-sensitive-atom-selector-approval.md
     path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done
+work_sequence_number: 24
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

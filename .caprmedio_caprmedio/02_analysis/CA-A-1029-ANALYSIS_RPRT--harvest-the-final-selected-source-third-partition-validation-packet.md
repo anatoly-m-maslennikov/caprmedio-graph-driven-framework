@@ -1,31 +1,31 @@
 ---
 atom_id: CA-A-1029
 ref_id: CA-A-1029
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Final selected-source third-partition validation evidence
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analyses:
   - CA-P-1311
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-1029-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-final-selected-source-third-partition-validation-packet.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,26 +1,26 @@
 ---
-cce_version: cce_1
-cce_form: obligation
+atom_id: CA-R-1607
+ref_id: CA-R-1607
+container:
+  scope_unit: CA-SU-14
+role: Requirement
+form: Rule
 topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit: TOOLS'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+tier: 1
+status: Active
 version: 12
 updated_at: 2026-10-27 19:59:59 +0400
+cce_version: cce_1
+cce_form: obligation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-R-1607
-ref_id: CA-R-1607
-status: Active
-role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
-form: Rule
-tier: 1
-container:
-  scope_unit: CA-SU-14
 ---
 # Separate Code and Prompt Method-Evaluation Authority
 

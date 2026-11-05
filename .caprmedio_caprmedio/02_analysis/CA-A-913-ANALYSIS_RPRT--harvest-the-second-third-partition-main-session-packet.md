@@ -1,20 +1,15 @@
 ---
 atom_id: CA-A-913
 ref_id: CA-A-913
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Third-partition primary session evidence packet
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 3
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   relates_to:
   - CA-P-1192
@@ -22,12 +17,17 @@ relations:
   - CA-P-1197
   - CA-A-908
   - CA-A-917
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-913-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-second-third-partition-main-session-packet.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

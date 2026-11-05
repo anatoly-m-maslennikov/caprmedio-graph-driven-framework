@@ -1,11 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: method
-version: 25
-updated_at: 2026-11-02 18:35:20 +0400
-relations:
-  child_of:
-  - CA-M-261
+atom_id: CA-M-266
+ref_id: CA-M-266
+container:
+  scope_unit: CA-SU-00
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   dependencies:
@@ -16,21 +15,22 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-M-266
-ref_id: CA-M-266
-status: Active
-current_scope_unit: caprmedio
 tier: 2
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-M-261
+status: Active
+version: 25
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-M-266-CAPRMEDIO-IMPLEMENTATION_METHOD--follow-the-operator-selected-implementation-mode.md
     path: .caprmedio_caprmedio/05_method
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 Follow the Operator-selected implementation mode

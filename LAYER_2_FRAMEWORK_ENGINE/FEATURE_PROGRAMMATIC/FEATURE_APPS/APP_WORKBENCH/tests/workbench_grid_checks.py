@@ -179,7 +179,26 @@ class WorkbenchGridDockerMixin:
         settings = self.runtime_root / "caprmedio_runtime_settings.toml"
         self.assertFalse(settings.exists())
         watcher_log = self.workbench_state / "watcher-change-log.ndjson"
-        watcher_before = watcher_log.read_bytes() if watcher_log.exists() else None
+
+        def watcher_events() -> set[tuple[object, object, object, object]]:
+            if not watcher_log.exists():
+                return set()
+            return {
+                (
+                    event.get("observed_at"), event.get("operation"),
+                    event.get("old_path"), event.get("new_path"),
+                )
+                for line in watcher_log.read_text(encoding="utf-8").splitlines()
+                if line and (event := json.loads(line))
+            }
+
+        def assert_runtime_settings_are_excluded(events: set[tuple[object, object, object, object]]) -> None:
+            self.assertFalse(any(
+                ".caprmedio_runtime/caprmedio_runtime_settings.toml" in {old, new}
+                for _at, _operation, old, new in events
+            ))
+
+        watcher_before = watcher_events()
 
         status, default_result = request(
             self.url + f"{self.workbench_path}/run", method="POST",
@@ -195,8 +214,9 @@ class WorkbenchGridDockerMixin:
         )
         self.assertEqual(200, status, before_restart)
         self.assertEqual(default_result["rows"], before_restart["rows"])
-        watcher_after_edit = watcher_log.read_bytes() if watcher_log.exists() else None
-        self.assertEqual(watcher_before, watcher_after_edit)
+        watcher_after_edit = watcher_events()
+        self.assertTrue(watcher_before <= watcher_after_edit)
+        assert_runtime_settings_are_excluded(watcher_after_edit)
 
         (restart,) = self._mcp(("workbench_restart", {}))
         self.assertFalse(restart.is_error, restart.structured_content or restart.content)
@@ -205,8 +225,9 @@ class WorkbenchGridDockerMixin:
             payload={"query_id": default_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(400, status, after_restart)
-        watcher_after_restart = watcher_log.read_bytes() if watcher_log.exists() else None
-        self.assertEqual(watcher_before, watcher_after_restart)
+        watcher_after_restart = watcher_events()
+        self.assertTrue(watcher_after_edit <= watcher_after_restart)
+        assert_runtime_settings_are_excluded(watcher_after_restart)
 
         status, young = request(
             self.url + f"{self.workbench_path}/run", method="POST",

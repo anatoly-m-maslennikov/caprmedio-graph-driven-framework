@@ -1,30 +1,30 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-378
+ref_id: CA-E-378
+container:
+  scope_unit: CA-SU-15
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-version: 22
-updated_at: 2026-10-27 19:59:34 +0400
+tier: 5
 relations:
   evaluation_for:
   - CA-M-429
   derived_from:
   - CA-A-053
+status: Active
+version: 22
+updated_at: 2026-10-27 19:59:34 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-378
-ref_id: CA-E-378
-role: Evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-status: Active
 author: Anatoly Maslennikov
-tier: 5
-form: Eval Case
-container:
-  scope_unit: CA-SU-15
 ---
 # Run an installed Tool without uv
 

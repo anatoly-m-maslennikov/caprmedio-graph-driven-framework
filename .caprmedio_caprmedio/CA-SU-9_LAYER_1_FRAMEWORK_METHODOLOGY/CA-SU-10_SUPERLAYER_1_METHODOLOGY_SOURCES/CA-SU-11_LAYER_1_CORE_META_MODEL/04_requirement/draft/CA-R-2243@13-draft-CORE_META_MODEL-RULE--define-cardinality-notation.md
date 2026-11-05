@@ -1,22 +1,22 @@
 ---
 atom_id: CA-R-2243
 ref_id: CA-R-2243@13-draft
-status: Draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Cardinality
   dependencies:
   - CAPRMEDIO_MODEL <+ CFEL
-version: 13
 tier: 1
-role: Requirement
-form: Rule
+status: Draft
+version: 13
 updated_at: 2026-11-05 00:49:39 +0400
 carrier_destination:
   file:
     name: CA-R-2243@13-draft-RULE--define-cardinality-notation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 
 ## Summary
@@ -24,19 +24,6 @@ container:
 Define Cardinality Notation
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-p{::occurrence}:: [value format]{::value count};
-
-p.*[immediate name format]{::immediate name count};
-
-p.**[recursive name format]{::recursive name count};
-
-p.*[name format]{::name count}:: [value format]{::value count}
-```
 
 ### Prose Claim
 
@@ -67,4 +54,17 @@ counts. The first constrains outgoing Relation instances per selected Source;
 the second constrains reverse links per selected Target. Reversing the written
 Relation swaps the slots. Neither count is a Property value count, a distinct
 target count, or Relation arity. An omitted occurrence annotation does not make a Property required; presence follows its applicable value constraints. Other omitted annotations are unspecified.
+
+### Formal Claim
+
+```CFEL
+# model
+p{::occurrence}:: [value format]{::value count};
+
+p.*[immediate name format]{::immediate name count};
+
+p.**[recursive name format]{::recursive name count};
+
+p.*[name format]{::name count}:: [value format]{::value count}
+```
 

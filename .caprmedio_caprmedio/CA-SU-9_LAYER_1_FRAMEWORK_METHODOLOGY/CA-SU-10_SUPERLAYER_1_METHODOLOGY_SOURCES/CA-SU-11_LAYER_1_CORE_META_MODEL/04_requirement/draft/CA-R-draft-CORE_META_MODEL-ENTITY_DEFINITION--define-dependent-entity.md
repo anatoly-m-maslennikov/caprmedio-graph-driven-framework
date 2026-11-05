@@ -1,11 +1,9 @@
 ---
 atom_id: CA-R-draft
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Entity Definition
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
 topics:
   main_subject: Entity/Dependent Entity
   dependencies:
@@ -13,11 +11,13 @@ topics:
   - Entity/Term//Dependent Entity
   - Entity/Graph Syntax > Relation//IS_BORNE_BY
   - Entity/Graph Syntax > Relation//BEARS
+tier: 1
+status: Draft
 version: 1
 updated_at: 2026-10-29 21:54:09 +0400
-tier: 1
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 ## Summary
 

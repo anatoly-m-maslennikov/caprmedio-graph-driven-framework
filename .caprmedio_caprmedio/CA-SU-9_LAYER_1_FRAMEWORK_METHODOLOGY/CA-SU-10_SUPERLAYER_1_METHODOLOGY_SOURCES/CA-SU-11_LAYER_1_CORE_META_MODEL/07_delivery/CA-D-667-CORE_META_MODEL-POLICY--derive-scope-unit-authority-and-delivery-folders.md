@@ -3,10 +3,6 @@ atom_id: CA-D-667
 ref_id: CA-D-667
 role: Delivery
 form: Policy
-status: Active
-version: 2
-updated_at: 2026-11-03 23:25:51 +0400
-tier: 1
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/Directory
   dependencies:
@@ -15,6 +11,10 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit.Label
   - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
   - CAPRMEDIO_MODEL <+ Scope Unit.order.number
+tier: 1
+status: Active
+version: 2
+updated_at: 2026-11-03 23:25:51 +0400
 ---
 ## Summary
 

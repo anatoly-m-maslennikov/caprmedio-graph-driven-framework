@@ -1,33 +1,33 @@
 ---
 atom_id: CA-P-2342
 ref_id: CA-P-2342
+container:
+  atom: CA-P-2307
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 11
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - Subject/Graph Relation
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2307
-tier: 3
-container:
-  atom: CA-P-2307
+status: Done
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 11-CA-P-2342-TASK--admit-status-correct-plan-blocking-targets.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits/done/2-CA-P-2307-TASK--select-tomlkit-for-preserving-configuration-text/done
+work_sequence_number: 11
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

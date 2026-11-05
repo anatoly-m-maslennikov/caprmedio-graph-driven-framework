@@ -1,14 +1,10 @@
 ---
 atom_id: CA-E-567
 ref_id: CA-E-567
+container:
+  scope_unit: CA-SU-21
 role: Evaluation
 form: Eval Case
-current_scope_unit: MCP
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 19:59:37 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
   dependencies:
@@ -18,17 +14,21 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1847
   - CA-R-1848
-tier: 4
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:37 +0400
 carrier_destination:
   file:
     name: CA-E-567-MCP-EVAL_CASE--verify-selected-mcp-route-contract-and-currentness.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
+current_scope_unit: MCP
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

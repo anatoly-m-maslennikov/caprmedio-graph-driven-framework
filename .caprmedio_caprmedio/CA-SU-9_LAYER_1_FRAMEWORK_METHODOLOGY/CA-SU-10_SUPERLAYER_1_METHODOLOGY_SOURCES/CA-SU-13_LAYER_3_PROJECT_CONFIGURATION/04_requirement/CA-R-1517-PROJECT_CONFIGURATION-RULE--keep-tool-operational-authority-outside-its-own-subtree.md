@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1517
+ref_id: CA-R-1517
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Package
   dependencies:
@@ -8,22 +14,16 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
+tier: 3
+status: Active
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
-atom_id: CA-R-1517
-ref_id: CA-R-1517
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
-role: Requirement
-form: Rule
-container:
-  scope_unit: CA-SU-13
 carrier_destination:
   file:
     name: CA-R-1517-PROJECT_CONFIGURATION-RULE--keep-tool-operational-authority-outside-its-own-subtree.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

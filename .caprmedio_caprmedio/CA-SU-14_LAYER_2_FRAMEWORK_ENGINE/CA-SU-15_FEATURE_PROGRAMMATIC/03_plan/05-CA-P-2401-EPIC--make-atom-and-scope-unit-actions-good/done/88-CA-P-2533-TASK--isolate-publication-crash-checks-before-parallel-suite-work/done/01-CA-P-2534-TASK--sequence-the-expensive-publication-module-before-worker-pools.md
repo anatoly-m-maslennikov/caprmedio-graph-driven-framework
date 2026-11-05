@@ -1,28 +1,28 @@
 ---
 atom_id: CA-P-2534
 ref_id: CA-P-2534
+container:
+  atom: CA-P-2533
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Version
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2533
+status: Done
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2533
 carrier_destination:
   file:
     name: 1-CA-P-2534-TASK--sequence-the-expensive-publication-module-before-worker-pools.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/88-CA-P-2533-TASK--isolate-publication-crash-checks-before-parallel-suite-work/done
+work_sequence_number: 1
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

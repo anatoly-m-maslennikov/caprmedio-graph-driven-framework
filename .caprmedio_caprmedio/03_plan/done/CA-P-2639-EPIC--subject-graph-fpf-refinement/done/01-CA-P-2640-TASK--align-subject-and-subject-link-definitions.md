@@ -1,25 +1,25 @@
 ---
 atom_id: CA-P-2640
 ref_id: CA-P-2640
+container:
+  atom: CA-P-2639
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject
+tier: 4
+status: Done
 version: 3
 updated_at: 2026-10-26 06:39:23 +0400
-tier: 4
-container:
-  atom: CA-P-2639
 carrier_destination:
   file:
     name: 1-CA-P-2640-TASK--align-subject-and-subject-link-definitions.md
     path: .caprmedio_caprmedio/03_plan/done/CA-P-2639-EPIC--subject-graph-fpf-refinement/done
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

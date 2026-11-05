@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2363
 ref_id: CA-P-2363
+container:
+  atom: CA-P-2318
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 7
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -17,18 +13,22 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2318
-tier: 3
-container:
-  atom: CA-P-2318
+status: Active
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 7-CA-P-2363-TASK--preserve-local-draft-demotion-bundles.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/3-CA-P-2318-TASK--compose-contained-status-actions
+work_sequence_number: 7
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

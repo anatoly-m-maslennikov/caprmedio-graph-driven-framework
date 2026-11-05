@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-578@12-draft
 ref_id: CA-D-578@12-draft
+container:
+  scope_unit: CA-SU-21
 role: Delivery
-current_scope_unit: MCP
-status: Draft
-author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-24 23:59:51 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/Engineering/Carrier
   dependencies:
@@ -16,16 +14,18 @@ topics:
   - Subject/Engineering/HTTP/Request
   - Session
   - Subject/Engineering/Runtime/Docker Runtime
+tier: 5
 relations:
   delivery_for:
   - CA-R-1884
   - CA-R-1885
   - CA-M-341
   - CA-M-357
-form: Eng Decision
-tier: 5
-container:
-  scope_unit: CA-SU-21
+status: Draft
+version: 12
+updated_at: 2026-10-24 23:59:51 +0400
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

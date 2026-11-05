@@ -1,18 +1,18 @@
 ---
 atom_id: CA-C-624
 ref_id: CA-C-624
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Resolved
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Cardinality
-version: 3
-updated_at: 2026-11-02 14:59:48 +0400
-tier: 3
-role: Concern
-form: Question
 container:
   scope_unit: CA-SU-11
+role: Concern
+form: Question
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Cardinality
+tier: 3
+status: Resolved
+version: 3
+updated_at: 2026-11-02 14:59:48 +0400
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 
 ## Summary

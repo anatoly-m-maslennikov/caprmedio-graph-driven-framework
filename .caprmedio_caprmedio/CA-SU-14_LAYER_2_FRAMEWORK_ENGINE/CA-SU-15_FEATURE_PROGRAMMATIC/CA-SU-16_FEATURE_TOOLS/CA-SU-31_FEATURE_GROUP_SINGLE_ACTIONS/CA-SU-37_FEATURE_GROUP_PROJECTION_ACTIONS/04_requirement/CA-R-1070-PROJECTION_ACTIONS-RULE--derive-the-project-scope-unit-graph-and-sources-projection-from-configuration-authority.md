@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1070
+ref_id: CA-R-1070
+container:
+  scope_unit: CA-SU-37
+role: Requirement
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   dependencies:
@@ -7,21 +13,15 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+tier: 1
+status: Active
 version: 25
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-atom_id: CA-R-1070
-ref_id: CA-R-1070
-status: Active
-role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
-form: Rule
-tier: 1
 claim_target_scope_unit: PROJECTION_ACTIONS
-container:
-  scope_unit: CA-SU-37
 ---
 # Derive the Project Scope Unit Graph and Sources Projection from Configuration Authority
 

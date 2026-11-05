@@ -1,29 +1,29 @@
 ---
 atom_id: CA-E-642
 ref_id: CA-E-642
+container:
+  scope_unit: CA-SU-15
 role: Evaluation
 form: Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-27 19:59:38 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
+tier: 5
 relations:
   evaluation_for:
   - CA-M-424
   - CA-M-395
-tier: 5
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 14
+updated_at: 2026-10-27 19:59:38 +0400
 carrier_destination:
   file:
     name: CA-E-642-PROGRAMMATIC-POLICY--evaluate-active-method-coverage.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

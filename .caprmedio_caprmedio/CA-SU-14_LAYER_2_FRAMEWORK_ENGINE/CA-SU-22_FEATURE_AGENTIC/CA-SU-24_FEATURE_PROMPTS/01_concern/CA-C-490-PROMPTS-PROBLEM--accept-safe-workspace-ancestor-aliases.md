@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-490
 ref_id: CA-C-490
+container:
+  scope_unit: CA-SU-24
 role: Concern
 form: Problem
-current_scope_unit: PROMPTS
-local_tier: Standard
-global_tier: 11
-status: active
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Implementation Workflow/workspace admission
   dependencies:
@@ -19,8 +14,13 @@ topics:
   - Subject/Engineering/Carrier
 relations:
   concern_about: [CA-P-1764]
-container:
-  scope_unit: CA-SU-24
+status: active
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: PROMPTS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
 ---
 # Summary
 

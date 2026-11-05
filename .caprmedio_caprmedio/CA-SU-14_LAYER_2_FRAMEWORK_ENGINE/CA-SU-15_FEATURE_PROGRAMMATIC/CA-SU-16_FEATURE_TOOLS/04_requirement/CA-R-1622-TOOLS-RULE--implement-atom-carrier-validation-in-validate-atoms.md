@@ -1,11 +1,10 @@
 ---
 atom_id: CA-R-1622
 ref_id: CA-R-1622
+container:
+  scope_unit: CA-SU-16
 role: Requirement
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-status: Active
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
   dependencies:
@@ -14,16 +13,17 @@ topics:
   - Subject/caprmedio/Action//Check Atoms
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+tier: 3
+status: Active
 version: 17
 updated_at: 2026-10-27 19:59:59 +0400
-tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-16
 carrier_destination:
   file:
     name: CA-R-1622-TOOLS-RULE--implement-atom-carrier-validation-in-validate-atoms.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

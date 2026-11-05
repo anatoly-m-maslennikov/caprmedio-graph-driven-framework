@@ -1,33 +1,33 @@
 ---
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-R-819
-  evaluation_for:
-  - CA-R-819
+atom_id: CA-E-208
+ref_id: CA-E-208
+container:
+  scope_unit: CA-SU-00
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
-cce_version: cce_1
-cce_form: evaluation
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-208
-ref_id: CA-E-208
-status: Active
-current_scope_unit: caprmedio
 tier: 1
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-R-819
+  evaluation_for:
+  - CA-R-819
+status: Active
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-E-208-CAPRMEDIO-EVAL_POLICY--evaluate-craft-independent-project-operation.md
     path: .caprmedio_caprmedio/06_evaluation
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 

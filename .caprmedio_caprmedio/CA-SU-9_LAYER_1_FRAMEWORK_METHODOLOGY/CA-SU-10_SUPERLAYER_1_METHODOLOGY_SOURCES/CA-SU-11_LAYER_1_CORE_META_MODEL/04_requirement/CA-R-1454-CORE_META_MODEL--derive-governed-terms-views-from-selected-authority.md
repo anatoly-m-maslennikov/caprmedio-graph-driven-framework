@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1454
+ref_id: CA-R-1454
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
   dependencies:
@@ -8,25 +14,19 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Projection
-version: 33
-updated_at: 2026-11-04 18:28:33 +0400
+tier: 2
 relations:
   child_of:
   - CA-R-1335@31
   - CA-R-1319
   - CA-R-1437
-atom_id: CA-R-1454
-ref_id: CA-R-1454
 status: Active
-tier: 2
-role: Requirement
-form: Rule
+version: 33
+updated_at: 2026-11-04 18:28:33 +0400
 carrier_destination:
   file:
     name: CA-R-1454-RULE--derive-governed-terms-views-from-selected-authority.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

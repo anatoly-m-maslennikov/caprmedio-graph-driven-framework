@@ -1,34 +1,34 @@
 ---
 atom_id: CA-P-1154
 ref_id: CA-P-1154
+container:
+  atom: CA-P-1129
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Operations
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1129
   blocks:
   - CA-P-1183
-tier: 3
-container:
-  atom: CA-P-1129
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1154-TASK--bind-the-next-executable-work-packet-for-ca-p-1129.md
     path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/5-CA-P-1129-TASK--harvest-the-final-session-evidence-partition/done
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

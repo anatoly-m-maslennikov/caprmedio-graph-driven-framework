@@ -4,12 +4,6 @@ ref_id: CA-P-1685
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 3
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Atom Lifecycle/Draft History
   dependencies:
@@ -19,14 +13,20 @@ topics:
   - Subject/Graph Node/Engineering/Occurrent/Runtime
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Evaluation
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1677
   blocks:
   - CA-P-1638
-tier: 3
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 3
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

@@ -1,31 +1,31 @@
 ---
 atom_id: CA-A-1016
 ref_id: CA-A-1016
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
 label: Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Third-partition same-sample repair packet
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   is_result_of:
   - CA-P-1298
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-1016-CAPRMEDIO-REPORT--harvest-the-third-partition-same-sample-review-and-repair-evidence.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

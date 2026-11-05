@@ -1,22 +1,22 @@
 ---
 atom_id: CA-P-105
 ref_id: CA-P-105
-cce_version: cce_1
-cce_form: obligation
+role: Plan
+form: Plan
+label: Task
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Scope Unit//INSTALLED_EXTENSIONS
   dependencies:
   - Subject/Graph Node/Engineering/Extension
+tier: 3
+status: Done
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
 autonomous_confidence_threshold: 99
-status: Done
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-role: Plan
-form: Plan
-label: Task
-tier: 3
 ---
 # Reconcile Installed Extensions Authority
 

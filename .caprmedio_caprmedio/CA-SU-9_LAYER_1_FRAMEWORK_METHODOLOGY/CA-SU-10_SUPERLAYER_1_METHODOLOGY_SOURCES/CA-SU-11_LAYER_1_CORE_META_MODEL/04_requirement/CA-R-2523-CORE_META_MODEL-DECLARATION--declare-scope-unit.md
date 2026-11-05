@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2523
 ref_id: CA-R-2523
-status: Active
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
-version: 3
-updated_at: 2026-11-04 11:00:07 +0400
-tier: 3
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+tier: 3
+status: Active
+version: 3
+updated_at: 2026-11-04 11:00:07 +0400
 carrier_destination:
   file:
     name: CA-R-2523-DECLARATION--declare-scope-unit.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
-container:
-  scope_unit: CA-SU-11
 ---
 
 ## Summary

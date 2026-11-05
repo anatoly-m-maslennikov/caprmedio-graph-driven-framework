@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1200
+ref_id: CA-R-1200
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   dependencies:
@@ -8,41 +14,25 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
-version: 41
-updated_at: 2026-11-04 03:22:03 +0400
+tier: 2
 relations:
   depends_on:
   - CA-R-1275
-atom_id: CA-R-1200
-ref_id: CA-R-1200
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 2
-role: Requirement
-form: Declaration
+version: 41
+updated_at: 2026-11-04 03:22:03 +0400
 carrier_destination:
   file:
     name: CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
 Define DEPENDS_ON Subject Relation Kind
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-Relation//DEPENDS_ON ((HAS_CLASSIFICATION)) Derivation == Direct;
-
-# instances
-Atom//$atom ((DEPENDS_ON)) $referenced_subject
-```
 
 ### Prose Claim
 
@@ -57,3 +47,13 @@ DEPENDS_ON relates Atom to referenced Subject entity or instance.
 
 #### Details
 mentions **in** Summary, Scope, Claim, Details, other registered body sections, tables, **and** examples count, whether the logical Claim is carried in Markdown, structured YAML, or Governing Configuration. this Relation does **not** establish Workflow control flow **or** execution order; Plan start prerequisites remain separately governed by `BLOCKS` under CA-R-1580-CORE_META_MODEL-DEFINITION--define-plan-blocking.
+### Formal Claim
+
+```CFEL
+# model
+Relation//DEPENDS_ON ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Atom//$atom ((DEPENDS_ON)) $referenced_subject
+```
+

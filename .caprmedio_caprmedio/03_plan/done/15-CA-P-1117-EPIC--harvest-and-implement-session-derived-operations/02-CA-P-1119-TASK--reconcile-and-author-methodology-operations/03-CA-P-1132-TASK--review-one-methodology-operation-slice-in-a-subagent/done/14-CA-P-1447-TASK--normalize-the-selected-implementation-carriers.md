@@ -4,14 +4,6 @@ ref_id: CA-P-1447
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 14
-current_scope_unit: caprmedio
-claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Carrier
   dependencies:
@@ -20,6 +12,7 @@ topics:
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1132
@@ -27,7 +20,14 @@ relations:
   - CA-P-1132
   - CA-P-1158
   - CA-P-1160
-tier: 3
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 14
+current_scope_unit: caprmedio
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

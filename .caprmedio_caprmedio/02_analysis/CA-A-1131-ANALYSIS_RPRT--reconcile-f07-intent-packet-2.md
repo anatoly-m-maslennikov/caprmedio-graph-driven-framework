@@ -1,22 +1,16 @@
 ---
 atom_id: CA-A-1131
 ref_id: CA-A-1131
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: F07 second saved-intent packet reconciliation
   dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Evaluation
   - Subject/Domain/Node/Continuant/Atom.Subjects
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1411
@@ -27,8 +21,14 @@ relations:
   - CA-P-1130
   - CA-C-377
   - CA-C-388
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,32 +1,32 @@
 ---
 atom_id: CA-P-1165
 ref_id: CA-P-1165
+container:
+  atom: CA-P-1140
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: FRAMEWORK_ENGINE
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Implementation Evaluation
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1140
-tier: 3
-container:
-  atom: CA-P-1140
+status: Active
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-1165-TASK--bind-the-next-executable-work-packet-for-ca-p-1140.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/4-CA-P-1140-TASK--review-and-functionally-verify-one-implementation-slice
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

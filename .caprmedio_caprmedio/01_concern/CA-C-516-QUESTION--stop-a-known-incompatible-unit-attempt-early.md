@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-516
 ref_id: CA-C-516
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Question
-current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: active
-author: Anatoly Maslennikov
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Early interruption of a known-incompatible Unit attempt
   dependencies:
@@ -21,8 +16,13 @@ topics:
   - Docker Image
 relations:
   concern_about: [CA-P-1117, CA-P-1809, CA-P-1815]
-container:
-  scope_unit: CA-SU-00
+status: active
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

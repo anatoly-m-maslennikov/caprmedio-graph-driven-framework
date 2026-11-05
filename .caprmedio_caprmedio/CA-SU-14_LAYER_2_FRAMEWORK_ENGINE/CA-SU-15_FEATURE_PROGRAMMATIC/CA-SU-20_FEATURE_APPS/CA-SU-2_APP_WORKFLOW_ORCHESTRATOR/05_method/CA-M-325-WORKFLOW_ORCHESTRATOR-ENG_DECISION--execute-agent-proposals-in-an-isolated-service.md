@@ -1,12 +1,10 @@
 ---
 atom_id: CA-M-325
 ref_id: CA-M-325
+container:
+  scope_unit: CA-SU-2
 role: Method
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 19:59:42 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
@@ -17,14 +15,16 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Carrier
-form: Eng Decision
 tier: 3
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 12
+updated_at: 2026-10-27 19:59:42 +0400
 carrier_destination:
   file:
     name: CA-M-325-WORKFLOW_ORCHESTRATOR-ENG_DECISION--execute-agent-proposals-in-an-isolated-service.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/05_method
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

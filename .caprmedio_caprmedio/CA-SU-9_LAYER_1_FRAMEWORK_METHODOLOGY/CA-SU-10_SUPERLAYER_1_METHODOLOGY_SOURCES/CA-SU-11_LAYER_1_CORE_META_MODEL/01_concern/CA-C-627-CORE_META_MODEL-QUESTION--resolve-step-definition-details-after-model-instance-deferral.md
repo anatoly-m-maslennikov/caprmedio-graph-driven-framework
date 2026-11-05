@@ -1,21 +1,21 @@
 ---
 atom_id: CA-C-627
 ref_id: CA-C-627
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Resolved
+container:
+  scope_unit: CA-SU-11
+role: Concern
+form: Question
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Step
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Substep
   - CAPRMEDIO_MODEL <+ Atom/(.Role := Operations)/Action
+tier: 3
+status: Resolved
 version: 3
 updated_at: 2026-11-02 17:54:42 +0400
-tier: 3
-role: Concern
-form: Question
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

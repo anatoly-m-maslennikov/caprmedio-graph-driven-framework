@@ -1,30 +1,30 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-375
+ref_id: CA-E-375
+container:
+  scope_unit: CA-SU-15
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-version: 21
-updated_at: 2026-10-27 19:59:34 +0400
+tier: 5
 relations:
   evaluation_for:
   - CA-M-193
   derived_from:
   - CA-A-058
+status: Active
+version: 21
+updated_at: 2026-10-27 19:59:34 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-375
-ref_id: CA-E-375
-status: Active
-role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-form: Eval Case
-tier: 5
-container:
-  scope_unit: CA-SU-15
 ---
 # Preserve the last valid MCP frontier
 

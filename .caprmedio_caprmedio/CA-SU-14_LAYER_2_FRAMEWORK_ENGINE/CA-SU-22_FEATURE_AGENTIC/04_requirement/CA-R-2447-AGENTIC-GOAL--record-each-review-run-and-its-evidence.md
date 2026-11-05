@@ -1,13 +1,10 @@
 ---
 atom_id: CA-R-2447
 ref_id: CA-R-2447
+container:
+  scope_unit: CA-SU-22
 role: Requirement
-current_scope_unit: AGENTIC
-claim_target_scope_unit: PROMPTS
-status: Active
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-10-30 03:53:02 +0400
+form: Goal
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability
   dependencies:
@@ -17,9 +14,12 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 tier: 3
-form: Goal
-container:
-  scope_unit: CA-SU-22
+status: Active
+version: 2
+updated_at: 2026-10-30 03:53:02 +0400
+current_scope_unit: AGENTIC
+claim_target_scope_unit: PROMPTS
+author: Anatoly Maslennikov
 ---
 ## Summary
 

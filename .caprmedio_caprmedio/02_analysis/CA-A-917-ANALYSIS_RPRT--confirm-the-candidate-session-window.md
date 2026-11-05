@@ -1,32 +1,32 @@
 ---
 atom_id: CA-A-917
 ref_id: CA-A-917
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Historical session candidate/window disposition
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 3
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   relates_to:
   - CA-P-1196
   - CA-C-294
   - CA-A-905
   - CA-A-910
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-917-CAPRMEDIO-ANALYSIS_REPORT--confirm-the-candidate-session-window.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

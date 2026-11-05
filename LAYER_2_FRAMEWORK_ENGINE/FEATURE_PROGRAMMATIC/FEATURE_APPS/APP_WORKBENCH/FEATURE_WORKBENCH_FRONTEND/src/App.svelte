@@ -186,14 +186,18 @@
     try { const saved = await boundApi.save(tab.id); acceptSaved(tab.id, { ...saved, sql: tabById(tab.id)?.sql ?? tab.sql, ...(name ? { name } : {}) }); await refreshSaved(); } catch (error) { fail(tab.id, error); }
   }
   async function page(offset: number, pageSize = active?.result?.page_size, nextGrid = grid) {
-    const tab = active; if (!tab?.result || (tab.busy && !paging.has(tab.id))) return;
+    const tab = active; if (!tab?.result || tab.busy) return;
+    const queryId = tab.result.query_id;
     const request = ++pageRequest; paging.set(tab.id, request);
-    updateTab(tab.id, { busy: true, error: '' });
     try {
       if (!boundApi || !pageSize) throw new Error('Workspace is unavailable.');
       const result = await boundApi.fetch(tab.id, offset, pageSize, nextGrid);
-      if (paging.get(tab.id) === request) updateTab(tab.id, { busy: false, result });
-    } catch (error) { if (paging.get(tab.id) === request) fail(tab.id, error); }
+      const latest = tabById(tab.id);
+      if (paging.get(tab.id) === request && !latest?.busy && latest?.result?.query_id === queryId) updateTab(tab.id, { error: '', result });
+    } catch (error) {
+      const latest = tabById(tab.id);
+      if (paging.get(tab.id) === request && !latest?.busy && latest?.result?.query_id === queryId) updateTab(tab.id, { error: message(error) });
+    }
     finally { if (paging.get(tab.id) === request) paging.delete(tab.id); }
   }
   function setResultDisplay(next: ResultDisplayPreferences) {

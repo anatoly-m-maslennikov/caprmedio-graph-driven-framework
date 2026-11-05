@@ -1,14 +1,11 @@
 ---
 atom_id: CA-P-2411
 ref_id: CA-P-2411
+container:
+  atom: CA-P-2405
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool//ATOM_CREATE
   dependencies:
@@ -16,18 +13,21 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Term//Property
   - Subject/Graph Node/Engineering/Workflow
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2405
+status: Done
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2405
 carrier_destination:
   file:
     name: 1-CA-P-2411-TASK--review-observed-mcp-atom-creation-calls.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/4-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/done
+work_sequence_number: 1
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

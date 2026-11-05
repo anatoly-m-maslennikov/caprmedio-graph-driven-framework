@@ -1,16 +1,11 @@
 ---
 atom_id: CA-P-1829
 ref_id: CA-P-1829
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 label: Epic
-work_sequence_number: 16
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/MCP
   dependencies:
@@ -26,12 +21,17 @@ topics:
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
 tier: 3
-container:
-  scope_unit: CA-SU-00
+status: Done
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 16-CA-P-1829-EPIC--launch-isolated-project-mcp-runtimes.md
     path: .caprmedio_caprmedio/03_plan/done
+work_sequence_number: 16
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

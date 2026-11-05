@@ -1,4 +1,10 @@
 ---
+atom_id: CA-M-273
+ref_id: CA-M-273@39-draft
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   dependencies:
@@ -10,20 +16,14 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Carrier/Directory
+tier: 3
+status: Draft
 version: 39
 updated_at: 2026-11-05 13:47:13 +0400
-atom_id: CA-M-273
-ref_id: CA-M-273@39-draft
-status: Draft
-tier: 3
-role: Method
-form: Implementation Method
 carrier_destination:
   file:
     name: CA-M-273@39-draft-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

@@ -1,9 +1,5 @@
 ---
 atom_id: CA-A-065
-cce_version: cce_1
-cce_form: rationale
-version: 1
-updated_at: 2026-08-27 01:18:06 +0400
 topics:
   main_subject: Work Execution Architecture
   dependencies:
@@ -11,6 +7,10 @@ topics:
   - project-memory
   - work-routing
   - workflow-execution
+version: 1
+updated_at: 2026-08-27 01:18:06 +0400
+cce_version: cce_1
+cce_form: rationale
 ---
 # Compare CAPRMEDIO work-execution architectures
 

@@ -1,19 +1,19 @@
 ---
+atom_id: CA-D-446@29-draft
+ref_id: CA-D-446@29-draft
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
+tier: 1
+status: Draft
 version: 29
 updated_at: 2026-11-05 22:19:14 +0400
-atom_id: CA-D-446@29-draft
-ref_id: CA-D-446@29-draft
-status: Draft
-tier: 1
-role: Delivery
-form: Decision
-container:
-  scope_unit: CA-SU-11
 carrier_destination:
   file:
     name: CA-D-446@29-draft-CORE_META_MODEL-DECISION--give-every-non-draft-atom-revision-one-identifier.md

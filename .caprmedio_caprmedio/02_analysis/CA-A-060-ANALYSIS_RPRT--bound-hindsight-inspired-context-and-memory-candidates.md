@@ -1,4 +1,5 @@
 ---
+atom_id: CA-A-060
 topics:
   main_subject:
     continuant:
@@ -9,7 +10,6 @@ topics:
       - Retrieval Integrity
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
-atom_id: CA-A-060
 ---
 # Bound Hindsight-inspired context and memory candidates
 

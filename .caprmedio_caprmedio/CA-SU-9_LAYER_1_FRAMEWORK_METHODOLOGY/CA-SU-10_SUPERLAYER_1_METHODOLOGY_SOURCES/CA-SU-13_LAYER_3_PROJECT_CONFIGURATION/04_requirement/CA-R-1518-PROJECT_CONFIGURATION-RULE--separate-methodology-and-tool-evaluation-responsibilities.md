@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1518
+ref_id: CA-R-1518
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   dependencies:
@@ -11,26 +17,20 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
-version: 25
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 2
 relations:
   depends_on:
   - CA-R-1018
   - CA-E-486
-atom_id: CA-R-1518
-ref_id: CA-R-1518
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
 status: Active
-tier: 2
-role: Requirement
-form: Rule
-container:
-  scope_unit: CA-SU-13
+version: 25
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

@@ -3,12 +3,12 @@ atom_id: CA-R-2668
 ref_id: CA-R-2668
 role: Requirement
 form: Scope Unit Declaration
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//FIELD
+tier: 3
 status: Active
 version: 1
 updated_at: 2026-11-02 19:07:49 +0400
-tier: 3
-topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//FIELD
 ---
 ## Summary
 

@@ -1,17 +1,17 @@
 ---
 atom_id: CA-A-draft
-role: Analysis
-form: Spec Proposal
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-topics:
-  main_subject: Entity/CFEL
-version: 3
-updated_at: 2026-10-31 00:13:49 +0400
-tier: 3
 container:
   scope_unit: CA-SU-11
+role: Analysis
+form: Spec Proposal
+topics:
+  main_subject: Entity/CFEL
+tier: 3
+status: Draft
+version: 3
+updated_at: 2026-10-31 00:13:49 +0400
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 # Summary
 

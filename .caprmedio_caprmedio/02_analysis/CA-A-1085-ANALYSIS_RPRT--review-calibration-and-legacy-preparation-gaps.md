@@ -1,14 +1,10 @@
 ---
 atom_id: CA-A-1085
 ref_id: CA-A-1085
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Calibration and legacy preparation gap acceptance
   dependencies:
@@ -17,8 +13,6 @@ topics:
   - Implementation
   - Spec
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1370
@@ -37,8 +31,14 @@ relations:
   - CA-O-007
   - CA-O-008
   - CA-O-019
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

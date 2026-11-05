@@ -1,21 +1,9 @@
 ---
-subject_scopes:
-- skill-boundary
-version: 22
-updated_at: 2026-10-27 20:00:10 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations:
-  child_of:
-  - CAPRMEDIO-REQU-702--define-framework-engine-layer-scope
-author: Anatoly Maslennikov
-role: Requirement
-current_scope_unit: SKILLS
-status: Active
 atom_id: CA-R-665
 ref_id: CA-R-665
-tier: 1
+container:
+  scope_unit: CA-SU-23
+role: Requirement
 form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
@@ -23,8 +11,20 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-container:
-  scope_unit: CA-SU-23
+tier: 1
+relations:
+  child_of:
+  - CAPRMEDIO-REQU-702--define-framework-engine-layer-scope
+status: Active
+version: 22
+updated_at: 2026-10-27 20:00:10 +0400
+subject_scopes:
+- skill-boundary
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
+current_scope_unit: SKILLS
 ---
 # Provide a Project Scope Unit Graph Projection skill
 

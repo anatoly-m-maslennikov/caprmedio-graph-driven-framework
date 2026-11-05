@@ -1,26 +1,26 @@
 ---
 atom_id: CA-C-363
 ref_id: CA-C-363
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: active
 topics:
   main_subject: Compared F14 Operation carrier conformance
   dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Markdown Atom Carrier/Structure
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-102, CA-O-100, CA-O-090, CA-O-101, CA-O-098, CA-O-018, CA-O-020, CA-O-118]
   relates_to: [CA-P-1359, CA-A-1077, CA-D-479, CA-D-482]
-container:
-  scope_unit: CA-SU-00
+status: active
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

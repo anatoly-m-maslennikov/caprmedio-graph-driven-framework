@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1642
 ref_id: CA-P-1642
+container:
+  atom: CA-P-1623
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Version/Source Compilation and Package Carriers
   dependencies:
@@ -21,20 +17,24 @@ topics:
   - Subject/Graph Node/Engineering/Skill
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 11
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1623
   blocks:
   - CA-P-1643
-tier: 3
-container:
-  atom: CA-P-1623
+status: Done
+version: 11
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 4-CA-P-1642-TASK--bind-pinned-candidate-compilation-interface.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/done
+work_sequence_number: 4
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

@@ -1,31 +1,30 @@
 ---
 atom_id: CA-E-647
-ref_id: CA-E-647@13-draft
+ref_id: CA-E-647
+container:
+  scope_unit: CA-SU-15
 role: Evaluation
 form: Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-11-05 23:05:59 +0400
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure
-    Handling
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure Handling
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Failure Handling
+tier: 3
 relations:
   evaluation_for:
   - CA-M-396
   - CA-M-397
   - CA-M-400
-tier: 3
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 13
+updated_at: 2026-11-05 23:05:59 +0400
 carrier_destination:
   file:
     name: CA-E-647-PROGRAMMATIC-POLICY--evaluate-public-operation-error-boundaries.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

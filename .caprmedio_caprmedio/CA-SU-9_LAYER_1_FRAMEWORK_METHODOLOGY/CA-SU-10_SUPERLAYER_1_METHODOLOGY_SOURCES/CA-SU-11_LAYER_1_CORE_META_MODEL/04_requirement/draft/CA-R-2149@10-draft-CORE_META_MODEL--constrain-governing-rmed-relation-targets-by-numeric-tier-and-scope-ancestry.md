@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-2149@10-draft
+ref_id: CA-R-2149@10-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Graph Rule
 topics:
   main_subject: Formal Model::CAPRMEDIO::Graph Rule
   dependencies:
@@ -8,19 +14,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Stored Governing RMED Relation Occurrences
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-atom_id: CA-R-2149@10-draft
-ref_id: CA-R-2149@10-draft
-role: Requirement
-form: Graph Rule
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 tier: 1
 status: Draft
-author: Anatoly Maslennikov
 version: 10
 updated_at: 2026-10-28 19:24:50 +0400
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

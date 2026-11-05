@@ -1,21 +1,21 @@
 ---
 atom_id: CA-C-290
 ref_id: CA-C-290
+container:
+  scope_unit: CA-SU-11
 role: Concern
 form: Conflict
+relations:
+  concern_about:
+    - CA-D-470
+status: active
+version: 1
+updated_at: "2026-10-04 06:19:35 +0400"
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
-status: active
-version: 1
-updated_at: "2026-10-04 06:19:35 +0400"
-relations:
-  concern_about:
-    - CA-D-470
-container:
-  scope_unit: CA-SU-11
 ---
 # Summary
 

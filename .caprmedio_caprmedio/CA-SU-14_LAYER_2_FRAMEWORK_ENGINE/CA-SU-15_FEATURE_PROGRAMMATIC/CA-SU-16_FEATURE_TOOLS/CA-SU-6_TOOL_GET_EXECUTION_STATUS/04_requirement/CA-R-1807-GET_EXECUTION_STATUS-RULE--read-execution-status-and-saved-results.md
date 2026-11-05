@@ -1,12 +1,10 @@
 ---
 atom_id: CA-R-1807
 ref_id: CA-R-1807
+container:
+  scope_unit: CA-SU-6
 role: Requirement
-current_scope_unit: GET_EXECUTION_STATUS
-status: Active
-author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-27 20:00:03 +0400
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -16,14 +14,16 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-form: Rule
 tier: 3
-container:
-  scope_unit: CA-SU-6
+status: Active
+version: 11
+updated_at: 2026-10-27 20:00:03 +0400
 carrier_destination:
   file:
     name: CA-R-1807-GET_EXECUTION_STATUS-RULE--read-execution-status-and-saved-results.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-6_TOOL_GET_EXECUTION_STATUS/04_requirement
+current_scope_unit: GET_EXECUTION_STATUS
+author: Anatoly Maslennikov
 ---
 # Summary
 

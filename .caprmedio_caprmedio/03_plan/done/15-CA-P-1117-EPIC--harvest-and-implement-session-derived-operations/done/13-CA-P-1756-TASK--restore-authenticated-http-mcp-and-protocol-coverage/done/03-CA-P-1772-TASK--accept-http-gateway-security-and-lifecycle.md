@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1772
 ref_id: CA-P-1772
+container:
+  atom: CA-P-1756
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 3
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/MCP.HTTP Gateway Evaluation
   dependencies:
@@ -20,18 +14,24 @@ topics:
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1756
   blocks:
   - CA-P-1757
-tier: 3
-container:
-  atom: CA-P-1756
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 3-CA-P-1772-TASK--accept-http-gateway-security-and-lifecycle.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/13-CA-P-1756-TASK--restore-authenticated-http-mcp-and-protocol-coverage/done
+work_sequence_number: 3
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

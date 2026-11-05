@@ -1,23 +1,23 @@
 ---
 atom_id: CA-A-1281
 ref_id: CA-A-1281
-role: Analysis & Advisory
-form: Specification Proposal
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
-topics:
-  main_subject: Model::CAPRMEDIO::Graph Syntax.Cardinality Notation
-version: 2
-tier: 3
-updated_at: 2026-11-02 15:49:28 +0400
 container:
   scope_unit: CA-SU-00
+role: Analysis & Advisory
+form: Specification Proposal
+topics:
+  main_subject: Model::CAPRMEDIO::Graph Syntax.Cardinality Notation
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-1281-CAPRMEDIO-SPECIFICATION_PROPOSAL--group-composed-allowed-values-before-cardinality.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

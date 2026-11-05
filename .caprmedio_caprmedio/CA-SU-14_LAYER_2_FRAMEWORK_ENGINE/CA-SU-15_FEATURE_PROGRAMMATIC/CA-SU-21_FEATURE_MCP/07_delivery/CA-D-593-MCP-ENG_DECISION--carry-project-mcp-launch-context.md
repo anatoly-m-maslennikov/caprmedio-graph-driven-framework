@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-593
 ref_id: CA-D-593
+container:
+  scope_unit: CA-SU-21
 role: Delivery
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-11-05 13:48:40 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   dependencies:
@@ -15,18 +13,20 @@ topics:
   - Scope Unit
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+tier: 5
 relations:
   delivery_for:
   - CA-R-1900
   - CA-M-355
-form: Eng Decision
-tier: 5
+status: Active
+version: 17
+updated_at: 2026-11-05 13:48:40 +0400
 carrier_destination:
   file:
     name: CA-D-593-MCP-ENG_DECISION--carry-project-mcp-launch-context.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/07_delivery
-container:
-  scope_unit: CA-SU-21
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 
 ## Summary

@@ -1,11 +1,10 @@
 ---
 atom_id: CA-M-394@18-draft
 ref_id: CA-M-394@18-draft
+container:
+  scope_unit: CA-SU-11
 role: Method
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
+form: Implementation Method
 topics:
   main_subject: 'Formal Model::CAPRMEDIO::Continuant/Atom/Content Role: Requirement/Type: Graph Rule.content.claim'
   dependencies:
@@ -15,12 +14,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Rule.Default Value
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
+tier: 1
+status: Draft
 version: 18
 updated_at: 2026-10-28 19:24:50 +0400
-tier: 1
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

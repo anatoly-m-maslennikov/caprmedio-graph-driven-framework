@@ -1,4 +1,10 @@
 ---
+atom_id: CA-M-125
+ref_id: CA-M-125@48-draft
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics
   dependencies:
@@ -12,20 +18,14 @@ topics:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Node.**
+tier: 3
+status: Draft
 version: 48
 updated_at: 2026-11-04 18:25:15 +0400
-atom_id: CA-M-125
-ref_id: CA-M-125@48-draft
-status: Draft
-tier: 3
-role: Method
-form: Implementation Method
 carrier_destination:
   file:
     name: CA-M-125@48-draft-IMPLEMENTATION_METHOD--assign-subjects-from-the-claim.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

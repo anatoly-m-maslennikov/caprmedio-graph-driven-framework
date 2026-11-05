@@ -1,28 +1,28 @@
 ---
 atom_id: CA-D-672
 ref_id: CA-D-672
-current_scope_unit: WORKBENCH_BACKEND
-claim_target_scope_unit: WORKBENCH_BACKEND
-status: Active
-version: 10
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-45
 role: Delivery
 form: Eng Decision
-tier: 4
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 4
 relations:
   delivery_for:
   - CA-R-2723
   - CA-R-2726
   - CA-R-2724
+status: Active
+version: 10
+updated_at: 2026-11-05 19:01:58 +0400
 carrier_destination:
   file:
     name: CA-D-672-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-property-and-relation-records.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery
-updated_at: 2026-11-05 19:01:58 +0400
-container:
-  scope_unit: CA-SU-45
+current_scope_unit: WORKBENCH_BACKEND
+claim_target_scope_unit: WORKBENCH_BACKEND
+author: Anatoly Maslennikov
 ---
 
 ## Summary

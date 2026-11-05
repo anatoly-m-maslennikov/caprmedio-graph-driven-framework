@@ -1,9 +1,10 @@
 ---
-version: 21
-updated_at: 2026-10-27 19:59:44 +0400
-relations:
-  child_of:
-  - CA-R-1487
+atom_id: CA-O-022
+ref_id: CA-O-022
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   dependencies:
@@ -12,21 +13,20 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
-atom_id: CA-O-022
-ref_id: CA-O-022
-role: Operations
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-form: Action
 tier: 3
-container:
-  scope_unit: CA-SU-13
+relations:
+  child_of:
+  - CA-R-1487
+status: Active
+version: 21
+updated_at: 2026-10-27 19:59:44 +0400
 carrier_destination:
   file:
     name: CA-O-022-PROJECT_CONFIGURATION-ACTION--resolve-and-activate-operator-priorities.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

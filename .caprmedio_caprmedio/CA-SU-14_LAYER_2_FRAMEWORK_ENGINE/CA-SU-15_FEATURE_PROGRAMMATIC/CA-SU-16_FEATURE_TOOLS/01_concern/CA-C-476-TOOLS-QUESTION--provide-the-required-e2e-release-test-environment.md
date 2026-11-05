@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-476
 ref_id: CA-C-476
+container:
+  scope_unit: CA-SU-16
 role: Concern
 form: Question
-current_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
-status: active
-author: Anatoly Maslennikov
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Release suite/E2E execution environment
   dependencies:
@@ -21,8 +16,13 @@ topics:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
   concern_about: [CA-P-1717, CA-P-1721]
-container:
-  scope_unit: CA-SU-16
+status: active
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
 ---
 # Summary
 

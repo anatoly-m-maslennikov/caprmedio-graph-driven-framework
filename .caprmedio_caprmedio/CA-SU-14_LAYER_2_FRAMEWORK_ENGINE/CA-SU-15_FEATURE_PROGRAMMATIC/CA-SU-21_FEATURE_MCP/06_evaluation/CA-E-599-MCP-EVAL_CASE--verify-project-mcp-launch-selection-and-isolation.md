@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-599
 ref_id: CA-E-599
+container:
+  scope_unit: CA-SU-21
 role: Evaluation
 form: Eval Case
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-11-05 13:48:40 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   dependencies:
@@ -17,17 +14,20 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - Subject/CAPRMEDIO/Carrier
+tier: 5
 relations:
   evaluation_for:
   - CA-R-1900
   - CA-M-355
-tier: 5
+status: Active
+version: 15
+updated_at: 2026-11-05 13:48:40 +0400
 carrier_destination:
   file:
     name: CA-E-599-MCP-EVAL_CASE--verify-project-mcp-launch-selection-and-isolation.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
-container:
-  scope_unit: CA-SU-21
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 
 ## Summary

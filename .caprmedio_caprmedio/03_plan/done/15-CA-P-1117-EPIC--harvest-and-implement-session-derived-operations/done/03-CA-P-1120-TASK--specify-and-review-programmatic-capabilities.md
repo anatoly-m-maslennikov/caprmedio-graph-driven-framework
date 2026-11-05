@@ -1,22 +1,17 @@
 ---
 atom_id: CA-P-1120
 ref_id: CA-P-1120
+container:
+  atom: CA-P-1117
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 3
-current_scope_unit: caprmedio
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1117
@@ -26,13 +21,18 @@ relations:
   - CA-P-1122
   - CA-P-1137
   - CA-P-1138
-tier: 3
-container:
-  atom: CA-P-1117
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 3-CA-P-1120-TASK--specify-and-review-programmatic-capabilities.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
+work_sequence_number: 3
+current_scope_unit: caprmedio
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

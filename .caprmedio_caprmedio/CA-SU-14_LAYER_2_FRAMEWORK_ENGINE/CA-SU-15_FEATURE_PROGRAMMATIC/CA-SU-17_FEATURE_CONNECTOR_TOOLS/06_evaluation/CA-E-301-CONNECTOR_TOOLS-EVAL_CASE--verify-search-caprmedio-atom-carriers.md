@@ -1,36 +1,36 @@
 ---
 atom_id: CA-E-301
 ref_id: CA-E-301
+container:
+  scope_unit: CA-SU-17
 role: Evaluation
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
-cce_version: cce_1
-cce_form: evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 32
-updated_at: 2026-10-27 19:59:32 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-863
   - CA-O-046
   - CA-O-201
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-tier: 4
-form: Eval Case
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 32
+updated_at: 2026-10-27 19:59:32 +0400
 carrier_destination:
   file:
     name: CA-E-301-CONNECTOR_TOOLS-EVAL_CASE--verify-search-caprmedio-atom-carriers.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/06_evaluation
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Summary
 

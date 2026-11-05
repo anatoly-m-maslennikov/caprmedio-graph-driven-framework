@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-482
 ref_id: CA-C-482
+container:
+  scope_unit: CA-SU-2
 role: Concern
 form: Question
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
-status: active
-author: Anatoly Maslennikov
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Release Version/Host Executor
   dependencies:
@@ -22,8 +17,13 @@ topics:
   - Implementation
 relations:
   concern_about: [CA-R-1891, CA-M-347, CA-D-583, CA-E-590]
-container:
-  scope_unit: CA-SU-2
+status: active
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+local_tier: Standard
+global_tier: 14
+author: Anatoly Maslennikov
 ---
 # Summary
 

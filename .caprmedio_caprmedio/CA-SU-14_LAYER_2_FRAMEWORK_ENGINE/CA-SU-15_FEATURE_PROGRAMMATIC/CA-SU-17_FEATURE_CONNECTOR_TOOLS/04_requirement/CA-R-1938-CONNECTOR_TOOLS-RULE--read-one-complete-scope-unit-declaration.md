@@ -1,30 +1,30 @@
 ---
 atom_id: CA-R-1938
 ref_id: CA-R-1938
+container:
+  scope_unit: CA-SU-17
 role: Requirement
 form: Rule
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+tier: 3
 relations:
   depends_on:
   - CA-D-625
-tier: 3
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 15
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-R-1938-CONNECTOR_TOOLS-RULE--read-one-complete-scope-unit-declaration.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/04_requirement
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

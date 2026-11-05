@@ -1,14 +1,10 @@
 ---
 atom_id: CA-O-211
 ref_id: CA-O-211
+container:
+  scope_unit: CA-SU-17
 role: Operations
 form: Action
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   dependencies:
@@ -16,12 +12,16 @@ topics:
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
 tier: 3
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 14
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-O-211-CONNECTOR_TOOLS-ACTION--query-declared-scope-units.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/09_operations
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

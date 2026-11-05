@@ -1,27 +1,27 @@
 ---
 atom_id: CA-M-493
 ref_id: CA-M-493
-current_scope_unit: WORKBENCH_BACKEND
-claim_target_scope_unit: WORKBENCH_BACKEND
-status: Active
-version: 1
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-45
 role: Method
 form: Eng Decision
-tier: 4
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 4
 relations:
   method_for:
   - CA-R-2729
   - CA-M-462
+status: Active
+version: 1
+updated_at: 2026-11-05 20:32:03 +0400
 carrier_destination:
   file:
     name: CA-M-493-WORKBENCH_BACKEND-ENG_DECISION--page-native-cached-query-results-for-a-read-only-grid.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method
-updated_at: 2026-11-05 20:32:03 +0400
-container:
-  scope_unit: CA-SU-45
+current_scope_unit: WORKBENCH_BACKEND
+claim_target_scope_unit: WORKBENCH_BACKEND
+author: Anatoly Maslennikov
 ---
 
 ## Summary

@@ -1,4 +1,10 @@
 ---
+atom_id: CA-M-304
+ref_id: CA-M-304
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
   dependencies:
@@ -9,8 +15,7 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action).Execution Kind: Agentic'
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
-version: 26
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   method_for:
   - CA-R-1789
@@ -18,20 +23,15 @@ relations:
   - CA-R-1791
   - CA-R-1792
   - CA-R-1793
-atom_id: CA-M-304
-ref_id: CA-M-304
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 3
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
+version: 26
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 Write self-contained agentic Action instructions

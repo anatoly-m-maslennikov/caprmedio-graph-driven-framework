@@ -1,13 +1,10 @@
 ---
-version: 3
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-M-447
-  - CA-M-446
-  - CA-E-001
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-667
+ref_id: CA-E-667
+container:
+  scope_unit: CA-SU-00
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
@@ -24,21 +21,24 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Actor
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-667
-ref_id: CA-E-667
-status: Active
-current_scope_unit: caprmedio
 tier: 1
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-M-447
+  - CA-M-446
+  - CA-E-001
+status: Active
+version: 3
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-E-667-CAPRMEDIO-EVAL_POLICY--evaluate-the-current-principle-and-core-set.md
     path: .caprmedio_caprmedio/06_evaluation
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 

@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-138
 topics:
   main_subject: 'Atom/Content Role: Analysis & Advisory/Type: External Analysis Report'
   dependencies:
@@ -9,12 +8,13 @@ topics:
   - Subject/Engineering/Carrier
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Process
-priority: medium
 version: 5
 updated_at: 2026-11-02 15:49:28 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-C-138
 ---
 # How should external-review adoption authority be separated?
 

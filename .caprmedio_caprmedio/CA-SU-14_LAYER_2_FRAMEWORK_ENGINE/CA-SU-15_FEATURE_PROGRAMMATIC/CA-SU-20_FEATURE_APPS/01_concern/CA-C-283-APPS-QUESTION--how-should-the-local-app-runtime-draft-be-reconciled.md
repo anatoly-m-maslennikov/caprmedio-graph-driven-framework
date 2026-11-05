@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-283
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -8,11 +7,6 @@ topics:
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-priority: medium
-version: 8
-updated_at: 2026-11-03 23:17:14 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   relates_to:
   - CA-D-046
@@ -37,7 +31,13 @@ relations:
   - CA-R-2731
   - CA-R-819
   - CAPRMEDIO-META-REQU-158
-atom_id: CA-C-283
+version: 8
+updated_at: 2026-11-03 23:17:14 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Summary
 

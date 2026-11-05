@@ -4,12 +4,6 @@ ref_id: CA-P-1627
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Release
   dependencies:
@@ -21,14 +15,20 @@ topics:
   - Subject/Graph Node/Engineering/Evaluation
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 11
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1621
   blocks:
   - CA-P-1622
-tier: 3
+status: Done
+version: 11
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 1
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

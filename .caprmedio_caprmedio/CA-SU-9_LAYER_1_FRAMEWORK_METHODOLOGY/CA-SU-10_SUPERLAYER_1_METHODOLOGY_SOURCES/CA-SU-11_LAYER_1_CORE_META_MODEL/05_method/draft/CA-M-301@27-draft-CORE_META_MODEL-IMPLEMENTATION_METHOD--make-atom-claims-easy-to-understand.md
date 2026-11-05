@@ -1,4 +1,10 @@
 ---
+atom_id: CA-M-301@27-draft
+ref_id: CA-M-301@27-draft
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: Entity/Object/Continuant/Governing Objects/Atom.Content
   dependencies:
@@ -9,22 +15,16 @@ topics:
   - Entity/Aspect/Engineering/Authoring/Controlled English
   - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Action'
   - 'Entity/Object/Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow'
-version: 27
-updated_at: 2026-10-30 06:13:15 +0400
+tier: 5
 relations:
   child_of:
   - CA-M-113
-atom_id: CA-M-301@27-draft
-ref_id: CA-M-301@27-draft
-role: Method
+status: Draft
+version: 27
+updated_at: 2026-10-30 06:13:15 +0400
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Draft
 author: Anatoly Maslennikov
-tier: 5
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

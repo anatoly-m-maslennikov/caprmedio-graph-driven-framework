@@ -1,25 +1,25 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-408
+ref_id: CA-E-408
+container:
+  scope_unit: CA-SU-20
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 13
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-M-242
+status: Active
+version: 13
+updated_at: 2026-11-02 19:44:26 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-408
-ref_id: CA-E-408
-status: Active
-role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: APPS
-form: Eval Case
-tier: 3
-container:
-  scope_unit: CA-SU-20
 ---
 # Verify register the AGENT_HOST_PLUGINS unit
 

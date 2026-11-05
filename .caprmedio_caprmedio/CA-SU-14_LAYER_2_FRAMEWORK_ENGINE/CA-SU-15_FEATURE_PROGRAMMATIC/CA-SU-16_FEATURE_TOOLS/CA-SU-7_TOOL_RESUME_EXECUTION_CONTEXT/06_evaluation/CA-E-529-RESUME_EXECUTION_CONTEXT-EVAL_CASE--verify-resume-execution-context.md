@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-529
 ref_id: CA-E-529
+container:
+  scope_unit: CA-SU-7
 role: Evaluation
 form: Eval Case
-current_scope_unit: RESUME_EXECUTION_CONTEXT
-status: Active
-author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-27 19:59:36 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
   dependencies:
@@ -18,12 +15,15 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 tier: 3
-container:
-  scope_unit: CA-SU-7
+status: Active
+version: 9
+updated_at: 2026-10-27 19:59:36 +0400
 carrier_destination:
   file:
     name: CA-E-529-RESUME_EXECUTION_CONTEXT-EVAL_CASE--verify-resume-execution-context.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-7_TOOL_RESUME_EXECUTION_CONTEXT/06_evaluation
+current_scope_unit: RESUME_EXECUTION_CONTEXT
+author: Anatoly Maslennikov
 ---
 # Summary
 

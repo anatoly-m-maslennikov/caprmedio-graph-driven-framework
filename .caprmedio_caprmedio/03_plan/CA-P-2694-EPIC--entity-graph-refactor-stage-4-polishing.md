@@ -1,21 +1,21 @@
 ---
 atom_id: CA-P-2694
 ref_id: CA-P-2694
-label: Epic
-status: Active
-tier: 3
-version: 76
-updated_at: 2026-11-05 20:22:52 +0400
-topics:
-  main_subject: CAPRMEDIO_MODEL
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
+label: Epic
+topics:
+  main_subject: CAPRMEDIO_MODEL
+tier: 3
+status: Active
+version: 76
+updated_at: 2026-11-05 20:22:52 +0400
 carrier_destination:
   file:
     name: CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
     path: .caprmedio_caprmedio/03_plan
-container:
-  scope_unit: CA-SU-00
 ---
 ## Summary
 

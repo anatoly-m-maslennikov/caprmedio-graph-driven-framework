@@ -1,29 +1,29 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-390
+ref_id: CA-E-390
+container:
+  scope_unit: CA-SU-15
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Data/Golden Corpora
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-version: 22
-updated_at: 2026-10-27 19:59:34 +0400
+tier: 1
 relations:
   evaluation_for:
   - CA-M-285
   derived_from:
   - CA-A-053
+status: Active
+version: 22
+updated_at: 2026-10-27 19:59:34 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-390
-ref_id: CA-E-390
-status: Active
-role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-form: Eval Case
-tier: 1
-container:
-  scope_unit: CA-SU-15
 ---
 # Compare deterministic outputs with reviewed golden baselines
 

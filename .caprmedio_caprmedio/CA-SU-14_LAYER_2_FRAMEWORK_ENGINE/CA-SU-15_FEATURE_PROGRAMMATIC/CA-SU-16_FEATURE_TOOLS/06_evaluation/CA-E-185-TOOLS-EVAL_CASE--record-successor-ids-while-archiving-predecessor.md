@@ -1,26 +1,26 @@
 ---
+atom_id: CA-E-185
+ref_id: CA-E-185
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Event
-version: 23
-updated_at: 2026-10-27 19:59:30 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-D-335
   - CA-M-087
   - CA-R-805
   - CA-R-807
+status: Active
+version: 23
+updated_at: 2026-10-27 19:59:30 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-185
-ref_id: CA-E-185
-status: Active
-role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eval Case
-tier: 3
-container:
-  scope_unit: CA-SU-16
 ---
 # Record successor IDs while archiving predecessor
 

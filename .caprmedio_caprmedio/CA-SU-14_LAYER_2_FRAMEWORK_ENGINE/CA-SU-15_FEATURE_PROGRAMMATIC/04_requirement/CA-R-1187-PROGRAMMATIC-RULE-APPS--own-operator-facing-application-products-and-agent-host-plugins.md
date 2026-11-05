@@ -1,21 +1,21 @@
 ---
+atom_id: CA-R-1187
+ref_id: CA-R-1187
+container:
+  scope_unit: CA-SU-15
+role: Requirement
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+tier: 3
+status: Active
 version: 20
 updated_at: 2026-11-03 23:17:14 +0400
-atom_id: CA-R-1187
-ref_id: CA-R-1187
-role: Requirement
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: APPS
-status: Active
 author: Anatoly Maslennikov
-tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

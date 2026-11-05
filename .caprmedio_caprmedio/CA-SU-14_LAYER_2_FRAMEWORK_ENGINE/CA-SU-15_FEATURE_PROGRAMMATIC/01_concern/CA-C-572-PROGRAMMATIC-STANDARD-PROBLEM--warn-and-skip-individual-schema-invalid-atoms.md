@@ -1,27 +1,27 @@
 ---
 atom_id: CA-C-572
 ref_id: CA-C-572
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
+relations:
+  concern_about: [CA-R-863, CA-M-370, CA-E-301, CA-M-414, CA-P-2552]
+status: Active
+version: 5
+updated_at: "2026-10-21T23:29:13+00:00"
+carrier_destination:
+  file:
+    name: CA-C-572-PROGRAMMATIC-PROBLEM--warn-and-skip-individual-schema-invalid-atoms-during-scans.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
 priority: medium
-topics:
-  main_subject: Entity/Node/Continuant/Implementation
-relations:
-  concern_about: [CA-R-863, CA-M-370, CA-E-301, CA-M-414, CA-P-2552]
-version: 5
-updated_at: "2026-10-21T23:29:13+00:00"
-container:
-  scope_unit: CA-SU-15
-carrier_destination:
-  file:
-    name: CA-C-572-PROGRAMMATIC-PROBLEM--warn-and-skip-individual-schema-invalid-atoms-during-scans.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

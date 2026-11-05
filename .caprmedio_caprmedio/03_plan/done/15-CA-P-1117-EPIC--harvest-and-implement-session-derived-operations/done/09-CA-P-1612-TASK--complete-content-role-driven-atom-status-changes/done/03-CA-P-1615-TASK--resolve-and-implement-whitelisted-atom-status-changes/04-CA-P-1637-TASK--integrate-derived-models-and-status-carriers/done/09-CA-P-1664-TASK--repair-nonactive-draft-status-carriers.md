@@ -4,12 +4,6 @@ ref_id: CA-P-1664
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 9
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Implementation
   dependencies:
@@ -20,15 +14,21 @@ topics:
   - Subject/Graph Node/Engineering/Methodology
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1637
   blocks:
   - CA-P-1662
   - CA-P-1638
-tier: 3
+status: Done
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 9
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

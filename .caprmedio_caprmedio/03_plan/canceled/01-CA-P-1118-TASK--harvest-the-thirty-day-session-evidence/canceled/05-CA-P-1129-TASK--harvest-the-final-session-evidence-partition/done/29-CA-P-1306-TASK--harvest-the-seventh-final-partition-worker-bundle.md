@@ -1,21 +1,17 @@
 ---
 atom_id: CA-P-1306
 ref_id: CA-P-1306
+container:
+  atom: CA-P-1129
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 29
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
-version: 10
-updated_at: 2026-11-02 15:49:28 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1129
@@ -24,13 +20,17 @@ relations:
   - CA-P-1119
   - CA-P-1130
   - CA-P-1155
-tier: 3
-container:
-  atom: CA-P-1129
+status: Done
+version: 10
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: 29-CA-P-1306-TASK--harvest-the-seventh-final-partition-worker-bundle.md
     path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/5-CA-P-1129-TASK--harvest-the-final-session-evidence-partition/done
+work_sequence_number: 29
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2826
 ref_id: CA-R-2826@1-draft
-status: Draft
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ALLOWED_VALUE
-version: 1
-tier: 3
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ALLOWED_VALUE
+tier: 3
+status: Draft
+version: 1
 updated_at: 2026-11-05 16:41:12 +0400
 carrier_destination:
   file:
     name: CA-R-2826@1-draft-DECLARATION--declare-has-allowed-value.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 
 ## Summary
@@ -22,6 +22,10 @@ container:
 Declare HAS_ALLOWED_VALUE
 
 ## Claim
+
+### Prose Claim
+
+The Host is the qualified model Subject or instance to which the allowed-value expression applies. The Target is its admitted literal value or a set of literal alternatives; neither is a model Node. For the same qualified Subject, all applicable HAS_ALLOWED_VALUE expressions, including inherited expressions, combine by OR. If none applies, omit the allowed-value group: it imposes no enumeration restriction. `x := a | b` writes alternatives. In a qualified Subject such as `Atom//(.Role := Method)`, `:=` retains its admitted-value and Subject-selection meaning; OR across applicable values in that qualified scope does not remove the selection condition. The final admissibility condition is the OR of applicable HAS_ALLOWED_VALUE expressions AND the AND of applicable HAS_VALUE_CONSTRAINT expressions.
 
 ### Formal Claim
 
@@ -39,10 +43,6 @@ alias($relation) == ":=";
 
 $host ((HAS_ALLOWED_VALUE)) $target
 ```
-
-### Prose Claim
-
-The Host is the qualified model Subject or instance to which the allowed-value expression applies. The Target is its admitted literal value or a set of literal alternatives; neither is a model Node. For the same qualified Subject, all applicable HAS_ALLOWED_VALUE expressions, including inherited expressions, combine by OR. If none applies, omit the allowed-value group: it imposes no enumeration restriction. `x := a | b` writes alternatives. In a qualified Subject such as `Atom//(.Role := Method)`, `:=` retains its admitted-value and Subject-selection meaning; OR across applicable values in that qualified scope does not remove the selection condition. The final admissibility condition is the OR of applicable HAS_ALLOWED_VALUE expressions AND the AND of applicable HAS_VALUE_CONSTRAINT expressions.
 
 ## Semantics
 

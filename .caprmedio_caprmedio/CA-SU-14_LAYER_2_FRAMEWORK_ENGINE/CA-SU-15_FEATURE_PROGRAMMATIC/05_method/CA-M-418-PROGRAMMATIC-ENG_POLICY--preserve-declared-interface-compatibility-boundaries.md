@@ -1,27 +1,27 @@
 ---
 atom_id: CA-M-418
 ref_id: CA-M-418
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-version: 11
-updated_at: 2026-10-27 19:59:43 +0400
-cce_version: cce_1
-cce_form: method
+tier: 4
 relations:
   derived_from:
   - CA-A-053
   child_of:
   - CA-M-415
+status: Active
+version: 11
+updated_at: 2026-10-27 19:59:43 +0400
+current_scope_unit: PROGRAMMATIC
+cce_version: cce_1
+cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-tier: 4
 author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

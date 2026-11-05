@@ -1,28 +1,28 @@
 ---
-cce_version: cce_1
-cce_form: obligation
+atom_id: CA-P-095
+ref_id: CA-P-095
+container:
+  scope_unit: CA-SU-00
+role: Plan
+form: Plan
+label: Task
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Projection
   dependencies:
   - 'Subject/Graph Node/Product: CAPRMEDIO Framework'
   - Subject/Graph Node/Domain/Continuant/Projection
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
-autonomous_confidence_threshold: 98
+tier: 3
 relations:
   derived_from:
   - CA-A-062
 status: Active
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
+autonomous_confidence_threshold: 98
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-role: Plan
-form: Plan
-label: Task
-tier: 3
-atom_id: CA-P-095
-ref_id: CA-P-095
-container:
-  scope_unit: CA-SU-00
 ---
 # Materialize the current CAPRMEDIO Definition projection
 

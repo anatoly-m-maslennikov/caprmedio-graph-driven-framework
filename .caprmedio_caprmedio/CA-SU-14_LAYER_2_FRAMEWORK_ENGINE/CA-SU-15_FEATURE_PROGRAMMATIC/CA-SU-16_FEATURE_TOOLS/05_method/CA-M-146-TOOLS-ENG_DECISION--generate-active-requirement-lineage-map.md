@@ -1,26 +1,26 @@
 ---
+atom_id: CA-M-146
+ref_id: CA-M-146
+container:
+  scope_unit: CA-SU-16
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 27
-updated_at: 2026-11-02 19:44:26 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 4
 relations:
   method_for:
   - CA-R-1061
   - CA-R-1062
   - CA-R-1068
-atom_id: CA-M-146
-ref_id: CA-M-146
 status: Active
-role: Method
+version: 27
+updated_at: 2026-11-02 19:44:26 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eng Decision
-tier: 4
-container:
-  scope_unit: CA-SU-16
 ---
 # Generate active Requirement Lineage Map
 

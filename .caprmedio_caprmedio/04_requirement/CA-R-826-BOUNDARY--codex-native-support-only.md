@@ -1,25 +1,25 @@
 ---
-subject_scopes:
-- applicability
-version: 22
-updated_at: 2026-11-02 19:44:26 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
 atom_id: CA-R-826
 ref_id: CA-R-826
-status: Active
-current_scope_unit: caprmedio
-tier: 2
-topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-role: Requirement
-form: Boundary
 container:
   scope_unit: CA-SU-00
+role: Requirement
+form: Boundary
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
+tier: 2
+status: Active
+version: 22
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-R-826-CAPRMEDIO-BOUNDARY--codex-native-support-only.md
     path: .caprmedio_caprmedio/04_requirement
+subject_scopes:
+- applicability
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 Codex native support only

@@ -1,16 +1,16 @@
 ---
+atom_id: CA-A-059
 topics:
   main_subject:
     continuant:
       - programmatic-policy
     occurrent:
       - validation
-version: 4
-updated_at: 2026-10-23 03:17:34 +0400
 relations:
   derived_from:
     - CA-A-058
-atom_id: CA-A-059
+version: 4
+updated_at: 2026-10-23 03:17:34 +0400
 ---
 # Close deferred PROGRAMMATIC Requirement realization gaps
 

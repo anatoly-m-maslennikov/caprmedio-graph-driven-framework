@@ -1,24 +1,24 @@
 ---
+atom_id: CA-R-1247
+ref_id: CA-R-1247@25-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Node.**
   dependencies:
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+tier: 1
+status: Draft
 version: 25
 updated_at: 2026-11-05 04:29:34 +0400
-atom_id: CA-R-1247
-ref_id: CA-R-1247@25-draft
-status: Draft
-tier: 1
-role: Requirement
-form: Rule
 carrier_destination:
   file:
     name: CA-R-1247@25-draft-RULE--identify-dependent-entity-occurrences-by-complete-subject-path.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

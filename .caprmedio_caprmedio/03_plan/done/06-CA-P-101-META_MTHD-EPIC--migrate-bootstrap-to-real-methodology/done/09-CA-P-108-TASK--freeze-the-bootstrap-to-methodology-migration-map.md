@@ -1,24 +1,24 @@
 ---
 atom_id: CA-P-108
 ref_id: CA-P-108
-cce_version: cce_1
-cce_form: obligation
+role: Plan
+form: Plan
+label: Task
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Projection
   dependencies:
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Project.Structure
+tier: 3
+status: Done
 version: 24
 updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
 autonomous_confidence_threshold: 99
-status: Done
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-role: Plan
-form: Plan
-label: Task
-tier: 3
 ---
 # Freeze the Bootstrap-to-Methodology Migration Map
 

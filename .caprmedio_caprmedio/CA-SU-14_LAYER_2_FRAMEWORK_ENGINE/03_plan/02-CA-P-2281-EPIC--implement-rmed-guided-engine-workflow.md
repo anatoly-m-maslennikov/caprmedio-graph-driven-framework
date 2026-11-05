@@ -1,13 +1,11 @@
 ---
 atom_id: CA-P-2281
 ref_id: CA-P-2281
+container:
+  scope_unit: CA-SU-14
 role: Plan
 form: Plan
 label: Epic
-work_sequence_number: 2
-current_scope_unit: FRAMEWORK_ENGINE
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow'
   dependencies:
@@ -22,15 +20,17 @@ topics:
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
+tier: 3
+status: Active
 version: 10
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-14
 carrier_destination:
   file:
     name: 2-CA-P-2281-EPIC--implement-an-rmed-guided-engine-workflow.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan
+work_sequence_number: 2
+current_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
 ---
 # Summary
 

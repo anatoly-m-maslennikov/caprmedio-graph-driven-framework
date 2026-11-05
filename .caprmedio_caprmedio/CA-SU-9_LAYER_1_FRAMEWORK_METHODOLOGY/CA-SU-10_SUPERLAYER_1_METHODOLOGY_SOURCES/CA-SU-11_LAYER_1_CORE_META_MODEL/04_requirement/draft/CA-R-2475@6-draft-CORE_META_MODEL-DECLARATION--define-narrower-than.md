@@ -1,20 +1,20 @@
 ---
 atom_id: CA-R-2475
 ref_id: CA-R-2475@6-draft
-status: Draft
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
-version: 6
-updated_at: 2026-11-05 06:30:39 +0400
-tier: 3
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN
+tier: 3
+status: Draft
+version: 6
+updated_at: 2026-11-05 06:30:39 +0400
 carrier_destination:
   file:
     name: CA-R-2475@6-draft-DECLARATION--define-narrower-than.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 
@@ -22,6 +22,9 @@ Define NARROWER_THAN
 
 ## Claim
 
+### Prose Claim
+
+NARROWER_THAN relates a narrower MODEL kind to a broader MODEL kind. A Property does not narrow. Both endpoints are MODEL kinds; Property bearers and instance populations do not become kinds through this notation. The narrower kind inherits applicable Relation and Property constraints without cloning declarations or instance facts. HAS_NARROWER is its derived inverse. In `X//Y`, Y is narrower than X; traversal runs from broader to narrower.
 ### Formal Claim
 
 ```CFEL
@@ -38,6 +41,3 @@ alias($direct) == "//";
 $direct ((HAS_CLASSIFICATION)) Derivation == Direct
 ```
 
-### Prose Claim
-
-NARROWER_THAN relates a narrower MODEL kind to a broader MODEL kind. A Property does not narrow. Both endpoints are MODEL kinds; Property bearers and instance populations do not become kinds through this notation. The narrower kind inherits applicable Relation and Property constraints without cloning declarations or instance facts. HAS_NARROWER is its derived inverse. In `X//Y`, Y is narrower than X; traversal runs from broader to narrower.

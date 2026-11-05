@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-526
 ref_id: CA-E-526
+container:
+  scope_unit: CA-SU-4
 role: Evaluation
 form: Eval Case
-current_scope_unit: DISCOVER_OPERATIONS
-status: Active
-author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-27 19:59:36 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   dependencies:
@@ -18,12 +15,15 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 tier: 3
-container:
-  scope_unit: CA-SU-4
+status: Active
+version: 9
+updated_at: 2026-10-27 19:59:36 +0400
 carrier_destination:
   file:
     name: CA-E-526-DISCOVER_OPERATIONS-EVAL_CASE--verify-discover-operations.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-4_TOOL_DISCOVER_OPERATIONS/06_evaluation
+current_scope_unit: DISCOVER_OPERATIONS
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,21 +1,15 @@
 ---
 atom_id: CA-A-1040
 ref_id: CA-A-1040
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Other primary second-partition ontology recovery evidence
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 3
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   relates_to:
   - CA-P-1322
@@ -24,12 +18,18 @@ relations:
   - CA-A-910
   - CA-P-1327
   - CA-C-338
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-1040-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-first-other-primary-second-partition-packet.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

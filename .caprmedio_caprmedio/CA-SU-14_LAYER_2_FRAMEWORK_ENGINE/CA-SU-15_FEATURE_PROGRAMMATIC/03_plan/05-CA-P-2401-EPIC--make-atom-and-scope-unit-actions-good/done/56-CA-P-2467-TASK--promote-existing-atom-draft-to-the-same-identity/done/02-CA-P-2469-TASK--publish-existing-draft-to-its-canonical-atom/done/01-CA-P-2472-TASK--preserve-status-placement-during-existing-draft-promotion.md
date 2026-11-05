@@ -1,28 +1,28 @@
 ---
 atom_id: CA-P-2472
 ref_id: CA-P-2472
+container:
+  atom: CA-P-2469
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Atom
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2469
+status: Done
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2469
 carrier_destination:
   file:
     name: 1-CA-P-2472-TASK--preserve-status-placement-during-existing-draft-promotion.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/56-CA-P-2467-TASK--promote-existing-atom-draft-to-the-same-identity/done/2-CA-P-2469-TASK--publish-existing-draft-to-its-canonical-atom/done
+work_sequence_number: 1
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

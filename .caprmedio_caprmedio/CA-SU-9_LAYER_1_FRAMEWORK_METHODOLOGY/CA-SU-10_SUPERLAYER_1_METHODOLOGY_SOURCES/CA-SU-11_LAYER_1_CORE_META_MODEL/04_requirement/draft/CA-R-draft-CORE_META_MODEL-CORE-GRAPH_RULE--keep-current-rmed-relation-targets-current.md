@@ -1,12 +1,8 @@
 ---
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Graph Rule
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-local_tier: Core
-global_tier: 9
-status: Draft
-author: Anatoly Maslennikov
 topics:
   main_subject: Entity/Relation
   dependencies:
@@ -14,10 +10,14 @@ topics:
   - "Entity/Node/Continuant/Atom/Content Role: Method"
   - "Entity/Node/Continuant/Atom/Content Role: Evaluation"
   - "Entity/Node/Continuant/Atom/Content Role: Delivery"
+status: Draft
 version: 1
 updated_at: "2026-10-22T01:39:08+04:00"
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Core
+global_tier: 9
+author: Anatoly Maslennikov
 ---
 # Summary
 

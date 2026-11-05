@@ -1,28 +1,28 @@
 ---
 atom_id: CA-C-448
 ref_id: CA-C-448
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Question
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
-status: Active
-author: Anatoly Maslennikov
 topics:
   main_subject: Legacy GRAPH_UI Delivery Identity Mapping
   dependencies:
   - Subject/Domain/Node/Continuant/Atom
   - Subject/Engineering/Carrier
-version: 3
 relations: {concern_about: [CA-C-443, CA-R-1048, CA-R-1432]}
+status: Active
+version: 3
 updated_at: 2026-10-23 03:14:50 +0400
-container:
-  scope_unit: CA-SU-15
 carrier_destination:
   file:
     name: CA-C-448-PROGRAMMATIC-QUESTION--which-canonical-identity-should-the-legacy-graph-ui-delivery-use.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
 ---
 # Summary
 

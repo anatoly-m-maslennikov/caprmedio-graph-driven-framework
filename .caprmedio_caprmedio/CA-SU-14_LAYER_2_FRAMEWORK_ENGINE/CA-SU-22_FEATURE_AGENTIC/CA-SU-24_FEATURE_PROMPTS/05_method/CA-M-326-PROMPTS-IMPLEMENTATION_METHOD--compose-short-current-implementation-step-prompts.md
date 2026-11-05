@@ -1,14 +1,10 @@
 ---
 atom_id: CA-M-326
 ref_id: CA-M-326
+container:
+  scope_unit: CA-SU-24
 role: Method
 form: Implementation Method
-current_scope_unit: PROMPTS
-claim_target_scope_unit: PROMPTS
-status: Active
-author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 19:59:42 +0400
 topics:
   main_subject: Subject/caprmedio/Workflow//Implementation Workflow.Step Prompt Construction
   dependencies:
@@ -16,12 +12,16 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
 tier: 3
-container:
-  scope_unit: CA-SU-24
+status: Active
+version: 12
+updated_at: 2026-10-27 19:59:42 +0400
 carrier_destination:
   file:
     name: CA-M-326-PROMPTS-IMPLEMENTATION_METHOD--compose-short-current-implementation-step-prompts.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/05_method
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+author: Anatoly Maslennikov
 ---
 # Summary
 

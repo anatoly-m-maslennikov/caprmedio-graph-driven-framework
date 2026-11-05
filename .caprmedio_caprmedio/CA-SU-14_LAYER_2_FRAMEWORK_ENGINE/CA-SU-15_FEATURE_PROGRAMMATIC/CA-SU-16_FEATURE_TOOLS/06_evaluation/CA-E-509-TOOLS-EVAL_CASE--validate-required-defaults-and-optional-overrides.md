@@ -1,34 +1,34 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-509
+ref_id: CA-E-509
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - Subject/CAPRMEDIO/Carrier/File.YAML Frontmatter
-version: 14
-updated_at: 2026-10-27 19:59:36 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 2
 relations:
   evaluation_for:
   - CA-D-478
   - CA-D-485
   - CA-R-1136
-atom_id: CA-E-509
-ref_id: CA-E-509
 status: Active
-role: Evaluation
-author: Anatoly Maslennikov
-current_scope_unit: TOOLS
-form: Eval Case
-tier: 2
-container:
-  scope_unit: CA-SU-16
+version: 14
+updated_at: 2026-10-27 19:59:36 +0400
 carrier_destination:
   file:
     name: CA-E-509-TOOLS-EVAL_CASE--validate-required-defaults-and-optional-overrides.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
+current_scope_unit: TOOLS
 ---
 # Summary
 

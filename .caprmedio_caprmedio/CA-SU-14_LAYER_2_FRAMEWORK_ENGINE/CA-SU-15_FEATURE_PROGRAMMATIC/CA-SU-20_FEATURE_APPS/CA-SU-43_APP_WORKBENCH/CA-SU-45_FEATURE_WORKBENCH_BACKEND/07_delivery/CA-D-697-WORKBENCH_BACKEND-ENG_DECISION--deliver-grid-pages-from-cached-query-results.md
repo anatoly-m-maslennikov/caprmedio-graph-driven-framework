@@ -1,29 +1,29 @@
 ---
 atom_id: CA-D-697
 ref_id: CA-D-697
-current_scope_unit: WORKBENCH_BACKEND
-claim_target_scope_unit: WORKBENCH_BACKEND
-status: Active
-version: 1
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-45
 role: Delivery
 form: Eng Decision
-tier: 4
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 4
 relations:
   delivery_for:
   - CA-M-462
   - CA-M-493
   - CA-O-240
   - CA-E-784
+status: Active
+version: 1
+updated_at: 2026-11-05 20:32:03 +0400
 carrier_destination:
   file:
     name: CA-D-697-WORKBENCH_BACKEND-ENG_DECISION--deliver-grid-pages-from-cached-query-results.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery
-updated_at: 2026-11-05 20:32:03 +0400
-container:
-  scope_unit: CA-SU-45
+current_scope_unit: WORKBENCH_BACKEND
+claim_target_scope_unit: WORKBENCH_BACKEND
+author: Anatoly Maslennikov
 ---
 
 ## Summary

@@ -1,11 +1,10 @@
 ---
 atom_id: CA-R-2442
 ref_id: CA-R-2442
+container:
+  scope_unit: CA-SU-22
 role: Requirement
-current_scope_unit: AGENTIC
-claim_target_scope_unit: SKILLS
-author: Anatoly Maslennikov
-status: Active
+form: Goal
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
   dependencies:
@@ -15,12 +14,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+tier: 3
+status: Active
 version: 1
 updated_at: 2026-10-30 03:11:57 +0400
-tier: 3
-form: Goal
-container:
-  scope_unit: CA-SU-22
+current_scope_unit: AGENTIC
+claim_target_scope_unit: SKILLS
+author: Anatoly Maslennikov
 ---
 ## Summary
 

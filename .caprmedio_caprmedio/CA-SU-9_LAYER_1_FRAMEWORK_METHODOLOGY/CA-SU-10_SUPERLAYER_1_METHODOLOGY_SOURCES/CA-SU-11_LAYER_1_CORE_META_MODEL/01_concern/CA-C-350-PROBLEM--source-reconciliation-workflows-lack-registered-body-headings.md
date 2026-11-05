@@ -1,27 +1,27 @@
 ---
 atom_id: CA-C-350
 ref_id: CA-C-350
+container:
+  scope_unit: CA-SU-11
 role: Concern
 form: Problem
+topics:
+  main_subject: "Source Reconciliation Workflow Carrier layout"
+relations:
+  concern_about: [CA-O-010, CA-O-011]
+  relates_to: [CA-D-479, CA-P-1340, CA-A-1058]
+status: Active
+version: 1
+updated_at: "2026-10-04 16:48:00 +0400"
+carrier_destination:
+  file:
+    name: CA-C-350-CORE_META_MODEL-PROBLEM--current-source-workflows-ca-o-010-v7-and-ca-o-011-v10-lack-the-registered-operation-body-headings-required-by-ca-d-479-v6.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
-status: Active
-topics:
-  main_subject: "Source Reconciliation Workflow Carrier layout"
-version: 1
-updated_at: "2026-10-04 16:48:00 +0400"
-relations:
-  concern_about: [CA-O-010, CA-O-011]
-  relates_to: [CA-D-479, CA-P-1340, CA-A-1058]
-container:
-  scope_unit: CA-SU-11
-carrier_destination:
-  file:
-    name: CA-C-350-CORE_META_MODEL-PROBLEM--current-source-workflows-ca-o-010-v7-and-ca-o-011-v10-lack-the-registered-operation-body-headings-required-by-ca-d-479-v6.md
-    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern
 ---
 # Summary
 

@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-281
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -8,11 +7,6 @@ topics:
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-priority: medium
-version: 7
-updated_at: 2026-10-30 03:11:57 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
 relations:
   relates_to:
   - CA-E-001
@@ -20,7 +14,13 @@ relations:
   - CA-M-289
   - CA-R-1064
   - CA-R-2448
-atom_id: CA-C-281
+version: 7
+updated_at: 2026-10-30 03:11:57 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Summary
 

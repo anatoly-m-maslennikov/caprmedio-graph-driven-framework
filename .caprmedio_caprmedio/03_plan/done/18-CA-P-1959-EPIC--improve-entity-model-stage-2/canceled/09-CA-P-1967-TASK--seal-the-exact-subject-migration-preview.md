@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1967
 ref_id: CA-P-1967
+container:
+  atom: CA-P-1959
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 9
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Canceled
 topics:
   main_subject: Subject
   dependencies:
@@ -27,18 +23,22 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 16
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1959
-tier: 3
-container:
-  atom: CA-P-1959
+status: Canceled
+version: 16
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 9-CA-P-1967-TASK--seal-the-exact-subject-migration-preview.md
     path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/canceled
+work_sequence_number: 9
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

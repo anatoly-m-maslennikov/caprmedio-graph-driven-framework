@@ -1,22 +1,22 @@
 ---
 atom_id: CA-C-608
 ref_id: CA-C-608
-role: Concern
-form: Question
-current_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
-tier: 3
-version: 1
-updated_at: 2026-10-29 07:31:49 +0400
-topics:
-  main_subject: Entity/Object/Continuant/Projection
 container:
   scope_unit: CA-SU-00
+role: Concern
+form: Question
+topics:
+  main_subject: Entity/Object/Continuant/Projection
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-10-29 07:31:49 +0400
 carrier_destination:
   file:
     name: CA-C-608-CAPRMEDIO-QUESTION--does-terms-projection-need-a-separate-kind.md
     path: .caprmedio_caprmedio/01_concern
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 ## Summary
 

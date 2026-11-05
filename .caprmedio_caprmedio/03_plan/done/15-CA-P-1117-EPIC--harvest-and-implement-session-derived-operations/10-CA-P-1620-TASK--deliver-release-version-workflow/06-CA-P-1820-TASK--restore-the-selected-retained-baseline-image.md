@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1820
 ref_id: CA-P-1820
+container:
+  atom: CA-P-1620
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 6
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Active
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Image
   dependencies:
@@ -21,18 +15,24 @@ topics:
   - Subject/Graph Node/Engineering/Image
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1620
   blocks:
   - CA-P-1623
-tier: 3
-container:
-  atom: CA-P-1620
+status: Active
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 6-CA-P-1820-TASK--restore-the-selected-retained-baseline-image.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow
+work_sequence_number: 6
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

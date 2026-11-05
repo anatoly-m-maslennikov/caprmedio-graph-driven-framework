@@ -1,23 +1,23 @@
 ---
 atom_id: CA-C-386
 ref_id: CA-C-386
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
+topics:
+  main_subject: "F08 packet 2 local check recovery"
+  dependencies: [Plan, Analysis]
+relations:
+  relates_to: [CA-P-1412, CA-A-1132]
+status: Active
+version: 1
+updated_at: "2026-10-04 13:50:40 +0000"
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: Active
-topics:
-  main_subject: "F08 packet 2 local check recovery"
-  dependencies: [Plan, Analysis]
-version: 1
-updated_at: "2026-10-04 13:50:40 +0000"
-relations:
-  relates_to: [CA-P-1412, CA-A-1132]
-container:
-  scope_unit: CA-SU-00
 ---
 # Summary
 

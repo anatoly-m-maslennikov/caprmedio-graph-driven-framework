@@ -1,14 +1,10 @@
 ---
-version: 35
-updated_at: 2026-11-02 18:35:20 +0400
-relations:
-  child_of:
-  - CA-E-001
-  evaluation_for:
-  - CA-O-024
-  - CA-O-016
-  - CA-R-1559
-  - CA-M-295
+atom_id: CA-E-441
+ref_id: CA-E-441
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
   dependencies:
@@ -18,16 +14,20 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Autonomous Confidence Threshold'
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
-atom_id: CA-E-441
-ref_id: CA-E-441
+tier: 6
+relations:
+  child_of:
+  - CA-E-001
+  evaluation_for:
+  - CA-O-024
+  - CA-O-016
+  - CA-R-1559
+  - CA-M-295
+status: Active
+version: 35
+updated_at: 2026-11-02 18:35:20 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-13
 ---
 ## Summary
 

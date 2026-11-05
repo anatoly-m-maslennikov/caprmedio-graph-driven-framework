@@ -1,22 +1,22 @@
 ---
+atom_id: CA-D-268
+ref_id: CA-D-268@31-draft
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+tier: 3
+status: Draft
 version: 31
 updated_at: 2026-11-05 06:15:15 +0400
-atom_id: CA-D-268
-ref_id: CA-D-268@31-draft
-status: Draft
-tier: 3
-role: Delivery
-form: Decision
 carrier_destination:
   file:
     name: CA-D-268@31-draft-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

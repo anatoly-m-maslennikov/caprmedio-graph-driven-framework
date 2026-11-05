@@ -3,14 +3,14 @@ atom_id: CA-R-2687
 ref_id: CA-R-2687
 role: Requirement
 form: Declaration
-status: Active
-version: 1
-updated_at: 2026-11-02 19:17:40 +0400
-tier: 3
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit.order
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-11-02 19:17:40 +0400
 ---
 ## Summary
 

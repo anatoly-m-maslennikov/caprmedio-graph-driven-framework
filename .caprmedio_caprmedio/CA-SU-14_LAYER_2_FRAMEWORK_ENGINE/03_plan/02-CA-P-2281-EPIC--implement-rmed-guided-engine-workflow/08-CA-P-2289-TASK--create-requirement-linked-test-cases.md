@@ -1,13 +1,11 @@
 ---
 atom_id: CA-P-2289
 ref_id: CA-P-2289
+container:
+  atom: CA-P-2281
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 8
-current_scope_unit: FRAMEWORK_ENGINE
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow'
   dependencies:
@@ -22,20 +20,22 @@ topics:
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
-version: 11
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2281
   blocks:
   - CA-P-2290
-tier: 3
-container:
-  atom: CA-P-2281
+status: Active
+version: 11
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 8-CA-P-2289-TASK--create-requirement-linked-test-cases.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/2-CA-P-2281-EPIC--implement-an-rmed-guided-engine-workflow
+work_sequence_number: 8
+current_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
 ---
 # Summary
 

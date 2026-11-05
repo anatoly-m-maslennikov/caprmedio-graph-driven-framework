@@ -1,26 +1,26 @@
 ---
 atom_id: CA-P-2638
 ref_id: CA-P-2638
+container:
+  atom: CA-P-2637
 role: Plan
 form: Plan
 label: Task
+topics:
+  main_subject: Subject
+tier: 4
+status: Done
+version: 3
+updated_at: 2026-10-25 17:37:13 +0400
+carrier_destination:
+  file:
+    name: 1-CA-P-2638-TASK--reshape-subject-graph-roots.md
+    path: .caprmedio_caprmedio/03_plan/CA-P-2637-EPIC--migrate-engine-rmed-atoms/done
 work_sequence_number: 1
 current_scope_unit: caprmedio
 claim_target_scope_unit: FRAMEWORK_ENGINE
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Done
-topics:
-  main_subject: Subject
-version: 3
-updated_at: 2026-10-25 17:37:13 +0400
-tier: 4
-container:
-  atom: CA-P-2637
-carrier_destination:
-  file:
-    name: 1-CA-P-2638-TASK--reshape-subject-graph-roots.md
-    path: .caprmedio_caprmedio/03_plan/CA-P-2637-EPIC--migrate-engine-rmed-atoms/done
 ---
 # Summary
 

@@ -1,27 +1,27 @@
 ---
-cce_version: cce_1
-cce_form: method
+atom_id: CA-M-255
+ref_id: CA-M-255
+container:
+  scope_unit: CA-SU-16
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-version: 21
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 2
 relations:
   method_for:
   - CA-R-1156
   derived_from:
   - CA-A-058
+status: Active
+version: 21
+updated_at: 2026-11-02 19:46:47 +0400
+cce_version: cce_1
+cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-M-255
-ref_id: CA-M-255
-status: Active
-role: Method
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eng Decision
-tier: 2
-container:
-  scope_unit: CA-SU-16
 ---
 # Rebuild affected Projections
 

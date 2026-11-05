@@ -1,25 +1,25 @@
 ---
-cce_version: cce_1
-cce_form: obligation
+atom_id: CA-P-083
+ref_id: CA-P-083
+container:
+  scope_unit: CA-SU-15
+role: Plan
+form: Plan
+label: Task
 topics:
   main_subject: Subject/Graph Node/Engineering/Commit Automation
   dependencies:
   - Subject/Graph Node/Engineering/Git
   - realization
+tier: 3
+status: Active
 version: 6
 updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
 autonomous_confidence_threshold: 95
-status: Active
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-role: Plan
-form: Plan
-label: Task
-tier: 3
-atom_id: CA-P-083
-ref_id: CA-P-083
-container:
-  scope_unit: CA-SU-15
 ---
 # Realize durable asynchronous commit automation
 

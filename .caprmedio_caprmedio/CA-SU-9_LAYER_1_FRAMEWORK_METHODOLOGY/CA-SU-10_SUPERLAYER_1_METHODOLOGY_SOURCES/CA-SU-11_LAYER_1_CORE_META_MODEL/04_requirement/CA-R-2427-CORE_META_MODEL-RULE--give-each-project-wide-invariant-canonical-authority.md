@@ -1,27 +1,27 @@
 ---
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-R-2426
+atom_id: CA-R-2427
+ref_id: CA-R-2427
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
   - CAPRMEDIO_MODEL <+ Project
-atom_id: CA-R-2427
-ref_id: CA-R-2427
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
 tier: 3
-role: Requirement
-form: Rule
-container:
-  scope_unit: CA-SU-11
+relations:
+  child_of:
+  - CA-R-2426
+status: Active
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-R-2427-CORE_META_MODEL-RULE--give-each-project-wide-invariant-canonical-authority.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

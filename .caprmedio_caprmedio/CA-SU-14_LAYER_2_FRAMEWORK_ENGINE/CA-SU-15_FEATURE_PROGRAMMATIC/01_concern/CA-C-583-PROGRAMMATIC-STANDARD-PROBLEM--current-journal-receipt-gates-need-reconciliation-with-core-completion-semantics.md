@@ -1,28 +1,28 @@
 ---
 atom_id: CA-C-583
 ref_id: CA-C-583
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
-author: Anatoly Maslennikov
-status: Active
-priority: high
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about: [CA-R-1525, CA-R-1720, CA-D-340, CA-O-133, CA-O-134, CA-O-135, CA-O-136, CA-O-137, CA-O-138, CA-O-130, CA-O-131, CA-O-155, CA-O-007, CA-O-156, CA-O-031, CA-O-029]
   relates_to: [CA-C-576, CA-C-585, CA-P-2613, CA-P-2614, CA-P-2616, CA-P-2617, CA-P-2618, CA-P-2622, CA-P-2629, CA-P-2630, CA-P-2631, CA-P-2635]
+status: Active
 version: 5
 updated_at: "2026-10-23T13:18:33+0400"
-container:
-  scope_unit: CA-SU-15
 carrier_destination:
   file:
     name: CA-C-583-PROGRAMMATIC-PROBLEM--current-journal-receipt-gates-need-reconciliation-with-core-completion-semantics.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+priority: high
 ---
 # Summary
 

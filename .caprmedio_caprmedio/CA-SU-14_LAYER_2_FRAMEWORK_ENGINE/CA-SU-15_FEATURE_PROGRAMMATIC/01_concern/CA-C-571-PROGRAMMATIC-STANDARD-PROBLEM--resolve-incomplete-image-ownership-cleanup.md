@@ -1,27 +1,27 @@
 ---
 atom_id: CA-C-571
 ref_id: CA-C-571
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
+relations:
+  concern_about: [CA-P-2536, CA-P-2550, CA-P-2551, CA-O-164]
+status: Active
+version: 1
+updated_at: "2026-10-21T17:01:24Z"
+carrier_destination:
+  file:
+    name: CA-C-571-PROGRAMMATIC-PROBLEM--resolve-incomplete-image-ownership-cleanup-after-focused-local-adoption.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
 priority: high
-topics:
-  main_subject: Entity/Node/Continuant/Implementation
-relations:
-  concern_about: [CA-P-2536, CA-P-2550, CA-P-2551, CA-O-164]
-version: 1
-updated_at: "2026-10-21T17:01:24Z"
-container:
-  scope_unit: CA-SU-15
-carrier_destination:
-  file:
-    name: CA-C-571-PROGRAMMATIC-PROBLEM--resolve-incomplete-image-ownership-cleanup-after-focused-local-adoption.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

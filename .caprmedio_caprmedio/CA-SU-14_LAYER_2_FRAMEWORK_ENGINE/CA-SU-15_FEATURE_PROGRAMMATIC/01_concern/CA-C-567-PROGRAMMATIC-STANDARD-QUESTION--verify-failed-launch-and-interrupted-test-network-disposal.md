@@ -1,27 +1,27 @@
 ---
 atom_id: CA-C-567
 ref_id: CA-C-567
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Question
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
+relations:
+  concern_about: [CA-P-2537, CA-P-2536, CA-O-164]
+status: Active
+version: 2
+updated_at: "2026-10-21T13:10:41Z"
+carrier_destination:
+  file:
+    name: CA-C-567-PROGRAMMATIC-QUESTION--verify-failed-launch-and-interrupted-test-network-disposal.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Active
 priority: medium
-topics:
-  main_subject: Entity/Node/Continuant/Implementation
-relations:
-  concern_about: [CA-P-2537, CA-P-2536, CA-O-164]
-version: 2
-updated_at: "2026-10-21T13:10:41Z"
-container:
-  scope_unit: CA-SU-15
-carrier_destination:
-  file:
-    name: CA-C-567-PROGRAMMATIC-QUESTION--verify-failed-launch-and-interrupted-test-network-disposal.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

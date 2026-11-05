@@ -1,13 +1,13 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-105
 topics:
   main_subject:
     continuant:
       - autonomous-learning-memory
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
-atom_id: CA-C-105
+cce_version: cce_1
+cce_form: concern_question
 ---
 # When would autonomous learning memory justify an optional Extension?
 

@@ -1,18 +1,18 @@
 ---
-artifact_subtype: change_plan
-priority: medium
-version: 2
-updated_at: 2026-10-24 06:26:31 +0400
-role: Plan
-form: Plan
-tier: 3
-status: Canceled
-author: Anatoly Maslennikov
-current_scope_unit: caprmedio
 atom_id: CA-P-006
 ref_id: CA-P-006
 container:
   scope_unit: CA-SU-00
+role: Plan
+form: Plan
+tier: 3
+status: Canceled
+version: 2
+updated_at: 2026-10-24 06:26:31 +0400
+artifact_subtype: change_plan
+priority: medium
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
 ---
 
 # Establish Projection generation subtypes

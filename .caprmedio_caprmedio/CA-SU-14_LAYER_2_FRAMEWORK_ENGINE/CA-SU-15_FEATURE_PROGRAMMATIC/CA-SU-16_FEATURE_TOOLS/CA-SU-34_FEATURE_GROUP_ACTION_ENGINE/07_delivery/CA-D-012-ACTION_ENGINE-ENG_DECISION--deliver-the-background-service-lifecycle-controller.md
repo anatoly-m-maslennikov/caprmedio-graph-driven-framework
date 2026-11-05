@@ -1,8 +1,13 @@
 ---
+atom_id: CA-D-012
+ref_id: CA-D-012
+container:
+  scope_unit: CA-SU-34
+role: Delivery
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-version: 28
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 3
 relations:
   delivery_for:
   - CA-R-2154
@@ -10,19 +15,14 @@ relations:
   - CA-R-1124
   - CA-R-1064
   - CA-R-1065
+status: Active
+version: 28
+updated_at: 2026-11-02 19:46:47 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-D-012
-ref_id: CA-D-012
-status: Active
-role: Delivery
 author: Anatoly Maslennikov
 current_scope_unit: ACTION_ENGINE
-form: Eng Decision
-tier: 3
 claim_target_scope_unit: ACTION_ENGINE
-container:
-  scope_unit: CA-SU-34
 ---
 # Deliver the background-service lifecycle controller
 

@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1792
 ref_id: CA-P-1792
+container:
+  atom: CA-P-1117
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 32
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Active
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release
   dependencies:
@@ -20,19 +14,25 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Carrier/Framework Instance Settings TOML Serialization
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Implementation
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1117
   relates_to:
   - CA-C-499
   - CA-P-1782
-tier: 3
-container:
-  atom: CA-P-1117
+status: Active
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 32-CA-P-1792-TASK--seal-a-sufficient-finite-unit-test-deadline.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations
+work_sequence_number: 32
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

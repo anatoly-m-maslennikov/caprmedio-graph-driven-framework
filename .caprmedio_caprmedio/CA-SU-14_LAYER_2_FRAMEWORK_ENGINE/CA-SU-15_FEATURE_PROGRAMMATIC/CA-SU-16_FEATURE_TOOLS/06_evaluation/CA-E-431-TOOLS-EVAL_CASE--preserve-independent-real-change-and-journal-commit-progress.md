@@ -1,27 +1,27 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-431
+ref_id: CA-E-431
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-version: 18
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-802
   - CA-R-812
   - CA-M-087
+status: Active
+version: 18
+updated_at: 2026-11-02 19:44:26 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-431
-ref_id: CA-E-431
-status: Active
-role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eval Case
-tier: 3
-container:
-  scope_unit: CA-SU-16
 ---
 # Preserve independent real-change and Journal commit progress
 

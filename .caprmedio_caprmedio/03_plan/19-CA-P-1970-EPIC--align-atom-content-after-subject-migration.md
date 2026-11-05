@@ -1,14 +1,11 @@
 ---
 atom_id: CA-P-1970
 ref_id: CA-P-1970
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 label: Epic
-work_sequence_number: 19
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject
   dependencies:
@@ -24,15 +21,18 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+tier: 3
+status: Active
 version: 22
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-00
 carrier_destination:
   file:
     name: 19-CA-P-1970-EPIC--align-atom-content-after-subject-migration.md
     path: .caprmedio_caprmedio/03_plan
+work_sequence_number: 19
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

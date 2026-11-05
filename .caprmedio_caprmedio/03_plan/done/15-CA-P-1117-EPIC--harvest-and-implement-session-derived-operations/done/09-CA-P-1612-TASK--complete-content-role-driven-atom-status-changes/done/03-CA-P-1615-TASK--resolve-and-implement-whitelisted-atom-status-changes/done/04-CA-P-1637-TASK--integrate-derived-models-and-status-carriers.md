@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1637
 ref_id: CA-P-1637
+container:
+  atom: CA-P-1615
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Atom.Status
   dependencies:
@@ -20,20 +16,24 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1615
   blocks:
   - CA-P-1638
-tier: 3
-container:
-  atom: CA-P-1615
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 4-CA-P-1637-TASK--integrate-derived-models-and-status-carriers.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/9-CA-P-1612-TASK--complete-content-role-driven-atom-status-changes/done/3-CA-P-1615-TASK--resolve-and-implement-whitelisted-atom-status-changes/done
+work_sequence_number: 4
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

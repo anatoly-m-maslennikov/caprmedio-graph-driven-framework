@@ -1,35 +1,28 @@
 ---
 atom_id: CA-R-2483
 ref_id: CA-R-2483
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-topics:
-  main_subject: CAPRMEDIO_STRUCTURE
-version: 6
-updated_at: 2026-11-02 18:35:20 +0400
-tier: 3
-role: Requirement
-form: Rule
 container:
   scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE
+tier: 3
+status: Active
+version: 6
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-R-2483-CORE_META_MODEL-RULE--separate-the-caprmedio-model-from-project-structure.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
 Separate the CAPRMEDIO model from Project structure
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-Aspects <+ Product
-```
 
 ### Prose Claim
 
@@ -61,6 +54,13 @@ CAPRMEDIO's PROJECT STRUCTURE records ENGINE's base formal Scope:
 - A local MODEL changes ENGINE's Scope only through an explicit Scope-contract replacement.
 
 Declared Unit order governs this Scope Structure.
+
+### Formal Claim
+
+```CFEL
+# model
+Aspects <+ Product
+```
 
 ## Details
 

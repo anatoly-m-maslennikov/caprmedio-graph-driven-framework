@@ -1,25 +1,25 @@
 ---
+atom_id: CA-R-1473
+ref_id: CA-R-1473
+container:
+  scope_unit: CA-SU-15
+role: Requirement
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Temporary State
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+tier: 1
+status: Active
 version: 20
 updated_at: 2026-10-27 19:59:55 +0400
-atom_id: CA-R-1473
-ref_id: CA-R-1473
-role: Requirement
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
-tier: 1
-form: Rule
-container:
-  scope_unit: CA-SU-15
 carrier_destination:
   file:
     name: CA-R-1473-PROGRAMMATIC-RULE--confine-all-temporary-state-to-project-temp.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

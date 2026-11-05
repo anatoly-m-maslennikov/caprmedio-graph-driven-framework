@@ -1,22 +1,22 @@
 ---
 atom_id: CA-R-2008
 ref_id: CA-R-2008
+container:
+  scope_unit: CA-SU-15
 role: Requirement
 form: Rule
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-11-02 19:46:47 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+tier: 4
 relations:
   depends_on:
   - CA-R-1096
-tier: 4
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 14
+updated_at: 2026-11-02 19:46:47 +0400
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

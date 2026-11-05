@@ -1,18 +1,18 @@
 ---
 atom_id: CA-P-023
 ref_id: CA-P-023
-subject_scopes:
-- method
-version: 5
-updated_at: 2026-10-24 06:26:31 +0400
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 tier: 3
 status: Active
+version: 5
+updated_at: 2026-10-24 06:26:31 +0400
+subject_scopes:
+- method
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-container:
-  scope_unit: CA-SU-00
 ---
 # Consider two language sets for OPERATOR_DOCUMENTATION
 

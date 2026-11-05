@@ -1,11 +1,13 @@
 ---
-subject_scopes:
-- routing
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-version: 14
-updated_at: 2026-10-27 20:00:09 +0400
+atom_id: CA-R-561
+ref_id: CA-R-561
+container:
+  scope_unit: CA-SU-23
+role: Requirement
+form: Rule
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+tier: 1
 relations:
   child_of:
   - CAPRMEDIO-GOV-REQU-337-CORE_META_MODEL-REQUIREMENT--register-generated-data-stage-prefixes
@@ -13,18 +15,16 @@ relations:
   - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-524--project-work-journal-ndjson-to-toon
   - CA-R-1059
   - CA-R-1060
-author: Anatoly Maslennikov
-role: Requirement
-current_scope_unit: SKILLS
 status: Active
-atom_id: CA-R-561
-ref_id: CA-R-561
-form: Rule
-tier: 1
-topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
-container:
-  scope_unit: CA-SU-23
+version: 14
+updated_at: 2026-10-27 20:00:09 +0400
+subject_scopes:
+- routing
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
+current_scope_unit: SKILLS
 ---
 # Route generated-data pipeline work
 

@@ -1,4 +1,10 @@
 ---
+atom_id: "CA-C-256"
+ref_id: CA-C-256
+container:
+  scope_unit: CA-SU-11
+role: "Concern"
+form: "Question"
 topics:
   main_subject: Entity/Continuant/Object/Atom
   dependencies:
@@ -6,22 +12,16 @@ topics:
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-priority: medium
+relations: {"relates_to": ["CA-M-123"]}
+status: "active"
 version: 8
 updated_at: 2026-10-23 03:14:50 +0400
-relations: {"relates_to": ["CA-M-123"]}
-atom_id: "CA-C-256"
-ref_id: CA-C-256
-role: "Concern"
+priority: medium
 current_scope_unit: "CORE_META_MODEL"
 claim_target_scope_unit: "CORE_META_MODEL"
 local_tier: "Standard"
-status: "active"
 author: "Anatoly Maslennikov"
-form: "Question"
 global_tier: 11
-container:
-  scope_unit: CA-SU-11
 ---
 # Summary
 

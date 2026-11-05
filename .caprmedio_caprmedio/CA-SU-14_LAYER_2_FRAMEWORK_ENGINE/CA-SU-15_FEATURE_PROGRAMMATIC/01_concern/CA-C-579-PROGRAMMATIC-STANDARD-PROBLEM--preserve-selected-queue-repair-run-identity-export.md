@@ -1,23 +1,23 @@
 ---
 atom_id: CA-C-579
 ref_id: CA-C-579
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
+relations:
+  concern_about: [CA-P-2590, CA-P-2595]
+status: Resolved
+version: 2
+updated_at: "2026-10-22T12:08:19Z"
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Resolved
 priority: high
-topics:
-  main_subject: Entity/Node/Continuant/Implementation
-relations:
-  concern_about: [CA-P-2590, CA-P-2595]
-version: 2
-updated_at: "2026-10-22T12:08:19Z"
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

@@ -1,21 +1,21 @@
 ---
 atom_id: CA-P-2700
 ref_id: CA-P-2700
+container:
+  atom: CA-P-2694
 role: Plan
 form: Plan
 label: Task
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-tier: 4
-version: 2
-updated_at: 2026-10-29 20:35:44 +0400
 topics:
   main_subject: Entity/Object/Continuant/Structural Unit/Scope Unit
 
-container:
-  atom: CA-P-2694
+tier: 4
+status: Done
+version: 2
+updated_at: 2026-10-29 20:35:44 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 ## Summary
 

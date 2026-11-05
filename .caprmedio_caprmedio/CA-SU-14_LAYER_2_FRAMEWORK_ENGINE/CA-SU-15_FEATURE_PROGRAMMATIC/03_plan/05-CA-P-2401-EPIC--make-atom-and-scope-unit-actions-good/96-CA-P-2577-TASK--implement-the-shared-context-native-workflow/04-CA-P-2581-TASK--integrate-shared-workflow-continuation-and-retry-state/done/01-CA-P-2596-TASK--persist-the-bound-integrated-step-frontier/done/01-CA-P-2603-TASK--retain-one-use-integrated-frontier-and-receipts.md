@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2603
 ref_id: CA-P-2603
+container:
+  atom: CA-P-2596
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
-version: 4
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2596
@@ -25,13 +21,17 @@ relations:
   - CA-M-422
   - CA-M-430
   - CA-O-016
-tier: 3
-container:
-  atom: CA-P-2596
+status: Done
+version: 4
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-2603-TASK--retain-one-use-integrated-frontier-and-receipts.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/done/4-CA-P-2581-TASK--integrate-shared-workflow-continuation-and-retry-state/done/1-CA-P-2596-TASK--persist-the-bound-integrated-step-frontier/done
+work_sequence_number: 1
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

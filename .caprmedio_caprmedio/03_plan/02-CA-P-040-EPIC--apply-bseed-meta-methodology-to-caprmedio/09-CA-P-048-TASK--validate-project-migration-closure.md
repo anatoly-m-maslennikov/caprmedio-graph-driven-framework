@@ -1,17 +1,17 @@
 ---
 atom_id: CA-P-048
 ref_id: CA-P-048
-cce_version: cce_1
-cce_form: obligation
-version: 4
-updated_at: 2026-10-24 06:04:04 +0400
-status: Active
-author: Anatoly Maslennikov
-current_scope_unit: caprmedio
 role: Plan
 form: Plan
 label: Task
 tier: 3
+status: Active
+version: 4
+updated_at: 2026-10-24 06:04:04 +0400
+cce_version: cce_1
+cce_form: obligation
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
 ---
 # Validate Project migration closure
 

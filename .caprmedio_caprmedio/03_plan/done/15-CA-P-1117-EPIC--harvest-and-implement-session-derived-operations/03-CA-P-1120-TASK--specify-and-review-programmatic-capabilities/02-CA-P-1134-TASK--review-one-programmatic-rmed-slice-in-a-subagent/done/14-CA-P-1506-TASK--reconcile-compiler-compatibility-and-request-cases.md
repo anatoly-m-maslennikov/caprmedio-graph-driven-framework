@@ -4,20 +4,13 @@ ref_id: CA-P-1506
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 14
-current_scope_unit: caprmedio
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Compatibility Boundary
   dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/Projection
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1134
@@ -26,7 +19,14 @@ relations:
   - CA-P-1122
   - CA-P-1162
   - CA-P-1163
-tier: 3
+status: Done
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 14
+current_scope_unit: caprmedio
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

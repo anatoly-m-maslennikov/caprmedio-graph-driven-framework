@@ -1,13 +1,10 @@
 ---
 atom_id: CA-R-1801
 ref_id: CA-R-1801
+container:
+  scope_unit: CA-SU-24
 role: Requirement
-current_scope_unit: PROMPTS
-claim_target_scope_unit: PROMPTS
-status: Active
-author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-10-29 22:26:57 +0400
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
   dependencies:
@@ -22,13 +19,16 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
 tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-24
+status: Active
+version: 17
+updated_at: 2026-10-29 22:26:57 +0400
 carrier_destination:
   file:
     name: CA-R-1801-PROMPTS-RULE--provide-complete-local-rmed-review-capability.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/04_requirement
+current_scope_unit: PROMPTS
+claim_target_scope_unit: PROMPTS
+author: Anatoly Maslennikov
 ---
 ## Summary
 

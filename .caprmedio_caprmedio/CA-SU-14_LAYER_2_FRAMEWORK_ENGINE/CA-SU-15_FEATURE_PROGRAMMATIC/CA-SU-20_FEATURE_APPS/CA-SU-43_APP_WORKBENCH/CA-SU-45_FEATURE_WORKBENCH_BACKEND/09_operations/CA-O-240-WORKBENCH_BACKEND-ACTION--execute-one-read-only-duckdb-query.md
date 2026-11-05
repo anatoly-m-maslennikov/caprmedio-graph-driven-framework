@@ -1,16 +1,13 @@
 ---
 atom_id: CA-O-240
 ref_id: CA-O-240
-current_scope_unit: WORKBENCH_BACKEND
-claim_target_scope_unit: WORKBENCH_BACKEND
-status: Active
-version: 10
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-45
 role: Operations
 form: Action
-tier: 6
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 6
 relations:
   depends_on:
   - CA-R-2728
@@ -19,13 +16,16 @@ relations:
   - CA-M-463
   - CA-M-462
   - CA-D-673
+status: Active
+version: 10
+updated_at: 2026-11-05 20:32:03 +0400
 carrier_destination:
   file:
     name: CA-O-240-WORKBENCH_BACKEND-ACTION--execute-one-read-only-duckdb-query.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/09_operations
-updated_at: 2026-11-05 20:32:03 +0400
-container:
-  scope_unit: CA-SU-45
+current_scope_unit: WORKBENCH_BACKEND
+claim_target_scope_unit: WORKBENCH_BACKEND
+author: Anatoly Maslennikov
 ---
 
 ## Summary

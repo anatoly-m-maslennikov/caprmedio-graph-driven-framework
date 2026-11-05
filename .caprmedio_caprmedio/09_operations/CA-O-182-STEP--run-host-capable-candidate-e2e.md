@@ -1,11 +1,10 @@
 ---
 atom_id: CA-O-182
 ref_id: CA-O-182
+container:
+  scope_unit: CA-SU-00
 role: Operations
 form: Step
-current_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
 topics:
   main_subject: 'Subject/caprmedio/Step//Release Version/Step: run host-capable Candidate E2E'
   dependencies:
@@ -15,20 +14,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
   - Subject/CAPRMEDIO/Carrier/Docker Image
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 10
-updated_at: 2026-10-27 19:59:47 +0400
+tier: 3
 relations:
   part_of:
   - CA-O-164
   invokes:
   - CA-O-181
-tier: 3
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 10
+updated_at: 2026-10-27 19:59:47 +0400
 carrier_destination:
   file:
     name: CA-O-182-CAPRMEDIO-STEP--run-host-capable-candidate-e2e.md
     path: .caprmedio_caprmedio/09_operations
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

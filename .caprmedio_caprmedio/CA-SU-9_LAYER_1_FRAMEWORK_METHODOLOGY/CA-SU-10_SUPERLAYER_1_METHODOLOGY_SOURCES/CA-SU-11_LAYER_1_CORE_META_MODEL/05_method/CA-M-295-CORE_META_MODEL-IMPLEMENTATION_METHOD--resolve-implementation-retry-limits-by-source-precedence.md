@@ -1,11 +1,10 @@
 ---
-version: 32
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-R-1489
-  depends_on:
-  - CA-M-279
+atom_id: CA-M-295
+ref_id: CA-M-295
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
   dependencies:
@@ -15,20 +14,21 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   - CAPRMEDIO_MODEL <+ Carrier/File
-atom_id: CA-M-295
-ref_id: CA-M-295
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
 tier: 5
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
+relations:
+  child_of:
+  - CA-R-1489
+  depends_on:
+  - CA-M-279
+status: Active
+version: 32
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

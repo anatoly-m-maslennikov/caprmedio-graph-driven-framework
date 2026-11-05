@@ -1,14 +1,14 @@
 ---
 atom_id: CA-R-2526
 ref_id: CA-R-2526
-status: Active
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.ID
-version: 4
-updated_at: 2026-11-04 05:21:15 +0400
-tier: 3
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.ID
+tier: 3
+status: Active
+version: 4
+updated_at: 2026-11-04 05:21:15 +0400
 ---
 ## Summary
 

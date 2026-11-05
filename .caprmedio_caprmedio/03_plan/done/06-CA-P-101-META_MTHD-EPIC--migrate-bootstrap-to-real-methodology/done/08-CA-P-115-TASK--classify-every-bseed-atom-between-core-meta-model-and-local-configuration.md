@@ -1,10 +1,9 @@
 ---
 atom_id: CA-P-115
 ref_id: CA-P-115
-cce_version: cce_1
-cce_form: obligation
-author: Operator
-assignee: AI Agent
+role: Plan
+form: Plan
+label: Task
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Carrier
   dependencies:
@@ -12,15 +11,16 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit//CORE_META_MODEL
   - Subject/Graph Node/Domain/Continuant/Selection//Methodology Sources
   - Subject/Graph Node/Engineering/Methodology
+tier: 3
+status: Done
 version: 8
 updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
+author: Operator
+assignee: AI Agent
 autonomous_confidence_threshold: 98
-status: Done
 current_scope_unit: caprmedio
-role: Plan
-form: Plan
-label: Task
-tier: 3
 ---
 # Classify Every BSEED Atom Between Core Meta-Model and Local Configuration
 

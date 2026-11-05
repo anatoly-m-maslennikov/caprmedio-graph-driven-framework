@@ -1,14 +1,16 @@
 ---
+atom_id: CA-M-144
+ref_id: CA-M-144
+container:
+  scope_unit: CA-SU-16
+role: Method
+form: Eng Policy
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 30
-updated_at: 2026-10-27 19:59:39 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 2
 relations:
   method_for:
   - CA-R-1063
@@ -16,16 +18,14 @@ relations:
   - CA-R-1065
   - CA-R-1066
   - CA-R-1067
-atom_id: CA-M-144
-ref_id: CA-M-144
 status: Active
-role: Method
+version: 30
+updated_at: 2026-10-27 19:59:39 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eng Policy
-tier: 2
-container:
-  scope_unit: CA-SU-16
 ---
 # Route and invoke Tools through the common CLI
 

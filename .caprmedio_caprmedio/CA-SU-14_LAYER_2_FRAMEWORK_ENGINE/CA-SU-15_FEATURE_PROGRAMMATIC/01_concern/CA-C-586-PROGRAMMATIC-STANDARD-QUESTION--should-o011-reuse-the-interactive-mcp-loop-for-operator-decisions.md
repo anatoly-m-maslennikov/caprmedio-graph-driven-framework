@@ -1,28 +1,28 @@
 ---
 atom_id: CA-C-586
 ref_id: CA-C-586
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Question
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
-author: Anatoly Maslennikov
-status: Active
-priority: high
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
   concern_about: [CA-O-011, CA-P-2630, CA-C-585, CA-C-583]
   relates_to: [CA-O-016, CA-P-2577, CA-R-1317]
+status: Active
 version: 1
 updated_at: "2026-10-23T12:58:41+0400"
-container:
-  scope_unit: CA-SU-15
 carrier_destination:
   file:
     name: CA-C-586-PROGRAMMATIC-QUESTION--should-o011-reuse-the-interactive-mcp-loop-for-operator-decisions.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+priority: high
 ---
 # Summary
 

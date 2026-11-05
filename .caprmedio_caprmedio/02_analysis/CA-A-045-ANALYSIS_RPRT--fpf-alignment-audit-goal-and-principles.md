@@ -1,10 +1,10 @@
 ---
 atom_id: CA-A-045
+version: 1
+updated_at: 2026-08-21 01:52:33
 subject_scopes:
   - principles
   - authority
-version: 1
-updated_at: 2026-08-21 01:52:33
 ---
 
 ## Task, scope, and boundaries

@@ -1,25 +1,25 @@
 ---
 atom_id: CA-E-draft
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER
+tier: 3
+status: Draft
 version: 1
 updated_at: 2026-11-03 14:19:59 +0400
-tier: 3
-role: Evaluation
-form: Eval Policy
 carrier_destination:
   file:
     name: CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 ## Summary
 

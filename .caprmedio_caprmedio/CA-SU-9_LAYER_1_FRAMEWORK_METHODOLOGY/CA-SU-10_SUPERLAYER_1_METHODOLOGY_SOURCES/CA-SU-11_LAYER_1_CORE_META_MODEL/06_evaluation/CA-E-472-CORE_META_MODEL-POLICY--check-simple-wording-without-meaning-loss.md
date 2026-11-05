@@ -1,9 +1,10 @@
 ---
-version: 31
-updated_at: 2026-11-04 18:28:33 +0400
-relations:
-  evaluation_for:
-  - CA-M-294
+atom_id: CA-E-472
+ref_id: CA-E-472
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content
   dependencies:
@@ -19,18 +20,17 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-atom_id: CA-E-472
-ref_id: CA-E-472
-status: Active
 tier: 4
-role: Evaluation
-form: Eval Policy
+relations:
+  evaluation_for:
+  - CA-M-294
+status: Active
+version: 31
+updated_at: 2026-11-04 18:28:33 +0400
 carrier_destination:
   file:
     name: CA-E-472-EVAL_POLICY--check-simple-wording-without-meaning-loss.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

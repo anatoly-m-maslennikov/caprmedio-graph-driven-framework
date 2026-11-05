@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-384@36-draft
+ref_id: CA-E-384@36-draft
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Policy
 topics:
   main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
   dependencies:
@@ -8,8 +14,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 36
-updated_at: 2026-10-29 00:04:17 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1596
@@ -18,17 +23,12 @@ relations:
   - CA-R-1624
   - CA-R-1465
   - CA-R-1273
-atom_id: CA-E-384@36-draft
-ref_id: CA-E-384@36-draft
-role: Evaluation
+status: Draft
+version: 36
+updated_at: 2026-10-29 00:04:17 +0400
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Draft
 author: Anatoly Maslennikov
-form: Policy
-tier: 3
-container:
-  scope_unit: CA-SU-11
 ---
 # Summary
 

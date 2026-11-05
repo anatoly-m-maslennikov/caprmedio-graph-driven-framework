@@ -1,4 +1,8 @@
 ---
+atom_id: CA-E-486
+ref_id: CA-E-486@24-draft
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   dependencies:
@@ -7,20 +11,16 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
   - CAPRMEDIO_MODEL <+ Event Record
-version: 24
-updated_at: 2026-11-05 02:06:39 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-2464
   - CA-R-2465
   - CA-R-1510@18
   - CA-R-1511@22
-atom_id: CA-E-486
-ref_id: CA-E-486@24-draft
 status: Draft
-tier: 3
-role: Evaluation
-form: Eval Case
+version: 24
+updated_at: 2026-11-05 02:06:39 +0400
 carrier_destination:
   file:
     name: CA-E-486@24-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-steps-and-runs.md

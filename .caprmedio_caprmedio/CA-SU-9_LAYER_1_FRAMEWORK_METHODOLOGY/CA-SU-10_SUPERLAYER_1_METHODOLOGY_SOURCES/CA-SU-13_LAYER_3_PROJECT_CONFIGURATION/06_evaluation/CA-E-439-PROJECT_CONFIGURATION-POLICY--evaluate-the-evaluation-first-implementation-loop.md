@@ -1,8 +1,21 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
-version: 29
-updated_at: 2026-11-02 18:35:20 +0400
+atom_id: CA-E-439
+ref_id: CA-E-439
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Project
+tier: 4
 relations:
   child_of:
   - CA-E-001
@@ -14,28 +27,15 @@ relations:
   - CA-O-020
   - CA-O-021
   - CA-M-239
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
-  dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
-  - CAPRMEDIO_MODEL <+ Project
+status: Active
+version: 29
+updated_at: 2026-11-02 18:35:20 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-439
-ref_id: CA-E-439
-status: Active
 current_scope_unit: PROJECT_CONFIGURATION
-tier: 4
 claim_target_scope_unit: caprmedio
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-13
 ---
 ## Summary
 Evaluate the Evaluation-first implementation loop

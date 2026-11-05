@@ -1,30 +1,30 @@
 ---
 atom_id: CA-P-2551
 ref_id: CA-P-2551
+container:
+  atom: CA-P-2536
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 11
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Backlog
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2536
   depends_on:
   - CA-P-2550
+status: Backlog
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2536
 carrier_destination:
   file:
     name: 11-CA-P-2551-TASK--resolve-incomplete-image-ownership-cleanup-after-focused-local-adoption.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/001_backlog
+work_sequence_number: 11
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,12 +1,10 @@
 ---
 atom_id: CA-O-127
 ref_id: CA-O-127
+container:
+  scope_unit: CA-SU-13
 role: Operations
 form: Workflow
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   dependencies:
@@ -14,15 +12,17 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
+status: Active
 version: 23
 updated_at: 2026-10-27 19:59:46 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-13
 carrier_destination:
   file:
     name: CA-O-127-PROJECT_CONFIGURATION-WORKFLOW--manage-atom-lifecycle.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

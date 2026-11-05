@@ -1,16 +1,11 @@
 ---
 atom_id: CA-P-1848
 ref_id: CA-P-1848
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 label: Epic
-work_sequence_number: 17
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 25
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Version
   dependencies:
@@ -39,12 +34,17 @@ topics:
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Engineering/Continuant/Tool
 tier: 3
-container:
-  scope_unit: CA-SU-00
+status: Done
+version: 25
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 17-CA-P-1848-EPIC--unify-installation-and-local-public-release-cycles.md
     path: .caprmedio_caprmedio/03_plan/done
+work_sequence_number: 17
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,19 +1,19 @@
 ---
 atom_id: CA-A-1218
 ref_id: CA-A-1218
-role: Analysis & Advisory
-form: Specification Proposal
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-topics:
-  main_subject: Subject
-version: 15
-updated_at: 2026-11-02 15:49:28 +0400
-tier: 3
 container:
   scope_unit: CA-SU-00
+role: Analysis & Advisory
+form: Specification Proposal
+topics:
+  main_subject: Subject
+tier: 3
+status: Done
+version: 15
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

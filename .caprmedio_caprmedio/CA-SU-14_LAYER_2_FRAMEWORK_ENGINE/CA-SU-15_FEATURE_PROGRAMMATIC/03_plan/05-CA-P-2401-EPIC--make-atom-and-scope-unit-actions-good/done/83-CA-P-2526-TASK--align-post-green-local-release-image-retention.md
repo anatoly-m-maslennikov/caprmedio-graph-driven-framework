@@ -1,28 +1,28 @@
 ---
 atom_id: CA-P-2526
 ref_id: CA-P-2526
+container:
+  atom: CA-P-2401
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 83
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2401
+status: Done
 version: 6
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2401
 carrier_destination:
   file:
     name: 83-CA-P-2526-TASK--align-post-green-local-release-image-retention.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done
+work_sequence_number: 83
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

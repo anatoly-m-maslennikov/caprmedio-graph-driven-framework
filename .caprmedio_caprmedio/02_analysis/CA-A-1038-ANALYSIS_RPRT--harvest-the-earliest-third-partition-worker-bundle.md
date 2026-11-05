@@ -1,31 +1,31 @@
 ---
 atom_id: CA-A-1038
 ref_id: CA-A-1038
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
 label: Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Third-partition earliest worker evidence
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   is_result_of:
   - CA-P-1320
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-1038-CAPRMEDIO-REPORT--harvest-the-earliest-third-partition-worker-bundle.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

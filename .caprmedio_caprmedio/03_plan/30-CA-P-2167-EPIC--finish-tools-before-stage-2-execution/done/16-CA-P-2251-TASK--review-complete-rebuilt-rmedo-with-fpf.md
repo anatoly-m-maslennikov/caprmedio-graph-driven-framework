@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2251
 ref_id: CA-P-2251
+container:
+  atom: CA-P-2167
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 16
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -24,8 +20,7 @@ topics:
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 14
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2167
@@ -53,13 +48,18 @@ relations:
   - CA-P-2271
   - CA-P-2272
   - CA-P-2280
-tier: 3
-container:
-  atom: CA-P-2167
+status: Done
+version: 14
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 16-CA-P-2251-TASK--review-complete-rebuilt-rmedo-with-fpf.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done
+work_sequence_number: 16
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

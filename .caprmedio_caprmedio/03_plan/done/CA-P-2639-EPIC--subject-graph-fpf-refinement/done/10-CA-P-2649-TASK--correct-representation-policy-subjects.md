@@ -1,25 +1,25 @@
 ---
 atom_id: CA-P-2649
 ref_id: CA-P-2649
+container:
+  atom: CA-P-2639
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 10
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject
+tier: 4
+status: Done
 version: 2
 updated_at: 2026-10-26 06:39:23 +0400
-tier: 4
-container:
-  atom: CA-P-2639
 carrier_destination:
   file:
     name: 10-CA-P-2649-TASK--correct-representation-policy-subjects.md
     path: .caprmedio_caprmedio/03_plan/done/CA-P-2639-EPIC--subject-graph-fpf-refinement/done
+work_sequence_number: 10
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

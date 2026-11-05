@@ -1,12 +1,10 @@
 ---
 atom_id: CA-M-340
 ref_id: CA-M-340
+container:
+  scope_unit: CA-SU-2
 role: Method
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-10-27 19:59:42 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -19,17 +17,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code
+tier: 4
 relations:
   method_for:
   - CA-R-1883
-form: Eng Decision
-tier: 4
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 17
+updated_at: 2026-10-27 19:59:42 +0400
 carrier_destination:
   file:
     name: CA-M-340-WORKFLOW_ORCHESTRATOR-ENG_DECISION--admit-explicit-frozen-release-recovery.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/05_method
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

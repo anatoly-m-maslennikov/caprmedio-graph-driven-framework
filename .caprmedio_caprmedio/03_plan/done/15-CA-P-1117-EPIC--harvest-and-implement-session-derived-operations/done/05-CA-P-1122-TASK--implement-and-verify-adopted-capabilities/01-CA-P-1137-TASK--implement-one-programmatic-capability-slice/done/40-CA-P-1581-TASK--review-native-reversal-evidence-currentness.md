@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1581
 ref_id: CA-P-1581
+container:
+  atom: CA-P-1137
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 40
-current_scope_unit: caprmedio
-claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Revert Changes/Admission and Result Evaluation
   dependencies:
@@ -18,18 +14,22 @@ topics:
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1137
-tier: 3
-container:
-  atom: CA-P-1137
+status: Done
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 40-CA-P-1581-TASK--review-native-reversal-evidence-currentness.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/1-CA-P-1137-TASK--implement-one-programmatic-capability-slice/done
+work_sequence_number: 40
+current_scope_unit: caprmedio
+claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

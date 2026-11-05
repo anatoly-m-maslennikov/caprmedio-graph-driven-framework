@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-512
 ref_id: CA-D-512
+container:
+  scope_unit: CA-SU-3
 role: Delivery
-current_scope_unit: DISCOVER_TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 16
-updated_at: 2026-11-05 14:23:38 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
@@ -19,17 +17,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
 relations:
   depends_on:
   - CA-D-678
-form: Eng Decision
-tier: 3
+status: Active
+version: 16
+updated_at: 2026-11-05 14:23:38 +0400
 carrier_destination:
   file:
     name: CA-D-512-DISCOVER_TOOLS-ENG_DECISION--encode-discover-tools-tool-binding.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-3_TOOL_DISCOVER_TOOLS/07_delivery
-container:
-  scope_unit: CA-SU-3
+current_scope_unit: DISCOVER_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

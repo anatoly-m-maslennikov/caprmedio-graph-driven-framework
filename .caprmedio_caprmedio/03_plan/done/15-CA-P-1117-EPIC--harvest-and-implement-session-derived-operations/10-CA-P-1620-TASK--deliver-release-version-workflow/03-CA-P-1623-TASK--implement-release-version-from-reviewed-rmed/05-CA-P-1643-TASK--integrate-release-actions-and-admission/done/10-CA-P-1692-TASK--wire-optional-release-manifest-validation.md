@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1692
 ref_id: CA-P-1692
+container:
+  atom: CA-P-1643
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 10
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Release
   dependencies:
@@ -17,20 +13,24 @@ topics:
   - Subject/Graph Node/Engineering/Manifest
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Validation
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1643
   blocks:
   - CA-P-1644
-tier: 3
-container:
-  atom: CA-P-1643
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 10-CA-P-1692-TASK--wire-optional-release-manifest-validation.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow/3-CA-P-1623-TASK--implement-release-version-from-reviewed-rmed/5-CA-P-1643-TASK--integrate-release-actions-and-admission/done
+work_sequence_number: 10
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

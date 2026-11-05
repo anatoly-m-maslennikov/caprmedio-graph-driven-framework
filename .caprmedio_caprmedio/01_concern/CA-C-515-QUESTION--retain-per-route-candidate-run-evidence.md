@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-515
 ref_id: CA-C-515
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Question
-current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: active
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Per-route candidate Run evidence retention
   dependencies:
@@ -20,8 +15,13 @@ topics:
   - Evaluation
 relations:
   concern_about: [CA-P-1816, CA-P-1124]
-container:
-  scope_unit: CA-SU-00
+status: active
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

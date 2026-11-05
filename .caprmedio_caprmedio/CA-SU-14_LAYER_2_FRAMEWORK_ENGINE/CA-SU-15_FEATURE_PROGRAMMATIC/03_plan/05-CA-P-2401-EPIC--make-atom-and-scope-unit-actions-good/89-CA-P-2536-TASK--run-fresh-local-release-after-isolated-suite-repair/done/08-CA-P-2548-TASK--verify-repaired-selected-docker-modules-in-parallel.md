@@ -1,28 +1,28 @@
 ---
 atom_id: CA-P-2548
 ref_id: CA-P-2548
+container:
+  atom: CA-P-2536
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 8
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2536
+status: Done
 version: 5
 updated_at: 2026-10-25 17:32:27 +0400
-tier: 3
-container:
-  atom: CA-P-2536
 carrier_destination:
   file:
     name: 8-CA-P-2548-TASK--verify-repaired-selected-docker-modules-in-parallel.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/done
+work_sequence_number: 8
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

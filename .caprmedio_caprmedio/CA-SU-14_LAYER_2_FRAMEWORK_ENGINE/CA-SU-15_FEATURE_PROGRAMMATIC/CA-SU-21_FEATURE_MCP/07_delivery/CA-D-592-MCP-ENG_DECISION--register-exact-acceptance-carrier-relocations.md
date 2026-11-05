@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-592
 ref_id: CA-D-592
+container:
+  scope_unit: CA-SU-21
 role: Delivery
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 19:59:27 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   dependencies:
@@ -15,19 +13,21 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Carrier/File
+tier: 4
 relations:
   delivery_for:
   - CA-R-1899
   - CA-M-354
   - CA-E-598
-form: Eng Decision
-tier: 4
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 12
+updated_at: 2026-10-27 19:59:27 +0400
 carrier_destination:
   file:
     name: CA-D-592-MCP-ENG_DECISION--register-exact-acceptance-carrier-relocations.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/07_delivery
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

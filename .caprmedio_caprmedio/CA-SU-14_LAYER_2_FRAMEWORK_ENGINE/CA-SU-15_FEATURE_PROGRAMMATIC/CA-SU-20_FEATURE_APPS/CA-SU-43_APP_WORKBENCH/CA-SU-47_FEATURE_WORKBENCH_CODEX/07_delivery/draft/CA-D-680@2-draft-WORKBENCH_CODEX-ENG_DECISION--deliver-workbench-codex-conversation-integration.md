@@ -1,26 +1,26 @@
 ---
 atom_id: CA-D-680
 ref_id: CA-D-680@2-draft
-current_scope_unit: WORKBENCH_CODEX
-claim_target_scope_unit: WORKBENCH_CODEX
-status: Draft
-version: 2
-author: Anatoly Maslennikov
 role: Delivery
 form: Eng Decision
-tier: 4
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
+tier: 4
 relations:
   delivery_for:
   - CA-R-2791
   - CA-M-475
   - CA-E-682
+status: Draft
+version: 2
+updated_at: 2026-11-05 16:45:35 +0400
 carrier_destination:
   file:
     name: CA-D-680@2-draft-WORKBENCH_CODEX-ENG_DECISION--deliver-workbench-codex-conversation-integration.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-47_FEATURE_WORKBENCH_CODEX/07_delivery/draft
-updated_at: 2026-11-05 16:45:35 +0400
+current_scope_unit: WORKBENCH_CODEX
+claim_target_scope_unit: WORKBENCH_CODEX
+author: Anatoly Maslennikov
 ---
 
 ## Summary

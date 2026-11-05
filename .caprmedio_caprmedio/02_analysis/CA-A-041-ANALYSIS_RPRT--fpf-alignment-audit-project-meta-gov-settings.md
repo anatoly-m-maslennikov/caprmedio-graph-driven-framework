@@ -1,12 +1,12 @@
 ---
 atom_id: CA-A-041
+version: 2
+updated_at: 2026-09-06 01:45:12 +0400
 subject_scopes:
   - authority
   - scope-topology
   - settings
   - carrier-format
-version: 2
-updated_at: 2026-09-06 01:45:12 +0400
 ---
 
 ## Task, scope, and boundaries

@@ -1,20 +1,20 @@
 ---
 atom_id: CA-P-012
 ref_id: CA-P-012
-subject_scopes:
-- development-flow
-version: 7
-updated_at: 2026-10-24 06:26:31 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 tier: 3
 status: Active
+version: 7
+updated_at: 2026-10-24 06:26:31 +0400
+subject_scopes:
+- development-flow
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-container:
-  scope_unit: CA-SU-00
 ---
 # Development backlog
 

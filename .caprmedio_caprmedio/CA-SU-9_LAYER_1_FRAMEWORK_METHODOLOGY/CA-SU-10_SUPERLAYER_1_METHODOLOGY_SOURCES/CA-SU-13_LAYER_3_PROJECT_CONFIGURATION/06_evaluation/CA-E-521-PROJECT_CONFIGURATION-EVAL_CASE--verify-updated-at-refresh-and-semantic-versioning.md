@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-521
+ref_id: CA-E-521
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
   dependencies:
@@ -10,24 +16,18 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Entity
-version: 22
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-D-270
   - CA-R-1432
   - CA-R-1788
   - CA-O-051
-atom_id: CA-E-521
-ref_id: CA-E-521
+status: Active
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-13
 ---
 ## Summary
 

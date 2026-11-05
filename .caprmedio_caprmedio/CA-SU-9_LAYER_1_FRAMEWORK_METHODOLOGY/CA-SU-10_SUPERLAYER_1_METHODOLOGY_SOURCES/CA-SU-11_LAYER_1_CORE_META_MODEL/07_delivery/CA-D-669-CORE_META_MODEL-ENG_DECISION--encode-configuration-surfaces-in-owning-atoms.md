@@ -1,17 +1,17 @@
 ---
+atom_id: CA-D-669
+ref_id: CA-D-669
+role: Delivery
+form: Eng Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Project.Settings
+tier: 3
+status: Active
 version: 2
 updated_at: 2026-11-04 09:30:21 +0400
-atom_id: CA-D-669
-ref_id: CA-D-669
-status: Active
-tier: 3
-role: Delivery
-form: Eng Decision
 carrier_destination:
   file:
     name: CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md

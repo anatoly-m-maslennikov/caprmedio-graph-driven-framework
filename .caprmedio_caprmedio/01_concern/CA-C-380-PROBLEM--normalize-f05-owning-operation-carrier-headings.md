@@ -1,21 +1,15 @@
 ---
 atom_id: CA-C-380
 ref_id: CA-C-380
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: unresolved
 topics:
   main_subject: F05 owning Operations Carrier Property headings
   dependencies:
   - Operations
   - Markdown Atom Carrier/Main Content
-version: 2
-updated_at: 2026-11-02 19:18:45 +0400
 relations:
   concern_about:
   - CA-O-012
@@ -29,8 +23,14 @@ relations:
   - CA-P-1350
   - CA-A-1068
   - CA-D-479
-container:
-  scope_unit: CA-SU-00
+status: unresolved
+version: 2
+updated_at: 2026-11-02 19:18:45 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

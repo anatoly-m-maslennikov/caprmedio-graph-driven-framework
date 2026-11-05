@@ -1,25 +1,25 @@
 ---
 atom_id: CA-P-2655
 ref_id: CA-P-2655
+container:
+  atom: CA-P-2639
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 16
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject
+tier: 4
+status: Done
 version: 2
 updated_at: 2026-10-26 06:46:47 +0400
-tier: 4
-container:
-  atom: CA-P-2639
 carrier_destination:
   file:
     name: 16-CA-P-2655-TASK--challenge-the-refined-subject-design-and-identify-improvements.md
     path: .caprmedio_caprmedio/03_plan/done/CA-P-2639-EPIC--subject-graph-fpf-refinement/done
+work_sequence_number: 16
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

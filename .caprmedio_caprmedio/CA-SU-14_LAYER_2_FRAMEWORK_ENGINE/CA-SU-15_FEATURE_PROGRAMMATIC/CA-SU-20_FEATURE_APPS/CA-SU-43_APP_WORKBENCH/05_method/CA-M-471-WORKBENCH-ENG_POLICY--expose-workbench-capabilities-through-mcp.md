@@ -1,28 +1,28 @@
 ---
 atom_id: CA-M-471
 ref_id: CA-M-471
-current_scope_unit: WORKBENCH
-claim_target_scope_unit: WORKBENCH
-status: Active
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-43
 role: Method
 form: Eng Policy
-tier: 4
-version: 3
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 4
 relations:
   method_for:
   - CA-R-2728
   - CA-R-2729
   - CA-R-2776
+status: Active
+version: 3
+updated_at: 2026-11-05 16:45:35 +0400
 carrier_destination:
   file:
     name: CA-M-471-WORKBENCH-ENG_POLICY--expose-every-workbench-backend-capability-through-mcp.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method
-updated_at: 2026-11-05 16:45:35 +0400
-container:
-  scope_unit: CA-SU-43
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+author: Anatoly Maslennikov
 ---
 
 ## Summary

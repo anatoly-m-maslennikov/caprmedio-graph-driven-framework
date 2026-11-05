@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-630
 ref_id: CA-D-630
+container:
+  scope_unit: CA-SU-17
 role: Delivery
 form: Eng Decision
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   dependencies:
@@ -15,20 +13,22 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-version: 15
-updated_at: 2026-10-27 19:59:27 +0400
+tier: 4
 relations:
   delivery_for:
   - CA-R-1941
   depends_on:
   - CA-D-625
-tier: 4
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 15
+updated_at: 2026-10-27 19:59:27 +0400
 carrier_destination:
   file:
     name: CA-D-630-CONNECTOR_TOOLS-ENG_DECISION--bind-private-carrier-operation-payloads.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/07_delivery
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

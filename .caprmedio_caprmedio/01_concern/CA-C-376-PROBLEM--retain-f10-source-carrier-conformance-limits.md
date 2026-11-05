@@ -1,24 +1,24 @@
 ---
 atom_id: CA-C-376
 ref_id: CA-C-376
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
+topics:
+  main_subject: "F10 compared source Carrier conformance limits"
+  dependencies: [Operations, "Markdown Atom Carrier/Main Content"]
+relations:
+  concern_about: [CA-O-053, CA-O-087]
+  relates_to: [CA-P-1404, CA-A-1124, CA-D-479]
+status: open
+version: 1
+updated_at: "2026-10-04 13:31:11 +0000"
 current_scope_unit: caprmedio
 claim_target_scope_unit: METHODOLOGY_SOURCES
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: open
-topics:
-  main_subject: "F10 compared source Carrier conformance limits"
-  dependencies: [Operations, "Markdown Atom Carrier/Main Content"]
-version: 1
-updated_at: "2026-10-04 13:31:11 +0000"
-relations:
-  concern_about: [CA-O-053, CA-O-087]
-  relates_to: [CA-P-1404, CA-A-1124, CA-D-479]
-container:
-  scope_unit: CA-SU-00
 ---
 # Summary
 

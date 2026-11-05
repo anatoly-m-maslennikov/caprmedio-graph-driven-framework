@@ -1,10 +1,10 @@
 ---
 atom_id: CA-R-1522
 ref_id: CA-R-1522
+container:
+  scope_unit: CA-SU-2
 role: Requirement
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   dependencies:
@@ -16,12 +16,12 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+tier: 3
+status: Active
 version: 16
 updated_at: 2026-10-27 19:59:57 +0400
-form: Rule
-tier: 3
-container:
-  scope_unit: CA-SU-2
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Provide Workflow orchestration from methodology
 

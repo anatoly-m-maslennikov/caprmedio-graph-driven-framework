@@ -1,15 +1,10 @@
 ---
 atom_id: CA-C-474
 ref_id: CA-C-474
+container:
+  scope_unit: CA-SU-2
 role: Concern
 form: Problem
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-local_tier: Standard
-global_tier: 14
-status: active
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Compiler Action execution-root binding
   dependencies:
@@ -20,8 +15,13 @@ topics:
   - Journal
 relations:
   concern_about: [CA-P-1714, CA-P-1624]
-container:
-  scope_unit: CA-SU-2
+status: active
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+local_tier: Standard
+global_tier: 14
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,12 +1,10 @@
 ---
 atom_id: CA-M-357
 ref_id: CA-M-357
+container:
+  scope_unit: CA-SU-21
 role: Method
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 19:59:42 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
@@ -15,17 +13,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication/API
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
+tier: 4
 relations:
   method_for:
   - CA-R-1885
-form: Eng Decision
-tier: 4
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:42 +0400
 carrier_destination:
   file:
     name: CA-M-357-MCP-ENG_DECISION--bound-localhost-http-mcp-requests.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/05_method
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,4 +1,5 @@
 ---
+atom_id: CA-A-054
 topics:
   main_subject:
     occurrent:
@@ -10,7 +11,6 @@ topics:
       - Validation Evidence
 version: 4
 updated_at: 2026-10-23 03:17:34 +0400
-atom_id: CA-A-054
 ---
 # Validate the Python 3.14 contract upgrade
 

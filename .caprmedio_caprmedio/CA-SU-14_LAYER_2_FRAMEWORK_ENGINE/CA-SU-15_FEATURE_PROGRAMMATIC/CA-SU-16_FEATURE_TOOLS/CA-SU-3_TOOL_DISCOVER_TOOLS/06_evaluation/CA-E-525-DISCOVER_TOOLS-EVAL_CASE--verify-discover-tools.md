@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-525
 ref_id: CA-E-525
+container:
+  scope_unit: CA-SU-3
 role: Evaluation
 form: Eval Case
-current_scope_unit: DISCOVER_TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 10
-updated_at: 2026-11-05 13:04:02 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   dependencies:
@@ -19,16 +16,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
 relations:
   depends_on:
   - CA-D-678
-tier: 3
+status: Active
+version: 10
+updated_at: 2026-11-05 13:04:02 +0400
 carrier_destination:
   file:
     name: CA-E-525-DISCOVER_TOOLS-EVAL_CASE--verify-discover-tools.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-3_TOOL_DISCOVER_TOOLS/06_evaluation
-container:
-  scope_unit: CA-SU-3
+current_scope_unit: DISCOVER_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

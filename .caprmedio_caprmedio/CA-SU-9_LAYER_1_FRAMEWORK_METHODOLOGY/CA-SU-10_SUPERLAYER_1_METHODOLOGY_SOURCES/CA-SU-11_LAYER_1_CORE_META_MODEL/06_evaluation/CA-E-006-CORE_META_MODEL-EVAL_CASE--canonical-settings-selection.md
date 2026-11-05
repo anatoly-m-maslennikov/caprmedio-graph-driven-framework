@@ -1,17 +1,17 @@
 ---
+atom_id: CA-E-006
+ref_id: CA-E-006
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings
   dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - Entity/Object/Continuant/Governing Objects/Governing Configuration
+tier: 7
+status: Active
 version: 40
 updated_at: 2026-11-02 20:07:03 +0400
-atom_id: CA-E-006
-ref_id: CA-E-006
-status: Active
-tier: 7
-role: Evaluation
-form: Eval Case
 ---
 ## Summary
 

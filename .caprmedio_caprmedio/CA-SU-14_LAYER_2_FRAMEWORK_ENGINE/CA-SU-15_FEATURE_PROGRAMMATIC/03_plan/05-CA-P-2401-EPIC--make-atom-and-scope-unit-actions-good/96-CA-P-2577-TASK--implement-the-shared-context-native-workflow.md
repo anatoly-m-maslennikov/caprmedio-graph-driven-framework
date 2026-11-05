@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2577
 ref_id: CA-P-2577
+container:
+  atom: CA-P-2401
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 96
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Active
-version: 19
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Workflow Orchestration/Action Realization
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2401
@@ -20,13 +16,17 @@ relations:
   - CA-O-016
   - CA-O-239
   - CA-E-652
-tier: 3
-container:
-  atom: CA-P-2401
+status: Active
+version: 19
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: 96-CA-P-2577-TASK--implement-the-shared-context-native-workflow.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good
+work_sequence_number: 96
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

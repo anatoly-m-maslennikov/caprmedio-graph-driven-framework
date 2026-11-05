@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-136
 topics:
   main_subject: Framework Instance Settings/Artifact Timestamp Timezone
   dependencies:
@@ -8,12 +7,13 @@ topics:
   - Default Settings
   - Artifact/Revision
   - Subject/Engineering/Carrier
-priority: medium
 version: 3
 updated_at: 2026-10-23 03:18:40 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-C-136
 ---
 # Where should the missing Artifact timezone default be owned?
 

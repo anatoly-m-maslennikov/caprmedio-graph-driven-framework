@@ -1,11 +1,10 @@
 ---
 atom_id: CA-O-168
 ref_id: CA-O-168
+container:
+  scope_unit: CA-SU-00
 role: Operations
 form: Action
-current_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   dependencies:
@@ -13,15 +12,16 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
+status: Active
 version: 17
 updated_at: 2026-10-27 19:59:47 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-00
 carrier_destination:
   file:
     name: CA-O-168-CAPRMEDIO-ACTION--verify-candidate-release-package-and-image.md
     path: .caprmedio_caprmedio/09_operations
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

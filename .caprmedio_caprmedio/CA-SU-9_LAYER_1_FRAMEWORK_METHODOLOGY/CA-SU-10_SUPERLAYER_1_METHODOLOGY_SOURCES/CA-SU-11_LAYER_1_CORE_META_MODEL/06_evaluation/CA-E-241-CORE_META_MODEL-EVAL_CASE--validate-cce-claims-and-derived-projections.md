@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-241
+ref_id: CA-E-241
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
   dependencies:
@@ -9,8 +15,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-version: 47
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-M-442
@@ -21,20 +26,15 @@ relations:
   - CA-R-940
   - CA-R-941
   - CA-R-1273
-atom_id: CA-E-241
-ref_id: CA-E-241
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-11
+version: 47
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

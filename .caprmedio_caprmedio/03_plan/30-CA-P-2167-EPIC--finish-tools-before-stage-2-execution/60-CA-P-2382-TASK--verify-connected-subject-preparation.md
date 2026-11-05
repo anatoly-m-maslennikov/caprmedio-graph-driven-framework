@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2382
 ref_id: CA-P-2382
+container:
+  atom: CA-P-2167
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 60
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -17,18 +13,22 @@ topics:
   - Subject
   - Subject/Graph Node/Domain/Continuant/Projection
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 12
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2167
-tier: 3
-container:
-  atom: CA-P-2167
+status: Active
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 60-CA-P-2382-TASK--verify-connected-subject-preparation.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution
+work_sequence_number: 60
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

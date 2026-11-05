@@ -1,23 +1,18 @@
 ---
 atom_id: CA-P-1176
 ref_id: CA-P-1176
+container:
+  atom: CA-P-1125
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 3
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Manifest
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1125
@@ -30,13 +25,18 @@ relations:
   - CA-P-1127
   - CA-P-1128
   - CA-P-1129
-tier: 3
-container:
-  atom: CA-P-1125
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 3-CA-P-1176-TASK--enumerate-the-project-session-metadata-corpus.md
     path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/done/1-CA-P-1125-TASK--freeze-the-session-window-and-evidence-manifest/done
+work_sequence_number: 3
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

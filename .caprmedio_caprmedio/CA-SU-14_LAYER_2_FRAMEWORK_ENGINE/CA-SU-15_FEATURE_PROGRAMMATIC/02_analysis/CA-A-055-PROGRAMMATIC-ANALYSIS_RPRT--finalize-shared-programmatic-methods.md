@@ -1,4 +1,5 @@
 ---
+atom_id: CA-A-055
 topics:
   main_subject:
     occurrent:
@@ -9,13 +10,12 @@ topics:
       - Method Authority
     occurrent:
       - Validation
-version: 3
-updated_at: 2026-10-23 03:17:34 +0400
 relations:
   derived_from:
     - CA-A-052
     - CA-A-053
-atom_id: CA-A-055
+version: 3
+updated_at: 2026-10-23 03:17:34 +0400
 ---
 # Finalize shared PROGRAMMATIC Methods
 

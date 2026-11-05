@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1284
+ref_id: CA-R-1284@28-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
@@ -7,20 +13,14 @@ topics:
   - CAPRMEDIO_MODEL <+ Term//Type
   - CAPRMEDIO_MODEL <+ CFEL
   - CAPRMEDIO_MODEL <+ Node.**
+tier: 1
+status: Draft
 version: 28
 updated_at: 2026-11-04 18:25:15 +0400
-atom_id: CA-R-1284
-ref_id: CA-R-1284@28-draft
-status: Draft
-tier: 1
-role: Requirement
-form: Rule
 carrier_destination:
   file:
     name: CA-R-1284@28-draft-RULE--define-type.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

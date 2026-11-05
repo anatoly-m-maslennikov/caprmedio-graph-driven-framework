@@ -4,25 +4,25 @@ ref_id: CA-P-1161
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: PROMPTS
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Prompt
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1136
   blocks:
   - CA-P-1500
-tier: 3
+status: Done
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: PROMPTS
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

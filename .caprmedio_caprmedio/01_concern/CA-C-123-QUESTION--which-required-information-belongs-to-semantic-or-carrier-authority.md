@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-123
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom/Content Role
   dependencies:
@@ -8,12 +7,13 @@ topics:
   - Subject/Engineering/Carrier
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Delivery'
-priority: medium
 version: 4
 updated_at: 2026-10-23 03:18:40 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-C-123
 ---
 # Which required information belongs to semantic or Carrier authority?
 

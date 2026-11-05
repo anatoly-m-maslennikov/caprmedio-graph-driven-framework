@@ -1,32 +1,32 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-E-001
+atom_id: CA-E-434
+ref_id: CA-E-434
+container:
+  scope_unit: CA-SU-00
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-434
-ref_id: CA-E-434
-status: Active
-current_scope_unit: caprmedio
 tier: 1
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-E-001
+status: Active
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-E-434-CAPRMEDIO-EVAL_POLICY--evaluate-requirement-checkability.md
     path: .caprmedio_caprmedio/06_evaluation
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 

@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1107@24-draft
+ref_id: CA-R-1107@24-draft
+container:
+  scope_unit: CA-SU-21
+role: Requirement
+form: Rule
 topics:
   main_subject: Subject/Engineering/MCP
   dependencies:
@@ -6,24 +12,18 @@ topics:
   - Subject/Engineering/Tool
   - Subject/Engineering/MCP
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+tier: 1
 relations:
   relates_to:
   - CA-R-1930
+status: Draft
 version: 24
 updated_at: 2026-10-24 23:59:51 +0400
 llm_session_ids:
 - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-R-1107@24-draft
-ref_id: CA-R-1107@24-draft
-status: Draft
-role: Requirement
 author: Anatoly Maslennikov
 current_scope_unit: MCP
-form: Rule
-tier: 1
-container:
-  scope_unit: CA-SU-21
 ---
 # Require complete Tool invocation contracts
 

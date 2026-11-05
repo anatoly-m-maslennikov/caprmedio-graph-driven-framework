@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-625
 ref_id: CA-D-625
+container:
+  scope_unit: CA-SU-17
 role: Delivery
 form: Eng Decision
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
@@ -14,18 +12,20 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Continuant/Workflow
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
-version: 14
-updated_at: 2026-10-27 19:59:27 +0400
+tier: 2
 relations:
   delivery_for:
   - CA-R-1936
-tier: 2
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 14
+updated_at: 2026-10-27 19:59:27 +0400
 carrier_destination:
   file:
     name: CA-D-625-CONNECTOR_TOOLS-ENG_DECISION--deliver-coherent-connector-interface.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/07_delivery
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

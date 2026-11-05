@@ -1,12 +1,10 @@
 ---
 atom_id: CA-R-1809
 ref_id: CA-R-1809
+container:
+  scope_unit: CA-SU-8
 role: Requirement
-current_scope_unit: WATCH_EXECUTION
-status: Active
-author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-27 20:00:03 +0400
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -16,14 +14,16 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-form: Rule
 tier: 3
-container:
-  scope_unit: CA-SU-8
+status: Active
+version: 11
+updated_at: 2026-10-27 20:00:03 +0400
 carrier_destination:
   file:
     name: CA-R-1809-WATCH_EXECUTION-RULE--wait-for-execution-updates.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-8_TOOL_WATCH_EXECUTION/04_requirement
+current_scope_unit: WATCH_EXECUTION
+author: Anatoly Maslennikov
 ---
 # Summary
 

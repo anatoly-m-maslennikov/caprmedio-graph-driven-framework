@@ -1,16 +1,10 @@
 ---
 atom_id: CA-A-1193
 ref_id: CA-A-1193
+container:
+  scope_unit: CA-SU-11
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-local_tier: Standard
-global_tier: 11
-status: Done
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-11-02 15:49:28 +0400
 topics:
   main_subject: Lineage Impact Analysis
   dependencies:
@@ -20,8 +14,14 @@ topics:
 relations:
   relates_to:
   - CA-D-570
-container:
-  scope_unit: CA-SU-11
+status: Done
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,4 +1,10 @@
 ---
+atom_id: CA-D-653@15-draft
+ref_id: CA-D-653@15-draft
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
 topics:
   main_subject: Entity/Object/Continuant/Projection
   dependencies:
@@ -12,8 +18,7 @@ topics:
   - Entity/Property
   - Entity/Object/Continuant/Governing Objects/Atom.Content Role
   - 'Entity/Object/Continuant/Governing Objects/Atom/(.Content Role: Plan)'
-version: 15
-updated_at: 2026-10-30 08:49:46 +0400
+tier: 3
 relations:
   delivery_for:
   - CA-R-2150
@@ -22,17 +27,12 @@ relations:
   - CA-R-2223
   - CA-R-2224
   - CA-R-2225
-atom_id: CA-D-653@15-draft
-ref_id: CA-D-653@15-draft
-role: Delivery
-form: Decision
+status: Draft
+version: 15
+updated_at: 2026-10-30 08:49:46 +0400
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-tier: 3
-status: Draft
 author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

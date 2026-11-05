@@ -1,22 +1,22 @@
 ---
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Project
-version: 28
-updated_at: 2026-11-02 19:44:26 +0400
 atom_id: CA-D-317
 ref_id: CA-D-317
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 container:
   scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+tier: 3
+status: Active
+version: 28
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-D-317-CORE_META_MODEL-DECISION--place-each-project-framework-instance-inside-its-project.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

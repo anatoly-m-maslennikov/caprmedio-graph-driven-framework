@@ -1,23 +1,23 @@
 ---
 atom_id: CA-R-2001@12-draft
 ref_id: CA-R-2001@12-draft
+container:
+  scope_unit: CA-SU-11
 role: Requirement
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Draft
-author: Anatoly Maslennikov
+form: Definition
 topics:
   main_subject: 'Formal Model::CAPRMEDIO::Continuant/Atom/Content Role: Requirement/Type: Graph Rule'
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
   - Subject/CAPRMEDIO/Graph/Rule
   - Subject/CAPRMEDIO/Graph/Rule.Type
+tier: 1
+status: Draft
 version: 12
 updated_at: 2026-10-28 19:24:50 +0400
-tier: 1
-form: Definition
-container:
-  scope_unit: CA-SU-11
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,27 +1,27 @@
 ---
+atom_id: CA-M-111@42-draft
+ref_id: CA-M-111@42-draft
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-version: 42
-updated_at: 2026-10-29 00:04:17 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-1624
   - CA-R-1465
-atom_id: CA-M-111@42-draft
-ref_id: CA-M-111@42-draft
-role: Method
+status: Draft
+version: 42
+updated_at: 2026-10-29 00:04:17 +0400
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Draft
 author: Anatoly Maslennikov
-tier: 3
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
 ---
 # Summary
 

@@ -1,24 +1,24 @@
 ---
+atom_id: CA-M-193
+ref_id: CA-M-193
+container:
+  scope_unit: CA-SU-15
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-version: 24
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 4
 relations:
   method_for:
   - CA-R-1096
   derived_from:
   - CA-A-058
-atom_id: CA-M-193
-ref_id: CA-M-193
-role: Method
+status: Active
+version: 24
+updated_at: 2026-11-02 19:44:26 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
-status: Active
 author: Anatoly Maslennikov
-form: Eng Decision
-tier: 4
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

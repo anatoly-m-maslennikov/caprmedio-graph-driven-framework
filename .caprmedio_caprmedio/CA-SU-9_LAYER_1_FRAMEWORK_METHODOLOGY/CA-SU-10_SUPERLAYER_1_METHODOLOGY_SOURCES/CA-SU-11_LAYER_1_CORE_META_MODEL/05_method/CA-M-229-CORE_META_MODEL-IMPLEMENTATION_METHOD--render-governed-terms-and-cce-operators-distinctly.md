@@ -1,4 +1,10 @@
 ---
+atom_id: CA-M-229
+ref_id: CA-M-229
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Term
   dependencies:
@@ -6,22 +12,16 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Carrier/File
+tier: 3
+status: Active
 version: 34
 updated_at: 2026-11-03 23:25:51 +0400
-atom_id: CA-M-229
-ref_id: CA-M-229
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
 carrier_destination:
   file:
     name: CA-M-229-CORE_META_MODEL-IMPLEMENTATION_METHOD--render-governed-terms-and-cce-operators-distinctly.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

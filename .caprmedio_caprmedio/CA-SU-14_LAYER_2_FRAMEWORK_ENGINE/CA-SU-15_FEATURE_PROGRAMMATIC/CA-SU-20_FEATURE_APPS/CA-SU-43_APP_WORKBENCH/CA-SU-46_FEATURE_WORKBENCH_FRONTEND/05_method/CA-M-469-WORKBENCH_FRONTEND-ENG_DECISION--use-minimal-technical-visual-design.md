@@ -1,26 +1,26 @@
 ---
 atom_id: CA-M-469
 ref_id: CA-M-469
-current_scope_unit: WORKBENCH_FRONTEND
-claim_target_scope_unit: WORKBENCH_FRONTEND
-status: Active
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-46
 role: Method
 form: Eng Decision
-tier: 4
-version: 6
 topics:
   main_subject: PROJECT_STRUCTURE <+ Aspect//Visual Design
+tier: 4
 relations:
   method_for:
   - CA-R-2727
+status: Active
+version: 6
+updated_at: 2026-11-05 19:04:52 +0400
 carrier_destination:
   file:
     name: CA-M-469-WORKBENCH_FRONTEND-ENG_DECISION--use-a-minimal-technical-visual-design-for-workbench.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method
-updated_at: 2026-11-05 19:04:52 +0400
-container:
-  scope_unit: CA-SU-46
+current_scope_unit: WORKBENCH_FRONTEND
+claim_target_scope_unit: WORKBENCH_FRONTEND
+author: Anatoly Maslennikov
 ---
 ## Summary
 

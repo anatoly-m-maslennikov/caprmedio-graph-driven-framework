@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2187
 ref_id: CA-P-2187
+container:
+  atom: CA-P-1966
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 117
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject
   dependencies:
@@ -19,21 +15,25 @@ topics:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - Subject/Graph Node/Engineering/Continuant/Tool
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1966
   blocks:
   - CA-P-2188
   - CA-P-2189
-tier: 3
-container:
-  atom: CA-P-1966
+status: Done
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 117-CA-P-2187-TASK--pin-the-fresh-core-subject-inventory.md
     path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/done
+work_sequence_number: 117
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

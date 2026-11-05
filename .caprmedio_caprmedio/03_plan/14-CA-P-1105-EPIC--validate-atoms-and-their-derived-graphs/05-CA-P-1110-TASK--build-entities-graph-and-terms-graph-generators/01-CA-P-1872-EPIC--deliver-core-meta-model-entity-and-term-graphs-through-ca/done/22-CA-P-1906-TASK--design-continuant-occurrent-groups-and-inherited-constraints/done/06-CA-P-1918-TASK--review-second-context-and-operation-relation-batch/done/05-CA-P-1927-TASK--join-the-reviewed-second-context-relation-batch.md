@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1927
 ref_id: CA-P-1927
+container:
+  atom: CA-P-1918
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 5
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Projection
   dependencies:
@@ -19,18 +15,22 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Term//Property
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1918
-tier: 3
-container:
-  atom: CA-P-1918
+status: Done
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 5-CA-P-1927-TASK--join-the-reviewed-second-context-relation-batch.md
     path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done/22-CA-P-1906-TASK--design-continuant-occurrent-groups-and-inherited-constraints/done/6-CA-P-1918-TASK--review-second-context-and-operation-relation-batch/done
+work_sequence_number: 5
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

@@ -1,13 +1,10 @@
 ---
 atom_id: CA-O-114
 ref_id: CA-O-114
+container:
+  scope_unit: CA-SU-13
 role: Operations
 form: Action
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 19:59:46 +0400
 topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   dependencies:
@@ -18,16 +15,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
 relations:
   depends_on:
   - CA-D-514
-tier: 3
-container:
-  scope_unit: CA-SU-13
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:46 +0400
 carrier_destination:
   file:
     name: CA-O-114-PROJECT_CONFIGURATION-ACTION--load-the-selected-execution-context.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

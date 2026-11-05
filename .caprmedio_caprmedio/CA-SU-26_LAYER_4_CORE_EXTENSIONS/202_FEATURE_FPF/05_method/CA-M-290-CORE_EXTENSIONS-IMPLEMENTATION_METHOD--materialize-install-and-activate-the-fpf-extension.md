@@ -1,6 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: method
+atom_id: CA-M-290
+ref_id: CA-M-290
+container:
+  scope_unit: CA-SU-26
+role: Method
+form: Implementation Method
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   dependencies:
@@ -9,8 +13,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
-version: 19
-updated_at: 2026-10-27 19:59:41 +0400
+tier: 2
 relations:
   method_for:
   - CA-R-1475
@@ -21,18 +24,15 @@ relations:
   - CA-R-1480
   - CA-R-1481
   - CA-R-1482
+status: Active
+version: 19
+updated_at: 2026-10-27 19:59:41 +0400
+cce_version: cce_1
+cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 current_scope_unit: CORE_EXTENSIONS
-status: Active
 author: Anatoly Maslennikov
-atom_id: CA-M-290
-ref_id: CA-M-290
-tier: 2
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-26
 ---
 # Materialize, install, and activate the FPF Extension
 

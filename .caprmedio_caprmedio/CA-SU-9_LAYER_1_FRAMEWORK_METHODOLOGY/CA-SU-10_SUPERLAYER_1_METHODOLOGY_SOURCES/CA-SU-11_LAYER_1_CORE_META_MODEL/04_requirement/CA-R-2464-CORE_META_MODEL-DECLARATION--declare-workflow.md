@@ -1,14 +1,14 @@
 ---
 atom_id: CA-R-2464
 ref_id: CA-R-2464
-status: Active
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
-version: 5
-updated_at: '2026-11-04 00:31:19 +0400'
-tier: 3
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
+tier: 3
+status: Active
+version: 5
+updated_at: '2026-11-04 00:31:19 +0400'
 ---
 
 ## Summary

@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-164
+ref_id: CA-E-164
+container:
+  scope_unit: CA-SU-37
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit
     Graph'
@@ -8,24 +14,18 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Framework Settings
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+tier: 2
+relations:
+  evaluation_for:
+  - CA-R-1070
+status: Active
 version: 23
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-relations:
-  evaluation_for:
-  - CA-R-1070
-atom_id: CA-E-164
-ref_id: CA-E-164
-status: Active
-role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
-form: Eval Case
-tier: 2
 claim_target_scope_unit: PROJECTION_ACTIONS
-container:
-  scope_unit: CA-SU-37
 ---
 # Rebuild the Scope Unit Graph and Sources Projection from Configuration Authority
 

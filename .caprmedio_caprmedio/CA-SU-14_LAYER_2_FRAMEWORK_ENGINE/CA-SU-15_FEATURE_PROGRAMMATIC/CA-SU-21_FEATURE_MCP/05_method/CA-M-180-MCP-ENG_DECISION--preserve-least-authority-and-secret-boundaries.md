@@ -1,28 +1,28 @@
 ---
-cce_version: cce_1
-cce_form: method
+atom_id: CA-M-180
+ref_id: CA-M-180
+container:
+  scope_unit: CA-SU-21
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect
     Authorization
-version: 19
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 2
 relations:
   method_for:
   - CA-R-1118
   derived_from:
   - CA-A-057
+status: Active
+version: 19
+updated_at: 2026-11-02 19:44:26 +0400
+cce_version: cce_1
+cce_form: method
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-M-180
-ref_id: CA-M-180
-status: Active
-role: Method
 author: Anatoly Maslennikov
 current_scope_unit: MCP
-form: Eng Decision
-tier: 2
-container:
-  scope_unit: CA-SU-21
 ---
 # Preserve least-authority and secret boundaries
 

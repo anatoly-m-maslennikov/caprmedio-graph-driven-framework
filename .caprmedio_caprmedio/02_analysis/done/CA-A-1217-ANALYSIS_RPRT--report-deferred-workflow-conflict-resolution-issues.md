@@ -1,21 +1,21 @@
 ---
 atom_id: CA-A-1217
 ref_id: CA-A-1217
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-tier: 3
-author: Anatoly Maslennikov
-status: Done
-version: 2
-updated_at: 2026-11-02 15:49:28 +0400
 topics:
   main_subject: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
+tier: 3
 relations:
   analysis_for:
   - CA-P-1959
-container:
-  scope_unit: CA-SU-00
+status: Done
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,23 +1,23 @@
 ---
 atom_id: CA-C-617
 ref_id: CA-C-617
-role: Concern
-form: Question
-current_scope_unit: caprmedio
-status: Active
-priority: medium
-author: Anatoly Maslennikov
-tier: 3
-version: 1
-updated_at: 2026-10-29 11:08:59 +0400
-topics:
-  main_subject: Entity/Object/Continuant/Structural Unit/Scope Unit.ID
 container:
   scope_unit: CA-SU-00
+role: Concern
+form: Question
+topics:
+  main_subject: Entity/Object/Continuant/Structural Unit/Scope Unit.ID
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-10-29 11:08:59 +0400
 carrier_destination:
   file:
     name: CA-C-617-CAPRMEDIO-QUESTION--where-should-stable-scope-unit-ids-be-carried.md
     path: .caprmedio_caprmedio/01_concern
+current_scope_unit: caprmedio
+priority: medium
+author: Anatoly Maslennikov
 ---
 ## Summary
 

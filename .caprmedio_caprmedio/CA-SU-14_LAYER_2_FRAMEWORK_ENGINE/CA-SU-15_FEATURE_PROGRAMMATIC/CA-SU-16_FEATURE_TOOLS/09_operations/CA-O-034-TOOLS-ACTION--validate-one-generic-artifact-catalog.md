@@ -1,26 +1,26 @@
 ---
-cce_version: cce_1
-cce_form: definition
+atom_id: CA-O-034
+ref_id: CA-O-034
+container:
+  scope_unit: CA-SU-16
+role: Operations
+form: Action
 topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+tier: 1
+status: Active
 version: 16
 updated_at: 2026-10-27 19:59:44 +0400
+cce_version: cce_1
+cce_form: definition
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-O-034
-ref_id: CA-O-034
-status: Active
-role: Operations
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Action
-tier: 1
-container:
-  scope_unit: CA-SU-16
 ---
 # Validate one generic Artifact catalog
 

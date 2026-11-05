@@ -1,18 +1,18 @@
 ---
-current_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 5
-updated_at: 2026-11-02 15:49:28 +0400
-topics:
-  main_subject: Entity
 atom_id: CA-A-1307
 ref_id: CA-A-1307
-role: Analysis & Advisory
-form: Spec Proposal
-tier: 3
 container:
   scope_unit: CA-SU-00
+role: Analysis & Advisory
+form: Spec Proposal
+topics:
+  main_subject: Entity
+tier: 3
+status: Done
+version: 5
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 ## Summary
 

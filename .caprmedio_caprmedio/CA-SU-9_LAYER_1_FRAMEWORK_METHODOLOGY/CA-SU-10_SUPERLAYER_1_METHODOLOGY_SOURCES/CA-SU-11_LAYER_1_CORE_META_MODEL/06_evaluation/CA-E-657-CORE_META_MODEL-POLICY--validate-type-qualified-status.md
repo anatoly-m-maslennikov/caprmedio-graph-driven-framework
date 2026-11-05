@@ -1,26 +1,26 @@
 ---
+atom_id: CA-E-657
+ref_id: CA-E-657
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
+tier: 2
+status: Active
 version: 8
 updated_at: 2026-11-02 00:18:22 +0400
-atom_id: CA-E-657
-ref_id: CA-E-657
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-11
 carrier_destination:
   file:
     name: CA-E-657-CORE_META_MODEL-EVAL_POLICY--validate-type-qualified-status.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

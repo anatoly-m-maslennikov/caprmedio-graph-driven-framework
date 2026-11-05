@@ -1,11 +1,10 @@
 ---
 atom_id: CA-R-866
 ref_id: CA-R-866
+container:
+  scope_unit: CA-SU-18
 role: Requirement
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
-author: Anatoly Maslennikov
-status: Active
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   dependencies:
@@ -14,16 +13,17 @@ topics:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
+tier: 3
+status: Active
 version: 47
 updated_at: "2026-10-30 17:34:50 +0400"
-tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-18
 carrier_destination:
   file:
     name: CA-R-866-TOOL_WORKFLOWS-RULE--update-caprmedio-markdown-atoms.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/04_requirement
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
 ---
 ## Summary
 

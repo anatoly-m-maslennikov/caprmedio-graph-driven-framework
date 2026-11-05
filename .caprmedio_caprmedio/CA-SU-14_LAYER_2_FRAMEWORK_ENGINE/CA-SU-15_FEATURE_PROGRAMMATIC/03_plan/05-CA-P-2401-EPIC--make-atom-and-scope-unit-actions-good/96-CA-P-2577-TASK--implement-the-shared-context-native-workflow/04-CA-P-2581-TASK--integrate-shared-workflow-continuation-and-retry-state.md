@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2581
 ref_id: CA-P-2581
+container:
+  atom: CA-P-2577
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
-version: 12
-updated_at: 2026-10-30 03:11:57 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2577
@@ -22,13 +18,17 @@ relations:
   - CA-O-016
   - CA-O-239
   - CA-E-652
-tier: 3
-container:
-  atom: CA-P-2577
+status: Done
+version: 12
+updated_at: 2026-10-30 03:11:57 +0400
 carrier_destination:
   file:
     name: 4-CA-P-2581-TASK--integrate-shared-workflow-continuation-and-retry-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/done
+work_sequence_number: 4
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

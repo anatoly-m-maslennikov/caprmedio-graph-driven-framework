@@ -1,0 +1,19 @@
+{
+  "status": "PASS_BOUNDED_ORDERING",
+  "observed_at_utc": "2026-11-05T19:16:43.596965+00:00",
+  "receipt_checks": {
+    "migration/stable-application": true,
+    "concurrent-reconciliation": true,
+    "concurrent-boundary-repair": true
+  },
+  "counts": {
+    "stable_ok": 4624,
+    "reconciliation_ok": 12
+  },
+  "failure_count": 0,
+  "failures": [],
+  "residual_drift": [],
+  "consumed_drafts_present": [],
+  "scope": "Applied stable/reconciled ordering subset at readback time; pre-existing property defects, 206 Ref ID holds, legacy Relation targets, later concurrent source work and runtime are outside this result.",
+  "consumed_draft_count": 10
+}

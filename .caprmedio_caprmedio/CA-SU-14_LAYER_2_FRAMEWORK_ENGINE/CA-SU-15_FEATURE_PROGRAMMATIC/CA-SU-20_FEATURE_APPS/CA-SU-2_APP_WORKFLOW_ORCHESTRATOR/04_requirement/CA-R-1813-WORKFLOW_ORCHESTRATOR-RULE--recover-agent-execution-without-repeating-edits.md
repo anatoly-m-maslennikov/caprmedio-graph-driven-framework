@@ -1,12 +1,10 @@
 ---
 atom_id: CA-R-1813
 ref_id: CA-R-1813
+container:
+  scope_unit: CA-SU-2
 role: Requirement
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 20:00:03 +0400
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
   dependencies:
@@ -17,13 +15,15 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
 tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 12
+updated_at: 2026-10-27 20:00:03 +0400
 carrier_destination:
   file:
     name: CA-R-1813-WORKFLOW_ORCHESTRATOR-RULE--recover-agent-execution-without-repeating-edits.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/04_requirement
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

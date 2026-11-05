@@ -1,32 +1,32 @@
 ---
 atom_id: CA-P-1423
 ref_id: CA-P-1423
+container:
+  atom: CA-P-1131
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: caprmedio
-claim_target_scope_unit: CORE_META_MODEL
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Action
   dependencies:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations'
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis & Advisory'
   - Subject/Graph Node/Engineering/Evaluation
-version: 9
-updated_at: 2026-11-02 15:49:28 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1131
   blocks:
   - CA-P-1132
   - CA-P-1157
-tier: 3
-container:
-  atom: CA-P-1131
+status: Done
+version: 9
+updated_at: 2026-11-02 15:49:28 +0400
+work_sequence_number: 4
+current_scope_unit: caprmedio
+claim_target_scope_unit: CORE_META_MODEL
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

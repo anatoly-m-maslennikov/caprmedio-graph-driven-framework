@@ -1,6 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: method
+atom_id: CA-M-296
+ref_id: CA-M-296
+container:
+  scope_unit: CA-SU-00
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
@@ -11,26 +15,22 @@ topics:
   - CAPRMEDIO_MODEL <+ Projection
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-version: 21
-updated_at: 2026-11-02 00:18:22 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 1
 relations:
   child_of:
   - CA-R-2448
-atom_id: CA-M-296
-ref_id: CA-M-296
 status: Active
-current_scope_unit: caprmedio
-tier: 1
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-00
+version: 21
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-M-296-CAPRMEDIO-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md
     path: .caprmedio_caprmedio/05_method
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 

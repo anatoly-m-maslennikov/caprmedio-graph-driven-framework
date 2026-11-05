@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1904
 ref_id: CA-P-1904
+container:
+  atom: CA-P-1898
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 5
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Projection
   dependencies:
@@ -19,18 +15,22 @@ topics:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Delivery'
   - Subject/Graph Node/Engineering/Operations
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1898
-tier: 3
-container:
-  atom: CA-P-1898
+status: Active
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 5-CA-P-1904-TASK--compile-and-pin-the-applicable-graph-method-inventory.md
     path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/19-CA-P-1898-EPIC--fix-reviewed-entity-and-term-graph-rmed-and-operations-gaps
+work_sequence_number: 5
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

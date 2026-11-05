@@ -1,19 +1,19 @@
 ---
 atom_id: CA-P-2689
 ref_id: CA-P-2689
+container:
+  atom: CA-P-2683
 role: Plan
 form: Plan
 label: Task
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Entity
+tier: 4
+status: Done
 version: 5
 updated_at: 2026-10-29 07:23:44 +0400
-tier: 4
-container:
-  atom: CA-P-2683
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

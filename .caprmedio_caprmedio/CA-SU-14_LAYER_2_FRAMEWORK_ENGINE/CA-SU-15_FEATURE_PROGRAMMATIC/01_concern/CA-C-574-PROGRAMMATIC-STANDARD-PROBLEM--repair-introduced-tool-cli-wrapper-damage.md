@@ -1,23 +1,23 @@
 ---
 atom_id: CA-C-574
 ref_id: CA-C-574
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Entity/Node/Continuant/Implementation
+relations:
+  concern_about: [CA-P-2562, CA-P-2569, CA-M-395, CA-E-639]
+status: Resolved
+version: 2
+updated_at: "2026-10-21T20:45:37Z"
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Resolved
 priority: high
-version: 2
-updated_at: "2026-10-21T20:45:37Z"
-topics:
-  main_subject: Entity/Node/Continuant/Implementation
-relations:
-  concern_about: [CA-P-2562, CA-P-2569, CA-M-395, CA-E-639]
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

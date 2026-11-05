@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_problem
+atom_id: CA-C-107
 topics:
   main_subject:
     continuant:
@@ -10,13 +9,14 @@ topics:
       - Project Backlog
     occurrent:
       - Conversation Audit
-priority: high
-version: 4
-updated_at: 2026-10-23 03:17:34 +0400
 relations:
   concern_about:
     - CA-R-861
-atom_id: CA-C-107
+version: 4
+updated_at: 2026-10-23 03:17:34 +0400
+cce_version: cce_1
+cce_form: concern_problem
+priority: high
 ---
 # Seven-day decisions lack complete CAP closure
 

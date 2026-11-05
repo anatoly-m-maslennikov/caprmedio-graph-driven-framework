@@ -1,6 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-492
+ref_id: CA-E-492
+container:
+  scope_unit: CA-SU-2
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   dependencies:
@@ -12,25 +16,21 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
-version: 15
-updated_at: 2026-10-27 19:59:36 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 5
 relations:
   evaluation_for:
   - CA-R-1522
   - CA-R-1523
   - CA-M-302
-atom_id: CA-E-492
-ref_id: CA-E-492
 status: Active
-role: Evaluation
+version: 15
+updated_at: 2026-10-27 19:59:36 +0400
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-form: Eval Case
-tier: 5
-container:
-  scope_unit: CA-SU-2
 ---
 # Verify Workflow orchestration controls
 

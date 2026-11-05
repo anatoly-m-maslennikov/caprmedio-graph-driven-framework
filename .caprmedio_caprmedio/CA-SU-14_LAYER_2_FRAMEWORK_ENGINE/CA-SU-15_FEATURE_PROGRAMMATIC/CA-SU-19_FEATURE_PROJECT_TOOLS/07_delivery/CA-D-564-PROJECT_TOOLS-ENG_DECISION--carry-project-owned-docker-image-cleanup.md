@@ -1,29 +1,29 @@
 ---
 atom_id: CA-D-564
 ref_id: CA-D-564
+container:
+  scope_unit: CA-SU-19
 role: Delivery
-current_scope_unit: PROJECT_TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 18
-updated_at: 2026-10-27 19:59:27 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   dependencies:
   - Subject/CAPRMEDIO/Carrier/Docker Image
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime
+tier: 6
 relations:
   delivery_for:
   - CA-M-332
   - CA-E-573
-form: Eng Decision
-tier: 6
-container:
-  scope_unit: CA-SU-19
+status: Active
+version: 18
+updated_at: 2026-10-27 19:59:27 +0400
 carrier_destination:
   file:
     name: CA-D-564-PROJECT_TOOLS-ENG_DECISION--carry-project-owned-docker-image-cleanup.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/07_delivery
+current_scope_unit: PROJECT_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

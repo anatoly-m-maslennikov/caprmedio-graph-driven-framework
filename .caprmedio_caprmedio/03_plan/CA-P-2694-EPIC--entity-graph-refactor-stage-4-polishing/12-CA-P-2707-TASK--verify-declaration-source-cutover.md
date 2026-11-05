@@ -1,21 +1,21 @@
 ---
 atom_id: CA-P-2707
 ref_id: CA-P-2707
+container:
+  atom: CA-P-2694
 role: Plan
 form: Plan
 label: Task
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+tier: 4
 status: Active
 version: 10
 updated_at: 2026-11-05 18:04:53 +0400
-tier: 4
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 carrier_destination:
   file:
     name: 12-CA-P-2707-TASK--verify-declaration-source-cutover.md
     path: .caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing
-container:
-  atom: CA-P-2694
 ---
 ## Summary
 

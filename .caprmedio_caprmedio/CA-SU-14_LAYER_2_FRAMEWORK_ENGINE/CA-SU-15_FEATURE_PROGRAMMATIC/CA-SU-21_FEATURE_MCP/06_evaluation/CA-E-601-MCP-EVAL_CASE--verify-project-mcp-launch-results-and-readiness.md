@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-601
 ref_id: CA-E-601
+container:
+  scope_unit: CA-SU-21
 role: Evaluation
 form: Eval Case
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 19:59:38 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -17,16 +14,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   - Subject/CAPRMEDIO/Carrier
+tier: 3
 relations:
   evaluation_for:
   - CA-O-235
-tier: 3
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 15
+updated_at: 2026-10-27 19:59:38 +0400
 carrier_destination:
   file:
     name: CA-E-601-MCP-EVAL_CASE--verify-project-mcp-launch-results-and-readiness.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

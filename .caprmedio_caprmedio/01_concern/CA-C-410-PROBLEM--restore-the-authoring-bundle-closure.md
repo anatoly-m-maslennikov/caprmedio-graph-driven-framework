@@ -1,25 +1,25 @@
 ---
 atom_id: CA-C-410
 ref_id: CA-C-410
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Source-authoring Plan/paired Carrier closure
   dependencies:
   - Plan
   - Subject/Engineering/Carrier
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-P-1131]
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 3
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

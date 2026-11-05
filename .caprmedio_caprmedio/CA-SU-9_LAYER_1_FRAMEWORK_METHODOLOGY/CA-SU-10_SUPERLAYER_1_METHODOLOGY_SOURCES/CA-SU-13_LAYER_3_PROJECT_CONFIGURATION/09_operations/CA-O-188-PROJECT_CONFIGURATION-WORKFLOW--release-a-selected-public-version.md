@@ -1,11 +1,10 @@
 ---
 atom_id: CA-O-188
 ref_id: CA-O-188
+container:
+  scope_unit: CA-SU-13
 role: Operations
 form: Workflow
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
 topics:
   main_subject: Subject/caprmedio/Workflow//Public Release
   dependencies:
@@ -15,21 +14,22 @@ topics:
   - Subject/CAPRMEDIO/Carrier/Pull Request
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-version: 19
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 3
 relations:
   invokes:
   - CA-O-189
   - CA-O-191
   - CA-O-195
   - CA-O-197
-tier: 3
-container:
-  scope_unit: CA-SU-13
+status: Active
+version: 19
+updated_at: 2026-11-02 19:46:47 +0400
 carrier_destination:
   file:
     name: CA-O-188-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-public-version.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

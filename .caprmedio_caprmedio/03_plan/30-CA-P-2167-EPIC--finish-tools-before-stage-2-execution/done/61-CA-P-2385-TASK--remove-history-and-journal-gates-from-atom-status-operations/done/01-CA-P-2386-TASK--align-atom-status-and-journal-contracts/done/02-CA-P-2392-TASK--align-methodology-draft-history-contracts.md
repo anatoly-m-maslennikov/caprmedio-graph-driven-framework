@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2392
 ref_id: CA-P-2392
+container:
+  atom: CA-P-2386
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -18,18 +14,22 @@ topics:
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Workflow
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2386
-tier: 3
-container:
-  atom: CA-P-2386
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 2-CA-P-2392-TASK--align-methodology-draft-history-contracts.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/done/61-CA-P-2385-TASK--remove-history-and-journal-gates-from-atom-status-operations/done/1-CA-P-2386-TASK--align-atom-status-and-journal-contracts/done
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

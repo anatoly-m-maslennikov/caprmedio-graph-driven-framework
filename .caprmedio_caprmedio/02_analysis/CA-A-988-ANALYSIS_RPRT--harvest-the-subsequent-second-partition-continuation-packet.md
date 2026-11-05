@@ -1,31 +1,31 @@
 ---
 atom_id: CA-A-988
 ref_id: CA-A-988
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
 label: Report
+topics:
+  main_subject: Subsequent second-partition continuation session evidence packet
+  dependencies:
+  - CA-P-1270
+relations:
+  is_result_of:
+  - CA-P-1270
+status: Active
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
+carrier_destination:
+  file:
+    name: CA-A-988-CAPRMEDIO-REPORT--bounded-native-evidence-harvest-for-ca-p-1270-this-carrier-preserves-the-complete-source-text-reading-and-its-individual-dispositions-without-promoting-historical-reports-or-machine-context-into-current-authority.md
+    path: .caprmedio_caprmedio/02_analysis
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
 assignee: AI Agent
-status: Active
-topics:
-  main_subject: Subsequent second-partition continuation session evidence packet
-  dependencies:
-  - CA-P-1270
-version: 2
-updated_at: 2026-11-02 15:49:28 +0400
-relations:
-  is_result_of:
-  - CA-P-1270
-container:
-  scope_unit: CA-SU-00
-carrier_destination:
-  file:
-    name: CA-A-988-CAPRMEDIO-REPORT--bounded-native-evidence-harvest-for-ca-p-1270-this-carrier-preserves-the-complete-source-text-reading-and-its-individual-dispositions-without-promoting-historical-reports-or-machine-context-into-current-authority.md
-    path: .caprmedio_caprmedio/02_analysis
 ---
 # Summary
 

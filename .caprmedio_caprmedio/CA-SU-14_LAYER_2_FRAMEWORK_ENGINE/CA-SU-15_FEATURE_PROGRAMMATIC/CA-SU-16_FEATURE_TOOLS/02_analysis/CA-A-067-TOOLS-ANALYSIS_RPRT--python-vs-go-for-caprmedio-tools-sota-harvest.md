@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: rationale
+atom_id: CA-A-067
 topics:
   main_subject:
     continuant:
@@ -15,9 +14,10 @@ topics:
 relations:
   analysis_of:
     - CA-R-1186
-atom_id: CA-A-067
 version: 2
 updated_at: "2026-09-11 20:58:34 +0400"
+cce_version: cce_1
+cce_form: rationale
 ---
 # Python vs Go for CAPRMEDIO Tools: SoTA harvest
 

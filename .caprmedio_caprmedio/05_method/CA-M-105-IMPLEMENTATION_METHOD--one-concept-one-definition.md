@@ -1,12 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: method
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-M-446
-  - CA-M-006
+atom_id: CA-M-105
+ref_id: CA-M-105
+container:
+  scope_unit: CA-SU-00
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
@@ -14,21 +12,23 @@ topics:
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-M-105
-ref_id: CA-M-105
-status: Active
-current_scope_unit: caprmedio
 tier: 1
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-M-446
+  - CA-M-006
+status: Active
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-M-105-CAPRMEDIO-IMPLEMENTATION_METHOD--one-concept-one-definition.md
     path: .caprmedio_caprmedio/05_method
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 

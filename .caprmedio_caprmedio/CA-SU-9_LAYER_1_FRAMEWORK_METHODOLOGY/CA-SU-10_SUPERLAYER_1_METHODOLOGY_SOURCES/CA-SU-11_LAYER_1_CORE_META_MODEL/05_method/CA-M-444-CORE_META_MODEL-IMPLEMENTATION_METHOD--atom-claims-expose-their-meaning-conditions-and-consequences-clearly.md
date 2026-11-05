@@ -1,4 +1,10 @@
 ---
+atom_id: CA-M-444
+ref_id: CA-M-444
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content
   dependencies:
@@ -9,25 +15,19 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
-version: 5
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 5
 relations:
   child_of:
   - CA-M-113
-atom_id: CA-M-444
-ref_id: CA-M-444
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 5
-role: Method
-form: Implementation Method
-container:
-  scope_unit: CA-SU-11
+version: 5
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-M-444-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

@@ -1,20 +1,20 @@
 ---
+atom_id: CA-M-305
+ref_id: CA-M-305@23-draft
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow >{1+} Atom/(.Header.Role := Operations)/Step
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
-version: 23
-updated_at: 2026-11-05 02:57:58 +0400
+tier: 3
 relations:
   method_for:
   - CA-R-1570
-atom_id: CA-M-305
-ref_id: CA-M-305@23-draft
 status: Draft
-tier: 3
-role: Method
-form: Implementation Method
+version: 23
+updated_at: 2026-11-05 02:57:58 +0400
 carrier_destination:
   file:
     name: CA-M-305@23-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md

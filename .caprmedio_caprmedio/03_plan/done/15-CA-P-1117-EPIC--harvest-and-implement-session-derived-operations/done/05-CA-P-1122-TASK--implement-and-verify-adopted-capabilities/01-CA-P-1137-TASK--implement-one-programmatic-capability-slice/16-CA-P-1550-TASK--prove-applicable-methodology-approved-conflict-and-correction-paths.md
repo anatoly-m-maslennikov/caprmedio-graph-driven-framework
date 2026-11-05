@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1550
 ref_id: CA-P-1550
+container:
+  atom: CA-P-1137
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 16
-current_scope_unit: caprmedio
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: 'Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology.Conflict'
   dependencies:
@@ -17,8 +13,7 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Projection
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Implementation Evaluation
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1137
@@ -26,13 +21,18 @@ relations:
   - CA-P-1515
   - CA-P-1519
   - CA-P-1123
-tier: 3
-container:
-  atom: CA-P-1137
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 16-CA-P-1550-TASK--prove-applicable-methodology-approved-conflict-and-correction-paths.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/1-CA-P-1137-TASK--implement-one-programmatic-capability-slice/done
+work_sequence_number: 16
+current_scope_unit: caprmedio
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

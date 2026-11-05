@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1591
 ref_id: CA-P-1591
+container:
+  atom: CA-P-1138
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 7
-current_scope_unit: caprmedio
-claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Implementation Authorization
   dependencies:
@@ -18,20 +14,24 @@ topics:
   - Subject/Graph Node/Engineering/Implementation
   - Subject/Graph Node/Engineering/Evaluation
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1138
   blocks:
   - CA-P-1519
-tier: 3
-container:
-  atom: CA-P-1138
+status: Done
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 7-CA-P-1591-TASK--deny-implementation-workspace-authority-overlap.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/2-CA-P-1138-TASK--implement-one-prompt-capability-slice/done
+work_sequence_number: 7
+current_scope_unit: caprmedio
+claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

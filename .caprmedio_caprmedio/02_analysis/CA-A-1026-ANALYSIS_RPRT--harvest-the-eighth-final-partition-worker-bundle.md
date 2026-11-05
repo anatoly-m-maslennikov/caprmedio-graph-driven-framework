@@ -1,20 +1,15 @@
 ---
 atom_id: CA-A-1026
 ref_id: CA-A-1026
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Final-partition worker review and literal-proof evidence
   dependencies:
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1308
@@ -25,12 +20,17 @@ relations:
   - CA-C-328
   - CA-P-1129
   - CA-P-1312
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
 carrier_destination:
   file:
     name: CA-A-1026-CAPRMEDIO-ANALYSIS_REPORT--harvest-the-eighth-final-partition-worker-bundle.md
     path: .caprmedio_caprmedio/02_analysis
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

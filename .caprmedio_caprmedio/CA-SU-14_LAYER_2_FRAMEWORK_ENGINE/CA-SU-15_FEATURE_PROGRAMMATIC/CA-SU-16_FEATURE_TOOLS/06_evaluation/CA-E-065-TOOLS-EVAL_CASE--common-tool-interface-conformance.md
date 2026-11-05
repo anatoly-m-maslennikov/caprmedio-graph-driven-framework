@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-065
+ref_id: CA-E-065
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   dependencies:
@@ -6,11 +12,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
-version: 32
-updated_at: 2026-11-02 19:46:47 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1063
@@ -19,16 +21,14 @@ relations:
   - CA-R-1066
   - CA-R-1067
   - CA-M-144
-atom_id: CA-E-065
-ref_id: CA-E-065
 status: Active
-role: Evaluation
+version: 32
+updated_at: 2026-11-02 19:46:47 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eval Case
-tier: 3
-container:
-  scope_unit: CA-SU-16
 ---
 # Common Tool interface conformance
 

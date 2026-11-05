@@ -1,24 +1,24 @@
 ---
 atom_id: CA-A-1216
 ref_id: CA-A-1216
+container:
+  scope_unit: CA-SU-15
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
-status: Done
-author: Anatoly Maslennikov
 topics:
   main_subject: Implementation Locality Analysis
   dependencies:
   - Implementation
   - 'Atom/Content Role: Requirement'
   - 'Atom/Content Role: Delivery'
+status: Done
 version: 2
 updated_at: 2026-11-02 15:49:28 +0400
-container:
-  scope_unit: CA-SU-15
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
 ---
 # Summary
 

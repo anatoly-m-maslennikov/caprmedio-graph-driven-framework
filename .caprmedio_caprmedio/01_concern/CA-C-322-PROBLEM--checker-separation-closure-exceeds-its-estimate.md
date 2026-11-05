@@ -1,26 +1,26 @@
 ---
 atom_id: CA-C-322
 ref_id: CA-C-322
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
 label: Problem
+topics:
+  main_subject: Checker separation closure timing
+  dependencies:
+  - Subject/Domain/Node/Continuant/Project
+relations:
+  concern_about:
+    - CA-P-1303
+status: active
+version: 6
+updated_at: 2026-10-23 03:14:50 +0400
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
-status: active
-topics:
-  main_subject: Checker separation closure timing
-  dependencies:
-  - Subject/Domain/Node/Continuant/Project
-version: 6
-updated_at: 2026-10-23 03:14:50 +0400
-relations:
-  concern_about:
-    - CA-P-1303
-container:
-  scope_unit: CA-SU-00
 ---
 # Summary
 

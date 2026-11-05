@@ -1,23 +1,23 @@
 ---
 atom_id: CA-R-2727
 ref_id: CA-R-2727
-current_scope_unit: WORKBENCH
-claim_target_scope_unit: WORKBENCH
-status: Active
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-43
 role: Requirement
 form: Rule
-tier: 3
-version: 14
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 3
+status: Active
+version: 14
+updated_at: 2026-11-05 20:27:41 +0400
 carrier_destination:
   file:
     name: CA-R-2727-WORKBENCH-RULE--provide-a-simple-web-query-interface-over-the-shared-query-capability.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
-updated_at: 2026-11-05 20:27:41 +0400
-container:
-  scope_unit: CA-SU-43
+current_scope_unit: WORKBENCH
+claim_target_scope_unit: WORKBENCH
+author: Anatoly Maslennikov
 ---
 ## Summary
 

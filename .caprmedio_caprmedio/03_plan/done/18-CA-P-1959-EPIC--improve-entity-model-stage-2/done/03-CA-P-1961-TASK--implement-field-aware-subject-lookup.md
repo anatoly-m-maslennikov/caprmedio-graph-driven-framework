@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1961
 ref_id: CA-P-1961
+container:
+  atom: CA-P-1959
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 3
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject
   dependencies:
@@ -25,20 +21,24 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1959
   blocks:
   - CA-P-1963
-tier: 3
-container:
-  atom: CA-P-1959
+status: Done
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 3-CA-P-1961-TASK--implement-field-aware-subject-lookup.md
     path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done
+work_sequence_number: 3
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

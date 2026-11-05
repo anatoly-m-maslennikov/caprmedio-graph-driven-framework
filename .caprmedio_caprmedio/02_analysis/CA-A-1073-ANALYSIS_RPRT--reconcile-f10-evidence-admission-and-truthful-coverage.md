@@ -1,14 +1,10 @@
 ---
 atom_id: CA-A-1073
 ref_id: CA-A-1073
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: F10 complete saved-comparison rollup
   dependencies:
@@ -16,8 +12,6 @@ topics:
   - Analysis
   - Evaluation
   - Methodology Sources
-version: 3
-updated_at: 2026-11-02 15:49:28 +0400
 relations:
   analysis_for:
   - CA-P-1355
@@ -34,8 +28,14 @@ relations:
   - CA-A-1135
   - CA-C-376
   - CA-P-1372
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

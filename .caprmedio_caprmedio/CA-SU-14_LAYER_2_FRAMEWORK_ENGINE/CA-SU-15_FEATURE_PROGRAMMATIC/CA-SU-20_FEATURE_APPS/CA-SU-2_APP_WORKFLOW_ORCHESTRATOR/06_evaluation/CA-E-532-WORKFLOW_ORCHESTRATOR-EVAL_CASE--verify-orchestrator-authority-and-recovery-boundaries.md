@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-532
 ref_id: CA-E-532
+container:
+  scope_unit: CA-SU-2
 role: Evaluation
 form: Eval Case
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 19:59:37 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   dependencies:
@@ -18,12 +15,15 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
 tier: 3
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 12
+updated_at: 2026-10-27 19:59:37 +0400
 carrier_destination:
   file:
     name: CA-E-532-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-orchestrator-authority-and-recovery-boundaries.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/06_evaluation
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

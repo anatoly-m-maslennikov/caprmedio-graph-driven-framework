@@ -1,30 +1,30 @@
 ---
-cce_version: cce_1
-cce_form: obligation
+atom_id: CA-P-099
+ref_id: CA-P-099
+container:
+  scope_unit: CA-SU-00
+role: Plan
+form: Plan
+label: Task
 topics:
   main_subject: Subject/Graph Node/Engineering/Implementation Evaluation
   dependencies:
   - Subject/Graph Node/Engineering/programmatic software
   - Subject/Graph Node/Engineering/Continuant/Tool.Source Architecture
   - Subject/Graph Node/Domain/Continuant/Project.Settings
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
-autonomous_confidence_threshold: 98
+tier: 3
 relations:
   derived_from:
   - CA-A-053
   - CA-A-062
 status: Active
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
+autonomous_confidence_threshold: 98
 author: Anatoly Maslennikov
 current_scope_unit: caprmedio
-role: Plan
-form: Plan
-label: Task
-tier: 3
-atom_id: CA-P-099
-ref_id: CA-P-099
-container:
-  scope_unit: CA-SU-00
 ---
 # Establish the PROGRAMMATIC source conformance baseline
 

@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-590
 ref_id: CA-D-590
+container:
+  scope_unit: CA-SU-2
 role: Delivery
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-27 19:59:27 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   dependencies:
@@ -17,18 +15,20 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code
+tier: 5
 relations:
   delivery_for:
   - CA-R-1896
   - CA-M-352
-form: Eng Decision
-tier: 5
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 14
+updated_at: 2026-10-27 19:59:27 +0400
 carrier_destination:
   file:
     name: CA-D-590-WORKFLOW_ORCHESTRATOR-ENG_DECISION--carry-private-release-host-worker-shutdown.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/07_delivery
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 

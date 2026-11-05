@@ -1,13 +1,10 @@
 ---
 atom_id: CA-E-584
 ref_id: CA-E-584
+container:
+  scope_unit: CA-SU-21
 role: Evaluation
 form: Eval Case
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 11
-updated_at: 2026-10-27 19:59:37 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
@@ -16,17 +13,20 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
+tier: 5
 relations:
   evaluation_for:
   - CA-R-1884
   - CA-M-341
-tier: 5
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 11
+updated_at: 2026-10-27 19:59:37 +0400
 carrier_destination:
   file:
     name: CA-E-584-MCP-EVAL_CASE--verify-http-mcp-gateway-and-stdio-preservation.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,29 +1,29 @@
 ---
 atom_id: CA-M-399
 ref_id: CA-M-399
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+tier: 4
 relations:
   child_of:
   - CA-M-426
   depends_on:
   - CA-M-396
   - CA-M-397
-tier: 4
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 14
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-M-399-PROGRAMMATIC-ENG_POLICY--record-business-workflow-lifecycle-separately-from-technical-diagnostics.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

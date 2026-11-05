@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2297
 ref_id: CA-P-2297
+container:
+  atom: CA-P-2256
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 1
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -18,18 +14,22 @@ topics:
   - Subject/Graph Node/Engineering/Workflow
   - Subject/Graph Node/Engineering/Configuration/TOML Connector Workflow Boundary
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2256
-tier: 3
-container:
-  atom: CA-P-2256
+status: Active
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 1-CA-P-2297-TASK--bind-toml-modifications-to-receiving-schemas.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/21-CA-P-2256-TASK--implement-toml-item-and-full-set-edits
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

@@ -1,17 +1,17 @@
 ---
 atom_id: CA-R-draft
-role: Requirement
-form: Declaration
-tier: 3
-status: Draft
-version: 1
-updated_at: 2026-11-05 21:46:20 +0400
 container:
   scope_unit: CA-SU-11
+role: Requirement
+form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Step.Content.Claim.Mermaid Scheme
   dependencies:
   - CAPRMEDIO_MODEL <+ Workflow.Content.Claim.Mermaid Scheme
+tier: 3
+status: Draft
+version: 1
+updated_at: 2026-11-05 21:46:20 +0400
 carrier_destination:
   file:
     name: CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md

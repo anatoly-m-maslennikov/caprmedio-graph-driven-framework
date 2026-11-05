@@ -1,4 +1,10 @@
 ---
+atom_id: CA-R-1375
+ref_id: CA-R-1375
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
   dependencies:
@@ -7,22 +13,16 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+tier: 1
+status: Active
 version: 33
 updated_at: 2026-11-02 00:18:22 +0400
-atom_id: CA-R-1375
-ref_id: CA-R-1375
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
-container:
-  scope_unit: CA-SU-11
 carrier_destination:
   file:
     name: CA-R-1375-CORE_META_MODEL-RULE--restrict-methodology-source-expansion-to-core-permission.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

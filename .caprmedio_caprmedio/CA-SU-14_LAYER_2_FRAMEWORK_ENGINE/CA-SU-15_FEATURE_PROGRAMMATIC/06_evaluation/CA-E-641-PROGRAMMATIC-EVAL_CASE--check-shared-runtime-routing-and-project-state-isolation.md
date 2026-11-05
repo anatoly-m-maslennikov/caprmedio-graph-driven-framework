@@ -1,23 +1,23 @@
 ---
 atom_id: CA-E-641
 ref_id: CA-E-641
+container:
+  scope_unit: CA-SU-15
 role: Evaluation
 form: Eval Case
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 17
-updated_at: 2026-11-02 19:44:26 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+tier: 6
 relations:
   evaluation_for:
   - CA-R-2008
   - CA-M-401
-tier: 6
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 17
+updated_at: 2026-11-02 19:44:26 +0400
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

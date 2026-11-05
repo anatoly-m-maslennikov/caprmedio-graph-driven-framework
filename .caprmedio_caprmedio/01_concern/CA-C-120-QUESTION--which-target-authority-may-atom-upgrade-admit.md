@@ -1,6 +1,5 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
+atom_id: CA-C-120
 topics:
   main_subject: Tool/ATOM_UPGRADE
   dependencies:
@@ -9,12 +8,13 @@ topics:
   - Subject/Domain/Node/Continuant/Scope Unit
   - Atom/Claim
   - Subject/Engineering/Carrier
-priority: medium
 version: 4
 updated_at: 2026-10-23 03:18:40 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-C-120
 ---
 # Which target authority may ATOM_UPGRADE admit?
 

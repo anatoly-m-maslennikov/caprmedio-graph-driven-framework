@@ -1,28 +1,28 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-475
+ref_id: CA-E-475
+container:
+  scope_unit: CA-SU-26
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Carrier/Git Commit
   dependencies:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-version: 12
-updated_at: 2026-10-27 19:59:35 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 2
 relations:
   evaluation_for:
   - CA-D-448
-current_scope_unit: CORE_EXTENSIONS
 status: Active
+version: 12
+updated_at: 2026-10-27 19:59:35 +0400
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: CORE_EXTENSIONS
 author: Anatoly Maslennikov
-atom_id: CA-E-475
-ref_id: CA-E-475
-tier: 2
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-26
 ---
 # Validate Git release evidence bindings
 

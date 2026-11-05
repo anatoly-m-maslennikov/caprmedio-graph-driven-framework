@@ -1,18 +1,10 @@
 ---
 atom_id: CA-A-1188
 ref_id: CA-A-1188
+container:
+  scope_unit: CA-SU-15
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
-status: Done
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-11-02 15:49:28 +0400
-llm_session_ids:
-- codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
 topics:
   main_subject: Lineage Impact Analysis
   dependencies:
@@ -21,8 +13,16 @@ topics:
 relations:
   relates_to:
   - CA-E-536
-container:
-  scope_unit: CA-SU-15
+status: Done
+version: 2
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+local_tier: Standard
+global_tier: 8
+author: Anatoly Maslennikov
+llm_session_ids:
+- codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
 ---
 # Summary
 

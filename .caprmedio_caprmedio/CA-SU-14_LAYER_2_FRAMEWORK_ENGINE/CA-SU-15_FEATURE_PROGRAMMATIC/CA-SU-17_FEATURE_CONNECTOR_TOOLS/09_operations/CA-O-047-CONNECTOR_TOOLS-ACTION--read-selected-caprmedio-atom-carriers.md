@@ -1,14 +1,10 @@
 ---
 atom_id: CA-O-047
 ref_id: CA-O-047
+container:
+  scope_unit: CA-SU-17
 role: Operations
 form: Action
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
-cce_version: cce_1
-cce_form: definition
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   dependencies:
@@ -17,18 +13,22 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-version: 14
-updated_at: 2026-10-27 19:59:44 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 3
 relations:
   depends_on:
   - CA-R-1936
   - CA-M-376
   - CA-D-625
-tier: 3
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 14
+updated_at: 2026-10-27 19:59:44 +0400
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
+cce_version: cce_1
+cce_form: definition
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Read selected CAPRMEDIO Atom carriers
 

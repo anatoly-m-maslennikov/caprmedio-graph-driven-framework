@@ -1,23 +1,23 @@
 ---
 atom_id: CA-C-615
 ref_id: CA-C-615
-role: Concern
-form: Question
-current_scope_unit: caprmedio
-status: Active
-priority: medium
-author: Anatoly Maslennikov
-tier: 3
-version: 1
-updated_at: 2026-10-29 10:36:14 +0400
-topics:
-  main_subject: Entity/Object/Continuant/History
 container:
   scope_unit: CA-SU-00
+role: Concern
+form: Question
+topics:
+  main_subject: Entity/Object/Continuant/History
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-10-29 10:36:14 +0400
 carrier_destination:
   file:
     name: CA-C-615-CAPRMEDIO-QUESTION--should-legacy-concern-resolution-links-be-restored-as-history.md
     path: .caprmedio_caprmedio/01_concern
+current_scope_unit: caprmedio
+priority: medium
+author: Anatoly Maslennikov
 ---
 ## Summary
 

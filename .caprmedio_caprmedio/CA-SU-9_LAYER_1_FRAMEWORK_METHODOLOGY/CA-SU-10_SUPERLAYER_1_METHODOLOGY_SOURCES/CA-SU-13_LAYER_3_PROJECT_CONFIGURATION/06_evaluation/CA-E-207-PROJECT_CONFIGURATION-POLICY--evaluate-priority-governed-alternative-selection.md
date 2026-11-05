@@ -1,14 +1,10 @@
 ---
-version: 36
-updated_at: 2026-11-02 18:35:20 +0400
-relations:
-  child_of:
-  - CA-R-815
-  evaluation_for:
-  - CA-R-1487
-  - CA-M-297
-  - CA-O-022
-  - CA-O-023
+atom_id: CA-E-207
+ref_id: CA-E-207
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
   dependencies:
@@ -18,16 +14,20 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
-atom_id: CA-E-207
-ref_id: CA-E-207
+tier: 5
+relations:
+  child_of:
+  - CA-R-815
+  evaluation_for:
+  - CA-R-1487
+  - CA-M-297
+  - CA-O-022
+  - CA-O-023
+status: Active
+version: 36
+updated_at: 2026-11-02 18:35:20 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 5
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-13
 ---
 ## Summary
 

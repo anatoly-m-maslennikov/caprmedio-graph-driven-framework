@@ -1,11 +1,10 @@
 ---
-version: 20
-updated_at: 2026-10-27 19:59:44 +0400
-relations:
-  child_of:
-  - CA-R-1487
-  depends_on:
-  - CA-M-297
+atom_id: CA-O-023
+ref_id: CA-O-023
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
 topics:
   main_subject: Subject/caprmedio/Action//Select Priority-Governed Alternative
   dependencies:
@@ -14,21 +13,22 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
-atom_id: CA-O-023
-ref_id: CA-O-023
-role: Operations
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-form: Action
 tier: 3
-container:
-  scope_unit: CA-SU-13
+relations:
+  child_of:
+  - CA-R-1487
+  depends_on:
+  - CA-M-297
+status: Active
+version: 20
+updated_at: 2026-10-27 19:59:44 +0400
 carrier_destination:
   file:
     name: CA-O-023-PROJECT_CONFIGURATION-ACTION--select-an-alternative-under-active-priorities.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 ---
 # Summary
 

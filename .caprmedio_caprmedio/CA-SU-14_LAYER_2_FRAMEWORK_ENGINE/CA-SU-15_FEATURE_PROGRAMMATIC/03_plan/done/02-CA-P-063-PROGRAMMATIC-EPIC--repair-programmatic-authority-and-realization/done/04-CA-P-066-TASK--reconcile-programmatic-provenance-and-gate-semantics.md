@@ -1,24 +1,24 @@
 ---
-cce_version: cce_1
-cce_form: obligation
+atom_id: CA-P-066
+ref_id: CA-P-066
+role: Plan
+form: Plan
+label: Task
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Atom
   dependencies:
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Engineering/Occurrent/Runtime
   - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
+status: Done
 version: 6
 updated_at: 2026-10-25 17:32:27 +0400
+cce_version: cce_1
+cce_form: obligation
 autonomous_confidence_threshold: 98
-status: Done
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
-role: Plan
-form: Plan
-label: Task
-tier: 3
-atom_id: CA-P-066
-ref_id: CA-P-066
 ---
 # Reconcile PROGRAMMATIC provenance and gate semantics
 

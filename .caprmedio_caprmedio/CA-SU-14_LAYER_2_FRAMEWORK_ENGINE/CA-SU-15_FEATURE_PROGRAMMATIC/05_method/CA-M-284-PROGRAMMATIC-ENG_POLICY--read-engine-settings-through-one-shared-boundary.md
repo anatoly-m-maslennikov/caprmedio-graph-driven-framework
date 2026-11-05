@@ -1,31 +1,31 @@
 ---
 atom_id: CA-M-284
 ref_id: CA-M-284
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   dependencies:
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-version: 27
-updated_at: 2026-10-27 19:59:41 +0400
+tier: 4
 relations:
   derived_from:
   - CA-A-053
   child_of:
   - CA-M-415
-tier: 4
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 27
+updated_at: 2026-10-27 19:59:41 +0400
 carrier_destination:
   file:
     name: CA-M-284-PROGRAMMATIC-ENG_POLICY--read-engine-settings-through-one-shared-boundary.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

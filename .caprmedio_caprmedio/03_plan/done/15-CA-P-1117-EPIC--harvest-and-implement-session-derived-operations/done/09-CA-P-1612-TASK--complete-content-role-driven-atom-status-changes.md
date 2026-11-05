@@ -1,16 +1,11 @@
 ---
 atom_id: CA-P-1612
 ref_id: CA-P-1612
+container:
+  atom: CA-P-1117
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 9
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Atom Lifecycle
   dependencies:
@@ -22,8 +17,7 @@ topics:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Graph Node/Engineering/Continuant/Tool
   - Subject/Graph Node/Domain/Continuant/History/Journal
-version: 14
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1117
@@ -32,13 +26,19 @@ relations:
   - CA-P-1123
   - CA-P-1124
   - CA-P-1655
-tier: 3
-container:
-  atom: CA-P-1117
+status: Done
+version: 14
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 9-CA-P-1612-TASK--complete-content-role-driven-atom-status-changes.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
+work_sequence_number: 9
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

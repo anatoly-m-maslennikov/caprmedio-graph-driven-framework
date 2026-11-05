@@ -1,4 +1,8 @@
 ---
+atom_id: CA-M-444
+ref_id: CA-M-444@6-draft
+role: Method
+form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content
   dependencies:
@@ -9,17 +13,13 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
-version: 6
-updated_at: 2026-11-05 02:57:58 +0400
+tier: 5
 relations:
   child_of:
   - CA-M-113
-atom_id: CA-M-444
-ref_id: CA-M-444@6-draft
 status: Draft
-tier: 5
-role: Method
-form: Implementation Method
+version: 6
+updated_at: 2026-11-05 02:57:58 +0400
 carrier_destination:
   file:
     name: CA-M-444@6-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--atom-claims-expose-their-meaning-conditions-and-consequences-clearly.md

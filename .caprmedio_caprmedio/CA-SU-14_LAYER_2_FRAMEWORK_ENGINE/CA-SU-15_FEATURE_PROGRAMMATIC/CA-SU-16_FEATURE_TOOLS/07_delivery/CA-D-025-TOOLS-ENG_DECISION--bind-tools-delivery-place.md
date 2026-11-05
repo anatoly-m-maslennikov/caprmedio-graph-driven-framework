@@ -1,23 +1,23 @@
 ---
+atom_id: CA-D-025
+ref_id: CA-D-025
+container:
+  scope_unit: CA-SU-16
+role: Delivery
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path
-version: 25
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 1
 relations:
   delivery_for:
   - CA-R-2690
+status: Active
+version: 25
+updated_at: 2026-11-02 19:46:47 +0400
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-D-025
-ref_id: CA-D-025
-status: Active
-role: Delivery
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eng Decision
-tier: 1
-container:
-  scope_unit: CA-SU-16
 ---
 # Bind TOOLS Delivery place
 

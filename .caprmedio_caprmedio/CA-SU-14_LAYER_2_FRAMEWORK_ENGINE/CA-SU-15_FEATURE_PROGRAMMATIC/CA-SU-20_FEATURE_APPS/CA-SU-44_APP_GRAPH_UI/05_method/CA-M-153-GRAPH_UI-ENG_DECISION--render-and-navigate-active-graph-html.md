@@ -1,31 +1,31 @@
 ---
+atom_id: CA-M-153
+ref_id: CA-M-153
+container:
+  scope_unit: CA-SU-44
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
-version: 26
-updated_at: 2026-11-03 23:17:14 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 3
 relations:
   method_for:
   - CA-R-1076
   derived_from:
   - CA-A-057
-atom_id: CA-M-153
-ref_id: CA-M-153
-role: Method
 status: Active
-current_scope_unit: GRAPH_UI
-claim_target_scope_unit: GRAPH_UI
-form: Eng Decision
-tier: 3
-author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-44
+version: 26
+updated_at: 2026-11-03 23:17:14 +0400
 carrier_destination:
   file:
     name: CA-M-153-GRAPH_UI-ENG_DECISION--render-and-navigate-active-graph-html.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-44_APP_GRAPH_UI/05_method
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: GRAPH_UI
+claim_target_scope_unit: GRAPH_UI
+author: Anatoly Maslennikov
 ---
 # Summary
 

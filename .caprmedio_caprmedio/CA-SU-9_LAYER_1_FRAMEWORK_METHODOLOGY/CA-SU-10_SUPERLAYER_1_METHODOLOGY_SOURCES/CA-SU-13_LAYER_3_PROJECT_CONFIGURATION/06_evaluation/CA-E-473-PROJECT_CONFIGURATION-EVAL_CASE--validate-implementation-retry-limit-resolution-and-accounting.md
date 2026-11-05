@@ -1,13 +1,10 @@
 ---
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  evaluation_for:
-  - CA-R-1488@21
-  - CA-R-1489
-  - CA-M-295
-  - CA-D-447
-  - CA-O-024
+atom_id: CA-E-473
+ref_id: CA-E-473
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
   dependencies:
@@ -17,16 +14,19 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
-atom_id: CA-E-473
-ref_id: CA-E-473
+tier: 6
+relations:
+  evaluation_for:
+  - CA-R-1488@21
+  - CA-R-1489
+  - CA-M-295
+  - CA-D-447
+  - CA-O-024
+status: Active
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Evaluation
-form: Eval Case
-container:
-  scope_unit: CA-SU-13
 ---
 ## Summary
 

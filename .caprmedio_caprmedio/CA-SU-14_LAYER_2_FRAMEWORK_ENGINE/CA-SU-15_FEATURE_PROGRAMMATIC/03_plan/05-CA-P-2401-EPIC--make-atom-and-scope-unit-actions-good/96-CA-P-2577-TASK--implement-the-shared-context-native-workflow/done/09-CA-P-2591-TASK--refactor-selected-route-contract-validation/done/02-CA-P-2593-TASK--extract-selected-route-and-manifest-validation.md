@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2593
 ref_id: CA-P-2593
+container:
+  atom: CA-P-2591
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Done
-version: 5
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/MCP.selected Workflow route contract
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2591
@@ -21,13 +17,17 @@ relations:
   relates_to:
   - CA-P-2577
   - CA-E-539
-tier: 3
-container:
-  atom: CA-P-2591
+status: Done
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 2-CA-P-2593-TASK--extract-selected-route-and-manifest-validation.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/done/9-CA-P-2591-TASK--refactor-selected-route-contract-validation/done
+work_sequence_number: 2
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,19 +1,16 @@
 ---
 atom_id: CA-E-635
 ref_id: CA-E-635
+container:
+  scope_unit: CA-SU-17
 role: Evaluation
 form: Eval Case
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
   - Subject/CAPRMEDIO/Carrier
-version: 11
-updated_at: 2026-10-27 19:59:38 +0400
+tier: 6
 relations:
   evaluation_for:
   - CA-R-1936
@@ -22,13 +19,16 @@ relations:
   - CA-O-204
   depends_on:
   - CA-E-254
-tier: 6
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 11
+updated_at: 2026-10-27 19:59:38 +0400
 carrier_destination:
   file:
     name: CA-E-635-CONNECTOR_TOOLS-EVAL_CASE--verify-lossless-pure-toml-materialization.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/06_evaluation
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

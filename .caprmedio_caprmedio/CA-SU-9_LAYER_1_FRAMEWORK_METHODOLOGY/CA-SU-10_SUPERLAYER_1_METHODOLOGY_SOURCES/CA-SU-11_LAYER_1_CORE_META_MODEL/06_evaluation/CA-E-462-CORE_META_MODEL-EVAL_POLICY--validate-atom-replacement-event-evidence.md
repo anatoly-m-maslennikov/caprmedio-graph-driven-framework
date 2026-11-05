@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-462
+ref_id: CA-E-462
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Event Record
   dependencies:
@@ -10,26 +16,20 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Projection
-version: 33
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1491
   - CA-R-807
-atom_id: CA-E-462
-ref_id: CA-E-462
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 3
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-11
+version: 33
+updated_at: 2026-11-02 08:06:47 +0400
 carrier_destination:
   file:
     name: CA-E-462-CORE_META_MODEL-EVAL_POLICY--validate-atom-replacement-event-evidence.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

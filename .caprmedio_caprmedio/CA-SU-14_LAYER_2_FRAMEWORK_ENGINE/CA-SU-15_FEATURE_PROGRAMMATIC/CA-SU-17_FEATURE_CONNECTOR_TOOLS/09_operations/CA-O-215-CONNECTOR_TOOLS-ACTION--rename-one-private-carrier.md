@@ -1,12 +1,10 @@
 ---
 atom_id: CA-O-215
 ref_id: CA-O-215
+container:
+  scope_unit: CA-SU-17
 role: Operations
 form: Action
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   dependencies:
@@ -15,21 +13,23 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-version: 12
-updated_at: 2026-10-27 19:59:48 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-1941
   - CA-M-381
   - CA-D-630
   - CA-D-625
-tier: 3
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 12
+updated_at: 2026-10-27 19:59:48 +0400
 carrier_destination:
   file:
     name: CA-O-215-CONNECTOR_TOOLS-ACTION--rename-one-private-carrier.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/09_operations
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

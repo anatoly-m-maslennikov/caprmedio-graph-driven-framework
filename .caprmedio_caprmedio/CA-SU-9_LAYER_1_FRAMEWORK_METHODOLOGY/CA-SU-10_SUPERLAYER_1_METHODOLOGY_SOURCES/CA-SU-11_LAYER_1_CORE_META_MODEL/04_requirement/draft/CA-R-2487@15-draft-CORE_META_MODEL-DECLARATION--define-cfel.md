@@ -1,39 +1,26 @@
 ---
 atom_id: CA-R-2487
 ref_id: CA-R-2487@15-draft
-status: Draft
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL
-version: 15
-updated_at: 2026-11-05 16:33:24 +0400
-tier: 3
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Draft
+version: 15
+updated_at: 2026-11-05 16:33:24 +0400
 carrier_destination:
   file:
     name: CA-R-2487@15-draft-DECLARATION--define-cfel.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 
 Define CFEL
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-p{::occurrence}:: [value format]{::value count};
-
-p.*[name format]{::immediate name count};
-
-p.**[name format]{::recursive name count};
-
-p.*[name format]{::immediate name count}:: [value format]{::value count}
-```
 
 ### Prose Claim
 
@@ -122,3 +109,16 @@ gap, not evidence that the construct has different semantics.
 A Model kind can supply an object Format, but a Format, Bool value, or other literal does not become an instance merely by its Format or notation. Instance selection requires its declared source binding. No value-format-to-instance rewrite is implied by the CFEL overview.
 
 `$relation[<Relation>, (.Name = IS_DECLARED_BY)]` is the qualified derived view of a GOVERNS fact whose source is a Requirement/Form Declaration; it reverses that selected fact while retaining the qualification. It is not a general inverse of GOVERNS or a permission for every Relation.
+### Formal Claim
+
+```CFEL
+# model
+p{::occurrence}:: [value format]{::value count};
+
+p.*[name format]{::immediate name count};
+
+p.**[name format]{::recursive name count};
+
+p.*[name format]{::immediate name count}:: [value format]{::value count}
+```
+

@@ -1,26 +1,26 @@
 ---
 atom_id: CA-C-389
 ref_id: CA-C-389
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Validation Workflow and Step Carrier conformance
   dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
   - Markdown Atom Carrier/Structure
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about: [CA-O-080, CA-O-088]
   relates_to: [CA-P-1420, CA-A-1140, CA-D-479, CA-C-376]
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

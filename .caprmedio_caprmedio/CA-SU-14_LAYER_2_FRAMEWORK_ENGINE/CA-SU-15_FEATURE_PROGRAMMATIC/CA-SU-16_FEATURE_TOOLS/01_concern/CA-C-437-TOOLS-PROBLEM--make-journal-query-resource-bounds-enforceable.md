@@ -1,16 +1,10 @@
 ---
 atom_id: CA-C-437
 ref_id: CA-C-437
+container:
+  scope_unit: CA-SU-16
 role: Concern
 form: Problem
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-local_tier: Standard
-global_tier: 11
-status: resolved
-author: Anatoly Maslennikov
-version: 2
-updated_at: 2026-10-23 03:14:50 +0400
 topics:
   main_subject: Journal query resource bounds
   dependencies:
@@ -19,8 +13,14 @@ topics:
   - Pagination
 relations:
   relates_to: [CA-R-1865, CA-D-556, CA-E-575, CA-E-577]
-container:
-  scope_unit: CA-SU-16
+status: resolved
+version: 2
+updated_at: 2026-10-23 03:14:50 +0400
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
 ---
 # Summary
 

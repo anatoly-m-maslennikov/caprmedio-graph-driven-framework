@@ -1,26 +1,26 @@
 ---
+atom_id: CA-M-147
+ref_id: CA-M-147
+container:
+  scope_unit: CA-SU-16
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 23
-updated_at: 2026-11-02 19:44:26 +0400
-llm_session_ids:
-- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 2
 relations:
   method_for:
   - CA-R-1060
   - CA-R-1061
   - CA-R-1062
-atom_id: CA-M-147
-ref_id: CA-M-147
 status: Active
-role: Method
+version: 23
+updated_at: 2026-11-02 19:44:26 +0400
+llm_session_ids:
+- codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eng Decision
-tier: 2
-container:
-  scope_unit: CA-SU-16
 ---
 # Generate current active Atom snapshot
 

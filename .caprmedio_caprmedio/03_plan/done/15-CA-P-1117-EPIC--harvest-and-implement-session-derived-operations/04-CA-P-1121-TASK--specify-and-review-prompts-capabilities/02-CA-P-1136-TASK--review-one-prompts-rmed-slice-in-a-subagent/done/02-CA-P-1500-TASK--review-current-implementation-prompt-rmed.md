@@ -4,20 +4,13 @@ ref_id: CA-P-1500
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: caprmedio
-claim_target_scope_unit: PROMPTS
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Evaluation
   dependencies:
   - Subject/Graph Node/Engineering/Implementation
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Evaluation'
   - Subject/Graph Node/Engineering/Workflow
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1136
@@ -25,7 +18,14 @@ relations:
   - CA-P-1122
   - CA-P-1162
   - CA-P-1163
-tier: 3
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: PROMPTS
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

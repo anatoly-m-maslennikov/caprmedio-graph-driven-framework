@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-578
 ref_id: CA-D-578
+container:
+  scope_unit: CA-SU-21
 role: Delivery
-current_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
-version: 18
-updated_at: 2026-11-04 16:35:58 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
@@ -15,20 +13,22 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication/API
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
+tier: 5
 relations:
   delivery_for:
   - CA-R-1884
   - CA-R-1885
   - CA-M-341
   - CA-M-357
-form: Eng Decision
-tier: 5
-container:
-  scope_unit: CA-SU-21
+status: Active
+version: 18
+updated_at: 2026-11-04 16:35:58 +0400
 carrier_destination:
   file:
     name: CA-D-578-MCP-ENG_DECISION--carry-the-localhost-http-gateway-and-configuration.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/07_delivery
+current_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 # Summary
 

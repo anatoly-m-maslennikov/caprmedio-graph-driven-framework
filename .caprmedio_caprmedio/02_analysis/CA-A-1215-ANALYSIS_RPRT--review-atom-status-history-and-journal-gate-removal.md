@@ -1,16 +1,10 @@
 ---
 atom_id: CA-A-1215
 ref_id: CA-A-1215
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-status: Done
-author: Anatoly Maslennikov
-version: 4
-updated_at: 2026-11-02 15:49:28 +0400
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom.Status
   dependencies:
@@ -29,8 +23,14 @@ relations:
   - CA-P-2390
   - CA-P-2400
   - CA-C-523
-container:
-  scope_unit: CA-SU-00
+status: Done
+version: 4
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,16 +1,11 @@
 ---
 atom_id: CA-P-1834
 ref_id: CA-P-1834
+container:
+  atom: CA-P-1829
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 5
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Runtime
   dependencies:
@@ -25,6 +20,7 @@ topics:
   - Subject/Graph Node/Engineering/Evaluation Implementation
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1829
@@ -32,13 +28,17 @@ relations:
   - CA-P-1837
   - CA-P-1840
   - CA-P-1842
-tier: 3
-container:
-  atom: CA-P-1829
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 5-CA-P-1834-TASK--add-startup-and-output-launcher-golden-tests.md
     path: .caprmedio_caprmedio/03_plan/done/16-CA-P-1829-EPIC--launch-isolated-project-mcp-runtimes/done
+work_sequence_number: 5
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

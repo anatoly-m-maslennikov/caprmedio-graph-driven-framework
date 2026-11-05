@@ -1,26 +1,26 @@
 ---
 atom_id: CA-R-1861
 ref_id: CA-R-1861
+container:
+  scope_unit: CA-SU-16
 role: Requirement
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-10-27 20:00:04 +0400
+form: Rule
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Event
 tier: 3
-form: Rule
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 14
+updated_at: 2026-10-27 20:00:04 +0400
 carrier_destination:
   file:
     name: CA-R-1861-TOOLS-RULE--read-only-the-canonical-events-journal.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/04_requirement
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

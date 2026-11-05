@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2088
 ref_id: CA-P-2088
+container:
+  atom: CA-P-2045
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 5
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject
   dependencies:
@@ -19,18 +15,22 @@ topics:
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - Subject/Graph Node/Engineering/Continuant/Tool
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
-version: 12
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2045
-tier: 3
-container:
-  atom: CA-P-2045
+status: Done
+version: 12
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 5-CA-P-2088-TASK--verify-the-working-subject-ledger-independently.md
     path: .caprmedio_caprmedio/03_plan/done/18-CA-P-1959-EPIC--improve-entity-model-stage-2/done/8-CA-P-1966-EPIC--map-current-core-subject-origins/done/53-CA-P-2043-TASK--integrate-current-subject-mapping-ledger/done/2-CA-P-2045-TASK--integrate-reviewed-current-subject-mappings/done
+work_sequence_number: 5
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

@@ -1,22 +1,17 @@
 ---
 atom_id: CA-P-1206
 ref_id: CA-P-1206
+container:
+  atom: CA-P-1128
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 6
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/History
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Project
   - Subject/Graph Node/Engineering/Operations
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1128
@@ -25,13 +20,18 @@ relations:
   - CA-P-1119
   - CA-P-1130
   - CA-P-1155
-tier: 3
-container:
-  atom: CA-P-1128
+status: Done
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 6-CA-P-1206-TASK--harvest-the-whole-third-partition-draft-review-report.md
     path: .caprmedio_caprmedio/03_plan/canceled/1-CA-P-1118-TASK--harvest-the-thirty-day-session-evidence/canceled/4-CA-P-1128-TASK--harvest-the-third-session-evidence-partition/done
+work_sequence_number: 6
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

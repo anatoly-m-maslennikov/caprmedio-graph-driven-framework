@@ -1,23 +1,23 @@
 ---
 atom_id: CA-C-575
 ref_id: CA-C-575
+container:
+  scope_unit: CA-SU-15
 role: Concern
 form: Problem
+topics:
+  main_subject: Subject/Domain/Node/Continuant/Atom
+relations:
+  concern_about: [CA-P-2568, CA-P-2576]
+status: Resolved
+version: 2
+updated_at: 2026-10-23 03:06:32 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
-status: Resolved
 priority: high
-version: 2
-updated_at: 2026-10-23 03:06:32 +0400
-topics:
-  main_subject: Subject/Domain/Node/Continuant/Atom
-relations:
-  concern_about: [CA-P-2568, CA-P-2576]
-container:
-  scope_unit: CA-SU-15
 ---
 # Summary
 

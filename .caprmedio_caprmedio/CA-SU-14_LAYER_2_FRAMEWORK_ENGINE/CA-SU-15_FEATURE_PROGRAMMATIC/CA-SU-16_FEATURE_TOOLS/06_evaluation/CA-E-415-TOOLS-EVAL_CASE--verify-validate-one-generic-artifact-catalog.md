@@ -1,30 +1,30 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-415
+ref_id: CA-E-415
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog'
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-version: 20
-updated_at: 2026-10-27 19:59:34 +0400
+tier: 2
 relations:
   evaluation_for:
   - CA-R-1142
   - CA-O-034
+status: Active
+version: 20
+updated_at: 2026-10-27 19:59:34 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-415
-ref_id: CA-E-415
-status: Active
-role: Evaluation
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eval Case
-tier: 2
-container:
-  scope_unit: CA-SU-16
 ---
 # Verify validate one generic Artifact catalog
 

@@ -1,17 +1,11 @@
 ---
 atom_id: CA-P-1779
 ref_id: CA-P-1779
+container:
+  atom: CA-P-1117
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 28
-current_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 90
-status: Done
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Validation
   dependencies:
@@ -20,19 +14,25 @@ topics:
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - Subject/Graph Node/Engineering/Manifest
   - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1117
   blocks:
   - CA-P-1717
   - CA-P-1721
-tier: 3
-container:
-  atom: CA-P-1117
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 28-CA-P-1779-TASK--repair-retained-bootstrap-proof-metadata-accounting.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done
+work_sequence_number: 28
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
 ---
 # Summary
 

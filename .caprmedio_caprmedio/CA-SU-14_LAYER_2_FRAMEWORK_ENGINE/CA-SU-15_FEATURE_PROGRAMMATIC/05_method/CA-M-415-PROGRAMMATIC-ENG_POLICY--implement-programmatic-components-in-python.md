@@ -1,32 +1,32 @@
 ---
 atom_id: CA-M-415
 ref_id: CA-M-415
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python Code
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-version: 11
-updated_at: 2026-10-27 19:59:43 +0400
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
+tier: 3
 relations:
   derived_from:
   - CA-A-053
   child_of:
   - CA-M-261
-tier: 3
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 11
+updated_at: 2026-10-27 19:59:43 +0400
 carrier_destination:
   file:
     name: CA-M-415-PROGRAMMATIC-ENG_POLICY--implement-programmatic-components-in-python.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,27 +1,27 @@
 ---
 atom_id: CA-P-2637
 ref_id: CA-P-2637
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
 label: Epic
-current_scope_unit: caprmedio
-claim_target_scope_unit: FRAMEWORK_ENGINE
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Domain/Continuant/Scope Unit
+tier: 3
+status: Active
 version: 10
 updated_at: 2026-11-02 20:36:56 +0400
-tier: 3
-container:
-  scope_unit: CA-SU-00
 carrier_destination:
   file:
     name: CA-P-2637-EPIC--migrate-engine-rmed-atoms.md
     path: .caprmedio_caprmedio/03_plan
+current_scope_unit: caprmedio
+claim_target_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2572
 ref_id: CA-P-2572
+container:
+  atom: CA-P-2576
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Backlog
-version: 5
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/MCP.selected Workflow capability routes
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2576
@@ -25,13 +21,17 @@ relations:
   - CA-M-398
   - CA-M-399
   - CA-M-400
-tier: 3
-container:
-  atom: CA-P-2576
+status: Backlog
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 4-CA-P-2572-TASK--implement-request-bound-multi-project-mcp-routing.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/95-CA-P-2576-TASK--serve-all-projects-through-one-host-mcp/001_backlog
+work_sequence_number: 4
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

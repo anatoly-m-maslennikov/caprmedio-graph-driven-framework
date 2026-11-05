@@ -1,21 +1,21 @@
 ---
 atom_id: CA-P-2710
 ref_id: CA-P-2710
-label: Epic
-status: Active
-tier: 3
-version: 34
-updated_at: 2026-11-05 23:07:35 +0400
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
+container:
+  scope_unit: CA-SU-00
 role: Plan
 form: Plan
+label: Epic
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 3
+status: Active
+version: 35
+updated_at: 2026-11-05 23:17:15 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
     path: .caprmedio_caprmedio/03_plan
-container:
-  scope_unit: CA-SU-00
 ---
 
 ## Summary
@@ -101,3 +101,7 @@ The browser regression retains the delayed acknowledgement/latest-edit case. Its
 - [x] Review, fix and adopt the learned Method/Evaluation prevention amendments.
 
 The five Method and five Evaluation amendments passed independent review and are Current. Scoped prompts include their prevention checklist. Current Declaration topic headers are now supported by the shared reader; 24 focused tests and live Project resolution pass. The first release preflight stopped before deployment on that reader mismatch; the retry follows the fix.
+
+## Integrated acceptance follow-up
+
+The first Docker acceptance run passed 12 host modules and launcher integration, but the seven-test Docker module found stale expectations and an adaptive-page editor race. The test fixtures now use the declared public columns, three-table schema and one-query Run contract while retaining historical saved-text compatibility. Watcher preservation checks permit concurrent unrelated source events and still require excluded runtime settings to stay unlogged. Adaptive page requests no longer disable the SQL editor and reject stale responses. The fix passed independent review and the full isolated browser gate passed 13 flows in 28.8 seconds. A fresh standard local release remains required.

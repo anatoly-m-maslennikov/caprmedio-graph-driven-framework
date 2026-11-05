@@ -1,26 +1,26 @@
 ---
 atom_id: CA-M-397
-ref_id: CA-M-397@14-draft
+ref_id: CA-M-397
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
-version: 14
-updated_at: 2026-11-05 23:05:59 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+tier: 2
 relations:
   child_of:
   - CA-M-396
-tier: 2
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 14
+updated_at: 2026-11-05 23:05:59 +0400
 carrier_destination:
   file:
     name: CA-M-397-PROGRAMMATIC-ENG_POLICY--contain-invalid-input-and-project-artifact-failures.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

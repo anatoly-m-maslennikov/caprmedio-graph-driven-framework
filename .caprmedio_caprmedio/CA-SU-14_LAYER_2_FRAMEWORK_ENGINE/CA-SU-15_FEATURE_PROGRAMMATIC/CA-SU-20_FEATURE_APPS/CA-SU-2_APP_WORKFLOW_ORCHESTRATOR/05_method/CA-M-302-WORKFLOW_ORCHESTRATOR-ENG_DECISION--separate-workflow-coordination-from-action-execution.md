@@ -1,6 +1,10 @@
 ---
-cce_version: cce_1
-cce_form: method
+atom_id: CA-M-302
+ref_id: CA-M-302
+container:
+  scope_unit: CA-SU-2
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   dependencies:
@@ -11,25 +15,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-version: 13
-updated_at: 2026-10-27 19:59:41 +0400
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 4
 relations:
   method_for:
   - CA-R-1522
   - CA-R-1523
   - CA-R-1524
-atom_id: CA-M-302
-ref_id: CA-M-302
 status: Active
-role: Method
+version: 13
+updated_at: 2026-10-27 19:59:41 +0400
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: WORKFLOW_ORCHESTRATOR
-form: Eng Decision
-tier: 4
-container:
-  scope_unit: CA-SU-2
 ---
 # Separate Workflow coordination from Action execution
 

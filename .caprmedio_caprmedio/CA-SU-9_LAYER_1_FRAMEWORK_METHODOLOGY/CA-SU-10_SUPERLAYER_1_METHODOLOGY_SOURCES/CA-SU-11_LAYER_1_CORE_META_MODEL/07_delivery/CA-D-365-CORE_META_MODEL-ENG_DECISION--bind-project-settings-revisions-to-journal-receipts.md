@@ -1,28 +1,28 @@
 ---
+atom_id: CA-D-365
+ref_id: CA-D-365
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
   - CAPRMEDIO_MODEL <+ Event Record
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 6
 relations:
   child_of:
   - CA-D-364
-atom_id: CA-D-365
-ref_id: CA-D-365
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 6
-role: Delivery
-form: Decision
-container:
-  scope_unit: CA-SU-11
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-D-365-CORE_META_MODEL-DECISION--bind-project-settings-revisions-to-journal-receipts.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

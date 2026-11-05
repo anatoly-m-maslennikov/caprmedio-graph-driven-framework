@@ -1,21 +1,21 @@
 ---
 atom_id: CA-R-2449
 ref_id: CA-R-2449
+container:
+  scope_unit: CA-SU-15
 role: Requirement
 form: Goal
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: MCP
-status: Active
-author: Anatoly Maslennikov
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+tier: 0
+status: Active
 version: 1
 updated_at: 2026-10-30 03:11:57 +0400
-tier: 0
-container:
-  scope_unit: CA-SU-15
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
 ---
 ## Summary
 

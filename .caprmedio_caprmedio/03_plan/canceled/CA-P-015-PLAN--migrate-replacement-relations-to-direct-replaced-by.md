@@ -1,20 +1,20 @@
 ---
-subject_scopes:
-- lifecycle-traceability
-version: 6
-updated_at: 2026-10-24 13:39:34 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-role: Plan
-form: Plan
-tier: 3
-status: Canceled
-author: Anatoly Maslennikov
-current_scope_unit: caprmedio
 atom_id: CA-P-015
 ref_id: CA-P-015
 container:
   scope_unit: CA-SU-00
+role: Plan
+form: Plan
+tier: 3
+status: Canceled
+version: 6
+updated_at: 2026-10-24 13:39:34 +0400
+subject_scopes:
+- lifecycle-traceability
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+author: Anatoly Maslennikov
+current_scope_unit: caprmedio
 ---
 # Migrate replacement relations to direct replaced_by
 

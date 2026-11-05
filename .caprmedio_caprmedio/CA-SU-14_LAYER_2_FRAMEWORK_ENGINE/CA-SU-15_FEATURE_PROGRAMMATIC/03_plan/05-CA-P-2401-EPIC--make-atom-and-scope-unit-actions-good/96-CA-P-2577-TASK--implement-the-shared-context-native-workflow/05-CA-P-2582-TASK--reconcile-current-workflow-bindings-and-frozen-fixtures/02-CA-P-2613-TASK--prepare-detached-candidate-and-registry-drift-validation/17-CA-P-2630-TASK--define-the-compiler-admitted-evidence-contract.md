@@ -1,18 +1,14 @@
 ---
 atom_id: CA-P-2630
 ref_id: CA-P-2630
+container:
+  atom: CA-P-2613
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 17
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-author: Anatoly Maslennikov
-status: Backlog
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Journal Operations
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2613
@@ -37,13 +33,17 @@ relations:
   - CA-E-562
   - CA-D-541
   - CA-D-542
-tier: 3
-container:
-  atom: CA-P-2613
+status: Backlog
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 17-CA-P-2630-TASK--define-the-compiler-admitted-evidence-contract.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/5-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/5-CA-P-2582-TASK--reconcile-current-workflow-bindings-and-frozen-fixtures/2-CA-P-2613-TASK--prepare-the-detached-candidate-and-registry-drift-validation/001_backlog
+work_sequence_number: 17
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

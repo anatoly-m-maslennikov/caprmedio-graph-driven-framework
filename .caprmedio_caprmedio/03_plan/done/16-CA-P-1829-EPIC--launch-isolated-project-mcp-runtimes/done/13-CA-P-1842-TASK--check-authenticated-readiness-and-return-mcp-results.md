@@ -1,16 +1,11 @@
 ---
 atom_id: CA-P-1842
 ref_id: CA-P-1842
+container:
+  atom: CA-P-1829
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 13
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-status: Done
-author: Anatoly Maslennikov
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
 topics:
   main_subject: Subject/Graph Node/Engineering/Gateway
   dependencies:
@@ -25,18 +20,23 @@ topics:
   - Subject/Graph Node/Engineering/Validation
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: AI Agent'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1829
   blocks:
   - CA-P-1843
-tier: 3
-container:
-  atom: CA-P-1829
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 13-CA-P-1842-TASK--check-authenticated-readiness-and-return-mcp-results.md
     path: .caprmedio_caprmedio/03_plan/done/16-CA-P-1829-EPIC--launch-isolated-project-mcp-runtimes/done
+work_sequence_number: 13
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

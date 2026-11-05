@@ -1,7 +1,7 @@
-# Post-MODEL application property snapshot
+# Atom property readiness snapshot
 
-The verified MODEL application records 61 operations and 33 outputs. The live native census increased from 4,665 to 4,679 carriers (4,412 Current-path, 267 Draft-path), including the 21 live GIT/FPF carriers. All included paths are regular non-symlink files outside excluded history and fixture trees.
+Source-only snapshot; refresh after stage 1: 4669 numbered native carriers (Current 4412, Draft 257). Refresh after stage 1.
 
-Ref ID is present as a nonempty string in 25 carriers and absent in 4,654. This checks shape only; deriving or verifying the correct ID requires identity, version and status evidence. Actual frontmatter key order is captured per carrier for a later order check, not declared compliant here.
+The JSON records each source hash and per-field status for Topics, Role/Form, Container, and Carrier Destination. Topics checks reflect the latest decision and are not yet a claim about Current declarations. Optional dependencies may be absent. Existing Subject fields are retained as evidence, with no automatic rename assumed.
 
-The two unallocated Workflow and Step Mermaid Declaration Drafts are included. Current R2965, R2966, R2967, R2955, R2951, R2779, R2783 and R2784 are present; retired R2698–R2700 and missing R2962 are absent from the live census. No physical moves or business-content fixes are implied.
+Current Carrier Destination Declarations require Name and Path; Path is a repository-relative containing directory. Container and four additional Requirement Forms are staged. The root Project Declaration has a predefined world default. The snapshot checks value shape, not identity resolution, complete Form admission or runtime conformance. See JSON for exclusions and other limits.

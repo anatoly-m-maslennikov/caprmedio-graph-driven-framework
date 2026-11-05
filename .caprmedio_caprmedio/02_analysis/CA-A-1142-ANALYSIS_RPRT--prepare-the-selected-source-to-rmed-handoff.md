@@ -1,16 +1,10 @@
 ---
 atom_id: CA-A-1142
 ref_id: CA-A-1142
+container:
+  scope_unit: CA-SU-00
 role: Analysis & Advisory
 form: Analysis Report
-current_scope_unit: caprmedio
-claim_target_scope_unit: METHODOLOGY_SOURCES
-local_tier: Standard
-global_tier: 2
-status: Active
-author: Anatoly Maslennikov
-version: 3
-updated_at: 2026-11-02 15:49:28 +0400
 topics:
   main_subject: Selected source-to-RMED handoff
   dependencies:
@@ -32,8 +26,14 @@ relations:
   - CA-C-426
   - CA-C-428
   - CA-C-429
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 3
+updated_at: 2026-11-02 15:49:28 +0400
+current_scope_unit: caprmedio
+claim_target_scope_unit: METHODOLOGY_SOURCES
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

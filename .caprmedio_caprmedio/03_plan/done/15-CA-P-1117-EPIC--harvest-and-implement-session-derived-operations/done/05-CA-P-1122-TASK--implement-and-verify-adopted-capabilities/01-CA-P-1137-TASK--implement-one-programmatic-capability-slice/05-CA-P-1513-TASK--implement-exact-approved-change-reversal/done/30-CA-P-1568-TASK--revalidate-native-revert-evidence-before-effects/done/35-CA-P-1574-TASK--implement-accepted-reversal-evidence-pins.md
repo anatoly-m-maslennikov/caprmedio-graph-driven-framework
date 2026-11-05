@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1574
 ref_id: CA-P-1574
+container:
+  atom: CA-P-1568
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 35
-current_scope_unit: caprmedio
-claim_target_scope_unit: REVERT_CHANGES
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Revert Changes/Admission and Result Evaluation
   dependencies:
@@ -18,8 +14,7 @@ topics:
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - Subject/Graph Node/Engineering/Evaluation
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1568
@@ -27,13 +22,18 @@ relations:
   - CA-P-1568
   - CA-P-1567
   - CA-P-1519
-tier: 3
-container:
-  atom: CA-P-1568
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 35-CA-P-1574-TASK--implement-accepted-reversal-evidence-pins.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/5-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/1-CA-P-1137-TASK--implement-one-programmatic-capability-slice/5-CA-P-1513-TASK--implement-exact-approved-change-reversal/done/30-CA-P-1568-TASK--revalidate-native-revert-evidence-before-effects/done
+work_sequence_number: 35
+current_scope_unit: caprmedio
+claim_target_scope_unit: REVERT_CHANGES
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

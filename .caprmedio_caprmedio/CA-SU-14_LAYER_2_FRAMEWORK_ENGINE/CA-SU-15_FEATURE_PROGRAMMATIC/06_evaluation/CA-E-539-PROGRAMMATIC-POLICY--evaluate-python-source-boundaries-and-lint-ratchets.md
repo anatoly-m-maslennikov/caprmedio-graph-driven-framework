@@ -1,30 +1,30 @@
 ---
 atom_id: CA-E-539
 ref_id: CA-E-539
+container:
+  scope_unit: CA-SU-15
 role: Evaluation
 form: Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 19:59:37 +0400
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis/Python Code
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+tier: 5
 relations:
   evaluation_for:
   - CA-M-419
   - CA-M-420
   - CA-M-428
-tier: 5
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:37 +0400
 carrier_destination:
   file:
     name: CA-E-539-PROGRAMMATIC-POLICY--evaluate-python-source-boundaries-and-lint-ratchets.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

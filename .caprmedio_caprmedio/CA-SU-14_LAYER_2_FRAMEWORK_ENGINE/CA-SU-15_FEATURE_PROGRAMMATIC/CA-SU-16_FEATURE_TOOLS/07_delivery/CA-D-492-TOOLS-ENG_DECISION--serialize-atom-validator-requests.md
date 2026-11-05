@@ -1,11 +1,10 @@
 ---
 atom_id: CA-D-492
 ref_id: CA-D-492
+container:
+  scope_unit: CA-SU-16
 role: Delivery
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-status: Active
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   dependencies:
@@ -16,20 +15,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-version: 19
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 5
 relations:
   delivery_for:
   - CA-R-1622
   - CA-R-1623
-form: Eng Decision
-tier: 5
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 19
+updated_at: 2026-11-02 19:44:26 +0400
 carrier_destination:
   file:
     name: CA-D-492-TOOLS-ENG_DECISION--serialize-atom-validator-requests.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/07_delivery
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

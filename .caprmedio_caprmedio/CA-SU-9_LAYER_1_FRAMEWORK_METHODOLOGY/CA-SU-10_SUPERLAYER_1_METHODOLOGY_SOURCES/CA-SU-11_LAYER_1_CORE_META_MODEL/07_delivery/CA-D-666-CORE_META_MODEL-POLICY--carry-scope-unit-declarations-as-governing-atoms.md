@@ -1,16 +1,16 @@
 ---
 atom_id: CA-D-666
 ref_id: CA-D-666
+role: Delivery
 form: Policy
-status: Active
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
-version: 1
 tier: 3
+status: Active
+version: 1
 updated_at: 2026-11-02 19:17:40 +0400
-role: Delivery
 ---
 ## Summary
 

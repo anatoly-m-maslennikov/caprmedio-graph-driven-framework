@@ -1,4 +1,10 @@
 ---
+atom_id: CA-C-263
+ref_id: CA-C-263
+container:
+  scope_unit: CA-SU-11
+role: Concern
+form: Question
 topics:
   main_subject: Entity/Continuant/Object/Atom
   dependencies:
@@ -6,21 +12,15 @@ topics:
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-priority: medium
+status: active
 version: 9
 updated_at: 2026-11-02 19:18:45 +0400
-atom_id: CA-C-263
-ref_id: CA-C-263
-role: Concern
+priority: medium
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 local_tier: Standard
-status: active
 author: Anatoly Maslennikov
-form: Question
 global_tier: 11
-container:
-  scope_unit: CA-SU-11
 ---
 # Summary
 

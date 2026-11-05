@@ -1,6 +1,4 @@
 ---
-cce_version: cce_1
-cce_form: concern_question
 topics:
   main_subject: "Atom"
   dependencies:
@@ -8,12 +6,14 @@ topics:
     - "Artifact/Revision"
     - "Project"
     - "Operator"
-priority: medium
+relations: {"relates_to": ["CA-O-079"]}
 version: 3
 updated_at: "2026-09-23 16:51:13 +0000"
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
 llm_session_ids:
   - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations: {"relates_to": ["CA-O-079"]}
 ---
 # Summary
 

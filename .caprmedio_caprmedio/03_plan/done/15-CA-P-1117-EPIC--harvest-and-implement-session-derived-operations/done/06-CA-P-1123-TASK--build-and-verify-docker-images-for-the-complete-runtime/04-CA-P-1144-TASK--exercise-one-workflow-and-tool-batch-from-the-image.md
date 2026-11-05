@@ -1,35 +1,35 @@
 ---
 atom_id: CA-P-1144
 ref_id: CA-P-1144
+container:
+  atom: CA-P-1123
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 4
-current_scope_unit: caprmedio
-claim_target_scope_unit: FRAMEWORK_ENGINE
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution
   dependencies:
   - Subject/Graph Node/Engineering/Operations
   - Subject/Graph Node/Engineering/Implementation
-version: 6
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1123
   blocks:
   - CA-P-1171
   - CA-P-1146
-tier: 3
-container:
-  atom: CA-P-1123
+status: Active
+version: 6
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 4-CA-P-1144-TASK--exercise-one-workflow-and-tool-batch-from-the-image.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/done/6-CA-P-1123-TASK--build-and-verify-docker-images-for-the-complete-runtime
+work_sequence_number: 4
+current_scope_unit: caprmedio
+claim_target_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

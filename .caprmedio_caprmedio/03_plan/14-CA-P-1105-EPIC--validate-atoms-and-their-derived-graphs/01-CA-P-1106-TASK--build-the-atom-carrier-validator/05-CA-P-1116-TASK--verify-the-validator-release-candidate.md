@@ -1,34 +1,34 @@
 ---
 atom_id: CA-P-1116
 ref_id: CA-P-1116
+container:
+  atom: CA-P-1106
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 5
-current_scope_unit: caprmedio
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-assignee: AI Agent
-autonomous_confidence_threshold: 99
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Atom
   - Subject/Graph Node/Engineering/Implementation Evaluation
   - Subject/Graph Node/Engineering/Implementation
-version: 7
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1106
-tier: 3
-container:
-  atom: CA-P-1106
+status: Active
+version: 7
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 5-CA-P-1116-TASK--verify-the-validator-release-candidate.md
     path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/1-CA-P-1106-TASK--build-the-atom-carrier-validator
+work_sequence_number: 5
+current_scope_unit: caprmedio
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 99
 ---
 # Summary
 

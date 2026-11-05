@@ -1,9 +1,10 @@
 ---
 atom_id: CA-R-1621
 ref_id: CA-R-1621
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
   dependencies:
@@ -11,22 +12,21 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-version: 19
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-1568
   - CA-R-1631
   - CA-R-2535
-tier: 3
-role: Requirement
-form: Rule
-container:
-  scope_unit: CA-SU-13
+status: Active
+version: 19
+updated_at: 2026-11-02 08:06:47 +0400
 carrier_destination:
   file:
     name: CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
 ## Summary
 

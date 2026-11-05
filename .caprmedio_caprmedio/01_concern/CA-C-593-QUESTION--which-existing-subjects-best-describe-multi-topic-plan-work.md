@@ -1,25 +1,25 @@
 ---
 atom_id: CA-C-593
 ref_id: CA-C-593
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Question
-current_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
-tier: 3
-version: 1
-updated_at: 2026-10-24 07:12:05 +0400
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom.Subjects
   dependencies:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - Subject/Domain/Node/Continuant/Selection
-container:
-  scope_unit: CA-SU-00
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-10-24 07:12:05 +0400
 carrier_destination:
   file:
     name: CA-C-593-CAPRMEDIO-QUESTION--which-existing-subjects-best-describe-multi-topic-plan-work.md
     path: .caprmedio_caprmedio/01_concern
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

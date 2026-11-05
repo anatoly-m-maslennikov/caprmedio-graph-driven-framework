@@ -1,25 +1,25 @@
 ---
+atom_id: CA-M-148
+ref_id: CA-M-148
+container:
+  scope_unit: CA-SU-16
+role: Method
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
+tier: 2
+relations:
+  method_for:
+  - CA-R-1062
+  - CA-R-1069
+status: Active
 version: 23
 updated_at: 2026-11-02 19:44:26 +0400
 llm_session_ids:
 - codex:019fc24e-24ed-7921-b4db-cf4df3e14bf7
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-relations:
-  method_for:
-  - CA-R-1062
-  - CA-R-1069
-atom_id: CA-M-148
-ref_id: CA-M-148
-status: Active
-role: Method
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eng Decision
-tier: 2
-container:
-  scope_unit: CA-SU-16
 ---
 # Generate active Atom history
 

@@ -1,24 +1,24 @@
 ---
 atom_id: CA-C-314
 ref_id: CA-C-314
+container:
+  scope_unit: CA-SU-00
 role: Concern
 form: Problem
-current_scope_unit: caprmedio
-local_tier: Standard
-global_tier: 2
-author: Anatoly Maslennikov
-status: active
 topics:
   main_subject: "Bounded harvest completion timing"
   dependencies:
     - "Artifact"
-version: 1
-updated_at: "2026-10-04 12:36:07 +0400"
 relations:
   concerns:
     - CA-P-1291
-container:
-  scope_unit: CA-SU-00
+status: active
+version: 1
+updated_at: "2026-10-04 12:36:07 +0400"
+current_scope_unit: caprmedio
+local_tier: Standard
+global_tier: 2
+author: Anatoly Maslennikov
 ---
 # Summary
 

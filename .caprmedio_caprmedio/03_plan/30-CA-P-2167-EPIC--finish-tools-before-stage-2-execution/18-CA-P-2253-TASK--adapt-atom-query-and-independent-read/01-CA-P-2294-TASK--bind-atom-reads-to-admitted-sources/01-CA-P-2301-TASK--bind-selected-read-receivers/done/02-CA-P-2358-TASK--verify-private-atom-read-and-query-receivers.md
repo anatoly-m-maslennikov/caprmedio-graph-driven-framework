@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-2358
 ref_id: CA-P-2358
+container:
+  atom: CA-P-2301
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 2
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Engineering/Continuant/Tool
   dependencies:
@@ -18,18 +14,22 @@ topics:
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Workflow
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 9
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-2301
-tier: 3
-container:
-  atom: CA-P-2301
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 2-CA-P-2358-TASK--verify-private-atom-read-and-query-receivers.md
     path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/18-CA-P-2253-TASK--adapt-atom-query-and-independent-read/1-CA-P-2294-TASK--bind-atom-reads-to-admitted-sources/1-CA-P-2301-TASK--bind-selected-read-receivers/done
+work_sequence_number: 2
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

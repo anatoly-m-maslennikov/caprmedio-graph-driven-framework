@@ -1,31 +1,31 @@
 ---
+atom_id: CA-E-151
+ref_id: CA-E-151
+container:
+  scope_unit: CA-SU-16
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Relation/Type: structural_parent'
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Scope Unit
   - Subject/CAPRMEDIO/Carrier
-version: 23
-updated_at: 2026-11-02 19:44:26 +0400
-llm_session_ids:
-- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
+tier: 2
 relations:
   evaluation_for:
   - CA-D-667
   - CA-R-1483
   - CA-R-2688
   - CA-R-1137
-atom_id: CA-E-151
-ref_id: CA-E-151
 status: Active
-role: Evaluation
+version: 23
+updated_at: 2026-11-02 19:44:26 +0400
+llm_session_ids:
+- codex:019f591f-04f6-70f2-8de7-828b7cccc69d
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: TOOLS
-form: Eval Case
-tier: 2
-container:
-  scope_unit: CA-SU-16
 ---
 # Reject structural parent address
 

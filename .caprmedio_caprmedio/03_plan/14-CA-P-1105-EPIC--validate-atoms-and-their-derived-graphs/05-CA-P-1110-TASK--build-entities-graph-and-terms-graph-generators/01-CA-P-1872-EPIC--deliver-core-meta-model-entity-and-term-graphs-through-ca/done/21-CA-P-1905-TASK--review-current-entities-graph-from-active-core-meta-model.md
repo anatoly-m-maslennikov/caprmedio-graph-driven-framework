@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1905
 ref_id: CA-P-1905
+container:
+  atom: CA-P-1872
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 21
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Projection
   dependencies:
@@ -19,8 +15,7 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Term//Property
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
-version: 8
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1872
@@ -39,13 +34,18 @@ relations:
   - CA-P-1924
   - CA-P-1925
   - CA-P-1926
-tier: 3
-container:
-  atom: CA-P-1872
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 21-CA-P-1905-TASK--review-current-entities-graph-from-active-core-meta-model.md
     path: .caprmedio_caprmedio/03_plan/14-CA-P-1105-EPIC--validate-atoms-and-their-derived-graphs/5-CA-P-1110-TASK--build-entities-graph-and-terms-graph-generators/1-CA-P-1872-EPIC--deliver-core-meta-model-entity-and-term-graphs-through-ca/done
+work_sequence_number: 21
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

@@ -1,18 +1,18 @@
 ---
 atom_id: CA-R-2686
 ref_id: CA-R-2686
-status: Active
+role: Requirement
+form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit.order.number
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit.order
   - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
   - CAPRMEDIO_MODEL <+ CFEL <+ Format/int
+tier: 3
+status: Active
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
-tier: 3
-role: Requirement
-form: Declaration
 ---
 ## Summary
 

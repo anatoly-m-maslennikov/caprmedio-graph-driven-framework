@@ -1,12 +1,10 @@
 ---
 atom_id: CA-E-633
 ref_id: CA-E-633
+container:
+  scope_unit: CA-SU-17
 role: Evaluation
 form: Eval Case
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   dependencies:
@@ -15,8 +13,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-version: 14
-updated_at: 2026-10-27 19:59:38 +0400
+tier: 5
 relations:
   evaluation_for:
   - CA-R-1941
@@ -24,13 +21,16 @@ relations:
   - CA-O-215
   - CA-O-216
   - CA-O-217
-tier: 5
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 14
+updated_at: 2026-10-27 19:59:38 +0400
 carrier_destination:
   file:
     name: CA-E-633-CONNECTOR_TOOLS-EVAL_CASE--verify-private-carrier-storage-changes.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/06_evaluation
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

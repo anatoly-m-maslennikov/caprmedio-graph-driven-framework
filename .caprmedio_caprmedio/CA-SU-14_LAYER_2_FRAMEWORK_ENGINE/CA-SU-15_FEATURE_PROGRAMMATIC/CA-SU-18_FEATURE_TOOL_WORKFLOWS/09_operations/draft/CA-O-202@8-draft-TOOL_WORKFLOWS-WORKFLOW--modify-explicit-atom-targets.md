@@ -1,12 +1,10 @@
 ---
 atom_id: CA-O-202@8-draft
 ref_id: CA-O-202@8-draft
+container:
+  scope_unit: CA-SU-18
 role: Operations
 form: Workflow
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
-author: Anatoly Maslennikov
-status: Draft
 topics:
   main_subject: 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow'
   dependencies:
@@ -16,8 +14,7 @@ topics:
   - Subject/Domain/Node/Continuant/Atom.Content
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Step'
   - Subject/Domain/Node/Occurrent/Execution/Workflow Run
-version: 8
-updated_at: 2026-10-24 23:59:51 +0400
+tier: 3
 relations:
   relates_to:
   - CA-O-208
@@ -26,9 +23,12 @@ relations:
   - CA-R-1933
   - CA-R-1934
   - CA-M-305
-tier: 3
-container:
-  scope_unit: CA-SU-18
+status: Draft
+version: 8
+updated_at: 2026-10-24 23:59:51 +0400
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
 ---
 # Summary
 

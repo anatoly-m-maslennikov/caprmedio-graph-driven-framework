@@ -1,21 +1,21 @@
 ---
 atom_id: CA-R-2791
 ref_id: CA-R-2791@2-draft
-current_scope_unit: WORKBENCH_CODEX
-claim_target_scope_unit: WORKBENCH_CODEX
-status: Draft
-version: 2
-author: Anatoly Maslennikov
 role: Requirement
 form: Rule
-tier: 3
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
+tier: 3
+status: Draft
+version: 2
+updated_at: 2026-11-05 16:45:35 +0400
 carrier_destination:
   file:
     name: CA-R-2791@2-draft-WORKBENCH_CODEX-RULE--provide-one-codex-conversation-per-project.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-47_FEATURE_WORKBENCH_CODEX/04_requirement/draft
-updated_at: 2026-11-05 16:45:35 +0400
+current_scope_unit: WORKBENCH_CODEX
+claim_target_scope_unit: WORKBENCH_CODEX
+author: Anatoly Maslennikov
 ---
 
 ## Summary

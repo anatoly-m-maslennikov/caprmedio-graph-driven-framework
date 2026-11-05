@@ -1,12 +1,10 @@
 ---
 atom_id: CA-E-515
 ref_id: CA-E-515
+container:
+  scope_unit: CA-SU-16
 role: Evaluation
 form: Eval Case
-current_scope_unit: TOOLS
-claim_target_scope_unit: TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
   dependencies:
@@ -20,19 +18,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Graph/Relation
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-version: 27
-updated_at: 2026-10-30 03:11:57 +0400
+tier: 6
 relations:
   evaluation_for:
   - CA-M-316
   - CA-R-1622
-tier: 6
-container:
-  scope_unit: CA-SU-16
+status: Active
+version: 27
+updated_at: 2026-10-30 03:11:57 +0400
 carrier_destination:
   file:
     name: CA-E-515-TOOLS-EVAL_CASE--check-atom-validator-carrier-coverage.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation
+current_scope_unit: TOOLS
+claim_target_scope_unit: TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

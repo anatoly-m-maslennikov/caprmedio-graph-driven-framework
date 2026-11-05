@@ -1,25 +1,25 @@
 ---
 atom_id: CA-P-2663
 ref_id: CA-P-2663
+container:
+  atom: CA-P-2639
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 24
-current_scope_unit: caprmedio
-claim_target_scope_unit: caprmedio
-author: Anatoly Maslennikov
-status: Done
 topics:
   main_subject: Subject/Graph Node/Domain/Occurrent/Execution/Step Run
+tier: 4
+status: Done
 version: 1
 updated_at: 2026-10-26 22:56:54 +0400
-tier: 4
-container:
-  atom: CA-P-2639
 carrier_destination:
   file:
     name: 24-CA-P-2663-TASK--define-runs-for-every-executed-step.md
     path: .caprmedio_caprmedio/03_plan/done/CA-P-2639-EPIC--subject-graph-fpf-refinement/done
+work_sequence_number: 24
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

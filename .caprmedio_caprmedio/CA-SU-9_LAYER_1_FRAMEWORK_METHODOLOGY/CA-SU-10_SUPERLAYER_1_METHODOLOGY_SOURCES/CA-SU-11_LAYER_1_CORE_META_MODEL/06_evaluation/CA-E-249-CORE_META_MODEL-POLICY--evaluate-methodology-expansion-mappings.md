@@ -1,12 +1,10 @@
 ---
-version: 36
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-E-001
-  evaluation_for:
-  - CA-M-298
-  - CA-R-1375
+atom_id: CA-E-249
+ref_id: CA-E-249
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
   dependencies:
@@ -16,20 +14,22 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
-atom_id: CA-E-249
-ref_id: CA-E-249
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
 tier: 3
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-11
+relations:
+  child_of:
+  - CA-E-001
+  evaluation_for:
+  - CA-M-298
+  - CA-R-1375
+status: Active
+version: 36
+updated_at: 2026-11-02 00:18:22 +0400
 carrier_destination:
   file:
     name: CA-E-249-CORE_META_MODEL-EVAL_POLICY--evaluate-methodology-expansion-mappings.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

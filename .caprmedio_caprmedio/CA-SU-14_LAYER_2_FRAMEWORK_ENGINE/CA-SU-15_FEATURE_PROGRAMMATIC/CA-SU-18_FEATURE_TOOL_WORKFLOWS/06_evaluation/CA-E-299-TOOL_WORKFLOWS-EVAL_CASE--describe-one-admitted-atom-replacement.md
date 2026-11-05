@@ -1,12 +1,10 @@
 ---
 atom_id: CA-E-299
 ref_id: CA-E-299
+container:
+  scope_unit: CA-SU-18
 role: Evaluation
 form: Eval Case
-current_scope_unit: TOOL_WORKFLOWS
-claim_target_scope_unit: TOOL_WORKFLOWS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   dependencies:
@@ -14,8 +12,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-version: 23
-updated_at: 2026-10-27 19:59:32 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1041
@@ -23,13 +20,16 @@ relations:
   - CA-R-807
   derived_from:
   - CA-A-057
-tier: 4
-container:
-  scope_unit: CA-SU-18
+status: Active
+version: 23
+updated_at: 2026-10-27 19:59:32 +0400
 carrier_destination:
   file:
     name: CA-E-299-TOOL_WORKFLOWS-EVAL_CASE--describe-one-admitted-atom-replacement.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-18_FEATURE_TOOL_WORKFLOWS/06_evaluation
+current_scope_unit: TOOL_WORKFLOWS
+claim_target_scope_unit: TOOL_WORKFLOWS
+author: Anatoly Maslennikov
 ---
 # Summary
 

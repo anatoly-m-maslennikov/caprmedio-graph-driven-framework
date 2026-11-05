@@ -1,26 +1,26 @@
 ---
 atom_id: CA-R-2902
 ref_id: CA-R-2902
-current_scope_unit: CODEX_EXTENSION
-claim_target_scope_unit: CODEX_EXTENSION
-status: Active
-version: 2
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-48
 role: Requirement
 form: Rule
-tier: 3
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Workspace
   dependencies:
   - CAPRMEDIO_MODEL <+ View
   - CAPRMEDIO_MODEL <+ Project
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-05 20:32:45 +0400
 carrier_destination:
   file:
     name: CA-R-2902-CODEX_EXTENSION-RULE--operate-workbench-workspace-views.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/04_requirement
-updated_at: 2026-11-05 20:32:45 +0400
-container:
-  scope_unit: CA-SU-48
+current_scope_unit: CODEX_EXTENSION
+claim_target_scope_unit: CODEX_EXTENSION
+author: Anatoly Maslennikov
 ---
 
 ## Summary

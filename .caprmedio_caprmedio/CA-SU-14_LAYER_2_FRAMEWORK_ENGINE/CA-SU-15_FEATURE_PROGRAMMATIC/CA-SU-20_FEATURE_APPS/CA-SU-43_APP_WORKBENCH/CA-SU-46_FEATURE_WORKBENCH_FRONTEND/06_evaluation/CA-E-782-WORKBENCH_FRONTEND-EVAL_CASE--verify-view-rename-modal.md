@@ -1,27 +1,27 @@
 ---
 atom_id: CA-E-782
 ref_id: CA-E-782
-current_scope_unit: WORKBENCH_FRONTEND
-claim_target_scope_unit: WORKBENCH_FRONTEND
-status: Active
-version: 1
-author: Anatoly Maslennikov
+container:
+  scope_unit: CA-SU-46
 role: Evaluation
 form: Eval Case
-tier: 5
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
+tier: 5
 relations:
   evaluation_for:
   - CA-R-2727
   - CA-D-674
+status: Active
+version: 1
+updated_at: 2026-11-05 19:04:52 +0400
 carrier_destination:
   file:
     name: CA-E-782-WORKBENCH_FRONTEND-EVAL_CASE--verify-the-shared-view-rename-modal.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation
-updated_at: 2026-11-05 19:04:52 +0400
-container:
-  scope_unit: CA-SU-46
+current_scope_unit: WORKBENCH_FRONTEND
+claim_target_scope_unit: WORKBENCH_FRONTEND
+author: Anatoly Maslennikov
 ---
 ## Summary
 

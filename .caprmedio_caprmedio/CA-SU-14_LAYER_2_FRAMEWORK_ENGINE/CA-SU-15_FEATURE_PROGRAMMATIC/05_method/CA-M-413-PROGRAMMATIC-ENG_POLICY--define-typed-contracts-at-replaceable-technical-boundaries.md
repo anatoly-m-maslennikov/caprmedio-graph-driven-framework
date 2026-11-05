@@ -1,34 +1,34 @@
 ---
 atom_id: CA-M-413
-ref_id: CA-M-413@12-draft
+ref_id: CA-M-413
+container:
+  scope_unit: CA-SU-15
 role: Method
 form: Eng Policy
-current_scope_unit: PROGRAMMATIC
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-version: 12
-updated_at: 2026-11-05 23:05:59 +0400
-cce_version: cce_1
-cce_form: method
+tier: 4
 relations:
   derived_from:
   - CA-A-053
   child_of:
   - CA-M-415
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-tier: 4
-author: Anatoly Maslennikov
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 12
+updated_at: 2026-11-05 23:05:59 +0400
 carrier_destination:
   file:
     name: CA-M-413-PROGRAMMATIC-ENG_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
+current_scope_unit: PROGRAMMATIC
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
 ---
 # Summary
 

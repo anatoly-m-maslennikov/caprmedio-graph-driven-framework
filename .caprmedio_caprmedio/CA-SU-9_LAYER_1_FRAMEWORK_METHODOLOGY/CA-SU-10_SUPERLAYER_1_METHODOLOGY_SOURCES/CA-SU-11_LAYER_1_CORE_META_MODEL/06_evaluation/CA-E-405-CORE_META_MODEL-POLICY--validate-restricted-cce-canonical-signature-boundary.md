@@ -1,29 +1,29 @@
 ---
+atom_id: CA-E-405
+ref_id: CA-E-405
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
-version: 31
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 5
 relations:
   evaluation_for:
   - CA-R-1360
   - CA-M-240
-atom_id: CA-E-405
-ref_id: CA-E-405
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 5
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-11
+version: 31
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-E-405-CORE_META_MODEL-EVAL_POLICY--validate-restricted-cce-canonical-signature-boundary.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

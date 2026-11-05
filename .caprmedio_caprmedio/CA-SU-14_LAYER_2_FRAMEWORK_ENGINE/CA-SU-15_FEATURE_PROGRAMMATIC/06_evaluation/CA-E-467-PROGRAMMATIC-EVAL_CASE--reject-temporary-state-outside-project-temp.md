@@ -1,29 +1,29 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
+atom_id: CA-E-467
+ref_id: CA-E-467
+container:
+  scope_unit: CA-SU-15
+role: Evaluation
+form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
-llm_session_ids:
-- codex:01a0263a-7510-7672-bce4-58830bc4d184
-version: 16
-updated_at: 2026-10-27 19:59:35 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1473
   - CA-M-422
-atom_id: CA-E-467
-ref_id: CA-E-467
-role: Evaluation
+status: Active
+version: 16
+updated_at: 2026-10-27 19:59:35 +0400
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a0263a-7510-7672-bce4-58830bc4d184
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
-status: Active
 author: Anatoly Maslennikov
-tier: 4
-form: Eval Case
-container:
-  scope_unit: CA-SU-15
 ---
 # Reject temporary state outside project temp
 

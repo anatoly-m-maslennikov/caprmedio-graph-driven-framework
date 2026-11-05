@@ -1,18 +1,18 @@
 ---
 atom_id: CA-C-629
 ref_id: CA-C-629
+container:
+  scope_unit: CA-SU-11
 role: Concern
 form: Question
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
 status: Resolved
 version: 3
 updated_at: 2026-11-02 16:49:59 +0400
 current_scope_unit: CORE_META_MODEL
-tier: 3
 priority: medium
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

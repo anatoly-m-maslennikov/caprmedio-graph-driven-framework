@@ -1,11 +1,10 @@
 ---
 atom_id: CA-D-613
 ref_id: CA-D-613
+container:
+  scope_unit: CA-SU-19
 role: Delivery
-current_scope_unit: PROJECT_TOOLS
-claim_target_scope_unit: PROJECT_TOOLS
-author: Anatoly Maslennikov
-status: Active
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   dependencies:
@@ -13,16 +12,17 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+tier: 3
+status: Active
 version: 18
 updated_at: 2026-10-27 19:59:27 +0400
-form: Eng Decision
-tier: 3
-container:
-  scope_unit: CA-SU-19
 carrier_destination:
   file:
     name: CA-D-613-PROJECT_TOOLS-ENG_DECISION--serialize-public-release-workflow-bindings.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-19_FEATURE_PROJECT_TOOLS/07_delivery
+current_scope_unit: PROJECT_TOOLS
+claim_target_scope_unit: PROJECT_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

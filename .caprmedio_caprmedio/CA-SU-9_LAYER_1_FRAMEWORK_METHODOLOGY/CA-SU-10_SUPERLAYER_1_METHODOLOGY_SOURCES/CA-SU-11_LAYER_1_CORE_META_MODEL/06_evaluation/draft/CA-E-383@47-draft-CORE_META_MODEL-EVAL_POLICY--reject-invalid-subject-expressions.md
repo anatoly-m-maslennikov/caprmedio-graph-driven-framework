@@ -1,4 +1,10 @@
 ---
+atom_id: CA-E-383
+ref_id: CA-E-383@47-draft
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
@@ -12,8 +18,7 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
-version: 47
-updated_at: 2026-11-05 16:33:24 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1194
@@ -25,18 +30,13 @@ relations:
   - CA-R-1321
   - CA-R-1275
   - CA-R-1297
-atom_id: CA-E-383
-ref_id: CA-E-383@47-draft
 status: Draft
-tier: 4
-role: Evaluation
-form: Eval Policy
+version: 47
+updated_at: 2026-11-05 16:33:24 +0400
 carrier_destination:
   file:
     name: CA-E-383@47-draft-EVAL_POLICY--reject-invalid-subject-expressions.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft
-container:
-  scope_unit: CA-SU-11
 ---
 ## Summary
 

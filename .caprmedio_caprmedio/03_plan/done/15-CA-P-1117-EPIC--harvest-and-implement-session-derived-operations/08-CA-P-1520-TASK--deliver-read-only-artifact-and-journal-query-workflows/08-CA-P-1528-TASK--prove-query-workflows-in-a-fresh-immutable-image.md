@@ -1,15 +1,11 @@
 ---
 atom_id: CA-P-1528
 ref_id: CA-P-1528
+container:
+  atom: CA-P-1520
 role: Plan
 form: Plan
 label: Task
-work_sequence_number: 8
-current_scope_unit: caprmedio
-claim_target_scope_unit: FRAMEWORK_ENGINE
-author: Anatoly Maslennikov
-assignee: AI Agent
-status: Active
 topics:
   main_subject: Subject/Graph Node/Engineering/Workflow
   dependencies:
@@ -20,20 +16,24 @@ topics:
   - Subject/Graph Node/Engineering/MCP
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - Subject/Graph Node/Engineering/Implementation Evaluation
-version: 10
-updated_at: 2026-10-25 17:32:27 +0400
+tier: 3
 relations:
   is_decomposition_of:
   - CA-P-1520
   blocks:
   - CA-P-1529
-tier: 3
-container:
-  atom: CA-P-1520
+status: Active
+version: 10
+updated_at: 2026-10-25 17:32:27 +0400
 carrier_destination:
   file:
     name: 8-CA-P-1528-TASK--prove-query-workflows-in-a-fresh-immutable-image.md
     path: .caprmedio_caprmedio/03_plan/done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/8-CA-P-1520-TASK--deliver-read-only-artifact-and-journal-query-workflows
+work_sequence_number: 8
+current_scope_unit: caprmedio
+claim_target_scope_unit: FRAMEWORK_ENGINE
+author: Anatoly Maslennikov
+assignee: AI Agent
 ---
 # Summary
 

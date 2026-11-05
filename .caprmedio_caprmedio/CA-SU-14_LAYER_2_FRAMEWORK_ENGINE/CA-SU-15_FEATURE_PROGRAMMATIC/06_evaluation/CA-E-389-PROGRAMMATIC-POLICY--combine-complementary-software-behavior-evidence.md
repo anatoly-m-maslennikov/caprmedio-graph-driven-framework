@@ -1,34 +1,33 @@
 ---
 atom_id: CA-E-389
-ref_id: CA-E-389@27-draft
+ref_id: CA-E-389
+container:
+  scope_unit: CA-SU-15
 role: Evaluation
 form: Policy
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-status: Active
-author: Anatoly Maslennikov
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test
-    Design
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-version: 27
-updated_at: 2026-11-05 23:05:59 +0400
+tier: 5
 relations:
   evaluation_for:
   - CA-M-424
   derived_from:
   - CA-A-053
-tier: 5
-container:
-  scope_unit: CA-SU-15
+status: Active
+version: 27
+updated_at: 2026-11-05 23:05:59 +0400
 carrier_destination:
   file:
     name: CA-E-389-PROGRAMMATIC-POLICY--combine-complementary-software-behavior-evidence.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
 ---
 # Summary
 

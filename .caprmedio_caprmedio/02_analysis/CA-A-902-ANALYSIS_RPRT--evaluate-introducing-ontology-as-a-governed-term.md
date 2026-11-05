@@ -1,7 +1,5 @@
 ---
 atom_id: CA-A-902
-cce_version: cce_1
-cce_form: rationale
 topics:
   main_subject:
     continuant:
@@ -19,6 +17,8 @@ relations:
     - CA-R-1319
 version: 1
 updated_at: 2026-09-14 01:08:50
+cce_version: cce_1
+cce_form: rationale
 ---
 # Evaluate introducing Ontology as a governed CAPRMEDIO term
 

@@ -1,12 +1,10 @@
 ---
 atom_id: CA-M-381
 ref_id: CA-M-381
+container:
+  scope_unit: CA-SU-17
 role: Method
 form: Eng Decision
-current_scope_unit: CONNECTOR_TOOLS
-claim_target_scope_unit: CONNECTOR_TOOLS
-author: Anatoly Maslennikov
-status: Active
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
   dependencies:
@@ -15,21 +13,23 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-version: 15
-updated_at: 2026-10-27 19:59:42 +0400
+tier: 5
 relations:
   method_for:
   - CA-R-1941
   depends_on:
   - CA-D-625
   - CA-D-630
-tier: 5
-container:
-  scope_unit: CA-SU-17
+status: Active
+version: 15
+updated_at: 2026-10-27 19:59:42 +0400
 carrier_destination:
   file:
     name: CA-M-381-CONNECTOR_TOOLS-ENG_DECISION--bind-private-carrier-storage-changes.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-17_FEATURE_CONNECTOR_TOOLS/05_method
+current_scope_unit: CONNECTOR_TOOLS
+claim_target_scope_unit: CONNECTOR_TOOLS
+author: Anatoly Maslennikov
 ---
 # Summary
 

@@ -1,11 +1,10 @@
 ---
 atom_id: CA-O-175
 ref_id: CA-O-175
+container:
+  scope_unit: CA-SU-00
 role: Operations
 form: Step
-current_scope_unit: caprmedio
-status: Active
-author: Anatoly Maslennikov
 topics:
   main_subject: 'Subject/caprmedio/Step//Release Version/Step: stage candidate package and Skill'
   dependencies:
@@ -17,20 +16,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 13
-updated_at: 2026-10-27 19:59:47 +0400
+tier: 3
 relations:
   part_of:
   - CA-O-164
   invokes:
   - CA-O-167
-tier: 3
-container:
-  scope_unit: CA-SU-00
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:47 +0400
 carrier_destination:
   file:
     name: CA-O-175-CAPRMEDIO-STEP--stage-the-candidate-framework-package-and-ca-skill.md
     path: .caprmedio_caprmedio/09_operations
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
 ---
 # Summary
 

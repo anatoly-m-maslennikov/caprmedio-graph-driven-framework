@@ -1,4 +1,5 @@
 ---
+atom_id: CA-A-052
 topics:
   main_subject:
     continuant:
@@ -10,7 +11,6 @@ topics:
       - Evaluation Coverage
 version: 4
 updated_at: 2026-10-23 03:17:34 +0400
-atom_id: CA-A-052
 ---
 # Freeze the PROGRAMMATIC Method and Evaluation target
 

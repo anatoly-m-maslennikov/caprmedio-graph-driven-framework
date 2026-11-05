@@ -1,14 +1,14 @@
 ---
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
-version: 3
-updated_at: 2026-11-04 05:21:15 +0400
 atom_id: CA-R-2632
 ref_id: CA-R-2632
-status: Active
-tier: 3
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
+tier: 3
+status: Active
+version: 3
+updated_at: 2026-11-04 05:21:15 +0400
 ---
 ## Summary
 

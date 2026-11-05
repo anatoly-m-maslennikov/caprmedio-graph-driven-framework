@@ -1,33 +1,33 @@
 ---
-version: 28
-updated_at: 2026-11-02 18:35:20 +0400
-relations:
-  child_of:
-  - CA-R-004
-  evaluation_for:
-  - CA-R-004
+atom_id: CA-E-228
+ref_id: CA-E-228
+container:
+  scope_unit: CA-SU-00
+role: Evaluation
+form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
-cce_version: cce_1
-cce_form: evaluation
-llm_session_ids:
-- codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-228
-ref_id: CA-E-228
-status: Active
-current_scope_unit: caprmedio
 tier: 5
-role: Evaluation
-form: Eval Policy
-container:
-  scope_unit: CA-SU-00
+relations:
+  child_of:
+  - CA-R-004
+  evaluation_for:
+  - CA-R-004
+status: Active
+version: 28
+updated_at: 2026-11-02 18:35:20 +0400
 carrier_destination:
   file:
     name: CA-E-228-CAPRMEDIO-EVAL_POLICY--evaluate-operator-control-over-the-caprmedio-instance.md
     path: .caprmedio_caprmedio/06_evaluation
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: caprmedio
 ---
 ## Summary
 

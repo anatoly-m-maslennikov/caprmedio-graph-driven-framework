@@ -1,12 +1,10 @@
 ---
 atom_id: CA-D-577
 ref_id: CA-D-577
+container:
+  scope_unit: CA-SU-2
 role: Delivery
-current_scope_unit: WORKFLOW_ORCHESTRATOR
-status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 19:59:27 +0400
+form: Eng Decision
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
   dependencies:
@@ -18,19 +16,21 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code
+tier: 5
 relations:
   delivery_for:
   - CA-R-1883
   - CA-M-340
   - CA-O-164
-form: Eng Decision
-tier: 5
-container:
-  scope_unit: CA-SU-2
+status: Active
+version: 15
+updated_at: 2026-10-27 19:59:27 +0400
 carrier_destination:
   file:
     name: CA-D-577-WORKFLOW_ORCHESTRATOR-ENG_DECISION--carry-typed-release-recovery-requests.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/07_delivery
+current_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
 ---
 # Summary
 
