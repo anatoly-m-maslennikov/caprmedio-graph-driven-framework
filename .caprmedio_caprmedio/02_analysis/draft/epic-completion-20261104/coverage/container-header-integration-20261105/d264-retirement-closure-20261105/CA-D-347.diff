@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-347.preview.txt
+@@ -6,9 +6,7 @@
+   - CAPRMEDIO_MODEL <+ Carrier
+ version: 29
+ updated_at: 2026-11-02 08:06:47 +0400
+-relations:
+-  child_of:
+-  - CA-D-266
++relations: {}
+ atom_id: CA-D-347
+ current_scope_unit: CORE_META_MODEL
+ claim_target_scope_unit: CORE_META_MODEL

@@ -2,13 +2,13 @@
 
 Complete the declaration-based Scope Unit authority and latest MODEL/CFEL changes, including sources, consumers, seven faithful projections and P2707 gates. Ask one real question at a time when confidence is below 90%.
 
-P2694@68 and P2707@7 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
+P2694@70 and P2707@7 remain Active. The [current state](current-state.md) records accepted decisions separately from applied sources. The [acceptance matrix](acceptance/matrix.json) retains all 23 requirements.
 
 | Deliverable | Owner / exclusive edit scope | Dependencies | Acceptance | State |
 | --- | --- | --- | --- | --- |
 | Source integration and plan | Root; canonical MODEL/Atom sources, plan, tracking, Git | Reviewed pinned candidates | Exact Current/history/readback, preserved gates | Running |
-| Occurrent kind review | model_subject_syntax; kind-review-20261105 reports/previews | Eleven actual kind Drafts and Current authority | Taxonomy, meaning, endpoint and count review | Reviewed kind Drafts updated; Header.Container selected for Run parentage; Run ID Format and admission open |
-| Occurrent Relation contracts | model_relation_contracts; relation-review-20261105 reports/previews | Eight Relation Drafts, four endpoints | Explicit directions, bounds and outgoing permissions | Recursive-Step and author Draft repairs reviewed; Run Header groups and reference Format open |
+| Occurrent kind review | model_subject_syntax; kind-review-20261105 reports/previews | Eleven actual kind Drafts and Current authority | Taxonomy, meaning, endpoint and count review | Reviewed kind Drafts updated; Run Properties deferred; formal parentage settled and source admission open |
+| Occurrent Relation contracts | model_relation_contracts; relation-review-20261105 reports/previews | Eight Relation Drafts, four endpoints | Explicit directions, bounds and outgoing permissions | Recursive-Step and author Draft repairs reviewed; Run Properties deferred; formal parentage settled and source admission open |
 | CFEL allowed-value source | model_selector_parser; allowed-value-double-colon-20261105 previews | Operator decision and exact Current pins | `::` and `{::n}`, unchanged `:=` and literals | Four base syntax Drafts and two consumer Drafts created; bounded reviews pass; promotion integration open |
 | Settings defaults | model_legacy_cleanup; consumer-refresh-20261105 reports/previews | Property defaults and Current consumers | All operative guards preserved or explicitly superseded | Review done; serialization/identity/consumer holds |
 | Independent source/view verification | property_instance_relations_review; permissions reports | Applied source and projection results | Exact source/history and seven published readbacks | Running |
@@ -19,7 +19,11 @@ Latest publication: seven MODEL views against 1,167 pinned Current suppliers. Co
 
 The `::` source Draft packet and parent path/instance proposal remain prospective. Current syntax, source decisions, implementation and runtime evidence are checked separately. Source receipts do not establish native Workflow admission or Journal append. No required Epic gate is removed.
 
-Latest source decisions: FOR EACH uses a typed/filtered selector with grouped conditions, no WITH or IN. Formal Claims are self-contained while subjects.active stays. Header.Container defaults effectively to `world` for a root Project Declaration. Substep is replaced by recursive Step. Each Step has one Container and its chain ends at a Workflow. Paths use actual declared Scope Unit Names, with `/` for the Project root. Typed-selector and recursive Delivery successors are actual Drafts awaiting coordinated adoption. These are not Current adoption claims.
+Latest source decisions: Header.Container is one mapping with exactly one `scope_unit` or `atom` key, whose value is the corresponding ID. D264 and D266 remain: declared containment and physical placement agree as one fact. The root Project ID decision and world bootstrap encoding remain open. Run parentage uses formal Relations; Run Properties are deferred. Substep is replaced by recursive Step. Five path-notation Drafts and three Run Declaration rebases exist; coordinated adoption remains open. ScopeUnit.Path R2530@3 is a separate proposal, not a Container prerequisite. FOR EACH uses a typed/filtered selector; Formal Claims remain self-contained with subjects.active retained.
+
+Five placement Drafts are now written and independently reviewed: D264@30, D266@30, D268@31, D467@29 and E500@29. A1319 records the batch. These Drafts are not Current adoption; coordinated promotion and migration remain open.
+
+Container leaf Drafts R2783@1 (`atom`, `[atom id]`) and R2784@1 (`scope_unit`, `[string]` plus stable Scope Unit ID constraint) are created; independent [review](permissions/container-leaf-actual-review-20261105.json) passed. The group and root bootstrap remain held.
 
 Bounded Scope census: 46 Current Declarations, 45 unique non-root IDs, nine Ordered units. See [source census](coverage/scope-declaration-check-20261105/REPORT.md) and its independent review. Verified source checkpoints include d7e38d8e4, c33ea7266 and 611b532f0. Later reviewed source work is recorded separately; final publication and external verification remain open.
 

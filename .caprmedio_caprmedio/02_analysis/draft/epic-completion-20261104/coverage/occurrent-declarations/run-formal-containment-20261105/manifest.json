@@ -1,0 +1,48 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "sources": [
+    {
+      "id": "CA-R-2750",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "source_sha256": "5786369adf8e0817a0d94a0d351d4c46685b76f5486d51b540bef7ba90f88e0e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2750.preview.txt",
+      "preview_sha256": "2113c70493cea7df3c378f63fe53a260f336c396c10387aadb661f0e2c261e1b",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2750.diff",
+      "diff_sha256": "abd94edf9305d7b7796589273713741066c719f0d8489338c6322909f9cc7abb"
+    },
+    {
+      "id": "CA-R-2751",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "source_sha256": "43d807afd2283f9e23749730bbcf66a73bc82a1edc79b35b8477ec8d1bfe1b77",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2751.preview.txt",
+      "preview_sha256": "9ab285f8ea33c1828caebac272528898a7e450d6c5f26c77517b95bf7ed747cc",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2751.diff",
+      "diff_sha256": "d1f30a2098335314703963a4c2c35a2aa1cbebb0925c54aa11a48bb6ff925e65"
+    },
+    {
+      "id": "CA-R-2752",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "source_sha256": "cde409fc0870e58e118aa9e20a0b05f23e64bd046dfeec3a7f196a131b8374e8",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2752.preview.txt",
+      "preview_sha256": "b4e7594b7a3de59dc8886e0848a278b0727a1a8c7fbda9947a4eaea00de1a4bc",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2752.diff",
+      "diff_sha256": "f7a9f561d15677aaa0a3a31637eddd1d5aceacf376e3dc2a43ecbfd3a0c712d1"
+    }
+  ],
+  "containment_authority": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+    "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+    "finding": "R2478 permits a declared entity or instance as a contained host, with Container=yes on target; Workflow Run and Step Run candidates supply that classification. No endpoint source change proposed."
+  },
+  "constraints": [
+    "Step Run has one outgoing IS_CONTAINED_BY to Workflow Run or Step Run.",
+    "Action Run has permissive outgoing IS_CONTAINED_BY toward Step Run; prose requires its launching Step Run as its container only for a Step-launched Action Run. No global maximum or root condition is inferred.",
+    "Workflow Run and Step Run each explicitly permit separate outgoing CONTAINS views; no inverse permission is automatic.",
+    "No Header, Property, ID, Workflow Run root, child execution count, runtime or actual workflow behavior is introduced."
+  ],
+  "dependencies": [
+    "Prospective :: syntax, Run kinds, IS_EXECUTION_OF and inverse relation endpoint authorities, and affected consumers must be coordinated in the source batch.",
+    "Earlier run-container-property-20261105 previews are superseded and must not be adopted."
+  ],
+  "limits": "No native Draft, Current, code, test, Workflow, Workbench or Git edits."
+}

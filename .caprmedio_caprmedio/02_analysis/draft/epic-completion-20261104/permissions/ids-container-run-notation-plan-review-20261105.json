@@ -1,0 +1,53 @@
+{
+  "verdict": "PASS_WITH_TRACKING_CLARIFICATION",
+  "pins": [
+    {
+      "path": ".caprmedio_caprmedio/03_plan/archive/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing@69.md",
+      "sha256": "67d4b3fc07b3a8b36f75f2e21bd8774764a48a90b70782e8a6406bd0f1bd406c",
+      "matches_plan": true,
+      "before_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "sha256": "e40d2349ef76eb8ee084a14cc84dc040366ce8f0446fd62fb61c3c1e02e39b51",
+      "matches_plan": true,
+      "before_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1317@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-occurrent-nodes-and-execution-event-relations.md",
+      "sha256": "5b8e2c9910556c3b2772cf381aaadb214e8207d715557402bf9f61d074a7e635",
+      "matches_plan": true,
+      "before_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "sha256": "2c22231dc8890016af543e3bb943c6e77b3699a8739561e55be249e759b5e980",
+      "matches_plan": true,
+      "before_hash_valid": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+      "sha256": "d0f0c4b0e28b2e8d1dcf1dc7f31b24b38dc964333f6154b751ceed4e48cd47ec",
+      "matches_plan": true,
+      "before_hash_valid": true
+    }
+  ],
+  "receipt_plan_sha_matches": true,
+  "archive_exact_previous_epic": true,
+  "matrix_requirements": 23,
+  "checks": [
+    "One-key scope_unit/atom ID mapping, names and paths derived; Project root/bootstrap encoding pending.",
+    "D264 and D266 retained; nearest eligible directory readback and declared Container agree as one containment fact.",
+    "Run properties deferred; formal Run parentage recorded; no new Run property asserted.",
+    "All five path notation Draft IDs exist; named reverse available and cutover/consumer migration held.",
+    "CA #3 implementation, runtime, fixtures and tests remain external mandatory gates; no Current Container schema or data migration completion claimed."
+  ],
+  "clarification": [
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "issue": "Scope still states unqualified that the Project root has no Scope Unit ID and only non-root Authority names include an ID; the new decision explicitly leaves the root ID exception pending. These describe the existing baseline but may read as a settled future constraint.",
+      "minimal_fix": "Qualify those clauses as the Current baseline, subject to the pending root ID decision; do not choose an encoding."
+    }
+  ],
+  "limits": "Source/doc readback only; no schema adoption, runtime, tests or migration verified."
+}

@@ -1,0 +1,58 @@
+{
+  "status": "REVIEWED_FORMAL_RUN_CONTAINMENT_DRAFT_REBASES",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2750",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "sha256": "650b12afa08dda1e268cfea0b62eb9f67d656e81cb4befba7da8effffdc306a7",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2750.preview.txt",
+      "preview_sha256": "2113c70493cea7df3c378f63fe53a260f336c396c10387aadb661f0e2c261e1b"
+    },
+    {
+      "atom_id": "CA-R-2751",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "sha256": "d0d55b96362066f2fd1c043906cce7fdd5c184c548d717c5a52e739c58c99ae6",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2751.preview.txt",
+      "preview_sha256": "9ab285f8ea33c1828caebac272528898a7e450d6c5f26c77517b95bf7ed747cc"
+    },
+    {
+      "atom_id": "CA-R-2752",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "sha256": "cfbd4df261055654c103686252b5e4747a20ebf2c5bbdb1634c406bccefd148f",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/occurrent-declarations/run-formal-containment-20261105/CA-R-2752.preview.txt",
+      "preview_sha256": "b4e7594b7a3de59dc8886e0848a278b0727a1a8c7fbda9947a4eaea00de1a4bc"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md",
+      "before": "---\natom_id: CA-R-2750\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Workflow Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Workflow Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nWorkflow Run ((NARROWER_THAN)) Execution;\n\n# instances\nWorkflow Run//$run {::1}((IS_EXECUTION_OF)) Workflow//$definition\n```\n\n## Semantics\n\nA Workflow Run is an actual execution of one Workflow with supplied inputs and parameters.\n",
+      "before_sha256": "5786369adf8e0817a0d94a0d351d4c46685b76f5486d51b540bef7ba90f88e0e",
+      "after": "---\natom_id: CA-R-2750\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Workflow Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 05:27:06 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2750@1-draft-CORE_META_MODEL-DECLARATION--declare-workflow-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Workflow Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nWorkflow Run ((NARROWER_THAN)) Execution;\n\nWorkflow Run >| (Container == yes);\n\n# instances\nWorkflow Run//$run {::1}((IS_EXECUTION_OF)) Workflow//$definition;\n\nWorkflow Run//$container {::0+}((CONTAINS)) Step Run//$contained_step\n```\n\n## Semantics\n\nA Workflow Run is an actual execution of one Workflow with supplied inputs and parameters.\n",
+      "after_sha256": "650b12afa08dda1e268cfea0b62eb9f67d656e81cb4befba7da8effffdc306a7"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md",
+      "before": "---\natom_id: CA-R-2751\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Step Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nStep Run ((NARROWER_THAN)) Execution;\n\n# instances\nStep Run//$run {::1}((IS_EXECUTION_OF)) Step//$definition\n```\n\n## Semantics\n\nA Step Run is an actual execution of one Step within a Workflow Run.\n",
+      "before_sha256": "43d807afd2283f9e23749730bbcf66a73bc82a1edc79b35b8477ec8d1bfe1b77",
+      "after": "---\natom_id: CA-R-2751\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Step Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 05:27:06 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Step Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nStep Run ((NARROWER_THAN)) Execution;\n\nStep Run >| (Container == yes);\n\n# instances\nStep Run//$run {::1}((IS_EXECUTION_OF)) Step//$definition;\n\nStep Run//$step_run {::1}((IS_CONTAINED_BY)) (in (Workflow Run, Step Run))//$container;\n\nStep Run//$step_parent {::0+}((CONTAINS)) Step Run//$nested_step;\n\nStep Run//$action_parent {::0+}((CONTAINS)) Action Run//$action_run\n```\n\n## Semantics\n\nA Step Run is an actual execution of one Step within a Workflow Run.\n",
+      "after_sha256": "d0d55b96362066f2fd1c043906cce7fdd5c184c548d717c5a52e739c58c99ae6"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md",
+      "before": "---\natom_id: CA-R-2752\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Action Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 01:38:59 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Action Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAction Run ((NARROWER_THAN)) Execution;\n\n# instances\nAction Run//$run {::1}((IS_EXECUTION_OF)) Action//$definition\n```\n\n## Semantics\n\nAn Action Run is an actual execution of one Action.\n",
+      "before_sha256": "cde409fc0870e58e118aa9e20a0b05f23e64bd046dfeec3a7f196a131b8374e8",
+      "after": "---\natom_id: CA-R-2752\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Action Run\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 05:27:06 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Action Run\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAction Run ((NARROWER_THAN)) Execution;\n\n# instances\nAction Run//$run {::1}((IS_EXECUTION_OF)) Action//$definition;\n\nAction Run//$action_run {::0+}((IS_CONTAINED_BY)) Step Run//$step_run\n```\n\n### Prose Claim\n\nAn Action Run launched by a Step Run is contained by that Step Run.\n\n## Semantics\n\nAn Action Run is an actual execution of one Action.\n",
+      "after_sha256": "cfbd4df261055654c103686252b5e4747a20ebf2c5bbdb1634c406bccefd148f"
+    }
+  ],
+  "admission_gates": [
+    "Prospective :: syntax, Run kinds, IS_EXECUTION_OF and inverse relation endpoint authorities, and affected consumers must be coordinated in the source batch.",
+    "Earlier run-container-property-20261105 previews are superseded and must not be adopted."
+  ]
+}

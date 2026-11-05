@@ -1,0 +1,52 @@
+{
+  "verdict": "HOLD_SCOPE_UNIT_LEAF_PENDING_ID_SEMANTICS",
+  "previews": [
+    {
+      "leaf": "atom",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/new-container-atom.preview.txt",
+      "sha256": "b3424f379e09307955c256b81c61e5bb2c129534155e3301baf4e605074cbcaf"
+    },
+    {
+      "leaf": "scope_unit",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/new-container-scope_unit.preview.txt",
+      "sha256": "9de7ed1879185b1c00ba49f8248d1f4741209206b9a6b45709a75a7f4cc70bad"
+    }
+  ],
+  "assessment": {
+    "atom": "The [atom id] leaf carries the established ID format from R2699, has a separate new Summary and Subject requiring fresh ID, and imposes 0..1 values only when selected; it is suitable for an actual Draft subject to canonical Draft metadata and parent/group integration.",
+    "scope_unit": "The leaf copies [scope unit] from R2700 but does not itself say the value is a Scope Unit ID. The copied format name alone does not establish the latest IDs-only exclusion of paths and name suffixes in the source read. Add Claim Prose: “The value is the stable ID of the containing Scope Unit.” Also verify the [scope unit] Format admits exactly those IDs; otherwise reconcile its existing authority in the source batch.",
+    "cardinality": "Each leaf has 0..1 values because the parent selects exactly one of two alternatives; neither leaf makes both alternatives mandatory. Their children are prohibited. The parent mapping, root encoding and bootstrap remain held and must be coordinated before adoption.",
+    "identity": "Both changed Summaries and Subjects require new IDs, rather than reusing R2699/R2700. Existing source declarations remain pinned in the packet; no Current or native Draft may be overwritten by these previews.",
+    "notation": "Both use prospective :: notation, so actual Draft creation is possible as proposal material but requires governing notation integration before admission."
+  },
+  "source_pins": [
+    {
+      "id": "CA-R-2698",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd"
+    },
+    {
+      "id": "CA-R-2699",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d"
+    },
+    {
+      "id": "CA-R-2700",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d"
+    },
+    {
+      "id": "CA-R-2779",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc"
+    }
+  ],
+  "limits": "Review is bounded to leaf readiness and does not resolve root encoding or assert Current adoption.",
+  "repair": {
+    "status": "PASS_REPAIRED_SCOPE_UNIT_LEAF_FOR_DRAFT_CREATION",
+    "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/new-container-scope_unit.preview.txt",
+    "sha256": "16dfd3b1c502d84e4c20b730309be3b4a3badd9a825fe8254352b22c84a686d8",
+    "change": "Use existing [string] Format and add the stable-ID-only Prose Claim. Prior hold remains historical evidence; parent group/root encoding and coordinated adoption remain open.",
+    "format_authority": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2253-CORE_META_MODEL-ENTITY_DEFINITION--define-string-value-format.md"
+  }
+}

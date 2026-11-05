@@ -1,0 +1,29 @@
+---
+atom_id: <unallocated>
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Container.scope_unit
+version: <unallocated>
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Atom.Header.Container.scope_unit
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.Container.scope_unit :: [string]{::0..1};
+
+Atom.Header.Container.scope_unit.*[]{::0}
+```
+
+### Prose Claim
+
+The value is the stable ID of the containing Scope Unit.

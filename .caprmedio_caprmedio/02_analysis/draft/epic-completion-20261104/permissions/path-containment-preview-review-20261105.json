@@ -1,0 +1,43 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_PREPARATION",
+  "manifest_sha256": "82f0bb16dc34f86bdace378d51658a59901c3b473c68b431f864617c705ca87a",
+  "candidate_sha256": "2d160e342e484ad0ee31f03343d44731ab0f4005bf1defe58c6619ca09863a41",
+  "candidate_pin": true,
+  "source_pins": {
+    "CA-R-2478": true,
+    "CA-R-2617": true,
+    "CA-R-2610": true,
+    "CA-R-2475": true,
+    "CA-R-2247": true,
+    "CA-R-2243": true,
+    "CA-R-1931": true
+  },
+  "additional_authority": {
+    "id": "CA-R-2720",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md",
+    "sha256": "b0edaa0659442c1e9c6f26cc1543648e7c5a7de3b73840c5165115d5b3842d56",
+    "finding": "A Relation has at most one authored alias; absent an alias use full named Relation notation. R2486 repeats this rule."
+  },
+  "preserved": [
+    "Whole/Part direction follows Whole CONTAINS Part; the corresponding direct fact is Part IS_CONTAINED_BY Whole. Two endpoint count slots retain outgoing counts per written endpoint, with omitted slots unspecified.",
+    "R2610 and R2475 currently use / for narrowing and require coordinated migration; no endpoint permission or extra inverse permission follows from syntax."
+  ],
+  "boundary": "Source previews for Draft preparation only. Existing metadata and all affected source consumers require coordinated migration; no Current or runtime change.",
+  "contains_preview": {
+    "source_pin": true,
+    "preview_pin": true,
+    "diff_pin": true,
+    "metadata_unchanged": true,
+    "preview_sha256": "ab77a87abf1a7999e1eeef96b04f9136a6f11012d026944937c14230aad56c4e"
+  },
+  "resolved_findings": [
+    "Slash replaces the existing <+ alias for CONTAINS rather than adding a second alias; +> remains the distinct IS_CONTAINED_BY alias. No single-alias exception is invented.",
+    "Operator Semantics now says immediate containment, preserving the direct IS_CONTAINED_BY / derived CONTAINS classification."
+  ],
+  "gates": [
+    "Retire or replace R2610 and reconcile R2475\u2019s existing slash alias atomically with the narrowing successor; Current / means narrowing and cannot simultaneously mean containment in the same context.",
+    "Replace <+ with / for CONTAINS as the sole authored alias; preserve +> for IS_CONTAINED_BY. Do not add or assume a new reverse glyph.",
+    "Reconcile cardinality slots, parsing and all affected metadata and source consumers before admission; integrate the accepted {::n} notation source batch.",
+    "The slash alias grants no endpoint permission; Atom instance containment uses Header.Container as the sole stored fact."
+  ]
+}

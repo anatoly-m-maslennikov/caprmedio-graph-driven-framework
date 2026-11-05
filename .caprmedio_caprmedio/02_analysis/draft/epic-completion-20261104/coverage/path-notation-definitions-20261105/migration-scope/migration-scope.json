@@ -1,0 +1,188 @@
+{
+  "schema": "caprmedio.path_notation_migration_scope.v1",
+  "status": "READ_ONLY_INVENTORY_WITH_CONTEXTUAL_MIGRATION_GATES",
+  "scope": "The published 1,167-supplier Current snapshot; Subject.active/passive fields are counted from the snapshot. CFEL detail is limited to existing scanner artifacts and pinned Current examples. No actual Workflow/Workbench instance sources, native sources, code, tests, or Git state were changed.",
+  "input_pins": [
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-journal-passive-frontier-20261105.json",
+      "sha256": "e433ff1ab7f8f0b466c264b17a3ec857668ef6f075d64fcf8d797f619bd3f6ae",
+      "basis": "Current selected supplier Subject.active/passive snapshot; 1,167 operations."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/declarative-notation-review/named-instance-decision.json",
+      "sha256": "c6d333c68fbc99e948066f0cbd40c05a46e90bb727fb1f7ac3ef97788a41a3a3",
+      "basis": "Latest explicit named-instance syntax decision."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/cfel-spec-audit/relations/inventory.json",
+      "sha256": "16775db7ee6c0f615e16d5048ed8fdbd15f0b2b72df9ed2ae2f566be45c5f566",
+      "basis": "Existing CFEL Relation scanner inventory, explicitly based on the prior 1,160-source frontier and preserving its Workflow/Workbench exclusions."
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/cfel/inventory.json",
+      "sha256": "ef321642aaa47d3a2bcb9f94af0c195acff4dd3a081edaa1149cf7c3ec6b00d7",
+      "basis": "Existing bounded CFEL parser inventory: 208 blocks from 211 candidate sources; not a full 1,167-source block census."
+    }
+  ],
+  "subject_field_counts": {
+    "selected_suppliers": 1167,
+    "active_subject": {
+      "string_values": 1158,
+      "null_values": 9,
+      "values_with_any_slash": 500,
+      "values_with_single_slash_token_not_part_of_double_slash": 362,
+      "values_containing_Atom_slash_selector": 154,
+      "values_containing_double_slash": 156,
+      "values_containing_Relation_double_slash_named_target": 50,
+      "values_containing_Scope_Unit_double_slash_named_target": 49,
+      "values_containing_namespace_<+": 1156,
+      "values_containing_+>": 0,
+      "values_containing_/~_scope_literal": 0
+    },
+    "passive_subject": {
+      "string_values": 2478,
+      "one_object_value": 1,
+      "values_with_any_slash": 1081,
+      "values_with_single_slash_token_not_part_of_double_slash": 908,
+      "values_containing_Atom_slash_selector": 451,
+      "values_containing_double_slash": 215,
+      "values_containing_Relation_double_slash_named_target": 46,
+      "values_containing_Scope_Unit_double_slash_named_target": 42,
+      "values_containing_namespace_<+": 2472,
+      "values_containing_+>": 0,
+      "values_containing_/~_scope_literal": 0
+    },
+    "interpretation": "Counts are field values, not unique token occurrences. Slash-bearing includes selectors and slash-delimited kind paths, so it is not a count of narrowing operators. All selected Subject values containing <+ begin in a CAPRMEDIO namespace chain; none contains +>. Do not treat namespace separators as composition Relation aliases."
+  },
+  "cfel_inventory_limits": {
+    "relation_scanner_basis": "Prior 1,160 selected Current paths reread live; excludes 41 Workflow/Workbench-named sources and Subjects. It counts direct fenced CFEL operator occurrences, not prose or aliases/dynamic operators.",
+    "relation_descriptor_count": 37,
+    "relation_use_counts_from_scanner": {
+      "IS_CONTAINED_BY": 49,
+      "CONTAINS": 5,
+      "NARROWER_THAN": 14
+    },
+    "bounded_cfel_parser": {
+      "candidate_sources": 211,
+      "cfel_blocks": 208,
+      "recognized_clauses": 291,
+      "unsupported_clauses": 113,
+      "coverage_gaps": 1
+    },
+    "limit": "Neither existing artifact is an exhaustive, refreshed CFEL scan of all 1,167 suppliers. Preserve the named Workflow/Workbench exclusion; do not report these CFEL statistics as totals for the new frontier."
+  },
+  "fresh_current_cfel_snapshot": {
+    "status": "ALL_1167_PINS_MATCHED",
+    "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-journal-passive-frontier-20261105.json",
+    "frontier_sha256": "e433ff1ab7f8f0b466c264b17a3ec857668ef6f075d64fcf8d797f619bd3f6ae",
+    "supplier_count": 1167,
+    "matching_source_pins": 1167,
+    "source_drift_count": 0,
+    "extraction_error_count": 0,
+    "claim_cfel_block_count": 281,
+    "raw_blocks_artifact": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/migration-scope/current-cfel-raw-blocks-1167.json",
+      "sha256": "495e2ff7cf1389360a7f07fc36c2ccddf646e545b9bce3fbee7cd9c48e0b765c"
+    },
+    "literal_census_artifact": {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/migration-scope/current-cfel-literal-census-1167.json",
+      "sha256": "c5f98fa5265a9d53ee2dc25f7349d0b2fc89d5e6588c247bf719122e71efda16"
+    },
+    "raw_literal_counts": {
+      "/": {"count": 1217, "inside_double_quoted_spans": 10, "inside_hash_comment_lines": 0, "note": "Character count; includes both slash characters in every // occurrence."},
+      "//": {"count": 543, "inside_double_quoted_spans": 3, "inside_hash_comment_lines": 0},
+      "+>": {"count": 1, "inside_double_quoted_spans": 1, "inside_hash_comment_lines": 0},
+      "<+": {"count": 11, "inside_double_quoted_spans": 1, "inside_hash_comment_lines": 0},
+      "Relation//<name>": {"count": 96, "inside_double_quoted_spans": 1, "inside_hash_comment_lines": 0}
+    },
+    "ambiguity": "Literal counts scan each preserved raw block. Quoted-span and hash-comment counts are overlapping contextual subsets; counts include string/comment occurrences and do not classify syntax. The old 1,160-source inventory remains historical and is not reused as current totals.",
+    "workflow_workbench_boundary": "Only the pinned 1,167 supplier paths were extracted; no actual Workflow or Workbench instance/source mutation occurred."
+  },
+  "migration_classes": [
+    {
+      "class": "NARROWING_ALIAS",
+      "disposition": "SAFE_OPERATOR_MAPPING_WHEN_CONTEXT_IS_CONFIRMED",
+      "mapping": "Current '/' spelling for NARROWER_THAN maps to the accepted '//' narrowing spelling.",
+      "authority": "CA-R-2475@5 Current; the named-instance decision reserves '//' for narrowing and rejects it as named-instance syntax.",
+      "gate": "Apply only to a parsed kind-narrowing expression or the NARROWER_THAN alias declaration. A single slash inside Atom property qualifiers, compound type paths, quoted Scope Unit path data, filenames, or prose is not mechanically equivalent."
+    },
+    {
+      "class": "STATIC_NAMED_INSTANCE_SUBJECT_ADDRESS",
+      "disposition": "EXPLICIT_SUCCESSOR_ACCEPTED; CONTEXTUAL_REWRITE",
+      "mapping": "For a named Relation, use the approved typed address form, e.g. Relation//IS_PROPERTY_OF -> $x[<Relation>, .Name = IS_PROPERTY_OF]. Generalized kind/name references still require a unique current Name target and a syntactic position that admits the typed selector.",
+      "counts": "96 Subject field values contain Relation// named targets; additional Scope Unit// values are separately counted.",
+      "gate": "Do not rewrite static identities as narrowing. Do not invent anonymous-filter syntax; every such rewrite must bind a named variable as in the approved example."
+    },
+    {
+      "class": "TYPED_VARIABLE_SELECTOR",
+      "disposition": "REWRITE_REQUIRES_PRESERVING_KIND_AND_CONDITION_BINDING",
+      "mapping": "Existing Atom/(.Header.Role: Value)//$x forms are typed, named binders, not anonymous selectors. Successor form must retain the same Atom kind, all admitted conditions, and binding scope. Apply the approved colon/value/selector distinctions at each condition; do not erase a condition or change its operator by text replacement.",
+      "counts": "605 Subject values contain Atom/ selectors (154 active and 451 passive).",
+      "gate": "Review conditions and bound-variable scope from the source CFEL block. Do not convert an unbound selector to a set-valued anonymous filter."
+    },
+    {
+      "class": "COMPOSITION_RELATION_ALIASES",
+      "disposition": "PRESERVE_RELATION_DIRECTION_AND_AUTHORED_FACT_MODEL",
+      "mapping": "Current CFEL aliases are relation-level: IS_CONTAINED_BY uses +> and derived inverse CONTAINS uses <+. A replacement path spelling must preserve which endpoint is the contained object and which is the immediate Container; it must not duplicate or reverse the stored relation fact.",
+      "authority": "CA-R-2478@5; CA-R-2617@2; existing scanner reports 49 IS_CONTAINED_BY and 5 CONTAINS uses on the prior selected frontier.",
+      "gate": "Do not replace every '<+' string: in selected Subject values it is a CAPRMEDIO namespace separator. Coordinate relation alias declarations and CFEL use sites only after exact endpoint direction is established."
+    },
+    {
+      "class": "SCOPE_PATH_LITERAL",
+      "disposition": "KEEP_AS_DATA; SEPARATE_FROM_EXPRESSION_OPERATORS",
+      "authority": "CA-R-2530@2 current Subject CAPRMEDIO_MODEL <+ Scope Unit.Path.",
+      "finding": "The illustrative '/~ENGINE/PROGRAMMATIC' form is absent from all active/passive fields in the 1,167 snapshot and is not an admitted alias. A full Scope Unit path string uses actual Scope Unit names; slash characters inside the stored string are data and must not be rewritten as CFEL traversal syntax.",
+      "gate": "Keep path serialization and expression operator parsing separate; resolve path components against current Scope Unit declarations."
+    }
+  ],
+  "pinned_examples": [
+    {
+      "id": "CA-R-1931@18",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b",
+      "active": "CAPRMEDIO_MODEL <+ CFEL",
+      "passive_examples": [
+        "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF",
+        "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit"
+      ],
+      "migration_note": "One carrier combines a typed named Relation target with a compound narrowing/composition path; it cannot be rewritten as one uniform slash substitution."
+    },
+    {
+      "id": "CA-R-1016@32",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+      "sha256": "88d9c8c5f3ea03cdc955799ad495af4b726844670b3eac1987587fc6e968605c",
+      "active": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//rationale_for",
+      "migration_note": "Direct named Relation instance address; candidate typed selector must bind the same declared Relation name."
+    },
+    {
+      "id": "CA-R-2475@5",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+      "active": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN",
+      "migration_note": "The Relation instance target needs the typed named-address form; its '/'-alias semantics separately need migration to the accepted narrowing '//' token."
+    },
+    {
+      "id": "CA-R-2478@5",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8",
+      "active": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY",
+      "cfel": "$part ((IS_CONTAINED_BY)) $container; alias(Relation//IS_CONTAINED_BY) == \"+>\"",
+      "migration_note": "The aliases express direct containment with part-to-container endpoint direction; path rendering must preserve that orientation and direct storage."
+    },
+    {
+      "id": "CA-R-2654@1",
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-2654-FRAMEWORK_ENGINE-DEFINES_SCOPE_FOR-PROGRAMMATIC--declare-programmatic.md",
+      "sha256": "7762a9252a5a19fe3eb2ad66f7136293f6e5ed64ed502620c38787d9533b745d",
+      "active": "CAPRMEDIO_STRUCTURE <+ Scope Unit//PROGRAMMATIC",
+      "migration_note": "A static Scope Unit identity, not a narrowing path or a file path. Resolve the unique declared Name before typed-address migration."
+    },
+    {
+      "id": "CA-R-2530@2",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075",
+      "active": "CAPRMEDIO_MODEL <+ Scope Unit.Path",
+      "migration_note": "Current authority for a Scope Unit path value; path-value representation is separate from '/', '//', and relation aliases in CFEL expressions."
+    }
+  ],
+  "recommended_next_action": "Make the migration inventory syntax-aware by category: (1) rewrite declared NARROWER_THAN alias and parsed kind-narrowing contexts from '/' to '//'; (2) replace static named-instance addresses with the explicitly accepted named typed selector, preserving unique kind/name identity; (3) convert Atom qualified binders only with conditions and binding scope preserved; (4) treat +>/<+ as relation-alias migrations with endpoint checks and preserve CAPRMEDIO namespace <+ chains; (5) leave quoted Scope Unit path strings as data. Refresh CFEL coverage to the 1,167 snapshot before claiming an exhaustive block count; retain actual Workflow/Workbench exclusions."
+}

@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 03:55:43 +0400
+updated_at: 2026-11-05 06:06:44 +0400
 carrier_destination:
   file:
     name: CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md
@@ -28,7 +28,7 @@ CFEL declares constraints, relationships and required values. Workflows and adap
 
 - `/` expresses containment, like a folder path.
 - `//` expresses narrowing with inheritance.
-- A full Scope Unit path is one string built from actual declared Names, for example `/FRAMEWORK_ENGINE`. Project root is `/`.
+- Container stores a stable Scope Unit ID or Atom ID in a one-key mapping. Names and paths are derived; they are not reference identity.
 - `[format, conditions]` constrains a value. Primitive formats include `int`; Model kinds also supply object Formats.
 - `<Node>` explicitly refers to a Model-defined object kind. This spelling is accepted.
 - `$<Node>` selects an anonymous instance; `$x[<Node>]` names an instance participant.
@@ -55,7 +55,7 @@ CFEL declares constraints, relationships and required values. Workflows and adap
 | Required value / definition | `==` described as assignment | Clarify as a declarative definition, without an action |
 | Default | `?==` | Conditional definition for omission, with existing validation and no implicit Carrier write |
 
-`Node//Atom` keeps the current path orientation: Atom is narrower than Node. The reverse notation remains a review question. Specific named Model instances are selected by Format and conditions.
+`Node//Atom` keeps the current path orientation: Atom is narrower than Node. The existing named reverse form remains available; no new compact reverse glyph is needed. Specific named Model instances are selected by Format and conditions.
 
 ## Declarative reading
 
@@ -99,7 +99,7 @@ The accepted migration includes Formats, Property-name constraints and `{::n}` b
 
 - A base Atom ID such as `CA-P-123` identifies the ID shared by its Versions; lookup by that base selects Current by default.
 - The proposed Term “Atom Reference” also covers `CA-P-123@3` for Archived and `CA-P-123@3-draft` for Draft. This suffix is address data, not restoration of the retired `@` entity-call operator.
-- Header.Container remains one ordinary Property with a full Scope Unit path or base Atom ID. It has no duplicate entry under optional Header.Relations.
+- Atom.Header.Container is a one-key mapping: `scope_unit` holds a Scope Unit ID, or `atom` holds an Atom ID. Optional Header.Relations has no duplicate containment entry. Runs receive no Header or ID Properties.
 - Keep IS_CONTAINED_BY and CONTAINS available for Formal Claims. Their glyph changes are part of this notation proposal.
 
 ## Migration boundary
@@ -114,9 +114,9 @@ The accepted migration includes Formats, Property-name constraints and `{::n}` b
 
 ## Open design questions
 
-- Reverse containment and narrowing traversal notation.
+- Coordinate the existing named reverse notation with the new forward aliases; no additional compact reverse is required.
 - Definitions and default cases must retain absence, validation and conflict safeguards in the revised operator sources.
-- Complete the reviewed Scope Unit path source adoption and migration. Paths use actual declared Names, with Project root `/`; the old `/~ENGINE/...` was illustrative.
+- Finish IDs-only Container group/leaf contracts and resolve the Project root/bootstrap encoding. R2530@3 is a separate Path proposal, not a Container prerequisite.
 
 ## Rationale
 
@@ -140,6 +140,16 @@ Actual allowed-value notation Drafts:
 R2487@14-draft is rebased to include the typed-selector and FOR EACH changes while retaining the allowed-value changes.
 
 These Drafts require source-consumer integration and review before promotion and contextual migration. Typed object-Format and binding Drafts have passed independent actual-Draft readback; coordinated adoption remains. The quantifier Draft alone does not admit those dependencies. Other proposed path and instance changes have no admitted successor yet. Existing source-repair Drafts remain separately tracked in CA-A-1318.
+
+## Path notation Drafts
+
+- CA-R-2780@1-draft: `//` narrowing; replaces R2610 at the coordinated cutover.
+- CA-R-2781@1-draft: `/` immediate containment.
+- CA-R-2475@6-draft: NARROWER_THAN alias `//`.
+- CA-R-2476@7-draft: removes the old INSTANCE_OF alias `//`.
+- CA-R-2617@3-draft: CONTAINS alias `/` replaces `<+`; `+>` remains IS_CONTAINED_BY.
+
+Retire R2605's old instance operator only with typed-selector adoption and consumer migration. These actual Drafts are reviewed; existing metadata/descriptor spellings and related consumer Drafts still require coordinated rebasing before promotion. Preserve quoted data, Scope Unit paths and `@version` address suffixes.
 
 ## Accepted quantifier shape
 

@@ -4,7 +4,7 @@ subjects:
   passive:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 version: 31
-updated_at: 2026-11-05 03:53:43 +0400
+updated_at: 2026-11-05 06:15:15 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -30,10 +30,10 @@ Serialize Authored Direct Relations on Their Owning Atoms
 Authored direct semantic relations.
 
 
-An Atom **must** store its container once in its `Header.Container`, as the full Scope Unit path or the base Atom ID. Its `IS_CONTAINED_BY` Relation is represented by that value, not by a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared direction as nonempty unordered collections of unique canonical target references. `Header.Relations` is optional when no such Relations are present. Target position and source-file order are nonsemantic; validation **must not** require sorting or order normalization. Each Relation's declared direction, endpoint validity, and other semantics remain applicable.
+An Atom **must** record its immediate Container once in `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`. The `scope_unit` reference uses the Scope Unit’s stable ID. Its declared Container represents the `IS_CONTAINED_BY` fact; do not add a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared direction as nonempty unordered collections of unique canonical target references. `Header.Relations` is optional when no such Relations are present. Target position and source-file order are nonsemantic; validation **must not** require sorting or order normalization. Each Relation's declared direction, endpoint validity, and other semantics remain applicable.
 
 ## Details
 
 Serialize only the declared direct direction, never a second declaration for its derived inverse. `CONTAINS` remains a derived parent view and is not serialized on the parent. An Atom child stores its parent reference in `Header.Container`; a child-only change does not write the parent Carrier or create a parent Version. The Relation's spelling does not determine its direct direction.
 
-For non-Atom Carrier-derived containment, CA-D-264 and CA-D-266 remain separately applicable. This Decision does not introduce another stored containment fact or a runtime relation key.
+CA-D-264 and CA-D-266 govern agreement between declared Container, Carrier placement and readback of the same containment fact. This Decision does not introduce another stored containment fact or a runtime relation key.

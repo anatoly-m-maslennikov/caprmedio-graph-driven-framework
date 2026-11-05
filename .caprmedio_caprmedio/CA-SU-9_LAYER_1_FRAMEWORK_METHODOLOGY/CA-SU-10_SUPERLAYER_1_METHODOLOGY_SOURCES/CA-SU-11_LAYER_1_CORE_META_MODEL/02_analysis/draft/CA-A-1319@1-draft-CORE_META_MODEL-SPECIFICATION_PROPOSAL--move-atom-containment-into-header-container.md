@@ -10,7 +10,7 @@ subjects:
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
-updated_at: 2026-11-05 04:13:24 +0400
+updated_at: 2026-11-05 06:18:20 +0400
 carrier_destination:
   file:
     name: CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md
@@ -22,50 +22,52 @@ Move Atom containment into Header.Container
 
 ## Decisions
 
-- Store one immediate Container in Atom.Header.Container.
-- Its ordinary value is a full Scope Unit path string or a base Atom ID.
-- For a root Project Declaration Atom, an omitted Container has the effective default `world`. An explicit valid value overrides that default. `world` is a literal bootstrap value and produces no containment graph link or World entity.
-- Build paths from exact declared Scope Unit Names along their containment chain. Project root is `/`. The earlier `/~ENGINE/...` was illustrative.
-- Current examples are `/FRAMEWORK_ENGINE` and `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`. These are logical paths, independent of Carrier folder names.
-- A base Atom ID selects Current by default.
-- Header.Relations is optional. It stores other authored Relations.
-- Keep IS_CONTAINED_BY, CONTAINS and +>/<+ in Formal Claims and the MODEL.
-- Scope Unit containment remains in its Declaration Claim: one Container per non-Project Scope Unit; none for Project.
-- Each Declaration Atom separately has its own Header.Container.
+- Header.Container is one mapping with exactly one key.
+- `scope_unit` stores a stable Scope Unit ID, for example `CA-SU-11`.
+- `atom` stores an Atom ID, for example `CA-P-123`.
+- Store no Scope Unit name, name suffix or path in the reference.
+- Resolve current names and physical destinations from the ID.
+- The referenced container determines placement. D264 reads back that same containment fact from the nearest eligible Directory Carrier.
+- Header.Relations is optional and stores no duplicate containment fact.
+- D264 and D266 remain. Earlier retirement and dependent-link-removal previews are superseded.
+- Runs have no Properties in this version. Their parentage uses formal Relations only.
+- The Current Project root has no Scope Unit ID. Its future ID/reference case remains pending.
+- Preserve the settled world bootstrap meaning: no World entity or graph link. Reconcile its encoding with the one-key mapping before admission.
 
 ## Rationale
 
-One stored Property supplies an Atom's Container. Formal containment expressions keep their established meaning. A Declaration Atom and the Scope Unit it declares are separate hosts.
+An ID keeps the reference stable when a Scope Unit is renamed or moved. The same declared identity governs physical placement and the derived containment view. A Scope Unit Declaration Atom and the unit it declares remain distinct.
 
 ## Source changes
 
-1. Declare Header.Container and add it to Header.
-2. Make Header.Relations optional.
-3. Retire the old typed Header.Relations.IS_CONTAINED_BY wrapper and its atom/scope_unit children after consumer repair.
-4. Update Atom, Plan lookup, sequence-number and Delivery constraints.
-5. Review and push the source checkpoint before the mechanical data migration.
-6. Verify migrated sources and refresh the seven MODEL views. Implementation and test gates remain with CA #3; Workbench and Workflow owners keep their files.
+1. Rebase the Container group and declare its two alternative leaf Properties.
+2. Transfer the old typed containment wrapper contracts from Header.Relations.
+3. Keep explicit direct and inverse permissions; update Atom and Plan consumers.
+4. Align D264, D266, D268 and affected placement Rules with the same containment fact.
+5. Review and push the source checkpoint before mechanical migration.
+6. Verify migrated carriers and the seven MODEL views. CA #3 owns implementation and tests; Workflow and Workbench owners retain their sources.
 
-## Remaining integration
+## Existing Drafts
 
-- Adopt the scalar Scope Unit.Path contract and merge the Header/Delivery consumers before mechanical migration.
+- CA-R-2779@1-draft: Container group; its earlier scalar schema needs rebasing.
+- CA-R-2783@1-draft: Container.atom ID value.
+- CA-R-2784@1-draft: Container.scope_unit stable ID value.
+- CA-R-2508@7-draft: Atom containment; scalar-world comparisons need rebasing.
+- CA-R-2719@2-draft: Header members.
+- CA-R-2709@2-draft: optional Relations.
+- CA-R-2712@3-draft: sequence uniqueness by Container.
+- CA-R-2511@6-draft: Plan containment permissions.
+- CA-E-240@50-draft: Container validation.
+- CA-D-264@30-draft: placement readback of the same declared containment fact.
+- CA-D-266@30-draft: derived containment protection; placement agreement rebased.
+- CA-D-268@31-draft: direct-only serialization; placement agreement rebased.
+- CA-D-467@29-draft: recursive Step placement aligned with declared containment.
+- CA-E-500@29-draft: placement agreement checks aligned.
 
-## Prepared evidence
+These five Draft writes passed pinned source-helper readback in `application/container-placement-drafts-20261105`. Their Current predecessors remain unchanged.
 
-The Header, consumer, Delivery and planning previews are listed in the Epic packet at `.caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/`. The reviewed subset has actual Drafts listed below. Other previews remain held; none is Current adoption.
+CA-R-2530@3-draft is a separate scalar Path proposal, not a prerequisite for ID-based Container references. Current Path authority remains unchanged.
 
-## Created Drafts
+## Adoption gates
 
-- CA-R-2779@1-draft declares Atom.Header.Container, including its root default and declared-Name paths.
-- CA-R-2530@3-draft defines the scalar logical Scope Unit path.
-
-- CA-R-2508@7-draft preserves logical containment: zero links for `world`, one for a valid Atom or Scope Unit reference.
-- CA-R-2719@2-draft adds Container to Header.
-- CA-R-2709@2-draft makes Relations optional.
-- CA-R-2712@3-draft keys sequence-number uniqueness by Container.
-- CA-R-2511@6-draft removes the obsolete stored containment wrapper while retaining formal Plan containment permissions.
-- CA-E-240@50-draft checks Header.Container.
-- CA-D-268@31-draft serializes containment once.
-- CA-D-266@30-draft separates Atom containment from directory-derived containment.
-
-Actual Draft readbacks are independently reviewed. R2508 and the rebased R2779 now record the settled literal `world` case. The Run Container reference Format remains a separate question. D264's legacy Artifact identity boundary remains held. Coordinated syntax, Header, Delivery and schema integration precedes promotion and mechanical migration.
+Resolve the Project root and bootstrap encoding. Finish the group/leaf and consumer rebases, then review and promote the coordinated packet. No Current Container schema or carrier-data migration is claimed here.

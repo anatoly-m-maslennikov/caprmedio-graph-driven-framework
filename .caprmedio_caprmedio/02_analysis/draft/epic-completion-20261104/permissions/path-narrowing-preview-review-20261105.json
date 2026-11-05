@@ -1,0 +1,43 @@
+{
+  "verdict": "PASS_BOUNDED_NARROWING_PREVIEWS_SOURCE_PREPARATION_ONLY",
+  "manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/narrowing/manifest.json",
+  "manifest_sha256": "a436562b561fadc60dce0133c9c44eb7a76e99fe3a30816220ff8878dfc71191",
+  "candidates": [
+    {
+      "id": "CA-R-2610",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/narrowing/CA-R-2610.preview.txt",
+      "candidate_sha256": "e88c70be07462adc0c6fc103a72f6e34c3259d699f87911907f5b13cf0de1324",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/narrowing/CA-R-2610.diff",
+      "diff_sha256": "5fc00c367b2cfa6cecd8fcc4bfc7ca82173ce51c5eb45ce56b135c1dcc066c53",
+      "status": "NEW_ID_REQUIRED_UNALLOCATED_PREVIEW",
+      "reason": "Summary token changes; fresh ID and retirement/reference migration are required. Placeholder is not an actual Draft."
+    },
+    {
+      "id": "CA-R-2475",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "source_sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+      "candidate_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/narrowing/CA-R-2475.preview.txt",
+      "candidate_sha256": "61ae0794e2ab6919b0fb3891d150594c081f9419a7ff95f2a385aa894f4a3230",
+      "diff_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/narrowing/CA-R-2475.diff",
+      "diff_sha256": "8b8e4f6480feafa80d0832952b63c945098fc091daca9103f7f7c13b93de4441",
+      "status": "REVIEW_ONLY",
+      "reason": "Same Summary and ID; preserves direct narrower\u2192broader semantics, inverse and inherited constraints, changes only written alias and corresponding path example."
+    }
+  ],
+  "checks": [
+    "Both source, candidate, diff and 12 Current/native Draft reference pins match.",
+    "R2475 changes exactly the alias token and corresponding path example. Direct NARROWER_THAN remains narrower-to-broader, HAS_NARROWER remains derived inverse, and Property/Relation constraint inheritance and endpoint restrictions are unchanged.",
+    "R2610 candidate changes / to // and corresponding example, preserves narrowing and inheritance, and uses UNALLOCATED_SUCCESSOR because its Summary changes. No actual ID allocated.",
+    "Current R2609 already allows named reverse Target <((NARROWER_THAN)) Source with written-bound normalization; no compact reverse glyph decision is needed for these source preparations."
+  ],
+  "integration_holds": [
+    "R2605 and R2476 currently own // for instance semantics. Their retirement/alias-repair, typed participants and naming migration must be coordinated atomically before Current admission; old Relation//NAME metadata and Subject paths remain unresolved migration work, not proof of changed semantics.",
+    "The proposed new Summary equals Current R2605 Summary; retire/disposition the old operator atom and inbound references atomically with fresh-identity allocation to avoid simultaneous conflicting authority.",
+    "R2471@8, R2487@14, R1321@36 and R1931@19 Drafts need coordinated merging, and / containment reassignment is separately owned. No source may be independently promoted as a completed syntax cutover."
+  ],
+  "limits": [
+    "No compact inverse, instance selector, new alias, Current, native Draft, code, tests or Git changes in this review."
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "status": "BOUNDED_DEPENDENT_PREVIEWS_ATOMIC_RETIREMENT_PENDING",
+  "rows": [
+    {
+      "id": "CA-D-346",
+      "version": 36,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL-DECISION--deliver-cce-canonical-signatures-as-external-report-projections.md",
+      "source_sha256": "28a3e493bdd1d5372bf57e28912f510a1e035d99f9b5ab33f16d0d596bbb332c",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-346.preview.txt",
+      "candidate_sha256": "b6a9733369ed4c47fe2ddc6272644c4b164572193b0e942112eb03e4f9f5c6d3",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-346.diff",
+      "diff_sha256": "c4b6c8cc5a3ad875ccfd5f273c9a994d6b4ead1024522849fdc9cfc1bfd95aea",
+      "change": "Remove obsolete child_of CA-D-266 only; preserve all other bytes including Claim, Summary, active Subject, version, timestamp and frozen references.",
+      "rationale": "Claim specifies external non-authoritative report contents, not specialization of directory-derived containment or inverse serialization. No proven relation to D266 successor; do not replace by another relation.",
+      "readiness": "BOUNDED_LINK_REPAIR_ONLY; ACTIVE_PROJECTION_FORM_REQUIRES_SEPARATE_ADMISSION_REVIEW"
+    },
+    {
+      "id": "CA-D-347",
+      "version": 29,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md",
+      "source_sha256": "bae57a3b5d71a39868d391ef59350d1f60dc815385380592434ad2aae3f7b711",
+      "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-347.preview.txt",
+      "candidate_sha256": "4608b9c0a39b8dc10642622fd7b43133e1569e1dbaef2bda140bbd1b05cc0ec9",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-347.diff",
+      "diff_sha256": "78cb9dcd148b601d3a5100fcfe319089e2f1e9f3c9135138fd9f22b4bac3fb2c",
+      "change": "Remove obsolete child_of CA-D-266 only; preserve all other bytes including Claim, Summary, active Subject, version, timestamp and frozen references.",
+      "rationale": "Claim specifies external non-authoritative report contents, not specialization of directory-derived containment or inverse serialization. No proven relation to D266 successor; do not replace by another relation.",
+      "readiness": "BOUNDED_LINK_REPAIR_ONLY; ACTIVE_PROJECTION_FORM_REQUIRES_SEPARATE_ADMISSION_REVIEW"
+    }
+  ],
+  "obsolete_draft": {
+    "id": "CA-D-266@30-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+    "sha256": "a2aa2a485d8fde5ab447e90a09390514c2b618de10b1e7d26037cf375e079303",
+    "preimage": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-266@30-draft.obsolete-preimage.txt",
+    "preimage_sha256": "a2aa2a485d8fde5ab447e90a09390514c2b618de10b1e7d26037cf375e079303",
+    "disposition": "Do not promote; its Claim still assigns logical containment to physical nesting, superseded by latest Operator decision. Archive/dispose through authorized owner workflow only; no mutation here."
+  },
+  "authority_pins": [
+    {
+      "id": "CA-R-1040",
+      "version": 31,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1040-CORE_META_MODEL-RULE--reject-authored-inverse-relations.md",
+      "sha256": "bd821e802387393d1bd3ddd21e35a5bcb000b76cbaefb41f0dee80cd3b5a1123"
+    },
+    {
+      "id": "CA-R-1660",
+      "version": 37,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md",
+      "sha256": "175001423157ce246b5a20c26b2a47eb8f29deb08649a7948ad091247bd25759"
+    },
+    {
+      "id": "CA-R-2478",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+    },
+    {
+      "id": "CA-D-268",
+      "version": 30,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "sha256": "c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52"
+    }
+  ],
+  "d268_rebased_candidate": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-268@31.rebased.preview.txt",
+    "sha256": "50e6526f4749561bdfc85104c6feb4c7362d64a8e332df73f88d7557ad604c80",
+    "scope": "Preserves Atom direct storage, no duplicated inverse, no parent rewrite and root world no-link; removes D264/D266 nesting reference."
+  },
+  "coverage_proof": {
+    "obsolete": "D266 prohibition is specifically against persisting CONTAINS and IS_CONTAINED_BY facts derived from canonical Carrier nesting. That source-of-fact premise is superseded.",
+    "retain_direct_and_inverse": "R2478 specifies IS_CONTAINED_BY direct, CONTAINS derived inverse and store direct fact once. R1040 rejects authored inverse typed Relations in Atom Carriers; D268 successor preserves direct-only serialization and no second containment entry for Atom.",
+    "retain_logical_parent": "R1660 independently prohibits carrier physical containment silently replacing the declared logical parent.",
+    "non_atom_boundary": "Retirement does not forbid independently admitted non-Atom direct relations or infer new Carrier-to-Carrier facts. No requirement to keep a nesting-derived non-Atom logical fact remains after the explicit Operator decision."
+  },
+  "atomic_holds": [
+    "D264/D266 retirement, D268 rebase and both live incoming child_of removals must be independently reviewed and applied atomically with Header/model integration.",
+    "D346/D347 existing active Projection.Form subjects remain unrelated unresolved admission issues; these narrow link previews are not whole-Atom promotion approval.",
+    "Preserve exact Current predecessor and existing historical/frozen references; no replacement Relation or ID is invented."
+  ],
+  "limits": [
+    "No Current, actual Draft, Carrier, code, tests, Workflow/Workbench or Git mutation."
+  ]
+}

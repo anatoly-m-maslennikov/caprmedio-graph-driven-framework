@@ -1,0 +1,72 @@
+{
+  "status": "HELD_ROOT_ENCODING",
+  "files": [
+    {
+      "id": "CA-R-2698",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2698-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by.md",
+      "sha256": "669672c32d618a63cd81611b5daf3eef6ba090e30780f66f057b19a9c9d257bd"
+    },
+    {
+      "id": "CA-R-2699",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2699-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-atom.md",
+      "sha256": "375ec0b4c9e4af412f361cb6ca8284e5c2178d37700ebb227e0cfdcadcd6069d"
+    },
+    {
+      "id": "CA-R-2700",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2700-CORE_META_MODEL-DECLARATION--declare-atom-header-relations-is-contained-by-scope-unit.md",
+      "sha256": "6660e552b2dc55c3145dff1b2d5e8f86dc7c1e5385dd98e2e0b4a467558b689d"
+    },
+    {
+      "id": "CA-R-2779",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc"
+    },
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d"
+    },
+    {
+      "id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3"
+    },
+    {
+      "preview_for": "CA-R-2779",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/CA-R-2779.preview.txt",
+      "sha256": "80f2388a2f0ab6034b07fe5d4fcc88f7a9c35f2e20a1660c0ffd4a9bb005f421",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/CA-R-2779.diff",
+      "diff_sha256": "9d5012f3a691e62ef2668f31f19f571a1322bd9275bcba9ac99b120623050fcb"
+    },
+    {
+      "preview_for": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/CA-R-2508.preview.txt",
+      "sha256": "32c1c5f36df7217aefffc60db13fd7beb0a978dbec7ddb2f1b5a4f6a466a1886",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/CA-R-2508.diff",
+      "diff_sha256": "16dfa8ed9f11f714350b41429f6ae03a271a44f30244c45dd2a4d5271c9bfadd"
+    },
+    {
+      "preview_for": "new atom",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/new-container-atom.preview.txt",
+      "sha256": "b3424f379e09307955c256b81c61e5bb2c129534155e3301baf4e605074cbcaf",
+      "identity": "fresh unallocated ID; different Summary and Subject from old leaf"
+    },
+    {
+      "preview_for": "new scope_unit",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/new-container-scope_unit.preview.txt",
+      "sha256": "16dfd3b1c502d84e4c20b730309be3b4a3badd9a825fe8254352b22c84a686d8",
+      "identity": "fresh unallocated ID; different Summary and Subject from old leaf",
+      "format_basis": "[string] is declared; the prose constrains it to the stable Scope Unit ID. Existing [scope unit] leaf does not itself establish IDs-only."
+    }
+  ],
+  "reused_contracts": "R2698 exactly one of atom/scope_unit and R2699/R2700 atom-id/scope-unit value Formats transferred to new subjects; changed Summaries require fresh leaf IDs. R2779 keeps its Summary and ID. R2508 retains named relation and subject permissions.",
+  "pending": [
+    "Root Project/bootstrap encoding: world must create no entity or link, but no placement in an exactly-one atom/scope_unit mapping has been chosen; previews deliberately do not invent a third key or encode world in either branch. Root default has not been specified in these held candidates.",
+    "The Project root previously has no Scope Unit ID. Whether to assign it one or retain a root marker is unresolved; do not invent a third key or choose world bootstrap encoding.",
+    "Formal group declares one key universally; root/bootstrap exception must be reconciled before adoption to avoid contradicting the world rule.",
+    "Coordinate removal or retirement of old R2698/R2699/R2700 with references and reviewed leaf successors; do not allocate IDs or change existing native Drafts.",
+    "R2508 conditional world comparison is removed because Header.Container is now a mapping; ordinary valid-reference exact-one is retained in prose pending expressible root conditional."
+  ],
+  "limits": "No actual source, native Draft, code, tests, Workflow, Workbench or Git mutation.",
+  "settled": "Header.Container is exactly one mapping with exactly one key, atom or scope_unit. Values identify the containing Atom or Scope Unit by its ID only; no path, ID_Name suffix or new field."
+}

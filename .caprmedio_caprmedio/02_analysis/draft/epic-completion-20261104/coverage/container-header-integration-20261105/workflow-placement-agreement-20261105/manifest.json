@@ -1,0 +1,83 @@
+{
+  "schema": "caprmedio.container_header_workflow_placement_agreement.v1",
+  "status": "READY_CONTENT_ONLY_RMED_PREVIEWS",
+  "scope": "Align the existing D467@29 and E500@29 Core Delivery Drafts with the accepted Header.Container physical-containment rule while preserving optional same-stem grouping, recursive Step placement, and separately placed references.",
+  "source_authorities": [
+    {
+      "id": "CA-D-264@29",
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+      "use": "Keep the derived direct IS_CONTAINED_BY/CONTAINS view consistent with the physical container. No duplicate authored relation is added."
+    },
+    {
+      "id": "CA-D-267@28",
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-ENG_DECISION--derive-address-facts-without-duplicated-frontmatter.md",
+      "sha256": "a82fbb0c746b64b72f4c0518d5b0949683bba077a7bb4671c115207937ef54f9",
+      "use": "No conflict: this carrier-address rule concerns non-Atom Artifact Properties; Header.Container is an Atom Property."
+    },
+    {
+      "id": "CA-D-460@25",
+      "status": "Active",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-ENG_DECISION--serialize-plan-atom-carrier-bundles.md",
+      "sha256": "bf786fa1d18d11cb24288eff12fc6648a792b839ecc3d66b052a1c6567de9bed",
+      "use": "A same-stem Directory Carrier remains grouping for the Atom represented by its Markdown Carrier; it does not create another Atom or owner."
+    },
+    {
+      "id": "CA-R-2779@1-draft",
+      "status": "Draft; property proposal only",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "use": "The RMED previews cite the proposed Atom.Header.Container property only. They do not adopt this Draft's stale full-path serialization details; latest decision is Scope Unit IDs only, mapping key scope_unit or atom, with root Project ID exception pending."
+    }
+  ],
+  "draft_bases": [
+    {
+      "id": "CA-D-467@29-draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "source_sha256": "d44b9a3c9ff3a86bcb1b442dbf41d55d27ba5f32ecc2a46ad1a0fd741971cb04",
+      "current_predecessor": {
+        "id": "CA-D-467@28",
+        "sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66"
+      },
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/workflow-placement-agreement-20261105/CA-D-467@29-container-agreement.preview.md",
+      "preview_sha256": "d93b46cfcdf7c740368a09596d95480b72a23eecd8b9d8ba8fe9f21d26cebc4e",
+      "changes": [
+        "Add Atom.Header.Container as a passive Subject.",
+        "Header.Container identifies the logical parent by Scope Unit or Atom ID; the resolved folder is its physical location.",
+        "A formal CONTAINS/IS_CONTAINED_BY edge, Header.Container, and resolved Carrier placement identify the same parent; CA-D-264 reads back that same direct fact.",
+        "An ordinary graph reference alone does not establish containment, change Header.Container, or move the referenced Step."
+      ]
+    },
+    {
+      "id": "CA-E-500@29-draft",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "source_sha256": "ebc9ecc37dc1a885d4f36a872d97d9202b07f96a975898b643f9b1f90d64975c",
+      "current_predecessor": {
+        "id": "CA-E-500@28",
+        "sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf"
+      },
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/workflow-placement-agreement-20261105/CA-E-500@29-container-agreement.preview.md",
+      "preview_sha256": "6676a9f5492489475c7cce7ae283cacec0208172a4e3e46dce6d7e64499dd325",
+      "changes": [
+        "Add Atom.Header.Container as a passive Subject.",
+        "For formal parent-child containment, require Header.Container, the CONTAINS/IS_CONTAINED_BY edge, and the resolved physical placement to agree, with CA-D-264 reading back the same fact.",
+        "Permit ordinary references to separately contained Steps without assigning or changing their Container."
+      ]
+    }
+  ],
+  "alignment_findings": [
+    "D467/E500 retain optional same-stem recursive grouping. Only ordinary references to separately contained objects can remain external. A Step with a formal parent-child containment edge must be placed under its declared parent's resolved folder.",
+    "For formal Workflow CONTAINS Step or Step IS_CONTAINED_BY Workflow/containing Step, all representations identify the same logical parent by ID; the parent folder is resolved from that identity and CA-D-264 reads back the same direct fact. Directory nesting alone cannot override or create disagreement.",
+    "No execution order is inferred from folders. The formal CONTAINS/IS_CONTAINED_BY edge, Header.Container ID, and resolved parent folder are one containment fact; directory nesting alone cannot override or contradict them.",
+    "The existing cascade scope remains limited to contained latest Step Revisions in the parent Carrier tree; separately contained referenced Steps and Actions remain outside that cascade.",
+    "D267 and D460 remain unchanged and compatible: the property is on an Atom, and a same-stem directory groups the Atom represented by its Markdown Carrier."
+  ],
+  "policy_boundary": {
+    "undecided_for_this_preview": false,
+    "broader_pending": "The root Project Declaration ID exception remains pending outside these Delivery previews. Scope Unit references use IDs only and resolve the current parent folder from that ID. No path, id_name, filename rename, or ID allocation rule is specified here.",
+    "actual_workflow_workbench_mutation": "NONE",
+    "versioning": "Preview bodies retain pinned Draft version/timestamp as a content-only rebase. Root owns any next Draft version and UpdatedAt assignment."
+  }
+}

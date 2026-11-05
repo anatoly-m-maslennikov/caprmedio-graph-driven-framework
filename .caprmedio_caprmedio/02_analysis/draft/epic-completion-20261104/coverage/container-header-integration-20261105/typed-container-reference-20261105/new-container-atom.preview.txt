@@ -1,0 +1,25 @@
+---
+atom_id: <unallocated>
+status: Draft
+subjects:
+  active: CAPRMEDIO_MODEL <+ Atom.Header.Container.atom
+version: <unallocated>
+tier: 3
+role: Requirement
+form: Declaration
+---
+
+## Summary
+
+Declare Atom.Header.Container.atom
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.Container.atom :: [atom id]{::0..1};
+
+Atom.Header.Container.atom.*[]{::0}
+```

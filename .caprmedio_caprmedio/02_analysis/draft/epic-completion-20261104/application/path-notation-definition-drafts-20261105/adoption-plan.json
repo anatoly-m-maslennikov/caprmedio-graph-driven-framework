@@ -1,0 +1,107 @@
+{
+  "status": "REVIEWED_PATH_DEFINITION_DRAFTS_NOT_CURRENT_ADOPTION",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2780",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/narrowing/CA-R-2610.preview.txt",
+      "preview_sha256": "e88c70be07462adc0c6fc103a72f6e34c3259d699f87911907f5b13cf0de1324",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "source_sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190",
+      "replaces": "CA-R-2610"
+    },
+    {
+      "atom_id": "CA-R-2781",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md",
+      "sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/containment/containment-operator.unallocated.preview.txt",
+      "preview_sha256": "2d160e342e484ad0ee31f03343d44731ab0f4005bf1defe58c6619ca09863a41",
+      "source_path": null,
+      "source_sha256": null,
+      "replaces": null
+    },
+    {
+      "atom_id": "CA-R-2475",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "sha256": "6e509c1ce6a243ec608c23d850982e76d1c5098afce03d54a418d15a17281465",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/narrowing/CA-R-2475.preview.txt",
+      "preview_sha256": "61ae0794e2ab6919b0fb3891d150594c081f9419a7ff95f2a385aa894f4a3230",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "source_sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c",
+      "replaces": null
+    },
+    {
+      "atom_id": "CA-R-2476",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "sha256": "f8ddfc7f7583f80a266729bd7ecc685c3be8827384b34814586ef289cce324d0",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/instance-prerequisites/CA-R-2476.partial.preview.txt",
+      "preview_sha256": "512121d7271f3d0497ec2ef1820ad896ddb0ec7ec520b81332dc6f1dd51e05fb",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2476-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "source_sha256": "0815c5de37042caf4d3f76777f7358c5509bf0f360f5d540f8c548ec9b677d9e",
+      "replaces": null
+    },
+    {
+      "atom_id": "CA-R-2617",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "sha256": "1027c7364a26e46c70f68b0c064b22d3289bd80b51b229f38333923b2296a248",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/containment/CA-R-2617.preview.txt",
+      "preview_sha256": "ab77a87abf1a7999e1eeef96b04f9136a6f11012d026944937c14230aad56c4e",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "source_sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+      "replaces": null
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2780\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Narrowing\nversion: 1\nupdated_at: 2026-11-05 05:13:56 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare CFEL operator //\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nOperator//Narrowing == \"//\"\n```\n\n## Semantics\n\nSelect Y as a narrower Primary Node of X in `X//Y`; inherited applicable rules apply.\n",
+      "after_sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2781\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Containment\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 05:13:56 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare CFEL containment operator /\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nOperator//Containment == \"/\"\n```\n\n### Prose Claim\n\n`Whole/Part` expresses the immediate `CONTAINS` Relation from Whole to Part. Its corresponding direct `IS_CONTAINED_BY` fact runs from Part to Whole. Containment does not imply narrowing or inheritance.\n\nWhen directional cardinality slots are present, the slot before `/` counts outgoing `CONTAINS` links per Whole, and the slot after `/` counts reverse `IS_CONTAINED_BY` links per Part. Omitted slots remain unspecified. A Relation declaration or an applicable endpoint permission supplies its own bounds.\n\n## Semantics\n\n`/` expresses immediate containment from a Whole to a Part.\n",
+      "after_sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2475\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//NARROWER_THAN\nversion: 6\nupdated_at: 2026-11-05 05:13:56 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine NARROWER_THAN\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\n$narrower ((NARROWER_THAN)) $broader;\n\nRelation//NARROWER_THAN ((HAS_INVERSE)) Relation//HAS_NARROWER;\n\nalias(Relation//NARROWER_THAN) == \"//\";\n\nRelation//NARROWER_THAN ((HAS_CLASSIFICATION)) Derivation == Direct\n```\n\n### Prose Claim\n\nNARROWER_THAN relates a narrower MODEL kind to a broader MODEL kind. A Property does not narrow. Both endpoints are MODEL kinds; Property bearers and instance populations do not become kinds through this notation. The narrower kind inherits applicable Relation and Property constraints without cloning declarations or instance facts. HAS_NARROWER is its derived inverse. In `X//Y`, Y is narrower than X; traversal runs from broader to narrower.\n",
+      "after_sha256": "6e509c1ce6a243ec608c23d850982e76d1c5098afce03d54a418d15a17281465"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2476\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//INSTANCE_OF\nversion: 7\nupdated_at: 2026-11-05 05:13:56 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDefine INSTANCE_OF\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//INSTANCE_OF ((HAS_INVERSE)) Relation//HAS_INSTANCE;\n\nRelation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\n$instance ((INSTANCE_OF)) $kind;\n```\n\n### Prose Claim\n\nThe Host is an instance of the Target declared kind. A Property instance is borne by its data bearer and is an instance of its corresponding model Property, which remains borne by its model bearer. A Property instance has no independent Carrier; its bearer and kind Relations are distinct and may coexist.\n\nForward `Host ((INSTANCE_OF)) Target` and reverse `Target <((INSTANCE_OF)) Host` are views of the same Relation fact.\nINSTANCE_OF relates instance of a declared kind to declared kind.\n",
+      "after_sha256": "f8ddfc7f7583f80a266729bd7ecc685c3be8827384b34814586ef289cce324d0"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2617\nrole: Requirement\nform: Declaration\nstatus: Draft\nversion: 3\nupdated_at: 2026-11-05 05:13:56 +0400\ntier: 3\nsubjects:\n  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare CONTAINS\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;\n\nalias(Relation//CONTAINS) == \"/\"\n```\n\n## Semantics\n\nCONTAINS relates a Container to its immediately contained part.\n",
+      "after_sha256": "1027c7364a26e46c70f68b0c064b22d3289bd80b51b229f38333923b2296a248"
+    }
+  ],
+  "admission_gates": [
+    "Retire old R2605 instance operator and replace R2610 narrowing operator only with coordinated typed-selector and consumer migration.",
+    "Current metadata/descriptor operands still use their existing spelling; rebase them with the accepted grammar before promotion.",
+    "Replace CONTAINS alias <+ with /; preserve IS_CONTAINED_BY alias +>; no new alias multiplicity.",
+    "Merge related R2471/R2487/R1321/R1931 Drafts and preserve literals and @version data.",
+    "Implementation, parser and runtime verification remain external gates."
+  ],
+  "preflight_correction": "Absolute target paths were rejected before any write; targets and stored destinations are now repository-relative."
+}

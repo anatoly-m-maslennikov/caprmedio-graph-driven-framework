@@ -1,0 +1,68 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "20730564ea3edcb6f045f560fe953710b3cfd18b62ce8ee298fe265d31dacd8e",
+  "receipt_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-2783",
+      "actual_sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d",
+      "actual_pin": true,
+      "new_no_preimage": true,
+      "plan_exact": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "identity_version_status": [
+        "CA-R-2783",
+        1,
+        "Draft"
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Container.atom",
+      "native_identity_matches": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+          "version": 1,
+          "status": "Draft"
+        }
+      ],
+      "destination_correct": true
+    },
+    {
+      "id": "CA-R-2784",
+      "actual_sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293",
+      "actual_pin": true,
+      "new_no_preimage": true,
+      "plan_exact": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "identity_version_status": [
+        "CA-R-2784",
+        1,
+        "Draft"
+      ],
+      "active_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Container.scope_unit",
+      "native_identity_matches": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+          "version": 1,
+          "status": "Draft"
+        }
+      ],
+      "destination_correct": true
+    }
+  ],
+  "parent_draft_pins": {
+    "CA-R-2508": true,
+    "CA-R-2779": true
+  },
+  "semantic_checks": [
+    "atom leaf retains [atom id]{::0..1}; scope_unit leaf retains [string]{::0..1}, no dependent names, and stable Scope Unit ID prose.",
+    "No root/bootstrap value or parent choice encoded in these leaves."
+  ],
+  "holds": [
+    "Parent Container mapping/root bootstrap/adoption remain held. No Current replacements or data migration.",
+    "Old Header.Relations containment declarations retained pending coordinated cutover."
+  ],
+  "boundary": "Actual leaf Drafts only; parent mapping, root/bootstrap and source adoption remain held. No runtime claim."
+}

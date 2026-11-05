@@ -1,0 +1,60 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "13921045b8972afd0a16bcbc885a972f47d8341f7d523c3ed4a2a7ef61b18d17",
+  "receipt_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-2750",
+      "actual_sha256": "650b12afa08dda1e268cfea0b62eb9f67d656e81cb4befba7da8effffdc306a7",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-2750",
+        1,
+        "Draft"
+      ],
+      "no_run_header_or_property_fields": true
+    },
+    {
+      "id": "CA-R-2751",
+      "actual_sha256": "d0d55b96362066f2fd1c043906cce7fdd5c184c548d717c5a52e739c58c99ae6",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-2751",
+        1,
+        "Draft"
+      ],
+      "no_run_header_or_property_fields": true
+    },
+    {
+      "id": "CA-R-2752",
+      "actual_sha256": "cfbd4df261055654c103686252b5e4747a20ebf2c5bbdb1634c406bccefd148f",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "metadata_only_updated_at": true,
+      "identity_version_status": [
+        "CA-R-2752",
+        1,
+        "Draft"
+      ],
+      "no_run_header_or_property_fields": true
+    }
+  ],
+  "admission_gates": [
+    "Prospective :: syntax, Run kinds, IS_EXECUTION_OF and inverse relation endpoint authorities, and affected consumers must be coordinated in the source batch.",
+    "Earlier run-container-property-20261105 previews are superseded and must not be adopted."
+  ],
+  "boundary": "Actual Drafts only; no Current adoption or runtime change asserted."
+}

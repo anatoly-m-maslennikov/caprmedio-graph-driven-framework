@@ -1,0 +1,136 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "e15b24647cb9c66ae3baad5779f1cbdc0717c31d32ce51d810c63104891cc67b",
+  "receipt_plan_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-2780",
+      "actual_sha256": "b3dfa0b3de19c30a4b52f0360481d7eb9290f5e312c93efc67a9c0406091a221",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "current_pin": true,
+      "destination_correct": true,
+      "identity_version_status": [
+        "CA-R-2780",
+        1,
+        "Draft"
+      ],
+      "native_id_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2780@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md"
+      ]
+    },
+    {
+      "id": "CA-R-2781",
+      "actual_sha256": "18dc34b12918eb604da335536d1d47c6c9da66eddcc8ae34d1cbd6245f9d71dd",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "current_pin": null,
+      "destination_correct": true,
+      "identity_version_status": [
+        "CA-R-2781",
+        1,
+        "Draft"
+      ],
+      "native_id_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2781@1-draft-CORE_META_MODEL-DECLARATION--declare-cfel-containment-operator.md"
+      ]
+    },
+    {
+      "id": "CA-R-2475",
+      "actual_sha256": "6e509c1ce6a243ec608c23d850982e76d1c5098afce03d54a418d15a17281465",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "current_pin": true,
+      "destination_correct": true,
+      "identity_version_status": [
+        "CA-R-2475",
+        6,
+        "Draft"
+      ],
+      "native_id_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2475@6-draft-CORE_META_MODEL-DECLARATION--define-narrower-than.md"
+      ]
+    },
+    {
+      "id": "CA-R-2476",
+      "actual_sha256": "f8ddfc7f7583f80a266729bd7ecc685c3be8827384b34814586ef289cce324d0",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "current_pin": true,
+      "destination_correct": true,
+      "identity_version_status": [
+        "CA-R-2476",
+        7,
+        "Draft"
+      ],
+      "native_id_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2476@7-draft-CORE_META_MODEL-DECLARATION--define-instance-of.md"
+      ]
+    },
+    {
+      "id": "CA-R-2617",
+      "actual_sha256": "1027c7364a26e46c70f68b0c064b22d3289bd80b51b229f38333923b2296a248",
+      "actual_pin": true,
+      "actual_exact_plan": true,
+      "preview_pin": true,
+      "body_exact_preview": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "current_pin": true,
+      "destination_correct": true,
+      "identity_version_status": [
+        "CA-R-2617",
+        3,
+        "Draft"
+      ],
+      "native_id_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2617@3-draft-CORE_META_MODEL-DECLARATION--declare-contains.md"
+      ]
+    }
+  ],
+  "preflight_note": "Absolute target paths were rejected before any write; targets and stored destinations are now repository-relative.",
+  "admission_gates": [
+    "Retire old R2605 instance operator and replace R2610 narrowing operator only with coordinated typed-selector and consumer migration.",
+    "Current metadata/descriptor operands still use their existing spelling; rebase them with the accepted grammar before promotion.",
+    "Replace CONTAINS alias <+ with /; preserve IS_CONTAINED_BY alias +>; no new alias multiplicity.",
+    "Merge related R2471/R2487/R1321/R1931 Drafts and preserve literals and @version data.",
+    "Implementation, parser and runtime verification remain external gates."
+  ],
+  "boundary": "Actual Drafts only; no Current admission, parser or runtime claim."
+}

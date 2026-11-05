@@ -1,0 +1,59 @@
+{
+  "status": "READY_FOR_INDEPENDENT_REVIEW",
+  "candidate": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/containment/containment-operator.unallocated.preview.txt",
+  "candidate_sha256": "2d160e342e484ad0ee31f03343d44731ab0f4005bf1defe58c6619ca09863a41",
+  "pins": [
+    {
+      "id": "CA-R-2478",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2478-CORE_META_MODEL-DECLARATION--define-composition-and-its-inverse.md",
+      "sha256": "2bbe754228c33da33e6dd16599e25cf039757d43d886da01402db4e0acf0a6e8"
+    },
+    {
+      "id": "CA-R-2617",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+      "sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d"
+    },
+    {
+      "id": "CA-R-2610",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "9be50d0d5c63f3382dba515073f3a400961e0272957b764b24e4f27737b50190"
+    },
+    {
+      "id": "CA-R-2475",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2475-CORE_META_MODEL-DECLARATION--define-narrower-than.md",
+      "sha256": "131cef35b89473fb12fdc08e5cbc4d2a1718f67aea49fdeb410c24dd0920ce7c"
+    },
+    {
+      "id": "CA-R-2247",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2247-CORE_META_MODEL-ENTITY_DEFINITION--define-relation.md",
+      "sha256": "b2204c4e8d43421bc1fa95ebf93dfae03eaf6749cef10015f97d3563bdb8cc22"
+    },
+    {
+      "id": "CA-R-2243",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2243-CORE_META_MODEL-RULE--define-cardinality-notation.md",
+      "sha256": "8256113dee104a994c39039c40d2a62ef40d4737e3086f6ce0786e583f2074f4"
+    },
+    {
+      "id": "CA-R-1931",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "cd9f9fb990575b9aaada3f612f6a06f9b17b9ccd811117c3644a8a748024773b"
+    }
+  ],
+  "identity": "New Summary and Operator active Subject require a fresh unallocated ID; never reuse R2610’s ID with a changed Summary.",
+  "migration_gates": [
+    "Retire or replace R2610 and reconcile R2475’s existing slash alias atomically with the narrowing successor; Current / means narrowing and cannot simultaneously mean containment in the same context.",
+    "Replace <+ with / for CONTAINS as the sole authored alias; preserve +> for IS_CONTAINED_BY. Do not add or assume a new reverse glyph.",
+    "Reconcile cardinality slots, parsing and all affected metadata and source consumers before admission; integrate the accepted {::n} notation source batch.",
+    "The slash alias grants no endpoint permission; Atom instance containment uses Header.Container as the sole stored fact."
+  ],
+  "limits": "Preview only; no actual Draft, Current, code, test, Workflow, Workbench or Git mutation.",
+  "contains_relation_preview": {
+    "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2617-CORE_META_MODEL-DECLARATION--declare-contains.md",
+    "source_sha256": "129277b5d905006aed8279b20be9ed45ed8fcc1733b3097ca07321cdb03db16d",
+    "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/containment/CA-R-2617.preview.txt",
+    "preview_sha256": "ab77a87abf1a7999e1eeef96b04f9136a6f11012d026944937c14230aad56c4e",
+    "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/containment/CA-R-2617.diff",
+    "diff_sha256": "2298bc4f7872adc0e52464520e82ddee8b606664b0232d7736f1ae5228cd355b",
+    "scope": "Replace <+ with / as the single CONTAINS alias and add brief immediate-containment Semantics; preserve inverse binding, Summary and ID."
+  }
+}

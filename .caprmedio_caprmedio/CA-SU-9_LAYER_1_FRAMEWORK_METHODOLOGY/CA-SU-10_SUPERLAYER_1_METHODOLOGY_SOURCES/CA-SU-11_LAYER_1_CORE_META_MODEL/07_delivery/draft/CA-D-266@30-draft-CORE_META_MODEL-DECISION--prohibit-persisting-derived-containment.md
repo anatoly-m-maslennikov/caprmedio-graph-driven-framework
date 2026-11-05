@@ -5,7 +5,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 version: 30
-updated_at: 2026-11-05 03:53:43 +0400
+updated_at: 2026-11-05 06:15:15 +0400
 relations:
   IS_CONTAINED_BY:
     scope_unit: CA-SU-11
@@ -27,12 +27,8 @@ Prohibit Persisting Derived Containment
 
 ### Prose Claim
 
-
-`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting.
-
-
-`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
+The `IS_CONTAINED_BY` fact declared through an Atom’s `Header.Container` and the `CONTAINS` view derived from it must not be persisted as additional independent Relation declarations merely because Carrier placement is read back.
 
 ## Details
 
-This prohibition applies when canonical Carrier nesting already owns a non-Atom containment fact. An Atom stores its own container in `Header.Container`; its logical parent is not inferred from a directory. For non-Atom facts, this does not ban an independently authored direct `IS_CONTAINED_BY` whose authority is the child's admitted Relation declaration rather than nesting. Do not maintain two independent sources for the same fact. `CONTAINS` remains a derived inverse and is not independently authored.
+Carrier placement follows the declared Container. Its readback identifies the same containment fact; it does not establish another logical parent. An independently admitted direct `IS_CONTAINED_BY` fact remains governed by its own source. `CONTAINS` is the derived inverse and is not independently authored. Do not maintain two independent sources for the same fact.

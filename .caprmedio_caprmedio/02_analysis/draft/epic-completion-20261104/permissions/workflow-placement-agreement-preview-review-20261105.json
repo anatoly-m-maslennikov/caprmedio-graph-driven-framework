@@ -1,0 +1,146 @@
+{
+  "verdict": "HOLD: composition and Header.Container must express the same containment fact",
+  "packet_manifest": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/workflow-placement-agreement-20261105/manifest.json",
+  "packet_manifest_sha256": "c5c5958aaa3acfc554d3c6a500772112cfdbcf9bf04301f72a581edf330d654f",
+  "pins": [
+    {
+      "id": "CA-D-264@29",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-D-267@28",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-ENG_DECISION--derive-address-facts-without-duplicated-frontmatter.md",
+      "sha256": "a82fbb0c746b64b72f4c0518d5b0949683bba077a7bb4671c115207937ef54f9",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-D-460@25",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-460-CORE_META_MODEL-ENG_DECISION--serialize-plan-atom-carrier-bundles.md",
+      "sha256": "bf786fa1d18d11cb24288eff12fc6648a792b839ecc3d66b052a1c6567de9bed",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-R-2779@1-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-D-467@29-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "sha256": "d44b9a3c9ff3a86bcb1b442dbf41d55d27ba5f32ecc2a46ad1a0fd741971cb04",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-D-467@29-draft",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/workflow-placement-agreement-20261105/CA-D-467@29-container-agreement.preview.md",
+      "sha256": "9fe5c1edb4ad44e3fa1862b32b512511e5a7baa20e3065963900468ff414b18a",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-E-500@29-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "sha256": "ebc9ecc37dc1a885d4f36a872d97d9202b07f96a975898b643f9b1f90d64975c",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-E-500@29-draft",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/workflow-placement-agreement-20261105/CA-E-500@29-container-agreement.preview.md",
+      "sha256": "e87d43c6349dcf7b6148076c0d8bd8a2990c6bb2e0758194ad4d577190479e5b",
+      "matches_packet": true
+    },
+    {
+      "id": "CA-R-2464 Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "9538b2bee4280e19286d425ccc67c78910b9552e4d676042d836cc8d9ac1226a"
+    },
+    {
+      "id": "CA-R-2464 Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "b7d4b82ddd34fc0a9874934daa812bfe4504f73396107ab0df80a84695668ad1"
+    },
+    {
+      "id": "CA-R-2465 Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "1a5fd2b3245d0045125bf902c2fbdea7c8236f1275f878c020c5cfc797d3fecf"
+    },
+    {
+      "id": "CA-R-2465 Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "f1ad2cb139361d59d0447f8ae01ae47d392168d78f337f2563201b6509b2780e"
+    }
+  ],
+  "findings": [
+    {
+      "scope": "D467 and E500 preview Claims and manifest alignment_findings",
+      "issue": "The wording contrasts physical IS_CONTAINED_BY with Workflow graph Step composition, and accepts a separately placed referenced Step without distinguishing an ordinary reference from a formal containment edge. This can permit formal Workflow CONTAINS Step or Step IS_CONTAINED_BY Workflow/Step to disagree with Header.Container and placement. R2464 Current already requires CONTAINS; R2465 Current requires IS_CONTAINED_BY Workflow, and the recursive Draft extends the parent to Workflow or Step. D264 names direct IS_CONTAINED_BY and derived CONTAINS as the same connection.",
+      "minimal_fix": "State that a formal CONTAINS/IS_CONTAINED_BY edge is the same fact identified by Header.Container and read back from agreeing physical placement. An ordinary reference alone may point to an external Step and does not establish or change containment; it does not satisfy or contradict a formal containment edge. Preserve execution-order separation, grouping, and no second authored fact."
+    },
+    {
+      "scope": "D467 and E500 Container wording",
+      "issue": "Header.Container identifies the logical parent by the settled Scope Unit ID or Atom ID; describing its value as a physical folder risks treating a carrier directory as the model referent.",
+      "minimal_fix": "Refer to the declared Scope Unit or Atom and its corresponding resolved folder; do not choose the pending root/bootstrap encoding."
+    }
+  ],
+  "other_evidence": "D267 governs non-Atom carrier address encoding and does not change Atom containment; D460 same-stem directory groups one Atom rather than creating another. Current D264 retains older directory-derived wording; its alignment preview and Header.Container proposal remain unpromoted dependencies. No actual Workflow or Workbench instances reviewed or changed.",
+  "ready_for_actual_draft_rebase": false,
+  "pins_check": "All eight manifest path/hash pairs match. Current predecessor hashes require their own promotion-time check.",
+  "recheck": {
+    "verdict": "PASS_FOR_PREVIEW_REBASE; coordinated source adoption remains held",
+    "manifest_sha256": "55373ffdb3de7e3b54a67d9f440e8f72a33dbc63097ddcc3343098d4ea087f90",
+    "pins": [
+      {
+        "id": "CA-D-264@29",
+        "field": "path",
+        "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+        "matches": true
+      },
+      {
+        "id": "CA-D-267@28",
+        "field": "path",
+        "sha256": "a82fbb0c746b64b72f4c0518d5b0949683bba077a7bb4671c115207937ef54f9",
+        "matches": true
+      },
+      {
+        "id": "CA-D-460@25",
+        "field": "path",
+        "sha256": "bf786fa1d18d11cb24288eff12fc6648a792b839ecc3d66b052a1c6567de9bed",
+        "matches": true
+      },
+      {
+        "id": "CA-R-2779@1-draft",
+        "field": "path",
+        "sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+        "matches": true
+      },
+      {
+        "id": "CA-D-467@29-draft",
+        "field": "source_path",
+        "sha256": "d44b9a3c9ff3a86bcb1b442dbf41d55d27ba5f32ecc2a46ad1a0fd741971cb04",
+        "matches": true
+      },
+      {
+        "id": "CA-D-467@29-draft",
+        "field": "preview_path",
+        "sha256": "d93b46cfcdf7c740368a09596d95480b72a23eecd8b9d8ba8fe9f21d26cebc4e",
+        "matches": true
+      },
+      {
+        "id": "CA-E-500@29-draft",
+        "field": "source_path",
+        "sha256": "ebc9ecc37dc1a885d4f36a872d97d9202b07f96a975898b643f9b1f90d64975c",
+        "matches": true
+      },
+      {
+        "id": "CA-E-500@29-draft",
+        "field": "preview_path",
+        "sha256": "6676a9f5492489475c7cce7ae283cacec0208172a4e3e46dce6d7e64499dd325",
+        "matches": true
+      }
+    ],
+    "resolved": "Formal containment, Header.Container parent ID and resolved placement identify the same parent and D264 readback; ordinary external reference alone does not imply containment. Folder identified as resolved placement, not parent identity. Original findings retained above.",
+    "boundary": "Root Project/bootstrap encoding and coordinated Header/Delivery source adoption remain open; no actual Workflow or Workbench changed."
+  }
+}

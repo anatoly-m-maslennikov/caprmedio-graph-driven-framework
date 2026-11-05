@@ -1,0 +1,178 @@
+{
+  "verdict": "PASS_BOUNDED_ACTUAL_DRAFT_READBACK",
+  "plan_sha256": "2af380c1076c244a21b73bbf947c4d540d5751f5820db3fe5e6de3e7577058cc",
+  "receipt_pin": true,
+  "rows": [
+    {
+      "id": "CA-D-264",
+      "actual_sha256": "e73341362c579f4814bd96357f4e28bb090c84846471ac15c5479900ad323a75",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "source_preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "status_version": [
+        "Draft",
+        30
+      ],
+      "destination_relative_correct": true,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-264@30-draft-CORE_META_MODEL-DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md"
+      ],
+      "current_predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+          "sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e"
+        }
+      ],
+      "relations_expected": true
+    },
+    {
+      "id": "CA-D-266",
+      "actual_sha256": "867bf372bb0c3a3f862be62556b35823f3c53e55d9ce73e7903377f3ae449c66",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "source_preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "status_version": [
+        "Draft",
+        30
+      ],
+      "destination_relative_correct": true,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md"
+      ],
+      "current_predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-266-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+          "sha256": "4e72593f7c399b72dd910efdc1b492d8f777e563af836997f57a346086a39d60"
+        }
+      ],
+      "relations_expected": true
+    },
+    {
+      "id": "CA-D-268",
+      "actual_sha256": "3a2fc6db5e6783fd9676591ee64182c0abc8b238fd7e275bb0e32e1917c70b33",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "source_preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "relations": {
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "status_version": [
+        "Draft",
+        31
+      ],
+      "destination_relative_correct": true,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md"
+      ],
+      "current_predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+          "sha256": "c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52"
+        }
+      ],
+      "relations_expected": true
+    },
+    {
+      "id": "CA-D-467",
+      "actual_sha256": "5faacb6d87a9956fdbc795e5057e77e28cd4c9790e0cd7f44c9dccbf3d3fcb90",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "source_preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "relations": {
+        "delivery_for": [
+          "CA-R-1570",
+          "CA-R-2465"
+        ],
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "status_version": [
+        "Draft",
+        29
+      ],
+      "destination_relative_correct": true,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md"
+      ],
+      "current_predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+          "sha256": "ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66"
+        }
+      ],
+      "relations_expected": true
+    },
+    {
+      "id": "CA-E-500",
+      "actual_sha256": "a82503850c0322934742897c7fd695c54c32f7db5d9f49c0bf7705a6e1af4757",
+      "actual_pin": true,
+      "actual_equals_plan": true,
+      "source_preimage_pin": true,
+      "preview_pin": true,
+      "body_exact": true,
+      "summary_exact": true,
+      "metadata_expected": true,
+      "relations": {
+        "evaluation_for": [
+          "CA-R-1570",
+          "CA-R-2465",
+          "CA-M-305",
+          "CA-D-467"
+        ],
+        "IS_CONTAINED_BY": {
+          "scope_unit": "CA-SU-11"
+        }
+      },
+      "status_version": [
+        "Draft",
+        29
+      ],
+      "destination_relative_correct": true,
+      "native_version_matches": [
+        ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md"
+      ],
+      "current_predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+          "sha256": "ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf"
+        }
+      ],
+      "relations_expected": true
+    }
+  ],
+  "semantic_review": "D264/D266 retain same declared containment fact and no duplicate authored fact; D268 uses a single scope_unit or atom key and stable Scope Unit ID. Prior retirement/link-removal proposals are superseded.",
+  "gates": [
+    "No Current source adoption. Container mapping/root bootstrap and coordinated consumer adoption remain open.",
+    "No actual Workflow, Workbench, implementation, runtime or test changes."
+  ],
+  "boundary": "Draft readback only; bootstrap mapping and coordinated adoption remain held. No Current adoption, Workflows, Workbench, code, tests or Git change."
+}

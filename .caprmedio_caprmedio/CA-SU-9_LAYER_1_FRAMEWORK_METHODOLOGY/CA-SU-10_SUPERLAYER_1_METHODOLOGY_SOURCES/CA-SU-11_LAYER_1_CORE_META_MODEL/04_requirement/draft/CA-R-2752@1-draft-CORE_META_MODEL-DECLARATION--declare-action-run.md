@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-05 01:38:59 +0400
+updated_at: 2026-11-05 05:27:06 +0400
 carrier_destination:
   file:
     name: CA-R-2752@1-draft-CORE_META_MODEL-DECLARATION--declare-action-run.md
@@ -30,8 +30,14 @@ Declare Action Run
 Action Run ((NARROWER_THAN)) Execution;
 
 # instances
-Action Run//$run {::1}((IS_EXECUTION_OF)) Action//$definition
+Action Run//$run {::1}((IS_EXECUTION_OF)) Action//$definition;
+
+Action Run//$action_run {::0+}((IS_CONTAINED_BY)) Step Run//$step_run
 ```
+
+### Prose Claim
+
+An Action Run launched by a Step Run is contained by that Step Run.
 
 ## Semantics
 

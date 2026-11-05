@@ -1,0 +1,47 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "prepared_at": "2026-11-05 06:17:36 +0400",
+  "route": "authorized manual source-helper Draft creation",
+  "outputs": [
+    {
+      "atom_id": "CA-R-2783",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/new-container-atom.preview.txt",
+      "preview_sha256": "b3424f379e09307955c256b81c61e5bb2c129534155e3301baf4e605074cbcaf",
+      "summary": "Declare Atom.Header.Container.atom",
+      "sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d"
+    },
+    {
+      "atom_id": "CA-R-2784",
+      "version": 1,
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/typed-container-reference-20261105/new-container-scope_unit.preview.txt",
+      "preview_sha256": "16dfd3b1c502d84e4c20b730309be3b4a3badd9a825fe8254352b22c84a686d8",
+      "summary": "Declare Atom.Header.Container.scope_unit",
+      "sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2783\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container.atom\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 06:17:36 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2783@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Atom.Header.Container.atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container.atom :: [atom id]{::0..1};\n\nAtom.Header.Container.atom.*[]{::0}\n```\n",
+      "after_sha256": "713994176b14c32eb72c52623f2c6f3f0fb07581370f8eb92776dce35927cb7d"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2784\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container.scope_unit\nversion: 1\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 06:17:36 +0400\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ncarrier_destination:\n  file:\n    name: CA-R-2784@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Atom.Header.Container.scope_unit\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container.scope_unit :: [string]{::0..1};\n\nAtom.Header.Container.scope_unit.*[]{::0}\n```\n\n### Prose Claim\n\nThe value is the stable ID of the containing Scope Unit.\n",
+      "after_sha256": "f7335dd7cf2a7abcde3202e834c4d2c252226255dd1af5cae3da291ff8d35293"
+    }
+  ],
+  "holds": [
+    "Parent Container mapping/root bootstrap/adoption remain held. No Current replacements or data migration.",
+    "Old Header.Relations containment declarations retained pending coordinated cutover."
+  ]
+}

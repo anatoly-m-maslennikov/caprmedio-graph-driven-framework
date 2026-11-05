@@ -1,0 +1,17 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-264.preview.txt
+@@ -23,12 +23,8 @@
+ 
+ ### Prose Claim
+ 
+-
+-Artifact Revisions whose canonical Carriers are nested below Directory Carriers.
+-
+-
+-an Artifact Revision whose canonical Carrier is nested below a Directory Carrier **must** derive **`=1`** direct `IS_CONTAINED_BY` connection to the Structural Entity Revision carried by its nearest ancestor Directory Carrier **and** the reverse `CONTAINS` view from that connection.
++For an Atom whose `Header.Container` resolves to a Scope Unit or an Atom, derive the direct `IS_CONTAINED_BY` view from the nearest eligible Directory Carrier and its resolved container ID. The resolved ID must agree with the Atom’s declared `Header.Container`; its Carrier placement follows the corresponding Scope Unit or containing Atom folder. The derived view and its inverse `CONTAINS` represent the same declared containment fact, not a second authored fact.
+ 
+ ## Details
+ 
+-For this Carrier-derived view, canonical nesting supplies the fact; the view does not create a second authored relation declaration. IS_CONTAINED_BY is the child-to-parent direction, and CONTAINS is its derived inverse. Reading or refreshing the inverse view does not edit the containing entity's carrier; when that entity is an Atom, it does not create a new Version for it. Physical nesting does not silently replace the logical parent declared by Project Structure under CA-R-1660. Existing Revision/Structural Entity wording is retained for the separate content migration.
++Resolve `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`; the Scope Unit reference uses its stable ID. Apply the admitted reference and placement rules. If placement and the declared Container disagree, report the disagreement without replacing the declared logical parent from a directory. Reading or refreshing the inverse view does not edit the containing Object’s Carrier or create a new Atom Version. Project Structure remains authoritative for declared Scope Unit parentage under CA-R-1660.

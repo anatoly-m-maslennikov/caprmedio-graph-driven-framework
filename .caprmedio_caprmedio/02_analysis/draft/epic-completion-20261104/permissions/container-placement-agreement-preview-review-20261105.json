@@ -1,0 +1,54 @@
+{
+  "verdict": "PASS_BOUNDED_PREVIEW_REVIEW",
+  "manifest_sha256": "a965a95afcdc13fde2e80369136fb22ad997ff519fd0f9dd0039ccf87da5b041",
+  "rows": [
+    {
+      "id": "CA-D-264",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Carrier/Directory",
+      "disposition": "PASS_BOUNDED_PREVIEW",
+      "preview_sha256": "d6f154f247623e67c435479605b5f839630af5674520e5158e4a2bc0fa3427ba"
+    },
+    {
+      "id": "CA-D-266",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "disposition": "PASS_BOUNDED_PREVIEW",
+      "preview_sha256": "929d08fa096a3f916174b84de81825842116f617db652019651ad96291a9f297"
+    },
+    {
+      "id": "CA-D-268",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation",
+      "disposition": "PASS_BOUNDED_PREVIEW",
+      "preview_sha256": "95a3d7ed4c951648b3dfd18148f22bb865ed46664580a6e038f4caecb9ffddf9"
+    }
+  ],
+  "dependency_pins": {
+    "CA-R-2508@7-draft": true,
+    "CA-R-2779@1-draft": true
+  },
+  "preserved": [
+    "The three Claims tie placement readback to the same declared containment fact, prohibit duplicate independent relation declarations, preserve derived CONTAINS and guard against replacing declared logical parent.",
+    "Scope Unit uses one scope_unit ID key or atom key; no Carrier graph or Run Properties introduced.",
+    "Prior D264/D266 retirement and D346/D347 link-removal proposals are superseded."
+  ],
+  "integration_holds": [
+    "Existing R2508@7 and R2779@1 Drafts still express scalar Container and world bootstrap; coordinate a reviewed rebase to the settled exactly-one-key mapping and Scope Unit ID-only value before adoption. Project root/bootstrap encoding remains a separate pending decision.",
+    "The word Atom in the mapping means an admitted Atom reference; this packet does not establish a versioned-reference format or any Run Property. Formal Run parentage remains separately pending.",
+    "Preserve existing D346/D347 child_of links; prior retirement/link-removal candidates are superseded, not applied.",
+    "Preserve Header.Relations other entries; no second authored IS_CONTAINED_BY, no new graph entity or Carrier-to-Carrier relation.",
+    "Placement readback is not independently authoritative over Header.Container or Project Structure. No physical folder moves or runtime validation occur here."
+  ],
+  "boundary": "Whole-content previews only. Root/bootstrap encoding and mapping Draft rebases remain unresolved; no native Draft, Current, code, test or Git mutation.",
+  "resolved_finding": "D264 now explicitly derives the direct view from the nearest eligible Directory Carrier, matching its Summary, and requires agreement with Header.Container without replacing the declared logical parent. This is readback of the same fact, not a second authored relation."
+}

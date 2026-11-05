@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-05 01:38:59 +0400
+updated_at: 2026-11-05 05:27:06 +0400
 carrier_destination:
   file:
     name: CA-R-2751@1-draft-CORE_META_MODEL-DECLARATION--declare-step-run.md
@@ -29,8 +29,16 @@ Declare Step Run
 # model
 Step Run ((NARROWER_THAN)) Execution;
 
+Step Run >| (Container == yes);
+
 # instances
-Step Run//$run {::1}((IS_EXECUTION_OF)) Step//$definition
+Step Run//$run {::1}((IS_EXECUTION_OF)) Step//$definition;
+
+Step Run//$step_run {::1}((IS_CONTAINED_BY)) (in (Workflow Run, Step Run))//$container;
+
+Step Run//$step_parent {::0+}((CONTAINS)) Step Run//$nested_step;
+
+Step Run//$action_parent {::0+}((CONTAINS)) Action Run//$action_run
 ```
 
 ## Semantics

@@ -1,0 +1,63 @@
+{
+  "schema": "caprmedio.current_cfel_literal_census.v1",
+  "frontier_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/post-journal-passive-frontier-20261105.json",
+  "frontier_sha256": "e433ff1ab7f8f0b466c264b17a3ec857668ef6f075d64fcf8d797f619bd3f6ae",
+  "supplier_count": 1167,
+  "pin_match_count": 1167,
+  "cfel_block_count": 281,
+  "source_drift": [],
+  "extraction_errors": [],
+  "block_artifact_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/path-notation-definitions-20261105/migration-scope/current-cfel-raw-blocks-1167.json",
+  "block_artifact_sha256": "495e2ff7cf1389360a7f07fc36c2ccddf646e545b9bce3fbee7cd9c48e0b765c",
+  "extractor_pins": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/parsing.py",
+      "sha256": "f7322a719e4f2e418ad611bc321fb84b3ce4a3adf8a88a3c02aa04d465b5fadf",
+      "role": "Existing bounded carrier parser used only to split metadata/body."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/current_entity_sources.py",
+      "sha256": "b0192ea8d2fe831c8b8479f703dedb60b81536cb38c32f9178b95e953f49c566",
+      "role": "Existing exact raw-body boundary helper."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/cfel_claim_constraints.py",
+      "sha256": "888829d6fd322f6a6a1ab346325d280ee453b31b9c0f31725da930104b65e064",
+      "role": "Existing claim_cfel_blocks extractor; blocks were not parsed into clauses."
+    }
+  ],
+  "literal_ambiguity": {
+    "raw_counts_include": ["double-quoted strings", "hash-comment lines", "all code text"],
+    "quoted_double_strings_and_comment_lines_are_overlapping_subsets": true,
+    "slash_count_counts_each_slash_character_including_characters_that_form_double_slash": true,
+    "interpretation": "No lexical context or CFEL semantics inferred; literal counts must not be treated as operator counts."
+  },
+  "totals": {
+    "/": {
+      "raw": 1217,
+      "quoted_double_strings": 10,
+      "comment_lines": 0
+    },
+    "//": {
+      "raw": 543,
+      "quoted_double_strings": 3,
+      "comment_lines": 0
+    },
+    "+>": {
+      "raw": 1,
+      "quoted_double_strings": 1,
+      "comment_lines": 0
+    },
+    "<+": {
+      "raw": 11,
+      "quoted_double_strings": 1,
+      "comment_lines": 0
+    },
+    "Relation//": {
+      "raw": 96,
+      "quoted_double_strings": 1,
+      "comment_lines": 0
+    }
+  },
+  "interpretation": "Each raw token count includes occurrences in quoted strings and comments. The accompanying quoted/comment subtotals overlap the raw counts and each other. This is literal inventory only; it does not classify / as an operator, distinguish Relation// syntax from quoted text, or infer semantic parsing."
+}

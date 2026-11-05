@@ -1,0 +1,60 @@
+{
+  "status": "HOLD_INDEPENDENT_SCOPE_DECISION",
+  "sources": [
+    {
+      "id": "CA-R-2530",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2530-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "9abd4823d07e60b55d674823274fef480205f39e0eb5e193ac30d06c4f59a075"
+    },
+    {
+      "id": "CA-R-2530",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2530@3-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md",
+      "sha256": "8965c713c6b4bd3b7cb97c507f858bedc8f266154fa19aaa3e4159694b036183"
+    },
+    {
+      "id": "CA-R-970",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-RULE--make-scope-unit-names-unique-within-the-project.md",
+      "sha256": "843afb784ec3717ff053353de156924d4f71535296811af9817b1c32cadc3712"
+    },
+    {
+      "id": "CA-R-1661",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1661-CORE_META_MODEL-RULE--derive-structural-path.md",
+      "sha256": "6f216a0017372bccec74f6cfaf70a215d8e5e744e297022c51fe8a8127ea393c"
+    },
+    {
+      "id": "CA-R-1688",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1688-CORE_META_MODEL-RULE--scope-path-does-not-change-semantic-coordinates.md",
+      "sha256": "dd3d22db8b8eec698c6c1125e269e854cca5e99512ddd49423712a916cdabd03"
+    },
+    {
+      "id": "CA-R-1730",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL--separate-scope-ancestry-from-scope-labels.md",
+      "sha256": "e2c122b09aebfd035faed249a13428fc6af1c9bfc561d40f18769ac04146abbf"
+    },
+    {
+      "id": "CA-R-2689",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+      "sha256": "231b696a82ee2de48e57234e4bdcf981e2638bc44eb8a39e69ebece84dd8b6bd"
+    },
+    {
+      "id": "proposal_origin",
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-change/path-encoding-20261105/manifest.json",
+      "sha256": "62b62f5362408b998033cb85a5b2c08b6d17dc89b056d86a4e824834560c9f66"
+    },
+    {
+      "id": "CA-A-1319",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+      "sha256": "5a52942ffde786688017cf2b54eb8f6c9daf07b72e696ddf4a6e7e4ed4eb8ed2"
+    },
+    {
+      "id": "CA-A-1321",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+      "sha256": "233a17b401684273632f276e982634e98107367340e770582cb91c7183afbf61"
+    }
+  ],
+  "finding": "Current R2530@2 defines Path as one or more strings listing Scope Unit identities in the root-to-target chain. R2530@3 changes that to one slash-delimited string of exact Names with root /. The former Header.Container path reference motivated integration, but the original proposal manifest explicitly records a separate operator selection of the scalar Name-based Path; IDs-only Container addresses do not logically revoke that earlier Path decision.",
+  "consumers": "R1661 and R2689 require paths/depth derived from declared ancestry and not authored or authoritative; R1688 specifies ordered project-relative scope path and R1730 preserves ancestry independent of Labels. None of these exact claims requires the @3 one-string encoding. R970 requires unique Names, not slash encoding. A1319/A1321 Draft proposals and Epic planning currently name the scalar path decision and need coordinated update if it is withdrawn.",
+  "disposition": "Remove R2530@3 as a prerequisite of the Header.Container ID-only source batch. Preserve Current R2530@2; hold @3 rather than withdraw it automatically until the independently recorded scalar Path decision is confirmed or explicitly superseded. No new Path feature or native mutation.",
+  "question": "Does the earlier chosen scalar Name-based Scope Unit.Path remain desired independently of Header.Container, or should its Draft be withdrawn and the Current identity-chain representation retained?",
+  "limits": "No native sources, code, tests, Workflow, Workbench or Git mutation."
+}

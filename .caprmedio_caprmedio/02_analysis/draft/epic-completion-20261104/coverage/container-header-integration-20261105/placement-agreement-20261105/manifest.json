@@ -1,0 +1,65 @@
+{
+  "status": "WHOLE_PREVIEWS_REVIEW_AND_CONTAINER_MAPPING_DEPENDENCIES_HELD",
+  "supersession": "Latest Operator correction supersedes previous D264/D266 retirement and D346/D347 child_of link-removal previews in d264-retirement-closure-20261105. They have no effect and must not be applied. Keep D264/D266.",
+  "decision": "Header.Container is one mapping with exactly one key: scope_unit or atom. A scope_unit value uses the stable Scope Unit ID only. Carrier placement follows the corresponding Scope Unit or containing Atom folder; the direct IS_CONTAINED_BY view derived from the nearest eligible Directory Carrier resolves to the same declared container ID, not another authored fact.",
+  "rows": [
+    {
+      "id": "CA-D-264",
+      "source_version": 29,
+      "source_status": "Active",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-264-CORE_META_MODEL-ENG_DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "source_sha256": "e12a30e551afc95a332d40b1f467231d68edf974bd753d54d5d1e6d2e9336e1e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-264.preview.txt",
+      "preview_sha256": "d6f154f247623e67c435479605b5f839630af5674520e5158e4a2bc0fa3427ba",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-264.diff",
+      "diff_sha256": "ca359ba679c9e08cdd67c429babbecf41c844305718d58ec5daa65dcaede918c"
+    },
+    {
+      "id": "CA-D-266",
+      "source_version": 30,
+      "source_status": "Draft",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "source_sha256": "a2aa2a485d8fde5ab447e90a09390514c2b618de10b1e7d26037cf375e079303",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-266.preview.txt",
+      "preview_sha256": "929d08fa096a3f916174b84de81825842116f617db652019651ad96291a9f297",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-266.diff",
+      "diff_sha256": "0efe34d14e61d445879231eb74a68bf8df5bf9284d138ddbccc6294cffa6713b"
+    },
+    {
+      "id": "CA-D-268",
+      "source_version": 31,
+      "source_status": "Draft",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "source_sha256": "3ccdecbf7cfeef6d7a300fafccb97ce5619aba971756ba5af4fafe24fd69ee4e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-268.preview.txt",
+      "preview_sha256": "95a3d7ed4c951648b3dfd18148f22bb865ed46664580a6e038f4caecb9ffddf9",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-268.diff",
+      "diff_sha256": "c2c7c1f5286b4717647fac29d1a12ed7c3e80c115c76603013f26e4aa1617601"
+    }
+  ],
+  "dependencies": [
+    {
+      "id": "CA-R-2508@7-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3",
+      "status": "EXISTING_DRAFT_REQUIRES_MAPPING_RECONCILIATION"
+    },
+    {
+      "id": "CA-R-2779@1-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "status": "EXISTING_DRAFT_REQUIRES_MAPPING_RECONCILIATION"
+    }
+  ],
+  "integration_holds": [
+    "Existing R2508@7 and R2779@1 Drafts still express scalar Container and world bootstrap; coordinate a reviewed rebase to the settled exactly-one-key mapping and Scope Unit ID-only value before adoption. Project root/bootstrap encoding remains a separate pending decision.",
+    "The word Atom in the mapping means an admitted Atom reference; this packet does not establish a versioned-reference format or any Run Property. Formal Run parentage remains separately pending.",
+    "Preserve existing D346/D347 child_of links; prior retirement/link-removal candidates are superseded, not applied.",
+    "Preserve Header.Relations other entries; no second authored IS_CONTAINED_BY, no new graph entity or Carrier-to-Carrier relation.",
+    "Placement readback is not independently authoritative over Header.Container or Project Structure. No physical folder moves or runtime validation occur here."
+  ],
+  "limits": [
+    "Whole-content proposals preserve each source Summary, active Subject, identity, status, version and metadata exactly. D266@30/D268@31 are prospective rebases of existing Drafts, not new native writes."
+  ],
+  "scope_unit_value_boundary": "Use stable Scope Unit IDs only; paths and label decorations are not accepted as the scope_unit value."
+}

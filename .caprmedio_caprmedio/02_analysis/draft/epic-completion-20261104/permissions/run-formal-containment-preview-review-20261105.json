@@ -1,0 +1,42 @@
+{
+  "verdict": "PASS_BOUNDED_DRAFT_PREVIEW",
+  "manifest_sha256": "91aed0f4453f0e86bad1df60b51468c25b423fdac3efede80f6048c9e6dfb22f",
+  "rows": [
+    {
+      "id": "CA-R-2750",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Workflow Run",
+      "preview_sha256": "2113c70493cea7df3c378f63fe53a260f336c396c10387aadb661f0e2c261e1b"
+    },
+    {
+      "id": "CA-R-2751",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Step Run",
+      "preview_sha256": "9ab285f8ea33c1828caebac272528898a7e450d6c5f26c77517b95bf7ed747cc"
+    },
+    {
+      "id": "CA-R-2752",
+      "source_pin": true,
+      "preview_pin": true,
+      "diff_pin": true,
+      "metadata_unchanged": true,
+      "active_subject": "CAPRMEDIO_MODEL <+ Action Run",
+      "preview_sha256": "b4e7594b7a3de59dc8886e0848a278b0727a1a8c7fbda9947a4eaea00de1a4bc"
+    }
+  ],
+  "containment_authority_pin": true,
+  "semantic_checks": [
+    "Step Run has one outgoing IS_CONTAINED_BY link to the union of Workflow Run and Step Run; both allowable parent kinds have Container=yes.",
+    "Workflow Run explicitly permits outgoing CONTAINS Step Run; Step Run explicitly permits outgoing CONTAINS Step Run and Action Run. These are separate written permissions; no inverse count or direction is granted automatically.",
+    "Action Run outgoing 0+ permission does not mandate a link for all Action Runs. Prose requires containment by the launching Step Run for the stated subset without adding a universal maximum or root rule.",
+    "Existing IS_EXECUTION_OF bounds preserved; no Run Header, Property, ID or runtime behavior added.",
+    ":: notation and paired inverse/endpoint declarations require coordinated future admission; this is a Draft-preview review only."
+  ],
+  "boundary": "No actual Draft/Current, code, tests, Workflow, Workbench or Git mutation."
+}

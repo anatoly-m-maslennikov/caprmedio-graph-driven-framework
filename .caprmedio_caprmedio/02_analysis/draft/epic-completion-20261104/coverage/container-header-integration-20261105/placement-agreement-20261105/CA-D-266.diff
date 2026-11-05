@@ -1,0 +1,17 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/placement-agreement-20261105/CA-D-266.preview.txt
+@@ -27,12 +27,8 @@
+ 
+ ### Prose Claim
+ 
+-
+-`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting.
+-
+-
+-`CONTAINS` **and** `IS_CONTAINED_BY` relations derived from canonical Carrier nesting **must not** be persisted as independent relation declarations.
++The `IS_CONTAINED_BY` fact declared through an Atom’s `Header.Container` and the `CONTAINS` view derived from it must not be persisted as additional independent Relation declarations merely because Carrier placement is read back.
+ 
+ ## Details
+ 
+-This prohibition applies when canonical Carrier nesting already owns a non-Atom containment fact. An Atom stores its own container in `Header.Container`; its logical parent is not inferred from a directory. For non-Atom facts, this does not ban an independently authored direct `IS_CONTAINED_BY` whose authority is the child's admitted Relation declaration rather than nesting. Do not maintain two independent sources for the same fact. `CONTAINS` remains a derived inverse and is not independently authored.
++Carrier placement follows the declared Container. Its readback identifies the same containment fact; it does not establish another logical parent. An independently admitted direct `IS_CONTAINED_BY` fact remains governed by its own source. `CONTAINS` is the derived inverse and is not independently authored. Do not maintain two independent sources for the same fact.

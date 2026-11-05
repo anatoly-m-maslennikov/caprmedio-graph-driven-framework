@@ -1,0 +1,13 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL-DECISION--deliver-cce-canonical-signatures-as-external-report-projections.md
++++ .caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/d264-retirement-closure-20261105/CA-D-346.preview.txt
+@@ -11,9 +11,7 @@
+   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+ version: 36
+ updated_at: 2026-11-02 18:35:20 +0400
+-relations:
+-  child_of:
+-  - CA-D-266
++relations: {}
+ atom_id: CA-D-346
+ current_scope_unit: CORE_META_MODEL
+ claim_target_scope_unit: CORE_META_MODEL
