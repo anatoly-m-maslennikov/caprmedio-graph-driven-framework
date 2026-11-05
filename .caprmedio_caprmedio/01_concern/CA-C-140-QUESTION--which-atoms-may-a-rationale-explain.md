@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-140
+ref_id: CA-C-140
 topics:
   main_subject: 'Atom/Content Role: Analysis & Advisory/Type: Rationale'
   dependencies:
@@ -7,6 +8,7 @@ topics:
   - Subject/Domain/Node/Continuant/Atom/Content Role
   - Atom/Claim
   - Subject/Engineering/Carrier
+status: Active
 version: 4
 updated_at: 2026-11-02 15:49:28 +0400
 cce_version: cce_1

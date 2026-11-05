@@ -1,30 +1,37 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+atom_id: CA-R-1730
+ref_id: CA-R-1730
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit.Path
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children
   - CAPRMEDIO_MODEL <+ Scope Unit.Label
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Scope Unit
-version: 40
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 2
 relations:
   child_of:
   - CA-R-1776
-atom_id: CA-R-1730
+status: Active
+version: 40
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1730-CORE_META_MODEL-RULE--separate-scope-ancestry-from-scope-labels.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1730-CORE_META_MODEL--separate-scope-ancestry-from-scope-labels.md
   source_atom_id: CA-R-1730
   source_atom_revision: 40
-  source_sha256: e2c122b09aebfd035faed249a13428fc6af1c9bfc561d40f18769ac04146abbf
+  source_sha256: bbc01f40fd24381a7fa001e90de748c8c14acd02994b243a00fa4573c2ea8ff4
   original_relations_sha256: 1aee20d21b9ce38a56336862dc1f3d576ad4e3123506d524cd0d5ea4cd2829ab
 ---
 ## Summary

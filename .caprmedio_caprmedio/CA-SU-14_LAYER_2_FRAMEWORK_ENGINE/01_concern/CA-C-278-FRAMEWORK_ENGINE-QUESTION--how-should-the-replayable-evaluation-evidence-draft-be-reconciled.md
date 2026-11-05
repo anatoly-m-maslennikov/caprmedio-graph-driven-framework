@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-278
+ref_id: CA-C-278
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -16,6 +17,7 @@ relations:
   - CA-R-2448
   - CAPRMEDIO-META-REQU-097
   - CAPRMEDIO-META-REQU-158
+status: Active
 version: 7
 updated_at: 2026-10-30 03:11:57 +0400
 cce_version: cce_1

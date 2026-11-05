@@ -1,10 +1,12 @@
 ---
 atom_id: CA-C-110
+ref_id: CA-C-110
 topics:
   main_subject: FPF
   dependencies:
   - Skill
   - Extension
+status: Active
 version: 1
 updated_at: 2026-09-15 02:22:01 +0400
 cce_version: cce_1

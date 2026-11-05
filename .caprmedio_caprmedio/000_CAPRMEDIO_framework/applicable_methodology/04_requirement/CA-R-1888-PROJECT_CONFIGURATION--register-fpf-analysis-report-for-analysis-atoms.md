@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-1888
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Form
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
-version: 16
-updated_at: 2026-11-02 19:33:47 +0400
-relations: {}
-tier: 2
+ref_id: CA-R-1888
+container:
+  scope_unit: CA-SU-13
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Form
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+tier: 2
+status: Active
+version: 16
+updated_at: 2026-11-02 19:33:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-1888-PROJECT_CONFIGURATION-RULE--register-fpf-analysis-report-for-analysis-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md
   source_atom_id: CA-R-1888
   source_atom_revision: 16
-  source_sha256: b87c1bb2b70fef6f5f5d275312e465996a47193d779fae6e30d9dce254515ffa
+  source_sha256: ca7eae1429e04b39bc933ec5fb0d96dd5050b1a4a4522804117cef9ae289e95a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

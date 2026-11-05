@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL
 tier: 3
 status: Active
-version: 78
-updated_at: 2026-11-05 23:55:27 +0400
+version: 80
+updated_at: 2026-11-06 00:16:44 +0400
 carrier_destination:
   file:
     name: CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
@@ -149,6 +149,19 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 - D409 recovered its explicit archived ID. Its Status and Ref ID remain held. Exact filename references and related Markdown targets were repaired without changing frozen evidence.
 - The remaining 165 holds comprise 159 missing Status values and six unnumbered Version 2/3 Drafts. Eight of the Status holds also lack independently established IDs. Status defaults and unresolved identity choices await the Operator; no state was guessed.
 - Evidence: [repair packet](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json). No promotion or implementation gate is claimed. The Epic remains Active.
+
+## Folder-based Status repair — 2026-11-06
+
+- The Operator confirmed Done, Resolved, Canceled and other non-Active lifecycle states use separate folders. All 159 Status holds are directly in ordinary Role folders. Restored Status Active and added 151 Ref IDs from established base IDs, preserving body, Version and Updated At.
+- The original 206-record set now has 192 formula-valid Ref IDs and 14 identity holds: eight Current IDs lacking sufficient identity evidence and six unnumbered Drafts already at Version 2 or 3. No Status holds remain. Identity/version decisions remain open; no Draft was promoted.
+- Evidence: [folder Status receipt](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/folder-status-application-20261106/adoption-receipt.json), [updated readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json). The Epic remains Active; implementation gates remain external dependencies.
+
+## Identity and Status repair complete — 2026-11-06
+
+- All 206 original identity/Status holds now have formula-valid Ref IDs, with zero remaining missing Status values, missing IDs or unallocated Draft-lineage identities in this set.
+- The Operator approved fresh IDs for six existing Drafts while preserving their Versions: R2994@2, M498@2, M499@2, E792@2, E793@2 and A1327@3. Their known archived predecessors remain unchanged. Exact filename references and Markdown targets were repaired.
+- The Operator approved recovering the final eight Current IDs from filenames after collision checks: C268–C272, D019, D021 and D022. Their body, Version and Updated At were preserved; matching base Ref IDs were added.
+- Evidence: [completed repair packet](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json), [independent final check](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/verification/final-206-readback-20261106.json). This bounded repair does not imply full schema conformance or a completed Epic. The Epic remains Active; existing implementation gates remain external dependencies.
 
 ## Remaining work
 

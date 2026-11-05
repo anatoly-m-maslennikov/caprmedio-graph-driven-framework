@@ -1,34 +1,35 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  passive:
+atom_id: CA-D-471
+ref_id: CA-D-471
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
-version: 26
-updated_at: 2026-11-04 16:52:59 +0400
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
+tier: 3
 relations:
   delivery_for:
   - CA-R-2762
   - CA-R-1580
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-atom_id: CA-D-471
 status: Active
-tier: 3
-role: Delivery
-form: Decision
+version: 26
+updated_at: 2026-11-04 16:52:59 +0400
 carrier_destination:
   file:
-    name: CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md
+    name: CA-D-471-DECISION--serialize-explicit-plan-blocking.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-471-CORE_META_MODEL-DECISION--serialize-explicit-plan-blocking.md
   source_atom_id: CA-D-471
   source_atom_revision: 26
-  source_sha256: ae5f999a3547c1a8644ea9dfa434b8f7770e3772e15ac192b755de07d3a18993
-  original_relations_sha256: 41daac982c1d3dd325c63656734cf536b59364202254d3b64eb91373424b9e9c
+  source_sha256: f52ca0e1d28edacc30d0d3da4e34e0bbf78a4589f0078a2b1e7097048b2959d4
+  original_relations_sha256: 673cfbdec060744a589f1a458280405dd7fe1d1f030d8a94d3fedcf2988a439d
 ---
 ## Summary
 

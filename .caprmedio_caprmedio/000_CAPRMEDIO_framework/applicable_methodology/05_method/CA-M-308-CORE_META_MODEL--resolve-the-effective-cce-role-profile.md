@@ -1,28 +1,35 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+atom_id: CA-M-308
+ref_id: CA-M-308
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Header.Form
   - CAPRMEDIO_MODEL <+ Atom.Content
-version: 25
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 6
 relations:
   child_of:
   - CA-M-307
-atom_id: CA-M-308
+status: Active
+version: 25
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-308-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-the-effective-cce-role-profile.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md
   source_atom_id: CA-M-308
   source_atom_revision: 25
-  source_sha256: 79acdc3c7ae3eb7cc5267ad4454e5d8bcbbac7dd12b9b9c912411427a158f32b
+  source_sha256: e7900431fb13293576f2f68dc66113aae1ca2d49de4299f58cb1701030c6f702
   original_relations_sha256: 1037ec3e9bee824bbe0013d533c233bc31238f593358d3400af78e5150b7d7f4
 ---
 ## Summary

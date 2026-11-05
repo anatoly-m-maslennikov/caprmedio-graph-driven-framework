@@ -1,5 +1,6 @@
 ---
 atom_id: CA-A-065
+ref_id: CA-A-065
 topics:
   main_subject: Work Execution Architecture
   dependencies:
@@ -7,6 +8,7 @@ topics:
   - project-memory
   - work-routing
   - workflow-execution
+status: Active
 version: 1
 updated_at: 2026-08-27 01:18:06 +0400
 cce_version: cce_1

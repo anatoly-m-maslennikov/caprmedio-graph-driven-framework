@@ -1,27 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
-  passive:
+atom_id: CA-R-1788
+ref_id: CA-R-1788
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Carrier
-version: 20
-updated_at: 2026-11-03 23:25:51 +0400
-claim_target_scope_unit: CORE_META_MODEL
+tier: 3
 relations:
   child_of:
   - CA-R-1416
-atom_id: CA-R-1788
-current_scope_unit: CORE_META_MODEL
 status: Active
-tier: 3
-role: Requirement
-form: Rule
+version: 20
+updated_at: 2026-11-03 23:25:51 +0400
+carrier_destination:
+  file:
+    name: CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+claim_target_scope_unit: CORE_META_MODEL
+current_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md
   source_atom_id: CA-R-1788
   source_atom_revision: 20
-  source_sha256: fe1ea3b238d02e50c90dfe8d9454ba5c6dabc5e7017833928110f7feb224a2d1
+  source_sha256: 3687888a36a92a5975717ad9c27c27a13aebfae219e83ef76a632561bd3d7ab0
   original_relations_sha256: f928d2096b701aa0e7852bc6d06e4620a81315e585b6a1074e66973879d77cf5
 ---
 ## Summary

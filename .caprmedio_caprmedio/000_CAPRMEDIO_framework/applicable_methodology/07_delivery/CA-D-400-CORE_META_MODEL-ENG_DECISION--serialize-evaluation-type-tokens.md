@@ -1,23 +1,29 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
-  passive:
-  - CAPRMEDIO_MODEL <+ Carrier
-version: 25
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-D-400
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-D-400
+container:
+  scope_unit: CA-SU-11
 role: Delivery
 form: Decision
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Carrier
+tier: 3
+status: Active
+version: 25
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-D-400-CORE_META_MODEL-DECISION--serialize-evaluation-type-tokens.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-400-CORE_META_MODEL-ENG_DECISION--serialize-evaluation-type-tokens.md
   source_atom_id: CA-D-400
   source_atom_revision: 25
-  source_sha256: 8dccc08440171849ed368d98a6051a72f0bf677ea919a7f263de568ef65d91d4
+  source_sha256: c43bd270461efc3c82bb9ab6d165b88afff10fda981fc92dc9d8f914e85c4a36
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

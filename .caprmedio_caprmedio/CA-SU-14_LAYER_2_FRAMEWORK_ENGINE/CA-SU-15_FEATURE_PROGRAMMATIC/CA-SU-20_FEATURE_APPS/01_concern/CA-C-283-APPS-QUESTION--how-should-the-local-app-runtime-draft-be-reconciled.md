@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-283
+ref_id: CA-C-283
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -31,6 +32,7 @@ relations:
   - CA-R-2731
   - CA-R-819
   - CAPRMEDIO-META-REQU-158
+status: Active
 version: 8
 updated_at: 2026-11-03 23:17:14 +0400
 cce_version: cce_1

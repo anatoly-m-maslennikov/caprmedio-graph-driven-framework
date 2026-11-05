@@ -1,20 +1,26 @@
 ---
 atom_id: CA-D-654
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Node/Occurrent
-  passive:
+ref_id: CA-D-654
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Node/Occurrent
+  dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
-version: 3
-relations: {}
 tier: 1
+status: Active
+version: 3
 updated_at: 2026-11-02 00:18:22 +0400
-role: Delivery
-form: Policy
+carrier_destination:
+  file:
+    name: CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

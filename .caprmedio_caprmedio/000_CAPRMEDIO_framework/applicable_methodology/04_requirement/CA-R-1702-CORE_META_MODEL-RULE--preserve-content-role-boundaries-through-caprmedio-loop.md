@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
-  passive:
+atom_id: CA-R-1702
+ref_id: CA-R-1702
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Package/Implementation
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
@@ -10,23 +16,24 @@ subjects:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 49
-updated_at: 2026-11-02 15:49:28 +0400
+tier: 1
 relations:
   child_of:
   - CA-M-447
-atom_id: CA-R-1702
+status: Active
+version: 49
+updated_at: 2026-11-02 15:49:28 +0400
+carrier_destination:
+  file:
+    name: CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md
   source_atom_id: CA-R-1702
   source_atom_revision: 49
-  source_sha256: d3ddebf0f7f78567434a6950d6ff3933dee32e5af027be9323c6fb3e53a28088
+  source_sha256: 6fef59ce796bc34ce8767c5f7369934fe156277272e646dd211cbd431f2b5097
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

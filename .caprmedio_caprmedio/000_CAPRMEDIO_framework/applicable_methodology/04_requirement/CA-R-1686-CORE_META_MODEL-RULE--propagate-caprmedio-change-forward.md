@@ -1,23 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Relations
-version: 33
-updated_at: 2026-11-02 00:18:22 +0400
+atom_id: CA-R-1686
+ref_id: CA-R-1686
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Relations
+tier: 3
 relations:
   child_of:
   - CA-M-447
-atom_id: CA-R-1686
+status: Active
+version: 33
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-1686-CORE_META_MODEL-RULE--propagate-caprmedio-change-forward.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1686-CORE_META_MODEL-RULE--propagate-caprmedio-change-forward.md
   source_atom_id: CA-R-1686
   source_atom_revision: 33
-  source_sha256: cd16f5e6f2a8a786faab6c9fbbe0d1e17186cc7d32d4fd447297c044d73dd3d2
+  source_sha256: 9523e5d1916b1d20310669469ec6cd7be9743321fda7eeade785423f06ee7ffe
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

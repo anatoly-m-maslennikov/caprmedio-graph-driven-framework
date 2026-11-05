@@ -1,26 +1,26 @@
 ---
 atom_id: CA-R-2564
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold
-version: 4
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-tier: 3
-updated_at: 2026-11-04 20:33:16 +0400
+ref_id: CA-R-2564
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.AI Agent Confidence Threshold
+tier: 3
+status: Active
+version: 4
+updated_at: 2026-11-04 20:33:16 +0400
 carrier_destination:
   file:
-    name: CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md
+    name: CA-R-2564-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md
   source_atom_id: CA-R-2564
   source_atom_revision: 4
-  source_sha256: 6c1dc5f3c6f0d1f6aec7380c769824760da4de9497f46122fa45e660055e69b9
-  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
+  source_sha256: 2da4edd09b1f87b1275f8147ea4f48057a21f7d1c27aa3fb4b966c5d643223b3
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
@@ -32,8 +32,8 @@ Declare Project.Settings.AI Agent Confidence Threshold
 
 ```CFEL
 # model
-Project.Settings.AI Agent Confidence Threshold{:1}: [int, 0..100]{:1} ?== 90;
+Project.Settings.AI Agent Confidence Threshold{::1}:: [int, 0..100]{::1} ?== 90;
 
-Project.Settings.AI Agent Confidence Threshold.*[]{:0}
+Project.Settings.AI Agent Confidence Threshold.*[]{::0}
 ```
 

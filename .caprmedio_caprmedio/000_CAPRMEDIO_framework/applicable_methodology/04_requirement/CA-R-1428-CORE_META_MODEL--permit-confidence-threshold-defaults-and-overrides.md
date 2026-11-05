@@ -1,28 +1,35 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  passive:
+atom_id: CA-R-1428
+ref_id: CA-R-1428
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-version: 32
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 2
 relations:
   child_of:
   - CA-R-1427@17
-atom_id: CA-R-1428
+status: Active
+version: 32
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-1428-CORE_META_MODEL-RULE--permit-confidence-threshold-defaults-and-overrides.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1428-CORE_META_MODEL--permit-confidence-threshold-defaults-and-overrides.md
   source_atom_id: CA-R-1428
   source_atom_revision: 32
-  source_sha256: 4fd0a513d98f08920fbcfde8aacf54f9ecbc7f92fab2d2861d54471e0d566980
+  source_sha256: 1266af5162d21622547245177fd44f742467fec548b0e1ba93d6f9fe7b42a301
   original_relations_sha256: 78c49a17234bcda360b37449773c5ac549d056fc653111f6644e9b5c453d7e0b
 ---
 ## Summary

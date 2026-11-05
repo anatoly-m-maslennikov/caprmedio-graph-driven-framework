@@ -1,13 +1,18 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Journal
-  passive:
+atom_id: CA-E-464
+ref_id: CA-E-464
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Journal
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
   - CAPRMEDIO_MODEL <+ Scope Unit
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1466
@@ -15,18 +20,20 @@ relations:
   - CA-R-1463
   - CA-R-1467@19
   - CA-R-1468@20
-atom_id: CA-E-464
+status: Active
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-464-CORE_META_MODEL-EVAL_POLICY--validate-journal-independence-from-git.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-464-CORE_META_MODEL-POLICY--validate-journal-independence-from-git.md
   source_atom_id: CA-E-464
   source_atom_revision: 24
-  source_sha256: 3ec93c268712b295db59ea022e06b132b3a8c0baa877b005ac59d66fe2c54d0a
+  source_sha256: 63326fa8de59e142005d832dbb1d065677402b75bf6833f7ddb88feb724a5783
   original_relations_sha256: 9df3c2ead8f13c90ef6760757de1f2b5279c95b90ff24ea559bbfb7ab2082444
 ---
 ## Summary

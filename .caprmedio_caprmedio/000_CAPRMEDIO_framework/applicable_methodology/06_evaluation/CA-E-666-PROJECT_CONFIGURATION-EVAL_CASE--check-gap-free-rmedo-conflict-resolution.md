@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//RMEDO Conflict Resolution'
-  passive:
+atom_id: CA-E-666
+ref_id: CA-E-666
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//RMEDO Conflict Resolution'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
@@ -12,26 +18,27 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Event Record
-version: 4
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-O-028
   - CA-O-005
   - CA-O-006
   - CA-O-008
-atom_id: CA-E-666
+status: Active
+version: 4
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
   source_atom_id: CA-E-666
   source_atom_revision: 4
-  source_sha256: c81f97dd587998507e9d099c21b083e42d2d8614b20ab2350e61127f69e9fd44
+  source_sha256: 8887afad1cdd74bfca5e95d6c49e8d2388db44a43ee631e3c1e0393a93ed8de1
   original_relations_sha256: 0cecd19a21d5691fcd7dd41da7255a71b2ca140c377c5f048aacd3758388e8eb
 ---
 ## Summary

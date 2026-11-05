@@ -1,25 +1,31 @@
 ---
 atom_id: CA-D-654
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Node/Occurrent
-  passive:
+ref_id: CA-D-654
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Node/Occurrent
+  dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
-version: 3
-relations: {}
 tier: 1
+status: Active
+version: 3
 updated_at: 2026-11-02 00:18:22 +0400
-role: Delivery
-form: Policy
+carrier_destination:
+  file:
+    name: CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-654-CORE_META_MODEL-POLICY--represent-occurrent-information-through-continuant-records.md
   source_atom_id: CA-D-654
   source_atom_revision: 3
-  source_sha256: 38f80d0fb6780332a63477153a4fe90cf43dd9dadccd3fb1d7904a85abe8f1ca
+  source_sha256: 4bfa530f9426cac69d7e4ffa7c88a92e88c2d309356289e5cec2fbd38271747f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

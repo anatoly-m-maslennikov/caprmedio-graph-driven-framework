@@ -1,24 +1,24 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+atom_id: CA-E-671
+ref_id: CA-E-671
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Scope Unit/Project
   - CAPRMEDIO_MODEL <+ Carrier
+tier: 6
+status: Active
 version: 1
 updated_at: 2026-11-02 19:17:40 +0400
-relations: {}
-atom_id: CA-E-671
-status: Active
-tier: 6
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-671-CORE_META_MODEL-EVAL_CASE--validate-settings-boundaries-and-scope-unit-declarations.md
   source_atom_id: CA-E-671
   source_atom_revision: 1
-  source_sha256: d8276e59cf186a398f194cc424f484d49c038e135261c7af444b8acb7a6289fe
+  source_sha256: a214f7a22d70f907a506c18ce2bda4ea1df406772e9ddb5f519b8591e0219130
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

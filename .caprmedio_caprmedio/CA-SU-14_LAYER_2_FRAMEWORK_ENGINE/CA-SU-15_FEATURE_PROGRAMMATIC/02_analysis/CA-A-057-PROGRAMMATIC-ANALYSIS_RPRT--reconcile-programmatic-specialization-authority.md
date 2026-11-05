@@ -1,20 +1,22 @@
 ---
 atom_id: CA-A-057
+ref_id: CA-A-057
 topics:
   main_subject:
     occurrent:
-      - Programmatic Specialization Authority Reconciliation
+    - Programmatic Specialization Authority Reconciliation
   dependencies:
     continuant:
-      - Programmatic Policy
-      - Method Authority
-      - Evaluation Coverage
-      - Scope Ownership
+    - Programmatic Policy
+    - Method Authority
+    - Evaluation Coverage
+    - Scope Ownership
 relations:
   derived_from:
-    - CA-A-053
-    - CA-A-055
-    - CA-A-056
+  - CA-A-053
+  - CA-A-055
+  - CA-A-056
+status: Active
 version: 2
 updated_at: 2026-08-30 17:21:33 +0400
 ---

@@ -1,0 +1,8 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "plan_sha256": "0f3f4835ef827d00c776bb75d8c75844497f0bbf8d869ea7ed3af644a77968d1",
+  "output_count": 6,
+  "operation_count": 6
+}

@@ -1,17 +1,19 @@
 ---
 atom_id: CA-A-062
+ref_id: CA-A-062
 topics:
   main_subject:
     occurrent:
-      - Conversation Audit
+    - Conversation Audit
   dependencies:
     continuant:
-      - Decision Closure
-      - Project Backlog
-      - Realized Project State
+    - Decision Closure
+    - Project Backlog
+    - Realized Project State
 relations:
   analysis_of:
-    - CA-C-107
+  - CA-C-107
+status: Active
 version: 7
 updated_at: 2026-10-23 03:17:34 +0400
 ---

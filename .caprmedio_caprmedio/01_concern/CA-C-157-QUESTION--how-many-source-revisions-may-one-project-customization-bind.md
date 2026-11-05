@@ -1,19 +1,21 @@
 ---
 atom_id: CA-C-157
+ref_id: CA-C-157
 topics:
-  main_subject: "Applicable Methodology/Sources/Project Configuration/Project Customization"
+  main_subject: Applicable Methodology/Sources/Project Configuration/Project Customization
   dependencies:
-    - "Core Meta-Model"
-    - "Extension"
-    - "Artifact/Revision"
-    - "Methodology Source/Expansion Boundary"
+  - Core Meta-Model
+  - Extension
+  - Artifact/Revision
+  - Methodology Source/Expansion Boundary
+status: Active
 version: 2
 updated_at: 2026-10-23 03:17:34 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # How many source Revisions may one Project Customization bind?
 

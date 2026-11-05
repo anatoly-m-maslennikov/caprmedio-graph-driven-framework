@@ -1,25 +1,25 @@
 ---
 atom_id: CA-D-667
+ref_id: CA-D-667
 role: Delivery
 form: Policy
-status: Active
-version: 2
-updated_at: 2026-11-03 23:25:51 +0400
-tier: 1
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/Directory
-  passive:
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/Directory
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit.ID
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
   - CAPRMEDIO_MODEL <+ Scope Unit.Label
   - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
   - CAPRMEDIO_MODEL <+ Scope Unit.order.number
-relations: {}
+tier: 1
+status: Active
+version: 2
+updated_at: 2026-11-03 23:25:51 +0400
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md
   source_atom_id: CA-D-667
   source_atom_revision: 2
-  source_sha256: eb19c71a039a3c3086a9e8ab35f4266eef431579f73065d5f7c088fb007b4ec6
+  source_sha256: 2ccd184e8c3e0e0e1b3ee2168ca08a3f3d1df439487d37a3b006a8eade3eaaaa
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

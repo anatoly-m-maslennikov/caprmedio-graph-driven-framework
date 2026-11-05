@@ -1,30 +1,37 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Journal
-  passive:
+atom_id: CA-R-1491
+ref_id: CA-R-1491
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Journal
+  dependencies:
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-version: 29
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 1
 relations:
   child_of:
   - CA-R-2448
-atom_id: CA-R-1491
+status: Active
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1491-CORE_META_MODEL-RULE--keep-project-validation-out-of-journal-admission.md
   source_atom_id: CA-R-1491
   source_atom_revision: 29
-  source_sha256: c5085cf95922e012bc55a57fcaaeb4a0a536ded9ea21296e59090a07a16547d8
+  source_sha256: 4024d59e07b1de8ccc000bd255b4de9ee5234bb00b92f86c4e4ab06faf824ef8
   original_relations_sha256: 1c8dbdb6ec99acae043d53724c2c907d16b11cbb375710999addae41b4be44c8
 ---
 ## Summary

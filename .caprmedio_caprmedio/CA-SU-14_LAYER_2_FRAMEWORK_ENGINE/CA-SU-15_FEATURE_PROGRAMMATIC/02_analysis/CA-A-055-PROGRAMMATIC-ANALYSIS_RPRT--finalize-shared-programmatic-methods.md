@@ -1,19 +1,21 @@
 ---
 atom_id: CA-A-055
+ref_id: CA-A-055
 topics:
   main_subject:
     occurrent:
-      - Shared Programmatic Method Finalization
+    - Shared Programmatic Method Finalization
   dependencies:
     continuant:
-      - Programmatic Policy
-      - Method Authority
+    - Programmatic Policy
+    - Method Authority
     occurrent:
-      - Validation
+    - Validation
 relations:
   derived_from:
-    - CA-A-052
-    - CA-A-053
+  - CA-A-052
+  - CA-A-053
+status: Active
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
 ---

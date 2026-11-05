@@ -1,31 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Term
-  passive:
+atom_id: CA-R-1319
+ref_id: CA-R-1319
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Term
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Term//Empty
   - CAPRMEDIO_MODEL <+ Term//ID
+tier: 1
+status: Active
 version: 31
 updated_at: 2026-11-04 18:28:33 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-atom_id: CA-R-1319
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 carrier_destination:
   file:
-    name: CA-R-1319-CORE_META_MODEL--define-governed-term.md
+    name: CA-R-1319-RULE--define-governed-term.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1319-CORE_META_MODEL--define-governed-term.md
   source_atom_id: CA-R-1319
   source_atom_revision: 31
-  source_sha256: f8a7f93b97040bde26c2202cd48166a35d840508b6810544f4ffe1f2f58211f4
-  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
+  source_sha256: f4903ef9d913b8de9c05b164f7c094d7fa70f9324680f794d2b080c3d4c3ae64
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 

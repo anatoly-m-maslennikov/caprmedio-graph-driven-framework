@@ -1,0 +1,151 @@
+{
+  "verdict": "HOLD",
+  "rows": [
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+      "recorded_sha256": "e6cfcaad82769d7e006ca86dc8a45fecbd12673ed83e09d01f62e66f533fc665",
+      "actual_sha256": "e6cfcaad82769d7e006ca86dc8a45fecbd12673ed83e09d01f62e66f533fc665",
+      "matches": true,
+      "status": "Draft",
+      "version": 2,
+      "expected_version": 2,
+      "body_sha256": "05811081889866789028061a3bfe416e8e3628f7a7412c6ccfb2633dab5da81a",
+      "predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/archive/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners@1.md",
+          "recorded_sha256": "d2b74791c20746653372a5474430bd22f2cf75db0431ae906251ad3ccebe9009",
+          "actual_sha256": "d2b74791c20746653372a5474430bd22f2cf75db0431ae906251ad3ccebe9009",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+      "recorded_sha256": "42a9881346a83b7b1b257505bc3b68d1c2f5ab8c614ce8c8220f6995de8392e1",
+      "actual_sha256": "42a9881346a83b7b1b257505bc3b68d1c2f5ab8c614ce8c8220f6995de8392e1",
+      "matches": true,
+      "status": "Draft",
+      "version": 2,
+      "expected_version": 2,
+      "body_sha256": "80451e294ab516cc323ea9f30066e4c967eda4d92db16fed3ab589f05bda5758",
+      "predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets@1.md",
+          "recorded_sha256": "35cdd8bbba1b49a7b67f56f946f3631c408ba78cbca0ed732e7d5a07f88285c4",
+          "actual_sha256": "35cdd8bbba1b49a7b67f56f946f3631c408ba78cbca0ed732e7d5a07f88285c4",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+      "recorded_sha256": "3614333d7dd42a3ae8be5db91b73311d4da1c1fbf53fe3337eea5e71468d383f",
+      "actual_sha256": "3614333d7dd42a3ae8be5db91b73311d4da1c1fbf53fe3337eea5e71468d383f",
+      "matches": true,
+      "status": "Draft",
+      "version": 2,
+      "expected_version": 2,
+      "body_sha256": "b38c4adfd899fb8da234525112fe54d458216fff67c4d4e7f3d8e2fdfcfa3a7f",
+      "predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start@1.md",
+          "recorded_sha256": "61dc044091121e0d82326e757651161ce5bc0e64e13daa5f60ec479ea7ee6809",
+          "actual_sha256": "61dc044091121e0d82326e757651161ce5bc0e64e13daa5f60ec479ea7ee6809",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+      "recorded_sha256": "1d744baed7fc763f421dbd77840c604e2769994de68ea7cce5178c1204163c72",
+      "actual_sha256": "1d744baed7fc763f421dbd77840c604e2769994de68ea7cce5178c1204163c72",
+      "matches": true,
+      "status": "Draft",
+      "version": 2,
+      "expected_version": 2,
+      "body_sha256": "921022ff655c6af3cef786aeb6038419dcc91b18146455d5edb49b414f1a8832",
+      "predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization@1.md",
+          "recorded_sha256": "dee26b6e7dab1745aa0ac5d4620c56ef0c4813bb26d8d47543a4ca13f5a51f9c",
+          "actual_sha256": "dee26b6e7dab1745aa0ac5d4620c56ef0c4813bb26d8d47543a4ca13f5a51f9c",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+      "recorded_sha256": "ee484e9d59aed9eeaf2710ac54a513be25e7aeb08c100abfcadbfab633443f2f",
+      "actual_sha256": "c3594c7839f30be8a4f2c3e13560c24a6f1e543d7200c94af06ddbf2976f59dd",
+      "matches": false,
+      "status": "Draft",
+      "version": 2,
+      "expected_version": 2,
+      "body_sha256": "8f677c1f239e23aae5313873690f2854d493cad69d2b2b812c3000a0a740277c",
+      "predecessors": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces@1.md",
+          "recorded_sha256": "fa4e980f3f8825c39a270816debe8ceb93f0e00abc6b7437cf784ecb49f14b65",
+          "actual_sha256": "fa4e980f3f8825c39a270816debe8ceb93f0e00abc6b7437cf784ecb49f14b65",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+      "recorded_sha256": "dcc7df8d39d34f0f248ac62416ff947f882f73dacbf54b446a17e573d41ff0a3",
+      "actual_sha256": "dcc7df8d39d34f0f248ac62416ff947f882f73dacbf54b446a17e573d41ff0a3",
+      "matches": true,
+      "status": "Draft",
+      "version": 3,
+      "expected_version": 3,
+      "body_sha256": "be0dfc07e4f0acce9338703b676f4cd6c206872a016dbecdfdb2772ef01328a5",
+      "predecessors": []
+    }
+  ],
+  "limits": "Preflight only; does not claim application or link rewrite.",
+  "fresh_skeleton_recheck": {
+    "skeleton": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/identity/versioned-draft-rename-skeleton.json",
+    "skeleton_sha256": "d3a388e84a92ddbccc6cb62952de168b1f60c4d2e52040ae1180c3dabb77da77",
+    "rows": [
+      {
+        "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+        "expected_sha256": "e6cfcaad82769d7e006ca86dc8a45fecbd12673ed83e09d01f62e66f533fc665",
+        "actual_sha256": "e6cfcaad82769d7e006ca86dc8a45fecbd12673ed83e09d01f62e66f533fc665",
+        "matches": true
+      },
+      {
+        "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+        "expected_sha256": "42a9881346a83b7b1b257505bc3b68d1c2f5ab8c614ce8c8220f6995de8392e1",
+        "actual_sha256": "42a9881346a83b7b1b257505bc3b68d1c2f5ab8c614ce8c8220f6995de8392e1",
+        "matches": true
+      },
+      {
+        "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+        "expected_sha256": "3614333d7dd42a3ae8be5db91b73311d4da1c1fbf53fe3337eea5e71468d383f",
+        "actual_sha256": "3614333d7dd42a3ae8be5db91b73311d4da1c1fbf53fe3337eea5e71468d383f",
+        "matches": true
+      },
+      {
+        "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+        "expected_sha256": "1d744baed7fc763f421dbd77840c604e2769994de68ea7cce5178c1204163c72",
+        "actual_sha256": "1d744baed7fc763f421dbd77840c604e2769994de68ea7cce5178c1204163c72",
+        "matches": true
+      },
+      {
+        "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+        "expected_sha256": "c3594c7839f30be8a4f2c3e13560c24a6f1e543d7200c94af06ddbf2976f59dd",
+        "actual_sha256": "c3594c7839f30be8a4f2c3e13560c24a6f1e543d7200c94af06ddbf2976f59dd",
+        "matches": true
+      },
+      {
+        "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+        "expected_sha256": "dcc7df8d39d34f0f248ac62416ff947f882f73dacbf54b446a17e573d41ff0a3",
+        "actual_sha256": "dcc7df8d39d34f0f248ac62416ff947f882f73dacbf54b446a17e573d41ff0a3",
+        "matches": true
+      }
+    ],
+    "all_match": true,
+    "explanation": "One historical-review pin was superseded by the receipted exact filename-link repair before the fresh skeleton; source content must not be reverted."
+  }
+}

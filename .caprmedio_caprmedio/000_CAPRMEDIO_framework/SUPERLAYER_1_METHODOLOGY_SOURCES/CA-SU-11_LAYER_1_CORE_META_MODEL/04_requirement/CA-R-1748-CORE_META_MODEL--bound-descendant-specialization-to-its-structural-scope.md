@@ -1,25 +1,32 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+atom_id: CA-R-1748
+ref_id: CA-R-1748
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-version: 37
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 1
 relations:
   child_of:
   - CA-R-033
-atom_id: CA-R-1748
+status: Active
+version: 37
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-1748-CORE_META_MODEL-RULE--bound-descendant-specialization-to-its-structural-scope.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 ---
 ## Summary
 

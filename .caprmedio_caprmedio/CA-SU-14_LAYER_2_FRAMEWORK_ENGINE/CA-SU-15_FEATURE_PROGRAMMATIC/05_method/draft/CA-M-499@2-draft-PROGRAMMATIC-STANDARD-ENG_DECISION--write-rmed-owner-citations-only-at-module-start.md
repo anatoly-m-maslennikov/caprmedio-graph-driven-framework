@@ -1,5 +1,6 @@
 ---
-atom_id: CA-M-draft
+atom_id: CA-M-499
+ref_id: CA-M-499@2-draft
 container:
   scope_unit: CA-SU-15
 role: Method
@@ -7,19 +8,19 @@ form: Eng Decision
 topics:
   main_subject: Subject/Engineering/Source Unit Responsibility
   dependencies:
-    - Subject/Engineering/Implementation Cohesion
-    - Subject/Engineering/Behavior Ownership
-    - Subject/Engineering/Outcome Evidence
+  - Subject/Engineering/Implementation Cohesion
+  - Subject/Engineering/Behavior Ownership
+  - Subject/Engineering/Outcome Evidence
 tier: 3
 relations:
   relates_to:
-    - CA-R-2117
-    - CA-M-431
-    - CA-E-653
-    - CA-M-411
+  - CA-R-2117
+  - CA-M-431
+  - CA-E-653
+  - CA-M-411
 status: Draft
 version: 2
-updated_at: "2026-10-23 19:11:00 +0400"
+updated_at: 2026-10-23 19:11:00 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
@@ -113,6 +114,6 @@ promoted. This Draft specifies how to achieve the companion Requirement's
 traceability outcome; it does not silently supersede current Atoms and is not
 an implementation or release gate.
 
-Companion Requirement Draft: [trace RMED claims to canonical implementation owners](../../04_requirement/draft/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md).
+Companion Requirement Draft: [trace RMED claims to canonical implementation owners](../../04_requirement/draft/CA-R-2994@2-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md).
 
-Companion Evaluation Draft: [owner-only module citations and derived call-site traces](../../06_evaluation/draft/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md).
+Companion Evaluation Draft: [owner-only module citations and derived call-site traces](../../06_evaluation/draft/CA-E-793@2-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md).

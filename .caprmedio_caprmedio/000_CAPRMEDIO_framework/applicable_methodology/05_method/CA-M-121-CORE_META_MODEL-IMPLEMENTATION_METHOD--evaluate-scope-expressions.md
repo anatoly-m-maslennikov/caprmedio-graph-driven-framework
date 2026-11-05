@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-version: 28
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-M-121
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-M-121
+container:
+  scope_unit: CA-SU-11
 role: Method
 form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+tier: 3
+status: Active
+version: 28
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-M-121-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-scope-expressions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-121-CORE_META_MODEL-IMPLEMENTATION_METHOD--evaluate-scope-expressions.md
   source_atom_id: CA-M-121
   source_atom_revision: 28
-  source_sha256: 2c13eb7e7bd0698321c9f1213d826af4041682f5e0bb475a76200a6daa90109a
+  source_sha256: aba493621d486d9112367716643e0c6c788c60e48f7592612b785faf9303bafe
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

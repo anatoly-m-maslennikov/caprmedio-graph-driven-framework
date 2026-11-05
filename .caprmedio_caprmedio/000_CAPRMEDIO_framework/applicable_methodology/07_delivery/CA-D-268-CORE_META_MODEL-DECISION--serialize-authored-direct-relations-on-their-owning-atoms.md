@@ -1,23 +1,29 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  passive:
-  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 30
-updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
 atom_id: CA-D-268
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-D-268
+container:
+  scope_unit: CA-SU-11
 role: Delivery
 form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  dependencies:
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+tier: 3
+status: Active
+version: 30
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-268-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md
   source_atom_id: CA-D-268
   source_atom_revision: 30
-  source_sha256: c301ef453ae1fa2a82f6deb2e12332bc7b340fd289d56ceeeb935e9e6f7bfb52
+  source_sha256: 259b36bbdbf22fd553f2a6d747c434780dae8cc37e7d2f921f7794fca00cd7c0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

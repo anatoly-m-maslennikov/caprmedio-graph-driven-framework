@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-138
+ref_id: CA-C-138
 topics:
   main_subject: 'Atom/Content Role: Analysis & Advisory/Type: External Analysis Report'
   dependencies:
@@ -8,6 +9,7 @@ topics:
   - Subject/Engineering/Carrier
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Process
+status: Active
 version: 5
 updated_at: 2026-11-02 15:49:28 +0400
 cce_version: cce_1

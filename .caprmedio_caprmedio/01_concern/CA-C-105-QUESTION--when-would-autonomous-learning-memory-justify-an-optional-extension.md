@@ -1,9 +1,11 @@
 ---
 atom_id: CA-C-105
+ref_id: CA-C-105
 topics:
   main_subject:
     continuant:
-      - autonomous-learning-memory
+    - autonomous-learning-memory
+status: Active
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
 cce_version: cce_1

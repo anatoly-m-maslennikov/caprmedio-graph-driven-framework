@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+atom_id: CA-M-303
+ref_id: CA-M-303
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
@@ -9,21 +15,21 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Atom Update Identity'
+tier: 3
+status: Active
 version: 26
 updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
-atom_id: CA-M-303
+carrier_destination:
+  file:
+    name: CA-M-303-CORE_META_MODEL-IMPLEMENTATION_METHOD--declare-update-routing-in-the-calling-workflow.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-303-CORE_META_MODEL-IMPLEMENTATION_METHOD--declare-update-routing-in-the-calling-workflow.md
   source_atom_id: CA-M-303
   source_atom_revision: 26
-  source_sha256: 55c711d37eedd6d1345d21a99bb6eb489322be5e243ce12a1c2bb938422e7308
+  source_sha256: 0a40372f43b6ae62265ab81b89dd2f1c58af911421cb1d1a553f61a17d904cd1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

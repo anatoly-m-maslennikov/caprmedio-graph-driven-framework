@@ -1,14 +1,14 @@
 ---
 atom_id: CA-O-178
-content_role: Operations
-type: Step
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-subjects:
-  governs: 'Subject/caprmedio/Step//Release Version/Step: install product and refresh
+ref_id: CA-O-178
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Step
+topics:
+  main_subject: 'Subject/caprmedio/Step//Release Version/Step: install product and refresh
     Project MCP'
-  depends_on:
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -19,19 +19,26 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
-version: 16
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 3
 relations:
   part_of:
   - CA-O-164
   invokes:
   - CA-O-169
-tier: 3
+status: Active
+version: 16
+updated_at: 2026-11-02 19:46:47 +0400
+carrier_destination:
+  file:
+    name: CA-O-178-PROJECT_CONFIGURATION-STEP--install-the-runtime-and-project-local-ca-skill.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-178-PROJECT_CONFIGURATION-STEP--install-the-runtime-and-project-local-ca-skill.md
   source_atom_id: CA-O-178
   source_atom_revision: 16
-  source_sha256: 7ca54995ae680625005e81990274a29af3a954c8f11993544dbc369de1dd40b6
+  source_sha256: 06acf1e5033e503b5b3c4cd1bb878a851576376f55cb9c1f31865e598e18a44e
   original_relations_sha256: bab48b0d47876389dd54674c978d6cd1eca6e79f7b12435560e5aabad5df1399
 ---
 # Summary

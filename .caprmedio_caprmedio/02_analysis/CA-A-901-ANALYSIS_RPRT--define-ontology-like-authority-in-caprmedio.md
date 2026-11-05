@@ -1,20 +1,22 @@
 ---
 atom_id: CA-A-901
+ref_id: CA-A-901
 topics:
   main_subject:
     continuant:
-      - ontology-like-authority
-      - Core Meta-Model
-      - Framework Methodology
+    - ontology-like-authority
+    - Core Meta-Model
+    - Framework Methodology
   dependencies:
     continuant:
-      - Project Configuration
-      - CAPRMEDIO Graph
+    - Project Configuration
+    - CAPRMEDIO Graph
 relations:
   analysis_of:
-    - CA-R-1248
-    - CA-R-1318
-    - CA-R-1406
+  - CA-R-1248
+  - CA-R-1318
+  - CA-R-1406
+status: Active
 version: 1
 updated_at: 2026-09-14 01:08:50
 cce_version: cce_1

@@ -1,5 +1,6 @@
 ---
 atom_id: CA-A-066
+ref_id: CA-A-066
 topics:
   main_subject: Work Execution Architecture
   dependencies:
@@ -8,6 +9,7 @@ topics:
   - work-routing
   - workflow-execution
   - progressive-workflow-migration
+status: Active
 version: 2
 updated_at: 2026-09-06 01:45:12 +0400
 cce_version: cce_1

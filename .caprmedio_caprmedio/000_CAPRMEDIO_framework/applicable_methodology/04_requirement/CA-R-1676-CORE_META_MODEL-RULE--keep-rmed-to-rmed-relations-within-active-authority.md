@@ -1,23 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 37
-updated_at: 2026-11-02 19:44:26 +0400
+atom_id: CA-R-1676
+ref_id: CA-R-1676
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+tier: 2
 relations:
   child_of:
   - CA-R-1051
-atom_id: CA-R-1676
+status: Active
+version: 37
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1676-CORE_META_MODEL-RULE--keep-rmed-to-rmed-relations-within-active-authority.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1676-CORE_META_MODEL-RULE--keep-rmed-to-rmed-relations-within-active-authority.md
   source_atom_id: CA-R-1676
   source_atom_revision: 37
-  source_sha256: e94719418f2f60435d581a981f818580e24aa0947d1eb6f57fb16d65d732d4ea
+  source_sha256: 7bec5e057f0b1355f3ec2036df5feefd9196b23891aa116b8239e308e9eb3ab0
   original_relations_sha256: 4aec487970dae497ef90692442a5237150733f515bd4fde692fea433bcb457c1
 ---
 ## Summary

@@ -1,23 +1,29 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom.Content
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-R-1270
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
+ref_id: CA-R-1270
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Content
+tier: 1
+status: Active
+version: 24
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-1270-CORE_META_MODEL-RULE--permit-one-composite-claim-as-one-authority-unit.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1270-CORE_META_MODEL-RULE--permit-one-composite-claim-as-one-authority-unit.md
   source_atom_id: CA-R-1270
   source_atom_revision: 24
-  source_sha256: 42e92bdb947ec0bab69e8b56715f74c1e9f3516e2bfe8fce8c83c8a827ece9a1
+  source_sha256: 850407f8eaecb85d920a814c0db001e7c4390dad9c41a9c51f62c61507d938e7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

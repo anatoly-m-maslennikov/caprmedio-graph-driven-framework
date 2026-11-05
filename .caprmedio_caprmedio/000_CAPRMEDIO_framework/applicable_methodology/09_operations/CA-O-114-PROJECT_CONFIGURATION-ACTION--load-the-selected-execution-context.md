@@ -1,15 +1,13 @@
 ---
 atom_id: CA-O-114
-content_role: Operations
-type: Action
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-version: 13
-updated_at: 2026-10-27 19:59:46 +0400
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  depends_on:
+ref_id: CA-O-114
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
@@ -17,15 +15,24 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
 relations:
   depends_on:
   - CA-D-514
-tier: 3
+status: Active
+version: 13
+updated_at: 2026-10-27 19:59:46 +0400
+carrier_destination:
+  file:
+    name: CA-O-114-PROJECT_CONFIGURATION-ACTION--load-the-selected-execution-context.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-114-PROJECT_CONFIGURATION-ACTION--load-the-selected-execution-context.md
   source_atom_id: CA-O-114
   source_atom_revision: 13
-  source_sha256: 18a03a65b7ca04494fa2b42ff7edf1f4f59ecbc91ef9042061409cf85e7ba8f2
+  source_sha256: e8679c0e63310a25afe1a9f6f9af74613d0738ad90bf1d61378b95f4325dbfd7
   original_relations_sha256: b466f98a314e400938d8ca1ae50432d9de705e927abeb9bf74dc46763dbfb761
 ---
 # Summary

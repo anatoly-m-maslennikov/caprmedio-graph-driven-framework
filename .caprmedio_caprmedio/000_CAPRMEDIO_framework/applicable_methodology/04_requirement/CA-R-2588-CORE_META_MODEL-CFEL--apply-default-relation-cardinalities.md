@@ -1,25 +1,27 @@
 ---
 atom_id: CA-R-2588
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-version: 5
-updated_at: 2026-11-04 03:22:03 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2588
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 5
+updated_at: 2026-11-04 03:22:03 +0400
 carrier_destination:
   file:
-    name: CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md
+    name: CA-R-2588-CORE_META_MODEL-RULE--apply-default-relation-cardinalities.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md
   source_atom_id: CA-R-2588
   source_atom_revision: 5
-  source_sha256: ffdcdf83e0180c5dedd6c623322beaea0b8b9a2386c6a3751b8ebffef4171a7c
+  source_sha256: 53fe4d15d07776dc19a0d11ccd9c6c63de4b3c12fe32bc92d61a5be975bf8fe5
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

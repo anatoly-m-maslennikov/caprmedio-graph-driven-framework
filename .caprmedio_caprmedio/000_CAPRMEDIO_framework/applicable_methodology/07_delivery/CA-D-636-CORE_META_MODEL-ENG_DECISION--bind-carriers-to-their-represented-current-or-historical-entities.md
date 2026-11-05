@@ -1,27 +1,34 @@
 ---
 atom_id: CA-D-636
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier
-  passive:
+ref_id: CA-D-636
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CARRIES
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
+tier: 1
 relations:
   child_of:
   - CA-R-1174
+status: Active
 version: 16
 updated_at: 2026-11-02 00:18:22 +0400
-tier: 1
-role: Delivery
-form: Policy
+carrier_destination:
+  file:
+    name: CA-D-636-CORE_META_MODEL-POLICY--bind-carriers-to-their-represented-current-or-historical-entities.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-636-CORE_META_MODEL-ENG_DECISION--bind-carriers-to-their-represented-current-or-historical-entities.md
   source_atom_id: CA-D-636
   source_atom_revision: 16
-  source_sha256: ab2ab5f411ab72c4cf2175e4ac3f19c976fd23f2637922244029448c034628a9
+  source_sha256: 9a4b62c7cea5af755e8aef7e46d5c5902767120d02b98bcead47ca7edf03796f
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 ## Summary

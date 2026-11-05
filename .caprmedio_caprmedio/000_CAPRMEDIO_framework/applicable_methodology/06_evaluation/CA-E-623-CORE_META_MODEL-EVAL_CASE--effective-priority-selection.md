@@ -1,24 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Priority
-version: 30
-updated_at: 2026-11-02 00:18:22 +0400
+atom_id: CA-E-623
+ref_id: CA-E-623
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Priority
+tier: 4
 relations:
   evaluation_for:
   - CA-D-386
   - CA-R-1629
-atom_id: CA-E-623
+status: Active
+version: 30
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-623-CORE_META_MODEL-EVAL_CASE--effective-priority-selection.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-623-CORE_META_MODEL-EVAL_CASE--effective-priority-selection.md
   source_atom_id: CA-E-623
   source_atom_revision: 30
-  source_sha256: 973451e5740f6a074d18c82c81763f20cea034d3675eaecd0e736499251d14df
+  source_sha256: e0419eb8e33cf823f874b720328f1a1e7faf7b9caa8d3607141c07b752f57581
   original_relations_sha256: 482ac75541dbf35df7976298b4551596eac5e1a3d27b3579c5d272536b9bd1ee
 ---
 ## Summary

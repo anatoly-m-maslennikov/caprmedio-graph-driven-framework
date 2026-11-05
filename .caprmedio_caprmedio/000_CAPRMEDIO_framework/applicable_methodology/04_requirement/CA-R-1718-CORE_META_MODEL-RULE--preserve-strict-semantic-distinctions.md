@@ -1,24 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Role
-version: 38
-updated_at: 2026-11-02 19:44:26 +0400
+atom_id: CA-R-1718
+ref_id: CA-R-1718
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
+tier: 1
 relations:
   child_of:
   - CA-M-447
   - CA-M-006
-atom_id: CA-R-1718
+status: Active
+version: 38
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1718-CORE_META_MODEL-RULE--preserve-strict-semantic-distinctions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1718-CORE_META_MODEL-RULE--preserve-strict-semantic-distinctions.md
   source_atom_id: CA-R-1718
   source_atom_revision: 38
-  source_sha256: e930bae3c2e77d4fffa15d96f76b55bdf1beb314c91b13de7c2799a9466b8650
+  source_sha256: 6c904d93c53b19183f23004b9bd47d886318a5f1cc211dd77cf3625c9791c56e
   original_relations_sha256: abf524ce17488061b8d7602fc1dd4bd21adab32180e2f660f888a97d89729509
 ---
 ## Summary

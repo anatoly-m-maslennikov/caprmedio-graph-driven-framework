@@ -1,28 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
+atom_id: CA-R-1470
+ref_id: CA-R-1470
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Projection
+tier: 1
+status: Active
 version: 27
 updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
-atom_id: CA-R-1470
+carrier_destination:
+  file:
+    name: CA-R-1470-CORE_META_MODEL-RULE--define-single-source-of-truth.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1470-CORE_META_MODEL--define-single-source-of-truth.md
   source_atom_id: CA-R-1470
   source_atom_revision: 27
-  source_sha256: 74ac52b01c83d7f5045141bdd2e14fdddb5dd74489f58b96908c57f11776da71
+  source_sha256: daf779b0fae6136d706adea7dc68b543415b02dbec39ceb8800284afa70bb1e4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

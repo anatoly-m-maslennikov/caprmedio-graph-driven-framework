@@ -1,14 +1,14 @@
 ---
 atom_id: CA-E-520
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-version: 32
-updated_at: 2026-11-02 18:35:20 +0400
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+ref_id: CA-E-520
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Content.Details
@@ -20,6 +20,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+tier: 5
 relations:
   evaluation_for:
   - CA-D-269
@@ -34,14 +35,20 @@ relations:
   - CA-R-1273
   - CA-R-2499
   - CA-R-2503
-tier: 5
-role: Evaluation
-form: Eval Policy
+status: Active
+version: 32
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-E-520-CORE_META_MODEL-EVAL_POLICY--check-rmed-atom-coherence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md
   source_atom_id: CA-E-520
   source_atom_revision: 32
-  source_sha256: a0f36f66a067921ad716a4ce5d3be9ffdc53b99ca2c0bf5627bc0998bec859f7
+  source_sha256: ed2c71708173ee1290d79160cfc34ee827db292215d479746371b0ed08b82654
   original_relations_sha256: 216745b2d9615d7395b419d7b8e1843d9163e6bafeaaf74fdf1adfb6a455cf32
 ---
 ## Summary

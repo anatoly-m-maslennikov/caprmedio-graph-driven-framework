@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
-  passive:
+atom_id: CA-E-521
+ref_id: CA-E-521
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
@@ -10,26 +16,23 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Entity
-version: 22
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-D-270
   - CA-R-1432
   - CA-R-1788
   - CA-O-051
-atom_id: CA-E-521
+status: Active
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-521-PROJECT_CONFIGURATION-EVAL_CASE--verify-updated-at-refresh-and-semantic-versioning.md
   source_atom_id: CA-E-521
   source_atom_revision: 22
-  source_sha256: d3496278269510307387f0814347480fc10e32aa899c5a5f93f35bb52216f5ee
+  source_sha256: 1596fe7479e8d47814faa8785764a9766525e6bf4be784cf4a7de84992b7604d
   original_relations_sha256: c623ba9a228b435f122f3a3bbfe731c3c55aa738665beb67f9045b3edfca684f
 ---
 ## Summary

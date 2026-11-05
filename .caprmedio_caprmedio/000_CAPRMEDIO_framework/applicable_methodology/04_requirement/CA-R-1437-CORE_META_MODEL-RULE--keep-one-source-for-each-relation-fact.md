@@ -1,28 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  passive:
+atom_id: CA-R-1437
+ref_id: CA-R-1437
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Journal
+tier: 1
+status: Active
 version: 32
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
-atom_id: CA-R-1437
+carrier_destination:
+  file:
+    name: CA-R-1437-CORE_META_MODEL-RULE--keep-one-source-for-each-relation-fact.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1437-CORE_META_MODEL-RULE--keep-one-source-for-each-relation-fact.md
   source_atom_id: CA-R-1437
   source_atom_revision: 32
-  source_sha256: 743c507e6a2992e8db377adece88d39707d1bacdf83bb1337322ed8243060c29
+  source_sha256: ffbdb901c09fd5839924e800c9df33c2d4532b60f170e4af0e3a4fc9e32f0a29
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

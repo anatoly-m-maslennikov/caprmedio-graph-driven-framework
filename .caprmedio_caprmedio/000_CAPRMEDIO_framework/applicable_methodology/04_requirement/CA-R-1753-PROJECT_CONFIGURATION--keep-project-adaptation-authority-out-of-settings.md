@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
-version: 31
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-R-1753
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 1
+ref_id: CA-R-1753
+container:
+  scope_unit: CA-SU-13
 role: Requirement
 form: Rule
+topics:
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
+tier: 1
+status: Active
+version: 31
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1753-PROJECT_CONFIGURATION-RULE--keep-project-adaptation-authority-out-of-settings.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1753-PROJECT_CONFIGURATION--keep-project-adaptation-authority-out-of-settings.md
   source_atom_id: CA-R-1753
   source_atom_revision: 31
-  source_sha256: a393ad31fd66602e9b9379da4cf38f09df54c9c18a418bc6d09e730a2a99051d
+  source_sha256: 04adce06ea5404c9ade4efbe2f46c1be536c595bcc020ecde688f7a4468929fd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

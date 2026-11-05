@@ -1,13 +1,15 @@
 ---
 atom_id: CA-A-060
+ref_id: CA-A-060
 topics:
   main_subject:
     continuant:
-      - Project Memory
+    - Project Memory
   dependencies:
     continuant:
-      - Project Context
-      - Retrieval Integrity
+    - Project Context
+    - Retrieval Integrity
+status: Active
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
 ---

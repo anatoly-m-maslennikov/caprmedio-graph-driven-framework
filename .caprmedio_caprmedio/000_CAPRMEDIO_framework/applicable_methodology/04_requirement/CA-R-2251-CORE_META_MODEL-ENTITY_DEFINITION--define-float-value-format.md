@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-2251
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Format/float
-  passive:
-  - CAPRMEDIO_MODEL <+ CFEL <+ Format
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
-tier: 1
+ref_id: CA-R-2251
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Format/float
+  dependencies:
+  - CAPRMEDIO_MODEL <+ CFEL <+ Format
+tier: 1
+status: Active
+version: 6
+updated_at: 2026-11-03 23:25:51 +0400
+carrier_destination:
+  file:
+    name: CA-R-2251-CORE_META_MODEL-DECLARATION--define-float-value-format.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2251-CORE_META_MODEL-ENTITY_DEFINITION--define-float-value-format.md
   source_atom_id: CA-R-2251
   source_atom_revision: 6
-  source_sha256: 140765b6e602a78a69973ffcae75eec29014e02729c8a5226d1ad4349ebf65c3
+  source_sha256: c501ebac7cb12f6392193eed07875ab33e805a8e2e52ec3b03e1224ee1f86d31
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -25,13 +31,6 @@ projection:
 Define float Value Format
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-CFEL <+ Format/float
-```
 
 ### Prose Claim
 
@@ -41,6 +40,13 @@ precision, a numeric range, cardinality, uniqueness, or carrier
 representation.
 
 
+
+### Formal Claim
+
+```CFEL
+# model
+CFEL <+ Format/float
+```
 
 ## Semantics
 

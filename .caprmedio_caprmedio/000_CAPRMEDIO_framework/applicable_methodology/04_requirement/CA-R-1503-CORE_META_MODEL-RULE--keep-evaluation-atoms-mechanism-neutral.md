@@ -1,24 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
-version: 23
-updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
 atom_id: CA-R-1503
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
+ref_id: CA-R-1503
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+tier: 1
+status: Active
+version: 23
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-1503-CORE_META_MODEL-RULE--keep-evaluation-atoms-mechanism-neutral.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1503-CORE_META_MODEL-RULE--keep-evaluation-atoms-mechanism-neutral.md
   source_atom_id: CA-R-1503
   source_atom_revision: 23
-  source_sha256: f29c31e12b40881bb1e45d316650bd355f422251dcd10078730a15d4cc6bf983
+  source_sha256: 597747bb4d14e20fcade076d2e4064f9042ec8c5f13e22bf0cb3e370f0a09de3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,14 +1,13 @@
 ---
 atom_id: CA-O-122
-content_role: Operations
-type: Action
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
-status: Active
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
-  depends_on:
+ref_id: CA-O-122
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan.Definition of Done'
@@ -17,19 +16,27 @@ subjects:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-version: 16
-updated_at: 2026-10-29 22:26:57 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-1583
   - CA-R-1599
   - CA-R-1580
-tier: 3
+status: Active
+version: 16
+updated_at: 2026-10-29 22:26:57 +0400
+carrier_destination:
+  file:
+    name: CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-122-PROJECT_CONFIGURATION-ACTION--assess-completed-work-handoff.md
   source_atom_id: CA-O-122
   source_atom_revision: 16
-  source_sha256: 5a70ef81979e4326b4c74e7ebca520bf2c980c6d3694bc0bad07b225ea613226
+  source_sha256: 294c5760b1da47f50a024176292311424e5abf0e2a3d9afbed250fe402c3899a
   original_relations_sha256: 3b978e5112a9b98098806481d216209436fd33799ac74561d0db6319bf1aac7c
 ---
 # Summary

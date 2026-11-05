@@ -1,27 +1,33 @@
 ---
 atom_id: CA-O-129
-content_role: Operations
-type: Step
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
-status: Active
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  depends_on:
+ref_id: CA-O-129
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Step
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+tier: 3
+status: Active
 version: 19
 updated_at: 2026-10-27 19:59:46 +0400
-relations: {}
-tier: 3
+carrier_destination:
+  file:
+    name: CA-O-129-PROJECT_CONFIGURATION-STEP--apply-an-admitted-atom-lifecycle-change.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-129-PROJECT_CONFIGURATION-STEP--apply-an-admitted-atom-lifecycle-change.md
   source_atom_id: CA-O-129
   source_atom_revision: 19
-  source_sha256: 9d094dbe8e0d20c3bbd5011cb9e9916d6272bec9c35a0617bcbd019aa43f6074
+  source_sha256: bb9f00ef1730303aab01b82675459714e3f0f4a5522b4c4b27be24c0e5fcd16c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

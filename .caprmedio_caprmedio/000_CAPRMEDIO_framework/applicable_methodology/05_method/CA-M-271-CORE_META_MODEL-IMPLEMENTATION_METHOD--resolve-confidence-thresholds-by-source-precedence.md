@@ -1,29 +1,36 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-  passive:
+atom_id: CA-M-271
+ref_id: CA-M-271
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-version: 29
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1428
-atom_id: CA-M-271
+status: Active
+version: 29
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md
   source_atom_id: CA-M-271
   source_atom_revision: 29
-  source_sha256: c3fee4fb0f4f733a805b5122b2e38da7af8c8eb39ac5208912b1e00f05663c1a
+  source_sha256: 196bff8b2b4e8c219eab69fbb06b786e139135b9e58f3449b00c7f826e098bac
   original_relations_sha256: 57a2d15d1c076f7de9a5434f2b010760681bcef356d85d254dae9d1bb3d233dd
 ---
 ## Summary

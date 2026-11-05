@@ -1,29 +1,36 @@
 ---
 atom_id: CA-R-1943
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection.ID
-  passive:
+ref_id: CA-R-1943
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection.ID
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ Projection.Scope Unit
   - CAPRMEDIO_MODEL <+ Projection.Source.Named Selection
   - CAPRMEDIO_MODEL <+ Projection.Source.Atoms
-version: 16
-updated_at: 2026-11-04 07:51:19 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-2535
-tier: 3
-role: Requirement
-form: Rule
+status: Active
+version: 16
+updated_at: 2026-11-04 07:51:19 +0400
+carrier_destination:
+  file:
+    name: CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1943-CORE_META_MODEL-RULE--give-each-projection-a-stable-id.md
   source_atom_id: CA-R-1943
   source_atom_revision: 16
-  source_sha256: cb7d14ede2018974e6ffd21074d5fec576273c08d8ab053ac9e14829e516024d
+  source_sha256: 50133828cb05c7209ec7ddc7070ffa63a72a032d0e89286d5da965f958811e43
   original_relations_sha256: 6878e685139e7f8ef4f489b6e750cc91c96c00e957ae6a05bdf9168f28ce7685
 ---
 ## Summary

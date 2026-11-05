@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+atom_id: CA-R-1463
+ref_id: CA-R-1463
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Event Record
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
@@ -9,21 +15,21 @@ subjects:
   - CAPRMEDIO_MODEL <+ Project
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Artifact Change Log'
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Process Log'
+tier: 2
+status: Active
 version: 26
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-atom_id: CA-R-1463
+carrier_destination:
+  file:
+    name: CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1463-CORE_META_MODEL-RULE--derive-log-views-from-the-shared-journal.md
   source_atom_id: CA-R-1463
   source_atom_revision: 26
-  source_sha256: 4a17e368ad98240a552e9645ef8d775db1576ec5693bbc56357561fdbf32d955
+  source_sha256: 7e27d10da84325b5c5345e716a8cb2e7bd2b4af5968717c6b56fb42aec3f9713
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

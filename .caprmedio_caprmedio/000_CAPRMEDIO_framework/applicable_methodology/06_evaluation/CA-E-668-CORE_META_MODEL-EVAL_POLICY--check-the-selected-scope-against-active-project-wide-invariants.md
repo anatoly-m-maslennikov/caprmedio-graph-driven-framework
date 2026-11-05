@@ -1,6 +1,17 @@
 ---
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+atom_id: CA-E-668
+ref_id: CA-E-668
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+tier: 3
 relations:
   child_of:
   - CA-M-006
@@ -9,27 +20,23 @@ relations:
   - CA-R-2426
   - CA-R-706
   - CA-R-2425
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+status: Active
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-668-CORE_META_MODEL-EVAL_POLICY--check-the-selected-scope-against-active-project-wide-invariants.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 current_scope_unit: CORE_META_MODEL
-status: Active
-atom_id: CA-E-668
-tier: 3
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-668-CORE_META_MODEL-EVAL_POLICY--check-the-selected-scope-against-active-project-wide-invariants.md
   source_atom_id: CA-E-668
   source_atom_revision: 2
-  source_sha256: a58622d1f96e2e926da5c3142c793960a4cb83f125aa4247e45841bd4ec3566f
+  source_sha256: 9fdbfe6ce456f19da8ba6b154039458bdf07038f40f0a9ea5970d678fc4a254c
   original_relations_sha256: 2b188f62feb322f2869bf3a79743b4520e1e3d3338b37cbbfe450f1eb7db7b03
 ---
 ## Summary

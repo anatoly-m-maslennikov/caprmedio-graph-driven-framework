@@ -1,26 +1,26 @@
 ---
 atom_id: CA-R-2601
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping
-version: 3
-updated_at: 2026-11-04 21:11:03 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-tier: 3
+ref_id: CA-R-2601
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//Grouping
+tier: 3
+status: Active
+version: 3
+updated_at: 2026-11-04 21:11:03 +0400
 carrier_destination:
   file:
-    name: CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
+    name: CA-R-2601-DECLARATION--declare-cfel-operator.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2601-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
   source_atom_id: CA-R-2601
   source_atom_revision: 3
-  source_sha256: d31d8e02dedf8afe62ad100733208ff77c8f069666397b86480ae4d5da4de9a0
-  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
+  source_sha256: 304cb09b1e5f8732bc919cab8899371a50a4c575e0f66042f0b5303e29e8d207
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
 ## Summary

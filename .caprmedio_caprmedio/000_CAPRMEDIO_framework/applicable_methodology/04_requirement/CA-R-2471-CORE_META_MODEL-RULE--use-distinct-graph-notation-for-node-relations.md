@@ -1,25 +1,27 @@
 ---
 atom_id: CA-R-2471
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-version: 7
-updated_at: 2026-11-04 05:21:15 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2471
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 7
+updated_at: 2026-11-04 05:21:15 +0400
 carrier_destination:
   file:
     name: CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md
   source_atom_id: CA-R-2471
   source_atom_revision: 7
-  source_sha256: 04266573fe05aff1be1980be45663f8dd30d39c5bc73becc836fe39c359960bf
+  source_sha256: e2bfa90313dd5241729e686c1c46c570cf1960f9751fc82107c765f2d2b3c73e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

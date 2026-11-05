@@ -1,18 +1,20 @@
 ---
 atom_id: CA-C-143
+ref_id: CA-C-143
 topics:
   main_subject: 'Subject/Domain/Node/Continuant/Projection/Type: Applicable Methodology'
   dependencies:
   - Subject/Domain/Node/Continuant/Projection
   - Subject/Domain/Node/Continuant/Atom.Subjects
   - Subject/Engineering/Carrier
+status: Active
 version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # May Applicable Methodology persist derived Subject indexes?
 

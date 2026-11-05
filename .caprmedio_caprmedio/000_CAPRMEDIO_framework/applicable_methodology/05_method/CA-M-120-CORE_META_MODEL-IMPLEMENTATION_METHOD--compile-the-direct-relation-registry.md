@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Direct Relation Registry)
-  passive:
+atom_id: CA-M-120
+ref_id: CA-M-120
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Direct Relation Registry)
+  dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
@@ -9,26 +15,27 @@ subjects:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Package
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-version: 43
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   method_for:
   - CA-R-806
   - CA-R-1246
   - CA-R-1437
   - CA-R-1472
-atom_id: CA-M-120
+status: Active
+version: 43
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md
   source_atom_id: CA-M-120
   source_atom_revision: 43
-  source_sha256: 67d491e92fc7e9d0463f6c880fa53cbb2f1ced2112cba654483d072d08d5eccf
+  source_sha256: 165aa24b7d4d857c97279395ea328dbeb26e5e24e6f2b4f5fe8a29b3f26bf4b0
   original_relations_sha256: 68a2c39318c77d63e9da6b3745d4ed6a600564f503add663a28df99ecce4edd3
 ---
 ## Summary

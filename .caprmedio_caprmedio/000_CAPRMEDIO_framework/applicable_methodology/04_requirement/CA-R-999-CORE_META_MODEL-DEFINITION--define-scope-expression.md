@@ -1,23 +1,29 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-  passive:
-  - CAPRMEDIO_MODEL <+ Entity
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
 atom_id: CA-R-999
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-R-999
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Entity
+tier: 3
+status: Active
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-999-CORE_META_MODEL-RULE--define-scope-expression.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-999-CORE_META_MODEL-DEFINITION--define-scope-expression.md
   source_atom_id: CA-R-999
   source_atom_revision: 26
-  source_sha256: e63e55d02875406c3e135ee3549571d8468bbddf3217974fb475c8d211e61afc
+  source_sha256: fe8170ae4207a0999d47212f8c549cf671c66e28427e174cc098daf9ad272361
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

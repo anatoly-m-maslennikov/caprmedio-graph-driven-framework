@@ -1,11 +1,13 @@
 ---
 atom_id: CA-A-048
+ref_id: CA-A-048
+status: Active
 version: 1
 updated_at: 2026-08-21 01:52:33
 subject_scopes:
-  - artifact-model
-  - development-flow
-  - scope-topology
+- artifact-model
+- development-flow
+- scope-topology
 ---
 
 ## Task, scope, and boundaries

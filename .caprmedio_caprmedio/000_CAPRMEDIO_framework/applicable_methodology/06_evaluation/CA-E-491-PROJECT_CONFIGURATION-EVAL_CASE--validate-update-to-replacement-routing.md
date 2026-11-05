@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+atom_id: CA-E-491
+ref_id: CA-E-491
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Atom Update Identity'
@@ -9,8 +15,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-version: 25
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-O-067
@@ -18,18 +23,16 @@ relations:
   - CA-R-1432
   - CA-R-1464
   - CA-R-1520
-atom_id: CA-E-491
+status: Active
+version: 25
+updated_at: 2026-11-02 08:06:47 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-491-PROJECT_CONFIGURATION-EVAL_CASE--validate-update-to-replacement-routing.md
   source_atom_id: CA-E-491
   source_atom_revision: 25
-  source_sha256: a6c77217ae40f2355c53f460a42d8733906ade203d1893b79fea4d459562b4c7
+  source_sha256: 409a1fab3ed404e313fad87a772a0b3649e1256d106e0ad6392e7bb1a8e9cbb3
   original_relations_sha256: 6e6d3a471477ab476cf4857eae5daac93e2ec1d8486362a6e4215397d13154e7
 ---
 ## Summary

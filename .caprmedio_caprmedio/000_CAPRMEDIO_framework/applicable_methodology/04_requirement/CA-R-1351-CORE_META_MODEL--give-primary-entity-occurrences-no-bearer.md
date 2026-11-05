@@ -1,24 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  passive:
-  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO_MODEL <+ Entity
-version: 23
-updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
 atom_id: CA-R-1351
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
+ref_id: CA-R-1351
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
+  dependencies:
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Entity
+tier: 1
+status: Active
+version: 23
+updated_at: 2026-11-02 19:46:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-1351-CORE_META_MODEL-RULE--give-primary-entity-occurrences-no-bearer.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1351-CORE_META_MODEL--give-primary-entity-occurrences-no-bearer.md
   source_atom_id: CA-R-1351
   source_atom_revision: 23
-  source_sha256: a647fa0d775df3838eaf0e09ad471544461b4573e2896f80d08ff88d6897c904
+  source_sha256: 1444f220c2319bf34ab712556d612cd8fe29cdc1edc1cc29e57e7d7f4bfaabe3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

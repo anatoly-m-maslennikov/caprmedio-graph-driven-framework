@@ -1,13 +1,13 @@
 ---
 atom_id: CA-O-169
-content_role: Operations
-type: Action
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  depends_on:
+ref_id: CA-O-169
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
@@ -17,15 +17,21 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
+status: Active
 version: 23
 updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
-tier: 3
+carrier_destination:
+  file:
+    name: CA-O-169-PROJECT_CONFIGURATION-ACTION--promote-candidate-and-retire-exact-prior-image.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-169-PROJECT_CONFIGURATION-ACTION--promote-candidate-and-retire-exact-prior-image.md
   source_atom_id: CA-O-169
   source_atom_revision: 23
-  source_sha256: e89af1f75bc3701792e2a66c5fc9b89e6cd89eec36d38fc49e96b99a39ca331e
+  source_sha256: 69eb8c6176ada354c732281b0526fe4d65f082b2d9a406b72898e0cd1b0757da
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,28 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  passive:
+atom_id: CA-D-470
+ref_id: CA-D-470
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Content
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details'
   - CAPRMEDIO_MODEL <+ Carrier/File
+tier: 3
+status: Active
 version: 29
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-atom_id: CA-D-470
+carrier_destination:
+  file:
+    name: CA-D-470-CORE_META_MODEL-DECISION--serialize-plan-file-sections.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md
   source_atom_id: CA-D-470
   source_atom_revision: 29
-  source_sha256: 722199802ed99c2c82ac0f7e455b90f14d64e051f1d01dc95a1a63df16fa2f6e
+  source_sha256: 67eba152c6e77e4fa19ae32872b17deed593cfcdd477a579f38de742759f60b4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

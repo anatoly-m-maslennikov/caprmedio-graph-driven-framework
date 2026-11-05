@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+atom_id: CA-D-653
+ref_id: CA-D-653
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
@@ -9,8 +15,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Carrier
-version: 16
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
 relations:
   delivery_for:
   - CA-R-2150@15
@@ -19,18 +24,20 @@ relations:
   - CA-R-2223@4
   - CA-R-2224@3
   - CA-R-2225
-atom_id: CA-D-653
+status: Active
+version: 16
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-D-653-CORE_META_MODEL-DECISION--deliver-readable-subject-graph-views-as-markdown.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-tier: 3
-status: Active
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md
   source_atom_id: CA-D-653
   source_atom_revision: 16
-  source_sha256: 0b0d1f6a489243196b3942a750511c8ac93a1f56a12497a0a9803770f2d0d42b
+  source_sha256: cb4ae8638608e90e7ef58bf4b938cf93fdfd16db2824e50524fca3bacafa2857
   original_relations_sha256: a84fd6d90b5c78a0ecf46e9fb5ce5529824abc141929b0b3145795fb5e727ae4
 ---
 ## Summary

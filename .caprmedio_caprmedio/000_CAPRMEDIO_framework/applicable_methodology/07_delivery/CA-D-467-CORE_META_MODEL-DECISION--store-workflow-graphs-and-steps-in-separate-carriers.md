@@ -1,29 +1,36 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+atom_id: CA-D-467
+ref_id: CA-D-467
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Carrier/Directory
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
-version: 28
-updated_at: 2026-11-02 17:54:42 +0400
+tier: 3
 relations:
   delivery_for:
   - CA-R-1570
   - CA-R-2465
-atom_id: CA-D-467
+status: Active
+version: 28
+updated_at: 2026-11-02 17:54:42 +0400
+carrier_destination:
+  file:
+    name: CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
   source_atom_id: CA-D-467
   source_atom_revision: 28
-  source_sha256: ed46335c87661b1caa6ca3c6fc3f042f50a54de7dd0014e2b68877b1833a0b66
+  source_sha256: 7a44b47cfebab0b829994a53d9ea5c43dc2fe58fa666a6ca813f12d01f9fd82e
   original_relations_sha256: d0044d401c04912541104905ec20e3fe8aa446a6e50f04a28e8754696dfdaf01
 ---
 ## Summary

@@ -1,19 +1,24 @@
 ---
+atom_id: CA-C-271
+ref_id: CA-C-271
 topics:
-  main_subject: "Atom"
+  main_subject: Atom
   dependencies:
-    - "Atom/Claim"
-    - "Artifact/Revision"
-    - "Project"
-    - "Operator"
-relations: {"relates_to": ["CA-O-079"]}
+  - Atom/Claim
+  - Artifact/Revision
+  - Project
+  - Operator
+relations:
+  relates_to:
+  - CA-O-079
+status: Active
 version: 3
-updated_at: "2026-09-23 16:51:13 +0000"
+updated_at: 2026-09-23 16:51:13 +0000
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Summary
 

@@ -1,24 +1,31 @@
 ---
-version: 37
-updated_at: 2026-11-02 18:35:20 +0400
-relations:
-  child_of:
-  - CA-M-005
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project
-  passive:
+atom_id: CA-R-1772
+ref_id: CA-R-1772
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Package/Implementation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
-atom_id: CA-R-1772
+tier: 1
+relations:
+  child_of:
+  - CA-M-005
+status: Active
+version: 37
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-1772-CORE_META_MODEL-RULE--minimal-default-project-model.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 ---
 ## Summary
 

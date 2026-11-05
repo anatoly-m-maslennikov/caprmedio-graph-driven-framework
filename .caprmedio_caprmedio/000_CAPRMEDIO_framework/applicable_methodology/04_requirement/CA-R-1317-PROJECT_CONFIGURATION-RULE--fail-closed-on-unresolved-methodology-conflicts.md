@@ -1,26 +1,32 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
-  passive:
+atom_id: CA-R-1317
+ref_id: CA-R-1317
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Scope Unit
+tier: 3
+status: Active
 version: 31
 updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
-atom_id: CA-R-1317
+carrier_destination:
+  file:
+    name: CA-R-1317-PROJECT_CONFIGURATION-RULE--fail-closed-on-unresolved-methodology-conflicts.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1317-PROJECT_CONFIGURATION-RULE--fail-closed-on-unresolved-methodology-conflicts.md
   source_atom_id: CA-R-1317
   source_atom_revision: 31
-  source_sha256: b29925d2f3a34a56a41e36ead21b8e83adde354081472e1088c67fa6788daedd
+  source_sha256: 12959469e1400459aebea505a41a14035abb132fc7a7716b1db7282c67bfdb16
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

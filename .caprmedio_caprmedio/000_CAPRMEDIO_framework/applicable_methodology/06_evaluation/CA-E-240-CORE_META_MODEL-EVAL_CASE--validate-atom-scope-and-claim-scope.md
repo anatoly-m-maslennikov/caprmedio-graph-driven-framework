@@ -1,35 +1,38 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
-  - CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY
+atom_id: CA-E-240
+ref_id: CA-E-240
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom.Header.Container
   - CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim
   - CAPRMEDIO_MODEL <+ Scope Unit
-version: 49
-updated_at: 2026-11-03 20:00:05 +0400
+tier: 7
 relations:
   evaluation_for:
   - CA-R-2102
   - CA-D-495
   - CA-D-479
   - CA-R-2714
-atom_id: CA-E-240
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 7
-role: Evaluation
-form: Eval Case
+version: 51
+updated_at: 2026-11-05 22:47:24 +0400
 carrier_destination:
   file:
     name: CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md
   source_atom_id: CA-E-240
-  source_atom_revision: 49
-  source_sha256: 5405cd2e41eccc209a38c1d632d87ac95c96372cf456549b662e4988f5403f35
+  source_atom_revision: 51
+  source_sha256: e8e1047f20dfa9efcf14e5e1b78d25907c2ef3161ac7b91d000f9840b0766b3a
   original_relations_sha256: b448486d5687c8e6084f9eb8a06e38ac1eeb1387d6037d45636f2cf923a2da47
 ---
 ## Summary

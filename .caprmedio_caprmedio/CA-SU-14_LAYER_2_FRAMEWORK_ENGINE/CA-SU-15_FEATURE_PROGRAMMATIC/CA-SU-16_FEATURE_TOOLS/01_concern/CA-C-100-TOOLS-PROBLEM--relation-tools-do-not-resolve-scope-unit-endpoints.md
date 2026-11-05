@@ -1,14 +1,16 @@
 ---
 atom_id: CA-C-100
+ref_id: CA-C-100
 relations:
   concern_about:
-    - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-529--patch-artifact-relations
-    - CA-R-877-REQUIREMENT-BSEED_GOVERNANCE--validate-directional-relational-atoms
-    - CA-R-883-REQUIREMENT-BSEED_GOVERNANCE--register-contract-endpoint-relations
+  - CAPRMEDIO-FRAMEWORK-ENGINE-REQU-529--patch-artifact-relations
+  - CA-R-877-REQUIREMENT-BSEED_GOVERNANCE--validate-directional-relational-atoms
+  - CA-R-883-REQUIREMENT-BSEED_GOVERNANCE--register-contract-endpoint-relations
+status: Active
 version: 7
 updated_at: 2026-10-23 03:17:34 +0400
 subject_scopes:
-  - relation-tooling
+- relation-tooling
 priority: high
 ---
 # Relation Tools do not resolve Scope Unit endpoints

@@ -1,21 +1,27 @@
 ---
 atom_id: CA-R-2554
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit.structural_level
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2554
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.structural_level
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md
   source_atom_id: CA-R-2554
   source_atom_revision: 2
-  source_sha256: 0f0ba69390d074f65a5c0c75469e6bf3b1f24bb53f321fa3d742d38ab6cfb75b
+  source_sha256: e428c6a6028cdcd6d1d3a389088eca29aa6e8fcf0d1dac4d206e46f91ad2dd69
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -29,9 +35,9 @@ Declare Scope Unit.structural_level
 
 ```CFEL
 # model
-Scope Unit.structural_level{:1}: [int]{:1};
+Scope Unit.structural_level{::1}:: [int]{::1};
 
-Scope Unit.structural_level.*[]{:0};
+Scope Unit.structural_level.*[]{::0};
 
 Scope Unit.structural_level >= 0;
 

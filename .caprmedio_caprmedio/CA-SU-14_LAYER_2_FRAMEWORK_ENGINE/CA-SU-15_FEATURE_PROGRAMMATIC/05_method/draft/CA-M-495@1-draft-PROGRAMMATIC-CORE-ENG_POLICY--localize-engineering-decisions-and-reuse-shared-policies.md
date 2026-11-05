@@ -82,4 +82,4 @@ This is a Draft policy for review. It is not current authority, does not
 supersede CA-M-403, CA-M-411 or CA-M-419, and must not be treated as an active
 implementation gate until separately accepted and promoted.
 
-Companion Draft: [module-start ownership citations](CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md).
+Companion Draft: [module-start ownership citations](CA-M-499@2-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md).

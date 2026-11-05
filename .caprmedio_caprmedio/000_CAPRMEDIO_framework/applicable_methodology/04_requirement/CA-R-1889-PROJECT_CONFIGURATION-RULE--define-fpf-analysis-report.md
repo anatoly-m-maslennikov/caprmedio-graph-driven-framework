@@ -1,28 +1,35 @@
 ---
 atom_id: CA-R-1889
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
-  passive:
+ref_id: CA-R-1889
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := Analysis Report)
-version: 20
+tier: 2
 relations:
   depends_on:
   - CA-R-1727@30
   - CA-R-1875
   - CA-D-479
-tier: 2
-role: Requirement
-form: Rule
+status: Active
+version: 20
 updated_at: 2026-11-02 19:33:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1889-PROJECT_CONFIGURATION-RULE--define-fpf-analysis-report.md
   source_atom_id: CA-R-1889
   source_atom_revision: 20
-  source_sha256: 772e86a9d053f3795dc9da11abeaeaa5880eb967e59b7d5f336e6ce75a764cb0
+  source_sha256: deeb03375cb29889ae44e3d31ce7d19f34e0cdd3c5920d36cf24ac6e982e7aa9
   original_relations_sha256: 3435f8757c90dd20c1ec967f027979b866b3148b4ae7ae12df23a154ee1990fd
 ---
 ## Summary

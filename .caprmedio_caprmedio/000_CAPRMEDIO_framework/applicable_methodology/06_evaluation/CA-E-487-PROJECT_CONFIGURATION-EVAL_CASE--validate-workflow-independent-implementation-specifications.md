@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
-  passive:
+atom_id: CA-E-487
+ref_id: CA-E-487
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - CAPRMEDIO_MODEL <+ Package
@@ -11,23 +17,24 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-version: 28
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1514
-atom_id: CA-E-487
+status: Active
+version: 28
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-487-PROJECT_CONFIGURATION-EVAL_CASE--validate-workflow-independent-implementation-specifications.md
   source_atom_id: CA-E-487
   source_atom_revision: 28
-  source_sha256: b4a181680b2ed280e7d566a10d10f0dcb67553e8ebc5619d4f3177e15a94457e
+  source_sha256: 06b4c8c323e926971576fd4f761f9322fcf1a08fc542027d67d886da46132003
   original_relations_sha256: ad46b65bf1f2ebb680933375c6a0e610a4e11544805253277316d1e163e72787
 ---
 ## Summary

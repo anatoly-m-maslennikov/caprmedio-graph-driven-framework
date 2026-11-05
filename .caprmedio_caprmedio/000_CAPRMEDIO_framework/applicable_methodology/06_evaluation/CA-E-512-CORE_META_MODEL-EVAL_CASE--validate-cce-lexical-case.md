@@ -1,32 +1,39 @@
 ---
 atom_id: CA-E-512
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Term
-  passive:
+ref_id: CA-E-512
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Term
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
   - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
-version: 28
-updated_at: 2026-11-03 23:25:51 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-D-280
   - CA-M-229
   - CA-M-234
-tier: 4
-role: Evaluation
-form: Eval Case
+status: Active
+version: 28
+updated_at: 2026-11-03 23:25:51 +0400
+carrier_destination:
+  file:
+    name: CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
   source_atom_id: CA-E-512
   source_atom_revision: 28
-  source_sha256: 04cc97826807b443e8802d7f22d7d0f52811385d44de3ceb5f7240ee4a42c21c
+  source_sha256: 94084cd025da6c90d2f9afe2bb4bd103ff158b3bb1fe938bba6a00405f04496e
   original_relations_sha256: 143f71e7ff7db540b42f007e3cf765db4eb060cd493e3ff603ec74d9d6184078
 ---
 ## Summary

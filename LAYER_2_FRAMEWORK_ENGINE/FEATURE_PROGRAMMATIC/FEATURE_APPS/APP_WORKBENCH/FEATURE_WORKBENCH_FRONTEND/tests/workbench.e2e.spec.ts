@@ -2,7 +2,7 @@
 // CA-E-684@2
 // CA-E-781@1
 // CA-E-782@1
-// CA-E-783@1
+// CA-E-783@2
 // CA-E-786@1
 import { expect, test, type Page } from '@playwright/test';
 
@@ -42,6 +42,29 @@ async function sharedWorkspace() {
   await call('view_focus', { workspace_id: workspace, view_id: externalId });
   await call('view_run', { workspace_id: workspace, view_id: externalId, cursor_position: 0 });
   return { externalId, revision: updated.revision as number, workspaceUrl: workspaceUrl.toString(), call };
+}
+
+async function persistedAdaptiveWorkspace() {
+  const workspace = `cached-grid-${Date.now()}`;
+  const workspaceUrl = new URL(url); workspaceUrl.searchParams.set('workspace', workspace);
+  const endpoint = new URL(`${workspaceUrl.pathname.replace(/\/$/, '')}/interface`, workspaceUrl.origin).toString();
+  const projectRoot = workspaceUrl.searchParams.get('project_root');
+  const call = async (operation: string, arguments_: Record<string, unknown>) => {
+    const response = await fetch(endpoint, {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ operation, arguments: arguments_, ...(projectRoot ? { project_root: projectRoot } : {}) }),
+    });
+    expect(response.ok, `${operation} failed`).toBeTruthy();
+    return response.json() as Promise<Record<string, any>>;
+  };
+  const opened = await call('workspace_open', { session_id: workspace }); const view = opened.views[0];
+  await call('view_update', {
+    workspace_id: workspace, view_id: view.id,
+    sql: "SELECT i AS row_id, CASE WHEN i % 2 = 0 THEN 'alpha' ELSE 'beta' END AS group_name, 20 - i AS sort_value, NULL::VARCHAR AS empty_column FROM range(0, 20) AS rows(i)",
+    expected_revision: view.revision, cursor_position: 0,
+  });
+  await call('view_run', { workspace_id: workspace, view_id: view.id, cursor_position: 0 });
+  return workspaceUrl.toString();
 }
 
 test('binds two browser contexts to one Workspace and observes external state', async ({ browser }) => {
@@ -130,6 +153,22 @@ test('waits for the initial Workspace binding before accepting SQL input', async
   } finally { releaseOpen?.(); }
 });
 
+test('opens, leaves, and rebuilds a cached adaptive result without an uncaught Tabulator lifecycle error', async ({ page }) => {
+  const workspaceUrl = await persistedAdaptiveWorkspace(); const errors: string[] = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  const fetched = page.waitForResponse((response) => response.request().method() === 'POST'
+    && response.request().postDataJSON()?.operation === 'view_fetch' && response.status() === 200);
+  await page.goto(workspaceUrl); await fetched;
+  await expect(page.getByRole('grid')).toBeVisible();
+  await expect(page.locator('.result-summary')).toContainText('20 rows, 3 of 4 columns');
+  await page.getByRole('tab', { name: 'Settings', exact: true }).click();
+  await expect(page.getByRole('region', { name: 'Settings' })).toBeVisible();
+  await page.getByRole('tab', { name: 'View 1', exact: true }).click();
+  await expect(page.getByRole('grid')).toBeVisible();
+  await page.evaluate(() => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  expect(errors).toEqual([]);
+});
+
 test('keeps dirty SQL through Run and Check under the Project Workbench header', async ({ page }) => {
   await page.goto(url);
   const header = page.locator('header');
@@ -169,8 +208,11 @@ test('restores local View state and opens a saved View without running it', asyn
   await expect(renameDialog).toHaveCount(0);
   await expect(view).toBeVisible();
   await page.keyboard.press('Meta+P');
-  await page.getByRole('dialog', { name: 'Command palette' }).getByRole('textbox').fill('Rename View');
-  await page.keyboard.press('Enter');
+  const palette = page.getByRole('dialog', { name: 'Command palette' });
+  const paletteInput = palette.getByRole('textbox');
+  await paletteInput.fill('Rename View');
+  await expect(palette.getByRole('button', { name: 'Rename View', exact: true })).toBeEnabled();
+  await paletteInput.press('Enter');
   await expect(title).toHaveValue('View 1');
   await expect(title).toBeFocused();
   await title.fill('E2E View');

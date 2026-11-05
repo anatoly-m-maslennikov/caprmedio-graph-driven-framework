@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-113
+ref_id: CA-C-113
 topics:
   main_subject: Subject/Engineering/Carrier/Journal Serialization
   dependencies:
@@ -7,12 +8,13 @@ topics:
   - Subject/Engineering/Carrier
   - Atom/Revision
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+status: Active
 version: 20
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 priority: medium
 ---
 # How should Journal Tools adopt the approved storage boundary?

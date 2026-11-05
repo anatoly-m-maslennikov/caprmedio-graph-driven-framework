@@ -1,24 +1,25 @@
 ---
-atom_id: CA-E-draft
+atom_id: CA-E-793
+ref_id: CA-E-793@2-draft
 container:
   scope_unit: CA-SU-15
 role: Evaluation
 form: QA Case
 topics:
-  main_subject: "Subject/Engineering/Source Unit Responsibility"
+  main_subject: Subject/Engineering/Source Unit Responsibility
   dependencies:
-    - "Subject/Engineering/Implementation Cohesion"
-    - "Subject/Engineering/Outcome Evidence"
+  - Subject/Engineering/Implementation Cohesion
+  - Subject/Engineering/Outcome Evidence
 tier: 3
 relations:
   relates_to:
-    - CA-E-653
-    - CA-R-2117
-    - CA-M-431
-    - CA-M-411
+  - CA-E-653
+  - CA-R-2117
+  - CA-M-431
+  - CA-M-411
 status: Draft
 version: 2
-updated_at: "2026-10-23 19:09:45 +0400"
+updated_at: 2026-10-23 19:09:45 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
@@ -121,7 +122,7 @@ must consume the promoted Method's own citation rules and retain unresolved
 human-review results instead of treating a mechanically incomplete call graph
 as complete.
 
-Evaluated Method Draft: [module-start owner citations](../../05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md).
+Evaluated Method Draft: [module-start owner citations](../../05_method/draft/CA-M-499@2-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md).
 
 Companion Method Draft: [localized ownership and shared policies](../../05_method/draft/CA-M-495@1-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md).
 

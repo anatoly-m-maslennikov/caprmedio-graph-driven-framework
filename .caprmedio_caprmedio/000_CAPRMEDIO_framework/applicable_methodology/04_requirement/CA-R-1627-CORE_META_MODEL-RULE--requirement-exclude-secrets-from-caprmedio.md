@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
-version: 31
-updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
 atom_id: CA-R-1627
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-R-1627
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
+tier: 3
+status: Active
+version: 31
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-1627-CORE_META_MODEL-RULE--requirement-exclude-secrets-from-caprmedio.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-RULE--requirement-exclude-secrets-from-caprmedio.md
   source_atom_id: CA-R-1627
   source_atom_revision: 31
-  source_sha256: fa5d5f7d4a1f5fd6be3e11d468173e43db130726a0ca54d89956325962242082
+  source_sha256: 24e35a78b034828b5449c0d3dcdc20751a373b6d6738795253b32eb3f3cf92ba
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

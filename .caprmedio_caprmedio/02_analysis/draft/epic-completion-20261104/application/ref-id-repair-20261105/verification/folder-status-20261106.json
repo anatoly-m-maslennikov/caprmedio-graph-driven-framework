@@ -1,0 +1,29 @@
+{
+  "verdict": "PASS",
+  "plan": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/folder-status-application-20261106/adoption-plan.json",
+  "plan_sha256": "88c08a4ce70b8170b3d2973c96b5189e9a96e271c31f23dc8d4438c93df8d439",
+  "receipt": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/folder-status-application-20261106/adoption-receipt.json",
+  "receipt_plan_pin": true,
+  "operation_count": 159,
+  "outputs_count": 159,
+  "status_counts": {
+    "Active": 159
+  },
+  "identified_correct_ref_count": 151,
+  "id_missing_count": 8,
+  "id_missing_paths": [
+    ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+    ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+    ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled.md",
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md"
+  ],
+  "metadata_only_status_and_ref_id": true,
+  "body_version_updated_at_preserved": true,
+  "issues": [],
+  "limits": "Read-only source verification; no runtime or test result.",
+  "identity_holds_match_plan": true
+}

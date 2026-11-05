@@ -1,31 +1,38 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-  passive:
+atom_id: CA-R-1695
+ref_id: CA-R-1695
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  dependencies:
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-version: 38
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1682
   - CA-R-1697
   - CA-R-1720
-atom_id: CA-R-1695
+status: Active
+version: 38
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-1695-CORE_META_MODEL-RULE--preserve-implementation-traceability-in-the-shared-project-journal.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-RULE--preserve-implementation-traceability-in-the-shared-project-journal.md
   source_atom_id: CA-R-1695
   source_atom_revision: 38
-  source_sha256: 731876d39630026e1ab19635b5a94cb5b1e5ee85165c657bc350a9368bd97c41
+  source_sha256: a517e64745e1abc2e8bd39a0723ad7eaa802771421ae5ecb436b66f954e7a5eb
   original_relations_sha256: 1a4372e2f3efbdcf7c6855f6a9824aa7fe3d74003fad45463d9884801ef19cb7
 ---
 ## Summary

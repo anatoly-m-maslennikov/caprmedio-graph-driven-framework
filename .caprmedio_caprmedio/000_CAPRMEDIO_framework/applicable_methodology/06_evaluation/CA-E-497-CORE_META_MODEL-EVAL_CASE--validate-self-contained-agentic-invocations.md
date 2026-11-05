@@ -1,15 +1,20 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context
-  passive:
+atom_id: CA-E-497
+ref_id: CA-E-497
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom
-version: 20
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-M-304
@@ -18,18 +23,20 @@ relations:
   - CA-R-1791
   - CA-R-1792
   - CA-R-1793
-atom_id: CA-E-497
+status: Active
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-497-CORE_META_MODEL-EVAL_CASE--validate-self-contained-agentic-invocations.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-497-CORE_META_MODEL-EVAL_CASE--validate-self-contained-agentic-invocations.md
   source_atom_id: CA-E-497
   source_atom_revision: 20
-  source_sha256: 5a5557971a727e5401e526442aee1cebeeec6152999743d3c27e849938e715f8
+  source_sha256: f5ccefd7a86b220d2e4da4c752104403b18287d0584782fdea1d7cd7589cb814
   original_relations_sha256: 366893286c3985484d37d66642c5d3340e0a06712ca1974528d35e46227e81a3
 ---
 ## Summary

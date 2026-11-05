@@ -1,24 +1,30 @@
 ---
 atom_id: CA-D-506
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
+ref_id: CA-D-506
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Carrier
+  - CAPRMEDIO_MODEL <+ Term//Property
+tier: 1
 status: Active
 version: 18
 updated_at: 2026-11-02 00:18:22 +0400
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
-  - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Term//Property
-relations: {}
-tier: 1
-role: Delivery
-form: Policy
+carrier_destination:
+  file:
+    name: CA-D-506-CORE_META_MODEL-POLICY--give-every-non-ephemeral-entity-a-carrier.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-506-CORE_META_MODEL-ENG_DECISION--give-every-non-ephemeral-entity-a-carrier.md
   source_atom_id: CA-D-506
   source_atom_revision: 18
-  source_sha256: 1805838af891faff09d5388072d24a58c138cedcc1bedc8a9be091ab2e052bb8
+  source_sha256: a80155d13d1e930f8ba8317ed66c1a832d03ab4a24f94e71d910e3d13946ccac
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

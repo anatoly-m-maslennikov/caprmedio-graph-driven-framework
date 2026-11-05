@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Package
-  passive:
+atom_id: CA-R-1800
+ref_id: CA-R-1800
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Package
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
@@ -9,23 +15,24 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
-version: 19
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-2465
-atom_id: CA-R-1800
+status: Active
+version: 19
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action.md
   source_atom_id: CA-R-1800
   source_atom_revision: 19
-  source_sha256: c4cb19ea62db3a85476ed31c9b5266ca3f1619b939229d46fcfae61a777c73c9
+  source_sha256: 6fefabd4be6f66a3e0e66d49995138507de58780bff9a3f340308dfe49ff3e1c
   original_relations_sha256: 95a170d690ef47b6d4b2bfc3b07de342c82190a4797a6703732198276c9572d0
 ---
 ## Summary

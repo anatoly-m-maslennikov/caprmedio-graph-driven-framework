@@ -1,29 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Journal
-  passive:
+atom_id: CA-R-1644
+ref_id: CA-R-1644
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Journal
+  dependencies:
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Actor
+tier: 1
+status: Active
 version: 39
 updated_at: 2026-11-05 04:04:00 +0400
-relations: {}
-atom_id: CA-R-1644
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 carrier_destination:
   file:
     name: CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1644-CORE_META_MODEL-RULE--recover-work-journal-coverage-without-invention.md
   source_atom_id: CA-R-1644
   source_atom_revision: 39
-  source_sha256: ee7c59241fd8d3596b58e8f357bc0c93abdb24e703dc336f109c13ad3bac8ff3
+  source_sha256: 252bc295f447a221201c2f091ba8aedfc69424783ecb87dc3a8c32ff1bcc7a23
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

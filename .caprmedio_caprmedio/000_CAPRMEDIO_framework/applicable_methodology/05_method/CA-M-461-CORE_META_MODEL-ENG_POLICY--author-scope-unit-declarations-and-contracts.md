@@ -1,19 +1,19 @@
 ---
 atom_id: CA-M-461
-form: Eng Policy
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-version: 2
-relations: {}
-tier: 3
-updated_at: 2026-11-04 09:19:08 +0400
+ref_id: CA-M-461
 role: Method
+form: Eng Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-04 09:19:08 +0400
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md
   source_atom_id: CA-M-461
   source_atom_revision: 2
-  source_sha256: 73b9c1c7925080f15c4cf72b97544522919eddda79fd2ef259265941ffc62932
+  source_sha256: 4131c71b55294bd6032a5ebfb23709b612aba9ea9ea8b9be9ed46249e1ac48dd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

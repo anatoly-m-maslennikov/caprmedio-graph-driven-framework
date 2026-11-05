@@ -1,29 +1,35 @@
 ---
 atom_id: CA-O-123
-content_role: Operations
-type: Action
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Action//Evaluator Evidence Calibration
-  depends_on:
+ref_id: CA-O-123
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/caprmedio/Action//Evaluator Evidence Calibration
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+tier: 3
+status: Active
 version: 15
 updated_at: 2026-10-27 19:59:46 +0400
-relations: {}
-tier: 3
+carrier_destination:
+  file:
+    name: CA-O-123-PROJECT_CONFIGURATION-ACTION--calibrate-evaluator-evidence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-123-PROJECT_CONFIGURATION-ACTION--calibrate-evaluator-evidence.md
   source_atom_id: CA-O-123
   source_atom_revision: 15
-  source_sha256: 6cb60454384d0bc9062102ce0ac0bdcb93c9c50e218e3f8606a283b110e25e9d
+  source_sha256: 4be6643e6f5daeab6f965dea5be5405d98d26d25a6b1d05c31c827ed9d40ed29
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

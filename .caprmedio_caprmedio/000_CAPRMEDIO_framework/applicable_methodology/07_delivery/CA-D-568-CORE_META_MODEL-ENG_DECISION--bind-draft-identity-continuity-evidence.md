@@ -1,29 +1,36 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
-  passive:
+atom_id: CA-D-568
+ref_id: CA-D-568
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Atom
-version: 19
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   depends_on:
   - CA-D-650
   - CA-D-378
   - CA-D-446
-atom_id: CA-D-568
+status: Active
+version: 19
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-D-568-CORE_META_MODEL-DECISION--bind-draft-identity-continuity-evidence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-ENG_DECISION--bind-draft-identity-continuity-evidence.md
   source_atom_id: CA-D-568
   source_atom_revision: 19
-  source_sha256: b813a30d481be03bad3d4af1f8f0ad6d88ac7c4199c9967645a0cb84ae040bf6
+  source_sha256: 5673fc3c756aa4bd8bcc6bb5aaca71d56bca5775c565de643574ab2d3486b23f
   original_relations_sha256: 6aef9f445368f29b2bb5f4a7f1db2761c20ac826e6a1e8020f727585712627d4
 ---
 ## Summary

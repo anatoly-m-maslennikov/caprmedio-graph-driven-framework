@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-170
+ref_id: CA-C-170
 topics:
   main_subject: Project/priority model application
   dependencies:
@@ -7,13 +8,14 @@ topics:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Domain/Node/Continuant/Atom/Content Role
   - Project/mechanism
+status: Active
 version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # How does deterministic mechanism selection follow Operator priorities?
 

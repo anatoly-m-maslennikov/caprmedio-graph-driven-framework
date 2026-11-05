@@ -1,29 +1,36 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Content.Claim'
-  passive:
+atom_id: CA-M-312
+ref_id: CA-M-312
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Eng Decision
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Content.Claim'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
-version: 24
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 6
 relations:
   child_of:
   - CA-M-307
   depends_on:
   - CA-M-264
-atom_id: CA-M-312
+status: Active
+version: 24
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Method
-form: Eng Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md
   source_atom_id: CA-M-312
   source_atom_revision: 24
-  source_sha256: e442b349491899837ae1581d88010ca2692534c032843d3fdb0762d8f991ef3a
+  source_sha256: 9a915844aae3c9af0ead6a0dea01534bc502f80870ca4fb3c397f678b01ee15e
   original_relations_sha256: 6847aea819e74b6cfadff0dcb15833b9e403b09229fe445c6c3c564304447634
 ---
 ## Summary

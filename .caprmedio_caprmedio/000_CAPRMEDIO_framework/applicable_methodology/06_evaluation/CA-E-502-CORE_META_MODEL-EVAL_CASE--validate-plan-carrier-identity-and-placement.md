@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier
-  passive:
+atom_id: CA-E-502
+ref_id: CA-E-502
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Carrier/Directory
@@ -11,8 +17,7 @@ subjects:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
-version: 29
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-D-460
@@ -24,18 +29,20 @@ relations:
   - CA-R-1534
   - CA-R-1599
   - CA-R-997
-atom_id: CA-E-502
+status: Active
+version: 29
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-502-CORE_META_MODEL-EVAL_CASE--validate-plan-carrier-identity-and-placement.md
   source_atom_id: CA-E-502
   source_atom_revision: 29
-  source_sha256: 301ab49972531f92c79c6aeffa6cc8399d12879b0d19d87ece84dddd0a275d5a
+  source_sha256: 85e155c38a35568cda124c3becc132ae1aa01a752e5b03c09b69bd71a28df0bc
   original_relations_sha256: bf90816df00b59069b3c595f2da2b619dc2eb4bddbf6bd7ec7b7c4ad64551ed9
 ---
 ## Summary

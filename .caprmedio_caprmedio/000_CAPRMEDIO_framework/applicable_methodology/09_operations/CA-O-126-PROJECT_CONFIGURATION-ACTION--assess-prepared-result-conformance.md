@@ -1,29 +1,35 @@
 ---
 atom_id: CA-O-126
-content_role: Operations
-type: Action
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-version: 15
-updated_at: 2026-10-27 19:59:46 +0400
-subjects:
-  governs: Subject/caprmedio/Action//Assess Prepared Result Conformance
-  depends_on:
+ref_id: CA-O-126
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/caprmedio/Action//Assess Prepared Result Conformance
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-relations: {}
 tier: 3
+status: Active
+version: 15
+updated_at: 2026-10-27 19:59:46 +0400
+carrier_destination:
+  file:
+    name: CA-O-126-PROJECT_CONFIGURATION-ACTION--assess-prepared-result-conformance.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-126-PROJECT_CONFIGURATION-ACTION--assess-prepared-result-conformance.md
   source_atom_id: CA-O-126
   source_atom_revision: 15
-  source_sha256: 1cec4cc7b0458b5d96e64162e5ab7d98d28685b82df2bade57c9d048a896ed70
+  source_sha256: 38c4a8232cf73f1dc2f6a0e46543a2d2f2204d1b23013b03479c7fd87f0b6d17
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

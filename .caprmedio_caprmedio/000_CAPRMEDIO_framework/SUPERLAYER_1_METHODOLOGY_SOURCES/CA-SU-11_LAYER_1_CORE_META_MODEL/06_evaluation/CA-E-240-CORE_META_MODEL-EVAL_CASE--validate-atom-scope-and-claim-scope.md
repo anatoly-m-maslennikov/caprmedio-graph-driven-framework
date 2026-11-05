@@ -1,30 +1,33 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
-  - CAPRMEDIO_MODEL <+ Atom.Header.Relations.IS_CONTAINED_BY
+atom_id: CA-E-240
+ref_id: CA-E-240
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom.Header.Container
   - CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim
   - CAPRMEDIO_MODEL <+ Scope Unit
-version: 49
-updated_at: 2026-11-03 20:00:05 +0400
+tier: 7
 relations:
   evaluation_for:
   - CA-R-2102
   - CA-D-495
   - CA-D-479
   - CA-R-2714
-atom_id: CA-E-240
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 7
-role: Evaluation
-form: Eval Case
+version: 51
+updated_at: 2026-11-05 22:47:24 +0400
 carrier_destination:
   file:
     name: CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 

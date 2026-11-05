@@ -1,31 +1,38 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Journal
-  passive:
+atom_id: CA-E-476
+ref_id: CA-E-476
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Journal
+  dependencies:
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Project
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
-version: 23
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1491
   - CA-D-308
   - CA-D-340
-atom_id: CA-E-476
+status: Active
+version: 23
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-476-CORE_META_MODEL-EVAL_CASE--check-the-journal-storage-boundary.md
   source_atom_id: CA-E-476
   source_atom_revision: 23
-  source_sha256: e75e878569f91ddf6c60f3a47c6bab8132a2827a1d6482269b14de7e716447f4
+  source_sha256: 6b617c6d67f547a74544ee42fac4006c81902e986e7bc68c63fab86fe0c1ce68
   original_relations_sha256: ffdfbec293b61abb943375d9536d42f3b95ab616320c695fb67279d2b30f2dd2
 ---
 ## Summary

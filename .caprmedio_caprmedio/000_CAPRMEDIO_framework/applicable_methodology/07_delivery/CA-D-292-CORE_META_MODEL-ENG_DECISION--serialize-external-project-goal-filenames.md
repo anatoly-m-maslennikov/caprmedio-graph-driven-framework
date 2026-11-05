@@ -1,25 +1,31 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Project Goal)'
-  passive:
+atom_id: CA-D-292
+ref_id: CA-D-292
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Project Goal)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project.Settings.Name
   - CAPRMEDIO_MODEL <+ Project
+tier: 3
+status: Active
 version: 35
 updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
-atom_id: CA-D-292
+carrier_destination:
+  file:
+    name: CA-D-292-CORE_META_MODEL-DECISION--serialize-external-project-goal-filenames.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-292-CORE_META_MODEL-ENG_DECISION--serialize-external-project-goal-filenames.md
   source_atom_id: CA-D-292
   source_atom_revision: 35
-  source_sha256: 90f4a9c9fd47a0b13afe0dbf8a2667a9d8c45841e5be6adea9705d3469bbd037
+  source_sha256: 8b88efbca16e362f0bfcf29a49049ba264541a86e559f42a2051dea108a3bf41
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

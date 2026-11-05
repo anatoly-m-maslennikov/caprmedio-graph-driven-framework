@@ -1,11 +1,13 @@
 ---
 atom_id: CA-D-550
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/Directory
-  passive:
+ref_id: CA-D-550
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/Directory
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Carrier
@@ -14,17 +16,21 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Project.Settings
+tier: 3
+status: Active
 version: 20
 updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
-tier: 3
-role: Delivery
-form: Decision
+carrier_destination:
+  file:
+    name: CA-D-550-CORE_META_MODEL-DECISION--centralize-project-projection-carriers.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-550-CORE_META_MODEL-ENG_DECISION--centralize-project-projection-carriers.md
   source_atom_id: CA-D-550
   source_atom_revision: 20
-  source_sha256: 269c09c682181356a6e1476473af8754b554ba3e69f62bf27df3f24f44ba40ac
+  source_sha256: 553340f741c9cd549f58447b2004868c8294e3d7e2e60cd1d8d69bafd5d1bffb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

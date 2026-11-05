@@ -1,27 +1,33 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier
-  passive:
+atom_id: CA-D-324
+ref_id: CA-D-324
+container:
+  scope_unit: CA-SU-13
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Carrier/Directory
+tier: 3
+status: Active
 version: 29
 updated_at: 2026-11-02 15:49:28 +0400
-relations: {}
-atom_id: CA-D-324
+carrier_destination:
+  file:
+    name: CA-D-324-PROJECT_CONFIGURATION-DECISION--register-project-current-scope-content-role-directories.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-324-PROJECT_CONFIGURATION-ENG_DECISION--register-project-current-scope-content-role-directories.md
   source_atom_id: CA-D-324
   source_atom_revision: 29
-  source_sha256: 4ab07f4d8ca15fa767e033fd701f12a1b5d8288a98ea036f8de1bfe033706530
+  source_sha256: b69f71050fd88e6c16b17da4f4bfd5b25a0283b74bb3200954e7a4d83c24d880
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,5 +1,6 @@
 ---
-atom_id: CA-E-draft
+atom_id: CA-E-792
+ref_id: CA-E-792@2-draft
 container:
   scope_unit: CA-SU-15
 role: Evaluation
@@ -7,16 +8,16 @@ form: Evaluation Approach
 topics:
   main_subject: Subject/Engineering/Source Unit Responsibility
   dependencies:
-    - Subject/Engineering/Source Check Adoption
+  - Subject/Engineering/Source Check Adoption
 tier: 2
 relations:
   relates_to:
-    - CA-E-539
-    - CA-M-419
-    - CA-M-411
+  - CA-E-539
+  - CA-M-419
+  - CA-M-411
 status: Draft
 version: 2
-updated_at: "2026-10-23 19:06:37 +0400"
+updated_at: 2026-10-23 19:06:37 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
@@ -43,7 +44,7 @@ replaced by another policy or counting profile.
 ## Details
 
 - Resolve the bound Method source
-  `05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md`
+  `05_method/draft/CA-M-498@2-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md`
   and obtain its current applicability, unit names, thresholds, exception
   semantics, asset rules and LOC measurement definitions. That Method draft
   is the rule authority for the checker; CA-E-539 is not the rule source.
@@ -86,4 +87,4 @@ the normal identity, predecessor and consumer-rebinding process. Until then,
 CA-E-539, existing complexity checks, Ruff configuration and ratchets remain
 untouched and authoritative.
 
-Companion Method: [cohesive source organization](../../05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md).
+Companion Method: [cohesive source organization](../../05_method/draft/CA-M-498@2-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md).

@@ -1,27 +1,34 @@
 ---
 atom_id: CA-R-2225
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+ref_id: CA-R-2225
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Entity
+tier: 2
 relations:
   depends_on:
   - CA-R-2150@15
-tier: 2
+status: Active
 version: 4
 updated_at: 2026-11-02 00:18:22 +0400
-role: Requirement
-form: Rule
+carrier_destination:
+  file:
+    name: CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2225-CORE_META_MODEL-RULE--select-subject-graph-views-by-scope-units-and-branches.md
   source_atom_id: CA-R-2225
   source_atom_revision: 4
-  source_sha256: aebd0fee87c89750833158e5f03a9be4abbee797e7b32d9dd8f62d5643f538a6
+  source_sha256: e50c68fa635e87bcaa0ac9af7a6a181a496281f47a8a261a66924b232afde416
   original_relations_sha256: e5ed80c802b42a75a70b2cec6a262ed7c2e007d5530dfdb1f2db24403c6b3cb2
 ---
 ## Summary

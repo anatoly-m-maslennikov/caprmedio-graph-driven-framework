@@ -1,34 +1,37 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+atom_id: CA-E-445
+ref_id: CA-E-445
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
-version: 28
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-706
   - CA-R-718
   - CA-D-325
+status: Active
+version: 28
+updated_at: 2026-11-02 19:44:26 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-445
-status: Active
 current_scope_unit: PROJECT_CONFIGURATION
-tier: 4
 claim_target_scope_unit: caprmedio
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-445-PROJECT_CONFIGURATION-EVAL-CASE--validate-methodology-membership-in-the-project.md
   source_atom_id: CA-E-445
   source_atom_revision: 28
-  source_sha256: a7e6dcc7d0d7c824d061bb12fd1f9fca46773254cf25354e1bd475cacba46f99
+  source_sha256: 44dde9a84eff1a42c0331b950a371c2d547aee8a09239eb59b55885e3b02ea54
   original_relations_sha256: b44b20e012b4a11fdeca3e65c5d30f54989f67003fcb6939e46e32716dfd3cfb
 ---
 ## Summary

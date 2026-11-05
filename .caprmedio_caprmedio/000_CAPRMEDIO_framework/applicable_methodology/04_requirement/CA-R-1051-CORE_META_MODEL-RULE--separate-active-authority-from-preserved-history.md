@@ -1,23 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
-version: 35
-updated_at: 2026-11-02 19:44:26 +0400
+atom_id: CA-R-1051
+ref_id: CA-R-1051
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
+tier: 1
 relations:
   child_of:
   - CA-M-446
-atom_id: CA-R-1051
+status: Active
+version: 35
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1051-CORE_META_MODEL-RULE--separate-active-authority-from-preserved-history.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1051-CORE_META_MODEL-RULE--separate-active-authority-from-preserved-history.md
   source_atom_id: CA-R-1051
   source_atom_revision: 35
-  source_sha256: 90ed5727dfd22293400e3c7b6fc5c4dce13df3662b50c79728d66b372e818d30
+  source_sha256: 95b82f0de44b91883cd66353c6157ccecc9effd1cb058da1336488569b00d22c
   original_relations_sha256: b89a25fc58f998c131ce54128d80bfe7e80b8e3bae5533fc6910372a7e874e93
 ---
 ## Summary

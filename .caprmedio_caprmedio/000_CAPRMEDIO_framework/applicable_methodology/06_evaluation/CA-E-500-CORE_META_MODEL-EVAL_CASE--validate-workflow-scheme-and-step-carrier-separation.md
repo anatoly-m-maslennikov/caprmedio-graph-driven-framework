@@ -1,31 +1,38 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+atom_id: CA-E-500
+ref_id: CA-E-500
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Carrier/Directory
-version: 28
-updated_at: 2026-11-02 17:54:42 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1570
   - CA-R-2465
   - CA-M-305
   - CA-D-467
-atom_id: CA-E-500
+status: Active
+version: 28
+updated_at: 2026-11-02 17:54:42 +0400
+carrier_destination:
+  file:
+    name: CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-500-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md
   source_atom_id: CA-E-500
   source_atom_revision: 28
-  source_sha256: ceb0fdcccff0972ecb3e6b2aba27f6565ecd7cc05cea21bd9c8b072b4ce61edf
+  source_sha256: de6c4416ae45a12ca7b6f81331f558c69577aa5b166c8f3b83b6756cf9c17a94
   original_relations_sha256: aa20d6676c6a098d5d523b1b439d88d1b44f980f1e977d2c97a71e625130464f
 ---
 ## Summary

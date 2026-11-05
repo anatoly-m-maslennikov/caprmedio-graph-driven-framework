@@ -1,10 +1,12 @@
 ---
 atom_id: CA-A-047
+ref_id: CA-A-047
+status: Active
 version: 1
 updated_at: 2026-08-21 01:52:33
 subject_scopes:
-  - principles
-  - continuous-improvement
+- principles
+- continuous-improvement
 ---
 
 ## Task, scope, and boundaries

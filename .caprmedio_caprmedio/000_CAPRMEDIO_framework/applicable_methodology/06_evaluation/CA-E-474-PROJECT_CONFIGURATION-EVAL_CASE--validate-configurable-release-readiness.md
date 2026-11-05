@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Release Readiness'
-  passive:
+atom_id: CA-E-474
+ref_id: CA-E-474
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Release Readiness'
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Release Readiness'
@@ -14,8 +20,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-version: 27
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-O-025
@@ -23,18 +28,20 @@ relations:
   - CA-O-027
   - CA-R-1692
   - CA-R-1646
-atom_id: CA-E-474
+status: Active
+version: 27
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md
   source_atom_id: CA-E-474
   source_atom_revision: 27
-  source_sha256: 8619fce140c8541bb07799c7b2b05662130593881a46a80415400d58b4efa4d4
+  source_sha256: 5602ef681ce8e3488e94996b2dbc53e442a115286a6fc7873e71c54e4518da36
   original_relations_sha256: 474cd0531e323968dc05f230d1a267f336a12a8d9140c140d3ccf9f98fa8ed3e
 ---
 ## Summary

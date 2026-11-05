@@ -1,8 +1,21 @@
 ---
-cce_version: cce_1
-cce_form: evaluation
-version: 29
-updated_at: 2026-11-02 18:35:20 +0400
+atom_id: CA-E-439
+ref_id: CA-E-439
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Project
+tier: 4
 relations:
   child_of:
   - CA-E-001
@@ -14,30 +27,20 @@ relations:
   - CA-O-020
   - CA-O-021
   - CA-M-239
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
-  - CAPRMEDIO_MODEL <+ Project
+status: Active
+version: 29
+updated_at: 2026-11-02 18:35:20 +0400
+cce_version: cce_1
+cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
-atom_id: CA-E-439
-status: Active
 current_scope_unit: PROJECT_CONFIGURATION
-tier: 4
 claim_target_scope_unit: caprmedio
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-439-PROJECT_CONFIGURATION-POLICY--evaluate-the-evaluation-first-implementation-loop.md
   source_atom_id: CA-E-439
   source_atom_revision: 29
-  source_sha256: 9cc6d8ac973f750d17e4859ed6a0143835c6e7731e0f58c3d7ab05f0f1cd5d8e
+  source_sha256: 081b6c0b844408ad58fb1d0326c06d2dbb9531c2057b4fb926249afc816e3a63
   original_relations_sha256: e4a42269e4336082dc660022de5b35d2793f7baa25bf13da7892b2584b1286c3
 ---
 ## Summary

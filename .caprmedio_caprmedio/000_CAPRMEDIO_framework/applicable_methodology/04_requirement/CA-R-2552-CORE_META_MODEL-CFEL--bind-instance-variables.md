@@ -1,21 +1,27 @@
 ---
 atom_id: CA-R-2552
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-version: 4
-updated_at: 2026-11-04 05:21:15 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2552
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 4
+updated_at: 2026-11-04 05:21:15 +0400
+carrier_destination:
+  file:
+    name: CA-R-2552-CORE_META_MODEL-RULE--bind-instance-variables.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md
   source_atom_id: CA-R-2552
   source_atom_revision: 4
-  source_sha256: 202ab2c725dd5698a671a3e6a02b5229be01417f70255e5c795ec3734822e8be
+  source_sha256: 13ef74fa49bc913a342f3a09abf1cd305f1a2f68c80346114d656b28e23b69cf
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 35
-updated_at: 2026-11-05 23:17:15 +0400
+version: 36
+updated_at: 2026-11-06 00:16:35 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -79,7 +79,7 @@ Standalone chat is disabled. Its remaining implementation, lifecycle repairs, te
 
 ## Current status
 
-Active. Version 0.4.4.23 is the last deployed version; the next local release is pending. The watcher, sync and initial UI changes are implemented in source but not yet released. The remaining grid, unified View, retention and hourly query-log sources passed scoped independent review and are adopted. Each implementation lane has a Current source index and a prompt compiled from 41 verified applicable Method Policies. Backend, frontend and integrated acceptance work is running in parallel. Existing invalid Scope Unit Declarations still stop indexing; an ordinary file disappearing before admission is skipped. No unrelated source migration is included.
+Active. Version 0.4.4.24 is running after the completed immutable image was verified against the tested package and Current code fingerprint. The standard test run passed seven Docker cases, including 14 browser flows, and launcher integration; 77 host tests in 12 unchanged modules are also green. The standard command stopped after the build, so its failed receipt remains preserved and a separate observed-state continuation records installation. Native MCP verification passed for 43 tools, cached grid pages and the query log. Live browser verification found an uncaught Tabulator lifecycle error; M492@2 and E783@2 are adopted and its focused correction is pending.
 
 ## Source and verification index
 
@@ -105,3 +105,11 @@ The five Method and five Evaluation amendments passed independent review and are
 ## Integrated acceptance follow-up
 
 The first Docker acceptance run passed 12 host modules and launcher integration, but the seven-test Docker module found stale expectations and an adaptive-page editor race. The test fixtures now use the declared public columns, three-table schema and one-query Run contract while retaining historical saved-text compatibility. Watcher preservation checks permit concurrent unrelated source events and still require excluded runtime settings to stay unlogged. Adaptive page requests no longer disable the SQL editor and reject stale responses. The fix passed independent review and the full isolated browser gate passed 13 flows in 28.8 seconds. A fresh standard local release remains required.
+
+## Live grid follow-up
+
+- [ ] Implement the adopted grid lifecycle correction.
+- [ ] Review and run browser acceptance with uncaught-error assertions.
+- [ ] Release the correction and verify the running interface.
+
+Source packet: `.caprmedio_tmp/workbench/grid-lifecycle/`. Verified 0.4.4.24 installation: `.caprmedio_runtime/simple_local_release/reports/workbench-20261106-grid-retention-finish.md`. Native MCP proof: `.caprmedio_tmp/workbench/grid-live-proof.json`.

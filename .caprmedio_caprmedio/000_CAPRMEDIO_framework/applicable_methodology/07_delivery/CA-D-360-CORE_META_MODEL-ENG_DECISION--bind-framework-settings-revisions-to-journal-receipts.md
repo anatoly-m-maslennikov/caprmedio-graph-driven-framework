@@ -1,26 +1,33 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
-  passive:
+atom_id: CA-D-360
+ref_id: CA-D-360
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 5
 relations:
   child_of:
   - CA-D-359
-atom_id: CA-D-360
+status: Active
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-D-360-CORE_META_MODEL-DECISION--bind-framework-settings-revisions-to-journal-receipts.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 5
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-360-CORE_META_MODEL-ENG_DECISION--bind-framework-settings-revisions-to-journal-receipts.md
   source_atom_id: CA-D-360
   source_atom_revision: 27
-  source_sha256: f54f12b4b3464ed0572c9976f7d88c1877998cdc5ba2df511e6ded84e4105238
+  source_sha256: 4cf058e199637288a88cfd5339baf53a2753ed560b7e4868a098910c3f543fcf
   original_relations_sha256: c8bb85fb8ef619e2f610eea8ab82f269c447e9ea5167b4426122d66f74bb9054
 ---
 ## Summary

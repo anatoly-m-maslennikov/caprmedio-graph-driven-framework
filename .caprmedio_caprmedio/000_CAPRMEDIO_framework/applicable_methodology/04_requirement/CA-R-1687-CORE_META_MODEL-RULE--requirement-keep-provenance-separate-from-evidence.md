@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-version: 34
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-R-1687
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
+ref_id: CA-R-1687
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+tier: 1
+status: Active
+version: 34
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1687-CORE_META_MODEL-RULE--requirement-keep-provenance-separate-from-evidence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1687-CORE_META_MODEL-RULE--requirement-keep-provenance-separate-from-evidence.md
   source_atom_id: CA-R-1687
   source_atom_revision: 34
-  source_sha256: c744c940db81de200b2333d0f70a3011754853db43dfd7c055c41e9ea500d468
+  source_sha256: a347fbcb50c0dd032c5557a7d2897271a89e63d6c47b770c5c0f564d6b89e89f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

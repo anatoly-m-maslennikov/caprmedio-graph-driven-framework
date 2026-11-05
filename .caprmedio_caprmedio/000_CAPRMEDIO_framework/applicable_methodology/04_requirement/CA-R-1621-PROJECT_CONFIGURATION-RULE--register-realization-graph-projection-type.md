@@ -1,30 +1,37 @@
 ---
 atom_id: CA-R-1621
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
-  passive:
+ref_id: CA-R-1621
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Realization Graph)
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-version: 19
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-1568
   - CA-R-1631
   - CA-R-2535
-tier: 3
-role: Requirement
-form: Rule
+status: Active
+version: 19
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1621-PROJECT_CONFIGURATION-RULE--register-realization-graph-projection-type.md
   source_atom_id: CA-R-1621
   source_atom_revision: 19
-  source_sha256: 1334cdb95e465531f7bd392ab3a150a798a2a533f606256c6389a53c56d48413
+  source_sha256: 722e6cf382b9b55a8041eea0eb70690e14b4467760459acc754917be650f8e85
   original_relations_sha256: ca4f19a04ef603d0119ba0e2515933c7f693ac2b776d27f253b80e34776cb913
 ---
 ## Summary

@@ -1,31 +1,38 @@
 ---
 atom_id: CA-D-634
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)
-  passive:
+ref_id: CA-D-634
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Entities Graph)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Projection
-version: 23
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 5
 relations:
   depends_on:
   - CA-R-1456
   - CA-D-310
   - CA-D-550
   - CA-D-635
-tier: 5
-role: Delivery
-form: Decision
+status: Active
+version: 23
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-D-634-CORE_META_MODEL-DECISION--deliver-readable-entities-graph-trees-as-markdown.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-634-CORE_META_MODEL-DECISION--deliver-readable-entities-graph-trees-as-markdown.md
   source_atom_id: CA-D-634
   source_atom_revision: 23
-  source_sha256: ddee2e3b9210c1a077ad4e3293400d69f3a184c1fd29fb1033aeffd41652f7bd
+  source_sha256: 2815103aa1052f59858d253793c361122c4af47d966336cee6389c15d02807eb
   original_relations_sha256: 280d3ccecebd0c897a18a284c4b0e0cab14ddeb006061ad92c1292258a736dcd
 ---
 ## Summary

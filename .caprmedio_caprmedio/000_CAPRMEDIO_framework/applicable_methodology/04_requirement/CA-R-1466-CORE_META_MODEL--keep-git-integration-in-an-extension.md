@@ -1,26 +1,32 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
-  passive:
+atom_id: CA-R-1466
+ref_id: CA-R-1466
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+tier: 1
+status: Active
 version: 23
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
-atom_id: CA-R-1466
+carrier_destination:
+  file:
+    name: CA-R-1466-CORE_META_MODEL-RULE--keep-git-integration-in-an-extension.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1466-CORE_META_MODEL--keep-git-integration-in-an-extension.md
   source_atom_id: CA-R-1466
   source_atom_revision: 23
-  source_sha256: 8ea6435ccf86e81aae52d60c231d5692568624b95ce59dffb27caeaa05a34aa0
+  source_sha256: 8cf11467e196cf1d2d550a0b55902d5868a076b70f07b77c2e2656812f78f867
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,24 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
-  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
-  - CAPRMEDIO_MODEL <+ Term//Property
-version: 28
-updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
 atom_id: CA-R-1245
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-R-1245
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
+  - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
+  - CAPRMEDIO_MODEL <+ Term//Property
+tier: 3
+status: Active
+version: 28
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md
   source_atom_id: CA-R-1245
   source_atom_revision: 28
-  source_sha256: 0dbf7796de969c987d6fa8380af15191629f19b005875b4cfdc88975ffcee674
+  source_sha256: 7e437c988c379b25e8c9ee8d6447777e97bdcab730282dc2080ac8bf6250d775
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

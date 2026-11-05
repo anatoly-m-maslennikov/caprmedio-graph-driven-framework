@@ -1,6 +1,18 @@
 ---
-version: 27
-updated_at: 2026-11-02 18:35:20 +0400
+atom_id: CA-M-294
+ref_id: CA-M-294
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Actor
+  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - CAPRMEDIO_MODEL <+ Term
+tier: 3
 relations:
   child_of:
   - CA-R-940
@@ -10,25 +22,20 @@ relations:
   - CA-R-941
   depends_on:
   - CA-R-1273
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
-  - CAPRMEDIO_MODEL <+ Actor
-  - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  - CAPRMEDIO_MODEL <+ Term
-atom_id: CA-M-294
+status: Active
+version: 27
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md
   source_atom_id: CA-M-294
   source_atom_revision: 27
-  source_sha256: e382d6c60182c818801870fd57297a1a55514be844eeb78e5656386bfc84a909
+  source_sha256: af5ca3813e8653e2c78e98c48f2fec3ee950875f2201873a4a2d2590e1433701
   original_relations_sha256: 6746b4a0115b5db0b9c42517faa8335a9996da63970cc352369cb14deac5244e
 ---
 ## Summary

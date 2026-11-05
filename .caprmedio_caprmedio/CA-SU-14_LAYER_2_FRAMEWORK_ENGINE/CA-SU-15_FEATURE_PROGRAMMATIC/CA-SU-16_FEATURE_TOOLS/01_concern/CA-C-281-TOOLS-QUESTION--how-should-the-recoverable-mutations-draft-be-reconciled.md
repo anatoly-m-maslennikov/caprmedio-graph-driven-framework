@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-281
+ref_id: CA-C-281
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -14,6 +15,7 @@ relations:
   - CA-M-289
   - CA-R-1064
   - CA-R-2448
+status: Active
 version: 7
 updated_at: 2026-10-30 03:11:57 +0400
 cce_version: cce_1

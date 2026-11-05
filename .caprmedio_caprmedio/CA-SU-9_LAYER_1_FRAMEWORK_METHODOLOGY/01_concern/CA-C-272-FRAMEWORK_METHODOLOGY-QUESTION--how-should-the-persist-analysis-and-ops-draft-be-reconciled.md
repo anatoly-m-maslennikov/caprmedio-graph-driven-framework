@@ -1,19 +1,39 @@
 ---
+atom_id: CA-C-272
+ref_id: CA-C-272
 topics:
-  main_subject: "Atom"
+  main_subject: Atom
   dependencies:
-    - "Atom/Claim"
-    - "Artifact/Revision"
-    - "Project"
-    - "Operator"
-relations: {"relates_to": ["CA-R-1490", "CA-M-002", "CA-R-1337", "CA-R-1530", "CA-R-1552", "CA-R-1558", "CA-R-852", "CAPRMEDIO-META-REQU-158", "CA-R-1463", "CAPRMEDIO-META-REQU-097", "CA-R-1491", "CA-M-314", "CA-R-1565", "CA-R-1464", "CA-D-434", "CA-D-479"]}
+  - Atom/Claim
+  - Artifact/Revision
+  - Project
+  - Operator
+relations:
+  relates_to:
+  - CA-R-1490
+  - CA-M-002
+  - CA-R-1337
+  - CA-R-1530
+  - CA-R-1552
+  - CA-R-1558
+  - CA-R-852
+  - CAPRMEDIO-META-REQU-158
+  - CA-R-1463
+  - CAPRMEDIO-META-REQU-097
+  - CA-R-1491
+  - CA-M-314
+  - CA-R-1565
+  - CA-R-1464
+  - CA-D-434
+  - CA-D-479
+status: Active
 version: 3
-updated_at: "2026-09-23 17:57:20 +0000"
+updated_at: 2026-09-23 17:57:20 +0000
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Summary
 

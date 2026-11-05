@@ -1,28 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
-  - CAPRMEDIO_MODEL <+ Event Record
-  - CAPRMEDIO_MODEL <+ Projection
-version: 34
-updated_at: 2026-11-03 23:17:14 +0400
-relations: {}
 atom_id: CA-R-1649
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
+ref_id: CA-R-1649
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Event Record
+  - CAPRMEDIO_MODEL <+ Projection
+tier: 2
+status: Active
+version: 34
+updated_at: 2026-11-03 23:17:14 +0400
 carrier_destination:
   file:
     name: CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1649-CORE_META_MODEL-RULE--journal-projection-rebuild-events.md
   source_atom_id: CA-R-1649
   source_atom_revision: 34
-  source_sha256: 62de912bd543f6170e8ad9f184540023cc2d66d5e160e84094156f0b769cef3d
+  source_sha256: fd4de65c29a9ffdc3c4a709f29f900882dec9b0f42d0fd5cf653178b71192207
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

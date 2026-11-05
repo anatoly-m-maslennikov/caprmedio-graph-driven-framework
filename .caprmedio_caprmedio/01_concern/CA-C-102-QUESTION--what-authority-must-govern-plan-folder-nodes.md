@@ -1,5 +1,7 @@
 ---
 atom_id: CA-C-102
+ref_id: CA-C-102
+status: Active
 version: 1
 updated_at: 2026-08-22 22:50:50
 cce_version: cce_1

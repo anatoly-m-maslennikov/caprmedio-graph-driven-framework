@@ -1,24 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH
-  passive:
-  - CAPRMEDIO_MODEL <+ Scope Unit
-  - CAPRMEDIO_MODEL <+ Carrier
-version: 20
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-D-453
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
+ref_id: CA-D-453
+container:
+  scope_unit: CA-SU-13
 role: Delivery
 form: Decision
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Projection//PROJECT_SCOPE_UNIT_GRAPH
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Carrier
+tier: 3
+status: Active
+version: 20
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-D-453-PROJECT_CONFIGURATION-DECISION--place-project-scope-unit-graph-sources-projection.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-453-PROJECT_CONFIGURATION-ENG_DECISION--place-project-scope-unit-graph-sources-projection.md
   source_atom_id: CA-D-453
   source_atom_revision: 20
-  source_sha256: eeb1797fbfb98f80bcb358a0c0beaa8106eb41f48cc26fe574cdbc109fe5bb30
+  source_sha256: c09f46a03cbe24fdd24617f73016b34ff2b1ba8c12ce9a09e36e52b7a1ca245a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

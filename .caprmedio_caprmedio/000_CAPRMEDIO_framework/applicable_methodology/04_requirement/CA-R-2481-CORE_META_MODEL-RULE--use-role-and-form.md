@@ -1,23 +1,29 @@
 ---
 atom_id: CA-R-2481
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2481
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-2481-CORE_META_MODEL-RULE--use-role-and-form-for-declaration-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2481-CORE_META_MODEL-RULE--use-role-and-form.md
   source_atom_id: CA-R-2481
   source_atom_revision: 2
-  source_sha256: c65c1cafd8e1736dda23241d26ac0d4da7db9d3481f64b755c3b941540f19476
+  source_sha256: d63241e4118a3bf9b23a824c63c83a8585c5201e52ac7914f28085c9a56f5493
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

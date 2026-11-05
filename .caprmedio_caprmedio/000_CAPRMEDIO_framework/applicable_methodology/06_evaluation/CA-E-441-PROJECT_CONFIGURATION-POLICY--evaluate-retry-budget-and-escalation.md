@@ -1,6 +1,20 @@
 ---
-version: 35
-updated_at: 2026-11-02 18:35:20 +0400
+atom_id: CA-E-441
+ref_id: CA-E-441
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Autonomous Confidence Threshold'
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+tier: 6
 relations:
   child_of:
   - CA-E-001
@@ -9,27 +23,16 @@ relations:
   - CA-O-016
   - CA-R-1559
   - CA-M-295
-subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Implementation Retry Control'
-  passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Autonomous Confidence Threshold'
-  - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
-atom_id: CA-E-441
+status: Active
+version: 35
+updated_at: 2026-11-02 18:35:20 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-441-PROJECT_CONFIGURATION-POLICY--evaluate-retry-budget-and-escalation.md
   source_atom_id: CA-E-441
   source_atom_revision: 35
-  source_sha256: 74779476a7ecf98826b7c52ddea0af93f70759c1787e353e30b12edd3058bad8
+  source_sha256: bb7201fcfdd12dc86ed64076e47d869577ad7c9fb19ed24080c22aa8a0c86b4b
   original_relations_sha256: 52c1f0b5c3a2b439de8cfe87809ef5d2ebda914234b7522c46871c374e39bf08
 ---
 ## Summary

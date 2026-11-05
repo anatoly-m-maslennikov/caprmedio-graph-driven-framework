@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-275
+ref_id: CA-C-275
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -7,14 +8,23 @@ topics:
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-relations: {"relates_to": ["CA-D-250", "CA-E-394", "CA-E-397", "CA-M-159", "CA-M-166", "CA-M-281", "CA-M-286"]}
+relations:
+  relates_to:
+  - CA-D-250
+  - CA-E-394
+  - CA-E-397
+  - CA-M-159
+  - CA-M-166
+  - CA-M-281
+  - CA-M-286
+status: Active
 version: 5
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Summary
 

@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Subjects
-  passive:
+atom_id: CA-E-246
+ref_id: CA-E-246
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Demand)'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
@@ -22,8 +28,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-version: 47
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 6
 relations:
   evaluation_for:
   - CA-R-1275
@@ -44,18 +49,20 @@ relations:
   - CA-M-444
   - CA-R-1318
   - CA-R-2514
-atom_id: CA-E-246
+status: Active
+version: 47
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md
   source_atom_id: CA-E-246
   source_atom_revision: 47
-  source_sha256: 9f6fdb1f34591e398edb050628ae52679dc9e6a3a7aafbc28d6356e6451ecf52
+  source_sha256: 8a962cdafa5ff970f6631120626494e7acb48f88b9afbf378d3a671a5822242e
   original_relations_sha256: ca5d212def5fba51fa5c14515d642e5797fdbac9af39cc198b76ecd9e2cfc537
 ---
 ## Summary

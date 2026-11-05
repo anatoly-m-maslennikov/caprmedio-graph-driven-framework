@@ -1,30 +1,37 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content'
-  passive:
+atom_id: CA-M-309
+ref_id: CA-M-309
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-version: 23
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 6
 relations:
   child_of:
   - CA-M-307
   depends_on:
   - CA-M-306
-atom_id: CA-M-309
+status: Active
+version: 23
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
   source_atom_id: CA-M-309
   source_atom_revision: 23
-  source_sha256: 5f2722ff6e8d23423244ff9d2eeceedde8f58f3d37ec05d8a5898e68fc0d8dd9
+  source_sha256: 976a89a66e2cc11c5fa4495c549222e29b6e9b890f21bb1605c1d89d9f4e14e7
   original_relations_sha256: a1630976c55baee2df66eec1a8564dbfdda162656cba6354e2f480b01eac7d0d
 ---
 ## Summary

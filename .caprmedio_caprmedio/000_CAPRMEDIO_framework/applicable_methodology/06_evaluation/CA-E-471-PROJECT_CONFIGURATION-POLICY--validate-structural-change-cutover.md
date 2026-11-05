@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+atom_id: CA-E-471
+ref_id: CA-E-471
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
@@ -10,26 +16,27 @@ subjects:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-version: 28
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-O-012
   - CA-O-013
   - CA-O-014
   - CA-O-015
-atom_id: CA-E-471
+status: Active
+version: 28
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-E-471-PROJECT_CONFIGURATION-EVAL_POLICY--validate-structural-change-cutover.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-471-PROJECT_CONFIGURATION-POLICY--validate-structural-change-cutover.md
   source_atom_id: CA-E-471
   source_atom_revision: 28
-  source_sha256: c99f028b3461e18e978796e5085f313d5316b9f9ba2eeef7f6640aa17ec4cc58
+  source_sha256: f06b9944f8932a2424653354269d9218462734e8ccce9947eec2643612dce6b4
   original_relations_sha256: 962f30ce52da49629429dc0c407210d6b9455d5e453471c4cfec3f524c018581
 ---
 ## Summary

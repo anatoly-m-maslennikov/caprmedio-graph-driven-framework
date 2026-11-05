@@ -1,26 +1,33 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)
-  passive:
+atom_id: CA-D-347
+ref_id: CA-D-347
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Scope Signature)
   - CAPRMEDIO_MODEL <+ Carrier
-version: 29
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 3
 relations:
   child_of:
   - CA-D-266
-atom_id: CA-D-347
+status: Active
+version: 29
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-347-CORE_META_MODEL-DECISION--deliver-canonical-scope-signatures-as-external-report-projections.md
   source_atom_id: CA-D-347
   source_atom_revision: 29
-  source_sha256: bae57a3b5d71a39868d391ef59350d1f60dc815385380592434ad2aae3f7b711
+  source_sha256: c1c4cf773fca44592fe6d9b052f4cedfa17bc950c92be92b0005d55b10cd0d7d
   original_relations_sha256: 05d305e1056e99459d521dea634c2a5bc7d31356258feae4f6c9491320e90591
 ---
 ## Summary

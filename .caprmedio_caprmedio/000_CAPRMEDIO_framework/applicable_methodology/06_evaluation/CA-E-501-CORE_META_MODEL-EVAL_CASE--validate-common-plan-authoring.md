@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
-  passive:
+atom_id: CA-E-501
+ref_id: CA-E-501
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_MODEL <+ Atom.Content
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
@@ -11,8 +17,7 @@ subjects:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-version: 30
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1574@21
@@ -28,18 +33,20 @@ relations:
   - CA-R-1589
   - CA-M-306
   - CA-D-470
-atom_id: CA-E-501
+status: Active
+version: 30
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-E-501-CORE_META_MODEL-EVAL_CASE--validate-common-plan-authoring.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-501-CORE_META_MODEL-EVAL_CASE--validate-common-plan-authoring.md
   source_atom_id: CA-E-501
   source_atom_revision: 30
-  source_sha256: 94862ea70f6e340d59a04f29a377c9e3ce47e88348ca6b807a1552d3e8c06285
+  source_sha256: 3d55e8a0ebb1e6610d4356b4859bc91fd623bfaea91c17b61b6669cb42ceae40
   original_relations_sha256: d74d6c67905f8978e335a96c2236f190cf7fc40fe29f88dee7d98b4bad6b5140
 ---
 ## Summary

@@ -1,21 +1,27 @@
 ---
 atom_id: CA-R-2470
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ (Node, Node.**)
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2470
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ (Node, Node.**)
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-2470-CORE_META_MODEL-RULE--inherit-declaration-constraints-and-enforce-relation-whitelists.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2470-CORE_META_MODEL-RULE--declaration-inheritance-and-relation-whitelist.md
   source_atom_id: CA-R-2470
   source_atom_revision: 2
-  source_sha256: 4538f6da853f355069f985f84354a421b15ac7c792aa10859550f5486dbcf8fe
+  source_sha256: 56f470fe0a22398d6c067fc2ce07d5450c4a795c72ee53f3f296cfea4e756d7d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

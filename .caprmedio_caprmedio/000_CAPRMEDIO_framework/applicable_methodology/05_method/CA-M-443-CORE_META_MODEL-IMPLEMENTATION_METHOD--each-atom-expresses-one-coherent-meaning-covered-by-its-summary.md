@@ -1,28 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
-  passive:
+atom_id: CA-M-443
+ref_id: CA-M-443
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
+tier: 3
+status: Active
 version: 4
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
-atom_id: CA-M-443
+carrier_destination:
+  file:
+    name: CA-M-443-CORE_META_MODEL-IMPLEMENTATION_METHOD--each-atom-expresses-one-coherent-meaning-covered-by-its-summary.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-443-CORE_META_MODEL-IMPLEMENTATION_METHOD--each-atom-expresses-one-coherent-meaning-covered-by-its-summary.md
   source_atom_id: CA-M-443
   source_atom_revision: 4
-  source_sha256: 4a96e9643633837ff126fd245bc6f4f4b7be1d530023392a362cf7e925bf806d
+  source_sha256: e5b7e74c2a5b5ebab8e97c5ec446180d2284a46068a8a43ae621d488b7507e38
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

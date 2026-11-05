@@ -1,23 +1,29 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  passive:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-version: 24
-updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
 atom_id: CA-M-234
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-M-234
+container:
+  scope_unit: CA-SU-11
 role: Method
 form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  dependencies:
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+tier: 3
+status: Active
+version: 24
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-234-CORE_META_MODEL-IMPLEMENTATION_METHOD--register-expandable-canonical-cce-operator-list.md
   source_atom_id: CA-M-234
   source_atom_revision: 24
-  source_sha256: 9858f63cb1fb0f6ea24de25922f3087554c8901c91705e9ec913acf95e841f50
+  source_sha256: 659e4b981c23ae5f01e844e5a5f58c711b16ed6ada0f3ac6ca6a733afe04b041
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,12 +1,14 @@
 ---
 atom_id: CA-A-040
+ref_id: CA-A-040
+status: Active
 version: 1
 updated_at: 2026-08-21 01:52:33
 subject_scopes:
-  - authority
-  - scope-topology
-  - settings
-  - carrier-format
+- authority
+- scope-topology
+- settings
+- carrier-format
 ---
 
 ## Task, scope, and boundaries

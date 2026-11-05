@@ -1,23 +1,30 @@
 ---
 atom_id: CA-R-1947
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Status
+ref_id: CA-R-1947
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status
+tier: 2
 relations:
   child_of:
   - CA-R-1174
+status: Active
 version: 13
 updated_at: 2026-11-02 00:18:22 +0400
-tier: 2
-role: Requirement
-form: Rule
+carrier_destination:
+  file:
+    name: CA-R-1947-CORE_META_MODEL-RULE--define-atom-status-allowed-values.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md
   source_atom_id: CA-R-1947
   source_atom_revision: 13
-  source_sha256: d40a876b0bcd4b3045e05c2580f2132e742d1f583a9a1accfe60128abee3791c
+  source_sha256: b9a5062cadac7068369a392c274187d82c4550f76ef3e782ddb134d4e5fe033f
   original_relations_sha256: 2e54810b23dc6829999889d9dce55018a30d8606de806fb64b6f8578b2c66336
 ---
 ## Summary

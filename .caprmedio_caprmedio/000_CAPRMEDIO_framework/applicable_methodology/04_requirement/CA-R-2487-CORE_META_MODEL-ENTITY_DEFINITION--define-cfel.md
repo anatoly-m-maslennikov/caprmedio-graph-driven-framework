@@ -1,45 +1,32 @@
 ---
 atom_id: CA-R-2487
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-version: 13
-updated_at: 2026-11-04 20:33:16 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-tier: 3
+ref_id: CA-R-2487
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 13
+updated_at: 2026-11-04 20:33:16 +0400
 carrier_destination:
   file:
-    name: CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md
+    name: CA-R-2487-DECLARATION--define-cfel.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md
   source_atom_id: CA-R-2487
   source_atom_revision: 13
-  source_sha256: d0d00c62d839e400fce9fec01379974ccc0f8ccc47fd457c935eedbf24955045
-  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
+  source_sha256: aca579539ce252f01043711624fcea2d23219923f5303e70d04b42368f76849f
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Define CFEL
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-p{:occurrence}: [value format]{:value count};
-
-p.*[name format]{:immediate name count};
-
-p.**[name format]{:recursive name count};
-
-p.*[name format]{:immediate name count}: [value format]{:value count}
-```
 
 ### Prose Claim
 
@@ -140,3 +127,16 @@ existing source binding that declares it. No value-format-to-instance rewrite
 is implied by the CFEL overview.
 
 `Relation//IS_DECLARED_BY` is the qualified derived view of a GOVERNS fact whose source is a Requirement/Form Declaration; it reverses that selected fact while retaining the qualification. It is not a general inverse of GOVERNS or a permission for every Relation.
+### Formal Claim
+
+```CFEL
+# model
+p{:occurrence}:: [value format]{:value count};
+
+p.*[name format]{:immediate name count};
+
+p.**[name format]{:recursive name count};
+
+p.*[name format]{:immediate name count}:: [value format]{:value count}
+```
+

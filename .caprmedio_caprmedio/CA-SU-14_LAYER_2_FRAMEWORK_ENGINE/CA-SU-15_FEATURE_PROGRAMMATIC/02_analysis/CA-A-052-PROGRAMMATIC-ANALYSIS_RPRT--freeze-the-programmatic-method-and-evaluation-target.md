@@ -1,14 +1,16 @@
 ---
 atom_id: CA-A-052
+ref_id: CA-A-052
 topics:
   main_subject:
     continuant:
-      - Programmatic Method and Evaluation Target
+    - Programmatic Method and Evaluation Target
   dependencies:
     continuant:
-      - Programmatic Policy
-      - Method Authority
-      - Evaluation Coverage
+    - Programmatic Policy
+    - Method Authority
+    - Evaluation Coverage
+status: Active
 version: 4
 updated_at: 2026-10-23 03:17:34 +0400
 ---

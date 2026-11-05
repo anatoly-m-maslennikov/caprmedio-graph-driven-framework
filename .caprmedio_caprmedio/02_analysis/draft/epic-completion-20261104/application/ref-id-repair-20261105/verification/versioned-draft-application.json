@@ -1,0 +1,132 @@
+{
+  "verdict": "PASS_WITH_LINK_FOLLOWUP",
+  "receipt_plan_pin": true,
+  "rows": [
+    {
+      "id": "CA-R-2994",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+      "output": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-2994@2-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+      "planned_hash_matches": true,
+      "preimage_matches_skeleton": true,
+      "old_absent": true,
+      "body_preserved": true,
+      "id_ref_status_version_match": true,
+      "other_metadata_differences": [],
+      "archives": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/archive/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners@1.md",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "id": "CA-M-498",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+      "output": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-498@2-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+      "planned_hash_matches": true,
+      "preimage_matches_skeleton": true,
+      "old_absent": true,
+      "body_preserved": true,
+      "id_ref_status_version_match": true,
+      "other_metadata_differences": [],
+      "archives": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets@1.md",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "id": "CA-M-499",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+      "output": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-499@2-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+      "planned_hash_matches": true,
+      "preimage_matches_skeleton": true,
+      "old_absent": true,
+      "body_preserved": true,
+      "id_ref_status_version_match": true,
+      "other_metadata_differences": [],
+      "archives": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start@1.md",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "id": "CA-E-792",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+      "output": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-792@2-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+      "planned_hash_matches": true,
+      "preimage_matches_skeleton": true,
+      "old_absent": true,
+      "body_preserved": true,
+      "id_ref_status_version_match": true,
+      "other_metadata_differences": [],
+      "archives": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization@1.md",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "id": "CA-E-793",
+      "version": 2,
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+      "output": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-793@2-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+      "planned_hash_matches": true,
+      "preimage_matches_skeleton": true,
+      "old_absent": true,
+      "body_preserved": true,
+      "id_ref_status_version_match": true,
+      "other_metadata_differences": [],
+      "archives": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces@1.md",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "id": "CA-A-1327",
+      "version": 3,
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+      "output": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1327@3-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+      "planned_hash_matches": true,
+      "preimage_matches_skeleton": true,
+      "old_absent": true,
+      "body_preserved": true,
+      "id_ref_status_version_match": true,
+      "other_metadata_differences": [],
+      "archives": []
+    }
+  ],
+  "identity_collisions": [],
+  "issues": [],
+  "link_followup": {
+    "old_filenames": [
+      "CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+      "CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+      "CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+      "CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+      "CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+      "CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md"
+    ],
+    "native_paths_currently_referencing_old_names": [
+      ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-792@2-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+      ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-793@2-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+      ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-2994@2-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/full-packet-review-20261031.md",
+      ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-498@2-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+      ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-499@2-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+      ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-495@1-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md"
+    ],
+    "note": "Snapshot before separately owned exact filename-link follow-up; recheck after that receipt. Archive and frozen references are excluded."
+  },
+  "limits": "No native, code, test, runtime or Git mutation."
+}

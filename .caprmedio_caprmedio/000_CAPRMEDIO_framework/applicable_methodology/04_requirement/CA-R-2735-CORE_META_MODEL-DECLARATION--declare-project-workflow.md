@@ -1,19 +1,19 @@
 ---
 atom_id: CA-R-2735
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)
-version: 1
-updated_at: '2026-11-04 00:31:19 +0400'
-relations: {}
-tier: 3
+ref_id: CA-R-2735
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)
+tier: 3
+status: Active
+version: 1
+updated_at: '2026-11-04 00:31:19 +0400'
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md
   source_atom_id: CA-R-2735
   source_atom_revision: 1
-  source_sha256: c5d223f5de5d92bfcf97e982c34cc968210e9c6f5d2c01a6d290c67886ae0637
+  source_sha256: 23d7e46555f531b62a9d847f8234920b9a20dafe7b69cef6373d06bad3b942eb
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 

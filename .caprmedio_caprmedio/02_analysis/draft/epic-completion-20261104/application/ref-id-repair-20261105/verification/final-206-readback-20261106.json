@@ -1,0 +1,135 @@
+{
+  "verdict": "PASS",
+  "final_eight": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+      "id": "CA-D-019",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+      "id": "CA-D-021",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+      "id": "CA-D-022",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+      "id": "CA-C-268",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+      "id": "CA-C-269",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled.md",
+      "id": "CA-C-270",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled.md",
+      "id": "CA-C-271",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md",
+      "id": "CA-C-272",
+      "after_matches": true,
+      "body_preserved": true,
+      "changed_fields": [
+        "atom_id",
+        "ref_id"
+      ],
+      "id_ref_correct": true,
+      "other_metadata_unchanged": true
+    }
+  ],
+  "final_application_receipt_matches": true,
+  "versioned_reference": {
+    "operations": 6,
+    "receipt_matches": true,
+    "after_hash_mismatches": [],
+    "mapping": {
+      "CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md": "CA-R-2994@2-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+      "CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md": "CA-M-498@2-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+      "CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md": "CA-M-499@2-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+      "CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md": "CA-E-792@2-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+      "CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md": "CA-E-793@2-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+      "CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md": "CA-A-1327@3-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md"
+    },
+    "missing_targets": [],
+    "retained_frozen_historical_report": [
+      ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/full-packet-review-20261031.md"
+    ],
+    "remaining_live_atom_references": [],
+    "note": "One non-Atom historical review retains original filenames as frozen evidence; six live Atom source operations match their receipt."
+  },
+  "original_206": {
+    "counts": {
+      "repaired": 206
+    },
+    "rows": 206,
+    "missing_status": 0,
+    "missing_current_ids": 0,
+    "draft_lineage_identity_holds": 0,
+    "live_recheck_issues": []
+  },
+  "archive_count": 5,
+  "archive_hash_mismatches": [],
+  "issues": [],
+  "limits": "Read-only identity and exact-link repair readback; no admission, runtime or test conformance claim."
+}

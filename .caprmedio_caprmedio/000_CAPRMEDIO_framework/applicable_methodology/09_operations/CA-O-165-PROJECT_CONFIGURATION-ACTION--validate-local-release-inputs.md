@@ -1,28 +1,34 @@
 ---
 atom_id: CA-O-165
-content_role: Operations
-type: Action
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-subjects:
-  governs: Subject/caprmedio/Action//Validate local release inputs
-  depends_on:
+ref_id: CA-O-165
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/caprmedio/Action//Validate local release inputs
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
+tier: 3
+status: Active
 version: 22
 updated_at: 2026-11-02 19:46:47 +0400
-relations: {}
-tier: 3
+carrier_destination:
+  file:
+    name: CA-O-165-PROJECT_CONFIGURATION-ACTION--validate-local-release-inputs.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-165-PROJECT_CONFIGURATION-ACTION--validate-local-release-inputs.md
   source_atom_id: CA-O-165
   source_atom_revision: 22
-  source_sha256: e9291b3b7b13019b376d0cf785f576c33f477f0541cdafb473f86e34a7270e31
+  source_sha256: 4b4f3fcc83c951f07d3a0eed2408888635a5d20ffa10eb9fe2b069fcead72f62
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

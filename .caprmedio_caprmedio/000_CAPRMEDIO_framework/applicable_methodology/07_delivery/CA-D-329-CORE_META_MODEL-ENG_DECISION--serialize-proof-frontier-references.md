@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
-version: 27
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-D-329
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-D-329
+container:
+  scope_unit: CA-SU-11
 role: Delivery
 form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
+tier: 3
+status: Active
+version: 27
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-D-329-CORE_META_MODEL-DECISION--serialize-proof-frontier-references.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-329-CORE_META_MODEL-ENG_DECISION--serialize-proof-frontier-references.md
   source_atom_id: CA-D-329
   source_atom_revision: 27
-  source_sha256: b00323af4927500e97c4d1e510a4d918fd68f7f4f6e7c480f88b1ceec5309872
+  source_sha256: 32c00987c1cf538ce973d647b2d455409685afd5ef32d98b5bec0fbc160ef6f7
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

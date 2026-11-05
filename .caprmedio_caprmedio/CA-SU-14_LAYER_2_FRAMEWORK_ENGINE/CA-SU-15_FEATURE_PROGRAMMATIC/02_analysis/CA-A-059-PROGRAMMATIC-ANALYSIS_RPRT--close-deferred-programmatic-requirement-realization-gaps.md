@@ -1,14 +1,16 @@
 ---
 atom_id: CA-A-059
+ref_id: CA-A-059
 topics:
   main_subject:
     continuant:
-      - programmatic-policy
+    - programmatic-policy
     occurrent:
-      - validation
+    - validation
 relations:
   derived_from:
-    - CA-A-058
+  - CA-A-058
+status: Active
 version: 4
 updated_at: 2026-10-23 03:17:34 +0400
 ---

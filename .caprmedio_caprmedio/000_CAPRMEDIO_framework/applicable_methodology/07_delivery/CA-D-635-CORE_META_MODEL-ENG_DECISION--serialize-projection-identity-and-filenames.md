@@ -1,32 +1,39 @@
 ---
 atom_id: CA-D-635
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+ref_id: CA-D-635
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection.ID
   - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ Projection.Scope Unit
   - CAPRMEDIO_MODEL <+ Projection.Source.Named Selection
   - CAPRMEDIO_MODEL <+ Projection.Source.Atoms
   - CAPRMEDIO_MODEL <+ Scope Unit
-version: 17
-updated_at: 2026-11-04 07:51:19 +0400
+tier: 4
 relations:
   depends_on:
   - CA-R-1943
   - CA-D-310
   - CA-D-550
-tier: 4
-role: Delivery
-form: Decision
+status: Active
+version: 17
+updated_at: 2026-11-04 07:51:19 +0400
+carrier_destination:
+  file:
+    name: CA-D-635-CORE_META_MODEL-DECISION--serialize-projection-identity-and-filenames.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md
   source_atom_id: CA-D-635
   source_atom_revision: 17
-  source_sha256: 20a57bce956acaac8a98cee243b18d040161894000dbe77e256ff548d4285d42
+  source_sha256: bb89db55454c90f77d3120e220bf5593c0bf73d8f3380a8f41bf491afe67be1e
   original_relations_sha256: d43f4bf4aabcc9f4b50a5498062a151d8142ac5fb8e67e0e2cde8894a4b819fd
 ---
 ## Summary

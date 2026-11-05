@@ -1,28 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Carrier/File
-  passive:
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
-  - CAPRMEDIO_MODEL <+ Atom.Header.Version
-version: 14
-updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
 atom_id: CA-D-650
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
+ref_id: CA-D-650
+container:
+  scope_unit: CA-SU-11
 role: Delivery
 form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+tier: 3
+status: Active
+version: 14
+updated_at: 2026-11-03 23:25:51 +0400
 carrier_destination:
   file:
-    name: CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md
+    name: CA-D-650-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md
   source_atom_id: CA-D-650
   source_atom_revision: 14
-  source_sha256: 69fbce9dc843bbfa91c2ab8f6cfd1d7f1e19cccb5e474145f910ba926c47d104
+  source_sha256: 3d19f896cbddc5151c80b8d2d65bee60994fefb68ad20df03101241d2b0a2d10
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,29 +1,36 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method).Content.Claim'
-  passive:
+atom_id: CA-M-311
+ref_id: CA-M-311
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method).Content.Claim'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
   - CAPRMEDIO_MODEL <+ Atom.Content
-version: 25
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 6
 relations:
   child_of:
   - CA-M-307
   method_for:
   - CA-R-2513
-atom_id: CA-M-311
+status: Active
+version: 25
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-311-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-method-claims-with-the-method-cce-profile.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-method-claims-with-the-method-cce-profile.md
   source_atom_id: CA-M-311
   source_atom_revision: 25
-  source_sha256: 326463cd44fae11b731b179bb89b528cd56b77aff3d960f827d4edf619d89de2
+  source_sha256: 95194e9bfb96e526842dbab0348271743661bc0a956ba912cabbed070aee546e
   original_relations_sha256: 47b06870f90f386d56ae6b28c085ecca8c85c303431390d57d18a6a22f61c0d2
 ---
 ## Summary

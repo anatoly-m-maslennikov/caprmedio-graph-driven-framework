@@ -1,21 +1,27 @@
 ---
 atom_id: CA-R-1780
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
-version: 14
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-1780
+container:
+  scope_unit: CA-SU-13
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+tier: 3
+status: Active
+version: 14
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1780-PROJECT_CONFIGURATION-RULE--define-production-log-severity-meanings.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1780-PROJECT_CONFIGURATION-RULE--define-production-log-severity-meanings.md
   source_atom_id: CA-R-1780
   source_atom_revision: 14
-  source_sha256: 49b28034d3e8e0df1f458bb8f6af6d65d27d62036336d5a22f08bae7d81ab30a
+  source_sha256: 67c6d54881cff84c9425f8f4cf9244e373dee6c7514400635dfa992258b87bb0
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-131
+ref_id: CA-C-131
 topics:
   main_subject: 'Atom/Content Role: Plan/Type: Task'
   dependencies:
@@ -9,13 +10,14 @@ topics:
   - Subject/Domain/Node/Continuant/Atom
   - Artifact
   - Atom/Claim
+status: Active
 version: 4
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Which unfinished session work requires a persisted Task?
 

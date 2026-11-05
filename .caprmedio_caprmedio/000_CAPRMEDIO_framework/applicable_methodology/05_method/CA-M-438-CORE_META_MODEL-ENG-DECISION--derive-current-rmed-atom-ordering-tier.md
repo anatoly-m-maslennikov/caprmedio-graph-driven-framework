@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
-  passive:
+atom_id: CA-M-438
+ref_id: CA-M-438
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Eng Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
@@ -9,8 +15,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
-version: 18
-updated_at: 2026-11-04 09:19:08 +0400
+tier: 4
 relations:
   method_for:
   - CA-R-2706
@@ -19,18 +24,20 @@ relations:
   - CA-R-2131
   - CA-R-2132
   - CA-R-2149
-atom_id: CA-M-438
+status: Active
+version: 18
+updated_at: 2026-11-04 09:19:08 +0400
+carrier_destination:
+  file:
+    name: CA-M-438-CORE_META_MODEL-ENG_DECISION--derive-current-rmed-atom-ordering-tier.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-tier: 4
-status: Active
-role: Method
-form: Eng Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-438-CORE_META_MODEL-ENG-DECISION--derive-current-rmed-atom-ordering-tier.md
   source_atom_id: CA-M-438
   source_atom_revision: 18
-  source_sha256: bc090d304452fde62aa19f78a7ee365b12ba976e45ea91e31d0e5cc4d3ed4ee2
+  source_sha256: d740ad1cf1b3953b9cc57f6dfc8c27988a1e73aefcf22d06420b768eef537bf8
   original_relations_sha256: d8d596a10b897c5c4aa55d3539234f7ffe0dd09a820db712c7695b620e6c2de7
 ---
 ## Summary

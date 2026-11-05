@@ -1,29 +1,36 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Actor
-  passive:
+atom_id: CA-R-2425
+ref_id: CA-R-2425
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Actor
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
-version: 4
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 1
 relations:
   child_of:
   - CA-R-1058
-atom_id: CA-R-2425
+status: Active
+version: 4
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-2425-CORE_META_MODEL-RULE--reserve-project-wide-invariant-conflict-resolution-to-the-operator.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2425-CORE_META_MODEL-RULE--reserve-project-wide-invariant-conflict-resolution-to-the-operator.md
   source_atom_id: CA-R-2425
   source_atom_revision: 4
-  source_sha256: 8b91371b9b0a42efe79f33c8d98cd01b35f527a825bdd7b4c634132077e42860
+  source_sha256: 65c010e65ce37ca8c2b147a18c98825776395853e8e855352595267d8ea9f876
   original_relations_sha256: f9577d5716dcc9ccd23bd52379396798c3999355ced857a5e1cb469ad88f2b5d
 ---
 ## Summary

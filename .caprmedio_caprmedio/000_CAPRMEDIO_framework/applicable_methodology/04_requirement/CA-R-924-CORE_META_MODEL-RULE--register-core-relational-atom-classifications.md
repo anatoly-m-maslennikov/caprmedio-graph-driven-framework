@@ -1,27 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Form
-  passive:
+atom_id: CA-R-924
+ref_id: CA-R-924
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Form
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
-version: 37
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   child_of:
   - CA-R-923
-atom_id: CA-R-924
+status: Active
+version: 37
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md
   source_atom_id: CA-R-924
   source_atom_revision: 37
-  source_sha256: 619c712e6624da6971daa939dfc052332fc7f6d5b754fe43d4996021e780f79e
+  source_sha256: ef0ebe53ed7452f0462c19d3c9b3ae4b175b27e963aa58102f694ea78c14e12a
   original_relations_sha256: a04b2740365697ee3e4186cfbec88741d45af9b261c1a52f42e455a9e0171e3d
 ---
 ## Summary

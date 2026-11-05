@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-166
+ref_id: CA-C-166
 topics:
   main_subject: 'Subject/Domain/Node/Continuant/Atom/Content Role: Requirement/Type: Demand'
   dependencies:
@@ -8,13 +9,14 @@ topics:
   - Subject/Domain/Node/Continuant/Scope Unit
   - Atom/Claim
   - Atom/Claim/Scope Unit
+status: Active
 version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # How should the legacy MCP-to-SKILLS interface contract be represented?
 

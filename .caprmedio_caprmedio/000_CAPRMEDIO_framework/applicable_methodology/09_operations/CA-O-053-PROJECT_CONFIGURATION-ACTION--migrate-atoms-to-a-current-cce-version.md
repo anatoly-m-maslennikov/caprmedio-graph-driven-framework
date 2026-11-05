@@ -1,7 +1,13 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
-  depends_on:
+atom_id: CA-O-053
+ref_id: CA-O-053
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
@@ -11,25 +17,26 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-version: 21
-updated_at: 2026-10-29 23:58:03 +0400
+tier: 3
 relations:
   child_of:
   - CA-M-443
   - CA-R-380
-atom_id: CA-O-053
-content_role: Operations
+status: Active
+version: 21
+updated_at: 2026-10-29 23:58:03 +0400
+carrier_destination:
+  file:
+    name: CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
 author: Anatoly Maslennikov
-type: Action
-tier: 3
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
   source_atom_id: CA-O-053
   source_atom_revision: 21
-  source_sha256: 288cdff640b4ef6d048330b43eedccc79f9c124597cd1295c6c56b7bcf3cba61
+  source_sha256: 576d6fa623ff80b97aca8d9702cd577469eb5c2e75ccc0cb1ecfebf8c3453d08
   original_relations_sha256: e6f49019e8e73920ff560e36d53d124d605d60ba73f55c4bd9de725847b0b85b
 ---
 # Summary

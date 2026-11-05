@@ -1,29 +1,36 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Delivery).Content.Claim'
-  passive:
+atom_id: CA-M-313
+ref_id: CA-M-313
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Delivery).Content.Claim'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 6
 relations:
   child_of:
   - CA-M-307
-atom_id: CA-M-313
+status: Active
+version: 26
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-M-313-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-delivery-claims-with-the-delivery-cce-profile.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 6
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-delivery-claims-with-the-delivery-cce-profile.md
   source_atom_id: CA-M-313
   source_atom_revision: 26
-  source_sha256: 20f28ec9eb2dc97577539518c551f40fc91d0b0f9127ca46a6702ffb2f629c5c
+  source_sha256: 36c4d9fa6e683a484d93b84753c68a567ae8b901123cb2dda7ff056543ec857a
   original_relations_sha256: 1037ec3e9bee824bbe0013d533c233bc31238f593358d3400af78e5150b7d7f4
 ---
 ## Summary

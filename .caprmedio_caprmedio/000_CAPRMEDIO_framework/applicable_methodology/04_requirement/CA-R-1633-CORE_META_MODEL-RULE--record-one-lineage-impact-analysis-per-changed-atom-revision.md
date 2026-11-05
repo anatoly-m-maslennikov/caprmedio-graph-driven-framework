@@ -1,25 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
+atom_id: CA-R-1633
+ref_id: CA-R-1633
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+tier: 2
+status: Active
 version: 43
 updated_at: 2026-11-02 18:35:20 +0400
-relations: {}
-atom_id: CA-R-1633
+carrier_destination:
+  file:
+    name: CA-R-1633-CORE_META_MODEL-RULE--record-one-lineage-impact-analysis-per-changed-atom-revision.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1633-CORE_META_MODEL-RULE--record-one-lineage-impact-analysis-per-changed-atom-revision.md
   source_atom_id: CA-R-1633
   source_atom_revision: 43
-  source_sha256: e463523fd78e7b839676e9f96bc81e1d8f96f0e016be2de90469fd963ecdbd2a
+  source_sha256: 9928b70279ff0c750ff2e481e7f69a65af2842ad78b1b60f957255fdda0a7258
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

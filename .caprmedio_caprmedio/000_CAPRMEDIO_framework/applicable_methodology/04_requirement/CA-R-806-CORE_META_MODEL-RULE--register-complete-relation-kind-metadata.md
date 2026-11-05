@@ -1,25 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  passive:
+atom_id: CA-R-806
+ref_id: CA-R-806
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom
+tier: 2
+status: Active
 version: 42
 updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
-atom_id: CA-R-806
+carrier_destination:
+  file:
+    name: CA-R-806-CORE_META_MODEL-RULE--register-complete-relation-kind-metadata.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-806-CORE_META_MODEL-RULE--register-complete-relation-kind-metadata.md
   source_atom_id: CA-R-806
   source_atom_revision: 42
-  source_sha256: 45b0e2867a7cba864ebdbfa4bddb0a85a50f6022078fcbd77ede94e1642e7293
+  source_sha256: b12cb012890ed4fc24f7e9ef838af4761a4d12b364740d661ef739c9c2ae584d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

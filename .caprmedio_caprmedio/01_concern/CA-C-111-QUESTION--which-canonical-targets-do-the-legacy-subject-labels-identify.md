@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-111
+ref_id: CA-C-111
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom.Subjects
   dependencies:
@@ -9,12 +10,13 @@ topics:
   - Process
   - Term
   - Atom/Claim
+status: Active
 version: 5
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 priority: medium
 ---
 # Which canonical targets do the legacy Subject labels identify?

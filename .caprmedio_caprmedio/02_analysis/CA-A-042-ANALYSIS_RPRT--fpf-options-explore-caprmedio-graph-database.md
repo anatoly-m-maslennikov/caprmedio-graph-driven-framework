@@ -1,10 +1,12 @@
 ---
 atom_id: CA-A-042
+ref_id: CA-A-042
+status: Active
 version: 1
 updated_at: 2026-08-21 01:52:33
 subject_scopes:
-  - artifact-model
-  - carrier-format
+- artifact-model
+- carrier-format
 ---
 
 ## Task, scope, and boundaries

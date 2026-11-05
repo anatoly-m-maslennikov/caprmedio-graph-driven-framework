@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  passive:
+atom_id: CA-R-1518
+ref_id: CA-R-1518
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  dependencies:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_MODEL <+ Scope Unit
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
@@ -11,24 +17,25 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
-version: 25
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 2
 relations:
   depends_on:
   - CA-R-1018
   - CA-E-486
-atom_id: CA-R-1518
+status: Active
+version: 25
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
   source_atom_id: CA-R-1518
   source_atom_revision: 25
-  source_sha256: a9a6736286df475fc2c63e800a57e683212aa720845c0435fef12108f1c8ced5
+  source_sha256: 7d34b91826dbc3f39e3865ae1d465878f6b422beb47361fbcd358523fa640f14
   original_relations_sha256: a160656a5227133f915358025dba2043d381de3a00738d92f5015d7253981f14
 ---
 ## Summary

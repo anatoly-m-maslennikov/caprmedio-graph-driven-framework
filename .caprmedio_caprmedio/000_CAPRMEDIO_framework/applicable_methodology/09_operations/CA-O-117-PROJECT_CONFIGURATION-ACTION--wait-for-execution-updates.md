@@ -1,30 +1,37 @@
 ---
 atom_id: CA-O-117
-content_role: Operations
-type: Action
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-version: 12
-updated_at: 2026-10-27 19:59:46 +0400
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  depends_on:
+ref_id: CA-O-117
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+tier: 3
 relations:
   depends_on:
   - CA-D-517
-tier: 3
+status: Active
+version: 12
+updated_at: 2026-10-27 19:59:46 +0400
+carrier_destination:
+  file:
+    name: CA-O-117-PROJECT_CONFIGURATION-ACTION--wait-for-execution-updates.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-117-PROJECT_CONFIGURATION-ACTION--wait-for-execution-updates.md
   source_atom_id: CA-O-117
   source_atom_revision: 12
-  source_sha256: 13d73ea964237d9de982627357626527930f95f1892fcc5c2f22bb7a53f43706
+  source_sha256: ff5c865de763aa09f0df717d6be54669fa16d76408080cc75db92fd1d7bbaff7
   original_relations_sha256: cbced7be5518be741db2820cf18422d9087a19d48c5944b1a1b01e50c3823531
 ---
 # Summary

@@ -1,29 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
-  passive:
+atom_id: CA-D-378
+ref_id: CA-D-378
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+tier: 3
+status: Active
 version: 29
 updated_at: 2026-11-03 23:17:14 +0400
-relations: {}
-atom_id: CA-D-378
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 carrier_destination:
   file:
-    name: CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md
+    name: CA-D-378-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md
   source_atom_id: CA-D-378
   source_atom_revision: 29
-  source_sha256: 1ba640384cf4a2d582b1131a6d745cef961519f1c6e58b3a41c40e35c2fea083
+  source_sha256: 5a234ccfcf0d149e60792c7a9ed71a7fe3e5e972fef2b679f9bb6976536a3bb6
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

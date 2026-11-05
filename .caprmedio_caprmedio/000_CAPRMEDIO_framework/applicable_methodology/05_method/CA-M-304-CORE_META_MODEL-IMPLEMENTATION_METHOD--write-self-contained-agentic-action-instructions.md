@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
-  passive:
+atom_id: CA-M-304
+ref_id: CA-M-304
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
@@ -9,8 +15,7 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Prompt Authoring
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action).Execution Kind: Agentic'
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
-version: 26
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 3
 relations:
   method_for:
   - CA-R-1789
@@ -18,18 +23,20 @@ relations:
   - CA-R-1791
   - CA-R-1792
   - CA-R-1793
-atom_id: CA-M-304
+status: Active
+version: 26
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-304-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-self-contained-agentic-action-instructions.md
   source_atom_id: CA-M-304
   source_atom_revision: 26
-  source_sha256: 081a5ae9da41ab1dac998c83d57cd13bee00d416dbe21e8ed03fed097741db7c
+  source_sha256: e71d6d615a21f3b451b0e91dce8add891c5ba65bf1f7c1285dd9089296ed3f95
   original_relations_sha256: ceef5e63cc9186cd1d148d48d109fb2ea95b5218115154d6dc01d0b80abda777
 ---
 ## Summary

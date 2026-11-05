@@ -1,0 +1,9 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "plan_sha256": "8d4dec35ed1faec69802e4301f0e5c4ed5790a1e3c8a341830c2c2b2d6952dea",
+  "output_count": 1,
+  "operation_count": 2,
+  "receipt_note": "Application writes and readback succeeded; missing output-count metadata corrected before receipt generation."
+}

@@ -1,28 +1,35 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-  passive:
+atom_id: CA-E-481
+ref_id: CA-E-481
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 22
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 2
 relations:
   evaluation_for:
   - CA-R-833
   - CA-R-808
   - CA-R-879
-atom_id: CA-E-481
+status: Active
+version: 22
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-481-CORE_META_MODEL-EVAL_POLICY--validate-the-normative-authority-hierarchy.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-481-CORE_META_MODEL-POLICY--validate-the-normative-authority-hierarchy.md
   source_atom_id: CA-E-481
   source_atom_revision: 22
-  source_sha256: fbf42b6c414ffe635c37bfec1049c7067c27a20a20cbc277aec1a0c9430d3632
+  source_sha256: 5587d0a36aa4ba4dd53e199d202f124d56d8dd93dfde3608451bd7867ea443d9
   original_relations_sha256: be79cc6e03c2c93b1ca7941d6b2dc8bfbffc174d340a258e50efb1ec789ee673
 ---
 ## Summary

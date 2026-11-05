@@ -1,28 +1,35 @@
 ---
 atom_id: CA-M-385
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
-  passive:
+ref_id: CA-M-385
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Projection
-version: 25
-updated_at: 2026-11-02 19:46:47 +0400
+tier: 4
 relations:
   method_for:
   - CA-R-1456
-tier: 4
-role: Method
-form: Implementation Method
+status: Active
+version: 25
+updated_at: 2026-11-02 19:46:47 +0400
+carrier_destination:
+  file:
+    name: CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-385-CORE_META_MODEL-IMPLEMENTATION_METHOD--generate-readable-entities-graph-trees-programmatically.md
   source_atom_id: CA-M-385
   source_atom_revision: 25
-  source_sha256: 113ca9b8f8e6992dbce1b8e12b49e035ec75ebc9f945c86763572ec3d6fd7a95
+  source_sha256: 074af475f8af9c29c4b6d9063fec052426177191d145c4e4afbfb139937af18e
   original_relations_sha256: 7733f3e3021e6be18516933e27e8835adbc33729eb63b7a4e716166b11e30c93
 ---
 ## Summary

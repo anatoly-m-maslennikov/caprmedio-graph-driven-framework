@@ -1,11 +1,17 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)'
-  passive:
+atom_id: CA-R-1455
+ref_id: CA-R-1455
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Term
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Requirement)/(.Header.Form: Entity Definition)'
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Actor
@@ -13,26 +19,27 @@ subjects:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)'
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 2
 relations:
   child_of:
   - CA-R-1318
   - CA-R-1319
   - CA-R-1320
   - CA-R-1437
-atom_id: CA-R-1455
+status: Active
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-1455-CORE_META_MODEL-RULE--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1455-CORE_META_MODEL--preserve-evidence-and-uncertainty-in-vocabulary-diagnostic-indexes.md
   source_atom_id: CA-R-1455
   source_atom_revision: 27
-  source_sha256: d5b1dd27d7a818967c35dbfd13d11863dde799cc51513e9c467b235061f37284
+  source_sha256: dcd756a41cf8aa21a1f49317106e2e30f0c21be0389df85893e49692c629337e
   original_relations_sha256: 2984945151e45b08c6ca4b41431785d793749c638b74ee241a840c0ddd28478a
 ---
 ## Summary

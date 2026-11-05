@@ -1,6 +1,20 @@
 ---
-version: 36
-updated_at: 2026-11-02 18:35:20 +0400
+atom_id: CA-E-207
+ref_id: CA-E-207
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Project
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
+  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
+tier: 5
 relations:
   child_of:
   - CA-R-815
@@ -9,27 +23,16 @@ relations:
   - CA-M-297
   - CA-O-022
   - CA-O-023
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  passive:
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC
-atom_id: CA-E-207
+status: Active
+version: 36
+updated_at: 2026-11-02 18:35:20 +0400
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 5
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-207-PROJECT_CONFIGURATION-POLICY--evaluate-priority-governed-alternative-selection.md
   source_atom_id: CA-E-207
   source_atom_revision: 36
-  source_sha256: 2d980c0085f2dadf9a286d8bfd69fc69e626ef442f6ed4e62285d5511bfd8a24
+  source_sha256: 57f9d9a817b0c9a4dae876de103db120cb0466044a7b4eafb651f687fa142462
   original_relations_sha256: 138571c13f61515d1b51d847f0f383e37a505e5b98594d4320901c31466eecd0
 ---
 ## Summary

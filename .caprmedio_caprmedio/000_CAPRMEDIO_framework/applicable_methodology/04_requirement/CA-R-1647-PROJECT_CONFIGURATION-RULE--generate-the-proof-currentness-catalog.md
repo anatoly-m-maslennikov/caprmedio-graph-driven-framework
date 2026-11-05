@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
-version: 33
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-R-1647
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
+ref_id: CA-R-1647
+container:
+  scope_unit: CA-SU-13
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)
+tier: 3
+status: Active
+version: 33
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1647-PROJECT_CONFIGURATION-RULE--generate-the-proof-currentness-catalog.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1647-PROJECT_CONFIGURATION-RULE--generate-the-proof-currentness-catalog.md
   source_atom_id: CA-R-1647
   source_atom_revision: 33
-  source_sha256: cfc796d91637f90b89ff7c918d50739bb1c3f0e726a6f25ce4311c882373bd97
+  source_sha256: 151241977386fdde816cc5988015ab2f85b96f07f651512b16d13943652594af
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

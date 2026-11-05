@@ -1,28 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
+atom_id: CA-R-1471
+ref_id: CA-R-1471
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+tier: 1
+status: Active
 version: 27
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-atom_id: CA-R-1471
+carrier_destination:
+  file:
+    name: CA-R-1471-CORE_META_MODEL-RULE--keep-secondary-graphs-derived-from-source-authority.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1471-CORE_META_MODEL--keep-secondary-graphs-derived-from-source-authority.md
   source_atom_id: CA-R-1471
   source_atom_revision: 27
-  source_sha256: 689d73816c54ae434b14ae2f7c5d066f333fa46804e0f5897e0145881ed81239
+  source_sha256: 456d62e5b98a7ce896c297f84fd43c2801fc797b2d53baf2143be313ad1e5642
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,16 +1,13 @@
 ---
 atom_id: CA-O-164
-content_role: Operations
-type: Workflow
-current_scope_unit: PROJECT_CONFIGURATION
-status: Active
-author: Anatoly Maslennikov
-version: 34
-updated_at: 2026-11-02 19:46:47 +0400
-tier: 3
-subjects:
-  governs: Subject/caprmedio/Workflow//Local Release
-  depends_on:
+ref_id: CA-O-164
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Workflow
+topics:
+  main_subject: Subject/caprmedio/Workflow//Local Release
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -24,12 +21,21 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-relations: {}
+tier: 3
+status: Active
+version: 34
+updated_at: 2026-11-02 19:46:47 +0400
+carrier_destination:
+  file:
+    name: CA-O-164-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-framework-version.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-164-PROJECT_CONFIGURATION-WORKFLOW--release-a-selected-framework-version.md
   source_atom_id: CA-O-164
   source_atom_revision: 34
-  source_sha256: 2dc1b57cbcbadb6b170d1734bffb36add290dc1279822e9e9a11c9514019e656
+  source_sha256: 9078604b12559697aaf53ba18f3af7e59d7df580b12d63b5f5749c22b511e2f3
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

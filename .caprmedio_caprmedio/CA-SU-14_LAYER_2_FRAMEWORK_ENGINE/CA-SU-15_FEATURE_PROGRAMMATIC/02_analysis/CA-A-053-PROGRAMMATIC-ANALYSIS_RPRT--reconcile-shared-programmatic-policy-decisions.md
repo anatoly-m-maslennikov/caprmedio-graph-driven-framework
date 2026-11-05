@@ -1,14 +1,16 @@
 ---
 atom_id: CA-A-053
+ref_id: CA-A-053
 topics:
   main_subject:
     occurrent:
-      - Programmatic Policy Decision Reconciliation
+    - Programmatic Policy Decision Reconciliation
   dependencies:
     continuant:
-      - Programmatic Policy
-      - Method Authority
-      - Evaluation Coverage
+    - Programmatic Policy
+    - Method Authority
+    - Evaluation Coverage
+status: Active
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
 ---

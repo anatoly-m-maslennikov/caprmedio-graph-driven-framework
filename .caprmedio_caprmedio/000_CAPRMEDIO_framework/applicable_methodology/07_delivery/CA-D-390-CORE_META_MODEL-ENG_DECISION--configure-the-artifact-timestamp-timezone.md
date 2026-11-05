@@ -1,31 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings.Artifact Timestamp Timezone
-  passive:
+atom_id: CA-D-390
+ref_id: CA-D-390
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Artifact Timestamp Timezone
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project.Settings
   - CAPRMEDIO_MODEL <+ Carrier
-version: 28
-updated_at: 2026-11-04 09:30:21 +0400
+tier: 3
 relations:
   child_of:
   - CA-D-311
   - CA-R-1402@27
-atom_id: CA-D-390
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 3
-role: Delivery
-form: Decision
+version: 28
+updated_at: 2026-11-04 09:30:21 +0400
 carrier_destination:
   file:
-    name: CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md
+    name: CA-D-390-CORE_META_MODEL-DECISION--configure-the-artifact-timestamp-timezone.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md
   source_atom_id: CA-D-390
   source_atom_revision: 28
-  source_sha256: f2a7314cb04f04d2fe631f390ef106f3d2775d38e492e1ad0530162e79e21ce5
+  source_sha256: 38897a672e9c3dc2c692b88b85aacd5e071cbac99b5d714b7b2a4b2c2dd81022
   original_relations_sha256: 670262d86fa94914f8b8bd77ee8a8e752d93a7ac0d854cc505c5e89351ba40ee
 ---
 ## Summary

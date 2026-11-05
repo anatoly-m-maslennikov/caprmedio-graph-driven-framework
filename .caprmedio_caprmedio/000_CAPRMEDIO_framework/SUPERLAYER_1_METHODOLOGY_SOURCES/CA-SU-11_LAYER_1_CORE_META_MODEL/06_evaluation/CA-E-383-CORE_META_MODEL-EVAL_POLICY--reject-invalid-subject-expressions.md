@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
+atom_id: CA-E-383
+ref_id: CA-E-383
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Active'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
@@ -12,8 +18,7 @@ subjects:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
-version: 46
-updated_at: 2026-11-03 23:25:51 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-R-1194
@@ -25,13 +30,15 @@ relations:
   - CA-R-1321
   - CA-R-1275
   - CA-R-1297
-atom_id: CA-E-383
+status: Active
+version: 46
+updated_at: 2026-11-03 23:25:51 +0400
+carrier_destination:
+  file:
+    name: CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Policy
 ---
 ## Summary
 

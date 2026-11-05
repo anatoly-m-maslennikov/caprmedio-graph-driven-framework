@@ -1,21 +1,23 @@
 ---
 atom_id: CA-A-067
+ref_id: CA-A-067
 topics:
   main_subject:
     continuant:
-      - programmatic-tool-language-options
-      - programmatic-tool-stack-profiles
+    - programmatic-tool-language-options
+    - programmatic-tool-stack-profiles
     occurrent:
-      - state-of-the-art-harvest
-      - comparative-analysis
+    - state-of-the-art-harvest
+    - comparative-analysis
   dependencies:
     continuant:
-      - TOOLS
+    - TOOLS
 relations:
   analysis_of:
-    - CA-R-1186
+  - CA-R-1186
+status: Active
 version: 2
-updated_at: "2026-09-11 20:58:34 +0400"
+updated_at: 2026-09-11 20:58:34 +0400
 cce_version: cce_1
 cce_form: rationale
 ---

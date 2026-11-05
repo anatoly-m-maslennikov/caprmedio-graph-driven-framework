@@ -1,20 +1,22 @@
 ---
 atom_id: CA-A-902
+ref_id: CA-A-902
 topics:
   main_subject:
     continuant:
-      - ontology-term-adoption
-      - Governed Term
-      - Core Meta-Model
+    - ontology-term-adoption
+    - Governed Term
+    - Core Meta-Model
   dependencies:
     continuant:
-      - Project Configuration
-      - ontology-like-authority
+    - Project Configuration
+    - ontology-like-authority
 relations:
   analysis_of:
-    - CA-R-151
-    - CA-R-1218
-    - CA-R-1319
+  - CA-R-151
+  - CA-R-1218
+  - CA-R-1319
+status: Active
 version: 1
 updated_at: 2026-09-14 01:08:50
 cce_version: cce_1

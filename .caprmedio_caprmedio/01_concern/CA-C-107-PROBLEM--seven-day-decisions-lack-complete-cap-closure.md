@@ -1,17 +1,19 @@
 ---
 atom_id: CA-C-107
+ref_id: CA-C-107
 topics:
   main_subject:
     continuant:
-      - Decision Closure
+    - Decision Closure
   dependencies:
     continuant:
-      - Project Backlog
+    - Project Backlog
     occurrent:
-      - Conversation Audit
+    - Conversation Audit
 relations:
   concern_about:
-    - CA-R-861
+  - CA-R-861
+status: Active
 version: 4
 updated_at: 2026-10-23 03:17:34 +0400
 cce_version: cce_1

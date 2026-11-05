@@ -1,21 +1,27 @@
 ---
 atom_id: CA-R-2562
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2562
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-2562-CORE_META_MODEL-RULE--require-functional-dependencies-between-property-tuples.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2562-CORE_META_MODEL-CFEL--require-functional-dependencies.md
   source_atom_id: CA-R-2562
   source_atom_revision: 2
-  source_sha256: a93c4455784800347d6afddfdcd54127d813632ca131f40a1270a348dcfa8eb2
+  source_sha256: 86857e43e1765803f8f5535ff65e4d3313b557e10ab685a7562e74d801c4e5f9
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,30 +1,31 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-  passive:
+atom_id: CA-R-1559
+ref_id: CA-R-1559
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.AI Agent Confidence Threshold
-version: 28
-updated_at: 2026-11-05 13:55:01 +0400
+tier: 2
 relations:
   child_of:
   - CA-M-261
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-atom_id: CA-R-1559
 status: Active
-tier: 2
-role: Requirement
-form: Rule
+version: 28
+updated_at: 2026-11-05 13:55:01 +0400
 carrier_destination:
   file:
-    name: CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md
+    name: CA-R-1559-RULE--gate-governing-atom-changes-during-implementation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1559-CORE_META_MODEL-RULE--gate-governing-atom-changes-during-implementation.md
   source_atom_id: CA-R-1559
   source_atom_revision: 28
-  source_sha256: 90841102f607119b07bfa0a9f1a41526a6d84efe6e5a6c83284ad845a1ba0777
-  original_relations_sha256: 09607d8d47cbf00dd8bad28c01d822099197b853b2ad7a862e487ad1bf5aceba
+  source_sha256: 19b39d3270be4375b7109cde8c8e1a8f7742098daa736651cf4964d765e949b4
+  original_relations_sha256: 94899af1df3add3533bb824b693365050895abf0a071adfe4339109a042cf4cb
 ---
 ## Summary
 

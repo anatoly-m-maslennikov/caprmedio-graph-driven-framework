@@ -1,25 +1,32 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
+atom_id: CA-R-1401
+ref_id: CA-R-1401
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1405
-atom_id: CA-R-1401
+status: Active
+version: 27
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-1401-CORE_META_MODEL-RULE--keep-project-settings-outside-the-atom-type.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1401-CORE_META_MODEL-RULE--keep-project-settings-outside-the-atom-type.md
   source_atom_id: CA-R-1401
   source_atom_revision: 27
-  source_sha256: e8b5881df80ea9e595de3b9e567cc8f630552de10dae6d61c91d4a485baba45c
+  source_sha256: 0469704f46655e9868f724937dffb02f0ceada9f6f17a9b6bdf14653b3afcf9f
   original_relations_sha256: 570244ef3794946da95e2aca85c5e67f8b4b84bf443dbe6556c73e999bfd9c01
 ---
 ## Summary

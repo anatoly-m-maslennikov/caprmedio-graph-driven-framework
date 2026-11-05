@@ -1,25 +1,27 @@
 ---
 atom_id: CA-R-2707
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label
-version: 2
-relations: {}
-tier: 3
-updated_at: 2026-11-04 05:21:15 +0400
+ref_id: CA-R-2707
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-04 05:21:15 +0400
 carrier_destination:
   file:
     name: CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md
   source_atom_id: CA-R-2707
   source_atom_revision: 2
-  source_sha256: bcd9a5c9e235731854fb3ea22d107a7c3d3d68eb1cfcae7fdb7d9f59428c4d3a
+  source_sha256: 27f77647f9c272e506e2234d738bf1139e7885204acb46f1793b4668c5980178
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
@@ -32,9 +34,9 @@ Declare Atom.Header.Tier.Label
 
 ```CFEL
 # model
-Atom.Header.Tier.Label: [string]{:0..1};
+Atom.Header.Tier.Label:: [string]{::0..1};
 
-Atom.Header.Tier.Label.*[]{:0};
+Atom.Header.Tier.Label.*[]{::0};
 
 # instances
 Atom//$atom;

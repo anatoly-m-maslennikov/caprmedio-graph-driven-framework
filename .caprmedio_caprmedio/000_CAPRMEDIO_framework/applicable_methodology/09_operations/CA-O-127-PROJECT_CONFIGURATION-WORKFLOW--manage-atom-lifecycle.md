@@ -1,27 +1,33 @@
 ---
 atom_id: CA-O-127
-content_role: Operations
-type: Workflow
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-author: Anatoly Maslennikov
-status: Active
-subjects:
-  governs: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  depends_on:
+ref_id: CA-O-127
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Workflow
+topics:
+  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
+tier: 3
+status: Active
 version: 23
 updated_at: 2026-10-27 19:59:46 +0400
-relations: {}
-tier: 3
+carrier_destination:
+  file:
+    name: CA-O-127-PROJECT_CONFIGURATION-WORKFLOW--manage-atom-lifecycle.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
+author: Anatoly Maslennikov
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-127-PROJECT_CONFIGURATION-WORKFLOW--manage-atom-lifecycle.md
   source_atom_id: CA-O-127
   source_atom_revision: 23
-  source_sha256: 09b8607f4826a53577881efbca59811a02dd278e8c84d2cbbea4ea6c1eb87a8f
+  source_sha256: 86d94ba7441ce7fb43ae91f4c1176af97881f07bde4c1a72e576ed4f44d50e09
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

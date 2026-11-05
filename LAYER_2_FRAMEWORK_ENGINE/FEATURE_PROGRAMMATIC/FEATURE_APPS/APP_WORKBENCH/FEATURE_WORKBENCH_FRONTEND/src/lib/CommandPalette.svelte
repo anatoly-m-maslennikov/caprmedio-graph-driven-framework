@@ -1,4 +1,4 @@
-<!-- CA-D-674@11 -->
+<!-- CA-D-674@18 -->
 <script lang="ts">
   import { tick } from 'svelte';
   import { filterCommands, moveSelection } from './palette_helpers.js';
@@ -7,7 +7,7 @@
   let dialog: HTMLDialogElement; let input: HTMLInputElement; let query = $state(''); let selected = $state(0);
   let matches = $derived(filterCommands(commands, query));
   $effect(() => { if (open && !dialog.open) { query = ''; selected = 0; dialog.showModal(); tick().then(() => input.focus()); } if (!open && dialog.open) dialog.close(); });
-  function choose(command = matches[selected]) { if (command?.enabled) { command.run(); onclose(); } }
+  function choose(command = matches[selected]) { if (command?.enabled) { onclose(); void tick().then(() => command.run()); } }
   function keydown(event: KeyboardEvent) {
     if (event.key === 'Escape') { event.preventDefault(); onclose(); }
     else if (event.key === 'ArrowDown' || (event.ctrlKey && event.key.toLowerCase() === 'n')) { event.preventDefault(); selected = moveSelection(selected, matches.length, 1); }

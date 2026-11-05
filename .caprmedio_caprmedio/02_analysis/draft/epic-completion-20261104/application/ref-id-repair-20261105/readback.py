@@ -19,7 +19,8 @@ def main():
     helper = module('readback_identity', HERE / 'assign_new_draft_ids.py')
     formula = module('readback_formula', HERE.parent / 'property-order-20261105/ref-id-data/prepare_ref_id.py')
     mapping = {}
-    for batch in ('new-draft-application', 'graph-draft-application', 'historical-draft-application'):
+    for batch in ('new-draft-application', 'graph-draft-application', 'historical-draft-application',
+                  'versioned-draft-application'):
         for row in json.loads((HERE / batch / 'adoption-plan.json').read_text())['outputs']:
             mapping[row['source']] = row['path']
     for row in json.loads((HERE / 'recovery-application/adoption-plan.json').read_text())['operations']:

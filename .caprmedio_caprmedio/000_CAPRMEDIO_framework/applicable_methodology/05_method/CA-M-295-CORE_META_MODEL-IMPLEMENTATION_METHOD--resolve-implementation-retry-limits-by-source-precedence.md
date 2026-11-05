@@ -1,32 +1,39 @@
 ---
-version: 32
-updated_at: 2026-11-02 00:18:22 +0400
-relations:
-  child_of:
-  - CA-R-1489
-  depends_on:
-  - CA-M-279
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
-  passive:
+atom_id: CA-M-295
+ref_id: CA-M-295
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Implementation Retry Limit'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Governing Objects/Governing Configuration
   - CAPRMEDIO_MODEL <+ Carrier/File
-atom_id: CA-M-295
+tier: 5
+relations:
+  child_of:
+  - CA-R-1489
+  depends_on:
+  - CA-M-279
+status: Active
+version: 32
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 5
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-295-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-implementation-retry-limits-by-source-precedence.md
   source_atom_id: CA-M-295
   source_atom_revision: 32
-  source_sha256: e12bd4ab5dd34c30e39449a437234a7d0829942b6a4e2561b16854c21fa77efa
+  source_sha256: e808ae02e8bfbbd893269bd2b4dd09b0c4bec7db85dc170ca510b75589d2710d
   original_relations_sha256: af9265e195c1136864429621ff445e736ff343e267c5ed7ec1b4671a862e6364
 ---
 ## Summary

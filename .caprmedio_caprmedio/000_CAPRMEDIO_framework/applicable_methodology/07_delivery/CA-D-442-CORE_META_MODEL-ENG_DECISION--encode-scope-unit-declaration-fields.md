@@ -1,21 +1,21 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Scope Unit
-  passive:
+atom_id: CA-D-442
+ref_id: CA-D-442
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit
+  dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
+tier: 3
+status: Active
 version: 26
 updated_at: 2026-11-02 19:17:40 +0400
-relations: {}
-atom_id: CA-D-442
-form: Decision
-status: Active
-tier: 3
-role: Delivery
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md
   source_atom_id: CA-D-442
   source_atom_revision: 26
-  source_sha256: 3876e616560ffec0951cd4e9e4653d510bd7c914f3892163f67063c888f08115
+  source_sha256: 245c8584b91e2461bfc26a29d7d67b099abc4f9596662a279e8521c68a48b615
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

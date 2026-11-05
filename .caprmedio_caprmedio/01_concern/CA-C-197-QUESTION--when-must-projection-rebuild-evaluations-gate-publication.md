@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-197
+ref_id: CA-C-197
 topics:
   main_subject: Subject/Domain/Node/Continuant/Projection
   dependencies:
@@ -7,13 +8,14 @@ topics:
   - Process
   - Artifact/Revision
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+status: Active
 version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # When must Projection rebuild Evaluations gate publication?
 

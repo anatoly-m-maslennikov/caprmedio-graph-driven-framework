@@ -1,23 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-version: 35
-updated_at: 2026-11-02 19:44:26 +0400
+atom_id: CA-R-1767
+ref_id: CA-R-1767
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+tier: 1
 relations:
   child_of:
   - CA-M-447
-atom_id: CA-R-1767
+status: Active
+version: 35
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1767-CORE_META_MODEL-RULE--distinguish-implementation-methods-from-implementation-decisions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL--distinguish-implementation-methods-from-implementation-decisions.md
   source_atom_id: CA-R-1767
   source_atom_revision: 35
-  source_sha256: d0e2bbf50312b707627a49652e690252bf6280907141b73dcf102e30306a2c8e
+  source_sha256: a8310550d194a336777b46d9561be9bb0e7d01516c86ba7282d4b822e5e4212b
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

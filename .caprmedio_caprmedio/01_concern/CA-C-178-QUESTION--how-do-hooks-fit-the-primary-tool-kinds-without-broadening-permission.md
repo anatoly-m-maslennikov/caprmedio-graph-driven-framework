@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-178
+ref_id: CA-C-178
 topics:
   main_subject: Tool
   dependencies:
@@ -7,13 +8,14 @@ topics:
   - Subject/Domain/Node/Continuant/Actor
   - Subject/Domain/Node/Continuant/Atom/Content Role
   - Subject/Domain/Node/Continuant/Scope Unit
+status: Active
 version: 3
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # How do Hooks fit the primary Tool kinds without broadening permission?
 

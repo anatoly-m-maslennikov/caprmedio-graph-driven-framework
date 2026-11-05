@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  passive:
+atom_id: CA-E-494
+ref_id: CA-E-494
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
@@ -9,23 +15,24 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-version: 20
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1525
-atom_id: CA-E-494
+status: Active
+version: 20
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-494-CORE_META_MODEL-EVAL_CASE--validate-workflow-run-definition-bindings.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-494-CORE_META_MODEL-EVAL_CASE--validate-workflow-run-definition-bindings.md
   source_atom_id: CA-E-494
   source_atom_revision: 20
-  source_sha256: 66700e4162ab4751fcf0d5f3b8d0cc4b65bf6a8b6f86c174b35a2ae102772552
+  source_sha256: ad0a47ae793e383158c8c67a9ad94085cc1860966c112d145d780a2e2b9c0330
   original_relations_sha256: 0979f79a7ca57d964a7d07d8337cecf859ab9655f61d3faa06ff97e2f30b0c1f
 ---
 ## Summary

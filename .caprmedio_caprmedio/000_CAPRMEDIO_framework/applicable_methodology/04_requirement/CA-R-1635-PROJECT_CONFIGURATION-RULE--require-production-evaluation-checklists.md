@@ -1,25 +1,32 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
-version: 42
-updated_at: 2026-11-02 19:44:26 +0400
+atom_id: CA-R-1635
+ref_id: CA-R-1635
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+tier: 2
 relations:
   depends_on:
   - CA-R-1503
   - CA-R-1504
   - CA-R-1505
-atom_id: CA-R-1635
+status: Active
+version: 42
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md
   source_atom_id: CA-R-1635
   source_atom_revision: 42
-  source_sha256: 60f54dbebce830e6b36f6fb61c4a74a4fc6c977d142c008a263e8de8215ea074
+  source_sha256: 342dfae964706b3f77feb7a167735f52d7a070177c8daf638434326ac76db44a
   original_relations_sha256: 6c50a8bd5dcb74eec5e6c55456dfc8dbae9842ad53ff8b9e24e70a74798e8908
 ---
 ## Summary

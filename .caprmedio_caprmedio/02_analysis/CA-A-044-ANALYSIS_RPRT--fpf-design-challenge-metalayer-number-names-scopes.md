@@ -1,9 +1,11 @@
 ---
 atom_id: CA-A-044
+ref_id: CA-A-044
+status: Active
 version: 1
 updated_at: 2026-08-21 01:52:33
 subject_scopes:
-  - scope-topology
+- scope-topology
 ---
 
 ## Task, scope, and boundaries

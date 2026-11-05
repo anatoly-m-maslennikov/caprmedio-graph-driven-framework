@@ -1,7 +1,13 @@
 ---
-subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  depends_on:
+atom_id: CA-O-052
+ref_id: CA-O-052
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
@@ -11,26 +17,27 @@ subjects:
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - Subject/CAPRMEDIO/Carrier
-version: 18
-updated_at: 2026-11-02 19:44:26 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1052
   depends_on:
   - CA-M-279
-atom_id: CA-O-052
-content_role: Operations
+status: Active
+version: 18
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-O-052-PROJECT_CONFIGURATION-ACTION--resolve-project-and-framework-settings-before-derived-structure.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
 author: Anatoly Maslennikov
-type: Action
-tier: 3
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-052-PROJECT_CONFIGURATION-ACTION--resolve-project-and-framework-settings-before-derived-structure.md
   source_atom_id: CA-O-052
   source_atom_revision: 18
-  source_sha256: 0baf1ef2e875325a7e419443971e375d84fc18bd198217a631a6aca6587219e0
+  source_sha256: 6304e4bf7a4b09cf997ecd5347b6c7f838450a7738d29a5b1a5965bb2acc2be6
   original_relations_sha256: e2002a085a395006defcaa09501b89a1cb36ccfb1f056745f30902034238766c
 ---
 # Summary

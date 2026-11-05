@@ -1,5 +1,6 @@
 ---
-atom_id: CA-M-draft
+atom_id: CA-M-498
+ref_id: CA-M-498@2-draft
 container:
   scope_unit: CA-SU-15
 role: Method
@@ -7,20 +8,20 @@ form: Eng Policy
 topics:
   main_subject: Subject/Engineering/Implementation Cohesion
   dependencies:
-    - Subject/Engineering/Source Unit Responsibility
-    - Subject/Engineering/Behavior Ownership
-    - Subject/Engineering/Outcome Evidence
+  - Subject/Engineering/Source Unit Responsibility
+  - Subject/Engineering/Behavior Ownership
+  - Subject/Engineering/Outcome Evidence
 tier: 1
 relations:
   relates_to:
-    - CA-M-403
-    - CA-M-411
-    - CA-M-419
-    - CA-E-364
-    - CA-E-539
+  - CA-M-403
+  - CA-M-411
+  - CA-M-419
+  - CA-E-364
+  - CA-E-539
 status: Draft
 version: 2
-updated_at: "2026-10-23 19:11:00 +0400"
+updated_at: 2026-10-23 19:11:00 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
@@ -105,4 +106,4 @@ Those active Atoms remain unchanged until coordinated adoption reconciles
 their existing rules. The proposed Evaluation checks this Method rather than
 owning a second set of rules.
 
-Companion Evaluation Draft: [source-size and organization Evaluation](../../06_evaluation/draft/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md).
+Companion Evaluation Draft: [source-size and organization Evaluation](../../06_evaluation/draft/CA-E-792@2-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md).

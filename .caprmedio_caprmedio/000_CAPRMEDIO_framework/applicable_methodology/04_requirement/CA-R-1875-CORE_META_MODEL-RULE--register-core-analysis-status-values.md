@@ -1,27 +1,33 @@
 ---
 atom_id: CA-R-1875
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Status
-  passive:
+ref_id: CA-R-1875
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Status
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Form
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
+tier: 2
+status: Active
 version: 22
 updated_at: 2026-11-02 19:33:47 +0400
-relations: {}
-tier: 2
-role: Requirement
-form: Rule
+carrier_destination:
+  file:
+    name: CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md
   source_atom_id: CA-R-1875
   source_atom_revision: 22
-  source_sha256: 610421330e00d3c9f5d157296e4458c040af74f6c9ddeb151485188be6d59de2
+  source_sha256: b98ce1241466238f0e30f03603b97e12c1daf5435963f5d4542342d5ee35fc28
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

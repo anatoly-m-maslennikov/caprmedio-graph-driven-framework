@@ -1,23 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
-version: 33
-updated_at: 2026-11-02 19:44:26 +0400
+atom_id: CA-R-1648
+ref_id: CA-R-1648
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+tier: 3
 relations:
   child_of:
   - CA-R-1725
-atom_id: CA-R-1648
+status: Active
+version: 33
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1648-CORE_META_MODEL-RULE--use-external-analysis-atoms-as-review-envelopes.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1648-CORE_META_MODEL-RULE--use-external-analysis-atoms-as-review-envelopes.md
   source_atom_id: CA-R-1648
   source_atom_revision: 33
-  source_sha256: 7b469044a63f4e0c2b217282961f504c8342c64833f6d3d9660fc93a3f03242d
+  source_sha256: 26e78864ea60f2411138064d1137cecc061f0642193a1d438a9b3d1ecbc3ed90
   original_relations_sha256: 283945f34348b7aa7ef1af4a929db6aa2a06c96c9020511b235df82b91bc29ff
 ---
 ## Summary

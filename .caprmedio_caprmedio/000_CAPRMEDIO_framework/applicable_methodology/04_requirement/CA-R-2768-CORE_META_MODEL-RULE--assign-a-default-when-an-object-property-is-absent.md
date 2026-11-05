@@ -1,39 +1,32 @@
 ---
 atom_id: CA-R-2768
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-version: 2
-updated_at: 2026-11-04 20:33:16 +0400
-relations:
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-tier: 3
+ref_id: CA-R-2768
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 2
+updated_at: 2026-11-04 20:33:16 +0400
 carrier_destination:
   file:
-    name: CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md
+    name: CA-R-2768-RULE--assign-a-default-when-an-object-property-is-absent.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md
   source_atom_id: CA-R-2768
   source_atom_revision: 2
-  source_sha256: f2fa2c56c05167ce4ab6be038fe223657f01189e2fcf4d8791a5c08ce4556626
-  original_relations_sha256: e367927d209b7bdecd9da53dd0dc693193d074370738c97b4bc15988d6240196
+  source_sha256: 259d83af3689cbb0411a985d7833508b70ae1c7664bcca9120bcce6cf61f6292
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
 
 Assign a default when an Object Property is absent
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-p ?== expression
-```
 
 ### Prose Claim
 
@@ -48,6 +41,13 @@ p ?== expression
 - Evaluate fallback expressions lazily from left to right; stop at the first valid available value. Later branches are not evaluated. Missing final values, evaluated fallback-expression cycles, and more than one applicable fallback chain are errors. Independent Declaration constraints still apply.
 
 - The conditional assignment sets the missing Object Property value in the Model and the result must satisfy p’s declared value Format and cardinality, including required effective cardinality. It does not itself write a Carrier, persist a file, or create an authored Carrier occurrence; Carrier I/O remains the responsibility of an adapter or Delivery rule. Property-declaration inheritance is unchanged; recursive instance-value lookup occurs only through explicit LOOKUP.
+### Formal Claim
+
+```CFEL
+# model
+p ?== expression
+```
+
 ## Details
 
 ```CFEL

@@ -1,43 +1,36 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
-  passive:
+atom_id: CA-R-1199
+ref_id: CA-R-1199
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom.Content
-version: 38
-updated_at: 2026-11-04 03:22:03 +0400
+tier: 2
 relations:
   depends_on:
   - CA-R-1275
-atom_id: CA-R-1199
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 2
-role: Requirement
-form: Declaration
+version: 38
+updated_at: 2026-11-04 03:22:03 +0400
 carrier_destination:
   file:
     name: CA-R-1199-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
 Define GOVERNS Subject Relation Kind
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# model
-Relation//GOVERNS ((HAS_CLASSIFICATION)) Derivation == Direct;
-
-# instances
-Atom//$atom ((GOVERNS)) $governed_subject
-```
 
 ### Prose Claim
 
@@ -49,3 +42,13 @@ GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canon
 The Target is the canonical Subject about which the Atom governs through its applicable content.
 Forward `Host ((GOVERNS)) Target` and reverse `Target <((GOVERNS)) Host` are views of the same Relation fact.
 GOVERNS relates Atom to canonical Subject entity or instance.
+### Formal Claim
+
+```CFEL
+# model
+Relation//GOVERNS ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Atom//$atom ((GOVERNS)) $governed_subject
+```
+

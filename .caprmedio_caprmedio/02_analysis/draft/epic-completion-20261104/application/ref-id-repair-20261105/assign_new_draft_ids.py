@@ -1,4 +1,4 @@
-"""Assign identities to reviewed fresh v1 Drafts without promoting their content."""
+"""Assign identities to reviewed Drafts without promoting their content."""
 from pathlib import Path
 import contextlib
 import importlib.util
@@ -50,7 +50,12 @@ def main(review_name='new-v1-rename-skeleton.json', batch_name='new-draft-applic
             before = source.read_bytes()
             assert n.sha(before) == row['source_sha256'], source
             meta, body = n.read(before)
-            assert meta['status'] == 'Draft' and meta['version'] == 1
+            version = row.get('version', 1)
+            assert type(version) is int and version >= 1
+            assert version == 1 or review.get('preserve_existing_versions') is True
+            assert meta['status'] == 'Draft' and meta['version'] == version
+            for predecessor in row.get('predecessor_files', []):
+                assert n.sha((ROOT / predecessor['path']).read_bytes()) == predecessor['sha256']
             letter = row['letter']
             while True:
                 maximum[letter] = maximum.get(letter, 0) + 1
@@ -59,7 +64,8 @@ def main(review_name='new-v1-rename-skeleton.json', batch_name='new-draft-applic
                     break
             destination = ROOT / row['destination_template'].replace('{ID}', identity)
             assert not destination.exists(), destination
-            expected = dict(meta, atom_id=identity, ref_id=f'{identity}@1-draft')
+            assert f'@{version}-draft-' in destination.name
+            expected = dict(meta, atom_id=identity, ref_id=f'{identity}@{version}-draft')
             cd = expected.get('carrier_destination')
             if isinstance(cd, dict) and isinstance(cd.get('file'), dict):
                 cd = dict(cd, file=dict(cd['file'], name=destination.name))
@@ -71,9 +77,9 @@ def main(review_name='new-v1-rename-skeleton.json', batch_name='new-draft-applic
             operation(destination, after)
             operation(source, None)
             outputs.append({'source': row['source'], 'path': destination.relative_to(ROOT).as_posix(),
-                            'atom_id': identity, 'version': 1, 'status': 'Draft', 'sha256': n.sha(after)})
+                            'atom_id': identity, 'version': version, 'status': 'Draft', 'sha256': n.sha(after)})
         plan = {'status': 'REVIEWED_IDENTITY_REPAIR', 'source_review_sha256': n.sha(review_path.read_bytes()),
-                'scope': 'Reviewed fresh Draft identities; no Form admission, Claim change or promotion.',
+                'scope': 'Reviewed Draft identities, preserving Versions; no Form admission, Claim change or promotion.',
                 'outputs': outputs, 'operations': list(operations.values()),
                 'native_workflow_admission': False, 'journal_append': False}
         (target / 'adoption-plan.json').write_text(json.dumps(plan, indent=2) + '\n')

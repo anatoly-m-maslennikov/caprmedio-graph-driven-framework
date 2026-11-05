@@ -1,10 +1,16 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
-  passive:
+atom_id: CA-R-1456
+ref_id: CA-R-1456
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
@@ -15,26 +21,27 @@ subjects:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Carrier
-version: 39
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 3
 relations:
   child_of:
   - CA-R-1438@25
   - CA-R-2462
   - CA-R-1406
   - CA-R-1437
-atom_id: CA-R-1456
+status: Active
+version: 39
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1456-CORE_META_MODEL-RULE--derive-entities-views-from-selected-authority.md
   source_atom_id: CA-R-1456
   source_atom_revision: 39
-  source_sha256: 3d803bf5beae93141a965c02a859affdd334b3f69bdca71a7c92b82515651c4b
+  source_sha256: 584c9bc2de8a560824c8307913a7a7b006be0a95d15cf5b75456350f0dd21d17
   original_relations_sha256: 34bdab1060ebf5d277b4263fd572a5686b173f936b95c4a1f57daeaf75e20641
 ---
 ## Summary

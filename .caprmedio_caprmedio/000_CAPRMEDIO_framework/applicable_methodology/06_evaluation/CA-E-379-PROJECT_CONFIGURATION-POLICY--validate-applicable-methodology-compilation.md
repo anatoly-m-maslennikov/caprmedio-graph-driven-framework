@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
-  passive:
+atom_id: CA-E-379
+ref_id: CA-E-379
+container:
+  scope_unit: CA-SU-13
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
@@ -12,8 +18,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Journal <+ Event Record
-version: 46
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 4
 relations:
   evaluation_for:
   - CA-D-305
@@ -23,18 +28,20 @@ relations:
   - CA-O-011
   - CA-R-1228
   - CA-R-1375
-atom_id: CA-E-379
+status: Active
+version: 46
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-379-PROJECT_CONFIGURATION-EVAL_POLICY--validate-applicable-methodology-compilation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 4
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-379-PROJECT_CONFIGURATION-POLICY--validate-applicable-methodology-compilation.md
   source_atom_id: CA-E-379
   source_atom_revision: 46
-  source_sha256: 14cd076704cea5b4d65391b144bbb9edf9ed3e556075abcb4a00711911da0b73
+  source_sha256: c1a071e46efcc64058a8559526fc12a59a3c5192c14f69adb11f67c11231f14c
   original_relations_sha256: b5a3d4252dc940366e1b2b97aa8dd390372d6fd6ec11c5ef0617edafab0e076b
 ---
 ## Summary

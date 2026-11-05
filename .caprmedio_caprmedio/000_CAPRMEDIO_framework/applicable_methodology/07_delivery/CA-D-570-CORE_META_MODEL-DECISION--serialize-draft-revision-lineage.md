@@ -1,26 +1,32 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Status:Draft
-  passive:
+atom_id: CA-D-570
+ref_id: CA-D-570
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status:Draft
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - CAPRMEDIO_MODEL <+ Atom.Header.Status:Draft
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
+tier: 3
+status: Active
 version: 24
 updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
-atom_id: CA-D-570
+carrier_destination:
+  file:
+    name: CA-D-570-CORE_META_MODEL-DECISION--serialize-draft-revision-lineage.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Delivery
-form: Decision
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DECISION--serialize-draft-revision-lineage.md
   source_atom_id: CA-D-570
   source_atom_revision: 24
-  source_sha256: 715eb79b2400ea349304277666b8368aa6ac1a42bbce3d769660c16b254fc7a1
+  source_sha256: 9f41ae4ae1f88982ffd94e82819f7945e925a9eadc0178375e70046a4ae954f8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

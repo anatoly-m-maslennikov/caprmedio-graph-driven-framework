@@ -1,26 +1,33 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  passive:
+atom_id: CA-M-305
+ref_id: CA-M-305
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
-version: 22
-updated_at: 2026-11-02 08:06:47 +0400
+tier: 3
 relations:
   method_for:
   - CA-R-1570
-atom_id: CA-M-305
+status: Active
+version: 22
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-305-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-workflow-schemes-using-step-references.md
   source_atom_id: CA-M-305
   source_atom_revision: 22
-  source_sha256: ae15e8389fa1417f1d5b820e14558c0adaf9409a4333ddff6d21801745c1a4f3
+  source_sha256: cf3066e123031545b94cdb3d1ebaec07777951aa9b98974c1c890b09294c201c
   original_relations_sha256: c0cf2b4b80c401bd0e2e83ae0bd314905914842bc400d929bd6a07428aa6da4d
 ---
 ## Summary

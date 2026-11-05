@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Journal
-version: 29
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-R-1684
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 1
+ref_id: CA-R-1684
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Journal
+tier: 1
+status: Active
+version: 29
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1684-CORE_META_MODEL-RULE--separate-analysis-from-factual-execution-records.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1684-CORE_META_MODEL--separate-analysis-from-factual-execution-records.md
   source_atom_id: CA-R-1684
   source_atom_revision: 29
-  source_sha256: 0d0da98ef3dbe6fdda19d319f0b22b86e7940be5c6c24cead90acc6cbb8ffb32
+  source_sha256: e477e8b5be80eb5e387cf5c2db0da80bfd043e42f4bda91faffecd2b58ade357
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

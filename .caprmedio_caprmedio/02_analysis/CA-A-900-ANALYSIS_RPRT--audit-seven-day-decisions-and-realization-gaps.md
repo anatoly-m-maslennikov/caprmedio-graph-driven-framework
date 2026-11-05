@@ -1,20 +1,22 @@
 ---
 atom_id: CA-A-900
+ref_id: CA-A-900
 topics:
   main_subject:
     occurrent:
-      - Decision Realization Audit
+    - Decision Realization Audit
   dependencies:
     continuant:
-      - Development Flow
-      - Project Configuration
-      - Tool Authority
+    - Development Flow
+    - Project Configuration
+    - Tool Authority
     occurrent:
-      - Realization
+    - Realization
+status: Active
 version: 3
 updated_at: 2026-10-23 03:17:34 +0400
 llm_session_ids:
-  - codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
+- codex:01a01cb4-e15e-78d1-9084-766bf6b0cd63
 ---
 # Audit seven-day decisions and realization gaps
 

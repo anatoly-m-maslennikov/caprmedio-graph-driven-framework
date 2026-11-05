@@ -1,0 +1,324 @@
+{
+  "status": "PASS_NO_COMPETING_CARRIED_ID_PREIMAGE_RECHECK_REQUIRED",
+  "scope": "Native source roots only; excludes generated 000, applicable methodology, projections, tests, evidence and analysis work packets. Current and native Draft considered; Archives reported separately. Numeric equality is role-specific and disregards leading zeros.",
+  "scanned_parsed_markdown": 131,
+  "rows": [
+    {
+      "candidate": "CA-D-019",
+      "source": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+      "sha256": "d4acd5fefffbe067b5edba6e6101a0f1c920f15b545f3f1b7615f49b25fdebcd",
+      "status": "Active",
+      "carried_atom_id": "CA-D-019",
+      "carried_ref_id": "CA-D-019",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/archive/CA-D-019-DELIVERY-OPER_DOC--bind-operator-documentation-delivery-place@5.md",
+          "sha256": "6d28f09cfa66995d9601878a4dd1aad3bdd4973388f25b665005b39957043b8d",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind OPERATOR_DOCUMENTATION Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/archive/CA-D-019-DELIVERY-OPER_DOC--bind-operator-documentation-delivery-place@4.md",
+          "sha256": "1936ef37d20dd54e614485b3bbdeeeb650729598819c12847ebd574e5b5786f5",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind OPERATOR_DOCUMENTATION Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/archive/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place@8.md",
+          "sha256": "7821cdc358bb0d7596408ffbf880526694f02085a9824c9ccffc752e2a0985b7",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind OPERATOR_DOCUMENTATION Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/archive/CA-D-019-DELIVERY-OPER_DOC--bind-operator-documentation-delivery-place@7.md",
+          "sha256": "a04241f6b7bb9a76afc4d30972bb4eebf92345cde8bdfae419a3d3e314ad1032",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind OPERATOR_DOCUMENTATION Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/archive/CA-D-019-DELIVERY-OPER_DOC--bind-operator-documentation-delivery-place@6.md",
+          "sha256": "2bd9fa3ec22cbde05d9012cbe83fa5c380984e34312daa00b4939396337c438c",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind OPERATOR_DOCUMENTATION Delivery place",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 5,
+      "archive_unmatched": 0
+    },
+    {
+      "candidate": "CA-D-021",
+      "source": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+      "sha256": "2279af97e7e85228bf4b9900af5d59ef00d5e03ba253adbf73c2c6bcb16481c9",
+      "status": "Active",
+      "carried_atom_id": "CA-D-021",
+      "carried_ref_id": "CA-D-021",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/archive/CA-D-021-DELIVERY-RELSS--bind-releases-delivery-place@5.md",
+          "sha256": "b8fa6ef31e1e4d0ab8b39bce0dc2485d77b5f2ef46102d346f00dd049db5b513",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind RELEASES Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/archive/CA-D-021-DELIVERY-RELSS--bind-releases-delivery-place@4.md",
+          "sha256": "040a9ec29849ad1719ba552cfd816ce711d7822b9a07d5dc40941370d59acb5b",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind RELEASES Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/archive/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place@7.md",
+          "sha256": "5df3bf454dac4c3aa3459a44d0359456c0770a068c2e5fc0ee9b35df3ce46eab",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind RELEASES Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/archive/CA-D-021-DELIVERY-RELSS--bind-releases-delivery-place@3.md",
+          "sha256": "bca5291d715330683d185147fd6327335caed17e227ed905b809cdd452cc9575",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind RELEASES Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/archive/CA-D-021-DELIVERY-RELSS--bind-releases-delivery-place@6.md",
+          "sha256": "be25aa198025d6a41639028d3c56c44e827d1aa9ef94badd869bfae63b3869ed",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind RELEASES Delivery place",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 5,
+      "archive_unmatched": 0
+    },
+    {
+      "candidate": "CA-D-022",
+      "source": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+      "sha256": "4de96bd2c651a1d39395b357d7ab90102934a146a2cd6c4038c656b010a1bd46",
+      "status": "Active",
+      "carried_atom_id": "CA-D-022",
+      "carried_ref_id": "CA-D-022",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/archive/CA-D-022-DELIVERY-FIELD--bind-field-delivery-place@5.md",
+          "sha256": "c20e566142659874774d540d4b4c58553f727f11c401833ca57b95644f5a73ad",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind FIELD Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/archive/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place@7.md",
+          "sha256": "12647edd0910bbce0ec4d28207521b0df1b10b042be5787fc6493c362951ca76",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind FIELD Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/archive/CA-D-022-DELIVERY-FIELD--bind-field-delivery-place@4.md",
+          "sha256": "e4b958277668d032607e9bee6eb5748c5435c5c82f2643f24fdb9f2839a9f193",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind FIELD Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/archive/CA-D-022-DELIVERY-FIELD--bind-field-delivery-place@3.md",
+          "sha256": "da5b5abea9034481f5877b86df3d6b56af141a5514a6742a3a0d963bd50c62e1",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind FIELD Delivery place",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/archive/CA-D-022-DELIVERY-FIELD--bind-field-delivery-place@6.md",
+          "sha256": "cf455b310315e8f782cda60a02c084711891395514528e666be52c00b9e1747d",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "Bind FIELD Delivery place",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 5,
+      "archive_unmatched": 0
+    },
+    {
+      "candidate": "CA-C-268",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+      "sha256": "ba2c4d0e2f7f4331b5b829101ce9f66e3a1aadb4f29dafbdcf2f672037e88e7d",
+      "status": "Active",
+      "carried_atom_id": "CA-C-268",
+      "carried_ref_id": "CA-C-268",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled@1.md",
+          "sha256": "f743db40dad411300ec5237ebf93ead0db78adef30db0438379f82dc66f575d2",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Initialize session draft be reconciled?",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled@2.md",
+          "sha256": "4c1c14cb08527d236cf8f39a868095cb9176290845036383a6ad59f7556cafb0",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Initialize session draft be reconciled?",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 2,
+      "archive_unmatched": 0
+    },
+    {
+      "candidate": "CA-C-269",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+      "sha256": "5d6890b770deae5a29b5b1349ff55dfcf105d3a459b6861c9a274db9708a0b08",
+      "status": "Active",
+      "carried_atom_id": "CA-C-269",
+      "carried_ref_id": "CA-C-269",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled@1.md",
+          "sha256": "8a6ddb762ef0893c8c8b67eae966b9e0c4c5a029be380fb3afb0039964a5a8a3",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Route operator intent draft be reconciled?",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled@2.md",
+          "sha256": "2dc0321966de9ae7173b8050d4c83a253fb6139c294f45a595467336ac7fe640",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Route operator intent draft be reconciled?",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 2,
+      "archive_unmatched": 0
+    },
+    {
+      "candidate": "CA-C-270",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled.md",
+      "sha256": "171e2244cfb66992a50104aba42dd78c6ae2952730e8c326efb053246aa30370",
+      "status": "Active",
+      "carried_atom_id": "CA-C-270",
+      "carried_ref_id": "CA-C-270",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled@2.md",
+          "sha256": "0205dae23c73249bbb3e9498750494f90bfda64169dee7a1a873b25ae62a4564",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Change governed authority draft be reconciled?",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled@1.md",
+          "sha256": "25836a85ce2f61983ff328eb5f8a69dd2fdf254ce951aac96d87f5eda74ec034",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Change governed authority draft be reconciled?",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 2,
+      "archive_unmatched": 0
+    },
+    {
+      "candidate": "CA-C-271",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled.md",
+      "sha256": "6a5ef0737be83cfcf88a4d968a157adca882f774c44a1440d182b77c58a5fe35",
+      "status": "Active",
+      "carried_atom_id": "CA-C-271",
+      "carried_ref_id": "CA-C-271",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled@2.md",
+          "sha256": "894a87c512d3bae291c4a16dcbb5681338d39ca89e05f4171bebe7082d71d32a",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Reconcile unfinished work draft be reconciled?",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled@1.md",
+          "sha256": "c46821155b0297ba3113472385d7eb6b032e543b0421af8fac1ff44b9b4bbd1d",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Reconcile unfinished work draft be reconciled?",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 2,
+      "archive_unmatched": 0
+    },
+    {
+      "candidate": "CA-C-272",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md",
+      "sha256": "fe834b688cc2b99c0c4fb108ebbf3075de2d17e3b91a0ee21a598798864edd4b",
+      "status": "Active",
+      "carried_atom_id": "CA-C-272",
+      "carried_ref_id": "CA-C-272",
+      "competing_current_or_draft_carried_ids": [],
+      "archived_same_numeric_id": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled@1.md",
+          "sha256": "2b437d45dc00a5591560e73ba1ef54e66c152d43744da197c9122cdd5f92c2d2",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Persist Analysis and Ops draft be reconciled?",
+          "same_first_heading": true
+        },
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/archive/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled@2.md",
+          "sha256": "8b07087228f083514989cfdc9f44dd3cc4ac345b608925a1c0db4c2161b3af13",
+          "header_atom_id": null,
+          "header_ref_id": null,
+          "first_heading": "How should the Persist Analysis and Ops draft be reconciled?",
+          "same_first_heading": true
+        }
+      ],
+      "archived_summary_matches": 2,
+      "archive_unmatched": 0
+    }
+  ],
+  "counts": {
+    "candidates": 8,
+    "candidates_with_current_or_draft_competing_carried_id": 0,
+    "unreadable_relevant_candidate_carriers": 0
+  },
+  "unreadable_matching_candidate_filename_paths": [],
+  "limits": [
+    "User explicitly approved restoration from these filenames; collision check does not itself mutate sources.",
+    "Archive first-heading comparisons are bounded lineage indicators, not proof of semantic identity.",
+    "Source files may change concurrently; pin and recheck before any writes."
+  ],
+  "archive_assessment": "All 25 retained numeric-ID archive files match the respective Current Summary/title after resolving Summary heading versus legacy title; heading match supports lineage but does not prove full-byte or full-semantic identity.",
+  "scan_method": "All Markdown in native roots examined for matching role-specific numeric atom_id/ref_id even where the filename differs; numeric comparison ignores leading zeros. Native analysis Draft files included; generated/analysis-work-packet and evidence trees excluded."
+}

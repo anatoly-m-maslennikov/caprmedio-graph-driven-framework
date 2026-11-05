@@ -1,21 +1,27 @@
 ---
 atom_id: CA-R-2469
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ (Node, Node.**)
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2469
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ (Node, Node.**)
+tier: 3
+status: Active
+version: 4
+updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md
   source_atom_id: CA-R-2469
   source_atom_revision: 4
-  source_sha256: c6eef213897a925b1ba4c52251becf497d920993c735756446df515f635f6c64
+  source_sha256: 5ba9f0fd5e4f963747eac9588d58257c819edd49691fc4ed3f19eb29586e10dc
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -24,13 +30,6 @@ projection:
 Require one Declaration for each Node
 
 ## Claim
-
-### Formal Claim
-
-```CFEL
-# instances
-Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){:1} (Node, Node.**)
-```
 
 ### Prose Claim
 
@@ -41,3 +40,10 @@ Count inherited Current Declarations and explicit local replacements after MODEL
 
 
 The count uses only the effective Current Declaration-to-Node links in that MODEL. HAS_ACTIVE_SUBJECT is the canonical Relation obtained from the dedicated active Subject field; obtaining its value from that field does not make it a derived view of another Relation.
+### Formal Claim
+
+```CFEL
+# instances
+Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){::1} (Node, Node.**)
+```
+

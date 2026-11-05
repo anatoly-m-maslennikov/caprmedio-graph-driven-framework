@@ -1,16 +1,18 @@
 ---
 atom_id: CA-A-903
+ref_id: CA-A-903
 topics:
   main_subject:
     continuant:
-      - trace-engineering-adoption
-      - execution-evidence-currentness
+    - trace-engineering-adoption
+    - execution-evidence-currentness
   dependencies:
     continuant:
-      - FRAMEWORK_ENGINE
+    - FRAMEWORK_ENGINE
 relations:
   analysis_of:
-    - CA-R-1426
+  - CA-R-1426
+status: Active
 version: 1
 updated_at: 2026-09-15 05:09:46
 cce_version: cce_1

@@ -1,33 +1,36 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
+atom_id: CA-D-366
+ref_id: CA-D-366
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Project.Settings.Name
   - CAPRMEDIO_MODEL <+ Project.Settings.Prefix
   - CAPRMEDIO_MODEL <+ Project.Settings
   - CAPRMEDIO_MODEL <+ Projection
-version: 31
-updated_at: 2026-11-04 09:30:21 +0400
+tier: 6
 relations:
   child_of:
   - CA-D-364
-atom_id: CA-D-366
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 status: Active
-tier: 6
-role: Delivery
-form: Decision
+version: 31
+updated_at: 2026-11-04 09:30:21 +0400
 carrier_destination:
   file:
-    name: CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
+    name: CA-D-366-CORE_META_MODEL-DECISION--serialize-project-settings-content-in-toml.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
   source_atom_id: CA-D-366
   source_atom_revision: 31
-  source_sha256: 500d5d321b8271c57ba902e77a1ca7799b58aa8581a1c3845ef2c3b8b9a2ede1
+  source_sha256: f55ed618f5c4985d3ff44e7268e4404595d5a974ccf6517e6c2217b1291158cd
   original_relations_sha256: 3fcf822d878922d4be67c2267faaa6398d32fdd7466a688a1586dcff08ebfc0d
 ---
 ## Summary

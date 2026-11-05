@@ -1,26 +1,33 @@
 ---
 atom_id: CA-R-1991
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow).Enabled Relations.Contains'
-  passive:
+ref_id: CA-R-1991
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow).Enabled Relations.Contains'
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Enabled Relations.Contains
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+tier: 3
 relations:
   child_of:
   - CA-R-2478
+status: Active
 version: 13
 updated_at: 2026-11-02 00:18:22 +0400
-tier: 3
-role: Requirement
-form: Rule
+carrier_destination:
+  file:
+    name: CA-R-1991-CORE_META_MODEL-RULE--enable-containment-for-workflow-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1991-CORE_META_MODEL-RULE--enable-containment-for-workflow-atoms.md
   source_atom_id: CA-R-1991
   source_atom_revision: 13
-  source_sha256: 2ba90e621c5cd394a4e930cab335d13bc781f6b313f2c6c3ae455b9dcbb2d387
+  source_sha256: a027bd26a9ff5512e5e8b1842a0814decf643c90e1bc9f2bfa3cbd11504b4aa8
   original_relations_sha256: 4fde62f0627e52833e954bbd64d451c404b9f9d66585c52603ef12fa5886adfa
 ---
 ## Summary

@@ -1,37 +1,38 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  passive:
+atom_id: CA-M-306
+ref_id: CA-M-306
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_MODEL <+ Atom.Header.Subjects.Active
+  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_CONTAINED_BY
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier/File
-version: 34
-updated_at: 2026-11-04 16:52:59 +0400
+tier: 2
 relations:
   depends_on:
   - CA-R-1588
-  IS_CONTAINED_BY:
-    scope_unit: CA-SU-11
-atom_id: CA-M-306
 status: Active
-tier: 2
-role: Method
-form: Implementation Method
+version: 34
+updated_at: 2026-11-04 16:52:59 +0400
 carrier_destination:
   file:
-    name: CA-M-306-CORE_META_MODEL--author-plan-atoms.md
+    name: CA-M-306-IMPLEMENTATION_METHOD--author-plan-atoms.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md
   source_atom_id: CA-M-306
   source_atom_revision: 34
-  source_sha256: 4a4888cc1dc2fd66c5318a3e52dd3dc5480024b936876da556e272b47619f576
-  original_relations_sha256: 3a33d04822a35042eacf39bf1f777403f6c2a840b4faea378044cd4bb7dda59d
+  source_sha256: e1343ce9e55d88a65ded18877e95cce71ff29f3cf690f2c0a46e6f1955154ab6
+  original_relations_sha256: 21b8448a6646f8fd0798650a427c7b91afc15bdc426943dd06bceecabbe3b997
 ---
 ## Summary
 

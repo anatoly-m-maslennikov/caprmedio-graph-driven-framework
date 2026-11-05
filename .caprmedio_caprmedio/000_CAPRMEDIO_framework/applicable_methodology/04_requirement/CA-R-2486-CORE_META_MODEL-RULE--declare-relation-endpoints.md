@@ -1,25 +1,27 @@
 ---
 atom_id: CA-R-2486
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2486
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
+tier: 3
+status: Active
+version: 6
+updated_at: 2026-11-03 23:25:51 +0400
 carrier_destination:
   file:
     name: CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md
   source_atom_id: CA-R-2486
   source_atom_revision: 6
-  source_sha256: cb61532e44ab2a8d27487d2f05e4ae21c019aa9f72953028d7315b2563bc40b5
+  source_sha256: 039c43fd71e77dfb733bad0e0bc72cafc8f71e9eb353a878244e39bb76f42f8e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.Tier
-  passive:
+atom_id: CA-E-654
+ref_id: CA-E-654
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
@@ -10,8 +16,7 @@ subjects:
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Stored Governing RMED Relation Occurrences
-version: 13
-updated_at: 2026-11-04 09:19:08 +0400
+tier: 5
 relations:
   evaluation_for:
   - CA-R-2706
@@ -21,18 +26,20 @@ relations:
   - CA-R-2132
   - CA-R-2149
   - CA-M-438
-atom_id: CA-E-654
+status: Active
+version: 13
+updated_at: 2026-11-04 09:19:08 +0400
+carrier_destination:
+  file:
+    name: CA-E-654-CORE_META_MODEL-EVAL_CASE--validate-integer-tier-ordering-and-scope-constraints.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 5
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-654-CORE_META_MODEL-EVAL-CASE--validate-integer-tier-ordering-and-scope-constraints.md
   source_atom_id: CA-E-654
   source_atom_revision: 13
-  source_sha256: 4447daa6f5f22e1c5f0cc7c7ef3cc89ab4f9f1bc99ed1cb84b3a72aaa6a5b1c5
+  source_sha256: 8cd9f026182d240ce4fb1461b8a1ccf80f04e81b2aa71e849cbdaa4c418a6ab4
   original_relations_sha256: 18354f5214ca0b479f6b8c34d10b98a1c74820b833e4b0eb74acf6baa69ddd1d
 ---
 ## Summary

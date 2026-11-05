@@ -1,28 +1,34 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Projection
-  passive:
+atom_id: CA-R-1567
+ref_id: CA-R-1567
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Projection
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Package/Implementation
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+tier: 2
+status: Active
 version: 25
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-atom_id: CA-R-1567
+carrier_destination:
+  file:
+    name: CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md
   source_atom_id: CA-R-1567
   source_atom_revision: 25
-  source_sha256: 6d041f94c657426b2ce936bc9176afea34090121c38c49183641433e51d218d0
+  source_sha256: 32ff84a3d3b50f21c51b52f6ef3873d862127a9231f3e23ac2ca13b41b00a17d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

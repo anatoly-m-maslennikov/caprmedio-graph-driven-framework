@@ -1,22 +1,22 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
-  passive:
-  - CAPRMEDIO_MODEL <+ Project.Settings
-  - Entity/Object/Continuant/Governing Objects/Governing Configuration
-version: 40
-updated_at: 2026-11-02 20:07:03 +0400
-relations: {}
 atom_id: CA-E-006
-status: Active
-tier: 7
+ref_id: CA-E-006
 role: Evaluation
 form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Project.Settings
+  - Entity/Object/Continuant/Governing Objects/Governing Configuration
+tier: 7
+status: Active
+version: 40
+updated_at: 2026-11-02 20:07:03 +0400
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md
   source_atom_id: CA-E-006
   source_atom_revision: 40
-  source_sha256: 909749d12b6dc525dfa6ed8e315d5717040632ec86c77e89c137d163e7e77263
+  source_sha256: 1281a44cd3bcd5546702f6dbadef3026b6abda5f5941e6ec08c4c717338c2608
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -1,14 +1,16 @@
 ---
 atom_id: CA-A-054
+ref_id: CA-A-054
 topics:
   main_subject:
     occurrent:
-      - Python 3.14 Contract Upgrade Validation
+    - Python 3.14 Contract Upgrade Validation
   dependencies:
     continuant:
-      - Python Runtime
-      - Compatibility
-      - Validation Evidence
+    - Python Runtime
+    - Compatibility
+    - Validation Evidence
+status: Active
 version: 4
 updated_at: 2026-10-23 03:17:34 +0400
 ---

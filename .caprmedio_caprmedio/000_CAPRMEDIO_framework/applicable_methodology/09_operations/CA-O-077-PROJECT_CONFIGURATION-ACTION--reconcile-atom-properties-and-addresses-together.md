@@ -1,28 +1,34 @@
 ---
-subjects:
-  governs: Subject/caprmedio/Action//Reconcile Atom Properties and Addresses
-  depends_on:
+atom_id: CA-O-077
+ref_id: CA-O-077
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/caprmedio/Action//Reconcile Atom Properties and Addresses
+  dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Carrier
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+tier: 3
+status: Active
 version: 19
 updated_at: 2026-10-27 19:59:45 +0400
-relations: {}
-atom_id: CA-O-077
-content_role: Operations
+carrier_destination:
+  file:
+    name: CA-O-077-PROJECT_CONFIGURATION-ACTION--reconcile-atom-properties-and-addresses-together.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
 author: Anatoly Maslennikov
-type: Action
-tier: 3
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-077-PROJECT_CONFIGURATION-ACTION--reconcile-atom-properties-and-addresses-together.md
   source_atom_id: CA-O-077
   source_atom_revision: 19
-  source_sha256: b9bbb6a72cfac8a9697cd1874a34b705e1c642a4326c5d2dc4d068fd2ab6a471
+  source_sha256: eed79b6b2a327a71d30cb1ccf657558804fc868d738c9dc76c67a3a9e9ae8dd2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

@@ -1,5 +1,6 @@
 ---
 atom_id: CA-C-279
+ref_id: CA-C-279
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
   dependencies:
@@ -7,14 +8,24 @@ topics:
   - Artifact/Revision
   - Subject/Domain/Node/Continuant/Project
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
-relations: {"relates_to": ["CA-D-049", "CA-M-159", "CA-M-166", "CA-R-1111", "CA-R-1116", "CA-R-1117", "CA-R-1118", "CA-R-1119"]}
+relations:
+  relates_to:
+  - CA-D-049
+  - CA-M-159
+  - CA-M-166
+  - CA-R-1111
+  - CA-R-1116
+  - CA-R-1117
+  - CA-R-1118
+  - CA-R-1119
+status: Active
 version: 5
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 ---
 # Summary
 

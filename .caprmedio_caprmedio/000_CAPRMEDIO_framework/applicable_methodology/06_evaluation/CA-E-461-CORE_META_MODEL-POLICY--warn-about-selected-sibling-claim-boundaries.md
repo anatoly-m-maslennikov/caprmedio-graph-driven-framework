@@ -1,26 +1,32 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Content
-  passive:
+atom_id: CA-E-461
+ref_id: CA-E-461
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Content
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
+tier: 2
+status: Active
 version: 28
 updated_at: 2026-11-02 00:18:22 +0400
-relations: {}
-atom_id: CA-E-461
+carrier_destination:
+  file:
+    name: CA-E-461-CORE_META_MODEL-EVAL_POLICY--warn-about-selected-sibling-claim-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 2
-role: Evaluation
-form: Eval Policy
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-461-CORE_META_MODEL-POLICY--warn-about-selected-sibling-claim-boundaries.md
   source_atom_id: CA-E-461
   source_atom_revision: 28
-  source_sha256: bd9e44181a4495748b9393441f732434582aea32dc9977a990a677dd99433447
+  source_sha256: 3d40973d915e3b23265bdf19a0991a793726ad0861580b6bf289efe4c5951e7f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

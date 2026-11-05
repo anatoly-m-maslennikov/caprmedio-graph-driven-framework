@@ -1,21 +1,27 @@
 ---
-subjects:
-  active: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery).Header.Form'
-version: 35
-updated_at: 2026-11-02 19:44:26 +0400
-relations: {}
 atom_id: CA-R-1665
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-tier: 3
+ref_id: CA-R-1665
+container:
+  scope_unit: CA-SU-13
 role: Requirement
 form: Rule
+topics:
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery).Header.Form'
+tier: 3
+status: Active
+version: 35
+updated_at: 2026-11-02 19:44:26 +0400
+carrier_destination:
+  file:
+    name: CA-R-1665-PROJECT_CONFIGURATION-RULE--register-type-values-for-delivery-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1665-PROJECT_CONFIGURATION-RULE--register-type-values-for-delivery-atoms.md
   source_atom_id: CA-R-1665
   source_atom_revision: 35
-  source_sha256: e93356e1b7609eadb1a74af691f7623dbd111159b46553b39cc2ff7033ce0cd8
+  source_sha256: 16d6b236f9e0e45680b435bd9874a7be749462b633b5b21159b7854b2168b81e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

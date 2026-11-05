@@ -1,17 +1,19 @@
 ---
 atom_id: CA-C-112
+ref_id: CA-C-112
 topics:
   main_subject: Subject/Domain/Node/Continuant/History/Journal.Record
   dependencies:
   - Atom/Revision
   - Subject/Engineering/Carrier
   - Subject/Graph/Relation
+status: Active
 version: 4
 updated_at: 2026-10-23 03:18:40 +0400
 cce_version: cce_1
 cce_form: concern_question
 llm_session_ids:
-  - codex:01a02650-eff7-7453-8c37-0699b36773c6
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
 priority: medium
 ---
 # Which events substantiate the legacy replacement declarations?

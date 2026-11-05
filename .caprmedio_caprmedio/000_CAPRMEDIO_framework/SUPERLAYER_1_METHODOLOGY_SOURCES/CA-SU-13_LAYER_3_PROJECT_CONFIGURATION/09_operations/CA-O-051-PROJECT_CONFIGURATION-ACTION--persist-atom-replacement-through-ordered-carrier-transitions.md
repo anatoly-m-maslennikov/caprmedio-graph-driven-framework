@@ -1,26 +1,33 @@
 ---
-subjects:
-  governs: Subject/caprmedio/Action//Persist Atom Replacement
-  depends_on:
+atom_id: CA-O-051
+ref_id: CA-O-051
+container:
+  scope_unit: CA-SU-13
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/caprmedio/Action//Persist Atom Replacement
+  dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
   - Subject/CAPRMEDIO/Carrier/File
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Carrier/File.Filename
-version: 21
-updated_at: 2026-10-27 19:59:44 +0400
+tier: 3
 relations:
   depends_on:
   - CA-R-807
-atom_id: CA-O-051
-content_role: Operations
+status: Active
+version: 21
+updated_at: 2026-10-27 19:59:44 +0400
+carrier_destination:
+  file:
+    name: CA-O-051-PROJECT_CONFIGURATION-ACTION--persist-atom-replacement-through-ordered-carrier-transitions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
 author: Anatoly Maslennikov
-type: Action
-tier: 3
 ---
 # Summary
 

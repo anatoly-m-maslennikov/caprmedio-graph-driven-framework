@@ -1,7 +1,13 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom.Header.ID
-  passive:
+atom_id: CA-M-276
+ref_id: CA-M-276
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID
+  dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
@@ -13,23 +19,24 @@ subjects:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Journal
-version: 32
-updated_at: 2026-11-03 23:25:51 +0400
+tier: 4
 relations:
   method_for:
   - CA-R-2701
-atom_id: CA-M-276
+status: Active
+version: 32
+updated_at: 2026-11-03 23:25:51 +0400
+carrier_destination:
+  file:
+    name: CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md
   source_atom_id: CA-M-276
   source_atom_revision: 32
-  source_sha256: 38b0baa8171d96db35249196085266dd25dfbec28d941f955cb13d710abdaa23
+  source_sha256: ef55d985697730a952300c37744dd70a8faf567be2fd92cf005cd5bd08cb4131
   original_relations_sha256: c97e8b2b86ca5e437ab55e65bbfcc5e303f2caa3defea58e72e703e497de98a3
 ---
 ## Summary

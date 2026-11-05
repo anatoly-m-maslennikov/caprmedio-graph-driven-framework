@@ -1,23 +1,30 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Atom
-version: 33
-updated_at: 2026-11-02 00:18:22 +0400
+atom_id: CA-R-1689
+ref_id: CA-R-1689
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+tier: 3
 relations:
   child_of:
   - CA-R-1698
-atom_id: CA-R-1689
+status: Active
+version: 33
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-R-1689-CORE_META_MODEL-RULE--requirement-close-every-constitutional-amendment.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Requirement
-form: Rule
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1689-CORE_META_MODEL-RULE--requirement-close-every-constitutional-amendment.md
   source_atom_id: CA-R-1689
   source_atom_revision: 33
-  source_sha256: 0b1ec350740a8cede5c45550886ff18214244bd4b0024502efb03af009173346
+  source_sha256: 46a7e01f1148acad41846c95fc67ae5940c38ba2baac3cc4afcdecd623923305
   original_relations_sha256: 53d4f4b49d6a4e95a70e95367325e64165649a1d452fb3189cddd242b02b72b2
 ---
 ## Summary

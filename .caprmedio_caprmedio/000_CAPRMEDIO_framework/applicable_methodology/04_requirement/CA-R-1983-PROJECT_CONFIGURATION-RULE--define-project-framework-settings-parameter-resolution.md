@@ -1,23 +1,30 @@
 ---
 atom_id: CA-R-1983
-current_scope_unit: PROJECT_CONFIGURATION
-claim_target_scope_unit: PROJECT_CONFIGURATION
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Project.Settings
+ref_id: CA-R-1983
+container:
+  scope_unit: CA-SU-13
+role: Requirement
+form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings
+tier: 3
 relations:
   child_of:
   - CA-R-1176
+status: Active
 version: 15
-tier: 3
-role: Requirement
-form: Rule
 updated_at: 2026-11-02 08:06:47 +0400
+carrier_destination:
+  file:
+    name: CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement
+current_scope_unit: PROJECT_CONFIGURATION
+claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1983-PROJECT_CONFIGURATION-RULE--define-project-framework-settings-parameter-resolution.md
   source_atom_id: CA-R-1983
   source_atom_revision: 15
-  source_sha256: d274204e13a7a6c117916a9107af85eaf868a1fe865477007db3f0eb27b0ff5c
+  source_sha256: 3f04977321780ca75b9653836f740000254209456e873c62faadfaa1bb133db8
   original_relations_sha256: 9e3e53a370b31aee7f492cc3fbaba3b8b30f92b5773698d221265754db5d0402
 ---
 ## Summary

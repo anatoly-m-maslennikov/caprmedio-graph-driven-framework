@@ -1,33 +1,40 @@
 ---
-subjects:
-  active: CAPRMEDIO_MODEL <+ Entity
-  passive:
+atom_id: CA-E-466
+ref_id: CA-E-466
+container:
+  scope_unit: CA-SU-11
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Entity
+  dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-version: 28
-updated_at: 2026-11-02 00:18:22 +0400
+tier: 3
 relations:
   evaluation_for:
   - CA-R-1437
   - CA-R-1470
   - CA-R-1471
   - CA-R-2535
-atom_id: CA-E-466
+status: Active
+version: 28
+updated_at: 2026-11-02 00:18:22 +0400
+carrier_destination:
+  file:
+    name: CA-E-466-CORE_META_MODEL-EVAL_CASE--validate-single-source-of-truth-in-secondary-graphs.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 3
-role: Evaluation
-form: Eval Case
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-466-CORE_META_MODEL-EVAL_CASE--validate-single-source-of-truth-in-secondary-graphs.md
   source_atom_id: CA-E-466
   source_atom_revision: 28
-  source_sha256: c6dfe54d18b67a0027a5355109ac24fedbf93b7ff8d3d255c02ef71902c4c77f
+  source_sha256: 49d7d6f33ef0bbdaa3651dc7486d7c2b732933da8d7b1dafdcb2de90491d4bc4
   original_relations_sha256: 8db81e4f3cb2102db425222e58f0524bd60d360c9981ec917f8eb310b4cbb0d1
 ---
 ## Summary

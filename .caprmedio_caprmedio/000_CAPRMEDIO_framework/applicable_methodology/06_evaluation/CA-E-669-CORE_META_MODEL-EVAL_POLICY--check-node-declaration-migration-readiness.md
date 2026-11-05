@@ -1,21 +1,27 @@
 ---
 atom_id: CA-E-669
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ Node
-version: 4
-updated_at: 2026-11-02 17:54:42 +0400
-relations: {}
-tier: 3
+ref_id: CA-E-669
+container:
+  scope_unit: CA-SU-11
 role: Evaluation
 form: Eval Policy
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Node
+tier: 3
+status: Active
+version: 4
+updated_at: 2026-11-02 17:54:42 +0400
+carrier_destination:
+  file:
+    name: CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-669-CORE_META_MODEL-EVAL_POLICY--check-node-declaration-migration-readiness.md
   source_atom_id: CA-E-669
   source_atom_revision: 4
-  source_sha256: 55c62fe55716d1332afc79ae69fb9749d1bea43027de4bcca0d439c990afeeef
+  source_sha256: 6aa807e323a9944d0fe9604e5b02b0f563431f5788f5b7a82c1f534533a41c1d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

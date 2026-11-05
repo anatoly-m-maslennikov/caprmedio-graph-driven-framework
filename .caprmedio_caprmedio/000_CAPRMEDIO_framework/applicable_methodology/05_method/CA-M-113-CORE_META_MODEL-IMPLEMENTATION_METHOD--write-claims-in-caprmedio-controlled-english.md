@@ -1,28 +1,35 @@
 ---
-subjects:
-  active: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
-  passive:
+atom_id: CA-M-113
+ref_id: CA-M-113
+container:
+  scope_unit: CA-SU-11
+role: Method
+form: Implementation Method
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  dependencies:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom.Content
-version: 42
-updated_at: 2026-11-02 18:35:20 +0400
+tier: 4
 relations:
   child_of:
   - CA-M-442
   - CA-M-112
   - CA-R-941
-atom_id: CA-M-113
+status: Active
+version: 42
+updated_at: 2026-11-02 18:35:20 +0400
+carrier_destination:
+  file:
+    name: CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
-status: Active
-tier: 4
-role: Method
-form: Implementation Method
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md
   source_atom_id: CA-M-113
   source_atom_revision: 42
-  source_sha256: ff7e78240900d22c49ece88a40ed92213f258b5b1f687607d12c99e2ef9413b3
+  source_sha256: 8ecd64dd919f0bc3a713e53a7a4d2da582bfa10c4e94712565205ffbf96db45a
   original_relations_sha256: 2701bc866cb6ded663ce6728ada8d5991d372b20fe3d8b0d795cc53ee044986b
 ---
 ## Summary

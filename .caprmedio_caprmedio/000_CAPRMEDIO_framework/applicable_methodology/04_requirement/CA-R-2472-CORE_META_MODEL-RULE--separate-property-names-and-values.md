@@ -1,21 +1,27 @@
 ---
 atom_id: CA-R-2472
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
-status: Active
-subjects:
-  active: CAPRMEDIO_MODEL <+ CFEL
-version: 9
-updated_at: 2026-11-04 05:21:15 +0400
-relations: {}
-tier: 3
+ref_id: CA-R-2472
+container:
+  scope_unit: CA-SU-11
 role: Requirement
 form: Rule
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL
+tier: 3
+status: Active
+version: 9
+updated_at: 2026-11-04 05:21:15 +0400
+carrier_destination:
+  file:
+    name: CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2472-CORE_META_MODEL-RULE--separate-property-names-and-values.md
   source_atom_id: CA-R-2472
   source_atom_revision: 9
-  source_sha256: 659daa7c02b8d0458aad7d70e071ac1810c55bedb3aa553830468f47d4688b8e
+  source_sha256: 92ea98cc0597f26c531bf8d41b90eb0b54b2a16bf9061bd1833497685738343d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
