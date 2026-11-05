@@ -15,9 +15,9 @@ Latest Operator decisions:
 | --- | --- | --- | --- | --- |
 | Relation and syntax | model_relation_contracts; root applies | Relation/prerequisite previews and selected Core sources | Explicit aliases, endpoints, inverse permission, Current source readback | Done |
 | Layout and references | model_property_contracts; root applies | Header/Content declarations and Delivery | Exact chosen order; separate default Rule; no Workflow schema promotion | Done |
-| Data | root | Native Current/Draft Header metadata | Ref ID derived from explicit inputs; remove only empty optional Properties | Applied; independent check running |
-| Ordering | model_subject_syntax; root applies | Native Current/Draft Header and declared Content sections | Same YAML values and section bytes; unknown Header fields last | Prepared |
-| Independent review | property_instance_relations_review | Read-only source, data and ordering checks | Exact plans/receipts and preserved predecessors | Running |
+| Data | root | Native Current/Draft Header metadata | Ref ID derived from explicit inputs; remove only empty optional Properties | Verified |
+| Ordering | model_subject_syntax; root applies | Native Current/Draft Header and declared Content sections | Same YAML values and section bytes; unknown Header fields last | Applied and verified |
+| Independent review | property_instance_relations_review | Read-only source, data and ordering checks | Exact plans/receipts and preserved predecessors | Done for this bounded change |
 
 The model application has 61 checked operations, 33 outputs and 20 exact predecessor snapshots. New Current IDs: R2965 (ordering Relation), R2966 (Ref ID), R2967 (default ordering Rule).
 
@@ -25,4 +25,6 @@ The successful Ref ID application adds 4,448 values; 25 were already correct. 20
 
 The empty-property pass removes 1,594 empty Relations mappings and 254 empty dependency lists across 1,841 files. It preserves all other Header data and body bytes.
 
-Ordering and final data verification are pending in this checkpoint. Existing invalid legacy Relation targets remain separate findings. Parser/runtime implementation and its tests belong to CA #3. No native workflow admission or Journal append is claimed.
+Ordering and final data verification passed at the bounded source checkpoint. Existing invalid legacy Relation targets remain separate findings. Parser/runtime implementation and its tests belong to CA #3. No native workflow admission or Journal append is claimed.
+
+Final source census: 4,669 live carriers; all Header order and empty-field checks pass. 4,463 Ref IDs match the formula, with zero mismatches; 206 missing/invalid-input holds remain. The stable ordering application changed 4,624 files, followed by 12 concurrent-successor reconciliations and two exact boundary repairs. The other lane consumed ten Drafts; they remain absent. No production tests were run by this source lane.

@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL
 tier: 3
 status: Active
-version: 76
-updated_at: 2026-11-05 20:22:52 +0400
+version: 77
+updated_at: 2026-11-05 23:20:15 +0400
 carrier_destination:
   file:
     name: CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
@@ -132,12 +132,21 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 - Each language item has an individual Subject in the MODEL namespace: for example, `CAPRMEDIO_MODEL/CFEL/Operator//Equality` and `CAPRMEDIO_MODEL/CFEL/Construct//Conditional`.
 - The reviewed Format, Model Reference and INSTANCE_OF Drafts are R2248@6, R2957@1 and R2476@7. Keep the required definition order: `[]`, then `<>`, then INSTANCE_OF and its Semantics. The broader catalogue and caller review remains open.
 - Rename `subjects.active` to `topics.main_subject` and `subjects.passive` to `topics.dependencies`. Main Subject means the one selected Topic. Dependencies retain their direct contextual meaning; incidental mentions are not automatically dependencies.
-- Apply these names during the checked in-place Current/Draft migration after CFEL review. Source metadata is not globally renamed by this planning update. Keep unresolved Relation-name and conditional-construct choices explicit.
+- Apply these names during the checked in-place Current/Draft migration after CFEL review. The checked metadata rename has since been applied; the Header/Content checkpoint below records current source evidence. Keep unresolved Relation-name and conditional-construct choices explicit.
+
+## Header and Content order — 2026-11-05
+
+- Current R2965 declares IS_ORDERED_RIGHT_AFTER with `<;` and its inverse alias IS_ORDERED_RIGHT_BEFORE with `;>`. Current R2966 declares Header.Ref ID. Current R2967 gives the default for sibling Properties outside either endpoint of an explicit order: last, with unspecified mutual order. Explicit Header and Content order stays in their Declarations.
+- Header order is ID, Ref ID, Container, Role, Form, Label, Topics, Tier, Relations, Status, Version, Updated At, Carrier Destination. Other Header fields follow without an imposed mutual order. Relations is optional; each present canonical Relation key uses a nonempty YAML list of base Atom IDs. Scalar/null values and empty lists are rejected by the Delivery rule. Optional empty Properties are omitted.
+- The model batch applied 61 checked operations with 33 outputs and 20 exact predecessor snapshots. The ordering pass applied 4,624 stable sources and reconciled 12 concurrent successors; ten Drafts consumed by the other source lane were not restored. An independent fresh census verified all 4,669 live sources have the selected Header order and no empty/null Header Properties.
+- Ref ID is base ID for Current, ID@Version for Archived and ID@Version-draft for Draft. The final census has 4,463 formula-matching values and zero mismatches. 206 records remain held for missing or unallocated identity/state: 177 lack explicit ID or Status and 29 have unallocated or invalid IDs. No missing data was invented. Fifty-five legacy Relation-list strings need separate domain review; they were preserved.
+- Actual Workflow schema work and anonymous Mermaid Drafts from the other owner were preserved; this ordering change does not promote those schemas. Parser, lifecycle maintenance, projection regeneration and runtime/test gates remain CA #3 dependencies. The full Epic remains Active.
+- Evidence: [model/data/ordering packet](../02_analysis/draft/epic-completion-20261104/application/property-order-20261105/README.md), [independent readback](../02_analysis/draft/epic-completion-20261104/permissions/property-order-final-readback-20261105.json), [final Header check](../02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/final-header-check.json).
 
 ## Remaining work
 
 1. **Relation permissions.** Verify the adopted outgoing permissions, model/instance scope, endpoint bounds and qualifications against final sources. Retain separate direct/inverse permissions and source-linked unary bounds in projections.
-2. **Property contracts and containment.** Resolve the conditional cases from applicable Declarations. Update source and schema authority for the required Atom.Header.Container, optional Header.Relations and retained formal containment Relations; do not duplicate containment in Header.Relations. Verify one formal Container per ordinary non-Project Scope Unit and none for the Project root. Predefined world is exempt from the ordinary parent requirement. Separately verify each Declaration Atom has its own Container. Repair the optional Subjects grouping without weakening Current Active-subject requirements.
+2. **Property contracts and containment.** Resolve the conditional cases from applicable Declarations. Update source and schema authority for the required Atom.Header.Container, optional Header.Relations and retained formal containment Relations; do not duplicate containment in Header.Relations. Verify one formal Container per ordinary non-Project Scope Unit and none for the Project root. Predefined world is exempt from the ordinary parent requirement. Separately verify each Declaration Atom has its own Container. Preserve the required Topics/Main Subject and optional Dependencies contract.
 3. **MODEL coverage.** Disposition every remaining flag in the latest pinned coverage audit: source correction, declared authority, valid scope, authorized retirement or an Operator decision. The Occurrent hierarchy is settled by the latest Operator decision; finish the reviewed endpoint/inverse-permission and Event Record Relation source gates rather than reopening that decision. Reconcile Settings ownership, preserve operative Claims and exact history, and retain only explicitly authorized deferrals.
 4. **Projection identity.** Verify the adopted Form + Scope Unit constraints, required Scope Unit reference and distinct Forms across Delivery, readers, identity checks and published instances. Keep all seven views at the Project root. Preserve versioned source references and the explicit Terms Graph deferral.
 5. **CFEL and faithful projections.** Finish the revised canonical-Relation/inverse-alias specification and review its complete authority set. Commit the source checkpoint, then migrate Current and Draft Atoms in place by context. Preserve fixed model Relation references, qualified-Subject `:=`, YAML and literal text. Apply `:=` OR / `::` AND, inherited rules and the absent-admission case. Check the source migration, then send the implementation handoff. Repair declared narrowing and namespace binding, supported qualified selectors and bindings. Classify remaining opaque expressions; retain their complete source and diagnostics. Rebuild all seven MODEL-only views from actual Current Declarations. Formats, cardinalities and Formal Claims come only from Declarations.

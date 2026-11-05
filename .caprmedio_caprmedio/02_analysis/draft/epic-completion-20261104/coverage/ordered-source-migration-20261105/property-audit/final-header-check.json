@@ -1,0 +1,1344 @@
+{
+  "status": "INDEPENDENT_LIVE_HEADER_SHAPE_CHECK",
+  "snapshot": {
+    "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/snapshot.json",
+    "sha256": "a338673d806b5d9f60390e4cbe7d9cf8da342bc62b253b82bddb56de5ee7566c"
+  },
+  "counts": {
+    "order_pass": 4669,
+    "no_empty": 4669,
+    "ref_correct": 4463
+  },
+  "issue_counts": {
+    "drift": 0,
+    "order": 0,
+    "empty": 0,
+    "relation_null": 0,
+    "relation_domain_review": 55,
+    "ref_mismatch": 0,
+    "ref_unknown": 206
+  },
+  "issues": {
+    "drift": [],
+    "order": [],
+    "empty": [],
+    "relation_null": [],
+    "relation_domain_review": [
+      {
+        "path": ".caprmedio_caprmedio/03_plan/canceled/CA-P-031-PLAN--migrate-canonical-project-path-names-and-atom-types.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-P-020-CHANGE_PLAN--orchestrate-bootstrap-seed-migration"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-274-FRAMEWORK_ENGINE-QUESTION--how-should-the-structured-diagnostics-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-GOV-REQU-315"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-278-FRAMEWORK_ENGINE-QUESTION--how-should-the-replayable-evaluation-evidence-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-META-REQU-097"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-278-FRAMEWORK_ENGINE-QUESTION--how-should-the-replayable-evaluation-evidence-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-META-REQU-158"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-2151-FRAMEWORK_ENGINE-RULE--supply-the-mcp-tool-interface-to-skills.md",
+        "relation": "realization_input",
+        "value": "./PROGRAMMATIC/MCP"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/05-CA-P-2582-TASK--reconcile-current-workflow-bindings-and-frozen-fixtures/02-CA-P-2613-TASK--prepare-detached-candidate-and-registry-drift-validation/07-CA-P-2620-TASK--requalify-registry-and-authority-drift-after-semantic-review.md",
+        "relation": "relates_to",
+        "value": "CA-W-09"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/05-CA-P-2582-TASK--reconcile-current-workflow-bindings-and-frozen-fixtures/02-CA-P-2613-TASK--prepare-detached-candidate-and-registry-drift-validation/08-CA-P-2621-TASK--compile-and-validate-the-detached-current-workflow-candidate.md",
+        "relation": "relates_to",
+        "value": "CA-W-09"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/96-CA-P-2577-TASK--implement-the-shared-context-native-workflow/05-CA-P-2582-TASK--reconcile-current-workflow-bindings-and-frozen-fixtures/02-CA-P-2613-TASK--prepare-detached-candidate-and-registry-drift-validation.md",
+        "relation": "relates_to",
+        "value": "CA-W-09"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-100-TOOLS-PROBLEM--relation-tools-do-not-resolve-scope-unit-endpoints.md",
+        "relation": "concern_about",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-529--patch-artifact-relations"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-100-TOOLS-PROBLEM--relation-tools-do-not-resolve-scope-unit-endpoints.md",
+        "relation": "concern_about",
+        "value": "CA-R-877-REQUIREMENT-BSEED_GOVERNANCE--validate-directional-relational-atoms"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-100-TOOLS-PROBLEM--relation-tools-do-not-resolve-scope-unit-endpoints.md",
+        "relation": "concern_about",
+        "value": "CA-R-883-REQUIREMENT-BSEED_GOVERNANCE--register-contract-endpoint-relations"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation/CA-E-106-TOOLS-EVAL_CASE--reject-inactive-relation-target.md",
+        "relation": "evaluation_for",
+        "value": "CAPRMEDIO-GOV-REQU-767"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation/CA-E-106-TOOLS-EVAL_CASE--reject-inactive-relation-target.md",
+        "relation": "evaluation_for",
+        "value": "CAPRMEDIO-GOV-EVAL-005"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/06_evaluation/CA-E-141-TOOLS-EVAL_CASE--reject-duplicate-terminal-event.md",
+        "relation": "evaluation_for",
+        "value": "CAPRMEDIO-GOV-REQU-367"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/CA-SU-37_FEATURE_GROUP_PROJECTION_ACTIONS/06_evaluation/CA-E-485-PROJECTION_ACTIONS-EVAL_CASE--reject-atom-owned-project-settings.md",
+        "relation": "evaluation_for",
+        "value": "CAPRMEDIO-META-REQU-619"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/01_concern/CA-C-283-APPS-QUESTION--how-should-the-local-app-runtime-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-META-REQU-158"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-284-SKILLS-QUESTION--how-should-the-thin-contextual-skills-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-558"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-284-SKILLS-QUESTION--how-should-the-thin-contextual-skills-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-559"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-284-SKILLS-QUESTION--how-should-the-thin-contextual-skills-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-564"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-285-SKILLS-QUESTION--how-should-the-progressive-disclosure-qa-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-558"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-285-SKILLS-QUESTION--how-should-the-progressive-disclosure-qa-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-559"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-285-SKILLS-QUESTION--how-should-the-progressive-disclosure-qa-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-564"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-286-SKILLS-QUESTION--how-should-the-capability-selection-qa-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-558"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-286-SKILLS-QUESTION--how-should-the-capability-selection-qa-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-559"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-287-SKILLS-QUESTION--how-should-the-delegation-boundary-qa-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-558"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-287-SKILLS-QUESTION--how-should-the-delegation-boundary-qa-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-559"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-288-SKILLS-QUESTION--how-should-the-portable-skill-packages-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-558"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-288-SKILLS-QUESTION--how-should-the-portable-skill-packages-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-559"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-288-SKILLS-QUESTION--how-should-the-portable-skill-packages-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-564"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-519-SKILLS-RULE--persist-bounded-session-engine-state.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-METHODOLOGY-REQU-509-FRAMEWORK_METHODOLOGY-REQUIREMENT--govern-session-engine-rehydration-behavior"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-561-SKILLS-RULE--route-generated-data-pipeline-work.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-GOV-REQU-337-CORE_META_MODEL-REQUIREMENT--register-generated-data-stage-prefixes"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-561-SKILLS-RULE--route-generated-data-pipeline-work.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-521--validate-generated-data-stage-pipelines"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-561-SKILLS-RULE--route-generated-data-pipeline-work.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-FRAMEWORK-ENGINE-REQU-524--project-work-journal-ndjson-to-toon"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-565-SKILLS-RULE--load-durable-authority-only-from-caprmedio.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-METHODOLOGY-REQU-509-FRAMEWORK_METHODOLOGY-REQUIREMENT--govern-session-engine-rehydration-behavior"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-566-SKILLS-RULE--analyze-sessions-retrospectively-for-correction-signals.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-REQU-702--define-framework-engine-layer-scope"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-578-SKILLS-RULE--initialize-the-session-engine-at-host-context-boundaries.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-METHODOLOGY-REQU-507-FRAMEWORK_METHODOLOGY-CORE-REQUIREMENT--automatically-initialize-the-session-engine"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-579-SKILLS-RULE--preserve-provider-equivalent-session-behavior.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-METHODOLOGY-REQU-496-FRAMEWORK_METHODOLOGY-REQUIREMENT--keep-llm-operation-provider-neutral"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-580-SKILLS-RULE--require-per-run-approval-for-raw-session-access.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-REQU-702--define-framework-engine-layer-scope"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-581-SKILLS-DEFINITION--use-repeat-correction-rate-as-the-primary-self-improvement-metric.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-REQU-702--define-framework-engine-layer-scope"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-665-SKILLS-RULE--provide-a-project-scope-unit-graph-projection-skill.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-REQU-702--define-framework-engine-layer-scope"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-694-SKILLS-RULE--guide-project-adaptation-promotion.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-REQU-702--define-framework-engine-layer-scope"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement/CA-R-699-SKILLS-RULE--guide-extension-lifecycle-operations.md",
+        "relation": "child_of",
+        "value": "CAPRMEDIO-REQU-702--define-framework-engine-layer-scope"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+        "relation": "delivery_for",
+        "value": "CA-R-862-REQUIREMENT-BSEED_GOVERNANCE--require-scope-unit-delivery-atoms"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+        "relation": "delivery_for",
+        "value": "CA-R-862-REQUIREMENT-BSEED_GOVERNANCE--require-scope-unit-delivery-atoms"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+        "relation": "delivery_for",
+        "value": "CA-R-862-REQUIREMENT-BSEED_GOVERNANCE--require-scope-unit-delivery-atoms"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-GOV-REQU-371"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-METHODOLOGY-REQU-507"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-METHODOLOGY-REQU-509"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-GOV-REQU-333"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-GOV-REQU-336"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-METHODOLOGY-REQU-508"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-META-REQU-144"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-META-REQU-144"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-META-REQU-158"
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md",
+        "relation": "relates_to",
+        "value": "CAPRMEDIO-META-REQU-097"
+      }
+    ],
+    "ref_mismatch": [],
+    "ref_unknown": [
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-102-QUESTION--what-authority-must-govern-plan-folder-nodes.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-105-QUESTION--when-would-autonomous-learning-memory-justify-an-optional-extension.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-107-PROBLEM--seven-day-decisions-lack-complete-cap-closure.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-111-QUESTION--which-canonical-targets-do-the-legacy-subject-labels-identify.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-112-QUESTION--which-events-substantiate-the-legacy-replacement-declarations.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-113-QUESTION--how-should-journal-tools-adopt-the-approved-storage-boundary.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-114-QUESTION--which-authorities-should-the-unresolved-relations-reference.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-115-QUESTION--what-runtime-ownership-does-the-secret-policy-clause-limit.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-116-QUESTION--how-should-concern-selection-settings-bound-priority-selection.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-117-QUESTION--which-declarations-complete-the-authoritative-project-structure.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-118-QUESTION--how-should-plan-targeting-follow-the-goal-and-demand-boundary.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-119-QUESTION--how-should-atom-moves-preserve-owner-dependent-meaning.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-120-QUESTION--which-target-authority-may-atom-upgrade-admit.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-121-QUESTION--which-current-authority-governs-the-requirement-subject-catalog.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-122-QUESTION--which-complete-control-flow-governs-project-path-provenance.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-123-QUESTION--which-required-information-belongs-to-semantic-or-carrier-authority.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-124-QUESTION--which-containment-domain-owns-recursive-epic-membership.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-125-QUESTION--which-legacy-scope-properties-should-be-retired-or-rebound.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-126-QUESTION--which-current-carriers-supply-signature-input-expressions.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-127-QUESTION--what-action-boundaries-preserve-identity-collision-repair.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-128-QUESTION--which-claims-and-carrier-boundaries-should-production-checklist-authority-separate.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-129-QUESTION--which-action-retires-a-project-structure-candidate.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-130-QUESTION--how-should-external-obligation-authority-separate-classification-binding-and-change-handling.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-131-QUESTION--which-unfinished-session-work-requires-a-persisted-task.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-132-QUESTION--which-atom-lineage-flow-replaces-ordered-layer-propagation.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-133-QUESTION--which-action-bindings-preserve-the-core-amendment-flow.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-134-QUESTION--which-method-boundaries-separate-summary-and-navigation-projections.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-135-QUESTION--which-independent-claims-own-implementation-overview-authority.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-136-QUESTION--where-should-the-missing-artifact-timezone-default-be-owned.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-137-QUESTION--is-the-framework-root-locator-a-derived-carrier-value.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-138-QUESTION--how-should-external-review-adoption-authority-be-separated.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-139-QUESTION--how-should-implementation-binding-authority-be-separated.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-140-QUESTION--which-atoms-may-a-rationale-explain.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-141-QUESTION--which-derivation-rules-are-methods-rather-than-actions.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-142-QUESTION--which-legacy-adaptation-claims-belong-to-project-configuration.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-143-QUESTION--may-applicable-methodology-persist-derived-subject-indexes.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-144-QUESTION--how-should-secret-policy-and-exposure-response-be-separated.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-145-QUESTION--which-authority-owns-admission-and-promotion-behavior.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-146-QUESTION--what-authority-admits-extension-application-bindings.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-147-QUESTION--how-should-draft-revisions-retain-lineage-without-an-assigned-id.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-148-QUESTION--which-current-graph-owns-feature-realization-bindings.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-149-QUESTION--how-should-retrieval-distinguish-no-match-from-incomplete-authority.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-150-QUESTION--does-tier-validation-need-one-integrated-case-or-separate-cases.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-151-QUESTION--which-actions-compose-refactoring-verification.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-152-QUESTION--which-configured-types-may-core-meta-model-atoms-use.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-153-QUESTION--how-should-the-remaining-plan-action-policies-be-classified.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-154-QUESTION--what-governs-development-backlog-split-proposals.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-155-QUESTION--how-should-release-reconciliation-update-the-backlog-epic.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-156-QUESTION--how-should-production-logging-policy-claims-be-separated.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-157-QUESTION--how-many-source-revisions-may-one-project-customization-bind.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-158-QUESTION--what-governs-non-delivery-placement-at-the-project-root.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-159-QUESTION--which-lineage-should-survive-retirement-of-the-project-structural-level-alias.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-160-QUESTION--how-should-the-backward-coupling-rule-use-atom-owned-demands.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-161-QUESTION--which-concern-dispositions-require-cause-repair-and-recurrence-protection.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-162-QUESTION--where-should-the-native-application-support-definition-live.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-163-QUESTION--which-project-authorization-outcome-is-not-already-an-actor-policy.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-164-QUESTION--how-should-progressive-context-acquisition-separate-flow-from-criteria.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-165-QUESTION--which-project-core-rules-are-product-commitments-rather-than-reusable-methodology.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-166-QUESTION--how-should-the-legacy-mcp-to-skills-interface-contract-be-represented.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-167-QUESTION--which-authority-owns-the-bounded-session-state-envelope.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-168-QUESTION--which-test-population-makes-usability-classification-scores-reproducible.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-169-QUESTION--which-goal-preserves-project-configuration-without-duplicating-settings-selections.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-170-QUESTION--how-does-deterministic-mechanism-selection-follow-operator-priorities.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-171-QUESTION--which-native-implementation-references-are-operative-rather-than-duplicate-authority.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-172-QUESTION--which-methodology-portability-and-session-claims-belong-to-engine-authority.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-173-QUESTION--which-artifact-language-permissions-exclude-authoritative-cce-claims.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-174-QUESTION--is-the-software-development-default-an-instance-choice-or-a-product-promise.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-175-QUESTION--how-should-the-legacy-public-refactoring-skill-use-the-current-routing-model.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-176-QUESTION--does-upstream-proposal-permission-intentionally-require-confidence-above-the-threshold.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-177-QUESTION--what-source-frontier-information-must-methodology-projections-preserve.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-178-QUESTION--how-do-hooks-fit-the-primary-tool-kinds-without-broadening-permission.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-179-QUESTION--what-is-the-canonical-initiative-boundary-for-programmatic-mutation.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-180-QUESTION--which-programmatic-provenance-rules-belong-to-optional-git-integration.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-181-QUESTION--which-owner-retains-the-tools-to-mcp-supply-obligation.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-182-QUESTION--how-should-the-programmatic-source-ratchet-be-partitioned-without-losing-conditions.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-183-QUESTION--how-should-temporary-state-confinement-separate-outcome-placement-and-failure-behavior.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-184-QUESTION--what-settings-sources-and-provenance-must-the-shared-reader-cover.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-185-QUESTION--how-should-python-workflow-selections-separate-conventions-carriers-and-actions.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-186-QUESTION--how-should-software-evaluation-selection-separate-technique-gates-and-evidence.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-187-QUESTION--what-evidence-supports-a-deterministic-transformations-no-effect-result.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-188-QUESTION--which-outcome-does-pass-denote-in-software-evaluations.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-189-QUESTION--how-should-sealed-atom-migration-separate-capability-carrier-and-action-authority.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-190-QUESTION--which-canonical-type-identity-does-the-active-atom-snapshot-count.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-191-QUESTION--which-schemas-govern-generic-artifact-selectors-and-relation-patches.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-192-QUESTION--how-should-release-recording-separate-the-action-and-journal-bindings.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-193-QUESTION--which-plan-type-preserves-explicitly-accepted-deferred-work.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-194-QUESTION--which-authority-owns-extension-packaging-and-source-defaults.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-195-QUESTION--which-current-scope-unit-model-governs-structural-adoption-proposals.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-196-QUESTION--which-authority-owns-the-commit-autonomy-envelope.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-197-QUESTION--when-must-projection-rebuild-evaluations-gate-publication.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-198-QUESTION--which-current-carrier-contracts-replace-legacy-validator-cases.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-199-QUESTION--which-relation-kind-supports-the-redundant-transitive-edge-fixture.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-200-QUESTION--can-the-equal-tier-ancestor-evaluation-have-a-valid-current-fixture.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-201-QUESTION--which-registered-data-stage-is-mandatory-for-the-skipped-stage-test.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-202-QUESTION--which-relation-metadata-fields-must-the-commit-fixture-require.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-203-QUESTION--which-relation-requires-the-current-upstream-revision.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-204-QUESTION--what-safe-recovery-boundary-applies-to-a-partially-written-journal-record.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-205-QUESTION--which-authority-governs-immediate-prior-result-replay.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-206-QUESTION--which-execution-graph-must-the-tool-architecture-check-treat-as-acyclic.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-207-QUESTION--how-does-the-journal-represent-events-without-known-llm-session-provenance.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-208-QUESTION--which-atom-operations-cover-external-project-goals.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-209-QUESTION--how-does-scope-unit-name-case-apply-to-the-project-name.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-267-QUESTION--how-should-the-preserve-reusable-information-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-040-ANALYSIS_RPRT--fpf-alignment-audit-project-meta-gov-after-repair.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-041-ANALYSIS_RPRT--fpf-alignment-audit-project-meta-gov-settings.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-042-ANALYSIS_RPRT--fpf-options-explore-caprmedio-graph-database.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-043-ANALYSIS_RPRT--fpf-alignment-audit-level-0-rmed-level-1-2-cores.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-044-ANALYSIS_RPRT--fpf-design-challenge-metalayer-number-names-scopes.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-045-ANALYSIS_RPRT--fpf-alignment-audit-goal-and-principles.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-046-ANALYSIS_RPRT--fpf-design-challenge-goal-principles-internal-coherence.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-047-ANALYSIS_RPRT--fpf-quality-improve-goal-principles-coherence.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-048-ANALYSIS_RPRT--fpf-design-challenge-code-truth-and-adoption.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-049-ANALYSIS_RPRT--intent.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-060-ANALYSIS_RPRT--bound-hindsight-inspired-context-and-memory-candidates.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-062-ANALYSIS_RPRT--audit-seven-day-conversation-closure.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-065-ANALYSIS_RPRT--compare-caprmedio-work-execution-architectures.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-066-ANALYSIS_RPRT--recommend-a-staged-caprmedio-work-execution-direction.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-900-ANALYSIS_RPRT--audit-seven-day-decisions-and-realization-gaps.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-901-ANALYSIS_RPRT--define-ontology-like-authority-in-caprmedio.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-902-ANALYSIS_RPRT--evaluate-introducing-ontology-as-a-governed-term.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-273-FRAMEWORK_ENGINE-QUESTION--how-should-the-python-source-assets-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-274-FRAMEWORK_ENGINE-QUESTION--how-should-the-structured-diagnostics-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-275-FRAMEWORK_ENGINE-QUESTION--how-should-the-boundary-schemas-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-276-FRAMEWORK_ENGINE-QUESTION--how-should-the-shared-settings-reader-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-277-FRAMEWORK_ENGINE-QUESTION--how-should-the-understandable-code-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-278-FRAMEWORK_ENGINE-QUESTION--how-should-the-replayable-evaluation-evidence-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-279-FRAMEWORK_ENGINE-QUESTION--how-should-the-mcp-adapters-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/CA-A-903-FRAMEWORK_ENGINE-ANALYSIS_RPRT--assess-trace-engineering-ideas-for-caprmedio.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/CA-A-904-FRAMEWORK_ENGINE-ANALYSIS_RPRT--harvest-langwatch-ideas-for-tools-apps-and-mcp.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-052-PROGRAMMATIC-ANALYSIS_RPRT--freeze-the-programmatic-method-and-evaluation-target.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-054-PROGRAMMATIC-ANALYSIS_RPRT--validate-the-python-3-14-contract-upgrade.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-055-PROGRAMMATIC-ANALYSIS_RPRT--finalize-shared-programmatic-methods.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-056-PROGRAMMATIC-ANALYSIS_RPRT--map-shared-programmatic-evaluation-coverage.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-057-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-programmatic-specialization-authority.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--validate-programmatic-method-and-evaluation-closure.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-059-PROGRAMMATIC-ANALYSIS_RPRT--close-deferred-programmatic-requirement-realization-gaps.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R--PROGRAMMATIC-STANDARD--compose-expandable-and-overridable-model-declarations.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-draft-PROGRAMMATIC-GENERAL-REQUIREMENT--trace-rmed-claims-to-canonical-module-owners.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M--PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--localize-engineering-decisions-and-reuse-shared-policies.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-CORE-ENG_POLICY--organize-cohesive-modules-packages-and-assets.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-draft-PROGRAMMATIC-STANDARD-ENG_DECISION--write-rmed-owner-citations-only-at-module-start.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E--PROGRAMMATIC-STANDARD-EVALUATION_APPROACH--check-model-extension-override-and-refresh-contracts.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-GENERAL-EVALUATION_APPROACH--evaluate-source-size-cohesion-and-package-organization.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/CA-E-draft-PROGRAMMATIC-STANDARD-QA_CASE--verify-owner-only-module-citations-and-derived-call-site-traces.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery/draft/CA-D--PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-100-TOOLS-PROBLEM--relation-tools-do-not-resolve-scope-unit-endpoints.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-280-TOOLS-QUESTION--how-should-the-installed-toolset-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-281-TOOLS-QUESTION--how-should-the-recoverable-mutations-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-282-TOOLS-QUESTION--how-should-the-machine-cli-envelopes-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/02_analysis/CA-A-067-TOOLS-ANALYSIS_RPRT--python-vs-go-for-caprmedio-tools-sota-harvest.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/01_concern/CA-C-283-APPS-QUESTION--how-should-the-local-app-runtime-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-284-SKILLS-QUESTION--how-should-the-thin-contextual-skills-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-285-SKILLS-QUESTION--how-should-the-progressive-disclosure-qa-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-286-SKILLS-QUESTION--how-should-the-capability-selection-qa-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-287-SKILLS-QUESTION--how-should-the-delegation-boundary-qa-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-288-SKILLS-QUESTION--how-should-the-portable-skill-packages-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/01_concern/CA-C-109-FPF-PROBLEM--fpf-is-not-yet-a-caprmedio-aligned-project-extension.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/01_concern/CA-C-110-FPF-CONFLICT--universal-ca-entry-conflicts-with-direct-fpf-invocation.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--establish-one-to-one-cce-dictionary.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-terms-to-entity-root-and-method-definitions.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--notation-baseline-for-intuitive-symbol-review.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-draft-CORE_META_MODEL-SPEC_PROPOSAL--declare-node-branch-and-formal-graph-rules.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--allow-one-optional-atom-semantics.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--constrain-evaluation-for-endpoint-kinds.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-original-atom-ids-unique.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-current-rmed-relation-targets-current.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--keep-default-values-within-the-governed-value-domain.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--preserve-inherited-status-values.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-date-time-atom-updated-at.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-integer-atom-version.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-status.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-updated-at.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-one-atom-version.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-positive-atom-version.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--require-text-atom-semantics.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-CORE-GRAPH_RULE--use-the-applicable-status-values.md",
+        "reason": "missing explicit Atom ID or Status",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-step-content-claim-mermaid-scheme.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim-mermaid-scheme.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-asset-file.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-model.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-requirement-type-requirement.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-terms-projection.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-test-package.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-DEFINITION--define-value-constraint-annotations.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-dependent-entity.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--list-logical-content-fields.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--require-unique-primary-kind-names.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-ENG_POLICY--derive-rmed-subject-maps-from-declarations.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-draft-CORE_META_MODEL-TERM_DEFINITION--define-dependent-entity.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_CASE--check-content-field-listing.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-draft-CORE_META_MODEL-EVAL_POLICY--check-rmed-subject-map-declaration-provenance.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--bind-modules-to-file-carriers.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--deliver-seven-rmed-subject-maps.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      },
+      {
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-draft-CORE_META_MODEL-ENG_DECISION--represent-packages-with-directory-carriers.md",
+        "reason": "unallocated or invalid Atom ID",
+        "actual": null
+      }
+    ]
+  },
+  "limits": [
+    "Header order checks present known keys in model order as a contiguous first block, then unlisted extras in free order.",
+    "Ref checks use explicit ID, status and version; unknown cannot be treated as false or repaired by guessing.",
+    "Relation domain review uses ID spelling as a source lead only: no target existence or Relation endpoint validity inferred.",
+    "Empty check captures null, empty string, empty list or empty map recursively; false and zero are values.",
+    "Snapshot is pinned and is a live-source observation, not runtime conformance."
+  ]
+}
