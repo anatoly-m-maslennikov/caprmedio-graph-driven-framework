@@ -54,3 +54,9 @@ CAPRMEDIO tool handles became available in this chat. The agent invoked `workben
 ## Successful inline native test
 
 The Operator confirmed that the actual component is inside the Codex session, not the right panel. Their latest screenshot shows both “CAPRMEDIO MCP App resource loaded” and “Tool bridge passed”. This establishes native inline rendering, receipt of the initial tool result and a successful UI-initiated MCP call. It does not establish a persistent right-panel surface or the full Workbench interface. The earlier failed file-preview observation is superseded for the inline native capability check.
+
+## Presentation probe update
+
+Release 0.4.4.27 serves `ui://caprmedio/workbench-compatibility-v2.html` with Presentation text and an Expand button. Live MCP verification confirms the exact resource bytes. The Operator screenshot after invocation still shows the first UI without those elements; v2 has not been observed in Codex. Cached launch metadata or an earlier retained card is the current hypothesis, not a proven server defect. The public `config/mcpServer/reload` method queues refresh for loaded threads, but the default local CLI control daemon is unavailable, so this session cannot invoke it against the running app. No private app connection or unsupported API was used.
+
+The native Codex MCP resource API also lists the v2 URI and returns HTML containing both Presentation text and the Expand button. This verifies v2 through the actual host connection, not only the separate HTTP test client. The visible card still lacks those elements. Refreshing the retained tool/UI metadata is the remaining presentation-test prerequisite.

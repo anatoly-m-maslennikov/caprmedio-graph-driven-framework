@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 41
-updated_at: 2026-11-06 03:32:42 +0400
+version: 42
+updated_at: 2026-11-06 03:48:00 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -146,7 +146,15 @@ The Operator screenshot shows the actual in-session component with the initial M
 
 - [x] Record the native inline result.
 - [x] Create the presentation-check RMED Drafts.
-- [ ] Review, fix and adopt those Drafts.
-- [ ] Reuse the scoped Policy prompt and gather implementation sources.
-- [ ] Implement and test the accepted source changes.
+- [x] Review, fix and adopt those Drafts.
+- [x] Reuse the scoped Policy prompt and gather implementation sources.
+- [x] Implement and test the accepted source changes.
 - [ ] Verify the actual host presentation before counting the right-panel target complete.
+
+## Presentation probe release 0.4.4.27
+
+D681@6 and E684@4 are adopted. The presentation probe passed independent review, two focused browser tests covering four display outcomes and host-context updates, the focused MCP test, Ruff and mypy. The local release serves the exact v2 resource and both read-only tools; 45 tools remain advertised. Unchanged runtime and frontend tests were reused.
+
+The agent called the probe after deployment. The Operator screenshot still shows the first UI without Presentation text or Expand. The new UI has not been observed in Codex; stale launch metadata or a retained earlier card is the current hypothesis. The documented app-server MCP refresh API exists, but the CLI cannot reach a running control daemon here. A host-side connection refresh is still needed. Right-panel placement and the full Workbench interface remain unfinished.
+
+Source commit: `704877a8a35b3dbad5d90d5b90d3642ab7849a72`. Verification: `.caprmedio_tmp/workbench/codex-presentation/live-proof.json`.
