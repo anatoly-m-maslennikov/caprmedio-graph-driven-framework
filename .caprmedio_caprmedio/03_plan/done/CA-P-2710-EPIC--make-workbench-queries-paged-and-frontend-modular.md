@@ -3,8 +3,8 @@ atom_id: CA-P-2710
 label: Epic
 status: Done
 tier: 3
-version: 15
-updated_at: 2026-11-05 03:46:50 +0400
+version: 16
+updated_at: 2026-11-05 04:18:58 +0400
 subjects:
   active: CAPRMEDIO_MODEL <+ Projection
 relations:
@@ -74,17 +74,14 @@ The final test refinement changes test/development files and its RMED, not deplo
 
 ## Status
 
-Done. Workbench 0.4.4.20 is installed at `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`.
+Done. Workbench 0.4.4.21 is deployed at `http://127.0.0.1:56317/caprmedio/workbench/caprmedio`.
 
-The live header shows Workbench and Project name with Settings/Saved at the right. Query editor has its saved ID link in the same heading row; action shortcuts appear in their buttons. Only explicit Save and Save Worksheet persist. Browser draft autosave remains enabled. Live MCP checks confirm Run, Check, Page and errors return no saved identity; saved queries still load.
+Open Saved is available only in the command palette; the standalone toolbar button and dedicated shortcut are removed. Its ID/URL modal still opens with input focused. Result headers show actual column names and SQL types on separate lines, with types smaller and muted. The SQL schema is unchanged.
 
-Verification: 41 selected tests across 9 modules and all launcher groups passed, including 4 Docker tests with 3 browser flows. Frontend state tests, TypeScript and Vite build passed. Browser test artifacts are outside application inputs, and application identity stayed unchanged across browser testing.
+The standard local release completed. All 4 selected Docker/API/watcher/browser tests and all launcher groups passed, including the 3 real browser flows. Frontend state tests, TypeScript and Vite build passed. The live browser confirmed `id` and `status_group` are separated from `VARCHAR`, palette-only opening works, and the verification query created no saved entry.
 
-The standard release wrapper failed its post-build packaging check after all tests and the Docker build succeeded. Existing image-admission checks independently verified that exact image against the release package. Existing copy/install/bootstrap/launcher helpers completed installation and verified the running image. No release checks or release code were weakened. The wrapper issue remains outside this Workbench iteration.
+Receipt: `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-palette-column-headers.md`.
+Test log: `.caprmedio_tmp/simple_local_release/workbench-20261105-palette-column-headers-tests-a2mf46jn.log`.
+Adoption, method prompt and live proof: `.caprmedio_tmp/workbench/palette-headers/`.
 
-Completion receipt: `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-header-explicit-save-install.md`.
-Passed test log: `.caprmedio_tmp/simple_local_release/workbench-20261105-header-explicit-save-verified-tests-htddlh83.log`.
-Live proof and adopted-source records: `.caprmedio_tmp/workbench/header-navigation/`.
-The failed wrapper report is preserved at `.caprmedio_runtime/simple_local_release/reports/workbench-20261105-header-explicit-save-verified.md`.
-
-The full repository suite was not rerun; validation stayed within Workbench and affected MCP/launcher paths.
+The previous header, explicit-save and browser autosave behavior remains verified. Earlier iteration details are retained in archived Epic versions. The full repository suite was not rerun for this UI-only refinement.
