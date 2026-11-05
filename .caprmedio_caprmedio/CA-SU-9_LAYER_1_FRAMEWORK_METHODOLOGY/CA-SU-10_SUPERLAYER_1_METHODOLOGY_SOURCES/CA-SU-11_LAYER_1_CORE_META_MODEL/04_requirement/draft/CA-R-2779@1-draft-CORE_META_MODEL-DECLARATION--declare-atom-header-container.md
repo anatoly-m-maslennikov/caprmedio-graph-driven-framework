@@ -10,7 +10,7 @@ relations:
 tier: 3
 role: Requirement
 form: Declaration
-updated_at: 2026-11-05 03:32:34 +0400
+updated_at: 2026-11-05 04:12:41 +0400
 carrier_destination:
   file:
     name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md
@@ -48,5 +48,7 @@ Allowed values:
 A base Atom ID selects Current by default.
 
 For a root Project Declaration Atom, an omitted Header.Container has the effective default `world`. An explicit valid value overrides that default.
+
+The literal bootstrap value `world` produces zero containment links.
 
 Header.Container is the sole stored Atom-containment value.

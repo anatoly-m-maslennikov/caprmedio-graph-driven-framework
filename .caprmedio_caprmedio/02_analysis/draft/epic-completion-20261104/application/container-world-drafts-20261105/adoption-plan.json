@@ -1,0 +1,43 @@
+{
+  "status": "REVIEWED_WORLD_BOOTSTRAP_DRAFTS_NOT_CURRENT_ADOPTION",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-R-2508",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "source_sha256": "5e21f92890a3868c5f86f43bfe6297a4be50f014b73ad1e6fcd698cd986e789d",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2508.preview.txt",
+      "preview_sha256": "a02dd777cedb7ae46b09a0ae7d2706c413795688979d8baf4504c36aedd081ba"
+    },
+    {
+      "atom_id": "CA-R-2779",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "source_sha256": "f6addbf5d5a3bfbd6bc6694f788801cb5cebe1faf27acb9514bbad9cba636aec",
+      "preview_path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/world-resolution-20261105/CA-R-2779.preview.txt",
+      "preview_sha256": "8eb27272c2b5f52d9bfddd4e9b260c19db056a5f413dc00350f04883f2c4f8f7"
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2508\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom\nversion: 7\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nupdated_at: 2026-11-05 04:12:41 +0400\nrole: Requirement\nform: Declaration\ncarrier_destination:\n  file:\n    name: CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{::2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom;\n\nIF ($atom.Header.Container = \"world\") THEN ($atom {::0}((IS_CONTAINED_BY)));\n\nIF ($atom.Header.Container != \"world\") THEN ($atom {::1}((IS_CONTAINED_BY)));\n\n$atom {::0..1}((HAS_ACTIVE_SUBJECT));\n\n$atom {::0..1}((GOVERNS));\n\nUNIQUE(Atom//$identity_atom, (.Header.ID, .Header.Version));\n```\n\n### Prose Claim\n\nFor each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\nFor an Atom whose effective Header.Container is a valid base Atom ID or Scope Unit path, its outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from that value. Header.Container is the sole stored Atom-containment value. The literal bootstrap value \"world\" creates no containment link.\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "after_sha256": "1274d1355583915cf92fe9f0bd65e7808e9ae8ff7f2d914501830ba2af63fad3"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "before": "---\natom_id: CA-R-2779\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 03:32:34 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header.Container\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container{::1} :: [string]{::1};\n\nAtom.Header.Container.*[]{::0};\n\n# instances\nAtom//$atom;\n$atom.Header.Container{::1}\n```\n\n### Prose Claim\n\nHeader.Container identifies the Atom's immediate Container.\n\nAllowed values:\n\n1. A full canonical Scope Unit path: one slash-delimited string formed from the exact Scope Unit.Name values in the declared parent chain. The Project root path is `/`, with no Project name segment. For example, `FRAMEWORK_ENGINE` is `/FRAMEWORK_ENGINE`; `CORE_META_MODEL` is `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`.\n2. The base Atom ID of the containing Atom.\n3. `world`, for a root Project Declaration Atom.\n\nA base Atom ID selects Current by default.\n\nFor a root Project Declaration Atom, an omitted Header.Container has the effective default `world`. An explicit valid value overrides that default.\n\nHeader.Container is the sole stored Atom-containment value.\n",
+      "before_sha256": "f6addbf5d5a3bfbd6bc6694f788801cb5cebe1faf27acb9514bbad9cba636aec",
+      "after": "---\natom_id: CA-R-2779\nstatus: Draft\nsubjects:\n  active: CAPRMEDIO_MODEL <+ Atom.Header.Container\nversion: 1\nrelations:\n  IS_CONTAINED_BY:\n    scope_unit: CA-SU-11\ntier: 3\nrole: Requirement\nform: Declaration\nupdated_at: 2026-11-05 04:12:41 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2779@1-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n## Summary\n\nDeclare Atom.Header.Container\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Container{::1} :: [string]{::1};\n\nAtom.Header.Container.*[]{::0};\n\n# instances\nAtom//$atom;\n$atom.Header.Container{::1}\n```\n\n### Prose Claim\n\nHeader.Container identifies the Atom's immediate Container.\n\nAllowed values:\n\n1. A full canonical Scope Unit path: one slash-delimited string formed from the exact Scope Unit.Name values in the declared parent chain. The Project root path is `/`, with no Project name segment. For example, `FRAMEWORK_ENGINE` is `/FRAMEWORK_ENGINE`; `CORE_META_MODEL` is `/FRAMEWORK_METHODOLOGY/METHODOLOGY_SOURCES/CORE_META_MODEL`.\n2. The base Atom ID of the containing Atom.\n3. `world`, for a root Project Declaration Atom.\n\nA base Atom ID selects Current by default.\n\nFor a root Project Declaration Atom, an omitted Header.Container has the effective default `world`. An explicit valid value overrides that default.\n\nThe literal bootstrap value `world` produces zero containment links.\n\nHeader.Container is the sole stored Atom-containment value.\n",
+      "after_sha256": "86fb5ecdb67dd36d3f1c8bba347dabc23c94f88045f32ca753f06930c60314cc"
+    }
+  ]
+}
