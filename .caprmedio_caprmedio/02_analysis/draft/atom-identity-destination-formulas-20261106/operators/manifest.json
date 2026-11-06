@@ -1,0 +1,53 @@
+{
+  "status": "NATIVE_DRAFT_CREATED_SOURCE_REVIEW_CLEAR_ADOPTION_PENDING",
+  "preview": ".caprmedio_caprmedio/02_analysis/draft/atom-identity-destination-formulas-20261106/operators/fallback-operator.preview.txt",
+  "preview_sha256": "411c6762a8f4c7c996e674cbbb5679eec865411975f60fdc327967c91b2f4227",
+  "fresh_identity_required": false,
+  "source_conflicts": [
+    {
+      "id": "CA-R-2768@2 Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "259d83af3689cbb0411a985d7833508b70ae1c7664bcca9120bcce6cf61f6292",
+      "issue": "Conditional Model assignment, omission-only fallback and missing-final error conflict with the approved pure binary semantics."
+    },
+    {
+      "id": "CA-R-2768@3 Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2768@3-draft-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "137b15148c305475c9b1855efc48810ea3118d74dc651108609b3f476778a2a2",
+      "issue": "Existing Draft retains the superseded conditional-assignment, null/empty and final-error behavior; withdraw or replace through coordinated identity/source integration."
+    },
+    {
+      "id": "CA-R-2769 Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "sha256": "595c5cc9de90722f2cb373fb9a0aaf969e7a1871413c344c272cb4fa61afd610",
+      "issue": "Existing declaration of the same Fallback operator gives assignment semantics; replace it in the coordinated adoption, preserving history."
+    },
+    {
+      "id": "CA-R-2818@1 Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2818@1-draft-CORE_META_MODEL-RULE--define-conditional-default-assignment-with.md",
+      "sha256": "fe5f836356bfbc035b7f3515d12c2cf909044bc963507b2dfb6db09984bd300f",
+      "issue": "Retained assignment-syntax Draft is excluded from pure-operator adoption."
+    }
+  ],
+  "integration_requirements": [
+    "Reconcile affected consumers before coordinated adoption; preserve independently governed LOOKUP, Format/cardinality checks and source obligations.",
+    "Filename uses Label then Form; Form is required. Label itself stays absent when omitted.",
+    "Current sources and runtime remain unchanged."
+  ],
+  "native_draft": {
+    "id": "CA-R-2997",
+    "version": 1,
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2997@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--declare-the-cfel-fallback-operator.md",
+    "sha256": "19c306cc2174f846586ed86393e4ba76e0c60cb96c63b5491438f0cbd12d3a65",
+    "preview_sha256": "411c6762a8f4c7c996e674cbbb5679eec865411975f60fdc327967c91b2f4227",
+    "summary": "Declare the CFEL fallback operator"
+  },
+  "proposed_current_replacements": [
+    "CA-R-2768",
+    "CA-R-2769"
+  ],
+  "retained_drafts_excluded_from_adoption": [
+    "CA-R-2768@3",
+    "CA-R-2818@1"
+  ]
+}

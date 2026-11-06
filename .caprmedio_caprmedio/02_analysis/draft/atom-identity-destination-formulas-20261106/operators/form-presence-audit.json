@@ -1,0 +1,1129 @@
+{
+  "status": "READ_ONLY_FORM_PRESENCE_AUDIT",
+  "counts": {
+    "Current": {
+      "missing": 159,
+      "present": 4253
+    },
+    "Draft": {
+      "present": 280,
+      "missing": 26
+    }
+  },
+  "missing": {
+    "Current": [
+      {
+        "atom_id": "CA-C-102",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-102-QUESTION--what-authority-must-govern-plan-folder-nodes.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-105",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-105-QUESTION--when-would-autonomous-learning-memory-justify-an-optional-extension.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-107",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-107-PROBLEM--seven-day-decisions-lack-complete-cap-closure.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-111",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-111-QUESTION--which-canonical-targets-do-the-legacy-subject-labels-identify.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-112",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-112-QUESTION--which-events-substantiate-the-legacy-replacement-declarations.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-113",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-113-QUESTION--how-should-journal-tools-adopt-the-approved-storage-boundary.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-114",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-114-QUESTION--which-authorities-should-the-unresolved-relations-reference.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-115",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-115-QUESTION--what-runtime-ownership-does-the-secret-policy-clause-limit.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-116",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-116-QUESTION--how-should-concern-selection-settings-bound-priority-selection.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-117",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-117-QUESTION--which-declarations-complete-the-authoritative-project-structure.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-118",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-118-QUESTION--how-should-plan-targeting-follow-the-goal-and-demand-boundary.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-119",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-119-QUESTION--how-should-atom-moves-preserve-owner-dependent-meaning.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-120",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-120-QUESTION--which-target-authority-may-atom-upgrade-admit.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-121",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-121-QUESTION--which-current-authority-governs-the-requirement-subject-catalog.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-122",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-122-QUESTION--which-complete-control-flow-governs-project-path-provenance.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-123",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-123-QUESTION--which-required-information-belongs-to-semantic-or-carrier-authority.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-124",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-124-QUESTION--which-containment-domain-owns-recursive-epic-membership.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-125",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-125-QUESTION--which-legacy-scope-properties-should-be-retired-or-rebound.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-126",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-126-QUESTION--which-current-carriers-supply-signature-input-expressions.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-127",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-127-QUESTION--what-action-boundaries-preserve-identity-collision-repair.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-128",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-128-QUESTION--which-claims-and-carrier-boundaries-should-production-checklist-authority-separate.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-129",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-129-QUESTION--which-action-retires-a-project-structure-candidate.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-130",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-130-QUESTION--how-should-external-obligation-authority-separate-classification-binding-and-change-handling.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-131",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-131-QUESTION--which-unfinished-session-work-requires-a-persisted-task.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-132",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-132-QUESTION--which-atom-lineage-flow-replaces-ordered-layer-propagation.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-133",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-133-QUESTION--which-action-bindings-preserve-the-core-amendment-flow.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-134",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-134-QUESTION--which-method-boundaries-separate-summary-and-navigation-projections.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-135",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-135-QUESTION--which-independent-claims-own-implementation-overview-authority.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-136",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-136-QUESTION--where-should-the-missing-artifact-timezone-default-be-owned.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-137",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-137-QUESTION--is-the-framework-root-locator-a-derived-carrier-value.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-138",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-138-QUESTION--how-should-external-review-adoption-authority-be-separated.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-139",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-139-QUESTION--how-should-implementation-binding-authority-be-separated.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-140",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-140-QUESTION--which-atoms-may-a-rationale-explain.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-141",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-141-QUESTION--which-derivation-rules-are-methods-rather-than-actions.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-142",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-142-QUESTION--which-legacy-adaptation-claims-belong-to-project-configuration.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-143",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-143-QUESTION--may-applicable-methodology-persist-derived-subject-indexes.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-144",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-144-QUESTION--how-should-secret-policy-and-exposure-response-be-separated.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-145",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-145-QUESTION--which-authority-owns-admission-and-promotion-behavior.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-146",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-146-QUESTION--what-authority-admits-extension-application-bindings.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-147",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-147-QUESTION--how-should-draft-revisions-retain-lineage-without-an-assigned-id.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-148",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-148-QUESTION--which-current-graph-owns-feature-realization-bindings.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-149",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-149-QUESTION--how-should-retrieval-distinguish-no-match-from-incomplete-authority.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-150",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-150-QUESTION--does-tier-validation-need-one-integrated-case-or-separate-cases.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-151",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-151-QUESTION--which-actions-compose-refactoring-verification.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-152",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-152-QUESTION--which-configured-types-may-core-meta-model-atoms-use.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-153",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-153-QUESTION--how-should-the-remaining-plan-action-policies-be-classified.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-154",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-154-QUESTION--what-governs-development-backlog-split-proposals.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-155",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-155-QUESTION--how-should-release-reconciliation-update-the-backlog-epic.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-156",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-156-QUESTION--how-should-production-logging-policy-claims-be-separated.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-157",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-157-QUESTION--how-many-source-revisions-may-one-project-customization-bind.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-158",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-158-QUESTION--what-governs-non-delivery-placement-at-the-project-root.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-159",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-159-QUESTION--which-lineage-should-survive-retirement-of-the-project-structural-level-alias.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-160",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-160-QUESTION--how-should-the-backward-coupling-rule-use-atom-owned-demands.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-161",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-161-QUESTION--which-concern-dispositions-require-cause-repair-and-recurrence-protection.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-162",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-162-QUESTION--where-should-the-native-application-support-definition-live.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-163",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-163-QUESTION--which-project-authorization-outcome-is-not-already-an-actor-policy.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-164",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-164-QUESTION--how-should-progressive-context-acquisition-separate-flow-from-criteria.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-165",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-165-QUESTION--which-project-core-rules-are-product-commitments-rather-than-reusable-methodology.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-166",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-166-QUESTION--how-should-the-legacy-mcp-to-skills-interface-contract-be-represented.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-167",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-167-QUESTION--which-authority-owns-the-bounded-session-state-envelope.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-168",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-168-QUESTION--which-test-population-makes-usability-classification-scores-reproducible.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-169",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-169-QUESTION--which-goal-preserves-project-configuration-without-duplicating-settings-selections.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-170",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-170-QUESTION--how-does-deterministic-mechanism-selection-follow-operator-priorities.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-171",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-171-QUESTION--which-native-implementation-references-are-operative-rather-than-duplicate-authority.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-172",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-172-QUESTION--which-methodology-portability-and-session-claims-belong-to-engine-authority.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-173",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-173-QUESTION--which-artifact-language-permissions-exclude-authoritative-cce-claims.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-174",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-174-QUESTION--is-the-software-development-default-an-instance-choice-or-a-product-promise.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-175",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-175-QUESTION--how-should-the-legacy-public-refactoring-skill-use-the-current-routing-model.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-176",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-176-QUESTION--does-upstream-proposal-permission-intentionally-require-confidence-above-the-threshold.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-177",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-177-QUESTION--what-source-frontier-information-must-methodology-projections-preserve.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-178",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-178-QUESTION--how-do-hooks-fit-the-primary-tool-kinds-without-broadening-permission.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-179",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-179-QUESTION--what-is-the-canonical-initiative-boundary-for-programmatic-mutation.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-180",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-180-QUESTION--which-programmatic-provenance-rules-belong-to-optional-git-integration.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-181",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-181-QUESTION--which-owner-retains-the-tools-to-mcp-supply-obligation.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-182",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-182-QUESTION--how-should-the-programmatic-source-ratchet-be-partitioned-without-losing-conditions.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-183",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-183-QUESTION--how-should-temporary-state-confinement-separate-outcome-placement-and-failure-behavior.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-184",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-184-QUESTION--what-settings-sources-and-provenance-must-the-shared-reader-cover.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-185",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-185-QUESTION--how-should-python-workflow-selections-separate-conventions-carriers-and-actions.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-186",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-186-QUESTION--how-should-software-evaluation-selection-separate-technique-gates-and-evidence.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-187",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-187-QUESTION--what-evidence-supports-a-deterministic-transformations-no-effect-result.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-188",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-188-QUESTION--which-outcome-does-pass-denote-in-software-evaluations.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-189",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-189-QUESTION--how-should-sealed-atom-migration-separate-capability-carrier-and-action-authority.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-190",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-190-QUESTION--which-canonical-type-identity-does-the-active-atom-snapshot-count.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-191",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-191-QUESTION--which-schemas-govern-generic-artifact-selectors-and-relation-patches.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-192",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-192-QUESTION--how-should-release-recording-separate-the-action-and-journal-bindings.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-193",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-193-QUESTION--which-plan-type-preserves-explicitly-accepted-deferred-work.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-194",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-194-QUESTION--which-authority-owns-extension-packaging-and-source-defaults.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-195",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-195-QUESTION--which-current-scope-unit-model-governs-structural-adoption-proposals.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-196",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-196-QUESTION--which-authority-owns-the-commit-autonomy-envelope.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-197",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-197-QUESTION--when-must-projection-rebuild-evaluations-gate-publication.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-198",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-198-QUESTION--which-current-carrier-contracts-replace-legacy-validator-cases.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-199",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-199-QUESTION--which-relation-kind-supports-the-redundant-transitive-edge-fixture.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-200",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-200-QUESTION--can-the-equal-tier-ancestor-evaluation-have-a-valid-current-fixture.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-201",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-201-QUESTION--which-registered-data-stage-is-mandatory-for-the-skipped-stage-test.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-202",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-202-QUESTION--which-relation-metadata-fields-must-the-commit-fixture-require.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-203",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-203-QUESTION--which-relation-requires-the-current-upstream-revision.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-204",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-204-QUESTION--what-safe-recovery-boundary-applies-to-a-partially-written-journal-record.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-205",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-205-QUESTION--which-authority-governs-immediate-prior-result-replay.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-206",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-206-QUESTION--which-execution-graph-must-the-tool-architecture-check-treat-as-acyclic.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-207",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-207-QUESTION--how-does-the-journal-represent-events-without-known-llm-session-provenance.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-208",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-208-QUESTION--which-atom-operations-cover-external-project-goals.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-209",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-209-QUESTION--how-does-scope-unit-name-case-apply-to-the-project-name.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-267",
+        "path": ".caprmedio_caprmedio/01_concern/CA-C-267-QUESTION--how-should-the-preserve-reusable-information-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-040",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-040-ANALYSIS_RPRT--fpf-alignment-audit-project-meta-gov-after-repair.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-041",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-041-ANALYSIS_RPRT--fpf-alignment-audit-project-meta-gov-settings.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-042",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-042-ANALYSIS_RPRT--fpf-options-explore-caprmedio-graph-database.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-043",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-043-ANALYSIS_RPRT--fpf-alignment-audit-level-0-rmed-level-1-2-cores.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-044",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-044-ANALYSIS_RPRT--fpf-design-challenge-metalayer-number-names-scopes.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-045",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-045-ANALYSIS_RPRT--fpf-alignment-audit-goal-and-principles.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-046",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-046-ANALYSIS_RPRT--fpf-design-challenge-goal-principles-internal-coherence.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-047",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-047-ANALYSIS_RPRT--fpf-quality-improve-goal-principles-coherence.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-048",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-048-ANALYSIS_RPRT--fpf-design-challenge-code-truth-and-adoption.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-049",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-049-ANALYSIS_RPRT--intent.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-060",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-060-ANALYSIS_RPRT--bound-hindsight-inspired-context-and-memory-candidates.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-062",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-062-ANALYSIS_RPRT--audit-seven-day-conversation-closure.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-065",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-065-ANALYSIS_RPRT--compare-caprmedio-work-execution-architectures.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-066",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-066-ANALYSIS_RPRT--recommend-a-staged-caprmedio-work-execution-direction.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-900",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-900-ANALYSIS_RPRT--audit-seven-day-decisions-and-realization-gaps.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-901",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-901-ANALYSIS_RPRT--define-ontology-like-authority-in-caprmedio.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-902",
+        "path": ".caprmedio_caprmedio/02_analysis/CA-A-902-ANALYSIS_RPRT--evaluate-introducing-ontology-as-a-governed-term.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-273",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-273-FRAMEWORK_ENGINE-QUESTION--how-should-the-python-source-assets-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-274",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-274-FRAMEWORK_ENGINE-QUESTION--how-should-the-structured-diagnostics-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-275",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-275-FRAMEWORK_ENGINE-QUESTION--how-should-the-boundary-schemas-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-276",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-276-FRAMEWORK_ENGINE-QUESTION--how-should-the-shared-settings-reader-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-277",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-277-FRAMEWORK_ENGINE-QUESTION--how-should-the-understandable-code-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-278",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-278-FRAMEWORK_ENGINE-QUESTION--how-should-the-replayable-evaluation-evidence-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-279",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/01_concern/CA-C-279-FRAMEWORK_ENGINE-QUESTION--how-should-the-mcp-adapters-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-903",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/CA-A-903-FRAMEWORK_ENGINE-ANALYSIS_RPRT--assess-trace-engineering-ideas-for-caprmedio.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-904",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/02_analysis/CA-A-904-FRAMEWORK_ENGINE-ANALYSIS_RPRT--harvest-langwatch-ideas-for-tools-apps-and-mcp.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-052",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-052-PROGRAMMATIC-ANALYSIS_RPRT--freeze-the-programmatic-method-and-evaluation-target.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-053",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-054",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-054-PROGRAMMATIC-ANALYSIS_RPRT--validate-the-python-3-14-contract-upgrade.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-055",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-055-PROGRAMMATIC-ANALYSIS_RPRT--finalize-shared-programmatic-methods.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-056",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-056-PROGRAMMATIC-ANALYSIS_RPRT--map-shared-programmatic-evaluation-coverage.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-057",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-057-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-programmatic-specialization-authority.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-058",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-058-PROGRAMMATIC-ANALYSIS_RPRT--validate-programmatic-method-and-evaluation-closure.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-059",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/CA-A-059-PROGRAMMATIC-ANALYSIS_RPRT--close-deferred-programmatic-requirement-realization-gaps.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-100",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-100-TOOLS-PROBLEM--relation-tools-do-not-resolve-scope-unit-endpoints.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-280",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-280-TOOLS-QUESTION--how-should-the-installed-toolset-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-281",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-281-TOOLS-QUESTION--how-should-the-recoverable-mutations-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-282",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/CA-C-282-TOOLS-QUESTION--how-should-the-machine-cli-envelopes-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-A-067",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/02_analysis/CA-A-067-TOOLS-ANALYSIS_RPRT--python-vs-go-for-caprmedio-tools-sota-harvest.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-283",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/01_concern/CA-C-283-APPS-QUESTION--how-should-the-local-app-runtime-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-284",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-284-SKILLS-QUESTION--how-should-the-thin-contextual-skills-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-285",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-285-SKILLS-QUESTION--how-should-the-progressive-disclosure-qa-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-286",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-286-SKILLS-QUESTION--how-should-the-capability-selection-qa-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-287",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-287-SKILLS-QUESTION--how-should-the-delegation-boundary-qa-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-288",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/01_concern/CA-C-288-SKILLS-QUESTION--how-should-the-portable-skill-packages-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-019",
+        "path": ".caprmedio_caprmedio/CA-SU-25_LAYER_3_OPERATOR_DOCUMENTATION/07_delivery/CA-D-019-OPERATOR_DOCUMENTATION-DELIVERY--bind-operator-documentation-delivery-place.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-109",
+        "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/01_concern/CA-C-109-FPF-PROBLEM--fpf-is-not-yet-a-caprmedio-aligned-project-extension.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-110",
+        "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/202_FEATURE_FPF/01_concern/CA-C-110-FPF-CONFLICT--universal-ca-entry-conflicts-with-direct-fpf-invocation.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-021",
+        "path": ".caprmedio_caprmedio/CA-SU-27_LAYER_5_RELEASES/07_delivery/CA-D-021-RELEASES-DELIVERY--bind-releases-delivery-place.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-409",
+        "path": ".caprmedio_caprmedio/CA-SU-28_FEATURE_COMMUNITY_EXTENSIONS/07_delivery/CA-D-409-COMMUNITY_EXTENSIONS-DELIVERY--bind-community-extensions-delivery-place.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-022",
+        "path": ".caprmedio_caprmedio/CA-SU-29_FEATURE_FIELD/07_delivery/CA-D-022-FIELD-DELIVERY--bind-field-delivery-place.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-268",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-268-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-initialize-session-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-269",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-269-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-route-operator-intent-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-270",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-270-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-change-governed-authority-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-271",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-271-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-reconcile-unfinished-work-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-C-272",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/01_concern/CA-C-272-FRAMEWORK_METHODOLOGY-QUESTION--how-should-the-persist-analysis-and-ops-draft-be-reconciled.md",
+        "status": "Active",
+        "form_state": "missing"
+      }
+    ],
+    "Draft": [
+      {
+        "atom_id": "CA-R-007@28-draft",
+        "path": ".caprmedio_caprmedio/04_requirement/draft/scope-contracts-p2701/CA-R-007@28-draft-CAPRMEDIO-SCOPE_CONTRACT-RULE--full-minimal-traceability.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-686@28-draft",
+        "path": ".caprmedio_caprmedio/04_requirement/draft/scope-contracts-p2701/CA-R-686@28-draft-CAPRMEDIO-SCOPE_CONTRACT-RULE--separate-core-extension-and-project-configuration-authority.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1486@17-draft",
+        "path": ".caprmedio_caprmedio/04_requirement/draft/scope-trial-100/CA-R-1486@17-draft-CAPRMEDIO-DEFINES_SCOPE_FOR-FRAMEWORK_METHODOLOGY--define-how-projects-are-represented-and-operated.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-2968",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/CA-R-2968@1-draft-PROGRAMMATIC-STANDARD--compose-expandable-and-overridable-model-declarations.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-M-494",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/draft/CA-M-494@1-draft-PROGRAMMATIC-STANDARD--resolve-one-provenance-bearing-effective-model.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-699",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/07_delivery/draft/CA-D-699@1-draft-PROGRAMMATIC-STANDARD--deliver-model-inputs-effective-generation-and-limits.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-E-171@21-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/COMMIT_CONTEXT/06_evaluation/draft/CA-E-171@21-draft-EVAL_CASE--classify-file-creation-as-add.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-E-173@21-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/COMMIT_CONTEXT/06_evaluation/draft/CA-E-173@21-draft-EVAL_CASE--classify-content-change-as-update.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-E-175@22-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/COMMIT_CONTEXT/06_evaluation/draft/CA-E-175@22-draft-EVAL_CASE--classify-relocation-with-update.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-E-176@23-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/COMMIT_CONTEXT/06_evaluation/draft/CA-E-176@23-draft-EVAL_CASE--classify-file-removal-as-remove.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-E-214@17-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/COMMIT_CONTEXT/06_evaluation/draft/CA-E-214@17-draft-EVAL_CASE--resolve-a-governed-subject-through-canonical-artifact-authority.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-M-238@18-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/DETECT_CLAIM_VALUE_SET_CANDIDATES/05_method/draft/CA-M-238@18-draft-ENG_DECISION--detect-exact-claim-value-set-consolidation-candidates.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-541@14-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/07_delivery/draft/CA-D-541@14-draft-ENG_DECISION--encode-the-strict-governed-request-boundary-for-the-applicable-methodology-compiler.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-542@13-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/07_delivery/draft/CA-D-542@13-draft-ENG_DECISION--encode-inspectable-source-decision-journal-publication-and-prior-output-provenance.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-543@11-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/APPLICABLE_METHODOLOGY/07_delivery/draft/CA-D-543@11-draft-ENG_DECISION--bind-the-new-authority-packet-to-native-compiler-carriers-and-planned-functional-evidence.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1827@10-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/04_requirement/draft/CA-R-1827@10-draft-RULE--validate-one-sealed-lifecycle-target.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-E-547@10-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/06_evaluation/draft/CA-E-547@10-draft-EVAL_CASE--verify-sealed-target-and-relation-diagnostics.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-531@18-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/07_delivery/draft/CA-D-531@18-draft-ENG_DECISION--deliver-sealed-lifecycle-dispatch-interface.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-D-539@16-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/GRAPH_PROJECTIONS/07_delivery/draft/CA-D-539@16-draft-ENG_DECISION--bind-strict-graph-request-and-result-contract.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1476@17-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-26_LAYER_4_CORE_EXTENSIONS/04_requirement/draft/scope-trial-100/CA-R-1476@17-draft-CORE_EXTENSIONS-RULE--derive-fpf-behavior-from-current-caprmedio-authority.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-2228@3-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-P-2696-relation-definition-template/CA-R-2228@3-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-requirement-type-relation-definition.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1016@draft",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1016@draft-CORE_META_MODEL-CORE-REQUIREMENT--register-rationale-for-relation.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1017@draft",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1017@draft-CORE_META_MODEL-CORE-REQUIREMENT--register-method-for-relation.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1019@draft",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1019@draft-CORE_META_MODEL-CORE--register-delivery-for-relation.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1021@draft",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1021@draft-CORE_META_MODEL-CORE--register-evidence-for-relation.md",
+        "status": "Draft",
+        "form_state": "missing"
+      },
+      {
+        "atom_id": "CA-R-1472@draft",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1472@draft-CORE_META_MODEL-GENERAL--admit-typed-secondary-graph-connections.md",
+        "status": "Draft",
+        "form_state": "missing"
+      }
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "audit": "pure ?== consumer impact",
+  "decision": {
+    "expression": "x ?== y",
+    "semantics": "Return y when x is null, empty string, or undefined; omission is undefined. Otherwise return x.",
+    "side_effects": "None. The expression gives neither operand a Model value."
+  },
+  "scope": {
+    "snapshot": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/native-snapshot.json",
+    "snapshot_expected_count": 4677,
+    "live_native_paths_scanned": 4680,
+    "basis": "4677 pinned native Current/Draft paths, scanned from live files, plus CA-R-2995@1, CA-R-2996@1 and CA-R-2997@1 created after the snapshot.",
+    "excluded": [
+      "archives and archived revisions",
+      "projections and generated material",
+      "analysis-packet copies and previews"
+    ]
+  },
+  "counts": {
+    "literal_occurrences": 30,
+    "literal_source_files": 16,
+    "assignment_reliant_sources": 12,
+    "pure_or_supporting_sources": 4,
+    "indirect_default_policy_sources": 1,
+    "matching_lines": 27
+  },
+  "assignment_reliant_sources": [
+    {
+      "id": "CA-P-2694",
+      "state": "Current (Active)",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+      "lines": [
+        79,
+        99
+      ],
+      "kind": "governance narrative",
+      "impact": "States that ?== defines a missing effective Property value and directs defaults onto Property Declarations; both claims assume Model-value assignment.",
+      "literal_occurrences": 2
+    },
+    {
+      "id": "CA-A-1318@1-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1318@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--consolidate-cfel-syntax-and-precise-relations.md",
+      "lines": [
+        32
+      ],
+      "kind": "proposal semantics",
+      "impact": "Calls ?== an effective default for a missing Property and preserves supplied values; this is assignment/default semantics.",
+      "literal_occurrences": 1
+    },
+    {
+      "id": "CA-A-1320@1-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1320@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--declare-setting-defaults-on-project-settings-properties.md",
+      "lines": [
+        25
+      ],
+      "kind": "settings-default proposal",
+      "impact": "Directs Project.Settings defaults to be declared with ?==; the proposal relies on a default becoming a Property value.",
+      "literal_occurrences": 1
+    },
+    {
+      "id": "CA-R-2487",
+      "state": "Current (Active v13)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "lines": [
+        74,
+        75
+      ],
+      "kind": "language overview",
+      "impact": "Admits ?== through an ordered-assignment Rule, which conflicts with the pure expression decision.",
+      "literal_occurrences": 2
+    },
+    {
+      "id": "CA-R-2564",
+      "state": "Current (Active v4)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2564-CORE_META_MODEL-DECLARATION--declare-project-settings-ai-agent-confidence-threshold.md",
+      "lines": [
+        29
+      ],
+      "kind": "direct default clause",
+      "expression": "Project.Settings.AI Agent Confidence Threshold ... ?== 90",
+      "impact": "Currently depends on 90 becoming the required Project setting when absent; pure ?== only yields an expression result.",
+      "literal_occurrences": 1
+    },
+    {
+      "id": "CA-R-2705",
+      "state": "Current (Active v4)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "lines": [
+        36
+      ],
+      "kind": "direct default clause",
+      "expression": "$atom.Header.Label ?== $atom.Header.Form",
+      "impact": "Currently gives a missing Label the Form value. Under the pure rule it only evaluates a value and leaves Label absent.",
+      "literal_occurrences": 1
+    },
+    {
+      "id": "CA-R-2711",
+      "state": "Current (Active v6)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "lines": [
+        38,
+        39
+      ],
+      "kind": "direct inherited-default chain",
+      "expression": "$plan.Header.AI Agent Confidence Threshold ?== LOOKUP(...) ?== $project.Settings.AI Agent Confidence Threshold",
+      "impact": "Currently relies on a missing Plan override receiving a looked-up or Project setting. Pure ?== cannot write that override.",
+      "literal_occurrences": 2
+    },
+    {
+      "id": "CA-R-2768",
+      "state": "Current (Active v2)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "lines": [
+        29,
+        42,
+        49
+      ],
+      "kind": "operator semantics rule",
+      "impact": "Defines ordered conditional Model assignment, omission-only absence, final-value errors, and an assigning Label/Form example; all are superseded by the pure binary expression decision.",
+      "literal_occurrences": 4
+    },
+    {
+      "id": "CA-R-2769",
+      "state": "Current (Active v2)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2769-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md",
+      "lines": [
+        22,
+        30
+      ],
+      "kind": "operator declaration",
+      "impact": "Its Semantics says ?== conditionally assigns a missing Object Property; that is incompatible with a pure expression.",
+      "literal_occurrences": 2
+    },
+    {
+      "id": "CA-R-2487@14-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@14-draft-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "lines": [
+        74,
+        75
+      ],
+      "kind": "language overview",
+      "impact": "Retains the ordered-default Rule as ?== semantics.",
+      "literal_occurrences": 2
+    },
+    {
+      "id": "CA-R-2768@3-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2768@3-draft-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "lines": [
+        29,
+        42,
+        49
+      ],
+      "kind": "operator semantics rule",
+      "impact": "Retains the superseded conditional-assignment, null/empty distinction, chain order, missing-final-error, and Model-write behavior.",
+      "literal_occurrences": 4
+    },
+    {
+      "id": "CA-R-2818@1-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2818@1-draft-CORE_META_MODEL-RULE--define-conditional-default-assignment-with.md",
+      "lines": [
+        21,
+        27
+      ],
+      "kind": "operator syntax rule",
+      "impact": "Defines p ?== e as conditional default assignment that sets a Model value; this cannot remain under the pure expression rule.",
+      "literal_occurrences": 2
+    }
+  ],
+  "pure_or_supporting_sources": [
+    {
+      "id": "CA-A-1321@1-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md",
+      "lines": [
+        33,
+        113
+      ],
+      "kind": "pure-expression proposal",
+      "impact": "Already states the approved pure result-only semantics and requires consumer reconciliation.",
+      "literal_occurrences": 2
+    },
+    {
+      "id": "CA-R-2487@15-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@15-draft-CORE_META_MODEL-DECLARATION--define-cfel.md",
+      "lines": [
+        72
+      ],
+      "kind": "pure-expression language overview",
+      "impact": "Already states the approved pure result-only semantics and does not supply a Model value.",
+      "literal_occurrences": 2
+    },
+    {
+      "id": "CA-R-2997@1-draft",
+      "state": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2997@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--declare-the-cfel-fallback-operator.md",
+      "lines": [
+        27
+      ],
+      "kind": "pure fallback operator declaration",
+      "impact": "Defines the pure result-only operator and left-to-right chain evaluation; it assigns neither operand and writes neither Model nor Carrier.",
+      "literal_occurrences": 1
+    },
+    {
+      "id": "CA-R-2770",
+      "state": "Current (Active v2)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2770-CORE_META_MODEL-DECLARATION--declare-cfel-operator-lookup-r-q.md",
+      "lines": [
+        27
+      ],
+      "kind": "supporting value expression",
+      "impact": "LOOKUP is described as usable inside a ?== fallback expression but does not itself assign or store a value.",
+      "literal_occurrences": 1
+    }
+  ],
+  "indirect_default_policy_sources": [
+    {
+      "id": "CA-D-485",
+      "state": "Current (Active v27)",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-485-CORE_META_MODEL-ENG_DECISION--carry-defaulted-atom-values-without-copying-inherited-overrides.md",
+      "literal_occurrences": 0,
+      "impact": "Requires a required Atom value selected by applying a default to be carried internally. Pure ?== does not select or store a missing Property value, so this policy needs an independent default/value authority before it can apply."
+    }
+  ],
+  "form_conformance_risk": {
+    "id": "CA-R-2703",
+    "state": "Current (Active v1)",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+    "line": 31,
+    "rule": "Atom.Header.Form is exactly one string.",
+    "observed_live_audit": {
+      "source": ".caprmedio_caprmedio/02_analysis/draft/atom-identity-destination-formulas-20261106/operators/form-presence-audit.json",
+      "current_missing_form": 159,
+      "draft_missing_form": 26
+    },
+    "impact": "CA-R-2705's pure Label/Form expression cannot write Label. A missing Form also prevents that expression from returning its intended fallback value; this is a pre-existing Form conformance gap."
+  },
+  "reviewed_core_drafts_without_literal": [
+    {
+      "id": "CA-R-2552@5-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2552@5-draft-CORE_META_MODEL-RULE--bind-instance-variables.md"
+    },
+    {
+      "id": "CA-R-2778@1-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-RULE--declare-cfel-universal-quantification.md"
+    },
+    {
+      "id": "CA-R-2957@1-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2957@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md"
+    },
+    {
+      "id": "CA-R-2995@1-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2995@1-draft-CORE_META_MODEL-CONSTRUCT_DECLARATION--declare-declaration-qualified-expression-calls.md"
+    },
+    {
+      "id": "CA-R-2996@1-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2996@1-draft-CORE_META_MODEL-CONSTRUCT_DECLARATION--declare-property-calculation-specialization.md"
+    }
+  ],
+  "non_decisions": [
+    "CA-R-2997@1 defines left-to-right ?== chain evaluation; no Label/Form/Role fallback-chain operands or order are inferred.",
+    "No source, runtime, workflow, production, or promotion change is authorized by this audit."
+  ]
+}

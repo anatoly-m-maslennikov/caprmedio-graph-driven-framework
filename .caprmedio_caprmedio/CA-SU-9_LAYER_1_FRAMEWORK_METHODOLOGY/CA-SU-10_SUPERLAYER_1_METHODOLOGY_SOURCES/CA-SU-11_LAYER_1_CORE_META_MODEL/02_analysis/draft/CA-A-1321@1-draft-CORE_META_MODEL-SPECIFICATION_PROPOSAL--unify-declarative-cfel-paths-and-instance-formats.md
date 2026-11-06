@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 1
-updated_at: "2026-11-06 19:37:39 +0400"
+updated_at: "2026-11-06 20:20:35 +0400"
 carrier_destination:
   file:
     name: CA-A-1321@1-draft-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md
@@ -30,7 +30,7 @@ CFEL is declarative: Claims state participants, scope, constraints and required 
 - `VALUES(p)` selects the actual direct Property value occurrences, preserving duplicates without traversing nested Properties or treating constraints as stored values. CA-R-2904@1-draft declares this construct.
 - `FOR EACH $a[<Atom>, .context.role=Plan]: ( ... )` expresses universal quantification. A simple filter may be unparenthesized; group compound conditions where needed. Within its scope, the already-bound `$a` may be referenced as bare `a`. The body contains semicolon-separated expressions; no `WITH` or `IN` header keyword is used. Existing bounded IF binding and no-shadowing remain.
 - `<Atom>.destination.file.name(a)` calls the expression authored in the Atom Declaration for the same bound instance `a`, even when a more-specific Plan expression exists. A Plan Declaration replaces only the inherited calculation for that same Property; all other inherited constraints continue to apply. The Declaration Expression Call and Property Calculation Construct Declarations are staged separately.
-- Formal Claims use `# model` before `# instances` when both groups occur. `=` tests a condition, `==` states a required or derived value, and `?==` supplies a default under its own rule.
+- Formal Claims use `# model` before `# instances` when both groups occur. `=` tests a condition and `==` states a required or derived value. `x ?== y` is a pure expression: it returns `y` when `x` is empty (`null`, `""`, or undefined, including omission), otherwise it returns `x`. It assigns neither operand and creates no Model value.
 - HAS_ALLOWED_VALUE (`:=`, CA-R-2826) supplies allowed literal alternatives; applicable local and inherited alternatives combine by OR. HAS_VALUE_CONSTRAINT (`::`, CA-R-2828) supplies applicable local and inherited constraints combined by AND. Final admissibility is the allowed-value OR group AND the constraint AND group. When no allowed-value group exists, omit it (true): there is no enumeration restriction. Qualified Subjects retain `:=`.
 - The staged CA-R-2827@1 and CA-R-2829@1 pure-inverse Declarations are superseded for coordinated withdrawal; their Draft files remain until migration and are not proposed for adoption. Literal values remain values, not newly invented Nodes.
 - An inverse alias is a phantom reverse-view name of its canonical Relation, not a literal or a separate Alias kind. Fixed Model Relation references require no `$` binding: `Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY;`. `IS_INVERSE_ALIAS_FOR` is declared in staged Draft CA-R-2951@1. The distinction between GOVERNS and HAS_ACTIVE_SUBJECT remains an open question.
@@ -51,7 +51,7 @@ The planned definition sequence is `[]` Format, then `<>` Model reference, then 
 
 The base Atom ID uses the Project Prefix, the first Role letter, and the role-unique number, with hyphens between all three components and at least three decimal digits in the number. The actual YAML field is `identity.id`. Ref ID uses the base ID for Current, adds `@<version>` for Archived and Draft, and adds `-draft` for Draft. Existing identity and revision safeguards remain applicable.
 
-The proposed filename calculation uses a lower-kebab-case Summary, uses Label with Role as the fallback when Label is absent, and retains the Plan Work Sequence Number prefix where applicable. A Plan-specific calculation may call the Atom Declaration expression for the same instance using the explicit declaration expression call described above. The exact filename expression and required string, case, and conversion functions remain proposed and require their own declarations; this proposal does not introduce a new function by name or claim implementation.
+The proposed filename calculation uses a lower-kebab-case Summary and retains the Plan Work Sequence Number prefix where applicable. The filename uses Label, falling back to Form. Form remains mandatory; an omitted Label keeps no value of its own. A Plan-specific calculation may call the Atom Declaration expression for the same instance using the explicit declaration expression call described above. The exact filename expression and required string, case, and conversion functions remain proposed and require their own declarations; this proposal does not introduce a new function by name or claim implementation.
 
 ## Topic fields
 
@@ -68,7 +68,7 @@ One declarative notation separates value admission, value constraints and requir
 
 ## Staged Draft cohort
 
-The following **53 actual Draft Atoms** form the staged language and value-Relation cohort. They are staged evidence, not Current authority or implementation.
+The following **54 actual Draft Atoms** form the staged language and value-Relation cohort. They are staged evidence, not Current authority or implementation.
 
 ### Value and arithmetic Rules
 
@@ -81,6 +81,12 @@ CA-R-2248@6, CA-R-2802@1, CA-R-2803@1, CA-R-2804@1, CA-R-2805@1, CA-R-2806@1, CA
 ### Control and expression Rules
 
 CA-R-2813@1, CA-R-2814@1, CA-R-2815@1, CA-R-2816@1, CA-R-2817@1, CA-R-2818@1, CA-R-2819@1, CA-R-2820@1, CA-R-2821@1
+
+### Pure fallback operator
+
+CA-R-2997@1
+
+CA-R-2768@3 and CA-R-2818@1 remain retained evidence and are excluded from adoption. Current CA-R-2768 and the existing Fallback operator Declaration CA-R-2769 require coordinated replacement by the pure fallback operator. Reconcile affected consumers before adopting that change.
 
 ### Declaration expression calls and calculation specialization
 
@@ -104,4 +110,4 @@ CA-R-2951@1 declares IS_INVERSE_ALIAS_FOR. Canonical Relation Drafts CA-R-2478@6
 
 ## Integration boundary
 
-The predecessor allowed-value `::` Rule Draft CA-R-2810 was withdrawn and preserved as evidence; do not recreate it. Complete and review the CFEL source cohort first, including the pending candidate 55-authority review manifest; this is not Current authority or proof of complete language coverage. Then migrate applicable Current and Draft sources in place mechanically, preserving their content and identity under the reviewed migration. After that source migration, hand off implementation, adapters, data conversion, fixtures and tests to CA #3. Preserve Current grammar until coordinated adoption. Rebuild affected MODEL projections after source acceptance.
+The predecessor allowed-value `::` Rule Draft CA-R-2810 was withdrawn and preserved as evidence; do not recreate it. Reconcile every affected `?==` consumer with its pure expression semantics before coordinated adoption. Complete and review the CFEL source cohort first, including the pending candidate 55-authority review manifest; this is not Current authority or proof of complete language coverage. Then migrate applicable Current and Draft sources in place mechanically, preserving their content and identity under the reviewed migration. After that source migration, hand off implementation, adapters, data conversion, fixtures and tests to CA #3. Preserve Current grammar until coordinated adoption. Rebuild affected MODEL projections after source acceptance.

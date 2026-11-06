@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 15
-updated_at: "2026-11-06 19:27:13 +0400"
+updated_at: "2026-11-06 20:03:58 +0400"
 carrier_destination:
   file:
     name: CA-R-2487@15-draft-DECLARATION--define-cfel.md
@@ -69,8 +69,7 @@ bearer, independently of direct values and other bearers.
 
 The named constructs `IF`/`THEN`, `UNIQUE`, `DETERMINES`, `COUNT`, `MAX`,
 and `FENCED_LABELS` are admitted with the semantics in their own CFEL Rules.
-`LOOKUP(R, q)` and `?==` are admitted CFEL forms with semantics in their own
-CFEL Rules; the `?==` ordered-default Rule supplies its chain semantics.
+`LOOKUP(R, q)` is governed by its own CFEL Rule. The proposed `x ?== y` is a pure expression: it returns `y` when `x` is empty (`null`, `""`, or undefined, including omission), otherwise it returns `x`. It assigns neither operand and creates no Model value. Reconcile affected `?==` consumers before coordinated adoption; this Draft does not establish Current authority or runtime implementation.
 Boolean `AND` and `OR` combine conditions; parenthesize mixed AND/OR
 expressions to state their grouping explicitly. `>>` is delivery notation with the
 semantics of the delivery Rule; `!(selectors)` excludes branches from a

@@ -1,0 +1,8 @@
+{
+  "id": "CA-R-2997",
+  "version": 1,
+  "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2997@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--declare-the-cfel-fallback-operator.md",
+  "sha256": "19c306cc2174f846586ed86393e4ba76e0c60cb96c63b5491438f0cbd12d3a65",
+  "preview_sha256": "411c6762a8f4c7c996e674cbbb5679eec865411975f60fdc327967c91b2f4227",
+  "summary": "Declare the CFEL fallback operator"
+}

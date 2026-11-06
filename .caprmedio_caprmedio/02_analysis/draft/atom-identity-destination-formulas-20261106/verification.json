@@ -35,6 +35,11 @@
       "id": "CA-R-2996",
       "version": 1,
       "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2996@1-draft-CORE_META_MODEL-CONSTRUCT_DECLARATION--declare-property-calculation-specialization.md"
+    },
+    {
+      "id": "CA-R-2997",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2997@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--declare-the-cfel-fallback-operator.md"
     }
   ],
   "checks": [
@@ -43,8 +48,36 @@
     "Draft ID/ref/version",
     "quoted Updated At",
     "existing identity and Summary preserved",
-    "independent semantic review passed"
+    "independent semantic review passed",
+    "pure fallback source semantics independently reviewed",
+    "Label preview has no default assignment and retains optional string",
+    "Current Label source pin unchanged",
+    "Form required contract confirmed in Current R2703",
+    "filename fallback settled as Label then Form",
+    "legacy assignment authorities pinned for proposed replacement",
+    "30 literal operator uses on 27 lines in 16 audited sources confirmed"
   ],
   "promoted": false,
-  "implementation_checked": false
+  "implementation_checked": false,
+  "open_items": [
+    "reconcile assignment-dependent consumers before adoption",
+    "identity.id carrier rebase and installed runtime readiness"
+  ],
+  "fallback_approved_semantics": {
+    "empty": [
+      "null",
+      "empty string",
+      "undefined"
+    ],
+    "omitted": "undefined",
+    "assigns_operands": false
+  },
+  "filename_fallback": "Label ?== Form",
+  "model_form_contract": "[string]{::1}",
+  "form_presence_audit": "operators/form-presence-audit.json",
+  "assignment_reconciliation_queue_sources": 12,
+  "actual_missing_form": {
+    "Current": 159,
+    "Draft": 26
+  }
 }

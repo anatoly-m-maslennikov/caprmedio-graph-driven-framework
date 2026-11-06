@@ -75,9 +75,9 @@
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
       "source_sha256": "294518348c7343fad922df0c8738c6d4c9d2319c3ea2265a3045573620582416",
       "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/model/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md.preview.txt",
-      "preview_sha256": "e71d7d864a7d00aab28f17ef1404c7ecc8c4433ccd244e727752f267b58f5cf8",
+      "preview_sha256": "33a79785630096b495eb9309443c92763dc784bf93029b06bcd4e59c6b2e436b",
       "summary_changed": true,
-      "note": "Preview only; review Summary identity replacement and stale legacy wording before adoption."
+      "note": "Preview only. Label is optional; omission means no value. No fallback assignment or automatic Label from Form is defined."
     },
     {
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
