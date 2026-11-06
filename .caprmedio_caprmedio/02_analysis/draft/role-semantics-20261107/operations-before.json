@@ -1,0 +1,5 @@
+{
+  "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+  "sha256": "c2069d26b33ede3eaff95f15b8e0023480ccdaf2132488c8fcc8a98a62e34ef8",
+  "content": "---\natom_id: CA-R-2463\nref_id: CA-R-2463@3-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)\ntier: 3\nstatus: Draft\nversion: 3\nupdated_at: 2026-11-05 02:11:07 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2463@3-draft-DECLARATION--declare-operations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft\n---\n\n## Summary\n\nDeclare Operations\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role := Operations)\n```\n\n## Semantics\n\nAn Operations Atom defines reusable work. It can define an Action, a Workflow, or a Step.\n"
+}

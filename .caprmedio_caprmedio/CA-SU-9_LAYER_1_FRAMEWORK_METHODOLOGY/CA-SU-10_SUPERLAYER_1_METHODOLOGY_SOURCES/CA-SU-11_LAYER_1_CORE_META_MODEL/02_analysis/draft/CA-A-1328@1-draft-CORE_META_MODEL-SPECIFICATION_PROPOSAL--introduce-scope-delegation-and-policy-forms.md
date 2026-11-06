@@ -13,7 +13,7 @@ topics:
 tier: 3
 status: Draft
 version: 1
-updated_at: "2026-11-07 01:06:27 +0400"
+updated_at: "2026-11-07 01:16:12 +0400"
 carrier_destination:
   file:
     name: CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md
@@ -171,7 +171,17 @@ Current obligations remain Current until coordinated successors are adopted. Cla
 
 ## Companion Atom Drafts
 
-None created. Follow-up Drafts must declare the Forms, external identity/whitelists, Tier rules, CONTRIBUTES_TO, adoption checks and delivery rules. Their IDs belong in this proposal when those Drafts exist.
+Prepared Role Semantics updates:
+
+- CA-R-2512@3-draft: Requirement Declaration.
+- CA-R-2513@3-draft: Method Declaration.
+- CA-R-2514@3-draft: Evaluation Declaration.
+- CA-R-2515@3-draft: Delivery Declaration.
+- CA-R-2463@3-draft: Operations Declaration.
+
+Four successor Drafts were created; the existing Operations Draft was updated. Current Declarations remain unchanged.
+
+Other follow-up Drafts must declare the Forms, external identity/whitelists, Tier rules, CONTRIBUTES_TO, adoption checks and delivery rules. Add their IDs when those Drafts exist.
 
 ## Open decisions
 
