@@ -17,8 +17,8 @@ relations:
   - CA-D-672
   - CA-D-675
 status: Active
-version: 13
-updated_at: 2026-11-07 01:06:28 +0400
+version: 14
+updated_at: 2026-11-07 02:02:14 +0400
 carrier_destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -50,7 +50,7 @@ Verify incremental work on the real project as well as small fixtures. The same 
 
 An unchanged or non-source watcher batch must skip graph, hash and database work. A changed source row must be rehashed; an unchanged inverse-relation neighbour must also be rehashed when its outgoing facts change. Unrelated unchanged rows must retain their materialized values and hashes. Deletion, duplicate exclusion and invalid-source exclusion must remove stale reused state. A Boolean-to-number source change must not be treated as equal.
 
-Verify that full reread, Scope Unit changes and Content-schema changes still rebuild correctly. A failed database write must not publish a new reused state. Relation parsing must occur once per captured inventory in a refresh, with one fresh parse allowed for a schema-triggered recapture. Existing stateless materialization callers must retain their behavior.
+Verify that full reread, Scope Unit changes and Content-schema changes still rebuild correctly. A failed database write must not publish a new reused state. Ordinary deltas must not reparse unchanged Relation registry sources. Parse changed registry contributions at most once; a full capture may compile its inventory once, including a schema-triggered recapture. Existing stateless materialization callers must retain their behavior.
 
 
 ## Details
@@ -80,3 +80,12 @@ Verify that full reread, Scope Unit changes and Content-schema changes still reb
 | Filesystem observation during indexing | The database, derived schema asset, internal results and spill data stay under the owned Workbench runtime directory; no intermediate source file is created. |
 
 Verify successful source-index SQL writes emit INFO stdout records with operation, table, affected row count, reference when applicable, and measured elapsed milliseconds after commit. Verify each successful INFO refresh event includes total elapsed milliseconds and source-capture, materialization and database-write phase durations, without a DEBUG setting. All timings use a monotonic timer. A bulk write reports its measured batch timing; it does not invent per-row timings. Existing source warnings and blocking runtime failures remain on stderr.
+
+
+Verify the ordinary capture provides only affected source paths to incremental schema and graph work. Spy on the full Header-inference, Content compiler and whole-graph builder: none runs for an ordinary source value/relation update after initialization. Full/declaration/schema captures retain their existing full paths.
+
+Cover Header path insertion, final-path deletion, null/empty transitions, nested empty/nonempty mappings, date/string and Boolean/integer changes, normalized-name collisions, and duplicate-excluded sources. Incremental Header output must exactly match full inference. Same-shape Content declaration edits refresh provenance; role/form/shape changes and invalid declaration exclusion preserve the full revalidation behavior.
+
+For relation changes, assert only affected public rows, edge records and references change. Cover source deletion/rename, invalidation/repair, old-target inverse removal, new-target inverse insertion, dangling endpoints still referenced elsewhere, target reappearance, duplicate introduction/reappearance, and registry/Scope/schema full boundaries. Failure before commit must not publish candidate schema, graph or reuse state. Preserve native graph-query output and cached query-result snapshots.
+
+Measure the same schema-preserving real-project create/edit/delete matrix after deployment and report single-edit latency separately from bulk throughput. Do not claim an isolated CPU profile is live watcher latency.

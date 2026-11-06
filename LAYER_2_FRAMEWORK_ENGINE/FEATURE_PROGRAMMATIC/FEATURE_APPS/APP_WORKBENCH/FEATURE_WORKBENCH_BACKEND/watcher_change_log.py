@@ -8,7 +8,11 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import sys
+from typing import Any
 from pathlib import Path, PurePosixPath
+
+from .errors import WorkbenchUnavailableError
 
 
 _OPERATIONS = {"create", "update", "rename", "move", "remove"}
@@ -159,3 +163,39 @@ class WatcherChangeLog:
             self._write(retained)
         self._set_rows(retained)
         return retained, changed
+
+
+def mirror_change_log(
+    connection: Any, log: WatcherChangeLog, events: list[dict[str, str | None]] | None = None,
+    *, initialize: bool = False,
+) -> None:
+    """Mirror the file owner's delta while the caller holds its database lock."""
+    if events is not None:
+        rows, additions, replace = log.append_delta(events)
+        replace = replace or initialize
+        rows = rows if replace else additions
+    else:
+        rows, changed = log.prune()
+        if not changed and not initialize:
+            return
+        replace = True
+    retained = [validate_change_record(row) for row in rows]
+    if not retained and not replace:
+        return
+    try:
+        connection.execute("BEGIN TRANSACTION")
+        if replace:
+            connection.execute("DELETE FROM main.change_log")
+        if retained:
+            connection.execute(
+                "INSERT INTO main.change_log "
+                "SELECT json_extract_string(value, '$.observed_at')::TIMESTAMPTZ, "
+                "json_extract_string(value, '$.operation'), "
+                "json_extract_string(value, '$.old_path'), "
+                "json_extract_string(value, '$.new_path') FROM json_each(?::JSON)",
+                [json.dumps(retained, separators=(",", ":"))],
+            )
+        connection.execute("COMMIT")
+    except Exception as error:
+        print(f"query store change-log refresh failed: {error}", file=sys.stderr)
+        raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from error

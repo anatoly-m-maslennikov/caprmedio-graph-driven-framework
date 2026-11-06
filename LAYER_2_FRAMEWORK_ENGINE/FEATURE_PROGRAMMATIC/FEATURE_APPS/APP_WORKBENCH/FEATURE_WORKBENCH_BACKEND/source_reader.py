@@ -2,7 +2,8 @@
 # CA-R-2725@3
 # CA-R-2726@5
 # CA-M-464@8
-# CA-M-465@18
+# CA-M-465@19
+# CA-M-500@2
 # CA-D-672@12
 
 """Governed Workbench carrier reader; scheduling belongs to the service."""
@@ -17,10 +18,12 @@ from pathlib import Path
 from typing import Any
 
 from .relations import canonical
+from .content_schema import ContentSchema
 from .source_content_schema import SourceContentSchema
-from .source_rows import atom as source_atom, scope as source_scope, same_row as _same_row
-
-
+from .source_rows import (
+    ReferenceIndex, atom as source_atom, file_signature, frontmatter_bounds, same_row as _same_row,
+    scope as source_scope, source_body,
+)
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
@@ -39,8 +42,6 @@ from VALIDATE_ATOMS.validate_atoms_workers.parsing import (  # noqa: E402
 )
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS  # noqa: E402
-
-
 _ROLES = {
     "01_concern",
     "02_analysis",
@@ -67,8 +68,6 @@ _ROLE_MARKERS = {
     "07_delivery": {"D", "DEL", "DELIVERY"},
     "09_operations": {"O", "OPER", "OPERATION", "OPERATIONS", "ACTION", "WORKFLOW", "STEP"},
 }
-
-
 class SourceReader:
     def __init__(self, root: Path, control_root: Path | None = None) -> None:
         self.root = Path(root).resolve()
@@ -86,19 +85,27 @@ class SourceReader:
         self._declaration_directories: set[Path] = set()
         self._role_directories: set[Path] = set()
         self._source_paths: set[Path] = set()
+        self._references = ReferenceIndex()
         self._inventory_ready = False
         self._content_schema = SourceContentSchema()
         self._content_invalid: set[Path] = set()
         self.excluded_count = 0
         self.capture_changed = True
+        self.capture_delta: dict[str, dict[str, Any] | None] | None = None
+
+    @property
+    def content_schema(self) -> ContentSchema | None:
+        return self._content_schema.schema
 
     def release_cache(self) -> None:
         """Release parsed successful rows while retaining failed signatures."""
         self._cached.clear()
+        self._references = ReferenceIndex()
         self._inventory_ready = False
         self._content_schema.reset()
         self._content_invalid.clear()
         self.capture_changed = True
+        self.capture_delta = None
 
     def capture(
         self, changes: list[dict[str, str | None]] | None = None,
@@ -118,13 +125,30 @@ class SourceReader:
         for path in sorted(affected):
             if path in self._source_paths:
                 self._refresh_path(path, reader)
+        current = self._cached_rows()
+        content_paths = self._references.update(self._cached_rows(previous), current, affected)
         rows = {
+            path.relative_to(self.root).as_posix(): (
+                self._cached.get(path, (None, None))[1] if path in self._references.accepted else None
+            )
+            for path in content_paths
+        }
+        if self._content_schema.update(rows):
+            return self._capture_full(reader, revalidate_content=True)
+        invalid = self._exclude_invalid_content_sources(rows)
+        if invalid:
+            content_paths = self._references.update(current, self._cached_rows(), invalid)
+            if self._content_schema.update({
+                path.relative_to(self.root).as_posix(): (
+                    self._cached.get(path, (None, None))[1] if path in self._references.accepted else None
+                )
+                for path in content_paths
+            }):
+                return self._capture_full(reader, revalidate_content=True)
+        self.capture_delta = {
             path.relative_to(self.root).as_posix(): self._cached.get(path, (None, None))[1]
             for path in affected
         }
-        if self._content_schema.changes_schema(rows):
-            return self._capture_full(reader, revalidate_content=True)
-        self._exclude_invalid_content_sources(rows)
         self.excluded_count = len(self._failed)
         self.capture_changed = any(
             not _same_row(previous.get(path), self._cached.get(path))
@@ -136,6 +160,7 @@ class SourceReader:
         self, reader: ReadContext, *, revalidate_content: bool = False,
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
         self.capture_changed = True
+        self.capture_delta = None
         try:
             declarations = read_scope_unit_declarations(
                 self.root, self.control_root, reader=reader
@@ -168,10 +193,10 @@ class SourceReader:
         }
         for path in sorted(self._source_paths):
             self._refresh_path(path, reader)
+        self._references.rebuild(self._cached_rows())
         self._rebuild_content_schema(revalidated=revalidate_content)
         self.excluded_count = len(self._failed)
         return self._rows(), self._scopes()
-
     def _declarations_changed(
         self, changes: list[dict[str, str | None]], reader: ReadContext,
     ) -> bool:
@@ -281,26 +306,30 @@ class SourceReader:
             self._content_invalid.clear()
         else:
             self._content_invalid.intersection_update(self._source_paths)
-        self._exclude_content_errors(self._content_schema.rebuild(self._rows()))
+        self._exclude_content_errors(self._content_schema.rebuild(self._accepted_rows()))
+        self._references.rebuild(self._cached_rows())
 
     def _exclude_invalid_content_sources(
         self, rows: dict[str, dict[str, Any] | None],
-    ) -> None:
-        self._exclude_content_errors(self._content_schema.validation_errors(
+    ) -> set[Path]:
+        return self._exclude_content_errors(self._content_schema.validation_errors(
             row for row in rows.values() if row is not None
         ))
 
-    def _exclude_content_errors(self, errors: dict[str, ValueError]) -> None:
+    def _exclude_content_errors(self, errors: dict[str, ValueError]) -> set[Path]:
+        removed = set()
         for relative, error in errors.items():
             path = self.root / relative
             cached = self._cached.pop(path, None)
             if cached is not None:
+                removed.add(path)
                 self._failed[path] = cached[0]
                 self._content_invalid.add(path)
                 self._error(path, error)
+        return removed
 
     def _refresh_path(self, path: Path, reader: ReadContext) -> None:
-        signature = _signature(path)
+        signature = file_signature(path)
         if signature is None:
             self._cached.pop(path, None)
             self._failed.pop(path, None)
@@ -322,6 +351,14 @@ class SourceReader:
             for path in sorted(self._source_paths)
             if path in self._cached
         ]
+
+    def _cached_rows(
+        self, cached: dict[Path, tuple[tuple[int, ...], dict[str, Any]]] | None = None,
+    ) -> dict[Path, dict[str, Any]]:
+        return {path: item[1] for path, item in (self._cached if cached is None else cached).items()}
+
+    def _accepted_rows(self) -> list[dict[str, Any]]:
+        return [self._cached[path][1] for path in sorted(self._references.accepted) if path in self._cached]
 
     def _scopes(self) -> list[dict[str, Any]]:
         assert self._declarations is not None
@@ -362,7 +399,7 @@ class SourceReader:
                 self.root,
                 parsed.metadata,
                 view,
-                _body(raw, path),
+                source_body(raw, path),
                 group,
             )
             canonical(row)
@@ -395,20 +432,6 @@ def capture_inventory(
     return SourceReader(root, control_root).capture()
 
 
-def _signature(path: Path) -> tuple[int, ...] | None:
-    try:
-        item = path.stat()
-        return (
-            item.st_mode,
-            item.st_ino,
-            item.st_size,
-            item.st_mtime_ns,
-            item.st_ctime_ns,
-        )
-    except OSError:
-        return None
-
-
 def _filename_candidate(path: Path) -> bool:
     return _filename_marker(path) is not None
 
@@ -431,7 +454,7 @@ def _filename_role_matches(path: Path) -> bool:
 
 
 def _header_candidate(raw: bytes) -> bool:
-    bounds = _frontmatter_bounds(raw)
+    bounds = frontmatter_bounds(raw)
     if bounds is None:
         return False
     opening, boundary, _ = bounds
@@ -451,26 +474,6 @@ def _group(path: Path, header: dict[str, Any]) -> str | None:
     if parts & {"draft", "drafts"} or status == "draft":
         return "Draft"
     return "Current"
-
-
-def _frontmatter_bounds(raw: bytes) -> tuple[int, int, int] | None:
-    if raw.startswith(b"---\n"):
-        opening_end = len(b"---\n")
-    elif raw.startswith(b"---\r\n"):
-        opening_end = len(b"---\r\n")
-    else:
-        return None
-    closing = re.search(rb"\r?\n---\r?\n", raw, opening_end - 1)
-    if closing is None:
-        return None
-    return opening_end, closing.start(), closing.end()
-
-
-def _body(raw: bytes, path: Path) -> str:
-    bounds = _frontmatter_bounds(raw)
-    if bounds is not None:
-        return raw[bounds[2] :].decode("utf-8")
-    raise CarrierError("CARRIER_UNSUPPORTED", f"{path}: unsupported frontmatter delimiter")
 
 
 def _archived(parts: tuple[str, ...]) -> bool:

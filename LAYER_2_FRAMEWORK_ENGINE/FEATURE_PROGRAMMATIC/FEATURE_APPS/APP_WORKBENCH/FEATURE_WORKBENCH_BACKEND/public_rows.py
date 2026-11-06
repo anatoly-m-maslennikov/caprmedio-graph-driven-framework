@@ -56,7 +56,7 @@ def _scope(row: Row, outgoing: Outgoing) -> Row:
     return public
 
 
-def _atom_key(row: Row) -> tuple[str, str]:
+def atom_key(row: Row) -> tuple[str, str]:
     path = PurePosixPath(row["source_path"])
     return path.parent.as_posix(), path.name
 
@@ -79,7 +79,7 @@ def projected_rows(
             targets.sort(key=lambda target: (target["kind"], target["reference"], target["derived"]))
     public_atoms = []
     for row in atoms:
-        cached = (previous_atoms or {}).get(_atom_key(row))
+        cached = (previous_atoms or {}).get(atom_key(row))
         public_atoms.append(cached[1] if cached is not None and cached[0] is row
                             else _atom(row, outgoing, header_schema, content_schema))
     return public_atoms, [_scope(row, outgoing) for row in scopes]

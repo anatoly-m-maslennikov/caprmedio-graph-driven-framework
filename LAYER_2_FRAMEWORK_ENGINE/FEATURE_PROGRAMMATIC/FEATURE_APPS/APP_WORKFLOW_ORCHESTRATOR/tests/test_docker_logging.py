@@ -1,3 +1,4 @@
+# CA-E-600@20
 """Focused checks for bounded Docker stdout/stderr retention."""
 
 from pathlib import Path
@@ -50,7 +51,10 @@ class DockerLoggingTests(unittest.TestCase):
 
     def test_image_carries_framework_version_into_workspace(self):
         dockerfile = (DOCKER / "Dockerfile").read_text(encoding="utf-8")
-        self.assertIn("COPY pyproject.toml uv.lock version.toml ./", dockerfile)
+        self.assertIn("COPY version.toml ./", dockerfile)
+        self.assertIn("COPY pyproject.toml uv.lock ./", dockerfile)
+        self.assertIn("--mount=type=cache,id=caprmedio-uv,target=/tmp/uv-cache uv sync --locked", dockerfile)
+        self.assertGreater(dockerfile.index("COPY version.toml ./"), dockerfile.index(" uv sync --locked"))
 
 
 if __name__ == "__main__":

@@ -1,12 +1,13 @@
 # CA-R-2726@5
-# CA-M-500@1
+# CA-M-465@19
+# CA-M-500@2
 # CA-D-672@12
 
 """Compile declared Markdown Content properties into a Workbench SQL schema."""
 
 from __future__ import annotations
 
-from collections.abc import Mapping, Sequence
+from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 import json
 from pathlib import Path
@@ -151,17 +152,20 @@ def content_schema_asset_path(database_path: Path | None) -> Path | None:
 
 def compile_content_schema(atom_rows: Sequence[Mapping[str, Any]]) -> ContentSchema:
     """Compile Current literal Content declarations; no general CFEL evaluation occurs."""
-    rules: list[ContentRule] = []
-    sources: list[DeclarationSource] = []
-    for row in atom_rows:
-        if not _is_declaration(row):
-            continue
-        source = _source(row)
-        declared = _rules(row.get("content_markdown"), source)
-        if declared:
-            sources.append(source)
-            rules.extend(declared)
+    return schema_from_rules(rule for row in atom_rows for rule in declaration_rules(row))
+
+
+def declaration_rules(row: Mapping[str, Any] | None) -> tuple[ContentRule, ...]:
+    """Compile one source's literal Content declarations."""
+    if row is None or not _is_declaration(row):
+        return ()
+    return tuple(_rules(row.get("content_markdown"), _source(row)))
+
+
+def schema_from_rules(rules: Iterable[ContentRule]) -> ContentSchema:
+    """Assemble a schema from already parsed declaration rules."""
     unique_rules = tuple(sorted(set(rules), key=_rule_key))
+    sources = tuple(sorted({rule.source for rule in unique_rules}, key=_source_key))
     grouped: dict[tuple[str, ...], list[ContentRule]] = {}
     for rule in unique_rules:
         if rule.value_bearing:
@@ -170,7 +174,7 @@ def compile_content_schema(atom_rows: Sequence[Mapping[str, Any]]) -> ContentSch
         ContentColumn(path, "content." + ".".join(path), tuple(grouped[path]))
         for path in sorted(grouped, key=lambda path: "content." + ".".join(path))
     )
-    return ContentSchema(columns, unique_rules, tuple(sorted(set(sources), key=_source_key)))
+    return ContentSchema(columns, unique_rules, sources)
 
 
 def _is_declaration(row: Mapping[str, Any]) -> bool:

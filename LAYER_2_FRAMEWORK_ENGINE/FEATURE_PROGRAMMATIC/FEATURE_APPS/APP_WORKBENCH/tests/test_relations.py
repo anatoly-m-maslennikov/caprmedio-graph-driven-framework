@@ -1,5 +1,5 @@
 # CA-E-676@6
-# CA-E-677@13
+# CA-E-677@14
 """Runtime facts and hashes, independent of the repository's Atom contents."""
 
 from pathlib import Path

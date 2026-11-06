@@ -2,7 +2,7 @@
 # CA-R-2724@3
 # CA-R-2725@3
 # CA-M-464@8
-# CA-M-465@18
+# CA-M-465@19
 # CA-D-672@12
 
 """Materialize authored references and literal declared inverse bindings in memory."""
@@ -113,30 +113,44 @@ def _unambiguous_inverses(bindings: list[tuple[str, str]]) -> dict[str, str]:
     return {direct: derived for direct, derived in pairs - rejected}
 
 
-def relation_registry(atoms: list[dict[str, Any]]) -> tuple[set[str], dict[str, str]]:
-    """Project only literal Relation metadata, without evaluating CFEL formulas."""
+def registry_contribution(row: Mapping[str, Any]) -> tuple[frozenset[str], tuple[tuple[str, str], ...]]:
+    """Return one source's literal registry input without evaluating CFEL."""
+    if row.get("status_group") != "Current" or row.get("role") != "Requirement":
+        return frozenset(), ()
+    if row.get("form") not in {"Declaration", "Definition", "Entity Definition", "Relation Definition"}:
+        return frozenset(), ()
+    names = frozenset(name for subject in _subjects(row.get("header_json", {})) for name in _RELATION.findall(subject))
+    return names, tuple(_literal_bindings(str(row.get("content_markdown", "")))) if names else ()
+
+
+def registry_from_contributions(
+    contributions: Mapping[str, tuple[frozenset[str], tuple[tuple[str, str], ...]]],
+) -> tuple[set[str], dict[str, str], set[str]]:
     registered: set[str] = set()
     origins: dict[str, set[str]] = defaultdict(set)
     bindings = []
-    for row in atoms:
-        if row["status_group"] != "Current" or row["role"] != "Requirement":
-            continue
-        if row["form"] not in {"Declaration", "Definition", "Entity Definition", "Relation Definition"}:
-            continue
-        names = {name for subject in _subjects(row["header_json"]) for name in _RELATION.findall(subject)}
-        if names:
-            registered.update(names)
-            source = row.get("source_path")
-            for name in names:
-                if isinstance(source, str):
-                    origins[name].add(source)
-            bindings.extend(_literal_bindings(row["content_markdown"]))
+    for source, (names, source_bindings) in contributions.items():
+        registered.update(names)
+        for name in names:
+            origins[name].add(source)
+        bindings.extend(source_bindings)
     collisions = _case_collisions(registered, origins)
     registered.difference_update(collisions)
-    _warn_colliding_uses(atoms, collisions)
     admitted = [(direct, derived) for direct, derived in bindings
                 if direct in registered and derived in registered]
-    return registered, _unambiguous_inverses(admitted)
+    return registered, _unambiguous_inverses(admitted), collisions
+
+
+def relation_registry(atoms: list[dict[str, Any]]) -> tuple[set[str], dict[str, str]]:
+    """Project only literal Relation metadata, without evaluating CFEL formulas."""
+    contributions = {
+        row["source_path"]: registry_contribution(row)
+        for row in atoms
+        if isinstance(row.get("source_path"), str)
+    }
+    registered, inverse, collisions = registry_from_contributions(contributions)
+    _warn_colliding_uses(atoms, collisions)
+    return registered, inverse
 
 
 def _case_collisions(

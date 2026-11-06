@@ -1,18 +1,21 @@
 # CA-R-2724@3
 # CA-M-464@8
+# CA-M-465@19
 # CA-D-672@12
 # CA-D-675@13
+# CA-E-677@14
 
 """Trusted internal DuckPGQ mappings for the Workbench public row projection."""
 
 from __future__ import annotations
 
-from collections import defaultdict
+from collections import Counter, defaultdict
 from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 import hashlib
-from typing import Any
+from typing import Any, TypeVar
 
+from .index_delta import MaterializationDelta
 from .relations import canonical
 
 
@@ -22,6 +25,7 @@ _EDGE_KEYS = (
 _EDGE_FIELDS = frozenset(_EDGE_KEYS)
 Edge = tuple[str, str, str, str, str, bool]
 Reference = tuple[str, str]
+T = TypeVar("T")
 
 
 @dataclass(frozen=True)
@@ -29,6 +33,8 @@ class GraphState:
     references: frozenset[Reference]
     edges: dict[str, frozenset[Edge]]
     tables: dict[str, str]
+    reference_counts: dict[Reference, int]
+    edge_counts: dict[Edge, int]
 
 
 def quote_identifier(name: str) -> str:
@@ -58,6 +64,24 @@ def edge_records(rows: Iterable[Mapping[str, object]]) -> list[tuple[str, str, s
                 raise ValueError("relation edge endpoints must be non-empty and derived must be boolean")
             records.append((*endpoint_values, relation_type, edge["derived"]))
     return records
+
+
+def _contribution_counts(
+    atoms: Iterable[Mapping[str, object]], scopes: Iterable[Mapping[str, object]], edges: Iterable[Edge],
+) -> tuple[Counter[Reference], Counter[Edge]]:
+    """Count node and edge contributions without collapsing duplicate source facts."""
+    references: Counter[Reference] = Counter()
+    for row in atoms:
+        if isinstance(ref := row.get("ref"), str):
+            references[("Atom", ref)] += 1
+    for row in scopes:
+        if isinstance(name := row.get("name"), str):
+            references[("Scope Unit", name)] += 1
+    edge_counts: Counter[Edge] = Counter(edges)
+    for source_kind, source_ref, target_kind, target_ref, _, _ in edge_counts.elements():
+        references[(source_kind, source_ref)] += 1
+        references[(target_kind, target_ref)] += 1
+    return references, edge_counts
 
 
 def graph_relations(connection: Any, *, has_edges: bool) -> dict[tuple[str, str], dict[str, list[dict[str, object]]]]:
@@ -94,24 +118,20 @@ def graph_state(
     """Describe the graph facts without changing the database."""
     atoms, scopes = list(atom_rows), list(scope_rows)
     edges = edge_records([*atoms, *scopes])
-    references: set[Reference] = {(kind, ref) for kind, ref, _, _, _, _ in edges}
-    references.update((kind, ref) for _, _, kind, ref, _, _ in edges)
-    for row in atoms:
-        if isinstance(ref := row.get("ref"), str):
-            references.add(("Atom", ref))
-    for row in scopes:
-        if isinstance(name := row.get("name"), str):
-            references.add(("Scope Unit", name))
+    reference_counts, edge_counts = _contribution_counts(atoms, scopes, edges)
 
     by_type: dict[str, set[Edge]] = defaultdict(set)
-    for edge in edges:
+    for edge in edge_counts:
         by_type[edge[4]].add(edge)
     if relation_types is not None:
         for relation_type in relation_types:
             by_type[relation_type]
     tables = {relation_type: quote_identifier(f"edge_{index}")
               for index, relation_type in enumerate(sorted(by_type), start=1)}
-    return GraphState(frozenset(references), {name: frozenset(records) for name, records in by_type.items()}, tables)
+    return GraphState(
+        frozenset(reference_counts), {name: frozenset(records) for name, records in by_type.items()}, tables,
+        dict(reference_counts), dict(edge_counts),
+    )
 
 
 def build_graph(
@@ -187,3 +207,86 @@ def update_graph(
                 [(*edge, _hash(dict(zip(_EDGE_KEYS, edge)))) for edge in added],
             )
     return current
+
+
+def _adjust_counts(
+    previous: Mapping[T, int], old: Mapping[T, int], new: Mapping[T, int],
+) -> tuple[dict[T, int], set[T], set[T]]:
+    """Return copy-on-write counts and entries whose presence changed."""
+    candidate = dict(previous)
+    removed: set[T] = set()
+    added: set[T] = set()
+    for value in set(old) | set(new):
+        before = candidate.get(value, 0)
+        after = before - old.get(value, 0) + new.get(value, 0)
+        if after < 0:
+            raise ValueError("graph contribution count underflow")
+        if after:
+            candidate[value] = after
+        else:
+            candidate.pop(value, None)
+        if before and not after:
+            removed.add(value)
+        elif after and not before:
+            added.add(value)
+    return candidate, removed, added
+
+
+def graph_delta_state(
+    previous: GraphState, delta: MaterializationDelta, relation_types: set[str],
+) -> tuple[GraphState, set[Reference], set[Reference], set[Edge], set[Edge]]:
+    """Build a next graph state from only the materialized owners in one delta."""
+    if set(previous.edges) != relation_types:
+        raise ValueError("relation type layout changed; full graph rebuild is required")
+    old_edges = edge_records([*delta.old_atoms.values(), *delta.old_scopes.values()])
+    new_edges = edge_records([*delta.new_atoms.values(), *delta.new_scopes.values()])
+    old_references, old_edge_counts = _contribution_counts(
+        delta.old_atoms.values(), delta.old_scopes.values(), old_edges,
+    )
+    new_references, new_edge_counts = _contribution_counts(
+        delta.new_atoms.values(), delta.new_scopes.values(), new_edges,
+    )
+    reference_counts, removed_references, added_references = _adjust_counts(
+        previous.reference_counts, old_references, new_references,
+    )
+    edge_counts, removed_edges, added_edges = _adjust_counts(
+        previous.edge_counts, old_edge_counts, new_edge_counts,
+    )
+    edges = dict(previous.edges)
+    for relation_type in {edge[4] for edge in removed_edges | added_edges}:
+        records = set(previous.edges[relation_type])
+        records.difference_update(edge for edge in removed_edges if edge[4] == relation_type)
+        records.update(edge for edge in added_edges if edge[4] == relation_type)
+        edges[relation_type] = frozenset(records)
+    candidate = GraphState(
+        frozenset(reference_counts), edges, dict(previous.tables), reference_counts, edge_counts,
+    )
+    return candidate, removed_references, added_references, removed_edges, added_edges
+
+
+def apply_graph_delta(
+    connection: Any, previous: GraphState, delta: MaterializationDelta, relation_types: set[str],
+) -> tuple[GraphState, int]:
+    """Apply one materialized graph delta without scanning the unchanged graph."""
+    candidate, removed_references, added_references, removed_edges, added_edges = graph_delta_state(
+        previous, delta, relation_types,
+    )
+    for edge in removed_edges:
+        table = candidate.tables[edge[4]]
+        connection.execute(
+            f"DELETE FROM internal.{table} WHERE hash = ?", [_hash(dict(zip(_EDGE_KEYS, edge)))],
+        )
+    for kind, ref in removed_references:
+        connection.execute("DELETE FROM internal.reference WHERE kind = ? AND ref = ?", [kind, ref])
+    for kind, ref in added_references:
+        connection.execute(
+            "INSERT INTO internal.reference VALUES (?, ?, ?)",
+            [kind, ref, _hash({"kind": kind, "ref": ref})],
+        )
+    for edge in added_edges:
+        table = candidate.tables[edge[4]]
+        connection.execute(
+            f"INSERT INTO internal.{table} VALUES (?, ?, ?, ?, ?, ?, ?)",
+            [*edge, _hash(dict(zip(_EDGE_KEYS, edge)))],
+        )
+    return candidate, len(removed_references) + len(added_references) + len(removed_edges) + len(added_edges)

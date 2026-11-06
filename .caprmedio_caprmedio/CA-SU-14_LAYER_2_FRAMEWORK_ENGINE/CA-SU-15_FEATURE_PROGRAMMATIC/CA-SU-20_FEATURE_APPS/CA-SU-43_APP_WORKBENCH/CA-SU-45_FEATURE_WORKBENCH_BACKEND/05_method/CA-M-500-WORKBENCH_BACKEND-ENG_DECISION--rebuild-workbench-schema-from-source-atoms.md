@@ -12,8 +12,8 @@ relations:
   method_for:
   - CA-R-2726
 status: Active
-version: 1
-updated_at: 2026-11-06 20:37:19 +0400
+version: 2
+updated_at: 2026-11-07 02:02:14 +0400
 carrier_destination:
   file:
     name: CA-M-500-WORKBENCH_BACKEND-ENG_DECISION--rebuild-workbench-schema-from-source-atoms.md
@@ -49,3 +49,10 @@ Check global emptiness across the complete valid source inventory, not one resul
 An ordinary value edit that leaves the schema unchanged remains an incremental update. Rebuilding the schema is not a fallback for an unrelated indexing failure.
 
 Generate Content columns from Current model Declarations. Keep dots between path levels and use snake_case within every segment, for example `content.claim.prose_claim` and `content.claim.formal_claim`. Do not maintain a separate handwritten property list in Python.
+
+
+Build Header schema contributions once from the complete accepted inventory. On an ordinary delta, update only changed or removed source contributions. Aggregate observations preserve every current path, format, populated flag and normalized-name collision rule without recursively scanning unchanged Headers. Retain observations at parent mapping paths too: a parent may become a direct column because another source uses an empty mapping. Remove a column only when its last observed direct path disappears. Equality preserves YAML types, including date versus quoted string and Boolean versus integer.
+
+Reuse the reader's compiled Content schema while declaration contributions are unchanged. Retain per-source Content rules with their exact provenance; reparse only changed declaration sources. Same-shape changes still refresh source ID, version and path provenance. Actual shape changes retain the existing full reread/revalidation boundary. Pass the compiled schema from the reader to the query store rather than compiling every cached Atom again on each ordinary update.
+
+Candidate Header and Content schema state is owner-local derived state. Preserve invalid-content exclusion, duplicate filtering, Header Relation projection, asset regeneration and the existing full rebuild conditions. Do not add a second source, handwritten property list, public query parameter or background schema service.

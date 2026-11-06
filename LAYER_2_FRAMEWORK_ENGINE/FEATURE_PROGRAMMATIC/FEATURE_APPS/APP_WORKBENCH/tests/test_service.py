@@ -1,8 +1,8 @@
 # CA-E-676@11
-# CA-E-677@13
+# CA-E-677@14
 # CA-R-2950@1
 # CA-R-2952@1
-# CA-M-465@18
+# CA-M-465@19
 # CA-M-490@1
 # CA-M-491@1
 # CA-D-695@1
@@ -121,6 +121,7 @@ class ServiceTests(unittest.TestCase):
     def test_sync_status_is_available_while_capture_is_running(self):
         reader = unittest.mock.Mock()
         reader.excluded_count = 0
+        reader.capture_delta = None
         started, release = threading.Event(), threading.Event()
 
         def capture():
@@ -147,7 +148,7 @@ class ServiceTests(unittest.TestCase):
         self.assertIsInstance(status["last_synced_at"], str)
 
     def test_sync_status_keeps_the_last_success_after_capture_failure(self):
-        reader = unittest.mock.Mock(capture=unittest.mock.Mock(return_value=([], [])), excluded_count=0)
+        reader = unittest.mock.Mock(capture=unittest.mock.Mock(return_value=([], [])), excluded_count=0, capture_delta=None)
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader):
             service = WorkbenchService(Path("/project"))
         service._store = unittest.mock.Mock()

@@ -1,5 +1,6 @@
 # CA-R-2726@5
-# CA-M-500@1
+# CA-M-465@19
+# CA-M-500@2
 # CA-D-672@12
 
 """Retain the compiled Content schema used to validate changed source Atoms."""
@@ -11,10 +12,7 @@ from dataclasses import dataclass, field
 from typing import Any
 
 from .content_columns import content_columns
-from .content_schema import ContentSchema, compile_content_schema
-
-
-RuleShape = tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...], bool]
+from .content_schema import ContentRule, ContentSchema, declaration_rules, schema_from_rules
 
 
 @dataclass
@@ -22,7 +20,7 @@ class SourceContentSchema:
     """Keep Content declarations in memory; source files remain authoritative."""
 
     schema: ContentSchema | None = None
-    _contributions: dict[str, frozenset[RuleShape]] = field(default_factory=dict)
+    _contributions: dict[str, tuple[ContentRule, ...]] = field(default_factory=dict)
 
     def reset(self) -> None:
         self.schema = None
@@ -33,16 +31,12 @@ class SourceContentSchema:
         remaining = list(rows)
         errors: dict[str, ValueError] = {}
         while True:
-            schema = compile_content_schema(remaining)
+            contributions = _contributions(remaining)
+            schema = schema_from_rules(rule for rules in contributions.values() for rule in rules)
             invalid = self.validation_errors(remaining, schema)
             if not invalid:
                 self.schema = schema
-                self._contributions = {}
-                for row in remaining:
-                    path = source_path(row)
-                    shape = contribution(row)
-                    if path is not None and shape:
-                        self._contributions[path] = shape
+                self._contributions = contributions
                 return errors
             errors.update(invalid)
             remaining = [row for row in remaining if source_path(row) not in invalid]
@@ -51,17 +45,37 @@ class SourceContentSchema:
         """Compare only changed declaration rules, not declaration provenance."""
         if self.schema is None:
             return True
-        contributions = dict(self._contributions)
         try:
-            for path, row in rows.items():
-                shape = contribution(row) if row is not None else frozenset()
-                if shape:
-                    contributions[path] = shape
-                else:
-                    contributions.pop(path, None)
+            schema, _contributions = self._candidate(rows)
         except ValueError:
             return True
-        return union(contributions.values()) != shape_of(self.schema)
+        return schema.shape != self.schema.shape
+
+    def update(self, rows: Mapping[str, Mapping[str, Any] | None]) -> bool:
+        """Commit changed declaration provenance unless its schema shape changed."""
+        if self.schema is None:
+            return True
+        try:
+            schema, contributions = self._candidate(rows)
+        except ValueError:
+            return True
+        if schema.shape != self.schema.shape:
+            return True
+        self.schema = schema
+        self._contributions = contributions
+        return False
+
+    def _candidate(
+        self, rows: Mapping[str, Mapping[str, Any] | None],
+    ) -> tuple[ContentSchema, dict[str, tuple[ContentRule, ...]]]:
+        contributions = dict(self._contributions)
+        for path, row in rows.items():
+            rules = declaration_rules(row)
+            if rules:
+                contributions[path] = rules
+            else:
+                contributions.pop(path, None)
+        return schema_from_rules(rule for rules in contributions.values() for rule in rules), contributions
 
     def validation_errors(
         self, rows: Iterable[Mapping[str, Any]], schema: ContentSchema | None = None,
@@ -86,21 +100,9 @@ def source_path(row: Mapping[str, Any]) -> str | None:
     return value if isinstance(value, str) else None
 
 
-def contribution(row: Mapping[str, Any] | None) -> frozenset[RuleShape]:
-    if row is None:
-        return frozenset()
-    return frozenset(
-        (rule.path, tuple(sorted(rule.roles or ())), tuple(sorted(rule.forms or ())), rule.value_bearing)
-        for rule in compile_content_schema([row]).rules
-    )
-
-
-def union(values: Iterable[frozenset[RuleShape]]) -> frozenset[RuleShape]:
-    return frozenset().union(*values)
-
-
-def shape_of(schema: ContentSchema) -> frozenset[RuleShape]:
-    return frozenset(
-        (rule.path, tuple(sorted(rule.roles or ())), tuple(sorted(rule.forms or ())), rule.value_bearing)
-        for rule in schema.rules
-    )
+def _contributions(rows: Iterable[Mapping[str, Any]]) -> dict[str, tuple[ContentRule, ...]]:
+    return {
+        path: rules
+        for row in rows
+        if (path := source_path(row)) is not None and (rules := declaration_rules(row))
+    }

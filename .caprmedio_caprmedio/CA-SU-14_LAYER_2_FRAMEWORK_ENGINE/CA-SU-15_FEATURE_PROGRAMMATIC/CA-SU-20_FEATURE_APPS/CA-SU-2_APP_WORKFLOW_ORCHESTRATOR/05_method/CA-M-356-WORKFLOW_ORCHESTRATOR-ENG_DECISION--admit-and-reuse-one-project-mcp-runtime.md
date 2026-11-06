@@ -19,8 +19,8 @@ relations:
   method_for:
   - CA-R-1901
 status: Active
-version: 16
-updated_at: 2026-10-27 19:59:42 +0400
+version: 17
+updated_at: 2026-11-07 02:24:38 +0400
 carrier_destination:
   file:
     name: CA-M-356-WORKFLOW_ORCHESTRATOR-ENG_DECISION--admit-and-reuse-one-project-mcp-runtime.md
@@ -53,3 +53,8 @@ the launcher **must** compute one source fingerprint, resolve one immutable imag
 ### Shared display-metadata construction
 
 Reuse one canonical image naming owner from the normal, development, release and disposable test build entrypoints. Safely read the exact source/package version.toml as part of the deterministic admitted input closure and carry framework.version in the OCI version label. After immutable image inspection, derive D594's display name/tag from that verified version, Docker Created UTC and immutable digest. Do not inject the maintenance/build-invocation clock into a cached image's date or into source fingerprinting. Check any exact tag binding, retain another image's occupied tag, apply only an absent additive tag, and read back the same immutable digest. Validated reuse with the existing same-digest tag is a no-op. R1901's explicit historical maintenance permission is separate from runtime replacement; preserve immutable returns, Project locks and every existing admission/refusal check.
+
+
+### Dependency build cache
+
+Install the locked dependencies before copying the Framework version and application source into the image. Keep uv downloads in a BuildKit-managed cache so another build or a cancelled build does not discard completed package downloads. A version-only or source-only change must not invalidate the dependency installation layer. The version file still belongs in the final image and in its admitted input fingerprint; the OCI version label and immutable-image checks remain unchanged. Cached downloads do not replace the lockfile or admit another dependency source.

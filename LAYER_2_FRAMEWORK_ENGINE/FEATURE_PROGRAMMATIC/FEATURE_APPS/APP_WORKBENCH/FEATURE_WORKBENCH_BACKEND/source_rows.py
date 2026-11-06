@@ -1,12 +1,15 @@
 # CA-R-2723@3
 # CA-R-2726@5
 # CA-D-672@12
-# CA-M-465@18
+# CA-M-465@19
+# CA-M-500@2
 
 """Map parsed Atom and Scope Unit sources to raw Workbench rows."""
 
 from __future__ import annotations
 
+from collections.abc import Mapping
+from dataclasses import dataclass, field
 from pathlib import Path
 import re
 from typing import Any
@@ -97,3 +100,81 @@ def same_row(
     if before[1] is after[1]:
         return True
     return _same_types(before[1], after[1]) and canonical(before[1]) == canonical(after[1])
+
+
+@dataclass
+class ReferenceIndex:
+    """Track the unique-reference frontier without rescanning every source."""
+
+    paths: dict[str, set[Path]] = field(default_factory=dict)
+    accepted: set[Path] = field(default_factory=set)
+
+    def rebuild(self, rows: Mapping[Path, Mapping[str, Any]]) -> None:
+        self.paths = {}
+        for path, row in rows.items():
+            if (reference := _reference(row)) is not None:
+                self.paths.setdefault(reference, set()).add(path)
+        self.accepted = {
+            path for path, row in rows.items()
+            if (reference := _reference(row)) is None or len(self.paths[reference]) == 1
+        }
+
+    def update(
+        self, before: Mapping[Path, Mapping[str, Any]], after: Mapping[Path, Mapping[str, Any]], affected: set[Path],
+    ) -> set[Path]:
+        impacted = set(affected)
+        references = {
+            reference
+            for rows in (before, after) for path in affected
+            if (row := rows.get(path)) is not None and (reference := _reference(row)) is not None
+        }
+        for reference in references:
+            old = set(self.paths.get(reference, ()))
+            for path in affected:
+                if _reference(before.get(path)) == reference:
+                    self.paths[reference].discard(path)
+                if _reference(after.get(path)) == reference:
+                    self.paths.setdefault(reference, set()).add(path)
+            current = self.paths.get(reference, set())
+            if not current:
+                self.paths.pop(reference, None)
+            impacted.update(old | current)
+        for path in impacted:
+            row = after.get(path)
+            reference = _reference(row)
+            if row is not None and (reference is None or len(self.paths[reference]) == 1):
+                self.accepted.add(path)
+            else:
+                self.accepted.discard(path)
+        return impacted
+
+
+def _reference(row: Mapping[str, Any] | None) -> str | None:
+    value = row.get("ref") if row is not None else None
+    return value if isinstance(value, str) else None
+
+
+def file_signature(path: Path) -> tuple[int, ...] | None:
+    try:
+        item = path.stat()
+        return item.st_mode, item.st_ino, item.st_size, item.st_mtime_ns, item.st_ctime_ns
+    except OSError:
+        return None
+
+
+def frontmatter_bounds(raw: bytes) -> tuple[int, int, int] | None:
+    if raw.startswith(b"---\n"):
+        opening_end = len(b"---\n")
+    elif raw.startswith(b"---\r\n"):
+        opening_end = len(b"---\r\n")
+    else:
+        return None
+    closing = re.search(rb"\r?\n---\r?\n", raw, opening_end - 1)
+    return None if closing is None else (opening_end, closing.start(), closing.end())
+
+
+def source_body(raw: bytes, path: Path) -> str:
+    bounds = frontmatter_bounds(raw)
+    if bounds is None:
+        raise ValueError(f"{path}: unsupported frontmatter delimiter")
+    return raw[bounds[2]:].decode("utf-8")

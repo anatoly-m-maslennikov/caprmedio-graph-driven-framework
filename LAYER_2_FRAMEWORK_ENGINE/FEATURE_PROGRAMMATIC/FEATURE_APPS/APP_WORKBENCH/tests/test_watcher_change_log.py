@@ -6,7 +6,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import patch
+from unittest.mock import Mock, patch
 
 
 APP_ROOT = Path(__file__).resolve().parents[2]
@@ -88,13 +88,15 @@ class WatcherChangeLogTests(unittest.TestCase):
         self.addCleanup(store.close)
         event = {"operation": "create", "new_path": "control/new.md"}
         with patch.object(WatcherChangeLog, "_now", return_value=self.now), patch.object(
-            store, "_write_change_log", wraps=store._write_change_log,
-        ) as write:
+            store, "_connection", Mock(wraps=store._connection),
+        ) as connection:
             store.sync_change_log(self.log, [event])
             first_file = self.log._path.read_bytes()
             store.sync_change_log(self.log, [event])
         self.assertTrue(self.log._path.read_bytes().startswith(first_file))
-        self.assertEqual([False, False], [call.kwargs["replace"] for call in write.call_args_list])
+        statements = [call.args[0] for call in connection.execute.call_args_list]
+        self.assertFalse(any(sql.startswith("DELETE") for sql in statements))
+        self.assertEqual(2, sum(sql.startswith("INSERT INTO main.change_log") for sql in statements))
         self.assertEqual(2, store.run("SELECT count(*) FROM change_log")["rows"][0][0])
         self.assertEqual(2, len(WatcherChangeLog(self.root)._read()))
 

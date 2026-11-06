@@ -10,7 +10,7 @@
 # CA-R-2724@3
 # CA-M-490@2
 # CA-D-695@2
-# CA-M-465@18
+# CA-M-465@19
 # CA-D-675@13
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
@@ -18,7 +18,6 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-import json
 import sys
 import threading
 import time
@@ -28,8 +27,9 @@ from typing import Any
 
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .graph_store import quote_identifier
-from .header_columns import HeaderSchema, infer_header_schema, schema_asset_path
-from .content_schema import compile_content_schema, content_schema_asset_path
+from .header_columns import HeaderSchema, HeaderSchemaState, schema_asset_path
+from .content_schema import ContentSchema, compile_content_schema, content_schema_asset_path
+from .index_delta import MaterializationDelta
 from .projection_delta import ProjectionSnapshot, apply as apply_projection_delta, snapshot
 from .public_rows import insert_rows
 from .query_admission import is_duckdb_internal, is_one_tokenized_read_query
@@ -37,7 +37,7 @@ from .result_columns import result_columns
 from .result_values import group_key, result_value
 from .result_view import Grid, build_page_query, ctas_source_sql, parse_grid, validate_columns
 from .query_schema import public_schema
-from .watcher_change_log import WatcherChangeLog, validate_change_record
+from .watcher_change_log import WatcherChangeLog, mirror_change_log
 
 
 def _connect(extension_directory: Path | None, database_path: Path | None) -> Any:
@@ -97,6 +97,7 @@ class QueryStore:
         self._initialized = False
         self._results: dict[str, _Result] = {}
         self._projection: ProjectionSnapshot | None = None
+        self._header_state = HeaderSchemaState()
         self._header_schema = HeaderSchema(())
         self._content_schema = compile_content_schema([])
         self._schema_changed = False
@@ -123,14 +124,16 @@ class QueryStore:
 
     def replace(
         self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]],
-        *, relation_types: set[str] | None = None,
+        *, relation_types: set[str] | None = None, content_schema: ContentSchema | None = None,
     ) -> None:
         with self._lock:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             try:
-                header_schema = infer_header_schema(atom_rows)
-                content_schema = compile_content_schema(atom_rows)
+                header_state = HeaderSchemaState.from_atoms(atom_rows)
+                header_schema = header_state.schema
+                if content_schema is None:
+                    content_schema = compile_content_schema(atom_rows)
                 self._connection.execute("BEGIN TRANSACTION")
                 if self._initialized:
                     self._connection.execute("DROP PROPERTY GRAPH caprmedio")
@@ -144,6 +147,7 @@ class QueryStore:
                 )
                 self._connection.execute("COMMIT")
                 self._initialized = True
+                self._header_state = header_state
                 self._header_schema = header_schema
                 self._content_schema = content_schema
                 self._schema_changed = False
@@ -172,18 +176,26 @@ class QueryStore:
 
     def apply(
         self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]],
-        *, relation_types: set[str],
+        *, relation_types: set[str], content_schema: ContentSchema | None = None,
+        delta: MaterializationDelta | None = None,
     ) -> bool:
         """Apply the materialized delta without replacing unaffected public rows."""
         with self._lock:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             if self._projection is None:
-                self.replace(atom_rows, scope_rows, relation_types=relation_types)
+                self.replace(atom_rows, scope_rows, relation_types=relation_types, content_schema=content_schema)
                 return True
             try:
-                header_schema = infer_header_schema(atom_rows)
-                content_schema = compile_content_schema(atom_rows)
+                if delta is None:
+                    header_state = HeaderSchemaState.from_atoms(atom_rows)
+                else:
+                    header_changes = dict.fromkeys(delta.old_atoms)
+                    header_changes.update(delta.new_atoms)
+                    header_state = self._header_state.updated(header_changes)
+                header_schema = header_state.schema
+                if content_schema is None:
+                    content_schema = compile_content_schema(atom_rows)
                 self._schema_changed = (
                     header_schema != self._header_schema or content_schema.shape != self._content_schema.shape
                 )
@@ -193,10 +205,11 @@ class QueryStore:
                 started = time.monotonic()
                 projection, change = apply_projection_delta(
                     self._connection, self._projection, atom_rows, scope_rows, relation_types,
-                    header_schema, content_schema,
+                    header_schema, content_schema, delta=delta,
                 )
                 self._connection.execute("COMMIT")
                 self._projection = projection
+                self._header_state = header_state
                 self._content_schema = content_schema
                 content_schema.write(content_schema_asset_path(self._database_path))
                 self._info_edit("delete", "atoms", change.deleted_atoms, started, change.reference)
@@ -218,47 +231,17 @@ class QueryStore:
         """Whether the last delta needs a complete source reread and table rebuild."""
         return self._schema_changed
 
-    def _write_change_log(self, rows: object, *, replace: bool) -> None:
-        if not isinstance(rows, list):
-            raise ValueError("change log rows must be a list")
-        retained = [validate_change_record(row) for row in rows]
-        if not retained and not replace:
-            return
-        try:
-            self._connection.execute("BEGIN TRANSACTION")
-            if replace:
-                self._connection.execute("DELETE FROM main.change_log")
-            if retained:
-                self._connection.execute(
-                    "INSERT INTO main.change_log "
-                    "SELECT json_extract_string(value, '$.observed_at')::TIMESTAMPTZ, "
-                    "json_extract_string(value, '$.operation'), "
-                    "json_extract_string(value, '$.old_path'), "
-                    "json_extract_string(value, '$.new_path') FROM json_each(?::JSON)",
-                    [json.dumps(retained, separators=(",", ":"))],
-                )
-            self._connection.execute("COMMIT")
-        except Exception as exc:
-            self._available = False
-            print(f"query store change-log refresh failed: {exc}", file=sys.stderr)
-            raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
-
     def sync_change_log(self, log: WatcherChangeLog, events: list[dict[str, str | None]] | None = None,
                         *, initialize: bool = False) -> None:
-        """Synchronize one retained NDJSON event set under the database-owner lock."""
+        """Mirror watcher history under the database-owner lock."""
         with self._lock:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
-            if events is not None:
-                rows, additions, replace_required = log.append_delta(events)
-                if initialize or replace_required:
-                    self._write_change_log(rows, replace=True)
-                else:
-                    self._write_change_log(additions, replace=False)
-                return
-            rows, changed = log.prune()
-            if changed or initialize:
-                self._write_change_log(rows, replace=True)
+            try:
+                mirror_change_log(self._connection, log, events, initialize=initialize)
+            except WorkbenchUnavailableError:
+                self._available = False
+                raise
 
     def _admit(self, sql: str) -> None:
         if not isinstance(sql, str):

@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 57
-updated_at: 2026-11-07 01:34:24 +0400
+version: 58
+updated_at: 2026-11-07 02:09:48 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -103,15 +103,35 @@ Source, review and verification index: `.caprmedio_tmp/workbench/view-actions-20
 
 Source acceptance passed: 23 browser cases, three disposable-host native bridge cases, five backend tests, 12 MCP/HTTP tests and 17 frontend Node tests. TypeScript, builds, scoped reviews and diff checks passed. Deployment and actual Codex-host acceptance remain open. Permanent record: `view-actions-acceptance-20261106.md` in this Epic folder.
 
-## Real-project performance cycle
+## Real-project performance cycle — row reuse and logs
 
 - [x] Measure ordinary real-project edits before the change, without changing the schema.
 - [x] Update, review and adopt the Backend RMED for the approved performance and log changes.
 - [x] Refresh the Backend Policy prompt and accepted implementation-source list.
 - [x] Implement and review the approved changes.
-- [ ] Run the targeted regressions and realistic end-to-end checks.
+- [x] Run the targeted regressions and realistic end-to-end checks.
 - [ ] Release and compare the same real-project operation matrix before and after.
 - [ ] Record measured results and remaining acceptance items.
+
+## Current priority — bounded source deltas
+
+Sources: CA-M-465@19, CA-M-500@2 and CA-E-677@14.
+
+- [x] Review and adopt the incremental schema/graph RMED.
+- [x] Refresh the accepted implementation-source packet.
+- [ ] Implement Header contribution updates.
+- [ ] Reuse compiled Content declarations and expose affected source paths.
+- [ ] Implement changed relation and graph/public-row deltas.
+- [ ] Integrate and review the four lanes.
+- [ ] Run parity, failure-boundary and end-to-end checks.
+- [ ] Release and measure real-project latency.
+- [ ] Record the results before selecting further experiments.
+
+First-cycle evidence: 252 tests passed in 35 selected modules, with one opt-in live-canary skip. All seven Docker Workbench cases and launcher integration passed. The local release failed at `prepare_candidate_image` during dependency downloads; no replacement runtime was deployed. An isolated CPU profile of roughly 5,000 source Atoms measured 0.66–0.75 seconds per edited Atom, including database application but excluding watcher/request latency. This is not a live-watcher result.
+
+Release follow-up: [dependency-cache report](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/release-dependency-cache-20261107.md).
+
+- [ ] Resolve the separate Docker dependency-cache issue after its scope boundary is authorized.
 
 ## Performance experiments
 

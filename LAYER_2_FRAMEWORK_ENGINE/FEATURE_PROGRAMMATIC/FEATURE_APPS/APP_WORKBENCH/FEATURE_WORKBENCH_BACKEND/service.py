@@ -2,7 +2,7 @@
 # CA-R-2729@7
 # CA-R-2950@1
 # CA-R-2952@1
-# CA-M-465@18
+# CA-M-465@19
 # CA-M-490@2
 # CA-M-491@1
 # CA-D-695@2
@@ -28,7 +28,7 @@ from typing import Any
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .query_store import QueryStore
 from .query_log import QueryLog
-from .relations import canonical, materialize_with_registry
+from .incremental_relations import RelationState, materialize_delta
 from .runtime_settings import result_ttl_seconds
 from .saved_queries import SavedQueryStore
 from .source_reader import SourceReader
@@ -69,9 +69,7 @@ class WorkbenchService:
         self._store: QueryStore | None = None
         self._thread: threading.Thread | None = None
         self._watcher: SourceWatcher | None = None
-        self._scope_signature: str | None = None
-        self._relation_registry: str | None = None
-        self._materialized_atoms: dict = {}
+        self._relation_state: RelationState | None = None
         self._failure: WorkbenchUnavailableError | None = None
         self._paths: set[str] = set()
         self._syncing = 0
@@ -93,43 +91,40 @@ class WorkbenchService:
                 full = changed = False
                 materialize_seconds = write_seconds = 0.0
                 if changes is None or self._reader.capture_changed:
-                    scope_signature = canonical(scopes)
-                    atoms, scopes, registered, inverse, next_atoms = materialize_with_registry(
-                        atoms, scopes, self._materialized_atoms,
+                    atoms, scopes, registered, _inverse, next_state, delta = materialize_delta(
+                        atoms, scopes, self._relation_state, changes=self._reader.capture_delta,
                     )
-                    materialized_at = time.monotonic()
-                    materialize_seconds = materialized_at - captured_at
-                    registry = canonical([sorted(registered), sorted(inverse.items())])
+                    materialize_seconds = time.monotonic() - captured_at
+                    schema = self._reader.content_schema
+                    assert schema is not None
                     assert self._store is not None
-                    full = self._scope_signature != scope_signature or self._relation_registry != registry
-                    write_seconds = 0.0
+                    full = delta is None
+                    writing_started = time.monotonic()
                     if full:
-                        writing_started = time.monotonic()
-                        self._store.replace(atoms, scopes, relation_types=registered)
-                        write_seconds += time.monotonic() - writing_started
+                        self._store.replace(atoms, scopes, relation_types=registered, content_schema=schema)
                         changed = True
                     else:
+                        changed = self._store.apply(
+                            atoms, scopes, relation_types=registered, content_schema=schema, delta=delta,
+                        )
+                    write_seconds += time.monotonic() - writing_started
+                    if not full and self._store.schema_changed is True:
+                        full = True
+                        recapture_started = time.monotonic()
+                        atoms, scopes = self._reader.capture()
+                        recaptured_at = time.monotonic()
+                        capture_seconds += recaptured_at - recapture_started
+                        atoms, scopes, registered, _inverse, next_state, _delta = materialize_delta(
+                            atoms, scopes, self._relation_state,
+                        )
+                        materialize_seconds += time.monotonic() - recaptured_at
+                        schema = self._reader.content_schema
+                        assert schema is not None
                         writing_started = time.monotonic()
-                        changed = self._store.apply(atoms, scopes, relation_types=registered)
+                        self._store.replace(atoms, scopes, relation_types=registered, content_schema=schema)
                         write_seconds += time.monotonic() - writing_started
-                        if self._store.schema_changed is True:
-                            full = True
-                            recapture_started = time.monotonic()
-                            atoms, scopes = self._reader.capture()
-                            recaptured_at = time.monotonic()
-                            capture_seconds += recaptured_at - recapture_started
-                            scope_signature = canonical(scopes)
-                            atoms, scopes, registered, inverse, next_atoms = materialize_with_registry(
-                                atoms, scopes, self._materialized_atoms,
-                            )
-                            rematerialized_at = time.monotonic()
-                            materialize_seconds += rematerialized_at - recaptured_at
-                            registry = canonical([sorted(registered), sorted(inverse.items())])
-                            writing_started = time.monotonic()
-                            self._store.replace(atoms, scopes, relation_types=registered)
-                            write_seconds += time.monotonic() - writing_started
-                    self._scope_signature, self._relation_registry = scope_signature, registry
-                    self._materialized_atoms = next_atoms
+                        changed = True
+                    self._relation_state = next_state
                 written_at = time.monotonic()
                 paths = {row["source_path"] for row in atoms}
                 removed = len(self._paths - paths)

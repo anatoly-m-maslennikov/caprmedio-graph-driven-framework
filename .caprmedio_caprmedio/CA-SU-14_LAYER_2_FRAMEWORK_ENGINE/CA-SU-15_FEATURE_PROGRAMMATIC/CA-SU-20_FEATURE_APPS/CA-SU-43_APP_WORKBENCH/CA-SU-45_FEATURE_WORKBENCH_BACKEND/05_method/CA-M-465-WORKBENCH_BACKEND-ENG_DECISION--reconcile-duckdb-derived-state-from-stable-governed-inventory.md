@@ -13,8 +13,8 @@ relations:
   - CA-R-2723
   - CA-R-2725
 status: Active
-version: 18
-updated_at: 2026-11-07 01:06:28 +0400
+version: 19
+updated_at: 2026-11-07 02:02:14 +0400
 carrier_destination:
   file:
     name: CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
@@ -67,4 +67,11 @@ For an ordinary watcher batch, compare only affected raw source rows with their 
 
 Keep unchanged raw rows immutable within their SourceReader owner. “Same raw row” means the same strongly retained Python object (`is`), not `id()` or value equality. Reuse a prior materialized Atom row and hash only when the same raw row and the same outgoing relation facts are unchanged. Recompute changed rows and inverse-relation neighbours. Remove reused state for deleted, invalid or duplicate-excluded sources. This state is in memory and belongs to one Workbench owner; it is not a new source or stored cache. Publish the next reused state only after the database update succeeds.
 
-For each captured inventory in one refresh, compute the literal Relation registry exactly once and reuse that result for materialization and full/delta selection. A schema-triggered recapture may compute one fresh registry for its new inventory; the service must not recompute it for the same inventory. Preserve current source/graph hashes, inverse relations, schema rebuilding and failure handling.
+Keep the literal Relation registry in the existing owner. Reparse only changed registry source contributions for ordinary deltas. An actual registry or inverse-binding change uses the existing full projection boundary. A full capture may compile the registry once; the service must not compile the same captured inventory twice. Preserve current source/graph hashes, inverse relations, schema rebuilding and failure handling.
+
+
+Expose the affected source paths from an ordinary capture, including removals and invalid exclusions; use an explicit full-capture marker for initial, structural and schema captures. Pass that bounded delta through materialization and database application instead of discovering changes by rebuilding the complete cached graph.
+
+For an ordinary delta, remove old direct facts of affected files and add their new direct facts. Update only changed outgoing owners and affected inverse neighbours. Reuse unrelated rows and facts. Apply only the resulting public-row, edge and reference changes to DuckDB in one transaction. Do not rebuild and compare GraphState over every cached Atom or Scope Unit to discover that delta.
+
+Retain enough owner-local node/edge contribution information to preserve a referenced endpoint when its source node disappears, and remove a reference only when no node or edge still contributes it. Handle deletion, rename, invalidation, repair and target reappearance. Duplicate-reference membership changes may use the existing conservative full boundary. Publish new materialization, schema and graph state only after the database update succeeds; an error keeps the existing explicit unavailable/restart boundary, not a retry or full-rebuild recovery path.

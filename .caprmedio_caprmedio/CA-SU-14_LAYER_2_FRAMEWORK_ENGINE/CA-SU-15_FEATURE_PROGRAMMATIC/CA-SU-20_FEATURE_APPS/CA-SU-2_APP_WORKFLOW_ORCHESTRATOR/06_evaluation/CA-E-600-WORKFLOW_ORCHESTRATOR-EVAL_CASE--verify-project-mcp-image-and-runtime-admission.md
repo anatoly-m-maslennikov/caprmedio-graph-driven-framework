@@ -20,8 +20,8 @@ relations:
   - CA-R-1901
   - CA-M-356
 status: Active
-version: 19
-updated_at: 2026-10-27 19:59:38 +0400
+version: 20
+updated_at: 2026-11-07 02:24:38 +0400
 carrier_destination:
   file:
     name: CA-E-600-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-project-mcp-image-and-runtime-admission.md
@@ -57,3 +57,8 @@ the Evaluation **must** prove that only a matching immutable image and a healthy
 ### Readable metadata acceptance
 
 Use frozen synthetic source/package fixtures and the real canonical image naming boundary. Verify version.toml is required and fingerprinted; changing framework.version changes identity, and unrelated Project/runtime state remains excluded. New builds carry the exact OCI version label; absent/invalid version and malformed or unavailable Docker Created metadata fail truthfully. Assert caprmedio-runtime:<framework-version>-<UTC-build-date-YYYYMMDDTHHMMSSZ>-<first12-image-sha>, using the inspected image timestamp rather than the current maintenance clock, including cached/reused images. Check absent-tag addition, existing same-digest no-op and occupied other-digest refusal without movement. Keep mutable-ref/wrong-schema/platform/fingerprint refusals and full immutable SHA launch unchanged. Exercise development, release and disposable test-build callers with consistent packaged fixtures and safe test-image cleanup. For explicit historical maintenance, verify exact image identity/version/date, no unrelated-image or runtime change, and report unknown version evidence as deferred. Real Docker evidence uses an isolated disposable image/build and readback, never a production mutation test or a claimed pass from mocks alone.
+
+
+### Dependency cache acceptance
+
+Check that the Dockerfile copies the dependency manifest/lock before installation, uses a BuildKit uv download cache, and copies the Framework version after dependency installation. A version-only rebuild must reuse the dependency-installation layer while still delivering the new version file and changing the admitted image identity. Verify with two isolated builds and actual build logs; do not infer cache reuse from source ordering alone. Keep the existing locked dependency groups, immutable-image/port/refusal checks and runtime-start boundaries.
