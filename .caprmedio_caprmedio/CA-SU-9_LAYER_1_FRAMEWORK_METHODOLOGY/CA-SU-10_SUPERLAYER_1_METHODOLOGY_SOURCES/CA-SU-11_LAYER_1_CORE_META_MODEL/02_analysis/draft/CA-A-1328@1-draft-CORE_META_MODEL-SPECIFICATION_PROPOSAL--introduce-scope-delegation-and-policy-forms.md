@@ -13,7 +13,7 @@ topics:
 tier: 3
 status: Draft
 version: 1
-updated_at: "2026-11-06 23:19:09 +0400"
+updated_at: "2026-11-07 00:52:57 +0400"
 carrier_destination:
   file:
     name: CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md
@@ -26,160 +26,148 @@ Introduce Scope Delegation and policy Forms
 
 ## Proposal
 
-Keep **Scope Unit** as the structural name. Introduce **Scope Delegation** as a shared Form under Requirement, Method, Evaluation, Delivery and Operations.
+Keep Scope Unit as the structural name. Separate its external delegation from its internal definition. Each Atom has one Role and one Main Subject.
 
-This proposal records the latest design decisions. It prepares a semantic change; adoption, companion Atom drafting, implementation and data migration remain separate work.
+This is a Draft proposal. Current Atoms, implementation and runtime remain unchanged until adoption.
 
-## Form system
+## Outside: Scope Delegation
 
-| Form | Roles | Meaning |
-| --- | --- | --- |
-| Scope Delegation | R, M, E, D, O | Responsibility delegated to a target Scope Unit; the delegator retains overall Scope and accountability |
-| Architectural Decision | R, M, E, D | A Tier-0 architectural commitment made in the containing Scope Unit and delegated to descendants |
-| Direct Policy | R, M, E, D | A reusable policy that applies where its conditions match, without requiring a local copy |
-| Approach Policy | R, M, E, D | A reusable conditional approach requiring a local case-binding specialization where its case occurs |
-| Goal | R | The Project-level desired result |
+Each non-Project Scope Unit has one external Scope Delegation Atom. It combines the proposed Scope Unit Declaration with the delegated responsibility. Its Role is one of RMEDO.
 
-Local Decision remains the proposed name for concrete local M/D choices. Existing E/Eval Case and appropriate local R Forms remain distinct. Their precise admission and legacy-name mapping require the follow-up declaration work.
+- Main Subject identifies the receiving Scope Unit.
+- Container identifies the external defining context.
+- The delegating Scope Unit retains its overall scope and accountability.
+- The receiving Scope Unit is responsible for its delegated contribution.
 
-Shared Form names have one shared meaning. The Role identifies the contribution. Each allowed Role/Form combination needs explicit admission; this table does not create every possible combination.
+The Declaration carries:
 
-## RMEDO/Scope Delegation
+- Name and ID.
+- Ordered or unordered state.
+- Order Number when ordered.
+- Formal whitelists for Main Subject branches, Roles and Forms.
 
-A Scope Delegation defines responsibility delegated by a delegating Scope Unit to a target Scope Unit. Its Atom is authored outside the target unit. The delegator retains overall Scope and accountability; delegation does not transfer or relinquish either.
+The Declaration's Role determines the permitted local RMEDO Roles:
 
-- Main Subject identifies the target Scope Unit itself.
-- Container identifies the authorized external delegating context. Resolve the delegating Scope Unit through its Container chain when needed.
-- Role identifies the contribution's nature.
-- The Subject has no added Engineering, Method or other Role branch.
-- The existing Main Subject supplies the target; no separate Target Scope Unit field is introduced.
-
-| Classification | Delegated contribution |
+| Declaration Role | Permitted local Roles |
 | --- | --- |
-| R/Scope Delegation | Required outcomes, capabilities and functional boundaries; examples: Create, Copy and Remove |
-| M/Scope Delegation | Full engineering work, methods and architecture; examples: DB adapter and File adapter |
-| E/Scope Delegation | A Scope Unit whose contribution exists purely for testing: mock adapters, fixtures or synthetic/obfuscated test data |
-| D/Scope Delegation | Representation and delivery; example: packaging and publishing CI/CD artifacts |
-| O/Scope Delegation | Operational duties; example: executing CI/CD pipelines |
+| Requirement | Requirement, Method, Evaluation, Delivery, Operations |
+| Method | Method |
+| Evaluation | Evaluation |
+| Delivery | Delivery |
+| Operations | Operations |
 
-The Claim determines the Role. CI/CD can have distinct D/Scope Delegation and O/Scope Delegation contributions. An adapter can have M/Scope Delegation without an artificial business R/Goal. Internal R constraints still apply. User-facing performance requirements are checked end to end; adapter measurements support technical budgets and diagnosis.
+These are permissions. They require no complete RMEDO packet. Applicable inherited constraints continue to govern the unit.
 
-E/Scope Delegation is narrower than Evaluation generally. Production Tools can have E Policies and Eval Cases without an E/Scope Delegation. M Atoms can still describe the engineering realization of a testing component.
+Default Forms are the Role's local Forms or analogs. Eval Case, Workflow, Step and Action are included. Rename Local Decision to Decision. Solution and Policies require explicit admission in the Scope Delegation.
 
-O/Scope Delegation delegates operational duty. Execution remains described by the admitted Workflow, Step and Action Forms; Role Operations alone supplies no executable binding.
+The exact default R Form names and the default admission of child Scope Delegations remain open.
 
-Scope Delegation replaces the proposed Responsibility, Engineering Goal and Scope Form names. Structural R/Scope Unit Declaration continues to define identity and structure. Scope Delegation specifies the delegated contribution and boundaries. Structural identity remains with Scope Unit Declaration.
+Role follows the contribution. Create, Copy and Remove can receive R contributions; internal DB/File adapters can receive M contributions. E delegation is for purely testing-support Scope Units, such as mock adapters or test-data providers. D covers delivery contributions. O covers operational duties.
 
-## Project root and external definition
+The Project retains its R/Goal and root Axioms. The proposed one-per-unit Scope Delegation rule excludes Project. It introduces no M/E/D/O Goal Forms or separate Target Scope Unit field.
 
-The Project retains its R/Goal and root Axioms. Goal is not replicated under M, E, D or O, or mechanically assigned to every descendant Scope Unit.
+## Inside: Tier and Forms
 
-Use the appropriate Scope Delegation when a contribution is delegated to another unit. A unit needs no artificial R contribution merely because its actual responsibility is engineering, testing, delivery or operations.
+Tier 0 defines the Scope Unit internally. Form and Tier remain separate: Solution, Direct Policy, Approach Policy and Decision have no mandatory Tier. An Atom receives its Tier from its actual contribution under the admitted Tier rules.
 
-The structure is partially fractal: a unit receives its governing delegation from outside, then organizes realization and any further delegation inside. The Project's Goal and Axioms remain the root distinction.
+A Solution states how the current Scope Unit fulfills its responsibility, including its descendants. Its Main Subject is that Scope Unit. Its Container is inside that unit. Solutions are admitted under RMEDO; each Atom retains one Role.
 
-## Architectural Decisions
+| Form | Meaning |
+| --- | --- |
+| Solution | The solution for the current Scope Unit, including its descendants |
+| Direct Policy | A rule applied directly to all descendants recursively |
+| Approach Policy | An approach for particular cases, adopted through a local Atom where the case occurs |
+| Decision | A particular choice within the Scope Unit |
 
-An Architectural Decision is Tier 0 in the Scope Unit where the decision is made. Each Scope Unit can have zero or more Architectural Decisions independently for each RMED Role. No complete four-Role packet is required.
+Eval Case, Workflow, Step and Action retain their distinct meanings. Operations duty and executable Workflow/Action bindings remain separate.
 
-An Architectural Decision states a general architectural contribution for descendants. A Scope Delegation Atom states delegated responsibility. A local Decision states a concrete choice. These meanings remain distinct.
+Scope Contract is dropped from the proposed system. Architectural Decision, Architectural Solution, Primary Solution and General Solution are not separate Forms in this proposal.
 
-The resulting flow is:
+A Scope Unit retains its own realization while delegating other contributions. Shared integration tests, CI/CD, composition and common code can belong to the containing unit. Having descendants does not impose a leaf-only realization rule.
 
-```text
-TOOLS: Tier-0 Architectural Decision
--> Scope Delegation Atoms for descendants, defined outside those descendants
--> Atoms that realize the delegated contributions
-```
+## Policies and local adoption
 
-There is no mandatory intermediate descendant Goal or extra Scope Contract stage. Descendants can make further Architectural Decisions and repeat the delegation pattern.
+A Direct Policy applies throughout the descendant subtree. It needs no local copy. Genuine SPECIALIZES Atoms can add applicable detail while preserving its constraints.
 
-## Direct and Approach Policies
-
-Both kinds can be conditional. Their difference is the requirement for a local binding.
-
-A Direct Policy applies when its condition matches. Coding style is an example. A descendant implements the applicable constraints without creating an Atom merely to copy them. A genuine optional specialization remains possible.
-
-An Approach Policy names a case and prescribes what or how to handle it. The parent need not know which Tools will encounter the case. Each matching Scope Unit supplies a local Atom binding the Policy to its concrete cases through SPECIALIZES.
-
-That local Claim states the concrete scope/case and its application of the prescribed contribution. Additional Tool-specific rules are optional. A reference alone is insufficient.
+An Approach Policy states the case and prescribed approach. The containing unit need not enumerate which descendants will encounter that case. Each applicable descendant supplies a local Atom binding the approach to its actual case through SPECIALIZES. Additional Tool-specific rules are optional; a reference alone is insufficient.
 
 For async work:
 
-- R/Approach Policy states when async is required and the synchronous blocking limits.
-- M/Approach Policy states the prescribed queue, orchestration or other engineering approach.
-- E/Approach Policy states checks and acceptance criteria.
-- D/Approach Policy states the required representation of operation state and results.
+- R states when async is required and the blocking limits.
+- M states the engineering approach.
+- E states the checks and acceptance criteria.
+- D states the representation and delivery requirements.
 
-A concrete choice can be a Local Decision or an Architectural Decision with further delegation, according to its contribution. Independent local Decisions remain valid and obey all applicable constraints.
+A Solution can govern the Scope Unit as a whole. A Policy can govern an Aspect or a narrower topic. Whether Policies must use Aspect Subjects remains open.
 
-SPECIALIZES preserves the parent's applicable constraints. It adds concrete scope, case binding or stricter detail. Specialization supplies no automatic permission to weaken a parent or discard it. Local governing links point upward where the declared Relation and authority rules permit; this proposal invents no stored downward governing edges.
+Independent Decisions remain valid. Applicable governing constraints continue to apply. SPECIALIZES adds scope, case binding or stricter detail; its links follow the admitted authority and Relation rules.
 
 ## Mechanical gathering
 
-Resolve each Tool from a selected authoritative source frontier, its declared Scope context and its case facts. Use Formal Claims and declared facts rather than Form names or directory names alone.
+Start from an admitted source frontier, the receiving Scope Unit, its Scope Delegation and its case facts.
 
-Keep applicability and completion separate:
+1. Select admitted local Atoms and applicable inherited constraints.
+2. Include Direct Policies from the containing ancestry, recursively.
+3. Evaluate each Approach Policy's case.
+4. For a matching case, include the Policy and require its local specialization.
+5. Retain applicable governing parents alongside their specializers.
+6. Report missing bindings, conflicts and unresolved conditions.
 
-| Condition result | Direct Policy | Approach Policy |
-| --- | --- | --- |
-| True | Applicable; no mandatory local copy | Applicable; require local specialization covering the case |
-| False | Excluded with the reason | Excluded with the reason |
-| Unknown | Unresolved | Unresolved |
+A false case excludes the Approach Policy with a reason. An unknown case remains unresolved. A missing local binding is a gap in an applicable Policy; it does not remove that Policy.
 
-A missing required specialization is a gap in an applicable Approach Policy. It does not make that Policy inapplicable or turn it into a Direct Policy. Conflicting bindings remain conflicts.
+Keep source ID, Version, hash, defining Scope, target context and relevant applicability/binding evidence. Gathering specifications does not establish implementation or a passed Evaluation. The proposed resolver is separate from the current compiler.
 
-Gather applicable shared policies, local Scope Delegations and local specifications. Retain applicable parents alongside their specializers. Check required case coverage, identify independent local contributions and report gaps and conflicts. Inclusion does not prove implementation or a passed Evaluation.
+## Project, Product and Roles
 
-Each result preserves source ID, Version, source hash, defining Scope, target context, condition result and relevant specialization links. Evaluation outcomes are resolver evidence, not a new stored three-valued Boolean Property.
+Product sits under Project. A Project is itself a how toward a higher goal; here, toward the Product. Its local RMED meanings remain clear across Subject branches:
 
-The current Applicable Methodology compiler does not implement this Scope-and-case resolution. Its existing source selection, conflict handling and publication are separate from the proposed mechanism.
+| Role | Project meaning |
+| --- | --- |
+| Requirement | Required user-facing experience and value |
+| Method | How we achieve it, including domain and engineering solutions |
+| Evaluation | How we check it |
+| Delivery | How we deliver it |
+
+One Solution can supply constraints or inputs for another Solution. A domain Method can provide the how for a Product requirement and the what for an Engineering Method. That dependency changes neither Atom's Role. Role is interpreted within the Project; position in the realization chain alone determines neither Role nor Tier.
 
 ## Project Package
 
-Rename the structural root Package from **Implementation** to **Project Package**.
+Rename the structural root Package from Implementation to Project Package.
 
 - Implementation remains the Role name.
 - Project Package is the Project's root Package.
-- The existing Package, Module and Code Unit structure keeps its meaning.
-
-This separates the Role of a realization from its structural container.
+- Package, Module and Code Unit retain their structural meanings.
 
 ## Rationale
 
-The design follows the user's examples: user-facing Create/Copy/Remove capabilities, internal DB/File adapters, dedicated testing assets and CI/CD delivery/operations.
+The model keeps one Role per Atom. External delegation states responsibility and boundaries. Internal Tier-0 Atoms define the unit. Forms describe contributions independently of Tier.
 
-Scope Delegation captures delegated contributions without forcing M -> R/Goal -> M conversions. Roles distinguish outcomes, engineering, evaluation, delivery and operations while the Subject remains the Scope Unit. Direct and Approach Policies expose the local-binding obligation needed for mechanical gathering. Architectural Decisions retain their coordination role.
+A unit keeps accountability for its full scope, including delegated parts. This supports both direct realization and descendant work. Direct and Approach Policies expose different adoption obligations for mechanical gathering.
 
 ## Source impact and transition
 
-Review the Current authorities before adoption:
+Review these Current authorities before adoption:
 
-- R924 and R926: Goal classifications, external definition and non-Project Goals.
-- R2424 and R2684: old Scope Contracts and structural Scope Unit Declarations.
-- R2512-R2515 and the Operations definition: Role meaning and Scope Delegation Form admission.
-- R1767 and R2123: existing Policy/Decision Forms, propagation and ownership rules.
-- R1671: preserve independent local Decisions.
+- R924 and R926: Project Goals and the replacement of non-Project Goals.
+- R2424: replace the old Scope Contract system with Tier/Form separation.
+- R2684 and R2688: consolidate external Scope Unit declaration and delegation, including identity and cardinality.
+- R2512-R2515 and the Operations authorities: Role meanings and admitted Forms.
+- R1767 and R2123: Policy/Decision names, propagation and Form admission.
+- R1671: independent Decisions.
 - R2766 and R2149: specialization, Tier and governing-Relation direction.
-- R2553 and R2173: rename the structural root Package to Project Package; retain Implementation as the Role name.
+- R2553 and R2173: Project Package naming.
 
-R926 still requires non-Project Goals until a coordinated successor is adopted. This proposal replaces that model with Scope Delegations. Decide replacement coverage and cardinality before adoption.
-
-Classify legacy Atoms by contribution. Do not bulk-rename every Goal, Eng Policy, Eval Policy or Decision. Preserve distinct Claims and exact history. Apply the admitted identity rules when Role, Summary or contribution changes. Admit and review the new definitions before migration or runtime handoff.
+Current obligations remain Current until coordinated successors are adopted. Classify legacy Atoms by Claim. Preserve their identity and history under the admitted rules. Do not mechanically rename every existing Goal or Policy into a new Form.
 
 ## Companion Atom Drafts
 
-None created by this request. Follow-up work covers Form admissions, Scope Delegation placement and targeting, Project Goal boundaries, required case binding, applicability resolution and the affected evaluations/delivery rules. Allocate IDs when those Drafts are created.
+None created. Follow-up Drafts must declare the Forms, external identity/whitelists, Tier rules, adoption checks and delivery rules. Their IDs belong in this proposal when those Drafts exist.
 
 ## Open decisions
 
-- Scope Delegation Atom Tier and cardinality.
-- Whether only the direct containing Scope Unit can delegate scope, or other authorized external Scope Units can also delegate it.
-- Whether the Project also needs Scope Delegation Atoms alongside its Goal and Axioms.
-- The exact count, placement and case coverage of required local bindings. A binding is already mandatory when an Approach Policy case matches.
-- Exact legacy M/D Form renames and local Form admissions.
-- Policy ownership at leaf Scope Units.
-- Operations Forms beyond Scope Delegation.
-- Consistent Tier and Relation rules for external delegation and internal realization.
-
-These remain explicit adoption questions. This proposal assigns no defaults to them.
+- Scope Delegation Tier and authorized external allocator reach.
+- Exact default local R Forms and admission of child Scope Delegations.
+- Counts of internal Atoms; no complete per-Role packet is required.
+- Exact count, placement and case coverage of required Approach bindings.
+- Policy Subject restrictions and remaining Role/Form admission details.
+- Legacy identity, Tier and Relation migration details.
