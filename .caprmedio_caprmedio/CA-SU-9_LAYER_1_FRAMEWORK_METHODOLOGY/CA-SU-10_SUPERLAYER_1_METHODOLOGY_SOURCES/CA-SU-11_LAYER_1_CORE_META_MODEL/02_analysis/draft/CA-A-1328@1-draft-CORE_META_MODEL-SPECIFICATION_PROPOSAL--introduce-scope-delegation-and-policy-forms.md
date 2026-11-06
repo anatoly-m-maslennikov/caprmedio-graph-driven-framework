@@ -13,7 +13,7 @@ topics:
 tier: 3
 status: Draft
 version: 1
-updated_at: "2026-11-07 00:52:57 +0400"
+updated_at: "2026-11-07 01:06:27 +0400"
 carrier_destination:
   file:
     name: CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md
@@ -123,12 +123,22 @@ Product sits under Project. A Project is itself a how toward a higher goal; here
 
 | Role | Project meaning |
 | --- | --- |
-| Requirement | Required user-facing experience and value |
+| Requirement | Required behavior, properties, constraints and value across Aspects |
 | Method | How we achieve it, including domain and engineering solutions |
 | Evaluation | How we check it |
 | Delivery | How we deliver it |
 
+Role and Topic are independent. Engineering Requirements can constrain performance; Evaluation Requirements can constrain defect escapes or review rework; Delivery Requirements can constrain delivery failures, artifact correctness or delivery time. Required targets belong in R; observed measures are evidence. A how-fast question can specify a Requirement rather than a Method.
+
 One Solution can supply constraints or inputs for another Solution. A domain Method can provide the how for a Product requirement and the what for an Engineering Method. That dependency changes neither Atom's Role. Role is interpreted within the Project; position in the realization chain alone determines neither Role nor Tier.
+
+## Purpose traceability
+
+Use CONTRIBUTES_TO as the shared Relation for a contribution toward another contribution. It applies across Roles and Forms.
+
+Ideally, each RMEDO Solution, Policy or Decision links to an existing R that explains its purpose. This is optional authoring guidance. Missing links leave an Atom valid; create an R for its actual required contribution, rather than merely to fill a link.
+
+CONTRIBUTES_TO expresses contribution. Evaluation and implementation evidence establish satisfaction of a Requirement. The preferred R target in this guidance does not restrict the general Relation to R targets.
 
 ## Project Package
 
@@ -161,7 +171,7 @@ Current obligations remain Current until coordinated successors are adopted. Cla
 
 ## Companion Atom Drafts
 
-None created. Follow-up Drafts must declare the Forms, external identity/whitelists, Tier rules, adoption checks and delivery rules. Their IDs belong in this proposal when those Drafts exist.
+None created. Follow-up Drafts must declare the Forms, external identity/whitelists, Tier rules, CONTRIBUTES_TO, adoption checks and delivery rules. Their IDs belong in this proposal when those Drafts exist.
 
 ## Open decisions
 

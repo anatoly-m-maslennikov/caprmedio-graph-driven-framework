@@ -3,7 +3,7 @@
   "atom_id": "CA-A-1328",
   "ref_id": "CA-A-1328@1-draft",
   "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md",
-  "sha256": "aeb5cc8b4d85cf6c4ed8777c23f4badca3af157f6267e17cb9e985ff36d64484",
+  "sha256": "b9d6363faa88ca94acc002865dd71a50361463ab44f9e8714c300de5b7955a9b",
   "role": "Analysis",
   "form": "Specification Proposal",
   "version": 1,
@@ -21,8 +21,8 @@
     "decision_conformance_review": "PASS_ROOT_REVIEW",
     "source_transition_and_allocator_review": "PASS",
     "current_authority_or_runtime_adoption": false,
-    "reviewed_sha256": "aeb5cc8b4d85cf6c4ed8777c23f4badca3af157f6267e17cb9e985ff36d64484",
+    "reviewed_sha256": "b9d6363faa88ca94acc002865dd71a50361463ab44f9e8714c300de5b7955a9b",
     "independent_review_sha256": "31558c4c2aec8252f6254f7f8f34787f62a2d8cfa541f03b306e2ba2a3dff3a6",
-    "root_review_note": "Independent reviews passed the Tier/Form and external/internal model; root verified the subsequent Project-level RMED clarification against the latest human input."
+    "root_review_note": "Independent reviews covered Tier/Form and external/internal scope rules. Root verified subsequent Project-level Role clarifications, Requirements across Aspects and optional CONTRIBUTES_TO traceability against the latest human input."
   }
 }
