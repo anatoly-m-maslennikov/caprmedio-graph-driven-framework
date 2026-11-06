@@ -1,0 +1,25 @@
+{
+  "status": "CREATED_NATIVE_ANALYSIS_DRAFT",
+  "atom_id": "CA-A-1328",
+  "ref_id": "CA-A-1328@1-draft",
+  "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-allocation-and-policy-forms.md",
+  "sha256": "773a3f681ba49d23a6a28c184f2bfb7a76d21f9931a7b8b7ba6c0b1a7d79f254",
+  "role": "Analysis",
+  "form": "Specification Proposal",
+  "version": 1,
+  "main_subject": "CAPRMEDIO_MODEL <+ Atom",
+  "companion_atom_drafts": [],
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "current_atoms_changed": false,
+  "runtime_changed": false,
+  "authoring_method": "Manual source authoring under existing Operator authorization; advertised draft-operation binding unresolved.",
+  "verification": {
+    "native_readback": "PASS",
+    "metadata_and_destination": "PASS",
+    "preview_matches_native_body": "PASS",
+    "decision_conformance_review": "PASS",
+    "source_transition_and_allocator_review": "PASS",
+    "current_authority_or_runtime_adoption": false
+  }
+}
