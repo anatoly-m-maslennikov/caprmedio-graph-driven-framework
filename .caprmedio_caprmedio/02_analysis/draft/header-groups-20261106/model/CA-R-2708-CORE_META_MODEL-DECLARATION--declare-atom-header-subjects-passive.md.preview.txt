@@ -20,7 +20,7 @@ claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
-Declare Atom.Header.Subjects.Passive
+Declare Atom.Header.Context.Topics.Dependencies
 
 ## Claim
 

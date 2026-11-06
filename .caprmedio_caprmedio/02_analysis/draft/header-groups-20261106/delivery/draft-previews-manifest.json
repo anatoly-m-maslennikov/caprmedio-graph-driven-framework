@@ -1,0 +1,56 @@
+{
+  "status": "FOUR_EXISTING_DRAFT_GROUPING_PREVIEWS_REVIEW_REQUIRED",
+  "rows": [
+    {
+      "id": "CA-D-657",
+      "version": 5,
+      "draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "draft_sha256": "9f9aefcef8a4c8778b351bc0d3a4e0ae20665937931a07c9afd27d843d1e0b06",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-657@5.grouping.preview.txt",
+      "preview_sha256": "cc71a4f0d3e8bc0800506247e4981f6785bd92de6367d169b8240d7bf801e404",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-657@5.grouping.diff",
+      "diff_sha256": "2df1cbfb0b40113544432ed1f46378433e977738189230ca4295fbff34250786"
+    },
+    {
+      "id": "CA-D-378",
+      "version": 30,
+      "draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md",
+      "draft_sha256": "82def0ea2bf84372d4762504a0ed150583180df1f92e0d53cf836e7f9f779c6e",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-378@30.grouping.preview.txt",
+      "preview_sha256": "9d6bd7bcd7f9280cd8066739e881ce59a392dfeb8c0bae42e8dfe00dfcc96e13",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-378@30.grouping.diff",
+      "diff_sha256": "b9c63a44eeba72ad58d57032c1e2982294aa1bef213d083dac980d73d47a8efd"
+    },
+    {
+      "id": "CA-D-650",
+      "version": 15,
+      "draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "draft_sha256": "018d72f17d8b53be3e9ab01508b517e048537b9f314f0d587093b9f4d158eb98",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-650@15.grouping.preview.txt",
+      "preview_sha256": "b39ce83af66b538765f124d8969230f754dea6810e7b714a8ca699700bf2eed1",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-650@15.grouping.diff",
+      "diff_sha256": "6e910c3119840c74bc9546305a3185d8d8e9c971a2c666a32f31f2b33c365541"
+    },
+    {
+      "id": "CA-D-479",
+      "version": 31,
+      "draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@31-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "draft_sha256": "582b094aa5fbac83fd9f21745da6039b474eb28785bafbaf70c7a3435c7ff69c",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-479@31.grouping.preview.txt",
+      "preview_sha256": "e9c2f5b27483151a4124c98a966f3facaad229e88626d970d327052b4830c620",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-479@31.grouping.diff",
+      "diff_sha256": "dc5dd4b3e0d170b8c88020356458ace860b9c872a6d1970a2dfd3299137f806f"
+    }
+  ],
+  "preservation": [
+    "Each candidate starts from its exact existing Draft, not Current. ID, Summary, Draft Version, timestamp and unrelated clauses remain unchanged.",
+    "D657@5 retains its no-Event-authorship assertion and existing Subjects-only exception, with only referenced YAML group paths updated.",
+    "D378@30 and D650@15 retain their role-only and existing-Atom Draft identity/filename marker design, even where that differs from Current.",
+    "D479@31 retains its Step/Workflow Markdown and Mermaid content and changes only the Header.Role dependency path."
+  ],
+  "limits": [
+    "No native edits, promotion, tests, code or Git.",
+    "Flat runtime consumers require separately owned CA #3 implementation and validation.",
+    "Legacy autonomous_confidence_threshold data must migrate to existing canonical context.plan.ai_agent_confidence_threshold with value preserved; no alias is admitted."
+  ]
+}

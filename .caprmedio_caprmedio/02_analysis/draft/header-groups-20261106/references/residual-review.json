@@ -1,0 +1,98 @@
+[
+  [
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+    "4. Read the one-key `Header.Container` mapping. Resolve base Atom IDs to Current and Scope Unit IDs to the declared or predefined Scope Unit. Apply the omitted-root-Declaration default mapping to world. Store no duplicate containment fact in Relations."
+  ],
+  [
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md",
+    "4. Implement Atom-owned storage: Header.Relations is the default for outgoing canonical facts about the Atom; IS_CONTAINED_BY uses Header.Container. Header.Relations is optional and stores no inverse alias or duplicate containment. Coordinate the single-person schema/registry changes. Current R1559@28 and E440@38 already govern threshold-and-permission approval; the other attribution and root-ID changes remain staged. Preserve accepted historical"
+  ],
+  [
+    ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md",
+    "- Current R2965 declares IS_ORDERED_RIGHT_AFTER with `<;` and its inverse alias IS_ORDERED_RIGHT_BEFORE with `;>`. Current R2966 declares Header.Ref ID. Current R2967 gives the default for sibling Properties outside either endpoint of an explicit order: last, with unspecified mutual order. Explicit Header and Content order stays in their Declarations."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1319@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--move-atom-containment-into-header-container.md",
+    "- Header.Container is one mapping with exactly one key."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md",
+    "For / specialization, the narrower Declaration inherits applicable broader constraints and states its differences. For // instantiation, the instance follows its kind Declaration and states instance-specific facts. Reuse applicable base structure, Properties and constraints instead of copying them. Containment adds no inheritance. A Method Atom remains an Atom with Header.Role Method. Do not create new entities for every characteristic merely to "
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+    "Each Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Container."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+    "IS_DECLARED_BY relates a declared model entity or instance to its canonical declaring Atom, qualified by CA-R-2278. The Target has Header.Role Requirement and Header.Form in (Declaration, Relation Declaration). Derive this view only when that Atom's GOVERNS link identifies the declared Subject and the declaring ownership qualification is satisfied in the selected effective MODEL. An arbitrary GOVERNS link from another role or form does not produc"
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2779-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+    "Header.Container identifies the Atom's immediate Container."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2779-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+    "Header.Container contains exactly one key: `atom` names the containing Atom by its base Atom ID, or `scope_unit` names the containing Scope Unit by its stable ID. A base Atom ID selects Current by default."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2779-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+    "For a root Project Declaration Atom, an omitted Header.Container has the effective default mapping with `scope_unit` equal to `CA-SU--1`, identifying the predefined Scope Unit `world`. An explicit valid value overrides that default."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2779-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+    "Header.Container is the sole stored Atom-containment value."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1014@41-draft-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+    "an Atom Scope **must** include the Scope Unit resolved from its `Header.Container` chain, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim. Follow Atom container references until a Scope Unit ID is reached; predefined `world` (`CA-SU--1`) is a valid Scope Unit."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+    "Each Atom instance\u2019s outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from its effective Header.Container. Header.Container is the sole stored Atom-containment value."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-273@39-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+    "2. resolve **every** candidate Atom's containing Scope Unit from its `Header.Container` chain: follow Atom container references until reaching a Scope Unit ID. The predefined Scope Unit `world` (`CA-SU--1`) is valid. Do **not** infer ownership from directory nesting **or** invent a Scope Unit owner."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+    "- for every Workflow and Step Atom, require `Header.Container` to identify its logical immediate parent by Scope Unit or Atom identity (ID); resolve the parent's folder from that identity. For each formal Workflow `CONTAINS` Step or Step `IS_CONTAINED_BY` Workflow/containing Step edge, require the same parent in `Header.Container`, the formal edge, and the Step Carrier's resolved placement; require CA-D-264's direct containment readback to agree."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+    "- derive a Step graph edge, execution inheritance, **or** execution order from folder nesting alone instead of the declared graph **and** Step bindings: reject. Formal containment remains governed by the matching `Header.Container`, `CONTAINS`/`IS_CONTAINED_BY` edge, and resolved placement."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-264@30-draft-CORE_META_MODEL-DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+    "For an Atom whose `Header.Container` resolves to a Scope Unit or an Atom, derive the direct `IS_CONTAINED_BY` view from the nearest eligible Directory Carrier and its resolved container ID. The resolved ID must agree with the Atom\u2019s declared `Header.Container`; its Carrier placement follows the corresponding Scope Unit or containing Atom folder. The derived view and its inverse `CONTAINS` represent the same declared containment fact, not a second"
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-264@30-draft-CORE_META_MODEL-DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+    "Resolve `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`; the Scope Unit reference uses its stable ID. Apply the admitted reference and placement rules. If placement and the declared Container disagree, report the disagreement without replacing the declared logical parent from a directory. Reading or refreshing the inverse view does not edit the containing Object\u2019s Carrier or create a new Atom Version. Project Structure "
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+    "The `IS_CONTAINED_BY` fact declared through an Atom\u2019s `Header.Container` and the `CONTAINS` view derived from it must not be persisted as additional independent Relation declarations merely because Carrier placement is read back."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+    "An Atom **must** record its immediate Container once in `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`. The `scope_unit` reference uses the Scope Unit\u2019s stable ID. Its declared Container represents the `IS_CONTAINED_BY` fact; do not add a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared d"
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+    "Serialize only the declared direct direction, never a second declaration for its derived inverse. `CONTAINS` remains a derived parent view and is not serialized on the parent. An Atom child stores its parent reference in `Header.Container`; a child-only change does not write the parent Carrier or create a parent Version. The Relation's spelling does not determine its direct direction."
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+    "- A Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing its direct contained Step Carriers. This same-stem grouping rule applies recursively at every Step level. Grouping is optional for Carrier layout; it does not weaken the requirement that a formal containment edge, `Header.Container`, and placement in the resolved parent folder agree. Ordinary graph references to separately co"
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+    "- Carrier placement organizes files. Directory nesting alone must not override the matching `Header.Container` and formal containment edge. The declared Workflow graph defines control flow; a formal Step containment edge identifies its same immediate whole and does not establish execution inheritance **or** execution order. Each Step has exactly one declared composition form: it RUNS one Action, RUNS one Workflow, or contains one or more Steps an"
+  ],
+  [
+    ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+    "- `Header.Container` identifies each Atom's logical immediate parent by Scope Unit or Atom identity (ID); the parent's folder is resolved from that identity. For a formally contained Step, its `Header.Container`, formal `CONTAINS`/`IS_CONTAINED_BY` edge, and Carrier placement in the resolved parent folder must all identify the same parent. CA-D-264 reads back that same direct containment fact; no second relation is authored. An ordinary graph ref"
+  ]
+]

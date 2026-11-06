@@ -1,0 +1,11 @@
+{
+  "mode": "REHEARSAL_ONLY_NO_APPLY_NO_ID_RESERVATION",
+  "source_count": 4677,
+  "outputs": 4682,
+  "operations": 4737,
+  "fresh_requirement_count": 28,
+  "archive_count": 31,
+  "plan_bytes": 80853514,
+  "script_sha256": "56fdbb04b735d63e7530844856a3de314040850a4d1c5ff8a5f8b39cd1aa1168",
+  "source_snapshot_sha256": "ac9c5089a0dad93a305ddd4dfde281975dfec0ba9fcdcf77f68217f5d2391e9e"
+}

@@ -1,0 +1,26 @@
+# Illustrative Header layout, not an admitted Atom.
+identity:
+  atom_id: "CA-C-123"
+  ref_id: "CA-C-123"
+context:
+  container:
+    scope_unit: "CA-SU-00"
+  role: "Concern"
+  form: "Question"
+  topics:
+    main_subject: "CAPRMEDIO_MODEL"
+  tier: 2
+  concern:
+    priority: "Medium"
+# Optional empty groups are omitted, including relations.
+state:
+  status: "Active"
+  version: 1
+  updated_at: "2026-11-06 12:00:00 +0400"
+destination:
+  file:
+    name: "CA-C-123-QUESTION--review-header-groups.md"
+    path: ".caprmedio_caprmedio/01_concern"
+
+# Existing unmapped legacy fields are preserved separately by this migration;
+# their presence does not admit them as new Properties.

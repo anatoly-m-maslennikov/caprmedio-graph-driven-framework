@@ -1,0 +1,68 @@
+---
+atom_id: CA-D-657
+ref_id: CA-D-657
+container:
+  scope_unit: CA-SU-11
+role: Delivery
+form: Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Carrier/File
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
+  - CAPRMEDIO_MODEL <+ Scope Unit
+  - CAPRMEDIO_MODEL <+ Actor
+tier: 3
+status: Active
+version: 6
+updated_at: 2026-11-05 22:47:24 +0400
+carrier_destination:
+  file:
+    name: CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+---
+## Summary
+
+YAML Frontmatter encodes Atom Properties with minimal syntax
+
+## Claim
+
+### Prose Claim
+
+
+YAML frontmatter of Markdown Atom carriers.
+
+
+Encode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.
+
+The YAML frontmatter is the Atom Header; it has no extra `header` wrapper. Serialize its groups in this order: `identity`, `context`, `relations`, `state`, `destination`. Omit absent optional Properties. Place other admitted Header Properties after the ordered base Properties, with no required order among them. A present Property has a value or, for a group, nonempty children; omit optional empty Properties.
+
+For Markdown Atom carriers:
+
+- Encode Header.Identity under `identity`, with ID as `atom_id` and Ref ID as `ref_id`.
+- Encode Header.Context under `context`, with immediate Container as `container`, Role as `role`, Form as `form`, optional Label as `label`, Topics as `topics`, and Tier as `tier`. Role and Form are each exactly one nonempty string from the applicable domain. Resolve admitted Role/Form-specific Context Properties under their declared specializations; do not create an undeclared specialization.
+- Encode Header.Relations under optional `relations`; each canonical direct Relation name maps to a nonempty YAML sequence of base Atom IDs. A scalar or empty sequence is invalid; omit the group when it has no children. Do not author inverse facts separately.
+- Encode Header.State under `state`, with Status as `status`, Version as `version`, and Updated At as `updated_at`.
+- Encode Header.Destination under `destination`, with File Name as `file.name` and File Path as `file.path`. The filename includes its extension; the path is the repository-relative containing directory.
+- Do not encode an Atom Author. Event authorship is governed by the Event Record model.
+- Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.
+- Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.
+
+Legacy `content_role`, `type`, `subjects.governs` and `subjects.depends_on` remain readable during migration. Conflicting old and new names for the same Property are invalid in any carrier; equal pairs are readable during transition and do not create duplicate logical values. Compatibility does not make the old names canonical in the migrated model.
+
+## Details
+
+The remaining applicable Status, Version, identity, Tier, Label, Summary, conditional-field, Projection, Draft identity and reference constraints remain governed by their own sources. A generated Projection is not an authored source. A new field requires its own applicable authority. Summary and Claim remain body Properties, not frontmatter copies.
+
+### Conditional fields and expansion
+
+- A Plan Context AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value at `context.plan.ai_agent_confidence_threshold`; omit an unselected override and do **not** copy an inherited value. Encode a present Plan Work Sequence Number at `context.plan.work_sequence_number`. A Plan Context has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.
+- `context.concern.priority` follows the applicable Concern Priority authority for Concern Atoms **only**. Additional Plan, Operations, proof, **or** other Role-specific fields require an applicable Property Declaration and Delivery encoding; their occurrence **in** old Carriers does **not** admit them.
+- The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.
+- A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.
+- Apply explicitly governed migration exceptions **only** within their declared boundary. legacy presence alone is **not** an exception; retired fields under the canonical Property location rules remain rejected.
+
+### Subjects-only edit-draft exception
+
+The explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `identity.atom_id` as `<canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `<canonical-ID>@draft`, `state.status` as Draft, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry exactly one Atom ID; marker and filename rules remain governed by the Draft ID marker and Draft filename marker rules. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.

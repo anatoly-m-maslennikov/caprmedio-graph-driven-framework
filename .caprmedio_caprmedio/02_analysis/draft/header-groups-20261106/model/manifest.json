@@ -99,9 +99,9 @@
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2708-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-passive.md",
       "source_sha256": "7f9067e0a4a6a9838bd36ac3595099ea353322e941eb2175d602b5e463e4bac4",
       "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/model/CA-R-2708-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-passive.md.preview.txt",
-      "preview_sha256": "b088c1710ada6384088a9e8c23753ea1ba41fc84e17e3a9ea2c9a3caa69ea32a",
-      "summary_changed": false,
-      "note": "Preview only; review Summary identity replacement and stale legacy wording before adoption."
+      "preview_sha256": "c6610fb78dbe039834eda1c4e424694822797d8317f0613053326a2a283ab6be",
+      "summary_changed": true,
+      "note": "Corrects stale Subjects Summary to the relocated Topics child; fresh identity required."
     },
     {
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2710-CORE_META_MODEL-DECLARATION--declare-atom-header-role-concern-header-priority.md",
@@ -139,9 +139,9 @@
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
       "source_sha256": "057a7fe07f50a5c698563c8368a6753ada5d043ee81af3c29914d2e14a45aa41",
       "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/model/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md.preview.txt",
-      "preview_sha256": "3e708380495be160ef0a8cb56d392ed98d28acc49daf2d9c6ee8c28fbeb3e5a0",
-      "summary_changed": false,
-      "note": "Preview only; review Summary identity replacement and stale legacy wording before adoption."
+      "preview_sha256": "2468edb612f8d2b1d6bd7c348c0c9aadebe0086927f7dccf30e9be7e89b075e0",
+      "summary_changed": true,
+      "note": "Corrects stale Subjects Summary to the relocated Topics child; fresh identity required."
     },
     {
       "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2715-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination.md",
@@ -3861,13 +3861,26 @@
     "Plan and Concern role groups are conditional on their respective Role; no Plan Priority is introduced."
   ],
   "supplemental_preview_hashes": {
-    "new-context.preview.txt": "6645698191ee971d8872a4df1013fb84022981fc5586697c8a8602f2c26509e0",
+    "new-context.preview.txt": "57f7731b944cebee66ed746dfdeefd173de27f83eefe320e3ab55b3e20244d70",
     "new-plan-context.preview.txt": "ce050b284fedbbd083fb38b26bd51317a92374b582270bac98f5bb6853b1a589",
     "new-state.preview.txt": "a6afd3886ff80ad8b52415ae094afbb450f9fcb78664ef676968744991320e5c",
     "new-identity.preview.txt": "61c42efa065f832ff2e1b380bc2fcc36dfc3e30d6022c3f4e74f2d615950791b",
     "new-concern-context.preview.txt": "4eb0be955922cf4986703a4a6f9a335428b09f13e9636ac2924fcef9bf9f725e",
     "R2719-claim.preview.txt": "54acbf2c92c418704011db1910ba3d3576db25a424a50188a09465753aca0ecb"
   },
-  "report_sha256": "2724df00e4de1541e53d5f395aa1917ad4fd0eb3ee036ac017d24299857d88f5",
-  "priority_disposition": "Existing mandatory Concern Priority remains Concern-specific under Header.Context.Concern; no Plan Priority introduced."
+  "report_sha256": "2504f3221ac893e29c66cf7b0cfbcb748d663effdde6c634ef11f902b7116298",
+  "priority_disposition": "Existing mandatory Concern Priority remains Concern-specific under Header.Context.Concern; no Plan Priority introduced.",
+  "work_sequence_lineage": {
+    "current_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+    "current_version": 4,
+    "draft_source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2712@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+    "draft_version": 3,
+    "instruction": "Bind both to the new Work Sequence declaration identity. Preserve the retained Draft version 3; it is not an N+1 successor of Current version 4."
+  },
+  "expected_fresh_requirement_ids": {
+    "renamed_current_owner_declarations": 23,
+    "new_group_declarations": 5,
+    "total": 28,
+    "retained_work_sequence_draft": "Follows new Work Sequence declaration identity at its preserved version; no separate fresh identity."
+  }
 }

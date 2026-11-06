@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@31-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md
++++ .caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-479@31.grouping.preview.txt
+@@ -10,7 +10,7 @@
+   dependencies:
+   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
+   - CAPRMEDIO_MODEL <+ Atom.Content
+-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
++  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+   - CAPRMEDIO_MODEL <+ Atom.Content.Details
+   - CAPRMEDIO_MODEL <+ Term//Property
+   - CAPRMEDIO_MODEL <+ Atom.Content.Claim

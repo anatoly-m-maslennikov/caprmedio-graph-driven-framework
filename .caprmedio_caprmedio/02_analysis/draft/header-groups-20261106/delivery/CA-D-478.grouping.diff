@@ -1,0 +1,11 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md
++++ .caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-478.grouping.preview.txt
+@@ -44,7 +44,7 @@
+ or a CARRIES fact for each property or section, and it does not change the
+ owning direction of an Atom-to-Atom Relation.
+ 
+-Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Header.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path.
++Qualified classifications are carried as ordinary metadata properties. For example, an Atom qualified by Concern Role selects its `context.role` value, and a qualified Form selects its `context.form` value. Role/Form-specific Context Properties use their admitted specializations. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path.
+ 
+ ## Semantics
+ 

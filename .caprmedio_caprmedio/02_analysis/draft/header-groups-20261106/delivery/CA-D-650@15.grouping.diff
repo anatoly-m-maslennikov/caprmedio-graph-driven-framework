@@ -1,0 +1,10 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md
++++ .caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-650@15.grouping.preview.txt
+@@ -27,6 +27,6 @@
+ 
+ ### Prose Claim
+ 
+-[CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md) defines the Draft `atom_id` marker. Assemble that exact marker as the filename's Atom-ID segment before the remaining mutable filename components.
++[CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md) defines the Draft `identity.atom_id` marker. Assemble that exact marker as the filename's Atom-ID segment before the remaining mutable filename components.
+ 
+ Existing legacy Draft filenames remain readable and are not normalized, renamed, or migrated automatically.

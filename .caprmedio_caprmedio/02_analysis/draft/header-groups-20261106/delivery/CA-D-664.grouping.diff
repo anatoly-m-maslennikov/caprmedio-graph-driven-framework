@@ -1,0 +1,14 @@
+--- .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md
++++ .caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-664.grouping.preview.txt
+@@ -38,9 +38,9 @@
+ 
+ $atom.Content.** >> $carrier.markdown;
+ 
+-$carrier.filename == $atom.Header.Carrier Destination.File.Name;
++$carrier.filename == $atom.Header.Destination.File.Name;
+ 
+-$carrier.location == $atom.Header.Carrier Destination.File.Path
++$carrier.location == $atom.Header.Destination.File.Path
+ ```
+ 
+ ## Details

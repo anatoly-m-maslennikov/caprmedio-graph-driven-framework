@@ -1,0 +1,235 @@
+{
+  "status": "READ_ONLY_NATIVE_CURRENT_DRAFT_HEADER_GROUP_CENSUS",
+  "source_snapshot": {
+    "path": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework/.caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/native-snapshot.json",
+    "sha256": "ac9c5089a0dad93a305ddd4dfde281975dfec0ba9fcdcf77f68217f5d2391e9e",
+    "count": 4677
+  },
+  "sources": {
+    "Current": 4412,
+    "Draft": 265
+  },
+  "approved_group_field_counts": {
+    "identity.atom_id": 4677,
+    "identity.ref_id": 4677,
+    "state.status": 4677,
+    "state.version": 4677,
+    "state.updated_at": 4673,
+    "context.topics": 4584,
+    "context.concern.priority": 209,
+    "relations": 2845,
+    "context.container": 4195,
+    "context.role": 4518,
+    "context.form": 4510,
+    "destination.carrier_destination": 3163,
+    "context.label": 1564,
+    "context.tier": 4113,
+    "context.plan.ai_agent_confidence_threshold": 284,
+    "context.plan.work_sequence_number": 1463
+  },
+  "priority_mapping": {
+    "concern_role_or_CA_C_ID_to_context.concern.priority": 209,
+    "by_CA_C_ID_fallback": 125,
+    "by_explicit_role": 84,
+    "non_Concern_priority_preserved_flat": 4
+  },
+  "plan_context_mapping": {
+    "physical_autonomous_confidence_threshold_to_canonical_ai_agent_confidence_threshold": 284,
+    "work_sequence_number": 1463,
+    "ai_agent_confidence_threshold_physical_source_count": 0,
+    "authority": {
+      "id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830"
+    }
+  },
+  "special_cases": {
+    "sources_missing_role_with_no_supported_concern_or_plan_id_fallback": 32,
+    "sources_missing_form": 167,
+    "sources_missing_updated_at": 4,
+    "form_specific_context_slots_used": false,
+    "supplemental_review_drafts": [
+      {
+        "id": "CA-D-672",
+        "version": 12,
+        "ref_id": "CA-D-672@12-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery/draft/CA-D-672@12-draft-WORKBENCH_BACKEND-ENG_DECISION--deliver-duckdb-atom-content-and-relation-records.md",
+        "sha256": "b035188ea7c4e88e34de56dc953d161c7069e84741eda79d97f4ae0d270e4e43",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      },
+      {
+        "id": "CA-E-675",
+        "version": 6,
+        "ref_id": "CA-E-675@6-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/draft/CA-E-675@6-draft-WORKBENCH-EVAL_CASE--preserve-nested-header-and-markdown-property-distinction.md",
+        "sha256": "c91854454341558677ee293cf76b87ceb50f8b6a5978626fbf5371fee87c3d43",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      },
+      {
+        "id": "CA-R-2726",
+        "version": 5,
+        "ref_id": "CA-R-2726@5-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/draft/CA-R-2726@5-draft-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-query-projection.md",
+        "sha256": "babf569fdd6250dea2d90ff157067f5e8fbda3f34f9cc8566ff7d3783230df8e",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      },
+      {
+        "id": "CA-R-2727",
+        "version": 15,
+        "ref_id": "CA-R-2727@15-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/draft/CA-R-2727@15-draft-WORKBENCH-RULE--provide-a-simple-web-query-interface-over-the-shared-query-capability.md",
+        "sha256": "ad9055338ea06b5ac2daef6254f3539aea06ec74c90c457f8ae8c316b195f4f9",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      },
+      {
+        "id": "CA-E-794",
+        "version": 1,
+        "ref_id": "CA-E-794@1-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/draft/CA-E-794@1-draft-WORKBENCH-EVAL_CASE--verify-workbench-on-the-current-project-with-a-temporary-scope-unit.md",
+        "sha256": "27eb14ce0dff3e06d881b98329899a34ddb63302eb0d4f4e118fc8987cd2129a",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      },
+      {
+        "id": "CA-M-464",
+        "version": 8,
+        "ref_id": "CA-M-464@8-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/draft/CA-M-464@8-draft-WORKBENCH_BACKEND-ENG_DECISION--preserve-governed-atom-data-and-reuse-native-sql.md",
+        "sha256": "27d44edb421b64a67d540cae4793e44b2692c841304a8475a7dbe3b5e2e580e4",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      },
+      {
+        "id": "CA-M-500",
+        "version": 1,
+        "ref_id": "CA-M-500@1-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method/draft/CA-M-500@1-draft-WORKBENCH_BACKEND-ENG_DECISION--rebuild-workbench-schema-from-source-atoms.md",
+        "sha256": "f58fc663045d08c9a249f093d6369c6f78101e99f92020409209569090d6b59f",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      },
+      {
+        "id": "CA-D-674",
+        "version": 20,
+        "ref_id": "CA-D-674@20-draft",
+        "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/07_delivery/draft/CA-D-674@20-draft-WORKBENCH_FRONTEND-ENG_DECISION--deliver-simple-sql-query-page.md",
+        "sha256": "ca26884cf57657dc2975b0b7d184ffeda4a58d00efa4559dc7a6e88d928a7dff",
+        "class": "Draft",
+        "status": "Draft",
+        "transform_roundtrip": "pass",
+        "snapshot_checks": [
+          "atom_id",
+          "version",
+          "status",
+          "ref_id",
+          "sha256"
+        ],
+        "promotion": "not performed"
+      }
+    ]
+  },
+  "empty_groups": {
+    "context": 15,
+    "relations": 1832,
+    "destination": 1514
+  },
+  "checks": {
+    "parse_errors": 0,
+    "duplicate_key_errors": 0,
+    "source_pin_mismatches": 0,
+    "symlinks_excluded": 0,
+    "grouping_candidates_roundtrip_pass": 4677,
+    "held_for_transform_collision_or_parse": 0
+  },
+  "path_delta_from_previous_snapshot": {
+    "added_since_baseline": 55,
+    "removed_since_baseline": 47,
+    "changed_hashes_on_common_paths": 177
+  },
+  "source_pin_mismatches": [],
+  "unmapped_extra_keys_preserved_flat": {
+    "cce_form": 574,
+    "cce_version": 574,
+    "llm_session_ids": 752,
+    "author": 3164,
+    "claim_target_scope_unit": 3114,
+    "current_scope_unit": 4224,
+    "global_tier": 401,
+    "local_tier": 401,
+    "subject_scopes": 67,
+    "assignee": 1123,
+    "artifact_subtype": 5,
+    "priority": 4,
+    "relational_endpoints": 1,
+    "semantic_shape": 1
+  },
+  "no_native_source_writes": true,
+  "application_gate": "CA3+CA8 readiness is external; current Workbench readiness is NotReady."
+}

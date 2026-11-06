@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL
 tier: 3
 status: Active
-version: 80
-updated_at: 2026-11-06 00:16:44 +0400
+version: 81
+updated_at: "2026-11-06 18:23:31 +0400"
 carrier_destination:
   file:
     name: CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing.md
@@ -162,6 +162,15 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 - The Operator approved fresh IDs for six existing Drafts while preserving their Versions: R2994@2, M498@2, M499@2, E792@2, E793@2 and A1327@3. Their known archived predecessors remain unchanged. Exact filename references and Markdown targets were repaired.
 - The Operator approved recovering the final eight Current IDs from filenames after collision checks: C268–C272, D019, D021 and D022. Their body, Version and Updated At were preserved; matching base Ref IDs were added.
 - Evidence: [completed repair packet](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json), [independent final check](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/verification/final-206-readback-20261106.json). This bounded repair does not imply full schema conformance or a completed Epic. The Epic remains Active; existing implementation gates remain external dependencies.
+
+## Nested Header groups — 2026-11-06
+
+- The Operator approved Identity, Context, Relations, State and Destination as Header groups. Common fields belong directly to Context; Role fields belong to Context.Concern or Context.Plan. A Form group belongs inside its Role group. Only individually declared groups and Properties are admitted.
+- The source packet covers 4,671 existing native Current/Draft carriers, including the two new Workbench review Drafts. Five group Declarations yield 4,676 live outputs. Twenty-three renamed Current declarations and five new groups require 28 fresh Requirement IDs. The retained Work Sequence Draft keeps Version 3 under the replacement identity.
+- Model review is cleared. All data transforms pass inverse value/body checks; the full guarded source rehearsal passes with temporary IDs and no native application. Existing timestamp quote rules and reversible legacy spellings are preserved. Old unadmitted residue and omissions remain explicit compatibility cases, not new model admission.
+- Shared adapters are implemented with focused evidence in the implementation readiness report. Workbench has a concrete nested reader, relation extraction and query-schema readiness dependency. Keep live Header layout unchanged until that dependency is satisfied. The source lane performs no implementation tests, image build or deployment.
+- Apply the reviewed source batch, verify postimages and exact predecessor history, refresh affected source projections when their admitted route is available, and retain all existing Epic integration gates. A prepared packet or rehearsal does not close this work.
+- Evidence: [Header groups packet](../02_analysis/draft/header-groups-20261106/README.md), [adapter handoff](../02_analysis/draft/header-groups-20261106/adapter-handoff.md), [source rehearsal](../02_analysis/draft/header-groups-20261106/integration/rehearsal.json), [shared implementation](../02_analysis/draft/header-groups-20261106/implementation/READINESS.md), [Workbench status](../02_analysis/draft/header-groups-20261106/workbench-readiness.md).
 
 ## Remaining work
 

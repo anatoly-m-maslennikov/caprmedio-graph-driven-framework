@@ -4,6 +4,10 @@ Declare Atom.Header.Context
 
 ## Claim
 
+### Prose Claim
+
+A Role-specific group uses the Role name. A Form-specific group is nested in its Role-specific group and uses the Form name.
+
 ### Formal Claim
 
 ```CFEL

@@ -1,0 +1,137 @@
+{
+  "status": "SEVEN_CURRENT_REBASE_PREVIEWS_REVIEW_REQUIRED",
+  "rows": [
+    {
+      "id": "CA-D-657",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "source_sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-657.grouping.preview.txt",
+      "preview_sha256": "532887a7aa85ed2f011defe1f947b5d6b9f569140f7ff111047fb5c16853f881",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-657.grouping.diff",
+      "diff_sha256": "aede04cfae1e0dde35f8dfc3872ad8d46363a68424ab510b3cb3d507a579d70b",
+      "existing_drafts": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+          "sha256": "9f9aefcef8a4c8778b351bc0d3a4e0ae20665937931a07c9afd27d843d1e0b06"
+        }
+      ]
+    },
+    {
+      "id": "CA-D-664",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "source_sha256": "f3767af5b3ec1092252a084b98a987b38e3f2a571516890e04b81e7a9c3ecb86",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-664.grouping.preview.txt",
+      "preview_sha256": "667f6a320954fd6ae56e99ab1fab2e81e75e1f2daec7b9faad8da293ad522d40",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-664.grouping.diff",
+      "diff_sha256": "8f4af63dc3a7cf8d77fe0b81ddaf8dd3e1ab3667e09561667b6cdd5fd78e8395",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-D-478",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+      "source_sha256": "06a5be3640915e29e1c64057d199034424e99ff5d8df18682c0eb38bf7f53cb6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-478.grouping.preview.txt",
+      "preview_sha256": "e625061c7b1b8e4954e2679a6cd7ac14382a215884d3cbfb135d84953ff5f3c0",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-478.grouping.diff",
+      "diff_sha256": "12ceee8cb0afc4c5b51d0ea6b9018b22cf7b39ce12dabbd978a78c354e1b3b17",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-D-270",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-ENG_DECISION--serialize-atom-revision-metadata-in-frontmatter.md",
+      "source_sha256": "05a3ca68d0bab3406b923fc19821540753c107160bf1151e691cad1a0987bc83",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-270.grouping.preview.txt",
+      "preview_sha256": "4f76f94196cab2d5ef6a37a0ebcd31e70e03c3713a37a13522bbe23f805235ab",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-270.grouping.diff",
+      "diff_sha256": "9c08145b9c5bf7da164d2816fd40f06fea8bacc89edab512c86e376d088bde15",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-D-483",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "source_sha256": "c5ffef23a4af6401a1205cbb0a322627bf353f83a32c16a7cce5ce65c1161d54",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-483.grouping.preview.txt",
+      "preview_sha256": "6b107ff251c3a11ffa052d35e2098e7356b91096a49114521dd5ec0cd9d1cdeb",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-483.grouping.diff",
+      "diff_sha256": "cbf36ea9797b88f54c3e4ee8573e039de4c3979d27c5b6ec874c79bc391e5329",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-D-378",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "source_sha256": "5a234ccfcf0d149e60792c7a9ed71a7fe3e5e972fef2b679f9bb6976536a3bb6",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-378.grouping.preview.txt",
+      "preview_sha256": "501bda9792271fa96d9458386bcd61b51204c39d6dc178f6d4cc611bf816ce0e",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-378.grouping.diff",
+      "diff_sha256": "472d9fcc6c784e48c0d25166d4fd61bee94605ca5700872dbbb681355cbda54b",
+      "existing_drafts": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md",
+          "sha256": "82def0ea2bf84372d4762504a0ed150583180df1f92e0d53cf836e7f9f779c6e"
+        }
+      ]
+    },
+    {
+      "id": "CA-D-650",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "source_sha256": "3d19f896cbddc5151c80b8d2d65bee60994fefb68ad20df03101241d2b0a2d10",
+      "preview": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-650.grouping.preview.txt",
+      "preview_sha256": "b1db7fe0f5949fe23dcfb6ac79076f800db130343537ceb40a6dd86239dc561e",
+      "diff": ".caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/delivery/CA-D-650.grouping.diff",
+      "diff_sha256": "b1a3925683caa732013a51e90531b818ba0a00c4868cbec6cfa9b2fc5d84c59a",
+      "existing_drafts": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md",
+          "sha256": "018d72f17d8b53be3e9ab01508b517e048537b9f314f0d587093b9f4d158eb98"
+        }
+      ]
+    }
+  ],
+  "order": [
+    "identity",
+    "context",
+    "relations",
+    "state",
+    "destination"
+  ],
+  "physical_mapping": {
+    "identity": [
+      "atom_id",
+      "ref_id"
+    ],
+    "context": [
+      "container",
+      "role",
+      "form",
+      "label",
+      "topics",
+      "tier",
+      "concern.priority",
+      "plan.ai_agent_confidence_threshold",
+      "plan.work_sequence_number"
+    ],
+    "relations": "direct Relation keys",
+    "state": [
+      "status",
+      "version",
+      "updated_at"
+    ],
+    "destination": [
+      "file.name",
+      "file.path"
+    ]
+  },
+  "preservation": [
+    "Each preview starts from exact Current bytes and preserves ID, Summary, status, version and Updated At; root owns version bump and history.",
+    "D657 retains existing unrelated authored Claim/Content rules, no-Author policy, direct Relation constraints, current migration exceptions and separate Event-attribution rule until coordinated source cutover.",
+    "D664 retains complete filename extension, repo-relative directory and source Carrier/frontmatter/Markdown boundaries.",
+    "D270/D483 retain date, numeric and status-domain checks; D378/D650 retain IDs and Draft filename markers."
+  ],
+  "holds": [
+    "D657@5, D378@30, D650@15 and D479@31 are older Drafts; Current rebases do not automatically carry unrelated unpromoted Draft changes. Root must reconcile history and disposition explicitly.",
+    "Role/Form-specific Context nesting beyond explicitly approved Concern and Plan Properties is admitted only under its own Declaration, not inferred from strings.",
+    "Existing flat runtime parsers, adapters and lifecycle writers require CA #3 migration and integrated checks; no runtime success claimed.",
+    "No native/code/tests/Git writes; prior historical references remain frozen.",
+    "Legacy autonomous_confidence_threshold data must migrate to existing canonical context.plan.ai_agent_confidence_threshold with value preserved; no alias is admitted."
+  ]
+}
