@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 1
-updated_at: 2026-11-05 06:06:44 +0400
+updated_at: "2026-11-06 19:37:39 +0400"
 carrier_destination:
   file:
     name: CA-A-1321@1-draft-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md
@@ -28,7 +28,8 @@ CFEL is declarative: Claims state participants, scope, constraints and required 
 - `<Kind>` identifies a Model kind used as an object Format. `$x[<Kind>, (conditions)]` selects a named participant, and `$<Kind>` an anonymous instance; selection creates nothing.
 - `$x[<KindA> OR <KindB>]` binds one participant drawn from either kind; a following count applies to the combined selection. Kind alternatives remain Formats, not new graph Nodes.
 - `VALUES(p)` selects the actual direct Property value occurrences, preserving duplicates without traversing nested Properties or treating constraints as stored values. CA-R-2904@1-draft declares this construct.
-- `FOR EACH $x[<Kind>, (conditions)]: ( ... )` expresses universal quantification. The body contains semicolon-separated expressions; no `WITH` or `IN` header keyword is used. Existing bounded IF binding and no-shadowing remain.
+- `FOR EACH $a[<Atom>, .context.role=Plan]: ( ... )` expresses universal quantification. A simple filter may be unparenthesized; group compound conditions where needed. Within its scope, the already-bound `$a` may be referenced as bare `a`. The body contains semicolon-separated expressions; no `WITH` or `IN` header keyword is used. Existing bounded IF binding and no-shadowing remain.
+- `<Atom>.destination.file.name(a)` calls the expression authored in the Atom Declaration for the same bound instance `a`, even when a more-specific Plan expression exists. A Plan Declaration replaces only the inherited calculation for that same Property; all other inherited constraints continue to apply. The Declaration Expression Call and Property Calculation Construct Declarations are staged separately.
 - Formal Claims use `# model` before `# instances` when both groups occur. `=` tests a condition, `==` states a required or derived value, and `?==` supplies a default under its own rule.
 - HAS_ALLOWED_VALUE (`:=`, CA-R-2826) supplies allowed literal alternatives; applicable local and inherited alternatives combine by OR. HAS_VALUE_CONSTRAINT (`::`, CA-R-2828) supplies applicable local and inherited constraints combined by AND. Final admissibility is the allowed-value OR group AND the constraint AND group. When no allowed-value group exists, omit it (true): there is no enumeration restriction. Qualified Subjects retain `:=`.
 - The staged CA-R-2827@1 and CA-R-2829@1 pure-inverse Declarations are superseded for coordinated withdrawal; their Draft files remain until migration and are not proposed for adoption. Literal values remain values, not newly invented Nodes.
@@ -46,6 +47,12 @@ Canonical Relation names, their inverse aliases, and their short notation form t
 
 The planned definition sequence is `[]` Format, then `<>` Model reference, then `INSTANCE_OF`. A Format can contain a reference to a declared Model kind, and `INSTANCE_OF` relates an admitted instance to its declared kind. For example, `$a[<Atom>] ((INSTANCE_OF)) Atom` uses a bound Atom instance and a bare Model kind where the Relation endpoints admit them. These three integrated definitions are prospective and remain subject to review; this sequence does not rename the canonical Relation.
 
+## Identity and filename calculation proposal
+
+The base Atom ID uses the Project Prefix, the first Role letter, and the role-unique number, with hyphens between all three components and at least three decimal digits in the number. The actual YAML field is `identity.id`. Ref ID uses the base ID for Current, adds `@<version>` for Archived and Draft, and adds `-draft` for Draft. Existing identity and revision safeguards remain applicable.
+
+The proposed filename calculation uses a lower-kebab-case Summary, uses Label with Role as the fallback when Label is absent, and retains the Plan Work Sequence Number prefix where applicable. A Plan-specific calculation may call the Atom Declaration expression for the same instance using the explicit declaration expression call described above. The exact filename expression and required string, case, and conversion functions remain proposed and require their own declarations; this proposal does not introduce a new function by name or claim implementation.
+
 ## Topic fields
 
 - `topics.main_subject` replaces `subjects.active`.
@@ -61,7 +68,7 @@ One declarative notation separates value admission, value constraints and requir
 
 ## Staged Draft cohort
 
-The following **51 actual Draft Atoms** are the pinned language and value-Relation cohort. They are staged evidence, not Current authority or implementation.
+The following **53 actual Draft Atoms** form the staged language and value-Relation cohort. They are staged evidence, not Current authority or implementation.
 
 ### Value and arithmetic Rules
 
@@ -74,6 +81,10 @@ CA-R-2248@6, CA-R-2802@1, CA-R-2803@1, CA-R-2804@1, CA-R-2805@1, CA-R-2806@1, CA
 ### Control and expression Rules
 
 CA-R-2813@1, CA-R-2814@1, CA-R-2815@1, CA-R-2816@1, CA-R-2817@1, CA-R-2818@1, CA-R-2819@1, CA-R-2820@1, CA-R-2821@1
+
+### Declaration expression calls and calculation specialization
+
+CA-R-2995@1, CA-R-2996@1
 
 ### Consumers
 

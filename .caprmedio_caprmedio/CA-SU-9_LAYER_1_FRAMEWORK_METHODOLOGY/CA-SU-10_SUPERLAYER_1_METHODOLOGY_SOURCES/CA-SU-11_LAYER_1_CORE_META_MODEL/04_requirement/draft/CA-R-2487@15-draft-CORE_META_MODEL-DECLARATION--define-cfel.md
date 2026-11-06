@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 15
-updated_at: 2026-11-05 16:33:24 +0400
+updated_at: "2026-11-06 19:27:13 +0400"
 carrier_destination:
   file:
     name: CA-R-2487@15-draft-DECLARATION--define-cfel.md
@@ -32,7 +32,7 @@ Carrier fact, Workflow step, nor evaluator result.
 
 An `IF` membership condition can bind an unbound variable to each matching member of its declared selection; a variable already bound in the surrounding scope is tested against membership without rebinding. A parenthesized multi-line `THEN` body uses the same binding in each complete expression. `FOR EACH` states universal quantification under its own Declaration and does not revoke the IF binding rule.
 
-In a Formal Claim, `# model` and `# instances` are ordering comments for the model and instance expressions that follow; they do not assert graph facts. A `$variable` explicitly binds an anonymous selected Entity or instance; repeated occurrences in its scope select the same identity. A bare Model kind identifies its model entity. `<Kind>` refers to that declared Model kind as a Format; `$x[<Kind>, (conditions)]` binds an existing instance of that kind subject to grouped conditions. `$<Kind>` selects anonymously. Repeated anonymous selections have the same domain but assert neither identical nor different referents; a named participant expresses the same selected identity. Model-entity selection remains explicit, including IF membership over `(Node, Node.**)`; an instance selector does not turn a model entity into a data-layer fact. `$relation[<Relation>, (.Name = IS_PROPERTY_OF)]` selects a Relation descriptor; it does not assert a data-graph fact. A `FOR EACH` body uses its own declared participant and scope; the active Subject identifies the Claim focus and supplies no implicit participant. For a selected instance population, `$<Journal>{::1}` or `$journal[<Journal>]{::1}` each count selected logical Journal instances within the Current Project. `$x.p{::n}` counts occurrences of Property p on the selected bearer; `p{::occ} :: [<Kind>]{::valuecount}` separately bounds Property occurrences and direct values. Relation bounds remain in their before/after-operator slots and count links per written endpoint.
+In a Formal Claim, `# model` and `# instances` are ordering comments for the model and instance expressions that follow; they do not assert graph facts. A `$variable` explicitly binds an anonymous selected Entity or instance; repeated occurrences in its scope select the same identity. A bare Model kind identifies its model entity. `<Kind>` refers to that declared Model kind as a Format; `$x[<Kind>, (conditions)]` binds an existing instance of that kind. A simple condition may be written without parentheses, as in `FOR EACH $a[<Atom>, .context.role=Plan]: ( ... )`; group compound conditions where needed. Within the binding scope, bare `a` refers to the same instance bound by `$a`. `$<Kind>` selects anonymously. Repeated anonymous selections have the same domain but assert neither identical nor different referents; a named participant expresses the same selected identity. Model-entity selection remains explicit, including IF membership over `(Node, Node.**)`; an instance selector does not turn a model entity into a data-layer fact. `$relation[<Relation>, (.Name = IS_PROPERTY_OF)]` selects a Relation descriptor; it does not assert a data-graph fact. A `FOR EACH` body uses its own declared participant and scope; the active Subject identifies the Claim focus and supplies no implicit participant. For a selected instance population, `$<Journal>{::1}` or `$journal[<Journal>]{::1}` each count selected logical Journal instances within the Current Project. `$x.p{::n}` counts occurrences of Property p on the selected bearer; `p{::occ} :: [<Kind>]{::valuecount}` separately bounds Property occurrences and direct values. Relation bounds remain in their before/after-operator slots and count links per written endpoint.
 
 CFEL uses these graph-address forms:
 
@@ -77,6 +77,8 @@ semantics of the delivery Rule; `!(selectors)` excludes branches from a
 delivery selection. `$x.p` reads its selected instance Property. A CFEL syntax form is not a binary Node Relation. A Requirement/Declaration describes
 a canonical or derived Relation direction; it does not authorize a second
 stored inverse fact.
+
+A declaration expression call such as `<Atom>.destination.file.name(a)` evaluates the expression authored for that Property in the named Atom Declaration for the same bound instance `a`, bypassing a more-specific Plan expression. A Plan Declaration replaces only the inherited calculation for that Property; other inherited constraints remain applicable. Declaration Expression Call and Property Calculation are defined by their own Construct Declarations.
 
 Each CFEL Rule defines the meaning of its notation literal or bounded construct.
 The literal is syntax, not an executed CFEL expression, value assignment, state

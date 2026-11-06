@@ -1,0 +1,50 @@
+{
+  "status": "DRAFT_SOURCE_REVIEW_VERIFIED",
+  "drafts": [
+    {
+      "id": "CA-A-1321",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1321@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--unify-declarative-cfel-paths-and-instance-formats.md"
+    },
+    {
+      "id": "CA-R-2487",
+      "version": 15,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2487@15-draft-CORE_META_MODEL-DECLARATION--define-cfel.md"
+    },
+    {
+      "id": "CA-R-2552",
+      "version": 5,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2552@5-draft-CORE_META_MODEL-RULE--bind-instance-variables.md"
+    },
+    {
+      "id": "CA-R-2778",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2778@1-draft-CORE_META_MODEL-RULE--declare-cfel-universal-quantification.md"
+    },
+    {
+      "id": "CA-R-2957",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2957@1-draft-CORE_META_MODEL-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md"
+    },
+    {
+      "id": "CA-R-2995",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2995@1-draft-CORE_META_MODEL-CONSTRUCT_DECLARATION--declare-declaration-qualified-expression-calls.md"
+    },
+    {
+      "id": "CA-R-2996",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2996@1-draft-CORE_META_MODEL-CONSTRUCT_DECLARATION--declare-property-calculation-specialization.md"
+    }
+  ],
+  "checks": [
+    "YAML mapping",
+    "single Main Subject",
+    "Draft ID/ref/version",
+    "quoted Updated At",
+    "existing identity and Summary preserved",
+    "independent semantic review passed"
+  ],
+  "promoted": false,
+  "implementation_checked": false
+}

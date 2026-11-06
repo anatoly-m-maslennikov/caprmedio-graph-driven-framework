@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 5
-updated_at: 2026-11-05 14:25:52 +0400
+updated_at: "2026-11-06 19:37:39 +0400"
 carrier_destination:
   file:
     name: CA-R-2552@5-draft-RULE--bind-instance-variables.md
@@ -32,11 +32,11 @@ Bind instance variables
 - A leaf with a positive direct-value minimum requires an instance; zero alone does not require one. Explicit occurrence and other constraints still apply. A present Property has a value; for a structural parent, nonempty child structure can be that value even when its direct-value count is zero.
 - `$x[<Kind>]` ranges over the selected instances. Each non-aggregate per-binding constraint must hold for every matching binding. Repeated `$x` references in one Claim block identify the same instance within each binding; an enclosing aggregate retains its selected population.
 - `in` and `not in` test an instance's identity against a selected instance set. `=` and `!=` compare bound instance references by identity; they do not test kind membership or broadcast a scalar comparison over a set.
-- `$x[<Kind>].p` selects and binds an instance and reads its Property `p`. `$x.p` reads that same bound instance's Property.
+- `$x[<Kind>].p` selects and binds an instance and reads its Property `p`. `$x.p` remains a read of that bound instance's Property. After `$x` is bound, bare `x` and `$x` denote the same participant within that binding's existing scope; `x.p` and `$x.p` read the same Property. A bare reference introduces no binding.
 - In an IF condition, `$c[<Kind>] ((R)) $p[<Kind>]` tests a link that already exists, including a legitimately derived inverse. It is not an endpoint signature and does not create a link.
 - Evaluate the condition for candidate bindings. Its THEN conclusion applies only to bindings for which that link exists; it does not require links between every candidate pair.
 - Endpoint counts aggregate matching links per endpoint; they do not require a link between every pair of bindings.
-- Binding selects existing instances. It does not create an instance named `$x` or assign a value imperatively. A bare qualified address refers to its declared target.
+- Binding selects existing instances. It does not create an instance named `$x` or assign a value imperatively. A binding name must not shadow an already bound name. A bare qualified address refers to its declared target unless it references an already bound participant within its scope.
 
 In one CFEL Formal Claim fence, the full-line comments `# model` and `# instances` distinguish MODEL constraints from instance constraints. When both are present, write `# model` first. These comments are not operators, Properties, or values. A named MODEL selector such as `$relation[<Relation>, (.Name = NAME)]` retains its declared identity; a Relation descriptor variable in the MODEL group does not make it a runtime instance constraint.
 

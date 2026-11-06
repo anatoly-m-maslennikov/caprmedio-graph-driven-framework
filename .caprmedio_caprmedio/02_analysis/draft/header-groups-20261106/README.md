@@ -1,6 +1,6 @@
 # Header groups — 2026-11-06
 
-Status: source packet reviewed; live cutover awaits adapter readiness. Live Header layout remains unchanged.
+Status: reviewed checkpoint `8ffaff048` requires rebasing to the newer `identity.id` decision and filename/CFEL work. Live Header layout remains unchanged. The checkpoint is not eligible for live application under the newer contract.
 
 Epic P2694@81 records the approved task, completed preparation and remaining technical cutover gate. Its Header layout remains flat.
 
@@ -50,4 +50,4 @@ All 4,677 pinned sources pass metadata/body round-trip checks with no parse erro
 
 The Role/Form specialization review is clear. The prepared readback now derives counts from the source snapshot and model manifest, preserves four omitted timestamps, and checks the exact lexical form of twelve legacy timestamps.
 
-Workbench's live-project canary preflight found a shared-reader conflict: identical Topics and compatibility Subject aliases are treated as ambiguous. Its owner prepared a bounded fix and requested authorization in CA #8 because shared reader code is outside that handoff. The Header source lane does not apply that code fix. Live Header cutover and its actual postimage readback remain pending.
+Workbench's shared-reader alias conflict was fixed by its owner after direct Operator approval. Its narrow code verdict is ready for the previous Header contract; the installed old runtime remains a cutover blocker. The newer `identity.id` decision also requires rebasing this packet and checking its readers. See the [current formula decisions](../atom-identity-destination-formulas-20261106/README.md). Live Header cutover and actual postimage readback remain pending. The obsolete extra simulation was interrupted without a plan or readback result.

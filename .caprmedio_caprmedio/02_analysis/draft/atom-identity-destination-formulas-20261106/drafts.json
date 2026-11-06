@@ -1,0 +1,16 @@
+{
+  "status": "DRAFT_ONLY",
+  "created": [
+    {
+      "id": "CA-R-2995",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2995@1-draft-CORE_META_MODEL-CONSTRUCT_DECLARATION--declare-declaration-qualified-expression-calls.md"
+    },
+    {
+      "id": "CA-R-2996",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2996@1-draft-CORE_META_MODEL-CONSTRUCT_DECLARATION--declare-property-calculation-specialization.md"
+    }
+  ],
+  "current_authority_changed": false,
+  "runtime_changed": false,
+  "journal_append": false
+}

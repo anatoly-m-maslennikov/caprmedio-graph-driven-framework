@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 1
-updated_at: 2026-11-05 19:33:47 +0400
+updated_at: "2026-11-06 19:37:39 +0400"
 carrier_destination:
   file:
     name: CA-R-2957@1-draft-OPERATOR_DECLARATION--reference-a-model-entity-in-a-cfel-format.md
@@ -30,8 +30,10 @@ A fixed Model Relation name such as `Relation//IS_CONTAINED_BY` is a Model refer
 
 In `$container[<Workflow Run> OR <Step Run>]`, the alternatives define one union domain for one participant. A Relation count applies to the selected union as a whole, not separately to each alternative.
 
-The paired `<` and `>` around the Model reference are Format markers. Binary numeric `<` and `>` are comparisons governed by their respective CFEL Rules.
+In a declaration-qualified expression call `<Kind>.p(a)`, `<Kind>` identifies the declaring Model kind.
+
+The paired `<` and `>` around a Model reference mark that reference, including in a Format or a declaration expression call. Binary numeric `<` and `>` are comparisons governed by their respective CFEL Rules.
 
 ## Semantics
 
-A Model reference identifies a declared Model entity for use in a Format.
+A Model reference identifies a declared Model entity.
