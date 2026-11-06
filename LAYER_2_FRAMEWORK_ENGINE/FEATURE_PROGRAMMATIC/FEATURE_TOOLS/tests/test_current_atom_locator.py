@@ -47,6 +47,29 @@ class CurrentAtomLocatorTests(unittest.TestCase):
         moved = self.atom(self.scope / "04_requirement" / "feature" / "CA-R-101--new-name.md")
         self.assertEqual(moved.relative_to(self.root).as_posix(), self.locate())
 
+    def test_nested_identity_and_state_resolve_hint_and_moved_source(self):
+        current = self.scope / "04_requirement" / "CA-R-101--nested.md"
+        current.parent.mkdir(parents=True, exist_ok=True)
+        raw = (
+            b"---\nidentity:\n  atom_id: CA-R-101\n"
+            b"context:\n  role: Requirement\n  form: Rule\n"
+            b"state:\n  status: Active\n  version: 1\n"
+            b"destination:\n  file:\n    name: CA-R-101--nested\n    path: unused\n"
+            b"---\nbody\n"
+        )
+        current.write_bytes(raw)
+        relative = current.relative_to(self.root).as_posix()
+        self.assertEqual(relative, locate_current_atom(self.root, self.atom_id, relative))
+        self.assertEqual(relative, self.locate())
+        CurrentAtomLocator(self.root).assert_unique_current_claim(self.atom_id, current)
+        self.assertEqual(raw, current.read_bytes())
+
+    def test_nested_draft_state_is_not_a_current_claim(self):
+        current = self.atom(self.scope / "04_requirement" / "CA-R-101--current.md")
+        other = self.scope / "04_requirement" / "CA-R-101--draft.md"
+        other.write_bytes(b"---\nidentity:\n  atom_id: CA-R-101\nstate:\n  status: Draft\n---\nbody\n")
+        self.assertEqual(current.relative_to(self.root).as_posix(), self.locate())
+
     def test_duplicate_current_identity_refuses(self):
         self.atom(self.scope / "04_requirement" / "a" / "CA-R-101--one.md")
         self.atom(self.scope / "04_requirement" / "b" / "CA-R-101--two.md")

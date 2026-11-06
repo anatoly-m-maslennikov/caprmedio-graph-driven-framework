@@ -13,8 +13,8 @@ relations:
   - CA-R-2723
   - CA-R-2725
 status: Active
-version: 16
-updated_at: 2026-11-06 15:14:32 +0400
+version: 17
+updated_at: 2026-11-06 20:37:19 +0400
 carrier_destination:
   file:
     name: CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
@@ -23,6 +23,7 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
+
 
 ## Summary
 
@@ -56,3 +57,7 @@ An invalid Current Scope Unit Declaration stops indexing and makes the owner una
 
 
 Write successful source-index database mutation metrics to stdout at INFO: operation, table, affected row count, reference when applicable, and elapsed milliseconds measured with a monotonic timer. The successful INFO refresh event includes total elapsed time and source-capture, materialization and database-write phase durations. These records are enabled by default and need no DEBUG setting. A bulk SQL write reports its measured batch timing. Log writes only after their transaction commits. These metrics do not change stderr source warnings or blocking runtime errors and do not create business Journal events.
+
+When native graph labels cannot distinguish registered Relation names that differ only by case, warn with all colliding names and source paths and omit every colliding type and its projected links. Preserve raw source facts; do not choose a winner, rename a model Relation or invent a graph alias.
+
+For a full source inventory, exclude archive and projection subtrees before expensive per-file checks. Resolve admitted role roots by ancestor membership rather than comparing every file with every Scope Unit. Preserve source and symlink boundaries.

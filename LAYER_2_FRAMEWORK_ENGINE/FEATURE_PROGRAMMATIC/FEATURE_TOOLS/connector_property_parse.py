@@ -126,7 +126,7 @@ def apply_property_edits(
         _edit(parent, key, edit, is_list, is_entry)
         if key in parent and is_list and type(parent[key]) is not list:
             raise PropertyEditError("schema_invalid", "Bound list Property must contain a list.")
-        if key.casefold() in {"summary", "type", "atom_id"} and (
+        if key.casefold() in {"summary", "type", "form", "atom_id"} and (
             original_present != (key in parent) or not _same(original, parent.get(key))
         ):
             raise PropertyEditError("schema_invalid", "Summary, Type or identity change requires the replacement Workflow.")

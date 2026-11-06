@@ -1,6 +1,5 @@
-# CA-E-684@2
+# CA-E-684@6
 # CA-E-788@1
-
 from __future__ import annotations
 
 import datetime as dt
@@ -38,6 +37,88 @@ class WorkspaceBackendTests(unittest.TestCase):
 
     def call(self, operation: str, **arguments):
         return self.service.interface_call(operation, arguments)
+
+    def test_view_duplicate_copies_only_query_and_cursor(self) -> None:
+        opened = self.call("workspace_open", session_id="duplicate-source")
+        source_id = opened["views"][0]["id"]
+        self.call(
+            "view_update", workspace_id="duplicate-source", view_id=source_id,
+            sql="SELECT range AS value FROM range(3)", cursor_position=8, expected_revision=0,
+        )
+        run = self.call("view_run", workspace_id="duplicate-source", view_id=source_id)
+        self.assertEqual("success", run["status"])
+
+        self.call("view_rename", workspace_id="duplicate-source", view_id=source_id, name="Report")
+        occupied_one = self.call("view_create", workspace_id="duplicate-source", name="Report(1)")
+        occupied_three = self.call("view_create", workspace_id="duplicate-source", name="Report(3)")
+        self.call("view_focus", workspace_id="duplicate-source", view_id=source_id)
+
+        duplicated = self.call("view_duplicate", workspace_id="duplicate-source", view_id=source_id)
+        duplicate_id = duplicated["view_id"]
+        duplicate = self.call("view_get", workspace_id="duplicate-source", view_id=duplicate_id)
+        source = self.call("view_get", workspace_id="duplicate-source", view_id=source_id)
+        self.assertEqual("Report(2)", duplicate["name"])
+        self.assertEqual("SELECT range AS value FROM range(3)", duplicate["sql"])
+        self.assertEqual(8, duplicate["cursor_position"])
+        self.assertEqual(0, duplicate["revision"])
+        self.assertNotIn("result", duplicate)
+        self.assertIn("result", source)
+        self.assertEqual(duplicate_id, duplicated["active_view_id"])
+        self.assertEqual(
+            [source_id, duplicate_id, occupied_one["view_id"], occupied_three["view_id"]],
+            [view["id"] for view in duplicated["views"]],
+        )
+
+        with self.assertRaisesRegex(ValueError, "no current result"):
+            self.call("view_fetch", workspace_id="duplicate-source", view_id=duplicate_id)
+        fetched = self.call("view_fetch", workspace_id="duplicate-source", view_id=source_id)
+        self.assertEqual([[0], [1], [2]], fetched["rows"])
+
+    def test_view_duplicate_unnamed_persists_and_stays_isolated(self) -> None:
+        opened = self.call("workspace_open", session_id="duplicate-unnamed")
+        source_id = opened["views"][0]["id"]
+        second = self.call("view_create", workspace_id="duplicate-unnamed", name=None)
+        self.call("view_create", workspace_id="duplicate-unnamed", name="View 1(1)")
+        duplicated = self.call("view_duplicate", workspace_id="duplicate-unnamed", view_id=source_id)
+        duplicate_id = duplicated["view_id"]
+        duplicate = self.call("view_get", workspace_id="duplicate-unnamed", view_id=duplicate_id)
+        self.assertEqual("View 1(2)", duplicate["name"])
+        self.assertEqual(
+            [source_id, duplicate_id, second["view_id"], duplicated["views"][3]["id"]],
+            [view["id"] for view in duplicated["views"]],
+        )
+
+        self.call("workspace_open", session_id="duplicate-other")
+        before = self.call("view_list", workspace_id="duplicate-other")
+        with self.assertRaisesRegex(ValueError, "unknown view_id"):
+            self.call("view_duplicate", workspace_id="duplicate-other", view_id=duplicate_id)
+        self.assertEqual(before, self.call("view_list", workspace_id="duplicate-other"))
+
+        self.service.close()
+        reopened = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]))
+        self.addCleanup(reopened.close)
+        persisted = reopened.interface_call("view_list", {"workspace_id": "duplicate-unnamed"})
+        self.assertEqual(duplicate_id, persisted["active_view_id"])
+        self.assertEqual(
+            [view["id"] for view in duplicated["views"]],
+            [view["id"] for view in persisted["views"]],
+        )
+        self.assertEqual(
+            "View 1(2)",
+            reopened.interface_call("view_get", {"workspace_id": "duplicate-unnamed", "view_id": duplicate_id})["name"],
+        )
+
+    def test_view_duplicate_rejects_malformed_arguments_without_effects(self) -> None:
+        opened = self.call("workspace_open", session_id="duplicate-invalid")
+        source_id = opened["views"][0]["id"]
+        before = self.call("view_list", workspace_id="duplicate-invalid")
+        for arguments, message in (
+            ({"workspace_id": "duplicate-invalid"}, "invalid view_duplicate arguments"),
+            ({"workspace_id": "duplicate-invalid", "view_id": source_id, "extra": True}, "invalid view_duplicate arguments"),
+        ):
+            with self.subTest(arguments=arguments), self.assertRaisesRegex(ValueError, message):
+                self.service.interface_call("view_duplicate", arguments)
+            self.assertEqual(before, self.call("view_list", workspace_id="duplicate-invalid"))
 
     def test_isolated_workspace_views_results_log_and_save(self) -> None:
         first, second = self.call("workspace_open", session_id="native-a"), self.call("workspace_open", session_id="native-b")

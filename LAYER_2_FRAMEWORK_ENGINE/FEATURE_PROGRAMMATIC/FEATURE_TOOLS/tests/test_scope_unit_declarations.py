@@ -161,8 +161,12 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         missing = current.replace(
             'subjects:\n  active: "CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT"\n  passive: []\n', "",
         )
-        ambiguous = current.replace(
+        equal_aliases = current.replace(
             "subjects:\n", "topics:\n  main_subject: \"CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT\"\nsubjects:\n",
+        )
+        ambiguous = equal_aliases.replace(
+            'main_subject: "CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT"',
+            'main_subject: "CAPRMEDIO_STRUCTURE <+ Scope Unit//OTHER"',
         )
         invalid_current = current.replace(
             "subjects:\n", "topics:\n  main_subject: 1\nsubjects:\n",
@@ -170,9 +174,10 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
 
         with self.assertRaisesRegex(ScopeDeclarationError, "requires one main Subject"):
             parse_scope_unit_declaration(missing.encode(), source)
-        with self.assertRaisesRegex(ScopeDeclarationError, "ambiguous main Subject"):
+        self.assertEqual("UNIT", parse_scope_unit_declaration(equal_aliases.encode(), source).name)
+        with self.assertRaisesRegex(ScopeDeclarationError, "invalid declaration carrier"):
             parse_scope_unit_declaration(ambiguous.encode(), source)
-        with self.assertRaisesRegex(ScopeDeclarationError, "ambiguous main Subject"):
+        with self.assertRaisesRegex(ScopeDeclarationError, "invalid declaration carrier"):
             parse_scope_unit_declaration(invalid_current.encode(), source)
 
     def test_prefixed_active_subject_wrong_branch_refuses(self) -> None:

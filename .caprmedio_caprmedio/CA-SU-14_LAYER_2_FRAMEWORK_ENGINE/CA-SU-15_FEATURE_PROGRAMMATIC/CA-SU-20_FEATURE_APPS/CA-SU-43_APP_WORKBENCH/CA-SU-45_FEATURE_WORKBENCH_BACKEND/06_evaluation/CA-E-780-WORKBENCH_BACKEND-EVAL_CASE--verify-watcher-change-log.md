@@ -14,9 +14,10 @@ relations:
   - CA-R-2724
   - CA-M-490
   - CA-D-695
+  - CA-C-704
 status: Active
-version: 3
-updated_at: 2026-11-06 14:53:35 +0400
+version: 4
+updated_at: 2026-11-06 20:37:19 +0400
 carrier_destination:
   file:
     name: CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md
@@ -54,7 +55,6 @@ With the existing server `watchdog` Observer observing only a selected repositor
 Run a real Docker end-to-end check on a bind-mounted temporary repository and selected `control_root`. Perform actual file creation, modification, same-parent rename, parent-changing move, and selected-directory move operations while the Observer is running; verify native callback paths, observed directory create/move/remove handling, and matching file/table rows. Keep the owner idle through the event-consumption loop's short wait timeout and verify 48-hour expiry in both stores using the real runtime path. Do not fabricate paired add/delete events or call an internal callback directly.
 
 Verify that `change_log` is not used as an `atoms`/`scope_units` source, graph vertex or Relation fact, and that the delivered columns are limited to `observed_at`, `operation`, `old_path` and `new_path`.
-
 
 Seed approximately 5,000 actual Atom source files before the Docker watcher starts, assert the indexed workload size, and reuse that one fixture for the existing mutations and latency measurements. Verify a child Atom created inside a newly host-created nested folder becomes query-visible too. For each file mutation exercised by the Docker E2E test, report elapsed milliseconds from immediately before the filesystem operation until a query returns the matching Atom version and path, or confirms its absence after removal. Include the operation and number of observations. Measure create, edit, host and native rename/move, and entry/exit across the watched boundary. Event-log visibility alone is not index visibility.
 

@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 46
-updated_at: 2026-11-06 15:17:12 +0400
+version: 54
+updated_at: 2026-11-07 00:17:17 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -40,7 +40,9 @@ Workbench RMEDO, implementation, tests, documentation and local deployment. Unre
 - [x] Prepare, review and adopt watcher change-log and initial sync/interface RMED.
 - [x] Implement the watcher, change log, nonblocking status, initial interface refinements and ordinary-file disappearance fix in source.
 
-## Current implementation cycle
+## Earlier completed implementation cycle
+
+The following checklist records the earlier grid/View cycle, not the later changes audited on 6 November.
 
 - [x] Create remaining RMED for the requested Workbench changes.
 - [x] Review against the latest Operator input and related Current sources; fix contradictions and gaps.
@@ -55,6 +57,52 @@ Workbench RMEDO, implementation, tests, documentation and local deployment. Unre
 
 The reviewed source packets cover the result grid, display settings, unified Views, transient result retention and hourly query-log batches. Query-log retention is now two days, following the latest Operator decision. Temporary result retention follows its separate Workbench contract.
 
+## Current implementation cycle — 48-hour input review
+
+Review record: `input-coverage-review-20261106.md` in this Epic folder. Specification belongs in RMEDO; these tasks track the work.
+
+- [x] Review the complete 48-hour input window against RMEDO, tasks, implementation and verification.
+- [x] Update, review and adopt the RMEDO identified by the audit, including E677 and the pending Draft packet.
+- [ ] Resolve the RMEDO handoff items with their source owners and record the outcome.
+- [x] Create and review the Method guidance for query-writing style.
+- [x] Resolve C704 and verify its linked watcher Evaluation.
+- [x] Complete the Workbench backend module-trace audit.
+- [x] Complete the remaining MCP adapter/test trace corrections.
+- [x] Gather the applicable Policy prompt and accepted implementation sources for each scope.
+- [x] Complete and review implementation of the accepted RMEDO.
+- [x] Run the outstanding E780 Docker acceptance and record the results.
+- [ ] Perform local release and verify the released Workbench.
+- [x] Adopt E794.
+- [ ] Run E794 against the released candidate and record the live-project results.
+- [x] Complete the native Codex Workbench implementation and disposable-host bridge verification.
+- [ ] Verify the released UI in the actual Codex host.
+- [ ] Review final coverage and record Epic acceptance.
+
+## Editor formatting cycle
+
+- [x] Update, review and adopt the formatter RMED.
+- [x] Refresh the frontend Policy prompt and implementation source index.
+- [x] Implement the accepted formatter RMED.
+- [x] Verify formatting through editor and command-palette end-to-end tests.
+- [x] Review the integrated formatter change.
+- [ ] Verify the released editor.
+
+Source and review index: `.caprmedio_tmp/workbench/rmed-reconcile-20261106/formatter-adoption.json`.
+
+Verification: three formatter checks, all 17 frontend Node tests, TypeScript, shared builds, two actual-backend Chrome formatter scenarios and independent code review passed. Existing result identities survived both successful formatting and parse failure. Evidence: `formatter-root-verification.json` and `formatter-code-review.md` in the same packet. This source change is not deployed yet.
+
+## View actions cycle
+
+- [x] Update, review and adopt the View-action RMED.
+- [x] Refresh the scoped Policy prompt and implementation-source index.
+- [x] Implement the accepted View-action RMED across its interfaces.
+- [x] Run the View-action end-to-end checks and review the integrated change.
+- [ ] Verify the released View actions.
+
+Source, review and verification index: `.caprmedio_tmp/workbench/view-actions-20261106/`.
+
+Source acceptance passed: 23 browser cases, three disposable-host native bridge cases, five backend tests, 12 MCP/HTTP tests and 17 frontend Node tests. TypeScript, builds, scoped reviews and diff checks passed. Deployment and actual Codex-host acceptance remain open. Permanent record: `view-actions-acceptance-20261106.md` in this Epic folder.
+
 ## Scoped lanes
 
 | Scope Unit | Owner responsibility |
@@ -68,18 +116,20 @@ Each subagent works within one Scope Unit. The main agent owns adoption, transpo
 
 ## Other open tasks
 
-- [ ] Review the remaining unadopted PROGRAMMATIC proposals in CA-A-1322.
-- [ ] Finish the remaining confirmed Workbench audit and trace issues recorded there.
-- [ ] Implement and verify the integrated Codex plugin UI; the existing browser opener does not complete it.
+- [x] Complete source acceptance for the confirmed Workbench audit findings.
 - [ ] Review final Epic acceptance before closing it.
 
 ## Deferred
 
 Standalone chat is disabled. Its remaining implementation, lifecycle repairs, tests and deployment stay deferred by the Operator and do not block the embedded Workbench.
 
+CA-A-1322 remains a Draft. Its general PROGRAMMATIC Policy proposals require separate adoption outside this Workbench release. Its concrete Workbench failure and trace items are tracked above; the projection-only refresh optimization remains nonblocking and deferred.
+
 ## Current status
 
-Active. The requested Workbench implementation cycle is complete and version 0.4.4.25 is running on port 56317. Live verification passed for all 43 MCP tools/catalog names, View execution, cached grid pages, query-log records and the sync timestamp. The browser opened an existing cached View, resized it, left and rebuilt the grid with no uncaught errors. General proposals, the remaining audit work and the actual Codex plugin UI remain open; this Epic is not Done.
+Active. Accepted Workbench RMED is promoted and its source implementation is complete. C704 is Resolved after the 5,000-Atom Docker watcher acceptance passed all twelve timed operations, full reread and restart. The native bridge, Project name, Header compatibility, formatter and View actions pass focused checks.
+
+The latest changes are not deployed. The live container remains the earlier 0.4.4.27 release. Local release, the live all-operation canary, actual Codex-host UI and final acceptance remain open. Five remaining Workbench RMED Drafts belong to disabled standalone chat. General PROGRAMMATIC Policy proposals and native MODEL/Header source cutover remain outside this release.
 
 ## Source and verification index
 
@@ -87,12 +137,14 @@ Active. The requested Workbench implementation cycle is complete and version 0.4
 - MCP/discovery proposal: CA-A-1323.
 - Source packets and adoption records: `.caprmedio_tmp/workbench/watcher-change-log/`, `sync-status/`, `grid-workbench/`, `result-display/`, `grid-backend/`, `unified-views/` and `result-retention/`.
 - Per-scope Policy prompts and implementation source indices: `.caprmedio_tmp/workbench/scoped-implementation/`.
-- Current local release: `.caprmedio_runtime/simple_local_release/reports/workbench-20261106-grid-lifecycle.md`.
+- Earlier grid-cycle release receipt: `.caprmedio_runtime/simple_local_release/reports/workbench-20261106-grid-lifecycle.md`.
+- Latest input review: `input-coverage-review-20261106.md` in this Epic folder. Exact input index, scoped reviews and read-only live evidence: `.caprmedio_tmp/workbench/input-audit-20261106/`.
+- Adopted RMED packet: `.caprmedio_tmp/workbench/header-sql-column-names/drafts.json`. Source handoff status: `.caprmedio_caprmedio/02_analysis/draft/header-groups-20261106/workbench-readiness.md`.
 - Live native MCP proof: `.caprmedio_tmp/workbench/grid-live-proof.json`. Browser proof: `.caprmedio_tmp/workbench/grid-live-browser.json`.
 
-The backend baseline passed 77 host tests in 12 modules, seven real Docker cases and launcher integration. The final frontend-only correction passed TypeScript, build, 13 state tests and 15 real-browser flows. Backend and dependency inputs were verified unchanged before reusing that evidence and the dependency layers. The existing Codex package is a session hook and skill that opens a browser panel. The integrated plugin UI requested by the Operator is not implemented; installation alone does not complete it.
+The backend baseline passed 77 host tests in 12 modules, seven real Docker cases and launcher integration. The final frontend-only correction passed TypeScript, build, 13 state tests and 15 real-browser flows. Backend and dependency inputs were verified unchanged before reusing that evidence and the dependency layers. The existing Codex package is a session hook and skill that opens a browser panel. The integrated UI is now implemented and tested with a disposable host; installation and actual Codex-host acceptance remain open.
 
-## Current verification
+## Earlier grid-cycle verification
 
 - [x] Review, fix and adopt the five Method and five Evaluation prevention amendments.
 - [x] Implement and review the adopted M492@2/E783@2 grid lifecycle correction.
@@ -105,9 +157,9 @@ The 0.4.4.24 standard run passed its tests and completed Docker's build, then st
 
 Native in-container rename/move events and host-side indexing are tested. Docker Desktop can forward host renames as remove/create events; the log keeps those observed events without guessing a move.
 
-The final image is sha256:c7d3c9cd43845007177625bc833056ae7df700d8c3edeea345e00959dac9cc63, built from source commit 29c172bb1f6a9330487828140064ad8fc77c14c8. Its package fingerprint is verified. Proven obsolete Project images were removed; unrelated resources were retained.
+The earlier grid-cycle image is sha256:c7d3c9cd43845007177625bc833056ae7df700d8c3edeea345e00959dac9cc63, built from source commit 29c172bb1f6a9330487828140064ad8fc77c14c8. Its package fingerprint is verified. Proven obsolete Project images were removed; unrelated resources were retained.
 
-Automatic property-column discovery and schema generation were not implemented in this cycle.
+Automatic property-column discovery and schema generation were not implemented in that earlier cycle. They now exist in the latest working tree; their RMED reconciliation, release and live acceptance remain in the current cycle.
 
 ## Codex plugin cycle
 
@@ -189,3 +241,7 @@ Backend implementation and parent Workbench E2E work have separate owners; each 
 M465@16, E677@11, E780@3 and D675@13 are adopted after review. Normal source changes retain unchanged parses and apply row/edge deltas; no explicit application rollback was introduced. Successful writes and total/capture/materialization/write timings are INFO stdout, without a new DEBUG setting. The MCP stdio transport preserves protocol stdout by routing diagnostics to stderr.
 
 Independent backend review passed. Native graph parity, first/last relation use and unchanged-row identity checks passed. Focused backend checks passed; the realistic Docker workload and live deployment remain pending.
+
+## Latest acceptance
+
+C704 is Resolved in source. The unchanged 5,000-Atom watcher matrix passed twelve timed mutations, immediate INFO timings, full reread and restart in 96 seconds. Visibility was 1.34–1.40 seconds. Native name binding, Header compatibility and MCP traces pass their focused checks. Local release, live-project canary and actual Codex-host acceptance remain open. See `release-acceptance-20261107.md` in this Epic folder.

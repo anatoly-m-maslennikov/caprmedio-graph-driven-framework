@@ -7,6 +7,7 @@ import hashlib
 from pathlib import Path
 
 from artifact_metadata import split_frontmatter
+from carrier_aliases import carrier_read_view
 from connector_bindings import ConnectorBindingError, FileSource
 from connector_toml_parse import parse_source
 from FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts import _load_frontmatter
@@ -19,7 +20,7 @@ from project_settings_schema import (
 def _schema_metadata(payload: bytes, path: Path) -> tuple[str, int]:
     try:
         _, frontmatter, _ = split_frontmatter(payload.decode("utf-8"), path)
-        metadata = _load_frontmatter(frontmatter)
+        metadata = carrier_read_view(_load_frontmatter(frontmatter))
         identity, version = metadata.get("atom_id"), metadata.get("version")
         role = {"D": "Delivery", "E": "Evaluation", "M": "Method"}.get(identity[3:4] if isinstance(identity, str) else "")
         if (not isinstance(identity, str) or identity not in SCHEMA_IDS or type(version) is not int or version < 1

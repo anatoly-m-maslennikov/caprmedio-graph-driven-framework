@@ -10,11 +10,14 @@ import sys
 import tempfile
 import unittest
 
+import yaml
+
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 
 from connector_bindings import ConnectorBindingError, capture_source
 from connector_scope_receiver import make_scope_read_receiver
+from header_groups import nested_header  # noqa: E402
 from project_selection import resolve_project
 from scope_declaration_test_support import write_scope_unit_declarations
 from workflow_run_support import RunExecutionSession, RunTracker, _canonical_digest
@@ -136,6 +139,21 @@ class ScopeReceiverTests(unittest.TestCase):
                 self.assertEqual("current", result["current_state"]["source_view"])
                 self.assertTrue(self.checked_settings)
                 self.assertFalse(session.terminal)
+
+    def test_nested_action_and_schema_authorities_allow_read(self):
+        def grouped(source):
+            path = self.root / source.relative_path
+            header, body = path.read_text(encoding="utf-8")[4:].split("\n---\n", 1)
+            path.write_text("---\n" + yaml.safe_dump(nested_header(yaml.safe_load(header)), sort_keys=False)
+                            + "---\n" + body, encoding="utf-8")
+            return capture_source(self.root, source.relative_path)
+
+        self.action = grouped(self.action)
+        self.schemas = tuple(grouped(source) for source in self.schemas)
+        self.receiver = make_scope_read_receiver(self.selection, self.validate_settings, self.schemas, self.action)
+        result = self.check(*self.session())
+        self.assertEqual([], result["errors"])
+        self.assertEqual("ALPHA", result["data"]["identity"])
 
     def test_missing_target_and_context_and_denied_permission_refuse_without_effects(self):
         for arguments, code in (({"identity": "MISSING"}, "target_not_found"),

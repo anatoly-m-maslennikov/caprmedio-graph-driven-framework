@@ -1,9 +1,8 @@
 # CA-E-751@1
-# CA-E-780@1
+# CA-E-780@4
 # CA-E-676@11
-# CA-E-677@10
+# CA-E-677@12
 # CA-M-472@1
-
 from __future__ import annotations
 
 from contextlib import redirect_stderr
@@ -27,8 +26,8 @@ from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import (  # noqa: E402
     WorkbenchUnavailableError,
 )
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical  # noqa: E402
-from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_columns import CONTENT_COLUMNS  # noqa: E402
-from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.public_rows import ATOM_FIELDS, SCOPE_FIELDS  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.public_rows import SCOPE_FIELDS  # noqa: E402
 from smalltest_support import extension_directory  # noqa: E402
 
 
@@ -61,9 +60,18 @@ class QueryStoreTest(unittest.TestCase):
             "form": "Declaration",
             "tier": 4,
             "updated_at": None,
-            "header_json": {"present": True, "nested": {"zero": 0, "empty": None}},
+            "header_json": {
+                "atom_id": base_id,
+                "version": 2 if ref and "@" in ref else 1,
+                "status": "Active",
+                "role": "Requirement",
+                "form": "Declaration",
+                "tier": 4,
+                "present": True,
+                "nested": {"zero": 0, "empty": None},
+            },
             "content_markdown": body,
-            "content_properties_json": [],
+            "content_properties_json": parse_content(body, tolerate_duplicate_siblings=True),
             "relation_edges_json": edges or [],
             "hash": f"atom-{ref or 'anonymous'}",
         }
@@ -101,21 +109,19 @@ class QueryStoreTest(unittest.TestCase):
 
     def test_exact_public_schema_cte_and_direct_replacement(self) -> None:
         self.store.replace([self.atom("A"), self.atom(None)], [self.scope("S")])
-        self.assertEqual(
-            (
-                "relative path", "filename", "status_group", "id", "reference", "version",
-                "status", "current_scope_unit", "claim_target_scope_unit", "role", "form",
-                "tier", "updated_at", *CONTENT_COLUMNS, "relations", "hash",
-            ),
-            ATOM_FIELDS,
-        )
         schema = self.store.run(
             "SELECT table_name, column_name FROM information_schema.columns "
             "WHERE table_schema = 'main' AND table_name NOT LIKE '__duckpgq_%' "
             "ORDER BY table_name, ordinal_position"
         )["rows"]
+        atom_fields = tuple(column for table, column in schema if table == "atoms")
+        self.assertTrue({
+            "relative path", "filename", "status_group", "reference", "header_atom_id",
+            "header_version", "header_status", "header_relations", "hash",
+        } <= set(atom_fields))
+        self.assertFalse(any(field.startswith("content.") for field in atom_fields))
         self.assertEqual(
-            [["atoms", field] for field in ATOM_FIELDS]
+            [["atoms", field] for field in atom_fields]
             + [["change_log", field] for field in ("observed_at", "operation", "old_path", "new_path")]
             + [["scope_units", field] for field in SCOPE_FIELDS],
             schema,
@@ -127,11 +133,12 @@ class QueryStoreTest(unittest.TestCase):
         connection = self.store._connection
         self.store.replace([], [])
         self.assertIs(connection, self.store._connection)
+        empty_atom_fields = self.store.schema()["tables"]["atoms"]
         self.assertEqual(
             {
                 "valid": True,
                 "row_count": 0,
-                "column_count": len(ATOM_FIELDS),
+                "column_count": len(empty_atom_fields),
                 "sql": "SELECT * FROM atoms",
             },
             self.store.check("SELECT * FROM atoms"),
@@ -140,11 +147,12 @@ class QueryStoreTest(unittest.TestCase):
     def test_schema_exposes_actual_status_literals_without_running_a_query(self) -> None:
         done = self.atom("B")
         done["status"] = "Done"
+        done["header_json"]["status"] = "Done"
         self.store.replace([self.atom("A"), done], [])
 
         schema = self.store.schema()["tables"]
 
-        status = next(column for column in schema["atoms"] if column["name"] == "status")
+        status = next(column for column in schema["atoms"] if column["name"] == "header_status")
         self.assertEqual(["Active", "Done"], status["values"])
 
     def test_normal_source_edit_uses_delta_not_projection_replacement(self) -> None:
@@ -152,6 +160,7 @@ class QueryStoreTest(unittest.TestCase):
         self.store.replace([self.atom("A"), unchanged], [])
         edited = self.atom("A")
         edited["version"] = 2
+        edited["header_json"]["version"] = 2
 
         with patch(
             "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store.insert_rows"
@@ -161,7 +170,7 @@ class QueryStoreTest(unittest.TestCase):
         self.assertTrue(changed)
         full_replace.assert_not_called()
         self.assertEqual([["A", 2], ["B", 1]], self.store.run(
-            "SELECT reference, version FROM atoms ORDER BY reference"
+            "SELECT reference, header_version FROM atoms ORDER BY reference"
         )["rows"])
 
     def test_native_admission_errors_leave_a_valid_connection(self) -> None:
@@ -308,7 +317,7 @@ class QueryStoreTest(unittest.TestCase):
             direct,
         )
         public_rows = self.store.run(
-            'SELECT "relative path", filename, reference, relations FROM atoms '
+            'SELECT "relative path", filename, reference, header_relations FROM atoms '
             "WHERE reference IN ('A', 'B') ORDER BY reference"
         )["rows"]
         self.assertEqual(
@@ -330,7 +339,7 @@ class QueryStoreTest(unittest.TestCase):
         )
         self.assertEqual(
             {},
-            json.loads(self.store.run("SELECT relations FROM atoms WHERE reference = 'A@2-draft'")["rows"][0][0]),
+            json.loads(self.store.run("SELECT header_relations FROM atoms WHERE reference = 'A@2-draft'")["rows"][0][0]),
         )
         self.assertEqual(
             {"OWNS": [{"kind": "Atom", "reference": "A", "derived": False}]},

@@ -6,6 +6,8 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
+import yaml
+
 import test_selected_lifecycle_journal as lifecycle_fixture
 from selected_replacement_journal import canonical_event
 from work_journal import append_sealed_events, read_records
@@ -99,6 +101,30 @@ class FirstRecordedReplacementChangeTests(unittest.TestCase):
             replacement.apply(value, request, "new claim")
         self.assertEqual(5, len(read_records(self.root)))
         self.assertEqual(2, len(evidence["journal_receipts"]))
+
+    def test_nested_replacement_plan_preserves_layout_and_unknown_header_bytes(self) -> None:
+        replacement, value, request = self.replacement_fixture()
+        source = ("---\nidentity:\n  atom_id: CA-R-100\ncontext:\n  role: Requirement\n  form: Goal\n"
+                  "state:\n  version: 3\n  status: Active\n  updated_at: \"old\"\n"
+                  "unknown: 'keep this quote' # retain this comment\n---\nbefore\n")
+        self.path.write_text(source)
+        value['context'].update(source_content=source, source=self.harness.facts())
+        value['candidate_content'] = source.replace('before', 'after')
+        with patch.object(replacement, "next_id", return_value="CA-R-101"):
+            plan = replacement.plan(value, request, "new claim")
+        for key in ('archive_content', 'successor_content'):
+            self.assertIn("unknown: 'keep this quote' # retain this comment", plan[key])
+            metadata = yaml.safe_load(plan[key].split('\n---\n', 1)[0][4:])
+            self.assertNotIn('atom_id', metadata)
+            self.assertNotIn('version', metadata)
+            if key == 'archive_content':
+                self.assertEqual('Archived', metadata['state']['status'])
+                self.assertEqual(3, metadata['state']['version'])
+            else:
+                self.assertEqual('CA-R-101', metadata['identity']['atom_id'])
+                self.assertEqual(1, metadata['state']['version'])
+                self.assertIn('-GOAL--new-claim.md', plan['successor']['filename'])
+        self.assertEqual(source, self.path.read_text())
 
     def test_log_failure_reports_actual_replacement_without_source_replay(self) -> None:
         replacement, value, request = self.replacement_fixture()

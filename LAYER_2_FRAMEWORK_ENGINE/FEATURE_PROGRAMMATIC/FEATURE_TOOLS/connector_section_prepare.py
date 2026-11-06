@@ -64,11 +64,12 @@ def prepare_section(bound: BoundRequest, context: VerifiedSourceContext) -> byte
             for identifier in SECTION_AUTHORITY_IDS:
                 _source(context.root, identifier, context._reader, report)
         parsed = parse_carrier(raw, path)
-        if parsed.metadata.get("atom_id") != target["identity"]:
+        metadata = carrier_read_view(parsed.metadata)
+        if metadata.get("atom_id") != target["identity"]:
             raise SectionError("target_not_found", "The bound source does not carry the requested Atom identity.", "target")
-        if carrier_read_view(parsed.metadata).get("content_role") != ROLES[target["identity"].split("-")[1]]:
+        if metadata.get("content_role") != ROLES[target["identity"].split("-")[1]]:
             raise SectionError("schema_invalid", "Atom ID kind and Content Role disagree.", "target")
-        observed = {"identity": parsed.metadata["atom_id"], "version": parsed.metadata.get("version"),
+        observed = {"identity": metadata["atom_id"], "version": metadata.get("version"),
                     "source_token": hashlib.sha256(raw).hexdigest()}
         if any(observed[key] != value for key, value in expected.items()):
             raise SectionError("stale_state", "The complete Atom differs from the expected state.", "expected_state")

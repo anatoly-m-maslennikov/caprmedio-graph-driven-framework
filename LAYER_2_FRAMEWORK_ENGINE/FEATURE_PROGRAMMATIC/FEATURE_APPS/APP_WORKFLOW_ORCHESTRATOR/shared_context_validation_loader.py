@@ -26,6 +26,7 @@ if str(PARSER) not in sys.path:
     sys.path.insert(0, str(PARSER))
 
 from parsing import CarrierError, parse_carrier  # type: ignore[import-not-found]  # noqa: E402
+from carrier_aliases import carrier_read_view  # noqa: E402
 
 
 class FrozenMethodLoaderError(ValueError):
@@ -126,7 +127,7 @@ def _method_parents(
     scope: ProjectSourceScope,
 ) -> tuple[str, ...]:
     try:
-        metadata = parse_carrier(row.content.encode("utf-8"), Path(row.path)).metadata
+        metadata = carrier_read_view(parse_carrier(row.content.encode("utf-8"), Path(row.path)).metadata)
     except (CarrierError, UnicodeError) as error:
         raise FrozenMethodLoaderError(
             "structural_invalid", f"Method {row.atom_id} frontmatter is invalid"

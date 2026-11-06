@@ -1,5 +1,4 @@
-# CA-E-780@3
-
+# CA-E-780@4
 """Docker watcher checks mixed into the existing Workbench E2E fixture."""
 
 from __future__ import annotations
@@ -138,7 +137,10 @@ class WorkbenchWatcherDockerMixin:
                     status, result = request(
                         url + f"{workbench_path}/run", method="POST",
                         payload={
-                            "sql": f"SELECT version, \"relative path\", filename FROM atoms WHERE id = '{atom_id}'",
+                            "sql": (
+                                "SELECT header_version, \"relative path\", filename FROM atoms "
+                                f"WHERE header_atom_id = '{atom_id}'"
+                            ),
                         },
                     )
                     if status == 200 and isinstance(result, dict) and result.get("rows") == expected_rows:
@@ -210,7 +212,7 @@ class WorkbenchWatcherDockerMixin:
                     ["docker", "logs", name], capture_output=True, text=True, check=False, timeout=30,
                 )
                 self.assertEqual(0, result.returncode, result.stderr)
-                return result.stdout
+                return result.stdout + result.stderr
 
             handle = start_container()
             try:
@@ -224,7 +226,7 @@ class WorkbenchWatcherDockerMixin:
                 )
                 initial = request(
                     url + f"{workbench_path}/run", method="POST",
-                    payload={"sql": "SELECT version FROM atoms WHERE id = 'CA-R-901'"},
+                    payload={"sql": "SELECT header_version FROM atoms WHERE header_atom_id = 'CA-R-901'"},
                 )
                 self.assertEqual(200, initial[0], initial[1])
                 self.assertEqual([[1]], initial[1]["rows"])
@@ -315,16 +317,12 @@ class WorkbenchWatcherDockerMixin:
 
                 nested_directory = source_directory / "new-nested-source"
                 nested = nested_directory / "CA-R-905-nested.md"
-
-                def create_nested_atom() -> None:
-                    nested_directory.mkdir()
-                    write_atom(nested, "CA-R-905")
-
+                nested_directory.mkdir()
+                observe("create", None, nested_directory)
                 mutate_then_wait(
-                    "create_nested_atom", create_nested_atom, "CA-R-905",
+                    "create_nested_atom", lambda: write_atom(nested, "CA-R-905"), "CA-R-905",
                     [[1, relative(nested.parent), nested.name]],
                 )
-                observe("create", None, nested_directory)
                 observe("create", None, nested)
                 mutate_then_wait(
                     "update_nested_atom",
@@ -441,5 +439,9 @@ class WorkbenchWatcherDockerMixin:
                 restarted_rows = wait_for_events(restarted_url, expected)
                 self.assertEqual(before_reread, sorted(_event_sort_key(row) for row in restarted_rows))
                 assert_same_log(restarted_rows)
+            except Exception:
+                print("WATCHER_FAILURE_EVENTS " + json.dumps(_event_rows(workbench_state / "watcher-change-log.ndjson")))
+                print("WATCHER_FAILURE_LOGS\n" + container_logs(_name))
+                raise
             finally:
                 stop_container(handle)

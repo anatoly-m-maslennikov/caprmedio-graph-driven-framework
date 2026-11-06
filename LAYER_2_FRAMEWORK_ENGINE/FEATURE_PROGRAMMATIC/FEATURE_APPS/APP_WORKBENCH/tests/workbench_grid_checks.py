@@ -1,7 +1,6 @@
 # CA-E-784@1
 # CA-E-785@1
 # CA-E-787@1
-
 """Real HTTP/MCP acceptance checks for cached Workbench grids and retention."""
 
 from __future__ import annotations

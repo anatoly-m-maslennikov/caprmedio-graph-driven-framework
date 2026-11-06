@@ -1,7 +1,6 @@
 # CA-E-679@1
 # CA-E-680@1
 # CA-E-676@10
-
 """Public MCP proof for explicit Workbench restart."""
 
 from __future__ import annotations

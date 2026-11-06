@@ -1,5 +1,7 @@
 # CA-E-676@11
-# CA-E-683@1
+# CA-E-673@3
+# CA-E-683@5
+# CA-E-684@7
 
 from __future__ import annotations
 
@@ -234,6 +236,7 @@ class WorkbenchWebTests(unittest.TestCase):
                 "http://workbench.test/caprmedio/workbench/caprmedio?workspace=session-1",
                 opened.json()["workspace_url"],
             )
+            self.assertEqual(PROJECT_NAME, opened.json()["project_name"])
             created = client.post(f"{PROJECT_PATH}/interface", json={
                 "operation": "view_create", "arguments": {"workspace_id": "session-1"},
             })

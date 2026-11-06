@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import Any
 
 import subject_notation as notation
+from carrier_aliases import carrier_read_view
 
 Record = dict[str, Any]
 _FENCE_LINE = re.compile(r"^[ \t]*(?P<marker>`{3,}|~{3,})(?P<label>[^\r\n]*)\r?$")
@@ -637,8 +638,9 @@ def preview_constraints_from_paths(
     for path in paths:
         raw = path.read_bytes()
         parsed = parse_carrier(raw, path)
-        atom_id = parsed.metadata.get("atom_id")
-        version = parsed.metadata.get("version")
+        read_view = carrier_read_view(parsed.metadata)
+        atom_id = read_view.get("atom_id")
+        version = read_view.get("version")
         if not isinstance(atom_id, str) or not atom_id.strip() or isinstance(version, bool) or not isinstance(version, int):
             raise ValueError(f"{path}: CFEL preview requires text atom_id and integer version")
         display_path = path.relative_to(base).as_posix() if base is not None else path.as_posix()

@@ -1,4 +1,4 @@
-<!-- CA-D-674@18 -->
+<!-- CA-D-674@21 -->
 <!-- CA-M-492@2 -->
 <script lang="ts">
   import { onMount } from 'svelte';
@@ -62,7 +62,7 @@
       data: records(), layout: 'fitDataStretch', height: host.style.height, index: '__row', columnDefaults: { headerSort: false }, popupContainer: '.workbench', rowContextMenu: rowMenu(),
       groupBy: group ? (row: Record<string, unknown>) => groupKey(row[`c${group.column}`]) : false,
       groupHeader: (key: unknown) => `${escape(result.columns[group?.column ?? 0]?.name ?? '')}: ${escape(valueText(originalGroupValue(key)))} (${counts.get(String(key)) ?? '—'})`,
-      columns: visibleColumns.map(({ column, index }) => ({ field: `c${index}`, title: `<span>${escape(column.name)}</span><small>${escape(column.type)}</small>`, formatter: (cell: any) => `<div class="cell-value">${escape(displayText(cell.getValue()))}</div>`, contextMenu: cellMenu(), headerContextMenu: headerMenu(index) })),
+      columns: visibleColumns.map(({ column, index }) => ({ field: `c${index}`, title: `<span class="column-name">${escape(column.name)}</span><small class="column-type">${escape(column.type)}</small>`, formatter: (cell: any) => `<div class="cell-value">${escape(displayText(cell.getValue()))}</div>`, contextMenu: cellMenu(), headerContextMenu: headerMenu(index) })),
     });
     table = candidate; builtKey = gridKey();
     candidate.on('tableBuilt', () => {

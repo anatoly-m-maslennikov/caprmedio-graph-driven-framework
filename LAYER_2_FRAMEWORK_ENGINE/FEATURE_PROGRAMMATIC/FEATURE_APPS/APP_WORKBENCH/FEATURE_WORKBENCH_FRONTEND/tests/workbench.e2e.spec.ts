@@ -124,7 +124,6 @@ test('binds two browser contexts to one Workspace and observes external state', 
     await Promise.all([firstContext.close(), secondContext.close()]);
   }
 });
-
 test('waits for the initial Workspace binding before accepting SQL input', async ({ page }) => {
   let releaseOpen!: () => void;
   let opened!: () => void;
@@ -152,7 +151,6 @@ test('waits for the initial Workspace binding before accepting SQL input', async
     await expect(page.getByRole('grid')).toBeVisible();
   } finally { releaseOpen?.(); }
 });
-
 test('opens, leaves, and rebuilds a cached adaptive result without an uncaught Tabulator lifecycle error', async ({ page }) => {
   const workspaceUrl = await persistedAdaptiveWorkspace(); const errors: string[] = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -171,17 +169,19 @@ test('opens, leaves, and rebuilds a cached adaptive result without an uncaught T
 
 test('keeps dirty SQL through Run and Check under the Project Workbench header', async ({ page }) => {
   await page.goto(url);
+  const layout = await page.locator('.workspace').evaluate((node) => ({ width: node.getBoundingClientRect().width, viewport: innerWidth }));
+  expect(layout.width).toBeGreaterThan(layout.viewport * 0.9);
   const header = page.locator('header');
   await expect(header.getByText('Workbench', { exact: true })).toBeVisible();
   await expect(header.getByText(`Project: ${projectName}`, { exact: true })).toBeVisible();
   await expect(header.getByRole('tab', { name: 'Settings', exact: true })).toBeVisible();
   await expect(header.getByRole('tab', { name: 'Saved Queries and Views' })).toBeVisible();
   await expect(page.getByText('Query editor', { exact: true })).toBeVisible();
-  await replaceSql(page, 'SELECT id FROM atoms ORDER BY id LIMIT 1');
+  await replaceSql(page, 'SELECT reference FROM atoms ORDER BY reference LIMIT 1');
   await runSql(page);
   await expect(page.getByRole('grid')).toBeVisible();
   await expect(page.getByRole('grid').getByRole('row')).toHaveCount(2);
-  await expect(page.getByRole('columnheader').first()).toHaveText(/id\s*VARCHAR/);
+  await expect(page.getByRole('columnheader').first()).toHaveText(/reference\s*VARCHAR/);
   await page.getByRole('button', { name: /^Check/ }).click();
   await expect(page.getByText('Valid: 1 rows, 1 columns.')).toBeVisible();
   await expect(page.getByRole('tab', { name: /^View 1 \*/ })).toBeVisible();
@@ -189,8 +189,8 @@ test('keeps dirty SQL through Run and Check under the Project Workbench header',
   const queryName = page.getByRole('dialog', { name: 'Query name' }).getByRole('textbox');
   await queryName.fill('E2E query');
   await queryName.press('Enter');
-  await expect(page.getByRole('group', { name: 'Query editor header' }).getByText(/^Saved:/)).toBeVisible();
-  await expect(editor(page)).toContainText('SELECT id FROM atoms ORDER BY id LIMIT 1');
+  await expect(page.locator('.panel-heading').getByText(/^Saved:/)).toBeVisible();
+  await expect(editor(page)).toContainText('SELECT reference FROM atoms ORDER BY reference LIMIT 1');
   await expect(page.getByRole('tab', { name: 'View 1', exact: true })).toBeVisible();
 });
 
@@ -225,7 +225,7 @@ test('restores local View state and opens a saved View without running it', asyn
   await expect(editor(restored)).toContainText("SELECT 'saved worksheet'");
   await restored.close();
   await page.getByRole('button', { name: 'Save View', exact: true }).click();
-  const queryHeader = page.getByRole('group', { name: 'Query editor header' });
+  const queryHeader = page.locator('.panel-heading');
   await expect(queryHeader.getByText('Query editor', { exact: true })).toBeVisible();
   await expect(queryHeader.getByText(/^Saved:/)).toBeVisible();
   const saved = queryHeader.getByRole('link');
@@ -260,28 +260,36 @@ test('shows source indexing status in local time and keeps settings independent'
     expect(Object.keys(status).sort()).toEqual(['last_synced_at', 'syncing']);
     const localTime = status.last_synced_at && await page.evaluate((timestamp) => new Date(timestamp).toLocaleString(), status.last_synced_at);
     await expect(page.getByRole('status', { name: 'Source indexing status' })).toHaveText(status.syncing ? 'Source index: Syncing' : localTime ? `Source index: ${localTime}` : 'Source index: Not synced yet');
-    await expect.poll(() => page.evaluate(() => ({ theme: document.documentElement.dataset.theme, density: document.documentElement.dataset.density, text: getComputedStyle(document.documentElement).getPropertyValue('--text-scale').trim(), interface: getComputedStyle(document.documentElement).getPropertyValue('--interface-scale').trim() }))).toEqual({ theme: 'system', density: 'comfortable', text: '1', interface: '1' });
+    await expect.poll(() => page.evaluate(() => ({ theme: document.documentElement.dataset.theme, density: document.documentElement.dataset.density, interfaceText: getComputedStyle(document.documentElement).getPropertyValue('--interface-text-scale').trim(), contentText: getComputedStyle(document.documentElement).getPropertyValue('--content-text-scale').trim(), interface: getComputedStyle(document.documentElement).getPropertyValue('--interface-scale').trim() }))).toEqual({ theme: 'system', density: 'comfortable', interfaceText: '1', contentText: '1', interface: '1' });
 
     await page.getByRole('tab', { name: 'Settings', exact: true }).click();
     const settings = page.getByRole('region', { name: 'Settings' });
     await expect(settings.getByLabel('Theme')).toHaveValue('system');
-    await expect(settings.getByLabel('Text zoom')).toHaveValue('100');
+    await expect(settings.getByLabel('Interface text zoom')).toHaveValue('100');
+    await expect(settings.getByLabel('Content text zoom')).toHaveValue('100');
     await expect(settings.getByLabel('Interface zoom')).toHaveValue('100');
     await expect(settings.getByLabel('Density')).toHaveValue('comfortable');
-    const y = await Promise.all(['Theme', 'Text zoom', 'Interface zoom', 'Density'].map(async (name) => (await settings.getByLabel(name).boundingBox())?.y));
-    expect(y[0]).toBeLessThan(y[1]!); expect(y[1]).toBeLessThan(y[2]!); expect(y[2]).toBeLessThan(y[3]!);
+    const y = await Promise.all(['Theme', 'Interface text zoom', 'Content text zoom', 'Interface zoom', 'Density'].map(async (name) => (await settings.getByLabel(name).boundingBox())?.y));
+    expect(y[0]).toBeLessThan(y[1]!); expect(y[1]).toBeLessThan(y[2]!); expect(y[2]).toBeLessThan(y[3]!); expect(y[3]).toBeLessThan(y[4]!);
 
     await page.keyboard.press('Meta+P');
     const palette = page.getByRole('dialog', { name: 'Command palette' });
-    await palette.getByRole('textbox').fill('Text zoom: 125%');
+    await palette.getByRole('textbox').fill('Interface text zoom: 125%');
     await page.keyboard.press('Enter');
-    await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--text-scale').trim())).toBe('1.25');
+    await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--interface-text-scale').trim())).toBe('1.25');
+    await expect(palette).toBeHidden();
+    await page.keyboard.press('Meta+P');
+    await page.getByRole('dialog', { name: 'Command palette' }).getByRole('textbox').fill('Content text zoom: 150%');
+    await page.keyboard.press('Enter');
+    await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--content-text-scale').trim())).toBe('1.5');
+    await expect(palette).toBeHidden();
     await page.getByLabel('Interface zoom').selectOption('90');
     await page.getByLabel('Density').selectOption('compact');
     await expect.poll(() => page.evaluate(() => ({ density: document.documentElement.dataset.density, interface: getComputedStyle(document.documentElement).getPropertyValue('--interface-scale').trim() }))).toEqual({ density: 'compact', interface: '0.9' });
     await page.reload();
     await page.getByRole('tab', { name: 'Settings', exact: true }).click();
-    await expect(page.getByLabel('Text zoom')).toHaveValue('125');
+    await expect(page.getByLabel('Interface text zoom')).toHaveValue('125');
+    await expect(page.getByLabel('Content text zoom')).toHaveValue('150');
     await expect(page.getByLabel('Interface zoom')).toHaveValue('90');
     await expect(page.getByLabel('Density')).toHaveValue('compact');
   } finally { await standalone.close(); }
@@ -293,6 +301,27 @@ test('shows source indexing status in local time and keeps settings independent'
     await embeddedPage.goto(embeddedUrl.toString());
     await expect.poll(() => embeddedPage.evaluate(() => document.documentElement.dataset.density)).toBe('compact');
   } finally { await embedded.close(); }
+});
+
+test('scales interface and query content text independently', async ({ page }) => {
+  await page.goto(url);
+  const sizes = () => page.evaluate(() => ({
+    title: Number.parseFloat(getComputedStyle(document.querySelector('.app-name')!).fontSize),
+    editor: Number.parseFloat(getComputedStyle(document.querySelector('.cm-content')!).fontSize),
+  }));
+  const initial = await sizes();
+  await page.getByRole('tab', { name: 'Settings', exact: true }).click();
+  await page.getByLabel('Interface text zoom').selectOption('125');
+  await page.getByRole('tab', { name: /^View 1/ }).click();
+  const interfaceZoomed = await sizes();
+  expect(interfaceZoomed.title).toBeGreaterThan(initial.title);
+  expect(interfaceZoomed.editor).toBe(initial.editor);
+  await page.getByRole('tab', { name: 'Settings', exact: true }).click();
+  await page.getByLabel('Content text zoom').selectOption('150');
+  await page.getByRole('tab', { name: /^View 1/ }).click();
+  const contentZoomed = await sizes();
+  expect(contentZoomed.title).toBe(interfaceZoomed.title);
+  expect(contentZoomed.editor).toBeGreaterThan(interfaceZoomed.editor);
 });
 
 test('migrates one standalone draft without running it and keeps close protection after sync', async ({ browser }) => {
@@ -422,28 +451,37 @@ test('uses palette navigation, quoted status completion, and focus after hiding 
   const schema = await (await schemaResponse).json() as {
     tables: { atoms: Array<{ name: string; values?: string[] }> };
   };
-  expect(schema.tables.atoms.find((column) => column.name === 'status')?.values).toContain('Active');
+  expect(schema.tables.atoms.find((column) => column.name === 'header_status')?.values).toContain('Active');
   await page.keyboard.press('Meta+P');
   const palette = page.getByRole('dialog', { name: 'Command palette' });
   await expect(palette.getByRole('textbox')).toBeFocused();
   await page.keyboard.press('Control+N');
   await page.keyboard.press('Enter');
+  await expect(palette).toBeHidden();
   await expect(page.getByRole('region', { name: 'Saved Queries and Views' })).toBeVisible();
   await page.keyboard.press('Meta+P');
+  await expect(palette).toBeVisible();
+  await expect(palette.getByRole('textbox')).toBeFocused();
   await page.keyboard.press('Control+N');
   await page.keyboard.press('Control+P');
   await page.keyboard.press('Enter');
+  await expect(palette).toBeHidden();
   await expect(page.getByRole('region', { name: 'Settings' })).toBeVisible();
   await page.getByRole('tab', { name: /^View 1/ }).click();
-  await replaceSql(page, "SELECT status FROM atoms WHERE status = 'Act'");
+  await replaceSql(page, "SELECT header_status FROM atoms WHERE header_status = 'Act'");
   await page.keyboard.press('ArrowLeft');
   await page.keyboard.press('Control+Space');
   const active = page.getByRole('option', { name: 'Active', exact: true });
   await expect(active).toBeVisible();
   await active.click();
   await expect(editor(page)).toContainText("status = 'Active'");
-  await page.getByRole('button', { name: 'Hide editor' }).click();
+  const editorToggle = page.getByRole('button', { name: /Query editor.*Hide editor/ });
+  await expect(editorToggle).toHaveAttribute('aria-expanded', 'true');
+  await editorToggle.click();
+  await expect(page.getByRole('button', { name: /Query editor.*Show editor/ })).toHaveAttribute('aria-expanded', 'false');
   await page.keyboard.press('Meta+P');
+  await expect(palette).toBeVisible();
+  await expect(palette.getByRole('textbox')).toBeFocused();
   await palette.getByRole('textbox').fill('Focus Query editor');
   await page.keyboard.press('Enter');
   await expect(editor(page)).toBeFocused();

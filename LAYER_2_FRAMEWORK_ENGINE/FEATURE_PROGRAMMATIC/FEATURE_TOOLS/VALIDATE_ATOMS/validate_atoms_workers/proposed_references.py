@@ -14,6 +14,8 @@ import os
 import tomllib
 from dataclasses import dataclass, field
 from pathlib import Path
+
+from carrier_aliases import carrier_read_view
 from typing import Any, Iterable, Mapping
 
 from .parsing import CarrierError, parse_carrier
@@ -231,7 +233,7 @@ def _frontier(
             # Legacy non-targets cannot invalidate a bounded lookup; containers still need validation.
             if requested is not None and child.stem not in containers and _unrelated_legacy(raw, child, requested):
                 continue
-            metadata = parse_carrier(raw, child).metadata
+            metadata = carrier_read_view(parse_carrier(raw, child).metadata)
             status = metadata.get("status")
             found[child] = _FrontierCarrier(
                 metadata, role, owner,
@@ -255,7 +257,7 @@ def _frontier(
 def _carrier(
     reader: ReadContext, root: Path, path: Path, requested: set[str], carrier: _FrontierCarrier,
 ) -> TargetCarrier | None:
-    metadata = carrier.metadata
+    metadata = carrier_read_view(carrier.metadata)
     atom_id, status, version = metadata.get("atom_id"), metadata.get("status"), metadata.get("version")
     if not isinstance(atom_id, str) or atom_id not in requested:
         return None

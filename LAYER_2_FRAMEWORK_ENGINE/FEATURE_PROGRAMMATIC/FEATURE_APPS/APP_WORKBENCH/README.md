@@ -113,17 +113,44 @@ with `save=true`; there is no separate `/save` or MCP `query_save` operation.
 A mismatched Project name returns 404. Static assets stay under `/caprmedio/workbench/assets`.
 A shared MCP server also requires `project_root`.
 
+Default query style: uppercase `SELECT` on its own line; two-space indentation;
+one selected expression per line, with leading commas after the first;
+lowercase `from`, `where`, `and` and other clauses; `where true` followed by
+one condition per line; and a semicolon on its own line. Quote column names
+with double quotes and string values with single quotes. Use the actual names
+returned by `/schema`, including dotted Content paths with snake_case segments.
+
 ```sql
-SELECT id, reference, role, status, "content.summary", relations FROM atoms LIMIT 20;
+SELECT
+  "content.claim.prose_claim"
+  ,"content.claim.formal_claim"
+from atoms
+where true
+  and "header_status" = 'Active'
+  and "content.claim.formal_claim" is not null
+;
 ```
 
 ```sql
-SELECT id, "relative path", filename, relations->'$.CONTAINS' AS contains
-FROM atoms WHERE json_exists(relations, '$.CONTAINS');
+SELECT
+  "reference"
+  ,"relative path"
+  ,"filename"
+  ,"header_relations"->'$.CONTAINS' as contains
+from atoms
+where true
+  and json_exists("header_relations", '$.CONTAINS')
+;
 ```
 
 ```sql
-SELECT name, parent_name FROM scope_units ORDER BY name;
+SELECT
+  "name"
+  ,"parent_name"
+from scope_units
+where true
+order by "name"
+;
 ```
 
 ```sql
@@ -143,6 +170,21 @@ The index stores parsed YAML, Markdown sections and derived relations in the reb
 `.caprmedio_runtime/workbench/projection.duckdb` database. Query results stay
 stable across source refresh and are discarded at restart. Spill files remain
 in the same owned runtime directory; source files stay authoritative.
+
+## Rebuildable SQL schema assets
+
+`projection-schema.json` records the `header_*` columns inferred from actual
+raw Header paths. `content-schema.json` records only the `content.*` columns
+compiled from Current model Declarations, plus their source provenance. Both
+files live beside `projection.duckdb`, are derived runtime assets, and can be
+discarded with the database.
+
+The index uses an ordinary single-row delta when those table shapes are
+unchanged. A newly populated or globally empty Header path, or a changed
+declared Content shape, requires a full reread and replacement of the two
+public tables. A Declaration version or path change with the same Content
+shape updates its asset provenance but does not rebuild tables.
+
 `watchdog` watches only the selected repository's CAPRMEDIO source folder,
 even when a larger parent folder is mounted.
 Invalid or ambiguous Atom sources are excluded and reported to stderr. Invalid Current Scope Unit Declarations stop indexing until corrected and explicitly restarted. Native watcher events are retained in the technical `change_log` table and NDJSON log for 48 hours or 100,000 rows, whichever removes them first. Moves and renames come from native watcher events. The header shows synchronization status and the last successful sync in local time.

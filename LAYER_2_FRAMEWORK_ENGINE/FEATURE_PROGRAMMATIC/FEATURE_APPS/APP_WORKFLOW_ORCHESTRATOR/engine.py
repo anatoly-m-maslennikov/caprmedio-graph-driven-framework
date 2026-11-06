@@ -17,6 +17,7 @@ from rmed_atoms_base_revise import run as coordinate, validate_report, PROMPTS  
 from workflow_evidence import RunEvidence, encoded  # noqa: E402
 from workflow_progress import report_progress  # noqa: E402
 from validate_atoms_workers.parsing import parse_carrier, CarrierError  # noqa: E402
+from carrier_aliases import carrier_read_view  # noqa: E402
 from coverage import assess  # noqa: E402
 from replacement import Replacement  # noqa: E402
 from runtime_failure_diagnostics import report_failure  # noqa: E402
@@ -142,7 +143,7 @@ class Coordinator:
             parsed = parse_carrier(path.read_bytes(), path)
         except CarrierError:
             return
-        metadata = parsed.metadata
+        metadata = carrier_read_view(parsed.metadata)
         if metadata.get('atom_id') and metadata['atom_id'] != row.atom_id:
             raise ValueError('Selected Atom ID differs from its carried identity')
         if metadata.get('status') and str(metadata['status']).lower() != 'active':
@@ -231,16 +232,18 @@ class Coordinator:
             raise Interrupted('Oversized candidate')
         path = self.store.path(context['source']['path'])
         previous, proposed = parse_carrier(before, path), parse_carrier(raw, path)
-        if proposed.metadata.get('atom_id') != context['atom_id'] or proposed.metadata.get('atom_id') != previous.metadata.get('atom_id'):
+        previous_metadata = carrier_read_view(previous.metadata)
+        proposed_metadata = carrier_read_view(proposed.metadata)
+        if proposed_metadata.get('atom_id') != context['atom_id'] or proposed_metadata.get('atom_id') != previous_metadata.get('atom_id'):
             raise Interrupted('Changed Atom identity requires replacement permission')
         if summary(previous.body) != summary(proposed.body):
             raise Interrupted('Changed Summary requires replacement permission')
-        if proposed.metadata.get('version') != previous.metadata.get('version'):
+        if proposed_metadata.get('version') != previous_metadata.get('version'):
             raise Interrupted('Version-changing fix requires a governed revision-history transition')
         for key in ('status', 'current_scope_unit', 'content_role'):
-            if proposed.metadata.get(key) != previous.metadata.get(key):
+            if proposed_metadata.get(key) != previous_metadata.get(key):
                 raise Interrupted(f'Changed {key} is outside this fix permission')
-        if raw != before and proposed.metadata.get('updated_at') == previous.metadata.get('updated_at'):
+        if raw != before and proposed_metadata.get('updated_at') == previous_metadata.get('updated_at'):
             raise Interrupted('Changed candidate requires updated_at refresh')
         return path, raw
 
@@ -281,12 +284,14 @@ class Coordinator:
         path = self.store.path(context['source']['path'])
         previous = parse_carrier(context['source_content'].encode(), path)
         proposed = parse_carrier(candidate.encode(), path)
+        previous_metadata = carrier_read_view(previous.metadata)
+        proposed_metadata = carrier_read_view(proposed.metadata)
         if len(candidate.encode()) > self.store.max_file_bytes:
             raise Interrupted('Oversized candidate')
-        if proposed.metadata.get('atom_id') != previous.metadata.get('atom_id'):
+        if proposed_metadata.get('atom_id') != previous_metadata.get('atom_id'):
             raise Interrupted('Replacement Agent must retain the input ID; the executor allocates its successor')
         for key in ('status', 'current_scope_unit', 'content_role', 'local_tier', 'global_tier'):
-            if proposed.metadata.get(key) != previous.metadata.get(key):
+            if proposed_metadata.get(key) != previous_metadata.get(key):
                 raise Interrupted(f'Changed {key} is outside this fix permission')
         if summary(previous.body) == summary(proposed.body):
             raise Interrupted('Replacement requires a changed Summary, not an ordinary revision')

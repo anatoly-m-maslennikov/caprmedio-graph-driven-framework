@@ -61,6 +61,28 @@ class ArtifactQueryGoldenTest(unittest.TestCase):
         with self.assertRaises((ArtifactQueryError, artifact_query.QueryFilterError)):
             query_artifacts(root, request, **kwargs)
 
+    def test_nested_atom_identity_preserves_actual_query_property_paths(self):
+        with self.project() as root:
+            path = self.fixture(root, "nested.md", "identity: {atom_id: CA-R-1}\nstate: {status: Active}")
+            before = path.read_bytes()
+
+            result = query_artifacts(root, {
+                "filter": '\"fm:/identity/atom_id\" = "CA-R-1"',
+                "select": ["fm:/state/status", "fm:/atom_id"],
+            })
+
+            self.assertEqual([{"artifact_id": "CA-R-1", "fm:/state/status": "Active",
+                               "fm:/atom_id": "missing"}], result["results"])
+            self.assertEqual(before, path.read_bytes())
+
+    def test_non_atom_artifact_context_is_not_interpreted_as_atom_header(self):
+        with self.project() as root:
+            self.fixture(root, "generic.md", "artifact_id: OTHER\ncontext: text\nstate: 42")
+
+            result = query_artifacts(root, self._artifact_request({}, "OTHER"))
+
+            self.assertEqual([{"artifact_id": "OTHER"}], result["results"])
+
     def test_default_ids_selected_values_and_canonical_section_bodies(self):
         with self.project() as raw:
             root = Path(raw)

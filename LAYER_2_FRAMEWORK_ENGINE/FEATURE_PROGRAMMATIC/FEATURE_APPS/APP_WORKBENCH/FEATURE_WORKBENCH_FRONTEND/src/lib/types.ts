@@ -1,5 +1,7 @@
 // CA-R-2727@14
 // CA-D-674@18
+// CA-M-476@5
+// CA-D-681@9
 export type Column = { name: string; type: string; has_values?: boolean };
 
 export type SavedIdentity = {
@@ -74,6 +76,7 @@ export type WorkspaceState = {
   workspace_id?: string;
   active_view_id?: string;
   views: WorkspaceView[];
+  project_name?: string;
 };
 
 export type ViewRunResponse = ViewResult & {

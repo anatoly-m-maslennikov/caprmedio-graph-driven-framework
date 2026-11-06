@@ -1,4 +1,6 @@
 # CA-E-676@11
+# CA-E-673@3
+# CA-E-684@7
 
 from __future__ import annotations
 
@@ -13,8 +15,11 @@ sys.path.insert(0, str(MCP_ROOT))
 
 from workbench_tools import (  # noqa: E402
     CHECK, LOAD, NATIVE_TOOLS, PAGE, QUERY_LOG_LIST, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA,
-    VIEW_CREATE, WORKSPACE_OPEN,
+    VIEW_CREATE, VIEW_DUPLICATE, WORKSPACE_OPEN, mcp_app_probe,
     WorkbenchTools, native_tools,
+)
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import (  # noqa: E402
+    QueryExecutionError, WorkbenchUnavailableError,
 )
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
 
@@ -39,8 +44,8 @@ class FakeService:
         self.calls.append((CHECK, sql, cursor_position))
         return {"valid": True, "row_count": 1, "column_count": 1}
 
-    def page(self, query_id, offset, page_size=100):
-        self.calls.append((PAGE, query_id, offset, page_size))
+    def page(self, query_id, offset, page_size=100, *, grid=None):
+        self.calls.append((PAGE, query_id, offset, page_size, grid))
         return {
             "query_id": query_id, "columns": [{"name": "sql", "type": "VARCHAR"}],
             "rows": [[query_id]], "row_count": 1, "column_count": 1,
@@ -76,6 +81,24 @@ class WorkbenchToolsTests(unittest.TestCase):
         self.assertEqual(list(NATIVE_TOOLS), [tool.name for tool in native_tools()])
         tools = {tool.name: tool for tool in native_tools()}
         self.assertNotIn("query_save", tools)
+        self.assertEqual(
+            {"ui": {"resourceUri": mcp_app_probe.WORKBENCH_URI}},
+            tools[WORKSPACE_OPEN].meta,
+        )
+        self.assertIsNone(tools[VIEW_CREATE].meta)
+        self.assertEqual(
+            {
+                "type": "object",
+                "properties": {
+                    "workspace_id": {"type": "string", "minLength": 1},
+                    "view_id": {"type": "string", "minLength": 1},
+                },
+                "required": ["workspace_id", "view_id"],
+                "additionalProperties": False,
+            },
+            tools[VIEW_DUPLICATE].input_schema,
+        )
+        self.assertFalse(tools[VIEW_DUPLICATE].annotations.read_only_hint)
         self.assertFalse(tools[RUN].annotations.read_only_hint)
         self.assertTrue(tools[CHECK].annotations.read_only_hint)
         self.assertTrue(tools[SCHEMA].annotations.read_only_hint)
@@ -101,16 +124,24 @@ class WorkbenchToolsTests(unittest.TestCase):
             self.assertEqual({"items": []}, await owner.call(SAVED_LIST, {"limit": 3}))
             self.assertEqual("session-1", (await owner.call(WORKSPACE_OPEN, {"session_id": "session-1"}))["session_id"])
             self.assertEqual("view_create", (await owner.call(VIEW_CREATE, {"workspace_id": "session-1"}))["operation"])
+            self.assertEqual(
+                "view_duplicate",
+                (await owner.call(VIEW_DUPLICATE, {
+                    "workspace_id": "session-1", "view_id": "source-view",
+                }))['operation'],
+            )
             self.assertEqual("query_log_list", (await owner.call(QUERY_LOG_LIST, {}))["operation"])
             await owner.close()
 
         asyncio.run(exercise())
         self.assertEqual(
-            [(RUN, "SELECT 1", 100, None, False, None, None), (PAGE, "q-1", 0, 1), (CHECK, "SELECT 1", None),
+            [(RUN, "SELECT 1", 100, None, False, None, None), (PAGE, "q-1", 0, 1, None), (CHECK, "SELECT 1", None),
              (RUN, "SELECT 2", 100, 2, True, None, "saved"), (SAVE_VIEW, "SELECT 3", "view"),
              (RUN, "SELECT 4", 100, None, True, None, "   "), (LOAD, "q_2"),
              (SCHEMA,), (SAVED_LIST, 3), (WORKSPACE_OPEN, {"session_id": "session-1"}),
-             (VIEW_CREATE, {"workspace_id": "session-1"}), (QUERY_LOG_LIST, {})], fake.calls
+             (VIEW_CREATE, {"workspace_id": "session-1"}),
+             (VIEW_DUPLICATE, {"workspace_id": "session-1", "view_id": "source-view"}),
+             (QUERY_LOG_LIST, {})], fake.calls
         )
         self.assertTrue(fake.closed)
 
@@ -130,7 +161,7 @@ class WorkbenchToolsTests(unittest.TestCase):
             (PAGE, {"query_id": "q", "offset": True}, "offset must be a non-negative integer"),
             (PAGE, {"query_id": "q", "offset": -1}, "offset must be a non-negative integer"),
             (PAGE, {"query_id": "q", "offset": 0, "page_size": True}, "page_size must be an integer"),
-            (PAGE, {"query_id": "q", "offset": 0, "unknown": 1}, "Expected query_id, offset, and optional page_size"),
+            (PAGE, {"query_id": "q", "offset": 0, "unknown": 1}, "Expected query_id, offset, optional page_size and grid"),
             (RUN, {"sql": "SELECT 1", "page_size": True}, "page_size must be an integer"),
             (RUN, {"sql": "SELECT 1", "name": "forbidden"}, "name is only valid when save is true"),
             (RUN, {"sql": "SELECT 1", "save": "yes"}, "save must be a boolean"),
@@ -147,13 +178,13 @@ class WorkbenchToolsTests(unittest.TestCase):
 
     def test_known_query_and_unavailable_failures_are_explicit_but_unexpected_failure_is_not(self):
         owner = WorkbenchTools(Path("/project"))
-        owner._service = Mock(run=Mock(side_effect=RuntimeError("query failed: Parser Error")))
+        owner._service = Mock(run=Mock(side_effect=QueryExecutionError("query failed: Parser Error")))
         with self.assertRaises(ExplicitBlockingRuntimeFailure) as caught:
             asyncio.run(owner.call(RUN, {"sql": "SELECT FROM"}))
         self.assertEqual("query_error", caught.exception.code)
         self.assertEqual("query failed: Parser Error", caught.exception.message)
 
-        owner._service.run.side_effect = RuntimeError("query failed: missing column 'restart required'")
+        owner._service.run.side_effect = QueryExecutionError("query failed: missing column 'restart required'")
         with self.assertRaises(ExplicitBlockingRuntimeFailure) as caught:
             asyncio.run(owner.call(RUN, {"sql": 'SELECT "restart required"'}))
         self.assertEqual("query_error", caught.exception.code)
@@ -164,7 +195,7 @@ class WorkbenchToolsTests(unittest.TestCase):
         self.assertEqual("query_error", caught.exception.code)
         self.assertEqual("query result delivery failed: unsupported value", caught.exception.message)
 
-        owner._service.run.side_effect = RuntimeError("query store unavailable; Workbench restart required")
+        owner._service.run.side_effect = WorkbenchUnavailableError("query store unavailable; Workbench restart required")
         with self.assertRaises(ExplicitBlockingRuntimeFailure) as caught:
             asyncio.run(owner.call(RUN, {"sql": "SELECT 1"}))
         self.assertEqual("workbench_unavailable", caught.exception.code)
@@ -178,7 +209,7 @@ class WorkbenchToolsTests(unittest.TestCase):
         with self.assertRaisesRegex(RuntimeError, "unexpected connector fault"):
             asyncio.run(owner.call(RUN, {"sql": "SELECT 1"}))
 
-        owner._service.page = Mock(side_effect=RuntimeError("query page failed: query_id not found"))
+        owner._service.page = Mock(side_effect=ValueError("unknown query_id"))
         with self.assertRaises(ExplicitBlockingRuntimeFailure) as caught:
             asyncio.run(owner.call(PAGE, {"query_id": "expired", "offset": 0}))
         self.assertEqual("query_error", caught.exception.code)

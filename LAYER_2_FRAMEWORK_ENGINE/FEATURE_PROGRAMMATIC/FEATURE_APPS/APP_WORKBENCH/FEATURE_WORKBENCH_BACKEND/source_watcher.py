@@ -1,5 +1,5 @@
 # CA-R-2950@1
-# CA-M-465@16
+# CA-M-465@17
 # CA-M-490@1
 # CA-D-695@1
 
@@ -33,10 +33,12 @@ class SourceWatcher:
         self, root: Path, control_root: Path,
         *, observer_factory: Callable[[], Any] | None = None,
     ) -> None:
-        self._root = Path(root).resolve()
-        self._control_root = Path(control_root).resolve()
+        self._root = Path(root).absolute()
+        self._control_root = Path(control_root).absolute()
         if not self._control_root.is_relative_to(self._root):
             raise ValueError("Workbench sources must be inside the selected repository")
+        self._resolved_root = self._root.resolve()
+        self._resolved_control_root = self._control_root.resolve()
         self._observer_factory = observer_factory
         self._observer: Any = None
         self._changes: Queue[Change] = Queue()
@@ -88,10 +90,23 @@ class SourceWatcher:
         self._changes.put({"operation": operation, "old_path": old_path, "new_path": new_path})
 
     def _relative(self, path: str) -> str | None:
-        candidate = Path(path).resolve(strict=False)
-        if not candidate.is_relative_to(self._control_root):
+        candidate = Path(path)
+        if not candidate.is_absolute():
             return None
-        return candidate.relative_to(self._root).as_posix()
+        try:
+            relative = candidate.relative_to(self._control_root)
+            prefix = self._control_root.relative_to(self._root)
+        except ValueError:
+            try:
+                relative = candidate.resolve(strict=False).relative_to(
+                    self._resolved_control_root
+                )
+                prefix = self._resolved_control_root.relative_to(self._resolved_root)
+            except ValueError:
+                return None
+        if ".." in relative.parts:
+            return None
+        return (prefix / relative).as_posix()
 
     def _created(self, path: str) -> None:
         if relative := self._relative(path):
@@ -102,7 +117,7 @@ class SourceWatcher:
         directory = Path(path).resolve(strict=False)
         if self._observer is None or directory in self._watched_directories:
             return
-        if directory.is_dir() and directory.is_relative_to(self._control_root):
+        if directory.is_dir() and directory.is_relative_to(self._resolved_control_root):
             watch = self._observer.schedule(_Handler(self), str(directory), recursive=False)
             self._watched_directories[directory] = watch
 
@@ -153,19 +168,19 @@ class _Handler(FileSystemEventHandler):
         self._watcher = watcher
 
     def on_created(self, event: Any) -> None:
-        self._watcher._created(event.src_path)
-        if event.is_directory:
+        # Docker bind mounts can report a new directory as a file.
+        if event.is_directory or Path(event.src_path).is_dir():
             self._watcher._watch_directory_tree(event.src_path)
+        self._watcher._created(event.src_path)
 
     def on_modified(self, event: Any) -> None:
         self._watcher._modified(event.src_path, event.is_directory)
 
     def on_deleted(self, event: Any) -> None:
         self._watcher._deleted(event.src_path)
-        if event.is_directory:
-            self._watcher._unwatch_directory(event.src_path)
+        self._watcher._unwatch_directory(event.src_path)
 
     def on_moved(self, event: Any) -> None:
-        self._watcher._moved(event.src_path, event.dest_path)
-        if event.is_directory:
+        if event.is_directory or Path(event.dest_path).is_dir():
             self._watcher._watch_directory_tree(event.dest_path)
+        self._watcher._moved(event.src_path, event.dest_path)

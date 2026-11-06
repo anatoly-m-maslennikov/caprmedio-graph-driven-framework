@@ -1,16 +1,15 @@
 # CA-E-676@11
-# CA-E-677@8
+# CA-E-677@12
 # CA-R-2950@1
 # CA-R-2952@1
-# CA-M-465@13
+# CA-M-465@17
 # CA-M-490@1
 # CA-M-491@1
 # CA-D-695@1
 # CA-D-696@1
-# CA-E-780@1
+# CA-E-780@4
 # CA-E-781@1
 # CA-M-472@1
-
 """Service failures stop this owner rather than retrying its startup."""
 
 from contextlib import redirect_stderr
@@ -31,11 +30,12 @@ class ServiceTests(unittest.TestCase):
 
     def test_failed_startup_is_reported_once_and_not_retried(self):
         with (
+            tempfile.TemporaryDirectory() as directory,
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", side_effect=RuntimeError("extension unavailable")) as connect,
             redirect_stderr(StringIO()) as errors,
         ):
-            service = WorkbenchService(Path.cwd())
+            service = WorkbenchService(Path(directory))
             for _ in range(2):
                 with self.assertRaisesRegex(WorkbenchUnavailableError, "restart required"):
                     service.run("SELECT 1")
@@ -104,7 +104,7 @@ class ServiceTests(unittest.TestCase):
             unittest.mock.call(change_log, [event]),
             unittest.mock.call(change_log),
         ])
-        service._refresh.assert_called_once()
+        service._refresh.assert_called_once_with([event])
 
     def test_start_rehydrates_the_log_before_serving(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):

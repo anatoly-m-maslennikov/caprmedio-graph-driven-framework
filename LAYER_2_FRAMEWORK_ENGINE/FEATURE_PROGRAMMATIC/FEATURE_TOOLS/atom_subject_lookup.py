@@ -195,7 +195,7 @@ def _verify_current_identities(root: Path, identities: set[str], paths: list[Pat
             continue
         raw = reader.read(path)
         try:
-            metadata = parse_carrier(raw, path).metadata
+            metadata = carrier_read_view(parse_carrier(raw, path).metadata)
         except CarrierError:
             normalized = raw.replace(b"\r\n", b"\n")
             header = (normalized.split(b"\n---\n", 1)[0] if normalized.startswith(b"---\n") else b"").decode("utf-8", errors="replace")

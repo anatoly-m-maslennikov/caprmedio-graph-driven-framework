@@ -11,6 +11,7 @@ from typing import Any
 import yaml
 
 from atom_operations import ATOM_ID, ROLE_DIRECTORY, ToolError
+from carrier_aliases import carrier_read_view
 from project_selection import ProjectSelection, ProjectSelectionError, active_selection
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext, open_regular
@@ -49,7 +50,7 @@ def _hint(root: Path, atom_id: str, reference: str | Path, reader: ReadContext) 
     if not path.exists() and not path.is_symlink():
         return None
     try:
-        metadata = parse_carrier(reader.read(path), path).metadata
+        metadata = carrier_read_view(parse_carrier(reader.read(path), path).metadata)
     except (OSError, RuntimeError, ValueError, CarrierError) as error:
         raise CurrentAtomLocatorError("atom-path-unavailable", "Atom path hint is present but cannot be safely read") from error
     if metadata.get("atom_id") != atom_id:
@@ -137,7 +138,7 @@ def _read_records(candidates: set[Path], reader: ReadContext) -> _IdentityRecord
             continue
         try:
             raw = reader.read(candidate)
-            records.append((candidate, filename_id, parse_carrier(raw, candidate).metadata, None))
+            records.append((candidate, filename_id, carrier_read_view(parse_carrier(raw, candidate).metadata), None))
         except CarrierError:
             records.append((candidate, filename_id, None, raw))
     return tuple(records)

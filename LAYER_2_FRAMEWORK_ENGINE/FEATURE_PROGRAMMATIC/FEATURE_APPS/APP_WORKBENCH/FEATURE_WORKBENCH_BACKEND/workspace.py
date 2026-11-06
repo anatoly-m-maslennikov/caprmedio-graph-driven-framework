@@ -1,8 +1,8 @@
 # CA-R-2792@2
 # CA-R-2793@2
-# CA-R-2902@2
-# CA-M-476@2
-# CA-D-681@4
+# CA-R-2902@4
+# CA-M-476@4
+# CA-D-681@8
 
 """Persistent Workspace documents; result tables remain process-local."""
 
@@ -135,6 +135,32 @@ class WorkspaceStore:
         if value is not None and value.strip():
             view["name"] = value
         document["views"].insert(0 if position == "first" else len(document["views"]), view)
+        document["active_view_id"] = view_id
+        self._write(document)
+        return self._state(document) | {"view_id": view_id}
+
+    def duplicate(self, workspace_id: object, view_id: object) -> dict[str, Any]:
+        document = self._read(workspace_id)
+        source = self._view(document, view_id)
+        source_index = document["views"].index(source)
+        display_names = {
+            view.get("name") if isinstance(view.get("name"), str) and view["name"].strip()
+            else f"View {index + 1}"
+            for index, view in enumerate(document["views"])
+        }
+        base_name = source.get("name") if isinstance(source.get("name"), str) and source["name"].strip() else f"View {source_index + 1}"
+        suffix = 1
+        while f"{base_name}({suffix})" in display_names:
+            suffix += 1
+        view_id = str(uuid.uuid7())
+        duplicate = {
+            "id": view_id,
+            "sql": source["sql"],
+            "cursor_position": source["cursor_position"],
+            "revision": 0,
+            "name": f"{base_name}({suffix})",
+        }
+        document["views"].insert(source_index + 1, duplicate)
         document["active_view_id"] = view_id
         self._write(document)
         return self._state(document) | {"view_id": view_id}

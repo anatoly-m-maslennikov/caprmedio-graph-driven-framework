@@ -5,6 +5,8 @@ from __future__ import annotations
 import hashlib
 from copy import deepcopy
 from pathlib import Path
+
+from carrier_aliases import carrier_read_view
 from typing import Any, Iterable
 
 from .parsing import CarrierError, parse_carrier
@@ -47,8 +49,9 @@ def _source_for(root: Path, atom_id: str, entry: Record) -> tuple[Path, Record]:
             parsed = parse_carrier(candidate.read_bytes(), candidate)
         except (OSError, CarrierError):
             continue
-        if parsed.metadata.get("atom_id") == atom_id and parsed.metadata.get("status") in {"Active", "active"}:
-            candidates.append((candidate, parsed.metadata))
+        metadata = carrier_read_view(parsed.metadata)
+        if metadata.get("atom_id") == atom_id and metadata.get("status") in {"Active", "active"}:
+            candidates.append((candidate, metadata))
     if len(candidates) != 1:
         noun = "ambiguous" if candidates else "absent"
         raise ValueError("active source is " + noun + ": " + atom_id)

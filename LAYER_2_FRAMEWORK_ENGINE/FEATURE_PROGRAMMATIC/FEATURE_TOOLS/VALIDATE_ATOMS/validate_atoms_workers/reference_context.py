@@ -1,6 +1,8 @@
 """Bounded reference context, separate from selected validation targets."""
 
 from pathlib import Path
+
+from carrier_aliases import carrier_read_view
 from typing import Any
 
 from .parsing import CarrierError, parse_carrier
@@ -13,7 +15,7 @@ def _load_reference(
     if str(path) in cached:
         return cached[str(path)]
     parsed = parse_carrier(reader.read(path), path)
-    return dict(path=path, metadata=parsed.metadata, parsed=parsed)
+    return dict(path=path, metadata=carrier_read_view(parsed.metadata), parsed=parsed)
 
 
 def references(
@@ -22,7 +24,7 @@ def references(
     existing: list[dict[str, Any]],
     sources: list[dict[str, Any]],
 ) -> tuple[list[dict[str, Any]], bool]:
-    cached = {str(row["path"]): dict(row, metadata=dict(row["metadata"])) for row in existing}
+    cached = {str(row["path"]): dict(row, metadata=carrier_read_view(row["metadata"])) for row in existing}
     roots = request.get("reference_roots", [])
     explicit_frontier = bool(roots)
     # Selected carriers arrive as ``existing`` because assessment has already
@@ -35,7 +37,7 @@ def references(
     for source in sources:
         path = Path(source["binding"]["path"])
         row = rows.setdefault(
-            str(path), dict(path=path, metadata=dict(source["metadata"]), text=source["text"])
+            str(path), dict(path=path, metadata=carrier_read_view(source["metadata"]), text=source["text"])
         )
         row["binding"] = source["binding"]
         # Supplied exact authority identity is reference context, never a repair

@@ -12,6 +12,8 @@ import re
 from functools import lru_cache
 from dataclasses import fields, is_dataclass, replace
 from pathlib import Path
+
+from carrier_aliases import carrier_read_view
 from typing import cast
 
 from authoritative_status_models import StatusModelError, resolve_status_model
@@ -98,7 +100,8 @@ def _records(check: Check, metadata: Record | None = None) -> list[Record]:
     for ref in _inputs(check).get("references", []):
         _checkpoint(check)
         if isinstance(ref.get("metadata"), dict):
-            records.setdefault(str(ref.get("path", id(ref))), ref)
+            records.setdefault(str(ref.get("path", id(ref))),
+                               dict(ref, metadata=carrier_read_view(ref["metadata"])))
     for source in _inputs(check).get("sources", []):
         _checkpoint(check)
         binding = source.get("binding", {})
@@ -107,7 +110,7 @@ def _records(check: Check, metadata: Record | None = None) -> list[Record]:
             record["path"] = Path(binding["path"])
             # An explicit, admitted source binding supplies source identity; a
             # filename never supplies a missing target property.
-            record["metadata"] = dict(source["metadata"])
+            record["metadata"] = carrier_read_view(source["metadata"])
             record["metadata"].setdefault("atom_id", binding.get("atom_id"))
             record["metadata"].setdefault("version", binding.get("version"))
             records.setdefault(str(record["path"]), record)

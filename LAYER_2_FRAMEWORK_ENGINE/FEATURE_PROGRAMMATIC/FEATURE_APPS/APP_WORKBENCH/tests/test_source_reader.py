@@ -1,7 +1,6 @@
 # CA-E-750@1
-# CA-E-675@5
-# CA-E-677@7
-
+# CA-E-675@6
+# CA-E-677@12
 from __future__ import annotations
 
 from contextlib import redirect_stderr
@@ -86,6 +85,7 @@ class SourceReaderTests(unittest.TestCase):
         atom_id: str,
         status: str = "Active",
         version: int = 1,
+        form: str = "Definition",
         body: str = "# Summary\n\nFixture source.\n",
         parts: tuple[str, ...] = (),
     ) -> Path:
@@ -94,7 +94,7 @@ class SourceReaderTests(unittest.TestCase):
             "---\n"
             f'atom_id: "{atom_id}"\n'
             'role: "Requirement"\n'
-            'form: "Definition"\n'
+            f'form: "{form}"\n'
             f'status: "{status}"\n'
             f"version: {version}\n"
             'updated_at: "2026-11-04 00:00:00 +0000"\n'
@@ -314,6 +314,11 @@ class SourceReaderTests(unittest.TestCase):
         self.assertEqual(self.reader.excluded_count, 1)
 
     def test_duplicate_declared_content_property_is_excluded(self) -> None:
+        self._write_atom(
+            "MAIN", "04_requirement", "CA-R-490-content-model.md", atom_id="CA-R-490",
+            form="Declaration",
+            body="## Claim\n\n```CFEL\n# model\nAtom.Content.Summary{::1}:: {::1};\n```\n",
+        )
         path = self._write_atom(
             "MAIN",
             "04_requirement",
@@ -602,6 +607,104 @@ class SourceReaderTests(unittest.TestCase):
             {path: content for path, content in self._snapshot_files().items() if path != destination},
             {path: content for path, content in before.items() if path != source},
         )
+
+    def test_watcher_changes_update_only_affected_sources(self) -> None:
+        source = self._write_atom("MAIN", "07_delivery", "changing.md", atom_id="CA-R-440")
+        self._capture()
+        source.write_text(
+            source.read_text(encoding="utf-8").replace("version: 1", "version: 2"),
+            encoding="utf-8",
+        )
+        created = self._write_atom("MAIN", "07_delivery", "created.md", atom_id="CA-R-441")
+        renamed = self._path("MAIN", "09_operations", "renamed.md")
+
+        with (
+            patch.object(
+                source_reader_module,
+                "read_scope_unit_declarations",
+                wraps=source_reader_module.read_scope_unit_declarations,
+            ) as declarations,
+            patch.object(self.reader, "_inventory_paths", wraps=self.reader._inventory_paths) as inventory,
+        ):
+            atoms, _scopes = self.reader.capture([{
+                "operation": "update", "old_path": None,
+                "new_path": source.relative_to(self.root).as_posix(),
+            }])
+            self.assertEqual(2, next(row["version"] for row in atoms if row["id"] == "CA-R-440"))
+            atoms, _scopes = self.reader.capture([{
+                "operation": "create", "old_path": None,
+                "new_path": created.relative_to(self.root).as_posix(),
+            }])
+            self.assertIn("CA-R-441", {row["id"] for row in atoms})
+            source.rename(renamed)
+            atoms, _scopes = self.reader.capture([{
+                "operation": "rename",
+                "old_path": source.relative_to(self.root).as_posix(),
+                "new_path": renamed.relative_to(self.root).as_posix(),
+            }])
+            self.assertIn(renamed.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms})
+            renamed.unlink()
+            atoms, _scopes = self.reader.capture([{
+                "operation": "remove",
+                "old_path": renamed.relative_to(self.root).as_posix(), "new_path": None,
+            }])
+
+        self.assertNotIn("CA-R-440", {row["id"] for row in atoms})
+        declarations.assert_not_called()
+        inventory.assert_not_called()
+
+    def test_watcher_declaration_change_rechecks_the_declaration_snapshot(self) -> None:
+        self._capture()
+        declaration = Path(self.declarations["MAIN"]["declaration_path"])
+        declaration.write_text(
+            declaration.read_text(encoding="utf-8").replace(
+                'atom_id: "CA-R-990001"',
+                'atom_id: "CA-R-990001"\natom_id: "CA-R-990099"',
+            ),
+            encoding="utf-8",
+        )
+
+        with patch.object(
+            source_reader_module,
+            "read_scope_unit_declarations",
+            wraps=source_reader_module.read_scope_unit_declarations,
+        ) as declarations, self.assertRaises(ScopeDeclarationError):
+            self.reader.capture([{
+                "operation": "update", "old_path": None,
+                "new_path": declaration.relative_to(self.root).as_posix(),
+            }])
+
+        declarations.assert_called_once()
+
+    def test_watcher_draft_declaration_does_not_recheck_current_declarations(self) -> None:
+        declaration = Path(self.declarations["MAIN"]["declaration_path"])
+        draft = declaration.parent / "draft" / "scope-declaration.md"
+        draft.parent.mkdir()
+        draft.write_text(
+            declaration.read_text(encoding="utf-8")
+            .replace('atom_id: "CA-R-990001"', 'atom_id: "CA-R-990001@2-draft"')
+            .replace("version: 1", "version: 2")
+            .replace('status: "Active"', 'status: "Draft"'),
+            encoding="utf-8",
+        )
+        self._capture()
+        draft.write_text(
+            draft.read_text(encoding="utf-8").replace("version: 2", "version: 3"),
+            encoding="utf-8",
+        )
+
+        with patch.object(
+            source_reader_module,
+            "read_scope_unit_declarations",
+            wraps=source_reader_module.read_scope_unit_declarations,
+        ) as declarations:
+            _atoms, scopes = self.reader.capture([{
+                "operation": "update", "old_path": None,
+                "new_path": draft.relative_to(self.root).as_posix(),
+            }])
+
+        self.assertEqual(len(self.declarations), len(scopes))
+        declarations.assert_not_called()
 
 
 if __name__ == "__main__":

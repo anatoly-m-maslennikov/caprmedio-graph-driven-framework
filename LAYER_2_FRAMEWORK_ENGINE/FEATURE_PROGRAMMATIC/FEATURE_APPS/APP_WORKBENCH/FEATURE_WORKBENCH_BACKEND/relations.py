@@ -1,9 +1,9 @@
 # CA-R-2723@3
-# CA-R-2724@2
-# CA-R-2725@2
-# CA-M-464@7
-# CA-M-465@10
-# CA-D-672@9
+# CA-R-2724@3
+# CA-R-2725@3
+# CA-M-464@8
+# CA-M-465@17
+# CA-D-672@12
 
 """Materialize authored references and literal declared inverse bindings in memory."""
 
@@ -14,11 +14,19 @@ from collections.abc import Mapping
 import datetime as dt
 import hashlib
 import json
+from pathlib import Path
 import re
 import sys
 from typing import Any
 
 from markdown_it import MarkdownIt
+
+
+TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+
+from carrier_aliases import carrier_read_view  # noqa: E402
 
 ATOM = "Atom"
 SCOPE = "Scope Unit"
@@ -49,7 +57,7 @@ def canonical(value: Any) -> str:
 
 
 def _subjects(header: Mapping[str, Any]) -> list[str]:
-    subjects = header.get("subjects", {})
+    subjects = carrier_read_view(dict(header)).get("subjects", {})
     active = subjects.get("active", subjects.get("governs", [])) if isinstance(subjects, dict) else []
     if isinstance(active, str):
         return [active]
@@ -108,6 +116,7 @@ def _unambiguous_inverses(bindings: list[tuple[str, str]]) -> dict[str, str]:
 def relation_registry(atoms: list[dict[str, Any]]) -> tuple[set[str], dict[str, str]]:
     """Project only literal Relation metadata, without evaluating CFEL formulas."""
     registered: set[str] = set()
+    origins: dict[str, set[str]] = defaultdict(set)
     bindings = []
     for row in atoms:
         if row["status_group"] != "Current" or row["role"] != "Requirement":
@@ -117,10 +126,61 @@ def relation_registry(atoms: list[dict[str, Any]]) -> tuple[set[str], dict[str, 
         names = {name for subject in _subjects(row["header_json"]) for name in _RELATION.findall(subject)}
         if names:
             registered.update(names)
+            source = row.get("source_path")
+            for name in names:
+                if isinstance(source, str):
+                    origins[name].add(source)
             bindings.extend(_literal_bindings(row["content_markdown"]))
+    collisions = _case_collisions(registered, origins)
+    registered.difference_update(collisions)
+    _warn_colliding_uses(atoms, collisions)
     admitted = [(direct, derived) for direct, derived in bindings
                 if direct in registered and derived in registered]
     return registered, _unambiguous_inverses(admitted)
+
+
+def _case_collisions(
+    registered: set[str], origins: Mapping[str, set[str]],
+) -> set[str]:
+    names_by_case: dict[str, set[str]] = defaultdict(set)
+    for name in registered:
+        names_by_case[name.casefold()].add(name)
+    collisions = set()
+    for names in sorted(names_by_case.values(), key=lambda value: sorted(value)):
+        if len(names) < 2:
+            continue
+        collisions.update(names)
+        detail = "; ".join(
+            f"{name}: {', '.join(sorted(origins.get(name, ()) or ('<unknown>',)))}"
+            for name in sorted(names)
+        )
+        print(
+            "Workbench: ambiguous Relation definitions differ only by case: "
+            f"{', '.join(sorted(names))}; sources: {detail}; links skipped",
+            file=sys.stderr,
+        )
+    return collisions
+
+
+def _warn_colliding_uses(atoms: list[dict[str, Any]], collisions: set[str]) -> None:
+    variants_by_case: dict[str, list[str]] = defaultdict(list)
+    for name in collisions:
+        variants_by_case[name.casefold()].append(name)
+    for row in atoms:
+        relations = row.get("header_json", {}).get("relations", {})
+        if not isinstance(relations, dict):
+            continue
+        source = row.get("source_path")
+        if not isinstance(source, str):
+            continue
+        for name in sorted(key for key in relations if isinstance(key, str)):
+            variants = variants_by_case.get(name.casefold())
+            if variants:
+                print(
+                    f"Workbench: {source}: ambiguous registered Relation {name}; "
+                    f"candidates: {', '.join(sorted(variants))}; link skipped",
+                    file=sys.stderr,
+                )
 
 
 def _relation_name(value: str, registered: set[str], source_path: str | None = None) -> str | None:
@@ -168,9 +228,9 @@ def _direct_facts(atoms, scopes, registered):
     for row in atoms:
         if row["ref"] is None:
             continue
-        scope_name = scope_references.get(row["current_scope_unit"])
-        if containment and scope_name:
-            yield ATOM, row["ref"], containment, SCOPE, scope_name
+        container_kind, container_ref = _container(row, scope_references)
+        if containment and container_kind is not None and container_ref is not None:
+            yield ATOM, row["ref"], containment, container_kind, container_ref
         relations = row["header_json"].get("relations", {})
         if not isinstance(relations, dict):
             continue
@@ -179,6 +239,21 @@ def _direct_facts(atoms, scopes, registered):
             if relation:
                 for kind, ref in _targets(values, scope_references):
                     yield ATOM, row["ref"], relation, kind, ref
+
+
+def _container(
+    row: Mapping[str, Any], scope_references: Mapping[str, str],
+) -> tuple[str | None, str | None]:
+    container = carrier_read_view(dict(row["header_json"])).get("container")
+    if isinstance(container, Mapping):
+        scope = container.get("scope_unit")
+        if isinstance(scope, str):
+            return SCOPE, scope_references.get(scope, scope)
+        atom = container.get("atom")
+        if isinstance(atom, str):
+            return ATOM, atom
+    legacy = row.get("current_scope_unit")
+    return (SCOPE, scope_references.get(legacy, legacy)) if isinstance(legacy, str) else (None, None)
 
 
 def _edge(fact, derived: bool) -> dict[str, Any]:

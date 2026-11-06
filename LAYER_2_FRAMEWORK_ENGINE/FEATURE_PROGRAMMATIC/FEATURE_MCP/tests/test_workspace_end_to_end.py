@@ -1,5 +1,5 @@
-# CA-E-684@3
-# CA-D-681@5
+# CA-E-684@7
+# CA-D-681@9
 # CA-E-781@1
 # CA-D-696@1
 
@@ -108,9 +108,15 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
         async with self.session() as (session, _client):
             descriptors = {tool.name: tool for tool in (await session.list_tools()).tools}
             uri = descriptors["workbench_ui_probe"].meta["ui"]["resourceUri"]
+            self.assertEqual(
+                {"ui": {"resourceUri": "ui://caprmedio/workbench.html"}},
+                descriptors["workspace_open"].meta,
+            )
             self.assertIsNone(descriptors["workbench_ui_ping"].meta)
             resources = (await session.list_resources()).resources
-            self.assertIn(uri, [resource.uri for resource in resources])
+            resource_uris = [resource.uri for resource in resources]
+            self.assertIn(uri, resource_uris)
+            self.assertIn("ui://caprmedio/workbench.html", resource_uris)
             contents = (await session.read_resource(uri)).contents
             self.assertEqual("text/html;profile=mcp-app", contents[0].mime_type)
             self.assertIn("ui/initialize", contents[0].text)
@@ -168,7 +174,14 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
         async with self.session() as (session, client):
             opened = await self.tool(session, "workspace_open", {"session_id": "native-session"})
             self.assertEqual("native-session", opened["workspace_id"])
+            self.assertEqual("fixture", opened["project_name"])
+            self.assertNotEqual(self.root.name, opened["project_name"])
             self.assertIn("?workspace=native-session", opened["workspace_url"])
+            native_state = await self.tool(session, "workspace_get", {"workspace_id": opened["workspace_id"]})
+            self.assertEqual("fixture", native_state["project_name"])
+            http_open = await self.interface_call(client, "workspace_open", {"session_id": "native-session"})
+            self.assertEqual(200, http_open.status_code, http_open.text)
+            self.assertEqual("fixture", http_open.json()["project_name"])
             first = opened["active_view_id"]
             created = await self.tool(session, "view_create", {
                 "workspace_id": opened["workspace_id"], "position": "last",
@@ -176,7 +189,7 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             view = created["view_id"]
             updated = await self.tool(session, "view_update", {
                 "workspace_id": opened["workspace_id"], "view_id": view,
-                "sql": "SELECT id FROM atoms WHERE id = 'CA-R-684'", "expected_revision": 0,
+                "sql": "SELECT reference FROM atoms WHERE reference = 'CA-R-684'", "expected_revision": 0,
             })
             self.assertEqual(1, updated["revision"])
             run = await self.tool(session, "view_run", {
@@ -195,8 +208,79 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             http = await self.interface_call(client, "workspace_get", {"workspace_id": opened["workspace_id"]})
             self.assertEqual(200, http.status_code, http.text)
             state = http.json()
+            self.assertEqual("fixture", state["project_name"])
+            self.assertNotEqual(self.root.name, state["project_name"])
             self.assertEqual(first, state["active_view_id"])
             self.assertEqual({item["id"] for item in created["views"]}, {item["id"] for item in state["views"]})
+            workspace_files = list((self.root / ".caprmedio_runtime" / "workbench" / "workspaces").glob("*.json"))
+            self.assertEqual(1, len(workspace_files))
+            self.assertNotIn("project_name", workspace_files[0].read_text(encoding="utf-8"))
+
+    async def test_view_duplicate_has_strict_mcp_http_parity_without_execution(self) -> None:
+        async with self.session() as (session, client):
+            opened = await self.tool(session, "workspace_open", {"session_id": "duplicate"})
+            workspace_id, source_id = opened["workspace_id"], opened["active_view_id"]
+            await self.tool(session, "view_update", {
+                "workspace_id": workspace_id, "view_id": source_id,
+                "sql": "SELECT 42", "cursor_position": 7, "expected_revision": 0,
+            })
+            await self.tool(session, "view_rename", {
+                "workspace_id": workspace_id, "view_id": source_id, "name": "Report",
+            })
+            await self.tool(session, "view_create", {
+                "workspace_id": workspace_id, "position": "last", "name": "Report(1)",
+            })
+            await self.tool(session, "view_create", {
+                "workspace_id": workspace_id, "position": "last", "name": "Report(3)",
+            })
+            logs_before = await self.tool(session, "query_log_list", {"limit": 1000})
+
+            duplicate = await self.tool(session, "view_duplicate", {
+                "workspace_id": workspace_id, "view_id": source_id,
+            })
+            duplicate_id = duplicate["view_id"]
+            self.assertEqual(duplicate_id, duplicate["active_view_id"])
+            self.assertEqual(
+                [source_id, duplicate_id],
+                [item["id"] for item in duplicate["views"][:2]],
+            )
+            duplicate_view = await self.tool(session, "view_get", {
+                "workspace_id": workspace_id, "view_id": duplicate_id,
+            })
+            self.assertEqual("SELECT 42", duplicate_view["sql"])
+            self.assertEqual(7, duplicate_view["cursor_position"])
+            self.assertEqual(0, duplicate_view["revision"])
+            self.assertNotIn("result", duplicate_view)
+            self.assertEqual("Report(2)", duplicate_view["name"])
+            self.assertEqual(logs_before, await self.tool(session, "query_log_list", {"limit": 1000}))
+
+            http_duplicate = await self.interface_call(client, "view_duplicate", {
+                "workspace_id": workspace_id, "view_id": source_id,
+            })
+            self.assertEqual(200, http_duplicate.status_code, http_duplicate.text)
+            http_state_response = await self.interface_call(client, "workspace_get", {
+                "workspace_id": workspace_id,
+            })
+            self.assertEqual(200, http_state_response.status_code, http_state_response.text)
+            http_state = http_state_response.json()
+            self.assertEqual(http_duplicate.json()["view_id"], http_state["active_view_id"])
+            self.assertEqual(
+                http_state,
+                await self.tool(session, "workspace_get", {"workspace_id": workspace_id}),
+            )
+
+            invalid_mcp = await session.call_tool("view_duplicate", {
+                "workspace_id": workspace_id, "view_id": source_id, "unexpected": True,
+            })
+            self.assertTrue(invalid_mcp.is_error)
+            invalid_http = await self.interface_call(client, "view_duplicate", {
+                "workspace_id": workspace_id, "view_id": source_id, "unexpected": True,
+            })
+            self.assertEqual(400, invalid_http.status_code)
+            self.assertEqual(
+                http_state,
+                await self.tool(session, "workspace_get", {"workspace_id": workspace_id}),
+            )
 
     async def test_workspaces_are_isolated_and_guarded_by_ids_and_revisions(self) -> None:
         async with self.session() as (session, client):

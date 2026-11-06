@@ -22,12 +22,13 @@ import yaml
 from yaml.nodes import MappingNode, Node, ScalarNode, SequenceNode
 
 from carrier_aliases import carrier_read_view
+from header_yaml import header_scalar_node
 from subject_notation import (
     GrammarPin, GrammarSource, SubjectNotationError, get_profile, parse_subject_expression, profile_evidence,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
-from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import CarrierValidationScope
+from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import CarrierPredecessor, CarrierValidationScope
 
 
 _SHA256 = re.compile(r"[0-9a-f]{64}")
@@ -76,7 +77,7 @@ class _IdentityParseCache:
         cached = self.entries.get(path)
         if cached is None or cached[0] != raw:
             try:
-                result = operations.parse_carrier(raw, path).metadata
+                result = carrier_read_view(operations.parse_carrier(raw, path).metadata)
             except operations.CarrierError as error:
                 result = (error.code, str(error))
             self.entries[path] = (raw, result)
@@ -220,7 +221,8 @@ def prepare_subject_intent(
                                  source_evidence=source_evidence)
     if _canonical(operations, dict(target_descriptor)) != _canonical(operations, prepared["subject_intent"]["target"]):
         _fail(operations, "subject-target-stale", "Subject target descriptor does not match the captured carrier")
-    _validate_complete(operations, project_root, plan["path"], prepared["proposed"]["frontmatter"], prepared["proposed"]["content"], require_full=transition)
+    _validate_complete(operations, project_root, plan["path"], prepared["proposed"]["frontmatter"], prepared["proposed"]["content"], require_full=transition,
+                       predecessor=CarrierPredecessor(plan["path"], plan["before_sha256"]))
     _assert_snapshot_current(operations, project_root, plan["snapshot"], plan["selector"])
     from subject_batch_authorization import active_batch_target
     if not active_batch_target(project_root, target_descriptor):
@@ -393,7 +395,7 @@ def _capture_grammar(operations: Any, root: Path, profile: Any) -> tuple[_Source
 def _captured_profile_evidence(operations: Any, profile: Any, snapshots: Sequence[_SourceSnapshot]) -> dict[str, Any]:
     pins = []
     for source, snapshot in zip(profile.grammar_pins, snapshots, strict=True):
-        metadata = operations.parse_carrier(snapshot.raw, snapshot.path).metadata
+        metadata = carrier_read_view(operations.parse_carrier(snapshot.raw, snapshot.path).metadata)
         pins.append(GrammarPin(source.atom_id, metadata["version"], snapshot.relative_path, hashlib.sha256(snapshot.raw).hexdigest()))
     return profile_evidence(profile.name, grammar_pins=pins)
 
@@ -666,7 +668,8 @@ def _plan_item(  # noqa: C901 - pinned preflight is intentionally all-or-nothing
     # A preview may never turn an invalid source into an apparently valid
     # proposal through its allowed Version/Updated At metadata changes.
     if validate_source_complete:
-        _validate_complete(operations, root, path, frontmatter, body, validation_scope=validation_scope)
+        _validate_complete(operations, root, path, frontmatter, body, validation_scope=validation_scope,
+                           predecessor=CarrierPredecessor(path, digest))
 
     selectors.add(selector)
     atom_ids.add(atom_id)
@@ -833,9 +836,12 @@ def _mapping_entries(operations: Any, node: MappingNode, label: str) -> dict[str
 
 
 def _subjects_node(operations: Any, document: MappingNode) -> MappingNode:
-    node = _mapping_entries(operations, document, "frontmatter").get("subjects")
+    entries = _mapping_entries(operations, document, "frontmatter")
+    context = entries.get("context")
+    topics = _mapping_entries(operations, context, "context").get("topics") if isinstance(context, MappingNode) else entries.get("topics")
+    node = topics if topics is not None else entries.get("subjects")
     if not isinstance(node, MappingNode):
-        _fail(operations, "subject-shape-invalid", "subjects must be one flat mapping")
+        _fail(operations, "subject-shape-invalid", "Subjects or Topics must be one flat mapping")
     return node
 
 
@@ -845,11 +851,11 @@ def _subject_scalars(operations: Any, subjects: MappingNode) -> tuple[ScalarNode
         carrier_read_view({"subjects": yaml.safe_load(yaml.serialize(subjects))})
     except (ValueError, yaml.YAMLError) as error:
         raise operations.ToolError("subject-shape-invalid", "Conflicting or invalid Subject aliases") from error
-    governs = entries.get("active", entries.get("governs"))
+    governs = entries.get("main_subject", entries.get("active", entries.get("governs")))
     if not isinstance(governs, ScalarNode):
         _fail(operations, "subject-shape-invalid", "subjects.governs must be one direct scalar")
     _valid_scalar_node(operations, governs, "subjects.governs")
-    dependencies_node = entries.get("passive", entries.get("depends_on"))
+    dependencies_node = entries.get("dependencies", entries.get("passive", entries.get("depends_on")))
     if dependencies_node is None:
         return governs, []
     if not isinstance(dependencies_node, SequenceNode):
@@ -872,7 +878,10 @@ def _valid_scalar_node(operations: Any, node: ScalarNode, label: str) -> None:
 
 
 def _top_level_scalar(operations: Any, document: MappingNode, name: str, *, require_string: bool) -> ScalarNode:
-    node = _mapping_entries(operations, document, "frontmatter").get(name)
+    try:
+        node = header_scalar_node(document, name)
+    except ValueError as error:
+        raise operations.ToolError("subject-carrier-invalid", str(error)) from error
     if not isinstance(node, ScalarNode):
         _fail(operations, "subject-carrier-invalid", f"{name} must be one direct scalar")
     if require_string:
@@ -896,6 +905,7 @@ def _snapshot_identity(
         _fail(operations, "atom-not-active", "Subject patch source must be a non-Draft, non-archived original Atom carrier", {"selector": selector})
     if "projection" in metadata:
         _fail(operations, "subject-selector-projection", "Subject selector cannot address a projection carrier")
+    metadata = carrier_read_view(dict(metadata))
     atom_id = metadata.get("atom_id")
     if not isinstance(atom_id, str) or re.fullmatch(r"CA-[CAPRMEDO]-[0-9]+", atom_id) is None:
         _fail(operations, "subject-identity-invalid", "Subject patch source must have one valid stable Atom identity")
@@ -924,7 +934,7 @@ def _plan_dependency_set(operations: Any, patch: Mapping[str, Any], subjects: Ma
         if len(set(values)) != len(values):
             _fail(operations, "subject-dependency-duplicate", "Complete dependency sets must contain unique values")
     entries = _mapping_entries(operations, subjects, "subjects")
-    node = entries.get(key or ("passive" if "passive" in entries else "depends_on"))
+    node = entries.get(key or ("dependencies" if "dependencies" in entries else "passive" if "passive" in entries else "depends_on"))
     if not isinstance(node, SequenceNode):
         _fail(operations, "subject-shape-invalid", "Complete dependency replacement requires an existing list")
     if set(patch["old"]) != set(resulting_dependencies):
@@ -1052,7 +1062,8 @@ def _materialize_item(operations: Any, root: Path, item: Mapping[str, Any], illu
     proposed_frontmatter = _apply_replacements(item["frontmatter"], replacements)
     proposed_text = _replace_frontmatter(item["text"], item["frontmatter"], proposed_frontmatter)
     proposed_raw = proposed_text.encode("utf-8")
-    _validate_complete(operations, root, item["path"], proposed_frontmatter, item["body"], validation_scope=validation_scope)
+    _validate_complete(operations, root, item["path"], proposed_frontmatter, item["body"], validation_scope=validation_scope,
+                       predecessor=CarrierPredecessor(item["path"], item["before_sha256"]))
     after_sha256 = hashlib.sha256(proposed_raw).hexdigest()
     after_version = item["version"] if item["noop"] else item["version"] + 1
     return {
@@ -1101,16 +1112,16 @@ def _replace_frontmatter(text: str, before: str, after: str) -> str:
 
 def _validate_complete(operations: Any, root: Path, path: Path, frontmatter: str, body: str,
                        *, validation_scope: CarrierValidationScope | None = None,
-                       require_full: bool = False) -> None:
+                       require_full: bool = False, predecessor: CarrierPredecessor | None = None) -> None:
     from subject_batch_authorization import validate_batch_carrier
     try:
         if not require_full and validate_batch_carrier(root, path, frontmatter, body):
             return
         if validation_scope is None:
-            operations._validate_complete_carrier(root, path, frontmatter, body, creating=False)
+            operations._validate_complete_carrier(root, path, frontmatter, body, creating=False, predecessor=predecessor)
         else:
             operations._validate_complete_carrier(root, path, frontmatter, body, creating=False,
-                                                  validation_scope=validation_scope)
+                                                  validation_scope=validation_scope, predecessor=predecessor)
     except operations.ToolError:
         raise
     except Exception as error:

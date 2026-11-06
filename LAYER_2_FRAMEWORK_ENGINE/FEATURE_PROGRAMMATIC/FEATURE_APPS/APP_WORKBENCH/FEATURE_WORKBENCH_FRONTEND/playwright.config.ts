@@ -12,5 +12,5 @@ export default defineConfig({
   timeout: 120_000,
   workers: 1,
   retries: 0,
-  use: { baseURL, browserName: 'chromium', channel: 'chromium' },
+  use: { baseURL, browserName: 'chromium', channel: process.platform === 'darwin' ? 'chrome' : 'chromium' },
 });

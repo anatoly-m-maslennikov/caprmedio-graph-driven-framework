@@ -10,7 +10,7 @@
 # CA-R-2724@3
 # CA-M-490@1
 # CA-D-695@1
-# CA-M-465@16
+# CA-M-465@17
 # CA-D-675@13
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
@@ -28,12 +28,15 @@ from typing import Any
 
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .graph_store import quote_identifier
+from .header_columns import HeaderSchema, infer_header_schema, schema_asset_path
+from .content_schema import compile_content_schema, content_schema_asset_path
 from .projection_delta import ProjectionSnapshot, apply as apply_projection_delta, snapshot
 from .public_rows import insert_rows
 from .query_admission import is_duckdb_internal, is_one_tokenized_read_query
 from .result_columns import result_columns
 from .result_values import group_key, result_value
 from .result_view import Grid, build_page_query, ctas_source_sql, parse_grid, validate_columns
+from .query_schema import public_schema
 from .watcher_change_log import WatcherChangeLog, validate_change_record
 
 
@@ -94,6 +97,9 @@ class QueryStore:
         self._initialized = False
         self._results: dict[str, _Result] = {}
         self._projection: ProjectionSnapshot | None = None
+        self._header_schema = HeaderSchema(())
+        self._content_schema = compile_content_schema([])
+        self._schema_changed = False
         self._clear_startup_projection()
         self.replace([], [])
 
@@ -123,6 +129,8 @@ class QueryStore:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             try:
+                header_schema = infer_header_schema(atom_rows)
+                content_schema = compile_content_schema(atom_rows)
                 self._connection.execute("BEGIN TRANSACTION")
                 if self._initialized:
                     self._connection.execute("DROP PROPERTY GRAPH caprmedio")
@@ -131,11 +139,17 @@ class QueryStore:
                     self._connection.execute("DROP TABLE main.scope_units")
                 started = time.monotonic()
                 insert_rows(
-                    self._connection, atom_rows, scope_rows, relation_types=relation_types,
-                )  # type: ignore[no-untyped-call]
+                    self._connection, atom_rows, scope_rows, header_schema=header_schema,
+                    content_schema=content_schema, relation_types=relation_types,
+                )
                 self._connection.execute("COMMIT")
                 self._initialized = True
-                self._projection = snapshot(atom_rows, scope_rows, relation_types)
+                self._header_schema = header_schema
+                self._content_schema = content_schema
+                self._schema_changed = False
+                header_schema.write(schema_asset_path(self._database_path))
+                content_schema.write(content_schema_asset_path(self._database_path))
+                self._projection = snapshot(atom_rows, scope_rows, relation_types, header_schema, content_schema)
                 self._info_edit(
                     "replace", "projection", len(self._projection.atoms) + len(self._projection.scopes), started,
                 )
@@ -152,7 +166,8 @@ class QueryStore:
             suffix = f" reference={reference}" if reference is not None else ""
             print(
                 f"Workbench INFO database_edit operation={operation} table={table} "
-                f"row_count={row_count} elapsed_ms={elapsed_ms}{suffix}"
+                f"row_count={row_count} elapsed_ms={elapsed_ms}{suffix}",
+                flush=True,
             )
 
     def apply(
@@ -167,13 +182,23 @@ class QueryStore:
                 self.replace(atom_rows, scope_rows, relation_types=relation_types)
                 return True
             try:
+                header_schema = infer_header_schema(atom_rows)
+                content_schema = compile_content_schema(atom_rows)
+                self._schema_changed = (
+                    header_schema != self._header_schema or content_schema.shape != self._content_schema.shape
+                )
+                if self._schema_changed:
+                    return True
                 self._connection.execute("BEGIN TRANSACTION")
                 started = time.monotonic()
                 projection, change = apply_projection_delta(
                     self._connection, self._projection, atom_rows, scope_rows, relation_types,
+                    header_schema, content_schema,
                 )
                 self._connection.execute("COMMIT")
                 self._projection = projection
+                self._content_schema = content_schema
+                content_schema.write(content_schema_asset_path(self._database_path))
                 self._info_edit("delete", "atoms", change.deleted_atoms, started, change.reference)
                 self._info_edit("delete", "scope_units", change.deleted_scopes, started)
                 self._info_edit("insert", "atoms", change.inserted_atoms, started, change.reference)
@@ -187,6 +212,11 @@ class QueryStore:
                 self._available = False
                 print(f"query store refresh failed: {exc}", file=sys.stderr)
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
+
+    @property
+    def schema_changed(self) -> bool:
+        """Whether the last delta needs a complete source reread and table rebuild."""
+        return self._schema_changed
 
     @staticmethod
     def _change_log_rows(rows: object) -> list[dict[str, str | None]]:
@@ -335,7 +365,7 @@ class QueryStore:
             self._available = False
             print(f"query store unavailable: {exc}", file=sys.stderr)
             raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
-        result = {
+        response: dict[str, Any] = {
             "query_id": query_id,
             "sql": result.sql,
             "columns": result.columns,
@@ -356,8 +386,8 @@ class QueryStore:
                 if key not in seen:
                     seen.add(key)
                     groups.append({"value": value, "count": raw[-1]})
-            result["groups"] = groups
-        return result
+            response["groups"] = groups
+        return response
 
     def run(
         self, sql: str, page_size: int = 100, *, preview: int | None = None,
@@ -457,23 +487,7 @@ class QueryStore:
         with self._lock:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
-            tables: dict[str, list[dict[str, Any]]] = {}
-            for name in ("atoms", "scope_units", "change_log"):
-                rows = self._connection.execute(
-                    "SELECT column_name, data_type FROM information_schema.columns "
-                    "WHERE table_schema = 'main' AND table_name = ? ORDER BY ordinal_position",
-                    [name],
-                ).fetchall()
-                tables[name] = [{"name": column, "type": data_type} for column, data_type in rows]
-            statuses = [
-                value[0]
-                for value in self._connection.execute(
-                    "SELECT DISTINCT status FROM main.atoms WHERE status IS NOT NULL ORDER BY status"
-                ).fetchall()
-            ]
-            if statuses:
-                next(column for column in tables["atoms"] if column["name"] == "status")["values"] = statuses
-            return {"tables": tables}
+            return public_schema(self._connection, self._header_schema)
 
     def close(self) -> None:
         with self._lock:

@@ -112,6 +112,50 @@ class ArtifactMetadataTest(unittest.TestCase):
                 self.assertIn(f'updated_at = "{timestamp}"', frontmatter)
                 self.assertEqual(timestamp, tomllib.loads(frontmatter)["updated_at"])
 
+    def test_nested_atom_revision_changes_only_state_scalars(self) -> None:
+        source = ("identity:\n  atom_id: CA-P-701\n  ref_id: PLAN-701\n"
+                  "context:\n  role: Plan\n  form: Plan\n"
+                  "state:\n  status: Active\n  version: 2\n  updated_at: \"old time\"\n"
+                  "destination:\n  file:\n    name: plan.md\n    path: plans/plan.md")
+        timestamp = "2026-10-11 12:34:56 +0000"
+        revised = metadata.update_atom(source, "---", timestamp, new=False)
+        self.assertEqual(source.replace("version: 2", "version: 3").replace("old time", timestamp), revised)
+        self.assertEqual("CA-P-701", metadata.one_value(revised, "---", "atom_id"))
+        self.assertEqual("3", metadata.one_value(revised, "---", "version"))
+        self.assertNotIn("version", yaml.safe_load(revised))
+
+    def test_new_nested_atom_initializes_state_without_flat_copy(self) -> None:
+        source = "identity:\n  atom_id: CA-P-701\ncontext:\n  role: Plan\nstate:\n  status: Draft"
+        timestamp = "2026-10-11 12:34:56 +0000"
+        result = yaml.safe_load(metadata.update_atom(source, "---", timestamp, new=True))
+        self.assertEqual({"status": "Draft", "version": 1, "updated_at": timestamp}, result["state"])
+        self.assertNotIn("version", result)
+        self.assertNotIn("updated_at", result)
+
+    def test_flat_initialization_keeps_revision_fields_before_session_ids(self) -> None:
+        source = "status: Draft\nllm_session_ids:\n  - session-1"
+        timestamp = "2026-10-11 12:34:56 +0000"
+        result = metadata.update_atom(source, "---", timestamp, new=True)
+        self.assertEqual("status: Draft\nversion: 1\nupdated_at: \"" + timestamp
+                         + "\"\nllm_session_ids:\n  - session-1", result)
+
+    def test_nested_duplicate_atom_revision_refuses(self) -> None:
+        timestamp = "2026-10-11 12:34:56 +0000"
+        for source in ("state:\n  version: 1\n  version: 2\n  updated_at: old",
+                       "version: 1\nstate:\n  version: 2\n  updated_at: old"):
+            with self.subTest(source=source), self.assertRaises((RuntimeError, ValueError)):
+                metadata.update_atom(source, "---", timestamp, new=False)
+
+    def test_projection_timestamp_stays_at_root_and_preserves_arbitrary_nested_data(self) -> None:
+        timestamp = "2026-10-11 12:34:56 +0000"
+        source = "context:\n  arbitrary: value\nstate:\n  version: 1\n  updated_at: old"
+        inserted = metadata.update_projection(source, "---", timestamp)
+        self.assertEqual(source + f'\nupdated_at: "{timestamp}"', inserted)
+        revised = metadata.update_projection(inserted, "---", "new time")
+        self.assertEqual(source + '\nupdated_at: "new time"', revised)
+        with self.assertRaisesRegex(RuntimeError, "must not carry version"):
+            metadata.update_projection(source + '\nversion: 1', "---", timestamp)
+
 
 if __name__ == "__main__":
     unittest.main()

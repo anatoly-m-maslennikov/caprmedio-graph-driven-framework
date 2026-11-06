@@ -108,6 +108,54 @@ class StatusModelSubjectNotationTests(unittest.TestCase):
                         self.resolve(role, indexed=indexed)
                     self.assertEqual("model-missing", raised.exception.code)
 
+    def test_nested_authority_and_target_preserve_exact_role_and_form(self) -> None:
+        for role, form in (("Requirement", "Rule"), ("Operations", "Action"), ("Analysis & Advisory", "Analysis Report")):
+            governed = (
+                f'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := "{role}")'
+                f'/(.Header.Context.Form := "{form}").Header.State.Status'
+            )
+            self.source(governed, role)
+            body = self.source_path.read_text().split("---\n", 2)[2]
+            raw = (
+                "---\nidentity:\n  atom_id: CA-R-999001\n"
+                "context:\n  role: Requirement\n  form: Rule\n  topics:\n"
+                f"    main_subject: {json.dumps(governed)}\n"
+                "state:\n  status: Active\n  version: 1\n---\n" + body
+            ).encode()
+            self.source_path.write_bytes(raw)
+            target_front = f"context:\n  role: {json.dumps(role)}\n  form: {json.dumps(form)}\n"
+            for indexed in (False, True):
+                with self.subTest(role=role, form=form, indexed=indexed):
+                    reader = ReadContext(roots=[str(self.root)], limits=dict(CEILINGS))
+                    index = models.capture_status_models(self.root, reader) if indexed else None
+                    result = models.resolve_status_model(self.root, {"frontmatter": target_front}, "Active", _index=index)
+                    self.assertEqual((role, form), (result["content_role"], result["type"]))
+                    self.assertEqual(["Draft", "Active", "Archived"], result["statuses"])
+                    if index is not None:
+                        models.revalidate_status_models(index, reader)
+                    self.assertEqual(raw, self.source_path.read_bytes())
+
+    def test_nested_selector_wrong_role_and_undeclared_property_paths_refuse(self) -> None:
+        for selector in (
+            'Atom/(.Header.Context.Role := Requirements).Header.State.Status',
+            'Atom/(.Header.State.Role := Requirement).Header.State.Status',
+            'Atom/(.Header.Context.Role := Requirement).Header.Context.Status',
+        ):
+            self.source(selector)
+            with self.subTest(selector=selector), self.assertRaises(models.StatusModelError) as raised:
+                self.resolve("Requirement", indexed=True)
+            self.assertEqual("source-invalid", raised.exception.code)
+
+    def test_conflicting_nested_target_role_is_a_target_refusal(self) -> None:
+        self.source("Atom/Content Role: Requirement.Status")
+        for atom in (
+            {"role": "Requirement", "context": {"role": "Operations"}},
+            {"frontmatter": "role: Requirement\ncontext:\n  role: Operations\n"},
+        ):
+            with self.subTest(atom=atom), self.assertRaises(models.StatusModelError) as raised:
+                models.resolve_status_model(self.root, atom, "Active")
+            self.assertEqual("target-invalid", raised.exception.code)
+
 
 if __name__ == "__main__":
     unittest.main()

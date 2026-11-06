@@ -1,5 +1,4 @@
 # CA-E-681@1
-
 from __future__ import annotations
 
 import asyncio
@@ -85,7 +84,7 @@ class WorkbenchRereadTests(unittest.TestCase):
         self.assertEqual(
             [["CA-R-502"]],
             asyncio.run(self.tools.call("query_run", {
-                "sql": "SELECT id FROM atoms WHERE id = 'CA-R-502'",
+                "sql": "SELECT header_atom_id FROM atoms WHERE header_atom_id = 'CA-R-502'",
             }))["rows"],
         )
         with self.assertRaisesRegex(Exception, "unknown query_id"):

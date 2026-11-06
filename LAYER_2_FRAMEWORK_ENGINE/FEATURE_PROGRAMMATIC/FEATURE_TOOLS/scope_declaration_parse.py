@@ -130,7 +130,7 @@ def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str]:
     subjects = value.get("subjects")
     has_main_subject = isinstance(topics, Mapping) and "main_subject" in topics
     has_legacy_active = isinstance(subjects, Mapping) and "active" in subjects
-    if has_main_subject and has_legacy_active:
+    if has_main_subject and has_legacy_active and topics["main_subject"] != subjects["active"]:
         raise ScopeDeclarationError(f"{path}: declaration has ambiguous main Subject metadata")
     active = topics["main_subject"] if has_main_subject else subjects.get("active") if has_legacy_active else None
     if not isinstance(active, str):

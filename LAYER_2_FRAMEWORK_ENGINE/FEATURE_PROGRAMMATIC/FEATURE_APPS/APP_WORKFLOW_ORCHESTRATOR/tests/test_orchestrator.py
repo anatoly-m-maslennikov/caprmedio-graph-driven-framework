@@ -112,6 +112,42 @@ class OrchestratorTests(unittest.TestCase):
         with self.assertRaisesRegex(Interrupted, 'changed after enqueue'):
             engine.request(self.request.run_id)
 
+    def nested_source(self):
+        path = self.root / 'atom.md'
+        body = path.read_text().split('\n---\n', 1)[1]
+        return ('---\nidentity:\n  atom_id: MOCK-R-1\ncontext:\n  role: Requirement\n'
+                'state:\n  version: 1\n  status: Active\n'
+                '  updated_at: "2026-10-01T00:00:00Z"\n---\n' + body)
+
+    def test_nested_selected_identity_status_and_role_are_enforced(self):
+        path = self.root / 'atom.md'
+        source = self.nested_source()
+        path.write_text(source)
+        engine = Coordinator(self.root, None)
+        engine.validate_selected(self.request.selection[0])
+        for old, new, message in (('MOCK-R-1', 'MOCK-R-2', 'carried identity'),
+                                  ('status: Active', 'status: Archived', 'active Atoms'),
+                                  ('role: Requirement', 'role: Plan', 'RMED Atoms')):
+            with self.subTest(field=old), self.assertRaisesRegex(ValueError, message):
+                path.write_text(source.replace(old, new))
+                engine.validate_selected(self.request.selection[0])
+
+    def test_nested_candidate_guards_read_actual_identity_and_state(self):
+        source = self.nested_source()
+        context = {'source_content': source, 'source': {'path': 'atom.md'}, 'atom_id': 'MOCK-R-1'}
+        engine = Coordinator(self.root, None)
+        changed = source.replace('bad wording', 'good wording').replace(
+            '2026-10-01T00:00:00Z', '2026-10-03T15:30:00Z')
+        self.assertEqual(changed.encode(), engine.admit_candidate(
+            {'context': context, 'candidate_content': changed})[1])
+        for old, new, message in (('MOCK-R-1', 'MOCK-R-2', 'identity'),
+                                  ('version: 1', 'version: 2', 'Version-changing'),
+                                  ('status: Active', 'status: Archived', 'status'),
+                                  ('role: Requirement', 'role: Method', 'content_role'),
+                                  ('2026-10-03T15:30:00Z', '2026-10-01T00:00:00Z', 'updated_at')):
+            with self.subTest(field=old), self.assertRaisesRegex(Interrupted, message):
+                engine.admit_candidate({'context': context, 'candidate_content': changed.replace(old, new)})
+
     def test_missing_workflow_does_not_block_readiness_but_rejects_freeze(self):
         from current_atom_locator import CurrentAtomLocatorError
         from engine import runtime_fingerprint
@@ -400,6 +436,19 @@ class OrchestratorTests(unittest.TestCase):
         events = [json.loads(line) for path in journal for line in path.read_text().splitlines()]
         replacement = next(row for row in events if row.get('predecessor_atom_id') == 'MOCK-R-1')
         self.assertEqual(replacement['successor_atom_ids'], ['MOCK-R-2'])
+
+    def test_nested_replacement_checks_predecessor_identity_before_effects(self):
+        path = self.root / 'atom.md'
+        source = self.nested_source()
+        path.write_text(source)
+        engine, request = self.replacement_engine()
+        engine.gather(request.run_id)
+        engine.check(request.run_id, 0)
+        value = engine.dispatch(request.run_id, 0, 'fix')
+        value['candidate_content'] = value['candidate_content'].replace('MOCK-R-1', 'MOCK-R-2')
+        with self.assertRaisesRegex(Interrupted, 'retain the input ID'):
+            engine.apply_replacement(request.run_id, 0, value)
+        self.assertEqual(source, path.read_text())
 
     def test_replacement_recovery_reuses_id_and_does_not_dispatch_again(self):
         engine, request = self.replacement_engine()

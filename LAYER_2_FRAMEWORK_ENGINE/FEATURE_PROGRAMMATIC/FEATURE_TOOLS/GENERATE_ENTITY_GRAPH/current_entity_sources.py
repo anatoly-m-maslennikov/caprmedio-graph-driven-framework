@@ -26,7 +26,7 @@ _EXCLUDED = {
     "_journal",
 }
 _ATOM_FILENAME = re.compile(r"(?:[0-9]+-)?CA-[A-Z]-[0-9]+(?:[-.@]|$)")
-_ATOM_FIELD = re.compile(rb"(?m)^(?:atom_id|'atom_id'|\"atom_id\")[ \t]*:")
+_ATOM_FIELD = re.compile(rb"(?m)^[ \t]*(?:atom_id|'atom_id'|\"atom_id\")[ \t]*:")
 _FRONTMATTER_OPEN = re.compile(r"\A---\r?\n")
 _FRONTMATTER_CLOSE = re.compile(r"(?m)^---\r?\n")
 
@@ -61,7 +61,7 @@ def _parse_atom(raw: bytes, path: Path) -> ParsedCarrier | None:
         if canonical_name or _ATOM_FIELD.search(header):
             raise
         return None
-    return parsed if canonical_name or "atom_id" in parsed.metadata else None
+    return parsed if canonical_name or "atom_id" in carrier_read_view(parsed.metadata) else None
 
 
 def _read_bounded(path: Path) -> bytes:
@@ -93,17 +93,17 @@ def _read_atom(path: Path, repository: Path) -> dict[str, Any] | None:
         return None
     metadata = parsed.metadata
     read_view = carrier_read_view(metadata)
-    if str(metadata.get("artifact_form", "")).lower() in {"projection", "journal"}:
+    if str(read_view.get("artifact_form", "")).lower() in {"projection", "journal"}:
         return None
-    if str(metadata.get("status", "")).strip().lower() in {"draft", "archived"}:
+    if str(read_view.get("status", "")).strip().lower() in {"draft", "archived"}:
         return None
-    explicit = metadata.get("atom_id")
+    explicit = read_view.get("atom_id")
     if explicit is not None and not isinstance(explicit, str):
         raise ValueError(f"{path}: current Atom identity is not text")
     atom_id = atom_identifier(path.name, explicit)
     if not atom_id:
         raise ValueError(f"{path}: current Atom identity is unavailable")
-    version = metadata.get("version")
+    version = read_view.get("version")
     if isinstance(version, bool) or not isinstance(version, int) or version < 1:
         raise ValueError(f"{path}: current Atom has no valid Version")
     source = {

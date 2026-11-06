@@ -10,6 +10,8 @@ import tomllib
 from typing import Any
 
 from FIND_AND_FETCH_ARTIFACTS.find_and_fetch_artifacts import _load_frontmatter
+from carrier_aliases import carrier_read_view
+from header_yaml import header_scalar
 from project_selection import ProjectSelectionError, active_selection, bound_selection
 from scope_unit_declarations import read_scope_unit_declarations
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
@@ -19,10 +21,12 @@ _SOURCE_TAIL = Path(
     "000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources"
 )
 _VALUES = re.compile(r"(?:(?:the\s+)?Core\s+allowed values of|Core)\s+(?:`?Atom/Content Role:\s*)?([^/`\n]+?)(?:/Status|\s+Status)(?:\s+values)?`?\s*\*\*must\*\* be exactly\s*\(([^)]*)\)", re.I)
-_BASE_VALUES = re.compile(r"(?<![\w.])Atom\.(?:Header\.)?Status\s+\*\*must\*\* admit\s*\(([^)]*)\)")
+_STATUS_PROPERTY = r"(?:Header\.State\.|Header\.)?Status"
+_CONTEXT_PROPERTY = r"(?:Header\.Context\.|Header\.)?"
+_BASE_VALUES = re.compile(r"(?<![\w.])Atom\." + _STATUS_PROPERTY + r"\s+\*\*must\*\* admit\s*\(([^)]*)\)")
 _INHERITED_VALUES = re.compile(
     r"\bCore\s+([^/`\n]+?)\s+Status model\s+\*\*must\*\* inherit the allowed values of "
-    r"Atom\.(?:Header\.)?Status and add\s+(?:\(([^)]*)\)|([A-Za-z][A-Za-z ]*)\.)"
+    r"Atom\." + _STATUS_PROPERTY + r" and add\s+(?:\(([^)]*)\)|([A-Za-z][A-Za-z ]*)\.)"
 )
 _ROLE = re.compile(r"Atom/Content Role:\s*([^/.`\n]+)")
 _TYPE = re.compile(
@@ -118,7 +122,7 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
         raise StatusModelError("source-invalid", f"ambiguous status-domain declarations: {path}")
     mode, match = declarations[0]
     try:
-        meta = _load_frontmatter(frontmatter)
+        meta = carrier_read_view(_load_frontmatter(frontmatter))
     except Exception as error:
         duplicate_atom_id = len(re.findall(r"(?m)^atom_id\s*:", frontmatter)) > 1
         detail = "duplicate atom_id" if duplicate_atom_id else "malformed YAML"
@@ -142,10 +146,10 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
     governed = subjects.get("active", subjects.get("governs")).strip()
     role_match = _ROLE.search(governed)
     if mode == "base":
-        qualified = re.search(r"(?:^|[/+]\s*)Atom\.(?:Header\.)?Status$", governed) is not None
+        qualified = re.search(r"(?:^|[/+]\s*)Atom\." + _STATUS_PROPERTY + r"$", governed) is not None
     else:
         qualified = (role_match is not None and role_match.group(1).strip() == declared_role)
-        qualified |= re.search(r'Atom/\(\.(?:Header\.)?Role := (?:"' + re.escape(declared_role) + r'"|' + re.escape(declared_role) + r')\)(?:/\(\.(?:Header\.)?Form := "[^"\n]+"\))?\.(?:Header\.)?Status$', governed) is not None
+        qualified |= re.search(r'Atom/\(\.' + _CONTEXT_PROPERTY + r'Role := (?:"' + re.escape(declared_role) + r'"|' + re.escape(declared_role) + r')\)(?:/\(\.' + _CONTEXT_PROPERTY + r'Form := "[^"\n]+"\))?\.' + _STATUS_PROPERTY + r'$', governed) is not None
     if not qualified:
         raise StatusModelError("source-invalid", f"status-model authority does not govern its declared role: {path}")
     raw_values = match.group(1) if mode == "base" else match.group(2)
@@ -156,7 +160,7 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
         raise StatusModelError("source-invalid", f"invalid status domain in {path}")
     type_match = _TYPE.search(governed)
     if type_match is None:
-        type_match = re.search(r'\(\.(?:Header\.)?Form := "([^"\n]+)"\)', governed)
+        type_match = re.search(r'\(\.' + _CONTEXT_PROPERTY + r'Form := "([^"\n]+)"\)', governed)
     return {
         "role": declared_role,
         "mode": mode,
@@ -172,22 +176,17 @@ def _source_snapshot(path: Path, root: Path, raw: bytes | None = None) -> dict[s
 
 
 def _atom_value(atom: object, name: str) -> str | None:
-    if isinstance(atom, Mapping):
-        value = atom.get(name)
+    try:
+        if isinstance(atom, Mapping):
+            value = carrier_read_view(dict(atom)).get(name)
+        else:
+            value = getattr(atom, name, None)
         if isinstance(value, str):
             return value
-        front = atom.get("frontmatter")
-    else:
-        value = getattr(atom, name, None)
-        if isinstance(value, str):
-            return value
-        front = getattr(atom, "frontmatter", None)
-    if not isinstance(front, str):
-        return None
-    matches = re.findall(rf"(?m)^{name}:\s*(.*?)\s*$", front)
-    if len(matches) != 1:
-        return None
-    return matches[0].strip().strip("\"'")
+        front = atom.get("frontmatter") if isinstance(atom, Mapping) else getattr(atom, "frontmatter", None)
+        return header_scalar(front, name) if isinstance(front, str) else None
+    except ValueError as error:
+        raise StatusModelError("target-invalid", "target Header properties are invalid or conflicting") from error
 
 
 @dataclass(frozen=True)

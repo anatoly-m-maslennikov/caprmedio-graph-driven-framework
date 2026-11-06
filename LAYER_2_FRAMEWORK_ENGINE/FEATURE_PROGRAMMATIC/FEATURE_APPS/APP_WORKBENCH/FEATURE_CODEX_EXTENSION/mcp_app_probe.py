@@ -1,4 +1,5 @@
-# CA-D-681@6
+# CA-R-2902@4
+# CA-D-681@9
 
 """Read-only MCP Apps compatibility probe, served by the existing MCP gateway."""
 
@@ -8,8 +9,10 @@ from typing import Any
 from mcp import MCPError, types
 
 URI = "ui://caprmedio/workbench-compatibility-v2.html"
+WORKBENCH_URI = "ui://caprmedio/workbench.html"
 MIME_TYPE = "text/html;profile=mcp-app"
 TOOL_NAMES = ("workbench_ui_probe", "workbench_ui_ping")
+WORKBENCH_HTML = (Path(__file__).resolve().parent.parent / "FEATURE_WORKBENCH_FRONTEND" / "dist" / "mcp-app.html")
 
 
 def tools() -> tuple[types.Tool, ...]:
@@ -33,15 +36,22 @@ def call(name: str) -> dict[str, str]:
 
 
 async def list_resources(_context: Any, _params: Any) -> types.ListResourcesResult:
-    return types.ListResourcesResult(resources=[types.Resource(
-        name="CAPRMEDIO UI compatibility probe", uri=URI, mime_type=MIME_TYPE,
-    )])
+    return types.ListResourcesResult(resources=[
+        types.Resource(name="CAPRMEDIO UI compatibility probe", uri=URI, mime_type=MIME_TYPE),
+        types.Resource(name="CAPRMEDIO Workbench", uri=WORKBENCH_URI, mime_type=MIME_TYPE),
+    ])
 
 
 async def read_resource(_context: Any, params: types.ReadResourceRequestParams) -> types.ReadResourceResult:
-    if params.uri != URI:
+    if params.uri == URI:
+        text = Path(__file__).with_suffix(".html").read_text()
+    elif params.uri == WORKBENCH_URI:
+        try:
+            text = WORKBENCH_HTML.read_text()
+        except FileNotFoundError as error:
+            raise MCPError(-32002, "Unknown UI resource") from error
+    else:
         raise MCPError(-32002, "Unknown UI resource")
     return types.ReadResourceResult(contents=[types.TextResourceContents(
-        uri=URI, mime_type=MIME_TYPE,
-        text=Path(__file__).with_suffix(".html").read_text(),
+        uri=params.uri, mime_type=MIME_TYPE, text=text,
     )])

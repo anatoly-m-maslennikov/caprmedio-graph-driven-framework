@@ -5,6 +5,8 @@ from __future__ import annotations
 import hashlib
 from copy import deepcopy
 from pathlib import Path
+
+from carrier_aliases import carrier_read_view
 from typing import Any
 
 from project_selection import active_selection
@@ -116,7 +118,7 @@ def _active_source(root: Path, atom_id: str) -> tuple[Path, Record]:
                 if candidate.name.startswith(atom_id + "-"):
                     raise ValueError("active source is unreadable: " + atom_id) from error
                 continue
-            metadata = parsed.metadata
+            metadata = carrier_read_view(parsed.metadata)
             if metadata.get("atom_id") != atom_id:
                 continue
             if metadata.get("status") in {"Active", "active"}:

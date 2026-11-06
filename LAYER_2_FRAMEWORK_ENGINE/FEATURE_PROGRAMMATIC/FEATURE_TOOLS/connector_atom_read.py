@@ -140,7 +140,7 @@ def query_atoms(filters: dict, view: AtomSourceView, *, bound_sources=None) -> d
         except (ValueError, SubjectNotationError) as error:
             raise AtomReadError("schema_invalid", "Source Subject syntax is unsupported by the supplied profile.", "context") from error
         if selected:
-            row = {field: (parsed.metadata.get(field) if field == "subjects" else read_view.get(field))
+            row = {field: (parsed.metadata.get(field, read_view.get(field)) if field == "subjects" else read_view.get(field))
                    for field in filters["result_fields"]}
             row.update(atom_id=state["identity"], version=state["version"],
                        current_scope_unit=read_view["current_scope_unit"])

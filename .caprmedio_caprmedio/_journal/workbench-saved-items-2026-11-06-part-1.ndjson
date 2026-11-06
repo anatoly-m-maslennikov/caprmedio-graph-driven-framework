@@ -1,0 +1,1 @@
+{"kind":"view","saved_at":"2026-11-06T17:45:56.959789+00:00","saved_query_id":"01a1b1f7-9bdf-76d3-90a2-69b97c1b4afd","sql":"SELECT \n  \"content.claim.prose claim\"\n  ,\"content.claim.formal claim\"\nfrom atoms \nwhere true\n  and \"status\" = 'Active'\n  and \"content.claim.formal claim\" is not null\n;"}

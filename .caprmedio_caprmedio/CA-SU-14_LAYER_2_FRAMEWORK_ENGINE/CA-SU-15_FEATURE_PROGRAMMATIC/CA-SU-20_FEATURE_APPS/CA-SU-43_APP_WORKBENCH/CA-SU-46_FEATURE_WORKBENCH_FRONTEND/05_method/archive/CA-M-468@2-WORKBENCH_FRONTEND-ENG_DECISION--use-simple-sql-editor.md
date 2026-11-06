@@ -1,6 +1,6 @@
 ---
 atom_id: CA-M-468
-ref_id: CA-M-468
+ref_id: CA-M-468@2
 container:
   scope_unit: CA-SU-46
 role: Method
@@ -13,13 +13,13 @@ relations:
   - CA-R-2727
   - CA-R-2728
   - CA-R-2776
-status: Active
+status: Archived
 version: 2
 updated_at: 2026-11-05 01:40:28 +0400
 carrier_destination:
   file:
     name: CA-M-468-WORKBENCH_FRONTEND-ENG_DECISION--use-a-simple-sql-editor-for-workbench.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/05_method/archive
 current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov

@@ -15,10 +15,12 @@ from pathlib import Path
 from typing import Any
 
 import yaml
+from header_groups import header_field_paths, header_path, path_value
+from header_yaml import header_scalar_node
 from VALIDATE_ATOMS.validate_atoms_workers.check_sections import _headings
 from VALIDATE_ATOMS.validate_atoms_workers.check_fields import reviewed_encoding_profile
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-    ProposedCarrierError, _current_containment_owner, source_context_from_project,
+    CarrierPredecessor, ProposedCarrierError, _current_containment_owner, source_context_from_project,
 )
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError, parse_carrier
 
@@ -525,7 +527,8 @@ def _require_recovery_carrier(root: Path, target: Atom, proposed: Mapping[str, s
     if not required:
         return
     try:
-        prepare_create_atom_revision(root, target.relative, proposed["frontmatter"], proposed["content"], creating=False)
+        prepare_create_atom_revision(root, target.relative, proposed["frontmatter"], proposed["content"], creating=False,
+                                     predecessor=CarrierPredecessor(target.path, atom_digest(target)))
     except AtomToolError as error:
         raise _translate(error) from error
 
@@ -557,30 +560,34 @@ def _typed_relation_snapshot(frontmatter: str) -> str:
     return canonical_json(metadata.get("relations", {}))
 
 
+def _current_container(metadata: dict[str, Any]) -> tuple[tuple[str, ...], Any]:
+    path = header_path("container", metadata)
+    present, value = path_value(metadata, path)
+    if present:
+        return path, value
+    return ("relations", "IS_CONTAINED_BY"), metadata["relations"]["IS_CONTAINED_BY"]
+
+
 def _update_current_destination(frontmatter: str, content: str, carrier_path: Path, destination: Path) -> str:
     """Update only destination fields already present on an emitted Current representation."""
     try:
         metadata = parse_carrier(render(frontmatter, content), carrier_path).metadata
-        carrier = metadata.get("carrier_destination", {})
-        if not isinstance(carrier, dict) or not isinstance(carrier.get("file", {}), dict):
-            raise ValueError("malformed carrier destination")
-        fields = carrier.get("file", {})
         expected = copy.deepcopy(metadata)
         for key, value in (("name", destination.name), ("path", destination.parent.as_posix())):
-            if key not in fields:
+            name = "carrier_destination.file." + key
+            node = header_scalar_node(yaml.compose(frontmatter), name)
+            if node is None:
                 continue
-            if not isinstance(fields[key], str):
+            if not isinstance(node, yaml.ScalarNode) or node.tag != "tag:yaml.org,2002:str":
                 raise ValueError("malformed carrier destination")
-            node = yaml.compose(frontmatter)
-            for part in ("carrier_destination", "file", key):
-                matches = [child for name, child in node.value if name.value == part]
-                if len(matches) != 1:
-                    raise ValueError("ambiguous carrier destination")
-                node = matches[0]
-            if not isinstance(node, yaml.ScalarNode):
-                raise ValueError("malformed carrier destination")
-            frontmatter = frontmatter[:node.start_mark.index] + json.dumps(value) + frontmatter[node.end_mark.index:]
-            expected["carrier_destination"]["file"][key] = value
+            frontmatter = replace_frontmatter_scalar(frontmatter, name, json.dumps(value))
+            for keys in header_field_paths(name, metadata):
+                if not path_value(metadata, keys)[0]:
+                    continue
+                fields = expected
+                for part in keys[:-1]:
+                    fields = fields[part]
+                fields[keys[-1]] = value
         if parse_carrier(render(frontmatter, content), carrier_path).metadata != expected:
             raise ValueError("destination edit affected other metadata")
         return frontmatter
@@ -1619,7 +1626,7 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
     outward_links = _typed_relation_snapshot(target.frontmatter)
     if current_profile:
         current_claim_target = None
-        containment = metadata["relations"]["IS_CONTAINED_BY"]
+        container_path, containment = _current_container(metadata)
         if "atom" in containment and (placement["owning_scope_unit"] != current_owner
                                        or root / destination_path != target.path):
             raise LifecycleError("placement-invalid", "moving an Atom-contained Plan requires an explicit parent-aware operation")
@@ -1634,7 +1641,7 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
             destination_id = matches[0].get("scope_unit_id") or (project if placement["owning_scope_unit"] == project else None)
             if not isinstance(destination_id, str) or not destination_id:
                 raise LifecycleError("placement-invalid", "destination Scope Unit reference is unresolved")
-            changes.append((("relations", "IS_CONTAINED_BY", "scope_unit"), destination_id))
+            changes.append(((*container_path, "scope_unit"), destination_id))
         if root / destination_path != target.path:
             try:
                 approved_path = safe_path(root, destination_path).relative_to(root)
@@ -1677,6 +1684,7 @@ def move_atom_action(root: Path, parameters: Mapping[str, Any], *, execute: bool
     try:
         destination, normalized, destination_id = prepare_create_atom_revision(
             root, destination_path, proposed_frontmatter, target.content, creating=False,
+            predecessor=CarrierPredecessor(target.path, prior["digest"]),
         )
     except AtomToolError as error:
         raise _translate(error) from error

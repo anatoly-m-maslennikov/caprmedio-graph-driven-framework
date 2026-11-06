@@ -1,4 +1,4 @@
-<!-- CA-D-674@18 -->
+<!-- CA-D-674@22 -->
 <script lang="ts">
   import { tick } from 'svelte';
   import { filterCommands, moveSelection } from './palette_helpers.js';
@@ -15,4 +15,4 @@
     else if (event.key === 'Enter') { event.preventDefault(); choose(); }
   }
 </script>
-<dialog bind:this={dialog} onclose={onclose} onkeydown={keydown} aria-label="Command palette"><input bind:this={input} bind:value={query} oninput={() => selected = 0} aria-label="Search commands" placeholder="Search commands" /><ul>{#each matches as command, index}<li><button class:active={index === selected} type="button" disabled={!command.enabled} onclick={() => choose(command)}>{command.label}{#if command.shortcut}<small>{command.shortcut}</small>{/if}</button></li>{/each}</ul></dialog>
+<dialog bind:this={dialog} onclose={() => { if (!dialog.open) onclose(); }} onkeydown={keydown} aria-label="Command palette"><input bind:this={input} bind:value={query} oninput={() => selected = 0} aria-label="Search commands" placeholder="Search commands" /><ul>{#each matches as command, index}<li><button class:active={index === selected} type="button" disabled={!command.enabled} onclick={() => choose(command)}>{command.label}{#if command.shortcut}<small>{command.shortcut}</small>{/if}</button></li>{/each}</ul></dialog>

@@ -1,7 +1,9 @@
-// CA-M-466@5
-// CA-M-467@2
 import { mount } from 'svelte';
 import App from './App.svelte';
 import './app.css';
+import { HttpOperationCaller } from './lib/transport';
 
-mount(App, { target: document.getElementById('app')! });
+const base = location.pathname.replace(/\/+$/, '');
+const projectRoot = new URLSearchParams(location.search).get('project_root');
+
+mount(App, { target: document.getElementById('app')!, props: { caller: new HttpOperationCaller(base, projectRoot) } });

@@ -67,6 +67,16 @@ function column(page: Page, name: string) {
   return page.locator('.tabulator-col').filter({ hasText: name }).first();
 }
 
+function contrast(first: string, second: string) {
+  const rgb = (value: string) => (value.match(/\d+(?:\.\d+)?/g) ?? []).slice(0, 3).map(Number).map((channel) => {
+    const normalized = channel / 255;
+    return normalized <= 0.03928 ? normalized / 12.92 : ((normalized + 0.055) / 1.055) ** 2.4;
+  });
+  const luminance = (channels: number[]) => channels[0] * 0.2126 + channels[1] * 0.7152 + channels[2] * 0.0722;
+  const [a, b] = [luminance(rgb(first)), luminance(rgb(second))].sort((left, right) => right - left);
+  return (a + 0.05) / (b + 0.05);
+}
+
 async function openHeaderMenu(page: Page, name: string) {
   await column(page, name).click({ button: 'right' });
   const menu = page.locator('.tabulator-menu');
@@ -101,6 +111,15 @@ test('keeps filtering, sorting and grouping global while paging the cached resul
   page.on('request', (request) => { if (interfaceRequest(request, 'view_run')) runs += 1; });
   await prepare(page);
   await run(page);
+  const header = column(page, 'row_id');
+  await expect(header.locator('.column-name')).toHaveText('row_id');
+  await expect(header.locator('.column-type')).toHaveText('BIGINT');
+  const styles = await header.locator('.column-type').evaluate((node) => {
+    const style = getComputedStyle(node);
+    return { size: Number.parseFloat(style.fontSize), opacity: style.opacity };
+  });
+  expect(styles.size).toBeLessThan(Number.parseFloat(await header.locator('.column-name').evaluate((node) => getComputedStyle(node).fontSize)));
+  expect(styles.opacity).toBe('0.8');
   expect(runs).toBe(1);
 
   const sortedGlobally = page.waitForRequest((item) => fetchRequest(item, 2));
@@ -181,6 +200,56 @@ test('keeps SQL NULL and the literal null in separate groups', async ({ page }) 
     .toEqual(expect.arrayContaining(['group_value: NULL (2)', 'group_value: null (1)']));
 });
 
+test('keeps Tabulator header and data rows legible in light and dark themes', async ({ page }) => {
+  await prepare(page, 1, "SELECT 'visible value' AS value");
+  await run(page, 1);
+  async function colors(theme: 'light' | 'dark') {
+    await page.getByRole('tab', { name: 'Settings', exact: true }).click();
+    await page.getByLabel('Theme').selectOption(theme);
+    await page.getByRole('tab', { name: /^View 1/ }).click();
+    await expect(page.getByRole('grid')).toBeVisible();
+    const row = page.locator('.tabulator-row').first();
+    await row.hover();
+    return page.locator('.result-grid').evaluate((grid) => {
+      const header = grid.querySelector<HTMLElement>('.tabulator-col')!;
+      const type = header.querySelector<HTMLElement>('.column-type')!;
+      const row = grid.querySelector<HTMLElement>('.tabulator-row')!;
+      row.classList.add('tabulator-selected');
+      const cell = row.querySelector<HTMLElement>('.tabulator-cell')!;
+      const result = {
+        header: getComputedStyle(header), row: getComputedStyle(row), cell: getComputedStyle(cell),
+      };
+      row.classList.remove('tabulator-selected');
+      return {
+        header: { color: result.header.color, background: result.header.backgroundColor },
+        type: { color: getComputedStyle(type).color, background: result.header.backgroundColor },
+        row: { color: result.row.color, background: result.row.backgroundColor },
+        cell: { color: result.cell.color, background: result.row.backgroundColor },
+      };
+    });
+  }
+  for (const theme of ['light', 'dark'] as const) {
+    const themed = await colors(theme);
+    expect(contrast(themed.header.color, themed.header.background)).toBeGreaterThan(4.5);
+    expect(contrast(themed.type.color, themed.type.background)).toBeGreaterThan(4.5);
+    expect(contrast(themed.row.color, themed.row.background)).toBeGreaterThan(4.5);
+    expect(contrast(themed.cell.color, themed.cell.background)).toBeGreaterThan(4.5);
+  }
+});
+
+test('keeps source newlines in cells and the full-value dialog', async ({ page }) => {
+  await prepare(page, 1, "SELECT 'first line' || chr(10) || 'second line' AS content_claim");
+  await run(page, 1);
+  const cell = page.locator('.tabulator-row').first().locator('.tabulator-cell').first();
+  await expect(cell).toContainText('first line\nsecond line');
+  await expect(cell.locator('.cell-value')).toHaveCSS('white-space', 'pre-wrap');
+  await cell.click({ button: 'right' });
+  let message = '';
+  page.once('dialog', async (dialog) => { message = dialog.message(); await dialog.accept(); });
+  await page.locator('.tabulator-menu-item').getByText('Cell Show full value', { exact: true }).click();
+  expect(message).toBe('first line\nsecond line');
+});
+
 test('preserves full Unicode values and hidden columns in row actions, with zoomed menus', async ({ browser }) => {
   const context = await browser.newContext({ permissions: ['clipboard-read', 'clipboard-write'] });
   const page = await context.newPage();
@@ -218,7 +287,7 @@ test('preserves full Unicode values and hidden columns in row actions, with zoom
     await baselineSort;
     await page.keyboard.press('Meta+P');
     const palette = page.getByRole('dialog', { name: 'Command palette' });
-    await palette.getByRole('textbox').fill('Text zoom: 125%');
+    await palette.getByRole('textbox').fill('Interface text zoom: 125%');
     await page.keyboard.press('Enter');
     await column(page, 'row_id').click({ button: 'right' });
     const menu = page.locator('.tabulator-menu');

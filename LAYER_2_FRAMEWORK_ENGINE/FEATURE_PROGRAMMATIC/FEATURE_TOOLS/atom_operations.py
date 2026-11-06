@@ -18,6 +18,8 @@ from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any, Mapping, Sequence
 
+import yaml
+
 from project_runtime import RUNTIME_DIRECTORY, atomic_tempfile
 from project_selection import ProjectSelectionError, active_selection, bound_selection
 from artifact_metadata import current_timestamp
@@ -29,8 +31,13 @@ from operation_error_boundary import (
     operation_error_boundary,
 )
 from technical_diagnostics import make_technical_logger
+from carrier_aliases import carrier_read_view
+from header_groups import nested_header
+from header_yaml import (
+    header_scalar, header_scalar_node, parse_header, remove_header_scalar, replace_header_scalar,
+)
 from VALIDATE_ATOMS.validate_atoms_workers.proposed_carrier import (
-    CarrierValidationScope,
+    CarrierValidationScope, CarrierPredecessor,
     _current_containment_owner,
     ProposedCarrierError,
     source_context_from_project,
@@ -231,7 +238,7 @@ def _plan_archive_directory(root: Path, atom: Atom) -> Path:
             if row.get("binding", {}).get("atom_id") in {"CA-D-276", "CA-D-657"}
         }
         if profiles == {"current"}:
-            metadata = parse_carrier(render(atom.frontmatter, atom.content), atom.path).metadata
+            metadata = carrier_read_view(parse_carrier(render(atom.frontmatter, atom.content), atom.path).metadata)
             scope = _current_containment_owner(context, metadata)
         elif profiles == {"legacy"}:
             scope = frontmatter_scalar(atom.frontmatter, "current_scope_unit")
@@ -490,26 +497,19 @@ def _normalize_frontmatter(value: Any) -> str:
 
 
 def _revision(root: Path, frontmatter: str, *, creating: bool) -> str:
-    lines = frontmatter.splitlines()
-    index = next((i for i, line in enumerate(lines) if re.fullmatch(r"version:\s*[0-9]+\s*", line)), None)
-    current = int(lines[index].split(":", 1)[1]) if index is not None else 0
+    raw_version = frontmatter_scalar(frontmatter, "version")
+    if creating:
+        metadata = yaml.safe_load(frontmatter) or {}
+        if any(group in metadata for group in ("identity", "context", "state", "destination")):
+            frontmatter = yaml.safe_dump(nested_header(metadata), sort_keys=False, allow_unicode=True).rstrip("\n")
+    current = int(raw_version) if raw_version and raw_version.isascii() and raw_version.isdecimal() else 0
     marker = frontmatter_scalar(frontmatter, "atom_id")
     existing_draft = marker is not None and re.fullmatch(
         r"[A-Za-z0-9]+-[A-Z]-[0-9]+@(?:[0-9]+-)?draft", marker
     ) is not None
-    line = f"version: {current if creating and existing_draft and current > 0 else 1 if creating else current + 1}"
-    if index is None:
-        lines.append(line)
-    else:
-        lines[index] = line
-    stamp = current_timestamp(root)
-    index = next((i for i, line in enumerate(lines) if line.startswith("updated_at:")), None)
-    line = f'updated_at: "{stamp}"'
-    if index is None:
-        lines.append(line)
-    else:
-        lines[index] = line
-    return "\n".join(lines)
+    version = current if creating and existing_draft and current > 0 else 1 if creating else current + 1
+    prepared = replace_frontmatter_scalar(frontmatter, "version", str(version))
+    return replace_frontmatter_scalar(prepared, "updated_at", f'"{current_timestamp(root)}"')
 
 
 def _with_atom_id(frontmatter: str, atom_id: str | None, *, allow_draft_marker: bool = False) -> str:
@@ -524,30 +524,15 @@ def _with_atom_id(frontmatter: str, atom_id: str | None, *, allow_draft_marker: 
         if declared != atom_id:
             raise ToolError("atom-frontmatter-id-mismatch", "frontmatter atom_id must equal the filename Atom ID")
         return frontmatter
-    return (frontmatter + "\n" if frontmatter else "") + f"atom_id: {atom_id}"
+    return replace_frontmatter_scalar(frontmatter, "atom_id", atom_id)
 
 
 def frontmatter_scalar(frontmatter: str, name: str) -> str | None:
-    """Read one simple top-level scalar without reserializing the carrier."""
-
-    aliases = {"content_role": "role", "type": "form"}
-    def read(key: str) -> str | None:
-        matches = re.findall(rf"(?m)^{re.escape(key)}:\s*(.*?)\s*$", frontmatter)
-        if len(matches) > 1:
-            raise ToolError("atom-frontmatter-invalid", f"Atom has duplicate {key} values")
-        if not matches:
-            return None
-        value = matches[0].strip()
-        if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:
-            value = value[1:-1]
-        return value
-    value = read(name)
-    if name in aliases:
-        alternate = read(aliases[name])
-        if value is not None and alternate is not None and value != alternate:
-            raise ToolError("atom-frontmatter-invalid", f"Atom has conflicting {name} and {aliases[name]} values")
-        return value if value is not None else alternate
-    return value
+    """Read a carried Header scalar through its declared or historical path."""
+    try:
+        return header_scalar(frontmatter, name)
+    except ValueError as error:
+        raise ToolError("atom-frontmatter-invalid", str(error)) from error
 
 
 _DRAFT_MARKER_VALUE = re.compile(
@@ -612,7 +597,9 @@ def _draft_marker_identity(root: Path, path: Path, frontmatter: str) -> DraftMar
 
 
 def _without_promotion_metadata(frontmatter: str) -> str:
-    return re.sub(r"(?m)^(?:atom_id|status|version|updated_at):[^\n]*(?:\n|$)", "", frontmatter).rstrip("\n")
+    for name in ("atom_id", "status", "version", "updated_at"):
+        frontmatter = remove_frontmatter_scalar(frontmatter, name)
+    return frontmatter
 
 
 def _draft_summary(content: str, *, content_role: str | None = None) -> str:
@@ -887,6 +874,7 @@ def promote_existing_draft_atom(
         )
         destination, normalized, identity = prepare_create_atom_revision(
             root, canonical_relative, prepared, content, creating=False,
+            predecessor=CarrierPredecessor(current_draft.path, expected_draft_digest),
         )
         history = _existing_promotion_history_path(root, current_canonical, requested_status)
         _validate_existing_promotion_destination(destination, current_canonical, identity, history)
@@ -922,39 +910,40 @@ def promote_existing_draft_atom(
 
 
 def replace_frontmatter_scalar(frontmatter: str, name: str, value: str) -> str:
-    """Replace one top-level scalar while retaining every unrelated YAML block."""
-
+    """Replace one Header scalar while retaining unrelated YAML blocks."""
     if not isinstance(value, str) or not value:
         raise ToolError("input-invalid", f"{name} must be a non-empty scalar")
-    expression = re.compile(rf"(?m)^{re.escape(name)}:\s*.*?\s*$")
-    matches = list(expression.finditer(frontmatter))
-    if len(matches) > 1:
-        raise ToolError("atom-frontmatter-invalid", f"Atom has duplicate {name} values")
-    replacement = f"{name}: {value}"
-    if matches:
-        return expression.sub(replacement, frontmatter, count=1)
-    return (frontmatter + "\n" if frontmatter else "") + replacement
+    try:
+        parsed = yaml.safe_load(value)
+        if type(parsed) not in (str, int):
+            raise ValueError(f"{name} must be a string or integer scalar")
+        prepared = replace_header_scalar(frontmatter, name, parsed)
+        node = header_scalar_node(yaml.compose(prepared), name)
+        assert node is not None
+        return prepared[:node.start_mark.index] + value + prepared[node.end_mark.index:]
+    except (ValueError, yaml.YAMLError) as error:
+        raise ToolError("atom-frontmatter-invalid", str(error)) from error
 
 
 def remove_frontmatter_scalar(frontmatter: str, name: str) -> str:
-    """Remove one top-level scalar without changing unrelated carrier bytes."""
-
-    expression = re.compile(rf"(?m)^{re.escape(name)}:\s*.*?(?:\n|$)")
-    matches = list(expression.finditer(frontmatter))
-    if len(matches) > 1:
-        raise ToolError("atom-frontmatter-invalid", f"Atom has duplicate {name} values")
-    return expression.sub("", frontmatter, count=1).rstrip("\n")
+    """Remove one Header scalar without changing unrelated carrier bytes."""
+    try:
+        return remove_header_scalar(frontmatter, name)
+    except ValueError as error:
+        raise ToolError("atom-frontmatter-invalid", str(error)) from error
 
 
 def draft_revision_lineage(frontmatter: str) -> dict[str, Any] | None:
     """Read the one serialized Draft provenance map without treating it as identity."""
 
-    raw = frontmatter_scalar(frontmatter, "revision_lineage")
-    if raw is None:
-        return None
     try:
-        value = json.loads(raw)
-    except json.JSONDecodeError as error:
+        metadata = parse_header(frontmatter)
+        if "revision_lineage" not in metadata:
+            return None
+        value = metadata["revision_lineage"]
+        if isinstance(value, str):
+            value = json.loads(value)
+    except (ValueError, yaml.YAMLError) as error:
         raise ToolError("draft-lineage-invalid", "revision_lineage must be one JSON-compatible YAML map") from error
     if not isinstance(value, dict):
         raise ToolError("draft-lineage-invalid", "revision_lineage must be one map")
@@ -962,9 +951,17 @@ def draft_revision_lineage(frontmatter: str) -> dict[str, Any] | None:
 
 
 def replace_draft_revision_lineage(frontmatter: str, lineage: Mapping[str, Any]) -> str:
-    """Serialize the source-governed Draft lineage map as one YAML map value."""
-
-    return replace_frontmatter_scalar(frontmatter, "revision_lineage", json.dumps(dict(lineage), sort_keys=True))
+    """Retain the historical root lineage map without inventing a Header group."""
+    try:
+        parse_header(frontmatter)
+        document = yaml.compose(frontmatter)
+        node = next((value for key, value in document.value if key.value == "revision_lineage"), None) if document else None
+        value = json.dumps(dict(lineage), sort_keys=True)
+        if node is None:
+            return frontmatter.rstrip("\n") + "\nrevision_lineage: " + value
+        return frontmatter[:node.start_mark.index] + value + frontmatter[node.end_mark.index:]
+    except (ValueError, yaml.YAMLError) as error:
+        raise ToolError("draft-lineage-invalid", str(error)) from error
 
 
 def atom_version(atom: Atom) -> int:
@@ -1178,7 +1175,8 @@ def write_raw_atom_revision(root: Path, path: Path, raw: bytes | None, *,
 
 
 def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content: str, *, creating: bool,
-                               validation_scope: CarrierValidationScope | None = None) -> None:
+                               validation_scope: CarrierValidationScope | None = None,
+                               predecessor: CarrierPredecessor | None = None) -> None:
     try:
         parsed = parse_carrier(("---\n" + frontmatter + "\n---\n" + content).encode("utf-8"), Path("proposed.md"))
         # D570 permits retained lineage data, but never makes its encoding an
@@ -1187,10 +1185,10 @@ def _validate_complete_carrier(root: Path, path: Path, frontmatter: str, content
         relative = path.relative_to(control_root(root))
         if validation_scope is None:
             validate_proposed_carrier(parsed.metadata, parsed.body, source_context_from_project(root), relative,
-                                      allow_existing_relations=not creating)
+                                      allow_existing_relations=not creating, predecessor=predecessor)
         else:
             validation_scope.validate(root, parsed.metadata, parsed.body, relative,
-                                      allow_existing_relations=not creating)
+                                      allow_existing_relations=not creating, predecessor=predecessor)
     except (CarrierError, ProposedCarrierError, UnicodeError, StatusModelError) as error:
         raise ToolError("complete-carrier-invalid", "new Atom carrier is incomplete, invalid, or unresolved") from error
 
@@ -1208,7 +1206,8 @@ def _validate_revision_filename(path: Path, frontmatter: str, *, creating: bool)
 
 
 def prepare_create_atom_revision(
-    root: Path, relative_path: str, frontmatter: str, content: str | None = None, *, creating: bool = True
+    root: Path, relative_path: str, frontmatter: str, content: str | None = None, *, creating: bool = True,
+    predecessor: CarrierPredecessor | None = None,
 ) -> tuple[Path, str, str | None]:
     """Validate the explicit identity and destination of one new full carrier.
 
@@ -1244,7 +1243,7 @@ def prepare_create_atom_revision(
     if not isinstance(content, str):
         raise ToolError("complete-carrier-required", "new Atom carrier content is required before preparation")
     prepared = _revision(root, normalized, creating=creating) if creating else normalized
-    _validate_complete_carrier(root, path, prepared, content, creating=creating)
+    _validate_complete_carrier(root, path, prepared, content, creating=creating, predecessor=predecessor)
     return path, prepared, atom_id
 
 
@@ -1281,7 +1280,8 @@ def move_atom_revision(root: Path, atom: Atom, relative_path: str, frontmatter: 
 
     root = root.resolve()
     target, normalized, atom_id = prepare_create_atom_revision(
-        root, relative_path, frontmatter, content, creating=False
+        root, relative_path, frontmatter, content, creating=False,
+        predecessor=CarrierPredecessor(atom.path, hashlib.sha256(expected_bundle["markdown"][0]).hexdigest()),
     )
     if atom.atom_id is None or atom_id != atom.atom_id:
         raise ToolError("atom-frontmatter-id-mismatch", "moved carrier must retain the current Atom ID")
@@ -1305,7 +1305,8 @@ def _prepare_draft_rename(root: Path, atom: Atom, relative_path: str, frontmatte
     if atom.lifecycle != "draft" or atom.atom_id is not None:
         raise ToolError("atom-not-draft", "only one Draft marker carrier can be renamed")
     target, normalized, identity = prepare_create_atom_revision(
-        root, relative_path, frontmatter, content, creating=False
+        root, relative_path, frontmatter, content, creating=False,
+        predecessor=CarrierPredecessor(atom.path, hashlib.sha256(expected_bundle["markdown"][0]).hexdigest()),
     )
     if identity is not None or _draft_marker_identity(root, target, normalized) is None:
         raise ToolError("draft-marker-invalid", "Draft marker rename requires one aligned Draft marker")
@@ -1455,7 +1456,11 @@ def _publish_status_atom_revision(root: Path, atom: Atom, relative_path: str, fr
     """Publish one admitted status bundle with checked before/after bytes."""
     require_current_atom(root, atom)
     target, normalized, identity = prepare_create_atom_revision(
-        root, relative_path, frontmatter, content, creating=False)
+        root, relative_path, frontmatter, content, creating=False,
+        predecessor=CarrierPredecessor(
+            atom.path, hashlib.sha256(expected_bundle["markdown"][0]).hexdigest(),
+            (frontmatter_scalar(atom.frontmatter, "atom_id"), frontmatter_scalar(frontmatter, "atom_id")),
+        ))
     status = frontmatter_scalar(normalized, "status")
     draft = status.casefold() == "draft"
     if atom.atom_id is None:
@@ -1672,7 +1677,11 @@ def demote_atom_to_draft(root: Path, atom: Atom, frontmatter: str, content: str,
     normalized = remove_frontmatter_scalar(_normalize_frontmatter(frontmatter), "atom_id")
     if frontmatter_scalar(normalized, "atom_id") is not None:
         raise ToolError("draft-has-stable-id", "Draft carrier cannot retain atom_id")
-    prepare_create_atom_revision(root, target.relative_to(root).as_posix(), normalized, content, creating=False)
+    prepare_create_atom_revision(
+        root, target.relative_to(root).as_posix(), normalized, content, creating=False,
+        predecessor=CarrierPredecessor(atom.path, atom_digest(atom),
+                                       (frontmatter_scalar(atom.frontmatter, "atom_id"), None)),
+    )
     observed, _history = publish_status_atom_revision(
         root, atom, target.relative_to(root).as_posix(), normalized, content,
         expected_bundle=status_bundle_snapshot(root, atom) if expected_bundle is None else expected_bundle)
@@ -1722,7 +1731,11 @@ def prepare_draft_promotion(root: Path, atom: Atom, atom_id: str, frontmatter: s
         raise ToolError("atom-id-collision", f"Atom ID already exists: {atom_id}")
     normalized = re.sub(r"(?m)^revision_lineage:[^\n]*(?:\n[ \t]+[^\n]*)*(?:\n|$)", "", _normalize_frontmatter(frontmatter))
     normalized = replace_frontmatter_scalar(normalized, "atom_id", atom_id)
-    prepare_create_atom_revision(root, target.relative_to(root).as_posix(), normalized, content, creating=False)
+    prepare_create_atom_revision(
+        root, target.relative_to(root).as_posix(), normalized, content, creating=False,
+        predecessor=CarrierPredecessor(atom.path, atom_digest(atom),
+                                       (frontmatter_scalar(atom.frontmatter, "atom_id"), atom_id)),
+    )
     return target, normalized, render(normalized, content)
 
 

@@ -1,12 +1,14 @@
-// CA-R-2727@4
-// CA-M-466@5
-// CA-M-467@2
-// CA-D-674@8
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ mode }) => mode === 'mcp-app' ? {
+  plugins: [svelte()],
+  build: {
+    outDir: 'dist/.mcp-app-assets', emptyOutDir: true, cssCodeSplit: false, sourcemap: false,
+    rollupOptions: { input: 'src/mcp-app.ts', output: { entryFileNames: 'mcp-app.js', assetFileNames: 'mcp-app.[ext]', inlineDynamicImports: true } },
+  },
+} : {
   base: '/caprmedio/workbench/',
   plugins: [svelte()],
-  build: { outDir: 'dist', emptyOutDir: true }
+  build: { outDir: 'dist', emptyOutDir: true },
 });

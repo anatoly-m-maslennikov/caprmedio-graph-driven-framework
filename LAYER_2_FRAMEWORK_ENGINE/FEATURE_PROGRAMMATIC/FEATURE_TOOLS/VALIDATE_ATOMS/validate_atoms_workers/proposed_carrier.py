@@ -20,7 +20,7 @@ from .checks import validate_carrier
 from .context import load_source
 from .read_io import ReadContext
 from .settings import CEILINGS
-from .support_authority import matches_source_pin, support_sources
+from .support_authority import matches_reviewed_header_source, matches_source_pin, support_sources
 from .check_support import Check
 from .check_graph_extended import relations_resolution, plan_resolution
 from .check_schema_extended import TYPE_CONTRIBUTIONS, declared_type_coordinate
@@ -90,6 +90,15 @@ class VerifiedSourceContext:
     _reader: ReadContext
 
 
+@dataclass(frozen=True)
+class CarrierPredecessor:
+    """An operation's exact existing carrier pin, verified again before admission."""
+
+    path: Path
+    sha256: str
+    identity_transition: tuple[str | None, str | None] | None = None
+
+
 @dataclass
 class CarrierValidationScope:
     """Own one pure-preview or scratch-stage validation closure, never apply."""
@@ -99,7 +108,7 @@ class CarrierValidationScope:
     _status_index: StatusModelIndex | None = None
 
     def validate(self, root: Path, metadata: Record, body: str, relative_path: Path,
-                 *, allow_existing_relations: bool) -> Record:
+                 *, allow_existing_relations: bool, predecessor: CarrierPredecessor | None = None) -> Record:
         if root.resolve() != self.root:
             raise ProposedCarrierError("validation scope belongs to another Project")
         if self._context is None:
@@ -110,7 +119,7 @@ class CarrierValidationScope:
             raise ProposedCarrierError("status-model validation scope is incomplete")
         return validate_proposed_carrier(metadata, body, self._context, relative_path,
                                          allow_existing_relations=allow_existing_relations,
-                                         _status_index=self._status_index)
+                                         _status_index=self._status_index, predecessor=predecessor)
 
     def revalidate(self) -> None:
         if self._context is not None:
@@ -162,9 +171,10 @@ def _source(
         path = locator.locate(identifier, path)
         absolute = root / path
     item = load_source(absolute, None, reader, report)
-    if (item is None or item["metadata"].get("atom_id") != identifier
+    if (item is None or carrier_read_view(item["metadata"]).get("atom_id") != identifier
             or not _verified(item, entry)
-            or (exact_pin and identifier in _EXACT_PIN_SOURCE_IDS and not matches_source_pin(item, entry))):
+            or (exact_pin and identifier in _EXACT_PIN_SOURCE_IDS and not matches_source_pin(item, entry)
+                and not matches_reviewed_header_source(item))):
         raise ProposedCarrierError("required source is unreadable, changed, or inactive: " + identifier)
     return item
 
@@ -362,6 +372,7 @@ def _assigned_identity(context: VerifiedSourceContext, metadata: Record) -> None
         source = _source(context.root, "CA-D-378", context._reader, report)
     letters = dict(re.findall(r"([A-Za-z]+): ([A-Z])(?:,|\))", source["text"]))
     prefix = context.inputs["_project_identity"]["identity"]["project_prefix"]
+    metadata = carrier_read_view(metadata)
     identity = metadata.get("atom_id")
     role = metadata.get("role", metadata.get("content_role"))
     if letters:
@@ -457,7 +468,8 @@ def _current_type_source(context: VerifiedSourceContext, metadata: Record) -> Re
         # Reuse the locator's bounded registered Requirement-family inventory;
         # path order and references never declare a Type or its authority.
         for path, _, carried, _ in locator._index("04_requirement"):
-            if (not isinstance(carried, dict) or carried.get("type") != "Entity Definition"
+            if (not isinstance(carried, dict)
+                    or carrier_read_view(carried).get("type") not in {"Entity Definition", "Declaration"}
                     or declared_type_coordinate(carried) != coordinate):
                 continue
             source = load_source(path, None, context._reader, report)
@@ -536,12 +548,20 @@ def _target_type_sources(
 
 def _current_containment_target(metadata: Mapping[str, Any], *, label: str) -> tuple[str, str]:
     """Return one literal Current containment target without creating legacy aliases."""
-    relations = metadata.get("relations")
-    if not isinstance(relations, Mapping):
-        raise ProposedCarrierError(label + " relation is malformed")
-    containment = relations.get("IS_CONTAINED_BY")
+    metadata = carrier_read_view(dict(metadata))
+    if "container" in metadata:
+        containment = metadata["container"]
+        legacy = metadata.get("relations", {})
+        if (isinstance(legacy, Mapping) and "IS_CONTAINED_BY" in legacy
+                and legacy["IS_CONTAINED_BY"] != containment):
+            raise ProposedCarrierError(label + " containment aliases conflict")
+    else:
+        relations = metadata.get("relations")
+        containment = relations.get("IS_CONTAINED_BY") if isinstance(relations, Mapping) else None
+    if containment is None:
+        raise ProposedCarrierError(label + " lacks one canonical containment target")
     if not isinstance(containment, Mapping):
-        raise ProposedCarrierError(label + " lacks one canonical containment relation")
+        raise ProposedCarrierError(label + " containment is malformed")
     fields = set(containment)
     if fields not in ({"scope_unit"}, {"atom"}):
         raise ProposedCarrierError(label + " is unresolved or ambiguous")
@@ -557,6 +577,8 @@ def _current_containment_owner(
 ) -> str:
     """Resolve one Current carrier's structural owner from its direct containment."""
     from GENERATE_ENTITY_GRAPH.cfel_claim_constraints import extract_claim_constraints
+
+    raw_metadata = carrier_read_view(raw_metadata)
 
     selected = [
         source for source in context.inputs["sources"]
@@ -613,10 +635,13 @@ def _current_containment_owner(
         target_selector="Atom//$atom",
         source_cardinality={"minimum": 0, "maximum": None},
     )
+    plan_selector = ("Atom/(.Header.Context.Role: Plan)"
+                     if "Atom/(.Header.Context.Role: Plan)" in sources["CA-R-2511"]["text"]
+                     else "Atom/(.Header.Role: Plan)")
     exactly_one(
         "CA-R-2511",
         kind="classification_condition",
-        subject_selector="Atom/(.Header.Role: Plan)",
+        subject_selector=plan_selector,
         axis="Container",
         operator="==",
         value="yes",
@@ -624,9 +649,9 @@ def _current_containment_owner(
     exactly_one(
         "CA-R-2511",
         kind="relation_cardinality",
-        source_selector="Atom/(.Header.Role: Plan)//$plan",
+        source_selector=plan_selector + "//$plan",
         relation="CONTAINS",
-        target_selector="Atom/(.Header.Role: Plan)//$contained_plan",
+        target_selector=plan_selector + "//$contained_plan",
         source_cardinality={"minimum": 0, "maximum": None},
     )
 
@@ -683,7 +708,7 @@ def _current_containment_owner(
             try:
                 path = locator.locate(current, Path(".current-containment") / f"{current}.md")
                 absolute = context.root / path
-                metadata = parse_carrier(context._reader.read(absolute), absolute).metadata
+                metadata = carrier_read_view(parse_carrier(context._reader.read(absolute), absolute).metadata)
             except (CurrentAtomLocatorError, OSError, RuntimeError, CarrierError) as error:
                 raise ProposedCarrierError("Current containment Atom is unavailable or ambiguous") from error
             if metadata.get("role") != "Plan" or metadata.get("form") != "Plan":
@@ -743,6 +768,7 @@ def _current_plan_parent_placement(
 
 def _current_draft_filename(metadata: Mapping[str, Any], relative_path: Path) -> None:
     """Bind an ordinary Current Draft filename to its canonical ID and Version."""
+    metadata = carrier_read_view(dict(metadata))
     if metadata.get("status") != "Draft":
         return
     identity = metadata.get("atom_id")
@@ -759,10 +785,57 @@ def _current_draft_filename(metadata: Mapping[str, Any], relative_path: Path) ->
         raise ProposedCarrierError("Current Draft filename must carry its exact canonical ID and Version marker")
 
 
+def _predecessor_metadata(context: VerifiedSourceContext, raw: Record,
+                          predecessor: CarrierPredecessor) -> Record:
+    path = predecessor.path
+    if (not path.is_absolute() or not path.is_relative_to(context._selection.control_root)
+            or {"archive", "archived"}.intersection(path.parts) or ".." in path.parts):
+        raise ProposedCarrierError("preservation predecessor is outside the live Project frontier")
+    source = context._reader.read(path)
+    if hashlib.sha256(source).hexdigest() != predecessor.sha256:
+        raise ProposedCarrierError("preservation predecessor changed")
+    original = parse_carrier(source, path).metadata
+    before, after = carrier_read_view(original), carrier_read_view(raw)
+    def base_id(value: object) -> str | None:
+        return value.split("@", 1)[0] if isinstance(value, str) else None
+    identity = base_id(before.get("atom_id"))
+    transition = predecessor.identity_transition
+    if transition is not None:
+        identity_matches = (transition == (before.get("atom_id"), after.get("atom_id"))
+                            and before.get("content_role") == after.get("content_role"))
+    else:
+        identity_matches = bool(identity and identity == base_id(after.get("atom_id")))
+    if not identity_matches or "projection" in original:
+        raise ProposedCarrierError("preservation predecessor does not identify this live Atom")
+    return original
+
+
+def _preserved_root_fields(context: VerifiedSourceContext, raw: Record,
+                           predecessor: CarrierPredecessor | None) -> Record:
+    if predecessor is None:
+        return {}
+    from header_groups import GROUP_FIELDS, equal_values
+
+    original = _predecessor_metadata(context, raw, predecessor)
+    before = carrier_read_view(original)
+    canonical = {field for fields in GROUP_FIELDS.values() for field in fields}
+    canonical.update({"identity", "context", "state", "destination", "relations", "carrier_destination",
+                      "content_role", "type", "autonomous_confidence_threshold", "ai_agent_confidence_threshold",
+                      "work_sequence_number"})
+    # Concern Priority is mapped; legacy Plan Priority stays an exact preserved root residue.
+    if before.get("content_role") == "Concern":
+        canonical.add("priority")
+    residue = {key: value for key, value in original.items() if key not in canonical}
+    if any(key not in raw or not equal_values(value, raw[key]) for key, value in residue.items()):
+        raise ProposedCarrierError("preserved legacy root fields changed or disappeared")
+    return residue
+
+
 def validate_proposed_carrier(
     metadata: Record, body: str, verified_source_context: VerifiedSourceContext, relative_path: Path,
     *, allow_existing_relations: bool = False, reference_roles: tuple[str, ...] | None = None,
     _status_index: StatusModelIndex | None = None,
+    predecessor: CarrierPredecessor | None = None,
 ) -> Record:
     """Reject every failed, unresolved, or unsupported finite carrier obligation.
 
@@ -878,6 +951,9 @@ def validate_proposed_carrier(
     control = verified_source_context._selection.control_relative
     carrier_inputs = _validation_inputs(verified_source_context, metadata)
     carrier_inputs["_raw_metadata"] = raw_metadata
+    carrier_inputs["_preserved_root_fields"] = _preserved_root_fields(
+        verified_source_context, raw_metadata, predecessor,
+    )
     result = validate_carrier(metadata, body, context, carrier_inputs)
     if result["findings"] or result["gaps"] or any(item["outcome"] != "passed" for item in result["outcomes"]):
         raise ProposedCarrierError("complete-carrier validation failed or is unresolved")

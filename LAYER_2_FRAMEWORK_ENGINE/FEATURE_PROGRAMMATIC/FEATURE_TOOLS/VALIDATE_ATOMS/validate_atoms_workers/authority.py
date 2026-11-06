@@ -118,16 +118,31 @@ def _domain(text: str) -> tuple[str, ...]:
     return tuple(value.strip().strip("`") for value in raw.split(","))
 
 
-def current_role_declaration(source: Record) -> str | None:
-    """Return the one Role admitted by an exact Current R/Declaration source."""
-    if not _verified(source, {}):
+def _header_qualification(step: Any, property_name: str) -> str | None:
+    if step.operator != "/" or not isinstance(step.operand, notation.Qualification):
         return None
-    metadata = source.get("metadata")
-    if (
-        not isinstance(metadata, dict)
-        or metadata.get("role") != "Requirement"
-        or metadata.get("form") != "Declaration"
-    ):
+    path = step.operand.relative_path
+    if (not isinstance(path.head, notation.Name) or path.head.value != "Header"
+            or path.value_format or path.value_cardinality):
+        return None
+    steps = list(path.steps)
+    if (steps and steps[0].operator == "." and isinstance(steps[0].operand, notation.Name)
+            and steps[0].operand.value == "Context"):
+        steps.pop(0)
+    if len(steps) != 2:
+        return None
+    property_step, value_step = steps
+    if (property_step.operator != "." or not isinstance(property_step.operand, notation.Name)
+            or property_step.operand.value != property_name or value_step.operator != ":="
+            or not isinstance(value_step.operand, notation.ValueLiteral)
+            or not isinstance(value_step.operand.value, str) or not value_step.operand.value):
+        return None
+    return value_step.operand.value
+
+
+def _current_declaration_target(metadata: Record) -> Any:
+    metadata = carrier_read_view(metadata)
+    if metadata.get("role") != "Requirement" or metadata.get("form") != "Declaration":
         return None
     subjects = metadata.get("subjects")
     active = subjects.get("active") if isinstance(subjects, dict) else None
@@ -139,48 +154,32 @@ def current_role_declaration(source: Record) -> str | None:
         return None
     if not isinstance(expression, notation.RelationChain) or len(expression.endpoints) != 2:
         return None
-    source_model, target = expression.endpoints
-    if (
-        len(expression.links) != 1
-        or expression.links[0].operator != "<+"
-        or not isinstance(source_model, notation.Path)
-        or not isinstance(source_model.head, notation.Name)
-        or source_model.head.value != "CAPRMEDIO_MODEL"
-        or source_model.steps
-        or source_model.value_format
-        or source_model.value_cardinality
-        or not isinstance(target, notation.Path)
-        or not isinstance(target.head, notation.Name)
-        or target.head.value != "Atom"
-        or len(target.steps) != 1
-        or target.value_format
-        or target.value_cardinality
-    ):
+    model, target = expression.endpoints
+    if (len(expression.links) != 1 or expression.links[0].operator != "<+"
+            or not isinstance(model, notation.Path) or not isinstance(model.head, notation.Name)
+            or model.head.value != "CAPRMEDIO_MODEL" or model.steps or model.value_format or model.value_cardinality
+            or not isinstance(target, notation.Path) or not isinstance(target.head, notation.Name)
+            or target.head.value != "Atom" or target.value_format or target.value_cardinality):
         return None
-    step = target.steps[0]
-    if step.operator != "/" or not isinstance(step.operand, notation.Qualification):
+    return target
+
+
+def current_role_declaration(source: Record) -> str | None:
+    """Read one complete Role selector from a verified Current Declaration."""
+    if not _verified(source, {}):
         return None
-    path = step.operand.relative_path
-    if (
-        not isinstance(path.head, notation.Name)
-        or path.head.value != "Header"
-        or len(path.steps) != 2
-        or path.value_format
-        or path.value_cardinality
-    ):
+    target = _current_declaration_target(source["metadata"])
+    return _header_qualification(target.steps[0], "Role") if target is not None and len(target.steps) == 1 else None
+
+
+def current_form_coordinate(metadata: Record) -> tuple[str, str] | None:
+    """Read only a whole Role/Form coordinate; no references or partial matches."""
+    target = _current_declaration_target(metadata)
+    if target is None or len(target.steps) != 2:
         return None
-    property_step, value_step = path.steps
-    if (
-        property_step.operator != "."
-        or not isinstance(property_step.operand, notation.Name)
-        or property_step.operand.value != "Role"
-        or value_step.operator != ":="
-        or not isinstance(value_step.operand, notation.ValueLiteral)
-        or not isinstance(value_step.operand.value, str)
-        or not value_step.operand.value
-    ):
-        return None
-    return value_step.operand.value
+    role = _header_qualification(target.steps[0], "Role")
+    form = _header_qualification(target.steps[1], "Form")
+    return (role, form) if role is not None and form is not None else None
 
 
 def _current_role_domain(sources: list[Record]) -> tuple[tuple[str, ...], list[Record], bool]:

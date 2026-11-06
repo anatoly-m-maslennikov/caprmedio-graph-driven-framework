@@ -19,6 +19,7 @@ from atom_subject_patch import (
     _yaml_scalar,
 )
 from connector_bindings import FileSource
+from header_yaml import header_scalar_node, remove_header_scalar
 
 
 def _marker_context(root: Path, canonical_id: str) -> tuple[str, str]:
@@ -102,11 +103,12 @@ def _scalars(raw: bytes) -> tuple[str, str, dict[str, ScalarNode]]:
     if not isinstance(document, MappingNode):
         raise ValueError("Subject edit-draft requires one frontmatter mapping")
     scalars = {}
-    for key, value in document.value:
-        if key.value in {"atom_id", "status", "updated_at", "version"}:
-            if key.value in scalars or not isinstance(value, ScalarNode):
+    for name in ("atom_id", "status", "updated_at", "version"):
+        value = header_scalar_node(document, name)
+        if value is not None:
+            if not isinstance(value, ScalarNode):
                 raise ValueError("Subject edit-draft marker fields must be unique scalars")
-            scalars[key.value] = value
+            scalars[name] = value
     if not {"status", "updated_at", "version"}.issubset(scalars):
         raise ValueError("Subject edit-draft marker fields are incomplete")
     return text, frontmatter, scalars
@@ -124,13 +126,9 @@ def _replace_scalars(raw: bytes, replacements: Mapping[str, str]) -> bytes:
 
 def _remove_scalar(raw: bytes, name: str) -> bytes:
     text, frontmatter, scalars = _scalars(raw)
-    node = scalars.get(name)
-    if node is None:
+    if name not in scalars:
         return raw
-    start = frontmatter.rfind("\n", 0, node.start_mark.index) + 1
-    end = frontmatter.find("\n", node.end_mark.index)
-    end = len(frontmatter) if end < 0 else end + 1
-    changed = frontmatter[:start] + frontmatter[end:]
+    changed = remove_header_scalar(frontmatter, name)
     return _replace_frontmatter(text, frontmatter, changed).encode("utf-8")
 
 

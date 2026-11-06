@@ -10,6 +10,8 @@ import sys
 import tempfile
 import unittest
 
+import yaml
+
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/tests"))
@@ -17,6 +19,7 @@ sys.path.insert(0, str(TOOLS.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/te
 from connector_bindings import capture_source
 from connector_scope_receiver import SCOPE_QUERY_IDS, make_scope_query_receiver
 from connector_toml_parse import render_document
+from header_groups import nested_header  # noqa: E402
 from project_selection import resolve_project
 from project_settings_reader import SCHEMA_IDS
 from scope_declaration_test_support import write_scope_unit_declarations
@@ -139,6 +142,21 @@ class ScopeQueryReceiverTests(unittest.TestCase):
         result = self.receive(filters("ALPHA", False, True))
         self.assertEqual(["CHILD"], [row["identity"] for row in result["data"]["matches"]])
         self.assertNotIn("declaration", result["data"]["matches"][0])
+
+    def test_nested_frozen_action_and_schema_packet_allow_complete_query(self):
+        for identity, source in self.sources.items():
+            path = self.root / source.relative_path
+            header, body = path.read_text(encoding="utf-8")[4:].split("\n---\n", 1)
+            path.write_text("---\n" + yaml.safe_dump(nested_header(yaml.safe_load(header)), sort_keys=False)
+                            + "---\n" + body, encoding="utf-8")
+            self.sources[identity] = capture_source(self.root, source.relative_path)
+        self.action = self.sources["CA-O-211"]
+        self.schemas = tuple(source for identity, source in self.sources.items() if identity != "CA-O-211")
+        self.receiver = make_scope_query_receiver(self.selection, schema_sources=self.schemas,
+                                                  action_definition=self.action)
+        result = self.receive()
+        self.assertEqual(["ALPHA", "BETA", "CHILD", "demo"],
+                         [row["identity"] for row in result["data"]["matches"]])
 
     def test_empty_and_conjunctive_queries_are_complete(self):
         for wanted, parent, names in (("CHILD", "ALPHA", ["CHILD"]), ("unknown", "ALPHA", [])):

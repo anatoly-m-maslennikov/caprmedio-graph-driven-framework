@@ -27,6 +27,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import artifact_metadata
 from artifact_metadata import atom_identifier
 from carrier_aliases import carrier_read_view
+from header_yaml import header_scalar
+from graph_header_readers import nested_subject_block, subject_source_keys
 from project_runtime import atomic_tempfile
 from project_selection import ProjectSelectionError, active_selection, bound_selection
 from scope_unit_declarations import read_scope_unit_declarations
@@ -402,10 +404,11 @@ def markdown_body(data: bytes, path: str) -> str:
 
 
 def top_scalar(frontmatter: str, key: str) -> str | None:
-    matches = re.findall(rf"(?m)^{re.escape(key)}:\s*([^\n]+?)\s*$", frontmatter)
-    if len(matches) > 1:
-        raise EntityGraphError("frontmatter-duplicate-key", "Atom Carrier has a duplicate scalar", key=key)
-    return scalar_value(matches[0]) if matches else None
+    try:
+        return header_scalar(frontmatter, key)
+    except ValueError as error:
+        code = "atom-metadata-conflict" if str(error).startswith("Conflicting") else "frontmatter-duplicate-key"
+        raise EntityGraphError(code, str(error), key=key) from error
 
 
 def top_block(frontmatter: str, key: str) -> list[str]:
@@ -414,7 +417,10 @@ def top_block(frontmatter: str, key: str) -> list[str]:
     if len(starts) > 1:
         raise EntityGraphError("frontmatter-duplicate-key", "Atom Carrier has a duplicate block", key=key)
     if not starts:
-        return []
+        try:
+            return nested_subject_block(frontmatter) if key == "subjects" else []
+        except ValueError as error:
+            raise EntityGraphError("atom-metadata-conflict", str(error), key=key) from error
     block: list[str] = []
     for line in lines[starts[0] + 1 :]:
         if line and not line[0].isspace():
@@ -559,11 +565,19 @@ def _validate_subject_expression(subject_path: str, subject_profile: str) -> Non
                                subject_path=subject_path) from error
 
 
+def _subject_source_keys(frontmatter: str) -> dict[str, str]:
+    try:
+        return subject_source_keys(frontmatter)
+    except ValueError as error:
+        raise EntityGraphError("subject-schema-conflict", str(error)) from error
+
+
 def parse_subject_relations(
     carrier: AtomCarrier, *, subject_profile: str = "legacy"
 ) -> tuple[list[SubjectRelation], list[dict[str, object]]]:
     _subject_profile(subject_profile)
     block = top_block(carrier.frontmatter, "subjects")
+    source_keys = _subject_source_keys(carrier.frontmatter)
     relations: list[SubjectRelation] = []
     pending: list[tuple[str, str, str, str]] = []
     diagnostics: list[dict[str, object]] = []
@@ -573,7 +587,7 @@ def parse_subject_relations(
 
     def append(kind: str, subject_path: str, temporal_form: str, source_schema_key: str) -> None:
         _validate_subject_expression(subject_path, subject_profile)
-        pending.append((kind, subject_path, temporal_form, source_schema_key))
+        pending.append((kind, subject_path, temporal_form, source_keys.get(source_schema_key, source_schema_key)))
 
     for line in block:
         kind_match = re.fullmatch(r"  ([a-z_]+):(?:\s*(.*))?", line)

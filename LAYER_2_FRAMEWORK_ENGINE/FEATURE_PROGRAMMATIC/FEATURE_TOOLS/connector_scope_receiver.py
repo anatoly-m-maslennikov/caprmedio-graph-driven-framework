@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable, Collection
 
+from carrier_aliases import carrier_read_view
 from connector_bindings import (
     ConnectorBindingError, ConnectorBindings, FileSource, admission_for_started_action,
 )
@@ -70,11 +71,11 @@ def _make_scope_receiver(
                            or source.sha256 is None for source in schemas)
             or len({source.relative_path for source in schemas}) != len(schemas)):
         raise ValueError("Distinct selected Project schema pins are required.")
-    if "CA-D-442" not in {_metadata(source).get("atom_id") for source in schemas}:
+    if "CA-D-442" not in {carrier_read_view(_metadata(source)).get("atom_id") for source in schemas}:
         raise ValueError("Current Scope Unit Declaration encoding authority is required.")
     if not isinstance(action_definition, FileSource) or action_definition.root != selection.root:
         raise TypeError(f"Selected {action_id.removeprefix('CA-')} source pin is required.")
-    action = _metadata(action_definition)
+    action = carrier_read_view(_metadata(action_definition))
     version = action.get("version")
     if (action.get("atom_id") != action_id or action.get("content_role") != "Operations"
             or action.get("type") != "Action" or action.get("status") != "Active"
@@ -140,7 +141,7 @@ def make_scope_query_receiver(
         if (not isinstance(source, FileSource) or source.root != selection.root
                 or source.sha256 is None):
             raise ValueError("Exact selected Project schema sources are required.")
-        metadata = _metadata(source)
+        metadata = carrier_read_view(_metadata(source))
         identity = metadata.get("atom_id")
         version = metadata.get("version")
         role = {"R": "Requirement", "M": "Method", "E": "Evaluation", "D": "Delivery"}.get(identity[3:4] if isinstance(identity, str) else "")

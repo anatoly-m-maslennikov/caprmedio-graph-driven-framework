@@ -1,5 +1,4 @@
 # CA-E-785@1
-
 """Native statement selection keeps SQL lexical boundaries authoritative."""
 
 from pathlib import Path

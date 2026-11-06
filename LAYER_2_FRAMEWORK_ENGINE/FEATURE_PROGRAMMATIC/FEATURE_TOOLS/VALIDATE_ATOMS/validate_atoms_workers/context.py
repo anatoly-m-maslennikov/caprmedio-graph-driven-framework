@@ -2,6 +2,8 @@
 
 import hashlib
 from pathlib import Path
+
+from carrier_aliases import carrier_read_view
 from typing import Any
 
 from .parsing import CarrierError, parse_carrier
@@ -61,7 +63,7 @@ def load_source(
     try:
         raw = reader.read(path)
         parsed = parse_carrier(raw, path)
-        metadata = parsed.metadata
+        metadata = carrier_read_view(parsed.metadata)
         # Exact installed support bindings can identify a legacy authority
         # carrier. They do not repair its Status or any validation target.
         supplied = supplied or matching_pin(raw, path)
@@ -96,7 +98,7 @@ def load_source(
         )
         if supplied and binding != supplied:
             raise ValueError("Authority does not match supplied binding.")
-        return dict(binding=binding, text=parsed.text, metadata=metadata)
+        return dict(binding=binding, text=parsed.text, metadata=parsed.metadata)
     except OSError, ValueError, CarrierError:
         report["coverage"]["gaps"].append(
             diagnostic(

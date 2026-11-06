@@ -11,6 +11,8 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import yaml
+
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 sys.path.insert(0, str(TOOLS.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/tests"))
@@ -66,6 +68,29 @@ class ProjectSettingsReaderTests(unittest.TestCase):
         self.assertEqual(tuple(document["project"]["obsolete_names"]), _parse_settings(document)[3])
         document["project"]["obsolete_names"] = []
         self.assertEqual((), _parse_settings(document)[3])
+
+    def test_nested_schema_authorities_preserve_source_pins(self):
+        nested_sources = []
+        for source in self.schemas:
+            path = self.root / source.relative_path
+            _, frontmatter, body = path.read_text().split("---", 2)
+            metadata = yaml.safe_load(frontmatter)
+            nested = {
+                "identity": {"atom_id": metadata.pop("atom_id")},
+                "context": {"role": metadata.pop("content_role")},
+                "state": {key: metadata.pop(key) for key in ("status", "version", "updated_at")},
+                **metadata,
+            }
+            path.write_text("---\n" + yaml.safe_dump(nested, sort_keys=False) + "---" + body)
+            nested_sources.append(capture_source(self.root, source.relative_path))
+        self.schemas = nested_sources
+
+        result = self.read()
+
+        self.assertEqual((), result.errors)
+        self.assertIsNotNone(result.snapshot)
+        self.assertEqual({source.sha256 for source in self.schemas},
+                         {pin.sha256 for pin in result.snapshot.schema_sources})
 
     def test_closed_complete_schema_refuses_each_level_and_wrong_types(self):
         cases = []

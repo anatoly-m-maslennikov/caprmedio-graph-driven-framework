@@ -1,6 +1,5 @@
 # CA-E-676@6
-# CA-E-677@11
-
+# CA-E-677@12
 """Native graph relation projection tests."""
 
 from __future__ import annotations
@@ -118,7 +117,7 @@ class GraphRelationsTests(unittest.TestCase):
             ).fetchall(),
         )
         relations = dict(self.store._connection.execute(
-            "SELECT reference, relations FROM atoms WHERE reference IN ('A', 'B', 'C')"
+            "SELECT reference, header_relations FROM atoms WHERE reference IN ('A', 'B', 'C')"
         ).fetchall())
         self.assertEqual(
             {"CONTAINS": [{"kind": "Atom", "reference": "C", "derived": False}],

@@ -10,6 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import yaml
 
 APP = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = APP.parents[3]
@@ -22,6 +23,7 @@ from shared_context_validation_loader import (  # noqa: E402
     FrozenMethodLoaderError,
     load_frozen_methods,
 )
+from header_groups import nested_header  # noqa: E402
 
 
 class FrozenMethodLoaderTests(unittest.TestCase):
@@ -59,6 +61,19 @@ class FrozenMethodLoaderTests(unittest.TestCase):
         with self.assertRaises(FrozenMethodLoaderError) as raised:
             load_frozen_methods(self.root, frozen)
         self.assertEqual("stale_source", raised.exception.code)
+
+    def test_nested_frozen_method_packet_preserves_parent_closure(self) -> None:
+        frozen = self._frozen("CA-M-430", "CA-M-415", "CA-M-261")
+        rows = frozen['request']['execution']['parameters']['base_packet']['methods']
+        for row in rows:
+            header, body = row['content'][4:].split('\n---\n', 1)
+            content = ('---\n' + yaml.safe_dump(nested_header(yaml.safe_load(header)), sort_keys=False)
+                       + '---\n' + body)
+            (self.root / row['path']).write_text(content, encoding='utf-8')
+            row.update(content=content, sha256=hashlib.sha256(content.encode()).hexdigest())
+        loaded = load_frozen_methods(self.root, frozen)
+        self.assertEqual(['CA-M-261', 'CA-M-415', 'CA-M-430'], [row['atom_id'] for row in loaded])
+        self.assertEqual({row['sha256'] for row in rows}, {row['sha256'] for row in loaded})
 
     def test_oversized_current_source_does_not_call_path_read_bytes(self) -> None:
         frozen = self._frozen("CA-M-431")

@@ -1,6 +1,6 @@
-# CA-R-2724@2
-# CA-M-464@7
-# CA-D-672@9
+# CA-R-2724@3
+# CA-M-464@8
+# CA-D-672@12
 # CA-D-675@13
 
 """Trusted internal DuckPGQ mappings for the Workbench public row projection."""

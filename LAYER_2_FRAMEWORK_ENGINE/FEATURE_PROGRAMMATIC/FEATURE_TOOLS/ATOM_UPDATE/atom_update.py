@@ -20,6 +20,7 @@ sys.path.insert(0, str(TOOLS))
 import atom_operations as operations
 import atom_subject_patch as subjects
 import atom_subject_stage as staging
+from carrier_aliases import carrier_read_view  # noqa: E402
 from project_selection import ProjectSelectionError, active_selection, bind_selection
 from tool_description import binding_matches, make_tool_description
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import LimitReached, ReadContext
@@ -297,7 +298,7 @@ def _contract_reader(root):
     reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
     for pin in SOURCE_PINS:
         raw = reader.read(root / pin["path"])
-        metadata = operations.parse_carrier(raw, root / pin["path"]).metadata
+        metadata = carrier_read_view(operations.parse_carrier(raw, root / pin["path"]).metadata)
         version = metadata.get("version")
         role = {"R": "Requirement", "O": "Operations", "M": "Method", "D": "Delivery", "E": "Evaluation"}[pin["atom_id"][3]]
         if (metadata.get("atom_id") != pin["atom_id"] or type(version) is not int or version < 1
@@ -327,7 +328,7 @@ def _resolve_items(root, request, reader):
         parsed = operations.parse_carrier(raw, path)
         if "projection" in parsed.metadata:
             continue
-        if parsed.metadata.get("atom_id") != identity.group(1):
+        if carrier_read_view(parsed.metadata).get("atom_id") != identity.group(1):
             raise operations.ToolError("atom-frontmatter-id-mismatch", "Selected filename and declared Atom identity disagree")
         frontmatter, content = subjects._raw_frontmatter(operations, raw.decode("utf-8"))
         pool.append(operations.Atom(path, path.relative_to(root).as_posix(), path.name, identity.group(1),

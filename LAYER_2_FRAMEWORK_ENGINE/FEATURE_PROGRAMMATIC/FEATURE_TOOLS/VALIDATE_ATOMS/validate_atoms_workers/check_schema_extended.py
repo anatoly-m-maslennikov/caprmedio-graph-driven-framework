@@ -13,12 +13,14 @@ from dataclasses import replace
 from functools import lru_cache
 from pathlib import Path
 
+from carrier_aliases import carrier_read_view
+
 import yaml
 from yaml.nodes import MappingNode, ScalarNode
 
 import subject_notation as notation
 
-from .authority import Record, _verified
+from .authority import Record, _verified, current_form_coordinate
 from .check_fields import encoding_authority
 from .parsing import CarrierError, parse_carrier
 from .check_sections import _claim_model_headings, _headings, _sections, body_layout, role_sections, plan_definition
@@ -152,13 +154,17 @@ def _source(check: Check, atom_id: str, field: str, *, required: bool = True) ->
 
 
 def _governs(row: Record) -> str:
-    subjects = row.get("metadata", {}).get("subjects", {})
+    subjects = carrier_read_view(row.get("metadata", {})).get("subjects", {})
     value = subjects.get("governs", "") if isinstance(subjects, dict) else ""
     return value if isinstance(value, str) else ""
 
 
 def declared_type_coordinate(metadata: Record) -> tuple[str, str] | None:
     """Read only the whole governed Type coordinate, never references or prose."""
+    return current_form_coordinate(metadata) or _legacy_type_coordinate(metadata)
+
+
+def _legacy_type_coordinate(metadata: Record) -> tuple[str, str] | None:
     subject = _governs({"metadata": metadata})
     if not subject:
         return None
@@ -210,15 +216,16 @@ def declared_type_coordinate(metadata: Record) -> tuple[str, str] | None:
 
 
 def type_definition_coordinate(row: Record) -> tuple[str, str] | None:
-    metadata = row.get("metadata", {})
+    raw_metadata = row.get("metadata", {})
+    metadata = carrier_read_view(raw_metadata)
     if (not _verified(row, {}) or metadata.get("content_role") != "Requirement"
-            or metadata.get("type") != "Entity Definition"):
+            or metadata.get("type") not in {"Entity Definition", "Declaration"}):
         return None
     try:
         parsed = parse_carrier(row["text"].encode(), Path(row["binding"]["path"]))
     except (CarrierError, ValueError):
         return None
-    if parsed.metadata != metadata:
+    if parsed.metadata != raw_metadata:
         return None
     return declared_type_coordinate(metadata)
 
@@ -336,6 +343,20 @@ def _admit_subject_keys(metadata: Record, check: Check) -> None:
             )
 
 
+def _admission_fields(metadata: Record, check: Check, profile: str) -> Record:
+    from .nested_header import check_nested_header, is_nested_header
+
+    raw = check.inputs.get("_raw_metadata", metadata)
+    if profile == "current" and is_nested_header(raw):
+        check_nested_header(raw, check)
+        metadata = {key: value for key, value in raw.items()
+                    if key not in {"identity", "context", "relations", "state", "destination"}
+                    and key not in check.inputs.get("_preserved_root_fields", {})}
+        metadata = dict(metadata, content_role=carrier_read_view(raw).get("content_role"),
+                        type=carrier_read_view(raw).get("type"))
+    return metadata
+
+
 def _property_admission(metadata: Record, body: str, check: Check) -> None:
     del body
     if _inputs(check, "properties") is None:
@@ -343,6 +364,7 @@ def _property_admission(metadata: Record, body: str, check: Check) -> None:
     encoding = encoding_authority(check)
     if encoding is None:
         return
+    metadata = _admission_fields(metadata, check, encoding[0])
     common_fields = CURRENT_COMMON_FIELDS if encoding[0] == "current" else COMMON_FIELDS
     for field in metadata:
         if field in common_fields:
@@ -471,15 +493,15 @@ def _updated_at_quoting(metadata: Record, body: str, check: Check) -> None:
     except yaml.YAMLError:
         check.gap("updated_at", "Raw frontmatter cannot be inspected safely for quoting.")
         return
-    values = (
-        [
-            value
-            for key, value in root.value
-            if isinstance(key, ScalarNode) and key.value == "updated_at"
-        ]
-        if isinstance(root, MappingNode)
-        else []
-    )
+    from .nested_header import is_nested_header
+
+    field_path = ("state", "updated_at") if is_nested_header(parsed.metadata) else ("updated_at",)
+    nodes = [root]
+    for component in field_path:
+        nodes = [value for node in nodes if isinstance(node, MappingNode)
+                 for key, value in node.value
+                 if isinstance(key, ScalarNode) and key.value == component]
+    values = nodes
     if (
         len(values) != 1
         or not isinstance(values[0], ScalarNode)
@@ -550,9 +572,7 @@ def _current_model_domains(metadata: Record, check: Check) -> None:
         return
     coordinate = metadata["content_role"], metadata["type"]
     candidates = [row for row in check.inputs["sources"]
-                  if row.get("metadata", {}).get("content_role") == "Requirement"
-                  and row.get("metadata", {}).get("type") == "Entity Definition"
-                  and declared_type_coordinate(row.get("metadata", {})) == coordinate]
+                  if type_definition_coordinate(row) == coordinate]
     if len(candidates) != 1 or type_definition_coordinate(candidates[0]) != coordinate:
         check.gap("type", "Current qualified Type requires one verified Active Entity Definition owner.")
         return

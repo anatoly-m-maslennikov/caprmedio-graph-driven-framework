@@ -8,6 +8,8 @@ from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 
+import yaml
+
 TOOLS = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(TOOLS))
 import test_nonarchived_subject_preview as fixtures  # noqa: E402
@@ -29,6 +31,31 @@ class SubjectLookupOwnerTests(unittest.TestCase):
         before = self.path.read_bytes()
         self.assertNotIn(b'current_scope_unit:', before)
         result = self.search()
+        self.assertEqual(['CA-P-501'], [row['atom_id'] for row in result['occurrences']])
+        self.assertEqual('full', result['coverage'])
+        self.assertEqual(before, self.path.read_bytes())
+
+    def test_nested_header_lookup_and_current_identity_verification_preserve_source(self):
+        raw = self.path.read_bytes().decode('utf-8').replace('\r\n', '\n')
+        _, header, body = raw.split('---\n', 2)
+        metadata = yaml.safe_load(header)
+        subjects = metadata.pop('subjects')
+        metadata = {
+            'identity': {'atom_id': metadata.pop('atom_id')},
+            'context': {
+                'container': metadata['relations'].pop('IS_CONTAINED_BY'),
+                **{key: metadata.pop(key) for key in ('role', 'form', 'tier')},
+                'topics': {'main_subject': subjects['active'], 'dependencies': subjects['passive']},
+            },
+            'state': {key: metadata.pop(key) for key in ('status', 'version', 'updated_at')},
+            **metadata,
+        }
+        before = ('---\n' + yaml.safe_dump(metadata, sort_keys=False) + '---\n' + body).encode()
+        self.path.write_bytes(before)
+        result = run_subject_search(
+            self.root, argparse.Namespace(subject='Atom/Status', content_role=['Plan']),
+            direct_subject_only=True,
+        )
         self.assertEqual(['CA-P-501'], [row['atom_id'] for row in result['occurrences']])
         self.assertEqual('full', result['coverage'])
         self.assertEqual(before, self.path.read_bytes())

@@ -1,5 +1,5 @@
-# CA-D-578@2
-# CA-D-639@14
+# CA-D-578@18
+# CA-D-639@15
 
 """Canonical fixed HTTP paths for the local CAPRMEDIO service."""
 

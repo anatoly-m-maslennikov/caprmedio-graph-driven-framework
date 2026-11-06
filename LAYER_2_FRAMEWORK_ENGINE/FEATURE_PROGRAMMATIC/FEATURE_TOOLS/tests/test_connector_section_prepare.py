@@ -16,6 +16,7 @@ sys.path.insert(0, str(TOOLS / "VALIDATE_ATOMS/tests"))
 import test_connector_bindings as bindings_fixture
 import test_proposed_carrier_admission_regressions as carrier_fixture
 from golden_authority import frozen_entry, write_frozen_authority
+from header_groups import nested_header  # noqa: E402
 from connector_bindings import ConnectorBindings, SelectedOperationAdmission, capture_source
 from connector_section_parse import SectionError
 from connector_section_prepare import SECTION_AUTHORITY_IDS, prepare_section
@@ -111,6 +112,17 @@ class SectionPreparationTests(unittest.TestCase):
     def test_noop_preserves_every_byte(self):
         delta = {"operation": "replace", "section": {"level": 2, "title": "Notes"}, "content": "\nKeep this.\n\n"}
         self.assertEqual(prepare_section(self.bound(delta), self.context), self.raw)
+
+    def test_nested_header_identity_and_expected_version_allow_edit_and_exact_noop(self):
+        header, body = self.raw.decode().split("\n---\n", 1)
+        self.raw = ("---\n" + yaml.safe_dump(nested_header(yaml.safe_load(header[4:])), sort_keys=False)
+                    + "---\n" + body).encode()
+        self.path.write_bytes(self.raw)
+        candidate = prepare_section(self.bound(), self.context)
+        self.assertEqual(self.raw.replace(b"Keep this.", b"Revised."), candidate)
+        delta = {"operation": "replace", "section": {"level": 2, "title": "Notes"}, "content": "\nKeep this.\n\n"}
+        self.assertEqual(self.raw, prepare_section(self.bound(delta), self.context))
+        self.assertEqual(self.raw, self.path.read_bytes())
 
     def test_complete_validator_rejects_required_section_removal(self):
         delta = {"operation": "remove", "section": {"level": 2, "title": "Objective"}}

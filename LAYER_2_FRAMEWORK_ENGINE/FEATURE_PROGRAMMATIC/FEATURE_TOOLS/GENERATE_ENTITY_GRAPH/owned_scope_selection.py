@@ -13,6 +13,7 @@ from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
+from GENERATE_ENTITY_GRAPH.graph_header_readers import carrier_ownership
 from project_selection import ProjectSelectionError, active_selection
 from scope_unit_declarations import ScopeDeclarationError, read_scope_unit_declarations
 
@@ -54,8 +55,9 @@ def prepare_owned_scope_selection(repository: Path, selected_folder: Path, scope
     """Return exact-Active source Atom IDs and sealed ownership evidence.
 
     Scope Unit names are structural evidence, not a membership query: an Atom
-    is selected only when its own explicit ``current_scope_unit`` equals the
-    requested name and its explicit ``status`` is exactly ``Active``. Other
+    is selected only when its explicit Container points to the requested
+    declaration ID (or its legacy current_scope_unit names it) and its
+    explicit status is exactly Active. Other
     role/type lifecycle spellings need their own source-pinned evaluator; this
     helper neither normalizes them nor grants native graph membership.
     """
@@ -127,10 +129,10 @@ def prepare_owned_scope_selection(repository: Path, selected_folder: Path, scope
         support_sources: list[dict[str, object]] = []
         for carrier in carriers:
             explicit_id = graph.top_scalar(carrier.frontmatter, "atom_id")
-            owner = graph.top_scalar(carrier.frontmatter, "current_scope_unit")
+            owner, expected_owner, ownership = carrier_ownership(carrier.frontmatter, rows[0], scope_unit_name)
             explicit_status = graph.top_scalar(carrier.frontmatter, "status")
             missing = [
-                name for name, value in (("atom_id", explicit_id), ("current_scope_unit", owner), ("status", explicit_status))
+                name for name, value in (("atom_id", explicit_id), ("container.scope_unit", owner), ("status", explicit_status))
                 if not isinstance(value, str) or not value
             ]
             if missing:
@@ -146,12 +148,12 @@ def prepare_owned_scope_selection(repository: Path, selected_folder: Path, scope
                     "atom-id-duplicate", "Selected Atom Carriers contain a duplicate explicit atom_id.", atom_id=explicit_id
                 )
             seen.add(explicit_id)
-            if explicit_status == "Active" and owner == scope_unit_name:
+            if explicit_status == "Active" and owner == expected_owner:
                 native_ids.append(explicit_id)
             elif explicit_status == "Active":
                 support_sources.append({
                     "atom_id": explicit_id,
-                    "current_scope_unit": owner,
+                    **ownership,
                     "carrier_path": carrier.carrier_path,
                     "carrier_sha256": carrier.sha256,
                 })

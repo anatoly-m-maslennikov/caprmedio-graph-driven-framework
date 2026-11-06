@@ -1,10 +1,8 @@
 # CA-R-2728@6
 # CA-R-2729@7
-# CA-R-2776@6
-# CA-M-470@7
 # CA-R-2950@1
 # CA-R-2952@1
-# CA-M-465@16
+# CA-M-465@17
 # CA-M-490@1
 # CA-M-491@1
 # CA-D-695@1
@@ -12,14 +10,7 @@
 # CA-D-673@13
 # CA-R-2786@1
 # CA-M-474@1
-# CA-D-679@1
-# CA-R-2902@2
 # CA-R-2903@2
-# CA-M-476@2
-# CA-D-681@4
-# CA-D-675@13
-# CA-M-493@1
-# CA-D-697@1
 
 """One Project's direct file reader, background indexer, and SQL capability."""
 
@@ -84,26 +75,52 @@ class WorkbenchService:
         self._syncing = 0
         self._last_synced_at: str | None = None
 
-    def _refresh(self) -> None:
+    def _refresh(self, changes: list[Change] | None = None) -> None:
         self._begin_sync()
         succeeded = False
         try:
             with self._refresh_lock:
                 started = time.monotonic()
-                atoms, scopes = self._reader.capture()
+                atoms, scopes = (
+                    self._reader.capture()
+                    if changes is None
+                    else self._reader.capture(changes)
+                )
                 captured_at = time.monotonic()
+                capture_seconds = captured_at - started
                 scope_signature = canonical(scopes)
                 atoms, scopes = materialize(atoms, scopes)
                 materialized_at = time.monotonic()
+                materialize_seconds = materialized_at - captured_at
                 registered, inverse = relation_registry(atoms)
                 registry = canonical([sorted(registered), sorted(inverse.items())])
                 assert self._store is not None
                 full = self._scope_signature != scope_signature or self._relation_registry != registry
+                write_seconds = 0.0
                 if full:
+                    writing_started = time.monotonic()
                     self._store.replace(atoms, scopes, relation_types=registered)
+                    write_seconds += time.monotonic() - writing_started
                     changed = True
                 else:
+                    writing_started = time.monotonic()
                     changed = self._store.apply(atoms, scopes, relation_types=registered)
+                    write_seconds += time.monotonic() - writing_started
+                    if self._store.schema_changed is True:
+                        full = True
+                        recapture_started = time.monotonic()
+                        atoms, scopes = self._reader.capture()
+                        recaptured_at = time.monotonic()
+                        capture_seconds += recaptured_at - recapture_started
+                        scope_signature = canonical(scopes)
+                        atoms, scopes = materialize(atoms, scopes)
+                        rematerialized_at = time.monotonic()
+                        materialize_seconds += rematerialized_at - recaptured_at
+                        registered, inverse = relation_registry(atoms)
+                        registry = canonical([sorted(registered), sorted(inverse.items())])
+                        writing_started = time.monotonic()
+                        self._store.replace(atoms, scopes, relation_types=registered)
+                        write_seconds += time.monotonic() - writing_started
                 written_at = time.monotonic()
                 self._scope_signature, self._relation_registry = scope_signature, registry
                 paths = {row["source_path"] for row in atoms}
@@ -115,10 +132,11 @@ class WorkbenchService:
                     f"mode={'full' if full else 'delta'} changed={str(changed).lower()} "
                     f"atoms={len(atoms)} scopes={len(scopes)} removed_atom_sources={removed} "
                     f"excluded_sources={self._reader.excluded_count} "
-                    f"capture_ms={round((captured_at - started) * 1000, 1)} "
-                    f"materialize_ms={round((materialized_at - captured_at) * 1000, 1)} "
-                    f"write_ms={round((written_at - materialized_at) * 1000, 1)} "
-                    f"elapsed_ms={round((written_at - started) * 1000, 1)}"
+                    f"capture_ms={round(capture_seconds * 1000, 1)} "
+                    f"materialize_ms={round(materialize_seconds * 1000, 1)} "
+                    f"write_ms={round(write_seconds * 1000, 1)} "
+                    f"elapsed_ms={round((written_at - started) * 1000, 1)}",
+                    flush=True,
                 )
         finally:
             self._finish_sync(succeeded)
@@ -148,7 +166,7 @@ class WorkbenchService:
                 if batch:
                     self._record_watcher_changes(batch)
                 if batch and not self._journal_only(batch):
-                    self._refresh()
+                    self._refresh(batch)
                 self._prune_watcher_changes()
                 assert self._store is not None
                 self._store.prune_results()
@@ -314,6 +332,9 @@ class WorkbenchService:
             if name == "view_create":
                 args = self._arguments(name, arguments, {"workspace_id", "position", "name"}, {"workspace_id"})
                 return self._workspaces.create(args["workspace_id"], args.get("position", "last"), args.get("name"))
+            if name == "view_duplicate":
+                args = self._arguments(name, arguments, {"workspace_id", "view_id"}, {"workspace_id", "view_id"})
+                return self._workspaces.duplicate(args["workspace_id"], args["view_id"])
             if name == "view_list":
                 args = self._arguments(name, arguments, {"workspace_id"}, {"workspace_id"})
                 return self._workspaces.list_views(args["workspace_id"])

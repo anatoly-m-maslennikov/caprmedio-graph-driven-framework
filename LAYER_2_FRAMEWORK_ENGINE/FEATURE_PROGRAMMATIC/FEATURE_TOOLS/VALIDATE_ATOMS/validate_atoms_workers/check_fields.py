@@ -91,12 +91,14 @@ def _selected_encoding_profile(check: Check) -> str | None:
 
 
 def _current_draft_contract(check: Check) -> bool:
-    from .support_authority import exact_source, matches_source_pin, require_sources, support_sources
+    from .support_authority import (exact_source, matches_reviewed_header_source,
+                                    matches_source_pin, require_sources, support_sources)
 
     if not require_sources(check, ("CA-D-378",)):
         return False
     source = exact_source(check.inputs, "CA-D-378")
-    if source is None or not matches_source_pin(source, support_sources().get("CA-D-378", {})):
+    if source is None or not (matches_source_pin(source, support_sources().get("CA-D-378", {}))
+                              or matches_reviewed_header_source(source)):
         check.gap("authority", "Missing or changed supporting authority: CA-D-378.")
         return False
     text = source.get("text") if isinstance(source, dict) else None
@@ -234,6 +236,7 @@ _ENCODING_PROFILES = {
 # This is the reviewed D657 Claim from the proposed Current carrier, not a
 # source-file pin.  The locator binds the observed bytes and this marker keeps
 # a changed governing Claim from inheriting a historical adapter.
+_D657_NESTED_BODY = "bcf2eecd7143f63dbab634c67449cf65a3937060ddef84613877856e50def719"
 _D657_CURRENT_CLAIM = "5d4d963bc139bb72920e04272b2f019687bf0d1f13e9021792c989dc0c609ae4"
 
 
@@ -253,8 +256,12 @@ def reviewed_encoding_profile(row: Record) -> str | None:
     # The locator verifies observed source bytes; this additional reviewed
     # Claim marker prevents an evolved governing contract from reusing this adapter.
     identifier = row["binding"]["atom_id"]
-    if identifier == "CA-D-657" and _claim_digest(row.get("text")) == _D657_CURRENT_CLAIM:
-        return "current"
+    if identifier == "CA-D-657":
+        text = row.get("text")
+        if isinstance(text, str) and hashlib.sha256(text.split("---", 2)[-1].encode()).hexdigest() == _D657_NESTED_BODY:
+            return "current"
+        if _claim_digest(text) == _D657_CURRENT_CLAIM:
+            return "current"
     return _ENCODING_PROFILES.get(identifier)
 
 
@@ -276,8 +283,17 @@ def encoding_authority(check: Check) -> tuple[str, Record] | None:
 
 
 def _current_common(metadata: Record, check: Check) -> None:
+    from .nested_header import check_nested_header, is_nested_header
+
     raw = check.inputs.get("_raw_metadata", metadata)
     raw = raw if isinstance(raw, dict) else metadata
+    if is_nested_header(raw):
+        check_nested_header(raw, check)
+    else:
+        _flat_current_common(raw, check)
+
+
+def _flat_current_common(raw: Record, check: Check) -> None:
     for field in ("role", "form"):
         check.require(raw, field, _string)
     check.require(raw, "tier", _integer)
@@ -406,6 +422,17 @@ def _current_subjects(subjects: Record, check: Check) -> None:
 
 
 def _subjects(metadata: Record, body: str, check: Check) -> None:
+    from .nested_header import check_topics, is_nested_header
+
+    raw = check.inputs.get("_raw_metadata", metadata)
+    if isinstance(raw, dict) and is_nested_header(raw):
+        context = raw.get("context", {})
+        check_topics(context.get("topics") if isinstance(context, dict) else None, check)
+    else:
+        _flat_subjects(metadata, body, check)
+
+
+def _flat_subjects(metadata: Record, body: str, check: Check) -> None:
     del body
     inputs = getattr(check, "inputs", {})
     current = (

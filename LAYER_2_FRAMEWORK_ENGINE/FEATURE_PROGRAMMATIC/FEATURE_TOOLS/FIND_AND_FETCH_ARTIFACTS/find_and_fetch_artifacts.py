@@ -56,6 +56,7 @@ _TOOLS_ROOT = _TOOL_ROOT.parent
 if str(_TOOLS_ROOT) not in sys.path:
     sys.path.insert(0, str(_TOOLS_ROOT))
 from project_selection import active_selection
+from header_groups import header_value  # noqa: E402 - parent Tool path is bound above
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
@@ -495,6 +496,22 @@ def _walk_markdown(root: Path) -> Iterable[Path]:
             yield candidate
 
 
+def _member_identity(fm: dict[str, Any]) -> str:
+    try:
+        present, atom = header_value(fm, "atom_id")
+    except ValueError as error:
+        raise ArtifactQueryError("conflicting artifact identity") from error
+    if not present:
+        atom = MISSING
+    artifact = fm.get("artifact_id", MISSING)
+    if atom is not MISSING and artifact is not MISSING:
+        raise ArtifactQueryError("conflicting artifact identity")
+    identity = atom if atom is not MISSING else artifact
+    if not isinstance(identity, str) or not identity:
+        raise ArtifactQueryError("missing artifact identity")
+    return identity
+
+
 def _read_member(root: Path, path: Path, *, budgets: dict[str, int], total_read: int, started: float) -> tuple[dict[str, Any], int]:
     if path.is_symlink() or not _contains(root, path.resolve(strict=True)):
         raise ArtifactQueryError("incomplete source")
@@ -523,15 +540,8 @@ def _read_member(root: Path, path: Path, *, budgets: dict[str, int], total_read:
         raise ArtifactQueryError("malformed frontmatter")
     frontmatter, body = text[4:].split("\n---\n", 1)
     fm = _load_frontmatter(frontmatter)
-    atom = fm.get("atom_id", MISSING)
-    artifact = fm.get("artifact_id", MISSING)
-    if atom is not MISSING and artifact is not MISSING:
-        raise ArtifactQueryError("conflicting artifact identity")
-    identity = atom if atom is not MISSING else artifact
-    if not isinstance(identity, str) or not identity:
-        raise ArtifactQueryError("missing artifact identity")
     return {
-        "path": path, "relative": path.relative_to(root).as_posix(), "id": identity,
+        "path": path, "relative": path.relative_to(root).as_posix(), "id": _member_identity(fm),
         "digest": hashlib.sha256(data).hexdigest(), "fm": fm, "sections": _sections(body),
     }, total_read
 

@@ -15,8 +15,8 @@ relations:
   - CA-R-2728
   - CA-R-2724
 status: Active
-version: 7
-updated_at: 2026-11-04 18:14:51 +0400
+version: 8
+updated_at: 2026-11-06 20:37:19 +0400
 carrier_destination:
   file:
     name: CA-M-464-WORKBENCH_BACKEND-ENG_DECISION--preserve-governed-atom-data-and-reuse-native-sql.md
@@ -25,6 +25,7 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
+
 
 ## Summary
 
@@ -38,9 +39,9 @@ Direct file reading and native query semantics for Current and Draft Atom carrie
 
 ### Prose Claim
 
-The DuckDB Projection reader must read Current and Draft Atom carriers, excluding Archived carriers, into the derived DuckDB database. Every Current status, including Done and Canceled, remains in that inventory. Parse YAML and Markdown directly using the existing safe YAML reader and CommonMark headings. Do not compile model Declarations into a reader schema, evaluate generic CFEL, or interpret prose.
+The DuckDB Projection reader must read Current and Draft Atom carriers, excluding Archived carriers, into the derived DuckDB database. Every Current status, including Done and Canceled, remains in that inventory. Parse YAML and Markdown directly using the existing safe YAML reader and CommonMark headings. Generate the Content schema from Current model Declarations. Compile declared Content paths and their applicability; do not evaluate arbitrary CFEL formulas or interpret prose as schema.
 
-Preserve all parsed Header properties, the original Markdown body, and real heading paths without a fixed heading list or Form validation. Parent paths are derived from Property path segments. The reader creates no intermediate schema, JSON file, or third public database table.
+Preserve all parsed raw Header properties, the original Markdown body, and real heading paths without a fixed heading list or Form validation. Parent paths are derived from Property path segments. The reader creates no intermediate source-data files or third public source table. Its schema is a rebuildable derived asset under `.caprmedio_runtime/workbench`, with one flattened SQL column for every observed raw Header Property path and Content columns from model-declared Properties.
 
 Only Current Scope Unit Declarations establish the current Scope Unit inventory. A Draft Declaration remains a queryable Atom but does not establish a current Scope Unit.
 

@@ -172,6 +172,38 @@ class CompilerTest(unittest.TestCase):
         self.assertEqual(first_tree, regenerated["generated_tree_digest"])
         self.assertEqual(before, {source: source.read_bytes(), local: local.read_bytes()})
 
+    def test_nested_header_compiles_alongside_flat_source_without_rewriting_either(self) -> None:
+        nested = (
+            b"---\nidentity:\n  atom_id: CA-R-001\n  ref_id: CA-R-001@2\n"
+            b"context:\n  role: Requirement\n  form: Rule\n  topics:\n    main_subject: Header\n    dependencies: []\n"
+            b"relations: {}\nstate:\n  status: Active\n  version: 2\n"
+            b'  updated_at: "2026-11-06 00:00:00 +0400"\n'
+            b"destination:\n  file:\n    name: CA-R-001--nested\n    path: preserved/path\n"
+            b"---\n# Claim\n\nExact nested source body.\n"
+        )
+        source = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--nested.md", nested)
+        flat = self.write("003_PROJECT_CONFIGURATION", "05_method", "CA-M-001--flat.md", carrier("CA-M-001"))
+        before = {source: nested, flat: flat.read_bytes()}
+        candidates, diagnostics, _ = module.discover_candidates(self.temp)
+        self.assertFalse(diagnostics)
+        self.assertEqual({"CA-R-001": 2, "CA-M-001": 1}, {row.atom_id: row.version for row in candidates})
+
+        code, report = self.invoke("--apply")
+        self.assertEqual(0, code, report)
+        projected = self.temp / self.output / "04_requirement" / source.name
+        candidate = next(row for row in candidates if row.atom_id == "CA-R-001")
+        relative = Path(os.path.relpath(source, start=projected.parent)).as_posix()
+        module.validate_projection_source_preservation(nested, projected.read_bytes(), relative, candidate)
+        self.assertEqual(before, {path: path.read_bytes() for path in before})
+
+    def test_conflicting_flat_and_nested_state_is_a_source_diagnostic(self) -> None:
+        raw = carrier("CA-R-001").replace(b"status: Active\n", b"status: Active\nstate:\n  status: Draft\n")
+        source = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--conflict.md", raw)
+        candidates, diagnostics, _ = module.discover_candidates(self.temp)
+        self.assertFalse(candidates)
+        self.assertIn("source-frontmatter-invalid", {row["code"] for row in diagnostics})
+        self.assertEqual(raw, source.read_bytes())
+
     def test_ignores_ds_store_in_source_snapshot_and_governed_bindings(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--one.md", carrier("CA-R-001"))
         places = module.methodology_paths(self.temp)

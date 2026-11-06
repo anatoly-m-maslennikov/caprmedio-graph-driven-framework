@@ -2,6 +2,8 @@
 
 from copy import deepcopy
 from pathlib import Path
+
+from carrier_aliases import carrier_read_view
 from typing import Any
 
 from .checks import validate_carrier
@@ -61,7 +63,7 @@ def read_candidate(
 ) -> tuple[ParsedCarrier | Exception, dict[str, Any]]:
     try:
         parsed = parse_carrier(reader.read(path), path)
-        return parsed, parsed.metadata
+        return parsed, carrier_read_view(parsed.metadata)
     except (OSError, CarrierError) as error:
         return error, {}
 
@@ -121,7 +123,7 @@ def apply_checks(
             gap = diagnostic("CARRIER_UNREADABLE", "Carrier cannot be safely assessed.", str(path))
             report["coverage"]["gaps"].append(gap)
         return
-    metadata = parsed.metadata
+    metadata = carrier_read_view(parsed.metadata)
     if "projection" not in metadata:
         assessment["representation"] = "source"
     identity, version = metadata.get("atom_id"), metadata.get("version")
@@ -129,7 +131,8 @@ def apply_checks(
     assessment["version"] = version if type(version) is int and version > 0 else None
     add_check(assessment, "carrier.parse", [], report, reader)
     supplied = dict(inputs or {})
-    supplied.update(path=path, parsed=parsed, reader=reader, assessment=assessment)
+    supplied.update(path=path, parsed=parsed, reader=reader, assessment=assessment,
+                    _raw_metadata=parsed.metadata)
     checks = deepcopy(validate_carrier(metadata, parsed.body, context, supplied))
     findings = checks["findings"]
     for finding in findings:

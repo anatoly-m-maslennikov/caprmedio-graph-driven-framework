@@ -1,8 +1,7 @@
 # CA-R-2950@1
 # CA-M-490@1
 # CA-D-695@1
-# CA-E-780@3
-
+# CA-E-780@4
 """Watcher callback translation is deterministic before service batch handling."""
 
 from pathlib import Path
@@ -28,8 +27,12 @@ class _Observer:
         self.joined = False
         self.schedules = []
         self.unscheduled = []
+        self.pending_changes = None
 
     def schedule(self, handler, path: str, recursive: bool) -> str:
+        if not recursive:
+            assert self.pending_changes is not None
+            assert not self.pending_changes(0), "change published before directory watch registration"
         self.schedules.append((path, recursive))
         self.handler, self.path, self.recursive = handler, path, recursive
         return path
@@ -58,6 +61,7 @@ class SourceWatcherTests(unittest.TestCase):
         self.watcher = SourceWatcher(
             self.root, self.control, observer_factory=lambda: self.observer,
         )
+        self.observer.pending_changes = self.watcher.changes
         self.watcher.start()
 
     def event(self, source: Path, *, destination: Path | None = None, directory: bool = False):
@@ -110,14 +114,27 @@ class SourceWatcherTests(unittest.TestCase):
             {"operation": "remove", "old_path": ".caprmedio_example/nested/05_method", "new_path": None},
         ], self.watcher.changes(0))
 
-    def test_new_directory_gets_a_child_watch_and_removal_cleans_it_up(self) -> None:
+    def test_directory_reported_as_file_gets_a_child_watch_and_removal_cleans_it_up(self) -> None:
         directory = self.control / "new"
         directory.mkdir()
-        self.observer.handler.on_created(self.event(directory, directory=True))
+        self.observer.handler.on_created(self.event(directory))
 
         self.assertIn((str(directory.resolve()), False), self.observer.schedules)
-        self.observer.handler.on_deleted(self.event(directory, directory=True))
+        self.observer.handler.on_deleted(self.event(directory))
         self.assertIn(str(directory.resolve()), self.observer.unscheduled)
+
+    def test_moved_in_directory_gets_a_child_watch_before_move_is_recorded(self) -> None:
+        source = self.root / "outside"
+        destination = self.control / "moved"
+        source.mkdir()
+        source.rename(destination)
+
+        self.observer.handler.on_moved(self.event(source, destination=destination))
+
+        self.assertIn((str(destination.resolve()), False), self.observer.schedules)
+        self.assertEqual([
+            {"operation": "create", "old_path": None, "new_path": ".caprmedio_example/moved"},
+        ], self.watcher.changes(0))
 
     def test_close_stops_the_native_observer(self) -> None:
         self.watcher.close()

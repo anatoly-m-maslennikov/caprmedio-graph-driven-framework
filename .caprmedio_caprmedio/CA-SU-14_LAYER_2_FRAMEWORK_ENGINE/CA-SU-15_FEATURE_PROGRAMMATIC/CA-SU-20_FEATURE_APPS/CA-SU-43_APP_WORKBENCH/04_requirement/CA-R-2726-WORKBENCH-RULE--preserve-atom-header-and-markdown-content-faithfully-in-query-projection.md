@@ -9,11 +9,11 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 4
-updated_at: 2026-11-04 21:06:25 +0400
+version: 5
+updated_at: 2026-11-06 20:37:19 +0400
 carrier_destination:
   file:
-    name: CA-R-2726-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-the-query-projection.md
+    name: CA-R-2726-WORKBENCH-RULE--preserve-atom-header-and-markdown-content-faithfully-in-query-projection.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
@@ -38,7 +38,8 @@ The query Projection **must**:
 - for display metadata, treat null, an empty string, an empty list and an empty mapping as empty; treat false and zero as values. This does not change the SQL values or counts.
 - preserve the complete Markdown body unchanged, including lists, links, tables, fences, fence labels, indentation, and line breaks.
 - retain every mapped Content Property's complete path, heading, heading level, position, direct Markdown value and complete section Markdown; derive its parent path from the complete path.
-- expose declared Markdown Content Properties as lowercase business-language SQL columns using their full paths, such as `content.summary`, `content.claim.prose claim`, `content.claim.formal claim`, and `content.details`. Preserve the complete prose and every nested heading; a parent content column keeps its direct value and each declared nested Content Property gets a separate column. Arbitrary prose presentation headings remain inside the value and never become SQL columns.
+- expose every observed Header Property path found in valid source Atoms, including paths with null or empty values as a full lowercase snake_case SQL column, such as `header_context_plan`. The name preserves the full Header path with underscores in place of separators and spaces. Remove short Header convenience names such as `id`, `role` and `status` rather than retain aliases. Header remains the logical frontmatter root; no YAML wrapper or authored flat copy is added.
+- expose declared Markdown Content Properties as dot-separated SQL paths with snake_case segments, such as `content.summary`, `content.claim.prose_claim`, `content.claim.formal_claim`, and `content.details`. Preserve the complete prose and every nested heading; a parent content column keeps its direct value and each declared nested Content Property gets a separate column. Arbitrary prose presentation headings remain inside the value and never become SQL columns.
 - keep complete parsed Header and Markdown data private to the reader and graph pipeline. The public `atoms` table does not expose raw `header_json`, `content_markdown`, `content_properties_json`, or `relation_edges_json` columns.
 - keep a Property's direct value separate from its descendants. A complete section includes its heading and descendants; a direct-value count does not count descendant text.
 - parse YAML properties and the actual Markdown heading tree directly. The first heading may have any level; skipped levels create no synthetic Properties. Heading-like text inside code is Markdown value, not a section. Parsing does not establish Atom Form conformance or graph authority.

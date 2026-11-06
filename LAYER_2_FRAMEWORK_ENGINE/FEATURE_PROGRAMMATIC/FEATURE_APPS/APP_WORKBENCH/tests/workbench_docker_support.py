@@ -1,5 +1,4 @@
 # CA-E-676@9
-
 """Small standard-library helpers shared by Workbench Docker E2E tests."""
 
 from __future__ import annotations

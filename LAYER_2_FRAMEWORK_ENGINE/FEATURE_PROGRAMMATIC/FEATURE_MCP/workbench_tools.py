@@ -1,10 +1,10 @@
 # CA-R-2728@6
 # CA-R-2776@6
-# CA-M-470@7
+# CA-M-470@8
 # CA-D-673@13
-# CA-R-2902@2
+# CA-R-2902@4
 # CA-R-2903@2
-# CA-D-681@4
+# CA-D-681@8
 # CA-R-2782@2
 # CA-D-676@2
 # CA-R-2786@1
@@ -47,12 +47,14 @@ RESTART = "workbench_restart"
 REREAD = "workbench_reread"
 SYNC_STATUS = "workbench_status"
 WORKSPACE_OPEN, WORKSPACE_LIST, WORKSPACE_GET = "workspace_open", "workspace_list", "workspace_get"
-VIEW_CREATE, VIEW_LIST, VIEW_GET, VIEW_UPDATE = "view_create", "view_list", "view_get", "view_update"
+VIEW_CREATE, VIEW_DUPLICATE, VIEW_LIST, VIEW_GET, VIEW_UPDATE = (
+    "view_create", "view_duplicate", "view_list", "view_get", "view_update"
+)
 VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS = "view_run", "view_check", "view_fetch", "view_focus"
 VIEW_RENAME, VIEW_REMOVE = "view_rename", "view_remove"
 QUERY_LOG_LIST, QUERY_LOG_GET = "query_log_list", "query_log_get"
 INTERFACE_TOOLS = (
-    WORKSPACE_OPEN, WORKSPACE_LIST, WORKSPACE_GET, VIEW_CREATE, VIEW_LIST, VIEW_GET,
+    WORKSPACE_OPEN, WORKSPACE_LIST, WORKSPACE_GET, VIEW_CREATE, VIEW_DUPLICATE, VIEW_LIST, VIEW_GET,
     VIEW_UPDATE, VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS, VIEW_RENAME, VIEW_REMOVE,
     QUERY_LOG_LIST, QUERY_LOG_GET,
 )
@@ -78,6 +80,7 @@ _PREVIEW = {"type": "integer", "minimum": 0}
 _WORKSPACE_OPEN_SCHEMA = {"type": "object", "properties": {"session_id": _WORKSPACE_ID}, "required": ["session_id"], "additionalProperties": False}
 _WORKSPACE_GET_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID}, "required": ["workspace_id"], "additionalProperties": False}
 _VIEW_CREATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "position": _POSITION, "name": _SQL}, "required": ["workspace_id"], "additionalProperties": False}
+_VIEW_DUPLICATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_GET_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_UPDATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "sql": _SQL, "cursor_position": _CURSOR, "expected_revision": {"type": "integer", "minimum": 0}}, "required": ["workspace_id", "view_id", "sql", "expected_revision"], "additionalProperties": False}
 _VIEW_RUN_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "cursor_position": _CURSOR, "preview": _PREVIEW, "save": {"type": "boolean", "default": False}, "name": _SQL}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
@@ -94,6 +97,7 @@ def native_tools() -> tuple[types.Tool, ...]:
                SAVE_VIEW: _SAVE_VIEW_SCHEMA, LOAD: _LOAD_SCHEMA, SAVED_LIST: _LIST_SCHEMA,
                WORKSPACE_OPEN: _WORKSPACE_OPEN_SCHEMA, WORKSPACE_LIST: _EMPTY_SCHEMA,
                WORKSPACE_GET: _WORKSPACE_GET_SCHEMA, VIEW_CREATE: _VIEW_CREATE_SCHEMA,
+               VIEW_DUPLICATE: _VIEW_DUPLICATE_SCHEMA,
                VIEW_LIST: _WORKSPACE_GET_SCHEMA, VIEW_GET: _VIEW_GET_SCHEMA,
                VIEW_UPDATE: _VIEW_UPDATE_SCHEMA, VIEW_RUN: _VIEW_RUN_SCHEMA,
                VIEW_CHECK: _VIEW_CHECK_SCHEMA, VIEW_FETCH: _VIEW_FETCH_SCHEMA,
@@ -101,7 +105,7 @@ def native_tools() -> tuple[types.Tool, ...]:
                VIEW_REMOVE: _VIEW_GET_SCHEMA, QUERY_LOG_LIST: _LIST_SCHEMA,
                QUERY_LOG_GET: _QUERY_LOG_GET_SCHEMA, RESTART: _EMPTY_SCHEMA, REREAD: _EMPTY_SCHEMA,
                SYNC_STATUS: _EMPTY_SCHEMA}
-    writes = {RUN, SAVE_VIEW, WORKSPACE_OPEN, VIEW_CREATE, VIEW_UPDATE, VIEW_RUN, VIEW_FOCUS,
+    writes = {RUN, SAVE_VIEW, WORKSPACE_OPEN, VIEW_CREATE, VIEW_DUPLICATE, VIEW_UPDATE, VIEW_RUN, VIEW_FOCUS,
               VIEW_RENAME, VIEW_REMOVE, RESTART, REREAD}
     descriptions = {
         SYNC_STATUS: "Read source-indexing status without starting or restarting Workbench.",
@@ -109,6 +113,7 @@ def native_tools() -> tuple[types.Tool, ...]:
         WORKSPACE_LIST: "List known Workspace IDs for the selected Project.",
         WORKSPACE_GET: "Get Workspace Views, active View, and result metadata without result rows.",
         VIEW_CREATE: "Create a stable View in a Workspace.",
+        VIEW_DUPLICATE: "Duplicate one View's query and cursor into a new independent View.",
         VIEW_LIST: "List ordered Workspace Views and their result metadata.",
         VIEW_GET: "Get one View's SQL, revision, and result metadata without rows.",
         VIEW_UPDATE: "Update one View using its expected revision.",
@@ -121,12 +126,14 @@ def native_tools() -> tuple[types.Tool, ...]:
         QUERY_LOG_LIST: "List retained query-log records without result rows.",
         QUERY_LOG_GET: "Get one retained query-log record without result rows.",
     }
-    return tuple(types.Tool(
+    return mcp_app_probe.tools() + tuple(types.Tool(
         name=name, description=descriptions.get(name, f"Workbench {name.replace('_', ' ')}."),
         annotations=types.ToolAnnotations(read_only_hint=name not in writes, destructive_hint=name in {RESTART, REREAD},
                                           idempotent_hint=name not in writes, open_world_hint=False),
         input_schema=schemas[name],
-    ) for name in NATIVE_TOOLS if name not in mcp_app_probe.TOOL_NAMES) + mcp_app_probe.tools()
+        _meta={"ui": {"resourceUri": mcp_app_probe.WORKBENCH_URI}}
+        if name == WORKSPACE_OPEN else None,
+    ) for name in NATIVE_TOOLS if name not in mcp_app_probe.TOOL_NAMES)
 
 
 class WorkbenchTools:
@@ -290,4 +297,4 @@ class WorkbenchTools:
                 self._service = None
 
 
-__all__ = ["CHECK", "INTERFACE_TOOLS", "LOAD", "NATIVE_TOOLS", "PAGE", "QUERY_LOG_GET", "QUERY_LOG_LIST", "REREAD", "RESTART", "RUN", "SAVED_LIST", "SAVE_VIEW", "SCHEMA", "SYNC_STATUS", "VIEW_CHECK", "VIEW_CREATE", "VIEW_FETCH", "VIEW_FOCUS", "VIEW_GET", "VIEW_LIST", "VIEW_REMOVE", "VIEW_RENAME", "VIEW_RUN", "VIEW_UPDATE", "WORKSPACE_GET", "WORKSPACE_LIST", "WORKSPACE_OPEN", "WorkbenchTools", "native_tools"]
+__all__ = ["CHECK", "INTERFACE_TOOLS", "LOAD", "NATIVE_TOOLS", "PAGE", "QUERY_LOG_GET", "QUERY_LOG_LIST", "REREAD", "RESTART", "RUN", "SAVED_LIST", "SAVE_VIEW", "SCHEMA", "SYNC_STATUS", "VIEW_CHECK", "VIEW_CREATE", "VIEW_DUPLICATE", "VIEW_FETCH", "VIEW_FOCUS", "VIEW_GET", "VIEW_LIST", "VIEW_REMOVE", "VIEW_RENAME", "VIEW_RUN", "VIEW_UPDATE", "WORKSPACE_GET", "WORKSPACE_LIST", "WORKSPACE_OPEN", "WorkbenchTools", "native_tools"]

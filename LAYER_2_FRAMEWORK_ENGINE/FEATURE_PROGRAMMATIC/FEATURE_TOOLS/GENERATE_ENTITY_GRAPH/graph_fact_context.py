@@ -14,6 +14,8 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
+from graph_header_readers import nested_subject_block, scalar_header_fields
+
 
 class FactContextError(ValueError):
     """Invalid or stale factory input, with a stable, non-secret error code."""
@@ -172,6 +174,13 @@ def _raw_parts(raw: bytes) -> tuple[list[bytes], list[str], int, dict[str, str]]
             if match[1] in fields:
                 _fail("context-carrier-duplicate", "An authoritative Carrier has duplicate frontmatter keys")
             fields[match[1]] = _scalar(match[2])
+    frontmatter = "\n".join(text[1:boundary])
+    try:
+        fields.update(scalar_header_fields(frontmatter))
+        if "subjects" not in fields and nested_subject_block(frontmatter):
+            fields["subjects"] = "nested"
+    except ValueError:
+        _fail("context-carrier-duplicate", "An authoritative Carrier has ambiguous frontmatter fields")
     return lines, text, boundary, fields
 
 

@@ -7,8 +7,6 @@ description: Operate a CAPRMEDIO Workbench Workspace and Views in the current na
 
 Use the native session ID supplied at session start and the explicitly trusted Project root. Do not infer either value, start a service, or configure another MCP connection.
 
-Discover the operations advertised by the existing CAPRMEDIO MCP. To test native UI support, call `workbench_ui_probe` with the trusted Project selector when required. The component must display the initial tool result and its button must complete a read-only bridge call. This is a compatibility probe, not the complete Workbench UI. If it does not render, report that native UI is unverified; do not substitute a browser opener.
+For Workspace work, call `workspace_open` once with that native session ID and trusted Project root. Its existing UI-bearing descriptor activates the MCP Workbench UI; use its structured result as the opened Workspace. Keep the current chat and Project boundary, and do not open a browser or make another connection.
 
-For Workspace operations, call `workspace_open(session_id)` for this native session. Its URL is for browser use, not plugin activation. Keep the current chat and the explicit Project boundary.
-
-For ordinary work, create or select a View, update its SQL with its required revision, then run it. Use returned metadata; fetch result rows only when needed. Focus a View when that helps the current task. Save only when asked. Do not copy tool implementations or schemas into this skill.
+The read-only `workbench_ui_probe` remains compatibility evidence only; it does not activate Workbench. If native UI does not render, report it as unverified rather than substituting a browser opener. For ordinary work, discover the existing MCP operations and use their returned metadata; fetch rows or save only when needed. Do not copy schemas or tool implementations into this skill.

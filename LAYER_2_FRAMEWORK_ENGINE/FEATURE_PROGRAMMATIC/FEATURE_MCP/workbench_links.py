@@ -1,5 +1,6 @@
-# CA-R-2902@1
-# CA-D-681@1
+# CA-R-2902@4
+# CA-M-476@5
+# CA-D-681@9
 
 """HTTP-only links for persisted Workbench queries."""
 
@@ -72,8 +73,13 @@ def public_workspace(value: Any, request: Any, selection: Any, project_root: str
     query = {"workspace": value["workspace_id"]}
     if project_root is not None:
         query["project_root"] = project_root
-    path = f"{WORKBENCH_PATH}/{quote(project_name(selection), safe='')}"
-    return {**value, "workspace_url": f"{str(base_url).rstrip('/')}{path}?{urlencode(query)}"}
+    name = project_name(selection)
+    path = f"{WORKBENCH_PATH}/{quote(name, safe='')}"
+    return {
+        **value,
+        "project_name": name,
+        "workspace_url": f"{str(base_url).rstrip('/')}{path}?{urlencode(query)}",
+    }
 
 
 def context_project_root(context: Any) -> str | None:

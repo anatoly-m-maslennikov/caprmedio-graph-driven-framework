@@ -11,7 +11,8 @@ import subprocess
 import tempfile
 from zoneinfo import ZoneInfo
 
-import yaml
+from carrier_aliases import carrier_read_view
+from header_yaml import replace_header_scalar
 from validate_atoms_workers.parsing import parse_carrier
 from work_journal import append_sealed_events
 
@@ -21,9 +22,10 @@ def digest(raw):
 
 
 def render(parsed, **properties):
-    metadata = {**parsed.metadata, **properties}
-    return ('---\n' + yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True)
-            + '---\n' + parsed.body.lstrip('\n')).encode()
+    frontmatter = parsed.frontmatter
+    for name, value in properties.items():
+        frontmatter = replace_header_scalar(frontmatter, name, value)
+    return ('---\n' + frontmatter + '\n---\n' + parsed.body.lstrip('\n')).encode()
 
 
 class Replacement:
@@ -99,7 +101,8 @@ class Replacement:
         proposed = parse_carrier(value['candidate_content'].encode(), source)
         predecessor = context['atom_id']
         successor_id = self.next_id(predecessor)
-        version = previous.metadata.get('version')
+        previous_metadata = carrier_read_view(previous.metadata)
+        version = previous_metadata.get('version')
         if type(version) is not int or version < 1:
             raise ValueError('Replacement needs the predecessor Version')
         now = datetime.now(ZoneInfo('Asia/Tbilisi')).isoformat()
@@ -114,7 +117,7 @@ class Replacement:
         tokens = [successor_id]
         def token(value):
             return re.sub(r'[^A-Z0-9_]+', '_', str(value).upper()).strip('_')
-        metadata = proposed.metadata
+        metadata = carrier_read_view(proposed.metadata)
         if metadata.get('current_scope_unit'):
             tokens.append(token(metadata['current_scope_unit']))
         if metadata.get('local_tier') not in (None, 'Standard'):
@@ -134,7 +137,7 @@ class Replacement:
         base = {'schema_version': 3, 'author': state['author'], 'occurred_at': now,
                 'llm_session': state['session'], 'subject_kind': 'file',
                 'action_id': f'{self.run_id}:replacement:{self.ordinal}',
-                'structural_scope': previous.metadata.get('current_scope_unit', request.scope)}
+                'structural_scope': previous_metadata.get('current_scope_unit', request.scope)}
         archived = self.result(archive, archived_raw, version)
         new = self.result(successor, successor_raw, 1)
         events = [{**base,

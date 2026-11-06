@@ -139,6 +139,18 @@ class PropertyEditTests(unittest.TestCase):
                 apply(atom(), [{"field": field, "operation": "replace", "old": old, "new": new}])
             self.assertEqual(raised.exception.code, "schema_invalid")
 
+    def test_nested_canonical_form_change_requires_replacement(self):
+        source = {"context": {"form": "Plan"}}
+        kwargs = {"field_paths": {"Form": ("context", "form")}, "list_fields": set(),
+                  "list_entry_edit": lambda _: False, "validate_final": lambda _: None}
+        edit = {"field": "Form", "operation": "replace", "old": "Plan", "new": "Plan"}
+        self.assertEqual(source, apply_property_edits(source, [edit], **kwargs))
+        edit["new"] = "Action"
+        with self.assertRaises(PropertyEditError) as raised:
+            apply_property_edits(source, [edit], **kwargs)
+        self.assertEqual("schema_invalid", raised.exception.code)
+        self.assertEqual({"context": {"form": "Plan"}}, source)
+
     def test_complete_validation_and_subject_duplicates_fail_without_mutating_input(self):
         source = atom()
         before = copy.deepcopy(source)

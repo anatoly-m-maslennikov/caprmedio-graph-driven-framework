@@ -216,6 +216,36 @@ class MethodologyExportTest(unittest.TestCase):
         self.assertEqual(result.inventory, exporter.read_sealed_export(release_candidate_root=self.candidate).inventory)
         self.assertFalse((self.root / "methodology").exists())
 
+    def test_nested_source_and_delivery_binding_keep_exact_bytes_through_sealed_export(self) -> None:
+        nested = (
+            b"---\nidentity:\n  atom_id: CA-R-001\ncontext:\n  role: Requirement\n  form: Rule\n"
+            b"state:\n  status: Active\n  version: 1\nrelations: {}\n---\n# Claim\n\nNested source.\n"
+        )
+        selected_path = "001_CORE_META_MODEL/04_requirement/CA-R-001--nested.md"
+        selected = self.write(selected_path, nested)
+        entrypoint = self.engine_entrypoint("FEATURE_PROGRAMMATIC/FEATURE_TOOLS/DEMO_TOOL/demo_tool.py")
+        member = self.root / entrypoint
+        member.parent.mkdir(parents=True, exist_ok=True)
+        member.write_bytes(b"VALUE = 1\n")
+        binding_bytes = (
+            "---\nidentity:\n  atom_id: CA-D-001\ncontext:\n  role: Delivery\n  form: Tool\n"
+            "state:\n  status: Active\n  version: 3\nrelations: {}\n---\n"
+            f'## Binding\n\n```toml\n[tool_binding]\nentrypoint = "{entrypoint}"\n```\n'
+        ).encode()
+        binding_source = self.write_engine_delivery("07_delivery/CA-D-001--nested.md", binding_bytes)
+        frozen = self.freeze([{"atom_id": "CA-R-001", "version": 1}])
+        self.assertEqual(["CA-D-001"], [row["atom_id"] for row in frozen["binding_atoms"]])
+        result = self.export()
+        self.assertEqual(nested, self.output_files()[self.source_relative(selected_path)])
+        binding = frozen["binding_atoms"][0]
+        projected = result.output_root / result.inventory["bindings"][0]["destination_path"]
+        exporter.validate_binding_projection_source_preservation(
+            binding_bytes, projected.read_bytes(), exporter.BindingAtom(**binding),
+        )
+        self.assertEqual(nested, selected.read_bytes())
+        self.assertEqual(binding_bytes, binding_source.read_bytes())
+        self.assertEqual(result.inventory, exporter.read_sealed_export(release_candidate_root=self.candidate).inventory)
+
     def test_export_requires_a_physical_canonical_frozen_manifest(self) -> None:
         self.write("001_CORE_META_MODEL/04_requirement/CA-R-001--active.md", carrier("CA-R-001"))
         with self.assertRaises(exporter.MethodologyExportError) as raised:

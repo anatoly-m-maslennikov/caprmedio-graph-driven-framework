@@ -13,8 +13,8 @@ relations:
   - CA-R-2902
   - CA-R-2903
 status: Active
-version: 3
-updated_at: 2026-11-06 01:46:23 +0400
+version: 5
+updated_at: 2026-11-06 23:01:23 +0400
 carrier_destination:
   file:
     name: CA-M-476-CODEX_EXTENSION-ENG_DECISION--coordinate-workbench-workspace-views.md
@@ -30,24 +30,16 @@ Coordinate Workbench Workspace Views
 
 ## Claim
 
-For native panel mode, use the existing Codex chat as the Workspace boundary. Keep one native panel Workspace per chat and keep its Views isolated from every other chat and Project. A page opened by `open_in_codex(type=browser)` is not the panel surface. Standalone mode uses its persisted browser Session ID as its own Workspace identity, with no native chat boundary.
+Use the existing Codex chat as the native Workspace boundary and the existing `workspace_open` MCP operation as the native UI activation. Its host tool input is the sole native identity source: accept only non-empty `session_id` and explicit trusted `project_root`, and accept its initial structured result as the opened Workspace. Do not read URL parameters or localStorage in native mode, manufacture a native session, bind another Workspace, or call `workspace_open` a second time. Missing input or result is a visible binding error and makes no backend call.
 
-Implement View operations as small adapters over the existing query executor, pagination, successful-run saving, saved Journal and browser autosave. Keep the caller's order; do not add a magic Workflow or a new scheduler. Return Run metadata first and fetch result rows only when requested.
+Use one shared Svelte Workbench UI for standalone and native mode. Keep the existing typed Workspace/View facade, but substitute transport only: the standalone bootstrap keeps its existing HTTP and URL/localStorage rules; native bootstrap uses MCP Apps initialization and the bridge `tools/call`. The native transport injects the same explicit `project_root` into every existing operation call, preserves `structuredContent`, and rejects `isError`. It adds no domain logic, response adapter, MCP service, chat, or UI-specific handler.
 
-Keep the query log separate from saved Views. Record only the approved SQL, outcome, error and counts. The parent Workbench backend owns query-log retention: retain entries for two days in hourly batches; this Method adds no query-log TTL, expiry, or cleanup behavior. Do not store rows, duplicate schema data or add a cleanup daemon.
+For each explicit Project, route both modes to the existing Workspace/View backend. Native mode uses the supplied session ID unchanged. Standalone mode retains its existing browser-owned Session ID, explicit `?workspace` behavior, `embedded=1` density marker, and one-time unbound-draft migration; none applies in native mode. Do not merge Workspaces across chats or Projects and do not import an unbound standalone draft into a native Workspace.
 
-## Native plugin panel
+Keep View operations as small adapters over the existing query executor, pagination, successful-run saving, saved Journal, browser autosave, and query log. Keep caller order; return Run metadata first and rows only through fetch. A View is one SQL query: Run and Check validate the whole View and reject multiple statements rather than selecting at the cursor. The parent Workbench backend owns two-day query-log retention and result-cache configuration. Add no scheduler, retry, cleanup lifecycle, lease, heartbeat, new shared service, or Domain entity.
 
-Use the host-provided native session and trusted Project context. Reuse the existing Workspace/View backend and MCP operations; do not add a second MCP connection, synthetic session, standalone chat, scheduler or UI-specific service. Use the standard MCP Apps resource/bridge only when the host supports it, and keep the contract host-neutral.
+Keep the query log separate from saved Views. Record only the approved SQL, outcome, error and counts; do not store rows or duplicate schema data. The parent Workbench backend retains entries for two days in hourly batches; this Method adds no query-log TTL, expiry, or cleanup path. Both UIs call the same existing create, update, run, fetch, focus, rename, remove and save operations.
 
-## Shared backend identity and lifecycle
+In standalone mode, resolve an explicit `?workspace=<workspace_id>` before restoring View state and preserve every existing URL parameter while assigning a Workspace, including the saved-query/open-saved `query`; `embedded=1` remains a density marker only. On first explicit standalone binding, migrate an unbound draft at most once without SQL execution, retain the local copy until backend confirmation, and do not repeat after confirmation. Keep result-cache TTL separate from query-log retention and use the shared Workbench runtime configuration's default of 3600 seconds unless an existing configured value applies.
 
-For each explicit Project, route the standalone browser and native plugin panel through the same existing backend Workspace/View model. The native panel mode uses the supplied native Codex `session_id` unchanged. The standalone mode creates or reuses one unique Session ID in the existing browser localStorage and opens its own Workspace with that mode-local identity; never manufacture a native Codex session ID for standalone mode and never merge a standalone Workspace with another chat or Project.
-
-In the standalone browser, resolve an explicit `?workspace=<workspace_id>` URL before restoring View state. Native plugin UI uses its supplied host session binding. Preserve every existing URL parameter while assigning a standalone Workspace, including the saved-query/open-saved `query`. Treat `embedded=1` only as an embedded density-default marker; it is not a backend identity or lifecycle input.
-
-On the first explicit standalone binding, migrate an existing unbound browser draft at most once into that standalone Workspace without executing SQL. Keep the original local copy until the backend confirms the copy. Do not merge shared Project Workspaces, import another chat's draft, or import the unbound draft into a native plugin Workspace.
-
-Give every View one SQL query. An edit may be temporarily invalid, but Run and Check validate the whole View and reject multiple statements instead of selecting one at the cursor. Keep old saved multi-script queries intact and never execute only part of one through a View. Both UIs call the same existing create, update, run, fetch, focus, rename, remove and save operations.
-
-Keep result-cache TTL separate from query-log retention; use the shared Workbench runtime configuration's default of 3600 seconds unless an existing configured value applies. Neither UI supplies a query-log TTL or cleanup lifecycle. Add no new function, shared-service layer, lease, heartbeat, chat or Domain entity.
+The initial native Workspace result carries the selected Project's canonical project_name. Reuse the existing ProjectSelection settings/name reader at the public adapter boundary. Keep this derived name out of persisted Workspace documents and do not infer it from a directory basename or add a query, parser, fallback name, or tool. The native frontend uses that supplied name for its Project header.

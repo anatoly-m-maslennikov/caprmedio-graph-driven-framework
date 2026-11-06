@@ -77,6 +77,16 @@ class StatusInheritanceTests(unittest.TestCase):
         result = models.resolve_status_model(self.root, {"content_role": "Plan"}, "Additional")
         self.assertEqual(["Draft", "Active", "Archived", "Additional", "Done"], result["statuses"])
 
+    def test_grouped_state_base_and_role_inheritance_keep_both_source_pins(self):
+        self.source(900, "CAPRMEDIO_MODEL <+ Atom.Header.State.Status",
+                    "Atom.Header.State.Status **must** admit (Draft, Active, Archived).")
+        self.source(901, "CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status",
+                    "the Core Plan Status model **must** inherit the allowed values "
+                    "of Atom.Header.State.Status and add (Backlog, Done, Canceled).")
+        result = models.resolve_status_model(self.root, {"context": {"role": "Plan", "form": "Plan"}}, "Done")
+        self.assertEqual(["Draft", "Active", "Archived", "Backlog", "Done", "Canceled"], result["statuses"])
+        self.assertEqual(["CA-R-900", "CA-R-901"], [row["atom_id"] for row in result["model_sources"]])
+
     def test_missing_duplicate_inactive_and_wrong_subject_base_refuse(self):
         self.role()
         with self.assertRaises(models.StatusModelError):

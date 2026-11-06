@@ -27,6 +27,8 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
 from collections.abc import Mapping
+from header_groups import header_path
+from header_yaml import header_scalar, parse_header, replace_header_scalar
 
 
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
@@ -155,11 +157,21 @@ def property_line(delimiter: str, name: str, value: str | int) -> str:
     return f"{name} = {rendered}"
 
 
-def one_value(frontmatter: str, delimiter: str, name: str) -> str | None:
+def _root_value(frontmatter: str, delimiter: str, name: str) -> str | None:
     matches = property_pattern(delimiter, name).findall(frontmatter)
     if len(matches) > 1:
         raise RuntimeError(f"duplicate {name} property")
     return matches[0].strip().strip('"') if matches else None
+
+
+def one_value(frontmatter: str, delimiter: str, name: str) -> str | None:
+    value = _root_value(frontmatter, delimiter, name)
+    if delimiter == YAML_DELIMITER:
+        try:
+            return header_scalar(frontmatter, name)
+        except ValueError as error:
+            raise RuntimeError(str(error)) from error
+    return value
 
 
 def insert_properties(frontmatter: str, lines: list[str]) -> str:
@@ -170,6 +182,10 @@ def insert_properties(frontmatter: str, lines: list[str]) -> str:
 
 
 def replace_property(frontmatter: str, delimiter: str, name: str, value: str | int) -> str:
+    if delimiter == YAML_DELIMITER:
+        if one_value(frontmatter, delimiter, name) is None:
+            raise RuntimeError(f"expected exactly one {name} property")
+        return replace_header_scalar(frontmatter, name, value)
     pattern = property_pattern(delimiter, name)
     if len(pattern.findall(frontmatter)) != 1:
         raise RuntimeError(f"expected exactly one {name} property")
@@ -182,6 +198,9 @@ def update_atom(frontmatter: str, delimiter: str, timestamp: str, new: bool) -> 
     if new:
         if version is not None or updated_at is not None:
             raise RuntimeError("new Atom already has revision metadata")
+        if delimiter == YAML_DELIMITER and len(header_path("version", parse_header(frontmatter))) > 1:
+            revised = replace_header_scalar(frontmatter, "version", 1)
+            return replace_header_scalar(revised, "updated_at", timestamp)
         lines = [property_line(delimiter, "version", 1), property_line(delimiter, "updated_at", timestamp)]
         return insert_properties(frontmatter, lines)
     if version is None or updated_at is None:
@@ -193,11 +212,13 @@ def update_atom(frontmatter: str, delimiter: str, timestamp: str, new: bool) -> 
 
 
 def update_projection(frontmatter: str, delimiter: str, timestamp: str) -> str:
-    if one_value(frontmatter, delimiter, "version") is not None:
+    if _root_value(frontmatter, delimiter, "version") is not None:
         raise RuntimeError("Projection frontmatter must not carry version")
-    if one_value(frontmatter, delimiter, "updated_at") is None:
+    if _root_value(frontmatter, delimiter, "updated_at") is None:
         return insert_properties(frontmatter, [property_line(delimiter, "updated_at", timestamp)])
-    return replace_property(frontmatter, delimiter, "updated_at", timestamp)
+    return property_pattern(delimiter, "updated_at").sub(
+        property_line(delimiter, "updated_at", timestamp), frontmatter, count=1,
+    )
 
 
 def atomic_write(path: Path, text: str) -> None:

@@ -27,6 +27,7 @@ from pydantic import BaseModel, ConfigDict, JsonValue, RootModel
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from artifact_metadata import SETTINGS_PATH, atom_identifier
+from header_yaml import header_scalar
 from project_selection import ProjectSelectionError, active_selection
 from tool_description import binding_matches, make_tool_description
 
@@ -545,12 +546,10 @@ def split_frontmatter(data: bytes, path: str) -> tuple[str, bytes]:
 
 
 def top_scalar(frontmatter: str, key: str) -> str | None:
-    matches = re.findall(rf"(?m)^{re.escape(key)}:\s*([^\n]+?)\s*$", frontmatter)
-    if len(matches) > 1:
-        raise CompileError("source-frontmatter-duplicate-key", "Source Carrier has duplicate scalar", key=key)
-    if not matches:
-        return None
-    return scalar_value(matches[0])
+    try:
+        return header_scalar(frontmatter, key)
+    except ValueError as error:
+        raise CompileError("source-frontmatter-invalid", "Source Carrier has invalid or conflicting Header properties", key=key) from error
 
 
 def top_block(frontmatter: str, key: str) -> list[str]:
