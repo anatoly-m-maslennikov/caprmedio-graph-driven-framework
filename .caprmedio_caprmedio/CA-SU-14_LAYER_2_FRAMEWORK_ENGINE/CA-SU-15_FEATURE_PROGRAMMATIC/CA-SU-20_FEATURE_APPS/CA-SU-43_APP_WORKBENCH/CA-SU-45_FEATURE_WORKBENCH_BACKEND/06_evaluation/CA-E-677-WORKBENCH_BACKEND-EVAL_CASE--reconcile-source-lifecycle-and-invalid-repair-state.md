@@ -17,8 +17,8 @@ relations:
   - CA-D-672
   - CA-D-675
 status: Active
-version: 12
-updated_at: 2026-11-06 20:37:19 +0400
+version: 13
+updated_at: 2026-11-07 01:06:28 +0400
 carrier_destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -44,6 +44,14 @@ The indexer transactionally applies selected source changes to `atoms`, `scope_u
 The rebuildable schema asset is derived state under `.caprmedio_runtime/workbench`, not a source or public table. A complete valid-source inventory supplies one flattened SQL column for every observed raw Header Property path and Content columns generated only from Current model Declarations. Header paths flatten every segment with lowercase snake_case; Content paths retain dots between path levels and use snake_case within segments. The declaration generator compiles declared Content paths and applicability without evaluating arbitrary CFEL formulas or prose. A newly observed Header path, a changed declared Content schema, or a path empty across the complete valid inventory rebuilds the affected schema and source tables and rereads that inventory. An ordinary value change with unchanged schema remains incremental.
 
 Each public row hash is SHA-256 of deterministic canonical row JSON excluding `hash`, with materialized relations in the Atom payload. Ordinary source-capture failures go to stderr, are skipped, and are not retried. An indexing transaction failure or invalid Current Scope Unit Declaration instead makes the owner unavailable and requires explicit restart after correction. The database, schema asset, internal results and spill data stay under the owned Workbench runtime directory; no intermediate source copy is created. Saved SQL files are separate UTF-8 runtime artifacts and are not removed or changed by source refresh.
+
+
+Verify incremental work on the real project as well as small fixtures. The same schema-preserving temporary Atom operation matrix must be measured before and after the change, with cleanup checked. Report ordinary edits separately from cold indexing and structural/schema rebuilds; fixture timings are not live-project timings.
+
+An unchanged or non-source watcher batch must skip graph, hash and database work. A changed source row must be rehashed; an unchanged inverse-relation neighbour must also be rehashed when its outgoing facts change. Unrelated unchanged rows must retain their materialized values and hashes. Deletion, duplicate exclusion and invalid-source exclusion must remove stale reused state. A Boolean-to-number source change must not be treated as equal.
+
+Verify that full reread, Scope Unit changes and Content-schema changes still rebuild correctly. A failed database write must not publish a new reused state. Relation parsing must occur once per captured inventory in a refresh, with one fresh parse allowed for a schema-triggered recapture. Existing stateless materialization callers must retain their behavior.
+
 
 ## Details
 

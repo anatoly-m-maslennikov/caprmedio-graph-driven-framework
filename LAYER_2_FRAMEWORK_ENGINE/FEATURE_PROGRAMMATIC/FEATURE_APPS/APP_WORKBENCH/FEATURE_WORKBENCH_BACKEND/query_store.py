@@ -8,9 +8,9 @@
 # CA-D-697@1
 # CA-R-2950@1
 # CA-R-2724@3
-# CA-M-490@1
-# CA-D-695@1
-# CA-M-465@17
+# CA-M-490@2
+# CA-D-695@2
+# CA-M-465@18
 # CA-D-675@13
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
@@ -218,46 +218,47 @@ class QueryStore:
         """Whether the last delta needs a complete source reread and table rebuild."""
         return self._schema_changed
 
-    @staticmethod
-    def _change_log_rows(rows: object) -> list[dict[str, str | None]]:
+    def _write_change_log(self, rows: object, *, replace: bool) -> None:
         if not isinstance(rows, list):
             raise ValueError("change log rows must be a list")
-        return [validate_change_record(row) for row in rows]
+        retained = [validate_change_record(row) for row in rows]
+        if not retained and not replace:
+            return
+        try:
+            self._connection.execute("BEGIN TRANSACTION")
+            if replace:
+                self._connection.execute("DELETE FROM main.change_log")
+            if retained:
+                self._connection.execute(
+                    "INSERT INTO main.change_log "
+                    "SELECT json_extract_string(value, '$.observed_at')::TIMESTAMPTZ, "
+                    "json_extract_string(value, '$.operation'), "
+                    "json_extract_string(value, '$.old_path'), "
+                    "json_extract_string(value, '$.new_path') FROM json_each(?::JSON)",
+                    [json.dumps(retained, separators=(",", ":"))],
+                )
+            self._connection.execute("COMMIT")
+        except Exception as exc:
+            self._available = False
+            print(f"query store change-log refresh failed: {exc}", file=sys.stderr)
+            raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
 
-    def replace_change_log(self, rows: object) -> None:
-        """Replace the technical table with the NDJSON owner's retained event set."""
-        retained = self._change_log_rows(rows)
+    def sync_change_log(self, log: WatcherChangeLog, events: list[dict[str, str | None]] | None = None,
+                        *, initialize: bool = False) -> None:
+        """Synchronize one retained NDJSON event set under the database-owner lock."""
         with self._lock:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
-            try:
-                self._connection.execute("BEGIN TRANSACTION")
-                self._connection.execute("DELETE FROM main.change_log")
-                if retained:
-                    self._connection.execute(
-                        "INSERT INTO main.change_log "
-                        "SELECT json_extract_string(value, '$.observed_at')::TIMESTAMPTZ, "
-                        "json_extract_string(value, '$.operation'), "
-                        "json_extract_string(value, '$.old_path'), "
-                        "json_extract_string(value, '$.new_path') "
-                        "FROM json_each(?::JSON)",
-                        [json.dumps(retained, separators=(",", ":"))],
-                    )
-                self._connection.execute("COMMIT")
-            except Exception as exc:
-                self._available = False
-                print(f"query store change-log refresh failed: {exc}", file=sys.stderr)
-                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
-
-    def sync_change_log(
-        self, log: WatcherChangeLog, events: list[dict[str, str | None]] | None = None,
-        *, initialize: bool = False,
-    ) -> None:
-        """Synchronize one retained NDJSON event set under the database-owner lock."""
-        with self._lock:
-            rows, changed = log.append(events) if events is not None else log.prune()
+            if events is not None:
+                rows, additions, replace_required = log.append_delta(events)
+                if initialize or replace_required:
+                    self._write_change_log(rows, replace=True)
+                else:
+                    self._write_change_log(additions, replace=False)
+                return
+            rows, changed = log.prune()
             if changed or initialize:
-                self.replace_change_log(rows)
+                self._write_change_log(rows, replace=True)
 
     def _admit(self, sql: str) -> None:
         if not isinstance(sql, str):

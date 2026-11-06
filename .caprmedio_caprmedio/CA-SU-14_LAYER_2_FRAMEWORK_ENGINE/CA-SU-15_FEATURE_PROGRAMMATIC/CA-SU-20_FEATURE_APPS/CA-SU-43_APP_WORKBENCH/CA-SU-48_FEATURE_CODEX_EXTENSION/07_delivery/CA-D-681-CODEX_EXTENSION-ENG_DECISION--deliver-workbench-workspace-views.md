@@ -15,8 +15,8 @@ relations:
   - CA-M-476
   - CA-E-684
 status: Active
-version: 9
-updated_at: 2026-11-06 23:01:23 +0400
+version: 10
+updated_at: 2026-11-07 01:21:17 +0400
 carrier_destination:
   file:
     name: CA-D-681-CODEX_EXTENSION-ENG_DECISION--deliver-workbench-workspace-views.md
@@ -58,7 +58,7 @@ Workspace and View tools use explicit IDs. The HTTP interface invokes the same h
 
 Use existing UUID generation for View IDs. Store Workspace documents under `.caprmedio_runtime/workbench/workspaces`, with no duplicate chat history or result rows. Browser draft storage keys include explicit Project and Workspace ID; the frontend synchronizes actual bound state, including externally requested focus, while preserving unsynced edits on conflicts. Do not import another Workspace's browser drafts.
 
-Each actual Run appends SQL, success/fail, error, row count, column count, technical ID and timestamp to the runtime query log. Counts are null when unavailable after failure. The parent backend retains entries for two days in hourly batches; no duplicate expiry or cleanup path is added. A log-write failure is reported to stderr and in the response without discarding a completed result; Check is not logged. A result ID is process-local; reread or restart invalidates it. View removal or replacement releases the existing cache table. Saved Views and their Journal records have no query-log retention TTL.
+Each actual Run appends SQL, success/fail, error, row count, column count, technical ID and timestamp to the runtime query log. Counts are null when unavailable after failure. The parent backend retains entries for two days in hourly batches; no duplicate expiry or cleanup path is added. Automatic query-log writes use the backend background writer; failures are reported to stderr only without changing a completed result; Check is not logged. A result ID is process-local; reread or restart invalidates it. View removal or replacement releases the existing cache table. Saved Views and their Journal records have no query-log retention TTL.
 
 `workspace_open` is the sole UI-bearing MCP tool. Its descriptor links `ui://caprmedio/workbench.html`, served as `text/html;profile=mcp-app`. The native host passes `session_id` and explicit trusted `project_root` as its tool input; the `workspace_open` structured result supplies the initial Workspace. The UI waits for both input and result, uses their exact values, and does not invoke another open. Missing either context displays a binding error and performs no backend call.
 

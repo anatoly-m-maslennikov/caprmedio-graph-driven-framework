@@ -84,6 +84,12 @@ class WatcherChangeLog:
         temporary.write_text(content, encoding="utf-8")
         temporary.replace(self._path)
 
+    def _append(self, rows: list[dict[str, str | None]]) -> None:
+        self._path.parent.mkdir(parents=True, exist_ok=True)
+        with self._path.open("a", encoding="utf-8") as handle:
+            for row in rows:
+                handle.write(json.dumps(row, ensure_ascii=False, separators=(",", ":")) + "\n")
+
     def _set_rows(self, rows: list[dict[str, str | None]]) -> None:
         self._rows = rows
         self._next_expiry = min(
@@ -110,18 +116,19 @@ class WatcherChangeLog:
             dated = [item for item in dated if item[1] not in retained_indexes]
         return [row for _at, _index, row in dated]
 
-    def append(self, events: object) -> tuple[list[dict[str, str | None]], bool]:
+    def append_delta(
+        self, events: object,
+    ) -> tuple[list[dict[str, str | None]], list[dict[str, str | None]], bool]:
+        """Append a batch, reporting whether retention required a full replacement."""
         if not isinstance(events, list):
             raise ValueError("watcher events must be a list")
         now = self._now()
-        before = self._cached_rows()
-        pruned = False
+        original = self._cached_rows()
+        before = original
+        replace_required = False
         if self._next_expiry is not None and now >= self._next_expiry:
             before = self._retain(before, now)
-            pruned = before != self._rows
-            if pruned:
-                self._write(before)
-            self._set_rows(before)
+            replace_required = before != original
         observed_at = now.isoformat()
         additions: list[dict[str, str | None]] = []
         for event in events:
@@ -129,11 +136,17 @@ class WatcherChangeLog:
                 raise ValueError("watcher event is invalid")
             additions.append(validate_change_record({"observed_at": observed_at, "operation": event["operation"], "old_path": event.get("old_path"), "new_path": event.get("new_path")}))
         retained = self._retain(before + additions, now)
-        changed = pruned or retained != before
-        if changed:
+        replace_required = replace_required or retained != before + additions
+        if replace_required:
             self._write(retained)
+        elif additions:
+            self._append(additions)
         self._set_rows(retained)
-        return retained, changed
+        return retained, additions, replace_required
+
+    def append(self, events: object) -> tuple[list[dict[str, str | None]], bool]:
+        rows, additions, replace_required = self.append_delta(events)
+        return rows, bool(additions) or replace_required
 
     def prune(self) -> tuple[list[dict[str, str | None]], bool]:
         before = self._cached_rows()

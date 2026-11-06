@@ -1,4 +1,4 @@
-# CA-E-780@4
+# CA-E-780@5
 from __future__ import annotations
 
 import datetime as dt
@@ -39,12 +39,13 @@ class WatcherChangeLogTests(unittest.TestCase):
         self.assertEqual([self._row("remove", "control/live.md", None, self.now - dt.timedelta(hours=1))], rows)
 
         with patch.object(WatcherChangeLog, "MAX_ROWS", 3), patch.object(WatcherChangeLog, "_now", return_value=self.now):
-            rows, changed = self.log.append([
+            rows, additions, replace_required = self.log.append_delta([
                 {"operation": "create", "new_path": "control/a.md"},
                 {"operation": "update", "new_path": "control/b.md"},
                 {"operation": "rename", "old_path": "control/a.md", "new_path": "control/c.md"},
             ])
-        self.assertTrue(changed)
+        self.assertTrue(replace_required)
+        self.assertEqual(3, len(additions))
         self.assertEqual(["create", "update", "rename"], [row["operation"] for row in rows])
         self.assertEqual(rows, self.log._read())
         with self.assertRaisesRegex(ValueError, "old_path"):
@@ -81,6 +82,21 @@ class WatcherChangeLogTests(unittest.TestCase):
         )
         with self.assertRaisesRegex(ValueError, "SELECT"):
             store.run("DELETE FROM change_log")
+
+    def test_normal_append_preserves_prefix_mirrors_duplicates_and_avoids_delete(self) -> None:
+        store = QueryStore(extension_directory=extension_directory(APP_ROOT.parents[2]))
+        self.addCleanup(store.close)
+        event = {"operation": "create", "new_path": "control/new.md"}
+        with patch.object(WatcherChangeLog, "_now", return_value=self.now), patch.object(
+            store, "_write_change_log", wraps=store._write_change_log,
+        ) as write:
+            store.sync_change_log(self.log, [event])
+            first_file = self.log._path.read_bytes()
+            store.sync_change_log(self.log, [event])
+        self.assertTrue(self.log._path.read_bytes().startswith(first_file))
+        self.assertEqual([False, False], [call.kwargs["replace"] for call in write.call_args_list])
+        self.assertEqual(2, store.run("SELECT count(*) FROM change_log")["rows"][0][0])
+        self.assertEqual(2, len(WatcherChangeLog(self.root)._read()))
 
 
 if __name__ == "__main__":

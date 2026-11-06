@@ -1,13 +1,17 @@
-# CA-R-2903@2
-# CA-D-698@1
+# CA-R-2903@3
+# CA-M-502@1
+# CA-D-698@2
 
 """Two-day Workbench query-attempt log without result data."""
 
 from __future__ import annotations
 
 import datetime as dt
+from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
+import sys
+import threading
 from typing import Any
 import uuid
 
@@ -21,6 +25,10 @@ class QueryLog:
         runtime = Path(root) / ".caprmedio_runtime" / "workbench"
         self._directory = runtime / "query_log"
         self._legacy_path = runtime / "query-log.json"
+        self._lock = threading.RLock()
+        self._submit_lock = threading.Lock()
+        self._writer = ThreadPoolExecutor(max_workers=1, thread_name_prefix="workbench-query-log")
+        self._closed = False
 
     @staticmethod
     def _now() -> dt.datetime:
@@ -103,24 +111,53 @@ class QueryLog:
     def _retained(self, now: dt.datetime) -> list[dict[str, Any]]:
         return self._hourly_records(now) + self._retain(self._read_legacy(), now)
 
-    def append(self, sql: str, result: dict[str, Any]) -> dict[str, Any]:
+    def _new_record(self, sql: str, result: dict[str, Any], now: dt.datetime) -> dict[str, Any]:
         if not isinstance(sql, str):
             raise ValueError("SQL must be a string")
-        now = self._now()
-        self._hourly_records(now)
-        record = {
+        return {
             "log_id": str(uuid.uuid7()), "at": now.isoformat(), "sql": sql,
             "outcome": "success" if result["status"] == "success" else "failed",
             "error": result["error"], "row_count": result["row_count"], "column_count": result["column_count"],
         }
-        path = self._hour_path(now)
-        try:
-            path.parent.mkdir(parents=True, exist_ok=True)
-            with path.open("a", encoding="utf-8") as handle:
-                handle.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
-        except (OSError, UnicodeError) as error:
-            raise ValueError("query log is unavailable") from error
+
+    def _append_record(self, record: dict[str, Any], now: dt.datetime) -> None:
+        with self._lock:
+            self._hourly_records(now)
+            path = self._hour_path(self._at(record))
+            try:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                with path.open("a", encoding="utf-8") as handle:
+                    handle.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
+            except (OSError, UnicodeError) as error:
+                raise ValueError("query log is unavailable") from error
+
+    def append(self, sql: str, result: dict[str, Any]) -> dict[str, Any]:
+        now = self._now()
+        record = self._new_record(sql, result, now)
+        self._append_record(record, now)
         return record
+
+    def _append_background(self, record: dict[str, Any], now: dt.datetime) -> None:
+        try:
+            self._append_record(record, now)
+        except Exception as error:
+            print(f"query log failed: {error}", file=sys.stderr)
+
+    def append_async(self, sql: str, result: dict[str, Any]) -> dict[str, Any]:
+        now = self._now()
+        record = self._new_record(sql, result, now)
+        with self._submit_lock:
+            if self._closed:
+                raise ValueError("query log is unavailable")
+            self._writer.submit(self._append_background, record, now)
+        return record
+
+    def close(self) -> None:
+        with self._submit_lock:
+            if self._closed:
+                return
+            self._closed = True
+        self._writer.shutdown(wait=True)
 
     @staticmethod
     def _limit(value: object) -> int:
@@ -130,13 +167,15 @@ class QueryLog:
 
     def list(self, limit: object = 20) -> dict[str, list[dict[str, Any]]]:
         limit = self._limit(limit)
-        records = sorted(self._retained(self._now()), key=self._at, reverse=True)
+        with self._lock:
+            records = sorted(self._retained(self._now()), key=self._at, reverse=True)
         return {"items": records[:limit]}
 
     def get(self, log_id: object) -> dict[str, Any]:
         if not isinstance(log_id, str) or not log_id:
             raise ValueError("log_id must be a non-empty string")
-        for record in self._retained(self._now()):
-            if record["log_id"] == log_id:
-                return record
+        with self._lock:
+            for record in self._retained(self._now()):
+                if record["log_id"] == log_id:
+                    return record
         raise ValueError("unknown log_id")

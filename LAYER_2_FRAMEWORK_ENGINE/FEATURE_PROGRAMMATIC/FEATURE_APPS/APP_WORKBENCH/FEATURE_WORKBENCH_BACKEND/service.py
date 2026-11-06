@@ -2,15 +2,16 @@
 # CA-R-2729@7
 # CA-R-2950@1
 # CA-R-2952@1
-# CA-M-465@17
-# CA-M-490@1
+# CA-M-465@18
+# CA-M-490@2
 # CA-M-491@1
-# CA-D-695@1
+# CA-D-695@2
 # CA-D-696@1
 # CA-D-673@13
 # CA-R-2786@1
 # CA-M-474@1
-# CA-R-2903@2
+# CA-R-2903@3
+# CA-M-502@1
 
 """One Project's direct file reader, background indexer, and SQL capability."""
 
@@ -27,7 +28,7 @@ from typing import Any
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .query_store import QueryStore
 from .query_log import QueryLog
-from .relations import canonical, materialize, relation_registry
+from .relations import canonical, materialize_with_registry
 from .runtime_settings import result_ttl_seconds
 from .saved_queries import SavedQueryStore
 from .source_reader import SourceReader
@@ -70,6 +71,7 @@ class WorkbenchService:
         self._watcher: SourceWatcher | None = None
         self._scope_signature: str | None = None
         self._relation_registry: str | None = None
+        self._materialized_atoms: dict = {}
         self._failure: WorkbenchUnavailableError | None = None
         self._paths: set[str] = set()
         self._syncing = 0
@@ -88,41 +90,47 @@ class WorkbenchService:
                 )
                 captured_at = time.monotonic()
                 capture_seconds = captured_at - started
-                scope_signature = canonical(scopes)
-                atoms, scopes = materialize(atoms, scopes)
-                materialized_at = time.monotonic()
-                materialize_seconds = materialized_at - captured_at
-                registered, inverse = relation_registry(atoms)
-                registry = canonical([sorted(registered), sorted(inverse.items())])
-                assert self._store is not None
-                full = self._scope_signature != scope_signature or self._relation_registry != registry
-                write_seconds = 0.0
-                if full:
-                    writing_started = time.monotonic()
-                    self._store.replace(atoms, scopes, relation_types=registered)
-                    write_seconds += time.monotonic() - writing_started
-                    changed = True
-                else:
-                    writing_started = time.monotonic()
-                    changed = self._store.apply(atoms, scopes, relation_types=registered)
-                    write_seconds += time.monotonic() - writing_started
-                    if self._store.schema_changed is True:
-                        full = True
-                        recapture_started = time.monotonic()
-                        atoms, scopes = self._reader.capture()
-                        recaptured_at = time.monotonic()
-                        capture_seconds += recaptured_at - recapture_started
-                        scope_signature = canonical(scopes)
-                        atoms, scopes = materialize(atoms, scopes)
-                        rematerialized_at = time.monotonic()
-                        materialize_seconds += rematerialized_at - recaptured_at
-                        registered, inverse = relation_registry(atoms)
-                        registry = canonical([sorted(registered), sorted(inverse.items())])
+                full = changed = False
+                materialize_seconds = write_seconds = 0.0
+                if changes is None or self._reader.capture_changed:
+                    scope_signature = canonical(scopes)
+                    atoms, scopes, registered, inverse, next_atoms = materialize_with_registry(
+                        atoms, scopes, self._materialized_atoms,
+                    )
+                    materialized_at = time.monotonic()
+                    materialize_seconds = materialized_at - captured_at
+                    registry = canonical([sorted(registered), sorted(inverse.items())])
+                    assert self._store is not None
+                    full = self._scope_signature != scope_signature or self._relation_registry != registry
+                    write_seconds = 0.0
+                    if full:
                         writing_started = time.monotonic()
                         self._store.replace(atoms, scopes, relation_types=registered)
                         write_seconds += time.monotonic() - writing_started
+                        changed = True
+                    else:
+                        writing_started = time.monotonic()
+                        changed = self._store.apply(atoms, scopes, relation_types=registered)
+                        write_seconds += time.monotonic() - writing_started
+                        if self._store.schema_changed is True:
+                            full = True
+                            recapture_started = time.monotonic()
+                            atoms, scopes = self._reader.capture()
+                            recaptured_at = time.monotonic()
+                            capture_seconds += recaptured_at - recapture_started
+                            scope_signature = canonical(scopes)
+                            atoms, scopes, registered, inverse, next_atoms = materialize_with_registry(
+                                atoms, scopes, self._materialized_atoms,
+                            )
+                            rematerialized_at = time.monotonic()
+                            materialize_seconds += rematerialized_at - recaptured_at
+                            registry = canonical([sorted(registered), sorted(inverse.items())])
+                            writing_started = time.monotonic()
+                            self._store.replace(atoms, scopes, relation_types=registered)
+                            write_seconds += time.monotonic() - writing_started
+                    self._scope_signature, self._relation_registry = scope_signature, registry
+                    self._materialized_atoms = next_atoms
                 written_at = time.monotonic()
-                self._scope_signature, self._relation_registry = scope_signature, registry
                 paths = {row["source_path"] for row in atoms}
                 removed = len(self._paths - paths)
                 self._paths = paths
@@ -254,8 +262,8 @@ class WorkbenchService:
                 except ValueError as error:
                     print(f"saved query failed: {error}", file=sys.stderr)
                     result |= {"outcome": "partial", "save_error": str(error)}
-            warning = self._log_attempt(selected, self._result_metadata(result))
-            return result | ({"query_log_error": warning} if warning else {})
+            self._log_attempt(selected, self._result_metadata(result))
+            return result
         except ValueError as error:
             self._log_attempt(selected, self._failed_metadata(error))
             raise
@@ -283,13 +291,11 @@ class WorkbenchService:
     def _failed_metadata(error: Exception) -> dict[str, Any]:
         return {"status": "failed", "error": str(error), "query_id": None, "row_count": None, "column_count": None}
 
-    def _log_attempt(self, sql: str, metadata: dict[str, Any]) -> str | None:
+    def _log_attempt(self, sql: str, metadata: dict[str, Any]) -> None:
         try:
-            self._query_log.append(sql, metadata)
+            self._query_log.append_async(sql, metadata)
         except Exception as error:
             print(f"query log failed: {error}", file=sys.stderr)
-            return str(error)
-        return None
 
     def _drop_result(self, query_id: str | None) -> None:
         if query_id is not None and self._store is not None:
@@ -413,9 +419,9 @@ class WorkbenchService:
             metadata, saved = self._failed_metadata(error), {}
         except ValueError as error:
             metadata, saved = self._failed_metadata(error), {}
-        warning = self._log_attempt(selected, metadata)
+        self._log_attempt(selected, metadata)
         self._workspaces.set_result(args["workspace_id"], args["view_id"], metadata)
-        return {"workspace_id": view["workspace_id"], "view_id": view["view_id"], "revision": view["revision"]} | metadata | saved | ({"query_log_error": warning} if warning else {})
+        return {"workspace_id": view["workspace_id"], "view_id": view["view_id"], "revision": view["revision"]} | metadata | saved
 
     def _view_fetch(self, arguments: object) -> dict[str, Any]:
         args = self._arguments("view_fetch", arguments, {"workspace_id", "view_id", "offset", "page_size", "preview", "grid"}, {"workspace_id", "view_id"})
@@ -480,3 +486,4 @@ class WorkbenchService:
             self._thread.join()
         if self._store is not None:
             self._store.close()
+        self._query_log.close()

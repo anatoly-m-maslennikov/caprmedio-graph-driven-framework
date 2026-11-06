@@ -16,8 +16,8 @@ relations:
   - CA-D-695
   - CA-C-704
 status: Active
-version: 4
-updated_at: 2026-11-06 20:37:19 +0400
+version: 5
+updated_at: 2026-11-07 01:21:17 +0400
 carrier_destination:
   file:
     name: CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md
@@ -46,7 +46,7 @@ With the existing server `watchdog` Observer observing only a selected repositor
 | An add/delete pair occurs without a native move callback | Do not promote the pair to `rename` or `move`. |
 | A change occurs outside the selected repository source folder | No change-log row. |
 | A grouped watcher batch contains several observations | Preserve each observed operation; do not invent a Workflow or business Journal record. |
-| An event reaches 48 hours of age | The existing owner event-consumption loop's short wait timeout, including while idle on the same owner thread, removes it from both the NDJSON file and `change_log`; no stale copy remains queryable after cleanup. |
+| An event is older than 48 hours | The existing owner event-consumption loop's short wait timeout, including while idle on the same owner thread, removes it from both the NDJSON file and `change_log`; no stale copy remains queryable after cleanup. |
 | The 100,000-row cap is exceeded | Remove the oldest events from both stores until the same retained set has at most 100,000 rows. |
 | The owner restarts or performs a full reread | Reread retained log rows, preserve still-live events, and apply the same 48-hour TTL and 100,000-row cap. |
 | The watcher is idle | The existing owner event-consumption loop's short wait timeout performs cleanup on the same owner thread; no separate watcher service, Workflow scheduler, retry or recovery path is started. |
@@ -59,3 +59,5 @@ Verify that `change_log` is not used as an `atoms`/`scope_units` source, graph v
 Seed approximately 5,000 actual Atom source files before the Docker watcher starts, assert the indexed workload size, and reuse that one fixture for the existing mutations and latency measurements. Verify a child Atom created inside a newly host-created nested folder becomes query-visible too. For each file mutation exercised by the Docker E2E test, report elapsed milliseconds from immediately before the filesystem operation until a query returns the matching Atom version and path, or confirms its absence after removal. Include the operation and number of observations. Measure create, edit, host and native rename/move, and entry/exit across the watched boundary. Event-log visibility alone is not index visibility.
 
 Report these measurements without adding a speed pass/fail threshold. Keep the existing correctness deadlines. State that the timing includes request and polling overhead; distinguish the small fixture from measurements on the actual repository.
+
+Verify normal batches append and INSERT additions without rewriting prior file bytes or deleting/reinserting retained table rows. Preserve equal-field duplicate events. Verify TTL/cap cleanup leaves identical retained file/table rows and restart rehydrates them.

@@ -1,12 +1,17 @@
-# CA-D-698@1
-# CA-E-787@1
+# CA-M-502@1
+# CA-D-698@2
+# CA-E-787@2
 from __future__ import annotations
 
 import datetime as dt
+from contextlib import redirect_stderr
+from io import StringIO
 import json
 from pathlib import Path
 import sys
 import tempfile
+import threading
+import time
 import unittest
 from unittest.mock import patch
 
@@ -22,6 +27,7 @@ class QueryLogTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.log = QueryLog(Path(self.temporary.name))
+        self.addCleanup(self.log.close)
         self.result = {"status": "success", "error": None, "row_count": 1, "column_count": 1}
 
     def test_append_uses_utc_hour_files_and_the_exact_record_shape(self) -> None:
@@ -60,6 +66,51 @@ class QueryLogTests(unittest.TestCase):
 
         self.assertEqual(legacy, self.log._legacy_path.read_text(encoding="utf-8"))
         self.assertFalse(hourly.exists())
+
+    def test_background_append_returns_before_a_blocked_writer_then_drains_on_close(self) -> None:
+        entered = threading.Event()
+        release = threading.Event()
+        original = self.log._append_record
+
+        def blocked(record, now):
+            with self.log._lock:
+                entered.set()
+                release.wait(timeout=1)
+                original(record, now)
+
+        with patch.object(self.log, "_append_record", side_effect=blocked):
+            started = time.monotonic()
+            record = self.log.append_async("SELECT 1", self.result)
+            self.assertLess(time.monotonic() - started, 0.1)
+            self.assertTrue(entered.wait(timeout=1))
+            started = time.monotonic()
+            second = self.log.append_async("SELECT 2", self.result)
+            self.assertLess(time.monotonic() - started, 0.1)
+            release.set()
+            self.log.close()
+
+        self.assertEqual([second, record], self.log.list()["items"])
+
+    def test_background_appends_stay_ordered_and_keep_submission_timestamp(self) -> None:
+        first = dt.datetime(2026, 11, 5, 10, 59, tzinfo=dt.UTC)
+        second = dt.datetime(2026, 11, 5, 11, tzinfo=dt.UTC)
+        with patch.object(QueryLog, "_now", side_effect=[first, second, second]):
+            older = self.log.append_async("SELECT 1", self.result)
+            newer = self.log.append_async("SELECT 2", self.result)
+            self.log.close()
+            records = self.log.list()["items"]
+
+        self.assertEqual(first.isoformat(), older["at"])
+        self.assertEqual([newer, older], records)
+        self.assertTrue(self.log._hour_path(first).is_file())
+        self.assertTrue(self.log._hour_path(second).is_file())
+
+    def test_background_write_failure_only_reports_to_stderr(self) -> None:
+        errors = StringIO()
+        with patch.object(self.log, "_append_record", side_effect=ValueError("unavailable")), redirect_stderr(errors):
+            self.log.append_async("SELECT 1", self.result)
+            self.log.close()
+        self.assertIn("query log failed: unavailable", errors.getvalue())
 
 
 if __name__ == "__main__":

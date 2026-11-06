@@ -1,6 +1,7 @@
 # CA-R-2723@3
 # CA-R-2726@5
 # CA-D-672@12
+# CA-M-465@18
 
 """Map parsed Atom and Scope Unit sources to raw Workbench rows."""
 
@@ -11,6 +12,7 @@ import re
 from typing import Any
 
 from .markdown_content import parse_content
+from .relations import canonical
 
 
 _NUMBERED_DRAFT_REFERENCE = re.compile(r"@\d+-draft$")
@@ -74,3 +76,14 @@ def string(value: Any) -> str | None:
 
 def bigint(value: Any) -> int | None:
     return value if type(value) is int and -(2**63) <= value < 2**63 else None
+
+
+def same_row(
+    before: tuple[tuple[int, ...], dict[str, Any]] | None,
+    after: tuple[tuple[int, ...], dict[str, Any]] | None,
+) -> bool:
+    if before is None or after is None:
+        return before is after
+    if before[1] is after[1]:
+        return True
+    return canonical(before[1]) == canonical(after[1])

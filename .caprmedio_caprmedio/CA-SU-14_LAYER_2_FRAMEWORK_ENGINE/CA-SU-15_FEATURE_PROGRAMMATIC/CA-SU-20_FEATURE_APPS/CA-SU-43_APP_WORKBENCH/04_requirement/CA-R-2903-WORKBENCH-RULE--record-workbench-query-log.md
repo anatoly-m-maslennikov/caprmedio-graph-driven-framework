@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-05 20:27:41 +0400
+version: 3
+updated_at: 2026-11-07 01:21:17 +0400
 carrier_destination:
   file:
     name: CA-R-2903-WORKBENCH-RULE--record-workbench-query-log.md
@@ -33,3 +33,5 @@ The backend and MCP **must** expose the same query-log list and fetch capability
 Saved Views remain separate from the temporary query log and do not expire with it.
 
 Query-log files use one hourly UTC batch. Expiry removes expired entries from query-log reads and expires old batch files when the log is used. Saved queries and Views are permanent and remain outside these batches.
+
+Automatic query history may become visible after the Run response. A history-write failure must not discard or alter a completed Run or explicit Save result.

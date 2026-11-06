@@ -1,8 +1,8 @@
 # CA-E-676@11
-# CA-E-677@12
+# CA-E-677@13
 # CA-R-2950@1
 # CA-R-2952@1
-# CA-M-465@17
+# CA-M-465@18
 # CA-M-490@1
 # CA-M-491@1
 # CA-D-695@1
@@ -178,7 +178,7 @@ class ServiceTests(unittest.TestCase):
         service._start.assert_called_once()
         service._store.run.assert_called_once_with("SELECT 1", page_size=100, preview=None, include_rows=True)
         service._saved_queries.save_query.assert_called_once_with("SELECT 1", "important")
-        service._query_log.append.assert_called_once()
+        service._query_log.append_async.assert_called_once()
         self.assertIn("saved query failed: disk full", errors.getvalue())
 
     def test_run_saves_only_after_a_completed_result(self):
@@ -201,7 +201,7 @@ class ServiceTests(unittest.TestCase):
         )
         service._store.run.assert_called_once_with("SELECT 1", page_size=100, preview=None, include_rows=True)
         service._saved_queries.save_query.assert_called_once_with("SELECT 1", "important")
-        service._query_log.append.assert_called_once()
+        service._query_log.append_async.assert_called_once()
 
     def test_invalid_preview_does_not_start_the_service(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):

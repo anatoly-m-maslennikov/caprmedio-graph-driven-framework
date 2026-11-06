@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 55
-updated_at: 2026-11-07 00:45:56 +0400
+version: 57
+updated_at: 2026-11-07 01:34:24 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -102,6 +102,39 @@ Verification: three formatter checks, all 17 frontend Node tests, TypeScript, sh
 Source, review and verification index: `.caprmedio_tmp/workbench/view-actions-20261106/`.
 
 Source acceptance passed: 23 browser cases, three disposable-host native bridge cases, five backend tests, 12 MCP/HTTP tests and 17 frontend Node tests. TypeScript, builds, scoped reviews and diff checks passed. Deployment and actual Codex-host acceptance remain open. Permanent record: `view-actions-acceptance-20261106.md` in this Epic folder.
+
+## Real-project performance cycle
+
+- [x] Measure ordinary real-project edits before the change, without changing the schema.
+- [x] Update, review and adopt the Backend RMED for the approved performance and log changes.
+- [x] Refresh the Backend Policy prompt and accepted implementation-source list.
+- [x] Implement and review the approved changes.
+- [ ] Run the targeted regressions and realistic end-to-end checks.
+- [ ] Release and compare the same real-project operation matrix before and after.
+- [ ] Record measured results and remaining acceptance items.
+
+## Performance experiments
+
+Proposal: [CA-A-1329@1-draft](../CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/02_analysis/draft/CA-A-1329@1-draft-WORKBENCH_BACKEND-SPECIFICATION_PROPOSAL--compare-workbench-performance-options.md).
+
+- [ ] Benchmark bulk edits, deletes and Scope Unit move/rename operations for latency and throughput.
+- [ ] Evaluate bulk SQL mutations (E01).
+- [ ] Evaluate event batching (E02).
+- [ ] Evaluate a shorter database critical section (E03).
+- [ ] Evaluate concurrent connections and, where useful, disjoint writers (E04).
+- [ ] Benchmark signed +1/-1 state against bulk delete/insert (E05).
+- [ ] Compare latest-version state with deletion markers (E06).
+- [ ] Measure optional index/constraint cost (E07).
+- [ ] Evaluate faster libraries where profiles justify them (E08).
+- [ ] Evaluate a native hot function only if it remains necessary (E09).
+- [ ] Evaluate retained-log CPU work at realistic sizes (E10).
+- [ ] Evaluate lighter durability for disposable derived state (E11).
+- [ ] Compare alternative watcher libraries (E12).
+- [ ] Benchmark parallel Python preparation, including free-threaded CPython (E13).
+- [ ] Revisit physical partitioning only when a larger workload justifies it.
+- [ ] Review measurements and adopt RMED for selected changes before implementation.
+
+The experiment list is proposed work, not completion or adoption. The +1/-1 option is included; it does not replace the current transaction model in this cycle.
 
 ## Scoped lanes
 

@@ -1,6 +1,6 @@
 # CA-E-750@1
 # CA-E-675@6
-# CA-E-677@12
+# CA-E-677@13
 from __future__ import annotations
 
 from contextlib import redirect_stderr
@@ -20,7 +20,7 @@ from scope_declaration_test_support import write_scope_unit_declarations  # noqa
 from scope_unit_declarations import ScopeDeclarationError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import source_reader as source_reader_module  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import materialize  # noqa: E402
-from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader, _same_row  # noqa: E402
 
 
 ATOM_COLUMNS = (
@@ -652,6 +652,56 @@ class SourceReaderTests(unittest.TestCase):
         self.assertNotIn("CA-R-440", {row["id"] for row in atoms})
         declarations.assert_not_called()
         inventory.assert_not_called()
+
+    def test_incremental_capture_marks_only_effective_source_changes(self) -> None:
+        source = self._write_atom("MAIN", "04_requirement", "stable.md", atom_id="CA-R-442")
+        self._capture()
+
+        self.reader.capture([{
+            "operation": "update", "old_path": None,
+            "new_path": "unrelated.txt",
+        }])
+        self.assertFalse(self.reader.capture_changed)
+
+        source.write_text(
+            source.read_text(encoding="utf-8").replace("Fixture source.", "Changed source."),
+            encoding="utf-8",
+        )
+        self.reader.capture([{
+            "operation": "update", "old_path": None,
+            "new_path": source.relative_to(self.root).as_posix(),
+        }])
+        self.assertTrue(self.reader.capture_changed)
+
+        source.unlink()
+        self.reader.capture([{
+            "operation": "remove",
+            "old_path": source.relative_to(self.root).as_posix(), "new_path": None,
+        }])
+        self.assertTrue(self.reader.capture_changed)
+
+    def test_incremental_capture_marks_invalid_content_and_full_refreshes_changed(self) -> None:
+        source = self._write_atom("MAIN", "04_requirement", "invalid.md", atom_id="CA-R-443")
+        self._capture()
+
+        source.write_text(
+            source.read_text(encoding="utf-8").replace("# Summary", "# Summary\n\n# Summary"),
+            encoding="utf-8",
+        )
+        self.reader.capture([{
+            "operation": "update", "old_path": None,
+            "new_path": source.relative_to(self.root).as_posix(),
+        }])
+        self.assertTrue(self.reader.capture_changed)
+
+        self.reader.capture()
+        self.assertTrue(self.reader.capture_changed)
+
+    def test_same_row_keeps_boolean_and_integer_distinct(self) -> None:
+        before = ((1,), {"header_json": {"enabled": True}})
+        after = ((2,), {"header_json": {"enabled": 1}})
+
+        self.assertFalse(_same_row(before, after))
 
     def test_watcher_declaration_change_rechecks_the_declaration_snapshot(self) -> None:
         self._capture()

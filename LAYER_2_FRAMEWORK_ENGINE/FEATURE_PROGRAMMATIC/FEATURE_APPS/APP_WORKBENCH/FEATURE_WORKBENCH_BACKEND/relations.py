@@ -2,7 +2,7 @@
 # CA-R-2724@3
 # CA-R-2725@3
 # CA-M-464@8
-# CA-M-465@17
+# CA-M-465@18
 # CA-D-672@12
 
 """Materialize authored references and literal declared inverse bindings in memory."""
@@ -214,31 +214,36 @@ def _targets(value: Any, scope_references: Mapping[str, str], kind: str | None =
                 yield from _targets(value[key], scope_references, target_kind)
 
 
-def _direct_facts(atoms, scopes, registered):
-    scope_references = {
+def _scope_references(scopes: list[dict]) -> dict[str, str]:
+    return {
         reference: row["name"]
         for row in scopes
         for reference in (row["name"], row["scope_unit_id"])
         if isinstance(reference, str) and reference
     }
+
+
+def _scope_facts(scopes: list[dict], registered: set[str]):
     containment = _relation_name("IS_CONTAINED_BY", registered)
     for row in scopes:
         if containment and row["parent_name"]:
             yield SCOPE, row["name"], containment, SCOPE, row["parent_name"]
-    for row in atoms:
-        if row["ref"] is None:
-            continue
-        container_kind, container_ref = _container(row, scope_references)
-        if containment and container_kind is not None and container_ref is not None:
-            yield ATOM, row["ref"], containment, container_kind, container_ref
-        relations = row["header_json"].get("relations", {})
-        if not isinstance(relations, dict):
-            continue
-        for name, values in relations.items():
-            relation = _relation_name(name, registered, row["source_path"])
-            if relation:
-                for kind, ref in _targets(values, scope_references):
-                    yield ATOM, row["ref"], relation, kind, ref
+
+
+def _atom_facts(row: dict, scope_references: Mapping[str, str], registered: set[str]):
+    if row["ref"] is None:
+        return
+    containment = _relation_name("IS_CONTAINED_BY", registered)
+    container_kind, container_ref = _container(row, scope_references)
+    if containment and container_kind is not None and container_ref is not None:
+        yield ATOM, row["ref"], containment, container_kind, container_ref
+    relations = row["header_json"].get("relations", {})
+    if not isinstance(relations, dict):
+        return
+    for name, values in relations.items():
+        relation = _relation_name(name, registered, row["source_path"])
+        if relation:
+            yield from ((ATOM, row["ref"], relation, kind, ref) for kind, ref in _targets(values, scope_references))
 
 
 def _container(
@@ -284,31 +289,96 @@ def _unique_references(atoms: list[dict]) -> list[dict]:
     return [row for row in atoms if row["ref"] not in duplicates]
 
 
-def materialize(atoms: list[dict], scopes: list[dict]) -> tuple[list[dict], list[dict]]:
-    """Assign each row its outgoing facts, then hash its final canonical data."""
-    atoms = _unique_references(atoms)
-    registered, inverse = relation_registry(atoms)
+def _materialized_row(kind: str, source: dict, facts: tuple[tuple, ...]) -> dict | None:
+    row = dict(source)
+    row["relation_edges_json"] = [_edge(fact[:-1], fact[-1]) for fact in facts]
+    if kind == ATOM:
+        row["updated_at"] = _timestamp(row["updated_at"])
+    try:
+        payload = {key: value for key, value in row.items() if key != "hash"}
+        row["hash"] = hashlib.sha256(canonical(payload).encode("utf-8")).hexdigest()
+        return row
+    except (TypeError, ValueError) as error:
+        path = row.get("source_path", row.get("declaration_source_path"))
+        print(f"Workbench: {path}: {error}", file=sys.stderr)
+        return None
+
+
+def _direct_atom_facts(
+    atoms: list[dict], scope_references: Mapping[str, str], registered: set[str],
+    context: tuple, previous_atoms: Mapping[str, dict[str, Any]],
+) -> dict[str, tuple[tuple, ...]]:
+    result = {}
+    for source in atoms:
+        path = source.get("source_path")
+        cached = previous_atoms.get(path) if isinstance(path, str) else None
+        facts = (
+            cached["direct_facts"]
+            if cached is not None and cached["raw"] is source and cached.get("context") == context
+            else tuple(_atom_facts(source, scope_references, registered))
+        )
+        if isinstance(path, str):
+            result[path] = facts
+    return result
+
+
+def _outgoing_facts(
+    scopes: list[dict], registered: set[str], inverse: Mapping[str, str],
+    atom_direct_facts: Mapping[str, tuple[tuple, ...]],
+) -> dict[tuple[str, str], set[tuple]]:
     outgoing: dict[tuple[str, str], set[tuple]] = defaultdict(set)
-    for fact in _direct_facts(atoms, scopes, registered):
+    for fact in (*_scope_facts(scopes, registered), *(fact for facts in atom_direct_facts.values() for fact in facts)):
         outgoing[fact[:2]].add((*fact, False))
         if fact[2] in inverse:
             reverse = (fact[3], fact[4], inverse[fact[2]], fact[0], fact[1])
             outgoing[reverse[:2]].add((*reverse, True))
-    results = []
-    for kind, rows in ((ATOM, atoms), (SCOPE, scopes)):
-        result = []
-        for source in rows:
-            row = dict(source)
-            ref = row["ref"] if kind == ATOM else row["name"]
-            row["relation_edges_json"] = [_edge(fact[:-1], fact[-1]) for fact in sorted(outgoing[(kind, ref)])]
-            if kind == ATOM:
-                row["updated_at"] = _timestamp(row["updated_at"])
-            try:
-                payload = {key: value for key, value in row.items() if key != "hash"}
-                row["hash"] = hashlib.sha256(canonical(payload).encode("utf-8")).hexdigest()
-                result.append(row)
-            except (TypeError, ValueError) as error:
-                path = row.get("source_path", row.get("declaration_source_path"))
-                print(f"Workbench: {path}: {error}", file=sys.stderr)
-        results.append(result)
-    return results[0], results[1]
+    return outgoing
+
+
+def _materialize_atoms(
+    atoms: list[dict], outgoing: Mapping[tuple[str, str], set[tuple]], context: tuple,
+    atom_direct_facts: Mapping[str, tuple[tuple, ...]], previous_atoms: Mapping[str, dict[str, Any]],
+) -> tuple[list[dict], dict[str, dict[str, Any]]]:
+    next_atoms: dict[str, dict[str, Any]] = {}
+    rows = []
+    for source in atoms:
+        facts = tuple(sorted(outgoing[(ATOM, source["ref"])]))
+        path = source.get("source_path")
+        cached = previous_atoms.get(path) if isinstance(path, str) else None
+        row = cached["row"] if cached is not None and cached["raw"] is source and cached["facts"] == facts else _materialized_row(ATOM, source, facts)
+        if row is not None:
+            rows.append(row)
+            if isinstance(path, str):
+                next_atoms[path] = {"raw": source, "context": context, "direct_facts": atom_direct_facts[path], "facts": facts, "row": row}
+    return rows, next_atoms
+
+
+def materialize_with_registry(
+    atoms: list[dict], scopes: list[dict], previous_atoms: Mapping[str, dict[str, Any]] | None = None,
+) -> tuple[list[dict], list[dict], set[str], dict[str, str], dict[str, dict[str, Any]]]:
+    """Materialize one captured inventory and reuse unchanged Atom rows by identity."""
+    atoms = _unique_references(atoms)
+    registered, inverse = relation_registry(atoms)
+    scope_references = _scope_references(scopes)
+    context = (
+        tuple(sorted(registered)),
+        tuple(sorted(inverse.items())),
+        tuple(sorted(scope_references.items())),
+    )
+    prior = previous_atoms or {}
+    atom_direct_facts = _direct_atom_facts(atoms, scope_references, registered, context, prior)
+    outgoing = _outgoing_facts(scopes, registered, inverse, atom_direct_facts)
+    atom_rows, next_atoms = _materialize_atoms(atoms, outgoing, context, atom_direct_facts, prior)
+
+    scope_rows = []
+    for source in scopes:
+        row = _materialized_row(SCOPE, source, tuple(sorted(outgoing[(SCOPE, source["name"])])))
+        if row is not None:
+            scope_rows.append(row)
+    return atom_rows, scope_rows, registered, inverse, next_atoms
+
+
+def materialize(atoms: list[dict], scopes: list[dict]) -> tuple[list[dict], list[dict]]:
+    """Assign each row its outgoing facts, then hash its final canonical data."""
+    rows, scope_rows, _registered, _inverse, _cache = materialize_with_registry(atoms, scopes)
+    return rows, scope_rows

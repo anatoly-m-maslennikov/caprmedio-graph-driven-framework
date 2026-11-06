@@ -1,4 +1,5 @@
 # CA-R-2726@5
+# CA-M-465@18
 # CA-M-500@1
 # CA-D-672@12
 
@@ -55,8 +56,14 @@ def _scope(row: Row, outgoing: Outgoing) -> Row:
     return public
 
 
+def _atom_key(row: Row) -> tuple[str, str]:
+    path = PurePosixPath(row["source_path"])
+    return path.parent.as_posix(), path.name
+
+
 def projected_rows(
     atoms: list[Row], scopes: list[Row], header_schema: HeaderSchema, content_schema: ContentSchema,
+    *, previous_atoms: dict[tuple[str, str], tuple[Row, Row]] | None = None,
 ) -> tuple[list[Row], list[Row]]:
     """Return public rows from the already-materialized source graph."""
     outgoing: Outgoing = {}
@@ -70,10 +77,12 @@ def projected_rows(
     for relations in outgoing.values():
         for targets in relations.values():
             targets.sort(key=lambda target: (target["kind"], target["reference"], target["derived"]))
-    return (
-        [_atom(row, outgoing, header_schema, content_schema) for row in atoms],
-        [_scope(row, outgoing) for row in scopes],
-    )
+    public_atoms = []
+    for row in atoms:
+        cached = (previous_atoms or {}).get(_atom_key(row))
+        public_atoms.append(cached[1] if cached is not None and cached[0] is row
+                            else _atom(row, outgoing, header_schema, content_schema))
+    return public_atoms, [_scope(row, outgoing) for row in scopes]
 
 
 def _insert(

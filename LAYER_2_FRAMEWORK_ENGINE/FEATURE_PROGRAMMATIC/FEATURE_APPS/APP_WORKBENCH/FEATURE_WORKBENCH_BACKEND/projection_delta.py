@@ -1,5 +1,5 @@
 # CA-R-2726@5
-# CA-M-465@17
+# CA-M-465@18
 # CA-M-500@1
 # CA-D-672@12
 
@@ -24,6 +24,7 @@ class ProjectionSnapshot:
     graph: GraphState
     header_schema: HeaderSchema
     content_schema: ContentSchema
+    atom_sources: dict[tuple[str, str], dict[str, Any]]
 
 
 @dataclass(frozen=True)
@@ -38,13 +39,26 @@ class ProjectionChange:
 
 def snapshot(
     atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]], relation_types: set[str] | None,
-    header_schema: HeaderSchema, content_schema: ContentSchema,
+    header_schema: HeaderSchema, content_schema: ContentSchema, previous: ProjectionSnapshot | None = None,
 ) -> ProjectionSnapshot:
-    public_atoms, public_scopes = projected_rows(atom_rows, scope_rows, header_schema, content_schema)
+    reuse = None
+    if previous is not None and previous.header_schema == header_schema and previous.content_schema == content_schema:
+        reuse = {
+            key: (source, previous.atoms[key])
+            for key, source in previous.atom_sources.items()
+            if key in previous.atoms
+        }
+    public_atoms, public_scopes = projected_rows(
+        atom_rows, scope_rows, header_schema, content_schema, previous_atoms=reuse,
+    )
+    atom_sources = {
+        (row["relative path"], row["filename"]): source
+        for row, source in zip(public_atoms, atom_rows, strict=True)
+    }
     return ProjectionSnapshot(
         {(row["relative path"], row["filename"]): row for row in public_atoms},
         {row["name"]: row for row in public_scopes},
-        graph_state(atom_rows, scope_rows, relation_types), header_schema, content_schema,
+        graph_state(atom_rows, scope_rows, relation_types), header_schema, content_schema, atom_sources,
     )
 
 
@@ -68,7 +82,7 @@ def apply(
     content_schema: ContentSchema,
 ) -> tuple[ProjectionSnapshot, ProjectionChange]:
     """Delete changed public rows before inserting their replacements in one transaction."""
-    current = snapshot(atom_rows, scope_rows, relation_types, header_schema, content_schema)
+    current = snapshot(atom_rows, scope_rows, relation_types, header_schema, content_schema, previous)
     changed_atoms = {
         key for key in set(previous.atoms) | set(current.atoms)
         if previous.atoms.get(key, {}).get("hash") != current.atoms.get(key, {}).get("hash")
@@ -102,7 +116,7 @@ def apply(
     current = ProjectionSnapshot(
         current.atoms, current.scopes,
         update_graph(connection, previous.graph, current.graph, atom_rows, scope_rows),
-        header_schema, content_schema,
+        header_schema, content_schema, current.atom_sources,
     )
     references = {
         row["reference"]

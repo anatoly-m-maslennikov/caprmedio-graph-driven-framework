@@ -2,7 +2,7 @@
 # CA-R-2725@3
 # CA-R-2726@5
 # CA-M-464@8
-# CA-M-465@17
+# CA-M-465@18
 # CA-D-672@12
 
 """Governed Workbench carrier reader; scheduling belongs to the service."""
@@ -18,7 +18,7 @@ from typing import Any
 
 from .relations import canonical
 from .source_content_schema import SourceContentSchema
-from .source_rows import atom as source_atom, scope as source_scope
+from .source_rows import atom as source_atom, scope as source_scope, same_row as _same_row
 
 
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
@@ -90,6 +90,7 @@ class SourceReader:
         self._content_schema = SourceContentSchema()
         self._content_invalid: set[Path] = set()
         self.excluded_count = 0
+        self.capture_changed = True
 
     def release_cache(self) -> None:
         """Release parsed successful rows while retaining failed signatures."""
@@ -97,6 +98,7 @@ class SourceReader:
         self._inventory_ready = False
         self._content_schema.reset()
         self._content_invalid.clear()
+        self.capture_changed = True
 
     def capture(
         self, changes: list[dict[str, str | None]] | None = None,
@@ -111,6 +113,7 @@ class SourceReader:
         ):
             return self._capture_full(reader)
 
+        previous = dict(self._cached)
         affected = self._apply_changes(changes)
         for path in sorted(affected):
             if path in self._source_paths:
@@ -123,11 +126,16 @@ class SourceReader:
             return self._capture_full(reader, revalidate_content=True)
         self._exclude_invalid_content_sources(rows)
         self.excluded_count = len(self._failed)
+        self.capture_changed = any(
+            not _same_row(previous.get(path), self._cached.get(path))
+            for path in affected
+        )
         return self._rows(), self._scopes()
 
     def _capture_full(
         self, reader: ReadContext, *, revalidate_content: bool = False,
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+        self.capture_changed = True
         try:
             declarations = read_scope_unit_declarations(
                 self.root, self.control_root, reader=reader

@@ -13,8 +13,8 @@ relations:
   - CA-R-2723
   - CA-R-2725
 status: Active
-version: 17
-updated_at: 2026-11-06 20:37:19 +0400
+version: 18
+updated_at: 2026-11-07 01:06:28 +0400
 carrier_destination:
   file:
     name: CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
@@ -61,3 +61,10 @@ Write successful source-index database mutation metrics to stdout at INFO: opera
 When native graph labels cannot distinguish registered Relation names that differ only by case, warn with all colliding names and source paths and omit every colliding type and its projected links. Preserve raw source facts; do not choose a winner, rename a model Relation or invent a graph alias.
 
 For a full source inventory, exclude archive and projection subtrees before expensive per-file checks. Resolve admitted role roots by ancestor membership rather than comparing every file with every Scope Unit. Preserve source and symlink boundaries.
+
+
+For an ordinary watcher batch, compare only affected raw source rows with their previous values. If no projection source changed, finish the sync without relation materialization, row hashing or database work. Explicit full reread, Scope Unit changes and Content-schema changes still use their existing full path. Equality must preserve value types, including the distinction between a Boolean and a number.
+
+Keep unchanged raw rows immutable within their SourceReader owner. “Same raw row” means the same strongly retained Python object (`is`), not `id()` or value equality. Reuse a prior materialized Atom row and hash only when the same raw row and the same outgoing relation facts are unchanged. Recompute changed rows and inverse-relation neighbours. Remove reused state for deleted, invalid or duplicate-excluded sources. This state is in memory and belongs to one Workbench owner; it is not a new source or stored cache. Publish the next reused state only after the database update succeeds.
+
+For each captured inventory in one refresh, compute the literal Relation registry exactly once and reuse that result for materialization and full/delta selection. A schema-triggered recapture may compute one fresh registry for its new inventory; the service must not recompute it for the same inventory. Preserve current source/graph hashes, inverse relations, schema rebuilding and failure handling.

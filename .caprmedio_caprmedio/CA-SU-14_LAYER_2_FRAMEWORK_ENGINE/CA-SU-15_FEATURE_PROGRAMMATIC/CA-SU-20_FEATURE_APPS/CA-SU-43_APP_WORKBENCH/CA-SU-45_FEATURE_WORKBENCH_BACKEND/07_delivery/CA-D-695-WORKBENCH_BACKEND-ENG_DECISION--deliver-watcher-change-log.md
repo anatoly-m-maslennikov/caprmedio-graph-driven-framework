@@ -15,11 +15,11 @@ relations:
   - CA-M-490
   - CA-E-780
 status: Active
-version: 1
-updated_at: 2026-11-05 18:48:47 +0400
+version: 2
+updated_at: 2026-11-07 01:21:17 +0400
 carrier_destination:
   file:
-    name: CA-D-695-WORKBENCH_BACKEND-ENG_DECISION--deliver-the-workbench-watcher-change-log.md
+    name: CA-D-695-WORKBENCH_BACKEND-ENG_DECISION--deliver-watcher-change-log.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/07_delivery
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
@@ -54,3 +54,5 @@ The Workbench settings are:
 
 When the cap or TTL removes data, remove the oldest events from the file and table together. Do not report watcher-log failures as source-change events.
 
+
+For a normal event batch without retention removal, append only additions to NDJSON and INSERT only those additions into DuckDB. Preserve duplicate observations. Retained-row replacement is limited to owner-start/full-reread reconciliation and actual TTL/cap cleanup. Keep the four-column public shape unchanged.
