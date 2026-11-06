@@ -109,6 +109,16 @@ Each result preserves source ID, Version, source hash, defining Scope, target co
 
 The current Applicable Methodology compiler does not implement this Scope-and-case resolution. Its existing source selection, conflict handling and publication are separate from the proposed mechanism.
 
+## Project Package
+
+Rename the structural root Package from **Implementation** to **Project Package**.
+
+- Implementation remains the Role name.
+- Project Package is the Project's root Package.
+- The existing Package, Module and Code Unit structure keeps its meaning.
+
+This separates the Role of a realization from its structural container.
+
 ## Rationale
 
 The design follows the user's examples: user-facing Create/Copy/Remove capabilities, internal DB/File adapters, dedicated testing assets and CI/CD delivery/operations.
@@ -125,6 +135,7 @@ Review the Current authorities before adoption:
 - R1767 and R2123: existing Policy/Decision Forms, propagation and ownership rules.
 - R1671: preserve independent local Decisions.
 - R2766 and R2149: specialization, Tier and governing-Relation direction.
+- R2553 and R2173: rename the structural root Package to Project Package; retain Implementation as the Role name.
 
 R926 still requires non-Project Goals until a coordinated successor is adopted. This proposal replaces that model with Scope Delegations. Decide replacement coverage and cardinality before adoption.
 

@@ -3,7 +3,7 @@
   "atom_id": "CA-A-1328",
   "ref_id": "CA-A-1328@1-draft",
   "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md",
-  "sha256": "33b265c1b3904e14ef065e58cebbf34f6fe4adda4ef27b037f4fd302118de907",
+  "sha256": "22a6e6ae91310ea824f14db6269d44aadf5375ae0b8783549fa869b57b9873df",
   "role": "Analysis",
   "form": "Specification Proposal",
   "version": 1,
@@ -21,6 +21,6 @@
     "decision_conformance_review": "PASS_ROOT_REVIEW",
     "source_transition_and_allocator_review": "PASS",
     "current_authority_or_runtime_adoption": false,
-    "reviewed_sha256": "33b265c1b3904e14ef065e58cebbf34f6fe4adda4ef27b037f4fd302118de907"
+    "reviewed_sha256": "22a6e6ae91310ea824f14db6269d44aadf5375ae0b8783549fa869b57b9873df"
   }
 }
