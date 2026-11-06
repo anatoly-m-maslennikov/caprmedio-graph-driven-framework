@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 54
-updated_at: 2026-11-07 00:17:17 +0400
+version: 55
+updated_at: 2026-11-07 00:45:56 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -63,7 +63,7 @@ Review record: `input-coverage-review-20261106.md` in this Epic folder. Specific
 
 - [x] Review the complete 48-hour input window against RMEDO, tasks, implementation and verification.
 - [x] Update, review and adopt the RMEDO identified by the audit, including E677 and the pending Draft packet.
-- [ ] Resolve the RMEDO handoff items with their source owners and record the outcome.
+- [x] Record Header read-compatibility readiness and the held source/writer cutover boundary.
 - [x] Create and review the Method guidance for query-writing style.
 - [x] Resolve C704 and verify its linked watcher Evaluation.
 - [x] Complete the Workbench backend module-trace audit.
@@ -71,11 +71,11 @@ Review record: `input-coverage-review-20261106.md` in this Epic folder. Specific
 - [x] Gather the applicable Policy prompt and accepted implementation sources for each scope.
 - [x] Complete and review implementation of the accepted RMEDO.
 - [x] Run the outstanding E780 Docker acceptance and record the results.
-- [ ] Perform local release and verify the released Workbench.
+- [x] Perform local release and verify the released Workbench backend.
 - [x] Adopt E794.
-- [ ] Run E794 against the released candidate and record the live-project results.
+- [x] Run E794 against the released candidate and record the live-project results.
 - [x] Complete the native Codex Workbench implementation and disposable-host bridge verification.
-- [ ] Verify the released UI in the actual Codex host.
+- [ ] Resolve C705 and verify the native UI in the actual Codex host.
 - [ ] Review final coverage and record Epic acceptance.
 
 ## Editor formatting cycle
@@ -85,7 +85,7 @@ Review record: `input-coverage-review-20261106.md` in this Epic folder. Specific
 - [x] Implement the accepted formatter RMED.
 - [x] Verify formatting through editor and command-palette end-to-end tests.
 - [x] Review the integrated formatter change.
-- [ ] Verify the released editor.
+- [x] Verify the editor in the released, tested artifact.
 
 Source and review index: `.caprmedio_tmp/workbench/rmed-reconcile-20261106/formatter-adoption.json`.
 
@@ -97,7 +97,7 @@ Verification: three formatter checks, all 17 frontend Node tests, TypeScript, sh
 - [x] Refresh the scoped Policy prompt and implementation-source index.
 - [x] Implement the accepted View-action RMED across its interfaces.
 - [x] Run the View-action end-to-end checks and review the integrated change.
-- [ ] Verify the released View actions.
+- [x] Verify the released View actions through MCP and the tested shared artifact.
 
 Source, review and verification index: `.caprmedio_tmp/workbench/view-actions-20261106/`.
 
@@ -127,9 +127,11 @@ CA-A-1322 remains a Draft. Its general PROGRAMMATIC Policy proposals require sep
 
 ## Current status
 
-Active. Accepted Workbench RMED is promoted and its source implementation is complete. C704 is Resolved after the 5,000-Atom Docker watcher acceptance passed all twelve timed operations, full reread and restart. The native bridge, Project name, Header compatibility, formatter and View actions pass focused checks.
+Active. Local release 0.4.4.29 completed. All 34 selected modules passed: 233 tests, with the live mutation canary initially skipped because it is opt-in. All seven Docker cases and launcher integration passed. E794 then passed explicitly against the live project, including cleanup. C704 is Resolved.
 
-The latest changes are not deployed. The live container remains the earlier 0.4.4.27 release. Local release, the live all-operation canary, actual Codex-host UI and final acceptance remain open. Five remaining Workbench RMED Drafts belong to disabled standalone chat. General PROGRAMMATIC Policy proposals and native MODEL/Header source cutover remain outside this release.
+Accepted Workbench RMED is promoted. Backend and browser implementation is released, but native UI delivery remains incomplete: the Operator sees no interface after `workspace_open`. The live descriptor and current UI artifact are correct; C705 tracks the unresolved host presentation issue. The Epic stays Active until that acceptance passes.
+
+The five remaining Workbench RMED Drafts belong to disabled standalone chat. General PROGRAMMATIC Policy proposals and native MODEL/Header source cutover remain outside this release. The full repository suite is not claimed green.
 
 ## Source and verification index
 
@@ -245,3 +247,7 @@ Independent backend review passed. Native graph parity, first/last relation use 
 ## Latest acceptance
 
 C704 is Resolved in source. The unchanged 5,000-Atom watcher matrix passed twelve timed mutations, immediate INFO timings, full reread and restart in 96 seconds. Visibility was 1.34–1.40 seconds. Native name binding, Header compatibility and MCP traces pass their focused checks. Local release, live-project canary and actual Codex-host acceptance remain open. See `release-acceptance-20261107.md` in this Epic folder.
+
+## Released acceptance
+
+Release 0.4.4.29, source `e972fa26abbf8d75c150f610a809e5d832d492fc`, passed the scoped suite and launcher gate. The live lifecycle canary passed fourteen visibility checks and cleanup in 235 seconds. Its real-project timings are separate from the 5,000-small-Atom fixture: ordinary update/move took 3.7–3.9 seconds, while scope/schema rebuilds took roughly 18–24 seconds. Native descriptor/resource checks and installed MCP View operations pass; the actual UI remains open under C705.

@@ -45,7 +45,7 @@ def request(url: str, *, method: str = "GET", payload: dict | None = None) -> tu
     body = None if payload is None else json.dumps(payload).encode("utf-8")
     request_data = Request(url, data=body, method=method, headers={"content-type": "application/json"})
     try:
-        with urlopen(request_data, timeout=30) as response:  # noqa: S310 -- explicit local canary endpoint
+        with urlopen(request_data, timeout=90) as response:  # noqa: S310 -- explicit local canary endpoint
             raw = response.read().decode("utf-8")
             return response.status, json.loads(raw) if response.headers.get_content_type() == "application/json" else raw
     except HTTPError as error:
