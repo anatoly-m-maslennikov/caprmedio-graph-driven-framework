@@ -1,0 +1,16 @@
+## Summary
+
+Declare Atom.Header.Identity
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.Identity{::1} :: []{::0};
+
+Atom.Header.Identity.*[in (ID, Ref ID)]{::2};
+
+Atom.Header.Identity.ID ;> Atom.Header.Identity.Ref ID
+```

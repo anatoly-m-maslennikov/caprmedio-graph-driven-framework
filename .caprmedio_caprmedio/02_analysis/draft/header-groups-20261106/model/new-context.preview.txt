@@ -1,0 +1,24 @@
+## Summary
+
+Declare Atom.Header.Context
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.Context{::1} :: []{::0};
+
+Atom.Header.Context.*[in (Container, Role, Form, Label, Topics, Tier, Plan, Concern)]{::5..7};
+
+Atom.Header.Context.Container ;> Atom.Header.Context.Role;
+
+Atom.Header.Context.Role ;> Atom.Header.Context.Form;
+
+Atom.Header.Context.Form ;> Atom.Header.Context.Label;
+
+Atom.Header.Context.Label ;> Atom.Header.Context.Topics;
+
+Atom.Header.Context.Topics ;> Atom.Header.Context.Tier
+```

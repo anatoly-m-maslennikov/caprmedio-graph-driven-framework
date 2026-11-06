@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 42
-updated_at: 2026-11-06 03:48:00 +0400
+version: 46
+updated_at: 2026-11-06 15:17:12 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -158,3 +158,34 @@ D681@6 and E684@4 are adopted. The presentation probe passed independent review,
 The agent called the probe after deployment. The Operator screenshot still shows the first UI without Presentation text or Expand. The new UI has not been observed in Codex; stale launch metadata or a retained earlier card is the current hypothesis. The documented app-server MCP refresh API exists, but the CLI cannot reach a running control daemon here. A host-side connection refresh is still needed. Right-panel placement and the full Workbench interface remain unfinished.
 
 Source commit: `704877a8a35b3dbad5d90d5b90d3642ab7849a72`. Verification: `.caprmedio_tmp/workbench/codex-presentation/live-proof.json`.
+
+## Native presentation proof and watcher performance
+
+The Operator screenshot confirms the native MCP App tool bridge and fullscreen presentation. The full Workbench interface is still unfinished.
+
+- [x] Add mutation-to-DuckDB visibility latency metrics to the existing watcher Docker E2E test.
+- [x] Measure create, edit, rename, move and remove visibility through the running Docker watcher on this repository, then remove the temporary Draft fixtures.
+- [x] Review the measurements and record the test evidence. No new speed threshold or runtime optimization is part of this task.
+
+## Watcher metrics verification
+
+E780@2 is implemented in the existing Docker E2E. All nine measured cases passed; fixture visibility was 240–328 ms. The live repository took about a minute per individual change. Two Drafts were also tested together; create/edit/remove completed and all temporary source rows were removed. Independent review passed.
+
+Open findings: slow full-index refresh and a child-file event missed under a newly host-created directory. No production fix, full-suite rerun or local release was performed. Evidence and exact timings: `watcher-latency-review.md` in this Epic folder.
+
+## Incremental source refresh
+
+Operator correction: an ordinary source file change must insert/update/remove its row and affected relations, rather than rebuild and reinsert every Atom. Preserve the full rebuild for startup, explicit full reread and actual structural or Relation registry/schema changes. Keep existing source error handling, identity checks and stable query results.
+
+- [x] Update and review the scoped Method and Evaluation sources.
+- [x] Reuse the scoped Policy prompt and implement incremental backend refresh.
+- [ ] Expand the Docker E2E to approximately 5,000 Atom sources; retain per-operation latency metrics and add the new-directory child case.
+- [ ] Review and run behavior checks, then verify the live repository with the tested code.
+
+Backend implementation and parent Workbench E2E work have separate owners; each worker edits one Scope Unit. Root owns source adoption, integration and release.
+
+## Incremental implementation checkpoint
+
+M465@16, E677@11, E780@3 and D675@13 are adopted after review. Normal source changes retain unchanged parses and apply row/edge deltas; no explicit application rollback was introduced. Successful writes and total/capture/materialization/write timings are INFO stdout, without a new DEBUG setting. The MCP stdio transport preserves protocol stdout by routing diagnostics to stderr.
+
+Independent backend review passed. Native graph parity, first/last relation use and unchanged-row identity checks passed. Focused backend checks passed; the realistic Docker workload and live deployment remain pending.

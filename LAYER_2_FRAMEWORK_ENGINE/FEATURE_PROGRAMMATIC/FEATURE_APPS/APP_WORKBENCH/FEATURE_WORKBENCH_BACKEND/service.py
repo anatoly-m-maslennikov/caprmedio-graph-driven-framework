@@ -4,7 +4,7 @@
 # CA-M-470@7
 # CA-R-2950@1
 # CA-R-2952@1
-# CA-M-465@13
+# CA-M-465@16
 # CA-M-490@1
 # CA-M-491@1
 # CA-D-695@1
@@ -17,7 +17,7 @@
 # CA-R-2903@2
 # CA-M-476@2
 # CA-D-681@4
-# CA-D-675@10
+# CA-D-675@13
 # CA-M-493@1
 # CA-D-697@1
 
@@ -26,17 +26,17 @@
 from __future__ import annotations
 
 import datetime as dt
-import hashlib
 from pathlib import Path
 import shutil
 import sys
 import threading
+import time
 from typing import Any
 
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .query_store import QueryStore
 from .query_log import QueryLog
-from .relations import canonical, materialize
+from .relations import canonical, materialize, relation_registry
 from .runtime_settings import result_ttl_seconds
 from .saved_queries import SavedQueryStore
 from .source_reader import SourceReader
@@ -77,7 +77,8 @@ class WorkbenchService:
         self._store: QueryStore | None = None
         self._thread: threading.Thread | None = None
         self._watcher: SourceWatcher | None = None
-        self._signature: str | None = None
+        self._scope_signature: str | None = None
+        self._relation_registry: str | None = None
         self._failure: WorkbenchUnavailableError | None = None
         self._paths: set[str] = set()
         self._syncing = 0
@@ -88,24 +89,37 @@ class WorkbenchService:
         succeeded = False
         try:
             with self._refresh_lock:
+                started = time.monotonic()
                 atoms, scopes = self._reader.capture()
-                signature = hashlib.sha256(canonical([atoms, scopes]).encode("utf-8")).hexdigest()
-                if signature == self._signature:
-                    self._reader.release_cache()
-                    succeeded = True
-                    return
+                captured_at = time.monotonic()
+                scope_signature = canonical(scopes)
                 atoms, scopes = materialize(atoms, scopes)
+                materialized_at = time.monotonic()
+                registered, inverse = relation_registry(atoms)
+                registry = canonical([sorted(registered), sorted(inverse.items())])
                 assert self._store is not None
-                self._store.replace(atoms, scopes)
-                self._reader.release_cache()
-                self._signature = signature
+                full = self._scope_signature != scope_signature or self._relation_registry != registry
+                if full:
+                    self._store.replace(atoms, scopes, relation_types=registered)
+                    changed = True
+                else:
+                    changed = self._store.apply(atoms, scopes, relation_types=registered)
+                written_at = time.monotonic()
+                self._scope_signature, self._relation_registry = scope_signature, registry
                 paths = {row["source_path"] for row in atoms}
                 removed = len(self._paths - paths)
                 self._paths = paths
                 succeeded = True
-                print(f"Workbench: indexed {len(atoms)} Atoms and {len(scopes)} Scope Units; "
-                      f"removed_atom_sources={removed}; excluded_sources={self._reader.excluded_count}",
-                      file=sys.stderr)
+                print(
+                    "Workbench INFO refresh "
+                    f"mode={'full' if full else 'delta'} changed={str(changed).lower()} "
+                    f"atoms={len(atoms)} scopes={len(scopes)} removed_atom_sources={removed} "
+                    f"excluded_sources={self._reader.excluded_count} "
+                    f"capture_ms={round((captured_at - started) * 1000, 1)} "
+                    f"materialize_ms={round((materialized_at - captured_at) * 1000, 1)} "
+                    f"write_ms={round((written_at - materialized_at) * 1000, 1)} "
+                    f"elapsed_ms={round((written_at - started) * 1000, 1)}"
+                )
         finally:
             self._finish_sync(succeeded)
 

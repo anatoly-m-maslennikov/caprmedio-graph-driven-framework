@@ -10,6 +10,8 @@
 # CA-R-2724@3
 # CA-M-490@1
 # CA-D-695@1
+# CA-M-465@16
+# CA-D-675@13
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
@@ -26,11 +28,12 @@ from typing import Any
 
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .graph_store import quote_identifier
+from .projection_delta import ProjectionSnapshot, apply as apply_projection_delta, snapshot
 from .public_rows import insert_rows
+from .query_admission import is_duckdb_internal, is_one_tokenized_read_query
 from .result_columns import result_columns
 from .result_values import group_key, result_value
 from .result_view import Grid, build_page_query, ctas_source_sql, parse_grid, validate_columns
-from .statements import token_spans
 from .watcher_change_log import WatcherChangeLog, validate_change_record
 
 
@@ -63,38 +66,6 @@ def _connect(extension_directory: Path | None, database_path: Path | None) -> An
     return connection
 
 
-def _is_duckdb_internal(error: Exception) -> bool:
-    """Classify the native fatal boundary by exception type, never its message."""
-
-    import duckdb
-
-    return isinstance(error, duckdb.InternalException)
-
-
-def _token_words(sql: str) -> list[str]:
-    import duckdb
-
-    try:
-        spans = token_spans(sql)
-    except Exception:
-        return []
-    words: list[str] = []
-    for value, token_type in spans:
-        if token_type != duckdb.token_type.comment:
-            words.append(value.decode("utf-8").strip())
-    return words
-
-
-def _is_one_tokenized_read_query(sql: str) -> bool:
-    words = _token_words(sql)
-    if not words:
-        return False
-    semicolons = [index for index, word in enumerate(words) if word == ";"]
-    if semicolons and semicolons != [len(words) - 1]:
-        return False
-    return words[0].upper() in {"SELECT", "WITH", "FROM"}
-
-
 @dataclass
 class _Result:
     columns: list[dict[str, Any]]
@@ -122,6 +93,7 @@ class QueryStore:
         self._available = True
         self._initialized = False
         self._results: dict[str, _Result] = {}
+        self._projection: ProjectionSnapshot | None = None
         self._clear_startup_projection()
         self.replace([], [])
 
@@ -143,7 +115,10 @@ class QueryStore:
             self._connection.close()
             raise WorkbenchUnavailableError("query store initialization failed") from exc
 
-    def replace(self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]]) -> None:
+    def replace(
+        self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]],
+        *, relation_types: set[str] | None = None,
+    ) -> None:
         with self._lock:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
@@ -154,9 +129,60 @@ class QueryStore:
                     self._connection.execute("DROP SCHEMA internal CASCADE")
                     self._connection.execute("DROP TABLE main.atoms")
                     self._connection.execute("DROP TABLE main.scope_units")
-                insert_rows(self._connection, atom_rows, scope_rows)  # type: ignore[no-untyped-call]
+                started = time.monotonic()
+                insert_rows(
+                    self._connection, atom_rows, scope_rows, relation_types=relation_types,
+                )  # type: ignore[no-untyped-call]
                 self._connection.execute("COMMIT")
                 self._initialized = True
+                self._projection = snapshot(atom_rows, scope_rows, relation_types)
+                self._info_edit(
+                    "replace", "projection", len(self._projection.atoms) + len(self._projection.scopes), started,
+                )
+            except Exception as exc:
+                self._available = False
+                print(f"query store refresh failed: {exc}", file=sys.stderr)
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
+
+    def _info_edit(
+        self, operation: str, table: str, row_count: int, started: float, reference: str | None = None,
+    ) -> None:
+        if row_count:
+            elapsed_ms = round((time.monotonic() - started) * 1000, 1)
+            suffix = f" reference={reference}" if reference is not None else ""
+            print(
+                f"Workbench INFO database_edit operation={operation} table={table} "
+                f"row_count={row_count} elapsed_ms={elapsed_ms}{suffix}"
+            )
+
+    def apply(
+        self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]],
+        *, relation_types: set[str],
+    ) -> bool:
+        """Apply the materialized delta without replacing unaffected public rows."""
+        with self._lock:
+            if not self._available:
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
+            if self._projection is None:
+                self.replace(atom_rows, scope_rows, relation_types=relation_types)
+                return True
+            try:
+                self._connection.execute("BEGIN TRANSACTION")
+                started = time.monotonic()
+                projection, change = apply_projection_delta(
+                    self._connection, self._projection, atom_rows, scope_rows, relation_types,
+                )
+                self._connection.execute("COMMIT")
+                self._projection = projection
+                self._info_edit("delete", "atoms", change.deleted_atoms, started, change.reference)
+                self._info_edit("delete", "scope_units", change.deleted_scopes, started)
+                self._info_edit("insert", "atoms", change.inserted_atoms, started, change.reference)
+                self._info_edit("insert", "scope_units", change.inserted_scopes, started)
+                self._info_edit("update", "graph", change.graph_rows, started, change.reference)
+                return bool(
+                    change.deleted_atoms or change.deleted_scopes or change.inserted_atoms
+                    or change.inserted_scopes or change.graph_rows
+                )
             except Exception as exc:
                 self._available = False
                 print(f"query store refresh failed: {exc}", file=sys.stderr)
@@ -211,7 +237,7 @@ class QueryStore:
         try:
             statements = self._connection.extract_statements(sql)
         except Exception:
-            if _is_one_tokenized_read_query(sql):
+            if is_one_tokenized_read_query(sql):
                 return
             raise ValueError("public SQL must contain one native read query") from None
         if len(statements) != 1 or statements[0].type is not duckdb.StatementType.SELECT:
@@ -284,7 +310,7 @@ class QueryStore:
             stored_columns = tuple(self._connection.sql(f"SELECT * FROM workbench_results.{table}").columns)
             columns, row_count = result_columns(self._connection, table, columns, private_ordinal=True)
         except Exception as exc:
-            if _is_duckdb_internal(exc):
+            if is_duckdb_internal(exc):
                 self._available = False
                 print(f"query store unavailable: {exc}", file=sys.stderr)
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc

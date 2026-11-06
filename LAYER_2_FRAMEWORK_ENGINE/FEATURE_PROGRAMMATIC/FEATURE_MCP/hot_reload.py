@@ -22,7 +22,7 @@ import subprocess
 import sys
 import threading
 import time
-from contextlib import nullcontext
+from contextlib import nullcontext, redirect_stdout
 from contextvars import ContextVar
 from typing import Literal
 
@@ -808,8 +808,11 @@ class Gateway:
         await self.initialize()
         try:
             async with stdio_server() as streams:
-                await self.build_server().run(*streams, self.server.create_initialization_options(
-                    notification_options=NotificationOptions(tools_changed=True)))
+                # stdio_server captures the protocol stream before diagnostics are redirected.
+                # HTTP/Docker keeps normal stdout; only JSON-RPC serving must stay pure.
+                with redirect_stdout(sys.stderr):
+                    await self.build_server().run(*streams, self.server.create_initialization_options(
+                        notification_options=NotificationOptions(tools_changed=True)))
         finally:
             await self.close()
 

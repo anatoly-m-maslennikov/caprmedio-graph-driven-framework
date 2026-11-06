@@ -1,5 +1,5 @@
 # CA-R-2950@1
-# CA-M-465@13
+# CA-M-465@16
 # CA-M-490@1
 # CA-D-695@1
 
@@ -40,6 +40,7 @@ class SourceWatcher:
         self._observer_factory = observer_factory
         self._observer: Any = None
         self._changes: Queue[Change] = Queue()
+        self._watched_directories: dict[Path, Any] = {}
 
     def start(self) -> None:
         if self._observer is not None:
@@ -48,7 +49,8 @@ class SourceWatcher:
         if factory is None:
             raise RuntimeError("watchdog runtime is unavailable")
         observer = factory()
-        observer.schedule(_Handler(self), str(self._control_root), recursive=True)
+        root_watch = observer.schedule(_Handler(self), str(self._control_root), recursive=True)
+        self._watched_directories = {self._control_root: root_watch}
         observer.start()
         self._observer = observer
 
@@ -80,6 +82,7 @@ class SourceWatcher:
         self._observer.stop()
         self._observer.join()
         self._observer = None
+        self._watched_directories = {}
 
     def _record(self, operation: str, old_path: str | None, new_path: str | None) -> None:
         self._changes.put({"operation": operation, "old_path": old_path, "new_path": new_path})
@@ -94,6 +97,33 @@ class SourceWatcher:
         if relative := self._relative(path):
             self._record("create", None, relative)
 
+    def _watch_directory(self, path: str) -> None:
+        """Watch a new directory when the native recursive watch misses its first child."""
+        directory = Path(path).resolve(strict=False)
+        if self._observer is None or directory in self._watched_directories:
+            return
+        if directory.is_dir() and directory.is_relative_to(self._control_root):
+            watch = self._observer.schedule(_Handler(self), str(directory), recursive=False)
+            self._watched_directories[directory] = watch
+
+    def _watch_directory_tree(self, path: str) -> None:
+        directory = Path(path).resolve(strict=False)
+        self._watch_directory(str(directory))
+        if directory.is_dir():
+            for child in directory.rglob("*"):
+                if child.is_dir():
+                    self._watch_directory(str(child))
+
+    def _unwatch_directory(self, path: str) -> None:
+        directory = Path(path).resolve(strict=False)
+        for watched in [
+            item for item in self._watched_directories
+            if item != self._control_root and (item == directory or item.is_relative_to(directory))
+        ]:
+            watch = self._watched_directories.pop(watched)
+            if hasattr(self._observer, "unschedule"):
+                self._observer.unschedule(watch)
+
     def _modified(self, path: str, is_directory: bool) -> None:
         if not is_directory and (relative := self._relative(path)):
             self._record("update", None, relative)
@@ -103,6 +133,7 @@ class SourceWatcher:
             self._record("remove", relative, None)
 
     def _moved(self, source: str, destination: str) -> None:
+        self._unwatch_directory(source)
         old_path = self._relative(source)
         new_path = self._relative(destination)
         if old_path is None:
@@ -123,12 +154,18 @@ class _Handler(FileSystemEventHandler):
 
     def on_created(self, event: Any) -> None:
         self._watcher._created(event.src_path)
+        if event.is_directory:
+            self._watcher._watch_directory_tree(event.src_path)
 
     def on_modified(self, event: Any) -> None:
         self._watcher._modified(event.src_path, event.is_directory)
 
     def on_deleted(self, event: Any) -> None:
         self._watcher._deleted(event.src_path)
+        if event.is_directory:
+            self._watcher._unwatch_directory(event.src_path)
 
     def on_moved(self, event: Any) -> None:
         self._watcher._moved(event.src_path, event.dest_path)
+        if event.is_directory:
+            self._watcher._watch_directory_tree(event.dest_path)

@@ -1,10 +1,11 @@
 # CA-E-676@6
-# CA-E-677@7
+# CA-E-677@11
 
 """Native graph relation projection tests."""
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import sys
 import unittest
@@ -24,10 +25,10 @@ class GraphRelationsTests(unittest.TestCase):
         self.addCleanup(self.store.close)
 
     @staticmethod
-    def atom(ref: str, edges: list[dict]) -> dict:
+    def atom(ref: str, edges: list[dict], *, version: int = 1) -> dict:
         return {
             "source_path": f"{ref}.md", "status_group": "Current", "id": ref,
-            "ref": ref, "version": 1, "status": "Active",
+            "ref": ref, "version": version, "status": "Active",
             "current_scope_unit": None, "claim_target_scope_unit": None,
             "role": "Requirement", "form": "Declaration", "tier": 1,
             "updated_at": None, "header_json": {}, "content_markdown": "",
@@ -75,6 +76,94 @@ class GraphRelationsTests(unittest.TestCase):
         self.store.replace([self.atom("A", [])], [self.scope("A", [])])
         self.assertEqual({}, graph_relations(self.store._connection, has_edges=True))
         self.assertEqual({}, graph_relations(self.store._connection, has_edges=False))
+
+    def test_incremental_apply_updates_graph_without_reinserting_unrelated_atom(self) -> None:
+        relation_types = {"CONTAINS", "IS_CONTAINED_BY", "LINKS"}
+        initial = [
+            self.atom("A", [self.edge("Atom", "A", "Atom", "B", "CONTAINS")]),
+            self.atom("B", [self.edge("Atom", "B", "Atom", "A", "IS_CONTAINED_BY", True)]),
+            self.atom("C", []),
+            self.atom("UNRELATED", []),
+        ]
+        self.store.replace(initial, [], relation_types=relation_types)
+        unrelated_before = self.store._connection.execute(
+            "SELECT rowid, hash FROM atoms WHERE reference = 'UNRELATED'"
+        ).fetchone()
+
+        retargeted = [
+            self.atom("A", [
+                self.edge("Atom", "A", "Atom", "B", "LINKS"),
+                self.edge("Atom", "A", "Atom", "C", "CONTAINS"),
+            ], version=2),
+            self.atom("B", []),
+            self.atom("C", [self.edge("Atom", "C", "Atom", "A", "IS_CONTAINED_BY", True)]),
+            self.atom("UNRELATED", []),
+        ]
+        self.assertTrue(self.store.apply(retargeted, [], relation_types=relation_types))
+
+        self.assertEqual(
+            [("A", "C", False)],
+            self.store._connection.execute(
+                'FROM GRAPH_TABLE (caprmedio MATCH '
+                '(source:Reference)-[edge:"CONTAINS"]->(target:Reference) '
+                'COLUMNS (source.ref, target.ref, edge.derived))'
+            ).fetchall(),
+        )
+        self.assertEqual(
+            [("A", "B", False)],
+            self.store._connection.execute(
+                'FROM GRAPH_TABLE (caprmedio MATCH '
+                '(source:Reference)-[edge:"LINKS"]->(target:Reference) '
+                'COLUMNS (source.ref, target.ref, edge.derived))'
+            ).fetchall(),
+        )
+        relations = dict(self.store._connection.execute(
+            "SELECT reference, relations FROM atoms WHERE reference IN ('A', 'B', 'C')"
+        ).fetchall())
+        self.assertEqual(
+            {"CONTAINS": [{"kind": "Atom", "reference": "C", "derived": False}],
+             "LINKS": [{"kind": "Atom", "reference": "B", "derived": False}]},
+            json.loads(relations["A"]),
+        )
+        self.assertEqual({}, json.loads(relations["B"]))
+        self.assertEqual(
+            {"IS_CONTAINED_BY": [{"kind": "Atom", "reference": "A", "derived": True}]},
+            json.loads(relations["C"]),
+        )
+        self.assertEqual(
+            {
+                ("Atom", "A"): {
+                    "CONTAINS": [{"kind": "Atom", "reference": "C", "derived": False}],
+                    "LINKS": [{"kind": "Atom", "reference": "B", "derived": False}],
+                },
+                ("Atom", "C"): {
+                    "IS_CONTAINED_BY": [{"kind": "Atom", "reference": "A", "derived": True}],
+                },
+            },
+            graph_relations(self.store._connection, has_edges=True),
+        )
+        self.assertEqual(
+            unrelated_before,
+            self.store._connection.execute(
+                "SELECT rowid, hash FROM atoms WHERE reference = 'UNRELATED'"
+            ).fetchone(),
+        )
+
+        links_removed = [
+            self.atom("A", [self.edge("Atom", "A", "Atom", "C", "CONTAINS")], version=3),
+            self.atom("B", []),
+            self.atom("C", [self.edge("Atom", "C", "Atom", "A", "IS_CONTAINED_BY", True)]),
+            self.atom("UNRELATED", []),
+        ]
+        self.assertTrue(self.store.apply(links_removed, [], relation_types=relation_types))
+        self.assertEqual(
+            [],
+            self.store._connection.execute(
+                'FROM GRAPH_TABLE (caprmedio MATCH '
+                '(source:Reference)-[edge:"LINKS"]->(target:Reference) '
+                'COLUMNS (source.ref, target.ref))'
+            ).fetchall(),
+        )
 
 
 if __name__ == "__main__":

@@ -13,11 +13,11 @@ relations:
   - CA-R-2723
   - CA-R-2728
 status: Active
-version: 10
-updated_at: 2026-11-05 20:27:41 +0400
+version: 13
+updated_at: 2026-11-06 15:14:32 +0400
 carrier_destination:
   file:
-    name: CA-D-675-WORKBENCH-ENG_DECISION--place-the-duckdb-projection-in-rebuildable-runtime-state.md
+    name: CA-D-675-WORKBENCH-ENG_DECISION--place-duckdb-projection-in-rebuildable-runtime-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/07_delivery
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH

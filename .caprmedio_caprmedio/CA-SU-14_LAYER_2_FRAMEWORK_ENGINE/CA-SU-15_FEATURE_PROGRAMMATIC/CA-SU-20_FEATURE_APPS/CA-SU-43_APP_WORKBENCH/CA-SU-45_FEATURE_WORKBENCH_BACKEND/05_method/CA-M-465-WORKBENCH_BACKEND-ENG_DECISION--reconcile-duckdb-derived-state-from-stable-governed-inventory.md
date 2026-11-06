@@ -13,11 +13,11 @@ relations:
   - CA-R-2723
   - CA-R-2725
 status: Active
-version: 13
-updated_at: 2026-11-05 18:48:47 +0400
+version: 16
+updated_at: 2026-11-06 15:14:32 +0400
 carrier_destination:
   file:
-    name: CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-a-stable-governed-inventory.md
+    name: CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/05_method
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
@@ -50,7 +50,9 @@ A failed indexing transaction reports its error to stderr. The failed owner requ
 
 A container memory-limit kill is a runtime failure, not proof of invalid source data. Inspect the stopped process and its resource budget, correct capacity, and restart explicitly. Do not add automatic restart, source exclusion or query truncation to hide the failure.
 
-Release successful parsed-source caches after a committed refresh. Existing materialized query results remain stable while the source Projection is refreshed. Database and spill errors follow the same explicit failure boundary; do not hide them through retries or automatic restart.
+Retain successful parsed-source rows and their filesystem signatures in the existing owner for incremental refresh; reparse an ordinary Atom only when its source changes. Remove cached state when its carrier leaves the selected source inventory or becomes invalid. A native ordinary file event batch inserts, updates or removes only changed public rows and graph facts, including affected inverse-relation neighbors and row hashes, in one committed transaction. Do not drop and reinsert every Atom or Scope Unit for an ordinary edit. Reuse the existing relation materializer; comparing its in-memory output is allowed without rebuilding unchanged SQL rows. Initial indexing, explicit full reread, and actual structural or relation-registry changes may rebuild the affected projection/schema. Do not use full rebuild as a generic recovery path for an incremental failure. Existing materialized query results remain stable while the source Projection is refreshed. Database and spill errors follow the same explicit failure boundary; do not hide them through retries or automatic restart.
 
 An invalid Current Scope Unit Declaration stops indexing and makes the owner unavailable. Report the error to stderr and require an explicit Workbench restart after correction. Do not skip the Declaration, serve partial or stale structure, or resume merely because its file changes. An explicit restart closes the old owner and constructs a fresh owner in the existing server; it does not restart MCP or the container.
 
+
+Write successful source-index database mutation metrics to stdout at INFO: operation, table, affected row count, reference when applicable, and elapsed milliseconds measured with a monotonic timer. The successful INFO refresh event includes total elapsed time and source-capture, materialization and database-write phase durations. These records are enabled by default and need no DEBUG setting. A bulk SQL write reports its measured batch timing. Log writes only after their transaction commits. These metrics do not change stderr source warnings or blocking runtime errors and do not create business Journal events.

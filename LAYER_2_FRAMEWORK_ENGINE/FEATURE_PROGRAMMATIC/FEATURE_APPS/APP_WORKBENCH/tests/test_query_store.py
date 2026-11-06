@@ -1,7 +1,7 @@
 # CA-E-751@1
 # CA-E-780@1
 # CA-E-676@11
-# CA-E-677@8
+# CA-E-677@10
 # CA-M-472@1
 
 from __future__ import annotations
@@ -15,6 +15,7 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 
 APP_ROOT = Path(__file__).resolve().parents[2]
@@ -145,6 +146,23 @@ class QueryStoreTest(unittest.TestCase):
 
         status = next(column for column in schema["atoms"] if column["name"] == "status")
         self.assertEqual(["Active", "Done"], status["values"])
+
+    def test_normal_source_edit_uses_delta_not_projection_replacement(self) -> None:
+        unchanged = self.atom("B")
+        self.store.replace([self.atom("A"), unchanged], [])
+        edited = self.atom("A")
+        edited["version"] = 2
+
+        with patch(
+            "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store.insert_rows"
+        ) as full_replace:
+            changed = self.store.apply([edited, unchanged], [], relation_types=set())
+
+        self.assertTrue(changed)
+        full_replace.assert_not_called()
+        self.assertEqual([["A", 2], ["B", 1]], self.store.run(
+            "SELECT reference, version FROM atoms ORDER BY reference"
+        )["rows"])
 
     def test_native_admission_errors_leave_a_valid_connection(self) -> None:
         self.assertEqual([[1]], self.store.run("-- comment ;\nSELECT 1; /* comment ; */")["rows"])

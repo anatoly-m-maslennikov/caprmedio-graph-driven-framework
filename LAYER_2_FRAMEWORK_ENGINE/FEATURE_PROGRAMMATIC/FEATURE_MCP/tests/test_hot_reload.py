@@ -11,6 +11,8 @@ from types import SimpleNamespace
 import unittest
 from unittest.mock import AsyncMock, patch
 from mcp import Client, StdioServerParameters, types
+from mcp.client.session import ClientSession
+from mcp.client.stdio import stdio_client
 
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[2]
@@ -40,12 +42,22 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             f'    return {{"version": "{version}"}}\n'
             'server.run(transport="stdio")\n')
 
-    def params(self):
-        code = ('import sys,asyncio;sys.path.insert(0,sys.argv[1]);'
-                'from hot_reload import Gateway;'
-                'asyncio.run(Gateway(sys.argv[2],sys.argv[3]).serve())')
+    def params(self, *, diagnostic_stdout=False):
+        code = (
+            'import sys,asyncio\n'
+            'sys.path.insert(0,sys.argv[1])\n'
+            'from hot_reload import Gateway\n'
+            'if sys.argv[4] == "diagnostic":\n'
+            '    original = Gateway.call\n'
+            '    async def noisy_call(self, context, params):\n'
+            '        print("Workbench INFO database_edit operation=update elapsed_ms=1", flush=True)\n'
+            '        return await original(self, context, params)\n'
+            '    Gateway.call = noisy_call\n'
+            'asyncio.run(Gateway(sys.argv[2],sys.argv[3]).serve())\n'
+        )
         return StdioServerParameters(command=sys.executable,
-            args=['-B', '-c', code, str(APP), str(self.root), str(self.source)])
+            args=['-B', '-c', code, str(APP), str(self.root), str(self.source),
+                  'diagnostic' if diagnostic_stdout else 'normal'])
 
     def startup_records(self, stderr):
         """The cold-start diagnostic is a fixed, safe stderr-only envelope."""
@@ -108,6 +120,19 @@ class HotReload(unittest.IsolatedAsyncioTestCase):
             self.assertTrue(failed.is_error)
             self.assertEqual(failed.structured_content['outcome'], 'failed')
             self.assertEqual((await client.call_tool('echo_new')).structured_content['version'], 'B')
+
+    async def test_stdio_diagnostic_stdout_does_not_corrupt_jsonrpc(self):
+        """A native call's normal diagnostic output stays separate from protocol stdout."""
+        with tempfile.TemporaryFile(mode='w+', encoding='utf-8') as stderr:
+            async with stdio_client(self.params(diagnostic_stdout=True), errlog=stderr) as streams:
+                async with ClientSession(*streams) as client:
+                    await client.initialize()
+                    response = await client.call_tool('echo')
+            stderr.seek(0)
+            diagnostics = stderr.read()
+        self.assertFalse(response.is_error)
+        self.assertEqual({'version': 'A'}, response.structured_content)
+        self.assertIn('Workbench INFO database_edit operation=update elapsed_ms=1', diagnostics)
 
     async def test_in_flight_call_remains_on_old_generation(self):
         async with Client(self.params(), cache=None) as client:

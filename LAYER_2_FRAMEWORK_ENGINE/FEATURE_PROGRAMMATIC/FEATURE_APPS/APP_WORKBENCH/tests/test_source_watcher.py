@@ -1,7 +1,7 @@
 # CA-R-2950@1
 # CA-M-490@1
 # CA-D-695@1
-# CA-E-780@1
+# CA-E-780@3
 
 """Watcher callback translation is deterministic before service batch handling."""
 
@@ -26,9 +26,16 @@ class _Observer:
         self.started = False
         self.stopped = False
         self.joined = False
+        self.schedules = []
+        self.unscheduled = []
 
-    def schedule(self, handler, path: str, recursive: bool) -> None:
+    def schedule(self, handler, path: str, recursive: bool) -> str:
+        self.schedules.append((path, recursive))
         self.handler, self.path, self.recursive = handler, path, recursive
+        return path
+
+    def unschedule(self, watch: str) -> None:
+        self.unscheduled.append(watch)
 
     def start(self) -> None:
         self.started = True
@@ -102,6 +109,15 @@ class SourceWatcherTests(unittest.TestCase):
             {"operation": "move", "old_path": ".caprmedio_example/04_requirement", "new_path": ".caprmedio_example/nested/05_method"},
             {"operation": "remove", "old_path": ".caprmedio_example/nested/05_method", "new_path": None},
         ], self.watcher.changes(0))
+
+    def test_new_directory_gets_a_child_watch_and_removal_cleans_it_up(self) -> None:
+        directory = self.control / "new"
+        directory.mkdir()
+        self.observer.handler.on_created(self.event(directory, directory=True))
+
+        self.assertIn((str(directory.resolve()), False), self.observer.schedules)
+        self.observer.handler.on_deleted(self.event(directory, directory=True))
+        self.assertIn(str(directory.resolve()), self.observer.unscheduled)
 
     def test_close_stops_the_native_observer(self) -> None:
         self.watcher.close()

@@ -1,0 +1,2495 @@
+{
+  "status": "SOURCE_ONLY_CENSUS_AND_PROPOSED_CHANGES",
+  "census_scope": "Current and native Draft RMED files in canonical methodology source tree; matches are Claim/body signals, not proof every row needs a semantic edit. Archives, generated copies, executable code and actual Workflow/Workbench excluded.",
+  "counts": {
+    "signal_rows": 176,
+    "current": 136,
+    "draft": 40,
+    "delivery_rows": 35
+  },
+  "focus": [
+    {
+      "id": "CA-D-662",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "sha256": "28f42d26100ad7471c031f0e69aaf7487dadc03498f0bfa277090a883e446883",
+      "signals": {
+        "topics": [
+          "Node Declaration carriers require role, form and subjects.active. Encode passive Subjects as subjects.passive when present. Omit the author field.",
+          "- Encode subjects.active as one scalar path and subjects.passive as zero or more unique paths.",
+          "- Obtain the canonical HAS_ACTIVE_SUBJECT link from subjects.active. It is not a derived view of another Relation; do not store the same fact twice."
+        ],
+        "context": [
+          "Atom.Header.Role >> Carrier//Markdown file.frontmatter.role;",
+          "Atom.Header.Form >> Carrier//Markdown file.frontmatter.form;"
+        ],
+        "relations": [
+          "Atom.Header.Relations >> Carrier//Markdown file.frontmatter.relations"
+        ]
+      }
+    },
+    {
+      "id": "CA-D-283",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "sha256": "cac15f5898a60fc0d47d951a1bcf1b71dee2550351dff6cb8334a4e62529111e",
+      "signals": {
+        "links": [
+          "**every** identified Project-owned Markdown Atom filename other than a Plan filename governed by CA-D-469 **must** match `<ATOM_ID>[-<CURRENT_SCOPE>][-<TIER>][-<LABEL>][-<TARGET_SCOPE>]--<SUMMARY_SLUG>.<EXT>`. When present, the `LABEL` segment uses the Atom's effective Label: its explicit Label when present, otherwise its Form name under CA-R-2705. Normalize that token under CA-D-284; an explicit Label replaces the Form name there and does not change the Atom's Form. **every** same-identity Atom Version **must** preserve its exact assigned Atom-ID segment **in** its Carrier filename **and** serialize its retained Summary under CA-D-282. A Draft filename uses the Draft marker as its Atom-ID segment as specified by CA-D-650. An Archived predecessor uses `<canonical-ID>@<old-version>` exactly once in that segment under CA-D-289; do not append a duplicate version suffix. Existing legacy archive filenames are not normalized automatically. a replacement filename **must** contain the successor Atom ID **and** the successor's Summary Slug; a Summary Slug **must not** be edited independently of its source Summary."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-446",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "f94363a6e3486c77db579a038c5abac9ec5e052b12dd7e8392a412d16b6f5c71",
+      "signals": {
+        "identity_state": [
+          "For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.",
+          "- for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.",
+          "- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule."
+        ],
+        "links": [
+          "For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.",
+          "- for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.",
+          "- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-461",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md",
+      "sha256": "423054ef7434402290a2f180987fb28080ed50d3e7b4d361342a8ab1d246fc2a",
+      "signals": {
+        "links": [
+          "read Status from the Plan's own Markdown file under CA-D-483 **and** check its local placement; a parent **or** folder name **must not** supply a descendant's Status at read time. **every** admitted parent Status change requires the containment cascade under CA-R-1521: separate single-Atom Actions write the Status prescribed by CA-R-1521 to each selected latest descendant under its own model, without an optional descendant mode. For a containing Plan Atom whose requested Status is Done **or** Canceled, preserve every selected latest contained Plan already Done **or** Canceled and request Canceled for every other selected latest contained Plan. After the cascade, every selected latest contained Plan must be Done **or** Canceled; mixed terminal statuses are allowed, and no contained Plan is forced to match the parent's requested Status merely because the parent is Done **or** Canceled. For other admitted parent Statuses, preserve the applicable cascade. Archive selects all contained latest Atoms; references outside the Carrier tree **and** older archived Revisions are excluded. retain Current descendants inside the parent Carrier tree. Archived Plan Markdown Carriers are placed flat in the owning Scope Unit's shared `03_plan/archived` area, not inside an archived parent's directory."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-378",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "5a234ccfcf0d149e60792c7a9ed71a7fe3e5e972fef2b679f9bb6976536a3bb6",
+      "signals": {
+        "identity_state": [
+          "Every Draft carries its base canonical ID in the Header as `atom_id: <canonical-ID>`, with `status: Draft` and a separate numeric `version`. Its filename carries exactly one `<canonical-ID>@<version>-draft` marker before the remaining mutable filename components."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-270",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-ENG_DECISION--serialize-atom-revision-metadata-in-frontmatter.md",
+      "sha256": "05a3ca68d0bab3406b923fc19821540753c107160bf1151e691cad1a0987bc83",
+      "signals": {
+        "identity_state": [
+          "**every** Markdown Atom Revision Carrier **must** serialize its positive integer Version as `version` **and** its Project-time Updated At value as `updated_at` **in** YAML frontmatter.",
+          "- `version` is a YAML integer **>=1**, **not** a Boolean **or** numeric string.",
+          "- `updated_at` is a quoted YAML string containing **=1** valid date, time **and** explicit UTC offset. accept the existing `YYYY-MM-DD HH:MM:SS +HHMM` form **and** the equivalent ISO 8601 `YYYY-MM-DDTHH:MM:SSZ` **or** `YYYY-MM-DDTHH:MM:SS+HH:MM` form, including optional fractional seconds. offset signs **may** be positive **or** negative; reject a missing timezone, impossible date, **or** invalid offset."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-664",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f3767af5b3ec1092252a084b98a987b38e3f2a571516890e04b81e7a9c3ecb86",
+      "signals": {
+        "destination": [
+          "$carrier.filename == $atom.Header.Carrier Destination.File.Name;",
+          "$carrier.location == $atom.Header.Carrier Destination.File.Path"
+        ]
+      }
+    },
+    {
+      "id": "CA-D-478",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+      "sha256": "06a5be3640915e29e1c64057d199034424e99ff5d8df18682c0eb38bf7f53cb6",
+      "signals": {
+        "context": [
+          "Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Header.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path."
+        ],
+        "links": [
+          "Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Header.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-657",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830",
+      "signals": {
+        "identity_state": [
+          "- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-483",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "c5ffef23a4af6401a1205cbb0a322627bf353f83a32c16a7cce5ce65c1161d54",
+      "signals": {
+        "identity_state": [
+          "**every** Atom Revision **must** carry **`=1`** explicit `status` value **in** its own Markdown frontmatter.",
+          "- encode `status` as **=1** nonempty YAML string using the exact value admitted by the selected Status model. do **not** accept a list, null, **or** another Revision's value as this Revision's Status."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-378",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "82def0ea2bf84372d4762504a0ed150583180df1f92e0d53cf836e7f9f779c6e",
+      "signals": {
+        "identity_state": [
+          "For an existing-Atom Draft, `atom_id` is exactly `<canonical-ID>@<proposed-version>-draft`. Use the numeric Header `version` as `<proposed-version>`; its filename identity segment is that same marker.",
+          "For a role-only Draft, `atom_id` and its filename identity segment are the role-only `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-draft` marker. [CA-R-1432@28-draft](../../04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) governs which marker applies and, at successful publication, the fresh canonical ID and Version 1 outcome."
+        ],
+        "links": [
+          "[CA-D-650@15-draft](CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md) assembles the marker into the filename."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-268",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "sha256": "9e644614841eb9b69c46eb72cbe8169c7feb4caa46af04db304795e4f148b6ea",
+      "signals": {
+        "context": [
+          "An Atom **must** record its immediate Container once in `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`. The `scope_unit` reference uses the Scope Unit’s stable ID. Its declared Container represents the `IS_CONTAINED_BY` fact; do not add a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared direction as nonempty unordered collections of unique canonical target references. `Header.Relations` is optional when no such Relations are present. Target position and source-file order are nonsemantic; validation **must not** require sorting or order normalization. Each Relation's declared direction, endpoint validity, and other semantics remain applicable.",
+          "Serialize only the declared direct direction, never a second declaration for its derived inverse. `CONTAINS` remains a derived parent view and is not serialized on the parent. An Atom child stores its parent reference in `Header.Container`; a child-only change does not write the parent Carrier or create a parent Version. The Relation's spelling does not determine its direct direction."
+        ],
+        "relations": [
+          "An Atom **must** record its immediate Container once in `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`. The `scope_unit` reference uses the Scope Unit’s stable ID. Its declared Container represents the `IS_CONTAINED_BY` fact; do not add a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared direction as nonempty unordered collections of unique canonical target references. `Header.Relations` is optional when no such Relations are present. Target position and source-file order are nonsemantic; validation **must not** require sorting or order normalization. Each Relation's declared direction, endpoint validity, and other semantics remain applicable."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-650",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "018d72f17d8b53be3e9ab01508b517e048537b9f314f0d587093b9f4d158eb98",
+      "signals": {
+        "identity_state": [
+          "[CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md) defines the Draft `atom_id` marker. Assemble that exact marker as the filename's Atom-ID segment before the remaining mutable filename components."
+        ],
+        "links": [
+          "[CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md) defines the Draft `atom_id` marker. Assemble that exact marker as the filename's Atom-ID segment before the remaining mutable filename components."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-266",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "ca965145d748e6983247390e3419efa823ca9772adcfa2c1af96e6d6363c82a0",
+      "signals": {
+        "context": [
+          "The `IS_CONTAINED_BY` fact declared through an Atom’s `Header.Container` and the `CONTAINS` view derived from it must not be persisted as additional independent Relation declarations merely because Carrier placement is read back."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-657",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "9f9aefcef8a4c8778b351bc0d3a4e0ae20665937931a07c9afd27d843d1e0b06",
+      "signals": {
+        "identity_state": [
+          "- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-446",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-446@29-draft-CORE_META_MODEL-DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "cb4859268955a938f7b42bd995bec43da311e68f88d2ff941646b92a7daaed2f",
+      "signals": {
+        "identity_state": [
+          "For each canonical Atom ID, at most one Current Atom source may exist across all admitted Status values. Every Current or Archived Atom version is identified by exactly one canonical Atom ID and numeric `version`; no second `identifier` field is admitted. Archived versions retain that canonical ID at distinct Version Numbers."
+        ],
+        "links": [
+          "Draft markers are defined by [CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md), and Draft filename assembly is defined by [CA-D-650@15-draft](CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md). Those markers do not change the Current-source uniqueness rule."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-264",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-264@30-draft-CORE_META_MODEL-DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "sha256": "0ad21ca65c949744636a9c03869b7c50d87f0181879bf331982534d827ef6875",
+      "signals": {
+        "context": [
+          "For an Atom whose `Header.Container` resolves to a Scope Unit or an Atom, derive the direct `IS_CONTAINED_BY` view from the nearest eligible Directory Carrier and its resolved container ID. The resolved ID must agree with the Atom’s declared `Header.Container`; its Carrier placement follows the corresponding Scope Unit or containing Atom folder. The derived view and its inverse `CONTAINS` represent the same declared containment fact, not a second authored fact.",
+          "Resolve `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`; the Scope Unit reference uses its stable ID. Apply the admitted reference and placement rules. If placement and the declared Container disagree, report the disagreement without replacing the declared logical parent from a directory. Reading or refreshing the inverse view does not edit the containing Object’s Carrier or create a new Atom Version. Project Structure remains authoritative for declared Scope Unit parentage under CA-R-1660."
+        ]
+      }
+    }
+  ],
+  "rows": [
+    {
+      "id": "CA-E-521",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-521-PROJECT_CONFIGURATION-EVAL_CASE--verify-updated-at-refresh-and-semantic-versioning.md",
+      "sha256": "1596fe7479e8d47814faa8785764a9766525e6bf4be784cf4a7de84992b7604d",
+      "signals": {
+        "identity_state": [
+          "the Evaluation **must** accept **only** an actual same-ID edit that refreshes `updated_at` **and** increments Version by exactly **`1`**, regardless of semantic change class. an exact no-op retains Version **and** Updated At; required predecessor history retains its exact prior bytes.",
+          "- reject an actual accepted edit whose `updated_at` does **not** identify its actual Project-time edit instant **or** whose Version increment is other than exactly **`1`**."
+        ],
+        "links": [
+          "the checked rules are `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`, `CA-R-1432-CORE_META_MODEL-GENERAL-REQUIREMENT--classify-admitted-atom-changes-by-semantic-effect`, `CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes`, and `CA-O-051-PROJECT_CONFIGURATION-ACTION--persist-atom-replacement-through-ordered-carrier-transitions`. CA-R-1433 is retained only as retired historical evidence, not a current Version exception."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1662",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1662-PROJECT_CONFIGURATION-RULE--register-type-values-for-evaluation-atoms.md",
+      "sha256": "5b229830e394b5b530c43d35508d91f6b090498a2dc9f6d7fa3aacbd1972a090",
+      "signals": {
+        "context": [
+          "internal values of `Atom/(.Header.Role := Evaluation).Header.Form`.",
+          "Policy, Eval Case, QA Case, **and** Evaluation Control **must** be registered as internal values of `Atom/(.Header.Role := Evaluation).Header.Form`."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1888",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1888-PROJECT_CONFIGURATION--register-fpf-analysis-report-for-analysis-atoms.md",
+      "sha256": "ca7eae1429e04b39bc933ec5fb0d96dd5050b1a4a4522804117cef9ae289e95a",
+      "signals": {
+        "context": [
+          "the CAPRMEDIO Project Configuration contribution to `Atom/(.Header.Role := \"Analysis & Advisory\").Header.Form`.",
+          "the CAPRMEDIO Project Configuration **must** register FPF Analysis Report as an additional value of `Atom/(.Header.Role := \"Analysis & Advisory\").Header.Form` under CA-R-1286. this registration does **not** change the Core contribution under CA-R-1232@28 **or** create another Form Property."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1668",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1668-PROJECT_CONFIGURATION-DEFINITION--define-implementation-decision-as-a-type-value-for-method-atoms.md",
+      "sha256": "8c5e64c3bd3f80296c86387b135cb051ec970163722962aa2ed2795382f44491",
+      "signals": {
+        "context": [
+          "`Atom/(.Header.Role := Method)/(.Header.Form := Eng Decision)` values."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1665",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1665-PROJECT_CONFIGURATION-RULE--register-type-values-for-delivery-atoms.md",
+      "sha256": "16d6b236f9e0e45680b435bd9874a7be749462b633b5b21159b7854b2168b81e",
+      "signals": {
+        "context": [
+          "`Atom/(.Header.Role := Delivery).Header.Form` values."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1663",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1663-PROJECT_CONFIGURATION-RULE--register-type-values-for-concern-atoms.md",
+      "sha256": "8b254bb0ca45d5bf33d59030799ee6ac515ca4d032145704e00553987098bec7",
+      "signals": {
+        "context": [
+          "internal values of `Atom/(.Header.Role := Concern).Header.Form`.",
+          "Question **and** Problem retain their canonical admission under CA-R-1231@28. Risk **and** Opportunity **must** be registered as additional internal values of `Atom/(.Header.Role := Concern).Header.Form`."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1666",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1666-PROJECT_CONFIGURATION-RULE--register-action-policy-for-plan-atoms.md",
+      "sha256": "883e872f35877271e078f955b19eee153c20168448d0a89e1b52fab45f87899a",
+      "signals": {
+        "context": [
+          "the CAPRMEDIO Project Configuration registration of `Atom/(.Header.Role := Plan).Header.Form` values.",
+          "the CAPRMEDIO Project Configuration **must** register Action Policy as an additional value of `Atom/(.Header.Role := Plan).Header.Form`; Plan retains its canonical admission under CA-R-1574@21-CORE_META_MODEL-DEFINITION--define-the-common-plan-atom; navigation Labels do **not** add further Type values."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-634",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-634-CORE_META_MODEL-DECISION--deliver-readable-entities-graph-trees-as-markdown.md",
+      "sha256": "2815103aa1052f59858d253793c361122c4af47d966336cee6389c15d02807eb",
+      "signals": {
+        "identity_state": [
+          "- `updated_at`: actual latest completed rebuild time in Project time, with an explicit UTC offset, under CA-D-310."
+        ],
+        "context": [
+          "The model views contain primary entities, then one property section per primary entity with properties, including inherited properties marked `[inherited]`. Keep primary-kind definition references as Atom IDs rather than copied definition text. Source-declared containment and specialization retain their distinct operators; use spaces around the complete containment operator, for example `>{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)`."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-390",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-390-CORE_META_MODEL-ENG_DECISION--configure-the-artifact-timestamp-timezone.md",
+      "sha256": "38897a672e9c3dc2c692b88b85aacd5e071cbac99b5d714b7b2a4b2c2dd81022",
+      "signals": {
+        "identity_state": [
+          "the Project Settings **may** set `[artifact_timestamps].timezone` **to** `local`, `UTC`, **or** an IANA timezone name, with `local` as the default; **every** emitted `updated_at` value uses `YYYY-MM-DD HH:MM:SS +ZZZZ` with its explicit numeric UTC offset, **and** the setting supplies its timezone interpretation."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-662",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "sha256": "28f42d26100ad7471c031f0e69aaf7487dadc03498f0bfa277090a883e446883",
+      "signals": {
+        "topics": [
+          "Node Declaration carriers require role, form and subjects.active. Encode passive Subjects as subjects.passive when present. Omit the author field.",
+          "- Encode subjects.active as one scalar path and subjects.passive as zero or more unique paths.",
+          "- Obtain the canonical HAS_ACTIVE_SUBJECT link from subjects.active. It is not a derived view of another Relation; do not store the same fact twice."
+        ],
+        "context": [
+          "Atom.Header.Role >> Carrier//Markdown file.frontmatter.role;",
+          "Atom.Header.Form >> Carrier//Markdown file.frontmatter.form;"
+        ],
+        "relations": [
+          "Atom.Header.Relations >> Carrier//Markdown file.frontmatter.relations"
+        ]
+      }
+    },
+    {
+      "id": "CA-D-568",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-ENG_DECISION--bind-draft-identity-continuity-evidence.md",
+      "sha256": "5673fc3c756aa4bd8bcc6bb5aaca71d56bca5775c565de643574ab2d3486b23f",
+      "signals": {
+        "identity_state": [
+          "- Draft `atom_id` presence and marker form follow CA-D-378 and CA-D-446; Draft filename identity-segment serialization follows CA-D-650. Do **not** restore a former assigned Identity from an archive, lineage/origin metadata, Journal, prior tool demotion or another historical record. Preserve real historical identities without releasing them for reuse. Ordinary Content Role, Summary/replacement, identity/collision, expected-target/currentness, permission and Carrier/schema checks remain applicable; absence of retained Draft history is not itself an identity conflict."
+        ],
+        "links": [
+          "- Draft `atom_id` presence and marker form follow CA-D-378 and CA-D-446; Draft filename identity-segment serialization follows CA-D-650. Do **not** restore a former assigned Identity from an archive, lineage/origin metadata, Journal, prior tool demotion or another historical record. Preserve real historical identities without releasing them for reuse. Ordinary Content Role, Summary/replacement, identity/collision, expected-target/currentness, permission and Carrier/schema checks remain applicable; absence of retained Draft history is not itself an identity conflict.",
+          "CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It carries `atom_id: <canonical-ID>@<proposed-version>-draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and archives the predecessor with its prior numeric Version and Updated At under CA-D-565 before the N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry a marker under CA-D-378/CA-D-446; marker and filename rules are governed by CA-D-650. Canonical ID grammar and the normal source, schema, identity/collision, permission and actual-history safeguards are unchanged."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-463",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-463-CORE_META_MODEL-ENG_DECISION--give-every-atom-revision-one-authoritative-carrier-bundle.md",
+      "sha256": "6146825bf7ae6974dca852446ddc99fccb1070eba6cb583791a644f8f955ab72",
+      "signals": {
+        "links": [
+          "the Markdown file carries the Atom's own Properties under CA-D-478 **and** CA-D-479. additional Carriers represent that same Revision **without** replacing the mandatory file **or** independently redefining its Properties."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-283",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "sha256": "cac15f5898a60fc0d47d951a1bcf1b71dee2550351dff6cb8334a4e62529111e",
+      "signals": {
+        "links": [
+          "**every** identified Project-owned Markdown Atom filename other than a Plan filename governed by CA-D-469 **must** match `<ATOM_ID>[-<CURRENT_SCOPE>][-<TIER>][-<LABEL>][-<TARGET_SCOPE>]--<SUMMARY_SLUG>.<EXT>`. When present, the `LABEL` segment uses the Atom's effective Label: its explicit Label when present, otherwise its Form name under CA-R-2705. Normalize that token under CA-D-284; an explicit Label replaces the Form name there and does not change the Atom's Form. **every** same-identity Atom Version **must** preserve its exact assigned Atom-ID segment **in** its Carrier filename **and** serialize its retained Summary under CA-D-282. A Draft filename uses the Draft marker as its Atom-ID segment as specified by CA-D-650. An Archived predecessor uses `<canonical-ID>@<old-version>` exactly once in that segment under CA-D-289; do not append a duplicate version suffix. Existing legacy archive filenames are not normalized automatically. a replacement filename **must** contain the successor Atom ID **and** the successor's Summary Slug; a Summary Slug **must not** be edited independently of its source Summary."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-653",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-653-CORE_META_MODEL-ENG_DECISION--deliver-readable-subject-graph-views-as-markdown.md",
+      "sha256": "cb4ae8638608e90e7ef58bf4b938cf93fdfd16db2824e50524fca3bacafa2857",
+      "signals": {
+        "context": [
+          "1. ## Primary subjects: one literal-tab hierarchy rooted at Subject, showing kinds and source-backed classification-axis topics with their namespace and branch context. Exclude named instances, dependent properties, allowed property values and their descendants. A value-qualified narrower kind such as `Atom/(.Header.Role := Plan)` remains a kind, not a named Atom instance. Within CAPRMEDIO, keep Graph/Node, Graph/Relation and Graph/Rule as sibling branches beneath Graph; show Node/Project Model and Node/Aspect, and keep Carrier outside Graph. Retain selected project-specific namespaces. Namespace and classification-axis segments are context or topics, not extra entity kinds. Keep the bare `Atom.Header.Role` axis visible and distinguish its meaning from role-qualified narrower Atom kinds. Named Relation Type declarations belong in section 3, not the primary tree.",
+          "2. ## Properties: one property detail section for every displayed primary with direct or inherited properties, following its first appearance in section 1. Keep source-backed classification-axis detail with that Subject; do not hide the bare `Atom.Header.Role` Subject or collapse its identity into Atom. An axis does not acquire bearer Atom properties merely by occupying an intermediate path segment. Keep role-qualified narrower Atom kinds such as `Atom/(.Header.Role := Plan)` as separate sections where properties are present; those kinds inherit Atom properties. Show direct properties and additive source-backed inherited properties and allowed values. Mark inherited display entries as `[inherited]` only. Keep full source origins internally and retain all origins for equal-name entries; report conflicts without silently overriding a source. Preserve actual bearer Atom properties and role-specific descendants. Do not copy inherited properties into source Atoms."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-446",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "f94363a6e3486c77db579a038c5abac9ec5e052b12dd7e8392a412d16b6f5c71",
+      "signals": {
+        "identity_state": [
+          "For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.",
+          "- for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.",
+          "- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule."
+        ],
+        "links": [
+          "For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.",
+          "- for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.",
+          "- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-461",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-461-CORE_META_MODEL-ENG_DECISION--place-plan-carriers-by-status.md",
+      "sha256": "423054ef7434402290a2f180987fb28080ed50d3e7b4d361342a8ab1d246fc2a",
+      "signals": {
+        "links": [
+          "read Status from the Plan's own Markdown file under CA-D-483 **and** check its local placement; a parent **or** folder name **must not** supply a descendant's Status at read time. **every** admitted parent Status change requires the containment cascade under CA-R-1521: separate single-Atom Actions write the Status prescribed by CA-R-1521 to each selected latest descendant under its own model, without an optional descendant mode. For a containing Plan Atom whose requested Status is Done **or** Canceled, preserve every selected latest contained Plan already Done **or** Canceled and request Canceled for every other selected latest contained Plan. After the cascade, every selected latest contained Plan must be Done **or** Canceled; mixed terminal statuses are allowed, and no contained Plan is forced to match the parent's requested Status merely because the parent is Done **or** Canceled. For other admitted parent Statuses, preserve the applicable cascade. Archive selects all contained latest Atoms; references outside the Carrier tree **and** older archived Revisions are excluded. retain Current descendants inside the parent Carrier tree. Archived Plan Markdown Carriers are placed flat in the owning Scope Unit's shared `03_plan/archived` area, not inside an archived parent's directory."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-570",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DECISION--serialize-draft-revision-lineage.md",
+      "sha256": "9f41ae4ae1f88982ffd94e82819f7945e925a9eadc0178375e70046a4ae954f8",
+      "signals": {
+        "identity_state": [
+          "A Draft Atom **must not** require `revision_lineage`, a retained Draft-history entry or a trusted Draft head for Create, Update, promotion, another admitted Status change or their success. Every Draft Carrier carries the mandatory Draft `atom_id` marker under CA-D-378/CA-D-446; its filename follows CA-D-650."
+        ],
+        "links": [
+          "A Draft Atom **must not** require `revision_lineage`, a retained Draft-history entry or a trusted Draft head for Create, Update, promotion, another admitted Status change or their success. Every Draft Carrier carries the mandatory Draft `atom_id` marker under CA-D-378/CA-D-446; its filename follows CA-D-650.",
+          "When a Current Atom changes, archive its predecessor with the old numeric Version and Updated At, an Archived status and a version-qualified identity under CA-D-446/CA-D-565; the Current successor follows the normal Version and timestamp rules. Do **not** fabricate history or reinterpret an observed value as evidence of an event that was not observed. Preserve the exact admitted target, ordinary Summary/replacement rules, applicable schema, collision/currentness checks and permissions. No new identity registry, history writer, recovery framework or Journal protocol is introduced.",
+          "CA-D-446's explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It carries `atom_id: <canonical-ID>@<proposed-version>-draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and archives the old predecessor identity/version under the ordinary archive rules before the N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry a marker under CA-D-378/CA-D-446; filename rules are governed by CA-D-650. Canonical ID grammar and the normal source, schema, identity/collision, permission and actual-history safeguards are unchanged."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-376",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-376-CORE_META_MODEL-DECISION--serialize-the-project-atom-prefix.md",
+      "sha256": "eac0e3474cb6914fc4eabd420b5f4bfa9360913ed26372a7650b5c201ad2cf67",
+      "signals": {
+        "links": [
+          "the Project Settings TOML Carrier **must** encode the Operator-selected Atom prefix as its exact nonempty uppercase TOML string value under CA-D-378 **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-378",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "5a234ccfcf0d149e60792c7a9ed71a7fe3e5e972fef2b679f9bb6976536a3bb6",
+      "signals": {
+        "identity_state": [
+          "Every Draft carries its base canonical ID in the Header as `atom_id: <canonical-ID>`, with `status: Draft` and a separate numeric `version`. Its filename carries exactly one `<canonical-ID>@<version>-draft` marker before the remaining mutable filename components."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-270",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-270-CORE_META_MODEL-ENG_DECISION--serialize-atom-revision-metadata-in-frontmatter.md",
+      "sha256": "05a3ca68d0bab3406b923fc19821540753c107160bf1151e691cad1a0987bc83",
+      "signals": {
+        "identity_state": [
+          "**every** Markdown Atom Revision Carrier **must** serialize its positive integer Version as `version` **and** its Project-time Updated At value as `updated_at` **in** YAML frontmatter.",
+          "- `version` is a YAML integer **>=1**, **not** a Boolean **or** numeric string.",
+          "- `updated_at` is a quoted YAML string containing **=1** valid date, time **and** explicit UTC offset. accept the existing `YYYY-MM-DD HH:MM:SS +HHMM` form **and** the equivalent ISO 8601 `YYYY-MM-DDTHH:MM:SSZ` **or** `YYYY-MM-DDTHH:MM:SS+HH:MM` form, including optional fractional seconds. offset signs **may** be positive **or** negative; reject a missing timezone, impossible date, **or** invalid offset."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-442",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "245c8584b91e2461bfc26a29d7d67b099abc4f9596662a279e8521c68a48b615",
+      "signals": {
+        "topics": [
+          "Carry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-664",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "f3767af5b3ec1092252a084b98a987b38e3f2a571516890e04b81e7a9c3ecb86",
+      "signals": {
+        "destination": [
+          "$carrier.filename == $atom.Header.Carrier Destination.File.Name;",
+          "$carrier.location == $atom.Header.Carrier Destination.File.Path"
+        ]
+      }
+    },
+    {
+      "id": "CA-D-478",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-478-CORE_META_MODEL-ENG_DECISION--store-every-atom-property-in-one-internal-location.md",
+      "sha256": "06a5be3640915e29e1c64057d199034424e99ff5d8df18682c0eb38bf7f53cb6",
+      "signals": {
+        "context": [
+          "Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Header.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path."
+        ],
+        "links": [
+          "Qualified classifications are carried as ordinary metadata properties. For example, `Atom/(.Header.Role := Concern)` selects the Atom's `role` value, and a qualified Form selects its `form` value; neither creates a nested Role object. Use the property names and canonical value encodings registered by the applicable D policy, including CA-D-657, rather than inventing a new field from the display path."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-267",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-267-CORE_META_MODEL-ENG_DECISION--derive-address-facts-without-duplicated-frontmatter.md",
+      "sha256": "4c15aed94d5644b55ad6a87eae4854d5d700ad5bb58b818ebcf730ca7702a5e3",
+      "signals": {
+        "links": [
+          "that address **must** be its sole Carrier encoding **and** embedded metadata **must not** duplicate it. Atom Properties instead follow CA-D-478 **and** CA-D-480."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-635",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-635-CORE_META_MODEL-ENG_DECISION--serialize-projection-identity-and-filenames.md",
+      "sha256": "bb89db55454c90f77d3120e220bf5593c0bf73d8f3380a8f41bf491afe67be1e",
+      "signals": {
+        "identity_state": [
+          "- `updated_at`: the latest completed rebuild time under CA-D-310."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-467",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "sha256": "7a44b47cfebab0b829994a53d9ea5c43dc2fe58fa666a6ca813f12d01f9fd82e",
+      "signals": {
+        "links": [
+          "- read each Step and Substep's Status from its own Markdown Carrier under CA-D-483; containing Status directories **or** parents **must not** override it. the cascade writes the changed latest Revisions; it **does not** infer execution order **or** execution inheritance."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-658",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-658-CORE_META_MODEL-DECISION--serialize-project-prefix.md",
+      "sha256": "b6a0009cb41088eeb69a9982730931b313d2e6f4cbb4016d00fde3ac3e530cbc",
+      "signals": {
+        "links": [
+          "the Project Settings TOML Carrier **must** encode the Operator-selected Project Prefix as its exact nonempty uppercase TOML string value under CA-D-378 **in** `artifacts.identity.project_prefix` **before** the first Project Atom is created."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-657",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830",
+      "signals": {
+        "identity_state": [
+          "- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-402",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md",
+      "sha256": "de07cf722c270758056e1240b69dfeb7a6b9f388c838b8ce0a2caf6dd717cf59",
+      "signals": {
+        "links": [
+          "The YAML `form` field carries the Atom Form under CA-D-657; a filename Type token is only its carrier encoding, not a second Type or a Label. An explicit `label` field is the effective Label when present; when absent, the effective Label is derived from the Atom Type name under CA-R-2705. Do not infer Type from a filename token or from that derived Label."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-404",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-404-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "sha256": "09905ee581d523e353aa81c8223b5520098c4718b4b343a60b4a85884027e7e3",
+      "signals": {
+        "links": [
+          "These examples govern filename representation; they do **not** rename a Type, admit a new Type, **or** prescribe a YAML Type value. The YAML `form` field carries the Atom Form under CA-D-657; the filename token is the effective-Label carrier encoding. An explicit `label` field takes precedence; when it is absent, CA-R-2705 supplies the Type name as the effective Label. Do not infer the Atom Type from a filename token; derive the filename token from the effective Label."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-483",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "c5ffef23a4af6401a1205cbb0a322627bf353f83a32c16a7cce5ce65c1161d54",
+      "signals": {
+        "identity_state": [
+          "**every** Atom Revision **must** carry **`=1`** explicit `status` value **in** its own Markdown frontmatter.",
+          "- encode `status` as **=1** nonempty YAML string using the exact value admitted by the selected Status model. do **not** accept a list, null, **or** another Revision's value as this Revision's Status."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-310",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-310-CORE_META_MODEL-ENG_DECISION--serialize-projection-updated-at.md",
+      "sha256": "e1cc76a65c8cac278d2095a3dc9a438cd35003ba14ae1883ed67c415cb955d85",
+      "signals": {
+        "identity_state": [
+          "**every** Projection Carrier **must** serialize the time of its latest completed rebuild as `updated_at` **in** Project time **without** treating that value alone as proof of currentness."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-366",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md",
+      "sha256": "f55ed618f5c4985d3ff44e7268e4404595d5a974ccf6517e6c2217b1291158cd",
+      "signals": {
+        "links": [
+          "- `artifacts` **must** be a table containing **only** the required `identity` table; `artifacts.identity` **must** contain **only** required `project_prefix`. `artifacts.identity.project_prefix` **must** be a nonempty TOML string containing the exact uppercase Operator-selected Project Prefix under the pending [Project Prefix Decision](CA-D-draft-CORE_META_MODEL-DECISION--serialize-project-prefix.md) **and** CA-D-378."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-467",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-467@29-draft-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md",
+      "sha256": "e71e1b48070d90d528f09dfb7cab67e11bd0356c0cb68577e77376cf7b40c5c5",
+      "signals": {
+        "context": [
+          "- A Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing its direct contained Step Carriers. This same-stem grouping rule applies recursively at every Step level. Grouping is optional for Carrier layout; it does not weaken the requirement that a formal containment edge, `Header.Container`, and placement in the resolved parent folder agree. Ordinary graph references to separately contained Workflow or Step Atoms may remain separately placed. When a directory is used, its matching Step Markdown Carrier remains separately addressable.",
+          "- Carrier placement organizes files. Directory nesting alone must not override the matching `Header.Container` and formal containment edge. The declared Workflow graph defines control flow; a formal Step containment edge identifies its same immediate whole and does not establish execution inheritance **or** execution order. Each Step has exactly one declared composition form: it RUNS one Action, RUNS one Workflow, or contains one or more Steps and RUNS neither target. Every Step has exactly one immediate whole, and its containment chain ends at exactly one root Workflow.",
+          "- `Header.Container` identifies each Atom's logical immediate parent by Scope Unit or Atom identity (ID); the parent's folder is resolved from that identity. For a formally contained Step, its `Header.Container`, formal `CONTAINS`/`IS_CONTAINED_BY` edge, and Carrier placement in the resolved parent folder must all identify the same parent. CA-D-264 reads back that same direct containment fact; no second relation is authored. An ordinary graph reference alone does not establish containment, change `Header.Container`, or move the referenced Step."
+        ],
+        "links": [
+          "- Read each Step's Status from its own Markdown Carrier under CA-D-483; containing Status directories or parents must not override it. The cascade writes selected latest Revisions as governed by CA-R-1521; it does not infer execution order or execution inheritance."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-378",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "82def0ea2bf84372d4762504a0ed150583180df1f92e0d53cf836e7f9f779c6e",
+      "signals": {
+        "identity_state": [
+          "For an existing-Atom Draft, `atom_id` is exactly `<canonical-ID>@<proposed-version>-draft`. Use the numeric Header `version` as `<proposed-version>`; its filename identity segment is that same marker.",
+          "For a role-only Draft, `atom_id` and its filename identity segment are the role-only `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-draft` marker. [CA-R-1432@28-draft](../../04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) governs which marker applies and, at successful publication, the fresh canonical ID and Version 1 outcome."
+        ],
+        "links": [
+          "[CA-D-650@15-draft](CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md) assembles the marker into the filename."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-442",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-442@27-draft-CORE_META_MODEL-DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "16f1030a3563919b6b51413b98ef0719ccb5cac539f23c847330c55a235fae89",
+      "signals": {
+        "topics": [
+          "Carry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-268",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-268@31-draft-CORE_META_MODEL-DECISION--serialize-authored-direct-relations-on-their-owning-atoms.md",
+      "sha256": "9e644614841eb9b69c46eb72cbe8169c7feb4caa46af04db304795e4f148b6ea",
+      "signals": {
+        "context": [
+          "An Atom **must** record its immediate Container once in `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`. The `scope_unit` reference uses the Scope Unit’s stable ID. Its declared Container represents the `IS_CONTAINED_BY` fact; do not add a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared direction as nonempty unordered collections of unique canonical target references. `Header.Relations` is optional when no such Relations are present. Target position and source-file order are nonsemantic; validation **must not** require sorting or order normalization. Each Relation's declared direction, endpoint validity, and other semantics remain applicable.",
+          "Serialize only the declared direct direction, never a second declaration for its derived inverse. `CONTAINS` remains a derived parent view and is not serialized on the parent. An Atom child stores its parent reference in `Header.Container`; a child-only change does not write the parent Carrier or create a parent Version. The Relation's spelling does not determine its direct direction."
+        ],
+        "relations": [
+          "An Atom **must** record its immediate Container once in `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`. The `scope_unit` reference uses the Scope Unit’s stable ID. Its declared Container represents the `IS_CONTAINED_BY` fact; do not add a second `relations.IS_CONTAINED_BY` entry. Other authored direct semantic Relations **must** be serialized once under `relations.<RELATION_KIND>` on the Atom that owns their declared direction as nonempty unordered collections of unique canonical target references. `Header.Relations` is optional when no such Relations are present. Target position and source-file order are nonsemantic; validation **must not** require sorting or order normalization. Each Relation's declared direction, endpoint validity, and other semantics remain applicable."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-650",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "018d72f17d8b53be3e9ab01508b517e048537b9f314f0d587093b9f4d158eb98",
+      "signals": {
+        "identity_state": [
+          "[CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md) defines the Draft `atom_id` marker. Assemble that exact marker as the filename's Atom-ID segment before the remaining mutable filename components."
+        ],
+        "links": [
+          "[CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md) defines the Draft `atom_id` marker. Assemble that exact marker as the filename's Atom-ID segment before the remaining mutable filename components."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-266",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-266@30-draft-CORE_META_MODEL-DECISION--prohibit-persisting-derived-containment.md",
+      "sha256": "ca965145d748e6983247390e3419efa823ca9772adcfa2c1af96e6d6363c82a0",
+      "signals": {
+        "context": [
+          "The `IS_CONTAINED_BY` fact declared through an Atom’s `Header.Container` and the `CONTAINS` view derived from it must not be persisted as additional independent Relation declarations merely because Carrier placement is read back."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-657",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "9f9aefcef8a4c8778b351bc0d3a4e0ae20665937931a07c9afd27d843d1e0b06",
+      "signals": {
+        "identity_state": [
+          "- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-446",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-446@29-draft-CORE_META_MODEL-DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "cb4859268955a938f7b42bd995bec43da311e68f88d2ff941646b92a7daaed2f",
+      "signals": {
+        "identity_state": [
+          "For each canonical Atom ID, at most one Current Atom source may exist across all admitted Status values. Every Current or Archived Atom version is identified by exactly one canonical Atom ID and numeric `version`; no second `identifier` field is admitted. Archived versions retain that canonical ID at distinct Version Numbers."
+        ],
+        "links": [
+          "Draft markers are defined by [CA-D-378@30-draft](CA-D-378@30-draft-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md), and Draft filename assembly is defined by [CA-D-650@15-draft](CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md). Those markers do not change the Current-source uniqueness rule."
+        ]
+      }
+    },
+    {
+      "id": "CA-D-264",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-264@30-draft-CORE_META_MODEL-DECISION--derive-direct-containment-from-the-nearest-directory-carrier.md",
+      "sha256": "0ad21ca65c949744636a9c03869b7c50d87f0181879bf331982534d827ef6875",
+      "signals": {
+        "context": [
+          "For an Atom whose `Header.Container` resolves to a Scope Unit or an Atom, derive the direct `IS_CONTAINED_BY` view from the nearest eligible Directory Carrier and its resolved container ID. The resolved ID must agree with the Atom’s declared `Header.Container`; its Carrier placement follows the corresponding Scope Unit or containing Atom folder. The derived view and its inverse `CONTAINS` represent the same declared containment fact, not a second authored fact.",
+          "Resolve `Header.Container` as a mapping with exactly one of `scope_unit` or `atom`; the Scope Unit reference uses its stable ID. Apply the admitted reference and placement rules. If placement and the declared Container disagree, report the disagreement without replacing the declared logical parent from a directory. Reading or refreshing the inverse view does not edit the containing Object’s Carrier or create a new Atom Version. Project Structure remains authoritative for declared Scope Unit parentage under CA-R-1660."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-622",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "7d35a7ead39a8eeae5a11c8828ccf4e275badfcf197ac17175eaee2e8ff3779c",
+      "signals": {
+        "links": [
+          "- reject a non-Active RMED target of a direct Relation authored by an Active RMED Atom; read target Status from its own Markdown frontmatter under CA-D-483 **and** check lifecycle placement under CA-D-466. this Active-target restriction applies **only** **when** the source is Active **and** both source **and** target have Content Role **in** (Requirement, Method, Evaluation, Delivery). a source **or** target outside that boundary **must not** fail because of this restriction alone; its own applicable Relation constraints still apply."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-383",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "sha256": "caa037082fb01bc2c7ba0a3751192592fb20f9636474ae43a05d6d976be05acb",
+      "signals": {
+        "identity_state": [
+          "`Atom.Header.Status: Active` **must** pass the component check **only when** its named lexical components **and** exact qualified target are admitted. `/`, `.`, **and** `:` contribute no Term nodes. `Atom/(.Header.Role := Plan)/(.Header.Form := Epic).Header.Status` **must** pass only when its components and qualified target are admitted; its syntax alone does not admit values or a target. An unadmitted Role or Form value **must** fail. an unresolved ordinary named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity Target.",
+          "Atom.Header.Status >| Status Group: Draft <+ Draft",
+          "Atom.Header.Status >| Status Group: Archived <+ Archived"
+        ],
+        "context": [
+          "- `.Header.Form` is interpreted as a primary Entity **or** as a Property subtype of Atom instead of as a Property relative to Atom,",
+          "- `Atom/(.Header.Form: Method)` is used as syntax-only evidence that Method is admitted as a Form,",
+          "`Atom.Header.Status: Active` **must** pass the component check **only when** its named lexical components **and** exact qualified target are admitted. `/`, `.`, **and** `:` contribute no Term nodes. `Atom/(.Header.Role := Plan)/(.Header.Form := Epic).Header.Status` **must** pass only when its components and qualified target are admitted; its syntax alone does not admit values or a target. An unadmitted Role or Form value **must** fail. an unresolved ordinary named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity Target."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-444",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-444-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "sha256": "9974535da11aea3277a93042d40cba4baf0a2fd4781343d46261fddcb0332a7a",
+      "signals": {
+        "context": [
+          "- use the qualified Atom segment `Atom/(.Header.Role: X)/(.Header.Form: X)` as a fixture: component reuse passes only when governing authority independently admits exact `X` as the Role and as the Form in that qualified context. A companion fixture with missing Form-in-Role admission fails. The fixture text itself neither admits an `X` entity nor supplies either value's authority."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-670",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+      "sha256": "a7eb2bdc3d3eeda5e08fb5c36816aa3028d71fed78c2ad116c96a409d53baea8",
+      "signals": {
+        "topics": [
+          "Identify Scope Unit Declaration Atoms by Role Requirement, Form Scope Unit Declaration and active Subject (`subjects.active`) naming the specific Scope Unit. Count exactly one matching Declaration for each Scope Unit; do not count other Requirements about that Scope Unit as Declarations."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-246",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-246-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "sha256": "8a962cdafa5ff970f6631120626494e7acb48f88b9afbf378d3a671a5822242e",
+      "signals": {
+        "context": [
+          "introduce **in** the source Subjects encoding multiple GOVERNS targets, an unresolved **or** ambiguous target, a nested Subject/Entity **or** Subject/Reference wrapper, a repeated source target-kind field, a stored copy of a target definition, a duplicate dependency, a missing mentioned Subject Target, an invalid qualified path, a Term's spelling used **without** its canonical target, and a separate Entity identity invented for an existing Action **or** Workflow Atom. a definition whose GOVERNS reference identifies the wrong target or omits its defined terminal Term **must** fail. add `Atom/(.Header.Role: Requirement)/(.Header.Form: Demand)` as **`=1`** complete target path. Its qualified Atom segment reuses **`=5`** Term references: `Atom`, `Content Role`, `Requirement`, `Type`, and `Demand`; the Entity-rooted prefix remains part of the complete expression. its source Atom has **`=1`** GOVERNS Subject Relation **to** that target, **not** one Subject per lexical component. reject confusing the Relation with its target or treating the referencing Atom as defining **all** referenced Terms."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-240",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-240-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "sha256": "e8e1047f20dfa9efcf14e5e1b78d25907c2ef3161ac7b91d000f9840b0766b3a",
+      "signals": {
+        "topics": [
+          "Verify that each complete Atom has exactly one `Header.Subjects.Active` and resolves its target Scope Unit from that active Subject. Containment and the Atom's own Scope context are separate from target resolution. Preserve textual applicability in Claim.Prose Claim without letting it select a different target."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-505",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-505-CORE_META_MODEL-EVAL_CASE--validate-shared-label-semantics.md",
+      "sha256": "7692c36cacba04c85da8f3bb619e30655f480c474a124b0ada6b53414cdae98c",
+      "signals": {
+        "context": [
+          "- resolve `Entity/Object/Continuant/Structural Unit/Scope Unit.Label` **and** `Atom/(.Header.Role: Plan)/(.Header.Form: Plan).Header.Label` as distinct bearer-qualified Properties using **`=1`** shared Label definition, **not** incompatible meanings of the same Term."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-670",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-670@2-draft-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+      "sha256": "cbde37ca74e8009fe7374d9c55a2ef43fe4a2287b47b8fa503d986904b5c4d10",
+      "signals": {
+        "topics": [
+          "Identify Scope Unit Declaration Atoms by Role Requirement, Form Scope Unit Declaration and active Subject (`subjects.active`) naming the specific Scope Unit. Count exactly one matching Declaration for every Scope Unit except the predefined Scope Unit `world` (`CA-SU--1`), which has no Declaration; do not count other Requirements about that Scope Unit as Declarations."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-444",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-444@35-draft-CORE_META_MODEL-EVAL_CASE--validate-project-specific-term-meaning.md",
+      "sha256": "365710a8fb107c2404a0fa35d95eaee39b1ab29e1cdf84bff5288076d0a46f42",
+      "signals": {
+        "context": [
+          "- use the qualified Atom segment `Atom/(.Header.Role: X)/(.Header.Form: X)` as a fixture: component reuse passes only when governing authority independently admits exact `X` as the Role and as the Form in that qualified context. A companion fixture with missing Form-in-Role admission fails. The fixture text itself neither admits an `X` entity nor supplies either value's authority."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-246",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-246@48-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-subjects.md",
+      "sha256": "17debbde074d738cbb54dcf7a30f22bc50edf1874b9445770b5efdc58635add8",
+      "signals": {
+        "context": [
+          "introduce **in** the source Subjects encoding multiple GOVERNS targets, an unresolved **or** ambiguous target, a nested Subject/Entity **or** Subject/Reference wrapper, a repeated source target-kind field, a stored copy of a target definition, a duplicate dependency, a missing mentioned Subject Target, an invalid qualified path, a Term's spelling used **without** its canonical target, and a separate Entity identity invented for an existing Action **or** Workflow Atom. a definition whose GOVERNS reference identifies the wrong target or omits its defined terminal Term **must** fail. add `Atom/(.Header.Role: Requirement)/(.Header.Form: Demand)` as **`=1`** complete target path. Its qualified Atom segment reuses **`=5`** Term references: `Atom`, `Content Role`, `Requirement`, `Type`, and `Demand`; the Entity-rooted prefix remains part of the complete expression. its source Atom has **`=1`** GOVERNS Subject Relation **to** that target, **not** one Subject per lexical component. reject confusing the Relation with its target or treating the referencing Atom as defining **all** referenced Terms."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-500",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-500@29-draft-CORE_META_MODEL-EVAL_CASE--validate-workflow-scheme-and-step-carrier-separation.md",
+      "sha256": "82cddc966caa6158a83c4cf7895152e82daaaf82d3dae30f5fabd49d07a4e093",
+      "signals": {
+        "context": [
+          "- for every Workflow and Step Atom, require `Header.Container` to identify its logical immediate parent by Scope Unit or Atom identity (ID); resolve the parent's folder from that identity. For each formal Workflow `CONTAINS` Step or Step `IS_CONTAINED_BY` Workflow/containing Step edge, require the same parent in `Header.Container`, the formal edge, and the Step Carrier's resolved placement; require CA-D-264's direct containment readback to agree. Reject any disagreement. An ordinary graph reference alone does not establish or change containment, assign `Header.Container`, or move the referenced Step.",
+          "- derive a Step graph edge, execution inheritance, **or** execution order from folder nesting alone instead of the declared graph **and** Step bindings: reject. Formal containment remains governed by the matching `Header.Container`, `CONTAINS`/`IS_CONTAINED_BY` edge, and resolved placement."
+        ],
+        "links": [
+          "- move a Workflow or Step Directory Carrier without a Status-change request: retain the graph and each carried Step Status. Read each Step's own Status under CA-D-483; reject read-time inference from its parent or path."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-240",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-240@50-draft-CORE_META_MODEL-EVAL_CASE--validate-atom-scope-and-claim-scope.md",
+      "sha256": "95c421e909bda2294517f5be949e7259bd12a768e240601a22140b1afcdb5467",
+      "signals": {
+        "topics": [
+          "Verify that each complete Atom has exactly one `Header.Subjects.Active` and resolves its target Scope Unit from that active Subject. Containment and the Atom's own Scope context are separate from target resolution. Preserve textual applicability in Claim.Prose Claim without letting it select a different target."
+        ]
+      }
+    },
+    {
+      "id": "CA-E-383",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-383@47-draft-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md",
+      "sha256": "159221c158b345e899bcb57c55eca4df742ea9baeb69e5404e6e95c9b9c4ebd1",
+      "signals": {
+        "identity_state": [
+          "`Atom.Header.Status := Active` **must** pass the component check **only when** its named lexical components **and** exact qualified target are admitted. `/`, `.`, **and** `:=` contribute no Term nodes. `Atom/(.Header.Role := Plan)/(.Header.Form := Epic).Header.Status` **must** pass only when its components and qualified target are admitted; its syntax alone does not admit values or a target. An unadmitted Role or Form value **must** fail. an unresolved ordinary named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity Target.",
+          "Atom.Header.Status >| Status Group:=Draft/Draft",
+          "Atom.Header.Status >| Status Group:=Archived/Archived"
+        ],
+        "context": [
+          "- `.Header.Form` is interpreted as a primary Entity **or** as a Property subtype of Atom instead of as a Property relative to Atom,",
+          "- `Atom/(.Header.Form: Method)` is used as syntax-only evidence that Method is admitted as a Form,",
+          "`Atom.Header.Status := Active` **must** pass the component check **only when** its named lexical components **and** exact qualified target are admitted. `/`, `.`, **and** `:=` contribute no Term nodes. `Atom/(.Header.Role := Plan)/(.Header.Form := Epic).Header.Status` **must** pass only when its components and qualified target are admitted; its syntax alone does not admit values or a target. An unadmitted Role or Form value **must** fail. an unresolved ordinary named component **must** fail the source-reference check; the diagnostic **must** preserve the unresolved reference **without** supplying an invented definition. a complete composite path **must not** be admitted as **`=1`** Term merely because it resolves **to** **`=1`** Entity Target."
+        ]
+      }
+    },
+    {
+      "id": "CA-M-273",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-273-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+      "sha256": "90166ef7be05541cdeafd464fa64fec08e68445536c947dbb27fcb918fb172b6",
+      "signals": {
+        "links": [
+          "2. read **every** candidate Atom's carried current Scope Unit **and** check it against its nearest containing Scope Unit, passing through Atom Collections **and** Plan Hub Carriers **without** treating their nesting as additional Scope Unit ownership. preserve the carried external-Atom Author fallback under CA-D-657-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter **when** no containing Scope Unit exists; do **not** invent a Scope Unit owner."
+        ]
+      }
+    },
+    {
+      "id": "CA-M-276",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md",
+      "sha256": "ef55d985697730a952300c37744dd70a8faf567be2fd92cf005cd5bd08cb4131",
+      "signals": {
+        "links": [
+          "3. preserve the original owner's Atom ID. give **every** later accidental reuse the next unreused Project-wide number for its own Content Role under CA-D-450-CORE_META_MODEL-DELIVERY--number-project-owned-atoms-within-each-content-role, using the encoding under CA-D-378-CORE_META_MODEL-DELIVERY--serialize-assigned-atom-identities. this corrects invalid reuse **and** does **not** authorize changing a valid owner's immutable identity."
+        ]
+      }
+    },
+    {
+      "id": "CA-M-452",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-452-CORE_META_MODEL-TERM_DEFINITION--define-term.md",
+      "sha256": "7e1ed187eb197bb56c6e99b72e9f4b04d59dc745381de094bd0439a9da65c173",
+      "signals": {
+        "context": [
+          "`Atom/(.Header.Role: X)/(.Header.Form: X)` is a qualified expression that reuses the Term"
+        ]
+      }
+    },
+    {
+      "id": "CA-M-461",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "4131c71b55294bd6032a5ebfb23709b612aba9ea9ea8b9be9ed46249e1ac48dd",
+      "signals": {
+        "topics": [
+          "- Write one external Scope Unit Declaration for each declared Scope Unit. Use Role Requirement and Form Scope Unit Declaration. Set its active Subject (`subjects.active`) to that specific Scope Unit; do not add another binding field or an additional per-unit Definition Atom."
+        ]
+      }
+    },
+    {
+      "id": "CA-M-273",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-273@39-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-ownership-and-claim-target-atom-sets.md",
+      "sha256": "08460f29176cdd62771732024c4cdf7bb2b455134adcdaef746ce8dc8f930474",
+      "signals": {
+        "context": [
+          "2. resolve **every** candidate Atom's containing Scope Unit from its `Header.Container` chain: follow Atom container references until reaching a Scope Unit ID. The predefined Scope Unit `world` (`CA-SU--1`) is valid. Do **not** infer ownership from directory nesting **or** invent a Scope Unit owner."
+        ]
+      }
+    },
+    {
+      "id": "CA-M-461",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "3c9092ced90bf8e9a1e2636e66610141f7ba24db4cc2cb4285a25fcfc6f2ef83",
+      "signals": {
+        "topics": [
+          "- Write one external Scope Unit Declaration for each declared Scope Unit. The predefined Scope Unit `world` (`CA-SU--1`) has no Declaration. Use Role Requirement and Form Scope Unit Declaration. Set its active Subject (`subjects.active`) to that specific Scope Unit; do not add another binding field or an additional per-unit Definition Atom."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1018",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md",
+      "sha256": "ea9b5776ba2b1e013fefea5bd8fc5847b0674133bbb3427d7cc014e3f1d91a8f",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Evaluation)//$atom ((evaluation_for)) Atom//$atom_2"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1346",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1346-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "be2a44cf23b5276cc08d26e47272123542f5a3796475f89224ea0d3b58075400",
+      "signals": {
+        "context": [
+          "Reusable lexical Terms and complete canonical names have distinct responsibilities. Shared `Package`, `Unit`, or `ID` components and repeated terminal labels do not collide when complete qualified expressions differ. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. `Atom/(.Header.Role: X)/(.Header.Form: X)` is a possible qualified expression: its two `X` components reuse the registered Term `X` in separately qualified value contexts, and governing authority must admit `X` in each context. The expression does not make `X` the complete canonical name of an entity outside `Term`, create an entity, or transfer value admission. Governing authority establishes the qualification and entity identity; path spelling alone does not invent them."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1539",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1539-CORE_META_MODEL-RULE--register-core-plan-status-values.md",
+      "sha256": "a41af1a519306e4a1409d4a24fd9ff6a6d94d47a0a7e77886e8d5f8cc937053b",
+      "signals": {
+        "identity_state": [
+          "the Core Plan Status model **must** inherit the allowed values of Atom.Header.Status and add (Backlog, Done, Canceled). Planned **must not** be a distinct Plan Status."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2705",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2705-CORE_META_MODEL-DECLARATION--declare-atom-header-label.md",
+      "sha256": "294518348c7343fad922df0c8738c6d4c9d2319c3ea2265a3045573620582416",
+      "signals": {
+        "context": [
+          "Atom.Header.Label:: [string]{::0..1};",
+          "Atom.Header.Label.*[]{::0};",
+          "$atom.Header.Label ?== $atom.Header.Form"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2710",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2710-CORE_META_MODEL-DECLARATION--declare-atom-header-role-concern-header-priority.md",
+      "sha256": "af403d230fa06058703b87077d6cfd20b7a93103450306d28d69c87bbf2085e1",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Concern).Header.Priority{::1}:: [string]{::1};",
+          "Atom/(.Header.Role: Concern).Header.Priority.*[]{::0};",
+          "Atom/(.Header.Role: Concern).Header.Priority: High;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1947",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "sha256": "b9a5062cadac7068369a392c274187d82c4550f76ef3e782ddb134d4e5fe033f",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Status **must** admit (Draft, Active, Archived). Narrower Atom kinds inherit these values and **may** add allowed values under their applicable Content Role or Type. An inherited value does **not** require a separate declaration for every narrower kind."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2464",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "748178ea09c2f97821a9a03d3f056f44dd47c1665eb5ffb3d78f3f326b1acbba",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)/Workflow;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-837",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-837-CORE_META_MODEL-RULE--derive-artifact-scope-inclusion.md",
+      "sha256": "e56830d7e07fee9b272e56bb60fbf4e1d22394f44b6330c2744adcd35d983214",
+      "signals": {
+        "links": [
+          "an Atom with no containing Scope Unit uses the external-Atom Author fallback under CA-D-657-CORE_META_MODEL-ENG_DECISION--use-economical-yaml-frontmatter; a failed Scope Unit resolution does **not** establish that no containing Scope Unit exists."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2707",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "sha256": "27f77647f9c272e506e2234d738bf1139e7885204acb46f1793b4668c5980178",
+      "signals": {
+        "context": [
+          "Atom.Header.Tier.Label:: [string]{::0..1};",
+          "Atom.Header.Tier.Label.*[]{::0};",
+          "IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract);"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-924",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md",
+      "sha256": "ef0ebe53ed7452f0462c19d3c9b3ae4b175b27e963aa58102f694ea78c14e12a",
+      "signals": {
+        "context": [
+          "the Core contribution **to** allowed qualified Types of Relational Atom **must** be (`Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)`, `Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)`, `Atom/(.Header.Role := Plan)/(.Header.Form := Plan)`); a Plan is relational **only** **when** its actual Claim target differs under the Relational Atom definition, **not** merely because it has decomposition, blocking, **or** a particular Label."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2515",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2515-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "sha256": "b853812f7a6637dfebd18d1c719f85090137b530affc174594c14debf0e7efc0",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Delivery)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2278",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2278-CORE_META_MODEL-RULE--require-exactly-one-defining-requirement-per-model-entity.md",
+      "sha256": "c478dfb6eb19b70ca9e60df134b17357d32fe7811860ae0b3677b382b2133445",
+      "signals": {
+        "context": [
+          "For / specialization, the narrower Declaration inherits applicable broader constraints and states its differences. For // instantiation, the instance follows its kind Declaration and states instance-specific facts. Reuse applicable base structure, Properties and constraints instead of copying them. Containment adds no inheritance. A Method Atom remains an Atom with Header.Role Method. Do not create new entities for every characteristic merely to multiply Atoms; equivalent Property headings denote one logical Entity."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1194",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1194-CORE_META_MODEL-DEFINITION--define-subject-path.md",
+      "sha256": "fc74ac0970091968a2174e191c786789c3f60d78d91455e7e11cd72443f0b989",
+      "signals": {
+        "context": [
+          "A path may address classification without declaring an Entity kind. `Atom.Header.Role` addresses the relative Property, while `Atom/(.Header.Role: Plan)` identifies a qualified Atom inheriting applicable Atom features and constraints. Neither form invents an intermediate Entity kind. The root and operators follow the adopted Entity syntax under CA-R-1931; no Project-name namespace layer is introduced."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2498",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "sha256": "433cb32f1c406bd5adfb0baaa1f9fa58561a2a4c8807dbf764a6fdb666ea08fd",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role in RMED).Content.Summary ;> Atom/(.Header.Role in RMED).Content.Claim;",
+          "Atom/(.Header.Role in RMED).Content.Claim ;> Atom/(.Header.Role in RMED).Content.Semantics;",
+          "Atom/(.Header.Role in RMED).Content.Semantics ;> Atom/(.Header.Role in RMED).Content.Details"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1019",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1019-CORE_META_MODEL-DECLARATION--register-delivery-for-relation.md",
+      "sha256": "980d828d2c3d6de10927926c10e6d651e771c361eb4c826546b0814fee84f20e",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Delivery)//$atom ((delivery_for)) Atom//$atom_2"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2701",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md",
+      "sha256": "ee0dee401c7f026b26fe22db4af59bdd1d1ea899a8174f1be4a8face6ca7ff09",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.ID{::1}:: [string]{::1};",
+          "Atom.Header.ID.*[]{::0};",
+          "IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1506",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1506-CORE_META_MODEL-RULE--separate-check-mechanism-labels-from-evaluation-atom-types.md",
+      "sha256": "49822ce5f08ee98bfe9c9c374f79041d4c9e4869ff537f68beb58cd6ac3b507e",
+      "signals": {
+        "context": [
+          "the mechanism labels `Test` **and** `Evaluation` **must** describe implementation mechanisms, **not** Type values under `Atom/(.Header.Role := Evaluation).Header.Form`. the governing Evaluation Atom **and** its realization **must not** acquire the same classification merely because their names overlap."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2715",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2715-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination.md",
+      "sha256": "9c3aef4cb875d7acc6b4a1b6a1e3249c7b96edc264b5953153ca57aafdbb4e26",
+      "signals": {
+        "destination": [
+          "Atom.Header.Carrier Destination{::1}:: []{::0};",
+          "Atom.Header.Carrier Destination.*[in (File)]{::1}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2471",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "e2bfa90313dd5241729e686c1c46c570cf1960f9751fc82107c765f2d2b3c73e",
+      "signals": {
+        "context": [
+          "Subjects remain addresses and do not contain complete Formal Claims. In Subjects and filtered Node expressions in Formal Claims, `:=` combines allowed value and condition, including `Atom/(.Header.Role := Method)` and `Workflow/(.Purpose := Runtime)`; it does not write an instance value. Outside these selections, `:` and `=` retain their separate allowed-value and condition meanings. The withdrawn `..` form is not adopted; `::` has no assigned meaning here."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2784",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2784-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md",
+      "sha256": "a836a564c7bae0887fb17e9a8a337102f163856b281fb9242888863bc665f6e5",
+      "signals": {
+        "context": [
+          "Atom.Header.Container.scope_unit :: [string]{::0..1};",
+          "Atom.Header.Container.scope_unit.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2779",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2779-CORE_META_MODEL-DECLARATION--declare-atom-header-container.md",
+      "sha256": "15ef01535d78b12c69ab0384d9cfd1a2631cfa4564b65d6952c8f4c928e3089e",
+      "signals": {
+        "context": [
+          "Header.Container identifies the Atom's immediate Container.",
+          "Header.Container contains exactly one key: `atom` names the containing Atom by its base Atom ID, or `scope_unit` names the containing Scope Unit by its stable ID. A base Atom ID selects Current by default.",
+          "For a root Project Declaration Atom, an omitted Header.Container has the effective default mapping with `scope_unit` equal to `CA-SU--1`, identifying the predefined Scope Unit `world`. An explicit valid value overrides that default."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2481",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2481-CORE_META_MODEL-RULE--use-role-and-form.md",
+      "sha256": "d63241e4118a3bf9b23a824c63c83a8585c5201e52ac7914f28085c9a56f5493",
+      "signals": {
+        "context": [
+          "The proposed Atom schema **must** distinguish Role from Form. The current Atom `content_role` field maps to the proposed `role` value, and the current `type` field maps to the proposed `form` value. A Declaration Atom has `role: Requirement` and `form: Declaration`; Declaration is a Form under the Requirement Role, not a new Role value. In Subject addresses, express that pair as `Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)`. Use `Form` for the form qualifier in place of a legacy nested `Role: X` or `Type: X` qualifier."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2708",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2708-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-passive.md",
+      "sha256": "7f9067e0a4a6a9838bd36ac3595099ea353322e941eb2175d602b5e463e4bac4",
+      "signals": {
+        "topics": [
+          "Atom.Header.Topics.Dependencies{::0..1}:: [string]{::0+};",
+          "Atom.Header.Topics.Dependencies.*[]{::0};",
+          "COUNT(VALUES($atom.Header.Topics.Dependencies)) = COUNT(DISTINCT VALUES($atom.Header.Topics.Dependencies))"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2469",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md",
+      "sha256": "5ba9f0fd5e4f963747eac9588d58257c819edd49691fc4ed3f19eb29586e10dc",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){::1} (Node, Node.**)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1275",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1275-CORE_META_MODEL--define-subject.md",
+      "sha256": "9536db9cdde3f2f66baa79cad23d94416e44c423af5f2a22b59fbbd84fc04557",
+      "signals": {
+        "topics": [
+          "An Atom.Header.Subjects target must name the thing or topic the Atom governs or depends on; it is not a copied target, intermediate Subject object, or a requirement for a separate entity kind."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2966",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2966-CORE_META_MODEL-DECLARATION--declare-atom-header-ref-id.md",
+      "sha256": "b422959cc8d649c07cd8fda6f2cbdb91d5c4b546af46790618380da3cdf01bf2",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Ref ID{::1} :: [string]{::1};",
+          "Atom.Header.Ref ID.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2716",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2716-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file.md",
+      "sha256": "0cb4945cbb0f7efe4cf1a394322c1251aa3831827d343d010298eb6ac32f9a9c",
+      "signals": {
+        "destination": [
+          "Atom.Header.Carrier Destination.File{::1}:: []{::0};",
+          "Atom.Header.Carrier Destination.File.*[in (Name, Path)]{::2};",
+          "Atom.Header.Carrier Destination.File.*:: [string]"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2732",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md",
+      "sha256": "a66962dd7ff199eec604bf36a6038dff88896a97336b777e4bb2e074829d9a94",
+      "signals": {
+        "context": [
+          "IS_DECLARED_BY relates a declared model entity or instance to its canonical declaring Atom, qualified by CA-R-2278. The Target has Header.Role Requirement and Header.Form in (Declaration, Relation Declaration). Derive this view only when that Atom's GOVERNS link identifies the declared Subject and the declaring ownership qualification is satisfied in the selected effective MODEL. An arbitrary GOVERNS link from another role or form does not produce IS_DECLARED_BY.",
+          "$declared_subject ((IS_DECLARED_BY)) Atom/(.Header.Role: Requirement)/(.Header.Form in (Declaration, Relation Declaration))//$atom"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2765",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2765-CORE_META_MODEL-DECLARATION--declare-term-definition-as-a-method-form.md",
+      "sha256": "e6f675d4b1c21dab8a99d270a2355d57474f8e6db290ba2b1f4ab09dd4ae1c80",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role := Method).Header.Form: Term Definition;",
+          "Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2502",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2502-CORE_META_MODEL-DECLARATION--declare-atom-content-semantics.md",
+      "sha256": "c456276a67cc3dd667e430df5eb16feb1b6c7e4f0822b962abfb98787a115969",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role in RMED).Content.Semantics:: {::0..1};",
+          "Atom/(.Header.Role in RMED).Content.Semantics.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2762",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "d1919b126627c2e02c48bc2a32e0cde03427355946a0c94f851bade7790ececd",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Plan)//$dependent ((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2721",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "c63aaa714ba91f3cc4b7e6099e2aa2b67f90c25224036f76fca806ca5c9cb71a",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role in RMED).Content.Claim.Formal Claim:: {::0..1};",
+          "Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{::0};",
+          "IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN ("
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1017",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1017-CORE_META_MODEL-DECLARATION--register-method-for-relation.md",
+      "sha256": "23f52626ca55353aa97bebf359c123f180d0280d5bae76421957ad531cc0682f",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Method)//$atom ((method_for)) Atom/(.Header.Role: Requirement)//$atom_2"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2735",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "sha256": "23d7e46555f531b62a9d847f8234920b9a20dafe7b69cef6373d06bad3b942eb",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)/Workflow/(.Purpose := Project)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2704",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2704-CORE_META_MODEL-DECLARATION--declare-atom-header-version.md",
+      "sha256": "078da3b4f7d8d1446d8228694cac982f4019c8faa5acdcd6fc3e01fb9d0c5279",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Version{::1}:: [int]{::1};",
+          "Atom.Header.Version.*[]{::0};",
+          "Atom.Header.Version >= 1"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2713",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md",
+      "sha256": "d739326c0b058de552dddcc37d00bf16ba75e72f179d749fc0563b92bf159ec4",
+      "signals": {
+        "topics": [
+          "Atom.Header.Topics{::1}:: []{::0};",
+          "Atom.Header.Topics.*[in(Main Subject, Dependencies)]{::1..2}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2703",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+      "sha256": "43de3380f2ffcbe07fbc81bb05da02ce04e23f6818deaf54200df074aacd775b",
+      "signals": {
+        "context": [
+          "Atom.Header.Form{::1}:: [string]{::1};",
+          "Atom.Header.Form.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2565",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2565-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+      "sha256": "d20a3d943c8ca88467d07dd5b5c373b391f86035537d4e51acda426e1899d1c7",
+      "signals": {
+        "identity_state": [
+          "1. Keep Atom.Header.Version unchanged.",
+          "2. Keep Atom.Header.Updated At unchanged."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2467",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2467-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "a3273b8062e8fea35866131908d3b0495296e55779e43d20f5046067414fb068",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)/Action;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1788",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md",
+      "sha256": "3687888a36a92a5975717ad9c27c27a13aebfae219e83ef76a632561bd3d7ab0",
+      "signals": {
+        "identity_state": [
+          "**every** actual accepted edit **to** an Atom Carrier **must** refresh that Current Atom's `updated_at` **to** the actual Project-time edit instant, including a formatting, lossless serialization, Entity-name, admitted Current Status, direct-owner, **or** current-Atom local-placement edit. an exact no-op **must** retain Updated At. When a real update publishes a successor and archives its predecessor, the Archive Carrier **must** retain the predecessor's prior Updated At, numeric Version, and unrelated content while carrying the Archived status and version-qualified identity; Git history preserves the exact pre-archive bytes. Standalone archival is not an edit to the Current Atom's content: it only materializes the Archived representation with its version-qualified identity, filename and location, so it does not create a successor or refresh Updated At."
+        ],
+        "links": [
+          "changing a Current Atom's Status **and** publishing a Current successor is an actual update governed by CA-R-1432: archive the old-version identity with unchanged numeric Version and Updated At, while the Current successor receives its incremented Version and actual edit time. A standalone transition of the Current representation to Archived follows the exception above. timestamp encoding follows `CA-D-270-CORE_META_MODEL-DELIVERY--serialize-atom-revision-metadata-in-frontmatter`."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2718",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2718-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-path.md",
+      "sha256": "9561d14c2a54ee6940faf397be5a8ec94ab7b985a12b26bab0862b56508f9478",
+      "signals": {
+        "destination": [
+          "Atom.Header.Carrier Destination.File.Path:: {::1};",
+          "Atom.Header.Carrier Destination.File.Path.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1990",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1990-CORE_META_MODEL-RULE--enable-containment-for-plan-atoms.md",
+      "sha256": "b883608bcd21abe4b4b5fa2aed288c7137a51cd935cf73fcfedac91ffb4e4360",
+      "signals": {
+        "context": [
+          "`Atom/(.Header.Role := Plan).Enabled Relations.Contains` **must** be True. a Plan Atom **may** contain other Plan Atoms."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2711",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2711-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-ai-agent-confidence-threshold.md",
+      "sha256": "fbf494e6d6543b9b9f235d8bb330a9017b8fd1bba377192873705e2638b6d1cb",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold:: [int, 0..100]{::0..1};",
+          "Atom/(.Header.Role: Plan).Header.AI Agent Confidence Threshold.*[]{::0};",
+          "Atom/(.Header.Role: Plan)//$plan;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2513",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2513-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "sha256": "17b552fe7331f341b60029a33f8a8340fa785bbdd4c20f075868911b64b7353e",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Method)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2521",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2521-CORE_META_MODEL-DECLARATION--declare-action-execution-kind.md",
+      "sha256": "41a7d1f096382ebd4bab237bfe60dee2fe4084133521ea1c8960728ecd625342",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)/Action.Execution Kind{::1}:: [string]{::1};",
+          "Atom/(.Header.Role: Operations)/Action.Execution Kind.*[]{::0};",
+          "Atom/(.Header.Role: Operations)/Action.Execution Kind: Programmatic;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2511",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "3efaa884e545f86450f84e0ce35298f05ff3b859f1250cfb14d3a48ebca80024",
+      "signals": {
+        "identity_state": [
+          "IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))"
+        ],
+        "context": [
+          "Atom/(.Header.Role: Plan) >| (Container == yes);",
+          "Atom/(.Header.Role: Plan);",
+          "Atom/(.Header.Role: Plan)//$plan {::0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2585",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2585-CORE_META_MODEL-CFEL--count-property-values-and-distinct-values.md",
+      "sha256": "fb8a43bcd01bfaa9d40cd3e5b4635936df6e23342e07e3e19636b5de54e52b34",
+      "signals": {
+        "topics": [
+          "COUNT($atom.Header.Subjects.Passive: $) = COUNT(DISTINCT $atom.Header.Subjects.Passive: $)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2509",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2509-CORE_META_MODEL-DECLARATION--declare-concern.md",
+      "sha256": "690ed06205093b6171e42e9251a0c476a8579d944f97aca683f2e80e169f9d4d",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Concern)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1016",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+      "sha256": "052b70b178a1449ac1e9b435956a52024c00196a04b5f089433e0f590da773e0",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: \"Analysis & Advisory\")/(.Header.Form: Rationale)//$atom ((rationale_for)) Atom//$atom_2"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2508",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "0d30d5a01af09777d7cc465b66e15997783f41298d3e85376fa458897031a666",
+      "signals": {
+        "identity_state": [
+          "UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));"
+        ],
+        "context": [
+          "Each Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Container."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2463",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "40f515ce57bb48c3cab3e6c6291e9d338107441951384b136218b97f8456fe69",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2712",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "sha256": "911d4b8697c4fca32dddb2d80e0e558a73a5a28aeaeb628dddf3a649efce7b28",
+      "signals": {
+        "identity_state": [
+          "(.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container.atom{=1})",
+          "(.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container.scope_unit{=1})"
+        ],
+        "context": [
+          "Atom/(.Header.Role: Plan).Header.Work Sequence Number:: [int]{::0..1};",
+          "Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{::0};",
+          "Atom/(.Header.Role: Plan)//$atom;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2499",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "sha256": "569ac5bb4ea713d2b7aa8090ea617c91a40e8acbd5fb6d27efe0cd9ec57675ef",
+      "signals": {
+        "identity_state": [
+          "(Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1664",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1664-CORE_META_MODEL-RULE--register-rationale-as-a-type-value-for-analysis-atoms.md",
+      "sha256": "0d382d3dd942908801d14e38141612c61be88520ebc799d2691c4e88ca97a574",
+      "signals": {
+        "context": [
+          "`Atom/(.Header.Role := \"Analysis & Advisory\").Header.Form` values.",
+          "Rationale **must** be registered as an internal value of `Atom/(.Header.Role := \"Analysis & Advisory\").Header.Form` that owns **`=1`** explanatory conclusion **without** establishing **or** modifying normative specification."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2706",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
+      "sha256": "728d031a666c4b3b78ef6285ea84751847d444c4a773abdc95165e5cd39df177",
+      "signals": {
+        "context": [
+          "Atom.Header.Tier stores one integer value and an optional Tier Label; the Formal Claim defines their representation.",
+          "Atom.Header.Tier{::1}:: [int]{::1};",
+          "Atom.Header.Tier.*[in(Label)]{::0..1};"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2697",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2697-CORE_META_MODEL-DECLARATION--declare-atom-header-updated-at.md",
+      "sha256": "1408bcd34b459bc19c8a6547b9d6c5a48eb5c3d128cc0f59306030dc1739ea4a",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Updated At{::1}:: [datetime]{::1};",
+          "Atom.Header.Updated At.*[]{::0};",
+          "Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.Header.ID, .object_output.version = $atom.Header.Version, (.action = create OR .action = update)).happened_at)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2549",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2549-CORE_META_MODEL-CFEL--compare-numeric-values.md",
+      "sha256": "33c826eec16df1b78e3c80f0fceb6f7a9e7bfca7d03eaa5bed30314b6c739aa2",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Version >= 1;"
+        ],
+        "context": [
+          "Atom.Header.Tier >= -1;",
+          "Atom/(.Header.Role: Plan)//$atom;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2722",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "79d8caf754609c1831f83f7d2f60ae7e12ed5e1b14942cfcd91454097748b5e8",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::0..1};",
+          "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1608",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-RULE--register-core-concern-status-values.md",
+      "sha256": "2b24dda8e394f94c29429149d696dc5c94bfa53317015167bddfe4b5f80849a8",
+      "signals": {
+        "identity_state": [
+          "the Core Concern Status model **must** inherit the allowed values of Atom.Header.Status and add (Resolved, Canceled)."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1565",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+      "sha256": "c3f165a735412ce87982f9dc22dbac7529f58f6a073cdcdc73718b018deb4277",
+      "signals": {
+        "context": [
+          "the admitted internal values of `Atom/(.Header.Role := Operations).Header.Form` **must** include (Action, Workflow, Step)."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2734",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "sha256": "78f53a7b0f7aaa1fa8c497eeb01c0e05634442abcda1ba8aba7ea292e258d362",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)/Workflow/(.Purpose := Runtime)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2768",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2768-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "259d83af3689cbb0411a985d7833508b70ae1c7664bcca9120bcce6cf61f6292",
+      "signals": {
+        "context": [
+          "Atom.Header.Label ?== Atom.Header.Form"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2637",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2637-CORE_META_MODEL-DECLARATION--declare-analysis-and-advisory.md",
+      "sha256": "9edab0c200691e24476fa3df84125f2bd094cb978ea42e19002b53730ec8c09f",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: \"Analysis & Advisory\")"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1875",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1875-CORE_META_MODEL-RULE--register-core-analysis-status-values.md",
+      "sha256": "b98ce1241466238f0e30f03603b97e12c1daf5435963f5d4542342d5ee35fc28",
+      "signals": {
+        "identity_state": [
+          "the Core Analysis & Advisory Status model **must** inherit the allowed values of Atom.Header.Status and add Done. That Role Status model applies to Analysis & Advisory Atoms with Form Analysis Report or Rationale. An admitted Extension or Project Configuration **may** add values under the applicable complete Role and Form path; it **must not** remove inherited values."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1931",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "ac1dcf98c60036e349766d8eefbe7b45200fef8a4e984e9f154935f52100348a",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Status >| Status Group: Draft <+ Draft",
+          "Atom.Header.Status >| Status Group: Archived <+ Archived",
+          "Atom.Header.Status >| Status Group: Current <+ * not in (Draft, Archived)"
+        ],
+        "context": [
+          "Atom/(.Header.Role: Operations)/(.Header.Form: Step) {:1}+>{:1+} Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)",
+          "Atom/(.Header.Role: Operations)/(.Header.Form: Sub-step) {:1}+>{:0+} Atom/(.Header.Role: Operations)/(.Header.Form: Step)",
+          "Atom/(.Header.Role: Method)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2719",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "5980f917fe720bbcb23f194d1863f6c0f2f381548290a28d0b5ee43784bdd4fa",
+      "signals": {
+        "destination": [
+          "Atom.Header.*[string,in(ID, Ref ID, Role, Form, Version, Status, Updated At, Label, Tier, Topics, Container, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{::0+};",
+          "Atom.Header.Updated At ;> Atom.Header.Carrier Destination"
+        ],
+        "topics": [
+          "Atom.Header.Label ;> Atom.Header.Topics;",
+          "Atom.Header.Topics ;> Atom.Header.Tier;"
+        ],
+        "identity_state": [
+          "Atom.Header.ID ;> Atom.Header.Ref ID;",
+          "Atom.Header.Ref ID ;> Atom.Header.Container;",
+          "Atom.Header.Relations ;> Atom.Header.Status;"
+        ],
+        "context": [
+          "Atom.Header.Ref ID ;> Atom.Header.Container;",
+          "Atom.Header.Container ;> Atom.Header.Role;",
+          "Atom.Header.Role ;> Atom.Header.Form;"
+        ],
+        "relations": [
+          "Atom.Header.Tier ;> Atom.Header.Relations;",
+          "Atom.Header.Relations ;> Atom.Header.Status;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2714",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+      "sha256": "057a7fe07f50a5c698563c8368a6753ada5d043ee81af3c29914d2e14a45aa41",
+      "signals": {
+        "topics": [
+          "Atom.Header.Topics.Main Subject:: [string]{::1};",
+          "Atom.Header.Topics.Main Subject.*[]{::0};"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2465",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "fb63d6549cbf23bc9865dd7e100ce40c353561047f4ddbeace3522cf15ac2d30",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)/Step;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2717",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md",
+      "sha256": "cbbde5b913ec3939574b653b0ad3f79b8425b9100887511911a9b8b4ba89b5fd",
+      "signals": {
+        "destination": [
+          "Atom.Header.Carrier Destination.File.Name:: {::1};",
+          "Atom.Header.Carrier Destination.File.Name.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2500",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "sha256": "4dff725842105f64310444307cb5dc86b53a9a5bf8ccb03f583d4c4c1d395de4",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role in RMED).Content.Claim{::1}:: []{::0};",
+          "Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};",
+          "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim ;> Atom/(.Header.Role in RMED).Content.Claim.Formal Claim"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1022",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+      "sha256": "2cd844d1de169fa054217db099f7ea06de7841a5c087dc862ddc94e0b69bf785",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Concern)//$atom ((concern_about)) $governed"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2571",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2571-CORE_META_MODEL-RULE--capture-atom-input-and-output-metadata.md",
+      "sha256": "b02124716472545dbdfaff6fa0c3da066e5d38eb5805acdb127eb03fc197f857",
+      "signals": {
+        "identity_state": [
+          "- Atom.Header.ID.",
+          "- Atom.Header.Version.",
+          "- Atom.Header.Updated At."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2276",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2276-CORE_META_MODEL-RULE--require-one-to-one-canonical-entity-names-with-reusable-terms.md",
+      "sha256": "363cc2f70e0b96222d74022c37199bb646815cc426620a00b5492425f73508a5",
+      "signals": {
+        "context": [
+          "Qualification belongs to the full admitted expression used for entity-name collision checks. The contextual spellings `atom.id` and `projection.id` remain unchanged; they are not renamed to `atom.atom_id` or other invented spellings. The dot remains an operator. `Atom/(.Header.Role: X)/(.Header.Form: X)` is a possible qualified expression: it reuses the registered Term `X` in separately qualified value contexts, and governing authority must admit `X` separately in each context. This does not make `X` the complete canonical name of an entity outside `Term` or transfer admission between contexts. Likewise, identical local instance labels under distinct source-established kind qualification do not imply identical complete names. An arbitrary composite expression is not automatically one entity name or one Term. This rule does not register grammar: operators, reference markers, cardinality, and relation notation retain the meanings adopted under CA-R-1931 and CA-R-2487."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1321",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1321-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "sha256": "9da074657c44138881aa6ef2cdd3d919711f9796b43d3055e2e368d20488f1e6",
+      "signals": {
+        "context": [
+          "a Subject Expression **means** a reference **to** **`=1`** canonical Subject Target formed from entity names and registered relation syntax. A qualified Atom expression uses the admitted Role and Form Properties, for example `Atom/(.Header.Role := Plan)/(.Header.Form := Epic)` when both values are admitted.",
+          "Outside the Term branch, an Entity reference **must** use its exact complete canonical expression with every source-established qualifier; a bare Term is not that expression. The sole one-Term exception is the Subject root `Entity`. Ordinary lexical components **may** reuse Terms with consistent approved meanings; an instance's name is **not** automatically a lexical Term. Inside `((...))`, a registered direct Relation token resolves to **`=1`** admitted Relation Type under the named-Relation notation. Its bare spelling is not that Relation Type entity's complete canonical expression; naming comparison uses the full qualified expression separately. A qualified Atom expression such as `Atom/(.Header.Role := <exact Role>)/(.Header.Form := <exact Form>)` is available only when both exact values have independent source admission; its segments do not become admitted merely by appearing in an expression."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1580",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md",
+      "sha256": "0869b4ac1e024f9b4658094831a5cf4af516b1e4e153d87f3fb14157d4224db1",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Plan)//$prerequisite ((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2512",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2512-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "sha256": "0fb729a71727fe56f431fa267c0ea8596d95b9324080f4fb1f66e0aaf0834b76",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Requirement)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2709",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "ad65fadd59fe5141664de09b95637e376fe8e50a175e1246dd3358758e9e059e",
+      "signals": {
+        "relations": [
+          "Atom.Header.Relations{::0..1} :: []{::0};",
+          "Atom.Header.Relations.*[string]{::1+};",
+          "Atom.Header.Relations.* :: [string]{::1+}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2696",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2696-CORE_META_MODEL-DECLARATION--declare-atom-header-status.md",
+      "sha256": "231c2d3d877942be05292abcdfb9523c16dd5ef8a801094411c3113025ea68df",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Status{::1}:: [string]{::1};",
+          "Atom.Header.Status.*[]{::0};",
+          "Atom.Header.Status: Draft;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2514",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2514-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "sha256": "7329a6004670e371cd7df757f2531733303ee96013383d9cbc4ec75256aef5d4",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Evaluation)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1284",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1284-CORE_META_MODEL--define-type.md",
+      "sha256": "e03fab204410b66fc951426ebd271d3283d73a3808c047cff001e905b9370f60",
+      "signals": {
+        "context": [
+          "For example, `Atom/(.Header.Role: Method)` concerns Atoms classified by Content"
+        ],
+        "links": [
+          "Atom Form is represented by the YAML `form` key; Atom Role is represented by `role`. Legacy `type` and `content_role` are readable only under the transition rules in CA-D-657. These encodings do not create separate Property kinds.",
+          "The reviewed CA-D-478@29 says qualified classifications are ordinary",
+          "metadata Properties and maps them to `content_role` and `type`. CA-D-657@1"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1014",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1014-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "sha256": "67d6d03e23ee56c2652e6703c26bb99f40a8afde378f745176a496e01482a46d",
+      "signals": {
+        "links": [
+          "an Atom Scope **must** include its current Scope Unit Scope **or** its Author's registered Operator fallback under CA-D-657-CORE_META_MODEL-DELIVERY--use-economical-yaml-frontmatter, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2503",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2503-CORE_META_MODEL-DECLARATION--declare-atom-content-details.md",
+      "sha256": "3271e49731d4320257a2661598457a3eb93cd369280ee857b9c07a1d7a642feb",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role in RMED).Content.Details:: {::0..1};",
+          "Atom/(.Header.Role in RMED).Content.Details.*[string]{::0+}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2004",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2004-CORE_META_MODEL--define-subject-target.md",
+      "sha256": "99dfdbdffc267d46c15df7fe31989959d29a8eece51a055e069886f886b34381",
+      "signals": {
+        "topics": [
+          "A direct GOVERNS or DEPENDS_ON target in Atom.Header.Subjects must be the topic addressed by a canonical Entity-rooted Subject expression and may identify a kind, axis, property, allowed value, or named instance."
+        ],
+        "context": [
+          "Within the shared Atom branch, `Atom.Header.Role` names the classification axis. `Atom/(.Header.Role := Requirement)` names a narrower Atom kind that inherits Atom properties. Naming the axis does not create a Content Role entity or assign a role value to an Atom instance."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1308",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1308-CORE_META_MODEL-RULE--resolve-status-domains-from-complete-qualified-paths.md",
+      "sha256": "bdd9941487ef3dfc50901b02cde27c146ede1f5f83066e5dd813f7637e0d1722",
+      "signals": {
+        "identity_state": [
+          "for Atoms, resolution from the complete qualified Content Role and Type path includes the allowed values inherited from Atom.Header.Status and the additional values admitted for that path. Inheritance does **not** replace the qualified model with a flat global domain or remove its additions. A narrower Atom kind **must not** remove inherited Status values."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1991",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1991-CORE_META_MODEL-RULE--enable-containment-for-workflow-atoms.md",
+      "sha256": "a027bd26a9ff5512e5e8b1842a0814decf643c90e1bc9f2bfa3cbd11504b4aa8",
+      "signals": {
+        "context": [
+          "`Atom/(.Header.Role := Operations)/(.Header.Form := Workflow).Enabled Relations.Contains` **must** be True. a Workflow Atom **may** contain Step Atoms."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2702",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "sha256": "e7958b13ff25f904aac183a9cee5a592ce04c520580cc3ce89fa878fbdab7b83",
+      "signals": {
+        "context": [
+          "Atom.Header.Role{::1}:: [string]{::1};",
+          "Atom.Header.Role.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2466",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md",
+      "sha256": "bc7b58780a2b2368b9b1fc74897aa6d5ce179db65146413bdefde19e03476d90",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Operations)/Substep;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1283",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "sha256": "a0b90273eedaf0d8a61edc2d65cbd6a6992ea04aa54120dabdb6c7886130229e",
+      "signals": {
+        "context": [
+          "Atom.Header.Role values are admitted by their applicable Role Declarations."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1690",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "sha256": "a352e5067edc34f9d2bd20f51bfdd5efc1340cb0e521fa13ddf43cfc31b7a078",
+      "signals": {
+        "links": [
+          "- an obligation imposed by an identified external source retains external Governance Origin **and** pins the applicable source version **or** digest. its graph connections use typed Relations whose Carrier encoding is governed by CA-D-268; these Relations do **not** create another Governance Origin."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2783",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2783-CORE_META_MODEL-DECLARATION--declare-atom-header-container-atom.md",
+      "sha256": "da492cb9e8255d9199b1967d483dff7936ad6546cdba4304a67ba2177dbae55c",
+      "signals": {
+        "context": [
+          "Atom.Header.Container.atom :: [atom id]{::0..1};",
+          "Atom.Header.Container.atom.*[]{::0}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2955",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2955-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md",
+      "sha256": "eb8bcefcf2c1443680af58e1863b4b963bc99765eefbfc552afc0f295ff9fb73",
+      "signals": {
+        "context": [
+          "Atom//(.Header.Role := Requirement).Header.Form := Relation Declaration;",
+          "Atom//(.Header.Role := Requirement)//(.Header.Form := Relation Declaration)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2684",
+      "status": "Current",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "sha256": "a95da42f912b9f5754d77a1ac3cc120e378efe48f48a03008b4056cfedc2ced0",
+      "signals": {
+        "topics": [
+          "Scope Unit Declaration is a Requirement Form. A Scope Unit Declaration Atom has Role = Requirement and Form = Scope Unit Declaration. Its active Subject (`subjects.active`) identifies the specific Scope Unit being declared, rather than the generic Scope Unit kind.",
+          "(Atom//.Role = Requirement & .Form = Scope Unit Declaration & .subjects.active = Scope Unit//)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2719",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2719@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header.md",
+      "sha256": "884382b48e5f53021399709b61da1ca44ac67595ec29ae453c6a5f88bcfe951e",
+      "signals": {
+        "destination": [
+          "Atom.Header.*[string,in(ID, Ref ID, Role, Form, Version, Status, Updated At, Label, Tier, Topics, Relations, Container, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{::0+};",
+          "Atom.Header.Updated At ;> Atom.Header.Carrier Destination"
+        ],
+        "topics": [
+          "Atom.Header.Label ;> Atom.Header.Topics;",
+          "Atom.Header.Topics ;> Atom.Header.Tier;"
+        ],
+        "identity_state": [
+          "Atom.Header.ID ;> Atom.Header.Ref ID;",
+          "Atom.Header.Ref ID ;> Atom.Header.Container;",
+          "Atom.Header.Relations ;> Atom.Header.Status;"
+        ],
+        "context": [
+          "Atom.Header.Ref ID ;> Atom.Header.Container;",
+          "Atom.Header.Container ;> Atom.Header.Role;",
+          "Atom.Header.Role ;> Atom.Header.Form;"
+        ],
+        "relations": [
+          "Atom.Header.Tier ;> Atom.Header.Relations;",
+          "Atom.Header.Relations ;> Atom.Header.Status;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2956",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2956@1-draft-CORE_META_MODEL-DECLARATION--declare-function-declaration-as-a-requirement-form.md",
+      "sha256": "440254b79204860d5195bbe845e3bf8f45823b9bcc95c16eb73d068d648eb0ba",
+      "signals": {
+        "context": [
+          "Atom//(.Header.Role := Requirement).Header.Form := Function Declaration;",
+          "Atom//(.Header.Role := Requirement)//(.Header.Form := Function Declaration)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1346",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1346@29-draft-CORE_META_MODEL-RULE--permit-reused-terms-in-qualified-value-domains.md",
+      "sha256": "53a0b2d2df7204dccff481fbe952079f5ffa5073c381de554317f50078344d97",
+      "signals": {
+        "context": [
+          "Reusable lexical Terms and complete canonical names have distinct responsibilities. Shared `Package`, `Unit`, or `ID` components and repeated terminal labels do not collide when complete qualified expressions differ. The contextual topic/code spellings `atom.id` and `projection.id` distinguish their respective ID Properties; they are not alternative complete canonical Subject names or case-folded aliases. Authored Subjects use their full admitted expressions. `Atom/(.Header.Role := X)/(.Header.Form := X)` is a possible qualified expression: its two `X` components reuse the registered Term `X` in separately qualified value contexts, and governing authority must admit `X` in each context. The expression does not make `X` the complete canonical name of an entity outside `Term`, create an entity, or transfer value admission. Governing authority establishes the qualification and entity identity; path spelling alone does not invent them."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2953",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2953@1-draft-CORE_META_MODEL-DECLARATION--declare-operator-declaration-as-a-requirement-form.md",
+      "sha256": "379b58a2b8a7b7dfebd2765bb7976eab478874437c417800fb38f73b596bc045",
+      "signals": {
+        "context": [
+          "Atom//(.Header.Role := Requirement).Header.Form := Operator Declaration;",
+          "Atom//(.Header.Role := Requirement)//(.Header.Form := Operator Declaration)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1014",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1014@41-draft-CORE_META_MODEL-RULE--resolve-atom-scope-contextually.md",
+      "sha256": "e38d6e6c9267cc88603ab36645a25f2dd8917f52fb476e8cde61217333efa9ec",
+      "signals": {
+        "context": [
+          "an Atom Scope **must** include the Scope Unit resolved from its `Header.Container` chain, its **`=1`** Atom Governed Subject, **and** **any** explicit Scope constraints **in** its Claim. Follow Atom container references until a Scope Unit ID is reached; predefined `world` (`CA-SU--1`) is a valid Scope Unit."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2709",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "10995dd5d50de07535f4fcd71900c526a9d67c404d37c3e35349e39cd4afb273",
+      "signals": {
+        "relations": [
+          "Atom.Header.Relations{::0..1} :: []{::0};",
+          "Atom.Header.Relations.*[string]{::1+};",
+          "Atom.Header.Relations.* :: [string]{::1+}"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1284",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1284@28-draft-CORE_META_MODEL--define-type.md",
+      "sha256": "28079f80fb8b0ccef7b196a0c531a7b3274177ea6b8c79378f9a5651d7ac49b3",
+      "signals": {
+        "context": [
+          "For example, `Atom/(.Header.Role: Method)` concerns Atoms classified by Content"
+        ],
+        "links": [
+          "Atom Form is represented by the YAML `form` key; Atom Role is represented by `role`. Legacy `type` and `content_role` are readable only under the transition rules in CA-D-657. These encodings do not create separate Property kinds.",
+          "The reviewed CA-D-478@29 says qualified classifications are ordinary",
+          "metadata Properties and maps them to `content_role` and `type`. CA-D-657@1"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2768",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2768@3-draft-CORE_META_MODEL-RULE--assign-a-default-when-an-object-property-is-absent.md",
+      "sha256": "137b15148c305475c9b1855efc48810ea3118d74dc651108609b3f476778a2a2",
+      "signals": {
+        "context": [
+          "Atom.Header.Label ?== Atom.Header.Form"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2471",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2471@8-draft-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "1c55fc1a4c51b6eddafb5c4c68143ba10647ee21597e85271eaee258c6be119f",
+      "signals": {
+        "context": [
+          "Subjects remain addresses and do not contain complete Formal Claims. In Subjects and filtered Node expressions in Formal Claims, `:=` combines allowed value and condition, including `Atom/(.Header.Role := Method)` and `Workflow/(.Purpose := Runtime)`; it does not write an instance value. Outside these selections, `::` and `=` retain their separate allowed-value and condition meanings. The withdrawn `..` form is not adopted."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2712",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2712@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md",
+      "sha256": "cc446050d0e8ccaeebf98860aab2ee3df2cc534d9e00c797ac129449e8a3a059",
+      "signals": {
+        "identity_state": [
+          "(.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container{=1})"
+        ],
+        "context": [
+          "Atom/(.Header.Role:=Plan).Header.Work Sequence Number :: [int]{::0..1};",
+          "Atom/(.Header.Role:=Plan).Header.Work Sequence Number.*[]{::0};",
+          "Atom/(.Header.Role:=Plan)//$atom;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2954",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2954@1-draft-CORE_META_MODEL-DECLARATION--declare-construct-declaration-as-a-requirement-form.md",
+      "sha256": "dd6f354d892acf62fd5d2a6a0a14b93544ae62b1db9ab0d05150c05bf76200b8",
+      "signals": {
+        "context": [
+          "Atom//(.Header.Role := Requirement).Header.Form := Construct Declaration;",
+          "Atom//(.Header.Role := Requirement)//(.Header.Form := Construct Declaration)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2508",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "1303d6766b4b48a7eb9150d19699ff25a30cc52df3ed37f173eac451ed94e4ab",
+      "signals": {
+        "identity_state": [
+          "UNIQUE(Atom//$identity_atom, (.Header.ID, .Header.Version));"
+        ],
+        "context": [
+          "Each Atom instance’s outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance resolved from its effective Header.Container. Header.Container is the sole stored Atom-containment value."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2762",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2762@3-draft-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md",
+      "sha256": "4d13aa0da5b503530c06c791a42d34140d0277937cc93109c81625b519113f4c",
+      "signals": {
+        "context": [
+          "$dependent[<Atom>, (.Header.Role = Plan)] ((IS_BLOCKED_BY)) $prerequisite[<Atom>, (.Header.Role = Plan)]"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2734",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md",
+      "sha256": "f931651edd639ac6bb2a1be0e0cab4a4be6c1bc2089ba6f9399e5c5a5855938f",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2467",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md",
+      "sha256": "f7a4c22b2830d1723569529e0340d7abbd1bbc9fc40c9df673210015e2396bdd",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role := Operations)/Action;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2511",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@6-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "7b5a4daff15b56023e6193135651d867cc63310b920592e2af20b8664c7538fa",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role: Plan) >| (Container == yes);",
+          "Atom/(.Header.Role: Plan);",
+          "Atom/(.Header.Role: Plan)//$plan {::0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2464",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md",
+      "sha256": "5ad01627c6750b66fd8371a5c67e654d8f4a0ca5ed4184f829440822d52ede15",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role := Operations)/Workflow;",
+          "Atom/(.Header.Role := Operations)/Workflow >| (Container == yes);"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2975",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2975@1-draft-CORE_META_MODEL-RULE--source-rmed-subject-view-contracts-only-from-declarations.md",
+      "sha256": "4ef36f4c87f08511b38cd2e6c63fdae96a37ec1f615deab43e39a90531dd9916",
+      "signals": {
+        "context": [
+          "For a selected effective MODEL, an RMED Subject Map must obtain a displayed Primary Subject's or displayed direct or inherited Property's allowed Relation cardinalities, Property presence, direct-value cardinality, direct-value Format, nested Property names, recursive Property structure, and full CFEL Formal Claim only from its effective Current Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration). It must preserve each applicable Declaration's full CFEL Formal Claim block verbatim; a missing, unsupported, or conflicting Declaration result is a diagnostic, not a fallback to another RMED Atom."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2465",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2465@5-draft-CORE_META_MODEL-DECLARATION--declare-step.md",
+      "sha256": "2dc88aa18039aa5d64a348dac3c5c893512383f07c8974745250a1e49194b911",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role := Operations)/Step;",
+          "Atom/(.Header.Role := Operations)/Step >| (Container == yes);"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1321",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1321@36-draft-CORE_META_MODEL-RULE--define-subject-expression.md",
+      "sha256": "0b75e11e5d2d24aac47e57a3f5d51e202f032df5140817a2c78b470cb5bfda4c",
+      "signals": {
+        "context": [
+          "a Subject Expression **means** a reference **to** **`=1`** canonical Subject Target formed from entity names and registered relation syntax. A qualified Atom expression uses the admitted Role and Form Properties, for example `Atom/(.Header.Role := Plan)/(.Header.Form := Epic)` when both values are admitted.",
+          "Outside the Term branch, an Entity reference **must** use its exact complete canonical expression with every source-established qualifier; a bare Term is not that expression. The sole one-Term exception is the Subject root `Entity`. Ordinary lexical components **may** reuse Terms with consistent approved meanings; an instance's name is **not** automatically a lexical Term. Inside `((...))`, a registered direct Relation token resolves to **`=1`** admitted Relation Type under the named-Relation notation. Its bare spelling is not that Relation Type entity's complete canonical expression; naming comparison uses the full qualified expression separately. A qualified Atom expression such as `Atom/(.Header.Role := <exact Role>)/(.Header.Form := <exact Form>)` is available only when both exact values have independent source admission; its segments do not become admitted merely by appearing in an expression."
+        ]
+      }
+    },
+    {
+      "id": "CA-R-1931",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1931@19-draft-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md",
+      "sha256": "f15c335b803682894ec0cff1dd65460c8dd894f404a8f83b156012d29b3f7524",
+      "signals": {
+        "identity_state": [
+          "Atom.Header.Status >| Status Group:: Draft <+ Draft",
+          "Atom.Header.Status >| Status Group:: Archived <+ Archived",
+          "Atom.Header.Status >| Status Group:: Current <+ * not in (Draft, Archived)"
+        ],
+        "context": [
+          "Atom/(.Header.Role := Method)",
+          "`Atom/(.Header.Form := Method)` means an Atom with the stated Form qualification, not",
+          "`Atom/(.Header.Role := Method)`. Every qualification still requires its own"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2735",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2735@2-draft-CORE_META_MODEL-DECLARATION--declare-project-workflow.md",
+      "sha256": "68f2b910ab9a26af2df09dab44b3f24979a2159b8cdf6f47ab0d191677574a5a",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)"
+        ]
+      }
+    },
+    {
+      "id": "CA-R-2463",
+      "status": "Draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "c2069d26b33ede3eaff95f15b8e0023480ccdaf2132488c8fcc8a98a62e34ef8",
+      "signals": {
+        "context": [
+          "Atom/(.Header.Role := Operations)"
+        ]
+      }
+    }
+  ],
+  "logical_mapping": {
+    "Identity": [
+      "ID",
+      "Ref ID"
+    ],
+    "Context": [
+      "Container",
+      "Role",
+      "Form",
+      "Label",
+      "Topics",
+      "Tier"
+    ],
+    "Relations": "retains its own Header group",
+    "State": [
+      "Status",
+      "Version",
+      "Updated At"
+    ],
+    "Destination": [
+      "File.Name",
+      "File.Path"
+    ],
+    "obsolete_name": "Header.Carrier Destination -> Header.Destination"
+  },
+  "minimal_patch_plan": [
+    {
+      "sources": "D657 Current and D657@5 Draft",
+      "change": "Rebase complete serialization contract to grouped Header paths and agreed YAML group names; preserve mandatory/optional checks, present-group semantics, Topics semantics, nonempty relation arrays, no inverse facts, no Atom Author and Content handling. Reapply Draft removal of Event authorship only when coordinated with event-contract source cutover."
+    },
+    {
+      "sources": "D664 Current",
+      "change": "Change only delivery equalities from Header.Carrier Destination.File.Name/Path to Header.Destination.File.Name/Path. Preserve filename including extension, repo-relative containing directory, and frontmatter/body boundary."
+    },
+    {
+      "sources": "D662 Current",
+      "change": "Rebase role, form and Topics encodings to Context group and replace legacy subjects.active/passive, contained_by and stale example with agreed Context.Container plus Topics mappings. Preserve no duplicate logical containment and direct canonical Relation semantics; synchronize with D268 Draft and approved main-subject binding, do not introduce extra GOVERNS facts."
+    },
+    {
+      "sources": "D270, D378, D446, D650, D483 Current and existing Drafts",
+      "change": "Use Identity.ID/Ref ID and State.Status/Version/Updated At in logical paths and encoding references while preserving ID/version uniqueness, frozen Revision history, numbered Draft filenames, status domains, timestamps and predecessor guarantees. D650 Draft must be reconciled with Current D650 rather than silently superseding it."
+    },
+    {
+      "sources": "D478 Current; D264/D266/D268 and Plan/Workflow Delivery Drafts",
+      "change": "Keep one internal location, typed container agreement and direct-only Relations; adjust Context.Container/Relations paths and any carried examples, preserving historical predecessor bytes, parent and Status placement."
+    },
+    {
+      "sources": "D283/D469 and status-specific location policies",
+      "change": "Update logical Header property addresses where referenced. Retain actual filename, Summary slug, role/form Label, Work Sequence Number, status and parent-container formulas; renaming group itself does not choose another filename."
+    },
+    {
+      "sources": "Matched R/M/E/D source consumers in census",
+      "change": "Individually rebase executable Formal Claims and normative YAML examples to the agreed groups after resolving each Current/Draft overlap; frozen @version source links and retained archives stay byte-exact. No regex blanket rewrite."
+    }
+  ],
+  "example_logical_mapping": [
+    "Atom.Header.ID -> Atom.Header.Identity.ID",
+    "Atom.Header.Ref ID -> Atom.Header.Identity.Ref ID",
+    "Atom.Header.Role -> Atom.Header.Context.Role",
+    "Atom.Header.Topics.Main Subject -> Atom.Header.Context.Topics.Main Subject",
+    "Atom.Header.Status -> Atom.Header.State.Status",
+    "Atom.Header.Carrier Destination.File.Path -> Atom.Header.Destination.File.Path"
+  ],
+  "acceptance": [
+    "Every complete Atom has one allowed location for each admitted Property and no duplicate flat/group copies; optionality, counts and values survive.",
+    "Destination.File.Name includes full extension; Destination.File.Path is the repo-relative containing directory and agrees with physical placement.",
+    "Current and Draft identity/version uniqueness, retained frozen historical references and timestamps are preserved.",
+    "Topics main subject and dependencies retain their distinct meaning; canonical Relations and Container fact are not duplicated.",
+    "Read source and examples with actual new grouping; any code, parser, adapter or runtime verification is CA #3-owned and remains a separate gate."
+  ],
+  "real_ambiguities": [
+    "Exact YAML spelling and nesting of Header groups is not specified by the provided grouping decision: whether frontmatter directly contains identity/context/relations/state/destination or wraps them in header, and exact child key spellings require the model/serialization owner before mechanical rewrites. Do not conflate this with the settled logical grouping.",
+    "Ordering among the five groups and interaction with existing Header.Property order needs the final Declaration order; preserve D657 existing order rule rather than invent a sequence."
+  ],
+  "limits": [
+    "No Current/Draft/native source mutations, tests, code, Git or runtime actions.",
+    "Status of pre-existing candidates is not promotion or runtime evidence; all hashes require recheck before integration."
+  ]
+}

@@ -1,0 +1,14 @@
+## Summary
+
+Declare Atom/(.Header.Context.Role := Concern).Header.Context.Concern
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom/(.Header.Context.Role := Concern).Header.Context.Concern{::1} :: []{::0};
+
+Atom/(.Header.Context.Role := Concern).Header.Context.Concern.*[in (Priority)]{::1}
+```

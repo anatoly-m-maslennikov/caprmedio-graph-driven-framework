@@ -1,4 +1,4 @@
-# CA-D-675@10
+# CA-D-675@13
 # CA-E-785@1
 
 from __future__ import annotations
@@ -38,7 +38,6 @@ class RuntimeSettingsTests(unittest.TestCase):
         self.path.write_text("[workbench]\nresult_ttl_seconds = 0\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "positive integer"):
             result_ttl_seconds(self.root)
-
 
 if __name__ == "__main__":
     unittest.main()

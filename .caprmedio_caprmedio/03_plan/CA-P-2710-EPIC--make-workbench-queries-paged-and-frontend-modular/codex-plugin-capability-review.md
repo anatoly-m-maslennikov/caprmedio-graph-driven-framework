@@ -60,3 +60,7 @@ The Operator confirmed that the actual component is inside the Codex session, no
 Release 0.4.4.27 serves `ui://caprmedio/workbench-compatibility-v2.html` with Presentation text and an Expand button. Live MCP verification confirms the exact resource bytes. The Operator screenshot after invocation still shows the first UI without those elements; v2 has not been observed in Codex. Cached launch metadata or an earlier retained card is the current hypothesis, not a proven server defect. The public `config/mcpServer/reload` method queues refresh for loaded threads, but the default local CLI control daemon is unavailable, so this session cannot invoke it against the running app. No private app connection or unsupported API was used.
 
 The native Codex MCP resource API also lists the v2 URI and returns HTML containing both Presentation text and the Expand button. This verifies v2 through the actual host connection, not only the separate HTTP test client. The visible card still lacks those elements. Refreshing the retained tool/UI metadata is the remaining presentation-test prerequisite.
+
+## Native expanded presentation observed
+
+The Operator screenshot shows the probe in a native expanded tab, with “Tool bridge passed” and “Presentation: fullscreen; available: inline, fullscreen”. This verifies native rendering, tool calls and fullscreen presentation. Expand is disabled because the component is already fullscreen. The complete Workbench interface remains unfinished.

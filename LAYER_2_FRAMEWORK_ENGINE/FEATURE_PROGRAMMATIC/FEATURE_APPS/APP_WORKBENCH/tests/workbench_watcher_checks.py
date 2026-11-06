@@ -1,10 +1,11 @@
-# CA-E-780@1
+# CA-E-780@3
 
 """Docker watcher checks mixed into the existing Workbench E2E fixture."""
 
 from __future__ import annotations
 
 import asyncio
+from collections.abc import Callable
 import datetime as dt
 import json
 from pathlib import Path
@@ -20,6 +21,9 @@ from http_paths import HEALTH_PATH, MCP_PATH, WORKBENCH_PATH
 
 
 CHANGE_LOG_FIELDS = ("observed_at", "operation", "old_path", "new_path")
+WATCHER_OBSERVATION_DEADLINE_SECONDS = 20
+WATCHER_POLL_INTERVAL_SECONDS = 0.2
+WATCHER_VOLUME_ATOM_COUNT = 5_000
 
 
 def _event_rows(path: Path) -> list[dict[str, object]]:
@@ -53,6 +57,9 @@ class WorkbenchWatcherDockerMixin:
             declarations = write_scope_unit_declarations(root, control_root=control)
             source_directory = source_path(declarations, "fixture", "04_requirement", "placeholder.md").parent
             write_atom(source_directory / "CA-R-901-docker.md", "CA-R-901")
+            for index in range(1, WATCHER_VOLUME_ATOM_COUNT - len(declarations)):
+                atom_id = f"CA-R-{100_000 + index}"
+                write_atom(source_directory / f"{atom_id}-watcher-volume.md", atom_id)
             moved_parent = source_directory / "move-parent"
             moved_parent.mkdir()
             directory_parent = control / "watch-dir-parent"
@@ -64,7 +71,6 @@ class WorkbenchWatcherDockerMixin:
             workbench_state = temporary_root / "workbench"
             workbench_state.mkdir()
             workbench_state.chmod(0o777)
-
             def relative(path: Path) -> str:
                 return path.relative_to(root).as_posix()
 
@@ -98,7 +104,7 @@ class WorkbenchWatcherDockerMixin:
             def wait_for_events(
                 url: str, expected: list[tuple[str, str | None, str | None]],
             ) -> list[dict[str, object]]:
-                deadline = time.monotonic() + 20
+                deadline = time.monotonic() + WATCHER_OBSERVATION_DEADLINE_SECONDS
                 while time.monotonic() < deadline:
                     rows = query_rows(url)
                     keys = {
@@ -109,15 +115,26 @@ class WorkbenchWatcherDockerMixin:
                         try:
                             assert_same_log(rows)
                         except AssertionError:
-                            time.sleep(0.2)
+                            time.sleep(WATCHER_POLL_INTERVAL_SECONDS)
                             continue
                         return rows
-                    time.sleep(0.2)
+                    time.sleep(WATCHER_POLL_INTERVAL_SECONDS)
                 self.fail(f"watcher did not deliver expected events: {expected}; file={_event_rows(workbench_state / 'watcher-change-log.ndjson')}")
 
-            def wait_for_atom(url: str, atom_id: str, expected_rows: list[list[object]]) -> None:
-                deadline = time.monotonic() + 20
+            visibility_latencies: list[dict[str, object]] = []
+
+            def mutate_then_wait(
+                operation: str,
+                mutation: Callable[[], object],
+                atom_id: str,
+                expected_rows: list[list[object]],
+            ) -> None:
+                started_at = time.monotonic()
+                mutation()
+                deadline = time.monotonic() + WATCHER_OBSERVATION_DEADLINE_SECONDS
+                polls = 0
                 while time.monotonic() < deadline:
+                    polls += 1
                     status, result = request(
                         url + f"{workbench_path}/run", method="POST",
                         payload={
@@ -125,8 +142,17 @@ class WorkbenchWatcherDockerMixin:
                         },
                     )
                     if status == 200 and isinstance(result, dict) and result.get("rows") == expected_rows:
+                        metric = {
+                            "measurement": "mutation_to_duckdb_visibility",
+                            "operation": operation,
+                            "atom_id": atom_id,
+                            "elapsed_ms": round((time.monotonic() - started_at) * 1000, 1),
+                            "polls": polls,
+                        }
+                        visibility_latencies.append(metric)
+                        print(f"WATCHER_LATENCY {json.dumps(metric, sort_keys=True)}")
                         return
-                    time.sleep(0.2)
+                    time.sleep(WATCHER_POLL_INTERVAL_SECONDS)
                 self.fail(f"watcher did not refresh atom {atom_id}: expected={expected_rows}")
 
             def start_container():
@@ -139,6 +165,7 @@ class WorkbenchWatcherDockerMixin:
                     [
                         "docker", "run", "--rm", "--name", name,
                         "--label", "caprmedio.test=workbench-watch",
+                        "--memory=1536m", "--memory-swap=1536m",
                         "--tmpfs", "/tmp:rw,nosuid,nodev,size=256m",
                         "--tmpfs", "/project/.caprmedio_runtime:rw,nosuid,nodev,size=64m,mode=1777",
                         "-p", f"127.0.0.1:{port}:8092", "-v", f"{root}:/project:rw",
@@ -178,6 +205,13 @@ class WorkbenchWatcherDockerMixin:
                 stdout.close()
                 stderr.close()
 
+            def container_logs(name: str) -> str:
+                result = subprocess.run(
+                    ["docker", "logs", name], capture_output=True, text=True, check=False, timeout=30,
+                )
+                self.assertEqual(0, result.returncode, result.stderr)
+                return result.stdout
+
             handle = start_container()
             try:
                 _process, _name, url, _stdout, _stderr = handle
@@ -194,6 +228,12 @@ class WorkbenchWatcherDockerMixin:
                 )
                 self.assertEqual(200, initial[0], initial[1])
                 self.assertEqual([[1]], initial[1]["rows"])
+                atom_count = request(
+                    url + f"{workbench_path}/run", method="POST",
+                    payload={"sql": "SELECT count(*) FROM atoms"},
+                )
+                self.assertEqual(200, atom_count[0], atom_count[1])
+                self.assertEqual([[WATCHER_VOLUME_ATOM_COUNT]], atom_count[1]["rows"])
                 baseline = query_rows(url)
                 assert_same_log(baseline)
 
@@ -206,7 +246,7 @@ class WorkbenchWatcherDockerMixin:
                 def observe_host_relocation(old_path: Path, new_path: Path, operation: str) -> None:
                     """macOS bind mounts may expose a host relocation as remove/create."""
                     old, new = relative(old_path), relative(new_path)
-                    deadline = time.monotonic() + 20
+                    deadline = time.monotonic() + WATCHER_OBSERVATION_DEADLINE_SECONDS
                     while time.monotonic() < deadline:
                         rows = query_rows(url)
                         keys = {(str(row["operation"]), row["old_path"], row["new_path"]) for row in rows}
@@ -218,7 +258,7 @@ class WorkbenchWatcherDockerMixin:
                         if paired <= keys:
                             expected.extend(sorted(paired))
                             return
-                        time.sleep(0.2)
+                        time.sleep(WATCHER_POLL_INTERVAL_SECONDS)
                     self.fail(f"watcher did not deliver host relocation: {old} -> {new}")
 
                 def move_inside_container(name: str, old_path: Path, new_path: Path) -> None:
@@ -229,27 +269,73 @@ class WorkbenchWatcherDockerMixin:
                     self.assertEqual(0, result.returncode, result.stderr)
 
                 created = source_directory / "CA-R-902-created.md"
-                write_atom(created, "CA-R-902")
-                wait_for_atom(url, "CA-R-902", [[1, relative(created.parent), created.name]])
+                mutate_then_wait(
+                    "create", lambda: write_atom(created, "CA-R-902"), "CA-R-902",
+                    [[1, relative(created.parent), created.name]],
+                )
                 observe("create", None, created)
-                write_atom(created, "CA-R-902", version=2, body="# Summary\n\nChanged from the host.\n")
-                wait_for_atom(url, "CA-R-902", [[2, relative(created.parent), created.name]])
+                mutate_then_wait(
+                    "update",
+                    lambda: write_atom(
+                        created, "CA-R-902", version=2, body="# Summary\n\nChanged from the host.\n"
+                    ),
+                    "CA-R-902", [[2, relative(created.parent), created.name]],
+                )
                 observe("update", None, created)
                 renamed = source_directory / "renamed.md"
-                created.rename(renamed)
-                wait_for_atom(url, "CA-R-902", [[2, relative(renamed.parent), renamed.name]])
+                mutate_then_wait(
+                    "host_rename", lambda: created.rename(renamed), "CA-R-902",
+                    [[2, relative(renamed.parent), renamed.name]],
+                )
                 observe_host_relocation(created, renamed, "rename")
-                native_renamed = source_directory / "native-renamed.md"
-                move_inside_container(_name, renamed, native_renamed)
-                wait_for_atom(url, "CA-R-902", [[2, relative(native_renamed.parent), native_renamed.name]])
-                observe("rename", renamed, native_renamed)
-                moved = moved_parent / "moved-name.md"
-                move_inside_container(_name, native_renamed, moved)
-                wait_for_atom(url, "CA-R-902", [[2, relative(moved.parent), moved.name]])
+                host_moved = moved_parent / "host-moved-name.md"
+                mutate_then_wait(
+                    "host_move", lambda: renamed.rename(host_moved), "CA-R-902",
+                    [[2, relative(host_moved.parent), host_moved.name]],
+                )
+                observe_host_relocation(renamed, host_moved, "move")
+                native_renamed = moved_parent / "native-renamed.md"
+                mutate_then_wait(
+                    "container_rename",
+                    lambda: move_inside_container(_name, host_moved, native_renamed),
+                    "CA-R-902",
+                    [[2, relative(native_renamed.parent), native_renamed.name]],
+                )
+                observe("rename", host_moved, native_renamed)
+                moved = source_directory / "moved-name.md"
+                mutate_then_wait(
+                    "container_move",
+                    lambda: move_inside_container(_name, native_renamed, moved),
+                    "CA-R-902",
+                    [[2, relative(moved.parent), moved.name]],
+                )
                 observe("move", native_renamed, moved)
-                moved.unlink()
-                wait_for_atom(url, "CA-R-902", [])
+                mutate_then_wait("remove", moved.unlink, "CA-R-902", [])
                 observe("remove", moved, None)
+
+                nested_directory = source_directory / "new-nested-source"
+                nested = nested_directory / "CA-R-905-nested.md"
+
+                def create_nested_atom() -> None:
+                    nested_directory.mkdir()
+                    write_atom(nested, "CA-R-905")
+
+                mutate_then_wait(
+                    "create_nested_atom", create_nested_atom, "CA-R-905",
+                    [[1, relative(nested.parent), nested.name]],
+                )
+                observe("create", None, nested_directory)
+                observe("create", None, nested)
+                mutate_then_wait(
+                    "update_nested_atom",
+                    lambda: write_atom(nested, "CA-R-905", version=2, body="# Summary\n\nNested edit.\n"),
+                    "CA-R-905", [[2, relative(nested.parent), nested.name]],
+                )
+                observe("update", None, nested)
+                mutate_then_wait("remove_nested_atom", nested.unlink, "CA-R-905", [])
+                observe("remove", nested, None)
+                nested_directory.rmdir()
+                observe("remove", nested_directory, None)
 
                 directory_source = control / "watch-dir-source"
                 directory_source.mkdir()
@@ -261,12 +347,15 @@ class WorkbenchWatcherDockerMixin:
                 observe("remove", directory_target, None)
 
                 entered = source_directory / "entered.md"
-                incoming.rename(entered)
-                wait_for_atom(url, "CA-R-903", [[1, relative(entered.parent), entered.name]])
+                mutate_then_wait(
+                    "enter_control_root", lambda: incoming.rename(entered), "CA-R-903",
+                    [[1, relative(entered.parent), entered.name]],
+                )
                 observe("create", None, entered)
                 outgoing = outside / "outgoing.md"
-                entered.rename(outgoing)
-                wait_for_atom(url, "CA-R-903", [])
+                mutate_then_wait(
+                    "leave_control_root", lambda: entered.rename(outgoing), "CA-R-903", []
+                )
                 observe("remove", entered, None)
 
                 outside_only = outside / "outside.md"
@@ -292,6 +381,39 @@ class WorkbenchWatcherDockerMixin:
                         row["operation"] == "update"
                         and (row["old_path"] in directory_paths or row["new_path"] in directory_paths)
                         for row in rows
+                    )
+                )
+                self.assertTrue(visibility_latencies)
+                final_count = request(
+                    url + f"{workbench_path}/run", method="POST",
+                    payload={"sql": "SELECT count(*) FROM atoms"},
+                )
+                self.assertEqual(200, final_count[0], final_count[1])
+                self.assertEqual([[WATCHER_VOLUME_ATOM_COUNT]], final_count[1]["rows"])
+                logs = container_logs(_name)
+                self.assertIn("Workbench INFO refresh mode=full", logs)
+                self.assertRegex(
+                    logs,
+                    r"Workbench INFO refresh mode=delta .*capture_ms=.*materialize_ms=.*write_ms=.*elapsed_ms=",
+                )
+                self.assertRegex(
+                    logs,
+                    r"Workbench INFO database_edit operation=insert table=atoms row_count=1 elapsed_ms=",
+                )
+                print(
+                    "WATCHER_LATENCY_SUMMARY "
+                    + json.dumps(
+                        {
+                            "measurement": "mutation_to_duckdb_visibility",
+                            "operations": len(visibility_latencies),
+                            "fixture_atom_count": WATCHER_VOLUME_ATOM_COUNT,
+                            "min_ms": min(metric["elapsed_ms"] for metric in visibility_latencies),
+                            "max_ms": max(metric["elapsed_ms"] for metric in visibility_latencies),
+                            "poll_interval_ms": WATCHER_POLL_INTERVAL_SECONDS * 1000,
+                            "observation_deadline_seconds": WATCHER_OBSERVATION_DEADLINE_SECONDS,
+                            "elapsed_includes": ["mutation", "watcher", "indexing", "request", "polling"],
+                        },
+                        sort_keys=True,
                     )
                 )
 

@@ -15,11 +15,11 @@ relations:
   - CA-M-490
   - CA-D-695
 status: Active
-version: 1
-updated_at: 2026-11-05 18:48:47 +0400
+version: 3
+updated_at: 2026-11-06 14:53:35 +0400
 carrier_destination:
   file:
-    name: CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-the-workbench-watcher-change-log.md
+    name: CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation
 current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
@@ -55,3 +55,7 @@ Run a real Docker end-to-end check on a bind-mounted temporary repository and se
 
 Verify that `change_log` is not used as an `atoms`/`scope_units` source, graph vertex or Relation fact, and that the delivered columns are limited to `observed_at`, `operation`, `old_path` and `new_path`.
 
+
+Seed approximately 5,000 actual Atom source files before the Docker watcher starts, assert the indexed workload size, and reuse that one fixture for the existing mutations and latency measurements. Verify a child Atom created inside a newly host-created nested folder becomes query-visible too. For each file mutation exercised by the Docker E2E test, report elapsed milliseconds from immediately before the filesystem operation until a query returns the matching Atom version and path, or confirms its absence after removal. Include the operation and number of observations. Measure create, edit, host and native rename/move, and entry/exit across the watched boundary. Event-log visibility alone is not index visibility.
+
+Report these measurements without adding a speed pass/fail threshold. Keep the existing correctness deadlines. State that the timing includes request and polling overhead; distinguish the small fixture from measurements on the actual repository.
