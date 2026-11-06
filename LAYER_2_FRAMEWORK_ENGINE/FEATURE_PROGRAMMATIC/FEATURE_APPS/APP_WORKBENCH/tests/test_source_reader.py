@@ -756,6 +756,20 @@ class SourceReaderTests(unittest.TestCase):
         self.assertEqual(len(self.declarations), len(scopes))
         declarations.assert_not_called()
 
+    def test_noop_comparison_preserves_yaml_date_and_nested_value_types(self) -> None:
+        import datetime as dt
+        from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_rows import same_row
+        cases = [
+            (dt.date(2026, 1, 1), "2026-01-01"),
+            (dt.datetime(2026, 1, 1, tzinfo=dt.UTC), "2026-01-01T00:00:00+00:00"),
+            (True, 1),
+            (1, 1.0),
+        ]
+        for before, after in cases:
+            with self.subTest(before=before, after=after):
+                self.assertFalse(same_row(((1,), {"header": {"values": [before]}}), ((2,), {"header": {"values": [after]}})))
+        self.assertTrue(same_row(((1,), {"value": cases[0][0]}), ((2,), {"value": cases[0][0]})))
+
 
 if __name__ == "__main__":
     unittest.main()

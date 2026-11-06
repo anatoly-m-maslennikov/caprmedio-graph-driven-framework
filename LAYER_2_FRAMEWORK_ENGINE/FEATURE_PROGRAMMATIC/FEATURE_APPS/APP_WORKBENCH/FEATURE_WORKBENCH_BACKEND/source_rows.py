@@ -78,6 +78,16 @@ def bigint(value: Any) -> int | None:
     return value if type(value) is int and -(2**63) <= value < 2**63 else None
 
 
+def _same_types(before: Any, after: Any) -> bool:
+    if type(before) is not type(after):
+        return False
+    if isinstance(before, dict):
+        return before.keys() == after.keys() and all(_same_types(value, after[key]) for key, value in before.items())
+    if isinstance(before, (list, tuple)):
+        return len(before) == len(after) and all(_same_types(left, right) for left, right in zip(before, after))
+    return True
+
+
 def same_row(
     before: tuple[tuple[int, ...], dict[str, Any]] | None,
     after: tuple[tuple[int, ...], dict[str, Any]] | None,
@@ -86,4 +96,4 @@ def same_row(
         return before is after
     if before[1] is after[1]:
         return True
-    return canonical(before[1]) == canonical(after[1])
+    return _same_types(before[1], after[1]) and canonical(before[1]) == canonical(after[1])

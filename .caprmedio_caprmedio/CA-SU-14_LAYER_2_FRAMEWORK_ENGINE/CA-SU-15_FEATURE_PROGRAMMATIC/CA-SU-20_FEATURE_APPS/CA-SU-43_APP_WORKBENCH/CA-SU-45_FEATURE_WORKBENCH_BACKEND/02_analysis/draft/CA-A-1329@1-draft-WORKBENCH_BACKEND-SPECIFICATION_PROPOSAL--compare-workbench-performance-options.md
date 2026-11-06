@@ -49,10 +49,10 @@ The current implementation cycle keeps DuckDB and its transaction model. It reus
 | E07 | Index cost | Measure database mutation time with the existing primary/unique constraints and with optional constraints removed in an isolated experiment. Identify constraints needed by DuckPGQ. Do not remove live uniqueness checks or assume indexes rebuild after every edit. |
 | E08 | Faster serialization/parsing libraries | If profiles still show significant serialization cost, benchmark orjson. Check exact canonical hash behavior, datetimes, nulls, numbers and Unicode. For cold reading, evaluate the installed safe LibYAML backend without changing validation. Shared parser changes remain a separate owned implementation lane. |
 | E09 | Native hot function | If a measured CPU hotspot remains after incremental processing, benchmark a small Rust/PyO3 implementation; consider Go only where its library or standalone boundary gives a concrete advantage. Include conversion/call/build costs. Do not rewrite the backend or add a service merely to change language. |
-| E11 | Lighter derived-state durability | Benchmark supported DuckDB persistence/checkpoint settings for the disposable index and result cache. Compare buffered/batched writes where supported and, only within the memory budget, in-memory derived state. Do not invent an unsupported WAL-off option or relax explicit saved-query/View persistence. Keep coherent committed query results. |
-| E12 | Alternative file watchers | Compare watchdog with alternatives that preserve native create/update/delete and old/new move/rename reporting, repository boundaries and shutdown. Include a Rust notify bridge where useful. A faster watcher that loses required event meaning is not equivalent. |
-| E13 | Parallel Python preparation | Compare ordinary I/O threads, a free-threaded CPython build, and bounded processes or isolated interpreters for independent changed-file parsing. Include dependency compatibility, GIL state after imports, memory and data-transfer costs. Keep one coherent publication step; measure bulk throughput separately from single-edit latency. |
 | E10 | Log-retention CPU work | At realistic retained-history sizes, compare normal append without scanning all unexpired rows against the current retention pass. Preserve exact 48-hour expiry, the watcher row cap and duplicate observations. |
+| E11 | Lighter derived-state durability | Benchmark supported DuckDB persistence/checkpoint settings for the disposable index and result cache. Compare buffered/batched writes where supported and, only within the memory budget, in-memory derived state. Do not invent an unsupported WAL-off option or relax explicit saved-query/View persistence. Keep coherent committed query results. |
+| E12 | Alternative file watchers | Compare watchdog with alternatives that preserve native create/update/delete and old/new move/rename reporting, repository boundaries and shutdown. Include Rust notify (which exposes old/new rename paths) and evaluate watchfiles only if its added/deleted/modified public events can preserve the required move semantics without guessing. A faster watcher that loses required event meaning is not equivalent. |
+| E13 | Parallel Python preparation | Compare ordinary I/O threads, a free-threaded CPython build, and bounded processes or isolated interpreters for independent changed-file parsing. Include dependency compatibility, GIL state after imports, memory and data-transfer costs. Keep one coherent publication step; measure bulk throughput separately from single-edit latency. |
 
 ## Conditional option
 
@@ -74,3 +74,6 @@ Run experiments in disposable state. Record before/after evidence, retain only u
 - PyO3: https://pyo3.rs/main/index.html
 - orjson: https://github.com/ijl/orjson
 - PyYAML safe LibYAML loaders: https://pyyaml.org/wiki/PyYAMLDocumentation
+
+Free-threading reference: https://docs.python.org/3.14/howto/free-threading-python.html
+Watcher references: https://docs.rs/notify/latest/notify/event/enum.RenameMode.html ; https://watchfiles.helpmanual.io/api/watch/
