@@ -1,0 +1,78 @@
+{
+  "status": "TWO_SETTLED_PROPOSALS_NOT_ALLOCATED",
+  "pins": [
+    {
+      "atom_id": "CA-R-2702",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "sha256": "e7958b13ff25f904aac183a9cee5a592ce04c520580cc3ce89fa878fbdab7b83"
+    },
+    {
+      "atom_id": "CA-R-2703",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+      "sha256": "43de3380f2ffcbe07fbc81bb05da02ce04e23f6818deaf54200df074aacd775b"
+    },
+    {
+      "atom_id": "CA-R-2511",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "sha256": "3efaa884e545f86450f84e0ce35298f05ff3b859f1250cfb14d3a48ebca80024"
+    },
+    {
+      "atom_id": "CA-R-2553",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2553-CORE_META_MODEL-DECLARATION--declare-implementation.md",
+      "sha256": "508211da11b0b67640ee3fbdefabe77afffd8986d01e704f0819b6da84c61f39"
+    },
+    {
+      "atom_id": "CA-R-2173",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2173-CORE_META_MODEL-RULE--define-implementation.md",
+      "sha256": "2ff0826e904dedbbe1f4acc012e579e23c3c290e43917d6e1a616469ea8b9586"
+    },
+    {
+      "atom_id": "CA-R-1020",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "945236390226e3864d89a994080ba29c047a5754769beff12b774f567a780327"
+    },
+    {
+      "atom_id": "CA-R-1021",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "94da98174b6c69d36c0d90800cd5aaa3bfd0957259c903670307bbdc24cfb1bd"
+    },
+    {
+      "atom_id": "CA-R-1947",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1947-CORE_META_MODEL--define-atom-status-allowed-values.md",
+      "sha256": "b9a5062cadac7068369a392c274187d82c4550f76ef3e782ddb134d4e5fe033f"
+    },
+    {
+      "atom_id": "CA-R-1608",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1608-CORE_META_MODEL-RULE--register-core-concern-status-values.md",
+      "sha256": "2b24dda8e394f94c29429149d696dc5c94bfa53317015167bddfe4b5f80849a8"
+    }
+  ],
+  "candidates": [
+    {
+      "key": "implementation_role",
+      "source_path": null,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Implementation Role",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Implementation)",
+      "body": "## Summary\n\nDeclare Implementation Role\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role := Implementation)\n```\n\n## Semantics\n\nAn Implementation Atom describes actual implementation: code parts, behavior, structure and rationale. A specification is optional. Supported facts and inferred explanations remain distinguishable. A specification difference is a neutral observation; assessment determines whether it requires resolution as a Concern.\n"
+    },
+    {
+      "key": "code_synopsis_form",
+      "source_path": null,
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Code Synopsis Form",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Code Synopsis)",
+      "body": "## Summary\n\nDeclare Code Synopsis Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Code Synopsis);\n\n# instances\nAtom/(.Header.Form := Code Synopsis)//$synopsis.Header.Role:: [in (Implementation)]{::1}\n```\n\n## Semantics\n\nA Code Synopsis is a concise, structured explanation of actual code, including its behavior, structure and rationale. It supports code without a specification.\n"
+    }
+  ],
+  "deferred": [
+    "P / Work Report adoption belongs to CA-P-2712",
+    "Analysis Role naming and Package rename outside this task"
+  ],
+  "pending": [
+    "Scope Unit admission decision",
+    "content/reference contract review"
+  ]
+}

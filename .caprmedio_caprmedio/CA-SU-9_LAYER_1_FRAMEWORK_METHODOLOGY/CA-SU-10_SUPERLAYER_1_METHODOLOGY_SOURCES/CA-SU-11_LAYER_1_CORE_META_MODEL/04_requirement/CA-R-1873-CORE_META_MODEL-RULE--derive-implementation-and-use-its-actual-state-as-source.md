@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 1
 status: Active
-version: 20
-updated_at: 2026-11-02 08:06:47 +0400
+version: 22
+updated_at: "2026-11-07 17:10:31 +0400"
 carrier_destination:
   file:
     name: CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md
@@ -22,6 +22,7 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Derive Implementation and use its actual state as source
@@ -30,11 +31,9 @@ Derive Implementation and use its actual state as source
 
 ### Prose Claim
 
+Governed production of Implementation derives Implementation from current applicable RMED through governed Operations.
 
-native Implementation production and subsequent use as a source.
-
-
-Implementation production **must** derive I from current applicable RMED using governed Operations: **RMED → using O → I**. native I **may** subsequently act as source truth for its actual realized content, structure, dependencies, **and** behavior. a further view derived from I using O, including a dependency graph, **must** remain a non-authoritative Projection: **I → using O → Projection**.
+Actual Implementation can serve as source truth for its realized content, structure, dependencies and behavior. A view derived from it through Operations remains a non-authoritative Projection.
 
 ## Details
 

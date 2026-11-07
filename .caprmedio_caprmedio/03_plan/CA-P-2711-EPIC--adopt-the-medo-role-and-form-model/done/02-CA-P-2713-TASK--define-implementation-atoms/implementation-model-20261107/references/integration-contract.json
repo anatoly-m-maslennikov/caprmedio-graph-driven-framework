@@ -1,0 +1,109 @@
+{
+  "status": "INTEGRATION_READY_PROPOSAL_ONLY",
+  "scope": "I / Code Synopsis reference and lifecycle invariant",
+  "admission": "Resolved: I has default admission in every Scope Unit within Subject bounds.",
+  "form_invariant": "A Code Synopsis faithfully describes the context and state of the actual code at one or more ordinary Markdown-link code locations. Each link is unambiguous in its Project context. When an applicable Project.Settings.Code-Root Locator is declared, the link is resolved against it. A link may include an anchor, and an observed content digest may be recorded when a particular observation needs to be pinned. The referenced code remains the truth of actual implementation. A difference from the synopsis or from an optional specification is neutral until assessment identifies a matter requiring resolution as a Concern. A Code Synopsis reuses the ordinary Atom identity, Status, Version, Updated At, and archival lifecycle. Refresh process, Task Run, and automatic synchronization remain Engine-workflow concerns.",
+  "form_text_fragment": "#### Code references\n\nA Code Synopsis faithfully describes the context and state of the actual code at one or more ordinary Markdown-link code locations. Each link is unambiguous in its Project context. When an applicable Project.Settings.Code-Root Locator is declared, the link is resolved against it. A link may include an anchor, and an observed content digest may be recorded when a particular observation needs to be pinned.\n\nThe referenced code remains the truth of actual implementation. A difference from the synopsis or from an optional specification is neutral until assessment identifies a matter requiring resolution as a Concern.\n\nA Code Synopsis reuses the ordinary Atom identity, Status, Version, Updated At, and archival lifecycle. Refresh process, Task Run, and automatic synchronization remain Engine-workflow concerns.",
+  "ordinary_markdown_contract": {
+    "minimum": "One or more unambiguous Project-context code-location links in ordinary Claim text.",
+    "optional": [
+      "link anchor",
+      "observed content digest"
+    ],
+    "code_root": "Resolve against Project.Settings.Code-Root Locator only when that Setting is declared.",
+    "not_introduced": [
+      "Code Reference Property",
+      "Code Reference Relation",
+      "mandatory revision property",
+      "locator grammar",
+      "commit SHA or Git dependency",
+      "snapshot status",
+      "automatic synchronization",
+      "one-to-one source coverage"
+    ]
+  },
+  "relation_contract": {
+    "contributes_to": {
+      "verified": true,
+      "basis": "CA-R-2508 gives every Atom 0+ outgoing CONTRIBUTES_TO permissions; CA-R-3001 defines the direct relation Atom -> Atom.",
+      "result": "An I / Code Synopsis may optionally contribute to a Task, Analysis & Advisory Atom, or Requirement Atom when the contribution is true. No link is required, and contribution is not satisfaction."
+    },
+    "rationale_for": {
+      "verified": true,
+      "direction": "Analysis & Advisory Atom of Form Rationale -> explained Atom",
+      "result": "It may target a Code Synopsis but does not grant Code Synopsis an outgoing rationale_for role."
+    },
+    "concern_about": {
+      "verified": true,
+      "direction": "Concern Atom -> governed entity",
+      "result": "It may target the governed entity concerned after assessment, but does not grant Code Synopsis an outgoing concern_about role."
+    },
+    "not_used_for_code_links": [
+      "implementation_of",
+      "evidence_for"
+    ]
+  },
+  "source_pins": [
+    {
+      "atom_id": "CA-P-2713",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/02-CA-P-2713-TASK--define-implementation-atoms.md",
+      "sha256": "6fce6e9c29444b73704e5b9d87f78aa742588828d2d84f5f2128920a15a58cd0"
+    },
+    {
+      "atom_id": "CA-R-1873",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "sha256": "bfa585526d3a0f0a9bf9b835b9e1192ed37dc5fcc97ff34a97d66d3be2a38fce"
+    },
+    {
+      "atom_id": "CA-R-2173",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2173-CORE_META_MODEL-RULE--define-implementation.md",
+      "sha256": "2ff0826e904dedbbe1f4acc012e579e23c3c290e43917d6e1a616469ea8b9586"
+    },
+    {
+      "atom_id": "CA-R-1978",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1978-CORE_META_MODEL-DECLARATION--define-project-framework-settings-code-root-locators.md",
+      "sha256": "db8ff80f323b703b91ff58db59d51c504af43f051e67c41677763109046bc728"
+    },
+    {
+      "atom_id": "CA-R-2508",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d"
+    },
+    {
+      "atom_id": "CA-R-3001",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3001-CORE_META_MODEL-DECLARATION--declare-contributes-to.md",
+      "sha256": "18dbedf5e95c869efb4426564654762fe1aa0daaef5421399d96c24d288421f9"
+    },
+    {
+      "atom_id": "CA-R-1016",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+      "sha256": "052b70b178a1449ac1e9b435956a52024c00196a04b5f089433e0f590da773e0"
+    },
+    {
+      "atom_id": "CA-R-1022",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+      "sha256": "2cd844d1de169fa054217db099f7ea06de7841a5c087dc862ddc94e0b69bf785"
+    },
+    {
+      "atom_id": "CA-R-1412",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL--give-every-atom-revision-one-status.md",
+      "sha256": "b3dde81ad0b2bd2448a179aa8574b4e6c9e6fa7622f13c8c2452e3746ee0f692"
+    },
+    {
+      "atom_id": "CA-R-1415",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-RULE--give-every-atom-revision-one-version.md",
+      "sha256": "40f80df75666ba8e3163cb7be857deba9365a1a8cbf4d42e9dbf7cf6835215d4"
+    },
+    {
+      "atom_id": "CA-R-1788",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md",
+      "sha256": "3687888a36a92a5975717ad9c27c27a13aebfae219e83ef76a632561bd3d7ab0"
+    },
+    {
+      "atom_id": "CA-R-2565",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2565-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+      "sha256": "d20a3d943c8ca88467d07dd5b5c373b391f86035537d4e51acda426e1899d1c7"
+    }
+  ],
+  "handoff": "No human blocker remains in the reference/lifecycle lane. Root can integrate the form invariant; Engine-workflow owners retain refresh, Task Run, and synchronization behavior."
+}

@@ -1,0 +1,41 @@
+[
+  {
+    "deliverable": "Role/Form prerequisites",
+    "owner": "header_model_review",
+    "scope": "roles/",
+    "status": "done",
+    "acceptance": "minimal pinned Role/Form sources; no new native IDs"
+  },
+  {
+    "deliverable": "Content contract",
+    "owner": "model_subject_syntax",
+    "scope": "content/",
+    "status": "done",
+    "acceptance": "short Code Synopsis content using inherited constraints"
+  },
+  {
+    "deliverable": "References and lifecycle",
+    "owner": "header_reference_migration",
+    "scope": "references/",
+    "status": "done",
+    "acceptance": "reuse existing identity/relations; no invented required links"
+  },
+  {
+    "deliverable": "Affected source rules and consumers",
+    "owner": "model_legacy_cleanup",
+    "scope": "impact/",
+    "status": "done",
+    "acceptance": "direct conflicts only; runtime paths as handoff"
+  },
+  {
+    "deliverable": "Native authoring, review, promotion and check",
+    "owner": "root",
+    "scope": "native sources, tracking, manifests, Git",
+    "status": "done",
+    "dependencies": [
+      "candidate lanes",
+      "local admission decision"
+    ],
+    "acceptance": "reviewed Current sources, history and implementation handoff verified"
+  }
+]

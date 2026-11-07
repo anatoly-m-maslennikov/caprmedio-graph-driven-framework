@@ -1,0 +1,57 @@
+{
+  "status": "PROSPECTIVE_NOT_APPLIED",
+  "candidates": [
+    {
+      "id": "CA-R-3006",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "current_version": 2,
+      "current_sha256": "245fd6956698cca67b0ee418f094d98b4796a0a5fca37c062a48e49a7caccffd",
+      "existing_drafts": [],
+      "candidate": "---\natom_id: CA-R-3006\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Scope Delegation)\ntier: 3\nref_id: CA-R-3006\nstatus: Active\nversion: 2\nupdated_at: \"2026-11-07 15:18:44 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDeclare Scope Delegation\n\n## Claim\n\n### Prose Claim\n\nScope Delegation is one generic Form for an external Atom whose Role is in RMEDO. Its active Subject identifies exactly one receiving non-Project Scope Unit within the Project. Its Container is that unit\u2019s one direct structural Parent. Project may contain delegations for its children but is never their receiver. The direct Parent authors the structural declaration and assigns a contribution to the receiving unit; it retains its broader scope and accountability.\n\nThe Scope Delegation is the receiving unit\u2019s sole structural declaration. It declares:\n\n- Name;\n- stable ID;\n- ordering state;\n- order.number when ordered;\n- direct containing Scope Unit.\n\nLabel is optional.\n\nEach concrete Scope Delegation Claim lists admitted local Role/Form pairs and typed HAS_ACTIVE_SUBJECT target selections. A local Atom is admitted only when its Header.Container-derived IS_CONTAINED_BY target is the receiving Scope Unit, its HAS_ACTIVE_SUBJECT target is in a listed selection, and its Role/Form pair is listed or is Implementation / Code Synopsis, which is admitted by default. Solution, Direct Policy and Approach Policy are RMEDO Forms and require explicit inclusion in the local whitelist. Decision is a MEDO Form.\n\n### Formal Claim\n\n```CFEL\n# instances\nAtom/(.Header.Form := Scope Delegation)//$scope_delegation;\n$scope_delegation.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1};\n```\n",
+      "candidate_sha256": "c35ecd576ff4afed98f1194d3c12dd54456566d54377e1c44f8a6053932bbf7c",
+      "same_id_summary": true
+    },
+    {
+      "id": "CA-R-3008",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3008-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "current_version": 2,
+      "current_sha256": "f638a3ce9799772f7aa2550d30dc60684726c5d233d2123f6cce903ee38e80e1",
+      "existing_drafts": [],
+      "candidate": "---\natom_id: CA-R-3008\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Requirement\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Scope Unit\ntier: 3\nref_id: CA-R-3008\nstatus: Active\nversion: 2\nupdated_at: \"2026-11-07 15:18:44 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-3008-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nEstablish Project and non-Project Scope Unit declarations and delegations\n\n## Claim\n\n### Prose Claim\n\n- Each non-Project Scope Unit within the Project has exactly one external Scope Delegation. Its active Subject identifies the receiving unit, and its Container is the unit\u2019s one direct structural Parent. Only that direct containing Scope Unit owns the delegation; ancestors and unrelated units do not.\n- Each non-Project Scope Unit within the Project has exactly one direct Parent; Project has none. Project has one root Scope Unit Declaration, may contain delegations for its direct children, and receives none.\n- Scope Delegation is admitted by default in every containing Scope Unit, including Project.\n- The direct Parent assigns the receiving unit its contribution through the Scope Delegation. The receiving unit retains its own realization, including shared code, tests and CI; the direct Parent retains its wider scope and accountability.\n- Local Role permissions: a Requirement delegation permits all RMEDO Roles; a Method, Evaluation, Delivery or Operations delegation permits its matching Role.\n- Implementation / Code Synopsis is admitted by default in every Scope Unit, including Project, subject to its applicable Subject and Container boundaries. This permission does not require a Code Synopsis and does not admit other Implementation Forms.\n- Local Form defaults: Requirement permits Requirement and existing Declaration families; Method permits Decision; Evaluation permits Decision and Eval Case; Delivery permits Decision; Operations permits Decision, Workflow, Step and Action. Decision is limited to MEDO Roles. Solution, Direct Policy and Approach Policy are RMEDO Forms, but a local Scope Delegation must explicitly include them in its Role/Form whitelist; they are not default local Forms.\n- The predefined `world` Scope Unit (`CA-SU--1`) is outside the Project Scope Unit census and receives neither a Project declaration nor a Scope Delegation. Project-level Requirement/Goal and root Axioms remain distinct.\n",
+      "candidate_sha256": "1faa505402773262d0d82a9ee193c4cc0219168481820c6251488fac0b7c9e58",
+      "same_id_summary": true
+    }
+  ],
+  "reviewed_related_draft_pins": [
+    {
+      "id": "CA-R-3009",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3009@1-draft-CORE_META_MODEL-DECLARATION--declare-implementation-role.md",
+      "sha256": "af836d518519d1daeaa646ed1ae6d3019127453ce0dc6e19fdeecca0692e04fa"
+    },
+    {
+      "id": "CA-R-3010",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3010@1-draft-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md",
+      "sha256": "eb6242f7ce357b9fcf8cf5ec0190357ac31955cf174bec8acdad70cb2f103cac"
+    },
+    {
+      "id": "CA-R-1873",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1873@21-draft-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "sha256": "e1eb798ca314cbbf1125fa2ec466420a1e944c5be6c05fc169f507320894ee0d"
+    },
+    {
+      "id": "CA-M-307",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-307@30-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "sha256": "67e05eaba7b06d8f4385e17d932494dbd8b993553e36a24c1a831cb390b78373"
+    }
+  ],
+  "review": [
+    "R3009/R3010 support optional specification and neutral observations; an implementation description does not grant independent normative authority.",
+    "R1873 stays focused on governed Package/Implementation production, actual state and derived views; optional-specification meaning remains in Role/Form Drafts.",
+    "M307 permits shared CCE absent a separately registered profile; M308/M315 no-profile behavior remains compatible until an I profile is adopted.",
+    "External Scope Delegation Role remains RMEDO; this is local I/Code Synopsis permission, not mandatory creation or broad Implementation Form admission."
+  ],
+  "limitations": [
+    "Code reference, identity and lifecycle contracts belong to companion lanes.",
+    "Default local permission remains constrained by declared Subject selection and actual Header.Container; root Project-specific boundaries require equivalent applicable source authority."
+  ]
+}

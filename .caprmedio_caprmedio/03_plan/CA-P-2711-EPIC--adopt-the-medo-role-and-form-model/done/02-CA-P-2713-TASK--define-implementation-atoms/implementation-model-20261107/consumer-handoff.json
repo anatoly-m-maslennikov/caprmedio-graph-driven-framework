@@ -1,0 +1,64 @@
+{
+  "status": "PREPARED_NOT_IMPLEMENTED",
+  "owner": "Engine and Adapter implementation owner (CA #3)",
+  "task": "CA-P-2713",
+  "role": "Implementation",
+  "form": "Code Synopsis",
+  "code_paths": [
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_operations.py",
+      "finding": "ATOM_ID and selector regex exclude CA-I; role directory regex permits only 01\u201309; ownership/identity paths need declared I resolution."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/current_atom_locator.py",
+      "finding": "ID-kind regex and role-folder lookup exclude I; resolve I path using adopted mapping."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/atom_subject_lookup.py",
+      "finding": "ID-kind to Role mapping and ATOM_ID-backed source lookup need I."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/connector_atom_parse.py",
+      "finding": "ID recognition uses closed CAPRMEDO set; include I after model cutover."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/lifecycle_intents.py",
+      "finding": "Several CA ID patterns exclude I; review lifecycle and creation support."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/proposed_carrier.py",
+      "finding": "CA-ID target and nested reference patterns exclude I; include according to model and retain admission safeguards."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms_workers/check_schema_extended.py",
+      "finding": "Review declared Role/Form domains and Claim layout for I; Implementation string already appears in a static CONTENT_ROLES list."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/definition_claims.py",
+      "finding": "RMED-only primary declaration reading is specification-oriented; assess I inventory path separately; do not automatically broaden normative graph."
+    },
+    {
+      "path": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py",
+      "finding": "ROLE_BY_DIRECTORY is explicitly RMEDO; keep normative selection semantics and add a separate I route only if requested."
+    }
+  ],
+  "public_api": [
+    {
+      "tool": "atom_search and other Role-selecting endpoints",
+      "change": "Admit Implementation alongside existing Role values; preserve explicit Project binding and existing aliases."
+    }
+  ],
+  "requirements": [
+    "Recognize CA-I identities in lookup, lifecycle and references. Use the existing 08 role-folder slot and declared Role/Form mapping.",
+    "Read/write Code Synopsis with ordinary Atom metadata, Summary and Claim structure; enforce Code Synopsis-specific Role and content contracts.",
+    "Enforce default local admission within Subject and Container bounds; no required Synopsis per unit.",
+    "Keep I descriptive; do not add I to normative Applicable Methodology selection.",
+    "Retain actual-code truth and neutral differences. Concern creation requires assessment.",
+    "Keep code-locator resolution Project-bound; reuse configured roots and report ambiguity.",
+    "Graph/model audits take constraints only from Declarations; Code Synopses describe instances and are not defining model Declarations.",
+    "Implement refresh and synchronization only through separately governed work; no automatic lifecycle transitions implied."
+  ],
+  "validation_cases": "examples/worked-cases.json",
+  "runtime_verification": false,
+  "communication_sent": false
+}

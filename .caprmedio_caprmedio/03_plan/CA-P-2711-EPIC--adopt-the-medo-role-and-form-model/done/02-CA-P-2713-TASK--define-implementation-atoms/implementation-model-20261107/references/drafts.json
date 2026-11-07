@@ -1,0 +1,160 @@
+{
+  "status": "PROPOSAL_ONLY",
+  "scope": "CA-P-2713 references and Atom lifecycle; no native source edit",
+  "source_pins": [
+    {
+      "atom_id": "CA-P-2713",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/02-CA-P-2713-TASK--define-implementation-atoms.md",
+      "sha256": "6fce6e9c29444b73704e5b9d87f78aa742588828d2d84f5f2128920a15a58cd0"
+    },
+    {
+      "atom_id": "CA-R-1873",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "sha256": "bfa585526d3a0f0a9bf9b835b9e1192ed37dc5fcc97ff34a97d66d3be2a38fce"
+    },
+    {
+      "atom_id": "CA-R-2173",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2173-CORE_META_MODEL-RULE--define-implementation.md",
+      "sha256": "2ff0826e904dedbbe1f4acc012e579e23c3c290e43917d6e1a616469ea8b9586"
+    },
+    {
+      "atom_id": "CA-R-1978",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1978-CORE_META_MODEL-DECLARATION--define-project-framework-settings-code-root-locators.md",
+      "sha256": "db8ff80f323b703b91ff58db59d51c504af43f051e67c41677763109046bc728"
+    },
+    {
+      "atom_id": "CA-R-1020",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md",
+      "sha256": "945236390226e3864d89a994080ba29c047a5754769beff12b774f567a780327"
+    },
+    {
+      "atom_id": "CA-R-1021",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1021-CORE_META_MODEL-DECLARATION--register-evidence-for-relation.md",
+      "sha256": "94da98174b6c69d36c0d90800cd5aaa3bfd0957259c903670307bbdc24cfb1bd"
+    },
+    {
+      "atom_id": "CA-R-3001",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3001-CORE_META_MODEL-DECLARATION--declare-contributes-to.md",
+      "sha256": "18dbedf5e95c869efb4426564654762fe1aa0daaef5421399d96c24d288421f9"
+    },
+    {
+      "atom_id": "CA-R-1016",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md",
+      "sha256": "052b70b178a1449ac1e9b435956a52024c00196a04b5f089433e0f590da773e0"
+    },
+    {
+      "atom_id": "CA-R-1022",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md",
+      "sha256": "2cd844d1de169fa054217db099f7ea06de7841a5c087dc862ddc94e0b69bf785"
+    },
+    {
+      "atom_id": "CA-R-1695",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1695-CORE_META_MODEL-RULE--preserve-implementation-traceability-in-the-shared-project-journal.md",
+      "sha256": "a517e64745e1abc2e8bd39a0723ad7eaa802771421ae5ecb436b66f954e7a5eb"
+    },
+    {
+      "atom_id": "CA-R-1412",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1412-CORE_META_MODEL--give-every-atom-revision-one-status.md",
+      "sha256": "b3dde81ad0b2bd2448a179aa8574b4e6c9e6fa7622f13c8c2452e3746ee0f692"
+    },
+    {
+      "atom_id": "CA-R-1415",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1415-CORE_META_MODEL-RULE--give-every-atom-revision-one-version.md",
+      "sha256": "40f80df75666ba8e3163cb7be857deba9365a1a8cbf4d42e9dbf7cf6835215d4"
+    },
+    {
+      "atom_id": "CA-R-1788",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1788-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md",
+      "sha256": "3687888a36a92a5975717ad9c27c27a13aebfae219e83ef76a632561bd3d7ab0"
+    },
+    {
+      "atom_id": "CA-R-2565",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2565-CORE_META_MODEL-RULE--preserve-atom-version-and-updated-at-when-archiving.md",
+      "sha256": "d20a3d943c8ca88467d07dd5b5c373b391f86035537d4e51acda426e1899d1c7"
+    }
+  ],
+  "candidates": [
+    {
+      "key": "i_code_synopsis_markdown_link_contract",
+      "kind": "ordinary Markdown content, not a registered Property or Relation",
+      "depends_on": "I admission is settled; root integrates this content into the standard Claim shape.",
+      "exact_proposed_text": "#### Code references\n\nA Code Synopsis faithfully describes the context and state of the actual code at one or more ordinary Markdown-link code locations. Each link is unambiguous in its Project context. When an applicable Project.Settings.Code-Root Locator is declared, the link is resolved against it. A link may include an anchor, and an observed content digest may be recorded when a particular observation needs to be pinned.\n\nCode references are ordinary Claim text, not a registered Property, Atom relation, Carrier replacement, or Journal implementation binding. They do not require a specification, a commit SHA, Git metadata, a snapshot status, locator grammar, or one-to-one source coverage.\n\nThe referenced code remains the truth of actual implementation. A difference from the synopsis or from an optional specification is neutral until assessment identifies a matter requiring resolution as a Concern.",
+      "fit": [
+        "CA-R-2173 keeps logical artifacts distinct from their Carriers and permits directly edited Implementation to be authoritative for actual implementation.",
+        "CA-R-1978 already admits an optional Project.Settings.Code-Root Locator; this proposal uses it only when declared and requires no new root, locator grammar, or discovery procedure.",
+        "CA-R-1695 reserves stable locator plus digest for Journal implementation bindings, so this contract deliberately does not create such a binding."
+      ],
+      "not_proposed": [
+        "No Code Reference Property or Atom, new Relation, carrier identity, commit-SHA field, Git dependency, snapshot status, source-coverage rule, or forced specification link."
+      ]
+    },
+    {
+      "key": "i_optional_relation_guidance",
+      "kind": "authoring guidance using declared relations only",
+      "exact_proposed_text": "An optional relationship is authored only when its declared meaning is true. A Code Synopsis may use CONTRIBUTES_TO toward a related specification, Analysis & Advisory Atom, or Task when the synopsis actually contributes toward that target; contribution does not assert satisfaction. An Analysis & Advisory Rationale that explains a Code Synopsis uses rationale_for from the Rationale to the synopsis. A Concern uses concern_about only after assessment identifies a matter requiring resolution, and targets the governed entity concerned.\n\nimplementation_of remains a relation from a governed Implementation Carrier to the specification Atom it implements; it is not a Code Synopsis-to-code or Code Synopsis-to-specification reference. evidence_for remains an evidence-Carrier relation and is not a replacement for Code References. No such optional relationship is required merely because a Code Synopsis exists.",
+      "existing_relation_fit": [
+        {
+          "relation": "CONTRIBUTES_TO",
+          "source": "CA-R-3001",
+          "direction": "Code Synopsis Atom -> related Atom",
+          "use": "Optional actual contribution to specification, analysis, or Task."
+        },
+        {
+          "relation": "rationale_for",
+          "source": "CA-R-1016",
+          "direction": "Analysis & Advisory Rationale Atom -> Code Synopsis Atom",
+          "use": "Optional explanation of the synopsis."
+        },
+        {
+          "relation": "concern_about",
+          "source": "CA-R-1022",
+          "direction": "Concern Atom -> governed entity",
+          "use": "Only an assessed matter; a neutral difference is insufficient."
+        },
+        {
+          "relation": "implementation_of",
+          "source": "CA-R-1020",
+          "direction": "governed Implementation Carrier -> specification Atom",
+          "use": "Unchanged carrier-to-specification relation; not used for a Code Reference."
+        },
+        {
+          "relation": "evidence_for",
+          "source": "CA-R-1021",
+          "direction": "evidence Carrier -> Evaluation or Implementation Carrier",
+          "use": "Unchanged; it does not model an I Code Synopsis reference."
+        }
+      ],
+      "not_proposed": [
+        "No required specification, analysis, Concern, Task, or relation cardinality; no new relation."
+      ]
+    },
+    {
+      "key": "i_atom_identity_and_lifecycle_reuse",
+      "kind": "existing Atom contract application",
+      "exact_proposed_text": "A Code Synopsis is an Atom. It reuses the ordinary Atom identity, Status, Version, Updated At, and archival contracts. A code change at a referenced locator does not itself create a Code Synopsis successor or change its Status, Version, or Updated At. When an accepted edit of the synopsis is made, its ordinary Atom lifecycle applies.\n\nArchiving a Code Synopsis preserves its Version and Updated At and does not create a version solely for archival.",
+      "fit": [
+        "CA-R-1412, CA-R-1415, CA-R-1788, and CA-R-2565 already provide the applicable lifecycle constraints.",
+        "CA-R-2173 and CA-R-1873 establish the actual-implementation authority boundary; an authored synopsis remains an observation about that boundary rather than an automatic mirror of file state."
+      ],
+      "not_proposed": [
+        "No new lifecycle status, automatic code-to-Atom synchronization, status transition, or Git-triggered update."
+      ]
+    }
+  ],
+  "handoffs_not_blockers": [
+    {
+      "owner": "Engine workflows",
+      "matter": "Any refresh process, Task Run, or automatic synchronization after code changes.",
+      "reason": "The Form invariant deliberately reuses ordinary Atom lifecycle and adds no automatic synchronization."
+    },
+    {
+      "owner": "root integration",
+      "matter": "Make the already-scoped CA-R-1873 successor Current before asserting the approved no-specification boundary in native sources.",
+      "reason": "This is an integration dependency, not a new reference/lifecycle decision."
+    }
+  ],
+  "integration_constraints": [
+    "Root allocates IDs, chooses promotion mechanics, and writes any native successor or Draft.",
+    "This packet creates no runtime, Workbench, Journal, legacy-bulk, Package-rename, or Git work."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "status": "PARTIAL_NATIVE_DRAFTS_NOT_PROMOTED",
+  "drafts": [
+    {
+      "key": "implementation_role",
+      "atom_id": "CA-R-3009",
+      "ref_id": "CA-R-3009@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3009@1-draft-CORE_META_MODEL-DECLARATION--declare-implementation-role.md",
+      "new_identity": true,
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Implementation Role",
+      "sha256": "af836d518519d1daeaa646ed1ae6d3019127453ce0dc6e19fdeecca0692e04fa"
+    },
+    {
+      "key": "code_synopsis_form",
+      "atom_id": "CA-R-3010",
+      "ref_id": "CA-R-3010@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3010@1-draft-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md",
+      "new_identity": true,
+      "source_path": null,
+      "source_sha256": null,
+      "summary": "Declare Code Synopsis Form",
+      "sha256": "eb6242f7ce357b9fcf8cf5ec0190357ac31955cf174bec8acdad70cb2f103cac"
+    },
+    {
+      "key": "CA-R-1873",
+      "atom_id": "CA-R-1873",
+      "ref_id": "CA-R-1873@21-draft",
+      "version": 21,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1873@21-draft-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "new_identity": false,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "source_sha256": "bfa585526d3a0f0a9bf9b835b9e1192ed37dc5fcc97ff34a97d66d3be2a38fce",
+      "summary": "Derive Implementation and use its actual state as source",
+      "sha256": "e1eb798ca314cbbf1125fa2ec466420a1e944c5be6c05fc169f507320894ee0d"
+    },
+    {
+      "key": "CA-M-307",
+      "atom_id": "CA-M-307",
+      "ref_id": "CA-M-307@30-draft",
+      "version": 30,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-307@30-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "new_identity": false,
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "source_sha256": "5fe99cedfb4be1574bd2c8467d398d2e201877769b64ff1f64adc82a9ae6d0c9",
+      "summary": "Define Content-role-specific CCE Profiles",
+      "sha256": "67e05eaba7b06d8f4385e17d932494dbd8b993553e36a24c1a831cb390b78373"
+    }
+  ],
+  "current_model_sources_changed": false,
+  "pending": [
+    "local I admission choice",
+    "content/reference integration and review"
+  ]
+}

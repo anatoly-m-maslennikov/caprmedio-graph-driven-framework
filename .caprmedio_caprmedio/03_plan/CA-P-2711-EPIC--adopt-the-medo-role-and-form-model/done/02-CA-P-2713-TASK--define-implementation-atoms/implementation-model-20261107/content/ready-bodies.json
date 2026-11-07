@@ -1,0 +1,122 @@
+{
+  "status": "PINNED_MERGE_FRAGMENT_PROPOSAL",
+  "scope": "Content-schema contribution to the single generic Code Synopsis Form owner. Do not create a second role-qualified Declaration. Code references, identity, lifecycle, consumers, and actual implementation remain separately owned.",
+  "merge_target": {
+    "owner": "single generic Form Declaration for Code Synopsis",
+    "role": "Requirement",
+    "form": "Declaration",
+    "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Code Synopsis)",
+    "instruction": "Merge this content rule into the single generic Code Synopsis Form owner; do not create a second declaration.",
+    "role_constraint": "The one generic Form owner constrains bound Code Synopsis instances to Role Implementation; do not create a separate role-qualified Form Declaration."
+  },
+  "body_option": "## Summary\n\nDeclare Code Synopsis Form\n\n## Claim\n\n### Prose Claim\n\nA Code Synopsis describes an Implementation’s actual code parts, behavior, and structure. It may be partial and does not require a specification. Rationale is optional; distinguish observed facts from inferred explanations and identify evidence for inferences when available. Differences from a relevant specification are neutral observations; a difference alone is not a Concern.\n\n### Formal Claim\n\n```CFEL\n# instances\nAtom/(.Header.Form := Code Synopsis)//$code_synopsis;\n$code_synopsis.Header.Role:: [in (Implementation)]{::1};\n$code_synopsis.Content.Claim{::1}:: []{::0};\n$code_synopsis.Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};\n$code_synopsis.Content.Claim.Formal Claim{::0..1} :: [markdown]{::1};\n$code_synopsis.Content.Claim.Prose Claim{::0..1} :: [markdown]{::1};\n$code_synopsis.Content.Claim.Prose Claim ;> $code_synopsis.Content.Claim.Formal Claim\n```\n\n## Semantics\n\nRole Implementation makes this content descriptive of actual implementation. The Claim container may contain one or both existing child Properties: Formal Claim for CFEL statements of actual facts, Prose Claim for explanation. A Formal Claim remains CFEL-fenced under the existing content contract. Code production remains governed by the applicable RMED and CA-R-1873.\n",
+  "content_contract": {
+    "summary": "The existing mandatory Summary is sufficient; do not add a redundant Content text-leaf cardinality rule.",
+    "body": "Require the existing empty Claim container with one or two existing children, Formal Claim and/or Prose Claim. Each child is optional individually and holds Markdown; Formal Claim uses the existing CFEL fence contract. This lets an author state actual facts formally, add prose explanation, or do both. The Role supplies actual-state meaning, so the use of Formal Claim does not make the content normative.",
+    "reuse": "R2498 supplies generic Markdown Content; R2499 already requires Summary; R2500 defines the empty Claim container and one-or-two child shape; R2721/R2722 define existing Formal/Prose Claim contracts. The single generic Code Synopsis Form owner reuses these properties and binds the Form to Role Implementation.",
+    "boundaries": [
+      "Partial descriptions and absence of a specification are allowed.",
+      "Rationale is optional; distinguish observed facts from inferences and identify evidence when available.",
+      "A specification difference is neutral unless assessed as needing resolution.",
+      "R1873 production authority remains unchanged.",
+      "M307 has no Implementation CCE profile; none is borrowed or introduced.",
+      "No code-location schema is included in this lane."
+    ],
+    "current_scope_note": "R2500/R2721/R2722 describe ordinary RMED Claim use. The single Form owner explicitly applies the existing child shape to Code Synopsis; Role Implementation makes its statements descriptive of actual state rather than normative intent."
+  },
+  "authoring_method": "No additional Method proposed. The Form contract states the content meaning and boundaries directly; details on code references and lifecycle belong to their separate contracts.",
+  "source_pins": [
+    {
+      "key": "R2498",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "sha256": "433cb32f1c406bd5adfb0baaa1f9fa58561a2a4c8807dbf764a6fdb666ea08fd",
+      "atom_id": "CA-R-2498",
+      "version": 6,
+      "status": "Active",
+      "summary": "Declare Atom.Content",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "R2499",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+      "sha256": "569ac5bb4ea713d2b7aa8090ea617c91a40e8acbd5fb6d27efe0cd9ec57675ef",
+      "atom_id": "CA-R-2499",
+      "version": 5,
+      "status": "Active",
+      "summary": "Declare Atom.Content.Summary",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "R2500",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "sha256": "4dff725842105f64310444307cb5dc86b53a9a5bf8ccb03f583d4c4c1d395de4",
+      "atom_id": "CA-R-2500",
+      "version": 6,
+      "status": "Active",
+      "summary": "Declare Atom.Content.Claim",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "R2721",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "c63aaa714ba91f3cc4b7e6099e2aa2b67f90c25224036f76fca806ca5c9cb71a",
+      "atom_id": "CA-R-2721",
+      "version": 2,
+      "status": "Active",
+      "summary": "Declare Atom.Content.Claim.Formal Claim",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "R2722",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "79d8caf754609c1831f83f7d2f60ae7e12ed5e1b14942cfcd91454097748b5e8",
+      "atom_id": "CA-R-2722",
+      "version": 2,
+      "status": "Active",
+      "summary": "Declare Atom.Content.Claim.Prose Claim",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "R2703",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+      "sha256": "43de3380f2ffcbe07fbc81bb05da02ce04e23f6818deaf54200df074aacd775b",
+      "atom_id": "CA-R-2703",
+      "version": 1,
+      "status": "Active",
+      "summary": "Declare Atom.Header.Form",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "R1873",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "sha256": "bfa585526d3a0f0a9bf9b835b9e1192ed37dc5fcc97ff34a97d66d3be2a38fce",
+      "atom_id": "CA-R-1873",
+      "version": 20,
+      "status": "Active",
+      "summary": "Derive Implementation and use its actual state as source",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "R1283",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "sha256": "a0b90273eedaf0d8a61edc2d65cbd6a6992ea04aa54120dabdb6c7886130229e",
+      "atom_id": "CA-R-1283",
+      "version": 33,
+      "status": "Active",
+      "summary": "Register Content Role Values",
+      "observed_sha256_matches": true
+    },
+    {
+      "key": "M307",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "sha256": "5fe99cedfb4be1574bd2c8467d398d2e201877769b64ff1f64adc82a9ae6d0c9",
+      "atom_id": "CA-M-307",
+      "version": 29,
+      "status": "Active",
+      "summary": "Define Content-role-specific CCE Profiles",
+      "observed_sha256_matches": true
+    }
+  ],
+  "unresolved_decisions": [],
+  "proposal_removed": "The prior role-qualified standalone declaration was withdrawn; the root Form owner will carry the Implementation role constraint."
+}

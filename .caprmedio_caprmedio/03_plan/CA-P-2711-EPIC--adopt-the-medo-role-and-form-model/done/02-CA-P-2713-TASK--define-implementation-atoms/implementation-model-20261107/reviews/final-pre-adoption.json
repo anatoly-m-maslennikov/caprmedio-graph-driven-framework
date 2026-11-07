@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "nine selected source Drafts",
+  "role_content_review": "header_model_review actual-source review PASS; no blocking defect",
+  "closure": "reviews/closure.json",
+  "content_inheritance": "reviews/content-closure.json",
+  "references_lifecycle": "reviews/references.json",
+  "examples": "reviews/examples.json",
+  "metadata_transfer": "header-order-review-transfer.json",
+  "selected_drafts_sha256": "7d5cd2681c994700bc77d1cd5f7a0d7a287ca0d1bd23bc96e7987f133d9a372a",
+  "native_runtime_validation": false
+}

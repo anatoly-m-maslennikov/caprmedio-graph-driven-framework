@@ -1,0 +1,17 @@
+{
+  "status": "DONE_MODEL_SOURCE_ONLY",
+  "task": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms.md",
+  "task_version": 3,
+  "task_sha256": "61fe56543215e6bf7ad542048440546f74c8776c8175875d219d70b54efd789a",
+  "task_predecessor": ".caprmedio_caprmedio/03_plan/archived/02-CA-P-2713-TASK--define-implementation-atoms@2.md",
+  "epic": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model.md",
+  "epic_status": "Active",
+  "epic_version": 5,
+  "epic_sha256": "fab671c8c615265611817a7c0ee3e00f411c4a145314325c7b605cc43eeb1285",
+  "report": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/README.md",
+  "bundle_from": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/02-CA-P-2713-TASK--define-implementation-atoms",
+  "bundle_to": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms",
+  "native_I_support_verified": false,
+  "handoff_sent": false,
+  "model_sources_checked": 9
+}

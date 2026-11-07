@@ -1,0 +1,58 @@
+{
+  "status": "REVIEWED_EXAMPLES",
+  "worked_cases_path": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/examples/worked-cases.json",
+  "worked_cases_sha256": "d98b824336f08a6ee0888043ed4d10d53d00387a7e5e85d16ffd958ca7935253",
+  "pins": [
+    {
+      "atom_id": "CA-R-3010",
+      "ref_id": "CA-R-3010@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3010@1-draft-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md",
+      "selected_sha256": "d6749d53276d2e289fcd803a38c6a326852bcb3a7b14aa186b1089e5965d6d3d",
+      "observed_sha256": "d6749d53276d2e289fcd803a38c6a326852bcb3a7b14aa186b1089e5965d6d3d",
+      "matches_selected": true
+    },
+    {
+      "atom_id": "CA-E-801",
+      "ref_id": "CA-E-801@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-801@1-draft-CORE_META_MODEL-EVAL_CASE--verify-code-synopsis-accuracy.md",
+      "selected_sha256": "618f53f9bbe037d4da83e9f14e9d21b9779d4e94eac4a516871f5da81cab1f85",
+      "observed_sha256": "618f53f9bbe037d4da83e9f14e9d21b9779d4e94eac4a516871f5da81cab1f85",
+      "matches_selected": true
+    },
+    {
+      "artifact": "reference integration contract",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/references/integration-contract.json",
+      "sha256": "f8658a425c70f613b7344778d284db3946d8ac08e6f746e7d623648ac4400f74"
+    }
+  ],
+  "review": {
+    "count": 5,
+    "outcomes": {
+      "legacy-code-no-spec": "pass",
+      "neutral-spec-difference": "pass",
+      "missing-or-ambiguous-code-location": "fail",
+      "factual-claim-contradicted-by-code": "fail",
+      "inference-presented-as-fact": "fail"
+    },
+    "manual_expected_outcomes": true,
+    "native_admission_claimed": false,
+    "product_tests_run": false,
+    "note": "Five virtual examples include content beyond Summary. The first two pass with clear Project-context code links; the remaining three fail for missing/ambiguous location, contradicted factual description, or unsupported inference stated as fact. No product code or I carrier was created or tested."
+  },
+  "source_contract_checks": {
+    "selected_draft_pins_match": true,
+    "manual_expected_outcomes": true,
+    "five_cases": true,
+    "exact_outcomes": [
+      "pass",
+      "pass",
+      "fail",
+      "fail",
+      "fail"
+    ],
+    "virtual_code_not_executed": true,
+    "native_admission_claimed": false
+  }
+}

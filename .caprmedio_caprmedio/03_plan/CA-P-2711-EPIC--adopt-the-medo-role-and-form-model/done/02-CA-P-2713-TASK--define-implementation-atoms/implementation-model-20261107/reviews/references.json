@@ -1,0 +1,135 @@
+{
+  "scope": "Final read-only references and lifecycle review of the nine selected native drafts",
+  "verdict": "PASS",
+  "material_blockers": [],
+  "selected_drafts_manifest": {
+    "path": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/selected-drafts.json",
+    "sha256": "55cddf502f46e238a84ddeaa0406550fc155407894b8dabb59baad4e1c373a68"
+  },
+  "reviewed_native_drafts": [
+    {
+      "atom_id": "CA-R-3009",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3009@1-draft-CORE_META_MODEL-DECLARATION--declare-implementation-role.md",
+      "sha256": "8dae6a3557b829e6a22bd1bc42afa65acb6743249773f3eab540a77b3d5f082f"
+    },
+    {
+      "atom_id": "CA-R-3010",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3010@1-draft-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md",
+      "sha256": "d6749d53276d2e289fcd803a38c6a326852bcb3a7b14aa186b1089e5965d6d3d"
+    },
+    {
+      "atom_id": "CA-R-1873",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1873@21-draft-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "sha256": "f63e08dd16c035ccd5d71bb82270bd079a6d2538018c81570cf08b939b8c013d"
+    },
+    {
+      "atom_id": "CA-M-307",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-307@30-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "sha256": "67e05eaba7b06d8f4385e17d932494dbd8b993553e36a24c1a831cb390b78373"
+    },
+    {
+      "atom_id": "CA-R-3006",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3006@3-draft-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "sha256": "22216386d01efaae337b18f09769f20f0e12a4aa3dd6e887dd0580e75b0e1033"
+    },
+    {
+      "atom_id": "CA-R-3008",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3008@3-draft-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "sha256": "4a3b6971f7151a9d9a5fc59c4853a245293c81031d87a6967ac759df104aa2f1"
+    },
+    {
+      "atom_id": "CA-R-2721",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2721@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "6683e7cea18264df9f7a9f1184e698c8bb7b774290f6186f926eb93c6be5e617"
+    },
+    {
+      "atom_id": "CA-R-2722",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2722@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "2ddb2d1bca654bb99e975f127ad93c31aa798b4c64427c90d1fc9b0f1ab77a5a"
+    },
+    {
+      "atom_id": "CA-E-801",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-801@1-draft-CORE_META_MODEL-EVAL_CASE--verify-code-synopsis-accuracy.md",
+      "sha256": "618f53f9bbe037d4da83e9f14e9d21b9779d4e94eac4a516871f5da81cab1f85"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Code Synopsis locations and actual truth",
+      "verdict": "PASS",
+      "evidence": "CA-R-3010 requires one or more unambiguous code locations in Project context, says its Claim describes the identified context and state, and makes referenced code determine actual behavior and structure. It introduces neither a Code Reference Property/Relation nor clickable-link-only or locator-grammar requirements."
+    },
+    {
+      "name": "Package Implementation authority boundary",
+      "verdict": "PASS",
+      "evidence": "CA-R-1873@21 says actual Implementation is source truth for realized content, structure, dependencies, and behavior; actual code may predate CAPRMEDIO authority. CA-R-3009 and CA-E-801 retain optional specification and neutral-difference boundaries."
+    },
+    {
+      "name": "Ordinary Atom lifecycle inheritance",
+      "verdict": "PASS",
+      "evidence": "No selected Claim introduces an additional status, mandatory digest, revision property, snapshot status, or automatic synchronization. CA-R-3010 is an ordinary Atom Form; inherited Atom identity and lifecycle remain applicable."
+    },
+    {
+      "name": "Optional existing relations only",
+      "verdict": "PASS",
+      "evidence": "No selected draft requires a specification or declares a Code Synopsis relation. Existing optional CONTRIBUTES_TO remains Atom -> Atom; rationale_for is Rationale -> explained Atom and concern_about is Concern -> governed entity, so neither grants an outgoing role to Code Synopsis."
+    },
+    {
+      "name": "CA-E-801 accuracy evaluation",
+      "verdict": "PASS",
+      "evidence": "CA-E-801 resolves stated code locations, compares descriptive claims against code, distinguishes documented rationale from inference, makes specification comparison optional, accepts accurate legacy code with no specification and neutral supported differences, and reports unresolved locations or contradicted claims as failed verification without changing code or creating a Concern."
+    },
+    {
+      "name": "Code Synopsis Claim declaration",
+      "verdict": "PASS",
+      "evidence": "Although CA-R-2721@3 and CA-R-2722@3 are RMED-qualified, selected CA-R-3010 directly declares the Code Synopsis Claim group plus Formal Claim and Prose Claim children. The generic RMED qualification therefore is not a material Claim-layout blocker for this Form."
+    },
+    {
+      "name": "P / Work Report separation",
+      "verdict": "PASS",
+      "evidence": "No selected draft assigns Plan, Task, or Work Report meaning to Implementation or Code Synopsis."
+    }
+  ],
+  "context_source_pins": [
+    {
+      "atom_id": "CA-R-2173",
+      "sha256": "2ff0826e904dedbbe1f4acc012e579e23c3c290e43917d6e1a616469ea8b9586"
+    },
+    {
+      "atom_id": "CA-R-2508",
+      "sha256": "2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d"
+    },
+    {
+      "atom_id": "CA-R-3001",
+      "sha256": "18dbedf5e95c869efb4426564654762fe1aa0daaef5421399d96c24d288421f9"
+    },
+    {
+      "atom_id": "CA-R-1016",
+      "sha256": "052b70b178a1449ac1e9b435956a52024c00196a04b5f089433e0f590da773e0"
+    },
+    {
+      "atom_id": "CA-R-1022",
+      "sha256": "2cd844d1de169fa054217db099f7ea06de7841a5c087dc862ddc94e0b69bf785"
+    },
+    {
+      "atom_id": "CA-R-1412",
+      "sha256": "b3dde81ad0b2bd2448a179aa8574b4e6c9e6fa7622f13c8c2452e3746ee0f692"
+    },
+    {
+      "atom_id": "CA-R-1415",
+      "sha256": "40f80df75666ba8e3163cb7be857deba9365a1a8cbf4d42e9dbf7cf6835215d4"
+    },
+    {
+      "atom_id": "CA-R-1788",
+      "sha256": "3687888a36a92a5975717ad9c27c27a13aebfae219e83ef76a632561bd3d7ab0"
+    },
+    {
+      "atom_id": "CA-R-2565",
+      "sha256": "d20a3d943c8ca88467d07dd5b5c373b391f86035537d4e51acda426e1899d1c7"
+    }
+  ],
+  "limits": [
+    "Read-only source review; no native edit, runtime execution, Engine workflow, or consumer implementation review.",
+    "The evaluation records verification evidence; it does not require an evidence_for relation or a Code Locator Registry."
+  ]
+}

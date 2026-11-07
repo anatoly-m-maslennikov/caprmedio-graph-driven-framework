@@ -1,0 +1,84 @@
+{
+  "status": "PASS_NO_MISSING_CODE_SYNOPSIS_CLAIM_CONSTRAINT",
+  "scope": "Closure review of whether the selected CA-R-3010 Code Synopsis Draft supplies the I-specific Claim structure omitted by ordinary-RMED-only base formal subjects.",
+  "answer": "No missing I-specific Claim constraint identified. The selected Form Declaration explicitly supplies the necessary Code Synopsis claim shape. R2721/R2722 being RMED-scoped does not leave Code Synopsis structure unspecified.",
+  "evidence": {
+    "R3010": "The generic Form owner has main subject Atom/.Header.Form=Code Synopsis. Its model Claim requires an empty Claim container; requires one or two children named Formal Claim and/or Prose Claim; caps each at one value; bars child Properties under either; orders Prose Claim before Formal Claim; and conditionally requires the CFEL fence label when Formal Claim is present. Its instance rule requires Role Implementation for bound Code Synopsis instances.",
+    "base_content": "R2498 declares the recursive Atom.Content Markdown tree inherited by Code Synopsis.",
+    "base_scope": "Current R2721 and R2722 formal subjects are scoped to ordinary RMED. Selected R2721@3/R2722@3 prose generalizes the named children as properties of Claim, while their formal rules remain RMED-scoped. R3010 explicitly provides the form-specific structure for Code Synopsis; no second role-qualified Declaration or extra mirrored I-only Claim Declaration is needed.",
+    "metadata": "Selected Draft remains proposal-only; this review does not claim native Current admission or runtime behavior."
+  },
+  "checks": {
+    "generic_form_owner": true,
+    "claim_container_one_empty": true,
+    "child_names_and_count": true,
+    "prose_child_optional_one_value_zero_children": true,
+    "formal_child_optional_one_value_zero_children": true,
+    "prose_before_formal": true,
+    "conditional_cf el_fence": true,
+    "implementation_role_constraint": true,
+    "generic_markdown_content": true,
+    "base_RMEd_claim_scope": true,
+    "draft_prose_generalization": true
+  },
+  "all_checks_pass": true,
+  "source_pins": [
+    {
+      "key": "R3010_selected_draft",
+      "atom_id": "CA-R-3010",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3010@1-draft-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md",
+      "sha256": "d6749d53276d2e289fcd803a38c6a326852bcb3a7b14aa186b1089e5965d6d3d",
+      "selected_draft_sha256": "d6749d53276d2e289fcd803a38c6a326852bcb3a7b14aa186b1089e5965d6d3d",
+      "matches_selected": true
+    },
+    {
+      "key": "R2721_current",
+      "atom_id": "CA-R-2721",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "c63aaa714ba91f3cc4b7e6099e2aa2b67f90c25224036f76fca806ca5c9cb71a",
+      "selected_draft_sha256": null,
+      "matches_selected": null
+    },
+    {
+      "key": "R2721_selected_draft",
+      "atom_id": "CA-R-2721",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2721@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
+      "sha256": "6683e7cea18264df9f7a9f1184e698c8bb7b774290f6186f926eb93c6be5e617",
+      "selected_draft_sha256": "6683e7cea18264df9f7a9f1184e698c8bb7b774290f6186f926eb93c6be5e617",
+      "matches_selected": true
+    },
+    {
+      "key": "R2722_current",
+      "atom_id": "CA-R-2722",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "79d8caf754609c1831f83f7d2f60ae7e12ed5e1b14942cfcd91454097748b5e8",
+      "selected_draft_sha256": null,
+      "matches_selected": null
+    },
+    {
+      "key": "R2722_selected_draft",
+      "atom_id": "CA-R-2722",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2722@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md",
+      "sha256": "2ddb2d1bca654bb99e975f127ad93c31aa798b4c64427c90d1fc9b0f1ab77a5a",
+      "selected_draft_sha256": "2ddb2d1bca654bb99e975f127ad93c31aa798b4c64427c90d1fc9b0f1ab77a5a",
+      "matches_selected": true
+    },
+    {
+      "key": "R2498_current",
+      "atom_id": "CA-R-2498",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "sha256": "433cb32f1c406bd5adfb0baaa1f9fa58561a2a4c8807dbf764a6fdb666ea08fd",
+      "selected_draft_sha256": null,
+      "matches_selected": null
+    },
+    {
+      "key": "R2500_current",
+      "atom_id": "CA-R-2500",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "sha256": "4dff725842105f64310444307cb5dc86b53a9a5bf8ccb03f583d4c4c1d395de4",
+      "selected_draft_sha256": null,
+      "matches_selected": null
+    }
+  ],
+  "action": "Keep the selected R3010 structure as the I-specific constraint; do not add a duplicate I-only Claim schema. Any future change to R3010 must preserve the listed empty-container, child-name/count, per-child, ordering, fence, and Role constraints."
+}

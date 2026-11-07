@@ -1,0 +1,100 @@
+{
+  "status": "SOURCE_PREVIEWS_ONLY",
+  "candidates": [
+    {
+      "id": "CA-R-1873",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "current_version": 20,
+      "current_sha256": "bfa585526d3a0f0a9bf9b835b9e1192ed37dc5fcc97ff34a97d66d3be2a38fce",
+      "candidate": "---\natom_id: CA-R-1873\nref_id: CA-R-1873\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Package/Implementation\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Projection\n  - CAPRMEDIO_MODEL <+ Journal\n  - CAPRMEDIO_MODEL <+ Carrier\ntier: 1\nstatus: Active\nversion: 20\nupdated_at: 2026-11-02 08:06:47 +0400\ncarrier_destination:\n  file:\n    name: CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nDerive Implementation and use its actual state as source\n\n## Claim\n\n### Prose Claim\n\n\nnative Implementation production and subsequent use as a source.\n\n\nGoverned production of implementation **must** derive it from current applicable RMED using governed Operations: **RMED \u2192 using O \u2192 implementation**. An Implementation Atom of Form Code Synopsis describes actual code and may be authored without an associated specification. actual implementation **may** subsequently act as source truth for its actual realized content, structure, dependencies, **and** behavior. a further view derived from implementation using O, including a dependency graph, **must** remain a non-authoritative Projection: **implementation \u2192 using O \u2192 Projection**.\n\n## Details\n\nGeneration need not be deterministic. Derivation is a relation to governing intent, not perpetual loss of actual-state authority. Actual code may predate CAPRMEDIO authority; its observations support adoption, reconciliation, and continuation without automatically accepting inferred CRMED drafts or changing governing RMED. Existing implementation is not a prerequisite for reconstructing implementation from current RMED. Ordinary view Projections never replace the authority of their represented sources.\n",
+      "candidate_sha256": "f3b9773bc33350653d54edcafa38f9737a5607ab1d53858d321c572422b321bd",
+      "summary_and_id_preserved": true,
+      "disposition": "Same-ID prospective successor; root controls actual Draft/version."
+    },
+    {
+      "id": "CA-M-307",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "current_version": 29,
+      "current_sha256": "5fe99cedfb4be1574bd2c8467d398d2e201877769b64ff1f64adc82a9ae6d0c9",
+      "candidate": "---\natom_id: CA-M-307\nref_id: CA-M-307\ncontainer:\n  scope_unit: CA-SU-11\nrole: Method\nform: Implementation Method\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role\n  dependencies:\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Form\ntier: 5\nrelations:\n  child_of:\n  - CA-M-113\n  - CA-M-230\n  - CA-M-234\nstatus: Active\nversion: 29\nupdated_at: 2026-11-02 18:35:20 +0400\ncarrier_destination:\n  file:\n    name: CA-M-307-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nDefine Content-role-specific CCE Profiles\n\n## Claim\n\n### Prose Claim\n\n\nCCE Role Profiles.\n\n\na CCE Role Profile **means** one restriction of shared CCE that identifies the permitted primary Claim contribution, permitted CCE Operator uses, permitted subordinate content slots, **and** prohibited primary contributions for one Content Role **or** one narrower Type **or** content slot.\n\nthe current role-specific profiles apply **only** **to** Plan, Requirement, Method, Evaluation, Delivery, **and** Operations Atoms.\n\nConcern **and** Analysis & Advisory Claims remain subject **to** shared CCE **without** an additional CCE Role Profile. this absence does **not** exempt them from shared CCE **or** authorize normative authority outside their Content Role meanings.\n\nan Implementation CCE Role Profile applies only when it is separately registered. an absent Implementation profile **must not** be replaced by another role's profile **or** treated as role-profile conformance.\n\na narrower Type **or** content-slot profile **may** restrict its parent role profile **and** define permitted subordinate operator use, but it **must not** change the primary contribution of the Content Role.\n",
+      "candidate_sha256": "2c8e07213f1df81dc2a1c290db319ce429be07e669149375fcfeb5c9ab751d13",
+      "summary_and_id_preserved": true,
+      "disposition": "Same-ID prospective successor; root controls actual Draft/version."
+    }
+  ],
+  "m307_direct_consumers": [
+    {
+      "id": "CA-M-308",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md",
+      "version": 25,
+      "sha256": "e7900431fb13293576f2f68dc66113aae1ca2d49de4299f58cb1701030c6f702",
+      "disposition": "CONDITIONAL",
+      "finding": "Requires successor if an Implementation CCE Role Profile is registered; existing explicit no-profile outcome is consistent while none is registered."
+    },
+    {
+      "id": "CA-M-309",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md",
+      "version": 23,
+      "sha256": "976a89a66e2cc11c5fa4495c549222e29b6e9b890f21bb1605c1d89d9f4e14e7",
+      "disposition": "NO_DIRECT_CONFLICT",
+      "finding": "Role-specific profile applies to its own Plan, Requirement, Method, Evaluation, Delivery or Operations contribution; does not mandate that profile for Implementation."
+    },
+    {
+      "id": "CA-M-310",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-requirement-claims-with-the-requirement-cce-profile.md",
+      "version": 25,
+      "sha256": "fd9c6f9931ec111c85c96a89eb21dce3508e66a39beb917a1a364b1df4e0993e",
+      "disposition": "NO_DIRECT_CONFLICT",
+      "finding": "Role-specific profile applies to its own Plan, Requirement, Method, Evaluation, Delivery or Operations contribution; does not mandate that profile for Implementation."
+    },
+    {
+      "id": "CA-M-311",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-method-claims-with-the-method-cce-profile.md",
+      "version": 25,
+      "sha256": "95194e9bfb96e526842dbab0348271743661bc0a956ba912cabbed070aee546e",
+      "disposition": "NO_DIRECT_CONFLICT",
+      "finding": "Role-specific profile applies to its own Plan, Requirement, Method, Evaluation, Delivery or Operations contribution; does not mandate that profile for Implementation."
+    },
+    {
+      "id": "CA-M-312",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md",
+      "version": 24,
+      "sha256": "9a915844aae3c9af0ead6a0dea01534bc502f80870ca4fb3c397f678b01ee15e",
+      "disposition": "NO_DIRECT_CONFLICT",
+      "finding": "Role-specific profile applies to its own Plan, Requirement, Method, Evaluation, Delivery or Operations contribution; does not mandate that profile for Implementation."
+    },
+    {
+      "id": "CA-M-313",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+      "version": 26,
+      "sha256": "36c4d9fa6e683a484d93b84753c68a567ae8b901123cb2dda7ff056543ec857a",
+      "disposition": "NO_DIRECT_CONFLICT",
+      "finding": "Role-specific profile applies to its own Plan, Requirement, Method, Evaluation, Delivery or Operations contribution; does not mandate that profile for Implementation."
+    },
+    {
+      "id": "CA-M-314",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "version": 26,
+      "sha256": "de979f7174136e608cedc6c19c54c0e1138584e674e2a13f1685aabe60f88f02",
+      "disposition": "NO_DIRECT_CONFLICT",
+      "finding": "Role-specific profile applies to its own Plan, Requirement, Method, Evaluation, Delivery or Operations contribution; does not mandate that profile for Implementation."
+    },
+    {
+      "id": "CA-M-315",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL--validate-claims-against-effective-cce-role-profiles.md",
+      "version": 26,
+      "sha256": "aae12893fa0392b590a00374350f70802dc0ba8a290b1e179e5c0a3a4d42c21c",
+      "disposition": "CONDITIONAL",
+      "finding": "Requires successor if an Implementation CCE Role Profile is registered; existing explicit no-profile outcome is consistent while none is registered."
+    }
+  ],
+  "blockers": [
+    "Scope Delegation admission and default-vs-explicit local whitelist remain pending Operator decision; no admission assumed.",
+    "I/Code Synopsis profile and content authority must be reviewed together; if a new CCE profile is registered, amend both M308 and M315, otherwise preserve the explicit no-profile/non-conformance behavior.",
+    "Review exact R1873 distinction between governed new production and as-is observations with approved Role/Code Synopsis Declaration before adopting."
+  ],
+  "notes": [
+    "Full candidates retain exact Current Header and timestamps; actual successor metadata and version allocated by root.",
+    "No source edits or implementation work."
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "status": "READ_ONLY_IMPACT",
+  "scope": "Current native MODEL sources within Core Meta Model and Project Configuration; excludes runtime code, installed mirrors, Workflow/Workbench instances.",
+  "findings": [
+    {
+      "id": "CA-R-3006",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "version": 2,
+      "sha256": "245fd6956698cca67b0ee418f094d98b4796a0a5fca37c062a48e49a7caccffd",
+      "disposition": "ADMISSION_GATE",
+      "finding": "Each local Atom must match its unit delegation Role/Form whitelist. I / Code Synopsis needs an admitted pair or an explicitly declared alternative placement; do not change external Delegation Role RMEDO automatically."
+    },
+    {
+      "id": "CA-R-3008",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3008-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "version": 2,
+      "sha256": "f638a3ce9799772f7aa2550d30dc60684726c5d233d2123f6cce903ee38e80e1",
+      "disposition": "ADMISSION_GATE",
+      "finding": "Local role permissions are RMEDO or matching MEDO; I is absent. Determine which receiving units may carry I and whether explicit or default admission applies; preserve existing delegation responsibility and accountability."
+    },
+    {
+      "id": "CA-R-1873",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "version": 20,
+      "sha256": "bfa585526d3a0f0a9bf9b835b9e1192ed37dc5fcc97ff34a97d66d3be2a38fce",
+      "disposition": "CLARIFY_SPLIT",
+      "finding": "Production must derive I from RMED but Details acknowledge pre-existing code. Separate governed new implementation production from factual descriptive I/Code Synopsis without a specification, and preserve non-authoritative Projection and actual code evidence boundaries."
+    },
+    {
+      "id": "CA-M-307",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "version": 29,
+      "sha256": "5fe99cedfb4be1574bd2c8467d398d2e201877769b64ff1f64adc82a9ae6d0c9",
+      "disposition": "AMEND_IF_I_ADOPTED",
+      "finding": "States there are no Implementation Atoms and no profile; update stale premise once Role adopted. Do not impose an unapproved I CCE profile or borrow another Role profile."
+    },
+    {
+      "id": "CA-M-308",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md",
+      "version": 25,
+      "sha256": "e7900431fb13293576f2f68dc66113aae1ca2d49de4299f58cb1701030c6f702",
+      "disposition": "AMEND_IF_PROFILE_ADOPTED",
+      "finding": "Returns no registered profile for Implementation. Compatible if no I profile is adopted; revise only if authoring authority explicitly registers one."
+    },
+    {
+      "id": "CA-R-1283",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1283-CORE_META_MODEL-RULE--register-content-role-values.md",
+      "version": 33,
+      "sha256": "a0b90273eedaf0d8a61edc2d65cbd6a6992ea04aa54120dabdb6c7886130229e",
+      "disposition": "NO_CHANGE",
+      "finding": "Role values admitted by applicable Role Declarations; no closed list here. New Role needs its own declaration."
+    },
+    {
+      "id": "CA-R-2702",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md",
+      "version": 1,
+      "sha256": "e7958b13ff25f904aac183a9cee5a592ce04c520580cc3ce89fa878fbdab7b83",
+      "disposition": "NO_CHANGE",
+      "finding": "Role is one string with no allowed-value enumeration in this property declaration; no need to duplicate the value."
+    },
+    {
+      "id": "CA-R-2500",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2500-CORE_META_MODEL-DECLARATION--declare-atom-content-claim.md",
+      "version": 6,
+      "sha256": "4dff725842105f64310444307cb5dc86b53a9a5bf8ccb03f583d4c4c1d395de4",
+      "disposition": "NO_CHANGE",
+      "finding": "Claim structure explicitly applies ordinary RMED; it does not forbid I-specific content or mandate RMED Claim layout for I."
+    },
+    {
+      "id": "CA-D-479",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "version": 32,
+      "sha256": "ff6edfc99f6359c004ed85807d8b6fbdb520cf343e22b888ac93544717939d1c",
+      "disposition": "HANDOFF",
+      "finding": "Defines ordinary RMED headings and retains other existing Role-specific rules; I headings need applicable Declaration and delivery encoding, without implying current RMED layout automatically applies."
+    },
+    {
+      "id": "CA-R-1315",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1315-PROJECT_CONFIGURATION-RULE--select-only-current-active-rmedo-atom-revisions.md",
+      "version": 31,
+      "sha256": "67948d1283c65813eaecf22e700abe384bb1dfb4075c0c1cb8f3e7d49e346026",
+      "disposition": "PRESERVE_BOUNDARY",
+      "finding": "Applicable Methodology selection intentionally filters Active RMEDO; I is descriptive rather than normative specification. Do not add I automatically to this selection; identify separate requested reader/projection requirements."
+    },
+    {
+      "id": "CA-R-1635",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md",
+      "version": 42,
+      "sha256": "342dfae964706b3f77feb7a167735f52d7a070177c8daf638434326ac76db44a",
+      "disposition": "NO_CHANGE",
+      "finding": "Concern concerns a material discrepancy requiring disposition; this does not make every observed difference a Concern. Preserve production evaluation requirements."
+    },
+    {
+      "id": "CA-R-1557",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1557-CORE_META_MODEL-RULE--keep-conflict-discovery-in-exploration-mode.md",
+      "version": 21,
+      "sha256": "8bc0406a7012d25e36bf502f7377340b5b9b764abfa1205e451317228acf6df9",
+      "disposition": "NO_CHANGE",
+      "finding": "Limits persisted Concern creation for discovered conflict; it does not require a Concern for neutral difference."
+    },
+    {
+      "id": "CA-R-1548",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-DEFINITION--define-specification-content-roles.md",
+      "version": 24,
+      "sha256": "29f1e29f4134151e21591e189c0d902c5df447b67c14ada75811d5467296d40f",
+      "disposition": "NO_CHANGE",
+      "finding": "Describes RMED specification governing entities including I; this does not itself require an I Atom or code observation to have a linked specification."
+    }
+  ],
+  "direct_id_consumers": {
+    "CA-R-3006": {
+      "count": 0,
+      "current_sources": []
+    },
+    "CA-R-3008": {
+      "count": 0,
+      "current_sources": []
+    },
+    "CA-R-1873": {
+      "count": 0,
+      "current_sources": []
+    },
+    "CA-M-307": {
+      "count": 8,
+      "current_sources": [
+        {
+          "id": "CA-M-314",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md"
+        },
+        {
+          "id": "CA-M-315",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL--validate-claims-against-effective-cce-role-profiles.md"
+        },
+        {
+          "id": "CA-M-312",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md"
+        },
+        {
+          "id": "CA-M-311",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-method-claims-with-the-method-cce-profile.md"
+        },
+        {
+          "id": "CA-M-313",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-delivery-claims-with-the-delivery-cce-profile.md"
+        },
+        {
+          "id": "CA-M-309",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md"
+        },
+        {
+          "id": "CA-M-310",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-requirement-claims-with-the-requirement-cce-profile.md"
+        },
+        {
+          "id": "CA-M-308",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md"
+        }
+      ]
+    },
+    "CA-M-308": {
+      "count": 1,
+      "current_sources": [
+        {
+          "id": "CA-M-315",
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL--validate-claims-against-effective-cce-role-profiles.md"
+        }
+      ]
+    }
+  },
+  "decisions": [
+    "Whether I / Code Synopsis is admitted in every receiving Scope Unit or only by an explicit local Role/Form whitelist; R3006/R3008 currently require local admission. Do not infer I may act as the external Scope Delegation Role.",
+    "Whether a dedicated I authoring/CCE profile is required or descriptive content uses another explicitly admitted content contract; no profile should be invented."
+  ],
+  "limits": [
+    "No forced neutral-difference-to-Concern rule found in bounded Current text scan; this is not global proof.",
+    "No universal eight-value closed Role list was found in R1283/R2702; inspect any other owner-reported admission authorities separately.",
+    "Applicable Methodology is a specification selection, not automatically an inventory of I descriptions.",
+    "Identity, lifecycle, direct source references and parser/reader contracts are owned by other lanes."
+  ]
+}

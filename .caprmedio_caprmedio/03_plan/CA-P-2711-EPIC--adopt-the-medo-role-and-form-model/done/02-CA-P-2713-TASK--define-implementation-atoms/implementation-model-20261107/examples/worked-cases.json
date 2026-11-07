@@ -1,0 +1,176 @@
+{
+  "status": "MANUAL_EXPECTED_OUTCOMES_READY",
+  "scope": "Illustrative virtual examples for CA-P-2713 Code Synopsis Form and CA-E-801; not native I atoms, not product/runtime tests, no allocated Atom IDs.",
+  "default_content_shape": "Ordinary Claim.Prose Claim is used in the examples. A Formal Claim is also allowed for actual facts by the Draft contract; none is needed here.",
+  "locator_contract": "Each passing Synopsis includes at least one ordinary Markdown-link code location unambiguous within its Project context. No Git digest, Code-Root Locator, specification, or rationale is forced.",
+  "pins": [
+    {
+      "atom_id": "CA-R-3010",
+      "ref_id": "CA-R-3010@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3010@1-draft-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md",
+      "selected_sha256": "d6749d53276d2e289fcd803a38c6a326852bcb3a7b14aa186b1089e5965d6d3d",
+      "observed_sha256": "d6749d53276d2e289fcd803a38c6a326852bcb3a7b14aa186b1089e5965d6d3d",
+      "matches_selected": true
+    },
+    {
+      "atom_id": "CA-E-801",
+      "ref_id": "CA-E-801@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-801@1-draft-CORE_META_MODEL-EVAL_CASE--verify-code-synopsis-accuracy.md",
+      "selected_sha256": "618f53f9bbe037d4da83e9f14e9d21b9779d4e94eac4a516871f5da81cab1f85",
+      "observed_sha256": "618f53f9bbe037d4da83e9f14e9d21b9779d4e94eac4a516871f5da81cab1f85",
+      "matches_selected": true
+    },
+    {
+      "artifact": "reference integration contract",
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/references/integration-contract.json",
+      "sha256": "f8658a425c70f613b7344778d284db3946d8ac08e6f746e7d623648ac4400f74"
+    }
+  ],
+  "examples": [
+    {
+      "case_id": "legacy-code-no-spec",
+      "outcome": "pass",
+      "project_context": "Virtual Project: legacy-storefront; no Code-Root Locator declared.",
+      "atom": {
+        "role": "Implementation",
+        "form": "Code Synopsis",
+        "content": {
+          "Summary": "Legacy discount calculation",
+          "Claim": {
+            "Prose Claim": "Observed behavior: the discount is a fixed 15 percent. Code location: [src/discount.py](src/discount.py)."
+          }
+        },
+        "record_kind": "virtual_example_only"
+      },
+      "virtual_code": {
+        "path": "src/discount.py",
+        "text": "def calculate(price):\n    return price * 0.85\n"
+      },
+      "specification": null,
+      "expected": "Pass: the Claim contains descriptive content beyond Summary, one unambiguous ordinary Markdown code link resolves in this Project context, and the behavior matches the snippet. No specification, digest, Code-Root Locator, or rationale is required.",
+      "concern_created": false,
+      "virtual_code_input_kind": "JSON-contained virtual snippet; never executed"
+    },
+    {
+      "case_id": "neutral-spec-difference",
+      "outcome": "pass",
+      "project_context": "Virtual Project: checkout; no Code-Root Locator declared.",
+      "atom": {
+        "role": "Implementation",
+        "form": "Code Synopsis",
+        "content": {
+          "Summary": "Current checkout tax rate",
+          "Claim": {
+            "Prose Claim": "Observed implementation applies 8 percent tax. The linked specification states 10 percent. This records a difference; it does not assess or resolve it. Code location: [src/tax.py](src/tax.py). Specification: [checkout-tax.md](docs/checkout-tax.md)."
+          }
+        },
+        "record_kind": "virtual_example_only"
+      },
+      "virtual_code": {
+        "path": "src/tax.py",
+        "text": "def total(amount):\n    return amount * 1.08\n"
+      },
+      "specification": {
+        "path": "docs/checkout-tax.md",
+        "text": "Tax rate: 10 percent."
+      },
+      "expected": "Pass: the code location is clear, both the actual 8 percent behavior and the specification value are represented accurately, and the difference remains a neutral observation without a Concern.",
+      "concern_created": false,
+      "virtual_code_input_kind": "JSON-contained virtual snippet; never executed"
+    },
+    {
+      "case_id": "missing-or-ambiguous-code-location",
+      "outcome": "fail",
+      "project_context": "Virtual Project: catalog; no Code-Root Locator declared.",
+      "atom": {
+        "role": "Implementation",
+        "form": "Code Synopsis",
+        "content": {
+          "Summary": "Catalog ordering",
+          "Claim": {
+            "Prose Claim": "Items are sorted alphabetically. Code location: [catalog.py](catalog.py)."
+          }
+        },
+        "record_kind": "virtual_example_only"
+      },
+      "virtual_code": {
+        "candidates": [
+          {
+            "path": "web/catalog.py",
+            "text": "def list_items(): return sorted(items)"
+          },
+          {
+            "path": "batch/catalog.py",
+            "text": "def list_items(): return items"
+          }
+        ]
+      },
+      "expected": "Fail: the shown locator resolves to two virtual Project-context code locations, so it is ambiguous. Omitting the locator is also invalid. Do not infer a target from the claim text.",
+      "concern_created": false,
+      "locator_resolution": {
+        "href": "catalog.py",
+        "project_context_candidates": [
+          "web/catalog.py",
+          "batch/catalog.py"
+        ],
+        "unambiguous": false,
+        "also_invalid_when": "No Markdown code-location link is present."
+      },
+      "virtual_code_input_kind": "JSON-contained virtual snippet; never executed"
+    },
+    {
+      "case_id": "factual-claim-contradicted-by-code",
+      "outcome": "fail",
+      "project_context": "Virtual Project: invoice; no Code-Root Locator declared.",
+      "atom": {
+        "role": "Implementation",
+        "form": "Code Synopsis",
+        "content": {
+          "Summary": "Invoice fee calculation",
+          "Claim": {
+            "Prose Claim": "Observed behavior: the service adds the fee to the invoice total. Code location: [src/fees.py#total](src/fees.py#total)."
+          }
+        },
+        "record_kind": "virtual_example_only"
+      },
+      "virtual_code": {
+        "path": "src/fees.py",
+        "text": "def total(amount, fee):\n    return amount - fee\n"
+      },
+      "expected": "Fail: the linked code subtracts the fee, contradicting the factual description.",
+      "concern_created": false,
+      "virtual_code_input_kind": "JSON-contained virtual snippet; never executed"
+    },
+    {
+      "case_id": "inference-presented-as-fact",
+      "outcome": "fail",
+      "project_context": "Virtual Project: account-service; no Code-Root Locator declared.",
+      "atom": {
+        "role": "Implementation",
+        "form": "Code Synopsis",
+        "content": {
+          "Summary": "Account lockout branch",
+          "Claim": {
+            "Prose Claim": "The code blocks this account to prevent credential stuffing. Code location: [src/auth.py#locked](src/auth.py#locked)."
+          }
+        },
+        "record_kind": "virtual_example_only"
+      },
+      "virtual_code": {
+        "path": "src/auth.py",
+        "text": "if failed_attempts >= 5:\n    locked = True\n"
+      },
+      "available_evidence": [],
+      "expected": "Fail: code supports the threshold and assignment, but not the asserted purpose. The purpose is an inference presented as an observed fact; it must be labeled as inference or supported by evidence.",
+      "concern_created": false,
+      "virtual_code_input_kind": "JSON-contained virtual snippet; never executed"
+    }
+  ],
+  "review_limits": [
+    "Outcomes are manual expected results from the pinned Draft contracts.",
+    "No Engine support or source admission is inferred.",
+    "Negative cases do not create a Concern or mutate code."
+  ]
+}

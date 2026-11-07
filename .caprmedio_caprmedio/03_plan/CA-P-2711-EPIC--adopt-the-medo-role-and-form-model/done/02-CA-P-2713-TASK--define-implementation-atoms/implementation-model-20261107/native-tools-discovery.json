@@ -1,0 +1,12 @@
+{
+  "project_root": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework",
+  "queries": [
+    "create atom",
+    "promote atom"
+  ],
+  "available_matches": 0,
+  "coverage_issue_count": 432,
+  "route": "existing Operator-authorized manual source authoring/promotion",
+  "native_run": false,
+  "journal_append": false
+}

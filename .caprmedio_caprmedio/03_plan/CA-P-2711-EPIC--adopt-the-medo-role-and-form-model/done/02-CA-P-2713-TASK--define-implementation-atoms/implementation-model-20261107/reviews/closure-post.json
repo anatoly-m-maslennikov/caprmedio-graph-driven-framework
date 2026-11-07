@@ -1,0 +1,101 @@
+{
+  "verdict": "PASS",
+  "plan_sha256": "4685cfa50f9afd906c2a74223500431f9ac92cf21c4cc9aa37bd311b528e8791",
+  "receipt_plan_pin_matches": true,
+  "outputs": [
+    {
+      "id": "CA-R-3006",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "sha256": "8b5ef46544b35bf5afeb6cdaff57a49b318a58a26155116b1ea8c351827efab2",
+      "receipt_match": true,
+      "body_matches_reviewed_draft": true,
+      "predecessor_archive_exact": true,
+      "draft_consumed": true,
+      "pass": true
+    },
+    {
+      "id": "CA-R-3008",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3008-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "sha256": "a0df25080be6bc47582ce8afa2b7a9ba9aad4a05c370b3859e223270d0d0075d",
+      "receipt_match": true,
+      "body_matches_reviewed_draft": true,
+      "predecessor_archive_exact": true,
+      "draft_consumed": true,
+      "pass": true
+    },
+    {
+      "id": "CA-M-307",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-307-CORE_META_MODEL-IMPLEMENTATION_METHOD--define-content-role-specific-cce-profiles.md",
+      "sha256": "a4ce351fb8f1af2cc8471fd953f232f17844e1e933b570ee1be726277c13538f",
+      "receipt_match": true,
+      "body_matches_reviewed_draft": true,
+      "predecessor_archive_exact": true,
+      "draft_consumed": true,
+      "pass": true
+    }
+  ],
+  "scope_and_profile_checks": {
+    "r3006_i_default": true,
+    "r3006_subject_and_container": true,
+    "r3006_delegation_rmedo": true,
+    "r3008_every_scope": true,
+    "r3008_no_creation_no_other_forms": true,
+    "m307_no_borrowed_profile": true
+  },
+  "m307_consumers": [
+    {
+      "id": "CA-M-308",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-308-CORE_META_MODEL--resolve-the-effective-cce-role-profile.md",
+      "sha256": "e7900431fb13293576f2f68dc66113aae1ca2d49de4299f58cb1701030c6f702",
+      "unchanged": true
+    },
+    {
+      "id": "CA-M-309",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md",
+      "sha256": "976a89a66e2cc11c5fa4495c549222e29b6e9b890f21bb1605c1d89d9f4e14e7",
+      "unchanged": true
+    },
+    {
+      "id": "CA-M-310",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-requirement-claims-with-the-requirement-cce-profile.md",
+      "sha256": "fd9c6f9931ec111c85c96a89eb21dce3508e66a39beb917a1a364b1df4e0993e",
+      "unchanged": true
+    },
+    {
+      "id": "CA-M-311",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-311-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-method-claims-with-the-method-cce-profile.md",
+      "sha256": "95194e9bfb96e526842dbab0348271743661bc0a956ba912cabbed070aee546e",
+      "unchanged": true
+    },
+    {
+      "id": "CA-M-312",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md",
+      "sha256": "9a915844aae3c9af0ead6a0dea01534bc502f80870ca4fb3c397f678b01ee15e",
+      "unchanged": true
+    },
+    {
+      "id": "CA-M-313",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-313-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-delivery-claims-with-the-delivery-cce-profile.md",
+      "sha256": "36c4d9fa6e683a484d93b84753c68a567ae8b901123cb2dda7ff056543ec857a",
+      "unchanged": true
+    },
+    {
+      "id": "CA-M-314",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "sha256": "de979f7174136e608cedc6c19c54c0e1138584e674e2a13f1685aabe60f88f02",
+      "unchanged": true
+    },
+    {
+      "id": "CA-M-315",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-315-CORE_META_MODEL--validate-claims-against-effective-cce-role-profiles.md",
+      "sha256": "aae12893fa0392b590a00374350f70802dc0ba8a290b1e179e5c0a3a4d42c21c",
+      "unchanged": true
+    }
+  ],
+  "blockers": [],
+  "limits": [
+    "Only the three requested actual sources and eight Current consumers checked; companion outputs reviewed elsewhere.",
+    "Handoff is prepared, not implemented; no code tests or runtime validation.",
+    "No native workflow Run or Journal append established."
+  ]
+}

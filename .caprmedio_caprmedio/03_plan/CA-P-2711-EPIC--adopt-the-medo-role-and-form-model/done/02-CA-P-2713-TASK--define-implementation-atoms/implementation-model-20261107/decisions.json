@@ -1,0 +1,42 @@
+{
+  "scope": "CA-P-2713 model source adoption only",
+  "settled": [
+    {
+      "decision": "Form name",
+      "value": "I / Code Synopsis",
+      "authority": "User: Yes to Code Synopsis"
+    },
+    {
+      "decision": "Local admission",
+      "value": "Allowed by default in every Scope Unit, within Subject boundaries",
+      "authority": "User reply to admission question"
+    },
+    {
+      "decision": "Purpose",
+      "value": "Describe actual implementation, including legacy code without a code specification"
+    },
+    {
+      "decision": "Differences",
+      "value": "Neutral observations; assessment determines whether a Concern is needed"
+    },
+    {
+      "decision": "Task execution reporting",
+      "value": "P; separate CA-P-2712, not I"
+    }
+  ],
+  "routine_choices": [
+    "Reuse ordinary Atom identity, status, version and archive contracts",
+    "Reuse declared Claim, Prose Claim and Formal Claim Properties; inherited Markdown",
+    "Code locations as unambiguous Markdown links within Claim; no new locator Property or Relation",
+    "Existing semantic relations only when their meaning and permissions apply"
+  ],
+  "exclusions": [
+    "Implementation code and runtime changes",
+    "Automatic synchronization",
+    "Legacy bulk conversion",
+    "P Work Report adoption",
+    "Analysis Role rename",
+    "Project Package rename",
+    "Structural Level and Settings reconciliation"
+  ]
+}
