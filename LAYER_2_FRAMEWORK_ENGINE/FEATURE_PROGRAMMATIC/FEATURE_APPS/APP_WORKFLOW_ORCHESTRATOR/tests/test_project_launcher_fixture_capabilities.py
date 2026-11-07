@@ -73,7 +73,7 @@ class FixtureCapabilityTests(unittest.IsolatedAsyncioTestCase):
                     self.assertEqual("unconfigured", refusal["request_id"])
             self.assertEqual(before, [fixture.snapshot() for fixture in fixtures])
 
-    async def test_missing_context_declaration_keeps_registration_but_refuses_execution(self) -> None:
+    async def test_missing_tool_declaration_does_not_hide_registered_context_reader(self) -> None:
         with fixture_pair() as fixtures:
             fixture = fixtures[0]
             declaration = next(
@@ -84,8 +84,10 @@ class FixtureCapabilityTests(unittest.IsolatedAsyncioTestCase):
                 server = create_server(fixture.root)
                 names = {tool.name for tool in await server.list_tools()}
                 self.assertIn("get_execution_context", names)
-                with self.assertRaises(ToolError):
-                    await server.call_tool("get_execution_context", {"request": {"id": fixture.atom_id}})
+                result = launcher._structured_tool_result(await server.call_tool(
+                    "get_execution_context", {"request": {"id": fixture.atom_id}},
+                ))
+                self.assertEqual(fixture.source_ref, result["definition"]["source_path"])
 
     def test_collision_inspection_refuses_foreign_project_identity(self) -> None:
         with fixture_pair() as fixtures:
