@@ -12,12 +12,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
 status: Active
-version: 12
-updated_at: 2026-10-27 19:59:42 +0400
+version: 13
+updated_at: 2026-11-07 04:28:07 +0400
 carrier_destination:
   file:
     name: CA-M-322-MCP-ENG_DECISION--reload-through-isolated-implementation-generations.md
@@ -35,9 +36,11 @@ server-side hot reload for the Project-local MCP gateway.
 
 ## Claim
 
-the MCP implementation **must** prepare reload candidates in isolated generations **and** atomically select a validated generation for new dispatch.
+MCP hot reload is optional and disabled by default. Default startup serves tool implementations in the MCP process, without an implementation child. Apply code changes with a normal server/container restart. Only explicit opt-in enables isolated implementation generations and their existing validated switch behavior.
 
 ## Details
+
+The following generation rules apply only when hot reload is explicitly enabled. When disabled, there is no implementation generation to replace or drain; preserve the same Project boundary, transport protections and callable tools. Do not advertise a working reload action in disabled mode.
 
 1. keep the stdio gateway, protocol session, reload control **and** fixed Project binding stable.
 2. load candidate code **and** dependencies in a separate local implementation process, rather than mutating live imported modules with importlib.reload.

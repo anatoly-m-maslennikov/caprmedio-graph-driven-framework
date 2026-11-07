@@ -1,33 +1,18 @@
-"""Registered startup proofs using disposable Projects and an executable mock CLI."""
-from __future__ import annotations
+# CA-E-796@2
+"""Retained DBOS registration and removed-route admission checks."""
 
-import copy
-import hashlib
-import json
 from pathlib import Path
 import sys
 import tempfile
-import textwrap
 import unittest
 from unittest.mock import patch
 
 APP = Path(__file__).resolve().parents[1]
-REPOSITORY = APP.parents[3]
-TOOLS = APP.parents[1] / "FEATURE_TOOLS"
-REVERT = TOOLS / "WORKFLOW_OPERATIONS/REVERT_CHANGES"
-PROMPTS = REPOSITORY / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW"
-for path in (APP, APP / "tests", TOOLS, REVERT, REVERT / "tests", PROMPTS, TOOLS.parent / "FEATURE_MCP/tests"):
-    sys.path.insert(0, str(path))
+sys.path.insert(0, str(APP))
 
-import backend
-import lifecycle_intents
-import test_native_revert_provider as revert_fixture
-from implementation_agent import ImplementationAgent
-from native_revert_provider import NativeRevertProvider, make_native_revert_service
-from selected_execution import SelectedExecution, build_requested_runs
-from selected_native_providers import SelectedNativeProviders
-from selected_workflows_docker_fixture import GoldenCase, GoldenProject, W10_LIFECYCLE_TIMESTAMP
-from test_selected_routes_mcp import copy_complete_selected_guard_fixture
+import backend  # noqa: E402
+import orchestrator  # noqa: E402
+from selected_execution_contracts import SelectedExecutionError  # noqa: E402
 
 
 class RegisteredDBOS:
@@ -39,258 +24,82 @@ class RegisteredDBOS:
         def register(function):
             self.steps[name] = function
             return function
+
         return register
 
     def workflow(self, *, name):
         def register(function):
             self.workflows[name] = function
             return function
+
         return register
 
 
-class Session:
-    """One lazy selected lineage; repeated bridge access reuses the Action."""
-    def __init__(self):
-        self.started = {}
-        self.finished = []
+class AgentRetirementTests(unittest.TestCase):
+    def test_worker_fingerprint_includes_the_retained_compiler(self):
+        from engine import runtime_fingerprint
 
-    def start_run(self, requested):
-        return self.started.setdefault(requested, {"run_id": f"actual-{len(self.started) + 1}"})
+        before = runtime_fingerprint()
+        read_bytes = Path.read_bytes
 
-    def finish_run(self, run_id, **result):
-        row = {"run_id": run_id, "disposition": "terminal", **result}
-        self.finished.append(row)
-        return row
+        def changed(path):
+            raw = read_bytes(path)
+            return raw + b"\n" if path.name == "compile_applicable_methodology.py" else raw
 
+        with patch.object(Path, "read_bytes", new=changed):
+            self.assertNotEqual(before, runtime_fingerprint())
 
-class CurrentProviderGoldenProject(GoldenProject):
-    def _copy_reviewed_manifest(self):
-        settings = self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml"
-        prior = settings.read_bytes()
-        try:
-            return copy_complete_selected_guard_fixture(self.root)
-        finally:
-            settings.write_bytes(prior)
-
-
-class SelectedNativeProvidersTests(unittest.TestCase):
-    def setUp(self):
-        self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
-        self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name).resolve()
-        self.project = CurrentProviderGoldenProject(REPOSITORY, self.root, GoldenCase("W10", "revert_changes"))
-        self.manifest = self.project.prepare()
-
-    def freeze(self, route, parameters, run_id="native-selected"):
-        execution = {"mode": "execute", "operation_route": route, "workflow_run_id": run_id,
-                     "parameters": parameters, "source_freshness": self.manifest["source_freshness"],
-                     "definition_manifest": {"manifest_ref": ".caprmedio_caprmedio/_projection/selected_workflow_bindings.json",
-                                             "manifest_digest": self.manifest["canonical_manifest_sha256"]}}
-        selected = SelectedExecution(self.root)
-        graph = selected._validate_graph(execution)
-        execution["requested_runs"] = build_requested_runs(
-            graph, run_id, parameters.get("run_visit_limits"))
-        return selected.freeze({"operation": "enqueue_selected", "run_id": run_id, "execution": execution})
-
-    def registered_dispatch(self, frozen, *, agent=None):
-        providers = SelectedNativeProviders(self.root, implementation_agent=agent)
+    def test_retained_selected_queue_registers_only_deterministic_dispatch(self):
         dbos = RegisteredDBOS()
-        engine = type("Engine", (), {"root": self.root})()
-        backend.register_execution(dbos, engine, selected_providers=providers)
-        session = Session()
-
-        def execute_selected(_root, handlers, saved, **_kwargs):
-            from selected_graph_executor import execute_graph
-
-            return execute_graph(self.root, handlers, saved, session)
-
-        with patch("selected_dispatch_state.shared_dispatch", side_effect=execute_selected):
-            result = dbos.workflows[backend.SELECTED_WORKFLOW](frozen["request"]["run_id"])
-        return result, session
-
-    def lifecycle_request(self):
-        request = copy.deepcopy(
-            self.project.native_revert_parameters()["approved_reversal_manifest"]["request"]
+        providers = type("Providers", (), {"dispatch": lambda _self, run_id: {"run_id": run_id}})()
+        backend.register_execution(
+            dbos, type("Engine", (), {"root": Path.cwd()})(), selected_providers=providers
         )
-        target = request["ordered_effects"][0]["capability_binding"]["target"]
-        path = self.root / target["path"]
-        return request, path, path.read_bytes()
+        self.assertEqual({"selected-workflow-dispatch"}, set(dbos.steps))
+        self.assertEqual({backend.SELECTED_WORKFLOW}, set(dbos.workflows))
+        self.assertEqual(
+            {"run_id": "retained"}, dbos.workflows[backend.SELECTED_WORKFLOW]("retained")
+        )
 
-    def legacy_manifest(self, request):
-        """Model a retained pre-repair packet; current admission must reject it."""
-        service = make_native_revert_service({"project_root": str(self.root), "approved_reversal_request": request})
-        admitted = service.admit(request)
-        self.assertEqual("blocked", admitted["outcome"])
-        return {"manifest_id": "reversal-" + revert_fixture.canonical_digest(request)[:24],
-                "request": request, "admitted_target_hashes": request["current_hashes"]}
+    def test_retired_operations_are_not_public_request_variants(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            base = {
+                "operation": "enqueue",
+                "run_id": "removed-base",
+                "selection": [],
+                "criteria_paths": ["rule.md"],
+                "author": "operator",
+                "scope": "test",
+            }
+            selected = {
+                "operation": "enqueue_selected",
+                "run_id": "removed-selected",
+                "execution": {"operation_route": "run_implementation_workflow"},
+            }
+            with self.assertRaises(ValueError):
+                orchestrator.run(root, base)
+            with self.assertRaisesRegex(ValueError, "Unsupported.*removed"):
+                orchestrator.run(root, selected)
+            self.assertFalse((root / ".caprmedio_install").exists())
 
-    def test_registered_synthetic_lifecycle_revert_with_unbound_evidence_is_blocked(self):
-        request, path, before = self.lifecycle_request()
-        request["operator_decision"]["evidence_hash"] = "0" * 64
-        prior = path.read_bytes()
-        frozen = self.freeze("revert_changes", {"approved_reversal_manifest": self.legacy_manifest(request)})
-        result, session = self.registered_dispatch(frozen)
-        self.assertEqual("interrupted_pending", result["outcome"])
-        self.assertEqual(prior, path.read_bytes())
-        self.assertEqual(3, len(session.started))
-        self.assertEqual(3, len(session.finished))
-        self.assertEqual("blocked", result["step_results"][0]["result"])
+    def test_direct_freeze_refuses_retired_route_without_writing(self):
+        from selected_execution import SelectedExecution
 
-    def test_registered_current_lifecycle_revert_performs_exact_effect_once(self):
-        with patch.object(lifecycle_intents, "current_timestamp", return_value=W10_LIFECYCLE_TIMESTAMP):
-            request, path, before = self.lifecycle_request()
-            service = make_native_revert_service({"project_root": str(self.root), "approved_reversal_request": request})
-            admitted = service.admit(request)
-            self.assertEqual("admitted", admitted["outcome"])
-            frozen = self.freeze("revert_changes", {"approved_reversal_manifest": admitted["approved_reversal_manifest"]})
-            result, session = self.registered_dispatch(frozen)
-        self.assertEqual("completed", result["outcome"])
-        self.assertEqual("reverted", result["step_results"][0]["result"])
-        self.assertNotEqual(before, path.read_bytes())
-        self.assertIn(b"Reverted detail.", path.read_bytes())
-        self.assertEqual(3, len(session.started))
-        self.assertEqual(3, len(session.finished))
-
-    def test_registered_synthetic_lifecycle_revert_forecast_is_blocked_without_effect(self):
-        helper = revert_fixture.NativeRevertProviderTests()
-        target_path = self.project._authority_dir / "CA-R-100--target.md"
-        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as forecast_raw:
-            forecast = Path(forecast_raw)
-            (forecast / ".git").mkdir()
-            control = forecast / ".caprmedio_caprmedio"
-            control.mkdir()
-            (control / "caprmedio_project_settings.toml").write_text(
-                (self.root / ".caprmedio_caprmedio/caprmedio_project_settings.toml").read_text(), encoding="utf-8")
-            forecast_path = forecast / target_path.relative_to(self.root)
-            forecast_path.parent.mkdir(parents=True, exist_ok=True)
-            forecast_path.write_bytes(target_path.read_bytes())
-            with patch.object(lifecycle_intents, "current_timestamp", return_value="2026-10-05 12:00:00 +0000"):
-                forecast_result = lifecycle_intents.update_atom_action(forecast, {
-                    "target": lifecycle_intents.carrier_descriptor(forecast, "CA-R-100"),
-                    "proposed": helper._proposal(forecast_path), "change_class": "semantic_revision"}, execute=True, authorized=True)
-                target = lifecycle_intents.carrier_descriptor(self.root, "CA-R-100")
-                effect = {"effect_id": "lifecycle", "target_id": "atom:CA-R-100", "expected_before": "version 1",
-                          "expected_after": "version 2", "expected_current_hash": revert_fixture.canonical_digest(target),
-                          "expected_result_hash": revert_fixture.normalized_carrier_result_hash(forecast, "CA-R-100"),
-                          "before_evidence": "before:lifecycle", "after_evidence": "after:lifecycle",
-                          "capability_binding": helper._binding("lifecycle.update_atom", {
-                              "target": target, "proposed": helper._proposal(target_path), "change_class": "semantic_revision"},
-                              target, before="before:lifecycle", after="after:lifecycle")}
-                request = helper._request(effect, effect["expected_current_hash"])
-                frozen = self.freeze("revert_changes", {"approved_reversal_manifest": self.legacy_manifest(request)})
-                result, session = self.registered_dispatch(frozen)
-        self.assertEqual("interrupted_pending", result["outcome"])
-        self.assertNotIn("Semantic reversal detail.", target_path.read_text())
-        self.assertIn("Stable summary", target_path.read_text())
-        self.assertFalse(list(target_path.parent.rglob("CA-R-100--target@1.md")))
-        self.assertEqual(3, len(session.finished))
-
-    def test_unsupported_and_denied_revert_are_truthful_without_effects(self):
-        for capability, granted in (("file.write", True), ("structure.rollback_scope_unit_change", False)):
-            with self.subTest(capability=capability, granted=granted):
-                request, path, before = self.lifecycle_request()
-                binding = request["ordered_effects"][0]["capability_binding"]
-                binding["capability_id"] = capability
-                binding["permission_evidence"].update(capability_id=capability, granted=granted)
-                frozen = self.freeze("revert_changes", {"approved_reversal_manifest": {"request": request}}, run_id=f"denied-{granted}")
-                prior = path.read_bytes()
-                result, _ = self.registered_dispatch(frozen)
-                self.assertEqual("interrupted_pending", result["outcome"])
-                self.assertEqual(prior, path.read_bytes())
-                self.assertEqual("blocked", result["step_results"][0]["result"])
-
-    def test_registered_implementation_agent_executes_disposable_code_and_assertion(self):
-        parameters = self.project.native_implementation_parameters()
-        base = parameters["base_packet"]
-        workspace = Path(base["workspace"])
-        script = self.root / "mock_cli.py"
-        script.write_text(textwrap.dedent('''
-            import json, subprocess, sys
-            from pathlib import Path
-            args = sys.argv[1:]
-            output = Path(args[args.index('--output-last-message') + 1])
-            workspace = Path(args[args.index('--cd') + 1])
-            packet = json.loads(sys.stdin.read().split('Input packet:\\n', 1)[1])
-            step = packet['step_marker']
-            assert args[args.index('--sandbox') + 1] == 'workspace-write'
-            outputs = {}
-            if step == 'CA-O-092':
-                outputs = {'golden_e2e': ['assertion.py'], 'commands': ['assertion.py'], 'expected_outcomes': ['pass']}
-            elif step == 'CA-O-093':
-                (workspace / 'implementation.py').write_text('def ready():\\n    return True\\n')
-                (workspace / 'assertion.py').write_text('from implementation import ready\\nassert ready()\\n')
-                outputs = {'candidate': packet.get('candidate', 'actual-code'), 'phase': packet.get('phase'),
-                           'changed_paths': ['implementation.py', 'assertion.py']}
-            elif step == 'CA-O-094':
-                check = subprocess.run([sys.executable, '-B', 'assertion.py'], cwd=workspace)
-                assert check.returncode == 0
-                outputs = {'candidate': packet.get('candidate', 'actual-code'), 'commands': ['assertion.py'],
-                           'checks': [{'returncode': check.returncode}],
-                           'coverage': {'complete': True, 'checked': packet['coverage']['required']}}
-            if step == 'CA-O-091':
-                prior_results = packet.get('prior_results')
-                assert isinstance(prior_results, list)
-                prior = [row.get('result') for row in prior_results if isinstance(row, dict)]
-                if not prior:
-                    result = 'evaluation_ready'
-                elif prior[-1] == 'prepared':
-                    result = 'requirement_ready'
-                elif prior[-1] == 'implemented':
-                    result = 'evaluation_runnable'
-                elif prior[-1] == 'passed':
-                    result = 'complete'
-                else:
-                    raise AssertionError(f'unexpected retained implementation result: {prior[-1]!r}')
-            else:
-                result = {'CA-O-092': 'prepared', 'CA-O-093': 'implemented', 'CA-O-094': 'passed'}[step]
-            output.write_text(json.dumps({'result': result, 'outputs': outputs, 'evidence': [{'step': step}], 'blockers': []}))
-        '''), encoding="utf-8")
-        base.update(golden_e2e=["assertion.py"], baseline_command="assertion.py",
-                    candidate="actual-code", agent_timeout_seconds=5)
-        base["coverage"]["candidate"] = "actual-code"
-        frozen = self.freeze("run_implementation_workflow", parameters)
-        result, session = self.registered_dispatch(frozen, agent=ImplementationAgent([sys.executable, str(script)]))
-        self.assertEqual("completed", result["outcome"])
-        self.assertTrue((workspace / "implementation.py").is_file())
-        self.assertEqual(["evaluation_ready", "prepared", "requirement_ready", "implemented",
-                          "evaluation_runnable", "passed", "complete"],
-                         [row["result"] for row in result["step_results"]])
-        self.assertEqual(15, len(session.started))
-
-    def test_startup_is_lazy_and_default_agent_is_distinct(self):
-        with patch("implementation_agent._run", side_effect=AssertionError("startup must not launch Agent")):
-            providers = SelectedNativeProviders(self.root)
-            self.assertIsInstance(providers.implementation_agent, ImplementationAgent)
-            dbos = RegisteredDBOS()
-            engine = type("Engine", (), {"root": self.root, "agent": object()})()
-            backend.register_execution(dbos, engine, selected_providers=providers)
-            self.assertIsNot(engine.agent, providers.implementation_agent)
-            self.assertIn(backend.WORKFLOW, dbos.workflows)
-            self.assertIn("base-revise-fix", dbos.steps)
-
-    def test_release_routes_have_no_selected_native_provider_or_recovery(self):
-        providers = SelectedNativeProviders(self.root)
-        for route in ("release_version", "public.release"):
-            with self.subTest(route=route), self.assertRaisesRegex(RuntimeError, "use direct Release commands"):
-                providers.execution({"request": {"execution": {"operation_route": route, "parameters": {}}}})
-        self.assertFalse(hasattr(providers, "recover_release"))
-        self.assertFalse(hasattr(providers, "resolve_release_unknown_effect"))
-
-    def test_denied_implementation_packet_never_launches_callback(self):
-        import implementation_actions
-        parameters = {"base_packet": {"source_bindings": implementation_actions.current_source_bindings(self.root),
-                                      "permissions": {"allowed": False}},
-                      "step_packets": {step: {"context": context}
-                                       for step, (_action, context) in implementation_actions.ACTION_BY_STEP.items()}}
-        frozen = self.freeze("run_implementation_workflow", parameters)
-
-        def forbidden_agent(_prompt, _packet):
-            self.fail("denied Implementation packet launched Agent")
-
-        result, session = self.registered_dispatch(frozen, agent=forbidden_agent)
-        self.assertEqual("interrupted_pending", result["outcome"])
-        self.assertEqual("blocked", result["step_results"][0]["result"])
-        self.assertEqual(3, len(session.started))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            selected = SelectedExecution(root)
+            request = {
+                "operation": "enqueue_selected",
+                "run_id": "removed-selected",
+                "execution": {
+                    "operation_route": "run_implementation_workflow",
+                    "workflow_run_id": "removed-selected",
+                },
+            }
+            with self.assertRaisesRegex(SelectedExecutionError, "Unsupported.*removed"):
+                selected.freeze(request)
+            self.assertFalse((root / ".caprmedio_install").exists())
 
 
 if __name__ == "__main__":

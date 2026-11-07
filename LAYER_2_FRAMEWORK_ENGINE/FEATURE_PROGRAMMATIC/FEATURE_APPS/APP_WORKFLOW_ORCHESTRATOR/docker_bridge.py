@@ -1,3 +1,4 @@
+# CA-M-504@2
 """Existing host MCP queue calls can explicitly select the Docker worker."""
 
 import json
@@ -26,7 +27,7 @@ def invoke(root, request):
     from engine import Coordinator
 
     root = Path(root).resolve(strict=True)
-    marker = Coordinator(root, None).store.path(MARKER)
+    marker = Coordinator(root).store.path(MARKER)
     value = json.loads(marker.read_text())
     if set(value) != {"transport", "project_name"} or value["transport"] != "docker":
         raise ValueError("Invalid Docker transport selection")

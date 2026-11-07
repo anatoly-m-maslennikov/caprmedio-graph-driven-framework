@@ -280,9 +280,10 @@ With an explicit Project root, Journal writes and queries use that Project's set
 
 The original six source-bound routes cover Create Atom, Update Atom, Replace
 Atom, Change Atom Status, Implementation, and Build Applicable Methodology.
-Their existing authorization boundaries remain. Discovery reports what is
-actually callable; a source definition alone does not prove execution support.
-Implementation has golden mock-Agent evidence, not a live-LLM claim.
+Discovery reports what is actually callable; a source definition alone does not
+prove execution support. Automatic AI Agent execution has been removed from the
+runtime. Its methodology remains available; the general Workflow queue and
+deterministic handlers remain.
 
 Two Project-owned release commands run directly from the repository on the host:
 

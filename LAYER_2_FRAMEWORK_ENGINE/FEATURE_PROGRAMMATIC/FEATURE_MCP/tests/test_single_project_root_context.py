@@ -78,7 +78,9 @@ class SingleProjectRootContextTests(unittest.IsolatedAsyncioTestCase):
             instance_id=resolve_project(self.host).instance_id,
             host_root=self.host,
         )
-        self.app = create_app(self.container, implementation=self.provider, selection=selection)
+        self.app = create_app(
+            self.container, implementation=self.provider, selection=selection, hot_reload=True,
+        )
         extensions = REPOSITORY / ".caprmedio_tmp" / "workbench" / "extensions"
         self.app.gateway.workbench = _ConfiguredWorkbenchTools(self.container, extensions)
 

@@ -38,7 +38,7 @@ class QueryImageIdentityTests(unittest.TestCase):
 
     def test_selected_identity_propagates_to_runtime_environment(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
-            runtime = query.strict.Runtime(Path(directory), mock=True, image=IMAGE)
+            runtime = query.strict.Runtime(Path(directory), image=IMAGE)
             with patch.dict(os.environ, {"CAPRMEDIO_IMAGE": "sha256:" + "c" * 64}, clear=False):
                 self.assertEqual(IMAGE, runtime.environment()["CAPRMEDIO_IMAGE"])
 

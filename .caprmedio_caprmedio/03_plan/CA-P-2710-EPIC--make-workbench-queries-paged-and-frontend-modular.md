@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 60
-updated_at: 2026-11-07 03:25:25 +0400
+version: 61
+updated_at: 2026-11-07 05:35:12 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -142,15 +142,15 @@ Release cleanup retained one image without Project ownership evidence; obsolete 
 - [x] Create, review and adopt the latency, throughput and rebuild Evaluation criteria.
 - [x] Reuse the verified Backend Policy prompt and gather accepted sources.
 - [x] Add an enforceable latency check to the existing watcher tests.
-- [ ] Implement and review the randomized bulk-mutation and rebuild tests.
-- [ ] Run the controlled Docker tests and record the regression limits and measured baseline.
+- [x] Implement and review the randomized bulk-mutation and rebuild tests.
+- [x] Run the controlled Docker tests and record the regression limits and measured baseline.
 - [x] Measure current RAM ownership and review the compact source-cache change.
-- [ ] Implement and verify the reviewed RAM change.
-- [ ] Create the profiler RMED.
-- [ ] Review and fix the profiler RMED.
-- [ ] Implement the accepted profiler RMED.
-- [ ] Test the profiler and record its results separately from acceptance timings.
-- [ ] Review the integrated changes and record completion.
+- [x] Implement and verify the reviewed RAM change.
+- [x] Create the profiler RMED.
+- [x] Review and fix the profiler RMED.
+- [x] Implement the accepted profiler RMED.
+- [x] Test the profiler and record its results separately from acceptance timings.
+- [x] Review the integrated changes and record completion.
 
 The retained real-project test Atoms remain outside these source/code edits. Specification belongs in RMED; this section tracks execution.
 
@@ -158,7 +158,7 @@ The retained real-project test Atoms remain outside these source/code edits. Spe
 
 Proposal: [CA-A-1329@1-draft](../CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/02_analysis/draft/CA-A-1329@1-draft-WORKBENCH_BACKEND-SPECIFICATION_PROPOSAL--compare-workbench-performance-options.md).
 
-- [ ] Benchmark bulk edits, deletes and Scope Unit move/rename operations for latency and throughput.
+- [x] Benchmark bulk edits, deletes and Scope Unit move/rename operations for latency and throughput.
 - [ ] Evaluate bulk SQL mutations (E01).
 - [ ] Evaluate event batching (E02).
 - [ ] Evaluate a shorter database critical section (E03).
@@ -307,7 +307,7 @@ Operator correction: an ordinary source file change must insert/update/remove it
 
 - [x] Update and review the scoped Method and Evaluation sources.
 - [x] Reuse the scoped Policy prompt and implement incremental backend refresh.
-- [ ] Expand the Docker E2E to approximately 5,000 Atom sources; retain per-operation latency metrics and add the new-directory child case.
+- [x] Expand the Docker E2E to approximately 5,000 Atom sources; retain per-operation latency metrics and add the new-directory child case.
 - [ ] Review and run behavior checks, then verify the live repository with the tested code.
 
 Backend implementation and parent Workbench E2E work have separate owners; each worker edits one Scope Unit. Root owns source adoption, integration and release.
@@ -325,3 +325,40 @@ C704 is Resolved in source. The unchanged 5,000-Atom watcher matrix passed twelv
 ## Released acceptance
 
 Release 0.4.4.29, source `e972fa26abbf8d75c150f610a809e5d832d492fc`, passed the scoped suite and launcher gate. The live lifecycle canary passed fourteen visibility checks and cleanup in 235 seconds. Its real-project timings are separate from the 5,000-small-Atom fixture: ordinary update/move took 3.7–3.9 seconds, while scope/schema rebuilds took roughly 18–24 seconds. Native descriptor/resource checks and installed MCP View operations pass; the actual UI remains open under C705.
+
+
+## AI Agent runtime retirement
+
+- [x] Commit and push the complete pre-removal checkout to amm/dev (`e332bcdb58`).
+- [x] Record and review the runtime retirement sources (M504, E796).
+- [x] Remove the retired code and update retained callers, configuration and tests.
+- [x] Verify retained runtime behavior and record the result.
+
+Controlled performance acceptance and the same-source RAM comparison are complete; see the reports below. The live container remains unchanged.
+
+
+## Optional code hot reload
+
+- [x] Record the general Policy and update MCP RMED.
+- [x] Apply default-off hot reload to runtime and development launch paths.
+- [x] Verify both default and explicit opt-in modes.
+
+## Batch rename correctness
+
+- [x] Fix the relation loss found by the offline 500-Atom rename preflight.
+- [x] Verify relation parity and rerun the performance gates.
+
+
+## Runtime and RAM acceptance — 7 November 2026
+
+Four controlled Docker tests passed, including all 21 measured gates. Fresh same-source containers indexed 5,485 Atoms; Docker working-set RAM fell from 680.9 MiB to 410.1 MiB (39.8%). This combines compact source caching, direct Python startup and default-off hot reload; it is not attributed to a single change. No live deployment was performed.
+
+Evidence: [runtime acceptance](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/runtime-acceptance-20261107.md), [raw performance metrics](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/performance-acceptance-20261107.json), [RAM report](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/ram-report-20261107.md).
+
+- [x] Investigate deeper retained memory and query-result ownership.
+- [ ] Benchmark aggregate-only Header schema bookkeeping against current behavior.
+- [ ] Benchmark UTF-8 source-body caching for memory and edit/rebuild speed.
+- [ ] Measure a registration-only MCP catalog read before deciding whether to adopt it.
+- [ ] Route the unchanged migration/Journal fixture failures to their owning work; preserve current validation.
+
+These are optional measured candidates, not adopted implementation requirements. The Epic remains Active; native-host UI acceptance, live release/canary and other explicitly deferred work are still open.

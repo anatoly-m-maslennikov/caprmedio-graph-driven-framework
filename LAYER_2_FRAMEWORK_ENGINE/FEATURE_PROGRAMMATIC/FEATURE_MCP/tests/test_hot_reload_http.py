@@ -1,4 +1,7 @@
-"""HTTP transport and access-boundary tests for the existing reload gateway."""
+# CA-E-533@13
+# CA-E-534@10
+
+"""HTTP transport and access-boundary tests for the opt-in reload gateway."""
 import asyncio
 import os
 from pathlib import Path
@@ -16,6 +19,7 @@ APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP))
 from http_server import create_app  # noqa: E402
 from http_paths import HEALTH_PATH, MCP_PATH  # noqa: E402
+from workbench_tools import NATIVE_TOOLS as WORKBENCH_TOOLS  # noqa: E402
 
 
 class HTTPGatewayTests(unittest.TestCase):
@@ -30,7 +34,7 @@ class HTTPGatewayTests(unittest.TestCase):
             'from mcp.server import MCPServer\nserver=MCPServer("mock")\n'
             '@server.tool()\ndef echo() -> dict: return {"value":"ok"}\n'
             'server.run(transport="stdio")\n')
-        self.client = TestClient(create_app(self.root, implementation=self.source),
+        self.client = TestClient(create_app(self.root, implementation=self.source, hot_reload=True),
                                  base_url='http://127.0.0.1:8092')
         self.client.__enter__()
         self.addCleanup(self.client.__exit__, None, None, None)
@@ -49,7 +53,7 @@ class HTTPGatewayTests(unittest.TestCase):
 
     def test_gateway_construction_requires_no_token_environment_or_password_prompt(self):
         with patch.dict(os.environ, {}, clear=True):
-            app = create_app(self.root, implementation=self.source)
+            app = create_app(self.root, implementation=self.source, hot_reload=True)
         self.assertIsNotNone(app.gateway)
 
     def test_hostile_host_is_rejected_before_initialize(self):
@@ -79,7 +83,7 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
         self.root = Path(self.temp.name)
         self.source = self.root / 'mock.py'
         self.write('A', 'echo')
-        self.app = create_app(self.root, implementation=self.source)
+        self.app = create_app(self.root, implementation=self.source, hot_reload=True)
 
     def write(self, version, name):
         self.source.write_text(
@@ -120,12 +124,7 @@ class HTTPProtocolTests(unittest.IsolatedAsyncioTestCase):
         async with self.app.starlette_app.router.lifespan_context(self.app.starlette_app):
             client, transport, session = await self.session()
             try:
-                self.assertEqual({'echo', 'query_run', 'query_check', 'query_page', 'query_schema',
-                                  'view_save', 'query_load', 'query_saved_list', 'workbench_restart',
-                                  'workbench_reread', 'workspace_open', 'workspace_list', 'workspace_get',
-                                  'view_create', 'view_list', 'view_get', 'view_update', 'view_run',
-                                  'view_check', 'view_fetch', 'view_focus', 'view_rename', 'view_remove',
-                                  'query_log_list', 'query_log_get',
+                self.assertEqual({'echo', *WORKBENCH_TOOLS,
                                   'reload_mcp_implementation', 'get_mcp_reload_status'},
                                  {tool.name for tool in (await session.list_tools()).tools})
                 self.assertEqual('A', (await session.call_tool('echo')).structured_content['version'])

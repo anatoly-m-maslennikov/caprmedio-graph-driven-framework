@@ -1,12 +1,12 @@
-"""Foreground services with immutable code and explicit runtime-only credentials."""
+"""Foreground services with immutable code and explicit runtime-only state."""
+
+# CA-M-504@2
 
 import json
 import os
 from concurrent.futures import CancelledError as FutureCancelledError
 from pathlib import Path
-import shutil
 import sys
-from urllib.request import urlopen
 
 APP = Path(__file__).resolve().parents[1]
 PROJECT_ROOT = Path("/project")
@@ -22,32 +22,7 @@ from operation_error_boundary import (  # noqa: E402
 from runtime_failure_diagnostics import report_failure  # noqa: E402
 
 
-RUNTIME_MODES = frozenset(
-    {"agent", "agent-health", "health", "worker", "mcp", "mcp-http", "shared-mcp"}
-)
-
-
-def seed_authentication():
-    if os.environ.get("CAPRMEDIO_AGENT_MODE") == "mock":
-        return
-    destination = Path.home() / ".codex/auth.json"
-    if destination.is_file():
-        return
-    seed = Path("/run/secrets/codex_auth")
-    if not seed.is_file():
-        raise ExplicitBlockingRuntimeFailure(
-            "agent_auth_unavailable", "agent credentials are unavailable"
-        )
-    try:
-        destination.parent.mkdir(parents=True, exist_ok=True)
-        temporary = destination.with_suffix(".initial")
-        shutil.copyfile(seed, temporary)
-        temporary.chmod(0o600)
-        temporary.replace(destination)
-    except OSError as error:
-        raise ExplicitBlockingRuntimeFailure(
-            "agent_auth_setup_failed", "agent credentials could not be initialized"
-        ) from error
+RUNTIME_MODES = frozenset({"health", "worker", "mcp", "mcp-http", "shared-mcp"})
 
 
 def worker_health():
@@ -67,8 +42,7 @@ def _process_failure(mode, error):
     if mode not in RUNTIME_MODES:
         error = FailureRecord("WARNING", "invalid_runtime_mode", "runtime mode is unsupported")
     root = (
-        None
-        if mode in {"agent-health", "shared-mcp"} or mode not in RUNTIME_MODES
+        None if mode == "shared-mcp" or mode not in RUNTIME_MODES
         else PROJECT_ROOT
     )
     operation = f"docker.entrypoint.{mode}" if mode in RUNTIME_MODES else "docker.entrypoint"
@@ -80,36 +54,6 @@ def _process_failure(mode, error):
         payload["diagnostic_error"] = secondary
     print(json.dumps(payload, separators=(",", ":")), file=sys.stderr)
     return 1
-
-
-def _run_agent():
-    try:
-        seed_authentication()
-        import uvicorn
-        from agent_service import app
-
-        uvicorn.run(app, host="0.0.0.0", port=8091, log_level="warning")
-    except FutureCancelledError:
-        raise
-    except ExplicitBlockingRuntimeFailure:
-        raise
-    except Exception as error:
-        raise ExplicitBlockingRuntimeFailure(
-            "agent_start_failed", "agent service could not start"
-        ) from error
-
-
-def _run_agent_health():
-    try:
-        with urlopen("http://127.0.0.1:8091/health", timeout=3) as response:
-            if not json.load(response)["ready"]:
-                raise RuntimeError("agent is not ready")
-    except FutureCancelledError:
-        raise
-    except Exception as error:
-        raise ExplicitBlockingRuntimeFailure(
-            "agent_unavailable", "agent health is unavailable"
-        ) from error
 
 
 def _run_worker_health():
@@ -172,11 +116,7 @@ def _exec_service(mode):
 
 
 def _dispatch(mode):
-    if mode == "agent":
-        _run_agent()
-    elif mode == "agent-health":
-        _run_agent_health()
-    elif mode == "health":
+    if mode == "health":
         _run_worker_health()
     else:
         _exec_service(mode)

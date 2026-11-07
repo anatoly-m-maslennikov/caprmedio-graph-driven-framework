@@ -1,0 +1,82 @@
+[
+  {
+    "accounting": {
+      "processes": [
+        {
+          "pid": 1,
+          "name": "uv",
+          "Rss_kib": 39856,
+          "Pss_kib": 38410,
+          "Anonymous_kib": 23856
+        },
+        {
+          "pid": 10,
+          "name": "python",
+          "Rss_kib": 611820,
+          "Pss_kib": 569670,
+          "Anonymous_kib": 533696
+        },
+        {
+          "pid": 11,
+          "name": "python",
+          "Rss_kib": 136504,
+          "Pss_kib": 120028,
+          "Anonymous_kib": 114340
+        }
+      ],
+      "cgroup_current_bytes": 823746560
+    },
+    "image_label": "deployed",
+    "image": "sha256:bc37d7e2a68129583e0d6d394fbe843cc00a79909e0322895a3608d2bd92a0a7",
+    "atom_rows": 5485,
+    "stats": {
+      "BlockIO": "36.1MB / 0B",
+      "CPUPerc": "0.68%",
+      "Container": "caprmedio-workbench-e2e-dc8f8a0a6c9b4165b4ea316781ac8ddf",
+      "ID": "d1c6e3ec1a80",
+      "MemPerc": "44.33%",
+      "MemUsage": "680.9MiB / 1.5GiB",
+      "Name": "caprmedio-workbench-e2e-dc8f8a0a6c9b4165b4ea316781ac8ddf",
+      "NetIO": "57.9kB / 62.7kB",
+      "PIDs": "31"
+    },
+    "process_names": [
+      "PID                 COMMAND",
+      "29015               uv",
+      "29043               python",
+      "29101               python"
+    ]
+  },
+  {
+    "accounting": {
+      "processes": [
+        {
+          "pid": 1,
+          "name": "python",
+          "Rss_kib": 429864,
+          "Pss_kib": 421470,
+          "Anonymous_kib": 350608
+        }
+      ],
+      "cgroup_current_bytes": 602972160
+    },
+    "image_label": "candidate",
+    "image": "sha256:c187a6aaab6c8588bffd395a26ce37f18a5344df2bb8a722cd0a2acb57167dbd",
+    "atom_rows": 5485,
+    "stats": {
+      "BlockIO": "120MB / 0B",
+      "CPUPerc": "0.92%",
+      "Container": "caprmedio-workbench-e2e-a17b02b22ac544ddb4e1b0653925bda2",
+      "ID": "ba0fe0302172",
+      "MemPerc": "26.70%",
+      "MemUsage": "410.1MiB / 1.5GiB",
+      "Name": "caprmedio-workbench-e2e-a17b02b22ac544ddb4e1b0653925bda2",
+      "NetIO": "56.1kB / 61.3kB",
+      "PIDs": "26"
+    },
+    "process_names": [
+      "PID                 COMMAND",
+      "29735               python"
+    ]
+  }
+]

@@ -25,7 +25,7 @@ class SelectedPublicDispatchTests(unittest.TestCase):
                 "operation_route": "public.release", "parameters": {},
             }},
         }
-        self.providers = SelectedNativeProviders(self.root, implementation_agent=lambda *_args: {})
+        self.providers = SelectedNativeProviders(self.root)
 
     def test_retired_selected_session_provider_refuses_without_starting_a_run(self) -> None:
         with patch("selected_native_providers.SelectedExecution", side_effect=AssertionError("generic start")) as generic:
@@ -44,7 +44,6 @@ class SelectedPublicDispatchTests(unittest.TestCase):
         self.assertIs(result, generic.return_value)
         self.assertEqual(self.root, generic.call_args.args[0])
         self.assertEqual({"CA-O-131"}, set(generic.call_args.kwargs["handlers"]))
-        self.assertIs(self.providers.implementation_agent, generic.call_args.kwargs["implementation_agent"])
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,14 +1,14 @@
+# CA-M-504@2
 """Explicit worker providers, scoped to one frozen selected dispatch at a time."""
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Mapping
 import json
 from pathlib import Path
 import sys
 from typing import Any
 
-from implementation_agent import ImplementationAgent
 from selected_execution import (
     SelectedExecution,
     SelectedExecutionError,
@@ -18,7 +18,7 @@ from selected_execution import (
 
 
 class SelectedNativeProviders:
-    """Keep Implementation transport separate from Base Revise and Revert authority.
+    """Bind deterministic selected providers and Revert authority.
 
     Construction starts no Agent or Run. Revert is bound only when its Action
     receives the exact frozen parameters and the existing selected session.
@@ -28,15 +28,8 @@ class SelectedNativeProviders:
     def __init__(
         self,
         root: str | Path,
-        *,
-        implementation_agent: Callable[..., Mapping[str, Any]] | None = None,
     ):
         self.root = Path(root).resolve(strict=True)
-        self.implementation_agent = (
-            implementation_agent if implementation_agent is not None else ImplementationAgent()
-        )
-        if not callable(self.implementation_agent):
-            raise TypeError("implementation agent must be callable")
 
     def execution(self, frozen: Mapping[str, Any]) -> SelectedExecution:
         """Build providers from the queue's frozen request, never ambient effects."""
@@ -94,9 +87,7 @@ class SelectedNativeProviders:
             raise SelectedExecutionError(
                 "Release selected-session providers are disabled; use direct Release commands"
             )
-        return SelectedExecution(
-            self.root, handlers=handlers, implementation_agent=self.implementation_agent
-        )
+        return SelectedExecution(self.root, handlers=handlers)
 
     @staticmethod
     def _blocked(reason: str) -> dict[str, Any]:

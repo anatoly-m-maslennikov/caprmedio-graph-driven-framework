@@ -5,6 +5,8 @@
 # CA-R-1113@23
 # CA-M-175@19
 # CA-D-593@17
+# CA-M-322@13
+# CA-R-1820@9
 
 """Explicit process generations and connected Subject publication; no automatic replay."""
 import asyncio
@@ -94,6 +96,7 @@ SUBJECT_PREVIEW_CALL_TIMEOUT_SECONDS = 300
 # Scratch staging repeats that preview and verifies all staged candidates.
 SUBJECT_STAGE_CALL_TIMEOUT_SECONDS = 600
 _STARTUP_TELEMETRY_ENV = 'CAPRMEDIO_STARTUP_TELEMETRY'
+_HOT_RELOAD_ENV = 'CAPRMEDIO_HOT_RELOAD'
 _STARTUP_PHASES = frozenset({
     'initial_fingerprint', 'reload_fingerprint', 'fingerprint_verify',
     'child_handshake', 'list_tools', 'generation_ready', 'schema_validation',
@@ -125,6 +128,11 @@ def _raise_if_future_cancelled(error):
 def _startup_telemetry_enabled() -> bool:
     """Keep bounded startup timing diagnostics opt-in and transport-safe."""
     return os.environ.get(_STARTUP_TELEMETRY_ENV) == '1'
+
+
+def hot_reload_enabled() -> bool:
+    """Code reload is opt-in; normal starts use one process."""
+    return os.environ.get(_HOT_RELOAD_ENV) == '1'
 
 
 def _startup_timing(enabled: bool, phase: str, started: float, outcome: str = 'completed') -> None:
@@ -311,10 +319,9 @@ class Generation:
         phase = 'child_handshake'
         started = time.monotonic()
         try:
-            # This is a known local implementation subprocess. Its cold import
-            # can exceed the client's fixed ten-second auto-discover probe.
-            # Negotiate the stable legacy handshake directly.
-            async with Client(self.params, cache=None, mode='legacy',
+            # Reload is explicit. Its child negotiates the current MCP protocol
+            # so request metadata remains usable across both gateway boundaries.
+            async with Client(self.params, cache=None, mode='auto',
                               read_timeout_seconds=GENERATION_READY_TIMEOUT_SECONDS) as client:
                 _startup_timing(self.startup_telemetry, phase, started)
                 self.client = client

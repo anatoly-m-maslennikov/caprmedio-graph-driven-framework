@@ -1,3 +1,4 @@
+# CA-M-504@2
 """Source-bound selected-Run freeze, load, and revalidation capabilities."""
 
 from __future__ import annotations
@@ -61,6 +62,8 @@ def _validated_freeze(root: Path, request: Mapping[str, Any]) -> dict[str, Any]:
     execution = request.get("execution")
     if not isinstance(run_id, str) or not isinstance(execution, Mapping):
         raise SelectedExecutionError("selected run ID and execution are required")
+    if execution.get("operation_route") == "run_implementation_workflow":
+        raise SelectedExecutionError("Unsupported: AI Agent implementation execution has been removed")
     if workflow_identity(execution) != run_id:
         raise SelectedExecutionError(
             "requested Workflow Run identity must match enqueue_selected run_id"

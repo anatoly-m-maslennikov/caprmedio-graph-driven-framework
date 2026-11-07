@@ -1,3 +1,4 @@
+# CA-M-504@2
 """DBOS is the durable scheduler; existing Run evidence remains the observed history."""
 from collections.abc import Mapping
 from concurrent.futures import CancelledError as FutureCancelledError
@@ -7,19 +8,16 @@ import signal
 import sys
 import threading
 
-from contracts import Enqueue, EnqueueSelected, Status
-from agent import CodexAgent
-from engine import Coordinator, Interrupted, execute_phase, runtime_fingerprint
-from runtime_config import control_directory, docker_runtime, implementation_mock_runtime
+from contracts import EnqueueSelected, Status
+from engine import Coordinator, runtime_fingerprint
+from runtime_config import control_directory
 from runtime_failure_diagnostics import report_failure
-from remote_agent import RemoteAgent
 from selected_execution import SelectedExecution, canonical_json
 from selected_native_providers import SelectedNativeProviders
 
 APPLICATION = 'caprmedio-orchestrator'
-QUEUE = 'base-revise'
-WORKFLOW = 'rmed-atoms-base-revise-independent'
-APP_VERSION = 'base-revise-v5-selected-v1-docker-project-mount'
+QUEUE = 'workflow'
+APP_VERSION = 'selected-v2-agent-retired'
 SELECTED_WORKFLOW = 'selected-workflow-execution'
 CONTAINER_LIFECYCLE_SCHEMA = 'container-lifecycle/v1'
 CONTAINER_IDENTITY_KIND = 'technical_coordinator'
@@ -31,7 +29,7 @@ def _scheduler_identity():
 
 
 def database(root):
-    engine = Coordinator(root, None)
+    engine = Coordinator(root)
     path = engine.store.path(f'{control_directory()}/dbos.sqlite')
     path.parent.mkdir(parents=True, exist_ok=True)
     return path, f'sqlite:///{path}'
@@ -46,24 +44,11 @@ def client(root):
                       retry_connection_errors=False)
 
 
-def enqueue(root, request):
-    request = Enqueue.model_validate(request)
-    engine = Coordinator(root, None)
-    # Admission is protected against simultaneous clients claiming one ID.
-    with engine.store._lock(request.run_id):
-        engine.freeze(request)
-        transport = client(root)
-        try:
-            transport.enqueue({'queue_name': QUEUE, 'workflow_name': WORKFLOW,
-                               'workflow_id': request.run_id, 'app_version': APP_VERSION}, request.run_id)
-        finally:
-            transport.destroy()
-    return status(root, Status(run_id=request.run_id))
-
-
 def enqueue_selected(root, request):
     """Freeze a source-bound request before its explicit DBOS queue admission."""
     request = EnqueueSelected.model_validate(request)
+    if request.execution.get('operation_route') == 'run_implementation_workflow':
+        raise ValueError('Unsupported: AI Agent implementation execution has been removed')
     selected = SelectedExecution(root)
     scheduler = _scheduler_identity()
     _verify_container_lifecycle_seal(root, request.execution)
@@ -408,7 +393,7 @@ def status(root, request):
             else:
                 response.setdefault('outcome', 'queued')
         return response
-    engine = Coordinator(root, None)
+    engine = Coordinator(root)
     try:
         state = engine.store.load(request.run_id)
         response.update({key: state.get(key) for key in ('outcome', 'progress', 'report_path',
@@ -428,81 +413,17 @@ def status(root, request):
 
 
 def register_execution(DBOS, engine, *, selected_providers=None):
-    """Register one admitted recipe with durable phase checkpoints."""
+    """Register deterministic selected dispatch with DBOS."""
     selected_providers = selected_providers or SelectedNativeProviders(engine.root)
-    @DBOS.step(name='base-revise-gather')
-    def gather(run_id):
-        return engine.gather(run_id)
-
-    @DBOS.step(name='base-revise-check')
-    def check(run_id, ordinal):
-        return engine.check(run_id, ordinal)
-
-    @DBOS.step(name='base-revise-fix')
-    def fix(run_id, ordinal):
-        return engine.fix(run_id, ordinal)
-
-    @DBOS.step(name='base-revise-finish')
-    def finish(run_id, outcome, reason):
-        return engine.finish(run_id, outcome, reason)
-
-    @DBOS.step(name='base-revise-coverage')
-    def coverage(run_id, phase, failure_reason=None):
-        return engine.coverage_gate(run_id, phase, failure_reason)
-
     @DBOS.step(name='selected-workflow-dispatch')
     def selected_dispatch(run_id):
         return selected_providers.dispatch(run_id)
-
-    @DBOS.workflow(name=WORKFLOW)
-    def execute(run_id):
-        return execute_plan(engine, run_id, gather, check, fix, finish, coverage)
 
     @DBOS.workflow(name=SELECTED_WORKFLOW)
     def execute_selected(run_id):
         return selected_dispatch(run_id)
 
-
-
-def execute_plan(engine, run_id, gather, check, fix, finish, coverage):
-    finishing = False
-    try:
-        gathered = gather(run_id)
-        if gathered['outcome'] != 'running':
-            return gathered
-        request, _ = engine.request(run_id)
-        coverage(run_id, 'gather')
-        execute_phase(run_id, 'check', len(request.selection), check, coverage)
-        execute_phase(run_id, 'fix', len(request.selection), fix, coverage)
-        finishing = True
-        return finish(run_id, 'completed', None)
-    except FutureCancelledError:
-        raise
-    except Exception as error:
-        failure, _secondary = report_failure(
-            engine.root,
-            error,
-            component='WORKFLOW_ORCHESTRATOR',
-            operation='execute_plan',
-            correlation_id=run_id,
-        )
-        reason = str(error) if isinstance(error, Interrupted) else failure.message
-        interrupted = {'workflow_run_id': run_id, 'outcome': 'interrupted', 'reason': reason}
-        if finishing:
-            return interrupted
-        try:
-            return finish(run_id, 'interrupted', reason)
-        except FileNotFoundError:
-            try:
-                engine.save(engine.run_directory(run_id) / 'blocked.json', {'reason': reason})
-            except Exception:
-                pass
-            return interrupted
-        except Exception:
-            return interrupted
-
-
-def worker(root, *, agent=None, ready_file=None, implementation_agent=None,
+def worker(root, *, ready_file=None,
            _process_boundary=False):
     """Explicitly started foreground process; no implicit daemon or hook installation."""
     diagnostic_root = None
@@ -513,12 +434,8 @@ def worker(root, *, agent=None, ready_file=None, implementation_agent=None,
         from dbos import DBOS
 
         diagnostic_root = Path(root).resolve(strict=True)
-        if implementation_agent is None and implementation_mock_runtime():
-            from implementation_mock_agent import ImplementationMockAgent
-            implementation_agent = ImplementationMockAgent(diagnostic_root)
         _, url = database(diagnostic_root)
-        default_agent = RemoteAgent() if docker_runtime() else CodexAgent()
-        engine = Coordinator(diagnostic_root, agent or default_agent)
+        engine = Coordinator(diagnostic_root)
         stop = threading.Event()
         scheduler = _scheduler_identity()
         DBOS(config={'name': scheduler['application'], 'system_database_url': url,
@@ -527,8 +444,7 @@ def worker(root, *, agent=None, ready_file=None, implementation_agent=None,
                      'max_executor_threads': 2})
         dbos = DBOS
         dbos_initialized = True
-        register_execution(dbos, engine, selected_providers=SelectedNativeProviders(
-            diagnostic_root, implementation_agent=implementation_agent))
+        register_execution(dbos, engine, selected_providers=SelectedNativeProviders(diagnostic_root))
 
         previous = {number: signal.getsignal(number) for number in (signal.SIGINT, signal.SIGTERM)}
         for number in previous:

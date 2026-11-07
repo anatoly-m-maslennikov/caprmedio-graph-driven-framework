@@ -1,3 +1,4 @@
+# CA-M-504@2
 """Public stateful facade for source-bound selected Workflow execution."""
 
 from __future__ import annotations
@@ -16,11 +17,9 @@ from selected_execution_contracts import (
 )
 from selected_execution_registration import (
     action_handlers,
-    implementation_agent as configured_implementation_agent,
     make_revert_action_handler,
     preflight_selected_lifecycle,
     register_action_handler,
-    register_implementation_agent,
 )
 from selected_execution_run_plan import build_requested_runs as _plan_runs
 from selected_freeze_state import (
@@ -51,7 +50,6 @@ __all__ = [
     "manifest_relative_path",
     "preflight_selected_lifecycle",
     "register_action_handler",
-    "register_implementation_agent",
 ]
 
 
@@ -63,10 +61,8 @@ class SelectedExecution:
         root: str | Path,
         *,
         handlers: Mapping[str, ActionHandler] | None = None,
-        implementation_agent: Callable[[str, Mapping[str, Any]], Mapping[str, Any]] | None = None,
     ) -> None:
         self.root = Path(root).resolve(strict=True)
-        self.implementation_agent = implementation_agent or configured_implementation_agent()
         self.handlers = {**self._native_handlers(), **action_handlers()}
         if handlers:
             self.handlers.update(handlers)
@@ -74,7 +70,7 @@ class SelectedExecution:
     def _native_handlers(self) -> dict[str, ActionHandler]:
         from selected_native_domain_handlers import source_bound_native_handlers
 
-        available = source_bound_native_handlers(self.root, self.implementation_agent)
+        available = source_bound_native_handlers(self.root)
         try:
             # E540: optional compiler entrypoint sits outside the bounded import path.
             import compile_applicable_methodology  # type: ignore[import-not-found]

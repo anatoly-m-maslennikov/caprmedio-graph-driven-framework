@@ -1,3 +1,4 @@
+# CA-M-322@13
 x-runtime-logging: &runtime-logging
   driver: local
   options:
@@ -23,6 +24,7 @@ services:
     command: [shared-mcp]
     environment:
       CAPRMEDIO_HOST_SETTINGS: ${CAPRMEDIO_HOST_SETTINGS:?Host runtime settings are required}
+      CAPRMEDIO_HOT_RELOAD: ${CAPRMEDIO_HOT_RELOAD:-0}
       CAPRMEDIO_PROJECTS_ROOT: ${CAPRMEDIO_PROJECTS_ROOT:?Shared Projects root is required}
       CAPRMEDIO_MCP_HTTP_PORT: ${CAPRMEDIO_MCP_HTTP_PORT:?Shared HTTP port is required}
       CAPRMEDIO_MAX_LOADED_PROJECTS: ${CAPRMEDIO_MAX_LOADED_PROJECTS:?Shared context limit is required}

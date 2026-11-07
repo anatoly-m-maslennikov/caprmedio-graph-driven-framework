@@ -1,4 +1,6 @@
-"""Keep image startup inside the locked, pre-synced uv environment."""
+"""Keep image startup inside the built, isolated Python environment."""
+
+# CA-M-356@19
 
 import json
 from pathlib import Path
@@ -22,8 +24,8 @@ class DockerfileUVEntrypointTests(unittest.TestCase):
         rows = [line for line in dockerfile.read_text().splitlines() if line.startswith("ENTRYPOINT ")]
         self.assertEqual(len(rows), 1)
         command = json.loads(rows[0].removeprefix("ENTRYPOINT "))
-        self.assertEqual(command[:6], ["uv", "run", "--locked", "--no-sync", "--no-env-file", "python"])
-        self.assertEqual(command[6:], ["LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"])
+        self.assertEqual(command[0], "/opt/venv/bin/python")
+        self.assertEqual(command[1:], ["LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"])
 
 
 if __name__ == "__main__":

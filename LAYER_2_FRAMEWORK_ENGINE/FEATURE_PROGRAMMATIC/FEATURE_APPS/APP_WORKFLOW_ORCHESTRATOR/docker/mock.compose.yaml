@@ -1,8 +1,0 @@
-services:
-  worker:
-    environment:
-      CAPRMEDIO_AGENT_MODE: mock
-  agent:
-    environment:
-      CAPRMEDIO_AGENT_MODE: mock
-    networks: [runtime]

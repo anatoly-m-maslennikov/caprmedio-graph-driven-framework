@@ -1,4 +1,6 @@
 # CA-E-600@21
+# CA-M-504@2
+# CA-E-796@2
 """Focused checks for bounded Docker stdout/stderr retention."""
 
 import json
@@ -44,11 +46,10 @@ class DockerLoggingTests(unittest.TestCase):
                 compose_name,
             )
 
-    def test_overlays_only_extend_base_runtime_services(self):
-        base_services = set(_compose("compose.yaml")["services"])
-        for compose_name in ("auth.compose.yaml", "mock.compose.yaml"):
-            services = _compose(compose_name)["services"]
-            self.assertTrue(set(services) <= base_services, compose_name)
+    def test_base_runtime_has_no_agent_service_or_credential_volume(self):
+        config = _compose("compose.yaml")
+        self.assertEqual({"worker", "mcp"}, set(config["services"]))
+        self.assertNotIn("volumes", config)
 
     def test_entrypoint_uses_built_python_without_retained_uv_supervisor(self):
         line = next(line for line in (DOCKER / "Dockerfile").read_text().splitlines()

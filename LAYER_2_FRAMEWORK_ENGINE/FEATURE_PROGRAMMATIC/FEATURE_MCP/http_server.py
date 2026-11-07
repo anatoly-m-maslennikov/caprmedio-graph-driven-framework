@@ -1,6 +1,8 @@
 # CA-D-674@12
 # CA-D-639@15
 # CA-D-677@1
+# CA-M-322@13
+# CA-R-1820@9
 
 """Loopback-only Streamable HTTP transport for the MCP gateway."""
 import argparse
@@ -16,7 +18,8 @@ from starlette.routing import Route
 
 from health_page import render_health_page
 from health_actions import restart_workbench, reread_workbench
-from hot_reload import Gateway, startup_selection, bind_selection
+from direct_gateway import DirectGateway
+from hot_reload import Gateway, bind_selection, hot_reload_enabled, startup_selection
 from http_paths import HEALTH_PATH, MCP_PATH
 from mcp.server.transport_security import TransportSecuritySettings
 from operation_error_boundary import FailureRecord
@@ -151,8 +154,9 @@ async def health(request, gateway, restart_action=None, reread_action=None):
     return HTMLResponse(page, status_code=status_code, headers=headers)
 
 
-def create_app(root, implementation=None, *, selection=None):
-    gateway = Gateway(root, implementation=implementation, selection=selection)
+def create_app(root, implementation=None, *, selection=None, hot_reload=False):
+    gateway_type = Gateway if hot_reload else DirectGateway
+    gateway = gateway_type(root, implementation=implementation, selection=selection)
     server = gateway.build_server()
     async def readiness(request):
         return await health(request, gateway)
@@ -204,7 +208,10 @@ def _serve(args):
         raise ValueError("HTTP MCP requires the container bind 0.0.0.0:8092")
     import uvicorn
     selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
-    uvicorn.run(create_app(args.project_root, selection=selection), host=args.host, port=args.port, log_level="warning")
+    uvicorn.run(
+        create_app(args.project_root, selection=selection, hot_reload=hot_reload_enabled()),
+        host=args.host, port=args.port, log_level="warning",
+    )
 
 
 def main(argv=None):

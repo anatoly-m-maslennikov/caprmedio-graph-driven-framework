@@ -1,4 +1,4 @@
-"""The opt-in HTTP ingress must not widen worker or Agent networking."""
+"""The opt-in HTTP ingress must not widen worker or MCP networking."""
 
 from pathlib import Path
 import unittest
@@ -21,10 +21,11 @@ class MCPHTTPNetworkTests(unittest.TestCase):
         self.assertEqual(["runtime", "http_publication"],
                          self.http["services"]["mcp-http"]["networks"])
 
-    def test_internal_worker_agent_and_stdio_networks_are_unchanged(self):
+    def test_internal_worker_and_stdio_networks_are_unchanged(self):
         self.assertIs(True, self.base["networks"]["runtime"]["internal"])
         self.assertEqual({"mcp-http"}, set(self.http["services"]))
-        for name in ("worker", "agent", "mcp"):
+        self.assertNotIn("agent", self.base["services"])
+        for name in ("worker", "mcp"):
             with self.subTest(service=name):
                 self.assertEqual(["runtime"], self.base["services"][name]["networks"])
                 self.assertNotIn("ports", self.base["services"][name])

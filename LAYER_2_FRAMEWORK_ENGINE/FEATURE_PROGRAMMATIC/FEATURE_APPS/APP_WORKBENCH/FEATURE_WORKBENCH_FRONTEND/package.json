@@ -6,7 +6,7 @@
     "build": "vite build && node scripts/build-mcp-app.mjs",
     "build:standalone": "vite build",
     "build:mcp-app": "node scripts/build-mcp-app.mjs",
-    "test:workspace": "node --test src/lib/*.test.mjs",
+    "test:workspace": "node --test src/lib/*.test.mjs tests/hot-reload.test.mjs",
     "test:mcp-app": "npm run build:mcp-app && node --test tests/mcp-app.e2e.mjs",
     "test:e2e": "playwright test"
   },

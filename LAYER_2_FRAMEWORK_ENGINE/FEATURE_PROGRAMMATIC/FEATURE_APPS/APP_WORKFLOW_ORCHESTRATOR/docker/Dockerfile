@@ -1,7 +1,5 @@
-# CA-M-356@18
-FROM node:22.20.0-bookworm-slim AS codex
-ARG CODEX_VERSION=0.156.1
-RUN npm install --global @openai/codex@${CODEX_VERSION}
+# CA-M-356@19
+# CA-M-504@2
 
 FROM node:22.20.0-bookworm-slim AS workbench_frontend
 WORKDIR /frontend
@@ -20,9 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends git ca-certific
     && (getent group ${RUNTIME_GID} || groupadd -g ${RUNTIME_GID} caprmedio) \
     && useradd -u ${RUNTIME_UID} -g ${RUNTIME_GID} -m -d /home/caprmedio caprmedio
 RUN python -m pip install --no-cache-dir uv==0.12.18
-COPY --from=codex /usr/local/bin/node /usr/local/bin/node
-COPY --from=codex /usr/local/lib/node_modules /usr/local/lib/node_modules
-RUN ln -s /usr/local/lib/node_modules/@openai/codex/bin/codex.js /usr/local/bin/codex
 WORKDIR /workspace
 COPY pyproject.toml uv.lock ./
 ENV UV_PROJECT_ENVIRONMENT=/opt/venv UV_CACHE_DIR=/tmp/uv-cache
@@ -34,7 +29,7 @@ COPY version.toml ./
 COPY LAYER_2_FRAMEWORK_ENGINE ./LAYER_2_FRAMEWORK_ENGINE
 COPY --from=workbench_frontend /frontend/dist \
      ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND/dist
-RUN mkdir -p /home/caprmedio/.codex /workspace/.caprmedio_install \
+RUN mkdir -p /workspace/.caprmedio_install \
     /workspace/.caprmedio_tmp /workspace/tmp /workspace/.caprmedio_caprmedio \
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio
 ENV PATH=/opt/venv/bin:/usr/local/bin:/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1

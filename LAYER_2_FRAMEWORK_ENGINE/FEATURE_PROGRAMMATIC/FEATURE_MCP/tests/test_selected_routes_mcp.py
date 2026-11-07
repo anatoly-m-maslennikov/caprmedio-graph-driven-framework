@@ -692,7 +692,7 @@ class SelectedRoutesMCPTest(unittest.TestCase):
         shutil.copyfile(self.status_target, target_destination)
         return self.status_fixture.request(self.status_target, "Archived")
 
-    def test_current_physical_manifest_freezes_the_original_nine_routes_through_queue_consumer(self) -> None:
+    def test_current_physical_manifest_freezes_the_generic_routes_through_queue_consumer(self) -> None:
         """The MCP source fixture must be sufficient for the independent queue.
 
         This copies only the immutable manifest and its pinned sources into a
@@ -717,10 +717,14 @@ class SelectedRoutesMCPTest(unittest.TestCase):
             frozen_project(project)
 
             queue = SelectedExecution(project, handlers={})
-            original_routes = [route for route in self.manifest["routes"]
-                               if route["route"] in ORIGINAL_SELECTED_ROUTE_NAMES]
-            self.assertEqual(9, len(original_routes))
-            for ordinal, route in enumerate(original_routes, start=1):
+            generic_routes = [
+                route
+                for route in self.manifest["routes"]
+                if route["route"] in ORIGINAL_SELECTED_ROUTE_NAMES
+                and route["route"] != "run_implementation_workflow"
+            ]
+            self.assertEqual(8, len(generic_routes))
+            for ordinal, route in enumerate(generic_routes, start=1):
                 run_id = f"freeze{ordinal:02d}"
                 parameters = (copy.deepcopy(status_parameters)
                               if route["route"] == "change_atom_status" else {})
@@ -852,10 +856,13 @@ class SelectedRoutesMCPTest(unittest.TestCase):
     def test_every_selected_route_forwards_one_mutation_free_preview(self) -> None:
         for route in SELECTED_ROUTE_NAMES:
             result = self.adapter.invoke(route, self.request(route))
+            if route == "run_implementation_workflow":
+                self.assertEqual("retired", result["outcome"])
+                continue
             self.assertEqual("prepared", result["outcome"])
             self.assertEqual(route, self.support.calls[-1]["operation_route"])
             self.assertEqual("preview", self.support.calls[-1]["mode"])
-        self.assertEqual(11, len(self.support.calls))
+        self.assertEqual(10, len(self.support.calls))
 
     def test_default_adapter_uses_shared_preview_support_without_an_executor(self) -> None:
         result = SelectedRouteAdapter(self.frozen_root).invoke("create_atom", self.request("create_atom"))

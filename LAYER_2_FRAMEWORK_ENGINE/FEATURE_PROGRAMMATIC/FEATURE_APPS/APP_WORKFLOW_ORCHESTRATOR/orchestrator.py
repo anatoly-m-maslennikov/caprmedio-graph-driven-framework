@@ -1,8 +1,6 @@
+# CA-M-504@2
 """Explicit local worker and short-lived queue client for independent Workflow Runs."""
 
-# implementation of:
-# Requirement: CA-R-2117
-# Method: CA-M-431, CA-M-405
 
 import argparse
 import fcntl
@@ -11,45 +9,34 @@ import os
 from pathlib import Path
 import subprocess
 import sys
-from typing import Annotated, Any
+from typing import Annotated
 
 from pydantic import Field, TypeAdapter
-from contracts import Enqueue, EnqueueSelected, Status, SubmitResult
-from backend import enqueue, enqueue_selected, status, worker
+from contracts import EnqueueSelected, Status
+from backend import enqueue_selected, status, worker
 from engine import Coordinator
 from runtime_config import control_directory, docker_runtime, isolated_runtime
 
 Request = Annotated[
-    Enqueue | EnqueueSelected | Status | SubmitResult, Field(discriminator="operation")
+    EnqueueSelected | Status, Field(discriminator="operation")
 ]
 ADAPTER: TypeAdapter[Request] = TypeAdapter(Request)
 
 
-def _run_native(root: Path, request: Request) -> tuple[bool, Any | None]:
-    from selected_integrated_entry import run as run_integrated
-
-    return run_integrated(root, request)
-
-
 def run(root, request):
     request = ADAPTER.validate_python(request)
-    handled, result = _run_native(root, request)
-    if handled:
-        return result
     if not docker_runtime() and not isolated_runtime():
         from docker_bridge import MARKER, invoke
 
-        if Coordinator(root, None).store.path(MARKER).exists():
+        if Coordinator(root).store.path(MARKER).exists():
             return invoke(root, request.model_dump())
-    if isinstance(request, Enqueue):
-        return enqueue(root, request)
     if isinstance(request, EnqueueSelected):
         return enqueue_selected(root, request)
     return status(root, request)
 
 
 def _worker_paths(root):
-    engine = Coordinator(root, None)
+    engine = Coordinator(root)
     directory = engine.store.path(control_directory())
     directory.mkdir(parents=True, exist_ok=True)
     return (
@@ -112,9 +99,7 @@ def main():
         choices=[
             "worker",
             "start-worker",
-            "enqueue",
             "enqueue_selected",
-            "submit_result",
             "status",
         ],
     )

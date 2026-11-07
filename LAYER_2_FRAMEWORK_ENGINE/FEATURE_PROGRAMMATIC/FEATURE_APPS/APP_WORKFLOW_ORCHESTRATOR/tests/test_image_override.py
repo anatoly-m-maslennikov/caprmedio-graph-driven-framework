@@ -25,7 +25,7 @@ class ImageOverrideTests(unittest.TestCase):
             IMMUTABLE_IMAGE, runtime.image_reference({"CAPRMEDIO_IMAGE": IMMUTABLE_IMAGE})
         )
         with tempfile.TemporaryDirectory() as directory:
-            instance = runtime.Runtime(Path(directory), mock=True, image=IMMUTABLE_IMAGE)
+            instance = runtime.Runtime(Path(directory), image=IMMUTABLE_IMAGE)
             with patch.dict(runtime.os.environ, {"CAPRMEDIO_IMAGE": "sha256:" + "b" * 64}):
                 self.assertEqual(IMMUTABLE_IMAGE, instance.environment()["CAPRMEDIO_IMAGE"])
 

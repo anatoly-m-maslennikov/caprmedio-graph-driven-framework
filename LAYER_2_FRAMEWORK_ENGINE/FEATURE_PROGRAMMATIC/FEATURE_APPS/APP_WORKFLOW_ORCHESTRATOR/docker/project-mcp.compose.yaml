@@ -1,3 +1,4 @@
+# CA-M-322@13
 x-runtime-logging: &runtime-logging
   driver: local
   options:
@@ -23,6 +24,7 @@ services:
     command: [mcp-http]
     environment:
       CAPRMEDIO_RUNTIME_NAMESPACE: docker
+      CAPRMEDIO_HOT_RELOAD: ${CAPRMEDIO_HOT_RELOAD:-0}
       CAPRMEDIO_CONTROL_ROOT: ${CAPRMEDIO_CONTROL_ROOT:?Selected control root is required}
       CAPRMEDIO_PROJECT_INSTANCE_ID: ${CAPRMEDIO_PROJECT_INSTANCE_ID:?Selected identity is required}
       CAPRMEDIO_HOST_PROJECT_ROOT: ${CAPRMEDIO_PROJECT_ROOT:?Selected Project root is required}

@@ -1,3 +1,6 @@
+# CA-M-504@2
+# CA-E-796@2
+
 """Selected-route adapter API."""
 
 from __future__ import annotations
@@ -17,13 +20,9 @@ from selected_route_spec import (
     SelectedRouteError,
 )
 from selected_route_support import _SelectedRouteAdapterBase, _log_structured_failure
-from selected_route_interactive import (
-    _public_pending,
-    invoke_integrated_execute,
-    invoke_submit_result,
-    is_current_integrated_execute,
-    is_submit_result,
-)
+
+
+_RETIRED_AI_ROUTE = "run_implementation_workflow"
 
 
 def _public_module() -> Any:
@@ -50,8 +49,13 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
                 dict[str, Any],
                 getattr(public, "_invoke_direct_release")(self.root, route, request),
             )
-        if route == "run_implementation_workflow" and is_submit_result(request):
-            return invoke_submit_result(self, request)
+        if route == _RETIRED_AI_ROUTE:
+            return self._result(
+                request,
+                "rejected",
+                "retired",
+                "run_implementation_workflow is retired",
+            )
         try:
             public = _public_module()
             self.manifest = public.load_selected_manifest(self.root)
@@ -88,8 +92,6 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
             if diagnostic_error:
                 value["diagnostics"].append("technical diagnostic unavailable")
             return value
-        if is_current_integrated_execute(self.routes.get(route), normalized):
-            return invoke_integrated_execute(self, normalized, support)
         try:
             handler: Callable[[dict[str, Any]], dict[str, Any]] = getattr(
                 support, "run_selected_operation"
@@ -120,8 +122,6 @@ class SelectedRouteAdapter(_SelectedRouteAdapterBase):
             )
         try:
             observed = getattr(support, method)(dict(request))
-            if method == "get_selected_workflow_run" and isinstance(observed, Mapping):
-                return _public_pending(observed)
             return cast(dict[str, Any], observed)
         except (TypeError, ValueError, RuntimeError) as error:
             return self._result(

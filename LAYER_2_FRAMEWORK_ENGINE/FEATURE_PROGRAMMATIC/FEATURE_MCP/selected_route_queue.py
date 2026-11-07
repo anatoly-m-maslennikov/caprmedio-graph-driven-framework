@@ -167,9 +167,7 @@ class _QueueBackedSelectedSupport:
             )
             if not isinstance(observed, Mapping):
                 raise ValueError("selected Run observation returned an invalid result")
-            from selected_route_interactive import _public_pending
-
-            return _public_pending(observed)
+            return cast(dict[str, Any], observed)
         except (ImportError, ValueError, RuntimeError, OSError) as error:
             return {
                 "disposition": "blocked",

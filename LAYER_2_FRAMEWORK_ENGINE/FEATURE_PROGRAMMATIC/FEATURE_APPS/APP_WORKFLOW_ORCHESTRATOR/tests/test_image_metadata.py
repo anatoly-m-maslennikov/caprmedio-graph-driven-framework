@@ -182,7 +182,7 @@ class ImageMetadataTests(unittest.TestCase):
             patch.object(runtime, "DIRECTORY", docker_directory),
             patch.object(runtime_images, "_bounded_run", side_effect=probe),
         ):
-            runtime_instance = runtime.Runtime(self.root, mock=True)
+            runtime_instance = runtime.Runtime(self.root)
             self.assertEqual(IMAGE, runtime_instance.build())
         self.assertEqual(IMAGE, runtime_instance.image)
         self.assertTrue(probe.build_context.is_relative_to(self.project_temp))

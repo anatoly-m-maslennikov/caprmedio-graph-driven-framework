@@ -12,12 +12,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
 status: Active
-version: 12
-updated_at: 2026-10-27 19:59:37 +0400
+version: 13
+updated_at: 2026-11-07 04:28:07 +0400
 carrier_destination:
   file:
     name: CA-E-533-MCP-EVAL_CASE--verify-mcp-reload-publication-and-rollback.md
@@ -46,3 +47,6 @@ the MCP Evaluation **must** verify implementation reload through the real stdio 
 - submit an extra field, traversal path **or** alternate Project root; verify rejection before execution.
 - distinguish sent notification from unconfirmed client refresh; mocks do **not** prove Codex desktop discovery.
 
+
+
+With hot reload disabled by default, verify that MCP and Workbench serve their retained tools without starting an implementation child; code changes require normal process restart. With explicit opt-in, run the existing reload publication/failure checks.

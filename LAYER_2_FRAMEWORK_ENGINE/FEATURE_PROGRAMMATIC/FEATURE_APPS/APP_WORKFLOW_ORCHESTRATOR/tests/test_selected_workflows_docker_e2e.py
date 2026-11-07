@@ -1,4 +1,4 @@
-"""Selected W01--W04 and W09--W15 Docker/MCP golden evidence harness.
+"""Selected deterministic Docker/MCP golden evidence harness.
 
 This is intentionally an opt-in Docker suite.  With ``CAPRMEDIO_DOCKER_E2E=1``
 it fails on an absent route manifest, MCP registration, shared-run integration,
@@ -129,40 +129,10 @@ def _structured_tool_result(response: Any) -> dict[str, Any]:
 
 
 def _normalized_source_result(value: object) -> str:
-    """Compare the executor's underscore labels with source-table wording."""
+    """Compare declared result labels with their underscore carrier form."""
     if not isinstance(value, str) or not value:
         raise AssertionError(f"source result condition is invalid: {value!r}")
     return value.replace(" ", "_")
-
-
-def _w09_admitted_source_edges(root: Path, route: Mapping[str, Any]) -> list[dict[str, str]]:
-    """Read the exact pinned O016 table that supersedes its stale projection."""
-    workflow = route.get("workflow")
-    if not isinstance(workflow, Mapping):
-        raise AssertionError("W09 has no pinned Workflow binding")
-    path, digest = workflow.get("source_path"), workflow.get("digest")
-    if not isinstance(path, str) or not isinstance(digest, str):
-        raise AssertionError("W09 Workflow binding is incomplete")
-    source = root / path
-    raw = source.read_bytes()
-    if hashlib.sha256(raw).hexdigest() != digest:
-        raise AssertionError("W09 Workflow definition changed after admission")
-    lines = raw.decode("utf-8").splitlines()
-    header = "| From Step | Result condition | Next Step **or** terminal result |"
-    indexes = [index for index, line in enumerate(lines) if line.strip() == header]
-    if len(indexes) != 1 or indexes[0] + 1 >= len(lines):
-        raise AssertionError("W09 admitted Workflow table is unavailable")
-    edges: list[dict[str, str]] = []
-    for line in lines[indexes[0] + 2:]:
-        if not line.strip().startswith("|"):
-            break
-        cells = [value.strip() for value in line.strip().strip("|").split("|")]
-        if len(cells) != 3 or not all(cells):
-            raise AssertionError("W09 admitted Workflow table is invalid")
-        edges.append({"from": cells[0], "condition": cells[1], "to": cells[2]})
-    if not edges:
-        raise AssertionError("W09 admitted Workflow table has no edges")
-    return edges
 
 
 @asynccontextmanager
@@ -208,7 +178,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         parameters = StdioServerParameters(
             command=sys.executable,
             args=[str(APP / "docker/runtime.py"), "--project-root", str(root), "--image",
-                  E2E_CONTEXT.candidate_image_digest, "--mock", "mcp"],
+                  E2E_CONTEXT.candidate_image_digest, "mcp"],
         )
         self.assertEqual(runtime.root, root.resolve(strict=True), "MCP runtime must bind the same fixture")
         if getattr(self, "_mcp_client", None) is None:
@@ -236,9 +206,8 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         try:
             started = await asyncio.to_thread(runtime.start)
         except RuntimeError as error:
-            self.fail(f"mock Docker runtime did not start: {error}")
+            self.fail(f"Docker runtime did not start: {error}")
         self.assertEqual("ready", started.get("outcome"), started)
-        self.assertEqual("mock", started.get("agent_mode"), started)
 
     async def _stop(self, runtime: Runtime, *, http: bool = False) -> None:
         try:
@@ -255,7 +224,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
 
     @staticmethod
     def _runtime(root: Path) -> Runtime:
-        return Runtime(root, mock=True, image=E2E_CONTEXT.candidate_image_digest)
+        return Runtime(root, image=E2E_CONTEXT.candidate_image_digest)
 
     async def _preview(self, runtime: Runtime, root: Path, fixture: GoldenProject,
                        request_id: str) -> dict:
@@ -716,7 +685,6 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.assertIsInstance(rows, list, graph)
         self.assertTrue(rows, graph)
         steps = {item["step"]["atom_id"]: item for item in route["ordered_steps"]}
-        source_edges = _w09_admitted_source_edges(root, route) if route.get("route") == "run_implementation_workflow" else None
         self.assertEqual(route["entry_step"], rows[0].get("step_definition_id"), rows)
         for index, row in enumerate(rows):
             self.assertIsInstance(row, dict, row)
@@ -747,7 +715,7 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                     self._safe_existing_ref(root, effect, label="native Action effect")
             if index:
                 previous = rows[index - 1]
-                transitions = source_edges if source_edges is not None else route["on_result"]
+                transitions = route["on_result"]
                 admissible = [
                     transition for transition in transitions
                     if transition["from"] == previous["step_definition_id"]
@@ -762,16 +730,6 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(row["result"], progress.get("result"), progress)
             if fixture.case.case_id not in {"W11", "W12"}:
                 self.assertIsInstance(progress.get("native_result"), dict, progress)
-        if source_edges is not None:
-            final = rows[-1]
-            completion = [
-                transition for transition in source_edges
-                if transition["from"] == final["step_definition_id"]
-                and _normalized_source_result(transition["condition"])
-                == _normalized_source_result(final["result"])
-            ]
-            self.assertEqual(1, len(completion), {"final": final, "source_edges": source_edges})
-            self.assertEqual("completed", completion[0]["to"], {"final": final, "completion": completion})
         return rows
 
     def _assert_route_specific_effects(
@@ -792,16 +750,6 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
                 self.assertIsInstance(native, dict, native)
                 self.assertEqual("applied", native.get("outcome"), native)
                 self.assertTrue(native.get("effects"), native)
-        elif case_id == "W09":
-            retained = execute["parameters"]["base_packet"]["retained_state"]
-            self.assertEqual("mock-not-live-llm", retained.get("transport"), retained)
-            native = self._action_progress(root, execute["request_id"], rows[2]["action_run_id"]).get("native_result")
-            self.assertIsInstance(native, dict, native)
-            self.assertIn(
-                "mock-not-live-llm",
-                json.dumps(native, sort_keys=True),
-                "W09 evidence must say mock-not-live-llm; it is not live Agent proof",
-            )
         elif case_id == "W10":
             self.assertTrue(effects, rows)
         elif case_id in {"W11", "W12"}:
@@ -851,9 +799,9 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         return values
 
     async def test_golden_corpus_covers_exact_closed_routes_and_j01_j08(self) -> None:
-        self.assertEqual(11, len(ROUTE_CASES))
+        self.assertEqual(10, len(ROUTE_CASES))
         self.assertEqual(
-            ("W01", "W02", "W03", "W04", "W09", "W10", "W11", "W12", "W13", "W14", "W15"),
+            ("W01", "W02", "W03", "W04", "W10", "W11", "W12", "W13", "W14", "W15"),
             tuple(case for case, _ in ROUTE_CASES),
         )
         self.assertEqual(tuple(f"J{number:02d}" for number in range(1, 9)), JOURNAL_CASES)
@@ -890,11 +838,11 @@ class SelectedWorkflowsDockerEndToEnd(unittest.IsolatedAsyncioTestCase):
         finally:
             temporary.cleanup()
 
-    async def test_nine_supported_routes_execute_with_native_effects_and_clean_shared_run_lineage(self) -> None:
+    async def test_eight_supported_routes_execute_with_native_effects_and_clean_shared_run_lineage(self) -> None:
         """Read-only previews and native effects share only one route's fresh stack."""
         # W11/W12 full semantic publication is deferred; their corpus/admission checks remain.
         supported = [case for case in ROUTE_CASES if case[0] not in {"W11", "W12"}]
-        self.assertEqual(9, len(supported))
+        self.assertEqual(8, len(supported))
         for case_id, route_name in supported:
             with self.subTest(case=case_id):
                 case = GoldenCase(case_id, route_name)
@@ -1164,32 +1112,6 @@ class SelectedWorkflowJournalHarnessTest(unittest.TestCase):
             selected = {"disposition": "terminal", "run_ids": list(run_pins), "terminal_runs": terminals}
 
             SelectedWorkflowsDockerEndToEnd._assert_shared_run_journal(self, root, request_id, route, selected, graph)
-
-    def test_w09_source_conditions_normalize_labels_and_reach_completion(self) -> None:
-        with tempfile.TemporaryDirectory(dir=Path.cwd() / ".caprmedio_tmp", ignore_cleanup_errors=True) as directory:
-            root = Path(directory)
-            source = root / "definitions/workflow.md"
-            source.parent.mkdir(parents=True)
-            source.write_text(
-                "| From Step | Result condition | Next Step **or** terminal result |\n"
-                "|---|---|---|\n"
-                "| CA-O-091 | evaluation ready | CA-O-092 |\n"
-                "| CA-O-091 | complete | completed |\n",
-                encoding="utf-8",
-            )
-            route = {"workflow": {"source_path": "definitions/workflow.md",
-                                    "digest": hashlib.sha256(source.read_bytes()).hexdigest()}}
-            edges = _w09_admitted_source_edges(root, route)
-            successor = [edge for edge in edges if edge["from"] == "CA-O-091"
-                         and _normalized_source_result(edge["condition"])
-                         == _normalized_source_result("evaluation_ready")]
-            completion = [edge for edge in edges if edge["from"] == "CA-O-091"
-                          and _normalized_source_result(edge["condition"])
-                          == _normalized_source_result("complete")]
-
-            self.assertEqual(["CA-O-092"], [edge["to"] for edge in successor])
-            self.assertEqual(["completed"], [edge["to"] for edge in completion])
-
 
 if __name__ == "__main__":
     unittest.main()

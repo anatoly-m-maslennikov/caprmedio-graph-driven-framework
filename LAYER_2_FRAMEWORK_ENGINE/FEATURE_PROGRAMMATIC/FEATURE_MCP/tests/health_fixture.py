@@ -29,7 +29,7 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
         self.source = self.root / "provider.py"
         self.marker = self.root / "provider.calls"
         self._write_provider()
-        self.app = create_app(self.root, implementation=self.source)
+        self.app = create_app(self.root, implementation=self.source, hot_reload=True)
 
     def _write_provider(self):
         self.source.write_text(
@@ -77,7 +77,7 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
         return self.app.starlette_app.router.lifespan_context(self.app.starlette_app)
 
     def new_app(self):
-        return create_app(self.root, implementation=self.source)
+        return create_app(self.root, implementation=self.source, hot_reload=True)
 
     def raw_client(self):
         return httpx2.AsyncClient(

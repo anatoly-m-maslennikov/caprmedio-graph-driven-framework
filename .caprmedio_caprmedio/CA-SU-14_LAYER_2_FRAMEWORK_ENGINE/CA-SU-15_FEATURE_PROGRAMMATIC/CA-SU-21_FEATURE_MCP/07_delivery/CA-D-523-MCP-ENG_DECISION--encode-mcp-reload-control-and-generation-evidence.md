@@ -15,8 +15,8 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
 status: Active
-version: 11
-updated_at: 2026-11-02 19:46:47 +0400
+version: 12
+updated_at: 2026-11-07 04:43:49 +0400
 carrier_destination:
   file:
     name: CA-D-523-MCP-ENG_DECISION--encode-mcp-reload-control-and-generation-evidence.md
@@ -30,13 +30,15 @@ Encode MCP reload control and generation evidence
 
 ## Scope
 
-server-side hot reload for the Project-local MCP gateway.
+server-side hot reload for the Project-local MCP gateway, only when explicitly enabled.
 
 ## Claim
 
 the MCP gateway **must** carry reload requests **and** generation evidence through the following explicit interfaces.
 
 ## Details
+
+Use `CAPRMEDIO_HOT_RELOAD=1` for explicit startup opt-in; an absent or other value leaves hot reload disabled. Default startup uses one MCP process and omits reload-only control tools. Restart the process/container to apply code changes in default mode. Forward this switch explicitly through Docker service environments, defaulting to disabled.
 
 - implementation belongs to LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP; preserve the existing --project-root binding **and** stdio transport.
 - reload_mcp_implementation accepts **only** operation reload **and** a caller-chosen request_id. its Tool annotations declare read_only_hint=false, destructive_hint=false, idempotent_hint=true **and** open_world_hint=false.

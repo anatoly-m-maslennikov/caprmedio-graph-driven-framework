@@ -69,7 +69,10 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             "from mcp.server import MCPServer\nMCPServer('workspace-e2e-fixture').run(transport='stdio')\n",
             encoding="utf-8",
         )
-        self.app = create_app(self.root, implementation=self.provider, selection=startup_selection(self.root))
+        self.app = create_app(
+            self.root, implementation=self.provider, selection=startup_selection(self.root),
+            hot_reload=True,
+        )
         self.app.gateway.workbench = _ConfiguredWorkbenchTools(
             self.root, extension_directory(REPOSITORY),
         )

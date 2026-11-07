@@ -62,7 +62,6 @@ ROUTE_CASES = (
     ("W02", "update_atom"),
     ("W03", "replace_atom"),
     ("W04", "change_atom_status"),
-    ("W09", "run_implementation_workflow"),
     ("W10", "revert_changes"),
     ("W11", "build_entities_graph"),
     ("W12", "build_terms_graph"),
@@ -70,7 +69,12 @@ ROUTE_CASES = (
     ("W14", "find_and_fetch_artifacts"),
     ("W15", "find_and_fetch_journal_events"),
 )
-MANIFEST_ROUTE_NAMES = tuple(route for _, route in ROUTE_CASES)
+MANIFEST_ROUTE_NAMES = (
+    "create_atom", "update_atom", "replace_atom", "change_atom_status",
+    "run_implementation_workflow", "revert_changes", "build_entities_graph",
+    "build_terms_graph", "build_applicable_methodology",
+    "find_and_fetch_artifacts", "find_and_fetch_journal_events",
+)
 QUERY_SOURCE_ADMISSION_ROUTE_NAMES = MANIFEST_ROUTE_NAMES[-2:]
 _QUERY_PROJECT_CONFIGURATION_ATOM_IDS = frozenset(
     f"CA-O-{number}" for number in range(158, 164)

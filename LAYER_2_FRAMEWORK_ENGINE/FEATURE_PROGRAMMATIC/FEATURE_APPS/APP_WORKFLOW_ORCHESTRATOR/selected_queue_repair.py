@@ -1,3 +1,4 @@
+# CA-M-504@2
 """Run one untouched selected Workflow from a private, bounded DBOS queue."""
 
 from __future__ import annotations
@@ -73,7 +74,7 @@ def _load_frozen_request(root: Path, run_id: str, expected_sha256: str) -> None:
 
 @contextmanager
 def _worker_lock(root: Path) -> Iterator[None]:
-    directory = Coordinator(root, None).store.path(control_directory())
+    directory = Coordinator(root).store.path(control_directory())
     directory.mkdir(parents=True, exist_ok=True)
     with (directory / "worker.lock").open("a") as handle:
         try:
@@ -163,7 +164,7 @@ def _start_private_worker(root: Path, queue_name: str):
                  "executor_id": "repair-" + queue_name.removeprefix("repair-"),
                  "max_executor_threads": 1})
     try:
-        engine = Coordinator(root, None)
+        engine = Coordinator(root)
         backend.register_execution(DBOS, engine, selected_providers=SelectedNativeProviders(root))
         DBOS.listen_queues([queue_name])
         DBOS.launch()

@@ -14,7 +14,6 @@ from frozen_selected_workflows import (
     frozen_base_revise_binding,
     frozen_complete_carrier_authority,
     frozen_source_bytes,
-    frozen_source_paths,
     frozen_source_root,
 )
 from selected_workflows_docker_fixture import (
@@ -103,30 +102,10 @@ class SelectedFixtureSourcesTests(unittest.TestCase):
             patch.object(Path, "rglob", forbid(Path.rglob)),
             patch.object(Path, "iterdir", forbid(Path.iterdir)),
         ):
-            for case, route in (("W01", "create_atom"), ("W09", "run_implementation_workflow"),
-                                ("W10", "revert_changes")):
+            for case, route in (("W01", "create_atom"), ("W10", "revert_changes")):
                 with self.subTest(case=case), tempfile.TemporaryDirectory(dir=self.root) as temporary:
                     project = GoldenProject(REPOSITORY, Path(temporary), GoldenCase(case, route))
                     self.assertEqual(11, len(project.prepare()["routes"]))
-
-    def test_fixture_mutation_does_not_change_the_next_golden_project(self) -> None:
-        relative = next(path for path in frozen_source_paths() if path.endswith("CA-O-016-CORE_META_MODEL-WORKFLOW--implement-evaluations-before-required-behavior.md"))
-        with tempfile.TemporaryDirectory(dir=self.root) as first, tempfile.TemporaryDirectory(dir=self.root) as second:
-            one = GoldenProject(REPOSITORY, Path(first), GoldenCase("W09", "run_implementation_workflow"))
-            one.prepare()
-            import implementation_actions
-            copied = one.root / next(
-                row["path"] for row in implementation_actions.current_source_bindings(one.root)
-                if row["atom_id"] == "CA-O-016"
-            )
-            copied.write_text("mutated disposable source", encoding="utf-8")
-            two = GoldenProject(REPOSITORY, Path(second), GoldenCase("W09", "run_implementation_workflow"))
-            two.prepare()
-            current = next(
-                row["path"] for row in implementation_actions.current_source_bindings(two.root)
-                if row["atom_id"] == "CA-O-016"
-            )
-            self.assertEqual(frozen_source_bytes(relative), (two.root / current).read_bytes())
 
     def test_readiness_materializes_current_pin_and_keeps_historical_frozen(self) -> None:
         self.project.prepare()

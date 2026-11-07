@@ -1,8 +1,6 @@
+# CA-M-504@2
 """Admission-ordered dispatch for frozen selected Workflow requests."""
 
-# implementation of:
-# Requirement: CA-R-2117
-# Method: CA-M-431, CA-M-405
 
 from __future__ import annotations
 
@@ -23,7 +21,6 @@ from selected_execution_contracts import (
 )
 from selected_graph_admission import validate_lifecycle_admission, validate_query_admission
 from selected_run_session import RunSupport
-from shared_context_validation_sources import is_direct_integrated_version
 
 
 def dispatch_confirmed_subject(
@@ -66,52 +63,6 @@ def _retained_graph_result(
     return dict(retained)
 
 
-def _is_current_integrated(frozen: Mapping[str, Any]) -> bool:
-    request = frozen.get("request")
-    graph = frozen.get("graph")
-    if not isinstance(request, Mapping) or not isinstance(graph, Mapping):
-        return False
-    execution = request.get("execution")
-    workflow = graph.get("workflow")
-    return (
-        isinstance(execution, Mapping)
-        and execution.get("operation_route") == "run_implementation_workflow"
-        and execution.get("mode") == "execute"
-        and isinstance(workflow, Mapping)
-        and workflow.get("atom_id") == "CA-O-016"
-        and is_direct_integrated_version(workflow.get("version"))
-    )
-
-
-# implementation of:
-# Requirement: CA-R-2117
-# Method: CA-M-431, CA-M-405
-def dispatch_current_integrated(
-    root: Path, handlers: Mapping[str, ActionHandler], frozen: Mapping[str, Any]
-) -> dict[str, Any]:
-    """Use the retained Integrated frontier before legacy dispatch interruption."""
-    graph = frozen.get("graph")
-    if not isinstance(graph, Mapping) or graph.get("entry_step") != "CA-O-231":
-        raise SelectedExecutionError("current Integrated O016 graph must enter at CA-O-231")
-    from selected_integrated_dispatch_admission import validate
-    from selected_integrated_dispatch import dispatch_integrated
-    from selected_run_session import shared_tracker
-    from shared_context_validation_loader import load_frozen_methods
-
-    tracker = shared_tracker(root, handlers, frozen)
-    request = frozen.get("request")
-    execution = request.get("execution") if isinstance(request, Mapping) else None
-    if not isinstance(execution, Mapping):
-        raise SelectedExecutionError("frozen Integrated request has no execution")
-    validate(tracker, execution)
-    return dispatch_integrated(
-        root,
-        frozen,
-        tracker=tracker,
-        trusted_methods=load_frozen_methods(root, frozen),
-    )
-
-
 def dispatch(
     root: Path,
     handlers: Mapping[str, ActionHandler],
@@ -124,8 +75,9 @@ def dispatch(
     if not isinstance(request, Mapping) or not isinstance(request.get("run_id"), str):
         raise SelectedExecutionError("saved selected request is invalid")
     run_id = request["run_id"]
-    if _is_current_integrated(frozen):
-        return dispatch_current_integrated(root, handlers, frozen)
+    execution = request.get("execution")
+    if isinstance(execution, Mapping) and execution.get("operation_route") == "run_implementation_workflow":
+        raise SelectedExecutionError("Unsupported: AI Agent implementation execution has been removed")
     folder = run_directory(root, run_id)
     accepted = folder / "accepted.json"
     if accepted.exists():

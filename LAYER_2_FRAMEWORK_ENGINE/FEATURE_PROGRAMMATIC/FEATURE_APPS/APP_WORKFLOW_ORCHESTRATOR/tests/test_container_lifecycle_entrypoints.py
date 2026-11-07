@@ -41,7 +41,7 @@ class ContainerLifecycleEntrypointTests(unittest.TestCase):
         frozen = {"request": {"execution": {"proposal_receipt": {"source_freshness": {
             "observed": {"container_lifecycle": {"descendants": [1]}}}}}}}
         selected = MagicMock()
-        providers = SelectedNativeProviders(self.root, implementation_agent=lambda *_: {})
+        providers = SelectedNativeProviders(self.root)
         with patch("selected_native_providers.SelectedExecution") as loader, \
                 patch.object(providers, "execution", return_value=selected), \
                 patch("container_lifecycle_composition.coordinate_container_lifecycle", return_value={"coordinator_id": "root"}) as coordinate:
@@ -54,7 +54,7 @@ class ContainerLifecycleEntrypointTests(unittest.TestCase):
         frozen = {"request": {"execution": {"proposal_receipt": {"source_freshness": {
             "observed": {"lifecycle_admission": {"requested_status": "Canceled"}}}}}}}
         selected = MagicMock()
-        providers = SelectedNativeProviders(self.root, implementation_agent=lambda *_: {})
+        providers = SelectedNativeProviders(self.root)
         with patch("selected_native_providers.SelectedExecution") as loader, \
                 patch.object(providers, "execution", return_value=selected):
             loader.return_value.load.return_value = frozen

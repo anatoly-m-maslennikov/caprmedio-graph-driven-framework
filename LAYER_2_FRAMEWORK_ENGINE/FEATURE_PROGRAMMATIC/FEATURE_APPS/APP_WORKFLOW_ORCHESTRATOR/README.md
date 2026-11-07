@@ -1,15 +1,12 @@
 # Independent Workflow orchestrator
 
-DBOS 2.31.1 schedules the existing **RMED Atoms Base Revise** Workflow and the
-source-bound selected-workflow first cut: Create Atom, Update Atom, Replace
-Atom, Change Status Atom, Implementation Workflow, and Build Applicable
-Methodology. Codex CLI is the initial replaceable Agent adapter; W09
-Implementation Workflow coverage is golden mock-Agent evidence, not a live-LLM
-claim. No other Workflow or harness is silently assumed supported.
+DBOS 2.31.1 schedules deterministic source-bound selected Workflow handlers.
+The general queue, MCP and Workbench remain available. AI Agent dispatch,
+Codex adapters, mock runners, Base Revise, and Implementation Workflow execution
+have been removed. Requests for those routes fail explicitly before queue
+admission; they never start a mock or substitute runtime.
 
-The optional [Docker runtime](docker/README.md) has an isolated Agent service,
-explicit lifecycle commands, and its own persistent queue. The native adapter
-instructions below remain separate; Docker does not alter host Codex permissions.
+The optional [Docker runtime](docker/README.md) has its own persistent queue.
 The public outcome adapter reports only the recorded terminal evidence for the
 matching Workflow Run; scheduler success and nested Action outcomes do not stand
 in for that outcome. Shared-Journal evidence remains required.

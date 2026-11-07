@@ -1,4 +1,7 @@
-"""Reloadable Project-local stdio implementation behind the stable gateway."""
+# CA-M-322@13
+# CA-R-1820@9
+
+"""Project-local MCP implementation for direct or optional reload serving."""
 import argparse
 from contextlib import contextmanager
 from pathlib import Path

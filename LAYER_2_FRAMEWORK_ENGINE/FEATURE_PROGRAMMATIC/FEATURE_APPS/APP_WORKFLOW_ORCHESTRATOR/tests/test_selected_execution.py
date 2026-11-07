@@ -504,9 +504,14 @@ class SelectedExecutionTests(unittest.TestCase):
             selected, request = self.current_manifest_request(
                 route["route"], f"current-freeze-{ordinal}", root=fixture_root,
             )
+            if route["route"] == "run_implementation_workflow":
+                with self.assertRaisesRegex(SelectedExecutionError, "removed"):
+                    selected._validated_freeze(request)
+                continue
             frozen = selected._validated_freeze(request)
             frozen_routes.add(frozen["graph"]["route"])
-        self.assertEqual(frozen_routes, {route["route"] for route in routes})
+        self.assertEqual(frozen_routes, {route["route"] for route in routes
+                                        if route["route"] != "run_implementation_workflow"})
 
     def test_current_d547_generic_routes_have_builtin_handlers(self) -> None:
         fixture_root, manifest = self._current_d547_fixture()
@@ -515,6 +520,7 @@ class SelectedExecutionTests(unittest.TestCase):
         generic_actions = {
             entry["action"]["atom_id"]
             for route in generic
+            if route["route"] != "run_implementation_workflow"
             for entry in route["ordered_steps"]
         }
         builtin = SelectedExecution(fixture_root).handlers
@@ -647,183 +653,7 @@ class SelectedExecutionTests(unittest.TestCase):
             authorized=True,
         )
 
-    def test_o016_selects_manifest_step_packets_and_carries_actual_prior_results(self) -> None:
-        """Exercise all seven real prompt handlers through their injected Agent."""
-        import implementation_actions
-        from frozen_selected_workflows import frozen_implementation_bindings, write_frozen_source
 
-        fixture_root, _manifest = self._current_d547_fixture()
-        selected, request = self.current_manifest_request(
-            "run_implementation_workflow", "current-o016", root=fixture_root,
-        )
-        # Use the checked-in frozen implementation corpus, whose paths match
-        # the reviewed binding hint used by this fixture.  This keeps the
-        # disposable Project self-contained without copying moved live bytes
-        # or manufacturing project configuration to force ID lookup.
-        sources = frozen_implementation_bindings()
-        for binding in sources:
-            write_frozen_source(self.root, binding["path"], binding["sha256"])
-        self.assertEqual(implementation_actions.current_source_bindings(self.root), sources)
-        execution = request["execution"]
-        assert isinstance(execution, dict)
-        execution["request_id"] = "current-o016"
-        execution["initiative"] = {
-            "initiative_id": "implementation-o016",
-            "instruction_summary": "current implementation fixture",
-            "initiative_ref": execution["definition_manifest"]["manifest_ref"],
-        }
-        execution["operator_authorization"] = {
-            "authorization_ref": "authorizations/current-o016.json",
-            "authorization_freshness": {
-                "state": "current", "digest": execution["definition_manifest"]["manifest_digest"]},
-            "request_id": "current-o016", "operation_route": "run_implementation_workflow",
-            "proposal_receipt_digest": "b" * 64,
-            "parameters_digest": "c" * 64,
-            "target_frontier_digest": "d" * 64,
-            "effects_digest": "e" * 64,
-            "definition_manifest": execution["definition_manifest"],
-            "source_freshness": execution["source_freshness"],
-        }
-        method_paths = [row["path"] for row in sources
-                        if row["atom_id"].startswith("CA-M-")]
-        projection = implementation_actions.prepare_method_projection(method_paths, self.root)
-        workspace = self.root / "implementation-workspace"
-        workspace.mkdir()
-        workspace = workspace.resolve()
-        calls: list[dict[str, object]] = []
-        evaluation_calls = 0
-        entry_calls = 0
-
-        def agent(_prompt: str, packet: dict[str, object]) -> dict[str, object]:
-            nonlocal entry_calls, evaluation_calls
-            calls.append(packet)
-            step = packet["step_marker"]
-            outputs: dict[str, object] = {}
-            if step == "CA-O-091":
-                entry_calls += 1
-                entry_results = (
-                    "evaluation_ready", "requirement_ready", "evaluation_runnable",
-                    "evaluation_runnable", "complete",
-                )
-                try:
-                    result = entry_results[entry_calls - 1]
-                except IndexError as error:
-                    raise AssertionError("fixture exceeded its declared CA-O-091 visits") from error
-                return {"result": result, "outputs": outputs, "evidence": [f"evidence:{step}"]}
-            if step == "CA-O-092":
-                outputs = {"golden_e2e": ["test"], "commands": ["test"], "expected_outcomes": ["pass"]}
-            elif step == "CA-O-093":
-                outputs = {"candidate": "fixture", "phase": packet["phase"], "changed_paths": ["fixture.py"]}
-            elif step == "CA-O-094":
-                evaluation_calls += 1
-                if evaluation_calls == 1:
-                    return {"result": "failed", "outputs": {"commands": ["test"],
-                                                                  "checks": [{"returncode": 1}]},
-                            "evidence": ["failure"]}
-                outputs = {"candidate": "fixture", "commands": ["test"],
-                           "checks": [{"returncode": 0}],
-                           "coverage": {"complete": True, "checked": ["CA-E-563"]}}
-            elif step == "CA-O-095":
-                outputs = {"cause": "fixture assertion failed"}
-            elif step == "CA-O-096":
-                outputs = {"decision": "retry admitted", "limit_provenance": "fixture settings", "consumed": 0}
-            elif step == "CA-O-099":
-                outputs = {"candidate": "fixture", "changed_paths": ["fixture.py"],
-                           "phase": packet["phase"], "recheck_commands": ["test"], "issue_evidence": ["failure"],
-                           "regression_evidence": ["recheck"]}
-            results = {"CA-O-091": "evaluation_ready", "CA-O-092": "prepared", "CA-O-093": "implemented",
-                       "CA-O-094": "passed", "CA-O-095": "implementation_defect", "CA-O-096": "retry_permitted",
-                       "CA-O-099": "repaired"}
-            return {"result": results[step], "outputs": outputs, "evidence": [f"evidence:{step}"]}
-
-        base = {
-            "selected_project": {
-                "kind": "selected_project",
-                "source_root": ".caprmedio_caprmedio",
-                "source_references": sources,
-            },
-            "source_bindings": sources,
-            "permissions": {"allowed": True, "implementation_workspace": {
-                "kind": "disposable_workspace", "path": str(workspace), "allow_write": True,
-            }, "retry": {"authorization_ref": execution["operator_authorization"]["authorization_ref"],
-                         "source_ref": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
-                         "task_ref": execution["workflow_run_id"],
-                         "epic_ref": execution["definition_manifest"]["manifest_ref"]}},
-            "workspace": str(workspace), "method_projection": projection,
-            "requirements": implementation_actions.prepare_input_bindings(["CA-R-1843"], self.root),
-            "delivery": implementation_actions.prepare_input_bindings(["CA-D-544"], self.root),
-            "evaluations": implementation_actions.prepare_input_bindings(["CA-E-563"], self.root),
-            "red": {"expectation": "fixture assertion passes", "fixtures": ["fixture.py"],
-                    "commands": ["test"], "scope": "selected implementation item"},
-            "plan_item": {"plan_id": "current-o016-plan", "item_id": "current-o016-item",
-                          "dod": ["implementation checks pass"], "owned_paths": ["."],
-                          "estimated_minutes": 1}, "owned_paths": ["."],
-            "candidate": "fixture", "phase": "implementation", "handoff_complete": True,
-            "golden_e2e": ["test"], "baseline_command": "test",
-            "confidence": {"observed": 1.0, "effective": 0.9,
-                            "source": ".caprmedio_caprmedio/caprmedio_project_settings.toml"},
-            "retry": {"consumed": 0, "effective_limit": 1,
-                      "source": ".caprmedio_caprmedio/caprmedio_project_settings.toml",
-                      "remaining_failure": True, "admitted": True},
-            "coverage": {"required": ["CA-E-563"], "checked": [], "complete": False,
-                         "candidate": "fixture", "phase": "implementation"},
-            "operator_authorization": execution["operator_authorization"],
-            "retained_state": {"run": "fixture"},
-        }
-        execution["parameters"] = {
-            "base_packet": base,
-            "run_visit_limits": {"CA-O-091": 5, "CA-O-094": 2},
-            "step_packets": {
-                step: {"context": context, "step_marker": step}
-                for step, (_action, context) in implementation_actions.ACTION_BY_STEP.items()
-            },
-        }
-        # This is an executable fixture: writes from the implementation run
-        # belong in its disposable Project, never in the source checkout.
-        runner = SelectedExecution(self.root, implementation_agent=agent)
-        graph = selected._validate_graph(execution)
-        execution["requested_runs"] = build_requested_runs(
-            graph, "current-o016", {"CA-O-091": 5, "CA-O-094": 2},
-        )
-        frozen = {"request": request, "graph": graph}
-
-        class RevisitSession:
-            def __init__(self) -> None:
-                self.started: dict[str, dict[str, object]] = {}
-                self.finished: list[dict[str, object]] = []
-
-            def start_run(self, requested_run_id: str) -> dict[str, object]:
-                if requested_run_id not in self.started:
-                    self.started[requested_run_id] = {"run_id": f"actual-{len(self.started) + 1}"}
-                return dict(self.started[requested_run_id])
-
-            def finish_run(self, run_id: str, **result: object) -> dict[str, object]:
-                value = {"run_id": run_id, **result}
-                self.finished.append(value)
-                return value
-
-        result = runner._execute_graph(frozen, RevisitSession())
-
-        self.assertEqual(result["outcome"], "completed")
-        self.assertEqual([packet["step_marker"] for packet in calls],
-                         ["CA-O-091", "CA-O-092", "CA-O-091", "CA-O-093", "CA-O-091", "CA-O-094",
-                          "CA-O-095", "CA-O-096", "CA-O-099", "CA-O-091", "CA-O-094", "CA-O-091"])
-        self.assertEqual([packet["context"] for packet in calls],
-                         ["Integrated", "Isolated", "Integrated", "Isolated", "Integrated", "Integrated",
-                          "Isolated", "Integrated", "Isolated", "Integrated", "Integrated", "Integrated"])
-        self.assertEqual(calls[1]["prior_results"][0]["step_definition_id"], "CA-O-091")
-        self.assertEqual(calls[6]["prior_results"][-1]["result"], "failed")
-
-    def test_o016_rejects_missing_or_mismatched_step_packet(self) -> None:
-        fixture_root, _manifest = self._current_d547_fixture()
-        selected, request = self.current_manifest_request(
-            "run_implementation_workflow", "current-o016-missing", root=fixture_root,
-        )
-        request["execution"]["parameters"] = {"base_packet": {}, "step_packets": {"CA-O-092": {"context": "Isolated"}}}
-        frozen = {"request": request, "graph": selected._validate_graph(request["execution"])}
-
-        with self.assertRaisesRegex(SelectedExecutionError, "no packet for Step CA-O-091"):
-            selected._execute_graph(frozen, self.session(frozen))
 
     def test_shared_session_branched_skip_uses_manifest_step_identity(self) -> None:
         """A skipped manifest Step must not shift the actual Step definition."""

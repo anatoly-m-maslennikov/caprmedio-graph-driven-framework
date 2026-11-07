@@ -11,12 +11,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
 status: Active
-version: 8
-updated_at: 2026-10-27 20:00:03 +0400
+version: 9
+updated_at: 2026-11-07 04:28:07 +0400
 carrier_destination:
   file:
     name: CA-R-1820-MCP-RULE--reload-mcp-implementation-without-disconnecting.md
@@ -37,9 +38,9 @@ automatic file watching **and** operating-system startup hooks are outside this 
 
 ## Claim
 
-the MCP gateway **must** provide Operator-requested implementation reload while preserving the established transport connection **and** its fixed Project boundary.
+When optional hot reload is explicitly enabled, the MCP gateway **must** provide Operator-requested implementation reload while preserving the established transport connection **and** its fixed Project boundary.
 
-the reload capability has these required outcomes:
+Hot reload is disabled by default; normal restart applies code changes in that mode. When enabled, the reload capability has these required outcomes:
 
 - a successful reload makes **`=1`** validated implementation generation available for new calls.
 - a failed reload retains the previously serving generation **and** reports the failure.

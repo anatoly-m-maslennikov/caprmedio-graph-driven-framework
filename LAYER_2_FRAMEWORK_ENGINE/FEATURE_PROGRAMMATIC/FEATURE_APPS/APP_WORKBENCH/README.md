@@ -249,3 +249,6 @@ result_ttl_seconds = 3600
 ```
 
 The TTL must be a positive integer. Apply file edits with Workbench restart or full reread; this setting has no MCP editor or hot reload. Query-log retention is separate and fixed at two days.
+
+
+Code hot reload is disabled by default. Vite development HMR and its filesystem watcher require `CAPRMEDIO_HOT_RELOAD=1`; ordinary builds remain static. Workbench source-data synchronization continues independently.

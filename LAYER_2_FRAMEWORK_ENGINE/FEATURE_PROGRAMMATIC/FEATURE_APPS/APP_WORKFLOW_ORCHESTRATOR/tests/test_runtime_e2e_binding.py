@@ -30,7 +30,7 @@ class RuntimeE2EBindingTests(unittest.TestCase):
         with patch.dict(
             os.environ, {"CAPRMEDIO_IMAGE": "caprmedio-runtime:local"}, clear=False,
         ):
-            runtime = Runtime(self.root, mock=True, image=IMAGE)
+            runtime = Runtime(self.root, image=IMAGE)
             self.assertEqual(IMAGE, runtime.environment()["CAPRMEDIO_IMAGE"])
 
     def test_default_runtime_image_resolution_is_unchanged(self) -> None:
@@ -38,14 +38,14 @@ class RuntimeE2EBindingTests(unittest.TestCase):
         with patch.dict(
             os.environ, {"CAPRMEDIO_IMAGE": ambient}, clear=False,
         ):
-            runtime = Runtime(self.root, mock=True)
+            runtime = Runtime(self.root)
             self.assertEqual(ambient, runtime.environment()["CAPRMEDIO_IMAGE"])
 
     def test_exact_image_reaches_compose_without_mutating_process_environment(self) -> None:
         with patch.dict(
             os.environ, {"CAPRMEDIO_IMAGE": "caprmedio-runtime:local"}, clear=False,
         ):
-            runtime = Runtime(self.root, mock=True, image=IMAGE)
+            runtime = Runtime(self.root, image=IMAGE)
             before = os.environ["CAPRMEDIO_IMAGE"]
             observed = SimpleNamespace(returncode=0, stdout="")
             with patch("runtime.subprocess.run", return_value=observed) as run:
@@ -58,15 +58,16 @@ class RuntimeE2EBindingTests(unittest.TestCase):
 
     def test_rejects_an_empty_explicit_image(self) -> None:
         with self.assertRaisesRegex(ValueError, "Runtime image"):
-            Runtime(self.root, mock=True, image="")
+            Runtime(self.root, image="")
 
     def test_private_cli_image_handoff_constructs_the_exact_runtime(self) -> None:
         with patch("runtime.Runtime") as runtime:
             runtime.return_value.status.return_value = {"outcome": "ready"}
             with patch.object(sys, "argv", ["runtime.py", "--project-root", str(self.root),
-                                              "--image", IMAGE, "--mock", "status"]):
+                                              "--image", IMAGE, "status"]):
                 main()
-        self.assertEqual(IMAGE, runtime.call_args.kwargs["image"])
+        self.assertEqual((self.root,), runtime.call_args.args)
+        self.assertEqual({"image": IMAGE}, runtime.call_args.kwargs)
 
 
 if __name__ == "__main__":

@@ -11,12 +11,13 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
 status: Active
-version: 9
-updated_at: 2026-10-27 19:59:37 +0400
+version: 10
+updated_at: 2026-11-07 04:28:07 +0400
 carrier_destination:
   file:
     name: CA-E-534-MCP-EVAL_CASE--verify-in-flight-call-isolation-during-mcp-reload.md
@@ -29,6 +30,8 @@ author: Anatoly Maslennikov
 Verify in-flight call isolation during MCP reload
 
 ## Scope
+
+These in-flight generation checks apply only with optional hot reload explicitly enabled.
 
 server-side hot reload for the Project-local MCP gateway.
 

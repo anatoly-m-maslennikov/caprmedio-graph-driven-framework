@@ -1,5 +1,7 @@
 """Explicit Project-scoped Docker lifecycle; never creates Workflow requests."""
 
+# CA-M-504@2
+
 import argparse
 import hashlib
 import json
@@ -22,7 +24,7 @@ _DIAGNOSTIC_LIMIT = 4096
 
 
 def _startup_diagnostic(value: object) -> str:
-    """Redact recognizable credentials before bounding mock-fixture diagnostics."""
+    """Redact recognizable credentials before bounding startup diagnostics."""
     if not isinstance(value, str):
         return ""
     value = re.sub(
@@ -33,12 +35,9 @@ def _startup_diagnostic(value: object) -> str:
     )
     value = re.sub(r"(?i)\b([a-z][a-z0-9+.-]*://)[^/\s@]+@", r"\1[redacted]@", value)
     return value[-_DIAGNOSTIC_LIMIT:]
-
-
 class Runtime:
-    def __init__(self, root, *, mock=False, auth_file=None, image=None):
+    def __init__(self, root, *, image=None):
         self.root = Path(root).resolve(strict=True)
-        self.mock, self.auth_file = mock, auth_file
         if image is not None and (not isinstance(image, str) or IMMUTABLE_IMAGE.fullmatch(image) is None):
             raise ValueError("Runtime image must be an immutable sha256 image ID")
         self.image = image
@@ -50,14 +49,9 @@ class Runtime:
             CAPRMEDIO_PROJECT_ROOT=str(self.root),
             CAPRMEDIO_IMAGE=self.image or image_reference(os.environ),
         )
-        environment.pop("CAPRMEDIO_CODEX_AUTH_FILE", None)
-        if not self.mock and self.auth_file:
-            environment["CAPRMEDIO_CODEX_AUTH_FILE"] = str(
-                Path(self.auth_file).resolve(strict=True)
-            )
         return environment
 
-    def command(self, *arguments, authentication=False, http=False):
+    def command(self, *arguments, http=False):
         command = [
             "docker",
             "compose",
@@ -68,17 +62,13 @@ class Runtime:
             "-f",
             str(DIRECTORY / "compose.yaml"),
         ]
-        if self.mock:
-            command += ["-f", str(DIRECTORY / "mock.compose.yaml")]
-        elif authentication:
-            command += ["-f", str(DIRECTORY / "auth.compose.yaml")]
         if http:
             command += ["-f", str(DIRECTORY / "mcp-http.compose.yaml")]
         return command + list(arguments)
 
-    def call(self, *arguments, authentication=False, http=False, capture=True, timeout=60):
+    def call(self, *arguments, http=False, capture=True, timeout=60):
         result = subprocess.run(
-            self.command(*arguments, authentication=authentication, http=http),
+            self.command(*arguments, http=http),
             env=self.environment(),
             text=True,
             capture_output=capture,
@@ -86,20 +76,6 @@ class Runtime:
             check=False,
         )
         if result.returncode:
-            if (
-                self.mock
-                and not authentication
-                and not self.auth_file
-                and capture
-                and arguments
-                and arguments[0] == "up"
-                and "-d" in arguments
-            ):
-                raise RuntimeError(
-                    f"Mock Docker startup failed (exit {result.returncode})\n"
-                    f"stdout: {_startup_diagnostic(result.stdout)}\n"
-                    f"stderr: {_startup_diagnostic(result.stderr)}"
-                )
             raise RuntimeError("Docker operation failed; inspect service logs")
         return result.stdout if capture else None
 
@@ -137,7 +113,7 @@ class Runtime:
         self.image = self._image_manager(create_temp=True).resolve()
         return self.image
 
-    def prepare(self, *, require_auth=True):
+    def prepare(self):
         for relative in (".caprmedio_caprmedio", ".git"):
             if (self.root / relative).is_symlink():
                 raise ValueError("Runtime mounts must not be symlinks")
@@ -148,8 +124,6 @@ class Runtime:
             if path.is_symlink():
                 raise ValueError("Runtime mounts must not be symlinks")
             path.mkdir(exist_ok=True)
-        if require_auth and not self.mock and not self.auth_file:
-            raise ValueError("Pass --auth-file explicitly; credentials are not guessed")
         directory = self.root / ".caprmedio_install"
         for name in ("workflow_orchestrator", "docker"):
             directory /= name
@@ -170,9 +144,7 @@ class Runtime:
             "--wait-timeout",
             "60",
             "--force-recreate",
-            "agent",
             "worker",
-            authentication=not self.mock,
             timeout=90,
         )
         marker = self.root / ".caprmedio_install/workflow_orchestrator/docker/transport.json"
@@ -190,11 +162,10 @@ class Runtime:
             "runtime": "docker",
             "project_name": self.project,
             "outcome": "ready",
-            "agent_mode": "mock" if self.mock else "codex",
         }
 
     def stop(self):
-        self.call("stop", "worker", "agent", timeout=60)
+        self.call("stop", "worker", timeout=60)
         return {"runtime": "docker", "outcome": "stopped", "persistent_state": "retained"}
 
     def status(self):
@@ -237,7 +208,7 @@ class Runtime:
         )
 
     def mcp_http_start(self):
-        self.prepare(require_auth=False)
+        self.prepare()
         port = self._http_port()
         self._ensure_launch_image()
         # Generation readiness can take 90s; keep Compose and the caller outside that budget.
@@ -277,9 +248,7 @@ def _project_mcp_port(value):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=SOURCE_ROOT)
-    parser.add_argument("--auth-file", type=Path)
     parser.add_argument("--image", help=argparse.SUPPRESS)
-    parser.add_argument("--mock", action="store_true")
     parser.add_argument("--control-root", help="Direct .caprmedio_<project> folder, when explicit selection is needed")
     parser.add_argument("--source-root", type=Path, help="Explicit Framework checkout with image build inputs; required for project-mcp")
     parser.add_argument("--startup-timeout", type=float, default=120, help="Bound startup/readiness seconds (maximum 120)")
@@ -301,7 +270,7 @@ def main():
         ready = result.get("disposition") in ("started", "reused") and result.get("readiness") is True
         print(result["url"] if args.output == "url" and ready else json.dumps(result, sort_keys=True))
         return 0 if ready else 1
-    runtime = Runtime(args.project_root, mock=args.mock, auth_file=args.auth_file, image=args.image)
+    runtime = Runtime(args.project_root, image=args.image)
     if args.operation == "build":
         print(runtime.build())
     elif args.operation in ("start", "restart"):
@@ -321,7 +290,7 @@ def main():
     elif args.operation == "mcp-http-status":
         print(json.dumps(runtime.mcp_http_status()))
     else:
-        runtime.prepare(require_auth=False)
+        runtime.prepare()
         runtime._ensure_launch_image()
         os.execvpe(
             "docker",

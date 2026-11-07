@@ -34,7 +34,7 @@ class HttpRequestBodyLimitTests(unittest.TestCase):
             'from mcp.server import MCPServer\n'
             'MCPServer("transport fixture").run(transport="stdio")\n', encoding="utf-8",
         )
-        self.client = TestClient(create_app(self.root, implementation=implementation),
+        self.client = TestClient(create_app(self.root, implementation=implementation, hot_reload=True),
                                  base_url="http://127.0.0.1:8092")
         self.client.__enter__()
         self.addCleanup(self.client.__exit__, None, None, None)

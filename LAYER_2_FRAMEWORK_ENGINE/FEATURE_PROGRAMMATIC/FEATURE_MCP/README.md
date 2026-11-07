@@ -3,7 +3,8 @@
 Exposes caller-coordinated **RMED Atoms Base Revise** through
 `rmed_atoms_base_revise`, plus discovery, context, status/results and notification helpers.
 `workflow_orchestrator` enqueues explicitly authorized independent Runs through
-a separately started DBOS worker and Codex CLI adapter.
+a separately started DBOS worker. Automatic AI Agent dispatch is retired; the
+worker retains deterministic selected execution.
 The selected-workflow first cut contains implementations for Create Atom, Update
 Atom, Replace Atom, Change Status Atom, Implementation Workflow, and Build
 Applicable Methodology. They are admitted only when the source-bound route
@@ -89,8 +90,8 @@ not discoverable or executable unless its selected manifest reopens with the
 existing identity, permission, status-model, and shared-Journal evidence
 boundaries.
 Public status is derived from the matching recorded Workflow terminal run, not
-from scheduler completion or a nested Action result. W09 Implementation Workflow
-coverage uses a golden mock Agent and does not establish a live-LLM result.
+from scheduler completion or a nested Action result. The automatic Implementation
+Agent route is retired; its source definitions do not establish runtime support.
 
 Scope mutations, Revert, graph builders, standalone advanced Artifact/Journal
 queries, and formal Release/promotion remain outside this first cut. A transport,
@@ -118,9 +119,13 @@ do not establish that an installed MCP has been refreshed.
 
 ## Hot reload
 
-`server.py` is now a stable stdio gateway; `implementation_server.py` runs in a
-separate local process per generation. Install this gateway with one initial MCP
-reconnect. Afterward invoke `reload_mcp_implementation`:
+Hot reload is disabled by default. MCP serves tools in one process; restart the
+process/container after code changes. Workbench source-data synchronization is
+independent and stays enabled.
+
+Explicitly set `CAPRMEDIO_HOT_RELOAD=1` before starting the runtime to enable hot
+reload. In that mode, `implementation_server.py` runs in a separate process per
+generation. Install/reconnect once, then invoke `reload_mcp_implementation`:
 
 ```json
 {"request":{"operation":"reload","request_id":"reload-001"}}

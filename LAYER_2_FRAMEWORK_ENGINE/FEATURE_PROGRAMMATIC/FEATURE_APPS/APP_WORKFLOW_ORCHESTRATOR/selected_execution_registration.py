@@ -1,8 +1,9 @@
+# CA-M-504@2
 """Public selected-executor registrations and isolated native adapters."""
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
+from collections.abc import Mapping
 from pathlib import Path
 import sys
 from typing import Any, cast
@@ -15,7 +16,6 @@ from selected_execution_contracts import (
 
 
 _ACTION_HANDLERS: dict[str, ActionHandler] = {}
-_IMPLEMENTATION_AGENT: Callable[[str, Mapping[str, Any]], Mapping[str, Any]] | None = None
 
 
 def preflight_selected_lifecycle(
@@ -57,22 +57,6 @@ def register_action_handler(action_definition_id: str, handler: ActionHandler) -
     if previous is not None and previous is not handler:
         raise ValueError(f"Action handler already registered for {action_definition_id}")
     _ACTION_HANDLERS[action_definition_id] = handler
-
-
-def register_implementation_agent(
-    agent: Callable[[str, Mapping[str, Any]], Mapping[str, Any]],
-) -> None:
-    """Install the explicit Agent bridge for future selected queues."""
-    if not callable(agent):
-        raise TypeError("implementation agent must be callable")
-    global _IMPLEMENTATION_AGENT
-    if _IMPLEMENTATION_AGENT is not None and _IMPLEMENTATION_AGENT is not agent:
-        raise ValueError("implementation agent is already registered")
-    _IMPLEMENTATION_AGENT = agent
-
-
-def implementation_agent() -> Callable[[str, Mapping[str, Any]], Mapping[str, Any]] | None:
-    return _IMPLEMENTATION_AGENT
 
 
 def action_handlers() -> Mapping[str, ActionHandler]:

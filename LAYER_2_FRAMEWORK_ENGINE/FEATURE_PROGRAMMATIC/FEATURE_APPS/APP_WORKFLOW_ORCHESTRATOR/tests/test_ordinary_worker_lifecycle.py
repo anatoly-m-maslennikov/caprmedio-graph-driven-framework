@@ -1,6 +1,9 @@
+# CA-E-796@2
 """Current ordinary worker ready publication and shutdown, without a real worker."""
 
 from pathlib import Path
+from contextlib import redirect_stderr
+import io
 import sys
 import tempfile
 import types
@@ -13,6 +16,18 @@ import backend  # noqa: E402
 
 
 class OrdinaryWorkerLifecycleTests(unittest.TestCase):
+    def test_startup_failure_reports_without_masking_the_error(self):
+        error = RuntimeError("startup fixture failure")
+        failure = types.SimpleNamespace(code="worker_unavailable", message="Worker startup failed")
+        with (
+            patch.object(backend, "database", side_effect=error),
+            patch.object(backend, "report_failure", return_value=(failure, None)) as report,
+            redirect_stderr(io.StringIO()) as stderr,
+        ):
+            self.assertEqual(1, backend.worker(self.root))
+        self.assertIs(error, report.call_args.args[1])
+        self.assertIn("worker_unavailable", stderr.getvalue())
+
     def setUp(self):
         parent = APP.parents[3] / ".caprmedio_tmp/tests/ordinary-worker-lifecycle"
         parent.mkdir(parents=True, exist_ok=True)
@@ -37,9 +52,6 @@ class OrdinaryWorkerLifecycleTests(unittest.TestCase):
                 backend, "database", return_value=(self.root / "db.sqlite", "sqlite:///fixture")
             ),
             patch.object(backend, "_scheduler_identity", return_value=scheduler),
-            patch.object(backend, "implementation_mock_runtime", return_value=False),
-            patch.object(backend, "docker_runtime", return_value=False),
-            patch.object(backend, "CodexAgent"),
             patch.object(backend, "runtime_fingerprint", return_value="f" * 64),
             patch.object(backend, "register_execution"),
             patch.object(backend, "SelectedNativeProviders"),

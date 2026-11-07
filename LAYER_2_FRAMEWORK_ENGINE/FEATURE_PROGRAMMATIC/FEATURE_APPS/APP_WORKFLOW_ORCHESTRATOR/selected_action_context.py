@@ -1,3 +1,4 @@
+# CA-M-504@2
 from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
@@ -9,7 +10,6 @@ from selected_execution_run_plan import (
     lifecycle_native_binding,
     replacement_native_binding,
 )
-from selected_implementation_packet import implementation_packet
 from selected_graph_inputs import graph_parameters_with_actual_recording
 from selected_graph_terminal import result_writer
 
@@ -91,12 +91,6 @@ def _parameters(
 ) -> tuple[object, Mapping[str, Any] | None]:
     parameters: object = execution.get("parameters")
     trusted_authorization: Mapping[str, Any] | None = None
-    if graph.get("workflow", {}).get("atom_id") == "CA-O-016":
-        parameters = implementation_packet(parameters, step_id, prior_results)
-        authorization = execution.get("operator_authorization")
-        if isinstance(authorization, Mapping):
-            trusted_authorization = authorization
-            parameters = {**parameters, "operator_authorization": dict(authorization)}
     if graph.get("route") in {"build_entities_graph", "build_terms_graph"}:
         parameters = graph_parameters_with_actual_recording(
             parameters,

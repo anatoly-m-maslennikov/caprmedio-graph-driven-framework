@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+# CA-M-322@13
+# CA-R-1820@9
+
 import asyncio
 from types import SimpleNamespace
 from typing import Any, Callable
@@ -8,7 +11,7 @@ from mcp import types
 from mcp.server.lowlevel import Server
 
 from health_observations import MAX_OBSERVATIONS, HealthObservations
-from hot_reload import Gateway
+from direct_gateway import DirectGateway
 from workbench_tools import mcp_app_probe
 from host_runtime_config import (
     HostRuntimeConfig,
@@ -44,7 +47,7 @@ class SharedGateway:
     """Project selection adapter; native Gateways retain all domain behavior."""
 
     def __init__(
-        self, config: HostRuntimeConfig, gateway_factory: Callable[..., Any] = Gateway
+        self, config: HostRuntimeConfig, gateway_factory: Callable[..., Any] = DirectGateway
     ) -> None:
         self.config = config
         self.gateway_factory = gateway_factory

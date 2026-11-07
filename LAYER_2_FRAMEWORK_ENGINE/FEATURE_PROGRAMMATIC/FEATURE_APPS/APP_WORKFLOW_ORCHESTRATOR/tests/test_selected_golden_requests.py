@@ -1,4 +1,4 @@
-"""Strict eleven-route request-carrier construction checks."""
+"""Strict retained-route request-carrier construction checks."""
 from __future__ import annotations
 import copy
 from pathlib import Path
@@ -21,7 +21,7 @@ class SelectedGoldenRequestsTest(unittest.TestCase):
         root = Path(tempfile.mkdtemp(dir=parent)); project = GoldenProject(ROOT, root, GoldenCase(case, route)); project.prepare()
         return FixtureLease(root), project
 
-    def test_all_eleven_preview_and_execute_carriers_are_digest_bound(self):
+    def test_all_retained_preview_and_execute_carriers_are_digest_bound(self):
         for case, route in ROUTE_CASES:
             with self.subTest(case=case):
                 lease, project = self.fixture(case, route)
@@ -92,24 +92,17 @@ class SelectedGoldenRequestsTest(unittest.TestCase):
             self.assertTrue((project.root / ".caprmedio_caprmedio/_journal").is_dir())
         finally: lease.cleanup()
 
-    def test_execution_project_root_changes_only_container_visible_w09_w13_paths(self):
+    def test_execution_project_root_changes_only_container_visible_w13_path(self):
         parent = ROOT / ".caprmedio_tmp/tests/selected-golden-requests"; parent.mkdir(parents=True, exist_ok=True)
-        for case, route in (("W09", "run_implementation_workflow"), ("W13", "build_applicable_methodology")):
-            root = Path(tempfile.mkdtemp(dir=parent))
-            lease = FixtureLease(root)
-            try:
-                project = GoldenProject(ROOT, root, GoldenCase(case, route), execution_project_root="/project")
-                project.prepare()
-                parameters = project.request(request_id=f"container-{case.lower()}")["parameters"]
-                if case == "W09":
-                    packet = parameters["base_packet"]
-                    self.assertEqual("/project/fixture/disposable-workspace", packet["workspace"])
-                    self.assertEqual(packet["workspace"], packet["permissions"]["implementation_workspace"]["path"])
-                else:
-                    self.assertEqual("/project", parameters["project_root"])
-            finally: lease.cleanup()
+        root = Path(tempfile.mkdtemp(dir=parent))
+        lease = FixtureLease(root)
+        try:
+            project = GoldenProject(ROOT, root, GoldenCase("W13", "build_applicable_methodology"), execution_project_root="/project")
+            project.prepare()
+            self.assertEqual("/project", project.request(request_id="container-w13")["parameters"]["project_root"])
+        finally: lease.cleanup()
 
-    def test_ten_non_revert_routes_reach_shared_preview_and_execute_admission(self):
+    def test_retained_non_revert_routes_reach_shared_preview_and_execute_admission(self):
         for case, route in ROUTE_CASES:
             if case == "W10":
                 continue

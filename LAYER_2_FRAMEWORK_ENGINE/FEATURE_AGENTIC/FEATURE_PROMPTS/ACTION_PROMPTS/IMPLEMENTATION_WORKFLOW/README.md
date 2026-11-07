@@ -36,18 +36,14 @@ Return one listed result with concise actual outputs, evidence references, retai
 
 Method learning is a separate **CA-O-102** Run, not an implementation Step. Passing implementation checks does not require creating an M Atom.
 
-## Callable actions
+## Runtime status
 
-`implementation_actions.py` exports `ACTION_HANDLERS`, `prepare_method_projection(method_paths)`, and `implement_selected_queue(step, packet, agent, implement_run_support=None)`. It recomputes every source pin from live authority bytes; accepts only the full current binding frontier; compiles complete active-M source content, revisions, paths, and digests separately from selected R/D/E; and validates context, permission, bounded Isolated handoff, test-first inputs, retry allowance, and performed-success evidence before passing the selected prompt to the replaceable Agent callable. It does not require MCP, invoke successor Steps, write a Journal, or claim the mock adapter is a live LLM run. `implement_run_support` is an injected shared interface owned outside this package.
+Automatic Agent dispatch is retired. These prompts and their source bindings remain available to an explicit calling session; this package no longer contains a Python Agent dispatcher or mock runner.
 
 ## Checks
-
-From the repository root:
 
 ```sh
 python3 -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS/ACTION_PROMPTS/IMPLEMENTATION_WORKFLOW/tests -v
 ```
 
-These checks verify coverage, bindings, context, result labels, source freshness, prompt contracts, and mock-Agent action envelopes. Mock Agent tests are not live LLM proof.
-
-The golden behavior tests use a frozen input manifest and source fixture while exercising the current `implementation_actions.py`; they neither load an archived implementation nor relax source-pin checks. `test_current_project_bindings.py` separately verifies that the reviewed production frontier matches the current Project and refuses a stale copied source.
+These checks cover the retained prompt text, context and result-label contracts. They do not prove runtime execution.

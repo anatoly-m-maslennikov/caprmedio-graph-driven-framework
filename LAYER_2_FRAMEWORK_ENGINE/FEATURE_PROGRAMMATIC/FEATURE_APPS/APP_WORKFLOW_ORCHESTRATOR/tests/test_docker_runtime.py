@@ -1,4 +1,8 @@
-"""Runtime boundary tests; mocks never need live credentials or paid inference."""
+"""Runtime boundary tests for retained Docker worker and MCP services."""
+
+# CA-M-504@2
+# CA-E-796@2
+# CA-E-533@13
 
 import json
 import os
@@ -15,7 +19,6 @@ sys.path.insert(0, str(APP))
 sys.path.insert(0, str(APP / "docker"))
 
 from runtime_config import control_directory  # noqa: E402
-from remote_agent import RemoteAgent  # noqa: E402
 from runtime import Runtime  # noqa: E402
 
 
@@ -35,40 +38,16 @@ class RuntimeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 control_directory()
 
-    def test_mock_compose_has_no_credential_input_or_published_ports(self):
+    def test_compose_command_has_no_credential_input(self):
         with tempfile.TemporaryDirectory(
             dir=self.temporary, ignore_cleanup_errors=True
         ) as directory:
-            runtime = Runtime(Path(directory), mock=True)
+            runtime = Runtime(Path(directory))
             command = runtime.command("config")
             self.assertIn("--env-file", command)
             self.assertIn("/dev/null", command)
             self.assertNotIn("auth.compose.yaml", " ".join(command))
-            self.assertIn("mock.compose.yaml", " ".join(command))
             self.assertNotIn("CAPRMEDIO_CODEX_AUTH_FILE", runtime.environment())
-
-    def test_remote_adapter_bounds_and_validates_output(self):
-        class Response:
-            def __enter__(self):
-                return self
-
-            def __exit__(self, *_):
-                pass
-
-            def read(self, size):
-                self.size = size
-                return json.dumps(
-                    {"report_json": "{}", "candidate_content": None, "confidence": 99.0}
-                ).encode()
-
-        response = Response()
-        with patch("remote_agent.urlopen", return_value=response) as opening:
-            output = RemoteAgent().execute({"bound": True}, "check", Path("."), 10)
-        self.assertEqual(output["confidence"], 99.0)
-        self.assertEqual(response.size, 8 * 1024 * 1024 + 1)
-        self.assertEqual(opening.call_args.kwargs["timeout"], 15)
-        payload = json.loads(opening.call_args.args[0].data)
-        self.assertEqual(payload, {"context": {"bound": True}, "phase": "check", "timeout": 10})
 
     def test_routing_does_not_fall_back_when_docker_stops(self):
         from docker_bridge import invoke
@@ -85,7 +64,7 @@ class RuntimeTests(unittest.TestCase):
                     invoke(root, {"operation": "status", "run_id": "test"})
 
     def test_compose_inputs_enforce_service_boundaries_without_a_daemon(self):
-        runtime = Runtime(APP.parents[3], mock=True)
+        runtime = Runtime(APP.parents[3])
         arguments = ("--profile", "stdio", "config", "--format", "json")
         expected_command = runtime.command(*arguments)
         with patch("runtime.subprocess.run") as execute:
@@ -108,10 +87,6 @@ class RuntimeTests(unittest.TestCase):
             self.assertEqual(service["restart"], "no")
             self.assertFalse(service.get("ports"))
             self.assertFalse(service.get("privileged", False))
-        agent = services["agent"]
-        self.assertEqual(set(agent["networks"]), {"runtime"})
-        self.assertEqual(agent["volumes"], ["agent_auth:/home/caprmedio/.codex"])
-        self.assertNotIn("secrets", agent)
         for name in ("worker", "mcp"):
             mounts = services[name]["volumes"]
             project = next(volume for volume in mounts if volume["target"] == "/project")
@@ -131,6 +106,18 @@ class RuntimeTests(unittest.TestCase):
         ):
             self.assertIn(value, ignored)
 
+    def test_mcp_services_default_hot_reload_to_disabled(self):
+        expected = "${CAPRMEDIO_HOT_RELOAD:-0}"
+        for compose_name, service in (
+            ("compose.yaml", "mcp"),
+            ("mcp-http.compose.yaml", "mcp-http"),
+            ("project-mcp.compose.yaml", "mcp-http"),
+            ("shared-mcp.compose.yaml", "shared-mcp"),
+        ):
+            with self.subTest(compose=compose_name, service=service):
+                config = yaml.safe_load((APP / "docker" / compose_name).read_text())
+                self.assertEqual(expected, config["services"][service]["environment"]["CAPRMEDIO_HOT_RELOAD"])
+
     def test_failed_start_does_not_select_docker_transport(self):
         with tempfile.TemporaryDirectory(
             dir=self.temporary, ignore_cleanup_errors=True
@@ -138,7 +125,7 @@ class RuntimeTests(unittest.TestCase):
             root = Path(directory)
             (root / ".caprmedio_caprmedio").mkdir()
             (root / ".git").mkdir()
-            runtime = Runtime(root, mock=True, image=self.image)
+            runtime = Runtime(root, image=self.image)
             with patch.object(runtime, "call", side_effect=RuntimeError("not ready")):
                 with self.assertRaises(RuntimeError):
                     runtime.start()
@@ -153,7 +140,7 @@ class RuntimeTests(unittest.TestCase):
             root = Path(directory)
             (root / ".caprmedio_caprmedio").mkdir()
             (root / ".git").mkdir()
-            runtime = Runtime(root, mock=True, image=self.image)
+            runtime = Runtime(root, image=self.image)
             with patch.object(runtime, "call", return_value="") as operation:
                 self.assertEqual(runtime.start()["outcome"], "ready")
                 self.assertEqual(runtime.start()["outcome"], "ready")
@@ -173,7 +160,7 @@ class RuntimeTests(unittest.TestCase):
             outside.mkdir()
             authority = root / ".caprmedio_caprmedio"
             authority.symlink_to(outside, target_is_directory=True)
-            runtime = Runtime(root, mock=True)
+            runtime = Runtime(root)
             with patch.object(runtime, "call") as operation:
                 with self.assertRaises(ValueError):
                     runtime.start()
@@ -187,70 +174,6 @@ class RuntimeTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     runtime.start()
                 operation.assert_not_called()
-
-    def test_docker_sandbox_selection_does_not_change_native_policy(self):
-        from agent import CodexAgent
-
-        native = CodexAgent().command(Path("/tmp/mock"))
-        isolated = CodexAgent(container_isolation=True).command(Path("/tmp/mock"))
-        self.assertEqual(native[native.index("--sandbox") + 1], "read-only")
-        self.assertEqual(isolated[isolated.index("--sandbox") + 1], "danger-full-access")
-        self.assertIn('approval_policy="never"', isolated)
-        self.assertIn("--ignore-user-config", isolated)
-
-
-class AgentServiceTests(unittest.TestCase):
-    def setUp(self):
-        from starlette.testclient import TestClient
-        import agent_service
-
-        self.service = agent_service
-        self.service.busy = False
-        self.service.calls = 0
-        self.client = TestClient(agent_service.app)
-        self.addCleanup(self.client.close)
-
-    def test_unknown_fields_and_phase_rejected_before_dispatch(self):
-        for payload in (
-            {"context": {}, "phase": "unknown", "timeout": 1},
-            {"context": {}, "phase": "check", "timeout": 1, "surprise": True},
-        ):
-            self.assertEqual(self.client.post("/execute", json=payload).status_code, 422)
-        self.assertEqual(self.service.calls, 0)
-
-    def test_oversized_and_busy_requests_do_not_dispatch(self):
-        with patch.object(self.service, "MAX_BYTES", 20):
-            self.assertEqual(self.client.post("/execute", content=b"x" * 21).status_code, 413)
-        self.service.busy = True
-        self.assertEqual(
-            self.client.post(
-                "/execute", json={"context": {}, "phase": "check", "timeout": 1}
-            ).status_code,
-            409,
-        )
-        self.assertEqual(self.service.calls, 0)
-
-    def test_invalid_output_is_not_accepted_and_errors_do_not_leak(self):
-        for value in ({"confidence": 100}, RuntimeError("secret detail")):
-            if isinstance(value, Exception):
-                replacing = patch.object(self.service, "execute", side_effect=value)
-            else:
-                replacing = patch.object(self.service, "execute", return_value=value)
-            with replacing:
-                response = self.client.post(
-                    "/execute", json={"context": {}, "phase": "check", "timeout": 1}
-                )
-            self.assertEqual(response.status_code, 502)
-            self.assertNotIn("secret", response.text)
-            self.assertFalse(self.service.busy)
-
-    def test_missing_credentials_are_not_reported_ready(self):
-        with (
-            patch.dict(os.environ, {"CAPRMEDIO_AGENT_MODE": "codex"}),
-            patch.object(Path, "is_file", return_value=False),
-        ):
-            self.assertFalse(self.client.get("/health").json()["ready"])
-
 
 if __name__ == "__main__":
     unittest.main()

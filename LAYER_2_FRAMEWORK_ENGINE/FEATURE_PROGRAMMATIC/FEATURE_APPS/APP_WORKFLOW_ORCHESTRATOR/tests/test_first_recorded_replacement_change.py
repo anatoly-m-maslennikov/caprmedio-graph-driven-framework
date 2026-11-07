@@ -1,19 +1,13 @@
 """Replacement records observed lineage without manufacturing a predecessor."""
 
-import json
 import sys
-from types import SimpleNamespace
 import unittest
-from unittest.mock import patch
 
-import yaml
 
 import test_selected_lifecycle_journal as lifecycle_fixture
 from selected_replacement_journal import canonical_event
-from work_journal import append_sealed_events, read_records
 
 sys.path.insert(0, str(lifecycle_fixture.TOOLS / "VALIDATE_ATOMS"))
-from replacement import Replacement  # noqa: E402
 
 
 class FirstRecordedReplacementChangeTests(unittest.TestCase):
@@ -53,111 +47,6 @@ class FirstRecordedReplacementChangeTests(unittest.TestCase):
         self.assertNotIn("previous_result_event", event)
         self.assertEqual("CA-R-100", event["predecessor_atom_id"])
         self.assertEqual(["CA-R-102", "CA-R-101"], event["successor_atom_ids"])
-
-    def replacement_fixture(self):
-        self.path.write_bytes(b"---\natom_id: CA-R-100\nversion: 1\nstatus: Active\n---\nbefore\n")
-        store = SimpleNamespace(
-            root=self.root,
-            path=lambda relative: self.root / relative,
-            load=lambda run_id: {
-                "author": "test-user",
-                "session": {"app": "codex", "uuid": "test"},
-            },
-        )
-
-        def save(path, value):
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(json.dumps(value))
-
-        engine = SimpleNamespace(
-            store=store, run_directory=lambda run_id: self.root / "runs" / run_id, save=save
-        )
-        replacement = Replacement(engine, "actual-replacement", 0)
-        value = {
-            "context": {
-                "atom_id": "CA-R-100",
-                "source": self.harness.facts(),
-                "source_content": self.path.read_text(),
-            },
-            "candidate_content": self.path.read_text() + "next\n",
-        }
-        request = SimpleNamespace(author="test-user", scope="CORE_META_MODEL")
-        return replacement, value, request
-
-    def test_replacement_logs_again_without_republishing_source_effects(self) -> None:
-        historical = {"arbitrary": "history", "previous_result_event": "missing"}
-        append_sealed_events(self.root, [historical], **self.harness.context)
-        replacement, value, request = self.replacement_fixture()
-        with patch.object(replacement, "next_id", return_value="CA-R-101"):
-            evidence = replacement.apply(value, request, "new claim")
-        rows = read_records(self.root)
-        self.assertEqual(3, len(rows))
-        self.assertEqual(historical, rows[0])
-        self.assertEqual(["MOVE+UPDATE", "ADD"], [row["action_type"] for row in rows[1:]])
-        self.assertNotIn("previous_result_event", rows[1])
-        self.assertEqual("CA-R-100", rows[1]["predecessor_atom_id"])
-        self.assertEqual(["CA-R-101"], rows[1]["successor_atom_ids"])
-        with patch("replacement.os.link", side_effect=AssertionError("effects replayed")):
-            replacement.apply(value, request, "new claim")
-        self.assertEqual(5, len(read_records(self.root)))
-        self.assertEqual(2, len(evidence["journal_receipts"]))
-
-    def test_nested_replacement_plan_preserves_layout_and_unknown_header_bytes(self) -> None:
-        replacement, value, request = self.replacement_fixture()
-        source = ("---\nidentity:\n  atom_id: CA-R-100\ncontext:\n  role: Requirement\n  form: Goal\n"
-                  "state:\n  version: 3\n  status: Active\n  updated_at: \"old\"\n"
-                  "unknown: 'keep this quote' # retain this comment\n---\nbefore\n")
-        self.path.write_text(source)
-        value['context'].update(source_content=source, source=self.harness.facts())
-        value['candidate_content'] = source.replace('before', 'after')
-        with patch.object(replacement, "next_id", return_value="CA-R-101"):
-            plan = replacement.plan(value, request, "new claim")
-        for key in ('archive_content', 'successor_content'):
-            self.assertIn("unknown: 'keep this quote' # retain this comment", plan[key])
-            metadata = yaml.safe_load(plan[key].split('\n---\n', 1)[0][4:])
-            self.assertNotIn('atom_id', metadata)
-            self.assertNotIn('version', metadata)
-            if key == 'archive_content':
-                self.assertEqual('Archived', metadata['state']['status'])
-                self.assertEqual(3, metadata['state']['version'])
-            else:
-                self.assertEqual('CA-R-101', metadata['identity']['atom_id'])
-                self.assertEqual(1, metadata['state']['version'])
-                self.assertIn('-GOAL--new-claim.md', plan['successor']['filename'])
-        self.assertEqual(source, self.path.read_text())
-
-    def test_log_failure_reports_actual_replacement_without_source_replay(self) -> None:
-        replacement, value, request = self.replacement_fixture()
-        with (
-            patch.object(replacement, "next_id", return_value="CA-R-101"),
-            patch("replacement.append_sealed_events", side_effect=OSError("Journal unavailable")),
-        ):
-            evidence = replacement.apply(value, request, "new claim")
-        self.assertFalse(self.path.exists())
-        self.assertTrue((self.root / evidence["archived"]["path"]).is_file())
-        self.assertTrue((self.root / evidence["successor"]["path"]).is_file())
-        self.assertEqual("Journal unavailable", evidence["recording_error"])
-        self.assertEqual([], evidence["journal_receipts"])
-        with patch("replacement.os.link", side_effect=AssertionError("effects replayed")):
-            repeated = replacement.apply(value, request, "new claim")
-        self.assertNotIn("recording_error", repeated)
-        self.assertEqual(2, len(read_records(self.root)))
-
-    def test_plan_persistence_failure_is_not_a_log_diagnostic(self) -> None:
-        replacement, value, request = self.replacement_fixture()
-        save = replacement.engine.save
-
-        def fail_after_reservation(path, plan):
-            if path.exists():
-                raise OSError("plan unavailable")
-            save(path, plan)
-
-        with (
-            patch.object(replacement, "next_id", return_value="CA-R-101"),
-            patch.object(replacement.engine, "save", side_effect=fail_after_reservation),
-        ):
-            with self.assertRaisesRegex(OSError, "plan unavailable"):
-                replacement.apply(value, request, "new claim")
 
 
 if __name__ == "__main__":

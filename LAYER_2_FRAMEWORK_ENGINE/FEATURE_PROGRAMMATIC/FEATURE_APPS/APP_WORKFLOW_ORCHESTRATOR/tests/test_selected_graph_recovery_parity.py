@@ -49,6 +49,7 @@ class SelectedGraphRecoveryParityTest(unittest.TestCase):
                     return {"result": "applied", "terminal_outcome": "completed", "effect_refs": []}
 
                 with tempfile.TemporaryDirectory() as directory:
+                    (Path(directory) / ".git").mkdir()
                     result = execute_graph(
                         Path(directory),
                         {"CA-O-128": handler},

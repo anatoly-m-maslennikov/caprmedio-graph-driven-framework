@@ -1,21 +1,17 @@
+# CA-M-504@2
 """Explicit built-in native Action handlers for selected Workflow execution."""
 
 from __future__ import annotations
 
-from collections.abc import Callable, Mapping
 from pathlib import Path
 import sys
-from typing import Any, cast
+from typing import Any
 
 from selected_execution_contracts import ActionHandler, SelectedExecutionError
 
 
-ImplementationAgent = Callable[[str, Mapping[str, Any]], Mapping[str, Any]]
-
-
 def source_bound_native_handlers(
     root: Path,
-    implementation_agent: ImplementationAgent | None,
 ) -> dict[str, ActionHandler]:
     """Load the fixed built-in domains; manifests still select every Action."""
     _add_domain_import_paths()
@@ -23,7 +19,6 @@ def source_bound_native_handlers(
     _add_lifecycle_handlers(available, root)
     _add_graph_projection_handlers(available, root)
     available["CA-O-131"] = _revert_not_configured
-    _add_implementation_handlers(available, root, implementation_agent)
     return available
 
 
@@ -33,11 +28,6 @@ def _add_domain_import_paths() -> None:
         tools_root,
         tools_root / "GENERATE_ENTITY_GRAPH",
         tools_root / "COMPILE_APPLICABLE_METHODOLOGY",
-        Path(__file__).resolve().parents[3]
-        / "FEATURE_AGENTIC"
-        / "FEATURE_PROMPTS"
-        / "ACTION_PROMPTS"
-        / "IMPLEMENTATION_WORKFLOW",
     )
     for path in paths:
         value = str(path)
@@ -67,18 +57,3 @@ def _revert_not_configured(_context: dict[str, Any]) -> dict[str, Any]:
     raise SelectedExecutionError(
         "CA-O-131 requires register_action_handler('CA-O-131', make_revert_action_handler(service))"
     )
-
-
-def _add_implementation_handlers(
-    available: dict[str, ActionHandler],
-    root: Path,
-    implementation_agent: ImplementationAgent | None,
-) -> None:
-    try:
-        from selected_implementation_handlers import implementation_handlers
-
-        available.update(
-            implementation_handlers(root, cast(ImplementationAgent, implementation_agent))
-        )
-    except ImportError:
-        pass

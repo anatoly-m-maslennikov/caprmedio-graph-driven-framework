@@ -248,7 +248,7 @@ class SelectedQueryMcpEndToEnd(unittest.IsolatedAsyncioTestCase):
         self.fixture = QueryProject(strict.ROOT, root, GoldenCase(case_id, route),
                                     execution_project_root="/project")
         self.fixture.prepare()
-        self.runtime = strict.Runtime(root, mock=True, image=self.query_image)
+        self.runtime = strict.Runtime(root, image=self.query_image)
         self.assertEqual(self.query_image, self.runtime.environment()["CAPRMEDIO_IMAGE"],
                          "query Runtime must receive the requested immutable image identity")
         self.launched = True
