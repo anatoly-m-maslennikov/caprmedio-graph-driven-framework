@@ -1,0 +1,203 @@
+{
+  "status": "PREVIEW_ONLY",
+  "candidates": [
+    {
+      "key": "CA-R-1671",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-RULE--permit-orphan-implementation-decisions.md",
+      "source_sha256": "81480c73ce61d97e89967f0aa16e0a98abdecdd9cb55206e0e596732c35fd3a7",
+      "role": "Requirement",
+      "form": "Requirement",
+      "summary": "Permit orphan Implementation Decisions",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "body": "## Summary\n\nPermit orphan Implementation Decisions\n\n## Claim\n\n### Prose Claim\n\nAn active Method Decision may have no parent Policy, including in strict authority mode. Applicable governing constraints remain in force.\n",
+      "header_overrides": {
+        "form": "Requirement",
+        "relations": {
+          "child_of": [
+            "CA-R-037"
+          ]
+        }
+      },
+      "retires": []
+    },
+    {
+      "key": "CA-R-1672",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-RULE--permit-terminal-implementation-methods.md",
+      "source_sha256": "f9f6691fff8f492be961578e037c074e84b0c620487deb489b119a4ec7babee2",
+      "role": "Requirement",
+      "form": "Requirement",
+      "summary": "Permit terminal Implementation Methods",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "body": "## Summary\n\nPermit terminal Implementation Methods\n\n## Claim\n\n### Prose Claim\n\nAn active Method Direct Policy or Approach Policy may remain childless in Atom topology after its local Decisions have been losslessly absorbed and archived. Applicable governing constraints remain in force.\n",
+      "header_overrides": {
+        "form": "Requirement",
+        "relations": {
+          "child_of": [
+            "CA-R-030"
+          ]
+        }
+      },
+      "retires": []
+    },
+    {
+      "key": "CA-R-1768",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL--absorb-implementation-decisions-without-semantic-loss.md",
+      "source_sha256": "156fa6a33e882f7fe8ebc2f6a82e08aa1679b767b6e0def7961fe4fe78d2d45f",
+      "role": "Requirement",
+      "form": "Requirement",
+      "summary": "Absorb Implementation Decisions without semantic loss",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)",
+      "body": "## Summary\n\nAbsorb Implementation Decisions without semantic loss\n\n## Claim\n\n### Prose Claim\n\nA Method Decision may be archived as absorbed only after at least one active Method Direct Policy or Approach Policy preserves every part of its still-necessary governed meaning for the affected realization scope. Absorption does not remove applicable governing constraints or imply automatic runtime conversion.\n",
+      "header_overrides": {
+        "form": "Requirement"
+      },
+      "retires": []
+    },
+    {
+      "key": "CA-E-445",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-445-PROJECT_CONFIGURATION-EVAL-CASE--validate-methodology-membership-in-the-project.md",
+      "source_sha256": "44dde9a84eff1a42c0331b950a371c2d547aee8a09239eb59b55885e3b02ea54",
+      "role": "Evaluation",
+      "form": "Eval Case",
+      "summary": "Validate Methodology membership in the Project",
+      "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit",
+      "body": "## Summary\n\nValidate Methodology membership in the Project\n\n## Claim\n\n### Prose Claim\n\nThe Methodology Scope Units belong to the caprmedio Project Scope Unit tree and remain governed by its applicable Project-owned Tier 0 Atoms.\n\n## Test case\n\nResolve the current Project Scope Unit tree from authoritative ownership declarations and locate FRAMEWORK_METHODOLOGY, METHODOLOGY_SOURCES, and its source Scope Units. Verify their ancestry to caprmedio and their authority Directory Carriers. Include their active Atoms in applicable Project Tier 0 alignment checks. Then place a Methodology Scope Unit outside that tree, author or persist a Structural Level property for a current caprmedio Scope Unit, register an unauthorized Bootstrap Scope Unit as part of the current caprmedio structure, exempt Methodology from an applicable Project-owned Tier 0 Atom, or represent an Atom's different Claim Target Scope Unit as an additional Scope Unit edge.\n\n## Acceptance criteria\n\nEvery current Methodology Scope Unit has a parent chain to caprmedio. Any displayed ancestry depth or path is derived from that parent chain only and does not establish another authored source of ancestry. Its source Carrier placement does not exempt it from Project authority. Applicable Project Tier 0 checks include its active Atoms. All invalid fixtures fail. The predefined world Scope Unit is not an additional Scope Unit in the caprmedio Project structure. The external Project Goal's Tier `-1` remains valid and does not create or imply a Scope Unit depth. Archived Bootstrap records remain historical evidence without becoming current Scope Units.\n\n## Failure disposition\n\nRecord a Concern identifying the incorrect owner, authored or persisted Structural Level property, Carrier binding, applicable Project Tier 0 exemption, or invented Scope Unit edge.\n",
+      "header_overrides": {},
+      "retires": []
+    },
+    {
+      "key": "CA-D-404",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-404-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "source_sha256": "09905ee581d523e353aa81c8223b5520098c4718b4b343a60b4a85884027e7e3",
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Method Type Tokens",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method).Header.Form",
+      "body": "## Summary\n\nSerialize Method Type Tokens\n\n## Claim\n\n### Prose Claim\n\nA Method Atom File Carrier must serialize its effective Label within the Atom filename grammar governed by CA-D-283 and CA-D-284. Use the explicit Label when present and the Form name when Label is absent. Normalize the effective Label as an uppercase structured token.\n\n## Details\n\nThe filename token is the effective-Label carrier encoding; it does not rename or admit a Form or prescribe a YAML Form value. The YAML `form` field carries the Atom Form under CA-D-657. An explicit `label` field takes precedence; when absent, CA-R-2705 supplies the Form name as the effective Label. Do not infer the Atom Form from a filename token; derive the filename token from the effective Label.\n\nForm admission is governed by the applicable Form declarations and Scope Delegation permissions.\n",
+      "header_overrides": {},
+      "retires": []
+    },
+    {
+      "key": "CA-R-1669",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL--classify-implementation-methods-by-their-claims.md",
+      "source_sha256": "145f8fbcc12877231e90479d8323cbf560bde9900eebf48189f0925be9ed27f3",
+      "role": "Requirement",
+      "form": "Requirement",
+      "summary": "Classify implementation methods by their claims",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Tier",
+      "body": "## Summary\n\nClassify implementation methods by their claims\n\n## Claim\n\n### Prose Claim\n\nAn implementation Method receives its numeric Tier from its complete Claim and Scope Unit. Reusability alone does not force a particular Tier. Tier admission does not impose a Role-to-Tier or Form-to-Tier restriction.\n",
+      "header_overrides": {
+        "form": "Requirement",
+        "relations": null
+      },
+      "retires": []
+    },
+    {
+      "key": "CA-R-947",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md",
+      "source_sha256": "288bc9ede4f004602e31815e6b4620b40914cb1a06bd149e0ee2d45b245a4034",
+      "role": "Requirement",
+      "form": "Requirement",
+      "summary": "Validate Goal Claim Scope",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "body": "## Summary\n\nValidate Goal Claim Scope\n\n## Claim\n\n### Prose Claim\n\nA Goal is a Project Requirement. Its Main Subject identifies the Project Scope Unit. A Goal does not independently declare or change a Scope Unit's Name, parent, order, or Carrier binding.\n",
+      "header_overrides": {
+        "form": "Requirement",
+        "relations": {
+          "child_of": [
+            "CA-R-925@37",
+            "CA-R-2747"
+          ]
+        },
+        "topics": {
+          "main_subject": "CAPRMEDIO_MODEL <+ Atom",
+          "dependencies": [
+            "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)",
+            "CAPRMEDIO_MODEL <+ Scope Unit",
+            "CAPRMEDIO_MODEL <+ Project"
+          ]
+        }
+      },
+      "retires": []
+    },
+    {
+      "key": "CA-D-402",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md",
+      "source_sha256": "de07cf722c270758056e1240b69dfeb7a6b9f388c838b8ce0a2caf6dd717cf59",
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Delivery Type Tokens",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery).Header.Form",
+      "body": "## Summary\n\nSerialize Delivery Type Tokens\n\n## Claim\n\n### Prose Claim\n\nA Delivery Atom File Carrier must serialize its effective Label within the Atom filename grammar governed by CA-D-283 and CA-D-284. Use the explicit Label when present and the Form name when Label is absent. Normalize the effective Label as an uppercase structured token.\n\n## Details\n\nThe filename token is the effective-Label carrier encoding; it does not rename or admit a Form or prescribe a YAML Form value. The YAML `form` field carries the Atom Form under CA-D-657. An explicit `label` field takes precedence; when absent, CA-R-2705 supplies the Form name as the effective Label. Do not infer the Atom Form from a filename token; derive the filename token from the effective Label.\n\nRelease Definition and Environment Definition remain subject to their applicable admission authority, including CA-R-1665.\n",
+      "header_overrides": {},
+      "retires": []
+    }
+  ],
+  "planned_retirements": [
+    {
+      "id": "CA-R-1668",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1668-PROJECT_CONFIGURATION-DEFINITION--define-implementation-decision-as-a-type-value-for-method-atoms.md",
+      "source_sha256": "8c5e64c3bd3f80296c86387b135cb051ec970163722962aa2ed2795382f44491",
+      "condition": "Old Method Eng Decision meaning is replaced by generic Decision plus Method role; preserve independently applicable concrete-choice/no-fixed-Tier content in generic authorities and verify those source pins before retirement."
+    },
+    {
+      "id": "CA-R-1775",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1775-CORE_META_MODEL-RULE--let-parents-own-immediate-child-goals.md",
+      "source_sha256": "58f9417a136a327110156c58dca8ac09ef38430f6b4569bae9dedd1aa9704790",
+      "condition": "Old direct-child Goal ownership is superseded by one externally authored Scope Delegation per non-Project unit; preserve direct-parent relationship and delegator accountability in replacement authority before retirement. No current instances converted."
+    },
+    {
+      "id": "CA-R-926",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-RULE--let-direct-parents-define-non-project-goals.md",
+      "source_sha256": "36105319cb8e182a2ce1185e1d4bf146d613dab7506d71f1c616b7632b5aa120",
+      "condition": "Planned separately by integration; verify full successor coverage and all inbound references before retirement."
+    },
+    {
+      "id": "CA-R-1767",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL--distinguish-implementation-methods-from-implementation-decisions.md",
+      "source_sha256": "a8310550d194a336777b46d9561be9bb0e7d01516c86ba7282d4b822e5e4212b",
+      "condition": "Planned separately by integration; verify full successor coverage and all inbound references before retirement."
+    },
+    {
+      "id": "CA-R-2123",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2123-PROJECT_CONFIGURATION--limit-programmatic-method-and-delivery-types.md",
+      "source_sha256": "60fa1df8ef33ec019e9c705dd9936e0d7b46694730d17459c20ad87696bc1fe1",
+      "condition": "Planned separately by integration; verify full successor coverage and all inbound references before retirement."
+    },
+    {
+      "id": "CA-R-2424",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+      "source_sha256": "6e6a28cc422863240860899f08f8e83631c8e72588aa679c91fc322502eee2e9",
+      "condition": "Planned separately by integration; verify full successor coverage and all inbound references before retirement."
+    },
+    {
+      "id": "CA-R-2684",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "source_sha256": "a95da42f912b9f5754d77a1ac3cc120e378efe48f48a03008b4056cfedc2ced0",
+      "condition": "Planned separately by integration; verify full successor coverage and all inbound references before retirement."
+    },
+    {
+      "id": "CA-R-2688",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "source_sha256": "f92fbee89e17dcb340bf94f890f5eab9f2778197a9edaf3b6972be90882ba8ff",
+      "condition": "Planned separately by integration; verify full successor coverage and all inbound references before retirement."
+    },
+    {
+      "id": "CA-M-461",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "source_sha256": "4131c71b55294bd6032a5ebfb23709b612aba9ea9ea8b9be9ed46249e1ac48dd",
+      "condition": "Planned separately by integration; verify full successor coverage and all inbound references before retirement."
+    }
+  ],
+  "checks": {
+    "source_pins_live": true,
+    "candidate_count": 8,
+    "candidate_summary_identity_unchanged": true,
+    "instance_or_runtime_migration": false
+  },
+  "integration_notes": [
+    "Relations overrides replace only shown semantic relation data: preserve all other metadata; null removes the empty relations group.",
+    "R947 Project Goal Main Subject convention and Scope Delegation uniqueness/direct parent coverage require integration review before promotion.",
+    "Retirement list identifies conditional plans, not permission to omit successor-coverage or inbound-reference checks."
+  ]
+}

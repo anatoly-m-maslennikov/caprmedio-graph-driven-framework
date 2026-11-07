@@ -1,0 +1,44 @@
+[
+  {
+    "atom_id": "CA-R-2508",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@9-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+    "before_sha256": "8786924776aa13516d7535b9efe4d354bc98c615c6110c944d4b6d82efc2d569",
+    "sha256": "8dd8ede5cc583da2d34d8bb0bea4f32fc6aef51274494347b74de731b105dfd9",
+    "reason": "Final independent review repair"
+  },
+  {
+    "atom_id": "CA-R-3002",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3002@1-draft-CORE_META_MODEL-DECLARATION--declare-solution-form.md",
+    "before_sha256": "ad0b9fdbe5d2c66b22a3bb53fa8a0e3b997cf12bd48ecaa93c24bee813e267d4",
+    "sha256": "cdb1e47e51ebde0b8bf37a496a27ba675e16a9b489b611b3be7a3c839b8d7292",
+    "reason": "Final independent review repair"
+  },
+  {
+    "atom_id": "CA-D-457",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-457@27-draft-CORE_META_MODEL-DECISION--serialize-operations-atom-type-tokens.md",
+    "before_sha256": "a848ef5623e93eed86ab84fdc1d2d2dde3933f4ba977ad69c5f6ec73ce1a4009",
+    "sha256": "737d2be4cdc390c35ec15ec620bbbddfab8ef048fa497a2e1ee992c9de2f3fbd",
+    "reason": "Final independent review repair"
+  },
+  {
+    "atom_id": "CA-R-3006",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3006@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+    "before_sha256": "eb31a4cfc209c2d730d718559753833b9de95f38c1768d835252a31616c0599a",
+    "sha256": "40107da4874a680c50997ea06022fdb167202ccc489be11aca2a4a0f28134007",
+    "reason": "Final independent review repair"
+  },
+  {
+    "atom_id": "CA-R-3008",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3008@1-draft-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+    "before_sha256": "3d1097e7ff625171c0ef7caf43b1b3b0c799ee0dce494c32ba966cea0e9f76ac",
+    "sha256": "d9ad36633f159d2e0c9d847246023be872bc7c5153c0bde4a8dc1dd952414182",
+    "reason": "Final independent review repair"
+  },
+  {
+    "atom_id": "CA-M-507",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-507@1-draft-CORE_META_MODEL-DIRECT_POLICY--author-scope-delegations-and-internal-scope-unit-definitions.md",
+    "before_sha256": "6f3d7387a9e1151ed47e0e3f2f93576beacb09d7ed23697e1f56b76e0664304c",
+    "sha256": "316c895a1d7bc9b562a5d34630090f6b74918b1d380b5002b9eca44762809e21",
+    "reason": "Final independent review repair"
+  }
+]

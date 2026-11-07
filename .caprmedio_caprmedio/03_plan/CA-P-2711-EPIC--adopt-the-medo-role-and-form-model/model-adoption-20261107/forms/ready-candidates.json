@@ -1,0 +1,143 @@
+{
+  "status": "READY_FOR_ROOT_ALLOCATION_AND_DRAFT_AUTHORING",
+  "scope": "Four unallocated generic Form declarations and three same-ID Operations compatibility successors. No actual Workflow instance, runtime, implementation or native source edit is included.",
+  "candidates": [
+    {
+      "key": "form_solution",
+      "source_path": null,
+      "source_sha256": null,
+      "source_ref_id": null,
+      "atom_id": null,
+      "ref_id": null,
+      "version": 1,
+      "status": "Draft",
+      "container_scope_unit": "CA-SU-11",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Solution Form",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Solution)",
+      "body": "## Summary\n\nDeclare Solution Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Solution);\n\n# instances\nAtom/(.Header.Form := Solution)//$solution.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nA Solution states how the current Scope Unit fulfills its responsibility, including its descendants. It is not merely an allocation to children.\n",
+      "retires": []
+    },
+    {
+      "key": "form_direct_policy",
+      "source_path": null,
+      "source_sha256": null,
+      "source_ref_id": null,
+      "atom_id": null,
+      "ref_id": null,
+      "version": 1,
+      "status": "Draft",
+      "container_scope_unit": "CA-SU-11",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Direct Policy Form",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Direct Policy)",
+      "body": "## Summary\n\nDeclare Direct Policy Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Direct Policy);\n\n# instances\nAtom/(.Header.Form := Direct Policy)//$direct_policy.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nA Direct Policy applies to all descendants recursively without a local copy. A genuine SPECIALIZES Atom may add applicable detail while preserving parent constraints.\n",
+      "retires": []
+    },
+    {
+      "key": "form_approach_policy",
+      "source_path": null,
+      "source_sha256": null,
+      "source_ref_id": null,
+      "atom_id": null,
+      "ref_id": null,
+      "version": 1,
+      "status": "Draft",
+      "container_scope_unit": "CA-SU-11",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Approach Policy Form",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Approach Policy)",
+      "body": "## Summary\n\nDeclare Approach Policy Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Approach Policy);\n\n# instances\nAtom/(.Header.Form := Approach Policy)//$approach_policy.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nAn Approach Policy is conditional on its stated case. At every descendant where that case applies, a local Atom must bind the Policy to the actual case through SPECIALIZES. A reference alone is insufficient; the binding preserves parent constraints.\n",
+      "retires": []
+    },
+    {
+      "key": "form_decision",
+      "source_path": null,
+      "source_sha256": null,
+      "source_ref_id": null,
+      "atom_id": null,
+      "ref_id": null,
+      "version": 1,
+      "status": "Draft",
+      "container_scope_unit": "CA-SU-11",
+      "role": "Requirement",
+      "form": "Declaration",
+      "summary": "Declare Decision Form",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Decision)",
+      "body": "## Summary\n\nDeclare Decision Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Decision);\n\n# instances\nAtom/(.Header.Form := Decision)//$decision.Header.Role:: [in (Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nA Decision records a particular local choice. Applicable governing constraints continue to apply.\n",
+      "retires": []
+    },
+    {
+      "key": "successor_r1565_operations_form_admission",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+      "source_sha256": "c3f165a735412ce87982f9dc22dbac7529f58f6a073cdcdc73718b018deb4277",
+      "source_ref_id": "CA-R-1565@21",
+      "atom_id": "CA-R-1565",
+      "ref_id": "CA-R-1565@22-draft",
+      "version": 22,
+      "status": "Draft",
+      "container_scope_unit": "CA-SU-11",
+      "role": "Requirement",
+      "form": "Requirement",
+      "summary": "Admit the Operations Atom Types",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form",
+      "body": "## Summary\n\nAdmit the Operations Atom Types\n\n## Claim\n\n### Prose Claim\n\ninternal Form values of Operations Atoms.\n\nthe admitted Form values of `Atom/(.Header.Role := Operations).Header.Form` **must** include (Action, Workflow, Step, Scope Delegation, Solution, Direct Policy, Approach Policy, Decision). An Operations Atom may use Scope Delegation, Solution, Direct Policy, Approach Policy, or Decision only when its Claim's actual primary contribution matches the reviewed Operations semantics. Those Forms do not create an Action, Workflow, or Step binding.\n\n## Details\n\nAction, Workflow, and Step retain their existing Form admission and behavior. Branch and Fork remain not admitted internal Form values. Linear and Conditional remain Step forms carried by Step definitions, not additional Operations Atom Forms.\n",
+      "retires": ["CA-R-1565@21"]
+    },
+    {
+      "key": "successor_m314_operations_claim_profiles",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "source_sha256": "6652049d7b9771403c5388afd458be5599e84606432c53f122d602511aa1f341",
+      "source_ref_id": "CA-M-314@24",
+      "atom_id": "CA-M-314",
+      "ref_id": "CA-M-314@25-draft",
+      "version": 25,
+      "status": "Draft",
+      "container_scope_unit": "CA-SU-11",
+      "role": "Method",
+      "form": "Implementation Method",
+      "summary": "Write Operations Claims with Type-specific CCE Profiles",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form",
+      "body": "## Summary\n\nWrite Operations Claims with Type-specific CCE Profiles\n\n## Claim\n\n### Prose Claim\n\nOperations Claims written with Action, Workflow, and Step CCE Profiles when their primary Form is Action, Workflow, or Step.\n\n**to** write an Operations Claim whose primary Form is Action, Workflow, or Step, the Author **must** first resolve that Form **and** then apply **`=1`** primary Form profile:\n\n1. for Action, use **means** to define the named reusable operational behavior. state its required inputs, preconditions, operational contribution, returned results, observable effects, **and** failure results. modality, condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **may** constrain that behavior.\n2. for Workflow, use **means** to define the reusable graph through Step references, entry, typed transitions, result conditions, **and** terminal outcomes. use condition, temporal, logical, restriction, predicate, **and** comparison Operators **only** with explicit transition scope under CA-M-305-CORE_META_MODEL-METHOD--write-workflow-schemes-using-step-references.\n3. for Step, define the invocation binding of **`=1`** referenced Action with its parameters **and** inputs. do **not** copy the Action behavior **or** define another Workflow.\n\nFor an Operations Scope Delegation, Solution, Direct Policy, Approach Policy, or Decision whose actual primary contribution matches Operations semantics, write the Claim under that Form's admitted semantics. Do **not** apply an Action, Workflow, or Step profile merely because the Role is Operations. Those Forms create no executable binding.\n\n## Details\n\nan Operations Claim whose primary Form is Action, Workflow, or Step **must not** combine more than one primary Form profile. subordinate inputs, conditions, results, failures, transitions, **and** effects remain part of the selected Form's single operational contribution.\n",
+      "retires": ["CA-M-314@24"]
+    },
+    {
+      "key": "successor_d457_operations_form_tokens",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-ENG_DECISION--serialize-operations-atom-type-tokens.md",
+      "source_sha256": "e8c2830c97f36c7a34cddff2ce09bd2f4a716991bbaf8858bca2d765cf3bd4ba",
+      "source_ref_id": "CA-D-457@26",
+      "atom_id": "CA-D-457",
+      "ref_id": "CA-D-457@27-draft",
+      "version": 27,
+      "status": "Draft",
+      "container_scope_unit": "CA-SU-11",
+      "role": "Delivery",
+      "form": "Decision",
+      "summary": "Serialize Operations Atom Type tokens",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form",
+      "body": "## Summary\n\nSerialize Operations Atom Type tokens\n\n## Claim\n\n### Prose Claim\n\nOperations Atom File Carriers and their Form filename tokens.\n\nan Operations Atom File Carrier **must** serialize its LABEL segment under CA-D-283: use its explicit Label when present, otherwise its Form name, and normalize the token under CA-D-284.\n\n| Operations Atom Form | Filename token source |\n|---|---|\n| Action | Existing explicit token `ACTION` |\n| Workflow | Existing explicit token `WORKFLOW` |\n| Step | Existing explicit token `STEP` |\n| Scope Delegation, Solution, Direct Policy, Approach Policy, Decision | Effective Label/Form fallback under CA-D-283, normalized under CA-D-284 |\n\nThe fallback representation does not admit a Form, change the stored Form, create an Action, Workflow, or Step binding, or prescribe runtime Workflow behavior.\n",
+      "retires": ["CA-D-457@26"]
+    }
+  ],
+  "collective_retires": [
+    {
+      "retired_ref_id": "CA-R-1767@35",
+      "successor_keys": ["form_direct_policy", "form_approach_policy", "form_decision"],
+      "condition": "Retire only after every listed generic Form successor is promoted."
+    },
+    {
+      "retired_ref_id": "CA-R-2123@9",
+      "successor_keys": ["form_solution", "form_direct_policy", "form_approach_policy", "form_decision"],
+      "condition": "Retire only after every listed generic Form successor is promoted."
+    }
+  ],
+  "constraints": {
+    "no_actual_workflow_instances": true,
+    "no_runtime_change": true,
+    "no_implementation_change": true,
+    "no_CAPI_admission": true
+  }
+}

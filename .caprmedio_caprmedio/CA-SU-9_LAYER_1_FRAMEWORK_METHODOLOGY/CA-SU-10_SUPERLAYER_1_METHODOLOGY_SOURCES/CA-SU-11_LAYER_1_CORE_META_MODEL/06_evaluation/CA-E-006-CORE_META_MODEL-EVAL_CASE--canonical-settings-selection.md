@@ -10,16 +10,23 @@ topics:
   - Entity/Object/Continuant/Governing Objects/Governing Configuration
 tier: 7
 status: Active
-version: 40
-updated_at: 2026-11-02 20:07:03 +0400
+version: 42
+updated_at: "2026-11-07 15:28:42 +0400"
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 ---
+
 ## Summary
 
 Canonical Settings Selection
 
 ## Claim
 
-Framework Instance Settings and Project Settings accept exactly their registered values, resolve deterministically, and fail closed on invalid or unknown selections. Scope Unit Declarations own current Scope Unit structure without duplicating Settings selections or requiring a structural Projection.
+Framework Instance Settings and Project Settings accept exactly their registered values, resolve deterministically, and fail closed on invalid or unknown selections. The Project Scope Unit Declaration and non-Project Scope Delegations own their respective current Scope Unit structure without duplicating Settings selections or requiring a structural Projection.
 
 ### Applicable conditions
 
@@ -29,7 +36,7 @@ Framework Instance Settings and Project Settings accept exactly their registered
 4. Accept only `silent` or `verbose` interaction reporting, and confirm that its effective default follows Framework Instance Settings without changing source Atoms or using Project Settings as reporting authority.
 5. Validate initialization inputs against Project Settings field authority and Project Authority Modes against Framework Instance Settings field authority. Do not hard-code this Project's selected values in the Evaluation.
 6. Reject unknown keys when the governing schema marks their table closed.
-7. Confirm a second parse produces identical effective Settings and consumes the same selected Declaration bytes and Settings revisions. Deleting a legacy structural Projection does not change those results.
+7. Confirm a second parse produces identical effective Settings and consumes the same selected structural Atom bytes and Settings revisions. Deleting a legacy structural Projection does not change those results.
 
 ### Acceptance criteria
 

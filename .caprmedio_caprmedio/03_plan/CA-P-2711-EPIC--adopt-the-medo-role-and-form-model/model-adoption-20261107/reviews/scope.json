@@ -1,0 +1,213 @@
+{
+  "status": "PASS_PROSPECTIVE_SCOPED_SOURCE_MODEL",
+  "review_scope": "10 selected Scope/Tier Drafts, direct parent, defaults and retirement coverage; bounded Current comparison",
+  "drafts_reviewed": [
+    {
+      "key": "tier_zero",
+      "id": "CA-R-3000",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3000@1-draft-CORE_META_MODEL-REQUIREMENT--define-tier-zero-within-a-scope-unit.md",
+      "sha256": "68264586b6a0cd0f81029d3fea56a6ce237e82084f28a1d66e95d36a5ac5cfb9",
+      "retires": [
+        "CA-R-2424"
+      ]
+    },
+    {
+      "key": "tier-label-remove-old-zero-name",
+      "id": "CA-R-2707",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2707@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "sha256": "3cc6518bc3f69dd5ba6197250fcf5209e30875463541dc6c55ba512bf80e87d9",
+      "retires": []
+    },
+    {
+      "key": "evaluation-tier-zero-role",
+      "id": "CA-E-661",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-661@6-draft-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+      "sha256": "be585cafbf85dfb088a78197f708689da1812a31bed0af203bbd557fa89fa5ef",
+      "retires": []
+    },
+    {
+      "key": "new_scope_delegation_form_declaration",
+      "id": "CA-R-3006",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3006@1-draft-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "sha256": "40107da4874a680c50997ea06022fdb167202ccc489be11aca2a4a0f28134007",
+      "retires": []
+    },
+    {
+      "key": "project_only_scope_unit_declaration_form",
+      "id": "CA-R-3007",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3007@1-draft-CORE_META_MODEL-DECLARATION--declare-project-scope-unit-declaration-form.md",
+      "sha256": "aa8cb97fa4428281047d3facfc2a75aa99c65721174f0d12a6c13a52da929be0",
+      "retires": []
+    },
+    {
+      "key": "new_scope_delegation_cardinality_and_scope_declaration",
+      "id": "CA-R-3008",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3008@1-draft-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "sha256": "d9ad36633f159d2e0c9d847246023be872bc7c5153c0bde4a8dc1dd952414182",
+      "retires": [
+        "CA-R-2688@2",
+        "CA-R-2688@3-draft",
+        "CA-R-926@39"
+      ]
+    },
+    {
+      "key": "successor_core_relational_atom_classifications",
+      "id": "CA-R-924",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-924@38-draft-CORE_META_MODEL-REQUIREMENT--register-core-relational-atom-classifications.md",
+      "sha256": "9b8fef816b95038c6620cab60e75bda8e783f29dd709db2d509f5a8661220854",
+      "retires": []
+    },
+    {
+      "key": "new_scope_authoring_method",
+      "id": "CA-M-507",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-507@1-draft-CORE_META_MODEL-DIRECT_POLICY--author-scope-delegations-and-internal-scope-unit-definitions.md",
+      "sha256": "01bf0a1226f2caf353c423c8231df2cb7d92b3496a56de74bbd98fad03a0022a",
+      "retires": [
+        "CA-M-461@2",
+        "CA-M-461@3-draft"
+      ]
+    },
+    {
+      "key": "same_identity_project_kind_releases_id_zero_constraint",
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2524@5-draft-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "791ea4ba112f6a7f75d0c14bbd050b96b4fca68c5c47cd09ec204922e7e476f6",
+      "retires": []
+    },
+    {
+      "key": "same_identity_scope_unit_id_cardinality_successor",
+      "id": "CA-R-2526",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2526@5-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "75e995731605bee39cb7ad98da6eedc38b195d61de43b6760bb63406c04e6770",
+      "retires": []
+    },
+    {
+      "key": "project_id_delivery_compatibility",
+      "id": "CA-D-442",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-442@28-draft-CORE_META_MODEL-DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "0125786a800c97579c08c03e659f5251e6bee96d2b7de984beec54b19d5caade",
+      "retires": []
+    }
+  ],
+  "current_sources": [
+    {
+      "id": "CA-R-2424",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+      "sha256": "6e6a28cc422863240860899f08f8e83631c8e72588aa679c91fc322502eee2e9"
+    },
+    {
+      "id": "CA-R-2684",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "sha256": "a95da42f912b9f5754d77a1ac3cc120e378efe48f48a03008b4056cfedc2ced0"
+    },
+    {
+      "id": "CA-R-2688",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "sha256": "f92fbee89e17dcb340bf94f890f5eab9f2778197a9edaf3b6972be90882ba8ff"
+    },
+    {
+      "id": "CA-R-926",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-RULE--let-direct-parents-define-non-project-goals.md",
+      "sha256": "36105319cb8e182a2ce1185e1d4bf146d613dab7506d71f1c616b7632b5aa120"
+    },
+    {
+      "id": "CA-R-924",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md",
+      "sha256": "ef0ebe53ed7452f0462c19d3c9b3ae4b175b27e963aa58102f694ea78c14e12a"
+    },
+    {
+      "id": "CA-R-2524",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "830d18dc04b38cafa52e60f7a97e935a5c93d5c5c80cc8d78d575e27dba6a738"
+    },
+    {
+      "id": "CA-R-2526",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "afda96e5c9c47cf3aa89e0223531608d9fee9f2120325bb73b3b3b856efe6ee1"
+    },
+    {
+      "id": "CA-R-2707",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "sha256": "27f77647f9c272e506e2234d738bf1139e7885204acb46f1793b4668c5980178"
+    },
+    {
+      "id": "CA-E-661",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+      "sha256": "4e83282c70139bfd20768ca68929129886855d0575ea163591db4054cbf5ca4c"
+    },
+    {
+      "id": "CA-M-461",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "4131c71b55294bd6032a5ebfb23709b612aba9ea9ea8b9be9ed46249e1ac48dd"
+    },
+    {
+      "id": "CA-D-442",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+      "sha256": "245c8584b91e2461bfc26a29d7d67b099abc4f9596662a279e8521c68a48b615"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "B1",
+      "drafts": [
+        "CA-R-3006",
+        "CA-R-3008"
+      ],
+      "finding": "R2688 is marked for retirement but the proposals do not require the receiving Scope Unit Name, ID, ordered state, optional Label, conditional order.number and direct containment to be carried by the Scope Delegation or preserve its sole structural authority. R2526 alone supplies ID cardinality, not declaration ownership.",
+      "required_resolution": "Preserve explicit structural fields and sole structural-authority rule in the coordinated delegation contract.",
+      "status": "RESOLVED",
+      "resolution": "CA-R-3006 now declares Name, stable ID, ordered state, conditional order.number, direct Parent, optional Label and sole structural-declaration status."
+    },
+    {
+      "id": "B2",
+      "drafts": [
+        "CA-R-3008",
+        "CA-M-507"
+      ],
+      "finding": "Unqualified each/for each non-Project Scope Unit includes world, but R3008 expressly excludes world from Project census and any delegation.",
+      "required_resolution": "Scope universal quantification to the Project Scope Unit census excluding world, including the Method.",
+      "status": "RESOLVED",
+      "resolution": "R3006/R3008/M507 scope the non-Project units to those within the Project; R3008 explicitly excludes world."
+    },
+    {
+      "id": "B3",
+      "drafts": [
+        "CA-M-507"
+      ],
+      "finding": "Replacement of M461 drops existing authoring guidance on derived Authority and Delivery folder names, Project root path, Label independence from ordered state, and not authoring Navigation Number, Structural Level or Structural Coordinate; no explicit preservation or retirement disposition is present in the replacement.",
+      "required_resolution": "Preserve still-applicable guidance or provide source-specific disposition backed by other authority.",
+      "status": "RESOLVED",
+      "recommended_m507_paragraph": "Keep Label independent of ordered state. Record structural_level once in the governing Scope Unit Declaration. Derive Authority and Delivery folders from declared structure under the applicable Delivery policy; physical Carrier placement does not establish model parentage. The Project Authority Folder is `.caprmedio_<project name>`.",
+      "current_coverage": [
+        "CA-D-667 specifies Project Authority folder and derived non-root folder names; its prohibition on authoring Structural Level conflicts with the latest decision and needs separate correction.",
+        "CA-R-2690 derives non-Project places from declarations.",
+        "CA-R-1660 states physical Carrier containment cannot replace declared logical parent.",
+        "CA-R-2528 supplies the Label Property; CA-R-1730 permits suitable Labels but its prohibition on persisting Structural Level conflicts with the latest decision."
+      ],
+      "transition_conflicts": [
+        "CA-R-2689, CA-R-1730, CA-R-976 and CA-R-1772 also contain old no-persisted-Structural-Level language; assess exact clauses in the structural-level lane.",
+        "CA-R-1382 defaults ordered Label to Layer and needs reconciliation with the existing Label-independent-of-ordered-state guidance; do not infer removal of any other Label behavior.",
+        "CA-D-442 still says Project has no Scope Unit ID; the proposed R2526 successor requires one."
+      ],
+      "resolution": "M507 preserves Label independence, folder derivation, Project authority folder and declared rather than physical parentage; structural-level transition separately deferred."
+    }
+  ],
+  "checked_consistent": [
+    "Direct parent-only and retained parent accountability are explicit.",
+    "Project is the sole receiver of Requirement/Scope Unit Declaration and has a required stable Scope Unit ID through R2526.",
+    "Role permission matrix and stated default Forms are represented; Solution, Direct Policy and Approach Policy require explicit local inclusion.",
+    "Tier zero is internal; listed Forms carry no fixed Tier and unrelated numeric constraints remain outside replacement.",
+    "R2688@2/R926@39, M461@2 and R2424@3 retirement intents are present."
+  ],
+  "limits": [
+    "No full-repository retirement/reference audit or model/runtime execution was performed.",
+    "The existing Claim-to-Subject and formal selector semantics require independent formal review.",
+    "Pre-existing structural_level compatibility and instance-carrier migration remain outside this bounded source-only closure."
+  ],
+  "project_id_compatibility": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-442@28-draft-CORE_META_MODEL-DECISION--encode-scope-unit-declaration-fields.md",
+    "sha256": "0125786a800c97579c08c03e659f5251e6bee96d2b7de984beec54b19d5caade",
+    "status": "NATIVE_DRAFT_VERIFIED",
+    "note": "D442@28 specifies Project R/Scope Unit Declaration, non-Project Scope Delegation, Main Subject and one stable ID without a generic Project-specific constant; instance migration remains separate."
+  }
+}

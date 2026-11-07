@@ -1,6 +1,6 @@
 # Scope Delegation proposal findings
 
-Analysis only. Pinned proposals and candidate Claims are in `drafts.json`.
+Analysis only. Source pins and rationale are in `drafts.json`; exact body-only candidates are in `ready-candidates.json`.
 
 ## Proposed model
 
@@ -28,4 +28,4 @@ Analysis only. Pinned proposals and candidate Claims are in `drafts.json`.
 
 ## Review boundary
 
-The packet proposes source bodies and dispositions only. It does not edit Current/Draft carriers, allocate IDs, migrate instances, change Tier rules, alter Workflow instances, or claim runtime enforcement. All 36 pinned native carriers have verified hashes and actual Summary text; the two non-carrier analysis references are identified separately in `drafts.json`.
+The packet proposes source bodies and dispositions only. It does not edit Current/Draft carriers, allocate IDs, migrate instances, change Tier rules, alter Workflow instances, or claim runtime enforcement. All 37 pinned native carriers have verified hashes and actual Summary text; the two non-carrier analysis references are identified separately in `drafts.json`.

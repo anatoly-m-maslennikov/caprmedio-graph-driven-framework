@@ -1,15 +1,19 @@
+## Summary
+
+Introduce Scope Delegation and policy Forms
+
 ## Proposal
 
 Keep Scope Unit as the structural name. Separate its external delegation from its internal definition. Each Atom has one Role and one Main Subject.
 
-This is a Draft proposal. Current Atoms, implementation and runtime remain unchanged until adoption.
+This proposal remains a Draft. The selected MODEL source packet was reviewed and promoted on 2026-11-07. Instance migration, implementation compatibility, installed outputs and projections remain separate Epic stages.
 
 ## Outside: Scope Delegation
 
-Each non-Project Scope Unit has one external Scope Delegation Atom. It combines the proposed Scope Unit Declaration with the delegated responsibility. Its Role is one of RMEDO.
+Each non-Project Scope Unit within the Project has one external Scope Delegation Atom. It combines the proposed Scope Unit Declaration with the delegated responsibility. Its Role is one of RMEDO.
 
 - Main Subject identifies the receiving Scope Unit.
-- Container identifies the external defining context.
+- Container identifies the receiving unit’s direct containing Scope Unit. Only that Scope Unit owns the delegation.
 - The delegating Scope Unit retains its overall scope and accountability.
 - The receiving Scope Unit is responsible for its delegated contribution.
 
@@ -34,17 +38,17 @@ These are permissions. They require no complete RMEDO packet. Applicable inherit
 
 Default Forms are the Role's local Forms or analogs. Eval Case, Workflow, Step and Action are included. Rename Local Decision to Decision. Solution and Policies require explicit admission in the Scope Delegation.
 
-The exact default R Form names and the default admission of child Scope Delegations remain open.
+Local R defaults are Requirement and existing Declaration families. M and D default to Decision; E includes Decision and Eval Case; O includes Decision, Workflow, Step and Action. Scope Delegation is admitted by default in every containing unit, including Project. Solution, Direct Policy and Approach Policy require explicit local admission. These three Forms allow RMEDO; Decision allows MEDO.
 
 Role follows the contribution. Create, Copy and Remove can receive R contributions; internal DB/File adapters can receive M contributions. E delegation is for purely testing-support Scope Units, such as mock adapters or test-data providers. D covers delivery contributions. O covers operational duties.
 
-The Project retains its R/Goal and root Axioms. The proposed one-per-unit Scope Delegation rule excludes Project. It introduces no M/E/D/O Goal Forms or separate Target Scope Unit field.
+The Project retains its R/Goal and root Axioms. The one-per-unit Scope Delegation rule excludes Project and the predefined external world. Project has one R/Scope Unit Declaration; its Declaration is contained by world. This Project uses CA-SU-00 for Project and CA-SU--1 for predefined world. It introduces no M/E/D/O Goal Forms or separate Target Scope Unit field.
 
 ## Inside: Tier and Forms
 
 Tier 0 defines the Scope Unit internally. Form and Tier remain separate: Solution, Direct Policy, Approach Policy and Decision have no mandatory Tier. An Atom receives its Tier from its actual contribution under the admitted Tier rules.
 
-A Solution states how the current Scope Unit fulfills its responsibility, including its descendants. Its Main Subject is that Scope Unit. Its Container is inside that unit. Solutions are admitted under RMEDO; each Atom retains one Role.
+A Solution specifies the contribution that realizes the current Scope Unit’s responsibility across the unit and its descendants. Its Role identifies the contribution. Its Main Subject is that Scope Unit. Its Container is inside that unit. Solutions are admitted under RMEDO; each Atom retains one Role.
 
 | Form | Meaning |
 | --- | --- |
@@ -72,7 +76,7 @@ For async work:
 - E states the checks and acceptance criteria.
 - D states the representation and delivery requirements.
 
-A Solution can govern the Scope Unit as a whole. A Policy can govern an Aspect or a narrower topic. Whether Policies must use Aspect Subjects remains open.
+A Solution can govern the Scope Unit as a whole. A Policy can govern an Aspect or a narrower topic. Policy Subjects follow their actual governed topic and the admitted scope whitelist.
 
 Independent Decisions remain valid. Applicable governing constraints continue to apply. SPECIALIZES adds scope, case binding or stricter detail; its links follow the admitted authority and Relation rules.
 
@@ -114,9 +118,9 @@ Ideally, each RMEDO Solution, Policy or Decision links to an existing R that exp
 
 CONTRIBUTES_TO expresses contribution. Evaluation and implementation evidence establish satisfaction of a Requirement. The preferred R target in this guidance does not restrict the general Relation to R targets.
 
-## Project Package
+## Project Package — separate change
 
-Rename the structural root Package from Implementation to Project Package.
+The separate accepted rename is Implementation to Project Package. It is outside this model-adoption stage.
 
 - Implementation remains the Role name.
 - Project Package is the Project's root Package.
@@ -143,25 +147,57 @@ Review these Current authorities before adoption:
 
 Current obligations remain Current until coordinated successors are adopted. Classify legacy Atoms by Claim. Preserve their identity and history under the admitted rules. Do not mechanically rename every existing Goal or Policy into a new Form.
 
-## Companion Atom Drafts
+## Companion Atom Drafts and source adoption
 
-Prepared Role Semantics updates:
+The following Drafts were reviewed and consumed by manual source promotion. Current references use the unversioned ID; Version is listed separately.
 
-- CA-R-2512@3-draft: Requirement Declaration.
-- CA-R-2513@3-draft: Method Declaration.
-- CA-R-2514@3-draft: Evaluation Declaration.
-- CA-R-2515@3-draft: Delivery Declaration.
-- CA-R-2463@3-draft: Operations Declaration.
+- CA-R-2999@1-draft → CA-R-2999, Current Version 2.
+- CA-R-3000@1-draft → CA-R-3000, Current Version 2.
+- CA-R-3001@1-draft → CA-R-3001, Current Version 2.
+- CA-R-2707@3-draft → CA-R-2707, Current Version 4.
+- CA-E-661@6-draft → CA-E-661, Current Version 7.
+- CA-R-2508@9-draft → CA-R-2508, Current Version 10.
+- CA-R-2512@3-draft → CA-R-2512, Current Version 4.
+- CA-R-2513@3-draft → CA-R-2513, Current Version 4.
+- CA-R-2514@3-draft → CA-R-2514, Current Version 4.
+- CA-R-2515@3-draft → CA-R-2515, Current Version 4.
+- CA-R-2463@3-draft → CA-R-2463, Current Version 4.
+- CA-R-3002@1-draft → CA-R-3002, Current Version 2.
+- CA-R-3003@1-draft → CA-R-3003, Current Version 2.
+- CA-R-3004@1-draft → CA-R-3004, Current Version 2.
+- CA-R-3005@1-draft → CA-R-3005, Current Version 2.
+- CA-R-1565@22-draft → CA-R-1565, Current Version 23.
+- CA-M-314@25-draft → CA-M-314, Current Version 26.
+- CA-D-457@27-draft → CA-D-457, Current Version 28.
+- CA-R-3006@1-draft → CA-R-3006, Current Version 2.
+- CA-R-3007@1-draft → CA-R-3007, Current Version 2.
+- CA-R-3008@1-draft → CA-R-3008, Current Version 2.
+- CA-R-924@38-draft → CA-R-924, Current Version 39.
+- CA-M-507@1-draft → CA-M-507, Current Version 2.
+- CA-R-2524@5-draft → CA-R-2524, Current Version 6.
+- CA-R-2526@5-draft → CA-R-2526, Current Version 6.
+- CA-R-1671@29-draft → CA-R-1671, Current Version 30.
+- CA-R-1672@29-draft → CA-R-1672, Current Version 30.
+- CA-R-1768@31-draft → CA-R-1768, Current Version 32.
+- CA-E-445@29-draft → CA-E-445, Current Version 30.
+- CA-D-404@29-draft → CA-D-404, Current Version 30.
+- CA-R-1669@29-draft → CA-R-1669, Current Version 30.
+- CA-R-947@42-draft → CA-R-947, Current Version 43.
+- CA-D-402@28-draft → CA-D-402, Current Version 29.
+- CA-D-442@28-draft → CA-D-442, Current Version 29.
+- CA-R-2689@2-draft → CA-R-2689, Current Version 3.
+- CA-R-2690@2-draft → CA-R-2690, Current Version 3.
+- CA-E-670@3-draft → CA-E-670, Current Version 4.
+- CA-D-669@3-draft → CA-D-669, Current Version 4.
+- CA-E-006@41-draft → CA-E-006, Current Version 42.
+- CA-E-621@38-draft → CA-E-621, Current Version 39.
+- CA-E-672@2-draft → CA-E-672, Current Version 3.
+- CA-D-670@2-draft → CA-D-670, Current Version 3.
+- CA-D-666@2-draft → CA-D-666, Current Version 3.
+- CA-D-667@3-draft → CA-D-667, Current Version 4.
+- CA-D-671@2-draft → CA-D-671, Current Version 3.
+- CA-E-671@2-draft → CA-E-671, Current Version 3.
 
-Four successor Drafts were created; the existing Operations Draft was updated. Current Declarations remain unchanged.
+## Remaining Epic work
 
-Other follow-up Drafts must declare the Forms, external identity/whitelists, Tier rules, CONTRIBUTES_TO, adoption checks and delivery rules. Add their IDs when those Drafts exist.
-
-## Open decisions
-
-- Scope Delegation Tier and authorized external allocator reach.
-- Exact default local R Forms and admission of child Scope Delegations.
-- Counts of internal Atoms; no complete per-Role packet is required.
-- Exact count, placement and case coverage of required Approach bindings.
-- Policy Subject restrictions and remaining Role/Form admission details.
-- Legacy identity, Tier and Relation migration details.
+Model choices for this packet are settled. The remaining work is instance mapping and migration, consumer compatibility and projection verification. Project Package naming and pre-existing Structural Level and legacy Settings reconciliation remain separate.

@@ -11,9 +11,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
 tier: 3
-status: Backlog
-version: 1
-updated_at: "2026-11-07 13:26:13 +0400"
+status: Active
+version: 2
+updated_at: "2026-11-07 15:24:43 +0400"
 carrier_destination:
   file:
     name: CA-P-2711-EPIC--adopt-the-medo-role-and-form-model.md
@@ -36,21 +36,16 @@ The Requirement Semantics Draft is a prerequisite: required outcomes and constra
 
 ## Inputs
 
-- [CA-A-1328@1-draft — specification proposal](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md).
-- [CA-R-2512@3-draft — Requirement Declaration](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2512@3-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md).
-- [CA-R-2513@3-draft — Method Declaration](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2513@3-draft-CORE_META_MODEL-DECLARATION--declare-method.md).
-- [CA-R-2514@3-draft — Evaluation Declaration](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2514@3-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md).
-- [CA-R-2515@3-draft — Delivery Declaration](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2515@3-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md).
-- [CA-R-2463@3-draft — Operations Declaration](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2463@3-draft-CORE_META_MODEL-DECLARATION--declare-operations.md).
-- [Role Semantics review](../02_analysis/draft/role-semantics-20261107/README.md).
+- [Specification proposal CA-A-1328@1-draft](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md).
+- [Model adoption record](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/model-adoption-20261107/README.md).
 
-These inputs are Drafts. Their preparation and bounded review do not establish adoption.
+The selected MODEL sources have been reviewed and promoted manually. This establishes source adoption; instance migration and consumer verification remain separate stages.
 
 ## Work
 
-- [ ] Review the proposal and Role Drafts against Current authorities; settle the adoption choices listed in the proposal.
-- [ ] Complete the required Declarations and RMED for Forms, Scope Delegation, Tier rules and CONTRIBUTES_TO; review and repair the packet.
-- [ ] Adopt the reviewed packet with valid identities, Versions and preserved history.
+- [x] Review the proposal and Role Drafts against Current authorities; settle the adoption choices listed in the proposal.
+- [x] Complete the required Declarations and RMED for Forms, Scope Delegation, Tier rules and CONTRIBUTES_TO; review and repair the packet.
+- [x] Adopt the reviewed packet with valid identities, Versions and preserved history.
 - [ ] Map affected Current and Draft MEDO Atoms by Claim and scope; report ambiguous cases for resolution.
 - [ ] Preview and review the migration, then apply the accepted mapping.
 - [ ] Identify affected validators, authoring operations and projections; hand off required implementation work to their owners and verify compatibility.
@@ -69,4 +64,4 @@ These inputs are Drafts. Their preparation and bounded review do not establish a
 
 The Project Package rename, unrelated Header migrations and unrelated Workbench/runtime changes belong to their own work. Archived Atoms and frozen evidence retain their historical meaning.
 
-Creating this Epic starts no promotion, migration or implementation.
+The model stage is adopted. The Epic remains open for instance mapping, migration, implementation compatibility and projections.

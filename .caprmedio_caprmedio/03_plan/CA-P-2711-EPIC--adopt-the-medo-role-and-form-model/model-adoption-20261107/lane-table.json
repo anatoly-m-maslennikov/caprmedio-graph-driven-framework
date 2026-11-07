@@ -1,81 +1,64 @@
 {
-  "roles": {
-    "owner": "header_readback",
-    "deliverable": "Five Role Drafts and bounded Claim/admission repair",
-    "edit_scope": "roles/",
-    "dependencies": [
-      "contract.md",
-      "live proposal/current sources"
-    ],
-    "acceptance": "Pinned sources; actionable source proposals; no unapproved semantics/native edits; bounded open decisions",
-    "status": "prepared"
-  },
-  "forms": {
-    "owner": "header_integration",
-    "deliverable": "Shared Forms and role-specific admission model",
-    "edit_scope": "forms/",
-    "dependencies": [
-      "contract.md",
-      "live proposal/current sources",
-      "R default and Role/Form admission decisions"
-    ],
-    "acceptance": "Pinned sources; actionable source proposals; no unapproved semantics/native edits; bounded open decisions",
-    "status": "running"
-  },
-  "scope": {
-    "owner": "model_subject_syntax",
-    "deliverable": "Scope Delegation consolidation and formal whitelists",
-    "edit_scope": "scope/",
-    "dependencies": [
-      "contract.md",
-      "live proposal/current sources",
-      "R default names; child Scope Delegation default admission resolved yes"
-    ],
-    "acceptance": "Pinned sources; actionable source proposals; no unapproved semantics/native edits; bounded open decisions",
-    "status": "running"
-  },
-  "tiers": {
-    "owner": "model_property_contracts",
-    "deliverable": "Tier 0 and Form/Tier independence",
-    "edit_scope": "tiers/",
-    "dependencies": [
-      "contract.md",
-      "live proposal/current sources"
-    ],
-    "acceptance": "Pinned sources; actionable source proposals; no unapproved semantics/native edits; bounded open decisions",
-    "status": "prepared"
-  },
-  "contribution": {
-    "owner": "header_reference_migration",
-    "deliverable": "CONTRIBUTES_TO declaration and optional guidance",
-    "edit_scope": "contribution/",
-    "dependencies": [
-      "contract.md",
-      "live proposal/current sources"
-    ],
-    "acceptance": "Pinned sources; actionable source proposals; no unapproved semantics/native edits; bounded open decisions",
-    "status": "prepared"
-  },
-  "lifecycle": {
-    "owner": "cfel_rule_consumers",
-    "deliverable": "Exact promotion/archive checks and available route",
-    "edit_scope": "lifecycle/",
-    "dependencies": [
-      "contract.md",
-      "live proposal/current sources"
-    ],
-    "acceptance": "Pinned sources; actionable source proposals; no unapproved semantics/native edits; bounded open decisions",
-    "status": "prepared"
-  },
-  "conflicts": {
-    "owner": "model_legacy_cleanup",
-    "deliverable": "Targeted Current conflict and successor inventory",
-    "edit_scope": "conflicts/",
-    "dependencies": [
-      "contract.md",
-      "live proposal/current sources"
-    ],
-    "acceptance": "Pinned sources; actionable source proposals; no unapproved semantics/native edits; bounded open decisions",
-    "status": "prepared"
-  }
+  "stage": "MODEL source adoption complete; full Epic Active",
+  "lanes": [
+    {
+      "deliverable": "Scope-ready candidates",
+      "owner": "model_subject_syntax",
+      "exclusive_edit_scope": "scope/ready-candidates.json",
+      "dependencies": [],
+      "acceptance_check": "latest decisions, live source hashes and complete defaults",
+      "status": "done"
+    },
+    {
+      "deliverable": "Forms and Operations compatibility",
+      "owner": "header_integration",
+      "exclusive_edit_scope": "forms/ready-candidates.json",
+      "dependencies": [],
+      "acceptance_check": "7 proposals and source pins",
+      "status": "done"
+    },
+    {
+      "deliverable": "Conflicting Current rules",
+      "owner": "model_legacy_cleanup",
+      "exclusive_edit_scope": "conflicts/ready-candidates.json",
+      "dependencies": [],
+      "acceptance_check": "8 same-ID successors and retirement pins",
+      "status": "done"
+    },
+    {
+      "deliverable": "Safe manual source application",
+      "owner": "cfel_rule_consumers",
+      "exclusive_edit_scope": "lifecycle/apply_source_plan.py and tests",
+      "dependencies": [],
+      "acceptance_check": "temp-tree safety matrix, all-version rule",
+      "status": "done"
+    },
+    {
+      "deliverable": "Independent Roles and Forms review",
+      "owner": "header_model_review",
+      "exclusive_edit_scope": "reviews/roles-forms.json",
+      "dependencies": [
+        "ready proposals"
+      ],
+      "acceptance_check": "no material authority conflicts",
+      "status": "done"
+    },
+    {
+      "deliverable": "Native Drafts, adoption, checks and Git",
+      "owner": "root",
+      "exclusive_edit_scope": "native sources, integration, manifests, Epic, index",
+      "dependencies": [
+        "ready candidates",
+        "independent review",
+        "safe applier"
+      ],
+      "acceptance_check": "Current sources + preserved history verified",
+      "status": "done"
+    }
+  ],
+  "remaining": [
+    "instance migration",
+    "consumer compatibility",
+    "projections"
+  ]
 }

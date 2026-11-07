@@ -1,0 +1,90 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "drafts": [
+    {
+      "atom_id": "CA-R-2689",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2689-CORE_META_MODEL-RULE--derive-scope-unit-ancestry-from-declarations.md",
+      "source_sha256": "c4ffd5d59a3b0ab0f1d615be63c15983280b36816d2758c9b78f11b23df2b326",
+      "source_version": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit.Path",
+      "summary": "Derive Scope Unit ancestry from Declarations",
+      "body": "## Summary\n\nDerive Scope Unit ancestry from Declarations\n\n## Claim\n\nScope Unit ancestry is derived from the governing structural declarations and their direct parent relations: the Project Scope Unit Declaration and non-Project Scope Delegations. CAPRMEDIO does not author or persist a Structural Level property for a Scope Unit. A displayed path or depth is derived from that parent chain only. It does not establish or override parentage, ownership, or authority. Conflicting or unresolved parent inputs remain unresolved.\n",
+      "change": {
+        "before": "Scope Unit ancestry is derived from Scope Unit Declarations and their direct parent relations.",
+        "after": "Scope Unit ancestry is derived from the governing structural declarations and their direct parent relations: the Project Scope Unit Declaration and non-Project Scope Delegations."
+      },
+      "operation": "same_identity_successor_draft"
+    },
+    {
+      "atom_id": "CA-R-2690",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2690-CORE_META_MODEL-RULE--derive-scope-unit-places-from-declarations.md",
+      "source_sha256": "a763b80b48f53df2ed3e3740dcf2b623eb7727673307ceea62c777c2b73a97bd",
+      "source_version": 1,
+      "role": "Requirement",
+      "form": "Rule",
+      "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit",
+      "summary": "Derive Scope Unit places from Declarations",
+      "body": "## Summary\n\nDerive Scope Unit places from Declarations\n\n## Claim\n\nEach non-Project Scope Unit within the Project has Authority and Delivery folders derived from its governing Scope Delegation. Delivery Atoms govern representation, placement, and general Carrier conventions without repeating a unit's selected paths.\n",
+      "change": {
+        "before": "Each non-Project Scope Unit has Authority and Delivery folders derived from its Scope Unit Declaration.",
+        "after": "Each non-Project Scope Unit within the Project has Authority and Delivery folders derived from its governing Scope Delegation."
+      },
+      "operation": "same_identity_successor_draft"
+    }
+  ],
+  "note": "Structural-level language and unrelated Clauses preserved; no native edit.",
+  "neighbor_scan": [
+    {
+      "id": "CA-E-670",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-670-CORE_META_MODEL-EVAL_POLICY--check-scope-unit-declarations-goals-and-contracts.md",
+      "sha256": "a7eb2bdc3d3eeda5e08fb5c36816aa3028d71fed78c2ad116c96a409d53baea8",
+      "classification": "direct",
+      "finding": "Requires an R/Scope Unit Declaration for every Scope Unit and requires Project to have no ID."
+    },
+    {
+      "id": "CA-D-669",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md",
+      "sha256": "bdca75db9723bb42bafcdc15789fd0c45140332a9902c92ded2515073018f1dd",
+      "classification": "direct",
+      "finding": "Assigns Scope Unit declarations to Scope Unit Declaration Atoms only."
+    },
+    {
+      "id": "CA-E-006",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md",
+      "sha256": "1281a44cd3bcd5546702f6dbadef3026b6abda5f5941e6ec08c4c717338c2608",
+      "classification": "direct",
+      "finding": "Attributes current Scope Unit structure to Scope Unit Declarations without Scope Delegations."
+    },
+    {
+      "id": "CA-E-621",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-621-CORE_META_MODEL-EVAL_CASE--settings-artifact-usability.md",
+      "sha256": "51bcd2e2bf8fd91b29295d1e17d6414ad3d9d6775764f3f21fb2d98850ad649a",
+      "classification": "direct",
+      "finding": "Attributes Scope Unit structure and its changes to Scope Unit Declarations without Scope Delegations."
+    },
+    {
+      "id": "CA-E-672",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-672-CORE_META_MODEL-EVAL_POLICY--distinguish-scope-unit-declarations-from-observations.md",
+      "sha256": "5f8a7727483c132b2f05f9608cf0218724b281bcfebb1740ad184654871a57a1",
+      "classification": "coverage_review",
+      "finding": "Rejects confusing observations with Scope Unit Declarations but does not address Scope Delegation."
+    },
+    {
+      "id": "CA-D-670",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-670-CORE_META_MODEL-ENG_DECISION--bind-scope-unit-declarations-to-source-evidence.md",
+      "sha256": "073397a29b0757a4cf64cdc4a87fcda35c664555d5f8fb4abcd58983800d6eb5",
+      "classification": "coverage_review",
+      "finding": "Source-binding wording names Scope Unit Declarations only; applicability to Scope Delegations requires review."
+    },
+    {
+      "id": "CA-D-671",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-671-CORE_META_MODEL-ENG_DECISION--carry-materialized-scope-units-with-directory-carriers.md",
+      "sha256": "1b176f4b019b9bec8e7b633b391ee0ef7ceb8a9b8123f5d6a749ef642486f08a",
+      "classification": "coverage_review",
+      "finding": "Non-materialization validity names Scope Unit Declaration; whether matching Scope Delegation protection follows needs review."
+    }
+  ],
+  "scan_scope": "Current Core and Project Configuration R/M/E/D source-role folders; exact Scope Unit Declaration text; excludes archives, Drafts, examples and generated projections."
+}

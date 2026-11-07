@@ -1,0 +1,171 @@
+{
+  "verdict": "PASS",
+  "selected_manifest": {
+    "path": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/model-adoption-20261107/selected-drafts.json",
+    "sha256": "599ab7496746475c264a7b7ae4a5311500fd2662223ce28a7ec77bb87919682b",
+    "selected_count": 33
+  },
+  "reviewed_drafts": [
+    {
+      "id": "CA-R-1671",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1671@29-draft-CORE_META_MODEL-REQUIREMENT--permit-orphan-implementation-decisions.md",
+      "sha256": "17374d204788e39332be26f6fe6e48ab5f55746e98401fff8c37f3491111ddaa",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-R-1672",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1672@29-draft-CORE_META_MODEL-REQUIREMENT--permit-terminal-implementation-methods.md",
+      "sha256": "e3d247fb074679cccf15dda31cadb2f4f27fb0b6015c187a649270db7062fdf9",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-R-1768",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1768@31-draft-CORE_META_MODEL-REQUIREMENT--absorb-implementation-decisions-without-semantic-loss.md",
+      "sha256": "75af14b00f1ba828ea4cf6199f60775650c967fc1669e8ea3c8af23888300b65",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-E-445",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/draft/CA-E-445@29-draft-PROJECT_CONFIGURATION-EVAL_CASE--validate-methodology-membership-in-the-project.md",
+      "sha256": "01aef082106cde72b409b5f5ae1ef59c01265114df2c23fd06aff2025db986b6",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-D-404",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-404@29-draft-CORE_META_MODEL-DECISION--serialize-method-type-tokens.md",
+      "sha256": "7083065b0b201e2888354972a6475c99c8974f38971b7c932eaff785b69c2f60",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-R-1669",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1669@29-draft-CORE_META_MODEL-REQUIREMENT--classify-implementation-methods-by-their-claims.md",
+      "sha256": "4123f78dbaa11ebcbf9654b15d846733a353f7206b5c6163f6d5224447fbb339",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-R-947",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-947@42-draft-CORE_META_MODEL-REQUIREMENT--validate-goal-claim-scope.md",
+      "sha256": "97baa7dac398f893e57896b76d450626f52e8558eec9d5db3bdf43081c4a38d0",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-D-402",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-402@28-draft-CORE_META_MODEL-DECISION--serialize-delivery-type-tokens.md",
+      "sha256": "a1b03f4edf2ef7591ec370ed5ba259dd92849ae14e0db36c32d5081f032ce11c",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-R-1565",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1565@22-draft-CORE_META_MODEL-REQUIREMENT--admit-the-operations-atom-types.md",
+      "sha256": "23daf1b819214b38794895d8b70b5cd598e3df9713379147372304e61aa5f547",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-M-314",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-314@25-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "sha256": "dedc748419f4431588c5e83bd65e020fca392a6a3b32fbb75f8750c5e3a56919",
+      "manifest_pin_matches": true
+    },
+    {
+      "id": "CA-D-457",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-457@27-draft-CORE_META_MODEL-DECISION--serialize-operations-atom-type-tokens.md",
+      "sha256": "737d2be4cdc390c35ec15ec620bbbddfab8ef048fa497a2e1ee992c9de2f3fbd",
+      "manifest_pin_matches": true
+    }
+  ],
+  "retiring_current_preimages": [
+    {
+      "id": "CA-R-1668",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1668-PROJECT_CONFIGURATION-DEFINITION--define-implementation-decision-as-a-type-value-for-method-atoms.md",
+      "sha256": "8c5e64c3bd3f80296c86387b135cb051ec970163722962aa2ed2795382f44491",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-1775",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1775-CORE_META_MODEL-RULE--let-parents-own-immediate-child-goals.md",
+      "sha256": "58f9417a136a327110156c58dca8ac09ef38430f6b4569bae9dedd1aa9704790",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-926",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-RULE--let-direct-parents-define-non-project-goals.md",
+      "sha256": "36105319cb8e182a2ce1185e1d4bf146d613dab7506d71f1c616b7632b5aa120",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-1767",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL--distinguish-implementation-methods-from-implementation-decisions.md",
+      "sha256": "a8310550d194a336777b46d9561be9bb0e7d01516c86ba7282d4b822e5e4212b",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-2123",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2123-PROJECT_CONFIGURATION--limit-programmatic-method-and-delivery-types.md",
+      "sha256": "60fa1df8ef33ec019e9c705dd9936e0d7b46694730d17459c20ad87696bc1fe1",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-2424",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+      "sha256": "6e6a28cc422863240860899f08f8e83631c8e72588aa679c91fc322502eee2e9",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-2684",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "sha256": "a95da42f912b9f5754d77a1ac3cc120e378efe48f48a03008b4056cfedc2ced0",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-R-2688",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "sha256": "f92fbee89e17dcb340bf94f890f5eab9f2778197a9edaf3b6972be90882ba8ff",
+      "pin_matches": true
+    },
+    {
+      "id": "CA-M-461",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "4131c71b55294bd6032a5ebfb23709b612aba9ea9ea8b9be9ed46249e1ac48dd",
+      "pin_matches": true
+    }
+  ],
+  "obsolete_drafts": [
+    {
+      "id": "CA-R-2688@3-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2688@3-draft-CORE_META_MODEL-RULE--require-one-scope-unit-declaration.md",
+      "sha256": "192cba0be8b21e7ce9c6c5ee9ecf093000734ebadd373818e7aace117bc053a2",
+      "disposition": "Planned consumed as obsolete, not promoted; preserve exact history as applicable."
+    },
+    {
+      "id": "CA-M-461@3-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "3c9092ced90bf8e9a1e2636e66610141f7ba24db4cc2cb4285a25fcfc6f2ef83",
+      "disposition": "Planned consumed as obsolete, not promoted; preserve exact history as applicable."
+    }
+  ],
+  "blockers": [],
+  "checks": [
+    "Selected prospective successor overlay replaces matching Current sources; exact unversioned references to the nine planned retired IDs in native Current Core Meta Model and Project Configuration produce zero matches. Versioned frozen references are not changed.",
+    "R1671/1672 drop only R1767 edge, preserve other predecessor edges; independent Decision and governing constraints retained. R1768 preserves lossless absorption.",
+    "R1669 preserves Claim/Scope-derived Tier and no reusability or Form-to-Tier forcing; R947 retains no structural rewrite and Project Goal subject, R3008 asserts exactly one external delegation per non-Project with direct parent and retained accountability.",
+    "R1565 admits Decision and preserves Action/Workflow/Step, M314 scopes old profiles to these Forms, E445 preserves core ancestry and invalid-fixture checks, D402/D404 preserve explicit Label precedence.",
+    "Retired Form and old instance Carrier migration remains outside this review; semantic-only references outside the targeted source scan are not proven absent."
+  ],
+  "limitations": [
+    "Prospective source check only: no Current promotion, instance migration, runtime execution, or release.",
+    "Nine Current and two obsolete Draft retirements remain conditional on integration and exact history-preservation checks."
+  ],
+  "resolved_findings": [
+    {
+      "id": "CA-D-457@27-draft",
+      "issue": "Explicit Label precedence conflicts with the table requiring ACTION/WORKFLOW/STEP as explicit filename tokens for those Forms, regardless of an explicit Label.",
+      "minimal_fix": "Make the three tokens fallback examples only when Label is absent; explicit Label always takes precedence."
+    }
+  ],
+  "recheck": {
+    "all_33_selected_draft_pins_match": true,
+    "d457_label_precedence": "Explicit Label wins for all Forms; table specifies fallback tokens only when Label is absent.",
+    "prospective_unversioned_retired_references": [],
+    "frozen_versioned_references": "Preserved; no rewrite proposed."
+  }
+}

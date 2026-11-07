@@ -1,0 +1,19 @@
+{
+  "status": "PROPOSED_SAME_ID_SUCCESSOR_NO_NATIVE_EDIT",
+  "id": "CA-D-442",
+  "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-442-CORE_META_MODEL-ENG_DECISION--encode-scope-unit-declaration-fields.md",
+  "source_sha256": "245c8584b91e2461bfc26a29d7d67b099abc4f9596662a279e8521c68a48b615",
+  "source_version": 26,
+  "summary": "Encode Scope Unit declaration fields",
+  "role": "Delivery",
+  "form": "Decision",
+  "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit",
+  "body": "## Summary\n\nEncode Scope Unit declaration fields\n\n## Claim\n\n### Prose Claim\n\n\nCarry a Scope Unit Declaration as a Markdown Atom. Its frontmatter carries Role = Requirement, Form = Scope Unit Declaration and the specific Scope Unit as `subjects.active`. Its Claim carries the declared structural facts in CFEL.\n\nThe shared Scope Unit model supplies field formats and cardinalities. Project inherits its unordered state and absence of order.number from the Project model. A Project has one stable Scope Unit ID; for this Project, the root Declaration assigns `CA-SU-00`. Folder names are derived by the shared Delivery Policy; they are not authored in a Declaration.\n",
+  "change": {
+    "before": "Project inherits its unordered state and absence of order.number and Scope Unit ID from the Project model.",
+    "after": "Project inherits its unordered state and absence of order.number from the Project model. A Project has one stable Scope Unit ID; for this Project, the root Declaration assigns `CA-SU-00`."
+  },
+  "identity_note": "Summary and contribution preserved; retain ID and use next free Draft version.",
+  "scope": "Only Project ID contradiction; this Project ID is instance-specific and does not require every Project to use the same prefix. Root Declaration CA-R-2640@2 is a Draft; instance adoption remains separate.",
+  "consumers": "Bounded Core native scan found no active methodology consumers referencing D442 by ID; Concern CA-C-249 records a historical reference and is not an operative consumer."
+}

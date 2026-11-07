@@ -1,0 +1,15 @@
+{
+  "status": "PASS_ACTUAL_SOURCE",
+  "reviewer": "header_model_review",
+  "checked_targets": 14,
+  "checks": [
+    "Current target SHA equals sealed plan and receipt",
+    "Active status and planned Version",
+    "Claim bodies match reviewed selected Draft preimages",
+    "exact one active Subject",
+    "RMEDO shared Forms; MEDO Decision",
+    "optional CONTRIBUTES_TO",
+    "no fixed Form Tier"
+  ],
+  "scope": "Role/Form/Contribution subset only; remaining targets checked separately"
+}
