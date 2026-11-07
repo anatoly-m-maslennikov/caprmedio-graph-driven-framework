@@ -2,6 +2,7 @@
 # CA-M-490@1
 # CA-D-695@1
 # CA-E-780@4
+# CA-E-677@22
 """Watcher callback translation is deterministic before service batch handling."""
 
 from pathlib import Path
@@ -122,6 +123,17 @@ class SourceWatcherTests(unittest.TestCase):
         self.assertIn((str(directory.resolve()), False), self.observer.schedules)
         self.observer.handler.on_deleted(self.event(directory))
         self.assertIn(str(directory.resolve()), self.observer.unscheduled)
+
+    def test_native_directory_events_reuse_the_recursive_observer(self) -> None:
+        directory = self.control / "new"
+        directory.mkdir()
+        self.observer.handler.on_created(self.event(directory, directory=True))
+        self.watcher.changes(0)
+        destination = self.control / "renamed"
+        directory.rename(destination)
+        self.observer.handler.on_moved(self.event(directory, destination=destination, directory=True))
+        self.assertEqual([(str(self.control), True)], self.observer.schedules)
+        self.assertEqual(1, len(self.watcher._watched_directories))
 
     def test_moved_in_directory_gets_a_child_watch_before_move_is_recorded(self) -> None:
         source = self.root / "outside"

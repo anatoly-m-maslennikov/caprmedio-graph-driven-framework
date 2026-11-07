@@ -1,0 +1,205 @@
+{
+  "baseline_inventory": {
+    "duckdb_managed_bytes": 15466496,
+    "open_view_result_ids": [
+      "865a69b087024f83b90e2d40339193a1"
+    ],
+    "pinned_result_ids": [
+      "865a69b087024f83b90e2d40339193a1"
+    ],
+    "process": {
+      "file_descriptors": 21,
+      "threads": 14
+    },
+    "relation_state": {
+      "atom_order": 5000,
+      "atom_rows": 5000,
+      "direct_facts": 5000,
+      "empty_outgoing_keys": [],
+      "outgoing": 5000,
+      "outgoing_keys_digest": "23b3c1aa95db4765e1c44e4827d08ee5bb37a19e180e99037702ef8a244c50d6",
+      "raw_by_path": 5000,
+      "refs": 5000,
+      "registry_contributions": 5000,
+      "scope_rows": 3
+    },
+    "result_ids": [
+      "865a69b087024f83b90e2d40339193a1"
+    ],
+    "result_tables": [
+      "query_865a69b087024f83b90e2d40339193a1"
+    ],
+    "source_cache": {
+      "accepted_references": 5000,
+      "cached": 5000,
+      "cached_paths_digest": "e45b87902931a98a426e9c978d1e7c7f007777ff16f2820481616ec897da6b1e",
+      "content_invalid": 0,
+      "failed": 0,
+      "reference_keys": 5000,
+      "reference_keys_digest": "97179a4ed2aa221256fa9e4d0eefa6e9850cf3af85d3cc5a1ae80ce199685555",
+      "reference_paths": 5000,
+      "source_paths": 5000,
+      "source_paths_digest": "e45b87902931a98a426e9c978d1e7c7f007777ff16f2820481616ec897da6b1e"
+    },
+    "watcher_pending": 0
+  },
+  "cold": {
+    "cpu_seconds": 16.335573,
+    "memory_current": 310906880,
+    "memory_peak": 310906880,
+    "oom_kill": 0,
+    "wall_seconds": 16.361468048999086
+  },
+  "continuous_seconds": 6.54788908699993,
+  "cpu_cap": 1,
+  "cycles": 2,
+  "elapsed_seconds": 114.86933638597839,
+  "final_full_reread": {
+    "cpu_seconds": 14.122129,
+    "memory_current": 429359104,
+    "memory_peak": 534515712,
+    "oom_kill": 0,
+    "wall_seconds": 14.140783089998877
+  },
+  "final_inventory": {
+    "duckdb_managed_bytes": 26704192,
+    "open_view_result_ids": [],
+    "pinned_result_ids": [],
+    "process": {
+      "file_descriptors": 9,
+      "threads": 6
+    },
+    "relation_state": {
+      "atom_order": 5000,
+      "atom_rows": 5000,
+      "direct_facts": 5000,
+      "empty_outgoing_keys": [],
+      "outgoing": 5000,
+      "outgoing_keys_digest": "23b3c1aa95db4765e1c44e4827d08ee5bb37a19e180e99037702ef8a244c50d6",
+      "raw_by_path": 5000,
+      "refs": 5000,
+      "registry_contributions": 5000,
+      "scope_rows": 3
+    },
+    "result_ids": [],
+    "result_tables": [],
+    "source_cache": {
+      "accepted_references": 5000,
+      "cached": 5000,
+      "cached_paths_digest": "e45b87902931a98a426e9c978d1e7c7f007777ff16f2820481616ec897da6b1e",
+      "content_invalid": 0,
+      "failed": 0,
+      "reference_keys": 5000,
+      "reference_keys_digest": "97179a4ed2aa221256fa9e4d0eefa6e9850cf3af85d3cc5a1ae80ce199685555",
+      "reference_paths": 5000,
+      "source_paths": 5000,
+      "source_paths_digest": "e45b87902931a98a426e9c978d1e7c7f007777ff16f2820481616ec897da6b1e"
+    },
+    "watcher_pending": 0
+  },
+  "fixture_atoms": 5000,
+  "idle_15_seconds": {
+    "cpu_seconds": 0.02944,
+    "memory_current": 476446720,
+    "memory_peak": 534515712,
+    "oom_kill": 0
+  },
+  "limits": {
+    "idle_cpu_seconds": 0.75,
+    "memory_bytes": 805306368,
+    "plateau_growth_bytes": 67108864,
+    "rebuild_cpu_seconds": 45.0,
+    "rebuild_wall_seconds": 45
+  },
+  "memory_cap_bytes": 1610612736,
+  "owner": 281473453330896,
+  "pid": 1,
+  "plateau": {
+    "growth_bytes": 56762368,
+    "maximum_memory_current": 533209088,
+    "minimum_memory_current": 476446720
+  },
+  "platform": "Linux-7.0.14-linuxkit-aarch64-with-glibc2.41",
+  "pre_reset_inventory": {
+    "duckdb_managed_bytes": 15482816,
+    "open_view_result_ids": [
+      "865a69b087024f83b90e2d40339193a1"
+    ],
+    "pinned_result_ids": [
+      "865a69b087024f83b90e2d40339193a1"
+    ],
+    "process": {
+      "file_descriptors": 21,
+      "threads": 14
+    },
+    "relation_state": {
+      "atom_order": 5000,
+      "atom_rows": 5000,
+      "direct_facts": 5000,
+      "empty_outgoing_keys": [],
+      "outgoing": 5000,
+      "outgoing_keys_digest": "23b3c1aa95db4765e1c44e4827d08ee5bb37a19e180e99037702ef8a244c50d6",
+      "raw_by_path": 5000,
+      "refs": 5000,
+      "registry_contributions": 5000,
+      "scope_rows": 3
+    },
+    "result_ids": [
+      "865a69b087024f83b90e2d40339193a1"
+    ],
+    "result_tables": [
+      "query_865a69b087024f83b90e2d40339193a1"
+    ],
+    "source_cache": {
+      "accepted_references": 5000,
+      "cached": 5000,
+      "cached_paths_digest": "e45b87902931a98a426e9c978d1e7c7f007777ff16f2820481616ec897da6b1e",
+      "content_invalid": 0,
+      "failed": 0,
+      "reference_keys": 5000,
+      "reference_keys_digest": "97179a4ed2aa221256fa9e4d0eefa6e9850cf3af85d3cc5a1ae80ce199685555",
+      "reference_paths": 5000,
+      "source_paths": 5000,
+      "source_paths_digest": "e45b87902931a98a426e9c978d1e7c7f007777ff16f2820481616ec897da6b1e"
+    },
+    "watcher_pending": 0
+  },
+  "requested_seconds": 0,
+  "runtime_image": "sha256:bfe2da587172ac19acb6d79b737cb14c1d7b9a8ccd472abe962c4b50d2c701d4",
+  "settled_samples": [
+    {
+      "cpu_seconds": 75.520159,
+      "memory_current": 533209088,
+      "memory_peak": 533217280,
+      "oom_kill": 0
+    },
+    {
+      "cpu_seconds": 76.769793,
+      "memory_current": 501231616,
+      "memory_peak": 534515712,
+      "oom_kill": 0
+    },
+    {
+      "cpu_seconds": 78.042603,
+      "memory_current": 476450816,
+      "memory_peak": 534515712,
+      "oom_kill": 0
+    },
+    {
+      "cpu_seconds": 78.073048,
+      "memory_current": 476446720,
+      "memory_peak": 534515712,
+      "oom_kill": 0
+    }
+  ],
+  "status": "passed",
+  "warm_full_reread": {
+    "cpu_seconds": 14.656421,
+    "memory_current": 399142912,
+    "memory_peak": 414871552,
+    "oom_kill": 0,
+    "wall_seconds": 14.78640575701138
+  },
+  "purpose": "Diagnostic execution of provisional guard with --calibrate unset; observations used to select frozen limits, not final adopted-limit acceptance",
+  "cli_calibrate_flag": false
+}

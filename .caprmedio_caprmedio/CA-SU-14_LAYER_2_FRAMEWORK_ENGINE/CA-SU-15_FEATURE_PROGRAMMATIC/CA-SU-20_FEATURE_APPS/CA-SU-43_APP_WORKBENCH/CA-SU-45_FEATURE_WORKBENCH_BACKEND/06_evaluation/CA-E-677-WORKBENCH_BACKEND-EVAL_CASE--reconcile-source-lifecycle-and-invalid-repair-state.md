@@ -17,8 +17,8 @@ relations:
   - CA-D-672
   - CA-D-675
 status: Active
-version: 21
-updated_at: 2026-11-07 14:45:42 +0400
+version: 22
+updated_at: 2026-11-07 12:44:06 +0000
 carrier_destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -107,3 +107,9 @@ Verify Header schema state retains aggregate counters without a per-source contr
 Compare byte-cached and complete string-source paths for declared Content values, public hashes, line endings, fenced and nested headings, legacy Claims, Unicode, and model declarations. Verify cached source bodies are bytes without a retained full decoded copy. Measure fresh same-source process RAM with the profiler off. Benchmark unprofiled ordinary-edit latency and all existing cold/bulk/full-reread gates; do not trade away their existing limits. Report bytes saved and process RAM separately, and do not compare an instrumented memory-census peak with an uninstrumented baseline.
 
 Verify full replacement derives each public row once and reuses the same computed rows for SQL insertion and its retained projection snapshot. SQL values, schema and hashes must match the snapshot. Preserve failure-state publication, ordinary-delta behavior and all existing performance limits; benchmark full builds with the profiler off.
+
+## Native move-event ordering
+
+A destination-create event may arrive before the old-path removal event. If the old carrier no longer exists, the changed reference must not retain that missing cached alias or trigger a duplicate-reference full rebuild. Emit the old-path removal in the same incremental delta. Two physically existing carriers with the same Current reference remain ambiguous and excluded.
+
+Native directory events with correct directory metadata reuse the root recursive observer. Keep the explicit child-watch fallback for directories misreported as files, and remove its owned watches when they disappear. The repeated create/update/rename/move/delete check retains the existing 1.5-second single-operation limit.

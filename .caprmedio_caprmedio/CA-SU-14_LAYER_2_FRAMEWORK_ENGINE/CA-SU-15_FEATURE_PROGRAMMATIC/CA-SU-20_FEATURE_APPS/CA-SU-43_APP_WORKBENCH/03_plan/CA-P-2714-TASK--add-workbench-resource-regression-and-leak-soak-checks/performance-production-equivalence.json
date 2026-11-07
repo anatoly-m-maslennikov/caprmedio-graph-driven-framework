@@ -1,0 +1,10 @@
+{
+  "performance_image": "sha256:0ac65f5950af5f627117ba16d02ba786cf607cdc494fe99727e4a773bc97b5b9",
+  "resource_image": "sha256:38f610345b6590560a52733b26af4bd653adea49cc3e98d306d52be6060df4db",
+  "modified_production_sources_byte_identical": {
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/incremental_relations.py": "59cc75e634e0daab27f2b1c3678b423427977e7d532e60d72f9f962d9fd5f49b",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/source_reader.py": "fd5ddb51072632453789cc1724d1baf255fb57792500d78cbee6cddb84ab1d42",
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/source_watcher.py": "5876b51400d31ff117cdb3595e0a3c13aa735922e713d3afb562b00f4330461e"
+  },
+  "change_after_performance_tests": "Only test-host packaging, Method trace versions, and the pure RAM-growth oracle with its falling-memory regression."
+}

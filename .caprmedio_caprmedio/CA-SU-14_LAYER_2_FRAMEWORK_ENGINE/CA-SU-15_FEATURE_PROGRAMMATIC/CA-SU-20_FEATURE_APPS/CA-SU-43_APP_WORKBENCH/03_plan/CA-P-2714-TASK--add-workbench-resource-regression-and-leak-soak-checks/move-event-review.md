@@ -1,0 +1,3 @@
+# Move-event regression
+
+The stricter real-Docker guard failed before the 30-minute phase: a move into a new folder produced a destination create before delayed source removal. Both paths entered the cache despite the old file being physically absent, creating a duplicate reference and 7–9 second full rebuilds. The unchanged 1.5-second gate failed. A real-carrier reader regression reproduces the stale path without relying on OS event timing. Correct native directory events must also reuse the recursive observer; the misreported-directory fallback remains tested. E677@22 adopts those checks. No budget is increased and real physical duplicates remain rejected.

@@ -124,6 +124,7 @@ class SourceReader:
         for path in sorted(affected):
             if path in self._source_paths:
                 self._refresh_path(path, reader)
+        affected.update(self._prune_missing_reference_aliases(affected))
         current = self._cached_rows()
         content_paths = self._references.update(self._cached_rows(previous), current, affected)
         rows = {
@@ -154,6 +155,21 @@ class SourceReader:
             for path in affected
         )
         return self._rows(), self._scopes()
+
+    def _prune_missing_reference_aliases(self, affected: set[Path]) -> set[Path]:
+        """Drop a cached path that disappeared before its move event arrived."""
+        references = {
+            row["ref"]
+            for path in affected
+            if (row := self._cached.get(path, (None, None))[1]) is not None
+            and isinstance(row.get("ref"), str)
+        }
+        removed: set[Path] = set()
+        for reference in references:
+            for path in self._references.paths.get(reference, ()):
+                if path not in affected and file_signature(path) is None:
+                    removed.update(self._remove_paths(path))
+        return removed
 
     def _capture_full(
         self, reader: ReadContext, *, revalidate_content: bool = False,

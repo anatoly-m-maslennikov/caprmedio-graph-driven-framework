@@ -1,0 +1,22 @@
+[
+  {
+    "atom": "CA-M-508@4",
+    "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/05_method/CA-M-508-WORKBENCH-DECISION--guard-workbench-resources-with-profiler-off-docker-checks.md",
+    "sha256": "dfab30c7cb7f5726e1ac01e2b0cddac05572bd0e5c9006f23ee2549f5d6704ec"
+  },
+  {
+    "atom": "CA-E-799@2",
+    "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-799-WORKBENCH-EVAL_CASE--verify-profiler-off-workbench-resource-regression-guards.md",
+    "sha256": "2145c6388cb67e44d84678b25467e0b123dedc27572e226697d637ee2374671f"
+  },
+  {
+    "atom": "CA-E-800@2",
+    "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation/CA-E-800-WORKBENCH-EVAL_CASE--soak-workbench-lifecycle-for-resource-leaks.md",
+    "sha256": "c34aeda7070c941d61b1b5182fcd76cb036a7f4d0e01a8db266c509e2d4dc5b5"
+  },
+  {
+    "atom": "CA-E-677@22",
+    "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation/CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md",
+    "sha256": "a6f788840852bca00185667d525959f1963a172c8e024b8a6b5d698be3077238"
+  }
+]

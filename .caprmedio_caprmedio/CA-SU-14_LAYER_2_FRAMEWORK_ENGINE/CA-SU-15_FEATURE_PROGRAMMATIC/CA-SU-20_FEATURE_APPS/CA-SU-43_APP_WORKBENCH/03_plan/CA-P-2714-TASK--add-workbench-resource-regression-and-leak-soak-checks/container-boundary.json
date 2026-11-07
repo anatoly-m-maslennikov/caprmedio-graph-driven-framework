@@ -1,0 +1,11 @@
+{
+  "image": "sha256:38f610345b6590560a52733b26af4bd653adea49cc3e98d306d52be6060df4db",
+  "name": "/caprmedio-workbench-resource-edda7b0ea8d444e79cb3a656cfda383e",
+  "nano_cpus": 1000000000,
+  "memory_bytes": 1610612736,
+  "memory_swap_bytes": 1610612736,
+  "oom_killed": false,
+  "started_at": "2026-11-07T13:19:32.330122131Z",
+  "test_label": "workbench-resource",
+  "production_project_label": ""
+}

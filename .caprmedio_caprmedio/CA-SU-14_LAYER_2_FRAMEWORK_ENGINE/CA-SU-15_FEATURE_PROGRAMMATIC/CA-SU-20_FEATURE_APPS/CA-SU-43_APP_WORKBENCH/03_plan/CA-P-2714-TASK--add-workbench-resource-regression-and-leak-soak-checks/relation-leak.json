@@ -1,0 +1,7 @@
+{
+  "scenario": "Fixed CA-P-100 target; unique source CA-P-200, CA-P-201, CA-P-202, each incrementally added then deleted",
+  "before_fix": {"baseline_outgoing_keys": 0, "after_each_delete": [2, 3, 4], "all_remaining_buckets_empty": true},
+  "after_fix": {"baseline_outgoing_keys": 0, "after_each_delete": [0, 0, 0]},
+  "regression": "20 unique source IDs, each deletion returns to exact baseline and updates the target relation row",
+  "verification": "28 relation/incremental tests passed"
+}

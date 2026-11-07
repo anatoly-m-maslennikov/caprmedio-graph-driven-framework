@@ -169,7 +169,7 @@ class _Handler(FileSystemEventHandler):
 
     def on_created(self, event: Any) -> None:
         # Docker bind mounts can report a new directory as a file.
-        if event.is_directory or Path(event.src_path).is_dir():
+        if not event.is_directory and Path(event.src_path).is_dir():
             self._watcher._watch_directory_tree(event.src_path)
         self._watcher._created(event.src_path)
 
@@ -181,6 +181,6 @@ class _Handler(FileSystemEventHandler):
         self._watcher._unwatch_directory(event.src_path)
 
     def on_moved(self, event: Any) -> None:
-        if event.is_directory or Path(event.dest_path).is_dir():
+        if not event.is_directory and Path(event.dest_path).is_dir():
             self._watcher._watch_directory_tree(event.dest_path)
         self._watcher._moved(event.src_path, event.dest_path)

@@ -79,12 +79,18 @@ def _delta_edge(
     affected = {fact[:2]}
     edges = set(outgoing.get(fact[:2], ()))
     (edges.add if add else edges.discard)((*fact, False))
-    outgoing[fact[:2]] = frozenset(edges)
+    if edges:
+        outgoing[fact[:2]] = frozenset(edges)
+    else:
+        outgoing.pop(fact[:2], None)
     if fact[2] in inverse:
         reverse = (fact[3], fact[4], inverse[fact[2]], fact[0], fact[1])
         edges = set(outgoing.get(reverse[:2], ()))
         (edges.add if add else edges.discard)((*reverse, True))
-        outgoing[reverse[:2]] = frozenset(edges)
+        if edges:
+            outgoing[reverse[:2]] = frozenset(edges)
+        else:
+            outgoing.pop(reverse[:2], None)
         affected.add(reverse[:2])
     return affected
 
