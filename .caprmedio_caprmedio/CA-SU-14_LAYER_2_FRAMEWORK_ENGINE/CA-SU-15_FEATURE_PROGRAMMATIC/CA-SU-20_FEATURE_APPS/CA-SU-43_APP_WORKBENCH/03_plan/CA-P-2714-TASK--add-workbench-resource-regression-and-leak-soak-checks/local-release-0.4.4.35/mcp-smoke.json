@@ -1,0 +1,31 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\"query_id\": \"5a22b499c2424673b9adf97f1e0731bc\", \"sql\": \"SELECT\\n  count(*) as atom_count\\nfrom atoms\\n;\", \"columns\": [{\"name\": \"atom_count\", \"type\": \"BIGINT\", \"has_values\": true}], \"rows\": [[5492]], \"row_count\": 1, \"source_row_count\": 1, \"column_count\": 1, \"offset\": 0, \"page_size\": 1, \"has_more\": false}"
+    }
+  ],
+  "structuredContent": {
+    "query_id": "5a22b499c2424673b9adf97f1e0731bc",
+    "sql": "SELECT\n  count(*) as atom_count\nfrom atoms\n;",
+    "columns": [
+      {
+        "name": "atom_count",
+        "type": "BIGINT",
+        "has_values": true
+      }
+    ],
+    "rows": [
+      [
+        5492
+      ]
+    ],
+    "row_count": 1,
+    "source_row_count": 1,
+    "column_count": 1,
+    "offset": 0,
+    "page_size": 1,
+    "has_more": false
+  },
+  "isError": false
+}

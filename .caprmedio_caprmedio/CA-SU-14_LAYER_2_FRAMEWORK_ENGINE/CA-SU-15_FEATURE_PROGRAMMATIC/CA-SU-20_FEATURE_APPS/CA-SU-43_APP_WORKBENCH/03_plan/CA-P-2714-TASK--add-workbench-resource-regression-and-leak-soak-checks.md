@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Done
-version: 2
-updated_at: 2026-11-07 13:52:32 +0000
+version: 3
+updated_at: 2026-11-07 14:47:29 +0000
 carrier_destination:
   file:
     name: CA-P-2714-TASK--add-workbench-resource-regression-and-leak-soak-checks.md
@@ -41,4 +41,4 @@ Add and verify the resource and leak checks defined by CA-M-508, CA-E-799 and CA
 
 ## Results
 
-Completed. See [acceptance report](CA-P-2714-TASK--add-workbench-resource-regression-and-leak-soak-checks/report.md). The installed service was not changed.
+Completed. See [acceptance report](CA-P-2714-TASK--add-workbench-resource-regression-and-leak-soak-checks/report.md). The resource-test pass did not deploy changes. The subsequent local release installed and verified version 0.4.4.35; see the linked report.

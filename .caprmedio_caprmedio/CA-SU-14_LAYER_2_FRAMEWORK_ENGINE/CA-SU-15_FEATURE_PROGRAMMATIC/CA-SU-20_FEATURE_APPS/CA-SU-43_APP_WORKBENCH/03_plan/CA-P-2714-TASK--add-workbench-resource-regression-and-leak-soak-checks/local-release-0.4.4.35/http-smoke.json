@@ -1,0 +1,54 @@
+{
+  "health": {
+    "ready": true
+  },
+  "workbench_html": true,
+  "assets": [
+    "/caprmedio/workbench/assets/index-2X7BKy55.css",
+    "/caprmedio/workbench/assets/index-DFF_G1eC.js"
+  ],
+  "http_query_run": {
+    "query_id": "6c9ba21646d341a3888b7d06d8647775",
+    "sql": "SELECT\n  reference\n  ,filename\n  ,status_group\nfrom atoms\nwhere true\nlimit 3\n;",
+    "columns": [
+      {
+        "name": "reference",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "filename",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "status_group",
+        "type": "VARCHAR",
+        "has_values": true
+      }
+    ],
+    "rows": [
+      [
+        "CA-C-102",
+        "CA-C-102-QUESTION--what-authority-must-govern-plan-folder-nodes.md",
+        "Current"
+      ],
+      [
+        "CA-C-105",
+        "CA-C-105-QUESTION--when-would-autonomous-learning-memory-justify-an-optional-extension.md",
+        "Current"
+      ],
+      [
+        "CA-C-107",
+        "CA-C-107-PROBLEM--seven-day-decisions-lack-complete-cap-closure.md",
+        "Current"
+      ]
+    ],
+    "row_count": 3,
+    "source_row_count": 3,
+    "column_count": 3,
+    "offset": 0,
+    "page_size": 3,
+    "has_more": false
+  }
+}

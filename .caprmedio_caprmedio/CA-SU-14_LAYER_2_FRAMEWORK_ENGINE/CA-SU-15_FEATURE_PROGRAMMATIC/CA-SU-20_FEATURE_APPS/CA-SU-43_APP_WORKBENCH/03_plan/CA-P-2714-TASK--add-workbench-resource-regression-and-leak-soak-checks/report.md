@@ -36,3 +36,7 @@ The normal suite discovers `test_workbench_resource_docker_e2e.py` as a required
 Final source-only ordering check: M508 Tier 5 uses IS_METHOD_FOR toward R2786 Tier 4; E799/E800 at Tier 6 evaluate M508 Tier 5. Their Claims and all tested behavior are unchanged. Module pins retain the implemented Claim versions. [Metadata review](tier-review.md).
 
 After acceptance, extra blank lines at EOF were removed from two test modules. Behavior is unchanged; tested-to-final hashes are recorded in formatting-only.json.
+
+## Subsequent local release
+
+Version **0.4.4.35** was then installed and verified for Workbench and query_run. All 105 focused checks passed; the page/assets and real HTTP/MCP queries work. Other tools were outside the selected scope. One old image with unproven ownership was retained. See [local-release verification](local-release-0.4.4.35/verification.md). The no-deployment statement above describes the earlier resource-test pass.
