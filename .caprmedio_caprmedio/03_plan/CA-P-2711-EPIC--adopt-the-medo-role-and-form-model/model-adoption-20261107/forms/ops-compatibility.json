@@ -1,0 +1,84 @@
+{
+  "status": "PROPOSED_NOT_ALLOCATED",
+  "scope": "Operations Form compatibility successors for CA-R-1565, CA-M-314 and CA-D-457 only. No native source, runtime, Workflow-instance or implementation change.",
+  "source_pins": [
+    {
+      "ref_id": "CA-R-1565@21",
+      "summary": "Admit the Operations Atom Types",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+      "sha256": "c3f165a735412ce87982f9dc22dbac7529f58f6a073cdcdc73718b018deb4277"
+    },
+    {
+      "ref_id": "CA-M-314@24",
+      "summary": "Write Operations Claims with Type-specific CCE Profiles",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "sha256": "6652049d7b9771403c5388afd458be5599e84606432c53f122d602511aa1f341"
+    },
+    {
+      "ref_id": "CA-D-457@26",
+      "summary": "Serialize Operations Atom Type tokens",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-ENG_DECISION--serialize-operations-atom-type-tokens.md",
+      "sha256": "e8c2830c97f36c7a34cddff2ce09bd2f4a716991bbaf8858bca2d765cf3bd4ba"
+    },
+    {
+      "ref_id": "CA-D-283@34",
+      "summary": "Serialize Project-Owned Markdown Atom Filenames",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-283-CORE_META_MODEL-DECISION--serialize-project-owned-markdown-atom-filenames.md",
+      "sha256": "cac15f5898a60fc0d47d951a1bcf1b71dee2550351dff6cb8334a4e62529111e"
+    },
+    {
+      "ref_id": "CA-D-284@26",
+      "summary": "Serialize Filename Token Case",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-284-CORE_META_MODEL-ENG_DECISION--serialize-filename-token-case.md",
+      "sha256": "0c7a8f208e32d71cbe966ec36a75f21904eea9d53c97426cbe545937af73b643"
+    }
+  ],
+  "operations_form_admission": {
+    "newly_admitted_forms": ["Scope Delegation", "Solution", "Direct Policy", "Approach Policy", "Decision"],
+    "admission_condition": "An Atom may use one of these Forms with Role Operations only when its Claim's actual primary contribution matches the reviewed Operations semantics.",
+    "non_execution_effect": "Using one of these Forms creates no Action, Workflow or Step binding and does not create a Workflow instance, Action invocation or runtime behavior.",
+    "preserved_executable_forms": ["Action", "Workflow", "Step"]
+  },
+  "successors": [
+    {
+      "current_ref_id": "CA-R-1565@21",
+      "next_ref_id": "CA-R-1565@22-draft",
+      "identity_operation": "same_id_new_version",
+      "summary": "Admit the Operations Atom Types",
+      "summary_preserved": true,
+      "target_header": {"role": "Requirement", "form": "Requirement"},
+      "form_transition": "Requirement/Rule -> Requirement/Requirement; Rule is not a prospective Form.",
+      "reason": "The source still governs Operations Form admission; only its previously restrictive Form set changes.",
+      "body": "## Summary\n\nAdmit the Operations Atom Types\n\n## Claim\n\n### Prose Claim\n\ninternal Form values of Operations Atoms.\n\nthe admitted Form values of `Atom/(.Header.Role := Operations).Header.Form` **must** include (Action, Workflow, Step, Scope Delegation, Solution, Direct Policy, Approach Policy, Decision). An Operations Atom may use Scope Delegation, Solution, Direct Policy, Approach Policy, or Decision only when its Claim's actual primary contribution matches the reviewed Operations semantics. Those Forms do not create an Action, Workflow, or Step binding.\n\n## Details\n\nAction, Workflow, and Step retain their existing Form admission and behavior. Branch and Fork remain not admitted internal Form values. Linear and Conditional remain Step forms carried by Step definitions, not additional Operations Atom Forms.\n"
+    },
+    {
+      "current_ref_id": "CA-M-314@24",
+      "next_ref_id": "CA-M-314@25-draft",
+      "identity_operation": "same_id_new_version",
+      "summary": "Write Operations Claims with Type-specific CCE Profiles",
+      "summary_preserved": true,
+      "target_header": {"role": "Method", "form": "Implementation Method"},
+      "form_transition": "none",
+      "reason": "The source still governs authoring profiles, but its profile mandate must apply only to primary Action, Workflow and Step contributions.",
+      "body": "## Summary\n\nWrite Operations Claims with Type-specific CCE Profiles\n\n## Claim\n\n### Prose Claim\n\nOperations Claims written with Action, Workflow, and Step CCE Profiles when their primary Form is Action, Workflow, or Step.\n\n**to** write an Operations Claim whose primary Form is Action, Workflow, or Step, the Author **must** first resolve that Form **and** then apply **`=1`** primary Form profile:\n\n1. for Action, use **means** to define the named reusable operational behavior. state its required inputs, preconditions, operational contribution, returned results, observable effects, **and** failure results. modality, condition, temporal, quantification, logical, restriction, predicate, **and** comparison Operators **may** constrain that behavior.\n2. for Workflow, use **means** to define the reusable graph through Step references, entry, typed transitions, result conditions, **and** terminal outcomes. use condition, temporal, logical, restriction, predicate, **and** comparison Operators **only** with explicit transition scope under CA-M-305-CORE_META_MODEL-METHOD--write-workflow-schemes-using-step-references.\n3. for Step, define the invocation binding of **`=1`** referenced Action with its parameters **and** inputs. do **not** copy the Action behavior **or** define another Workflow.\n\nFor an Operations Scope Delegation, Solution, Direct Policy, Approach Policy, or Decision whose actual primary contribution matches Operations semantics, write the Claim under that Form's admitted semantics. Do **not** apply an Action, Workflow, or Step profile merely because the Role is Operations. Those Forms create no executable binding.\n\n## Details\n\nan Operations Claim whose primary Form is Action, Workflow, or Step **must not** combine more than one primary Form profile. subordinate inputs, conditions, results, failures, transitions, **and** effects remain part of the selected Form's single operational contribution.\n"
+    },
+    {
+      "current_ref_id": "CA-D-457@26",
+      "next_ref_id": "CA-D-457@27-draft",
+      "identity_operation": "same_id_new_version",
+      "summary": "Serialize Operations Atom Type tokens",
+      "summary_preserved": true,
+      "target_header": {"role": "Delivery", "form": "Decision"},
+      "form_transition": "none",
+      "reason": "The source still governs Operations filename representation; the generic effective-Label path covers the new Forms without a second token policy.",
+      "body": "## Summary\n\nSerialize Operations Atom Type tokens\n\n## Claim\n\n### Prose Claim\n\nOperations Atom File Carriers and their Form filename tokens.\n\nan Operations Atom File Carrier **must** serialize its LABEL segment under CA-D-283: use its explicit Label when present, otherwise its Form name, and normalize the token under CA-D-284.\n\n| Operations Atom Form | Filename token source |\n|---|---|\n| Action | Existing explicit token `ACTION` |\n| Workflow | Existing explicit token `WORKFLOW` |\n| Step | Existing explicit token `STEP` |\n| Scope Delegation, Solution, Direct Policy, Approach Policy, Decision | Effective Label/Form fallback under CA-D-283, normalized under CA-D-284 |\n\nThe fallback representation does not admit a Form, change the stored Form, create an Action, Workflow, or Step binding, or prescribe runtime Workflow behavior.\n"
+    }
+  ],
+  "preservation": {
+    "no_fresh_ids": true,
+    "no_retirement": "All three Current Summaries remain accurate; each proposal keeps the existing ID and advances only its version.",
+    "no_runtime_or_instance_change": true,
+    "Action_Workflow_Step_profiles_and_behavior_preserved": true,
+    "generic_label_serialization_used": ["CA-D-283@34", "CA-D-284@26"]
+  }
+}

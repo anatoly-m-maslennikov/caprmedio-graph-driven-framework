@@ -288,7 +288,7 @@ def _generate_tool_registry(package: Path) -> Path:
     try:
         output.unlink(missing_ok=True)
         result = subprocess.run(
-            (sys.executable, str(script), "--package-root", str(package)),
+            (sys.executable, "-B", str(script), "--package-root", str(package)),
             cwd=package, text=True, capture_output=True, check=False,
         )
     except OSError as error:

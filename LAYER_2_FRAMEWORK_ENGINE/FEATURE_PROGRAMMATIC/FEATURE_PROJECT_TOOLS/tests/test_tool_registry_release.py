@@ -20,6 +20,9 @@ class ToolRegistryReleaseTests(unittest.TestCase):
         fixture = self.fixture
         relative = Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tool_registry.json")
         (fixture.root / relative).write_text("stale source asset", encoding="utf-8")
+        generator = fixture.root / relative.parent / "generate_tool_registry.py"
+        generator.with_name("registry_payload.py").write_text("VALUE = 1\n", encoding="utf-8")
+        generator.write_text("import registry_payload\n" + generator.read_text(), encoding="utf-8")
         observed = []
 
         def resolve(**kwargs):
@@ -30,6 +33,7 @@ class ToolRegistryReleaseTests(unittest.TestCase):
                 '{"schema_version":1,"providers":[]}\n',
                 (package / relative).read_text(encoding="utf-8"),
             )
+            self.assertEqual([], list(package.rglob("*.pyc")))
             observed.append(package)
             return fixture.image_id
 
