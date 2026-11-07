@@ -172,7 +172,9 @@ def probe_first_cut_http_security(
     names = frozenset(str(name) for name in list_tools(mcp_url, token))
     missing = required_tools - names
     if missing:
-        raise FirstCutHttpSecurityError("anonymous MCP tool list is incomplete")
+        raise FirstCutHttpSecurityError(
+            f"anonymous MCP tool list is incomplete: missing={sorted(missing)}"
+        )
     return {
         "denied_statuses": tuple(observed_denied),
         "mcp_denied_statuses": tuple(observed_mcp_denied),

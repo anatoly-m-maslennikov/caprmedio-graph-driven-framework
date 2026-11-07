@@ -10,7 +10,8 @@
       "generic_selector": "Atom/(.Header.Form := <Form>)",
       "bound_role_whitelist": "Atom/(.Header.Form := <Form>)//$form; $form.Header.Role:: [in (<roles>)]{::1};",
       "use": "One Scope Delegation Form classifier with one bound-instance RMEDO Role whitelist; no duplicated semantic declaration per Role."
-    }
+    },
+    "root_requirement_form": "CA-R-2999@1-draft is the sole proposed generic Requirement Form; this scope lane does not redefine or duplicate it."
   },
   "source_pins": [
     {
@@ -315,7 +316,7 @@
       "atom_id": "CA-R-2471",
       "ref_id": "CA-R-2471",
       "status": "Active",
-      "version": "7",
+      "version": 7,
       "summary": "Use distinct graph notation for Node relations"
     },
     {
@@ -324,7 +325,7 @@
       "atom_id": "CA-R-2498",
       "ref_id": "CA-R-2498",
       "status": "Active",
-      "version": "6",
+      "version": 6,
       "summary": "Declare Atom.Content"
     },
     {
@@ -333,8 +334,17 @@
       "atom_id": "CA-R-2955",
       "ref_id": "CA-R-2955",
       "status": "Active",
-      "version": "1",
+      "version": 1,
       "summary": "Declare Relation Declaration as a Requirement Form"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2999@1-draft-CORE_META_MODEL-DECLARATION--declare-requirement-form.md",
+      "sha256": "f7d455efe9c81502a886c9d8854deda8dd276df99601748300765bccc7b11911",
+      "atom_id": "CA-R-2999",
+      "ref_id": "CA-R-2999@1-draft",
+      "status": "Draft",
+      "version": 1,
+      "summary": "Declare Requirement Form"
     }
   ],
   "drafts": [
@@ -349,7 +359,7 @@
       "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Scope Delegation)",
       "source_identity_policy": "Create one generic Form declaration with the existing bound-instance Role whitelist pattern. Do not create one semantic Form declaration per RMEDO Role. Retire CA-R-2684 only after this declaration and the Project-only Scope Unit Declaration Form declaration are both admitted.",
       "formal_claim_candidate": "# instances\nAtom/(.Header.Form := Scope Delegation)//$scope_delegation;\n$scope_delegation.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1};",
-      "claim": "A Scope Delegation is an externally authored Atom whose Main Subject is exactly one receiving non-Project Scope Unit and whose Container is an external allocating context. It combines that unit’s structural declaration and its assigned contribution in one Atom. Its Role is exactly one of Requirement, Method, Evaluation, Delivery or Operations; the Role identifies the contribution. It records the receiving unit’s existing Name, stable ID, ordered state, optional Label, conditional order.number and direct Parent as declared values, and the Claim states the assigned contribution and boundaries. The delegating unit retains its full scope and accountability. The Scope Delegation does not create a separate target field, Goal, Scope Contract, path property or duplicated structural declaration. Each concrete Scope Delegation Claim contains a finite formal list of permitted local Main Subject branch strings and a finite formal list of permitted local Role/Form pairs. Requirement Scope Delegations permit local Requirement, Method, Evaluation, Delivery and Operations Roles; each Method, Evaluation, Delivery or Operations Scope Delegation permits its matching local Role. A local Atom is admitted by this delegation only when its resolved Scope Unit ownership matches the receiving unit and both its Main Subject and Role/Form pair occur in those lists. These are Claim statements, not new Header Properties.",
+      "claim": "A Scope Delegation is one generic Form used by an externally authored Atom. Its Main Subject is exactly one receiving non-Project Scope Unit. Its Container resolves to that Scope Unit’s one direct declared structural Parent; that containing Scope Unit is the allocator. Project may contain Scope Delegations for its children but cannot be their receiving Main Subject. The Scope Delegation combines the receiving unit’s structural declaration and its assigned contribution in one Atom. Its Role is exactly one of Requirement, Method, Evaluation, Delivery or Operations and identifies the contribution. It records the receiving unit’s existing Name, stable ID, ordered state, optional Label, conditional order.number and direct Parent; it creates no new per-unit fields. The Claim states the assigned contribution and boundaries; the delegating unit retains its full scope and accountability. The generic Form is admitted to the RMEDO Role set by one bound-instance whitelist. Each concrete Scope Delegation Claim lists permitted local HAS_ACTIVE_SUBJECT target selections and local Role/Form pairs. A local Atom is admitted only when its Header.Container-derived IS_CONTAINED_BY target is the receiving Scope Unit, its resolved HAS_ACTIVE_SUBJECT target belongs to a listed selection, and its Role/Form pair is listed. These are Claim statements, not stored whitelist Properties.",
       "whitelists": {
         "scope_delegation_main_subject": "The single Main Subject is the canonical full Subject string for the specific receiving non-Project Scope Unit. Current Scope Unit Declaration instances use `CAPRMEDIO_STRUCTURE <+ Scope Unit//<Name>`; CA-R-2714 defines the one-string Main Subject field. Project root is excluded and retains its separate Project Declaration.",
         "scope_delegation_role_form_pairs": {
@@ -390,16 +400,19 @@
             "Operations/Workflow",
             "Operations/Step",
             "Operations/Action",
-            "Method/Decision and Delivery/Decision for concrete local choices"
+            "Method/Decision",
+            "Evaluation/Decision",
+            "Delivery/Decision"
           ],
-          "shared_solution_policy_roles": "Pending MEDO vs RMEDO admission decision; Solution, Direct Policy and Approach Policy require explicit per-Delegation admission and no Role set is assumed here.",
+          "shared_solution_policy_roles": "Settled: Solution, Direct Policy and Approach Policy permit RMEDO Roles (Requirement, Method, Evaluation, Delivery, Operations).",
           "other_local_forms": "Use the existing admitted Forms/analogs for each Role as reconciled by the shared-Forms lane; do not infer a Form from topic or filename.",
           "excluded_roles": [
             "Concern",
             "Analysis",
             "Plan",
             "Implementation"
-          ]
+          ],
+          "decision_role_range": "Settled: Decision permits MEDO Roles only (Method, Evaluation, Delivery)."
         },
         "local_main_subject_branches": {
           "contract": "Each Scope Delegation Claim lists finite allowed HAS_ACTIVE_SUBJECT target selections for local Atoms, plus local Role/Form pairs. Local Atoms must be contained by the receiving Scope Unit through their Header.Container-derived IS_CONTAINED_BY link and their HAS_ACTIVE_SUBJECT target must belong to one listed target selection.",
@@ -408,7 +421,7 @@
           "enforcement_limit": "Do not infer target admission from Subject text prefixes. Bind or select the actual HAS_ACTIVE_SUBJECT target and require its membership in the Claim-listed selection, together with receiving-unit containment. This is a relation/selector contract, not a new operator or stored whitelist Property."
         }
       },
-      "semantics": "Scope Delegation defaults admitted in every containing Scope Unit, including Project. Project can therefore declare children but has no incoming Scope Delegation; only the receiving unit must be non-Project. Its local Role permissions are R→RMEDO, M→M, E→E, D→D, O→O; these are permissions, not a required Role packet. Inherited constraints continue to govern. Local R defaults are Requirement for required outcomes/constraints plus existing Declaration families for model definitions; no Rule Form is introduced in the new model, and legacy Rule mappings are deferred. Eval Case and Operations Workflow/Step/Action are included; concrete M/D Decision is allowed. Solution and Policy Forms require explicit Scope Delegation admission; their shared Role range is pending. No complete packet or artificial Goal is required.",
+      "semantics": "Scope Delegation is admitted in every containing Scope Unit, including Project, so Project may declare children. Each receiving unit is non-Project; Project has no incoming Scope Delegation. The generic Form classifier has one bound-instance RMEDO Role whitelist. Requirement Scope Delegations permit local RMEDO Roles; Method, Evaluation, Delivery and Operations Scope Delegations permit the matching local Role. Solution, Direct Policy and Approach Policy permit RMEDO; Decision permits MEDO only. These are permissions, not a required Role packet. Inherited constraints continue to govern. Local Requirement Forms are Requirement for required outcomes/constraints and existing Declaration families for model definitions; no Rule Form is introduced. Eval Case and Operations Workflow/Step/Action are included. No complete packet or artificial Goal is required.",
       "tier": "No Tier fixed by this Form; Tier rules are owned by the tier lane.",
       "source_pins": [
         "CA-R-2684",
@@ -428,15 +441,15 @@
         "CA-R-2955"
       ],
       "dependencies": [
-        "Align the generic bound-instance Form whitelist with the shared Forms lane; MEDO vs RMEDO for shared Solution/Policy Forms remains pending.",
-        "CFEL target and containment constraints use current HAS_ACTIVE_SUBJECT and IS_CONTAINED_BY authorities; this proposal is not runtime proof."
+        "The generic Role whitelist is the settled RMEDO set. The bound-instance selector follows the shared Forms lane’s grounded pattern.",
+        "Local branch constraints use current HAS_ACTIVE_SUBJECT endpoint and Header.Container-derived IS_CONTAINED_BY semantics."
       ],
-      "formalization_gate": "No new CFEL operator is needed for a generic text-prefix match. Scope Delegation Claims can enumerate admitted model-entity/instance targets and validate local Atoms through HAS_ACTIVE_SUBJECT plus IS_CONTAINED_BY to the receiving unit, using existing endpoint and selector forms. Do not claim runtime execution from this source proposal.",
+      "formalization_gate": "Use existing typed entity/instance selectors to list allowed HAS_ACTIVE_SUBJECT target populations; require local Atom containment by the receiving Scope Unit through Header.Container-derived IS_CONTAINED_BY. This is a model constraint, not string-prefix matching, a new operator, a new stored whitelist Property, or runtime evidence.",
       "formal_main_subject_pattern": "For each specific unit, author the one scalar value using the established instance path, e.g. `Atom.Header.Topics.Main Subject == \"CAPRMEDIO_STRUCTURE <+ Scope Unit//<Name>\"`; replace `<Name>` with the declared Scope Unit Name. The pattern is evidenced by live Scope Unit declarations. It is not a wildcard/prefix matcher.",
       "formal_whitelist_claim_template": {
         "own_main_subject": "For the concrete delegation instance, Main Subject equals the exact current canonical string `CAPRMEDIO_STRUCTURE <+ Scope Unit//<Name>`.",
         "local_subject_branches": "List exact typed entity/instance selections as allowed HAS_ACTIVE_SUBJECT targets; require local Atom containment under the receiving Scope Unit. The selector target, not the Subject string prefix, defines the admitted branch.",
-        "local_role_form_pairs": "Enumerate each permitted pair using current selectors such as `Atom/(.Header.Role := Requirement)/(.Header.Form := Requirement)` and the already admitted Declaration families.",
+        "local_role_form_pairs": "Solution, Direct Policy and Approach Policy permit RMEDO; Decision permits MEDO. Each concrete Scope Delegation lists admitted local Role/Form pairs subject to inherited constraints.",
         "R_defaults": {
           "Requirement": "required outcomes/constraints",
           "Declaration": "existing admitted model-definition Declaration families",
@@ -455,7 +468,7 @@
       "summary": "Declare Project Scope Unit Declaration Form",
       "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Scope Unit Declaration)",
       "source_identity_policy": "Create one minimal generic-Form Declaration preserving the existing Requirement/Scope Unit Declaration Form exclusively for the Project root. This keeps R2684 retirement from leaving the retained root Form without a model owner.",
-      "claim": "Scope Unit Declaration is the Requirement Form for the Project-root Scope Unit Declaration only. A Scope Unit Declaration Atom has Role Requirement and Form Scope Unit Declaration, and its HAS_ACTIVE_SUBJECT target is a Project Scope Unit. Non-Project Scope Units are declared by the generic Scope Delegation Form. This declaration defines Form ownership only; the separate cardinality Requirement defines that the Project has one root declaration.",
+      "claim": "Scope Unit Declaration is the Requirement Form only for the Project-root Scope Unit Declaration. A Scope Unit Declaration Atom has Role Requirement and Form Scope Unit Declaration, and its HAS_ACTIVE_SUBJECT target is a Project Scope Unit. Non-Project Scope Units use the generic Scope Delegation Form. This declaration owns the Form only; the separate cardinality Requirement requires exactly one Project root declaration.",
       "formal_claim_candidate": "# instances\nAtom/(.Header.Form := Scope Unit Declaration)//$root_scope_declaration;\n$root_scope_declaration.Header.Role:: [in (Requirement)]{::1};\n$root_scope_declaration ((HAS_ACTIVE_SUBJECT)) Scope Unit/Project//$project",
       "form_whitelist": {
         "classifier": "Atom/(.Header.Form := Scope Unit Declaration)",
@@ -482,13 +495,13 @@
       "atom_id": null,
       "identity_action": "new_id_required",
       "role": "Requirement",
-      "form": "Declaration",
+      "form": "Requirement",
       "version": null,
       "summary": "Establish Project and non-Project Scope Unit declarations and delegations",
       "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit",
-      "source_identity_policy": "New identity because old CA-R-2688 Summary requires one Scope Unit Declaration for every unit including Project; its successor is a Requirement/Declaration model definition, not a new Rule Form. Retire old R2688 and old R926 only after this successor, the generic Scope Delegation Form owner and the Project-only Scope Unit Declaration Form owner are adopted.",
+      "source_identity_policy": "Create a Requirement/Requirement constraint that replaces old R2688 and R926 coverage without redefining Scope Unit or Atom; their canonical owners remain R2523 and the existing Atom Declaration. Retire the old constraints only after the Scope Delegation and retained Project Form owners are present.",
       "formal_claim_candidate": null,
-      "claim": "Every non-Project Scope Unit has exactly one external Scope Delegation whose Main Subject is that Scope Unit. That Atom is the sole external structural authority for its Name, stable ID, ordering state, conditional order.number and direct Parent, and its Claim states one delegated contribution. The Scope Delegation is assigned a single RMEDO Role and its Container is an authorized external allocating context. Project remains exceptional: retain its one Project-root Requirement/Scope Unit Declaration (currently CA-R-2640), stable Scope Unit ID `CA-SU-00`, unordered state and absence of `order.number`, plus Project-level Requirement/Goal and root Axioms; it has no Scope Delegation. Scope Unit declarations remain authoritative for identity and structural parentage; folder names and physical nesting do not define either. Scope Delegation is admitted by default in every containing Scope Unit, including Project, which may declare child Scope Units. Only the receiving unit must be non-Project; Project itself has no incoming Scope Delegation. Delegation does not erase the delegator’s overall scope or accountability, and no artificial Goal is required to express engineering, evaluation, delivery or operations responsibility. This model definition is a Requirement/Declaration; it introduces no Requirement/Rule Form.",
+      "claim": "Every non-Project Scope Unit has exactly one external Scope Delegation whose Main Subject is that Scope Unit. That Atom is the sole external structural authority for its Name, stable ID, ordering state, conditional order.number and direct Parent, and its Claim states one delegated contribution. The Scope Delegation is assigned a single RMEDO Role and its Container resolves to its one direct declared structural Parent, which is the allocator. Ancestors and unrelated external Scope Units are not eligible allocators. Existing model cardinality continues to require exactly one direct Parent for each non-Project Scope Unit and none for Project. Project remains exceptional: retain its one Project-root Requirement/Scope Unit Declaration (currently CA-R-2640), stable Scope Unit ID `CA-SU-00`, unordered state and absence of `order.number`, plus Project-level Requirement/Goal and root Axioms; it has no Scope Delegation. Scope Unit declarations remain authoritative for identity and structural parentage; folder names and physical nesting do not define either. Scope Delegation is admitted by default in every containing Scope Unit, including Project, which may declare child Scope Units. Only the receiving unit must be non-Project; Project itself has no incoming Scope Delegation. Delegation does not erase the delegator’s overall scope or accountability, and no artificial Goal is required to express engineering, evaluation, delivery or operations responsibility. This is a Requirement/Requirement constraint; it introduces no Form or canonical Scope Unit/Atom entity.",
       "coverage": "Combines the scope identity/cardinality structural constraint formerly in R2688 with the non-Project Goal coverage obligation formerly in R926, replacing Goals with one Scope Delegation. It does not absorb Scope Unit kind definition R2523, Project kind R2524, Name/uniqueness/order property declarations, or Tier/Scope Contract rules.",
       "source_pins": [
         "CA-R-2688",
@@ -510,8 +523,8 @@
         "CA-R-926 Current"
       ],
       "dependencies": [
-        "Allocator reach remains unresolved: direct structural Parent only vs another authorized external allocating Scope Unit; this proposal preserves the distinction.",
-        "CA-R-2526@4 currently requires Project ID cardinality zero; an aligned same-ID/Summary successor is proposed for approved CA-SU-00, coordinated with the CA-R-2524 model successor and the approved CA-R-2640@2 root value."
+        "A receiving non-Project Scope Unit has exactly one direct structural Parent; the Scope Delegation Container resolves to that Parent. Project may allocate child Scope Delegations and receives none.",
+        "CA-R-2526 successor requires one ID on every Scope Unit; CA-R-2524 successor removes the current Project ID-zero conflict."
       ]
     },
     {
@@ -519,11 +532,11 @@
       "atom_id": "CA-R-924",
       "identity_action": "same_id_successor_same_summary_form_reclassification",
       "role": "Requirement",
-      "form": "Declaration",
+      "form": "Requirement",
       "version": "next after 37",
       "summary": "Register Core Relational Atom Classifications",
       "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Form",
-      "source_identity_policy": "Preserve CA-R-924 ID and Summary; move this model definition to the existing Requirement/Declaration family, add Scope Delegation pairs, and retain its Plan Claim-target qualification.",
+      "source_identity_policy": "Preserve CA-R-924 ID and Summary; keep its existing classification constraint as Requirement/Requirement and add Scope Delegation role/form classifications while retaining the Plan Claim-target qualification.",
       "claim": "The allowed qualified relational Atom types include Requirement/Goal, Requirement/Demand, Plan/Plan and each of Requirement/Scope Delegation, Method/Scope Delegation, Evaluation/Scope Delegation, Delivery/Scope Delegation and Operations/Scope Delegation. A Scope Delegation is relational because its external receiving Scope Unit differs from the defining external Container. A Plan is relational only when its actual Claim target differs under the Relational Atom definition, not because it has decomposition, blocking or a particular Label. This addition does not classify local Solutions, Policies, Decisions, Eval Cases, or executable Operations Forms as relational by topic or filename.",
       "formal_whitelist": [
         "Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)",
@@ -546,7 +559,7 @@
         "Confirm Scope Delegation qualifies under the existing Relational Atom definition at integration; this proposal is claim/subject based, not role-name inference.",
         "Do not use former R/Goal whitelist as replacement for one Scope Delegation."
       ],
-      "form_change": "Requirement/Rule -> Requirement/Declaration; preserve ID and Summary, because it remains a model definition/registration."
+      "form_change": "Requirement/Rule -> Requirement/Requirement; preserve CA-R-924 ID and Summary. This is a classification constraint, not a Form declaration."
     },
     {
       "key": "new_scope_authoring_method",
@@ -558,7 +571,7 @@
       "summary": "Author Scope Delegations and internal Scope Unit definitions",
       "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Direct Policy)",
       "source_identity_policy": "New identity because CA-M-461 Summary and Claim are explicitly about authoring Declarations and Scope Contracts; do not silently repurpose them. Replace with a general Method/Direct Policy authoring method, without requiring per-Scope-Unit local adoption Atoms.",
-      "claim": "Author one external Scope Delegation for each non-Project Scope Unit, with the receiving unit as its Main Subject and the authorized external allocating context as Container. Preserve its structural Name, ID, ordering state and direct Parent, and state the actual R, M, E, D or O contribution in that Role. Do not author a separate external Goal to stand in for an engineering, evaluation, delivery or operations contribution. This is common authoring guidance and requires no local adoption Atom. Inside a unit, define its own Tier-0 realization under the separately admitted Tier/Form rules; do not create a Scope Contract or a mandatory Role packet. Keep the Project root declaration, Project Goal and root Axioms distinct. Derived folder names and paths are not per-unit declaration values; direct structural parentage comes from the declared model, not physical nesting.",
+      "claim": "Author one external Scope Delegation for each non-Project Scope Unit, with the receiving unit as its Main Subject and its direct structural Parent as Container and allocator. Preserve its structural Name, ID, ordering state and direct Parent, and state the actual R, M, E, D or O contribution in that Role. Do not author a separate external Goal to stand in for an engineering, evaluation, delivery or operations contribution. This is common authoring guidance and requires no local adoption Atom. Inside a unit, define its own Tier-0 realization under the separately admitted Tier/Form rules; do not create a Scope Contract or a mandatory Role packet. Keep the Project root declaration, Project Goal and root Axioms distinct. Derived folder names and paths are not per-unit declaration values; direct structural parentage comes from the declared model, not physical nesting.",
       "source_pins": [
         "CA-M-461 Current",
         "CA-M-461@3-draft",
@@ -571,7 +584,7 @@
       ],
       "coordination": "Tier/Form classification remains with the tier and shared-forms lanes; this Method does not define those Forms or their Tier constraints.",
       "dependencies": [
-        "Allocator reach remains open: direct structural Parent only vs another authorized external allocating Scope Unit."
+        "A non-Project unit’s direct declared structural Parent is its Scope Delegation allocator."
       ],
       "form_alternatives": [
         "Method/Direct Policy"
@@ -662,7 +675,7 @@
   ],
   "settled_decisions": {
     "one_nonproject_scope_delegation": "exactly one per non-Project Scope Unit",
-    "delegation_admitted_by_default_in_each_scope_unit": "Yes in every containing Scope Unit, including Project, so Project can declare its child Scope Units. Only the receiving unit must be non-Project; Project itself has no incoming Scope Delegation.",
+    "delegation_admitted_by_default_in_each_scope_unit": "Every containing Scope Unit including Project; Project receives no Scope Delegation.",
     "delegator_accountability": "delegator retains full scope/accountability",
     "project_goal_and_axioms": "remain Project-level",
     "project_root_declaration": "retain existing Project-root Requirement/Scope Unit Declaration as root-only exception unless separately changed",
@@ -691,21 +704,42 @@
     "no_scope_contract_or_artificial_goal": true,
     "project_root_declaration_id": "CA-SU-00 (from the adopted root-ID decision and CA-R-2640@2 Draft)",
     "local_requirement_forms": {
-      "Requirement": "local required outcomes and constraints",
-      "Declaration": "existing admitted Declaration families for model definitions",
-      "Rule": "not added as a new-model Form; legacy Rule instances map later"
-    }
-  },
-  "unresolved_decisions": [
-    {
-      "question": "Can only the direct structural Parent allocate a Scope Delegation, or may another authorized external Scope Unit allocate one?",
-      "blast_radius": "Determines allowed Container/allocator authority and source validation. The proposal does not equate allocator with direct structural Parent."
+      "Requirement": "required outcomes and constraints; CA-R-2999@1 Draft proposes the generic Requirement Form",
+      "Declaration": "existing specialized Declaration families for model definitions",
+      "Rule": "not a new-model Form/default; legacy Rule instances map later"
     },
-    {
-      "question": "Which Roles may use shared Solution, Direct Policy and Approach Policy Forms: MEDO or RMEDO?",
-      "blast_radius": "Sets local Role/Form whitelist entries for the shared Solution, Direct Policy and Approach Policy Forms. It does not block the Method/Direct Policy authoring successor because Method is admitted in both candidate Role ranges."
-    }
-  ],
+    "scope_delegation_allocator": "For every non-Project receiving Scope Unit, its external Scope Delegation is contained by the one direct structural Parent declared for that Scope Unit. That direct containing Scope Unit is the allocator; no ancestor or unrelated external unit allocates it.",
+    "shared_form_roles": {
+      "Solution": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery",
+        "Operations"
+      ],
+      "Direct Policy": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery",
+        "Operations"
+      ],
+      "Approach Policy": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery",
+        "Operations"
+      ],
+      "Decision": [
+        "Method",
+        "Evaluation",
+        "Delivery"
+      ]
+    },
+    "allocator": "Only the direct containing Scope Unit may own a receiving unit’s Scope Delegation; non-Project Scope Units have one direct Parent and Project has none."
+  },
+  "unresolved_decisions": [],
   "out_of_scope_and_owners": [
     "R2424/R2707 Tier-0 and Tier.Label changes belong to tiers lane; no Scope Contract synonym/label defined here.",
     "No source-instance migration, Workflow instance edits, code/runtime, folder materialization, or native ID allocation.",
@@ -713,9 +747,9 @@
   ],
   "formalization_gates": [
     {
-      "issue": "Constrain local branch membership by resolved target and containment",
-      "evidence": "CA-R-2618 defines HAS_ACTIVE_SUBJECT as the Atom-to-resolved-model-entity-or-instance Relation and explicitly allows targets beyond Node. CA-R-2486 allows typed selectors and entity/instance endpoint domains; CA-R-2508 declares Atom Container-derived IS_CONTAINED_BY; CA-R-2462 supplies (Node, Node.**) as an existing model selector family; CA-R-2714 defines Main Subject as a scalar string.",
-      "action": "In each concrete Scope Delegation Claim, enumerate allowed typed target selections, require each authorized local Atom’s HAS_ACTIVE_SUBJECT target to belong to that selection, and require its Header.Container-derived IS_CONTAINED_BY target to be the receiving Scope Unit. This avoids text-prefix matching and requires no new operator or stored whitelist property. Treat this as a claim-level constraint, not proof of runtime enforcement."
+      "issue": "Validate claim-level allowed active-subject targets and receiving-unit containment",
+      "evidence": "CA-R-2618 defines HAS_ACTIVE_SUBJECT as the Atom-to-resolved-entity-or-instance Relation and permits targets beyond Node; CA-R-2486 permits typed entity/instance endpoints; CA-R-2508 derives IS_CONTAINED_BY from Header.Container; CA-R-2523 defines direct parent containment and exactly one parent for non-root Scope Units.",
+      "action": "Each Scope Delegation Claim lists typed permitted HAS_ACTIVE_SUBJECT target selections and local Role/Form pairs, requires local atoms to be contained by its receiving unit, and binds its own Container to the receiver’s direct structural Parent. This uses existing model operators/relations; the proposal does not claim runtime enforcement."
     }
   ]
 }

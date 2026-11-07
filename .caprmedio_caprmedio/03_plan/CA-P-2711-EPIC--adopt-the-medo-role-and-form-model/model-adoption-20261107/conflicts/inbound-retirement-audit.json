@@ -1,0 +1,159 @@
+{
+  "search_scope": "Native Current Markdown in immediate role directories under Core Meta Model and Project Configuration; excludes archive, drafts, generated/evidence copies, actual Workflow instances.",
+  "targets": [
+    "CA-R-1767",
+    "CA-R-2123",
+    "CA-R-2424",
+    "CA-R-2684",
+    "CA-R-2688",
+    "CA-R-926",
+    "CA-M-461"
+  ],
+  "matches": [
+    {
+      "id": "CA-R-1669",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL--classify-implementation-methods-by-their-claims.md",
+      "sha256": "145f8fbcc12877231e90479d8323cbf560bde9900eebf48189f0925be9ed27f3",
+      "references": [
+        {
+          "target": "CA-R-1767",
+          "line": 16,
+          "text": "- CA-R-1767",
+          "frozen": false
+        },
+        {
+          "target": "CA-R-1767",
+          "line": 39,
+          "text": "an Implementation Method qualified under CA-R-1767 **must** receive its numeric Tier from its complete Claim and current Scope Unit under CA-M-438; reusability alone **must not** force a particular Tier. Tier admission **must not** impose a Content-Role or Type-to-Tier restriction.",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Amend same Summary or successor if meaning altered: remove retired R1767 qualification and child_of; preserve Tier derived from complete Claim and Scope, reusability does not fix Tier, no Role/Form-to-Tier restriction; bind genuine replacement only if actually supported."
+    },
+    {
+      "id": "CA-R-1671",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-RULE--permit-orphan-implementation-decisions.md",
+      "sha256": "81480c73ce61d97e89967f0aa16e0a98abdecdd9cb55206e0e596732c35fd3a7",
+      "references": [
+        {
+          "target": "CA-R-1767",
+          "line": 14,
+          "text": "- CA-R-1767",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Existing candidate still carries child_of R1767; remove/rebind only to genuinely applicable replacement, retain R037 if valid and preserve independent Decision."
+    },
+    {
+      "id": "CA-R-1672",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-RULE--permit-terminal-implementation-methods.md",
+      "sha256": "f9f6691fff8f492be961578e037c074e84b0c620487deb489b119a4ec7babee2",
+      "references": [
+        {
+          "target": "CA-R-1767",
+          "line": 14,
+          "text": "- CA-R-1767",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Existing candidate still carries child_of R1767; remove/rebind only to genuinely applicable replacement, retain R030 if valid and preserve conditional terminal permission."
+    },
+    {
+      "id": "CA-R-1775",
+      "version": 33,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1775-CORE_META_MODEL-RULE--let-parents-own-immediate-child-goals.md",
+      "sha256": "58f9417a136a327110156c58dca8ac09ef38430f6b4569bae9dedd1aa9704790",
+      "references": [
+        {
+          "target": "CA-R-926",
+          "line": 40,
+          "text": "**every** parent Scope Unit **must** own the Goal Atoms for its immediate child Scope Units under CA-R-926; those Goal Atoms belong **to** the parent's Owned Atoms **and** the child's Targeting Atoms **without** transferring their ownership.",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Retire direct-child Goal ownership rule; new external delegation authority can preserve delegator accountability without silently claiming Goal. Summary identity requires new ID for materially changed rule."
+    },
+    {
+      "id": "CA-R-947",
+      "version": 41,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md",
+      "sha256": "288bc9ede4f004602e31815e6b4620b40914cb1a06bd149e0ee2d45b245a4034",
+      "references": [
+        {
+          "target": "CA-R-926",
+          "line": 19,
+          "text": "- CA-R-926",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Direct conflict beyond metadata: Goal target direct child or Project; Project-only Goal requires revised Project binding, no separate target field. Preserve no independent structural changes. Remove stale unversioned child_of R926 only via supported authority."
+    },
+    {
+      "id": "CA-D-402",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md",
+      "sha256": "de07cf722c270758056e1240b69dfeb7a6b9f388c838b8ce0a2caf6dd717cf59",
+      "references": [
+        {
+          "target": "CA-R-2123",
+          "line": 48,
+          "text": "Release Definition and Environment Definition remain outside PROGRAMMATIC and its declared descendants under CA-R-1665; CA-R-2123 governs the Method and Delivery Type restriction in that scope.",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Amend Delivery Form token and admission references after new Form authority is settled; preserve Delivery filename encoding and other still-admitted specialized Forms, do not invent runtime behavior."
+    },
+    {
+      "id": "CA-D-404",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-404-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "sha256": "09905ee581d523e353aa81c8223b5520098c4718b4b343a60b4a85884027e7e3",
+      "references": [
+        {
+          "target": "CA-R-2123",
+          "line": 41,
+          "text": "Within PROGRAMMATIC and its declared descendants, Current Method and Delivery Atoms use only Eng Policy or Eng Decision under CA-R-2123; legacy Implementation Method and Implementation Decision names are not additional admitted values there. Existing specialized values remain governed by their own definitions outside that scope.",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Existing proposed candidate must remove R2123 reference; check merged preview and applicable serialization authority."
+    },
+    {
+      "id": "CA-R-1668",
+      "version": 35,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1668-PROJECT_CONFIGURATION-DEFINITION--define-implementation-decision-as-a-type-value-for-method-atoms.md",
+      "sha256": "8c5e64c3bd3f80296c86387b135cb051ec970163722962aa2ed2795382f44491",
+      "references": [
+        {
+          "target": "CA-R-1767",
+          "line": 13,
+          "text": "- CA-R-1767",
+          "frozen": false
+        },
+        {
+          "target": "CA-R-2123",
+          "line": 40,
+          "text": "This is the approved Method Eng Decision value under CA-R-2120@8; within PROGRAMMATIC and its declared descendants, admission is governed by CA-R-2123. This Type does not impose a Type-to-Tier restriction. The filename token is a carrier representation under CA-D-404, not a second YAML Type or a Label.",
+          "frozen": false
+        }
+      ],
+      "existing_drafts": [],
+      "disposition": "Retire obsolete Eng Decision Form definition and reference to old R2123/R1767 when Decision Form authority replaces it. Preserve bounded concrete choice and no Form-to-Tier restriction in replacement where applicable; Summary identity requires new ID if changed."
+    }
+  ],
+  "cautions": [
+    "Versioned frozen references, if any, are historical and must not be mechanically rewritten.",
+    "No source mutation or instance/code review; recheck incoming sources and concurrent integrated candidates before promotion.",
+    "Search covers explicit IDs, not exhaustive semantic references without IDs."
+  ]
+}

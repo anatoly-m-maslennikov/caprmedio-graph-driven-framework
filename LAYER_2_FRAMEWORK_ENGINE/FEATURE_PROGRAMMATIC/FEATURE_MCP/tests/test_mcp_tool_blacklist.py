@@ -157,6 +157,8 @@ class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
         async with Client(self.params(), cache=None) as client:
             self.assertEqual([], (await client.list_tools()).tools)
             arguments = {
+                "workbench_ui_probe": {},
+                "workbench_ui_ping": {},
                 "query_run": {"sql": "SELECT 1"},
                 "query_check": {"sql": "SELECT 1"},
                 "query_page": {"query_id": "query", "offset": 0},
@@ -164,8 +166,25 @@ class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
                 "view_save": {"sql": "SELECT 1"},
                 "query_load": {"reference": "q_" + "0" * 32},
                 "query_saved_list": {},
+                "workspace_open": {"session_id": "session"},
+                "workspace_list": {},
+                "workspace_get": {"workspace_id": "workspace"},
+                "view_create": {"workspace_id": "workspace"},
+                "view_duplicate": {"workspace_id": "workspace", "view_id": "view"},
+                "view_list": {"workspace_id": "workspace"},
+                "view_get": {"workspace_id": "workspace", "view_id": "view"},
+                "view_update": {"workspace_id": "workspace", "view_id": "view", "sql": "SELECT 1", "expected_revision": 0},
+                "view_run": {"workspace_id": "workspace", "view_id": "view"},
+                "view_check": {"workspace_id": "workspace", "view_id": "view"},
+                "view_fetch": {"workspace_id": "workspace", "view_id": "view"},
+                "view_focus": {"workspace_id": "workspace", "view_id": "view"},
+                "view_rename": {"workspace_id": "workspace", "view_id": "view", "name": "View"},
+                "view_remove": {"workspace_id": "workspace", "view_id": "view"},
+                "query_log_list": {},
+                "query_log_get": {"log_id": "log"},
                 "workbench_restart": {},
                 "workbench_reread": {},
+                "workbench_status": {},
             }
             for name in blocked:
                 arguments_for_name = (

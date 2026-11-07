@@ -1,96 +1,75 @@
 {
-  "status": "PROPOSED_NOT_ALLOCATED",
-  "scope": "Four generic Form declarations and retirement dispositions for CA-R-1767 and CA-R-2123 only.",
-  "authority": [
-    "model-adoption-20261107/contract.md",
-    "02_analysis/draft/scope-forms-proposal-20261106/proposal-body.md"
-  ],
+  "status": "READY_FOR_FOUR_NEW_FORM_DRAFTS",
+  "scope": "Generic Form declarations for Solution, Direct Policy, Approach Policy and Decision; pinned Requirement Form draft and source-authority retirement dispositions for CA-R-1767 and CA-R-2123 only.",
+  "declaration_carrier": {
+    "role": "Requirement",
+    "form": "Declaration"
+  },
+  "matrix": {
+    "Solution": ["Requirement", "Method", "Evaluation", "Delivery", "Operations"],
+    "Direct Policy": ["Requirement", "Method", "Evaluation", "Delivery", "Operations"],
+    "Approach Policy": ["Requirement", "Method", "Evaluation", "Delivery", "Operations"],
+    "Decision": ["Method", "Evaluation", "Delivery", "Operations"],
+    "excluded_roles": ["Concern", "Analysis", "Plan", "Implementation"],
+    "status": "human_confirmed"
+  },
   "grounded_pattern": {
-    "generic_form_selector": "Atom/(.Header.Form := <Form>)",
-    "active_subject_binder": "Atom/(.Header.Form := <Form>)//$<form>;",
-    "bound_instance_role_whitelist": "$<form>.Header.Role:: [in (<roles>)]{::1};",
-    "declaration_carrier": {
-      "role": "Requirement",
-      "form": "Declaration"
-    },
+    "model_selector": "Each draft body selects its own Form-qualified Atom classifier.",
+    "bound_instance_role_constraint": "Each draft body binds a named instance of that classifier and constrains its exact Role membership.",
     "evidence": [
       {
         "ref_id": "CA-R-2471@7",
-        "summary": "Use distinct graph notation for Node relations",
         "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
         "sha256": "e2bfa90313dd5241729e686c1c46c570cf1960f9751fc82107c765f2d2b3c73e",
-        "use": "Defines generic Form selectors, filtered-value admission and membership syntax."
-      },
-      {
-        "ref_id": "CA-R-2498@6",
-        "summary": "Declare Atom.Content",
-        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
-        "sha256": "433cb32f1c406bd5adfb0baaa1f9fa58561a2a4c8807dbf764a6fdb666ea08fd",
-        "use": "Uses a Role membership constraint in a formal declaration."
-      },
-      {
-        "ref_id": "CA-R-2955@1",
-        "summary": "Declare Relation Declaration as a Requirement Form",
-        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2955-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md",
-        "sha256": "eb8bcefcf2c1443680af58e1863b4b963bc99765eefbfc552afc0f295ff9fb73",
-        "use": "Uses a Requirement/Declaration carrier to admit a Form value and define its shared semantics."
-      },
-      {
-        "ref_id": "CA-R-2468@2",
-        "summary": "Register Declaration as a Requirement Form",
-        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2468-CORE_META_MODEL-RULE--declaration-form-registration.md",
-        "sha256": "f84f52bdb8646000ed6c30b9ea7e370d9773f10a1b5405b39e79b57bb54d93d2",
-        "use": "Existing Requirement Declaration-family registration, retained as a distinct default family."
+        "use": "Generic Form selector and admitted-value grammar."
       },
       {
         "ref_id": "CA-R-2721@2",
-        "summary": "Declare Atom.Content.Claim.Formal Claim",
         "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2721-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-formal-claim.md",
         "sha256": "c63aaa714ba91f3cc4b7e6099e2aa2b67f90c25224036f76fca806ca5c9cb71a",
-        "use": "Uses an admitted membership value constraint with exact property cardinality."
+        "use": "Membership value constraint with exact property cardinality."
       },
       {
         "ref_id": "CA-R-2552@4",
-        "summary": "Bind instance variables",
         "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2552-CORE_META_MODEL-CFEL--bind-instance-variables.md",
         "sha256": "13ef74fa49bc913a342f3a09abf1cd305f1a2f68c80346114d656b28e23b69cf",
-        "use": "Defines named instance binding and the scope of the bound instance."
+        "use": "Named instance binding scope."
       }
     ]
   },
-  "global_role_whitelist_question": {
-    "question": "For each of Solution, Direct Policy, Approach Policy and Decision, is the generic Form whitelist MEDO or RMEDO?",
-    "latest_human_candidate": ["Method", "Evaluation", "Delivery", "Operations"],
-    "earlier_contract_candidate": ["Requirement", "Method", "Evaluation", "Delivery", "Operations"],
-    "constraint": "Whichever candidate is accepted, the generic whitelist excludes Concern, Analysis, Plan and Implementation without creating per-Role semantic declarations.",
-    "status": "one_human_choice_required_before_native_drafting"
+  "requirement_form_existing_draft": {
+    "ref_id": "CA-R-2999@1-draft",
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2999@1-draft-CORE_META_MODEL-DECLARATION--declare-requirement-form.md",
+    "sha256": "f7d455efe9c81502a886c9d8854deda8dd276df99601748300765bccc7b11911",
+    "operation": "reference_existing_draft_do_not_allocate_duplicate",
+    "summary": "Declare Requirement Form",
+    "role_whitelist": ["Requirement"]
   },
-  "root_default_dispositions": {
-    "requirement_default": "Add one generic Requirement Form restricted to Role Requirement.",
-    "declaration_families": "Retain existing Requirement Declaration-family registrations; they are distinct from the new Requirement Form.",
-    "rule": "Rule is not admitted as a prospective default Form. Classify legacy Rule Atoms later; this lane proposes no bulk rewrite or Rule successor."
+  "requirement_requirement_consistency": {
+    "result": "no_contradictory_Current_rule_found",
+    "sources": [
+      {
+        "ref_id": "CA-R-2703@1",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md",
+        "sha256": "43de3380f2ffcbe07fbc81bb05da02ce04e23f6818deaf54200df074aacd775b",
+        "finding": "Atom.Header.Form is exactly one string; it imposes no Form-not-equal-Role constraint."
+      },
+      {
+        "ref_id": "CA-R-2499@5",
+        "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md",
+        "sha256": "569ac5bb4ea713d2b7aa8090ea617c91a40e8acbd5fb6d27efe0cd9ec57675ef",
+        "finding": "Summary is exactly one value and determines identity for Current/Archived Atoms; it adds no Role/Form inequality or placeholder restriction."
+      }
+    ],
+    "coordinated_successor_required": false
   },
   "drafts": [
-    {
-      "key": "form_requirement",
-      "operation": "new_unallocated_generic_form_declaration",
-      "summary": "Declare Requirement Form",
-      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Requirement)",
-      "formal_claim": ["Atom/(.Header.Form := Requirement)//$requirement;", "$requirement.Header.Role:: [in (Requirement)]{::1};"],
-      "claim": "Declare Requirement as the generic Form for a required outcome, behavior, property or constraint.",
-      "semantics": "Requirement is a Form restricted to the Requirement Role. It is distinct from the existing Declaration families, which retain their own contracts.",
-      "tier": "No fixed or mandatory Tier.",
-      "current_replacement_refs": []
-    },
     {
       "key": "form_solution",
       "operation": "new_unallocated_generic_form_declaration",
       "summary": "Declare Solution Form",
       "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Solution)",
-      "formal_claim": ["Atom/(.Header.Form := Solution)//$solution;", "$solution.Header.Role:: [in (<approved roles>)]{::1};"],
-      "claim": "Declare Solution as a Form for the current Scope Unit, including its descendants.",
-      "semantics": "A Solution states how the current Scope Unit fulfills its responsibility, including its descendants. It is not merely an allocation to children.",
-      "tier": "No fixed or mandatory Tier.",
+      "body": "## Summary\n\nDeclare Solution Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Solution);\n\n# instances\nAtom/(.Header.Form := Solution)//$solution.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nA Solution states how the current Scope Unit fulfills its responsibility, including its descendants. It is not merely an allocation to children.\n",
       "current_replacement_refs": []
     },
     {
@@ -98,10 +77,7 @@
       "operation": "new_unallocated_generic_form_declaration",
       "summary": "Declare Direct Policy Form",
       "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Direct Policy)",
-      "formal_claim": ["Atom/(.Header.Form := Direct Policy)//$direct_policy;", "$direct_policy.Header.Role:: [in (<approved roles>)]{::1};"],
-      "claim": "Declare Direct Policy as a Form whose rule applies directly throughout the descendant subtree.",
-      "semantics": "A Direct Policy applies to all descendants recursively without a local copy. A genuine SPECIALIZES Atom may add applicable detail while preserving parent constraints.",
-      "tier": "No fixed or mandatory Tier.",
+      "body": "## Summary\n\nDeclare Direct Policy Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Direct Policy);\n\n# instances\nAtom/(.Header.Form := Direct Policy)//$direct_policy.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nA Direct Policy applies to all descendants recursively without a local copy. A genuine SPECIALIZES Atom may add applicable detail while preserving parent constraints.\n",
       "current_replacement_refs": ["CA-R-1767@35", "CA-R-2123@9"]
     },
     {
@@ -109,10 +85,7 @@
       "operation": "new_unallocated_generic_form_declaration",
       "summary": "Declare Approach Policy Form",
       "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Approach Policy)",
-      "formal_claim": ["Atom/(.Header.Form := Approach Policy)//$approach_policy;", "$approach_policy.Header.Role:: [in (<approved roles>)]{::1};"],
-      "claim": "Declare Approach Policy as a Form for a stated case and its prescribed approach.",
-      "semantics": "An Approach Policy is conditional on its stated case. At every descendant where that case applies, a local Atom must bind the Policy to the actual case through SPECIALIZES. A reference alone is insufficient; the binding preserves parent constraints.",
-      "tier": "No fixed or mandatory Tier.",
+      "body": "## Summary\n\nDeclare Approach Policy Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Approach Policy);\n\n# instances\nAtom/(.Header.Form := Approach Policy)//$approach_policy.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nAn Approach Policy is conditional on its stated case. At every descendant where that case applies, a local Atom must bind the Policy to the actual case through SPECIALIZES. A reference alone is insufficient; the binding preserves parent constraints.\n",
       "current_replacement_refs": ["CA-R-1767@35", "CA-R-2123@9"]
     },
     {
@@ -120,10 +93,7 @@
       "operation": "new_unallocated_generic_form_declaration",
       "summary": "Declare Decision Form",
       "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Decision)",
-      "formal_claim": ["Atom/(.Header.Form := Decision)//$decision;", "$decision.Header.Role:: [in (<approved roles>)]{::1};"],
-      "claim": "Declare Decision as a Form for a particular local choice within its Scope Unit.",
-      "semantics": "A Decision records a particular local choice. Applicable governing constraints continue to apply.",
-      "tier": "No fixed or mandatory Tier.",
+      "body": "## Summary\n\nDeclare Decision Form\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Form := Decision);\n\n# instances\nAtom/(.Header.Form := Decision)//$decision.Header.Role:: [in (Method, Evaluation, Delivery, Operations)]{::1}\n```\n\n## Semantics\n\nA Decision records a particular local choice. Applicable governing constraints continue to apply.\n",
       "current_replacement_refs": ["CA-R-1767@35", "CA-R-2123@9"]
     }
   ],
@@ -135,7 +105,7 @@
       "sha256": "a8310550d194a336777b46d9561be9bb0e7d01516c86ba7282d4b822e5e4212b",
       "operation": "retire_current_with_split_successors",
       "successor_keys": ["form_direct_policy", "form_approach_policy", "form_decision"],
-      "reason": "The Current Eng Policy/Eng Decision and Delivery Policy/Decision labels conflate generic Form admission with legacy implementation Type terminology. The three generic Form declarations replace that governing source directly; no instance migration is required for this authority disposition.",
+      "successor_relation": "generic Form declarations replace the Current source authority directly; no instance conversion is a prerequisite to retirement.",
       "identity": "Do not mutate CA-R-1767 in place because its Summary and governing Claim change materially."
     },
     {
@@ -145,22 +115,27 @@
       "sha256": "60fa1df8ef33ec019e9c705dd9936e0d7b46694730d17459c20ad87696bc1fe1",
       "operation": "retire_current_with_generic_successors",
       "successor_keys": ["form_solution", "form_direct_policy", "form_approach_policy", "form_decision"],
-      "reason": "The Current PROGRAMMATIC-specific Type whitelist conflicts with generic Form admission. The four generic Form declarations replace that governing source directly; no scope-specific Policy/Decision gate remains.",
+      "successor_relation": "generic Form declarations replace the PROGRAMMATIC-specific legacy Type gate directly; no scope-specific Policy/Decision gate remains.",
       "identity": "Do not mutate CA-R-2123 in place because its Summary and governing Claim change materially."
     }
   ],
-  "allocation_after_question": {
-    "new_ids_required": 5,
-    "new_id_keys": ["form_requirement", "form_solution", "form_direct_policy", "form_approach_policy", "form_decision"],
+  "allocation": {
+    "new_ids_required": 4,
+    "new_id_keys": ["form_solution", "form_direct_policy", "form_approach_policy", "form_decision"],
+    "existing_id_reused": "CA-R-2999@1-draft",
     "no_role_specific_admission_ids": true
   },
-  "new_keys": ["form_requirement", "form_solution", "form_direct_policy", "form_approach_policy", "form_decision"],
+  "default_model_dispositions": {
+    "Requirement": "Use existing CA-R-2999@1-draft.",
+    "Declaration_families": "Retain existing contracts.",
+    "Rule": "Not a prospective default Form; legacy Rule Atom classification is later work.",
+    "Scope_Delegation": "Common default; exact declaration is owned by the scope lane."
+  },
   "not_proposed": [
-    "Scope Delegation syntax or source changes.",
-    "An unsupported exclusion of Operations Policy or Decision.",
-    "Rule as a prospective default Form or a bulk legacy Rule rewrite.",
+    "A duplicate Requirement Form Draft.",
     "Any fixed Tier.",
     "C/A/P/I Form admission.",
+    "Scope Delegation syntax or source changes.",
     "Native source edits, ID allocation, promotion, implementation or instance migration."
   ]
 }

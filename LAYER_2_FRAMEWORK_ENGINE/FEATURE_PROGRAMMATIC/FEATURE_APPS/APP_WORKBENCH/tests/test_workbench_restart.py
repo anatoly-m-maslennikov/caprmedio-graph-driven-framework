@@ -114,6 +114,7 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
             self.root,
             implementation=self.provider,
             selection=startup_selection(self.root),
+            hot_reload=True,
         )
         extension_directory = REPOSITORY / ".caprmedio_tmp" / "workbench" / "extensions"
         self.app.gateway.workbench = _ConfiguredWorkbenchTools(self.root, extension_directory)

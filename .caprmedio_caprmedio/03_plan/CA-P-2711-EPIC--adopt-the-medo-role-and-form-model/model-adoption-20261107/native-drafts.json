@@ -1,0 +1,98 @@
+{
+  "status": "PARTIAL_MODEL_DRAFT_SET",
+  "scope": "Fixed, independently reviewable model pieces; pending Scope/Form choices are not silently selected",
+  "drafts": [
+    {
+      "key": "form_requirement",
+      "atom_id": "CA-R-2999",
+      "ref_id": "CA-R-2999@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2999@1-draft-CORE_META_MODEL-DECLARATION--declare-requirement-form.md",
+      "new_identity": true,
+      "summary": "Declare Requirement Form",
+      "role": "Requirement",
+      "form": "Declaration",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Requirement)",
+      "retires": [],
+      "sha256": "f7d455efe9c81502a886c9d8854deda8dd276df99601748300765bccc7b11911"
+    },
+    {
+      "key": "tier_zero",
+      "atom_id": "CA-R-3000",
+      "ref_id": "CA-R-3000@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3000@1-draft-CORE_META_MODEL-REQUIREMENT--define-tier-zero-within-a-scope-unit.md",
+      "new_identity": true,
+      "summary": "Define Tier Zero within a Scope Unit",
+      "role": "Requirement",
+      "form": "Requirement",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Tier",
+      "retires": [
+        "CA-R-2424"
+      ],
+      "sha256": "68264586b6a0cd0f81029d3fea56a6ce237e82084f28a1d66e95d36a5ac5cfb9"
+    },
+    {
+      "key": "contributes_to",
+      "atom_id": "CA-R-3001",
+      "ref_id": "CA-R-3001@1-draft",
+      "version": 1,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3001@1-draft-CORE_META_MODEL-DECLARATION--declare-contributes-to.md",
+      "new_identity": true,
+      "summary": "Declare CONTRIBUTES_TO",
+      "role": "Requirement",
+      "form": "Declaration",
+      "main_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTRIBUTES_TO",
+      "retires": [],
+      "sha256": "e172bcce207f59fb36c378d4bfce141844845b673be8122872dc6e1bf2f27f15"
+    },
+    {
+      "key": "tier-label-remove-old-zero-name",
+      "atom_id": "CA-R-2707",
+      "ref_id": "CA-R-2707@3-draft",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2707@3-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "new_identity": false,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "current_sha256": "27f77647f9c272e506e2234d738bf1139e7885204acb46f1793b4668c5980178",
+      "summary": "Declare Atom.Header.Tier.Label",
+      "role": "Requirement",
+      "form": "Declaration",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label",
+      "sha256": "3cc6518bc3f69dd5ba6197250fcf5209e30875463541dc6c55ba512bf80e87d9"
+    },
+    {
+      "key": "evaluation-tier-zero-role",
+      "atom_id": "CA-E-661",
+      "ref_id": "CA-E-661@6-draft",
+      "version": 6,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-661@6-draft-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+      "new_identity": false,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+      "current_sha256": "4e83282c70139bfd20768ca68929129886855d0575ea163591db4054cbf5ca4c",
+      "summary": "Validate Tier Zero Content-role semantics",
+      "role": "Evaluation",
+      "form": "Eval Policy",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Role",
+      "sha256": "be585cafbf85dfb088a78197f708689da1812a31bed0af203bbd557fa89fa5ef"
+    },
+    {
+      "key": "atom_contribution_permission",
+      "atom_id": "CA-R-2508",
+      "ref_id": "CA-R-2508@9-draft",
+      "version": 9,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@9-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "new_identity": false,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "current_sha256": "0d30d5a01af09777d7cc465b66e15997783f41298d3e85376fa458897031a666",
+      "summary": "Declare Atom",
+      "role": "Requirement",
+      "form": "Declaration",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom",
+      "sha256": "8786924776aa13516d7535b9efe4d354bc98c615c6110c944d4b6d82efc2d569"
+    }
+  ],
+  "current_sources_changed": false,
+  "promotion_performed": false,
+  "identity_allocation": "Ordinary source sequence excludes retained WORKBENCH_BURST_500 probe fixtures from the sequence anchor; all IDs, including fixture IDs, were retained in collision checks. Fresh unpromoted Draft IDs were corrected before review."
+}

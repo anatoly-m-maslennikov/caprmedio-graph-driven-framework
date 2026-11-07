@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 63
-updated_at: 2026-11-07 14:22:31 +0400
+version: 65
+updated_at: 2026-11-07 14:45:42 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -24,7 +24,15 @@ Make Workbench queries paged and the frontend modular
 
 ## Objective
 
-Improve Workbench queries, Views and the read-only result grid according to the reviewed RMEDO.
+Complete and verify the runtime improvements:
+
+- Less latency.
+- More throughput.
+- Less RAM and CPU during cold startup, peak load and background work.
+- Less boilerplate through the shared MCP and Workbench backend API.
+- Better architecture.
+
+Latency and throughput are already substantially complete and remain regression constraints. The existing performance limits must not be weakened for the resource or architecture work.
 
 ## Scope
 
@@ -404,7 +412,26 @@ Evidence and limits: [runtime optimization report](CA-P-2710-EPIC--make-workbenc
 - [ ] Run the scoped release gate and deploy the accepted runtime changes.
 - [ ] Verify code-owned tool registration, discovery and shared MCP/web behavior in the installed runtime.
 - [ ] Run the real-project lifecycle canary and record visibility, rebuild and cleanup results.
-- [ ] Recheck the native Codex UI acceptance boundary and record the remaining action.
+- [x] Recheck the native Codex UI acceptance boundary and record the remaining action.
+
+The Operator deferred actual native Codex UI acceptance on 7 November 2026. C705 remains unresolved and explicitly deferred; no browser substitute or full native-host acceptance is claimed.
 - [ ] Reconcile the current Epic status with the verified release evidence.
 
 The baseline is commit `8a74633801`. Root owns release, live mutations and Git. Independent read-only lanes prepare parent Workbench canary acceptance and CODEX_EXTENSION UI acceptance; each lane has one Scope Unit. Performance experiments stay deferred unless a measured regression requires work.
+
+
+## Native UI deferral — 7 November 2026
+
+Actual Codex Workbench rendering and C705 acceptance are deferred by the Operator. The runtime release and live-project canary continue independently. Earlier open native-presentation tasks remain historical requirements, now held rather than a release blocker.
+
+
+## Final objective acceptance
+
+- [x] Verify latency and throughput against the unchanged performance gates.
+- [x] Implement and review the shared-backend and code-owned registration changes.
+- [ ] Review and adopt the final resource Evaluation update.
+- [ ] Verify cold, peak and background resource use without a profiler.
+- [ ] Complete the local release and live-project canary.
+- [ ] Review the five objectives against the evidence and close this Epic.
+
+Source: CA-E-677@21. Native UI acceptance C705 and optional unselected experiments are deferred follow-up work, not additional objectives of this completion pass.

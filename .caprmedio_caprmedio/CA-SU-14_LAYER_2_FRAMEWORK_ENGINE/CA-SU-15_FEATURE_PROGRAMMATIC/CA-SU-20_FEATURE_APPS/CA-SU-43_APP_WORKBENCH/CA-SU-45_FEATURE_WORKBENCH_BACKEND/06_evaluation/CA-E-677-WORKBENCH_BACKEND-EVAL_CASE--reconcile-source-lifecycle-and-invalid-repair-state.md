@@ -17,8 +17,8 @@ relations:
   - CA-D-672
   - CA-D-675
 status: Active
-version: 20
-updated_at: 2026-11-07 13:28:43 +0400
+version: 21
+updated_at: 2026-11-07 14:45:42 +0400
 carrier_destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -52,6 +52,8 @@ An unchanged or non-source watcher batch must skip graph, hash and database work
 
 Verify that full reread, Scope Unit changes and Content-schema changes still rebuild correctly. A failed database write must not publish a new reused state. Ordinary deltas must not reparse unchanged Relation registry sources. Parse changed registry contributions at most once; a full capture may compile its inventory once, including a schema-triggered recapture. Existing stateless materialization callers must retain their behavior.
 
+
+Compare unprofiled CPU and RAM on the same frozen source inventory and resource budget. Report cold startup through the first verified index, peak load during a full reread, and an idle background window separately. Record cumulative CPU time, elapsed time, sampled CPU usage, memory accounting and peak memory, image IDs and indexed row counts. Keep container CPU, process RSS/PSS and Docker working-set measurements distinct. Report sampling limits and normal run-to-run variation. RAM, CPU and architecture changes must preserve the existing latency and throughput gates; do not relax their limits to accept a resource saving. Investigate a repeatable slowdown on the same workload before adoption.
 
 ## Details
 

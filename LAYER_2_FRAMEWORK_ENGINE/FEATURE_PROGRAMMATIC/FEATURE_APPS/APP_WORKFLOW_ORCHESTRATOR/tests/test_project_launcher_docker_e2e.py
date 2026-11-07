@@ -154,6 +154,9 @@ def _launch(fixture, token, source_root, image, *, deadline, port=None, command_
     if command_receipt is not None:
         command_receipt["argv"] = command.copy()
     environment = dict(os.environ)
+    # This fixture explicitly exercises the reload tools; production Compose
+    # remains default-off and other tests do not inherit this opt-in.
+    environment["CAPRMEDIO_HOT_RELOAD"] = "1"
     command_timeout = min(90 if image is not None else 690, remaining - 5)
     response = subprocess.run(command, env=environment, capture_output=True, text=True,
                               timeout=command_timeout, check=False)
@@ -410,10 +413,11 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
                     "request": {"id": fixtures[1 - index].atom_id}})
                 assert foreign.is_error, foreign
                 reads.append(read)
-                assert "create_atom" not in names, "unconfigured selected route was unexpectedly admitted"
+                assert "create_atom" in names, "configured selected route was not registered"
                 refusal_before = [item.snapshot() for item in fixtures]
                 refused = await session.call_tool("create_atom", {"request": {"operation_route": "create_atom", "request_id": "unconfigured"}})
-                assert refused.is_error, refused
+                refusal = _structured_tool_result(refused)
+                assert refusal["disposition"] == "failed" and refusal["request_id"] == "unconfigured", refusal
                 assert [item.snapshot() for item in fixtures] == refusal_before, "unconfigured route changed authority or Journal"
             request_id = str(uuid.uuid4())
             receipt_paths = [resolve_project(item.root, item.control).reload_state / f"{request_id}.json" for item in fixtures]
@@ -510,6 +514,7 @@ class ProjectLauncherFixtureTests(unittest.TestCase):
         self.assertNotIn("--port", receipt["argv"])
         self.assertGreater(run.call_args.kwargs["timeout"], 600)
         self.assertLessEqual(run.call_args.kwargs["timeout"], 690)
+        self.assertEqual("1", run.call_args.kwargs["env"]["CAPRMEDIO_HOT_RELOAD"])
 
     def test_absent_cleanup_has_one_scoped_receipt(self):
         import project_mcp_backend

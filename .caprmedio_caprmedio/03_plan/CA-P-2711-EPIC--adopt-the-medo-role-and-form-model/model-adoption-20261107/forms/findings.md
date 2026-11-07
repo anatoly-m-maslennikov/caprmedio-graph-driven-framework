@@ -1,55 +1,36 @@
-# Form proposal findings
+# Final Form proposal packet
 
-## Smallest grounded declaration pattern
+## Form matrix
 
-Use exactly one Requirement/Declaration Atom for each Form: Requirement, Solution, Direct Policy, Approach Policy and Decision. Its Main Subject is the generic classifier `Atom/(.Header.Form := <Form>)`, not a Role/Form pair.
+| Form | Admitted Roles |
+| --- | --- |
+| Requirement | Requirement only; existing CA-R-2999@1-draft |
+| Solution | Requirement, Method, Evaluation, Delivery, Operations |
+| Direct Policy | Requirement, Method, Evaluation, Delivery, Operations |
+| Approach Policy | Requirement, Method, Evaluation, Delivery, Operations |
+| Decision | Method, Evaluation, Delivery, Operations |
 
-Its Formal Claim admits the Form value and restricts instances to one approved Role whitelist:
+Concern, Analysis, Plan and Implementation are excluded from all five Form declarations.
 
-```CFEL
-Atom/(.Header.Form := <Form>)//$form;
-$form.Header.Role:: [in (<approved roles>)]{::1};
-```
+Each common Form is one generic Requirement/Declaration Atom. Its active Subject is its Form-qualified Atom classifier. Its instance Role constraint is bound to that same classifier; there is no global `Atom.Header.Form` assertion and no per-Role admission boilerplate.
 
-This is grounded in the live generic Form selector, membership constraint and Form-value declaration patterns. It needs five Form declarations, not five semantic owners plus per-Role admission nodes. A Role-specific filter remains a selection/intersection of the generic classifier.
+## Exact new bodies
 
-Requirement is a generic Form restricted to Role Requirement:
+The four exact proposal bodies are the `body` values in `drafts.json`. They use named instance bindings and resolved Role lists; there are no placeholders.
 
-```CFEL
-Atom/(.Header.Form := Requirement)//$requirement;
-$requirement.Header.Role:: [in (Requirement)]{::1};
-```
+## Requirement/Requirement check
 
-No live owner of that generic Form was found. Existing Requirement Declaration-family registrations remain distinct and unchanged.
+CA-R-2703@1 makes `Atom.Header.Form` one string and has no Form-not-equal-Role constraint. CA-R-2499@5 adds no Role/Form or placeholder restriction. No coordinated successor is needed. CA-R-2999@1-draft is already the sole Requirement Form proposal and is hash-pinned in `drafts.json`.
 
-## One human matrix choice
+## Current authority dispositions
 
-The exact same whitelist must govern all four Forms. The latest human direction is MEDO; the earlier contract/A1328 direction is RMEDO. Confirm one:
-
-- MEDO: Method, Evaluation, Delivery, Operations.
-- RMEDO: Requirement, Method, Evaluation, Delivery, Operations.
-
-Both alternatives exclude Concern, Analysis, Plan and Implementation. Operations is not excluded merely because executable Workflow, Step and Action Forms remain distinct.
-
-## Form semantics
-
-- Requirement: a required outcome, behavior, property or constraint; admitted only to Requirement.
-- Solution: how the current Scope Unit fulfills its responsibility, including descendants.
-- Direct Policy: applies recursively to descendants without a local copy; SPECIALIZES can add detail without weakening parent constraints.
-- Approach Policy: applies to a stated case and requires a local SPECIALIZES binding where that case applies.
-- Decision: a particular local choice governed by applicable constraints.
-
-None has a fixed or mandatory Tier.
-
-Rule is dropped from the prospective default model. That does not rewrite or retire legacy Rule Atoms; their later classification is outside this lane.
-
-## Exact Current dispositions
-
-| Current source | Disposition | Form successors |
+| Current source | Disposition | Successors |
 | --- | --- | --- |
-| CA-R-1767@35 — Distinguish Implementation Methods from Implementation Decisions | Retire; do not mutate the materially changed Summary/Claim in place | Direct Policy, Approach Policy, Decision |
-| CA-R-2123@9 — Limit PROGRAMMATIC Method and Delivery Types | Retire; remove the scope-specific legacy Type gate | Solution, Direct Policy, Approach Policy, Decision |
+| CA-R-1767@35 — Distinguish Implementation Methods from Implementation Decisions | Retire; its materially changed Summary/Claim must not be mutated in place | Direct Policy, Approach Policy, Decision |
+| CA-R-2123@9 — Limit PROGRAMMATIC Method and Delivery Types | Retire; remove the PROGRAMMATIC-specific legacy Type gate | Solution, Direct Policy, Approach Policy, Decision |
 
-The generic Form declarations replace those two governing sources directly. Classifying individual legacy instances is later work; it is not a condition for retiring these source authorities.
+The listed generic Form declarations replace those Current governing sources directly. Individual legacy-instance classification is later work, not a prerequisite for the two source-authority retirements.
 
-Exact paths and SHA-256 pins are in `drafts.json`. Scope Delegation, Tier sources and other legacy-source preservation remain outside this lane.
+## Defaults and boundaries
+
+Requirement and existing Declaration families are defaults. Rule is not a prospective default Form; legacy Rule Atoms map later. Scope Delegation is a common default, with exact declaration work owned by the scope lane.

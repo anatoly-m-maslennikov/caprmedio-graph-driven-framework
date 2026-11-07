@@ -161,6 +161,10 @@ class ProjectMcpBackend:
             "CAPRMEDIO_RUNTIME_FINGERPRINT": fingerprint,
             "CAPRMEDIO_MCP_HTTP_PORT": str(port),
         }
+        # Forward only the explicit opt-in to the Compose service. The
+        # launcher/client environment remains sanitized and default-off.
+        if os.environ.get("CAPRMEDIO_HOT_RELOAD") == "1":
+            environment["CAPRMEDIO_HOT_RELOAD"] = "1"
         for name in _DOCKER_CLIENT_ENV:
             if name in os.environ:
                 environment[name] = os.environ[name]

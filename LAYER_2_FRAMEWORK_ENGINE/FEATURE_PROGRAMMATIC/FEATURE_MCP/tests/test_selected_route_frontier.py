@@ -34,16 +34,16 @@ class SelectedRouteFrontierTests(unittest.IsolatedAsyncioTestCase):
         self.addCleanup(temporary.cleanup)
         self.fixture = build_interactive_mcp_fixture(Path(temporary.name))
 
-    async def _registered_names(self) -> set[str]:
+    async def _registered_names(self, route_names=None) -> set[str]:
         server = MCPServer("selected-frontier-test")
-        register_selected_routes(server, self.fixture.root)
+        register_selected_routes(server, self.fixture.root, route_names=route_names)
         return {tool.name for tool in await server.list_tools()}
 
     async def test_eleven_route_selection_does_not_publish_optional_move(self) -> None:
         routes = tuple(row["route"] for row in self.fixture.manifest["routes"])
         self.assertEqual(SELECTED_ROUTE_NAMES, routes)
         self.assertEqual(11, len(routes))
-        names = await self._registered_names()
+        names = await self._registered_names(routes)
         self.assertTrue(set(routes) <= names)
         self.assertNotIn("move_atom", names)
 
@@ -57,7 +57,7 @@ class SelectedRouteFrontierTests(unittest.IsolatedAsyncioTestCase):
         names = tuple(row["route"] for row in validated["routes"])
         self.assertEqual(ADMITTED_SELECTED_ROUTE_NAMES, names)
         self.assertEqual(12, len(names))
-        self.assertIn("move_atom", await self._registered_names())
+        self.assertIn("move_atom", await self._registered_names(names))
 
 
 if __name__ == "__main__":

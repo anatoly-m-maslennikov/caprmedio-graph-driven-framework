@@ -43,7 +43,9 @@ class FixtureCapabilityTests(unittest.IsolatedAsyncioTestCase):
                     names = {tool.name for tool in await server.list_tools()}
                     gateway_names = names | {CONTROL.name, STATUS.name}
                     self.assertLessEqual(launcher.LAUNCHER_REQUIRED_TOOLS, gateway_names)
-                    self.assertNotIn("create_atom", names)
+                    # Route registration comes from installed code/config;
+                    # source admission still rejects an unconfigured request.
+                    self.assertIn("create_atom", names)
                     result = await server.call_tool(
                         "get_execution_context", {"request": {"id": fixture.atom_id}}
                     )
@@ -57,19 +59,21 @@ class FixtureCapabilityTests(unittest.IsolatedAsyncioTestCase):
                             "get_execution_context",
                             {"request": {"id": fixtures[1 - index].atom_id}},
                         )
-                    with self.assertRaises(ToolError):
-                        await server.call_tool(
-                            "create_atom",
-                            {
-                                "request": {
-                                    "operation_route": "create_atom",
-                                    "request_id": "unconfigured",
-                                }
-                            },
-                        )
+                    result = await server.call_tool(
+                        "create_atom",
+                        {
+                            "request": {
+                                "operation_route": "create_atom",
+                                "request_id": "unconfigured",
+                            }
+                        },
+                    )
+                    refusal = launcher._structured_tool_result(result)
+                    self.assertEqual("failed", refusal["disposition"])
+                    self.assertEqual("unconfigured", refusal["request_id"])
             self.assertEqual(before, [fixture.snapshot() for fixture in fixtures])
 
-    async def test_missing_context_declaration_does_not_register_the_tool(self) -> None:
+    async def test_missing_context_declaration_keeps_registration_but_refuses_execution(self) -> None:
         with fixture_pair() as fixtures:
             fixture = fixtures[0]
             declaration = next(
@@ -77,8 +81,11 @@ class FixtureCapabilityTests(unittest.IsolatedAsyncioTestCase):
             )
             declaration.unlink()
             with launcher.bind_selection(launcher.resolve_project(fixture.root, fixture.control)):
-                names = {tool.name for tool in await create_server(fixture.root).list_tools()}
-            self.assertNotIn("get_execution_context", names)
+                server = create_server(fixture.root)
+                names = {tool.name for tool in await server.list_tools()}
+                self.assertIn("get_execution_context", names)
+                with self.assertRaises(ToolError):
+                    await server.call_tool("get_execution_context", {"request": {"id": fixture.atom_id}})
 
     def test_collision_inspection_refuses_foreign_project_identity(self) -> None:
         with fixture_pair() as fixtures:
