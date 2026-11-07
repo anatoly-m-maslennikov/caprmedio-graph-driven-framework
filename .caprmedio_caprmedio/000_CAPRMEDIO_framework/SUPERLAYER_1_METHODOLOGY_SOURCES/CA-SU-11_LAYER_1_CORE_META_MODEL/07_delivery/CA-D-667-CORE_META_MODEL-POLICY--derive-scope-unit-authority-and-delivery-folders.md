@@ -13,9 +13,16 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit.order.number
 tier: 1
 status: Active
-version: 2
-updated_at: 2026-11-03 23:25:51 +0400
+version: 4
+updated_at: "2026-11-07 15:28:42 +0400"
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-D-667-CORE_META_MODEL-POLICY--derive-scope-unit-authority-and-delivery-folders.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 ---
+
 ## Summary
 
 Derive Authority and Delivery Folder Names
@@ -36,6 +43,6 @@ For a non-root Scope Unit, derive the folder names from its ID, Label, order.num
 
 `<id>` is the stable Scope Unit ID. `<order>` is `order.number`. For an Unordered unit, omit the order segment and its separator. When Label is absent, omit its segment and separator.
 
-Place each non-root folder under its respective parent's folder. Do not maintain the derived folder paths as independent values in Scope Unit Declarations.
+Place each non-root folder under its respective parent's folder. Do not maintain the derived folder paths as independent values in the Project Scope Unit Declaration or non-Project Scope Delegations.
 
 Derived paths are readability and placement values, not another structural source. Conflicting derivations remain unresolved and are reported; do not automatically choose a new Name, parent, number or binding. Do not author Structural Level or Structural Coordinate.

@@ -7,13 +7,19 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
 tier: 3
 status: Active
-version: 3
-updated_at: 2026-11-02 19:17:40 +0400
+version: 6
+updated_at: "2026-11-07 15:18:44 +0400"
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md
   source_atom_id: CA-R-2524
-  source_atom_revision: 3
-  source_sha256: 830d18dc04b38cafa52e60f7a97e935a5c93d5c5c80cc8d78d575e27dba6a738
+  source_atom_revision: 6
+  source_sha256: c5eb25e47632181090ffab8395523cbe498366ae59185a1efa1496db147de976
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -25,9 +31,7 @@ Declare Project
 
 ### Prose Claim
 
-
 A Project uses CAPRMEDIO's MODEL.
-
 
 ### Formal Claim
 
@@ -46,11 +50,9 @@ Project//$project {::0}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
 
 Project//$project_2.order.ordered == false;
 
-Project//$project_3.order.number:: []{::0};
-
-Project//$project_4.ID:: []{::0}
+Project//$project_3.order.number:: []{::0}
 ```
 
 ## Semantics
 
-A Project is the root Scope Unit. The Project is not renamed or moved through Scope Unit operations. It has no Scope Unit ID. The shared model makes it Unordered with no order.number; individual Project Declarations inherit these facts.
+A Project is the root Scope Unit. It is not renamed or moved through Scope Unit operations. Its one stable Scope Unit ID is governed by CA-R-2526. The shared model makes Project unordered with no order.number; individual Project Declarations inherit these facts.

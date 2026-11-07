@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-04 05:21:15 +0400
+version: 4
+updated_at: "2026-11-07 17:10:31 +0400"
 carrier_destination:
   file:
     name: CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md
@@ -20,10 +20,11 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md
   source_atom_id: CA-R-2722
-  source_atom_revision: 2
-  source_sha256: 79d8caf754609c1831f83f7d2f60ae7e12ed5e1b14942cfcd91454097748b5e8
+  source_atom_revision: 4
+  source_sha256: 39e5e6b469828628220882bba13884f91836bbf58656265ff71f70803c86ccda
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
+
 ## Summary
 
 Declare Atom.Content.Claim.Prose Claim
@@ -32,7 +33,7 @@ Declare Atom.Content.Claim.Prose Claim
 
 ### Prose Claim
 
-Prose Claim is a child Property of an ordinary RMED Claim. Its value is ordinary Markdown; headings within that value are not Properties unless an applicable declaration admits them.
+Prose Claim is a child Property of Claim. Its value is ordinary Markdown; headings within that value are not Properties unless an applicable declaration admits them.
 ### Formal Claim
 
 ```CFEL
@@ -41,4 +42,3 @@ Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::0..1};
 
 Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{::0}
 ```
-

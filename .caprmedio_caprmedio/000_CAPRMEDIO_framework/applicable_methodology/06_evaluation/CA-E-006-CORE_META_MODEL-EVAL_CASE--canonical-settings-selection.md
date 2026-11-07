@@ -10,22 +10,29 @@ topics:
   - Entity/Object/Continuant/Governing Objects/Governing Configuration
 tier: 7
 status: Active
-version: 40
-updated_at: 2026-11-02 20:07:03 +0400
+version: 42
+updated_at: "2026-11-07 15:28:42 +0400"
+container:
+  scope_unit: CA-SU-11
+carrier_destination:
+  file:
+    name: CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-006-CORE_META_MODEL-EVAL_CASE--canonical-settings-selection.md
   source_atom_id: CA-E-006
-  source_atom_revision: 40
-  source_sha256: 1281a44cd3bcd5546702f6dbadef3026b6abda5f5941e6ec08c4c717338c2608
+  source_atom_revision: 42
+  source_sha256: e09e184336f97a11af1634e13238b38c2ff4026fc2c0aa7c39cd8d28be74543b
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
+
 ## Summary
 
 Canonical Settings Selection
 
 ## Claim
 
-Framework Instance Settings and Project Settings accept exactly their registered values, resolve deterministically, and fail closed on invalid or unknown selections. Scope Unit Declarations own current Scope Unit structure without duplicating Settings selections or requiring a structural Projection.
+Framework Instance Settings and Project Settings accept exactly their registered values, resolve deterministically, and fail closed on invalid or unknown selections. The Project Scope Unit Declaration and non-Project Scope Delegations own their respective current Scope Unit structure without duplicating Settings selections or requiring a structural Projection.
 
 ### Applicable conditions
 
@@ -35,7 +42,7 @@ Framework Instance Settings and Project Settings accept exactly their registered
 4. Accept only `silent` or `verbose` interaction reporting, and confirm that its effective default follows Framework Instance Settings without changing source Atoms or using Project Settings as reporting authority.
 5. Validate initialization inputs against Project Settings field authority and Project Authority Modes against Framework Instance Settings field authority. Do not hard-code this Project's selected values in the Evaluation.
 6. Reject unknown keys when the governing schema marks their table closed.
-7. Confirm a second parse produces identical effective Settings and consumes the same selected Declaration bytes and Settings revisions. Deleting a legacy structural Projection does not change those results.
+7. Confirm a second parse produces identical effective Settings and consumes the same selected structural Atom bytes and Settings revisions. Deleting a legacy structural Projection does not change those results.
 
 ### Acceptance criteria
 

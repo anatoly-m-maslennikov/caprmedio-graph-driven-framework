@@ -9,19 +9,20 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
 tier: 3
 status: Active
-version: 8
-updated_at: 2026-11-05 22:47:24 +0400
+version: 10
+updated_at: "2026-11-07 15:18:44 +0400"
 carrier_destination:
   file:
-    name: CA-R-2508-DECLARATION--declare-atom.md
+    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
   source_atom_id: CA-R-2508
-  source_atom_revision: 8
-  source_sha256: 0d30d5a01af09777d7cc465b66e15997783f41298d3e85376fa458897031a666
+  source_atom_revision: 10
+  source_sha256: 2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
+
 ## Summary
 
 Declare Atom
@@ -30,7 +31,7 @@ Declare Atom
 
 ### Prose Claim
 
-For each Atom instance, the outgoing HAS_ACTIVE_SUBJECT Relation has cardinality 0..1 and targets only the declared entity or instance resolved from its active Subject field. When the applicable Current-status rule requires that field, its resolved target supplies the one link; an unresolved field remains a diagnostic.
+Each Atom instance has exactly one outgoing HAS_ACTIVE_SUBJECT link. Its target is the declared entity or instance resolved from Header.Topics.Main Subject. An unresolved Subject is a diagnostic.
 
 For each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom’s outgoing links within each Relation Declaration’s admissible endpoint domain; they do not create links.
 
@@ -49,9 +50,11 @@ Atom ((NARROWER_THAN)) Continuant;
 # instances
 Atom//$atom {::1}((IS_CONTAINED_BY));
 
-Atom//$atom {::0..1}((HAS_ACTIVE_SUBJECT));
+Atom//$atom {::1}((HAS_ACTIVE_SUBJECT));
 
 Atom//$atom {::0..1}((GOVERNS));
+
+Atom//$atom {::0+}((CONTRIBUTES_TO));
 
 UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
 ```
