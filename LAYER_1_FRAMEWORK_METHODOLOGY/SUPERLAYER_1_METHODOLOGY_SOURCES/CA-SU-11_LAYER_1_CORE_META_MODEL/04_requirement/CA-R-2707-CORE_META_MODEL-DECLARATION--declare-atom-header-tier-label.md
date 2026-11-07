@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-04 05:21:15 +0400
+version: 4
+updated_at: "2026-11-07 15:18:44 +0400"
 carrier_destination:
   file:
     name: CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md
@@ -18,6 +18,7 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Declare Atom.Header.Tier.Label
@@ -33,10 +34,6 @@ Atom.Header.Tier.Label:: [string]{::0..1};
 Atom.Header.Tier.Label.*[]{::0};
 
 # instances
-Atom//$atom;
-
-IF (($atom.Header.Tier.Label{=1}) AND ($atom.Header.Tier = 0)) THEN ($atom.Header.Tier.Label == Scope Contract);
-
 Atom//$atom_2;
 
 IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core);
