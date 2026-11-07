@@ -1,0 +1,42 @@
+{
+  "scope": "Bounded native Current Core Meta Model and Project Configuration source scan of Form lists and policy propagation. No actual Workflow instances, runtime or legacy metadata migration.",
+  "findings": [
+    {
+      "id": "CA-R-1565",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1565-CORE_META_MODEL-RULE--admit-the-operations-atom-types.md",
+      "version": 21,
+      "sha256": "c3f165a735412ce87982f9dc22dbac7529f58f6a073cdcdc73718b018deb4277",
+      "disposition": "DIRECT_CONFLICT",
+      "finding": "Details explicitly exclude Operations Form Decision. Amend that exclusion for the newly admitted Decision while retaining valid Action/Workflow/Step admission and keeping Branch/Fork and Step-structure distinctions.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-M-314",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md",
+      "version": 24,
+      "sha256": "6652049d7b9771403c5388afd458be5599e84606432c53f122d602511aa1f341",
+      "disposition": "DIRECT_CONFLICT",
+      "finding": "Requires every Operations Claim to use exactly one of three type profiles Action/Workflow/Step. Scope Delegation, Solution, Direct Policy, Approach Policy and Decision need applicable Claim profiles or a narrower explicitly scoped rule; preserve the existing three profiles for their Forms.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-D-457",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-457-CORE_META_MODEL-ENG_DECISION--serialize-operations-atom-type-tokens.md",
+      "version": 26,
+      "sha256": "e8c2830c97f36c7a34cddff2ce09bd2f4a716991bbaf8858bca2d765cf3bd4ba",
+      "disposition": "SERIALIZATION_GAP",
+      "finding": "Explicit Operations filename token map lists only Action/Workflow/Step and does not specify newly admitted Forms. Coordinate general effective-Label/Form filename authority; retain existing entries without inventing new token policy. This is not evidence that the model forbids the new Forms.",
+      "existing_drafts": []
+    }
+  ],
+  "non_conflicts": [
+    "CA-R-1506 explicitly leaves Evaluation Form domain open; a check-specific Form is not a closed list.",
+    "CA-R-1565 includes Action, Workflow, Step; its positive inclusion is not itself an exhaustive list.",
+    "CA-E-387 validates separately admitted values; it does not itself enumerate or ban the proposed Forms."
+  ],
+  "limitations": [
+    "No additional mandatory local Policy-copy or leaf-only realization requirement was found in the bounded scan beyond previously reported R1767/R2123/R1671/R1672/R1768. This does not prove absence outside scope.",
+    "R2149 relation and tier direction, R924 and R2123 authority are separately tracked; the names of obsolete instance Forms are not themselves conflicts.",
+    "Candidate additions require separate admitted Form and serialization authority; no runtime pass or migration is claimed."
+  ]
+}
