@@ -16,7 +16,9 @@ from typing import Any
 
 from markdown_it import MarkdownIt
 
-from .markdown_content import content_key, content_lines, direct_markdown, parse_content, section_markdown
+from .markdown_content import (
+    content_key, content_lines, direct_markdown, parse_content, section_markdown, source_markdown,
+)
 
 
 _DECLARATION_FORMS = frozenset({"Declaration", "Entity Definition", "Relation Definition"})
@@ -94,7 +96,7 @@ class ContentSchema:
     def values(self, row: Mapping[str, Any]) -> dict[str, str | None]:
         """Extract declared Content values and reject duplicate declared headings."""
         records = row.get("content_properties_json")
-        body = row.get("content_markdown")
+        body = source_markdown(row)
         if not isinstance(records, list):
             records = parse_content(body, tolerate_duplicate_siblings=True) if isinstance(body, str) else []
         values = _records_by_path(records)
@@ -159,7 +161,7 @@ def declaration_rules(row: Mapping[str, Any] | None) -> tuple[ContentRule, ...]:
     """Compile one source's literal Content declarations."""
     if row is None or not _is_declaration(row):
         return ()
-    return tuple(_rules(row.get("content_markdown"), _source(row)))
+    return tuple(_rules(source_markdown(row), _source(row)))
 
 
 def schema_from_rules(rules: Iterable[ContentRule]) -> ContentSchema:

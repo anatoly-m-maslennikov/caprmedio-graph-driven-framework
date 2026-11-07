@@ -1,0 +1,95 @@
+{
+  "status": "PREVIEW_ONLY",
+  "notes": [
+    "Exact Current metadata, Summary, ID, Version and historical refs are retained as preview preimage; root creates and seals actual successor Drafts.",
+    "Scope limited to five sources. Source dependencies and old relation links require coordinated review; no new IDs or native changes."
+  ],
+  "drafts": [
+    {
+      "id": "CA-R-1671",
+      "current_version": 28,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-RULE--permit-orphan-implementation-decisions.md",
+      "current_sha256": "81480c73ce61d97e89967f0aa16e0a98abdecdd9cb55206e0e596732c35fd3a7",
+      "existing_drafts": [],
+      "proposed_identity": "same ID, same Summary; successor version allocated by root",
+      "summary": "Permit orphan Implementation Decisions",
+      "candidate": "---\natom_id: CA-R-1671\nref_id: CA-R-1671\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\ntier: 3\nrelations:\n  child_of:\n  - CA-R-037\n  - CA-R-1767\nstatus: Active\nversion: 28\nupdated_at: 2026-11-02 19:44:26 +0400\ncarrier_destination:\n  file:\n    name: CA-R-1671-CORE_META_MODEL-RULE--permit-orphan-implementation-decisions.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nPermit orphan Implementation Decisions\n\n## Claim\n\n### Prose Claim\n\nAn active Method Decision may have no parent Policy, including in strict authority mode. Applicable governing constraints remain in force.\n",
+      "candidate_sha256": "1a42df3b990498fe15c1cf79ae03f3263abca600c757ff24582fa528af29ece5",
+      "dependencies": [
+        "Adopt Method Decision and Method Direct/Approach Policy Forms; coordinate with R1767/R2123."
+      ],
+      "limitations": [
+        "Preserves current Method scope, not a new universal policy or Decision rule."
+      ]
+    },
+    {
+      "id": "CA-R-1672",
+      "current_version": 28,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-RULE--permit-terminal-implementation-methods.md",
+      "current_sha256": "f9f6691fff8f492be961578e037c074e84b0c620487deb489b119a4ec7babee2",
+      "existing_drafts": [],
+      "proposed_identity": "same ID, same Summary; successor version allocated by root",
+      "summary": "Permit terminal Implementation Methods",
+      "candidate": "---\natom_id: CA-R-1672\nref_id: CA-R-1672\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\ntier: 3\nrelations:\n  child_of:\n  - CA-R-030\n  - CA-R-1767\nstatus: Active\nversion: 28\nupdated_at: 2026-11-02 19:44:26 +0400\ncarrier_destination:\n  file:\n    name: CA-R-1672-CORE_META_MODEL-RULE--permit-terminal-implementation-methods.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nPermit terminal Implementation Methods\n\n## Claim\n\n### Prose Claim\n\nAn active Method Direct Policy or Approach Policy may remain childless in Atom topology after its local Decisions have been losslessly absorbed and archived. Applicable governing constraints remain in force.\n",
+      "candidate_sha256": "dfdd789ca692af7a0b18a90c7029fbec26716cff0cb4fd4229525340846b82ae",
+      "dependencies": [
+        "Adopt Method Decision and Method Direct/Approach Policy Forms; coordinate with R1767/R2123."
+      ],
+      "limitations": [
+        "Preserves current Method scope, not a new universal policy or Decision rule."
+      ]
+    },
+    {
+      "id": "CA-R-1768",
+      "current_version": 30,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL--absorb-implementation-decisions-without-semantic-loss.md",
+      "current_sha256": "156fa6a33e882f7fe8ebc2f6a82e08aa1679b767b6e0def7961fe4fe78d2d45f",
+      "existing_drafts": [],
+      "proposed_identity": "same ID, same Summary; successor version allocated by root",
+      "summary": "Absorb Implementation Decisions without semantic loss",
+      "candidate": "---\natom_id: CA-R-1768\nref_id: CA-R-1768\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)\ntier: 1\nstatus: Active\nversion: 30\nupdated_at: 2026-11-02 19:44:26 +0400\ncarrier_destination:\n  file:\n    name: CA-R-1768-CORE_META_MODEL-RULE--absorb-implementation-decisions-without-semantic-loss.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nAbsorb Implementation Decisions without semantic loss\n\n## Claim\n\n### Prose Claim\n\nA Method Decision may be archived as absorbed only after at least one active Method Direct Policy or Approach Policy preserves every part of its still-necessary governed meaning for the affected realization scope. Absorption does not remove applicable governing constraints or imply automatic runtime conversion.\n",
+      "candidate_sha256": "ee302274024c3517847cbefddd99c8f4bdd48be48cae034b07be48c5a677d89f",
+      "dependencies": [
+        "Adopt Method Decision and Method Direct/Approach Policy Forms; coordinate with R1767/R2123."
+      ],
+      "limitations": [
+        "Preserves current Method scope, not a new universal policy or Decision rule."
+      ]
+    },
+    {
+      "id": "CA-E-445",
+      "current_version": 28,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-445-PROJECT_CONFIGURATION-EVAL-CASE--validate-methodology-membership-in-the-project.md",
+      "current_sha256": "44dde9a84eff1a42c0331b950a371c2d547aee8a09239eb59b55885e3b02ea54",
+      "existing_drafts": [],
+      "proposed_identity": "same ID, same Summary; successor version allocated by root",
+      "summary": "Validate Methodology membership in the Project",
+      "candidate": "---\natom_id: CA-E-445\nref_id: CA-E-445\ncontainer:\n  scope_unit: CA-SU-13\nrole: Evaluation\nform: Eval Case\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Scope Unit\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Atom\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'\ntier: 4\nrelations:\n  evaluation_for:\n  - CA-R-706\n  - CA-R-718\n  - CA-D-325\nstatus: Active\nversion: 28\nupdated_at: 2026-11-02 19:44:26 +0400\ncce_version: cce_1\ncce_form: evaluation\nllm_session_ids:\n- codex:01a02650-eff7-7453-8c37-0699b36773c6\ncurrent_scope_unit: PROJECT_CONFIGURATION\nclaim_target_scope_unit: caprmedio\n---\n## Summary\n\nValidate Methodology membership in the Project\n\n## Claim\n\n### Prose Claim\n\nThe Methodology Scope Units belong to the caprmedio Project Scope Unit tree and remain governed by its applicable Project-owned Tier 0 Atoms.\n\n## Test case\n\nResolve the current Project Scope Unit tree from authoritative ownership declarations and locate FRAMEWORK_METHODOLOGY, METHODOLOGY_SOURCES, and its source Scope Units. Verify their ancestry to caprmedio and their authority Directory Carriers. Include their active Atoms in applicable Project Tier 0 alignment checks. Then place a Methodology Scope Unit outside that tree, author or persist a Structural Level property for a current caprmedio Scope Unit, register an unauthorized Bootstrap Scope Unit as part of the current caprmedio structure, exempt Methodology from an applicable Project-owned Tier 0 Atom, or represent an Atom's different Claim Target Scope Unit as an additional Scope Unit edge.\n\n## Acceptance criteria\n\nEvery current Methodology Scope Unit has a parent chain to caprmedio. Any displayed ancestry depth or path is derived from that parent chain only and does not establish another authored source of ancestry. Its source Carrier placement does not exempt it from Project authority. Applicable Project Tier 0 checks include its active Atoms. All invalid fixtures fail. The predefined world Scope Unit is not an additional Scope Unit in the caprmedio Project structure. The external Project Goal's Tier `-1` remains valid and does not create or imply a Scope Unit depth. Archived Bootstrap records remain historical evidence without becoming current Scope Units.\n\n## Failure disposition\n\nRecord a Concern identifying the incorrect owner, authored or persisted Structural Level property, Carrier binding, applicable Project Tier 0 exemption, or invented Scope Unit edge.\n",
+      "candidate_sha256": "67cea105302f77920ea7ed0c983d741ac67007d977f6a1b168dc2b8df9a15ef1",
+      "dependencies": [
+        "Adopt updated Tier 0 authority and predefined world bootstrap before using revised evaluation."
+      ],
+      "limitations": [
+        "Preview preserves remaining evaluation checks; it is not a test execution or migration."
+      ]
+    },
+    {
+      "id": "CA-D-404",
+      "current_version": 28,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-404-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "current_sha256": "09905ee581d523e353aa81c8223b5520098c4718b4b343a60b4a85884027e7e3",
+      "existing_drafts": [],
+      "proposed_identity": "same ID, same Summary; successor version allocated by root",
+      "summary": "Serialize Method Type Tokens",
+      "candidate": "---\natom_id: CA-D-404\nref_id: CA-D-404\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method).Header.Form'\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Carrier\ntier: 3\nstatus: Active\nversion: 28\nupdated_at: 2026-11-02 00:55:09 +0400\ncarrier_destination:\n  file:\n    name: CA-D-404-CORE_META_MODEL-DECISION--serialize-method-type-tokens.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Method Type Tokens\n\n## Claim\n\n### Prose Claim\n\nA Method Atom File Carrier must serialize its effective Label within the Atom filename grammar governed by CA-D-283 and CA-D-284. Use the explicit Label when present and the Form name when Label is absent. Normalize the effective Label as an uppercase structured token.\n\n## Details\n\nThe filename token is the effective-Label carrier encoding; it does not rename or admit a Form or prescribe a YAML Form value. The YAML `form` field carries the Atom Form under CA-D-657. An explicit `label` field takes precedence; when absent, CA-R-2705 supplies the Form name as the effective Label. Do not infer the Atom Form from a filename token; derive the filename token from the effective Label.\n\nForm admission is governed by the applicable Form declarations and Scope Delegation permissions.\n",
+      "candidate_sha256": "597a1aa7003dabb4aad2298489311829ba0174439f13ae19d3ace2a628742eb4",
+      "dependencies": [
+        "Current CA-R-2705, CA-D-283, CA-D-284 and CA-D-657 remain authority for existing filename and Form encoding; coordinate future change with Delivery owner.",
+        "Scope Delegation and Form declarations must be adopted together."
+      ],
+      "limitations": [
+        "No runtime writer or filenames changed; verify source naming authority before promotion."
+      ]
+    }
+  ]
+}

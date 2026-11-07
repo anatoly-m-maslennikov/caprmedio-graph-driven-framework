@@ -21,6 +21,8 @@ for directory in (MCP_ROOT, TOOLS_ROOT, TOOLS_ROOT / "VALIDATE_ATOMS"):
         sys.path.insert(0, str(directory))
 
 import registered_tool_registry as registry  # noqa: E402
+import registered_tool_providers as provider_loader  # noqa: E402
+import registered_tool_runtime as runtime  # noqa: E402
 import capability_discovery.service as discovery_service  # noqa: E402
 
 
@@ -59,10 +61,9 @@ class DiscoveryDescriptorProtocolTests(unittest.IsolatedAsyncioTestCase):
             bindings = _bindings()
             with (
                 patch.object(discovery_service, "Service", autospec=True) as service_class,
-                patch.object(registry, "_MODULE_CACHE", {}),
-                patch.object(registry, "_binding_is_fresh", return_value=True),
+                patch.object(provider_loader, "_MODULE_CACHE", {}),
             ):
-                compiled = registry.compile_registry(root, bindings)
+                compiled = registry.compile_registry(MCP_ROOT.parents[2], bindings)
                 self.assertEqual((), compiled.quarantined)
                 self.assertEqual({item[1] for item in PROVIDERS}, compiled.registered_names)
                 service_class.assert_not_called()
@@ -85,7 +86,7 @@ class DiscoveryDescriptorProtocolTests(unittest.IsolatedAsyncioTestCase):
                 service.watch = AsyncMock(return_value=watched)
 
                 server = MCPServer("discovery-descriptor-protocol")
-                registered = registry.register_catalog_tools(server, root, bindings)
+                registered = runtime.register_catalog_tools(server, root, bindings)
                 self.assertEqual((), registered.quarantined)
                 self.assertEqual({item[1] for item in PROVIDERS}, registered.registered_names)
                 self.assertEqual(6, service_class.call_count)

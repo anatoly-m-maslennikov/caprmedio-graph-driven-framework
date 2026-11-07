@@ -80,3 +80,7 @@ Do not add these estimates together as a guaranteed RSS reduction. The first two
 ## Result retention
 
 A narrow 5,485-row query added about **0.26 MiB** of DuckDB-managed memory; a full 5,485×56-column result added about **12.2 MiB**. Dropping it removed its result table and released/evicted the buffers. `_results` stores metadata, not another Python row copy. Open Views intentionally pin results under the accepted retention rule. Changing that policy or deleting incremental caches is not justified by this experiment.
+
+## Follow-up adoption
+
+The Header/UTF-8 candidates and code-owned registration were subsequently implemented and tested. See [runtime optimization acceptance](runtime-optimization-20261107.md) for the new same-source comparison, isolated Backend results and unchanged performance gates.

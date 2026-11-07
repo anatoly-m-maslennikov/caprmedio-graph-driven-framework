@@ -3,6 +3,8 @@
 # CA-D-681@4
 # CA-R-2952@1
 # CA-D-696@1
+# CA-M-506@2
+# CA-D-673@14
 
 """Small HTTP representation of the shared Project Workbench connector."""
 
@@ -12,9 +14,8 @@ import json
 from collections.abc import Awaitable, Callable, Iterator, Mapping
 from pathlib import Path
 import sys
-from typing import Any, cast
+from typing import Any
 
-from mcp import types
 from starlette.requests import Request
 from starlette.responses import FileResponse, JSONResponse, Response, StreamingResponse
 from starlette.routing import BaseRoute, Mount, Route
@@ -26,6 +27,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "FEATURE_TOOLS"))
 from operation_error_boundary import ExplicitBlockingRuntimeFailure
 from project_tool_context import native_arguments
 from runtime_failure_diagnostics import report_failure
+from shared_gateway import SharedGatewayRefusal
 from workbench_links import public_saved, public_workspace, validate_reference
 from workbench_tools import (
     CHECK, INTERFACE_TOOLS, LOAD, PAGE, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA, SYNC_STATUS,
@@ -41,7 +43,7 @@ _FRONTEND = (
 )
 
 
-async def _arguments(request: Request, shared: bool, name: str) -> dict[str, Any]:  # noqa: C901
+async def _arguments(request: Request, shared: bool) -> dict[str, Any]:
     try:
         if request.headers.get("content-type", "").split(";", 1)[0] == "application/json":
             value = await request.json()
@@ -51,20 +53,6 @@ async def _arguments(request: Request, shared: bool, name: str) -> dict[str, Any
         raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
     if not isinstance(value, dict):
         raise ExplicitBlockingRuntimeFailure("query_error", "query arguments must be an object")
-    if name == PAGE:
-        if not isinstance(value.get("query_id"), str):
-            raise ExplicitBlockingRuntimeFailure("query_error", "query_id must be a string")
-        if type(value.get("offset")) is not int or value["offset"] < 0:
-            raise ExplicitBlockingRuntimeFailure("query_error", "offset must be a non-negative integer")
-    elif name == LOAD:
-        if not isinstance(value.get("reference"), str):
-            raise ExplicitBlockingRuntimeFailure("query_error", "reference must be a string")
-    elif name == SAVED_LIST:
-        limit = value.get("limit", 20)
-        if type(limit) is not int or not 1 <= limit <= 1000:
-            raise ExplicitBlockingRuntimeFailure("query_error", "limit must be an integer from 1 to 1000")
-    elif name not in (SCHEMA, SYNC_STATUS) and not isinstance(value.get("sql"), str):
-        raise ExplicitBlockingRuntimeFailure("query_error", "sql must be a string")
     if shared and not isinstance(value.get("project_root"), str):
         raise ExplicitBlockingRuntimeFailure("query_error", "project_root must be a string")
     return value
@@ -106,20 +94,13 @@ async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: b
             name, {key: value for key, value in arguments.items() if key != "project_root"}
         )
         return result
-    response = await gateway.call(
-        None,
-        types.CallToolRequestParams(name=name, arguments=arguments),
-    )
-    value = response.structured_content
-    if response.is_error:
+    try:
+        return await gateway.workbench_call(name, arguments)
+    except SharedGatewayRefusal as error:
         raise ExplicitBlockingRuntimeFailure(
             "query_error",
-            cast(str, value.get("error") if isinstance(value, dict) and isinstance(value.get("error"), str)
-                 else value.get("diagnostics", ["query failed"])[0] if isinstance(value, dict) else "query failed"),
-        )
-    if not isinstance(value, dict):
-        raise RuntimeError("Workbench returned an invalid result")
-    return value
+            error.code,
+        ) from error
 
 
 async def _interface_arguments(request: Request, shared: bool) -> tuple[str, dict[str, Any]]:
@@ -162,7 +143,7 @@ def routes(gateway: Any, *, shared: bool = False) -> list[BaseRoute]:  # noqa: C
             arguments: dict[str, Any] = {}
             selection = None
             try:
-                arguments = await _arguments(request, shared, name)
+                arguments = await _arguments(request, shared)
                 selection = gateway._selection(arguments["project_root"]) if shared else getattr(gateway, "selection", None)
                 if not _project_name_matches(selection, request.path_params["project_name"]):
                     return _unknown_project()

@@ -171,6 +171,12 @@ The index stores parsed YAML, Markdown sections and derived relations in the reb
 stable across source refresh and are discarded at restart. Spill files remain
 in the same owned runtime directory; source files stay authoritative.
 
+The incremental owner caches original Markdown as UTF-8 bytes and heading spans,
+with transient decoding when Content needs text. Header schema state retains
+aggregate column counters rather than per-Atom contribution copies. A full
+rebuild derives public rows once for both SQL insertion and its retained snapshot.
+Public Content values, schemas and hashes remain unchanged.
+
 ## Rebuildable SQL schema assets
 
 `projection-schema.json` records the `header_*` columns inferred from actual

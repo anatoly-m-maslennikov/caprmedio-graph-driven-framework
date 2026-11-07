@@ -14,8 +14,8 @@ relations:
   - CA-R-2728
   - CA-R-2729
 status: Active
-version: 13
-updated_at: 2026-11-05 20:27:41 +0400
+version: 14
+updated_at: 2026-11-07 14:08:37 +0400
 carrier_destination:
   file:
     name: CA-D-673-WORKBENCH-ENG_DECISION--deliver-shared-query-run-and-check-results.md
@@ -63,3 +63,5 @@ When preview is omitted, Run applies no added preview cap. A completed Run with 
 Page and View Fetch may apply one request-local grid specification to the existing materialized result. Column references are zero-based positions so duplicate or dotted display names remain unambiguous. The shared backend resolves cached physical columns, binds filter values, applies filters and grouping/sort order before paging, and returns positional rows. It does not rewrite or rerun the submitted SQL, create a transformed result cache or load the full result in the browser. Group metadata covers groups present on the returned page and carries each group's exact count over all matching rows. The original whole-materialized-result column visibility metadata remains unchanged.
 
 Standalone and embedded pages use the same backend Workspace/View operations. Generic query_run and query_page remain available for direct MCP/HTTP callers. Current Views contain one query, and saved historical text remains readable without silently executing only part of it.
+
+MCP and HTTP call the same backend operation API. HTTP must not construct and unwrap MCP protocol requests/results merely to reach that backend. Reuse the existing Project selection, configured exclusions, current installed-contract checks, resource ownership and lifecycle guards for both transports. Keep transport-envelope checks in the adapters and operation-argument validation in the shared backend. Preserve successful and partial results and their existing public error semantics.

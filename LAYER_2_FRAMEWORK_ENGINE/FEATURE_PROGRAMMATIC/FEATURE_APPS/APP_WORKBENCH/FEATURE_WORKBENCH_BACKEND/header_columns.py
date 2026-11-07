@@ -1,5 +1,5 @@
 # CA-R-2726@5
-# CA-M-465@19
+# CA-M-465@23
 # CA-M-500@2
 # CA-D-672@12
 
@@ -86,20 +86,19 @@ class _Contribution:
 
 @dataclass(frozen=True)
 class HeaderSchemaState:
-    """Owner-local Header observations, updated without reading unchanged Headers."""
+    """Owner-local Header aggregates, updated from exact materialized deltas."""
 
-    contributions: Mapping[str, _Contribution] = field(default_factory=dict)
     direct_counts: Mapping[tuple[str, ...], int] = field(default_factory=dict)
     format_counts: Mapping[tuple[str, ...], Mapping[str, int]] = field(default_factory=dict)
     populated_counts: Mapping[tuple[str, ...], int] = field(default_factory=dict)
 
     @classmethod
     def from_atoms(cls, atom_rows: Sequence[Mapping[str, Any]]) -> HeaderSchemaState:
-        delta = {}
+        new_rows = {}
         for index, row in enumerate(atom_rows):
             key = _source_key(row, index)
-            delta[key if key not in delta else f"<row:{index}>"] = row
-        return cls().updated(delta)
+            new_rows[key if key not in new_rows else f"<row:{index}>"] = row
+        return cls().updated({}, new_rows)
 
     @property
     def schema(self) -> HeaderSchema:
@@ -119,23 +118,20 @@ class HeaderSchemaState:
             ))
         return HeaderSchema(tuple(columns))
 
-    def updated(self, delta: Mapping[str, Mapping[str, Any] | None]) -> HeaderSchemaState:
-        """Return a candidate state after changed or removed raw source rows."""
-        contributions = dict(self.contributions)
+    def updated(
+        self, old_rows: Mapping[str, Mapping[str, Any]], new_rows: Mapping[str, Mapping[str, Any]],
+    ) -> HeaderSchemaState:
+        """Return a candidate state after subtracting old and adding new source rows."""
         direct_counts = dict(self.direct_counts)
         format_counts = {path: dict(counts) for path, counts in self.format_counts.items()}
         populated_counts = dict(self.populated_counts)
-        for source_path, row in delta.items():
-            if not isinstance(source_path, str) or not source_path:
-                raise ValueError("Header source path must be a non-empty string")
-            if previous := contributions.pop(source_path, None):
-                _remove(previous, direct_counts, format_counts, populated_counts)
-            if row is not None:
-                contribution = _contribution(row)
-                if contribution is not None:
-                    contributions[source_path] = contribution
-                    _add(contribution, direct_counts, format_counts, populated_counts)
-        return HeaderSchemaState(contributions, direct_counts, format_counts, populated_counts)
+        for rows, update in ((old_rows, _remove), (new_rows, _add)):
+            for source_path, row in rows.items():
+                if not isinstance(source_path, str) or not source_path:
+                    raise ValueError("Header source path must be a non-empty string")
+                if (contribution := _contribution(row)) is not None:
+                    update(contribution, direct_counts, format_counts, populated_counts)
+        return HeaderSchemaState(direct_counts, format_counts, populated_counts)
 
 
 def schema_asset_path(database_path: Path | None) -> Path | None:

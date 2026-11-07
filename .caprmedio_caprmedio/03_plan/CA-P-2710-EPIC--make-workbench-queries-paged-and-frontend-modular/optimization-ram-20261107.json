@@ -1,0 +1,74 @@
+[
+  {
+    "label": "deployed_baseline",
+    "image": "sha256:bc37d7e2a68129583e0d6d394fbe843cc00a79909e0322895a3608d2bd92a0a7",
+    "profiler_enabled": false,
+    "atom_rows": 5489,
+    "stats": {
+      "BlockIO": "58.2MB / 0B",
+      "CPUPerc": "0.43%",
+      "Container": "caprmedio-workbench-e2e-cd245f67eba042c4824363c71aaba37c",
+      "ID": "b1c4f7d4d590",
+      "MemPerc": "42.55%",
+      "MemUsage": "653.5MiB / 1.5GiB",
+      "Name": "caprmedio-workbench-e2e-cd245f67eba042c4824363c71aaba37c",
+      "NetIO": "57.5kB / 62.4kB",
+      "PIDs": "31"
+    },
+    "accounting": {
+      "processes": [
+        {
+          "pid": 1,
+          "name": "uv",
+          "Rss_kib": 21872,
+          "Pss_kib": 20413,
+          "Anonymous_kib": 5856
+        },
+        {
+          "pid": 10,
+          "name": "python",
+          "Rss_kib": 602656,
+          "Pss_kib": 560350,
+          "Anonymous_kib": 524532
+        },
+        {
+          "pid": 11,
+          "name": "python",
+          "Rss_kib": 136528,
+          "Pss_kib": 120051,
+          "Anonymous_kib": 114364
+        }
+      ],
+      "cgroup_current_bytes": 713084928
+    }
+  },
+  {
+    "label": "candidate",
+    "image": "sha256:726b32fc48f0d9ae42425cbef766cfd9f84769d4960c0a39f988c7e487e5407c",
+    "profiler_enabled": false,
+    "atom_rows": 5489,
+    "stats": {
+      "BlockIO": "55.1MB / 0B",
+      "CPUPerc": "0.66%",
+      "Container": "caprmedio-workbench-e2e-5d15bbf67e7c4fbcbf6d68a448f20375",
+      "ID": "b9c8101a335a",
+      "MemPerc": "19.39%",
+      "MemUsage": "297.9MiB / 1.5GiB",
+      "Name": "caprmedio-workbench-e2e-5d15bbf67e7c4fbcbf6d68a448f20375",
+      "NetIO": "54.4kB / 60.1kB",
+      "PIDs": "26"
+    },
+    "accounting": {
+      "processes": [
+        {
+          "pid": 1,
+          "name": "python",
+          "Rss_kib": 357880,
+          "Pss_kib": 349405,
+          "Anonymous_kib": 278688
+        }
+      ],
+      "cgroup_current_bytes": 463138816
+    }
+  }
+]

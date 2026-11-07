@@ -28,6 +28,8 @@ if str(WORKFLOW_TESTS) not in sys.path:
     sys.path.insert(0, str(WORKFLOW_TESTS))
 
 import registered_tool_registry as registry  # noqa: E402
+import registered_tool_providers as provider_loader  # noqa: E402
+from registered_tool_runtime import register_catalog_tools  # noqa: E402
 from frozen_selected_workflows import frozen_source_bytes, frozen_source_paths  # noqa: E402
 
 
@@ -172,8 +174,8 @@ class MigratedToolDescriptorCompilationTests(unittest.TestCase):
         }
 
     def setUp(self) -> None:
-        registry._MODULE_CACHE.clear()
-        self.addCleanup(registry._MODULE_CACHE.clear)
+        provider_loader._MODULE_CACHE.clear()
+        self.addCleanup(provider_loader._MODULE_CACHE.clear)
 
     def _compile(self):
         return registry.compile_registry(REPOSITORY_ROOT, self.bindings)
@@ -254,7 +256,7 @@ class MigratedToolDescriptorCompilationTests(unittest.TestCase):
 
         provider = next(item for item in PROVIDERS if item.name == "WATCH_EXECUTION")
         server = _RecordingServer()
-        snapshot = registry.register_catalog_tools(server, REPOSITORY_ROOT, [provider.binding()])
+        snapshot = register_catalog_tools(server, REPOSITORY_ROOT, [provider.binding()])
 
         self.assertEqual((), snapshot.quarantined)
         self.assertEqual({"watch_execution"}, snapshot.registered_names)

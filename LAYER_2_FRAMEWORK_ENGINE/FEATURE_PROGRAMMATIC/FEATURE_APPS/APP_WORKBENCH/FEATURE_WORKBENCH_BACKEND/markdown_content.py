@@ -42,6 +42,14 @@ def content_lines(body: str) -> list[str]:
     return list(StringIO(body, newline=""))
 
 
+def source_markdown(row: Mapping[str, Any]) -> str | None:
+    """Decode a cached source body only while its Markdown is needed."""
+    if isinstance(body := row.get("_content_bytes"), bytes):
+        return body.decode("utf-8")
+    value = row.get("content_markdown")
+    return value if isinstance(value, str) else None
+
+
 def section_markdown(record: Mapping[str, Any], lines: list[str] | None) -> str | None:
     """Rebuild a compact record's section, preserving source newline semantics."""
     start, end = record.get("_start_line"), record.get("_end_line")

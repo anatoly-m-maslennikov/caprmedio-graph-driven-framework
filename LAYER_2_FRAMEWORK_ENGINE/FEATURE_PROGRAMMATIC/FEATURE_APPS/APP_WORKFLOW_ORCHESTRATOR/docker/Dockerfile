@@ -1,5 +1,6 @@
 # CA-M-356@19
 # CA-M-504@2
+# CA-D-704@1
 
 FROM node:22.20.0-bookworm-slim AS workbench_frontend
 WORKDIR /frontend
@@ -27,6 +28,7 @@ RUN /opt/venv/bin/python -c "import duckdb; c=duckdb.connect(':memory:',config={
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio/.duckdb
 COPY version.toml ./
 COPY LAYER_2_FRAMEWORK_ENGINE ./LAYER_2_FRAMEWORK_ENGINE
+RUN /opt/venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py --package-root /workspace
 COPY --from=workbench_frontend /frontend/dist \
      ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND/dist
 RUN mkdir -p /workspace/.caprmedio_install \

@@ -19,7 +19,6 @@ for directory in (MCP_ROOT, TOOLS_ROOT):
         sys.path.insert(0, str(directory))
 
 import implementation_server  # noqa: E402
-import registered_tool_registry as registry  # noqa: E402
 from capability_discovery.service import Service  # noqa: E402
 from TOOL_GET_EXECUTION_CONTEXT import get_execution_context as context_provider  # noqa: E402
 from TOOL_DISCOVER_TOOLS import discover_tools as tools_provider  # noqa: E402
@@ -102,8 +101,7 @@ class DiscoveryServerFrontierTests(unittest.TestCase):
              patch.object(implementation_server, "register_selected_routes", side_effect=register_routes), \
              patch.object(Service, "catalog", catalog), \
              patch.object(Service, "bind_server_frontier", bind), \
-             patch("selected_routes.load_selected_manifest", return_value=self.manifest), \
-             patch.object(registry, "_binding_is_fresh", return_value=True):
+             patch("selected_routes.load_selected_manifest", return_value=self.manifest):
             server = implementation_server.create_server(self.root)
             context_fn = server.tools["get_execution_context"]
             context_model = inspect.signature(context_fn).parameters["request"].annotation

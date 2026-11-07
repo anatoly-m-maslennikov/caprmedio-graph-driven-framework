@@ -1,6 +1,6 @@
 # CA-E-750@1
 # CA-E-675@6
-# CA-E-677@13
+# CA-E-677@19
 from __future__ import annotations
 
 from contextlib import redirect_stderr
@@ -20,13 +20,14 @@ from scope_declaration_test_support import write_scope_unit_declarations  # noqa
 from scope_unit_declarations import ScopeDeclarationError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import source_reader as source_reader_module  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import materialize  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import source_markdown  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader, _same_row  # noqa: E402
 
 
 ATOM_COLUMNS = (
     "source_path", "status_group", "id", "ref", "version", "status",
     "current_scope_unit", "claim_target_scope_unit", "role", "form", "tier",
-    "updated_at", "header_json", "content_markdown", "content_properties_json",
+    "updated_at", "header_json", "_content_bytes", "content_properties_json",
     "relation_edges_json", "hash",
 )
 SCOPE_COLUMNS = (
@@ -278,7 +279,9 @@ class SourceReaderTests(unittest.TestCase):
         self.assertEqual(stderr, "")
         self.assertEqual(row["role"], "Requirement")
         self.assertEqual(row["form"], "Method")
-        self.assertEqual(row["content_markdown"], body)
+        self.assertNotIn("content_markdown", row)
+        self.assertEqual(row["_content_bytes"], body.encode("utf-8"))
+        self.assertEqual(source_markdown(row), body)
         self.assertEqual(row["header_json"]["content_role"], "Requirement")
         self.assertEqual(row["header_json"]["type"], "Method")
         self.assertNotIn("role", row["header_json"])
@@ -535,7 +538,9 @@ class SourceReaderTests(unittest.TestCase):
 
         self.assertEqual(stderr, "")
         row = next(row for row in atoms if row["id"] == "CA-R-702")
-        self.assertEqual(row["content_markdown"], body.decode("utf-8"))
+        self.assertNotIn("content_markdown", row)
+        self.assertEqual(row["_content_bytes"], body)
+        self.assertEqual(source_markdown(row), body.decode("utf-8"))
 
     def test_unreadable_role_mismatched_filename_is_ignored(self) -> None:
         proof_copy = self._write_atom(

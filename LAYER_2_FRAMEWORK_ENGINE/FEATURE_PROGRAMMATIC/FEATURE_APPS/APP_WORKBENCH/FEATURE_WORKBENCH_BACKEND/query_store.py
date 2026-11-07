@@ -10,7 +10,7 @@
 # CA-R-2724@3
 # CA-M-490@2
 # CA-D-695@2
-# CA-M-465@19
+# CA-M-465@23
 # CA-D-675@13
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
@@ -141,7 +141,7 @@ class QueryStore:
                     self._connection.execute("DROP TABLE main.atoms")
                     self._connection.execute("DROP TABLE main.scope_units")
                 started = time.monotonic()
-                insert_rows(
+                public_rows = insert_rows(
                     self._connection, atom_rows, scope_rows, header_schema=header_schema,
                     content_schema=content_schema, relation_types=relation_types,
                 )
@@ -153,7 +153,10 @@ class QueryStore:
                 self._schema_changed = False
                 header_schema.write(schema_asset_path(self._database_path))
                 content_schema.write(content_schema_asset_path(self._database_path))
-                self._projection = snapshot(atom_rows, scope_rows, relation_types, header_schema, content_schema)
+                self._projection = snapshot(
+                    atom_rows, scope_rows, relation_types, header_schema, content_schema,
+                    public_rows=public_rows,
+                )
                 self._info_edit(
                     "replace", "projection", len(self._projection.atoms) + len(self._projection.scopes), started,
                 )
@@ -190,9 +193,7 @@ class QueryStore:
                 if delta is None:
                     header_state = HeaderSchemaState.from_atoms(atom_rows)
                 else:
-                    header_changes = dict.fromkeys(delta.old_atoms)
-                    header_changes.update(delta.new_atoms)
-                    header_state = self._header_state.updated(header_changes)
+                    header_state = self._header_state.updated(delta.old_atoms, delta.new_atoms)
                 header_schema = header_state.schema
                 if content_schema is None:
                     content_schema = compile_content_schema(atom_rows)

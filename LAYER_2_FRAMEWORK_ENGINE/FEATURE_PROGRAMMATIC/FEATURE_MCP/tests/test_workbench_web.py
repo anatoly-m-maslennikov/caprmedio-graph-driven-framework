@@ -2,6 +2,7 @@
 # CA-E-673@3
 # CA-E-683@5
 # CA-E-684@7
+# CA-D-673@14
 
 from __future__ import annotations
 
@@ -14,7 +15,6 @@ import unittest
 import uuid
 from unittest.mock import patch
 
-from mcp import types
 from starlette.applications import Starlette
 from starlette.testclient import TestClient
 
@@ -38,6 +38,23 @@ class FakeWorkbench:
 
     async def call(self, name, arguments):  # noqa: C901
         self.calls.append((name, arguments))
+        if name == "query_page" and (
+            not isinstance(arguments.get("query_id"), str)
+            or type(arguments.get("offset")) is not int
+            or arguments["offset"] < 0
+        ):
+            raise ExplicitBlockingRuntimeFailure("query_error", "offset must be a non-negative integer")
+        if name == "query_load" and not isinstance(arguments.get("reference"), str):
+            raise ExplicitBlockingRuntimeFailure("query_error", "reference must be a string")
+        if name == "query_saved_list":
+            limit = arguments.get("limit", 20)
+            if type(limit) is not int or not 1 <= limit <= 1000:
+                raise ExplicitBlockingRuntimeFailure("query_error", "limit must be an integer from 1 to 1000")
+        if (
+            name in {"query_run", "query_check"}
+            or name == "view_save" and "workspace_id" not in arguments
+        ) and not isinstance(arguments.get("sql"), str):
+            raise ExplicitBlockingRuntimeFailure("query_error", "sql must be a string")
         if name == "workspace_open":
             return {"workspace_id": arguments["session_id"], "views": []}
         if name == "workspace_get":
@@ -85,6 +102,13 @@ class FakeWorkbench:
                 "page_size": arguments.get("page_size", 100),
                 "has_more": True,
             }
+        if arguments["sql"] == "partial":
+            return {
+                "query_id": "query-1",
+                "rows": [["saved result"]],
+                "outcome": "partial",
+                "save_error": "journal unavailable",
+            }
         if name == "query_check":
             return {"valid": True, "row_count": 1, "column_count": 1}
         value = {
@@ -118,15 +142,11 @@ class FakeGateway:
             raise ValueError("invalid_project_root")
         return self.selection
 
-    async def call(self, _context, params):
-        self.roots.append(params.arguments["project_root"])
-        try:
-            value = await self.workbench.call(params.name, params.arguments)
-            return types.CallToolResult(content=[], structured_content=value)
-        except ExplicitBlockingRuntimeFailure as error:
-            return types.CallToolResult(
-                content=[], structured_content={"error": error.message}, is_error=True,
-            )
+    async def workbench_call(self, name, arguments):
+        self.roots.append(arguments["project_root"])
+        return await self.workbench.call(
+            name, {key: value for key, value in arguments.items() if key != "project_root"}
+        )
 
 
 class WorkbenchWebTests(unittest.TestCase):
@@ -317,10 +337,14 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(1, client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1"}).json()["row_count"])
             named = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "SELECT 1", "save": True, "name": "shared"}).json()
             self.assertEqual("shared", named["name"])
+            partial = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "partial"})
+            self.assertEqual(200, partial.status_code)
+            self.assertEqual("partial", partial.json()["outcome"])
+            self.assertEqual("journal unavailable", partial.json()["save_error"])
             failure = client.post(f"{PROJECT_PATH}/run", json={"project_root": "/project", "sql": "bad"})
             self.assertEqual(400, failure.status_code)
             self.assertEqual({"error": "bad query"}, failure.json())
-        self.assertEqual(["/project", "/project", "/project"], gateway.roots)
+        self.assertEqual(["/project", "/project", "/project", "/project"], gateway.roots)
 
 
 if __name__ == "__main__":

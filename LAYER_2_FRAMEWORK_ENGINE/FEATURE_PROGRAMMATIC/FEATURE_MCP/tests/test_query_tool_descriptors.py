@@ -18,6 +18,7 @@ for location in (MCP_ROOT, TOOLS_ROOT):
         sys.path.insert(0, str(location))
 
 import registered_tool_registry as registry  # noqa: E402
+import registered_tool_providers as provider_loader  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 
 
@@ -50,8 +51,8 @@ class QueryToolDescriptorTests(unittest.TestCase):
         cls.journal = importlib.import_module("FIND_AND_FETCH_JOURNAL_EVENTS.find_and_fetch_journal_events")
 
     def setUp(self) -> None:
-        registry._MODULE_CACHE.clear()
-        self.addCleanup(registry._MODULE_CACHE.clear)
+        provider_loader._MODULE_CACHE.clear()
+        self.addCleanup(provider_loader._MODULE_CACHE.clear)
 
     def test_descriptors_compile_without_creating_or_invoking_query_adapters(self) -> None:
         bindings = [
@@ -59,7 +60,7 @@ class QueryToolDescriptorTests(unittest.TestCase):
             _binding("FIND_AND_FETCH_JOURNAL_EVENTS", "journal_query_provider", JOURNAL_ENTRYPOINT, 557, 162),
         ]
 
-        snapshot = registry.compile_registry("descriptor-test-root", bindings)
+        snapshot = registry.compile_registry(MCP_ROOT.parents[2], bindings)
 
         self.assertEqual({"artifact_query_provider", "journal_query_provider"}, snapshot.registered_names)
         self.assertEqual((), snapshot.quarantined)

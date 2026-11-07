@@ -1,0 +1,112 @@
+{
+  "lane": "contribution",
+  "status": "proposal_only",
+  "source_pins": [
+    {
+      "id": "CA-A-1328@1-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md",
+      "sha256": "d4ceb6d13191f6fbbfc291602efecf4ea6b6751201e524b4043bccf2618c4f98",
+      "reason": "The current Draft makes CONTRIBUTES_TO general across Roles and Forms, makes explanatory-Requirement targets optional guidance, and distinguishes contribution from satisfaction."
+    },
+    {
+      "id": "CA-R-2486@6",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "sha256": "039c43fd71e77dfb733bad0e0bc72cafc8f71e9eb353a878244e39bb76f42f8e",
+      "reason": "A direct Relation Declaration owns its endpoint signature and classification; a direction needs its own outgoing permission."
+    },
+    {
+      "id": "CA-R-2588@5",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2588-CORE_META_MODEL-CFEL--apply-default-relation-cardinalities.md",
+      "sha256": "53fe4d15d07776dc19a0d11ccd9c6c63de4b3c12fe32bc92d61a5be975bf8fe5",
+      "reason": "The inherited zero default requires a matching named outgoing Atom permission; no inverse permission follows from a direct relation."
+    },
+    {
+      "id": "CA-R-2508@8",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "0d30d5a01af09777d7cc465b66e15997783f41298d3e85376fa458897031a666",
+      "reason": "Atom currently grants only IS_CONTAINED_BY, HAS_ACTIVE_SUBJECT, and GOVERNS outgoing permissions."
+    },
+    {
+      "id": "CA-R-2462@6",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "725a3a66f857394014fa7c77fe734d6725eeb69455d5b9ad8655b8c0e28b49ec",
+      "reason": "Node's general outgoing-relation default remains zero and should not be widened generically."
+    },
+    {
+      "id": "CA-R-2618@3",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "sha256": "875c1cbc4aa0656a57d574fa1849e73c9838e4ae303ea976c2a270036551a01d",
+      "reason": "Supplies the admitted direct-relation declaration pattern with an Atom Host and no authored inverse."
+    },
+    {
+      "id": "CA-R-2485@7",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2485-CORE_META_MODEL-DECLARATION--define-has-inverse.md",
+      "sha256": "6f80f1195b52133763aa132279eb0adc42aa9215edfc6b96d5e55f312f9c7176",
+      "reason": "An inverse is a separate derived Relation with reversed endpoints, not an automatic companion of every direct Relation."
+    }
+  ],
+  "drafts": [
+    {
+      "local_key": "contributes-to-relation-declaration",
+      "kind": "new_requirement_declaration_proposal",
+      "atom_id": null,
+      "id_allocation": "Root allocates a new ID only if this proposal is selected for native Draft authoring.",
+      "summary": "Declare CONTRIBUTES_TO",
+      "summary_status": "new proposed identity; no Current Atom is renamed or superseded here",
+      "container_scope_intent": "CORE_META_MODEL",
+      "role": "Requirement",
+      "form": "Declaration",
+      "main_subject": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTRIBUTES_TO",
+      "claim": "CONTRIBUTES_TO is a direct, authored Relation from an Atom contributor to an Atom target toward which it contributes. It is available across Atom Roles and Forms. An Atom need not author a link, and the target is not restricted to a Requirement.",
+      "formal_claim": [
+        "# model",
+        "Relation//CONTRIBUTES_TO ((HAS_CLASSIFICATION)) Derivation == Direct;",
+        "",
+        "# instances",
+        "Atom//$contributor ((CONTRIBUTES_TO)) Atom//$contribution"
+      ],
+      "semantics": "The Host contributes toward the Target. The Relation records contribution; it is not by itself evidence that a Requirement is satisfied.",
+      "endpoint_signature": {
+        "host": "Atom instance of any Role or Form",
+        "target": "Atom instance of any Role or Form",
+        "reason": "The adopted proposal makes the Relation universal. Its preferred explanatory-Requirement target is guidance only and explicitly does not narrow the general target population."
+      },
+      "inverse": {
+        "proposed": false,
+        "reason": "No distinct reverse meaning is approved. Reverse written syntax remains available for the same fact under the endpoint rule, but no HAS_INVERSE binding or companion Relation is declared."
+      },
+      "alias": {
+        "proposed": false,
+        "reason": "No symbolic notation has been approved or is needed for an unambiguous named Relation."
+      },
+      "permission_update": {
+        "required": true,
+        "target_source": "CA-R-2508@8",
+        "scope": "Add exactly one Atom-instance outgoing permission; do not change Node's wildcard default or any other Relation.",
+        "formal_addition": "Atom//$atom {::0+}((CONTRIBUTES_TO));",
+        "reason": "It permits zero or more optional authored outgoing contribution links. The Relation Declaration supplies the Atom-to-Atom endpoint domain; this adds neither a target-side permission nor a fixed/required target count."
+      },
+      "admission_and_migration": [
+        "The Atom-to-Atom endpoint signature does not itself alter Role or Form admission.",
+        "No existing Atom is required to acquire a CONTRIBUTES_TO link, and no link is inferred from containment, Scope Delegation, SPECIALIZES, GOVERNS, dependency, or shared topic.",
+        "Promotion requires coordinated successor Draft review for the Relation Declaration and the one CA-R-2508 permission addition; this analysis creates neither native Draft."
+      ],
+      "unresolved": [
+        "None for the Relation endpoint population, inverse, alias, or optionality: the latest human decision and A1328 settle them.",
+        "Normal Draft placement, Tier, and ID allocation remain Root-owned authoring choices and are not selected here."
+      ]
+    },
+    {
+      "local_key": "contributes-to-optional-authoring-guidance",
+      "kind": "optional_method_guidance_proposal",
+      "proposed_role": "Method",
+      "proposed_form": null,
+      "placement": "Only create this separate guidance proposal if the preference must become normative. Its Method Form must use an already admitted guidance Form; this lane does not invent one.",
+      "guidance": "An RMEDO Solution, Direct Policy, Approach Policy, or Decision may use CONTRIBUTES_TO to point to an existing Requirement that explains its purpose. The preferred Requirement target is explanatory, not a validity condition. Do not create a Requirement merely to fill the link, and do not treat the link as evidence that the Requirement is satisfied; satisfaction requires the applicable Evaluation and implementation evidence.",
+      "boundaries": [
+        "A Relation link is not an admission rule for a Form.",
+        "A missing link, missing explanatory Requirement, or zero contribution links is not a model-invalidity finding."
+      ]
+    }
+  ]
+}

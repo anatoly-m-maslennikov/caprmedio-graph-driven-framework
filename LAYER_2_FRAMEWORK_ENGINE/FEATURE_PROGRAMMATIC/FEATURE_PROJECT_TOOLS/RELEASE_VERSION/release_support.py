@@ -3,6 +3,7 @@
 # CA-R-2785@3
 # CA-M-473@3
 # CA-D-678@4
+# CA-D-704@1
 
 from __future__ import annotations
 
@@ -13,6 +14,7 @@ import os
 import re
 import shutil
 import stat
+import subprocess
 import sys
 import tempfile
 import tomllib
@@ -276,6 +278,26 @@ def _verify_package(package: Path, expected: Mapping[str, tuple[str, int]]) -> N
         raise LocalReleaseError("local-release-package-verification-failed")
 
 
+def _generate_tool_registry(package: Path) -> Path:
+    script = package / (
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py"
+    )
+    output = script.with_name("tool_registry.json")
+    if not script.is_file() or script.is_symlink():
+        raise LocalReleaseError("local-release-tool-registry-unavailable")
+    try:
+        output.unlink(missing_ok=True)
+        result = subprocess.run(
+            (sys.executable, str(script), "--package-root", str(package)),
+            cwd=package, text=True, capture_output=True, check=False,
+        )
+    except OSError as error:
+        raise LocalReleaseError("local-release-tool-registry-unavailable") from error
+    if result.returncode != 0 or not output.is_file() or output.is_symlink():
+        raise LocalReleaseError("local-release-tool-registry-generation-failed")
+    return output
+
+
 def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tuple[str, int]]:
     excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", "node_modules"})
     trees = (
@@ -312,12 +334,15 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
     for source, relative in sources:
         if _file_identity(source) != expected[relative.as_posix()]:
             raise LocalReleaseError("local-release-package-source-changed")
+    registry = _generate_tool_registry(package)
+    expected[registry.relative_to(package).as_posix()] = _file_identity(registry)
     for relative in (
         "SKILLS/ca/SKILL.md",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/project_mcp_bootstrap.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/start_mcp.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py",
     ):
         if relative not in expected:
             raise LocalReleaseError("local-release-package-source-unavailable")

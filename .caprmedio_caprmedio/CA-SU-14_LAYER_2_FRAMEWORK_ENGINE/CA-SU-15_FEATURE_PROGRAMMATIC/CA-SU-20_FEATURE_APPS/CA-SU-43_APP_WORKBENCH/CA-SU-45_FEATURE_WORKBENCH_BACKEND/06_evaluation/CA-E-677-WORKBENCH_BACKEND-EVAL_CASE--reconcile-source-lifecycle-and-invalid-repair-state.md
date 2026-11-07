@@ -17,8 +17,8 @@ relations:
   - CA-D-672
   - CA-D-675
 status: Active
-version: 18
-updated_at: 2026-11-07 03:56:59 +0400
+version: 20
+updated_at: 2026-11-07 13:28:43 +0400
 carrier_destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -99,3 +99,9 @@ Verify compact source Content records omit redundant section strings while retai
 Verify compact source records retain neither full-section nor direct-text copies. The full and compact parser paths must yield identical declared Content values and public hashes on the actual accepted source inventory as well as newline, nested-heading, legacy Claim and fenced-expression fixtures. Measure retained bytes separately from process RSS and rerun cold/bulk acceptance gates.
 
 The cold/rebuild ceiling is calibrated against the first controlled 5,000-Atom cold run (30.25 seconds), with roughly 50% margin for normal execution variance. Keep the measured baseline and the failed initial 30-second gate visible; do not automatically raise limits after a failure.
+
+Verify Header schema state retains aggregate counters without a per-source contribution map. Apply exact old/new deltas for create, edit, delete, rename and relation-neighbour updates; compare with full Header inference. Cover last-use removal, type/null/empty changes, empty nested maps, normalized-name collisions and duplicate exclusions. A failed database transaction must not publish candidate Header state.
+
+Compare byte-cached and complete string-source paths for declared Content values, public hashes, line endings, fenced and nested headings, legacy Claims, Unicode, and model declarations. Verify cached source bodies are bytes without a retained full decoded copy. Measure fresh same-source process RAM with the profiler off. Benchmark unprofiled ordinary-edit latency and all existing cold/bulk/full-reread gates; do not trade away their existing limits. Report bytes saved and process RAM separately, and do not compare an instrumented memory-census peak with an uninstrumented baseline.
+
+Verify full replacement derives each public row once and reuses the same computed rows for SQL insertion and its retained projection snapshot. SQL values, schema and hashes must match the snapshot. Preserve failure-state publication, ordinary-delta behavior and all existing performance limits; benchmark full builds with the profiler off.

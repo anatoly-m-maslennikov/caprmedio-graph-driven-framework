@@ -2,7 +2,7 @@
 # CA-R-2724@3
 # CA-R-2725@3
 # CA-M-464@8
-# CA-M-465@19
+# CA-M-465@23
 # CA-D-672@12
 
 """Materialize authored references and literal declared inverse bindings in memory."""
@@ -20,6 +20,8 @@ import sys
 from typing import Any
 
 from markdown_it import MarkdownIt
+
+from .markdown_content import source_markdown
 
 
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
@@ -120,7 +122,7 @@ def registry_contribution(row: Mapping[str, Any]) -> tuple[frozenset[str], tuple
     if row.get("form") not in {"Declaration", "Definition", "Entity Definition", "Relation Definition"}:
         return frozenset(), ()
     names = frozenset(name for subject in _subjects(row.get("header_json", {})) for name in _RELATION.findall(subject))
-    return names, tuple(_literal_bindings(str(row.get("content_markdown", "")))) if names else ()
+    return names, tuple(_literal_bindings(source_markdown(row) or "")) if names else ()
 
 
 def registry_from_contributions(
@@ -309,7 +311,9 @@ def _materialized_row(kind: str, source: dict, facts: tuple[tuple, ...]) -> dict
     if kind == ATOM:
         row["updated_at"] = _timestamp(row["updated_at"])
     try:
-        payload = {key: value for key, value in row.items() if key != "hash"}
+        payload = {key: value for key, value in row.items() if key not in {"hash", "_content_bytes"}}
+        if "_content_bytes" in row:
+            payload["content_markdown"] = source_markdown(row)
         row["hash"] = hashlib.sha256(canonical(payload).encode("utf-8")).hexdigest()
         return row
     except (TypeError, ValueError) as error:

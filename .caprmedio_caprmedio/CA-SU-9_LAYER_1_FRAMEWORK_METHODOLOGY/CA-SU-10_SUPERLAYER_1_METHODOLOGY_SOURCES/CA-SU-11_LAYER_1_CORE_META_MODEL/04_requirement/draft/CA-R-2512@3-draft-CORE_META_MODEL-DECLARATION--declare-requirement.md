@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 3
-updated_at: "2026-11-07 01:15:14 +0400"
+updated_at: "2026-11-07 13:45:19 +0400"
 carrier_destination:
   file:
     name: CA-R-2512@3-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md
@@ -28,7 +28,7 @@ Declare Atom/(.Role := Requirement)
 
 ```CFEL
 # model
-Atom/(.Header.Role: Requirement)
+Atom/(.Header.Role := Requirement)
 ```
 
 ## Semantics

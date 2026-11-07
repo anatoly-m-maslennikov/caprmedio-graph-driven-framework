@@ -25,7 +25,7 @@ MCP_ROOT = Path(__file__).resolve().parents[1]
 TOOLS_ROOT = MCP_ROOT.parent / "FEATURE_TOOLS"
 sys.path[:0] = [str(MCP_ROOT), str(TOOLS_ROOT), str(TOOLS_ROOT / "VALIDATE_ATOMS")]
 
-import registered_tool_registry as registry  # noqa: E402
+from registered_tool_runtime import register_catalog_tools  # noqa: E402
 from capability_discovery import service as discovery_service  # noqa: E402
 from capability_discovery.tool_catalog import ToolCatalogError, build_catalog, read_catalog  # noqa: E402
 from generate_tools_catalog import generate_catalog  # noqa: E402
@@ -160,12 +160,11 @@ class GeneratedCatalogTests(unittest.IsolatedAsyncioTestCase):
                 "sha256": hashlib.sha256(b"fixture").hexdigest(),
                 "action_ids": ["CA-O-112"],
             }
-            with (
-                patch.object(registry, "_binding_is_fresh", return_value=True),
-                patch.object(discovery_service.Service, "discover", return_value={"matches": ["selected"]}) as discover,
-            ):
+            with patch.object(
+                discovery_service.Service, "discover", return_value={"matches": ["selected"]}
+            ) as discover:
                 server = MCPServer("catalog-discovery")
-                registered = registry.register_catalog_tools(server, root, [binding])
+                registered = register_catalog_tools(server, root, [binding])
                 self.assertEqual(frozenset({"discover_tools"}), registered.registered_names)
                 async with InMemoryTransport(server, raise_exceptions=True) as streams:
                     async with ClientSession(*streams) as session:

@@ -1,7 +1,7 @@
 # CA-R-2723@3
 # CA-R-2726@5
 # CA-D-672@12
-# CA-M-465@21
+# CA-M-465@23
 # CA-M-500@2
 
 """Map parsed Atom and Scope Unit sources to raw Workbench rows."""
@@ -23,8 +23,12 @@ _NUMBERED_DRAFT_REFERENCE = re.compile(r"@\d+-draft$")
 
 def atom(
     path: Path, root: Path, header: dict[str, Any], view: dict[str, Any],
-    body: str, group: str,
+    body: str | bytes, group: str,
 ) -> dict[str, Any]:
+    cached_body = body.encode("utf-8") if isinstance(body, str) else body
+    if not isinstance(cached_body, bytes):
+        raise TypeError("Markdown body must be UTF-8 text or bytes")
+    markdown = cached_body.decode("utf-8")
     atom_id, version = view.get("atom_id"), view.get("version")
     if group == "Current" and isinstance(atom_id, str):
         ref = atom_id
@@ -51,9 +55,9 @@ def atom(
         "tier": bigint(view.get("tier")),
         "updated_at": view.get("updated_at"),
         "header_json": header,
-        "content_markdown": body,
+        "_content_bytes": cached_body,
         "content_properties_json": parse_content(
-            body, tolerate_duplicate_siblings=True, compact=True,
+            markdown, tolerate_duplicate_siblings=True, compact=True,
         ),
         "relation_edges_json": [],
         "hash": None,
@@ -101,7 +105,21 @@ def same_row(
         return before is after
     if before[1] is after[1]:
         return True
-    return _same_types(before[1], after[1]) and canonical(before[1]) == canonical(after[1])
+    return (
+        _same_types(before[1], after[1])
+        and before[1].get("_content_bytes") == after[1].get("_content_bytes")
+        and canonical_row(before[1]) == canonical_row(after[1])
+    )
+
+
+def canonical_row(row: Mapping[str, Any]) -> str:
+    """Validate a source row without decoding its private cached body."""
+    payload = dict(row)
+    if "_content_bytes" in payload:
+        body = payload.pop("_content_bytes")
+        if not isinstance(body, bytes):
+            raise TypeError("cached Markdown body must be UTF-8 bytes")
+    return canonical(payload)
 
 
 @dataclass
@@ -175,8 +193,8 @@ def frontmatter_bounds(raw: bytes) -> tuple[int, int, int] | None:
     return None if closing is None else (opening_end, closing.start(), closing.end())
 
 
-def source_body(raw: bytes, path: Path) -> str:
+def source_body(raw: bytes, path: Path) -> bytes:
     bounds = frontmatter_bounds(raw)
     if bounds is None:
         raise ValueError(f"{path}: unsupported frontmatter delimiter")
-    return raw[bounds[2]:].decode("utf-8")
+    return raw[bounds[2]:]

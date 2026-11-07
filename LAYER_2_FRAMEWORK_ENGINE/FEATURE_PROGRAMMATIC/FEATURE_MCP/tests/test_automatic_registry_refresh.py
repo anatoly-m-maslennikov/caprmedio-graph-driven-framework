@@ -19,6 +19,7 @@ for directory in (MCP_ROOT, TOOLS_ROOT):
         sys.path.insert(0, str(directory))
 
 import registered_tool_registry as registry  # noqa: E402
+import registered_tool_providers as provider_loader  # noqa: E402
 
 
 ENTRYPOINT_PREFIX = "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"
@@ -29,7 +30,7 @@ class AutomaticRegistryRefresh(unittest.IsolatedAsyncioTestCase):
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
-        self.programmatic = self.root / "installed" / "FEATURE_PROGRAMMATIC"
+        self.programmatic = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"
         self.provider_dir = self.programmatic / "mock"
         self.provider_dir.mkdir(parents=True)
         self.invocations = self.root / "invocations.jsonl"
@@ -91,8 +92,7 @@ class AutomaticRegistryRefresh(unittest.IsolatedAsyncioTestCase):
         )
 
     def compile(self, bindings: list[dict[str, object]]):
-        with (patch.object(registry, "_PROGRAMMATIC_ROOT", self.programmatic),
-              patch.object(registry, "_MODULE_CACHE", {})):
+        with patch.object(provider_loader, "_MODULE_CACHE", {}):
             return registry.compile_registry(self.root, bindings)
 
     def server_parameters(self, bindings: list[dict[str, object]]) -> StdioServerParameters:
@@ -104,16 +104,11 @@ class AutomaticRegistryRefresh(unittest.IsolatedAsyncioTestCase):
             "from pathlib import Path\n"
             "sys.path.insert(0, sys.argv[1])\n"
             "sys.path.insert(0, str(Path(sys.argv[1]).parent / 'FEATURE_TOOLS'))\n"
-            "import registered_tool_registry as registry\n"
+            "import registered_tool_runtime as runtime\n"
             "from mcp.server import MCPServer\n"
-            "registry._PROGRAMMATIC_ROOT = Path(sys.argv[2])\n"
-            "registry._MODULE_CACHE.clear()\n"
             "bindings = json.loads(Path(sys.argv[4]).read_text())\n"
-            "def binding_is_fresh(_root, expected):\n"
-            "    return sum(all(item.get(key) == value for key, value in expected.items()) for item in bindings) == 1\n"
-            "registry._binding_is_fresh = binding_is_fresh\n"
             "server = MCPServer('candidate-registry')\n"
-            "registry.register_catalog_tools(server, Path(sys.argv[3]), bindings)\n"
+            "runtime.register_catalog_tools(server, Path(sys.argv[3]), bindings, package_root=Path(sys.argv[3]))\n"
             "server.run(transport='stdio')\n",
             encoding="utf-8",
         )

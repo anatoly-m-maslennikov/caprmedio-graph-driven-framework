@@ -1,0 +1,721 @@
+{
+  "status": "SOURCE_PINNED_MODEL_PROPOSALS_ONLY",
+  "scope": "Scope Delegation consolidation, retained Project-only Scope Unit Declaration Form, external identity, whitelists, relational Goal replacement and Scope Unit ID/Project-kind model updates. No native changes or ID allocations.",
+  "source_authority": {
+    "adoption_contract": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/model-adoption-20261107/contract.md",
+    "latest_proposal": ".caprmedio_caprmedio/02_analysis/draft/scope-forms-proposal-20261106/proposal-body.md",
+    "role_semantics_manifest": ".caprmedio_caprmedio/02_analysis/draft/role-semantics-20261107/manifest.json",
+    "form_pattern": {
+      "source": "model-adoption-20261107/forms/drafts.json: grounded_pattern",
+      "generic_selector": "Atom/(.Header.Form := <Form>)",
+      "bound_role_whitelist": "Atom/(.Header.Form := <Form>)//$form; $form.Header.Role:: [in (<roles>)]{::1};",
+      "use": "One Scope Delegation Form classifier with one bound-instance RMEDO Role whitelist; no duplicated semantic declaration per Role."
+    }
+  },
+  "source_pins": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "sha256": "a95da42f912b9f5754d77a1ac3cc120e378efe48f48a03008b4056cfedc2ced0",
+      "atom_id": "CA-R-2684",
+      "ref_id": "CA-R-2684",
+      "status": "Active",
+      "version": 1,
+      "summary": "Define Scope Unit Declaration form"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "sha256": "f92fbee89e17dcb340bf94f890f5eab9f2778197a9edaf3b6972be90882ba8ff",
+      "atom_id": "CA-R-2688",
+      "ref_id": "CA-R-2688",
+      "status": "Active",
+      "version": 2,
+      "summary": "Require one Scope Unit Declaration"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2688@3-draft-CORE_META_MODEL-RULE--require-one-scope-unit-declaration.md",
+      "sha256": "192cba0be8b21e7ce9c6c5ee9ecf093000734ebadd373818e7aace117bc053a2",
+      "atom_id": "CA-R-2688",
+      "ref_id": "CA-R-2688@3-draft",
+      "status": "Draft",
+      "version": 3,
+      "summary": "Require one Scope Unit Declaration"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2523-CORE_META_MODEL-DECLARATION--declare-scope-unit.md",
+      "sha256": "7925867d8e9e8717759e28e9128e7806ac56e8d1e07025b5005a932a030f828d",
+      "atom_id": "CA-R-2523",
+      "ref_id": "CA-R-2523",
+      "status": "Active",
+      "version": 3,
+      "summary": "Declare Scope Unit"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2524-CORE_META_MODEL-DECLARATION--declare-project.md",
+      "sha256": "830d18dc04b38cafa52e60f7a97e935a5c93d5c5c80cc8d78d575e27dba6a738",
+      "atom_id": "CA-R-2524",
+      "ref_id": "CA-R-2524",
+      "status": "Active",
+      "version": 3,
+      "summary": "Declare Project"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2516-CORE_META_MODEL-DECLARATION--declare-atom-role-requirement-form-declaration.md",
+      "sha256": "d726071c4bca8da61e1461ab422056919e8850e1234816e9801b5e7a986c840b",
+      "atom_id": "CA-R-2516",
+      "ref_id": "CA-R-2516",
+      "status": "Active",
+      "version": 5,
+      "summary": "Declare Atom/(.Role := Requirement)/(.Form := Declaration)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2512-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "sha256": "0fb729a71727fe56f431fa267c0ea8596d95b9324080f4fb1f66e0aaf0834b76",
+      "atom_id": "CA-R-2512",
+      "ref_id": "CA-R-2512",
+      "status": "Active",
+      "version": 2,
+      "summary": "Declare Atom/(.Role := Requirement)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2513-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "sha256": "17b552fe7331f341b60029a33f8a8340fa785bbdd4c20f075868911b64b7353e",
+      "atom_id": "CA-R-2513",
+      "ref_id": "CA-R-2513",
+      "status": "Active",
+      "version": 2,
+      "summary": "Declare Atom/(.Role := Method)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2514-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "sha256": "7329a6004670e371cd7df757f2531733303ee96013383d9cbc4ec75256aef5d4",
+      "atom_id": "CA-R-2514",
+      "ref_id": "CA-R-2514",
+      "status": "Active",
+      "version": 2,
+      "summary": "Declare Atom/(.Role := Evaluation)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2515-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "sha256": "b853812f7a6637dfebd18d1c719f85090137b530affc174594c14debf0e7efc0",
+      "atom_id": "CA-R-2515",
+      "ref_id": "CA-R-2515",
+      "status": "Active",
+      "version": 2,
+      "summary": "Declare Atom/(.Role := Delivery)"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md",
+      "sha256": "40f515ce57bb48c3cab3e6c6291e9d338107441951384b136218b97f8456fe69",
+      "atom_id": "CA-R-2463",
+      "ref_id": "CA-R-2463",
+      "status": "Active",
+      "version": 2,
+      "summary": "Declare Operations"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2685-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-ordered.md",
+      "sha256": "211a823a95658543289212a290164a11eddaf5f5638aedffa24bf4428f307f0f",
+      "atom_id": "CA-R-2685",
+      "ref_id": "CA-R-2685",
+      "status": "Active",
+      "version": 1,
+      "summary": "Declare Scope Unit.order.ordered"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2686-CORE_META_MODEL-DECLARATION--declare-scope-unit-order-number.md",
+      "sha256": "e2dc865be1cf7d6dafdaea097135546320b5c5a7a145e244d3501e6c8667aa47",
+      "atom_id": "CA-R-2686",
+      "ref_id": "CA-R-2686",
+      "status": "Active",
+      "version": 1,
+      "summary": "Declare Scope Unit.order.number"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2687-CORE_META_MODEL-DECLARATION--declare-scope-unit-order.md",
+      "sha256": "528dfc938400f564b6035d6c245df682b73a72e3f9b83ef977f1d82e339717f5",
+      "atom_id": "CA-R-2687",
+      "ref_id": "CA-R-2687",
+      "status": "Active",
+      "version": 1,
+      "summary": "Declare Scope Unit.order"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-962-CORE_META_MODEL-RULE--give-every-scope-unit-one-name.md",
+      "sha256": "561d0af51bb397169848d43779fa99fa380fa6df0b099b1d882e0d48162a500c",
+      "atom_id": "CA-R-962",
+      "ref_id": "CA-R-962",
+      "status": "Active",
+      "version": 29,
+      "summary": "Give Every Scope Unit One Name"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970-CORE_META_MODEL-RULE--make-scope-unit-names-unique-within-the-project.md",
+      "sha256": "4cbd0106567013296472c0684d164f367dcc942ea917c1bc2e8803264c8042bb",
+      "atom_id": "CA-R-970",
+      "ref_id": "CA-R-970",
+      "status": "Active",
+      "version": 32,
+      "summary": "Make Scope Unit Names Unique within the Project"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md",
+      "sha256": "ef0ebe53ed7452f0462c19d3c9b3ae4b175b27e963aa58102f694ea78c14e12a",
+      "atom_id": "CA-R-924",
+      "ref_id": "CA-R-924",
+      "status": "Active",
+      "version": 37,
+      "summary": "Register Core Relational Atom Classifications"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-RULE--let-direct-parents-define-non-project-goals.md",
+      "sha256": "36105319cb8e182a2ce1185e1d4bf146d613dab7506d71f1c616b7632b5aa120",
+      "atom_id": "CA-R-926",
+      "ref_id": "CA-R-926",
+      "status": "Active",
+      "version": 39,
+      "summary": "Let Direct Parents Define Non-Project Goals"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "4131c71b55294bd6032a5ebfb23709b612aba9ea9ea8b9be9ed46249e1ac48dd",
+      "atom_id": "CA-M-461",
+      "ref_id": "CA-M-461",
+      "status": "Active",
+      "version": 2,
+      "summary": "Author Scope Unit Declarations and Contracts"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "3c9092ced90bf8e9a1e2636e66610141f7ba24db4cc2cb4285a25fcfc6f2ef83",
+      "atom_id": "CA-M-461",
+      "ref_id": "CA-M-461@3-draft",
+      "status": "Draft",
+      "version": 3,
+      "summary": "Author Scope Unit Declarations and Contracts"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-R-2640-ANATOLY-MASLENNIKOV-DEFINES_SCOPE_FOR-caprmedio--declare-caprmedio.md",
+      "sha256": "dc6f4ca4c5bcbac058d39b8554734e178da1d774fb1af6ce09e063be0988694a",
+      "atom_id": "CA-R-2640",
+      "ref_id": "CA-R-2640",
+      "status": "Active",
+      "version": 1,
+      "summary": "Declare caprmedio"
+    },
+    {
+      "path": ".caprmedio_caprmedio/04_requirement/draft/CA-R-2640@2-draft-WORLD-SCOPE_UNIT_DECLARATION--declare-caprmedio.md",
+      "sha256": "f74d3cbd8412fa5cfad47ec79582e1edd07f71a2b48a6cf1f2c0eee7e9727d4d",
+      "atom_id": "CA-R-2640",
+      "ref_id": "CA-R-2640@2-draft",
+      "status": "Draft",
+      "version": 2,
+      "summary": "Declare caprmedio"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/scope-forms-proposal-20261106/proposal-body.md",
+      "sha256": "5b24343b1f7f3a0dd68295cd4646120f55a8b1dfa0d0bec87afcca3cba9184ec"
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/role-semantics-20261107/manifest.json",
+      "sha256": "3c4f93f5f3608336a74a86d5ab9fb876f6709168381fbd5bced297eddc164a0a"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md",
+      "sha256": "afda96e5c9c47cf3aa89e0223531608d9fee9f2120325bb73b3b3b856efe6ee1",
+      "atom_id": "CA-R-2526",
+      "ref_id": "CA-R-2526",
+      "status": "Active",
+      "version": 4,
+      "summary": "Declare Scope Unit ID"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2714-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects-active.md",
+      "sha256": "057a7fe07f50a5c698563c8368a6753ada5d043ee81af3c29914d2e14a45aa41",
+      "atom_id": "CA-R-2714",
+      "ref_id": "CA-R-2714",
+      "status": "Active",
+      "version": 2,
+      "summary": "Declare Atom.Header.Subjects.Active"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement/CA-R-2661-FRAMEWORK_ENGINE-DEFINES_SCOPE_FOR-AGENTIC--declare-agentic.md",
+      "sha256": "0ad2a1544daa0e1dbbe48f20dfc071b636dee0519767d64eaf0790fbb0d6f149",
+      "atom_id": "CA-R-2661",
+      "ref_id": "CA-R-2661",
+      "status": "Active",
+      "version": 1,
+      "summary": "Declare AGENTIC"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/CA-R-2656-PROGRAMMATIC-DEFINES_SCOPE_FOR-CONNECTOR_TOOLS--declare-connector-tools.md",
+      "sha256": "fbdee7af85ec34a97fe26e993e0596835f9efd29607774babbeffba58ac3f38c",
+      "atom_id": "CA-R-2656",
+      "ref_id": "CA-R-2656",
+      "status": "Active",
+      "version": 1,
+      "summary": "Declare CONNECTOR_TOOLS"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-2649-FRAMEWORK_METHODOLOGY-DEFINES_SCOPE_FOR-METHODOLOGY_SOURCES--declare-methodology-sources.md",
+      "sha256": "53f9b9e4085a576728f574175f83b3a06e89f7f792c1a705806226e1e56b258e",
+      "atom_id": "CA-R-2649",
+      "ref_id": "CA-R-2649",
+      "status": "Active",
+      "version": 1,
+      "summary": "Declare METHODOLOGY_SOURCES"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md",
+      "sha256": "875c1cbc4aa0656a57d574fa1849e73c9838e4ae303ea976c2a270036551a01d",
+      "atom_id": "CA-R-2618",
+      "ref_id": "CA-R-2618",
+      "status": "Active",
+      "version": 3,
+      "summary": "Declare HAS_ACTIVE_SUBJECT"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "0d30d5a01af09777d7cc465b66e15997783f41298d3e85376fa458897031a666",
+      "atom_id": "CA-R-2508",
+      "ref_id": "CA-R-2508",
+      "status": "Active",
+      "version": 8,
+      "summary": "Declare Atom"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md",
+      "sha256": "039c43fd71e77dfb733bad0e0bc72cafc8f71e9eb353a878244e39bb76f42f8e",
+      "atom_id": "CA-R-2486",
+      "ref_id": "CA-R-2486",
+      "status": "Active",
+      "version": 6,
+      "summary": "Declare Relation endpoints"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2462-CORE_META_MODEL-DECLARATION--declare-node.md",
+      "sha256": "725a3a66f857394014fa7c77fe734d6725eeb69455d5b9ad8655b8c0e28b49ec",
+      "atom_id": "CA-R-2462",
+      "ref_id": "CA-R-2462",
+      "status": "Active",
+      "version": 6,
+      "summary": "Declare Node"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2487-CORE_META_MODEL-ENTITY_DEFINITION--define-cfel.md",
+      "sha256": "aca579539ce252f01043711624fcea2d23219923f5303e70d04b42368f76849f",
+      "atom_id": "CA-R-2487",
+      "ref_id": "CA-R-2487",
+      "status": "Active",
+      "version": 13,
+      "summary": "Define CFEL"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md",
+      "sha256": "e2bfa90313dd5241729e686c1c46c570cf1960f9751fc82107c765f2d2b3c73e",
+      "atom_id": "CA-R-2471",
+      "ref_id": "CA-R-2471",
+      "status": "Active",
+      "version": "7",
+      "summary": "Use distinct graph notation for Node relations"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2498-CORE_META_MODEL-DECLARATION--declare-atom-content-content.md",
+      "sha256": "433cb32f1c406bd5adfb0baaa1f9fa58561a2a4c8807dbf764a6fdb666ea08fd",
+      "atom_id": "CA-R-2498",
+      "ref_id": "CA-R-2498",
+      "status": "Active",
+      "version": "6",
+      "summary": "Declare Atom.Content"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2955-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md",
+      "sha256": "eb8bcefcf2c1443680af58e1863b4b963bc99765eefbfc552afc0f295ff9fb73",
+      "atom_id": "CA-R-2955",
+      "ref_id": "CA-R-2955",
+      "status": "Active",
+      "version": "1",
+      "summary": "Declare Relation Declaration as a Requirement Form"
+    }
+  ],
+  "drafts": [
+    {
+      "key": "new_scope_delegation_form_declaration",
+      "atom_id": null,
+      "identity_action": "new_id_required",
+      "role": "Requirement",
+      "form": "Declaration",
+      "version": null,
+      "summary": "Declare Scope Delegation",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Scope Delegation)",
+      "source_identity_policy": "Create one generic Form declaration with the existing bound-instance Role whitelist pattern. Do not create one semantic Form declaration per RMEDO Role. Retire CA-R-2684 only after this declaration and the Project-only Scope Unit Declaration Form declaration are both admitted.",
+      "formal_claim_candidate": "# instances\nAtom/(.Header.Form := Scope Delegation)//$scope_delegation;\n$scope_delegation.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1};",
+      "claim": "A Scope Delegation is an externally authored Atom whose Main Subject is exactly one receiving non-Project Scope Unit and whose Container is an external allocating context. It combines that unit’s structural declaration and its assigned contribution in one Atom. Its Role is exactly one of Requirement, Method, Evaluation, Delivery or Operations; the Role identifies the contribution. It records the receiving unit’s existing Name, stable ID, ordered state, optional Label, conditional order.number and direct Parent as declared values, and the Claim states the assigned contribution and boundaries. The delegating unit retains its full scope and accountability. The Scope Delegation does not create a separate target field, Goal, Scope Contract, path property or duplicated structural declaration. Each concrete Scope Delegation Claim contains a finite formal list of permitted local Main Subject branch strings and a finite formal list of permitted local Role/Form pairs. Requirement Scope Delegations permit local Requirement, Method, Evaluation, Delivery and Operations Roles; each Method, Evaluation, Delivery or Operations Scope Delegation permits its matching local Role. A local Atom is admitted by this delegation only when its resolved Scope Unit ownership matches the receiving unit and both its Main Subject and Role/Form pair occur in those lists. These are Claim statements, not new Header Properties.",
+      "whitelists": {
+        "scope_delegation_main_subject": "The single Main Subject is the canonical full Subject string for the specific receiving non-Project Scope Unit. Current Scope Unit Declaration instances use `CAPRMEDIO_STRUCTURE <+ Scope Unit//<Name>`; CA-R-2714 defines the one-string Main Subject field. Project root is excluded and retains its separate Project Declaration.",
+        "scope_delegation_role_form_pairs": {
+          "classifier": "Atom/(.Header.Form := Scope Delegation)",
+          "bound_instance": "Atom/(.Header.Form := Scope Delegation)//$scope_delegation;",
+          "$scope_delegation.Header.Role": "[in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}",
+          "identity": "One generic Form and one owner; no per-Role duplicate Form declarations."
+        },
+        "local_roles_by_delegation_role": {
+          "Requirement": [
+            "Requirement",
+            "Method",
+            "Evaluation",
+            "Delivery",
+            "Operations"
+          ],
+          "Method": [
+            "Method"
+          ],
+          "Evaluation": [
+            "Evaluation"
+          ],
+          "Delivery": [
+            "Delivery"
+          ],
+          "Operations": [
+            "Operations"
+          ]
+        },
+        "local_forms": {
+          "local_requirement_forms": {
+            "Requirement": "required outcomes and constraints",
+            "Declaration": "already admitted specialized Declaration families for model definitions",
+            "Rule": "not a new-model default Form; legacy Rule instance mapping is a later migration decision"
+          },
+          "settled_local_form_examples": [
+            "Evaluation/Eval Case",
+            "Operations/Workflow",
+            "Operations/Step",
+            "Operations/Action",
+            "Method/Decision and Delivery/Decision for concrete local choices"
+          ],
+          "shared_solution_policy_roles": "Pending MEDO vs RMEDO admission decision; Solution, Direct Policy and Approach Policy require explicit per-Delegation admission and no Role set is assumed here.",
+          "other_local_forms": "Use the existing admitted Forms/analogs for each Role as reconciled by the shared-Forms lane; do not infer a Form from topic or filename.",
+          "excluded_roles": [
+            "Concern",
+            "Analysis",
+            "Plan",
+            "Implementation"
+          ]
+        },
+        "local_main_subject_branches": {
+          "contract": "Each Scope Delegation Claim lists finite allowed HAS_ACTIVE_SUBJECT target selections for local Atoms, plus local Role/Form pairs. Local Atoms must be contained by the receiving Scope Unit through their Header.Container-derived IS_CONTAINED_BY link and their HAS_ACTIVE_SUBJECT target must belong to one listed target selection.",
+          "source_property": "Atom.Header.Topics.Main Subject is a single string with cardinality 1 (CA-R-2714); HAS_ACTIVE_SUBJECT resolves that field to its declared model-entity or instance target (CA-R-2618).",
+          "selection_basis": "Use existing typed model-entity and instance selectors to enumerate allowed targets; for Node populations, (Node, Node.**) is an existing selector family. Relation endpoints are declared model entities or instances (CA-R-2486), and HAS_ACTIVE_SUBJECT is not restricted to Node (CA-R-2618).",
+          "enforcement_limit": "Do not infer target admission from Subject text prefixes. Bind or select the actual HAS_ACTIVE_SUBJECT target and require its membership in the Claim-listed selection, together with receiving-unit containment. This is a relation/selector contract, not a new operator or stored whitelist Property."
+        }
+      },
+      "semantics": "Scope Delegation defaults admitted in every containing Scope Unit, including Project. Project can therefore declare children but has no incoming Scope Delegation; only the receiving unit must be non-Project. Its local Role permissions are R→RMEDO, M→M, E→E, D→D, O→O; these are permissions, not a required Role packet. Inherited constraints continue to govern. Local R defaults are Requirement for required outcomes/constraints plus existing Declaration families for model definitions; no Rule Form is introduced in the new model, and legacy Rule mappings are deferred. Eval Case and Operations Workflow/Step/Action are included; concrete M/D Decision is allowed. Solution and Policy Forms require explicit Scope Delegation admission; their shared Role range is pending. No complete packet or artificial Goal is required.",
+      "tier": "No Tier fixed by this Form; Tier rules are owned by the tier lane.",
+      "source_pins": [
+        "CA-R-2684",
+        "CA-R-2688",
+        "CA-R-2523",
+        "CA-R-2516",
+        "CA-R-2512@3-draft",
+        "CA-R-2513@3-draft",
+        "CA-R-2514@3-draft",
+        "CA-R-2515@3-draft",
+        "CA-R-2463@3-draft",
+        "CA-R-2640",
+        "CA-R-2640@2-draft",
+        "CA-A-1328 proposal body",
+        "CA-R-2471",
+        "CA-R-2498",
+        "CA-R-2955"
+      ],
+      "dependencies": [
+        "Align the generic bound-instance Form whitelist with the shared Forms lane; MEDO vs RMEDO for shared Solution/Policy Forms remains pending.",
+        "CFEL target and containment constraints use current HAS_ACTIVE_SUBJECT and IS_CONTAINED_BY authorities; this proposal is not runtime proof."
+      ],
+      "formalization_gate": "No new CFEL operator is needed for a generic text-prefix match. Scope Delegation Claims can enumerate admitted model-entity/instance targets and validate local Atoms through HAS_ACTIVE_SUBJECT plus IS_CONTAINED_BY to the receiving unit, using existing endpoint and selector forms. Do not claim runtime execution from this source proposal.",
+      "formal_main_subject_pattern": "For each specific unit, author the one scalar value using the established instance path, e.g. `Atom.Header.Topics.Main Subject == \"CAPRMEDIO_STRUCTURE <+ Scope Unit//<Name>\"`; replace `<Name>` with the declared Scope Unit Name. The pattern is evidenced by live Scope Unit declarations. It is not a wildcard/prefix matcher.",
+      "formal_whitelist_claim_template": {
+        "own_main_subject": "For the concrete delegation instance, Main Subject equals the exact current canonical string `CAPRMEDIO_STRUCTURE <+ Scope Unit//<Name>`.",
+        "local_subject_branches": "List exact typed entity/instance selections as allowed HAS_ACTIVE_SUBJECT targets; require local Atom containment under the receiving Scope Unit. The selector target, not the Subject string prefix, defines the admitted branch.",
+        "local_role_form_pairs": "Enumerate each permitted pair using current selectors such as `Atom/(.Header.Role := Requirement)/(.Header.Form := Requirement)` and the already admitted Declaration families.",
+        "R_defaults": {
+          "Requirement": "required outcomes/constraints",
+          "Declaration": "existing admitted model-definition Declaration families",
+          "Rule": "excluded as new-model default; legacy Rule migration is separate"
+        },
+        "scope_delegation_form_role": "Bind the generic Scope Delegation Form instance and constrain its Header.Role to [in (Requirement, Method, Evaluation, Delivery, Operations)] using the shared Forms lane pattern."
+      }
+    },
+    {
+      "key": "project_only_scope_unit_declaration_form",
+      "atom_id": null,
+      "identity_action": "new_id_required",
+      "role": "Requirement",
+      "form": "Declaration",
+      "version": null,
+      "summary": "Declare Project Scope Unit Declaration Form",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Scope Unit Declaration)",
+      "source_identity_policy": "Create one minimal generic-Form Declaration preserving the existing Requirement/Scope Unit Declaration Form exclusively for the Project root. This keeps R2684 retirement from leaving the retained root Form without a model owner.",
+      "claim": "Scope Unit Declaration is the Requirement Form for the Project-root Scope Unit Declaration only. A Scope Unit Declaration Atom has Role Requirement and Form Scope Unit Declaration, and its HAS_ACTIVE_SUBJECT target is a Project Scope Unit. Non-Project Scope Units are declared by the generic Scope Delegation Form. This declaration defines Form ownership only; the separate cardinality Requirement defines that the Project has one root declaration.",
+      "formal_claim_candidate": "# instances\nAtom/(.Header.Form := Scope Unit Declaration)//$root_scope_declaration;\n$root_scope_declaration.Header.Role:: [in (Requirement)]{::1};\n$root_scope_declaration ((HAS_ACTIVE_SUBJECT)) Scope Unit/Project//$project",
+      "form_whitelist": {
+        "classifier": "Atom/(.Header.Form := Scope Unit Declaration)",
+        "bound_instance": "Atom/(.Header.Form := Scope Unit Declaration)//$root_scope_declaration;",
+        "$root_scope_declaration.Header.Role": "[in (Requirement)]{::1}",
+        "active_subject_target": "Scope Unit/Project//",
+        "$role_form_owner_count": "One new Form owner, restricted to Project-root targets."
+      },
+      "scope_rule": "Do not add a second ownership count here. The Scope Unit cardinality Requirement carries exactly one Project root Declaration; this Form owner only preserves its allowed Form and target domain.",
+      "source_pins": [
+        "CA-R-2684",
+        "CA-R-2524",
+        "CA-R-2640",
+        "CA-R-2640@2-draft",
+        "CA-R-2526"
+      ],
+      "dependencies": [
+        "Adopt together with the Scope Delegation Form owner before retiring CA-R-2684.",
+        "CA-R-2524 successor removes the current Project ID zero constraint; CA-R-2526 sets Project Scope Unit ID cardinality to one."
+      ]
+    },
+    {
+      "key": "new_scope_delegation_cardinality_and_scope_declaration",
+      "atom_id": null,
+      "identity_action": "new_id_required",
+      "role": "Requirement",
+      "form": "Declaration",
+      "version": null,
+      "summary": "Establish Project and non-Project Scope Unit declarations and delegations",
+      "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit",
+      "source_identity_policy": "New identity because old CA-R-2688 Summary requires one Scope Unit Declaration for every unit including Project; its successor is a Requirement/Declaration model definition, not a new Rule Form. Retire old R2688 and old R926 only after this successor, the generic Scope Delegation Form owner and the Project-only Scope Unit Declaration Form owner are adopted.",
+      "formal_claim_candidate": null,
+      "claim": "Every non-Project Scope Unit has exactly one external Scope Delegation whose Main Subject is that Scope Unit. That Atom is the sole external structural authority for its Name, stable ID, ordering state, conditional order.number and direct Parent, and its Claim states one delegated contribution. The Scope Delegation is assigned a single RMEDO Role and its Container is an authorized external allocating context. Project remains exceptional: retain its one Project-root Requirement/Scope Unit Declaration (currently CA-R-2640), stable Scope Unit ID `CA-SU-00`, unordered state and absence of `order.number`, plus Project-level Requirement/Goal and root Axioms; it has no Scope Delegation. Scope Unit declarations remain authoritative for identity and structural parentage; folder names and physical nesting do not define either. Scope Delegation is admitted by default in every containing Scope Unit, including Project, which may declare child Scope Units. Only the receiving unit must be non-Project; Project itself has no incoming Scope Delegation. Delegation does not erase the delegator’s overall scope or accountability, and no artificial Goal is required to express engineering, evaluation, delivery or operations responsibility. This model definition is a Requirement/Declaration; it introduces no Requirement/Rule Form.",
+      "coverage": "Combines the scope identity/cardinality structural constraint formerly in R2688 with the non-Project Goal coverage obligation formerly in R926, replacing Goals with one Scope Delegation. It does not absorb Scope Unit kind definition R2523, Project kind R2524, Name/uniqueness/order property declarations, or Tier/Scope Contract rules.",
+      "source_pins": [
+        "CA-R-2688",
+        "CA-R-2688@3-draft",
+        "CA-R-926",
+        "CA-R-2523",
+        "CA-R-2524",
+        "CA-R-2640",
+        "CA-R-2640@2-draft",
+        "CA-R-962",
+        "CA-R-970",
+        "CA-R-2685",
+        "CA-R-2686",
+        "CA-R-2687",
+        "CA-R-2526"
+      ],
+      "retire_after_adoption": [
+        "CA-R-2688 Current and its conflicting @3 Draft",
+        "CA-R-926 Current"
+      ],
+      "dependencies": [
+        "Allocator reach remains unresolved: direct structural Parent only vs another authorized external allocating Scope Unit; this proposal preserves the distinction.",
+        "CA-R-2526@4 currently requires Project ID cardinality zero; an aligned same-ID/Summary successor is proposed for approved CA-SU-00, coordinated with the CA-R-2524 model successor and the approved CA-R-2640@2 root value."
+      ]
+    },
+    {
+      "key": "successor_core_relational_atom_classifications",
+      "atom_id": "CA-R-924",
+      "identity_action": "same_id_successor_same_summary_form_reclassification",
+      "role": "Requirement",
+      "form": "Declaration",
+      "version": "next after 37",
+      "summary": "Register Core Relational Atom Classifications",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Form",
+      "source_identity_policy": "Preserve CA-R-924 ID and Summary; move this model definition to the existing Requirement/Declaration family, add Scope Delegation pairs, and retain its Plan Claim-target qualification.",
+      "claim": "The allowed qualified relational Atom types include Requirement/Goal, Requirement/Demand, Plan/Plan and each of Requirement/Scope Delegation, Method/Scope Delegation, Evaluation/Scope Delegation, Delivery/Scope Delegation and Operations/Scope Delegation. A Scope Delegation is relational because its external receiving Scope Unit differs from the defining external Container. A Plan is relational only when its actual Claim target differs under the Relational Atom definition, not because it has decomposition, blocking or a particular Label. This addition does not classify local Solutions, Policies, Decisions, Eval Cases, or executable Operations Forms as relational by topic or filename.",
+      "formal_whitelist": [
+        "Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)",
+        "Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)",
+        "Atom/(.Header.Role := Plan)/(.Header.Form := Plan)",
+        "Atom/(.Header.Role := Requirement)/(.Header.Form := Scope Delegation)",
+        "Atom/(.Header.Role := Method)/(.Header.Form := Scope Delegation)",
+        "Atom/(.Header.Role := Evaluation)/(.Header.Form := Scope Delegation)",
+        "Atom/(.Header.Role := Delivery)/(.Header.Form := Scope Delegation)",
+        "Atom/(.Header.Role := Operations)/(.Header.Form := Scope Delegation)"
+      ],
+      "source_pins": [
+        "CA-R-924",
+        "CA-R-2684",
+        "CA-R-2688",
+        "CA-A-1328 proposal body",
+        "CA-R-2714"
+      ],
+      "dependencies": [
+        "Confirm Scope Delegation qualifies under the existing Relational Atom definition at integration; this proposal is claim/subject based, not role-name inference.",
+        "Do not use former R/Goal whitelist as replacement for one Scope Delegation."
+      ],
+      "form_change": "Requirement/Rule -> Requirement/Declaration; preserve ID and Summary, because it remains a model definition/registration."
+    },
+    {
+      "key": "new_scope_authoring_method",
+      "atom_id": null,
+      "identity_action": "new_id_required",
+      "role": "Method",
+      "form": "Direct Policy",
+      "version": null,
+      "summary": "Author Scope Delegations and internal Scope Unit definitions",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Direct Policy)",
+      "source_identity_policy": "New identity because CA-M-461 Summary and Claim are explicitly about authoring Declarations and Scope Contracts; do not silently repurpose them. Replace with a general Method/Direct Policy authoring method, without requiring per-Scope-Unit local adoption Atoms.",
+      "claim": "Author one external Scope Delegation for each non-Project Scope Unit, with the receiving unit as its Main Subject and the authorized external allocating context as Container. Preserve its structural Name, ID, ordering state and direct Parent, and state the actual R, M, E, D or O contribution in that Role. Do not author a separate external Goal to stand in for an engineering, evaluation, delivery or operations contribution. This is common authoring guidance and requires no local adoption Atom. Inside a unit, define its own Tier-0 realization under the separately admitted Tier/Form rules; do not create a Scope Contract or a mandatory Role packet. Keep the Project root declaration, Project Goal and root Axioms distinct. Derived folder names and paths are not per-unit declaration values; direct structural parentage comes from the declared model, not physical nesting.",
+      "source_pins": [
+        "CA-M-461 Current",
+        "CA-M-461@3-draft",
+        "CA-R-2684",
+        "CA-R-2688",
+        "CA-R-926",
+        "CA-R-2424 (tier-lane boundary)",
+        "CA-R-2640@2-draft",
+        "CA-A-1328 proposal body"
+      ],
+      "coordination": "Tier/Form classification remains with the tier and shared-forms lanes; this Method does not define those Forms or their Tier constraints.",
+      "dependencies": [
+        "Allocator reach remains open: direct structural Parent only vs another authorized external allocating Scope Unit."
+      ],
+      "form_alternatives": [
+        "Method/Direct Policy"
+      ],
+      "form_rationale": "Method is included in both MEDO and RMEDO shared-Form candidates; Direct Policy states the common authoring method and does not require each Scope Unit to add a local adoption Atom."
+    },
+    {
+      "key": "same_identity_project_kind_releases_id_zero_constraint",
+      "atom_id": "CA-R-2524",
+      "identity_action": "same_id_successor_same_summary",
+      "role": "Requirement",
+      "form": "Declaration",
+      "version": "next after 3",
+      "summary": "Declare Project",
+      "main_subject": "CAPRMEDIO_MODEL <+ Project",
+      "source_identity_policy": "Preserve CA-R-2524 identity and Summary. Remove the Project ID zero constraint because CA-R-2526 successor now requires exactly one Scope Unit ID for every Scope Unit, including Project.",
+      "claim": "Project remains the root Scope Unit: it is unordered, has no order.number and is not moved or renamed through Scope Unit operations. Its one stable ID is governed by CA-R-2526. The Project Declaration does not duplicate that ID cardinality constraint.",
+      "formal_claim_candidate": "# model\nScope Unit/Project;\nProject >| (Container == yes);\nProject ((NARROWER_THAN)) Scope Unit;\n\n# instances\nScope Unit/Project//$scope_unit{::1};\nProject//$project {::0}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;\nProject//$project_2.order.ordered == false;\nProject//$project_3.order.number:: []{::0}",
+      "source_pins": [
+        "CA-R-2524",
+        "CA-R-2526"
+      ],
+      "dependencies": [
+        "Coordinate with CA-R-2526 same-ID successor; no Project instance carrier migration is included in this model-source proposal."
+      ],
+      "source_conflict": "Current CA-R-2524@3 contains Project//$project_4.ID:: []{::0}, which directly contradicts approved CA-SU-00 and the proposed CA-R-2526@5 ID cardinality. Remove only this prohibition; do not add a duplicate ID count."
+    },
+    {
+      "key": "same_identity_scope_unit_id_cardinality_successor",
+      "atom_id": "CA-R-2526",
+      "identity_action": "same_id_successor_same_summary",
+      "role": "Requirement",
+      "form": "Declaration",
+      "version": "next after 4",
+      "summary": "Declare Scope Unit ID",
+      "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit.ID",
+      "source_identity_policy": "Preserve CA-R-2526 ID and Summary; widen the existing cardinality claim to match the explicit Project-root ID decision.",
+      "formal_claim_candidate": "# model\nScope Unit.ID:: [string]{::0..1};\nScope Unit.ID.*[]{::0};\n\n# instances\nScope Unit//$unit;\n$unit.ID{::1}",
+      "claim": "Every Scope Unit, including the Project root, has exactly one stable Scope Unit ID. For this Project the root Declaration CA-R-2640@2 assigns `CA-SU-00`. Project ID does not make Project eligible for an incoming Scope Delegation or order.number, and does not change the Project unordered rule.",
+      "change_from_current": "Project ID cardinality changes from zero to one; non-Project cardinality remains one. The ID property remains a string with at most one direct value per bearer.",
+      "source_pins": [
+        "CA-R-2526@4",
+        "CA-R-2688@2",
+        "CA-R-2524",
+        "CA-R-2640@2-draft"
+      ],
+      "integration_gate": "This is a MODEL authority change. Coordinate with the CA-R-2524 same-ID model successor to remove its contradictory Project ID zero constraint. R2640@2 is an unpromoted instance declaration showing CA-SU-00; instance migration/adoption remains separate and is not a prerequisite to the model-level cardinality proposal.",
+      "form_change": "Current CA-R-2526 is already a Requirement/Declaration; unchanged."
+    }
+  ],
+  "retirement_plan": [
+    {
+      "id": "CA-R-2684",
+      "version": 1,
+      "summary": "Define Scope Unit Declaration form",
+      "action": "Retire only after both the generic Scope Delegation Form owner and the Project-only Scope Unit Declaration Form owner are admitted; this preserves the Project root Form while replacing the old generic external Form."
+    },
+    {
+      "id": "CA-R-2688",
+      "version": 2,
+      "summary": "Require one Scope Unit Declaration",
+      "action": "Retire after the new Requirement/Declaration establishes one external non-Project Scope Delegation and preserves the separate Project-root Declaration."
+    },
+    {
+      "id": "CA-R-926",
+      "version": 39,
+      "summary": "Let Direct Parents Define Non-Project Goals",
+      "action": "Retire after the Scope Delegation Requirement/Declaration covers one external responsibility/contribution per non-Project unit; retain gap reporting for missing Scope Delegation."
+    },
+    {
+      "id": "CA-M-461",
+      "version": 2,
+      "summary": "Author Scope Unit Declarations and Contracts",
+      "action": "Retire after the new-ID Method/Direct Policy authoring successor replaces its separate Declaration/Goal/Scope Contract authoring model."
+    },
+    {
+      "id": "CA-R-2688@3-draft",
+      "version": 3,
+      "summary": "Require one Scope Unit Declaration",
+      "action": "Mark conflicting preexisting Draft as superseded/retired; its world exception and Requirement-only rule conflict with current decisions."
+    },
+    {
+      "id": "CA-M-461@3-draft",
+      "version": 3,
+      "summary": "Author Scope Unit Declarations and Contracts",
+      "action": "Mark conflicting preexisting Draft as superseded/retired; it retains old Scope Unit Declaration and Scope Contract obligations and world exception."
+    }
+  ],
+  "settled_decisions": {
+    "one_nonproject_scope_delegation": "exactly one per non-Project Scope Unit",
+    "delegation_admitted_by_default_in_each_scope_unit": "Yes in every containing Scope Unit, including Project, so Project can declare its child Scope Units. Only the receiving unit must be non-Project; Project itself has no incoming Scope Delegation.",
+    "delegator_accountability": "delegator retains full scope/accountability",
+    "project_goal_and_axioms": "remain Project-level",
+    "project_root_declaration": "retain existing Project-root Requirement/Scope Unit Declaration as root-only exception unless separately changed",
+    "role_permissions": {
+      "Requirement": [
+        "Requirement",
+        "Method",
+        "Evaluation",
+        "Delivery",
+        "Operations"
+      ],
+      "Method": [
+        "Method"
+      ],
+      "Evaluation": [
+        "Evaluation"
+      ],
+      "Delivery": [
+        "Delivery"
+      ],
+      "Operations": [
+        "Operations"
+      ]
+    },
+    "inherited_constraints": "remain applicable",
+    "no_scope_contract_or_artificial_goal": true,
+    "project_root_declaration_id": "CA-SU-00 (from the adopted root-ID decision and CA-R-2640@2 Draft)",
+    "local_requirement_forms": {
+      "Requirement": "local required outcomes and constraints",
+      "Declaration": "existing admitted Declaration families for model definitions",
+      "Rule": "not added as a new-model Form; legacy Rule instances map later"
+    }
+  },
+  "unresolved_decisions": [
+    {
+      "question": "Can only the direct structural Parent allocate a Scope Delegation, or may another authorized external Scope Unit allocate one?",
+      "blast_radius": "Determines allowed Container/allocator authority and source validation. The proposal does not equate allocator with direct structural Parent."
+    },
+    {
+      "question": "Which Roles may use shared Solution, Direct Policy and Approach Policy Forms: MEDO or RMEDO?",
+      "blast_radius": "Sets local Role/Form whitelist entries for the shared Solution, Direct Policy and Approach Policy Forms. It does not block the Method/Direct Policy authoring successor because Method is admitted in both candidate Role ranges."
+    }
+  ],
+  "out_of_scope_and_owners": [
+    "R2424/R2707 Tier-0 and Tier.Label changes belong to tiers lane; no Scope Contract synonym/label defined here.",
+    "No source-instance migration, Workflow instance edits, code/runtime, folder materialization, or native ID allocation.",
+    "Project root and Project ID instance-carrier migration/adoption remains with root/instance lanes; this packet only proposes the required model-source corrections."
+  ],
+  "formalization_gates": [
+    {
+      "issue": "Constrain local branch membership by resolved target and containment",
+      "evidence": "CA-R-2618 defines HAS_ACTIVE_SUBJECT as the Atom-to-resolved-model-entity-or-instance Relation and explicitly allows targets beyond Node. CA-R-2486 allows typed selectors and entity/instance endpoint domains; CA-R-2508 declares Atom Container-derived IS_CONTAINED_BY; CA-R-2462 supplies (Node, Node.**) as an existing model selector family; CA-R-2714 defines Main Subject as a scalar string.",
+      "action": "In each concrete Scope Delegation Claim, enumerate allowed typed target selections, require each authorized local Atom’s HAS_ACTIVE_SUBJECT target to belong to that selection, and require its Header.Container-derived IS_CONTAINED_BY target to be the receiving Scope Unit. This avoids text-prefix matching and requires no new operator or stored whitelist property. Treat this as a claim-level constraint, not proof of runtime enforcement."
+    }
+  ]
+}

@@ -1,4 +1,6 @@
-"""One Project blacklist filters selected, catalog and gateway MCP boundaries."""
+# CA-E-798@1
+
+"""One Project blacklist filters selected, registry and gateway MCP boundaries."""
 
 import json
 from pathlib import Path
@@ -67,18 +69,19 @@ class MCPToolBlacklistTests(unittest.IsolatedAsyncioTestCase):
     async def test_release_exclusions_preserve_other_routes_and_discovery(self):
         server = self.create_server()
         names = {tool.name for tool in await server.list_tools()}
-        self.assertEqual(
+        self.assertTrue(
             {
                 "workflow_orchestrator",
                 "create_atom",
                 "get_selected_workflow_run",
                 "get_selected_action_run",
                 "discover_tools",
-            },
-            names,
+            }
+            <= names
         )
-        self.assertEqual(
-            [names - {"get_selected_workflow_run", "get_selected_action_run"}], self.frontiers
+        self.assertFalse({"release_version", "public.release"} & names)
+        self.assertIn(
+            names - {"get_selected_workflow_run", "get_selected_action_run"}, self.frontiers
         )
         for name in ("release_version", "public.release"):
             with self.subTest(name=name), self.assertRaises(ToolError):
@@ -94,7 +97,11 @@ class MCPToolBlacklistTests(unittest.IsolatedAsyncioTestCase):
         with patch.object(provider, "create_adapter", side_effect=AssertionError("constructed")):
             server = self.create_server()
         names = {tool.name for tool in await server.list_tools()}
-        self.assertEqual({"release_version", "public.release", "get_selected_workflow_run"}, names)
+        self.assertFalse(
+            {"workflow_orchestrator", "create_atom", "get_selected_action_run", "discover_tools"}
+            & names
+        )
+        self.assertTrue({"release_version", "public.release", "get_selected_workflow_run"} <= names)
         for name in (
             "workflow_orchestrator",
             "create_atom",
@@ -145,19 +152,27 @@ class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
         blocked = ["echo", CONTROL.name, STATUS.name, *NATIVE_TOOLS]
         (control / "caprmedio_project_settings.toml").write_text(
             '[paths]\ncontrol_root = ".caprmedio_fixture"\n'
-            f'[project_mcp]\ntool_blacklist = {json.dumps(blocked)}\n'
+            f"[project_mcp]\ntool_blacklist = {json.dumps(blocked)}\n"
         )
         async with Client(self.params(), cache=None) as client:
             self.assertEqual([], (await client.list_tools()).tools)
             arguments = {
-                "query_run": {"sql": "SELECT 1"}, "query_check": {"sql": "SELECT 1"},
-                "query_page": {"query_id": "query", "offset": 0}, "query_schema": {},
+                "query_run": {"sql": "SELECT 1"},
+                "query_check": {"sql": "SELECT 1"},
+                "query_page": {"query_id": "query", "offset": 0},
+                "query_schema": {},
                 "view_save": {"sql": "SELECT 1"},
-                "query_load": {"reference": "q_" + "0" * 32}, "query_saved_list": {},
-                "workbench_restart": {}, "workbench_reread": {},
+                "query_load": {"reference": "q_" + "0" * 32},
+                "query_saved_list": {},
+                "workbench_restart": {},
+                "workbench_reread": {},
             }
             for name in blocked:
-                arguments_for_name = {"request": {}} if name in {"echo", CONTROL.name, STATUS.name} else arguments[name]
+                arguments_for_name = (
+                    {"request": {}}
+                    if name in {"echo", CONTROL.name, STATUS.name}
+                    else arguments[name]
+                )
                 response = await client.call_tool(name, arguments_for_name)
                 self.assertTrue(response.is_error)
                 self.assertEqual(["Unknown Tool"], response.structured_content["diagnostics"])

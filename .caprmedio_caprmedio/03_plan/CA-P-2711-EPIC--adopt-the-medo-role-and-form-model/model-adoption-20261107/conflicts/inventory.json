@@ -1,0 +1,174 @@
+{
+  "scope": "Direct native Current rule and authority conflicts; no instance migration, runtime or Workbench changes.",
+  "contract": "../contract.md",
+  "proposal": ".caprmedio_caprmedio/02_analysis/draft/scope-forms-proposal-20261106/proposal-body.md",
+  "role_draft_manifest": ".caprmedio_caprmedio/02_analysis/draft/role-semantics-20261107/manifest.json",
+  "findings": [
+    {
+      "id": "CA-R-924",
+      "version": 37,
+      "summary": "Register Core Relational Atom Classifications",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-924-CORE_META_MODEL-RULE--register-core-relational-atom-classifications.md",
+      "sha256": "ef0ebe53ed7452f0462c19d3c9b3ae4b175b27e963aa58102f694ea78c14e12a",
+      "disposition": "AMEND",
+      "finding": "Whitelist limits relational classifications to R/Goal, R/Demand and Plan. Reconcile all RMEDO Scope Delegations; preserve the actual Claim-target distinction for Plan and other still-valid classifications. Same Summary if meaning stays registration.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-926",
+      "version": 39,
+      "summary": "Let Direct Parents Define Non-Project Goals",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-926-CORE_META_MODEL-RULE--let-direct-parents-define-non-project-goals.md",
+      "sha256": "36105319cb8e182a2ce1185e1d4bf146d613dab7506d71f1c616b7632b5aa120",
+      "disposition": "RETIRE/SUCCESSOR",
+      "finding": "Requires every non-Project unit to have >=1 direct-parent Goal; conflicts with exactly one external Scope Delegation and Project-only Goal. Summary itself states superseded policy: retire and use a new-ID delegation authority, preserving structural visibility and gap reporting under a suitable owner.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-1767",
+      "version": 35,
+      "summary": "Distinguish Implementation Methods from Implementation Decisions",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1767-CORE_META_MODEL--distinguish-implementation-methods-from-implementation-decisions.md",
+      "sha256": "a8310550d194a336777b46d9561be9bb0e7d01516c86ba7282d4b822e5e4212b",
+      "disposition": "AMEND",
+      "finding": "Old Eng Policy/Decision vs Delivery Policy/Decision terminology plus actual-child and every-child test conflicts with shared Form admissions, leaf-local policies and Direct/Approach behavior. Preserve Method versus Delivery distinction, no technology-name inference and no type-tier coupling, where applicable.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-2123",
+      "version": 9,
+      "summary": "Limit PROGRAMMATIC Method and Delivery Types",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-2123-PROJECT_CONFIGURATION--limit-programmatic-method-and-delivery-types.md",
+      "sha256": "60fa1df8ef33ec019e9c705dd9936e0d7b46694730d17459c20ad87696bc1fe1",
+      "disposition": "AMEND",
+      "finding": "Only old Method/Delivery Forms allowed in PROGRAMMATIC and policy ownership requires a real child; align admitted shared Forms and leaf-local policy, while preserving applicable scope, incomplete Draft allowance and no claim of instance/runtime migration.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-2424",
+      "version": 3,
+      "summary": "Define local Scope Contract Tier Zero",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+      "sha256": "6e6a28cc422863240860899f08f8e83631c8e72588aa679c91fc322502eee2e9",
+      "disposition": "RETIRE/SUCCESSOR",
+      "finding": "Defines Tier 0 as Scope Contract and higher tiers as specializations/realizations. Replace obsolete Scope Contract authority with Tier 0 internal unit definition under a new identity if Summary changes. Preserve Project Goal Tier -1 under its separate existing rule; do not invent a Form-to-Tier restriction.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-2684",
+      "version": 1,
+      "summary": "Define Scope Unit Declaration form",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2684-CORE_META_MODEL-RULE--declare-scope-unit-governance.md",
+      "sha256": "a95da42f912b9f5754d77a1ac3cc120e378efe48f48a03008b4056cfedc2ced0",
+      "disposition": "RETIRE/SUCCESSOR",
+      "finding": "Requires Requirement/Scope Unit Declaration. One external Scope Delegation can have any RMEDO Role and merges structural identity/responsibility. Its Summary defines superseded Form; new declaration/admission identities needed. Preserve external context and receiving Main Subject.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-2688",
+      "version": 2,
+      "summary": "Require one Scope Unit Declaration",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2688-CORE_META_MODEL-RULE--establish-scope-units-through-project-structure-declarations.md",
+      "sha256": "f92fbee89e17dcb340bf94f890f5eab9f2778197a9edaf3b6972be90882ba8ff",
+      "disposition": "AMEND/SUCCESSOR",
+      "finding": "Requires every unit including Project to have a Requirement Scope Unit Declaration, with no Project ID. Separate Project-root authority/bootstrap from exactly one non-Project external RMEDO Scope Delegation; preserve stable ID, Name, order/parent constraints and authoritative structural binding. Reconcile existing root-ID/world decisions without inventing a world Declaration. Summary may require new identity.",
+      "existing_drafts": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2688@3-draft-CORE_META_MODEL-RULE--require-one-scope-unit-declaration.md",
+          "sha256": "192cba0be8b21e7ce9c6c5ee9ecf093000734ebadd373818e7aace117bc053a2"
+        }
+      ]
+    },
+    {
+      "id": "CA-R-1671",
+      "version": 28,
+      "summary": "Permit orphan Implementation Decisions",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1671-CORE_META_MODEL-RULE--permit-orphan-implementation-decisions.md",
+      "sha256": "81480c73ce61d97e89967f0aa16e0a98abdecdd9cb55206e0e596732c35fd3a7",
+      "disposition": "AMEND",
+      "finding": "Keeps independent Decision topology (valid); obsolete detail says leaf cannot own Policy. Remove obsolete prohibition; adapt Eng Decision naming without requiring a policy link.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-1672",
+      "version": 28,
+      "summary": "Permit terminal Implementation Methods",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1672-CORE_META_MODEL-RULE--permit-terminal-implementation-methods.md",
+      "sha256": "f9f6691fff8f492be961578e037c074e84b0c620487deb489b119a4ec7babee2",
+      "disposition": "AMEND",
+      "finding": "Childless-Atom policy permission is not a Scope Unit parent prohibition. Remove detail denying local Policy at a leaf; inspect whether absorption-conditioned permission stays relevant under new Forms.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-1768",
+      "version": 30,
+      "summary": "Absorb Implementation Decisions without semantic loss",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1768-CORE_META_MODEL--absorb-implementation-decisions-without-semantic-loss.md",
+      "sha256": "156fa6a33e882f7fe8ebc2f6a82e08aa1679b767b6e0def7961fe4fe78d2d45f",
+      "disposition": "AMEND",
+      "finding": "Preserve lossless decision absorption safeguard; remove forced policy relocation/reclassification when last Scope Unit child disappears. Align old Form references, do not invent auto-conversion.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-R-2707",
+      "version": 2,
+      "summary": "Declare Atom.Header.Tier.Label",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "sha256": "27f77647f9c272e506e2234d738bf1139e7885204acb46f1793b4668c5980178",
+      "disposition": "AMEND",
+      "finding": "Formal Tier.Label maps Tier 0 to Scope Contract. Remove or replace this hard-coded mapping as part of tier authority cutover; preserve property cardinality and any independently accepted other labels.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-M-461",
+      "version": 2,
+      "summary": "Author Scope Unit Declarations and Contracts",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-461-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+      "sha256": "4131c71b55294bd6032a5ebfb23709b612aba9ea9ea8b9be9ed46249e1ac48dd",
+      "disposition": "AMEND",
+      "finding": "Method describes authoring declarations and Scope Contract Atoms at Tier 0; align to merged external delegation and internal Tier 0 without losing structural verification. Inspect entire Current method and any Draft when preparing successor.",
+      "existing_drafts": [
+        {
+          "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-461@3-draft-CORE_META_MODEL-ENG_POLICY--author-scope-unit-declarations-and-contracts.md",
+          "sha256": "3c9092ced90bf8e9a1e2636e66610141f7ba24db4cc2cb4285a25fcfc6f2ef83"
+        }
+      ]
+    },
+    {
+      "id": "CA-E-661",
+      "version": 4,
+      "summary": "Validate Tier Zero Content-role semantics",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+      "sha256": "4e83282c70139bfd20768ca68929129886855d0575ea163591db4054cbf5ca4c",
+      "disposition": "AMEND",
+      "finding": "Evaluation enforces Tier 0 Scope Contract label. Update expected criteria to accepted tier semantics while preserving Role-content validation and no universal role-count requirement.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-E-445",
+      "version": 28,
+      "summary": "Validate Methodology membership in the Project",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-445-PROJECT_CONFIGURATION-EVAL-CASE--validate-methodology-membership-in-the-project.md",
+      "sha256": "44dde9a84eff1a42c0331b950a371c2d547aee8a09239eb59b55885e3b02ea54",
+      "disposition": "REVIEW/AMEND",
+      "finding": "Project Configuration evaluation embeds Project Scope Contract-first checks. Rebase the obsolete label and checks while retaining separately supported methodology ancestry and invalid-structure coverage; do not interpret source rewrite as passed Evaluation.",
+      "existing_drafts": []
+    },
+    {
+      "id": "CA-D-404",
+      "version": 28,
+      "summary": "Serialize Method Type Tokens",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-404-CORE_META_MODEL-ENG_DECISION--serialize-method-type-tokens.md",
+      "sha256": "09905ee581d523e353aa81c8223b5520098c4718b4b343a60b4a85884027e7e3",
+      "disposition": "AMEND/COORDINATE",
+      "finding": "Current serialization narrows PROGRAMMATIC to old Forms and emits their tokens. Coordinate with Delivery owner for new Form serialization, preserving unrelated existing filename behavior; instance and runtime migration remain later.",
+      "existing_drafts": []
+    }
+  ],
+  "notes": [
+    "No direct leaf-only realization prohibition was located in bounded Core/Project Configuration Current-source search; do not claim absence elsewhere. The actual-child policy ownership prohibitions above are separate and directly evidenced.",
+    "Default local R Form names and default child Scope Delegation admission remain undecided. Preserve independent Decision and inherited constraints; no generic mandatory contribution link.",
+    "Current legacy instances, Workbench and Workflows are outside this report and may remain nonconforming until later migration. Source promotion and model authority cutover require atomic coordination and review; proposed amendments are not applied.",
+    "Old CA-R-2119, CA-R-2120, CA-R-2267 and CA-R-2268 are cited by R1767/R2123, but no native Current source located by ID in the bounded methodology tree; citations are not evidence of a Current authority."
+  ]
+}

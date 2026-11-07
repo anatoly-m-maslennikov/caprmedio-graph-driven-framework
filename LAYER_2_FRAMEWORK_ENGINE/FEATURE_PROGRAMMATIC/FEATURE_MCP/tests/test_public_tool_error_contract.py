@@ -20,7 +20,7 @@ for directory in (MCP_ROOT, TOOLS_ROOT):
     if str(directory) not in sys.path:
         sys.path.insert(0, str(directory))
 
-import registered_tool_registry as registry  # noqa: E402
+import registered_tool_runtime as runtime  # noqa: E402
 import selected_routes  # noqa: E402
 from mcp.server.mcpserver.exceptions import ToolError  # noqa: E402
 from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E402
@@ -65,27 +65,30 @@ class _Adapter:
 class PublicToolErrorContractTests(unittest.TestCase):
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory(
-            dir=TEST_TEMP_ROOT, ignore_cleanup_errors=True,
+            dir=TEST_TEMP_ROOT,
+            ignore_cleanup_errors=True,
         )
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
         self.logger = _Logger()
-        self.fresh_binding = patch.object(registry, "_binding_is_fresh", return_value=True)
-        self.fresh_binding.start()
-        self.addCleanup(self.fresh_binding.stop)
 
     def _wrapper(self, adapter: _Adapter):
         binding = {"source_atom": "CA-D-1", "action_ids": ["CA-O-1"]}
-        return registry._invoke_wrapper(
-            adapter=adapter, input_model=_Request, output_model=_Result,
-            mcp_name="example_tool", root=self.root, catalog_binding=binding,
+        return runtime._invoke_wrapper(
+            adapter=adapter,
+            input_model=_Request,
+            output_model=_Result,
+            mcp_name="example_tool",
+            root=self.root,
+            catalog_binding=binding,
         )
 
     def _registry_logger(self):
         return patch.object(
-            registry, "active_selection",
+            runtime,
+            "active_selection",
             return_value=type("Selection", (), {"settings": {}})(),
-        ), patch.object(registry, "make_technical_logger", return_value=(self.logger, None))
+        ), patch.object(runtime, "make_technical_logger", return_value=(self.logger, None))
 
     def test_request_failure_is_safe_warning_and_invokes_once(self) -> None:
         adapter = _Adapter(ValueError("token=do-not-leak"))
@@ -172,12 +175,17 @@ class PublicToolErrorContractTests(unittest.TestCase):
         adapter.manifest = {"source_freshness": {"binding": "current"}}
         adapter.routes = {"create_atom": {}}
         request = {
-            "operation_route": "create_atom", "request_id": "request-gap",
-            "mode": "preview", "source_freshness": {"binding": "current"},
+            "operation_route": "create_atom",
+            "request_id": "request-gap",
+            "mode": "preview",
+            "source_freshness": {"binding": "current"},
         }
         with (
-            patch.object(selected_routes, "load_selected_manifest",
-                         return_value={"routes": [], "source_freshness": {"binding": "current"}}),
+            patch.object(
+                selected_routes,
+                "load_selected_manifest",
+                return_value={"routes": [], "source_freshness": {"binding": "current"}},
+            ),
             patch.object(adapter, "_validate_request", return_value=request),
             patch.object(adapter, "_support", return_value=None),
             patch.object(selected_routes, "_public_logger", return_value=self.logger),

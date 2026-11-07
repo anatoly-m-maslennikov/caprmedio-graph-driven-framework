@@ -13,8 +13,8 @@ relations:
   - CA-R-2723
   - CA-R-2725
 status: Active
-version: 21
-updated_at: 2026-11-07 03:31:20 +0400
+version: 23
+updated_at: 2026-11-07 13:28:43 +0400
 carrier_destination:
   file:
     name: CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
@@ -79,3 +79,9 @@ Retain enough owner-local node/edge contribution information to preserve a refer
 Cached source records must retain the original Markdown and heading spans without storing a second complete section string for every heading. Reconstruct section text when needed. Preserve public parser output, compiled Content values and public row hashes, including legacy Claim handling and original line endings. This changes only the disposable Workbench cache; do not edit source Atoms or drop the caches needed for incremental speed.
 
 Cached source records must also omit duplicate direct Markdown text. Derive direct text from the original body and immediate-child heading spans when a declared Content value needs it; public parser records remain unchanged. Preserve the incremental caches and all Content values/hashes.
+
+Keep only aggregate Header schema counters between refreshes. For an incremental delta, compute contributions from its exact old and new materialized rows, subtract old contributions and add new contributions. Do not retain a second per-source Header contribution map or inspect unchanged Headers. Preserve full-inference parity, normalized-name collision checks, schema transitions and publication only after a successful transaction.
+
+Keep cached original Markdown in UTF-8 bytes rather than widened Python strings. Decode transiently when Content extraction or model-declaration compilation needs text; keep the existing public parser and public values as strings. Preserve original line endings, Content values, relation interpretation, source hashes and public row hashes. Do not retain another complete decoded body. Adopt this representation only after unprofiled correctness, ordinary-edit, bulk and rebuild gates pass; report measured process RAM separately from encoded-byte estimates.
+
+On a full rebuild, derive the public Atom and Scope Unit rows once and reuse those rows for SQL insertion and the retained projection snapshot. Do not repeat Content decoding, extraction or public-row hashing for the second consumer. This reuses the existing full-build result; it is not another retained cache. Publish the new snapshot only after the database transaction succeeds.

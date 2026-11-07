@@ -11,6 +11,25 @@ Applicable Methodology. They are admitted only when the source-bound route
 manifest reopens with current pins.
 It uses the official [MCP Python SDK](https://github.com/modelcontextprotocol/python-sdk).
 
+## Code-owned tool registry
+
+`tool_providers.json` is the reviewed, explicit inventory of installed provider
+entrypoints and their public MCP names. `generate_tool_registry.py --package-root
+<installed-package-root>` loads only those provider `describe_tool()` contracts
+and writes the deterministic, tracked `tool_registry.json` asset. Local release
+and every image rebuild regenerate that asset; source checkouts keep it so tests
+and direct CLI startup use the same boundary.
+
+At startup, MCP reads the generated asset, verifies the installed provider code,
+schemas, names, hashes, duplicate checks, and blacklist, then registers the
+canonical adapters. Selected route exposure is likewise the asset's configured
+route-name list. Neither provider exposure nor generic wrapper calls scan Atom
+sources or use `Service.catalog`; provider and selected-route business/source
+validation still occurs when the corresponding operation is invoked. A missing,
+malformed, or stale asset is an explicit configuration error with no Atom-scan
+fallback. `tools_catalog.json` remains a post-ready discovery output, not a
+registry input.
+
 ## Project context and discovery
 
 Single-project tool calls accept an optional top-level `project_root` assertion.

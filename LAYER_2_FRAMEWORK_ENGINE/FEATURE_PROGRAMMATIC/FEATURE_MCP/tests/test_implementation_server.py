@@ -1,4 +1,6 @@
-"""Direct-MCP registration follows the current Service catalog only."""
+# CA-E-798@1
+
+"""Direct-MCP registration follows its installed registry asset."""
 
 from __future__ import annotations
 
@@ -26,12 +28,13 @@ for directory in (
         sys.path.insert(0, str(directory))
 
 from capability_discovery.service import Context, Service as DiscoveryService  # noqa: E402
-from frozen_selected_workflows import frozen_behavior_bindings, write_frozen_source  # noqa: E402
 import implementation_server  # noqa: E402
+import selected_routes  # noqa: E402
 from ATOM_UPDATE.atom_update import (  # noqa: E402
     SubjectPreparationRequest,
     describe_tool as describe_subject_preparation_tool,
 )
+
 
 class _Server:
     instances: list["_Server"] = []
@@ -44,6 +47,7 @@ class _Server:
         def decorate(function):
             self.registered.append((metadata, function))
             return function
+
         return decorate
 
     def add_tool(self, function, **metadata):
@@ -95,23 +99,28 @@ class ImplementationServerTests(unittest.TestCase):
     def _registered_names(server: _Server) -> set[str]:
         return {metadata["name"] for metadata, _function in server.registered}
 
-
-    def test_startup_uses_one_catalog_snapshot_for_optional_direct_adapters(self):
-        bindings = frozen_behavior_bindings()
-        for atom_id in ("CA-D-512", "CA-O-112"):
-            pin = bindings[atom_id]
-            write_frozen_source(self.root, pin["source_path"], pin["sha256"])
-
+    def test_startup_uses_the_generated_registry_without_an_atom_catalog(self):
         server, discovery = self._create_server()
 
-        self.assertEqual(1, discovery.catalog_calls)
+        self.assertEqual(0, discovery.catalog_calls)
         self.assertIn("discover_tools", self._registered_names(server))
-        self.assertIn("discover_tools", discovery.exposed)
 
-
-
-
-
+    def test_selected_routes_register_without_sources_and_reject_only_on_invocation(self):
+        with (
+            patch.object(implementation_server, "MCPServer", _Server),
+            patch(
+                "selected_routes.load_selected_manifest",
+                side_effect=selected_routes.SelectedRouteError("missing"),
+            ) as manifest,
+        ):
+            server = implementation_server.create_server(self.root)
+            self.assertIn("create_atom", self._registered_names(server))
+            manifest.assert_not_called()
+            result = selected_routes.SelectedRouteAdapter(self.root, strict_manifest=False).invoke(
+                "create_atom", {}
+            )
+            self.assertEqual("rejected", result["outcome"])
+            manifest.assert_called_once()
 
     def test_context_envelope_hoists_current_subject_preparation_defs(self):
         """The generic context envelope preserves RootModel refs at its root."""
@@ -130,18 +139,25 @@ class ImplementationServerTests(unittest.TestCase):
             schema = discovery.context(Context(id="ATOM_UPDATE"))["input_schema"]
 
         self.assertIn("$defs", schema)
-        request = {"operation": "preview_subjects", "subject_profile": "approved",
-                   "atoms": [{"atom_id": "CA-R-001", "version": 1,
-                              "sha256": "a" * 64, "subject_patches": []}]}
+        request = {
+            "operation": "preview_subjects",
+            "subject_profile": "approved",
+            "atoms": [
+                {"atom_id": "CA-R-001", "version": 1, "sha256": "a" * 64, "subject_patches": []}
+            ],
+        }
         jsonschema.validate({"request": request}, schema)
-        jsonschema.validate({"request": {
-            **request, "operation": "stage_subjects", "preview_sha256": "b" * 64,
-            "illustrative_updated_at": "2026-10-14 12:00:00 +0400",
-        }}, schema)
-
-
-
-
+        jsonschema.validate(
+            {
+                "request": {
+                    **request,
+                    "operation": "stage_subjects",
+                    "preview_sha256": "b" * 64,
+                    "illustrative_updated_at": "2026-10-14 12:00:00 +0400",
+                }
+            },
+            schema,
+        )
 
 
 if __name__ == "__main__":  # pragma: no cover

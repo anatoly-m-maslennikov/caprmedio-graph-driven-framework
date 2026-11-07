@@ -18,8 +18,8 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 tier: 3
 status: Active
-version: 23
-updated_at: 2026-11-02 19:46:47 +0400
+version: 24
+updated_at: 2026-11-07 13:19:44 +0400
 carrier_destination:
   file:
     name: CA-R-1847-MCP-RULE--expose-selected-workflow-capability-routes.md
@@ -42,7 +42,7 @@ Exposure uses the Project Settings snapshot loaded when the MCP host/gateway sta
 
 ## Claim
 
-MCP **must** expose only the capability adapters admitted below through the existing reloadable Project-local server. Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, Non-Release selected routes delegate execution and actual Run observations to shared `WORKFLOW_OPERATIONS/RUN_SUPPORT`; local **and** public Release use their existing direct runners.
+MCP must expose only installed capability adapters enabled in its generated code-owned configuration and bound Project settings. The retained contracts below govern their business invocation; source manifest admission does not select exposed names. Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, Non-Release selected routes delegate execution and actual Run observations to shared `WORKFLOW_OPERATIONS/RUN_SUPPORT`; local **and** public Release use their existing direct runners.
 
 ## Details
 
@@ -68,7 +68,7 @@ Keep the existing acceptance-carrier identity/path bindings: CA-P-1618 at `.capr
 
 Read and validate each current source's canonical identity, owning authority, safe declared path and supported contract. Capture its actual Version and SHA-256 as per-operation evidence and use those captured values consistently in the canonical manifest, route definitions and dispatch. Do not compare current sources to compiled historical Version/hash constants or infer semantic compatibility from a newer Version alone. Missing, ambiguous, malformed, unsupported or contradictory current authority refuses admission. No caller-provided rule bundle, guessed relocation or arbitrary path may replace that authority.
 
-The two query admission records remain inside one canonical manifest, not another registry, authority, parser or executor. Before registration and dispatch, require complete source coverage and agreement with the current sources captured for that operation; changed source bytes or evidence require a new capture and validation before effects, not silent refresh of an approved request. Preserve exact target, proposal, permission and intent bindings, canonical manifest integrity and all source/path safety checks.
+The two query admission records remain inside one canonical manifest, not another registry, authority, parser or executor. Before business dispatch, require complete source coverage and agreement with the current sources captured for that operation; changed source bytes or evidence require a new capture and validation before effects, not silent refresh of an approved request. Preserve exact target, proposal, permission and intent bindings, canonical manifest integrity and all source/path safety checks.
 
 The only Release commands are `release_version` and `public.release`, bound in CA-D-547 to their existing simple local and public runners. Their closed direct requests are `{project_root, run_id}` and `{project_root, run_id, content_draft?}`, respectively; an absent public draft requests the explicit description/summary rather than performing publication. They do not use the selected D527 preview/execute envelope, candidate/N+1 pipeline or DBOS queue. The full test suite is verification before the requested local delivery or public publication; failure, unavailable execution or unknown completion stops that release. Required integration tests are included; missing Docker or another required test environment, or skipped required tests, stops release rather than satisfying verification. Release verification adds no separate Active Atom metadata, placement or relation validation; the full test suite and normal input, permission and file/path safety checks remain. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP.
 

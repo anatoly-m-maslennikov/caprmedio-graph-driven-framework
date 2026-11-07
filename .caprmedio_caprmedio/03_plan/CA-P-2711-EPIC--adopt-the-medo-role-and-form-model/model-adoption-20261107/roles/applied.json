@@ -1,0 +1,35 @@
+{
+  "status": "FOUR_EXISTING_DRAFT_CLAIMS_REPAIRED",
+  "applied": [
+    {
+      "ref_id": "CA-R-2512@3-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2512@3-draft-CORE_META_MODEL-DECLARATION--declare-requirement.md",
+      "before_sha256": "cfe5ed10dca30b5c7bdc31761fdc68f2f462f9a504ae8434f6bf84861dae516a",
+      "sha256": "d0dd827a1a92ac14ebdd57f64a252450ed50447412658996d95242eb54ed7b75",
+      "change": "Formal Role classifier uses :=; Semantics unchanged"
+    },
+    {
+      "ref_id": "CA-R-2513@3-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2513@3-draft-CORE_META_MODEL-DECLARATION--declare-method.md",
+      "before_sha256": "9f0093fcfc03afbf7f3a17f295479fe38d03a664bddca9b54c8467b6becb0d81",
+      "sha256": "64837d87926b9337b5e55926cf97723c74e011bee3016bf7878fac5eff56c95c",
+      "change": "Formal Role classifier uses :=; Semantics unchanged"
+    },
+    {
+      "ref_id": "CA-R-2514@3-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2514@3-draft-CORE_META_MODEL-DECLARATION--declare-evaluation.md",
+      "before_sha256": "c9b73df04bc853c418b5053f1cbe2e9c68bf8ca2fa5212111c3a640c8419053a",
+      "sha256": "0ee1ce59d0fa56c5ccab1a3398d2375a5cc2adb7107ab2a967c48310abc9bb0b",
+      "change": "Formal Role classifier uses :=; Semantics unchanged"
+    },
+    {
+      "ref_id": "CA-R-2515@3-draft",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2515@3-draft-CORE_META_MODEL-DECLARATION--declare-delivery.md",
+      "before_sha256": "f4d3c04c4b2166ecbbc5b5f14ab2e8e06d6f1d761f97a886673fdbb4cef81c8b",
+      "sha256": "9a10be4fbf94990719b566e5e78af827a43ba9232d26b4f9cf0cbd2ebd663869",
+      "change": "Formal Role classifier uses :=; Semantics unchanged"
+    }
+  ],
+  "current_atoms_changed": false,
+  "prior_semantics_packet": "Historical pre-adoption checkpoint; hashes there intentionally retain the earlier Claim state."
+}

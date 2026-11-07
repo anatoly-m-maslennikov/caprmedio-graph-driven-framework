@@ -2,7 +2,7 @@
 # CA-R-2725@3
 # CA-R-2726@5
 # CA-M-464@8
-# CA-M-465@19
+# CA-M-465@23
 # CA-M-500@2
 # CA-D-672@12
 
@@ -17,11 +17,10 @@ from collections.abc import Iterator
 from pathlib import Path
 from typing import Any
 
-from .relations import canonical
 from .content_schema import ContentSchema
 from .source_content_schema import SourceContentSchema
 from .source_rows import (
-    ReferenceIndex, atom as source_atom, file_signature, frontmatter_bounds, same_row as _same_row,
+    ReferenceIndex, atom as source_atom, canonical_row, file_signature, frontmatter_bounds, same_row as _same_row,
     scope as source_scope, source_body,
 )
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
@@ -402,7 +401,7 @@ class SourceReader:
                 source_body(raw, path),
                 group,
             )
-            canonical(row)
+            canonical_row(row)
         except (OSError, RuntimeError, TypeError, ValueError, CarrierError) as error:
             self._cached.pop(path, None)
             self._failed[path] = signature

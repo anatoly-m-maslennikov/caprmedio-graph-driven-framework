@@ -25,8 +25,8 @@ relations:
   - CA-R-1847
   - CA-R-1848
 status: Active
-version: 19
-updated_at: 2026-11-02 19:46:47 +0400
+version: 20
+updated_at: 2026-11-07 13:19:43 +0400
 carrier_destination:
   file:
     name: CA-D-547-MCP-ENG_DECISION--bind-selected-workflow-mcp-adapters.md
@@ -45,7 +45,7 @@ The declared delivery location and public request contract for selected MCP adap
 
 ## Claim
 
-The adapter surface **must** be implemented in one Project-local MCP binding. Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, Non-Release selected routes delegate to shared Run support; the two direct Release commands invoke their existing local **or** public runner under the boundary below.
+The adapter surface must be implemented in one Project-local MCP binding. Installed code and generated configuration select exposed route names; source manifests validate business dispatch, not registration. Except for the narrow current O016 Version 18 Integrated pending/status/`submit_result` handoff described below, Non-Release selected routes delegate to shared Run support; the two direct Release commands invoke their existing local **or** public runner under the boundary below.
 
 ## Details
 
@@ -74,8 +74,7 @@ native Action calls. Every definition entry carries its repository-relative
 source path, Atom ID, Version, and SHA-256 digest. Its
 `canonical_manifest_sha256` is the SHA-256 of RFC 8785 canonical JSON for the
 whole object with that self field omitted; a server checks that canonical digest,
-all captured current source pins, and both current query admission frontiers before registration
-and again before dispatch. Source evidence is captured from current authoritative
+all captured current source pins, and both current query admission frontiers before business dispatch. Source evidence is captured from current authoritative
 files per operation, not compared to compiled historical Version/hash constants. Absent, incomplete, duplicate, malformed, altered,
 or stale manifests reject without shared-support invocation, Run, Action Run,
 worker, effect, Event, or Journal write.

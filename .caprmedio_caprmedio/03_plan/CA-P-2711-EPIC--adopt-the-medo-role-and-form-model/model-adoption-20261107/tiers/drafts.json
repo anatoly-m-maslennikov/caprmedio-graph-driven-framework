@@ -1,0 +1,101 @@
+{
+  "status": "REVIEW_ONLY_NO_NATIVE_MUTATION",
+  "drafts": [
+    {
+      "key": "tier-zero-replacement",
+      "operation": "new_identity_replace_and_retire",
+      "source_id": "CA-R-2424",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2424-CORE_META_MODEL-RULE--define-local-scope-contract-tier-zero.md",
+      "source_sha256": "6e6a28cc422863240860899f08f8e83631c8e72588aa679c91fc322502eee2e9",
+      "source_version": 3,
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Tier",
+      "summary": "Define Tier Zero within a Scope Unit",
+      "body": "## Summary\n\nDefine Tier Zero within a Scope Unit\n\n## Claim\n\n### Prose Claim\n\nTier `0` Atoms define their own Scope Unit internally. The Atom's Role and Form remain distinct from its Tier. A Solution, Direct Policy, Approach Policy or Decision has no fixed Tier solely because of that Form. Applicable numeric Tier and governing-Relation constraints continue to apply.\n",
+      "dependencies": [
+        "admit proposed Forms before applying their named Form conditions"
+      ],
+      "identity_note": "Summary changes; allocate fresh Requirement ID and retire CA-R-2424 with explicit inbound-reference disposition."
+    },
+    {
+      "key": "tier-label-remove-old-zero-name",
+      "operation": "same_identity_successor_draft",
+      "source_id": "CA-R-2707",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2707-CORE_META_MODEL-DECLARATION--declare-atom-header-tier-label.md",
+      "source_sha256": "27f77647f9c272e506e2234d738bf1139e7885204acb46f1793b4668c5980178",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label",
+      "summary": "Declare Atom.Header.Tier.Label",
+      "body": "## Summary\n\nDeclare Atom.Header.Tier.Label\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Tier.Label:: [string]{::0..1};\n\nAtom.Header.Tier.Label.*[]{::0};\n\n# instances\nAtom//$atom_2;\n\nIF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core);\n\nAtom//$atom_3;\n\nIF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General);\n\nAtom//$atom_4;\n\nIF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard);\n\nAtom//$atom_5;\n\nIF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail)\n```\n",
+      "identity_note": "Summary unchanged; remove only Tier 0 Scope Contract label condition; preserve numeric 1\u20134 conditions and all other constraints.",
+      "source_version": 2
+    },
+    {
+      "key": "scope-unit-local-realization",
+      "operation": "new_identity",
+      "source_id": null,
+      "source_path": null,
+      "source_sha256": null,
+      "main_subject": "CAPRMEDIO_MODEL <+ Scope Unit",
+      "summary": "Permit local realization in Scope Units with children",
+      "body": "## Summary\n\nPermit local realization in Scope Units with children\n\n## Claim\n\n### Prose Claim\n\nA Scope Unit retains its own realization while delegating other contributions to descendants. Its own realization includes applicable code, tests, integration and delivery.\n",
+      "identity_note": "Fresh Rule; does not create an Implementation Atom or impose an instance/role count."
+    },
+    {
+      "key": "evaluation-tier-zero-role",
+      "operation": "same_identity_successor_draft",
+      "source_id": "CA-E-661",
+      "source_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+      "source_sha256": "4e83282c70139bfd20768ca68929129886855d0575ea163591db4054cbf5ca4c",
+      "main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Role",
+      "summary": "Validate Tier Zero Content-role semantics",
+      "body": "## Summary\n\nValidate Tier Zero Content-role semantics\n\n## Claim\n\n### Prose Claim\n\nA Tier `0` Atom fails this Evaluation when its complete Claim\u2019s primary contribution does not match the applicable canonical Role Declaration Semantics. Tier `0` defines the Scope Unit internally; Tier does not change the Atom\u2019s Role or Form. This Evaluation imposes no Role- or Form-specific Tier and does not require every Role in a Scope Unit.\n",
+      "identity_note": "Summary unchanged; retain the complete-Claim mismatch failure, use canonical Role Declaration Semantics, and remove the obsolete Scope Contract label and redundant Role definitions.",
+      "source_version": 4
+    }
+  ],
+  "retirement": {
+    "id": "CA-R-2424",
+    "when": "Only after the replacement and dependent source updates are accepted."
+  },
+  "untouched_current_sources": [
+    {
+      "id": "CA-R-2706",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md",
+      "sha256": "728d031a666c4b3b78ef6285ea84751847d444c4a773abdc95165e5cd39df177"
+    },
+    {
+      "id": "CA-R-2125",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2125-CORE_META_MODEL-RULE--give-every-non-project-goal-atom-one-numeric-tier.md",
+      "sha256": "4e10e34e7dfa691895575ae5bcd55937eba64ad0699b6962d19c57e8443c5d86"
+    },
+    {
+      "id": "CA-R-2131",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2131-CORE_META_MODEL-RULE--admit-numeric-tiers-in-non-project-scope-units.md",
+      "sha256": "e21fdd42f9c89431ab3a2b21892373f10be469104b56372e4820744eaa1d3949"
+    },
+    {
+      "id": "CA-R-2132",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2132-CORE_META_MODEL-RULE--assign-project-goal-tier-minus-one.md",
+      "sha256": "6164a776d1f2d5872b2f2157a1098abf712c1b50c5b0108c8f0e975463823752"
+    },
+    {
+      "id": "CA-R-2149",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2149-CORE_META_MODEL-RULE--constrain-governing-rmed-relation-targets-by-numeric-tier-and-scope-ancestry.md",
+      "sha256": "9db6dcb1af189635f9b93fd587474fa757cb52223d80dfc815352bde40a0df7d"
+    },
+    {
+      "id": "CA-R-1710",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1710-CORE_META_MODEL-RULE--route-priority-and-tier-by-content-role.md",
+      "sha256": "73b6e5d8655f71f51538ee531279b8e966a1b1ec3833e0b4f9911533c7f5c5df"
+    },
+    {
+      "id": "CA-R-2428",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2428-CORE_META_MODEL-RULE--admit-numeric-tiers-in-scope-units.md",
+      "sha256": "c8f442d5b904107bdd9c9312661d5e2e336b12345c8c69f53100f99a15764574"
+    }
+  ],
+  "open_impact": [
+    "Local use of SPECIALIZES and other stored governing Relations must still satisfy R2149, including the same-Tier-0 exception; no permission or new Relation is inferred.",
+    "Scope Delegation Tier and authorized allocator remain open; no Form-specific tier imposed.",
+    "R1767/R2123 Policy ownership and admissible Forms are assigned to the forms/conflicts lane; do not modify here."
+  ]
+}

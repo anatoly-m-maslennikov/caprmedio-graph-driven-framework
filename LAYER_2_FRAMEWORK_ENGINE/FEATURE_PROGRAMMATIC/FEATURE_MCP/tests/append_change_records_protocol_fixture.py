@@ -27,6 +27,7 @@ for directory in (
         sys.path.insert(0, str(directory))
 
 import registered_tool_registry as registry  # noqa: E402
+from registered_tool_runtime import register_catalog_tools  # noqa: E402
 from capability_discovery.service import Service  # noqa: E402
 from frozen_selected_workflows import frozen_behavior_bindings, write_frozen_source  # noqa: E402
 import test_append_change_records as native_fixture  # noqa: E402
@@ -91,7 +92,7 @@ class AppendChangeRecordsProtocolFixture:
         self.assertEqual((), compiled.quarantined)
         self.assertEqual({"append_change_records"}, compiled.registered_names)
         server = MCPServer("append-change-records-protocol")
-        registered = registry.register_catalog_tools(server, self.root, bindings)
+        registered = register_catalog_tools(server, self.root, bindings)
         self.assertEqual((), registered.quarantined)
         self.assertEqual({"append_change_records"}, registered.registered_names)
         self.assertEqual(

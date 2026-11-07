@@ -1,4 +1,4 @@
-# CA-E-677@17
+# CA-E-677@19
 from __future__ import annotations
 
 from pathlib import Path
@@ -13,8 +13,8 @@ sys.path[:0] = [str(APP_ROOT)]
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import (  # noqa: E402
     compile_content_schema,
 )
-from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content  # noqa: E402
-from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content, source_markdown  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical, materialize  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_rows import atom  # noqa: E402
 
 
@@ -33,7 +33,7 @@ Atom.Content.Summary{::1}:: {::1};
         return compile_content_schema([{
             "ref": "CA-R-1", "version": 1, "source_path": "model/CA-R-1.md",
             "role": "Requirement", "form": "Declaration", "status_group": "Current",
-            "content_markdown": declaration_body,
+            "_content_bytes": declaration_body.encode("utf-8"),
             "content_properties_json": parse_content(
                 declaration_body, tolerate_duplicate_siblings=True,
             ),
@@ -41,12 +41,15 @@ Atom.Content.Summary{::1}:: {::1};
 
     @staticmethod
     def row(body: str, *, compact: bool) -> dict:
-        return {
+        row = {
             "role": "Requirement", "form": "Rule", "content_markdown": body,
             "content_properties_json": parse_content(
                 body, tolerate_duplicate_siblings=True, compact=compact,
             ),
         }
+        if compact:
+            row["_content_bytes"] = row.pop("content_markdown").encode("utf-8")
+        return row
 
     def test_source_rows_omit_section_copies_but_public_parser_keeps_them(self) -> None:
         body = "## Summary\n\nShort.\n"
@@ -116,6 +119,31 @@ Keep this prose.
         self.assertEqual(full, compact)
         self.assertIn("Legacy\vvertical\fpage.", compact["content.claim.prose_claim"] or "")
         self.assertIn("### Note\r\n\r\nKeep.", compact["content.claim.prose_claim"] or "")
+
+    def test_utf8_cache_keeps_private_bytes_and_preserves_public_content_and_hash(self) -> None:
+        root = Path("/fixture")
+        body = "## Summary\r\n\r\nПривет — UTF-8 ✓\r\n\r\n## Claim\r\n\r\n```CFEL\r\nAtom.id[string]{1}\r\n```\r\n"
+        header = {"atom_id": "CA-R-UTF8", "relations": {}}
+        view = {
+            "atom_id": "CA-R-UTF8", "version": 1, "status": "Active",
+            "content_role": "Requirement", "type": "Rule", "tier": 1,
+        }
+        byte_row = atom(root / "utf8.md", root, header, view, body.encode("utf-8"), "Current")
+        legacy_row = dict(byte_row)
+        legacy_row["content_markdown"] = legacy_row.pop("_content_bytes").decode("utf-8")
+
+        self.assertNotIn("content_markdown", byte_row)
+        self.assertEqual(body.encode("utf-8"), byte_row["_content_bytes"])
+        self.assertEqual(body, source_markdown(byte_row))
+        self.assertEqual(
+            legacy_row["content_properties_json"], byte_row["content_properties_json"],
+        )
+
+        byte_public, _ = materialize([byte_row], [])
+        legacy_public, _ = materialize([legacy_row], [])
+        self.assertNotIn("content_markdown", byte_public[0])
+        self.assertEqual(body, source_markdown(byte_public[0]))
+        self.assertEqual(byte_public[0]["hash"], legacy_public[0]["hash"])
 
 
 if __name__ == "__main__":  # pragma: no cover

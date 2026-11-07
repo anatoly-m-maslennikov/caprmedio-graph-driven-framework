@@ -14,8 +14,8 @@ relations:
   derived_from:
   - CA-A-057
 status: Active
-version: 20
-updated_at: 2026-11-02 19:44:26 +0400
+version: 21
+updated_at: 2026-11-07 13:19:43 +0400
 cce_version: cce_1
 cce_form: method
 llm_session_ids:
@@ -27,19 +27,20 @@ current_scope_unit: MCP
 
 ## Applicable when
 
-Apply after one installed runtime activation **or** a declared descriptor refresh requires a new registry generation.
+Every local release and image rebuild, before the MCP server starts.
 
 ## Procedure
 
-1. Reopen the active installed package/image selection and seal its complete Tool descriptor frontier under `CA-D-621-TOOLS-DELIVERY--encode-uniform-tool-self-description`; do not derive a live frontier from a checkout.
-2. Run the registered Tool descriptor-generation script, validate descriptors independently, and derive the valid registry without a handwritten MCP-core allowlist.
-3. Order equivalent inputs stably, publish the valid registry and unavailable-capability diagnostics atomically as one generation, and record the prior and active generation identities.
-4. Repeat generation against an unchanged frontier and compare semantic registry content while excluding volatile execution metadata. Emit a change notification when supported, while retaining client refresh as unconfirmed until observed.
+Generate the runtime registration asset from the installed code-owned provider inventory and canonical provider descriptors. Derive typed schemas from their code models, validate names and descriptors, and write deterministic output inside the package before its final identity verification. The image build regenerates the same asset from its copied engine code. Do not read native Atoms or call a capability during generation.
+
+MCP loads that generated asset on startup. A source Atom edit does not change exposure or require a generic call-time source catalog scan. Replacing a running implementation follows the existing explicit restart or optional hot-reload boundary; hot reload stays disabled by default.
+
+The actual tools/list export after readiness is a separate discovery output, not the executable registration input.
 
 ## Outcome
 
-The same activated installed descriptors and Project state produce the same MCP capability registry without capability execution.
+Equivalent installed code and inventory produce equivalent registration bytes. Build failure stops delivery before startup; invalid individual descriptors retain the existing attributable diagnostics.
 
 ## Failure or stop
 
-Stop **when** installed-selection reopening, generator integrity, ordering, identity, or repeated semantic output is **not** deterministic. Quarantine an individual invalid descriptor under CA-M-172.
+Report unresolved code/configuration, duplicate identities, invalid generator output or generation failure. Do not rebuild registration from Atoms as a fallback.

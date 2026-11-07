@@ -1,5 +1,5 @@
 # CA-R-2726@5
-# CA-M-465@19
+# CA-M-465@23
 # CA-M-500@1
 # CA-D-672@12
 # CA-E-677@14
@@ -42,17 +42,20 @@ class ProjectionChange:
 def snapshot(
     atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]], relation_types: set[str] | None,
     header_schema: HeaderSchema, content_schema: ContentSchema, previous: ProjectionSnapshot | None = None,
+    *, public_rows: tuple[list[dict[str, Any]], list[dict[str, Any]]] | None = None,
 ) -> ProjectionSnapshot:
-    reuse = None
-    if previous is not None and previous.header_schema == header_schema and previous.content_schema == content_schema:
-        reuse = {
-            key: (source, previous.atoms[key])
-            for key, source in previous.atom_sources.items()
-            if key in previous.atoms
-        }
-    public_atoms, public_scopes = projected_rows(
-        atom_rows, scope_rows, header_schema, content_schema, previous_atoms=reuse,
-    )
+    if public_rows is None:
+        reuse = None
+        if previous is not None and previous.header_schema == header_schema and previous.content_schema == content_schema:
+            reuse = {
+                key: (source, previous.atoms[key])
+                for key, source in previous.atom_sources.items()
+                if key in previous.atoms
+            }
+        public_rows = projected_rows(
+            atom_rows, scope_rows, header_schema, content_schema, previous_atoms=reuse,
+        )
+    public_atoms, public_scopes = public_rows
     atom_sources = {
         (row["relative path"], row["filename"]): source
         for row, source in zip(public_atoms, atom_rows, strict=True)

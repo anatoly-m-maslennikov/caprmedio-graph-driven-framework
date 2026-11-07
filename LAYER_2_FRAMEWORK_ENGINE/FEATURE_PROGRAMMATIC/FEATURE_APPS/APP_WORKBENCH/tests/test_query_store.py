@@ -1,7 +1,7 @@
 # CA-E-751@1
 # CA-E-780@4
 # CA-E-676@11
-# CA-E-677@12
+# CA-E-677@20
 # CA-M-472@1
 from __future__ import annotations
 
@@ -27,6 +27,7 @@ from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import (  # noqa: E402
 )
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import canonical  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import public_rows as public_rows_module  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.public_rows import SCOPE_FIELDS  # noqa: E402
 from smalltest_support import extension_directory  # noqa: E402
 
@@ -172,6 +173,67 @@ class QueryStoreTest(unittest.TestCase):
         self.assertEqual([["A", 2], ["B", 1]], self.store.run(
             "SELECT reference, header_version FROM atoms ORDER BY reference"
         )["rows"])
+
+    def test_full_replace_projects_once_and_sql_matches_retained_snapshot(self) -> None:
+        atoms = [
+            self.atom("A", [self.edge("Atom", "A", "Scope Unit", "S")]),
+            self.atom("B"),
+        ]
+        scopes = [self.scope("S")]
+        with patch.object(
+            public_rows_module, "projected_rows", wraps=public_rows_module.projected_rows,
+        ) as project:
+            self.store.replace(atoms, scopes, relation_types={"CONTAINS"})
+
+        self.assertEqual(1, project.call_count)
+        snapshot = self.store._projection
+        assert snapshot is not None
+        atom_fields = [column[0] for column in self.store._connection.execute(
+            "SELECT * FROM atoms LIMIT 0"
+        ).description]
+        scope_fields = [column[0] for column in self.store._connection.execute(
+            "SELECT * FROM scope_units LIMIT 0"
+        ).description]
+        atom_json = snapshot.header_schema.json_names | {"header_relations"}
+        sql_atoms = [
+            {
+                name: json.loads(value) if name in atom_json and value is not None else value
+                for name, value in zip(atom_fields, values, strict=True)
+            }
+            for values in self.store._connection.execute(
+                'SELECT * FROM atoms ORDER BY "relative path", filename'
+            ).fetchall()
+        ]
+        sql_scopes = [
+            {
+                name: json.loads(value) if name == "relations" and value is not None else value
+                for name, value in zip(scope_fields, values, strict=True)
+            }
+            for values in self.store._connection.execute("SELECT * FROM scope_units ORDER BY name").fetchall()
+        ]
+        snapshot_atoms = sorted(
+            snapshot.atoms.values(), key=lambda row: (row["relative path"], row["filename"]),
+        )
+        snapshot_scopes = sorted(snapshot.scopes.values(), key=lambda row: row["name"])
+        self.assertEqual(snapshot_atoms, sql_atoms)
+        self.assertEqual(snapshot_scopes, sql_scopes)
+        self.assertEqual(
+            [row["hash"] for row in snapshot_atoms], [row["hash"] for row in sql_atoms],
+        )
+
+    def test_failed_full_replace_keeps_the_published_snapshot(self) -> None:
+        self.store.replace([self.atom("A")], [])
+        previous_projection = self.store._projection
+        previous_header_state = self.store._header_state
+
+        with patch(
+            "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store.insert_rows",
+            side_effect=RuntimeError("write failed"),
+        ), self.assertRaises(WorkbenchUnavailableError):
+            self.store.replace([self.atom("B")], [])
+
+        self.assertIs(previous_projection, self.store._projection)
+        self.assertIs(previous_header_state, self.store._header_state)
 
     def test_native_admission_errors_leave_a_valid_connection(self) -> None:
         self.assertEqual([[1]], self.store.run("-- comment ;\nSELECT 1; /* comment ; */")["rows"])

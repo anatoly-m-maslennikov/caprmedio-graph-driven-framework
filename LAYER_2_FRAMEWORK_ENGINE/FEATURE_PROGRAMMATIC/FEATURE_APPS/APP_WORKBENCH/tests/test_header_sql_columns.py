@@ -1,5 +1,5 @@
 # CA-E-675@6
-# CA-E-677@12
+# CA-E-677@19
 """Source-faithful dynamic Header columns in the Workbench SQL projection."""
 
 from __future__ import annotations
@@ -9,12 +9,15 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 APP_ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(APP_ROOT), str(Path(__file__).parent)]
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.header_columns import infer_header_schema  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import WorkbenchUnavailableError  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.index_delta import MaterializationDelta  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.public_rows import atom_fields  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore  # noqa: E402
@@ -230,6 +233,27 @@ class HeaderSqlColumnsTests(unittest.TestCase):
         )
         with self.assertRaisesRegex(ValueError, "collision"):
             infer_header_schema([{"header_json": {"same-name": "a", "same_name": "b"}}])
+
+    def test_failed_delta_write_does_not_publish_candidate_header_state(self) -> None:
+        original = self.atom("A", {"atom_id": "A", "stable": "before"})
+        unchanged = self.atom("B", {"atom_id": "B", "stable": "unchanged"})
+        self.store.replace([original, unchanged], [])
+        previous_state = self.store._header_state
+        previous_schema = self.store._header_schema
+        updated = self.atom("A", {"atom_id": "A", "stable": "after"}, version=2)
+        delta = MaterializationDelta(
+            old_atoms={"source/A.md": original}, new_atoms={"source/A.md": updated},
+            old_scopes={}, new_scopes={},
+        )
+
+        with patch(
+            "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store.apply_projection_delta",
+            side_effect=RuntimeError("write failed"),
+        ), self.assertRaises(WorkbenchUnavailableError):
+            self.store.apply([updated, unchanged], [], relation_types=set(), delta=delta)
+
+        self.assertIs(previous_state, self.store._header_state)
+        self.assertIs(previous_schema, self.store._header_schema)
 
 
 if __name__ == "__main__":  # pragma: no cover

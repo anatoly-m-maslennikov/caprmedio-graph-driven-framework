@@ -1,9 +1,13 @@
+# CA-M-506@2
+# CA-D-704@1
+
 """MCP registration for selected routes."""
 
 from __future__ import annotations
 
 import sys
 from pathlib import Path
+from collections.abc import Collection
 from typing import Any, Callable, Protocol, cast
 
 from selected_route_spec import DirectLocalReleaseRequest, DirectPublicReleaseRequest
@@ -20,22 +24,23 @@ def _public_module() -> Any:
 
 
 def register_selected_routes(
-    server: ToolServer, root: str | Path, *, tool_blacklist: frozenset[str] = frozenset()
+    server: ToolServer,
+    root: str | Path,
+    *,
+    route_names: Collection[str] | None = None,
+    tool_blacklist: frozenset[str] = frozenset(),
 ) -> Any:
-    """Register direct Release commands and fully admitted ordinary routes."""
+    """Register configured routes; invocation retains source admission."""
     from mcp.types import ToolAnnotations
 
     public = _public_module()
     adapter = public.SelectedRouteAdapter(root, strict_manifest=False)
-    try:
-        adapter.manifest = public.load_selected_manifest(adapter.root)
-        adapter.routes = {
-            entry["route"]: entry
-            for entry in adapter.manifest["routes"]
-            if entry["route"] in public.ADMITTED_SELECTED_ROUTE_NAMES
-        }
-    except OSError, ValueError:
-        pass
+    selected = frozenset(
+        public.ADMITTED_SELECTED_ROUTE_NAMES if route_names is None else route_names
+    )
+    if not selected <= frozenset(public.ADMITTED_SELECTED_ROUTE_NAMES):
+        raise ValueError("generated MCP registry contains an unknown selected route")
+    adapter.routes = {name: {} for name in selected}
     selected_annotations = ToolAnnotations(
         read_only_hint=False, destructive_hint=False, idempotent_hint=True, open_world_hint=False
     )

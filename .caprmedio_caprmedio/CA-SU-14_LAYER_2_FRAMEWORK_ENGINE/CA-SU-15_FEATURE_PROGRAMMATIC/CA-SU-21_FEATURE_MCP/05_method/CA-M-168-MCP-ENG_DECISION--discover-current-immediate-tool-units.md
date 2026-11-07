@@ -14,8 +14,8 @@ relations:
   derived_from:
   - CA-A-057
 status: Active
-version: 18
-updated_at: 2026-11-02 19:44:26 +0400
+version: 19
+updated_at: 2026-11-07 13:19:43 +0400
 cce_version: cce_1
 cce_form: method
 llm_session_ids:
@@ -27,18 +27,16 @@ current_scope_unit: MCP
 
 ## Applicable when
 
-Apply **when** MCP **must** refresh the project-local exposed Tool set.
+MCP starts or explicitly loads a rebuilt installed implementation.
 
 ## Procedure
 
-1. Resolve the current project graph **and** its immediate Tool units owned by `TOOLS`.
-2. Match each unit **to** its canonical Tool folder **and** current enablement decision.
-3. Exclude nested helpers **and** non-Tool folders from the resulting source set.
+Read the generated registration asset carried by that installed package. Resolve only its code-owned provider and selected-route entries, then apply the bound Project's configured exclusions. Do not scan native Atoms, Scope Unit graphs or Tool folders for exposure.
 
 ## Outcome
 
-MCP has one current, authority-derived source set for Tool exposure.
+MCP exposes the enabled installed code/configuration surface through its existing backend adapters.
 
 ## Failure or stop
 
-Stop discovery **when** the graph, unit identity, enablement decision, **or** canonical Tool folder is unresolved.
+Report missing or malformed registration configuration explicitly. Do not fall back to Atom discovery or expose unlisted helpers.

@@ -14,8 +14,8 @@ relations:
   derived_from:
   - CA-A-058
 status: Active
-version: 24
-updated_at: 2026-11-02 19:44:26 +0400
+version: 25
+updated_at: 2026-11-07 13:19:43 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
@@ -26,7 +26,7 @@ Supply the active Tool frontier to MCP
 
 ## Scope
 
-The source-bound active callable Tool and Workflow frontier for a Project, and
+The installed code/configuration-bound callable Tool and Workflow frontier for a Project, and
 the initial union of those validated per-Project frontiers in the shared MCP
 runtime.
 
@@ -46,13 +46,10 @@ apply **when** MCP builds **or** refreshes the callable frontier supplied by TOO
 
 ### Procedure
 
-1. enumerate the complete current set of active declared callable CAPRMEDIO Tools and declared Workflows from the
-   source-bound capability frontier.
-2. read **and** validate **every** active Tool's or Workflow's machine-invocation contract **without**
-   inferring missing meaning from its code **or** runtime state.
-3. project **=1** stable callable endpoint for **every** valid active Tool.
-4. omit inactive **and** explicitly disabled Tools; report **every** invalid active
-   Tool as a diagnostic rather than silently omitting it.
+1. read the generated registration asset produced from the installed code-owned provider and route inventory before build/startup. Do not enumerate source Atoms or source-Workflow manifests to select exposed names.
+2. validate each configured public provider's canonical code-defined machine-invocation models and descriptor without executing its operation. Runtime registration is code/configuration; operation-level source and business validation remains with the shared backend.
+3. project exactly one stable endpoint for each valid enabled public name; source-only provider entries have no MCP endpoint.
+4. omit unconfigured or explicitly disabled Tools; report each invalid configured provider as a diagnostic. Atom status does not control exposure.
 5. delegate **every** admitted call **to** its declared Tool or Workflow provider **without** duplicating **or** changing its
    meaning, inputs, outcomes, **or** mechanics.
 6. replace the exposed frontier **only** **after** the complete candidate projection

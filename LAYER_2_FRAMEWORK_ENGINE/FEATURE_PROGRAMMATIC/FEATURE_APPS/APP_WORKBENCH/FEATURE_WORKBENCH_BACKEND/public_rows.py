@@ -1,5 +1,5 @@
 # CA-R-2726@5
-# CA-M-465@18
+# CA-M-465@23
 # CA-M-500@1
 # CA-D-672@12
 
@@ -103,8 +103,8 @@ def insert_rows(
     connection: Any, atoms: list[Row], scopes: list[Row], *, header_schema: HeaderSchema,
     content_schema: ContentSchema,
     relation_types: set[str] | None = None,
-) -> None:
-    """Create public tables from source-faithful headers and the native graph."""
+) -> tuple[list[Row], list[Row]]:
+    """Create public tables and return the inserted rows."""
     build_graph(connection, atoms, scopes, relation_types)
     fields = atom_fields(header_schema, content_schema)
     atom_rows, scope_rows = projected_rows(atoms, scopes, header_schema, content_schema)
@@ -124,3 +124,4 @@ def insert_rows(
     )""")
     _insert(connection, "atoms", fields, atom_rows, json_fields=header_schema.json_names | {"header_relations"})
     _insert(connection, "scope_units", SCOPE_FIELDS, scope_rows, json_fields=frozenset({"relations"}))
+    return atom_rows, scope_rows

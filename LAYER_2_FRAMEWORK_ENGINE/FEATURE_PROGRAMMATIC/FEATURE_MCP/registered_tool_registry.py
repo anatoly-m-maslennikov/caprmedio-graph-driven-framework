@@ -1,73 +1,64 @@
-"""Fail-closed descriptor-driven registration for installed MCP Tools.
+# CA-R-1108@21
+# CA-M-506@2
+# CA-D-704@1
 
-The registry is an MCP transport projection.  Compilation discovers only
-provider descriptions and canonical model symbols; it never invokes a Tool.
-"""
+"""Fail-closed descriptor-driven MCP registration for installed Tools."""
+
 from __future__ import annotations
 
-from collections.abc import Callable, Collection, Mapping, Sequence
-from dataclasses import dataclass, replace
+from collections.abc import Mapping, Sequence
+from dataclasses import dataclass
 import hashlib
-import importlib.util
-import inspect
 import json
-import os
-from pathlib import Path, PurePosixPath
-import re
-import stat
-import sys
+from pathlib import Path
 from types import ModuleType
 from typing import Any
 
-from mcp.server.mcpserver.exceptions import ToolError
-from mcp.types import ToolAnnotations
 from pydantic import TypeAdapter
+from registered_tool_providers import RegisteredToolError, load_provider
 
-from operation_error_boundary import (
-    FailureRecord,
-    classify_failure,
-    emit_failure_diagnostic,
-    operation_error_boundary,
+
+_PACKAGE_ROOT = Path(__file__).resolve().parents[3]
+_DESCRIPTOR_FIELDS = frozenset(
+    {
+        "schema_version",
+        "identity",
+        "binding",
+        "models",
+        "callable",
+        "effect_hints",
+        "permissions",
+        "source_pins",
+        "admission",
+        "diagnostics",
+        "failure_contract",
+    }
 )
-from project_selection import active_selection
-from technical_diagnostics import make_technical_logger
-
-
-_ENTRYPOINT_PREFIX = PurePosixPath("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC")
-_PROGRAMMATIC_ROOT = Path(__file__).resolve().parents[1]
-_DESCRIPTOR_FIELDS = frozenset({
-    "schema_version", "identity", "binding", "models", "callable",
-    "effect_hints", "permissions", "source_pins", "admission", "diagnostics",
-    "failure_contract",
-})
 _IDENTITY_FIELDS = frozenset({"name", "tool_version", "title", "description", "purpose"})
 _BINDING_FIELDS = frozenset({"delivery_atom_id", "action_ids", "implementation_entrypoint"})
 _MODEL_FIELDS = frozenset({"input", "output"})
 _SYMBOL_FIELDS = frozenset({"module", "symbol"})
-_EFFECT_HINT_FIELDS = frozenset({
-    "read_only_hint", "destructive_hint", "idempotent_hint", "open_world_hint",
-})
+_EFFECT_HINT_FIELDS = frozenset(
+    {
+        "read_only_hint",
+        "destructive_hint",
+        "idempotent_hint",
+        "open_world_hint",
+    }
+)
 _PERMISSION_FIELDS = frozenset({"execution", "enforcement", "metadata_grants_permission"})
 _ADMISSION_FIELDS = frozenset({"module", "symbol", "refresh_after_success"})
-_SHA256 = re.compile(r"[0-9a-f]{64}\Z")
-_RESERVED_PUBLIC_NAMES = frozenset({
-    "workflow_orchestrator", "reload_mcp_implementation",
-    "get_mcp_reload_status",
-})
+_RESERVED_PUBLIC_NAMES = frozenset(
+    {
+        "workflow_orchestrator",
+        "reload_mcp_implementation",
+        "get_mcp_reload_status",
+    }
+)
 
 
-class RegisteredToolError(ValueError):
-    """A descriptor is not eligible for MCP projection."""
-
-
-def _classify_public_failure(error: Exception) -> FailureRecord | None:
-    """Keep known public refusals attributable without exposing exception text."""
-
-    if isinstance(error, RegisteredToolError):
-        return FailureRecord("WARNING", "source_binding_invalid", "source binding is invalid")
-    if isinstance(error, ToolError):
-        return FailureRecord("WARNING", "request_rejected", "request or source binding was rejected")
-    return None
+class ToolRegistryAssetError(ValueError):
+    """The generated MCP registration asset is unavailable or unsafe."""
 
 
 @dataclass(frozen=True)
@@ -84,8 +75,7 @@ class RegistrySnapshot:
     def registered_names(self) -> frozenset[str]:
         source = self.tools if self.registered is None else self.registered
         return frozenset(
-            name for item in source
-            if isinstance((name := item.get("mcp_name")), str) and name
+            name for item in source if isinstance((name := item.get("mcp_name")), str) and name
         )
 
     def projection(self) -> dict[str, object]:
@@ -99,123 +89,27 @@ class RegistrySnapshot:
         }
 
 
-# The cache is intentionally keyed by fresh, physically-read provider bytes.
-_MODULE_CACHE: dict[Path, tuple[str, ModuleType]] = {}
-
-
 def _canonical_json(value: object) -> bytes:
-    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False).encode("utf-8")
+    return json.dumps(
+        value, ensure_ascii=False, sort_keys=True, separators=(",", ":"), allow_nan=False
+    ).encode("utf-8")
 
 
 def _diagnostic(field: str, code: str) -> dict[str, str]:
     return {"field": field, "code": code}
 
 
-def _normalise_entrypoint(value: object) -> tuple[str, Path]:
-    """Resolve one normalized Python member under this installed Engine only."""
+def _load_provider(
+    entrypoint: object, package_root: str | Path = _PACKAGE_ROOT
+) -> tuple[str, str, ModuleType]:
+    """Compatibility loader; compilation always passes an explicit package root."""
 
-    if not isinstance(value, str) or not value or "\\" in value:
-        raise RegisteredToolError("entrypoint: invalid")
-    raw = PurePosixPath(value)
-    if (
-        raw.is_absolute()
-        or raw.as_posix() != value
-        or any(part in {"", ".", ".."} for part in raw.parts)
-        or any(part.lower().startswith(".env") or part.lower().endswith(".env") for part in raw.parts)
-        or tuple(raw.parts[:len(_ENTRYPOINT_PREFIX.parts)]) != _ENTRYPOINT_PREFIX.parts
-    ):
-        raise RegisteredToolError("entrypoint: outside trusted programmatic root")
-    relative = raw.relative_to(_ENTRYPOINT_PREFIX)
-    if not relative.parts or relative.suffix != ".py":
-        raise RegisteredToolError("entrypoint: not a Python module")
-    candidate = _PROGRAMMATIC_ROOT.joinpath(*relative.parts)
-    try:
-        cursor = _PROGRAMMATIC_ROOT
-        for part in relative.parts:
-            cursor /= part
-            if stat.S_ISLNK(os.lstat(cursor).st_mode):
-                raise RegisteredToolError("entrypoint: symlink is not admitted")
-        if not stat.S_ISREG(os.stat(candidate, follow_symlinks=False).st_mode):
-            raise RegisteredToolError("entrypoint: not a regular file")
-    except RegisteredToolError:
-        raise
-    except OSError as error:
-        raise RegisteredToolError("entrypoint: unavailable") from error
-    return raw.as_posix(), candidate
+    return load_provider(package_root, entrypoint)
 
 
-def _read_entrypoint(candidate: Path) -> tuple[str, bytes]:
-    """Read exact module bytes without accepting aliases or replacement races."""
-
-    flags = os.O_RDONLY | getattr(os, "O_CLOEXEC", 0) | getattr(os, "O_NOFOLLOW", 0)
-    try:
-        descriptor = os.open(candidate, flags)
-    except OSError as error:
-        raise RegisteredToolError("entrypoint: unavailable") from error
-    try:
-        before = os.fstat(descriptor)
-        if not stat.S_ISREG(before.st_mode) or before.st_size > 8 * 1024 * 1024:
-            raise RegisteredToolError("entrypoint: not a bounded regular file")
-        payload = bytearray()
-        while len(payload) <= 8 * 1024 * 1024:
-            chunk = os.read(descriptor, min(65536, 8 * 1024 * 1024 + 1 - len(payload)))
-            if not chunk:
-                break
-            payload.extend(chunk)
-        after = os.fstat(descriptor)
-        if (
-            len(payload) > 8 * 1024 * 1024
-            or before.st_dev != after.st_dev
-            or before.st_ino != after.st_ino
-            or before.st_size != after.st_size
-            or len(payload) != before.st_size
-        ):
-            raise RegisteredToolError("entrypoint: changed while being read")
-        return hashlib.sha256(payload).hexdigest(), bytes(payload)
-    finally:
-        os.close(descriptor)
-
-
-def _load_provider(entrypoint: object) -> tuple[str, str, ModuleType]:
-    canonical, candidate = _normalise_entrypoint(entrypoint)
-    code_hash, payload = _read_entrypoint(candidate)
-    cached = _MODULE_CACHE.get(candidate)
-    if cached is not None and cached[0] == code_hash:
-        return canonical, code_hash, cached[1]
-
-    module_name = f"_caprmedio_registered_{code_hash}"
-    spec = importlib.util.spec_from_file_location(module_name, candidate)
-    if spec is None or spec.loader is None:
-        raise RegisteredToolError("entrypoint: implementation is unavailable")
-    module = importlib.util.module_from_spec(spec)
-    previous = sys.modules.get(module_name)
-    tools_root = str(_PROGRAMMATIC_ROOT / "FEATURE_TOOLS")
-    inserted_tools_root = tools_root not in sys.path
-    try:
-        # Module-level annotations can need their own module while evaluating;
-        # never leave the private import key installed afterwards.
-        sys.modules[module_name] = module
-        if inserted_tools_root:
-            # Providers may share the trusted descriptor helper.  This is
-            # scoped to the sealed import and is not a caller-selected path.
-            sys.path.insert(0, tools_root)
-        # Execute the same bytes that supplied ``code_hash``.  Delegating to
-        # ``exec_module`` would reread the path and may select a stale pyc.
-        exec(compile(payload, str(candidate), "exec", dont_inherit=True), module.__dict__)
-    except Exception as error:
-        raise RegisteredToolError("entrypoint: descriptor import failed") from error
-    finally:
-        if inserted_tools_root:
-            sys.path.remove(tools_root)
-        if previous is None:
-            sys.modules.pop(module_name, None)
-        else:
-            sys.modules[module_name] = previous
-    _MODULE_CACHE[candidate] = (code_hash, module)
-    return canonical, code_hash, module
-
-
-def _mapping(value: object, field: str, expected: frozenset[str] | None = None) -> Mapping[str, object]:
+def _mapping(
+    value: object, field: str, expected: frozenset[str] | None = None
+) -> Mapping[str, object]:
     if not isinstance(value, Mapping):
         raise RegisteredToolError(f"{field}: missing or invalid")
     result = dict(value)
@@ -269,15 +163,10 @@ def _source_pins_match_binding(value: object, binding: Mapping[str, object]) -> 
     )
 
 
-def _validated_descriptor(binding: Mapping[str, object]) -> dict[str, object]:
-    entrypoint, code_hash, module = _load_provider(binding.get("entrypoint"))
-    if (
-        not isinstance(binding.get("source_atom"), str)
-        or not isinstance(binding.get("source_path"), str)
-        or not isinstance(binding.get("sha256"), str)
-        or _SHA256.fullmatch(binding["sha256"]) is None
-    ):
-        raise RegisteredToolError("source: missing or stale source pin")
+def _validated_descriptor(  # noqa: C901
+    package_root: str | Path, binding: Mapping[str, object]
+) -> dict[str, object]:
+    entrypoint, code_hash, module = _load_provider(binding.get("entrypoint"), package_root)
     describe = getattr(module, "describe_tool", None)
     if not callable(describe):
         raise RegisteredToolError("provider: required descriptor API is absent")
@@ -299,19 +188,27 @@ def _validated_descriptor(binding: Mapping[str, object]) -> dict[str, object]:
     tool_binding = _mapping(descriptor["binding"], "binding", _BINDING_FIELDS)
     actions = tool_binding["action_ids"]
     if (
-        not isinstance(actions, list) or not actions
+        not isinstance(actions, list)
+        or not actions
         or not all(isinstance(action, str) and action for action in actions)
         or len(actions) != len(set(actions))
-        or tool_binding["delivery_atom_id"] != binding.get("source_atom")
-        or actions != binding.get("action_ids")
         or tool_binding["implementation_entrypoint"] != entrypoint
-        or identity["name"] != binding.get("name")
     ):
-        raise RegisteredToolError("binding: conflicts with admitted catalog binding")
+        raise RegisteredToolError("binding: conflicts with installed provider")
     raw_mcp_name = binding.get("mcp_name")
     if raw_mcp_name is not None and not isinstance(raw_mcp_name, str):
-        raise RegisteredToolError("catalog.mcp_name: invalid")
+        raise RegisteredToolError("provider.mcp_name: invalid")
     mcp_name = raw_mcp_name or None
+    code_binding = {
+        "name": identity["name"],
+        "mcp_name": raw_mcp_name,
+        "entrypoint": entrypoint,
+        "source_atom": tool_binding["delivery_atom_id"],
+        "action_ids": actions,
+    }
+    for field in ("name", "source_atom", "action_ids"):
+        if field in binding and binding[field] != code_binding[field]:
+            raise RegisteredToolError(f"binding.{field}: conflicts with installed provider")
 
     models = _mapping(descriptor["models"], "models", _MODEL_FIELDS)
     input_model = _model_symbol(module, entrypoint, models["input"], "models.input")
@@ -332,8 +229,8 @@ def _validated_descriptor(binding: Mapping[str, object]) -> dict[str, object]:
         or permissions["metadata_grants_permission"] is not False
     ):
         raise RegisteredToolError("permissions: invalid")
-    if not _source_pins_match_binding(descriptor["source_pins"], binding):
-        raise RegisteredToolError("source_pins: conflicts with admitted catalog binding")
+    if not _source_pins_match_binding(descriptor["source_pins"], code_binding):
+        raise RegisteredToolError("source_pins: conflicts with installed provider")
     for field in ("diagnostics", "failure_contract"):
         if not _mapping(descriptor[field], field):
             raise RegisteredToolError(f"{field}: incomplete")
@@ -343,10 +240,13 @@ def _validated_descriptor(binding: Mapping[str, object]) -> dict[str, object]:
     admitted = getattr(module, _string(admission["symbol"], "admission.symbol"), None)
     if not callable(admitted) or type(admission["refresh_after_success"]) is not bool:
         raise RegisteredToolError("admission: invalid")
-    if _mapping(descriptor["failure_contract"], "failure_contract").get("invokes_on_discovery") is not False:
+    if (
+        _mapping(descriptor["failure_contract"], "failure_contract").get("invokes_on_discovery")
+        is not False
+    ):
         raise RegisteredToolError("failure_contract.invokes_on_discovery: invalid")
     try:
-        is_admitted = admitted(binding)
+        is_admitted = admitted(code_binding)
     except Exception as error:
         raise RegisteredToolError("admission: unavailable") from error
     if is_admitted is not True:
@@ -357,11 +257,9 @@ def _validated_descriptor(binding: Mapping[str, object]) -> dict[str, object]:
         "mcp_name": mcp_name,
         "descriptor": descriptor,
         "source": {
-            "source_atom": binding.get("source_atom"),
-            "source_path": binding.get("source_path"),
-            "sha256": binding.get("sha256"),
+            **code_binding,
+            "code_sha256": code_hash,
         },
-        "catalog_binding": _catalog_binding(binding),
         "entrypoint": entrypoint,
         "code_sha256": code_hash,
         "input_schema": TypeAdapter(input_model).json_schema(),
@@ -370,30 +268,10 @@ def _validated_descriptor(binding: Mapping[str, object]) -> dict[str, object]:
 
 
 def _binding_identity(binding: Mapping[str, object]) -> dict[str, object]:
-    return {key: binding.get(key) for key in ("name", "mcp_name", "source_atom", "source_path", "entrypoint")}
-
-
-def _catalog_binding(binding: Mapping[str, object]) -> dict[str, object]:
-    """The source pins that must still agree immediately before dispatch."""
-
     return {
         key: binding.get(key)
-        for key in ("name", "mcp_name", "entrypoint", "action_ids", "source_atom", "source_path", "sha256")
+        for key in ("name", "mcp_name", "source_atom", "source_path", "entrypoint")
     }
-
-
-def _binding_is_fresh(root: str | Path, expected: Mapping[str, object]) -> bool:
-    """Reopen discovery; startup admission alone never permits dispatch."""
-
-    try:
-        from capability_discovery.service import Service
-        _atoms, current, _issues = Service(root).catalog()
-    except (ImportError, OSError, TypeError, ValueError):
-        return False
-    return len([
-        item for item in current
-        if all(item.get(key) == value for key, value in expected.items())
-    ]) == 1
 
 
 def _snapshot(
@@ -403,12 +281,21 @@ def _snapshot(
     registered: Sequence[Mapping[str, object]] | None = None,
     withheld: Sequence[Mapping[str, object]] = (),
 ) -> RegistrySnapshot:
-    valid = sorted((dict(item) for item in tools), key=lambda item: (
-        str(item.get("mcp_name") or ""), str(item["name"]), _canonical_json(item["source"]),
-    ))
+    valid = sorted(
+        (dict(item) for item in tools),
+        key=lambda item: (
+            str(item.get("mcp_name") or ""),
+            str(item["name"]),
+            _canonical_json(item["source"]),
+        ),
+    )
     unavailable = sorted((dict(item) for item in quarantined), key=_canonical_json)
     deferred = sorted((dict(item) for item in withheld), key=_canonical_json)
-    actual = None if registered is None else sorted((dict(item) for item in registered), key=_canonical_json)
+    actual = (
+        None
+        if registered is None
+        else sorted((dict(item) for item in registered), key=_canonical_json)
+    )
     semantic = {
         "schema_version": 1,
         "tools": valid,
@@ -417,23 +304,30 @@ def _snapshot(
         "withheld": deferred,
     }
     return RegistrySnapshot(
-        tuple(valid), tuple(unavailable), hashlib.sha256(_canonical_json(semantic)).hexdigest(),
-        None if actual is None else tuple(actual), tuple(deferred),
+        tuple(valid),
+        tuple(unavailable),
+        hashlib.sha256(_canonical_json(semantic)).hexdigest(),
+        None if actual is None else tuple(actual),
+        tuple(deferred),
     )
 
 
 def compile_registry(root: str | Path, bindings: Sequence[Mapping[str, Any]]) -> RegistrySnapshot:
-    """Compile an effect-free deterministic projection of one catalog snapshot."""
+    """Compile an effect-free deterministic projection of explicit providers."""
 
-    del root  # Registry code must not inspect caller-controlled Project carriers.
     tools: list[dict[str, object]] = []
     quarantined: list[dict[str, object]] = []
     for binding in sorted((dict(item) for item in bindings), key=_canonical_json):
         try:
-            tools.append(_validated_descriptor(binding))
+            tools.append(_validated_descriptor(root, binding))
         except RegisteredToolError as error:
             field, _, code = str(error).partition(": ")
-            quarantined.append({"source": _binding_identity(binding), "diagnostics": [_diagnostic(field, code or "invalid")]})
+            quarantined.append(
+                {
+                    "source": _binding_identity(binding),
+                    "diagnostics": [_diagnostic(field, code or "invalid")],
+                }
+            )
 
     names: dict[str, int] = {}
     public_names: dict[str, int] = {}
@@ -448,156 +342,28 @@ def compile_registry(root: str | Path, bindings: Sequence[Mapping[str, Any]]) ->
         name = str(item["name"])
         mcp_name = item["mcp_name"]
         if mcp_name and mcp_name in _RESERVED_PUBLIC_NAMES:
-            quarantined.append({"source": dict(item["source"]), "diagnostics": [_diagnostic("identity.mcp_name", "reserved MCP helper name")]})
+            quarantined.append(
+                {
+                    "source": dict(item["source"]),
+                    "diagnostics": [_diagnostic("identity.mcp_name", "reserved MCP helper name")],
+                }
+            )
         elif names[name] != 1 or (mcp_name and public_names[mcp_name] != 1):
             field = "identity.name" if names[name] != 1 else "catalog.mcp_name"
-            quarantined.append({"source": dict(item["source"]), "diagnostics": [_diagnostic(field, "ambiguous catalog binding")]})
+            quarantined.append(
+                {
+                    "source": dict(item["source"]),
+                    "diagnostics": [_diagnostic(field, "ambiguous catalog binding")],
+                }
+            )
         else:
             valid.append(item)
     return _snapshot(valid, quarantined)
 
 
-def _invoke_wrapper(
-    *,
-    adapter: object,
-    input_model: object,
-    output_model: object,
-    mcp_name: str,
-    root: str | Path,
-    catalog_binding: Mapping[str, object],
-) -> Callable[..., object]:
-    """Make the SDK-visible wrapper with exactly one typed request parameter."""
-
-    invoke = getattr(adapter, "invoke", None)
-    if not callable(invoke):
-        raise RegisteredToolError("callable.invoke: adapter is unresolved")
-    output_adapter = TypeAdapter(output_model)
-
-    def _logger():
-        try:
-            selection = active_selection(root)
-            logger, _error = make_technical_logger(selection.settings, Path(root))
-            return replace(logger, component="MCP_REGISTRY") if logger is not None else None
-        except Exception:
-            return None
-
-    def _on_error(error: Exception) -> object:
-        failure = classify_failure(error, classifier=_classify_public_failure)
-        diagnostic_error = emit_failure_diagnostic(
-            _logger(), failure, operation=mcp_name,
-        )
-        message = f"{failure.code}: {failure.message}"
-        if diagnostic_error:
-            message += "; technical diagnostic unavailable"
-        raise ToolError(f"{mcp_name}: {message}") from error
-
-    @operation_error_boundary(on_error=_on_error)
-    async def guarded_invoke(request: object) -> object:
-        if not _binding_is_fresh(root, catalog_binding):
-            raise ToolError(f"{mcp_name}: source binding is stale or unavailable")
-        result = invoke(request)
-        if inspect.isawaitable(result):
-            result = await result
-        return output_adapter.validate_python(result)
-
-    async def registered_tool(request: object) -> object:
-        return await guarded_invoke(request)
-
-    # Captured objects stay closures instead of optional default parameters,
-    # avoiding accidental SDK request-schema fields.
-    registered_tool.__name__ = mcp_name
-    registered_tool.__annotations__ = {"request": input_model, "return": output_model}
-    return registered_tool
-
-
-def register_catalog_tools(
-    server: Any,
-    root: str | Path,
-    tools: Sequence[Mapping[str, Any]],
-    *,
-    occupied_public_names: Sequence[str] = (),
-    registered_public_names: Sequence[str] = (),
-    tool_blacklist: Collection[str] = (),
-) -> RegistrySnapshot:
-    """Compile all valid descriptors and register only unoccupied public names.
-
-    A source-only descriptor (no catalog ``mcp_name``) remains valid metadata.
-    Likewise, a selected Workflow route may already own a public MCP name with
-    a different request protocol.  Neither condition makes the canonical Tool
-    descriptor invalid or permits an implicit transport overwrite.
-    """
-
-    snapshot = compile_registry(root, tools)
-    registered: list[Mapping[str, object]] = []
-    quarantined: list[Mapping[str, object]] = list(snapshot.quarantined)
-    withheld: list[Mapping[str, object]] = []
-    frontier_binders: list[Callable[..., None]] = []
-    occupied = frozenset(name for name in occupied_public_names if isinstance(name, str) and name)
-    excluded = frozenset(tool_blacklist)
-    for record in snapshot.tools:
-        mcp_name = record.get("mcp_name")
-        if not isinstance(mcp_name, str) or not mcp_name:
-            withheld.append({
-                "source": {**dict(record["source"]), "name": record["name"], "mcp_name": None},
-                "reason": "source_only",
-            })
-            continue
-        if mcp_name in excluded:
-            withheld.append({
-                "source": {**dict(record["source"]), "name": record["name"], "mcp_name": mcp_name},
-                "reason": "tool_blacklisted",
-            })
-            continue
-        if mcp_name in occupied:
-            withheld.append({
-                "source": {**dict(record["source"]), "name": record["name"], "mcp_name": mcp_name},
-                "reason": "public_name_owned_by_route",
-            })
-            continue
-        try:
-            entrypoint, code_hash, module = _load_provider(record["entrypoint"])
-            if entrypoint != record["entrypoint"] or code_hash != record["code_sha256"]:
-                raise RegisteredToolError("entrypoint: changed after compilation")
-            descriptor = _mapping(record["descriptor"], "descriptor", _DESCRIPTOR_FIELDS)
-            models = _mapping(descriptor["models"], "models", _MODEL_FIELDS)
-            adapter = getattr(module, "create_adapter")(root)
-            wrapper = _invoke_wrapper(
-                adapter=adapter,
-                input_model=_model_symbol(module, entrypoint, models["input"], "models.input"),
-                output_model=_model_symbol(module, entrypoint, models["output"], "models.output"),
-                mcp_name=mcp_name,
-                root=root,
-                catalog_binding=_mapping(record["catalog_binding"], "catalog_binding"),
-            )
-            identity = _mapping(descriptor["identity"], "identity", _IDENTITY_FIELDS)
-            server.add_tool(
-                wrapper,
-                name=mcp_name,
-                title=str(identity["title"]),
-                description=str(identity["description"]),
-                annotations=ToolAnnotations(**dict(_mapping(descriptor["effect_hints"], "effect_hints", _EFFECT_HINT_FIELDS))),
-                structured_output=True,
-            )
-            registered.append(record)
-            bind_frontier = getattr(adapter, "bind_server_frontier", None)
-            if callable(bind_frontier):
-                frontier_binders.append(bind_frontier)
-        except Exception as error:
-            if isinstance(error, RegisteredToolError):
-                field, _, code = str(error).partition(": ")
-            else:
-                field, code = "registration", type(error).__name__
-            quarantined.append({
-                "source": dict(record["source"]),
-                "diagnostics": [_diagnostic(field, code or "failed")],
-            })
-    result = _snapshot(snapshot.tools, quarantined, registered=registered, withheld=withheld)
-    # Names reserved by a caller are not proof of registration.  Only completed
-    # add_tool calls and the server's explicit bootstrap result enter discovery.
-    names = (frozenset(registered_public_names) | result.registered_names) - excluded
-    for bind_frontier in frontier_binders:
-        bind_frontier(registered_names=names, quarantined=result.quarantined, withheld=result.withheld)
-    return result
-
-
-__all__ = ["RegisteredToolError", "RegistrySnapshot", "compile_registry", "register_catalog_tools"]
+__all__ = [
+    "RegisteredToolError",
+    "RegistrySnapshot",
+    "ToolRegistryAssetError",
+    "compile_registry",
+]

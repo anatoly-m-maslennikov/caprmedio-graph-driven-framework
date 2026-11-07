@@ -1,0 +1,35 @@
+{
+  "providers": [
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_SEARCH/atom_search.py", "mcp_name": "atom_search"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_ARTIFACTS/find_and_fetch_artifacts.py", "mcp_name": "find_and_fetch_artifacts"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/APPEND_CHANGE_RECORDS/append_change_records.py", "mcp_name": "append_change_records"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_UPDATE/atom_update.py", "mcp_name": "atom_update"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/RMED_ATOMS_BASE_REVISE/rmed_atoms_base_revise.py", "mcp_name": "rmed_atoms_base_revise"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/validate_atoms.py", "mcp_name": ""},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/FIND_AND_FETCH_JOURNAL_EVENTS/find_and_fetch_journal_events.py", "mcp_name": "find_and_fetch_journal_events"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/TOOL_DISCOVER_TOOLS/discover_tools.py", "mcp_name": "discover_tools"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/TOOL_GET_EXECUTION_CONTEXT/get_execution_context.py", "mcp_name": "get_execution_context"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/TOOL_WATCH_EXECUTION/watch_execution.py", "mcp_name": "watch_execution"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/TOOL_RESUME_EXECUTION_CONTEXT/resume_execution_context.py", "mcp_name": "resume_execution_context"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/TOOL_GET_EXECUTION_STATUS/get_execution_status.py", "mcp_name": "get_execution_status"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/TOOL_DISCOVER_OPERATIONS/discover_operations.py", "mcp_name": "discover_operations"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/WORKFLOW_OPERATIONS/REVERT_CHANGES/revert_changes.py", "mcp_name": "revert_changes"},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py", "mcp_name": null},
+    {"entrypoint": "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/generate_entity_graph.py", "mcp_name": "generate_entity_graph"}
+  ],
+  "schema_version": 1,
+  "selected_route_names": [
+    "create_atom",
+    "update_atom",
+    "replace_atom",
+    "change_atom_status",
+    "move_atom",
+    "run_implementation_workflow",
+    "revert_changes",
+    "build_entities_graph",
+    "build_terms_graph",
+    "build_applicable_methodology",
+    "find_and_fetch_artifacts",
+    "find_and_fetch_journal_events"
+  ]
+}

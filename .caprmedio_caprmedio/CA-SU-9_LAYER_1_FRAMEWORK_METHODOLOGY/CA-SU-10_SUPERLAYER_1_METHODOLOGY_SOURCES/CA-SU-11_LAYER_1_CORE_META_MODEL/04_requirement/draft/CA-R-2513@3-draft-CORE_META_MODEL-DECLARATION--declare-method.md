@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 3
-updated_at: "2026-11-07 01:15:14 +0400"
+updated_at: "2026-11-07 13:45:19 +0400"
 carrier_destination:
   file:
     name: CA-R-2513@3-draft-CORE_META_MODEL-DECLARATION--declare-method.md
@@ -28,7 +28,7 @@ Declare Atom/(.Role := Method)
 
 ```CFEL
 # model
-Atom/(.Header.Role: Method)
+Atom/(.Header.Role := Method)
 ```
 
 ## Semantics

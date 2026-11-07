@@ -1,9 +1,13 @@
+# CA-R-1115@24
 from __future__ import annotations
 
 # CA-M-322@13
 # CA-R-1820@9
+# CA-M-506@2
+# CA-D-673@14
 
 import asyncio
+from collections.abc import Awaitable
 from types import SimpleNamespace
 from typing import Any, Callable
 
@@ -104,7 +108,9 @@ class SharedGateway:
             raise SharedGatewayRefusal("invalid_project_root") from error
 
     def _arguments(self, params: Any) -> tuple[ProjectSelection, dict[str, Any]]:
-        arguments = getattr(params, "arguments", None)
+        return self._project_arguments(getattr(params, "arguments", None))
+
+    def _project_arguments(self, arguments: Any) -> tuple[ProjectSelection, dict[str, Any]]:
         if not isinstance(arguments, dict) or "project_root" not in arguments:
             raise SharedGatewayRefusal("missing_project_root")
         selection = self._selection(arguments["project_root"])
@@ -130,7 +136,22 @@ class SharedGateway:
         if len(self._known_projects) > MAX_OBSERVATIONS:
             self._known_projects.pop(next(iter(self._known_projects)))
 
-    async def call(self, context: Any, params: Any) -> types.CallToolResult:
+    @staticmethod
+    def _failure_code(error: Exception) -> str:
+        if isinstance(error, SharedGatewayRefusal):
+            return error.code
+        if isinstance(error, ProjectCapacityError):
+            return "project_gateway_busy"
+        return "shared_gateway_failure"
+
+    async def _backend_call(
+        self,
+        name: str,
+        arguments: Any,
+        selection_for: Callable[[], tuple[ProjectSelection, dict[str, Any]]],
+        invoke: Callable[[Any, dict[str, Any]], Awaitable[Any]],
+    ) -> tuple[Any, str | None, ProjectSelection | None]:
+        """Run either transport through one selected native Project lease."""
         response = None
         error = None
         entry = None
@@ -138,36 +159,28 @@ class SharedGateway:
         try:
             if self.frontier is None:
                 raise SharedGatewayRefusal("shared_gateway_unavailable")
-            selection, native_arguments = self._arguments(params)
+            selection, native_arguments = selection_for()
             self._current_config()
             entry = await self.pool.acquire(selection)
             refreshed = self._selection(str(selection.root))
             self._current_config()
-            self._current_tool(entry, refreshed, params.name)
+            self._current_tool(entry, refreshed, name)
             prefix, identity = _project_context(refreshed)
             self._remember_project(prefix, identity)
             with bind_selection(refreshed):
-                response = await entry.gateway.call(
-                    context,
-                    params.model_copy(update={"arguments": native_arguments}),
-                )
-            return response
+                response = await invoke(entry.gateway, native_arguments)
+            return response, None, selection
         except asyncio.CancelledError as caught:
             error = caught
             raise
         except (OSError, RuntimeError, TypeError, ValueError, ProjectCapacityError) as caught:
             error = caught
-            code = (
-                caught.code
-                if isinstance(caught, SharedGatewayRefusal)
-                else (
-                    "project_gateway_busy"
-                    if isinstance(caught, ProjectCapacityError)
-                    else "shared_gateway_failure"
-                )
-            )
-            response = refusal(code, selection.root if selection is not None else None)
-            return response
+            code = self._failure_code(caught)
+            response = {"outcome": "rejected", "diagnostics": [code]}
+            return response, code, selection
+        except Exception:
+            response = {"outcome": "failed", "is_error": True}
+            raise
         finally:
             if entry is not None:
                 await self.pool.release(entry)
@@ -176,14 +189,42 @@ class SharedGateway:
             )
             record_observation(
                 self.health_observations,
-                getattr(params, "name", "unknown"),
-                getattr(params, "arguments", None),
+                name,
+                arguments,
                 response,
                 error,
                 root=selection.root if selection is not None else None,
                 project_prefix=prefix,
                 project_instance_id=identity,
             )
+
+    async def workbench_call(self, name: str, arguments: dict[str, Any]) -> dict[str, Any]:
+        """Call the native Workbench API without an MCP request/result envelope."""
+        async def invoke(gateway: Any, native_arguments: dict[str, Any]) -> dict[str, Any]:
+            value = await gateway.workbench.call(name, native_arguments)
+            if not isinstance(value, dict):
+                raise RuntimeError("Workbench returned an invalid result")
+            return value
+
+        response, code, _selection = await self._backend_call(
+            name, arguments, lambda: self._project_arguments(arguments), invoke
+        )
+        if code is not None:
+            raise SharedGatewayRefusal(code)
+        return response
+
+    async def call(self, context: Any, params: Any) -> types.CallToolResult:
+        response, code, selection = await self._backend_call(
+            params.name,
+            getattr(params, "arguments", None),
+            lambda: self._arguments(params),
+            lambda gateway, native_arguments: gateway.call(
+                context, params.model_copy(update={"arguments": native_arguments})
+            ),
+        )
+        if code is not None:
+            return refusal(code, selection.root if selection is not None else None)
+        return response
 
     def build_server(self) -> Server:
         async def list_tools(_context: Any, _params: Any) -> types.ListToolsResult:

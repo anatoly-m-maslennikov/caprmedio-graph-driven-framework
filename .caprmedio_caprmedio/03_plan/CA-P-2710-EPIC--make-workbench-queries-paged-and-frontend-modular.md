@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 61
-updated_at: 2026-11-07 05:35:12 +0400
+version: 62
+updated_at: 2026-11-07 14:08:37 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -356,9 +356,44 @@ Four controlled Docker tests passed, including all 21 measured gates. Fresh same
 Evidence: [runtime acceptance](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/runtime-acceptance-20261107.md), [raw performance metrics](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/performance-acceptance-20261107.json), [RAM report](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/ram-report-20261107.md).
 
 - [x] Investigate deeper retained memory and query-result ownership.
-- [ ] Benchmark aggregate-only Header schema bookkeeping against current behavior.
-- [ ] Benchmark UTF-8 source-body caching for memory and edit/rebuild speed.
-- [ ] Measure a registration-only MCP catalog read before deciding whether to adopt it.
+- [x] Benchmark aggregate-only Header schema bookkeeping against current behavior.
+- [x] Benchmark UTF-8 source-body caching for memory and edit/rebuild speed.
+- [x] Supersede the narrower Atom-catalog proposal with the adopted code/configuration registration work.
 - [ ] Route the unchanged migration/Journal fixture failures to their owning work; preserve current validation.
 
-These are optional measured candidates, not adopted implementation requirements. The Epic remains Active; native-host UI acceptance, live release/canary and other explicitly deferred work are still open.
+The Header and UTF-8 candidates and code-owned MCP registration were subsequently adopted and completed below. Other optional experiments remain deferred. The Epic remains Active; native-host UI acceptance, live release/canary and other explicitly deferred work are still open.
+
+
+## Code-owned MCP registration and further RAM work
+
+- [x] Update, review and adopt the MCP registration/build RMED.
+- [x] Reuse the scoped PROGRAMMATIC Policy prompt.
+- [x] Implement and review the accepted MCP changes.
+- [x] Verify build/local-release generation and registration without source Atom discovery.
+- [x] Update and review the Backend RAM sources (M465@23, E677@20).
+- [x] Implement and review the accepted Header and UTF-8 cache changes.
+- [x] Run unprofiled correctness, speed and same-source RAM comparisons.
+- [x] Record measured results and remaining limitations.
+
+This extends the current runtime work. Workflow definitions and Atom migrations remain outside scope. Controlled builds and tests do not establish a live deployment.
+
+
+## Shared backend API and follow-up acceptance
+
+- [x] Record and review the shared-backend architecture in RMED (M506@2).
+- [x] Review MCP and web call paths for duplicated operation logic, schemas and validation.
+- [x] Refactor identified duplication behind the shared backend API, preserving public behavior.
+- [x] Add or reuse MCP/web parity tests and record the result.
+- [x] Run the first unprofiled Header-only and UTF-8 cache comparison.
+- [x] Remove the duplicate full-build public-row conversion and remeasure decoding cost.
+- [x] Run the final Docker latency, throughput and rebuild gates.
+- [x] Record the final unprofiled RAM comparison and review the integrated changes.
+
+The current MCP library is retained. Task checkmarks record completed work only; design and expected behavior remain in the applicable RMED. Native-host UI acceptance and a live release remain separate open tasks.
+
+
+## Code/configuration and cache acceptance
+
+The latest tracked runtime tasks are complete in source and controlled tests. No MCP library change was made. Four Docker tests and all 21 performance gates passed; shared MCP/web requests reuse the existing backend without the shared HTTP protocol detour. Fresh profiler-off containers reading the same 5,489 Atoms measured 653.5→297.9 MiB Docker working-set RAM; this cumulative comparison includes earlier runtime optimizations. The separate Backend comparison measured 33.2 MiB less RSS from the accepted cache/rebuild work.
+
+Evidence and limits: [runtime optimization report](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/runtime-optimization-20261107.md). The Epic stays Active for its remaining native-host UI, release/canary and explicitly deferred work. No live deployment or migration/Workflow repair is implied.

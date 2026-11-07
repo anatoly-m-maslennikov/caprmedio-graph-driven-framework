@@ -23,6 +23,7 @@ if str(MCP_ROOT) not in sys.path:
     sys.path.insert(0, str(MCP_ROOT))
 
 import registered_tool_registry as registry  # noqa: E402
+import registered_tool_providers as provider_loader  # noqa: E402
 from validate_atoms_workers import runtime as checker_runtime  # noqa: E402
 
 
@@ -130,8 +131,8 @@ class ValidationToolDescriptorTests(unittest.TestCase):
             "source_path": "tools/validate-atoms.md",
             "sha256": "a" * 64,
         }
-        registry._MODULE_CACHE.clear()
-        self.addCleanup(registry._MODULE_CACHE.clear)
+        provider_loader._MODULE_CACHE.clear()
+        self.addCleanup(provider_loader._MODULE_CACHE.clear)
 
         with patch.object(checker_runtime, "execute") as checker:
             snapshot = registry.compile_registry(Path.cwd(), [binding])
