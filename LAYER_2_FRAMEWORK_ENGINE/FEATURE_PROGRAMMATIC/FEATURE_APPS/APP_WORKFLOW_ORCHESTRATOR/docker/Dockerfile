@@ -1,4 +1,4 @@
-# CA-M-356@17
+# CA-M-356@18
 FROM node:22.20.0-bookworm-slim AS codex
 ARG CODEX_VERSION=0.156.1
 RUN npm install --global @openai/codex@${CODEX_VERSION}
@@ -39,4 +39,4 @@ RUN mkdir -p /home/caprmedio/.codex /workspace/.caprmedio_install \
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio
 ENV PATH=/opt/venv/bin:/usr/local/bin:/usr/bin:/bin PYTHONDONTWRITEBYTECODE=1
 USER caprmedio
-ENTRYPOINT ["uv", "run", "--locked", "--no-sync", "--no-env-file", "python", "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"]
+ENTRYPOINT ["/opt/venv/bin/python", "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"]

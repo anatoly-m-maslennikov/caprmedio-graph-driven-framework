@@ -16,8 +16,8 @@ relations:
   - CA-D-695
   - CA-C-704
 status: Active
-version: 5
-updated_at: 2026-11-07 01:21:17 +0400
+version: 7
+updated_at: 2026-11-07 03:18:39 +0400
 carrier_destination:
   file:
     name: CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md
@@ -58,6 +58,10 @@ Verify that `change_log` is not used as an `atoms`/`scope_units` source, graph v
 
 Seed approximately 5,000 actual Atom source files before the Docker watcher starts, assert the indexed workload size, and reuse that one fixture for the existing mutations and latency measurements. Verify a child Atom created inside a newly host-created nested folder becomes query-visible too. For each file mutation exercised by the Docker E2E test, report elapsed milliseconds from immediately before the filesystem operation until a query returns the matching Atom version and path, or confirms its absence after removal. Include the operation and number of observations. Measure create, edit, host and native rename/move, and entry/exit across the watched boundary. Event-log visibility alone is not index visibility.
 
-Report these measurements without adding a speed pass/fail threshold. Keep the existing correctness deadlines. State that the timing includes request and polling overhead; distinguish the small fixture from measurements on the actual repository.
+The performance gate is enforceable on the controlled Docker fixture. Use one 5,000-Atom background inventory and a controlled 500-file mutation set. Emit structured metrics before each assertion: fixture size, runtime image/context, operation, completed item count, elapsed time, and bulk throughput. The metric clock starts immediately before the first publication or filesystem mutation and stops only after the exact expected result is query-visible; it must not use LIMIT or count SQL-write time alone. A result counts as visible only when every expected row has the exact ID, version, path, Header.Container and required direct and derived Relation facts; counts alone do not pass. Throughput for the 500-file cases is 500 divided by that elapsed time, not an average of single-file latencies.
+
+The hard limits are: each ordinary single-Atom mutation <=1.5 seconds; 500-file burst add <=15 seconds; 500-file move with every affected Header.Container changed <=30 seconds; 500-file batch update <=15 seconds; 500-file filename rename with Header carrier metadata updated <=30 seconds; combined 500-file filename rename and Header/content update <=30 seconds; and 500-file delete <=15 seconds. A run fails on any limit violation. The observation/polling timeout is separate and may be longer; no environment variable may disable or raise these hard limits. Run the gate once per invocation and report the structured metrics before failures. State timing overhead and distinguish the controlled fixture from the real repository; preserve correctness deadlines.
 
 Verify normal batches append and INSERT additions without rewriting prior file bytes or deleting/reinserting retained table rows. Preserve equal-field duplicate events. Verify TTL/cap cleanup leaves identical retained file/table rows and restart rehydrates them.
+
+Use deterministic seeded pseudorandom data within valid Atom structure: varied Header values and Markdown Claims, stable predictable IDs for the oracle, and representative direct and derived Relations. Filename rename preserves Summary and Atom ID; its Header carrier metadata must match the new filename/path. Test rename-only and rename plus content/Header updates separately.

@@ -2,7 +2,8 @@
 # CA-D-673@13
 # CA-E-676@11
 # CA-E-683@4
-# CA-E-780@4
+# CA-E-780@7
+# CA-E-677@18
 # CA-E-784@1
 # CA-E-785@1
 # CA-E-787@1
@@ -48,9 +49,12 @@ from http_paths import HEALTH_PATH, MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from work_journal import configured_journal_root  # noqa: E402
 from workbench_grid_checks import WorkbenchGridDockerMixin  # noqa: E402
 from workbench_watcher_checks import WorkbenchWatcherDockerMixin  # noqa: E402
+from workbench_performance_checks import WorkbenchPerformanceDockerMixin  # noqa: E402
 
 
-class WorkbenchDockerE2E(WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, unittest.TestCase):
+class WorkbenchDockerE2E(
+    WorkbenchGridDockerMixin, WorkbenchWatcherDockerMixin, WorkbenchPerformanceDockerMixin, unittest.TestCase,
+):
     """One owned container; tests make no image, project, or Docker-global changes."""
 
     @classmethod

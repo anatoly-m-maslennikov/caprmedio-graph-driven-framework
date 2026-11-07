@@ -20,8 +20,8 @@ relations:
   - CA-R-1901
   - CA-M-356
 status: Active
-version: 20
-updated_at: 2026-11-07 02:24:38 +0400
+version: 21
+updated_at: 2026-11-07 03:28:18 +0400
 carrier_destination:
   file:
     name: CA-E-600-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-project-mcp-image-and-runtime-admission.md
@@ -62,3 +62,5 @@ Use frozen synthetic source/package fixtures and the real canonical image naming
 ### Dependency cache acceptance
 
 Check that the Dockerfile copies the dependency manifest/lock before installation, uses a BuildKit uv download cache, and copies the Framework version after dependency installation. A version-only rebuild must reuse the dependency-installation layer while still delivering the new version file and changing the admitted image identity. Verify with two isolated builds and actual build logs; do not infer cache reuse from source ordering alone. Keep the existing locked dependency groups, immutable-image/port/refusal checks and runtime-start boundaries.
+
+Verify the Docker entrypoint directly invokes /opt/venv/bin/python with the existing service entrypoint and arguments. The service process tree has no retained uv run supervisor; the intentional active implementation-generation child remains. Verify locked build dependencies, Project admission and MCP startup/health/query behavior still hold. Report measured launcher memory separately from source-cache memory; do not claim a deployed RAM reduction from image configuration alone.

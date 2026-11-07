@@ -1,5 +1,5 @@
 # CA-R-2726@5
-# CA-M-465@19
+# CA-M-465@21
 # CA-M-500@2
 # CA-D-672@12
 
@@ -16,7 +16,7 @@ from typing import Any
 
 from markdown_it import MarkdownIt
 
-from .markdown_content import content_key, parse_content
+from .markdown_content import content_key, content_lines, direct_markdown, parse_content, section_markdown
 
 
 _DECLARATION_FORMS = frozenset({"Declaration", "Entity Definition", "Relation Definition"})
@@ -99,7 +99,7 @@ class ContentSchema:
             records = parse_content(body, tolerate_duplicate_siblings=True) if isinstance(body, str) else []
         values = _records_by_path(records)
         self._validate(values, row)
-        lines = body.splitlines(keepends=True) if isinstance(body, str) else None
+        lines = content_lines(body) if isinstance(body, str) else None
         return {
             column.name: _value(
                 values,
@@ -413,7 +413,9 @@ def _value(
             return prose
     record = next(iter(records.get(path, ())), None)
     if record is not None:
-        value = record.get("direct_markdown")
+        value = direct_markdown(
+            record, (candidate for group in records.values() for candidate in group), lines,
+        )
         if isinstance(value, str) and value.strip():
             return value.strip()
     return None
@@ -426,7 +428,7 @@ def _prose_claim(
     """Keep undeclared prose headings, subtracting exact declared child spans."""
     record = next(iter(records.get(path, ())), None)
     if record is None:
-        return _legacy_prose_claim(records, path[:-1])
+        return _legacy_prose_claim(records, path[:-1], lines)
     span = _span(record)
     if span is not None and lines is not None:
         body_start, end = span[1:]
@@ -448,8 +450,8 @@ def _prose_claim(
         parts.extend(lines[cursor:end])
         value = "".join(parts)
         return value.strip() or None
-    section = record.get("section_markdown")
-    if not isinstance(section, str):
+    section = section_markdown(record, lines)
+    if section is None:
         return None
     value = section.split("\n", 1)[1] if "\n" in section else ""
     return value.strip() or None
@@ -466,19 +468,20 @@ def _span(record: Mapping[str, Any]) -> tuple[int, int, int] | None:
 
 def _legacy_prose_claim(
     records: Mapping[tuple[str, ...], list[Mapping[str, Any]]], parent_path: tuple[str, ...],
+    lines: list[str] | None,
 ) -> str | None:
     """Retain admitted direct Claim prose while removing declared Claim children."""
     parent = next(iter(records.get(parent_path, ())), None)
     if parent is None:
         return None
-    section = parent.get("section_markdown")
-    if not isinstance(section, str):
+    section = section_markdown(parent, lines)
+    if section is None:
         return None
     value = section.split("\n", 1)[1] if "\n" in section else ""
     for child_name in ("formal_claim", "prose_claim"):
         child = next(iter(records.get((*parent_path, child_name), ())), None)
-        child_section = child.get("section_markdown") if child is not None else None
-        if isinstance(child_section, str):
+        child_section = section_markdown(child, lines) if child is not None else None
+        if child_section is not None:
             value = value.replace(child_section, "", 1)
     return value.strip() or None
 

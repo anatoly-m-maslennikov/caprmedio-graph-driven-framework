@@ -13,8 +13,8 @@ relations:
   - CA-R-2723
   - CA-R-2725
 status: Active
-version: 19
-updated_at: 2026-11-07 02:02:14 +0400
+version: 21
+updated_at: 2026-11-07 03:31:20 +0400
 carrier_destination:
   file:
     name: CA-M-465-WORKBENCH_BACKEND-ENG_DECISION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
@@ -75,3 +75,7 @@ Expose the affected source paths from an ordinary capture, including removals an
 For an ordinary delta, remove old direct facts of affected files and add their new direct facts. Update only changed outgoing owners and affected inverse neighbours. Reuse unrelated rows and facts. Apply only the resulting public-row, edge and reference changes to DuckDB in one transaction. Do not rebuild and compare GraphState over every cached Atom or Scope Unit to discover that delta.
 
 Retain enough owner-local node/edge contribution information to preserve a referenced endpoint when its source node disappears, and remove a reference only when no node or edge still contributes it. Handle deletion, rename, invalidation, repair and target reappearance. Duplicate-reference membership changes may use the existing conservative full boundary. Publish new materialization, schema and graph state only after the database update succeeds; an error keeps the existing explicit unavailable/restart boundary, not a retry or full-rebuild recovery path.
+
+Cached source records must retain the original Markdown and heading spans without storing a second complete section string for every heading. Reconstruct section text when needed. Preserve public parser output, compiled Content values and public row hashes, including legacy Claim handling and original line endings. This changes only the disposable Workbench cache; do not edit source Atoms or drop the caches needed for incremental speed.
+
+Cached source records must also omit duplicate direct Markdown text. Derive direct text from the original body and immediate-child heading spans when a declared Content value needs it; public parser records remain unchanged. Preserve the incremental caches and all Content values/hashes.

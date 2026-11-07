@@ -1,6 +1,7 @@
-# CA-E-600@20
+# CA-E-600@21
 """Focused checks for bounded Docker stdout/stderr retention."""
 
+import json
 from pathlib import Path
 import unittest
 
@@ -48,6 +49,14 @@ class DockerLoggingTests(unittest.TestCase):
         for compose_name in ("auth.compose.yaml", "mock.compose.yaml"):
             services = _compose(compose_name)["services"]
             self.assertTrue(set(services) <= base_services, compose_name)
+
+    def test_entrypoint_uses_built_python_without_retained_uv_supervisor(self):
+        line = next(line for line in (DOCKER / "Dockerfile").read_text().splitlines()
+                    if line.startswith("ENTRYPOINT "))
+        self.assertEqual([
+            "/opt/venv/bin/python",
+            "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py",
+        ], json.loads(line.removeprefix("ENTRYPOINT ")))
 
     def test_image_carries_framework_version_into_workspace(self):
         dockerfile = (DOCKER / "Dockerfile").read_text(encoding="utf-8")

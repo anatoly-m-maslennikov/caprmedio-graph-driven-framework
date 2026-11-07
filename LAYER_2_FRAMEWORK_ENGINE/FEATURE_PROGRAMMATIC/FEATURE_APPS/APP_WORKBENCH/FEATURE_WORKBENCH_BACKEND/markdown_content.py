@@ -1,5 +1,6 @@
 # CA-R-2726@5
 # CA-M-464@8
+# CA-M-465@21
 # CA-D-672@12
 
 """CommonMark heading sections for the Workbench in-memory projection."""
@@ -8,13 +9,14 @@ from __future__ import annotations
 
 from io import StringIO
 import re
-from typing import Any
+from typing import Any, Iterable, Mapping
 
 from markdown_it import MarkdownIt
 
 
 def parse_content(
     body: str, *, tolerate_duplicate_siblings: bool = False, include_spans: bool | None = None,
+    compact: bool = False,
 ) -> list[dict[str, Any]]:
     """Return Content Properties in CommonMark heading order."""
     if include_spans is None:
@@ -22,12 +24,62 @@ def parse_content(
         # spans for exact declared-child removal. Ordinary parser callers keep
         # the concise public record shape.
         include_spans = tolerate_duplicate_siblings
-    lines = list(StringIO(body, newline=""))
+    if compact:
+        include_spans = True
+    lines = content_lines(body)
     headings = _headings(MarkdownIt("commonmark").parse(body))
     records = _records(headings, lines)
     if not tolerate_duplicate_siblings:
         _reject_duplicate_siblings(records)
-    return [_public_record(record, records, lines, include_spans) for record in records]
+    return [
+        _public_record(record, records, lines, include_spans, compact)
+        for record in records
+    ]
+
+
+def content_lines(body: str) -> list[str]:
+    """Split Markdown exactly as the CommonMark source parser does."""
+    return list(StringIO(body, newline=""))
+
+
+def section_markdown(record: Mapping[str, Any], lines: list[str] | None) -> str | None:
+    """Rebuild a compact record's section, preserving source newline semantics."""
+    start, end = record.get("_start_line"), record.get("_end_line")
+    if lines is not None and type(start) is int and type(end) is int:
+        return "".join(lines[start:end])
+    value = record.get("section_markdown")
+    return value if isinstance(value, str) else None
+
+
+def direct_markdown(
+    record: Mapping[str, Any], records: Iterable[Mapping[str, Any]], lines: list[str] | None,
+) -> str | None:
+    """Rebuild a compact record's direct Markdown from its immediate children."""
+    span = _span(record)
+    path = record.get("property_path")
+    if span is not None and isinstance(path, list) and all(isinstance(part, str) for part in path) and lines is not None:
+        _start, body_start, end = span
+        children = sorted(
+            (
+                child_span
+                for child in records
+                if isinstance(child_path := child.get("property_path"), list)
+                and child_path[:-1] == path
+                and (child_span := _span(child)) is not None
+                and body_start <= child_span[0] < end
+            ),
+            key=lambda child_span: child_span[0],
+        )
+        chunks: list[str] = []
+        cursor = body_start
+        for child_start, _child_body_start, child_end in children:
+            chunks.extend(lines[cursor:child_start])
+            cursor = child_end
+        chunks.extend(lines[cursor:end])
+        value = "".join(chunks)
+        return value if value.strip() else None
+    value = record.get("direct_markdown")
+    return value if isinstance(value, str) else None
 
 
 def _headings(tokens: list[Any]) -> list[dict[str, Any]]:
@@ -97,21 +149,19 @@ def _reject_duplicate_siblings(records: list[dict[str, Any]]) -> None:
 
 def _public_record(
     record: dict[str, Any], records: list[dict[str, Any]], lines: list[str], include_spans: bool,
+    compact: bool,
 ) -> dict[str, Any]:
-    children = [
-        child
-        for child in records
-        if child["property_path"][:-1] == record["property_path"]
-    ]
-    direct = _direct_markdown(record, children, lines)
     public = {
         "property_path": record["property_path"],
         "heading": record["heading"],
         "heading_level": record["heading_level"],
         "position": record["position"],
-        "direct_markdown": direct if direct.strip() else None,
-        "section_markdown": "".join(lines[record["start"] : record["end"]]),
     }
+    if not compact:
+        children = [child for child in records if child["property_path"][:-1] == record["property_path"]]
+        direct = _direct_markdown(record, children, lines)
+        public["direct_markdown"] = direct if direct.strip() else None
+        public["section_markdown"] = "".join(lines[record["start"] : record["end"]])
     if include_spans:
         public.update({
             "_start_line": record["start"],
@@ -131,3 +181,12 @@ def _direct_markdown(
         cursor = child["end"]
     chunks.extend(lines[cursor : record["end"]])
     return "".join(chunks)
+
+
+def _span(record: Mapping[str, Any]) -> tuple[int, int, int] | None:
+    start = record.get("_start_line")
+    body_start = record.get("_body_start_line")
+    end = record.get("_end_line")
+    if all(type(value) is int for value in (start, body_start, end)):
+        return start, body_start, end
+    return None

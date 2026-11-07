@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 59
-updated_at: 2026-11-07 02:44:23 +0400
+version: 60
+updated_at: 2026-11-07 03:25:25 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -136,6 +136,23 @@ Release follow-up: [dependency-cache report](CA-P-2710-EPIC--make-workbench-quer
 Latest cycle: runtime 0.4.4.31 is deployed. All 284 tests in 40 selected modules passed, with one opt-in canary skipped; seven Docker cases and launcher integration passed. The real-project create/edit/delete matrix improved from 3.05–3.44 seconds to 0.20–0.27 seconds. Details: [performance results](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/performance-results-20261107.md).
 
 Release cleanup retained one image without Project ownership evidence; obsolete proven Project resources were removed. The receipt reports completed_with_cleanup_pending. Native UI acceptance C705 and the optional experiments below remain open.
+
+## Performance regression and RAM diagnostics
+
+- [x] Create, review and adopt the latency, throughput and rebuild Evaluation criteria.
+- [x] Reuse the verified Backend Policy prompt and gather accepted sources.
+- [x] Add an enforceable latency check to the existing watcher tests.
+- [ ] Implement and review the randomized bulk-mutation and rebuild tests.
+- [ ] Run the controlled Docker tests and record the regression limits and measured baseline.
+- [x] Measure current RAM ownership and review the compact source-cache change.
+- [ ] Implement and verify the reviewed RAM change.
+- [ ] Create the profiler RMED.
+- [ ] Review and fix the profiler RMED.
+- [ ] Implement the accepted profiler RMED.
+- [ ] Test the profiler and record its results separately from acceptance timings.
+- [ ] Review the integrated changes and record completion.
+
+The retained real-project test Atoms remain outside these source/code edits. Specification belongs in RMED; this section tracks execution.
 
 ## Performance experiments
 

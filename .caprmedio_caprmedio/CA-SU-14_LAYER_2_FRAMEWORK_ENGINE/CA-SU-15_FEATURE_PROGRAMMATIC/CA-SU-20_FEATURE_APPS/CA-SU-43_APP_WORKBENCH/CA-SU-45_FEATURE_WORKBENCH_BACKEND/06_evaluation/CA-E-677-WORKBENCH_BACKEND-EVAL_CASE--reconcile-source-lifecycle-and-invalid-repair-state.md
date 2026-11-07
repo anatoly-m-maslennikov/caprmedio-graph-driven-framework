@@ -17,8 +17,8 @@ relations:
   - CA-D-672
   - CA-D-675
 status: Active
-version: 14
-updated_at: 2026-11-07 02:02:14 +0400
+version: 18
+updated_at: 2026-11-07 03:56:59 +0400
 carrier_destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -89,3 +89,13 @@ Cover Header path insertion, final-path deletion, null/empty transitions, nested
 For relation changes, assert only affected public rows, edge records and references change. Cover source deletion/rename, invalidation/repair, old-target inverse removal, new-target inverse insertion, dangling endpoints still referenced elsewhere, target reappearance, duplicate introduction/reappearance, and registry/Scope/schema full boundaries. Failure before commit must not publish candidate schema, graph or reuse state. Preserve native graph-query output and cached query-result snapshots.
 
 Measure the same schema-preserving real-project create/edit/delete matrix after deployment and report single-edit latency separately from bulk throughput. Do not claim an isolated CPU profile is live watcher latency.
+
+On a controlled fixture with 5,000 background Atoms, measure and emit structured metrics before each assertion for cold index, explicit full drop/reread, and Scope Unit rename with affected Headers updated, retaining the stable Scope Unit ID in Header.Container. For cold index and full reread, the clock starts before the first indexing request; for rename it starts before the first filesystem mutation. It stops only after the full expected dataset is verified by exact-row checks; it excludes Docker image build and container-health readiness and does not use LIMIT. A result counts as verified only when every expected row has the exact ID, version, path, Header.Container and required direct and derived Relation facts; counts alone do not pass. Record fixture size, runtime image/context, operation, completed item count and elapsed time; retain existing runtime phase timings as diagnostic evidence.
+
+The hard limits are: cold index <=45 seconds; explicit full drop/reread <=45 seconds; and Scope Unit rename with affected Header updates <=60 seconds. A run fails on any limit violation. The observation timeout is separate and may be longer; no environment variable may disable or raise these hard limits. Run the gate once per invocation and report structured metrics before failures.
+
+Verify compact source Content records omit redundant section strings while retaining body and heading spans. Compare compiled Content values and public row hashes against the complete-record path for current and legacy Claims, nested headings, fenced expressions and original line endings. Report retained-byte reduction separately from process RSS; speed and correctness gates still apply.
+
+Verify compact source records retain neither full-section nor direct-text copies. The full and compact parser paths must yield identical declared Content values and public hashes on the actual accepted source inventory as well as newline, nested-heading, legacy Claim and fenced-expression fixtures. Measure retained bytes separately from process RSS and rerun cold/bulk acceptance gates.
+
+The cold/rebuild ceiling is calibrated against the first controlled 5,000-Atom cold run (30.25 seconds), with roughly 50% margin for normal execution variance. Keep the measured baseline and the failed initial 30-second gate visible; do not automatically raise limits after a failure.

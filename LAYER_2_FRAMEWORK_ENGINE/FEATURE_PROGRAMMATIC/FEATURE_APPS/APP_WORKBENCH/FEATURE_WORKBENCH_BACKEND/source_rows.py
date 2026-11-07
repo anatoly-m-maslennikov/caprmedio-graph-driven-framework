@@ -1,7 +1,7 @@
 # CA-R-2723@3
 # CA-R-2726@5
 # CA-D-672@12
-# CA-M-465@19
+# CA-M-465@21
 # CA-M-500@2
 
 """Map parsed Atom and Scope Unit sources to raw Workbench rows."""
@@ -52,7 +52,9 @@ def atom(
         "updated_at": view.get("updated_at"),
         "header_json": header,
         "content_markdown": body,
-        "content_properties_json": parse_content(body, tolerate_duplicate_siblings=True),
+        "content_properties_json": parse_content(
+            body, tolerate_duplicate_siblings=True, compact=True,
+        ),
         "relation_edges_json": [],
         "hash": None,
     }

@@ -1,4 +1,4 @@
-# CA-E-780@4
+# CA-E-780@7
 """Docker watcher checks mixed into the existing Workbench E2E fixture."""
 
 from __future__ import annotations
@@ -15,6 +15,7 @@ from uuid import uuid4
 
 from scope_declaration_test_support import write_scope_unit_declarations
 from smalltest_support import source_path, write_atom, write_settings
+from workbench_performance_metrics import LATENCY_BUDGET_SECONDS, record_performance
 from workbench_docker_support import free_port, project_name as read_project_name, request
 from http_paths import HEALTH_PATH, MCP_PATH, WORKBENCH_PATH
 
@@ -144,11 +145,19 @@ class WorkbenchWatcherDockerMixin:
                         },
                     )
                     if status == 200 and isinstance(result, dict) and result.get("rows") == expected_rows:
+                        performance = record_performance(
+                            self,
+                            operation=operation,
+                            measurement="mutation_to_duckdb_visibility",
+                            started_at=started_at,
+                            budget_seconds=LATENCY_BUDGET_SECONDS,
+                            fixture_atom_count=WATCHER_VOLUME_ATOM_COUNT,
+                        )
                         metric = {
                             "measurement": "mutation_to_duckdb_visibility",
                             "operation": operation,
                             "atom_id": atom_id,
-                            "elapsed_ms": round((time.monotonic() - started_at) * 1000, 1),
+                            "elapsed_ms": round(float(performance["elapsed_seconds"]) * 1000, 1),
                             "polls": polls,
                         }
                         visibility_latencies.append(metric)
