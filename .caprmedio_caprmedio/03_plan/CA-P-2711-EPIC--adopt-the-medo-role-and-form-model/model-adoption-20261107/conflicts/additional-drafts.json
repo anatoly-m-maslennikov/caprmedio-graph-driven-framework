@@ -1,0 +1,80 @@
+{
+  "status": "SOURCE_PREVIEW_NOT_APPLIED",
+  "r3000_authority": {
+    "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3000@1-draft-CORE_META_MODEL-REQUIREMENT--define-tier-zero-within-a-scope-unit.md",
+    "sha256": "68264586b6a0cd0f81029d3fea56a6ce237e82084f28a1d66e95d36a5ac5cfb9",
+    "ref_id": "CA-R-3000@1-draft"
+  },
+  "rows": [
+    {
+      "id": "CA-R-1669",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1669-CORE_META_MODEL--classify-implementation-methods-by-their-claims.md",
+      "current_version": 28,
+      "current_sha256": "145f8fbcc12877231e90479d8323cbf560bde9900eebf48189f0925be9ed27f3",
+      "existing_drafts": [],
+      "disposition": "SAME_ID_SUCCESSOR_PREVIEW",
+      "candidate": "---\natom_id: CA-R-1669\nref_id: CA-R-1669\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit\ntier: 2\nstatus: Active\nversion: 28\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-R-1669-CORE_META_MODEL-RULE--classify-implementation-methods-by-their-claims.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nClassify implementation methods by their claims\n\n## Claim\n\n### Prose Claim\n\nAn implementation Method receives its numeric Tier from its complete Claim and Scope Unit. Reusability alone does not force a particular Tier. Tier admission does not impose a Role-to-Tier or Form-to-Tier restriction.\n",
+      "candidate_sha256": "ded0aa1059c3457f215e52cf6c75641613fbde28eb948f55235b0f721f71d8e3",
+      "coverage": "R3000 states no fixed Tier solely by Form but omits complete Claim and Scope derivation and reusability; preserve them here. Remove only obsolete child_of; do not invent replacement edge."
+    },
+    {
+      "id": "CA-R-1668",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1668-PROJECT_CONFIGURATION-DEFINITION--define-implementation-decision-as-a-type-value-for-method-atoms.md",
+      "current_version": 35,
+      "current_sha256": "8c5e64c3bd3f80296c86387b135cb051ec970163722962aa2ed2795382f44491",
+      "existing_drafts": [],
+      "disposition": "RETIRE_WHEN_REPLACEMENT_ADOPTED",
+      "coverage": "Old Method Eng Decision meaning is replaced by generic Decision plus Method role; preserve independently applicable concrete-choice/no-fixed-Tier content in generic authorities and verify those source pins before retirement."
+    },
+    {
+      "id": "CA-R-947",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md",
+      "current_version": 41,
+      "current_sha256": "288bc9ede4f004602e31815e6b4620b40914cb1a06bd149e0ee2d45b245a4034",
+      "existing_drafts": [],
+      "disposition": "SAME_ID_SUCCESSOR_PREVIEW",
+      "candidate": "---\natom_id: CA-R-947\nref_id: CA-R-947\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Project\ntier: 6\nrelations:\n  child_of:\n  - CA-R-925@37\n  - CA-R-2747\nstatus: Active\nversion: 41\nupdated_at: 2026-11-04 09:19:08 +0400\ncarrier_destination:\n  file:\n    name: CA-R-947-CORE_META_MODEL-RULE--validate-goal-claim-scope.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nValidate Goal Claim Scope\n\n## Claim\n\n### Prose Claim\n\nA Goal is a Project Requirement. Its Main Subject identifies the Project Scope Unit. A Goal does not independently declare or change a Scope Unit's Name, parent, order, or Carrier binding.\n",
+      "candidate_sha256": "51a7af6b9a2efccfb264b659a15d05973bdb22051d4494741cc05814a86c945e",
+      "coverage": "Project Goal main subject retained, unique via existing Atom Main Subject cardinality; no separate Target Scope Unit property. Direct-parent and one-per-unit delegation must be supplied by separate admitted Scope Delegation authority. Existing R925@37 and R2747 references left untouched."
+    },
+    {
+      "id": "CA-R-1775",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1775-CORE_META_MODEL-RULE--let-parents-own-immediate-child-goals.md",
+      "current_version": 33,
+      "current_sha256": "58f9417a136a327110156c58dca8ac09ef38430f6b4569bae9dedd1aa9704790",
+      "existing_drafts": [],
+      "disposition": "RETIRE_WHEN_REPLACEMENT_ADOPTED",
+      "coverage": "Old direct-child Goal ownership is superseded by one externally authored Scope Delegation per non-Project unit; preserve direct-parent relationship and delegator accountability in replacement authority before retirement. No current instances converted."
+    },
+    {
+      "id": "CA-D-402",
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-402-CORE_META_MODEL-ENG_DECISION--serialize-delivery-type-tokens.md",
+      "current_version": 27,
+      "current_sha256": "de07cf722c270758056e1240b69dfeb7a6b9f388c838b8ce0a2caf6dd717cf59",
+      "existing_drafts": [],
+      "disposition": "SAME_ID_SUCCESSOR_PREVIEW",
+      "candidate": "---\natom_id: CA-D-402\nref_id: CA-D-402\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery).Header.Form'\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Carrier\ntier: 3\nstatus: Active\nversion: 27\nupdated_at: 2026-11-02 00:55:09 +0400\ncarrier_destination:\n  file:\n    name: CA-D-402-CORE_META_MODEL-DECISION--serialize-delivery-type-tokens.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Delivery Type Tokens\n\n## Claim\n\n### Prose Claim\n\nA Delivery Atom File Carrier must serialize its effective Label within the Atom filename grammar governed by CA-D-283 and CA-D-284. Use the explicit Label when present and the Form name when Label is absent. Normalize the effective Label as an uppercase structured token.\n\n## Details\n\nThe filename token is the effective-Label carrier encoding; it does not rename or admit a Form or prescribe a YAML Form value. The YAML `form` field carries the Atom Form under CA-D-657. An explicit `label` field takes precedence; when absent, CA-R-2705 supplies the Form name as the effective Label. Do not infer the Atom Form from a filename token; derive the filename token from the effective Label.\n\nRelease Definition and Environment Definition remain subject to their applicable admission authority, including CA-R-1665.\n",
+      "candidate_sha256": "a18dffea4f24bcc46d9ca4a9b484d1586ce3a5fac324c8769a73a41984588c9f",
+      "coverage": "Preserves Delivery label and Form serialization and R1665 restrictions; aligns admitted new Forms with existing naming authority without inventing tokens."
+    }
+  ],
+  "integration_edits": [
+    {
+      "id": "CA-R-1671",
+      "edit": "Remove only `- CA-R-1767` from child_of in conflicts/drafts.json candidate; preserve existing other child_of edge and do not invent a replacement relation.",
+      "note": "Apply to staged candidate only; Current untouched."
+    },
+    {
+      "id": "CA-R-1672",
+      "edit": "Remove only `- CA-R-1767` from child_of in conflicts/drafts.json candidate; preserve existing other child_of edge and do not invent a replacement relation.",
+      "note": "Apply to staged candidate only; Current untouched."
+    }
+  ],
+  "blocking_review": [
+    "Confirm separately admitted Scope Delegation Draft explicitly preserves direct-parent source, one receiving unit, identity/name/order and delegator accountability before retiring R1775/R926.",
+    "R3000 is a Draft, not Current; do not retire R1669 based on its partial coverage.",
+    "Confirm Decision Form authority and R1665 remain applicable before retirement/promotion.",
+    "Pinned candidate metadata remains Current lifecycle/version and must be sealed as successor by integration."
+  ],
+  "no_instance_migration": true
+}
