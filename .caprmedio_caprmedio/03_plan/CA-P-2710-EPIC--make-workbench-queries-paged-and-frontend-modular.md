@@ -10,8 +10,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active
-version: 62
-updated_at: 2026-11-07 14:08:37 +0400
+version: 63
+updated_at: 2026-11-07 14:22:31 +0400
 carrier_destination:
   file:
     name: CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular.md
@@ -397,3 +397,14 @@ The current MCP library is retained. Task checkmarks record completed work only;
 The latest tracked runtime tasks are complete in source and controlled tests. No MCP library change was made. Four Docker tests and all 21 performance gates passed; shared MCP/web requests reuse the existing backend without the shared HTTP protocol detour. Fresh profiler-off containers reading the same 5,489 Atoms measured 653.5→297.9 MiB Docker working-set RAM; this cumulative comparison includes earlier runtime optimizations. The separate Backend comparison measured 33.2 MiB less RSS from the accepted cache/rebuild work.
 
 Evidence and limits: [runtime optimization report](CA-P-2710-EPIC--make-workbench-queries-paged-and-frontend-modular/runtime-optimization-20261107.md). The Epic stays Active for its remaining native-host UI, release/canary and explicitly deferred work. No live deployment or migration/Workflow repair is implied.
+
+
+## Runtime release follow-up
+
+- [ ] Run the scoped release gate and deploy the accepted runtime changes.
+- [ ] Verify code-owned tool registration, discovery and shared MCP/web behavior in the installed runtime.
+- [ ] Run the real-project lifecycle canary and record visibility, rebuild and cleanup results.
+- [ ] Recheck the native Codex UI acceptance boundary and record the remaining action.
+- [ ] Reconcile the current Epic status with the verified release evidence.
+
+The baseline is commit `8a74633801`. Root owns release, live mutations and Git. Independent read-only lanes prepare parent Workbench canary acceptance and CODEX_EXTENSION UI acceptance; each lane has one Scope Unit. Performance experiments stay deferred unless a measured regression requires work.
