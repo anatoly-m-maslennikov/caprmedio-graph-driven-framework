@@ -1,7 +1,9 @@
-# CA-E-677@14
+# CA-E-677@18
+# CA-E-780@7
 from __future__ import annotations
 
 from pathlib import Path
+import random
 import sys
 import unittest
 
@@ -151,6 +153,30 @@ class IncrementalRelationTests(unittest.TestCase):
         self.assertIn("moved.md", delta.new_atoms)
         self.assertEqual(["moved.md"], list(state.atom_order))
         self.assertEqual(["moved.md"], [row["source_path"] for row in rows])
+
+    def test_same_reference_rename_keeps_edges_in_both_change_orders(self):
+        target = atom("CA-P-1")
+        source = atom("CA-P-2", relation={"is_contained_by": ["CA-P-1"]})
+        initial = declarations() + [target, source]
+        moved = dict(source, source_path="moved.md")
+        expected, _scopes, _types, _inverse, _state, _delta = materialize_delta(
+            declarations() + [target, moved], [],
+        )
+
+        entries = [("CA-P-2.md", None), ("moved.md", moved)]
+        for seed in range(8):
+            shuffled = list(entries)
+            random.Random(seed).shuffle(shuffled)
+            changes = dict(shuffled)
+            _rows, _scopes, _types, _inverse, state, _delta = materialize_delta(initial, [])
+            rows, _scopes, _types, _inverse, _state, delta = materialize_delta(
+                declarations() + [target, moved], [], state, changes,
+            )
+            self.assertIsNotNone(delta)
+            self.assertEqual(expected, rows)
+            by_ref = {row["ref"]: row for row in rows}
+            self.assertEqual("IS_CONTAINED_BY", by_ref["CA-P-2"]["relation_edges_json"][0]["relation_type"])
+            self.assertEqual("CONTAINS", by_ref["CA-P-1"]["relation_edges_json"][0]["relation_type"])
 
     def test_new_duplicate_forces_full_but_ignored_delete_does_not(self):
         first = atom("CA-P-1")
