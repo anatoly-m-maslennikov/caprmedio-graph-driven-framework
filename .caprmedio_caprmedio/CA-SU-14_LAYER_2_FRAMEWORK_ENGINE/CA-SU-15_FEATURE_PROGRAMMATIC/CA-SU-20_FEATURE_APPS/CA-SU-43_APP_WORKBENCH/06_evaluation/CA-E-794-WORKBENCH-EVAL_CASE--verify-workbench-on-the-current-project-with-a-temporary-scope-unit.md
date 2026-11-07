@@ -14,8 +14,8 @@ relations:
   - CA-R-2725
   - CA-M-500
 status: Active
-version: 1
-updated_at: 2026-11-06 20:37:19 +0400
+version: 2
+updated_at: 2026-11-07 15:22:11 +0400
 carrier_destination:
   file:
     name: CA-E-794-WORKBENCH-EVAL_CASE--verify-workbench-on-the-current-project-with-a-temporary-scope-unit.md
@@ -39,8 +39,9 @@ Run a canary against the current Project, in addition to disposable-fixture E2E 
 
 - Record the selected Project, backend version and measured visibility timings for every operation.
 - Create an isolated, uniquely named temporary Scope Unit tree with its Declarations and test Atoms.
-- Exercise create, update, rename, move and delete for the temporary Atoms, checking query-visible identity, values and paths after each operation.
+- Exercise create, update, rename, move and delete for the temporary Atoms, checking query-visible identity, Version, container Scope Unit ID, Scope Unit name, destination filename and destination path after each operation.
 - Exercise create, update, rename, move and delete for temporary Scope Units, including updates to their actual Declarations and authority folders. Keep each published Declaration state valid; a Scope rename or move may replace its Declaration while natively moving its owned folder. Record these distinct events honestly.
+- Keep a child Atom through its Scope Unit move and rename. Update its carrier metadata with the operation, then check the exact indexed values. The Scope Unit ID stays stable; its name and the child Atom destination change as applicable.
 - Query Workbench after each operation to verify the expected Scope Unit structure and source rows.
 - Remove the temporary Scope Units, their Declarations and test carriers.
 - Query Workbench until those temporary rows are absent.
@@ -50,3 +51,5 @@ Use the real source readers, watcher and query interface. Do not substitute mock
 If any operation fails, stop the canary and clean up only its own artifacts. Keep the failure in the report.
 
 Keep this canary separate from ordinary tests and require explicit live-Project selection before it can write. Report failures and observed latency; do not invent a latency limit or claim that a live test used a newer backend than the version actually running.
+
+These direct-source fixtures verify watcher and index visibility. They do not establish that a lifecycle Workflow performs the Header changes.

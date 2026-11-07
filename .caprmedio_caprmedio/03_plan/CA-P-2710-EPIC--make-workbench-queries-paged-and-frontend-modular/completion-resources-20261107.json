@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "purpose": "same-source, profiler-off Docker CPU/RAM comparison",
+  "source_snapshot_fingerprint": {
+    "file_count": 8714,
+    "sha256": "a68f2031bccf4d70733b8c7fdc3f421238c8efb45714e22491bf4bc6a7e5c4fe"
+  },
+  "source_mount": "read-only (provided by WorkbenchDockerE2E)",
+  "limitations": [
+    "Docker/cgroup values include container runtime overhead and can vary with host contention.",
+    "cold CPU is cumulative from container birth through the first scalar count query.",
+    "memory.peak is cumulative for a container lifetime; sampled Docker memory is a separate estimate.",
+    "Docker stats is a host-side stream during full reread only; idle has no polling overhead.",
+    "This diagnostic does not enable a profiler and does not mutate source Atoms, Journals, or projections."
+  ],
+  "completed": true,
+  "measurements": [
+    {
+      "label": "baseline",
+      "requested_image": "sha256:bc37d7e2a68129583e0d6d394fbe843cc00a79909e0322895a3608d2bd92a0a7",
+      "container_image_id": "sha256:bc37d7e2a68129583e0d6d394fbe843cc00a79909e0322895a3608d2bd92a0a7",
+      "profiler_enabled": false,
+      "atom_row_count": 5483,
+      "cold_start_and_first_index": {
+        "name": "cold_start_and_first_index",
+        "elapsed_seconds": 51.05384045798564,
+        "cpu_usage_cumulative_usec": 43413294,
+        "memory_current_bytes": 839290880,
+        "memory_peak_bytes": 839290880
+      },
+      "full_reread": {
+        "name": "full_reread",
+        "elapsed_seconds": 37.209661208005855,
+        "cpu_usage_delta_usec": 33396479,
+        "memory_current_before_bytes": 839368704,
+        "memory_current_after_bytes": 1086042112,
+        "memory_peak_before_bytes": 839368704,
+        "memory_peak_after_bytes": 1122750464,
+        "sample_count": 73,
+        "docker_stats_interval_seconds": 1.0,
+        "sampled_docker_memory_usage_peak_bytes": 1069547520,
+        "sampled_docker_memory_usage_min_bytes": 636275916,
+        "sampled_docker_cpu_percent_max": 123.68,
+        "sampled_docker_cpu_percent_mean": 85.77
+      },
+      "idle": {
+        "name": "idle",
+        "elapsed_seconds": 15.010126834007679,
+        "cpu_usage_delta_usec": 155317,
+        "memory_current_before_bytes": 1086226432,
+        "memory_current_after_bytes": 843313152,
+        "memory_peak_before_bytes": 1122750464,
+        "memory_peak_after_bytes": 1122750464,
+        "sample_count": 0,
+        "docker_stats_interval_seconds": 1.0,
+        "sampled_docker_memory_usage_peak_bytes": null,
+        "sampled_docker_memory_usage_min_bytes": null,
+        "sampled_docker_cpu_percent_max": null,
+        "sampled_docker_cpu_percent_mean": null,
+        "window_seconds": 15.0
+      }
+    },
+    {
+      "label": "candidate",
+      "requested_image": "sha256:2d6f237e078bbc45d6f21f92ba4ef5ac2bf088f9c25867da4cdea078a4ad8d48",
+      "container_image_id": "sha256:2d6f237e078bbc45d6f21f92ba4ef5ac2bf088f9c25867da4cdea078a4ad8d48",
+      "profiler_enabled": false,
+      "atom_row_count": 5483,
+      "cold_start_and_first_index": {
+        "name": "cold_start_and_first_index",
+        "elapsed_seconds": 37.16302987502422,
+        "cpu_usage_cumulative_usec": 32154523,
+        "memory_current_bytes": 449851392,
+        "memory_peak_bytes": 450195456
+      },
+      "full_reread": {
+        "name": "full_reread",
+        "elapsed_seconds": 32.56761108399951,
+        "cpu_usage_delta_usec": 30402319,
+        "memory_current_before_bytes": 449773568,
+        "memory_current_after_bytes": 578748416,
+        "memory_peak_before_bytes": 450269184,
+        "memory_peak_after_bytes": 586498048,
+        "sample_count": 63,
+        "docker_stats_interval_seconds": 1.0,
+        "sampled_docker_memory_usage_peak_bytes": 426455859,
+        "sampled_docker_memory_usage_min_bytes": 251658240,
+        "sampled_docker_cpu_percent_max": 140.22,
+        "sampled_docker_cpu_percent_mean": 89.05666666666666
+      },
+      "idle": {
+        "name": "idle",
+        "elapsed_seconds": 15.010116666002432,
+        "cpu_usage_delta_usec": 142325,
+        "memory_current_before_bytes": 579018752,
+        "memory_current_after_bytes": 538701824,
+        "memory_peak_before_bytes": 586498048,
+        "memory_peak_after_bytes": 586498048,
+        "sample_count": 0,
+        "docker_stats_interval_seconds": 1.0,
+        "sampled_docker_memory_usage_peak_bytes": null,
+        "sampled_docker_memory_usage_min_bytes": null,
+        "sampled_docker_cpu_percent_max": null,
+        "sampled_docker_cpu_percent_mean": null,
+        "window_seconds": 15.0
+      }
+    }
+  ]
+}

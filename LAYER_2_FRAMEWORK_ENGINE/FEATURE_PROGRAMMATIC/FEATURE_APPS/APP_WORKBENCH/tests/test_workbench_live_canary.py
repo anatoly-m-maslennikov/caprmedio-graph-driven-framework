@@ -1,4 +1,4 @@
-# CA-E-794@1
+# CA-E-794@2
 """Opt-in live Workbench canary against the current Project only.
 
 This is deliberately not part of the normal suite.  It needs both an explicit
@@ -137,19 +137,19 @@ class WorkbenchLiveCanary(unittest.TestCase):
 
             atom = first_authority / "04_requirement" / f"{atom_id}-canary-source.md"
             atom.parent.mkdir(parents=True, exist_ok=True)
-            atom.write_text(_atom_carrier(atom_id, 1), encoding="utf-8")
+            atom.write_text(_atom_carrier(atom_id, 1, scope=first, destination=atom, root=staged_root), encoding="utf-8")
             validate_atom_carrier(atom)
             self._assert_offline_phase(staged_root, staged_control, {first.name, second.name}, atom_id=atom_id)
-            atom.write_text(_atom_carrier(atom_id, 2), encoding="utf-8")
+            atom.write_text(_atom_carrier(atom_id, 2, scope=first, destination=atom, root=staged_root), encoding="utf-8")
             validate_atom_carrier(atom)
             renamed_atom = atom.with_name(f"{atom_id}-canary-renamed.md")
+            atom.write_text(_atom_carrier(atom_id, 2, scope=first, destination=renamed_atom, root=staged_root), encoding="utf-8")
             atom.rename(renamed_atom)
             moved_atom = second_authority / "04_requirement" / renamed_atom.name
             moved_atom.parent.mkdir(parents=True, exist_ok=True)
             renamed_atom.rename(moved_atom)
+            moved_atom.write_text(_atom_carrier(atom_id, 2, scope=second, destination=moved_atom, root=staged_root), encoding="utf-8")
             self._assert_offline_phase(staged_root, staged_control, {first.name, second.name}, atom_id=atom_id)
-            moved_atom.unlink()
-            self._assert_offline_phase(staged_root, staged_control, {first.name, second.name})
 
             first_updated = first.with_changes(version=2)
             _write_scope_declaration(first_target, first_updated, project_name)
@@ -158,6 +158,8 @@ class WorkbenchLiveCanary(unittest.TestCase):
             self._assert_offline_phase(staged_root, staged_control, {first.name}, absent_scopes={second.name})
             moved_second_authority = _scope_authority(first_authority, second)
             second_authority.rename(moved_second_authority)
+            moved_atom = moved_second_authority / "04_requirement" / moved_atom.name
+            moved_atom.write_text(_atom_carrier(atom_id, 2, scope=second, destination=moved_atom, root=staged_root), encoding="utf-8")
             moved_second = second.with_changes(parent=first.name, version=2)
             moved_second_target = _declaration_target(first_authority, moved_second)
             _write_scope_declaration(moved_second_target, moved_second, project_name)
@@ -167,8 +169,12 @@ class WorkbenchLiveCanary(unittest.TestCase):
             self._assert_offline_phase(staged_root, staged_control, {first.name}, absent_scopes={second.name})
             renamed_authority = _scope_authority(first_authority, renamed)
             moved_second_authority.rename(renamed_authority)
+            moved_atom = renamed_authority / "04_requirement" / moved_atom.name
+            moved_atom.write_text(_atom_carrier(atom_id, 2, scope=renamed, destination=moved_atom, root=staged_root), encoding="utf-8")
             renamed_target = _declaration_target(first_authority, renamed)
             _write_scope_declaration(renamed_target, renamed, project_name)
+            self._assert_offline_phase(staged_root, staged_control, {first.name, renamed.name})
+            moved_atom.unlink()
             self._assert_offline_phase(staged_root, staged_control, {first.name, renamed.name})
             renamed_target.unlink()
             _remove_owned_authority(renamed_authority)
@@ -185,11 +191,31 @@ class WorkbenchLiveCanary(unittest.TestCase):
         )
 
     @staticmethod
+    def _atom_reference_query(atom_id: str) -> str:
+        return f"SELECT reference FROM atoms WHERE reference = '{atom_id}'"
+
+    @staticmethod
     def _atom_query(atom_id: str) -> str:
         return (
-            'SELECT reference, "relative path", header_version FROM atoms '
-            f"WHERE header_atom_id = '{atom_id}'"
+            'SELECT reference, "relative path", header_state_version '
+            ", header_context_container_scope_unit, header_context_scope_unit_name "
+            ", header_destination_file_name, header_destination_file_path "
+            f"FROM atoms WHERE reference = '{atom_id}'"
         )
+
+    @staticmethod
+    def _atom_expected(
+        root: Path, atom_id: str, path: Path, scope: CanaryScope, version: int,
+    ) -> list[list[object]]:
+        return [[
+            atom_id,
+            path.parent.relative_to(root).as_posix(),
+            version,
+            scope.scope_unit_id,
+            scope.name,
+            path.name,
+            path.parent.relative_to(root).as_posix(),
+        ]]
 
     def _check_queries(self, url: str, project_name: str, queries: list[str]) -> list[object]:
         checked: list[object] = []
@@ -275,7 +301,8 @@ class WorkbenchLiveCanary(unittest.TestCase):
             if health_status != 200:
                 raise LiveCanaryError(f"Workbench health check failed: {health!r}")
             report["health"] = health
-            queries = [self._scope_query(first.scope_unit_id), self._scope_query(second.scope_unit_id), self._atom_query(atom_id)]
+            queries = [self._scope_query(first.scope_unit_id), self._scope_query(second.scope_unit_id), self._atom_reference_query(atom_id)]
+            report["header_layout"] = "nested; first/last fixture may rebuild observed Header columns"
             report["query_checks"] = self._check_queries(url, project_name, queries)
             if dry_run:
                 report["outcome"] = "preflight_validated_no_source_write"
@@ -289,6 +316,16 @@ class WorkbenchLiveCanary(unittest.TestCase):
                 owned[target] = _atomic_publish(candidate, target)
                 staged.discard(candidate)
 
+            def replace_atom(path: Path, scope: CanaryScope, version: int) -> None:
+                candidate = _stage_carrier(
+                    REPORT_DIRECTORY, atom_id,
+                    _atom_carrier(atom_id, version, scope=scope, destination=path, root=root),
+                )
+                staged.add(candidate)
+                validate_atom_carrier(candidate)
+                owned[path] = _atomic_replace(candidate, path)
+                staged.discard(candidate)
+
             first_authority.mkdir()
             publish(first, first_target)
             self._record_visibility(report, "scope_create_first", query_url, self._scope_query(first.scope_unit_id), [[first.name, first.scope_unit_id, PARENT_SCOPE, 1]], present=True)
@@ -298,27 +335,47 @@ class WorkbenchLiveCanary(unittest.TestCase):
 
             atom = first_authority / "04_requirement" / f"{atom_id}-canary-source.md"
             atom.parent.mkdir(parents=True, exist_ok=True)
-            atom_stage = _stage_carrier(REPORT_DIRECTORY, atom_id, _atom_carrier(atom_id, 1))
+            atom_stage = _stage_carrier(
+                REPORT_DIRECTORY, atom_id,
+                _atom_carrier(atom_id, 1, scope=first, destination=atom, root=root),
+            )
             staged.add(atom_stage)
+            validate_atom_carrier(atom_stage)
             owned[atom] = _atomic_publish(atom_stage, atom)
             staged.discard(atom_stage)
-            self._record_visibility(report, "atom_create", query_url, self._atom_query(atom_id), [[atom_id, atom.parent.relative_to(root).as_posix(), 1]], present=True)
-            atom_stage = _stage_carrier(REPORT_DIRECTORY, atom_id, _atom_carrier(atom_id, 2))
+            self._record_visibility(
+                report, "atom_create", query_url, self._atom_query(atom_id),
+                self._atom_expected(root, atom_id, atom, first, 1), present=True,
+            )
+            replace_atom(atom, first, 2)
+            self._record_visibility(
+                report, "atom_update", query_url, self._atom_query(atom_id),
+                self._atom_expected(root, atom_id, atom, first, 2), present=True,
+            )
+            renamed_atom = atom.with_name(f"{atom_id}-canary-renamed.md")
+            atom_stage = _stage_carrier(
+                REPORT_DIRECTORY, atom_id,
+                _atom_carrier(atom_id, 2, scope=first, destination=renamed_atom, root=root),
+            )
             staged.add(atom_stage)
+            validate_atom_carrier(atom_stage)
             owned[atom] = _atomic_replace(atom_stage, atom)
             staged.discard(atom_stage)
-            self._record_visibility(report, "atom_update", query_url, self._atom_query(atom_id), [[atom_id, atom.parent.relative_to(root).as_posix(), 2]], present=True)
-            renamed_atom = atom.with_name(f"{atom_id}-canary-renamed.md")
             atom.rename(renamed_atom)
             owned[renamed_atom] = owned.pop(atom)
-            self._record_visibility(report, "atom_rename", query_url, self._atom_query(atom_id), [[atom_id, renamed_atom.parent.relative_to(root).as_posix(), 2]], present=True)
+            self._record_visibility(
+                report, "atom_rename", query_url, self._atom_query(atom_id),
+                self._atom_expected(root, atom_id, renamed_atom, first, 2), present=True,
+            )
             moved_atom = second_authority / "04_requirement" / renamed_atom.name
             moved_atom.parent.mkdir(parents=True, exist_ok=True)
             renamed_atom.rename(moved_atom)
             owned[moved_atom] = owned.pop(renamed_atom)
-            self._record_visibility(report, "atom_move", query_url, self._atom_query(atom_id), [[atom_id, moved_atom.parent.relative_to(root).as_posix(), 2]], present=True)
-            _remove_owned_file(moved_atom, owned.pop(moved_atom))
-            self._record_visibility(report, "atom_delete", query_url, self._atom_query(atom_id), [], present=False)
+            replace_atom(moved_atom, second, 2)
+            self._record_visibility(
+                report, "atom_move", query_url, self._atom_query(atom_id),
+                self._atom_expected(root, atom_id, moved_atom, second, 2), present=True,
+            )
 
             first_updated = first.with_changes(version=2)
             first_stage = _stage_carrier(REPORT_DIRECTORY, first.atom_id, _scope_carrier(first_updated, project_name, "2026-11-06 00:00:00 +0000"))
@@ -332,19 +389,35 @@ class WorkbenchLiveCanary(unittest.TestCase):
             self._record_visibility(report, "scope_move_remove_declaration", query_url, self._scope_query(second.scope_unit_id), [], present=False)
             moved_second_authority = _scope_authority(first_authority, second)
             second_authority.rename(moved_second_authority)
+            moved_atom = moved_second_authority / "04_requirement" / moved_atom.name
+            owned[moved_atom] = owned.pop(second_authority / "04_requirement" / moved_atom.name)
+            replace_atom(moved_atom, second, 2)
             moved_second = second.with_changes(parent=first.name, version=2)
             moved_second_target = _declaration_target(first_authority, moved_second)
             publish(moved_second, moved_second_target)
             self._record_visibility(report, "scope_move_publish_declaration", query_url, self._scope_query(second.scope_unit_id), [[second.name, second.scope_unit_id, first.name, 2]], present=True)
+            self._record_visibility(
+                report, "atom_scope_move", query_url, self._atom_query(atom_id),
+                self._atom_expected(root, atom_id, moved_atom, second, 2), present=True,
+            )
 
             _remove_owned_file(moved_second_target, owned.pop(moved_second_target))
             self._record_visibility(report, "scope_rename_remove_declaration", query_url, self._scope_query(second.scope_unit_id), [], present=False)
             renamed_authority = _scope_authority(first_authority, renamed)
             moved_second_authority.rename(renamed_authority)
+            moved_atom = renamed_authority / "04_requirement" / moved_atom.name
+            owned[moved_atom] = owned.pop(moved_second_authority / "04_requirement" / moved_atom.name)
+            replace_atom(moved_atom, renamed, 2)
             renamed_target = _declaration_target(first_authority, renamed)
             publish(renamed, renamed_target)
             self._record_visibility(report, "scope_rename_publish_declaration", query_url, self._scope_query(second.scope_unit_id), [[renamed.name, renamed.scope_unit_id, first.name, 3]], present=True)
+            self._record_visibility(
+                report, "atom_scope_rename", query_url, self._atom_query(atom_id),
+                self._atom_expected(root, atom_id, moved_atom, renamed, 2), present=True,
+            )
 
+            _remove_owned_file(moved_atom, owned.pop(moved_atom))
+            self._record_visibility(report, "atom_delete", query_url, self._atom_reference_query(atom_id), [], present=False)
             _remove_owned_file(renamed_target, owned.pop(renamed_target))
             self._record_visibility(report, "scope_delete_second", query_url, self._scope_query(second.scope_unit_id), [], present=False)
             _remove_owned_authority(renamed_authority)

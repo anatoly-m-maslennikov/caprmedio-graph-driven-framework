@@ -1,3 +1,4 @@
+# CA-E-794@2
 """Pure support for the opt-in Workbench live canary."""
 
 from __future__ import annotations
@@ -129,13 +130,41 @@ def scope_carrier(scope: CanaryScope, project_name: str, updated_at: str) -> str
     return carrier.replace(f"## Summary\n\nDeclare {scope.name}\n", "## Summary\n\nDeclare Scope Unit\n")
 
 
-def atom_carrier(atom_id: str, version: int) -> str:
+def atom_carrier(
+    atom_id: str,
+    version: int,
+    *,
+    scope: CanaryScope,
+    destination: Path,
+    root: Path,
+) -> str:
+    """Return an Atom carrier whose Header matches its current carrier location."""
+    relative_destination = destination.relative_to(root)
     return (
         "---\n"
-        f'atom_id: "{atom_id}"\n'
-        'role: "Requirement"\nform: "Definition"\nstatus: "Active"\n'
-        f"version: {version}\nupdated_at: \"2026-11-06 00:00:00 +0000\"\n"
-        "subjects: {}\nrelations: {}\n---\n# Summary\n\nCanary source.\n"
+        "identity:\n"
+        f"  atom_id: {atom_id}\n"
+        f"  ref_id: {atom_id}\n"
+        "context:\n"
+        "  container:\n"
+        f"    scope_unit: {scope.scope_unit_id}\n"
+        "  role: Requirement\n"
+        "  form: Definition\n"
+        f"  scope_unit_name: {scope.name}\n"
+        "  topics:\n"
+        "    main_subject: Subject/Graph/Node/Project Model/Atom\n"
+        "    dependencies: []\n"
+        "relations: {}\n"
+        "state:\n"
+        "  status: Active\n"
+        f"  version: {version}\n"
+        "  updated_at: '2026-11-06 00:00:00 +0000'\n"
+        "destination:\n"
+        "  file:\n"
+        f"    name: {destination.name}\n"
+        f"    path: {relative_destination.parent.as_posix()}\n"
+        "---\n## Summary\n\nThis is a temporary Workbench canary.\n"
+        "\n## Claim\n\n### Prose Claim\n\nThis Atom is a temporary Workbench canary.\n"
     )
 
 

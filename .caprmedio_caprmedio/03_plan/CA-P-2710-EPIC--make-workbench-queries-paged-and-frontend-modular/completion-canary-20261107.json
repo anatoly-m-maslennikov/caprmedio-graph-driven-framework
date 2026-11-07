@@ -1,0 +1,68 @@
+{
+  "atom_id": "CA-R-984312141",
+  "created_at": "2026-11-07T11:30:30Z",
+  "dry_run": false,
+  "header_layout": "nested; first/last fixture may rebuild observed Header columns",
+  "health": {
+    "ready": true
+  },
+  "outcome": "passed",
+  "parent_scope_unit": "WORKBENCH_BACKEND",
+  "query_checks": [
+    {
+      "column_count": 4,
+      "row_count": 0,
+      "sql": "SELECT name, scope_unit_id, parent_name, declaration_version FROM scope_units WHERE scope_unit_id = 'CA-SU-989308033'",
+      "valid": true
+    },
+    {
+      "column_count": 4,
+      "row_count": 0,
+      "sql": "SELECT name, scope_unit_id, parent_name, declaration_version FROM scope_units WHERE scope_unit_id = 'CA-SU-933473647'",
+      "valid": true
+    },
+    {
+      "column_count": 1,
+      "row_count": 0,
+      "sql": "SELECT reference FROM atoms WHERE reference = 'CA-R-984312141'",
+      "valid": true
+    }
+  ],
+  "scope_unit_ids": [
+    "CA-SU-989308033",
+    "CA-SU-933473647"
+  ],
+  "scope_units": [
+    "CANARY_A_24FB719100",
+    "CANARY_B_24FB719100",
+    "CANARY_C_24FB719100"
+  ],
+  "url": "http://127.0.0.1:56317",
+  "visibility_seconds": {
+    "atom_create": 19.952,
+    "atom_delete": 19.534,
+    "atom_move": 0.35,
+    "atom_rename": 0.341,
+    "atom_scope_move": 0.041,
+    "atom_scope_rename": 0.043,
+    "atom_update": 0.339,
+    "scope_create_first": 19.346,
+    "scope_create_second": 18.936,
+    "scope_delete_first": 19.386,
+    "scope_delete_second": 18.938,
+    "scope_move_publish_declaration": 20.205,
+    "scope_move_remove_declaration": 19.206,
+    "scope_rename_publish_declaration": 20.3,
+    "scope_rename_remove_declaration": 19.004,
+    "scope_update": 21.367
+  },
+  "verified_runtime": {
+    "version": "0.4.4.34",
+    "source_commit": "98ace1740c3f3ae8c21c39a97e3940a32c985677",
+    "image": "sha256:2d6f237e078bbc45d6f21f92ba4ef5ac2bf088f9c25867da4cdea078a4ad8d48",
+    "cpu_limit_nanocpus": 1000000000,
+    "memory_limit_bytes": 1610612736,
+    "health": "healthy"
+  },
+  "runtime_verification_note": "Same image verified before and after the live canary; code hot reload is disabled."
+}

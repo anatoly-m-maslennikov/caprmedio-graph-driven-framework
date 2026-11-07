@@ -1,0 +1,91 @@
+{
+  "checked_at": "2026-11-07T11:03:47.646418+00:00",
+  "project_root": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework",
+  "checks": {
+    "health": {
+      "status_code": 200,
+      "content_type": "application/json"
+    },
+    "frontend": {
+      "status_code": 200,
+      "assets_checked": 2
+    },
+    "http_query": {
+      "rows": [
+        [
+          5495,
+          48
+        ]
+      ],
+      "seconds": 35.9
+    },
+    "mcp": {
+      "tool_count": 54,
+      "tool_names": [
+        "append_change_records",
+        "atom_search",
+        "atom_update",
+        "build_applicable_methodology",
+        "build_entities_graph",
+        "build_terms_graph",
+        "change_atom_status",
+        "create_atom",
+        "discover_operations",
+        "discover_tools",
+        "find_and_fetch_artifacts",
+        "find_and_fetch_journal_events",
+        "generate_entity_graph",
+        "get_execution_context",
+        "get_execution_status",
+        "get_selected_action_run",
+        "get_selected_workflow_run",
+        "move_atom",
+        "query_check",
+        "query_load",
+        "query_log_get",
+        "query_log_list",
+        "query_page",
+        "query_run",
+        "query_saved_list",
+        "query_schema",
+        "replace_atom",
+        "resume_execution_context",
+        "revert_changes",
+        "rmed_atoms_base_revise",
+        "run_implementation_workflow",
+        "update_atom",
+        "view_check",
+        "view_create",
+        "view_duplicate",
+        "view_fetch",
+        "view_focus",
+        "view_get",
+        "view_list",
+        "view_remove",
+        "view_rename",
+        "view_run",
+        "view_save",
+        "view_update",
+        "watch_execution",
+        "workbench_reread",
+        "workbench_restart",
+        "workbench_status",
+        "workbench_ui_ping",
+        "workbench_ui_probe",
+        "workflow_orchestrator",
+        "workspace_get",
+        "workspace_list",
+        "workspace_open"
+      ],
+      "query_rows": [
+        [
+          5495,
+          48
+        ]
+      ],
+      "check_valid": true,
+      "bridge_ping": true
+    }
+  },
+  "outcome": "passed"
+}
