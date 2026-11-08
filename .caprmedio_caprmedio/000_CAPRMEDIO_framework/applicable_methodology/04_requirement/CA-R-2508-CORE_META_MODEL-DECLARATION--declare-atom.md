@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
 tier: 3
 status: Active
-version: 10
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 11
+updated_at: "2026-11-08 15:22:04 +0400"
 carrier_destination:
   file:
     name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
@@ -18,8 +18,8 @@ carrier_destination:
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
   source_atom_id: CA-R-2508
-  source_atom_revision: 10
-  source_sha256: 2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d
+  source_atom_revision: 11
+  source_sha256: 7670aa228bf8041bf1d221037e447e905239637bfe085201acc88be36f62c768
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -55,6 +55,8 @@ Atom//$atom {::1}((HAS_ACTIVE_SUBJECT));
 Atom//$atom {::0..1}((GOVERNS));
 
 Atom//$atom {::0+}((CONTRIBUTES_TO));
+
+Atom//$atom {::0+}((REPLACEMENT_FOR));
 
 UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
 ```

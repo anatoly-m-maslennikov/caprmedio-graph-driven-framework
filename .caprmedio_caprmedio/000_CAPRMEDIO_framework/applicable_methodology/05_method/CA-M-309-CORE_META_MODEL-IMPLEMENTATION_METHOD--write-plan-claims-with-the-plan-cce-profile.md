@@ -6,11 +6,11 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content'
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 tier: 6
 relations:
@@ -19,8 +19,8 @@ relations:
   depends_on:
   - CA-M-306
 status: Active
-version: 23
-updated_at: 2026-11-02 18:35:20 +0400
+version: 25
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
     name: CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
@@ -30,10 +30,11 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
   source_atom_id: CA-M-309
-  source_atom_revision: 23
-  source_sha256: 976a89a66e2cc11c5fa4495c549222e29b6e9b890f21bb1605c1d89d9f4e14e7
+  source_atom_revision: 25
+  source_sha256: 40a6445e5aa17c8024a7719f59cdb9fd08b7c2efd6e8dde3fa245cd2de7df766
   original_relations_sha256: a1630976c55baee2df66eec1a8564dbfdda162656cba6354e2f480b01eac7d0d
 ---
+
 ## Summary
 
 Write Plan Claims with the Plan CCE Profile
@@ -43,7 +44,11 @@ Write Plan Claims with the Plan CCE Profile
 ### Prose Claim
 
 
-Plan Claims written with the Plan CCE Role Profile.
+Plan content written with the Plan CCE Role Profile.
+
+For Work Report, write factual descriptions of the Task’s actual execution in Details. Distinguish performed work, observed results and remaining gaps. Copy the Task’s Summary.
+
+The following intended-work profile applies to other Plan Forms.
 
 
 **to** write a Plan Claim with the Plan CCE Role Profile, the Author **must** perform **all** of:

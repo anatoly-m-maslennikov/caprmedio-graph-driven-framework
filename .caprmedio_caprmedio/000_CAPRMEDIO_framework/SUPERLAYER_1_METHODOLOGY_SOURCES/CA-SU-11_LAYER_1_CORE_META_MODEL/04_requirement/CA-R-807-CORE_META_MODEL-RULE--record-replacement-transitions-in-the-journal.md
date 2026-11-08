@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
 tier: 1
 status: Active
-version: 34
-updated_at: 2026-11-02 19:44:26 +0400
+version: 35
+updated_at: "2026-11-08 15:22:04 +0400"
 carrier_destination:
   file:
     name: CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md
@@ -26,8 +26,6 @@ Record replacement transitions in the Journal
 
 ### Prose Claim
 
+The authoritative Journal event that archives a predecessor records its identity and one or more already Current successor Atom IDs.
 
-replacement **or** absorption history.
-
-
-replacement **or** absorption history **must** be recorded **only** **in** the authoritative Journal event that archives the predecessor. the authoritative Journal event that archives the predecessor **must** name the explicit predecessor Atom ID **and** **`>=1`** already active successor Atom IDs. active current-state Atom relations **must not** carry replacement history. formal `replaced_by` **and** `replacement_of` relation realization **must** remain deferred, **and** **any** later replacement navigation **must** be derived from immutable Journal **and** archive history under separately admitted authority.
+REPLACEMENT_FOR records the replacement Atom's predecessor links before and after adoption. A Draft link records proposed replacement. The Journal records the completed replacement or absorption transition.

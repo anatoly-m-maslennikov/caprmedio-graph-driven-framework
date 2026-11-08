@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Relations
 tier: 3
 status: Active
-version: 3
-updated_at: 2026-11-05 22:47:24 +0400
+version: 4
+updated_at: "2026-11-08 15:22:04 +0400"
 carrier_destination:
   file:
     name: CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md
@@ -27,6 +27,8 @@ Declare Atom.Header.Relations
 ### Prose Claim
 
 Each child name is the canonical name of a declared Relation, and each child has one or more base Atom ID values. A present Relations group has at least one child.
+
+The replacement Atom stores REPLACEMENT_FOR with its predecessor Atom IDs.
 
 ### Formal Claim
 

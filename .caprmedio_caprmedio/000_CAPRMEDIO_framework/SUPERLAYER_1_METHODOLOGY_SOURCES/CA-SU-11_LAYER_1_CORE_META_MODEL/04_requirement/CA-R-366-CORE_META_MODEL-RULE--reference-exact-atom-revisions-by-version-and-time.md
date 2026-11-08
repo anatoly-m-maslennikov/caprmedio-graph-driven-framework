@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
 tier: 3
 status: Active
-version: 35
-updated_at: 2026-11-02 00:18:22 +0400
+version: 36
+updated_at: "2026-11-08 15:22:04 +0400"
 carrier_destination:
   file:
     name: CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md
@@ -34,4 +34,4 @@ Reference exact Atom Revisions by version and time
 exact Atom Revision references.
 
 
-**every** exact Atom Revision reference **must** identify Atom identity, Version, **and** Updated At.
+Every exact Atom Revision reference identifies Atom identity, Version and Updated At.

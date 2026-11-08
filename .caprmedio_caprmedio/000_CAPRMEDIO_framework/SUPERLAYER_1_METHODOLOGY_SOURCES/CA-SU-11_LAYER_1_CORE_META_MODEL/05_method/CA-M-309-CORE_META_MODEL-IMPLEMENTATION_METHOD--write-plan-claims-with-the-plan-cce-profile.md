@@ -6,11 +6,11 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content'
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
 tier: 6
 relations:
@@ -19,8 +19,8 @@ relations:
   depends_on:
   - CA-M-306
 status: Active
-version: 23
-updated_at: 2026-11-02 18:35:20 +0400
+version: 25
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
     name: CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
@@ -28,6 +28,7 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Write Plan Claims with the Plan CCE Profile
@@ -37,7 +38,11 @@ Write Plan Claims with the Plan CCE Profile
 ### Prose Claim
 
 
-Plan Claims written with the Plan CCE Role Profile.
+Plan content written with the Plan CCE Role Profile.
+
+For Work Report, write factual descriptions of the Task’s actual execution in Details. Distinguish performed work, observed results and remaining gaps. Copy the Task’s Summary.
+
+The following intended-work profile applies to other Plan Forms.
 
 
 **to** write a Plan Claim with the Plan CCE Role Profile, the Author **must** perform **all** of:

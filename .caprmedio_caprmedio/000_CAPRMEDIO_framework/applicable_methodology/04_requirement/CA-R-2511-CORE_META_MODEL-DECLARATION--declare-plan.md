@@ -9,19 +9,20 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 tier: 3
 status: Active
-version: 7
-updated_at: 2026-11-05 22:47:24 +0400
+version: 9
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
-    name: CA-R-2511-DECLARATION--declare-atom-role-plan.md
+    name: CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md
   source_atom_id: CA-R-2511
-  source_atom_revision: 7
-  source_sha256: 3efaa884e545f86450f84e0ce35298f05ff3b859f1250cfb14d3a48ebca80024
+  source_atom_revision: 9
+  source_sha256: 26573cc308566c83fc14804ad6a8015cbe7a591f4eb7f91f810b549859b0c582
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
+
 ## Summary
 
 Declare Atom/(.Role := Plan)
@@ -51,4 +52,4 @@ THEN ($atom.Header.Container{==1})
 
 ## Semantics
 
-A Plan describes bounded intended work or an intended outcome.
+A Plan describes intended work, an intended outcome or its execution record. Work Report is the Form for that execution record.

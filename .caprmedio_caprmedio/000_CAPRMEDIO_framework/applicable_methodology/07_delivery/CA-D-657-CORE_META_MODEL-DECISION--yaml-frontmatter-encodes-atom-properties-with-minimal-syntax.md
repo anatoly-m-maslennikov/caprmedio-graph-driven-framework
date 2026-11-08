@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Actor
 tier: 3
 status: Active
-version: 6
-updated_at: 2026-11-05 22:47:24 +0400
+version: 7
+updated_at: "2026-11-08 15:22:04 +0400"
 carrier_destination:
   file:
     name: CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
@@ -24,8 +24,8 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md
   source_atom_id: CA-D-657
-  source_atom_revision: 6
-  source_sha256: f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830
+  source_atom_revision: 7
+  source_sha256: fba9b105a33eba8d5f9a8bcc7eaa06ba7b0bb6f8c3fcc8780a8b30b073b0c573
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary
