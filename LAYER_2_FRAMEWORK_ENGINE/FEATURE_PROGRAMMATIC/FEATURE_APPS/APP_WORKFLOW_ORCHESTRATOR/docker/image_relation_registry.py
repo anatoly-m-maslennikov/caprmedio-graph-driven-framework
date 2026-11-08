@@ -1,5 +1,7 @@
 """Private staging of the selected Framework's canonical relation-registry CLI."""
 
+# CA-D-705@1
+
 from __future__ import annotations
 
 from pathlib import Path
@@ -25,7 +27,7 @@ def compile_relation_registry(source_root: Path, project_root: Path, *, timeout:
     with tempfile.TemporaryDirectory(prefix="caprmedio-relation-registry-", dir=temporary) as stage:
         output = Path(stage) / "canonical_relation_registry.json"
         result = subprocess.run(
-            [sys.executable, str(compiler), "--project-root", str(project_root), "--output", str(output)],
+            [sys.executable, "-B", str(compiler), "--project-root", str(project_root), "--output", str(output)],
             cwd=source_root,
             env={},
             stdin=subprocess.DEVNULL,

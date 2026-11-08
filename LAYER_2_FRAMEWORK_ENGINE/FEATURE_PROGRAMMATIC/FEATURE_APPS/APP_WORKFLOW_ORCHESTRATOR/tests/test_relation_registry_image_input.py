@@ -85,6 +85,36 @@ class RelationRegistryImageInputTests(unittest.TestCase):
         )
         self.assertEqual([], list((self.project / ".caprmedio_tmp").iterdir()))
 
+    def test_compiler_does_not_mutate_the_sealed_source_package(self):
+        compiler = self.source / images.RELATION_REGISTRY_COMPILER
+        compiler.parent.mkdir(parents=True)
+        (compiler.parent / "registry_dependency.py").write_text("REGISTRY = b'{\"fresh\":true}\\n'\n", encoding="utf-8")
+        compiler.write_text(
+            "import argparse\n"
+            "from pathlib import Path\n"
+            "from registry_dependency import REGISTRY\n"
+            "parser = argparse.ArgumentParser()\n"
+            "parser.add_argument('--project-root')\n"
+            "parser.add_argument('--output')\n"
+            "args = parser.parse_args()\n"
+            "Path(args.output).write_bytes(REGISTRY)\n",
+            encoding="utf-8",
+        )
+        before = {
+            path.relative_to(self.source): path.read_bytes()
+            for path in self.source.rglob("*") if path.is_file()
+        }
+        self.assertEqual(
+            b'{"fresh":true}\n',
+            images._compile_relation_registry(self.source, self.project, timeout=5, max_output=1024),
+        )
+        after = {
+            path.relative_to(self.source): path.read_bytes()
+            for path in self.source.rglob("*") if path.is_file()
+        }
+        self.assertEqual(before, after)
+        self.assertEqual([], list(self.source.rglob("__pycache__")))
+
     def test_registry_bytes_change_fingerprint_and_replace_a_handwritten_source_asset(self):
         stale = self.source / images.RELATION_REGISTRY
         stale.parent.mkdir(parents=True, exist_ok=True)
