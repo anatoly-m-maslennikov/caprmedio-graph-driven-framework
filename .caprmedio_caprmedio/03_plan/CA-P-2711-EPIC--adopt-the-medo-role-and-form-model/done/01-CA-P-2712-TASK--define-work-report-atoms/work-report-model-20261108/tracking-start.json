@@ -1,0 +1,9 @@
+{
+  "task": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/01-CA-P-2712-TASK--define-work-report-atoms.md",
+  "status": "Active",
+  "version": 2,
+  "before_sha256": "87cccd4cd42f29d1fbab78bc171992a42714892ba953270fd4c21b44247975c3",
+  "after_sha256": "c1bcaa82b93b6d6c20bb11c14199c36a6fa60b24a91a185518708849edae2daa",
+  "predecessor": ".caprmedio_caprmedio/03_plan/archived/01-CA-P-2712-TASK--define-work-report-atoms@1.md",
+  "native_run": false
+}

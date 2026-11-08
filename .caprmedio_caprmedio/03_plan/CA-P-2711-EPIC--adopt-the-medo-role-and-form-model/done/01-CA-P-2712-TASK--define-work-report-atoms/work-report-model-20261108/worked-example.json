@@ -1,0 +1,45 @@
+{
+  "status": "VIRTUAL_MODEL_EXAMPLES_NOT_NATIVE_ADMISSION",
+  "task": {
+    "id": "CA-P-2712",
+    "form": "Plan",
+    "summary": "Define Work Report Atoms",
+    "container": {
+      "atom": "CA-P-2711"
+    }
+  },
+  "report": {
+    "id": "CA-P-900001",
+    "form": "Work Report",
+    "summary": "Define Work Report Atoms",
+    "container": {
+      "atom": "CA-P-2711"
+    },
+    "relations": {
+      "IS_WORK_REPORT_FOR": [
+        "CA-P-2712"
+      ]
+    }
+  },
+  "stages": [
+    {
+      "task_status": "Active",
+      "report_status": "Active",
+      "details": "Changes: native model Drafts prepared. Checks: source review. Results: naming and content settled. Remaining gaps: promotion and runtime integration."
+    },
+    {
+      "task_status": "Done",
+      "report_status": "Done",
+      "details": "Changes: model sources promoted. Checks: exact-source readback. Results: model adopted. Remaining gaps: native authoring/validator support."
+    }
+  ],
+  "invalid_cases": [
+    "Report uses Task ID",
+    "Summary differs",
+    "Container differs",
+    "Task target has @Version suffix",
+    "Missing or multiple IS_WORK_REPORT_FOR targets",
+    "Unresolved target or target Form Work Report",
+    "Invented checks/results"
+  ]
+}

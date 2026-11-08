@@ -1,0 +1,19 @@
+{
+  "settled": [
+    "Role Plan; Form Work Report",
+    "Own Atom ID; same Summary and same Container as the reported Task",
+    "Separate mutable report file updated during execution",
+    "Actual changes, checks, results and remaining gaps",
+    "Task completes as Done",
+    "IS_WORK_REPORT_FOR is Direct and stored on the report, targeting the Task base Atom ID"
+  ],
+  "pending": [],
+  "scope": "MODEL Drafts, review, source promotion and source checks; no Engine, Workbench, workflow-instance or legacy-report migration",
+  "native_route": {
+    "admit_draft": "CA-O-066",
+    "context_complete": false,
+    "input_schema": null,
+    "availability": "unresolved"
+  },
+  "manual_route": "Reuse prior authorized source-only Draft and promotion safeguards; preserve exact predecessors; no fabricated Run/Journal."
+}

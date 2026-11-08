@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Scope Delegation)
 tier: 3
 status: Active
-version: 4
-updated_at: "2026-11-07 17:10:31 +0400"
+version: 6
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
     name: CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md
@@ -37,7 +37,9 @@ The Scope Delegation is the receiving unit’s sole structural declaration. It d
 
 Label is optional.
 
-Each concrete Scope Delegation Claim lists admitted local Role/Form pairs and typed HAS_ACTIVE_SUBJECT target selections. A local Atom is admitted only when its Header.Container-derived IS_CONTAINED_BY target is the receiving Scope Unit, its HAS_ACTIVE_SUBJECT target is in a listed selection, and its Role/Form pair is listed or is Implementation / Code Synopsis, which is admitted by default. Solution, Direct Policy and Approach Policy are RMEDO Forms and require explicit inclusion in the local whitelist. Decision is a MEDO Form.
+Each concrete Scope Delegation Claim lists admitted local Role/Form pairs and typed HAS_ACTIVE_SUBJECT target selections. Plan / Work Report is admitted as a supporting Atom for an already admitted Task. It has that Task’s Container and remains within the applicable Subject selections. Its Role/Form pair needs no separate local listing.
+
+For other local Atoms, admission requires the Header.Container-derived IS_CONTAINED_BY target to be the receiving Scope Unit, the HAS_ACTIVE_SUBJECT target to be in a listed selection, and the Role/Form pair to be listed or Implementation / Code Synopsis, which is admitted by default. Solution, Direct Policy and Approach Policy are RMEDO Forms and require explicit inclusion in the local whitelist. Decision is a MEDO Form.
 
 ### Formal Claim
 

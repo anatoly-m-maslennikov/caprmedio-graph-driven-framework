@@ -1,0 +1,12 @@
+{
+  "resolved": [
+    "Explicitly excluded Work Report from the normative Plan work and DoD quantifiers.",
+    "Restricted report target to existing Plan Form, preserving Task as navigation Label."
+  ],
+  "drafts_changed": [
+    "CA-R-1575",
+    "CA-R-1599",
+    "CA-R-970308624",
+    "CA-R-970308626"
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "checked_at": "2026-11-08 14:17:58 UTC",
+  "project_root": "/Users/am/Documents/My_Repos/caprmedio-graph-driven-framework",
+  "status": "LIVE_READ_ROUTES_VERIFIED",
+  "successful_probes": [
+    {
+      "probe": "status",
+      "ok": true
+    },
+    {
+      "probe": "schema",
+      "ok": true
+    },
+    {
+      "probe": "query_check",
+      "ok": true
+    },
+    {
+      "probe": "workspace_list",
+      "ok": true
+    },
+    {
+      "probe": "query_saved_list",
+      "ok": true
+    },
+    {
+      "probe": "query_log_list",
+      "ok": true
+    },
+    {
+      "probe": "bridge_ping",
+      "ok": true
+    },
+    {
+      "probe": "query_run",
+      "ok": true
+    },
+    {
+      "probe": "workspace_get",
+      "ok": true
+    },
+    {
+      "probe": "view_list",
+      "ok": true
+    },
+    {
+      "probe": "query_load",
+      "ok": true
+    },
+    {
+      "probe": "query_log_get",
+      "ok": true
+    },
+    {
+      "probe": "view_get",
+      "ok": true
+    },
+    {
+      "probe": "workbench_reread",
+      "ok": true
+    },
+    {
+      "probe": "fresh_query_page",
+      "ok": true
+    }
+  ],
+  "findings": [
+    {
+      "tool": "view_check",
+      "result": "Tool returned a SQL Binder Error for an existing View using legacy id/role/status columns.",
+      "disposition": "Preserved View; skill now requires live query_schema column discovery."
+    },
+    {
+      "tool": "query_page",
+      "result": "A query_id retained before workbench_reread became unknown.",
+      "disposition": "Reran the read query, obtained a fresh query_id and successfully fetched offset 1."
+    },
+    {
+      "tool": "query_run",
+      "result": "preview=1 limited the selected result to one row; fresh run without preview returned both model Atoms and paged successfully.",
+      "disposition": "Skill distinguishes preview from coverage and paging."
+    }
+  ],
+  "not_tested": [
+    "workspace_open/native UI rendering",
+    "View mutations and view_run/view_fetch",
+    "workbench_restart",
+    "source mutations or Workflow execution"
+  ],
+  "source_changes": [
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md",
+    ".agents/skills/ca/SKILL.md"
+  ],
+  "forward_test": {
+    "status": "PASS",
+    "reviewer": "ca_skill_consumers",
+    "request": "Find Current REPLACEMENT_FOR Declaration and existing Workspace/View metadata, read-only.",
+    "result": "Direct query_schema/query_run and Workspace reads succeeded; no discovery/context/native Run, UI activation or mutation.",
+    "clarification": "Returned internal mount paths do not replace trusted caller project_root."
+  }
+}

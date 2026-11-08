@@ -1,0 +1,14 @@
+{
+  "status": "DRAFTS_WRITTEN_VERIFIED",
+  "new_drafts": 11,
+  "reused_draft": "CA-R-970308624",
+  "reused_draft_before": "---\nidentity:\n  id: CA-R-970308624\n  ref_id: CA-R-970308624@1-draft\ncontext:\n  container:\n    scope_unit: CA-SU-11\n  role: Requirement\n  form: Declaration\n  topics:\n    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form :=\n      Work Report)\n  tier: 4\nstate:\n  status: Draft\n  version: 1\n  updated_at: 2026-11-08 18:49:12 +0400\ndestination:\n  file:\n    name: CA-R-970308624@1-draft-CORE_META_MODEL-DECLARATION--declare-work-report-form.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/engine-refinement-20261108\nauthor: Anatoly Maslennikov\n---\n\n## Summary\n\nDeclare Work Report Form\n\n## Claim\n\n### Prose Claim\n\nA Work Report is a Plan Atom that records work on one Task. Create it when work on the Task starts, keep at most one report per Task, and update it during the work. Keep it small. Record changes, checks and results, and what remains.\n\nThe report is contained by its Task. It records actual work; the Task states the work to do. Specifications stay in RMEDO. Work Report inherits Plan identity and lifecycle rules.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom/(.Header.Role := Plan)/(.Header.Form := Work Report);\n\nAtom/(.Header.Role := Plan)/(.Header.Form := Work Report).Content.Work:: [markdown]{::0..1};\nAtom/(.Header.Role := Plan)/(.Header.Form := Work Report).Content.Checks:: [markdown]{::0..1};\nAtom/(.Header.Role := Plan)/(.Header.Form := Work Report).Content.Remaining:: [markdown]{::0..1};\n\n# instances\nAtom/(.Header.Role := Plan)/(.Header.Form := Work Report)//$report {::1}((IS_CONTAINED_BY)) Atom/(.Header.Role := Plan)/(.Header.Label := Task)//$task;\nAtom/(.Header.Role := Plan)/(.Header.Label := Task)//$task {::0..1}((CONTAINS)) Atom/(.Header.Role := Plan)/(.Header.Form := Work Report)//$report\n```\n\n## Semantics\n\nWork Report is a Form, not another Role or an Implementation description. A Task and its Work Report are separate Atoms.\n",
+  "current_sources_changed": false,
+  "native_run": false,
+  "journal_append": false,
+  "ids": {
+    "form": "CA-R-970308624",
+    "relation": "CA-R-970308626",
+    "evaluation": "CA-E-802"
+  }
+}

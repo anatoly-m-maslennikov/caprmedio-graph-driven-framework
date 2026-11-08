@@ -22,7 +22,8 @@ def write_settings(root: Path) -> Path:
     control = root / ".caprmedio_caprmedio"
     control.mkdir()
     (control / "caprmedio_project_settings.toml").write_text(
-        '[project]\nname = "fixture"\n[paths]\ncontrol_root = ".caprmedio_caprmedio"\n',
+        '[project]\nname = "fixture"\n[artifacts.identity]\nproject_prefix = "CA"\n'
+        '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n',
         encoding="utf-8",
     )
     return control

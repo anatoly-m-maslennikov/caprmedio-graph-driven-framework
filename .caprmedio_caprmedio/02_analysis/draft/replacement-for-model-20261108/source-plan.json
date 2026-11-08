@@ -1,0 +1,559 @@
+{
+  "status": "PREPARED_FOR_REVIEW",
+  "route": "previously authorized manual source update",
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "selected_versions": {
+    "CA-R-2709": 4,
+    "CA-R-2508": 11,
+    "CA-R-807": 35,
+    "CA-R-366": 36,
+    "CA-R-1690": 34,
+    "CA-D-657": 7,
+    "CA-E-622": 54,
+    "CA-R-3011": 1
+  },
+  "version_pins": [
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "ad65fadd59fe5141664de09b95637e376fe8e50a175e1246dd3358758e9e059e",
+      "atom_id": "CA-R-2709",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "4419d820a3ec7146ea6291be4a68d7717fac1114b465e71a244bbed1990f27b0",
+      "atom_id": "CA-R-2709",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/prospective/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "1dc60361341fc1144c30e35bdcb48bfb3f362f90aecacc5cf664dbdfec7bd094",
+      "atom_id": "CA-R-2709",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2709.preview.md",
+      "sha256": "84bb5f30d40dba1116867ae380ec58411340a98c417e0ffa39ce4f1f9fe620e9",
+      "atom_id": "CA-R-2709",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/R2709.preview.md",
+      "sha256": "82d813ac13ac608dbca57a418d6343d9f13c9e4376bf560029eca353f9022ba2",
+      "atom_id": "CA-R-2709",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "ad65fadd59fe5141664de09b95637e376fe8e50a175e1246dd3358758e9e059e",
+      "atom_id": "CA-R-2709",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "10995dd5d50de07535f4fcd71900c526a9d67c404d37c3e35349e39cd4afb273",
+      "atom_id": "CA-R-2709",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations@1.md",
+      "sha256": "44258464b04b174a54a3f331fd31f68e5606090bc97073cc67f310ddca7990b1",
+      "atom_id": "CA-R-2709",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d",
+      "atom_id": "CA-R-2508",
+      "version": 10
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "02435ea98170443107a262e2e6edae4cfc502766f775f0f3b559fbcfaa54c302",
+      "atom_id": "CA-R-2508",
+      "version": 10
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/prospective/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "e30fa9c5946d23914b23eacab193da0c61204e1cd668a4ae1ef14441a2e08589",
+      "atom_id": "CA-R-2508",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/coverage/container-header-integration-20261105/CA-R-2508.preview.md",
+      "sha256": "c8d71b65fec90b01726f9ff40ede2fc3f2511e71a539a8d1f71a38d673b2ceb8",
+      "atom_id": "CA-R-2508",
+      "version": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d",
+      "atom_id": "CA-R-2508",
+      "version": 10
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2508@7-draft-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "sha256": "1303d6766b4b48a7eb9150d19699ff25a30cc52df3ed37f173eac451ed94e4ab",
+      "atom_id": "CA-R-2508",
+      "version": 7
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@6.md",
+      "sha256": "54526f127015a64743989179c99a52fe7874e0c7240c3d9f627d2eb5e8cec939",
+      "atom_id": "CA-R-2508",
+      "version": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@2.md",
+      "sha256": "721939245dcc9a41e7150346d932ecf2153eef85b8a133b4717ea6fa03f55e95",
+      "atom_id": "CA-R-2508",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@5.md",
+      "sha256": "875fb6a3a853dbbf24816f2684083311bd6e2791ed6d6e07c4227aed05cb8318",
+      "atom_id": "CA-R-2508",
+      "version": 5
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@4.md",
+      "sha256": "7daab4c10ab54b4c88d021b103d7468d68e4afdcac416ec3ef654322d28e8e28",
+      "atom_id": "CA-R-2508",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@8.md",
+      "sha256": "0d30d5a01af09777d7cc465b66e15997783f41298d3e85376fa458897031a666",
+      "atom_id": "CA-R-2508",
+      "version": 8
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "aa0c89c55a00d666662bcf3440b251c62d31b7059105822f2a88f098a2971532",
+      "atom_id": "CA-R-807",
+      "version": 34
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "82540d27c0b485c4f553ea49649c7cc8c6cdb10918eb937b1221c7e064a0133a",
+      "atom_id": "CA-R-807",
+      "version": 34
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "aa0c89c55a00d666662bcf3440b251c62d31b7059105822f2a88f098a2971532",
+      "atom_id": "CA-R-807",
+      "version": 34
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0375-CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "2bfbeb130f3764360fe70daaefc42656cf94db2dedc1a79d6a4304b82292f6cd",
+      "atom_id": "CA-R-807",
+      "version": 33
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0379-CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "7f9a35a9213986a3240c5e32c25518d743874cd26e15545b7c5f709a36299701",
+      "atom_id": "CA-R-807",
+      "version": 33
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0383-CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "648ae5cac67a612501e52c2f0bd720a3e6535bed8db35a81a1682779ec4c2676",
+      "atom_id": "CA-R-807",
+      "version": 33
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md",
+      "sha256": "c2ab4d57216130aac1210c8df479336da8ee82acbcda92a6d7c081ad90c4b628",
+      "atom_id": "CA-R-366",
+      "version": 35
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md",
+      "sha256": "0672e4535895f453b116e0a1853bcc2fb7df02f8ea8b56a09b1e8edaf657b886",
+      "atom_id": "CA-R-366",
+      "version": 35
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md",
+      "sha256": "c2ab4d57216130aac1210c8df479336da8ee82acbcda92a6d7c081ad90c4b628",
+      "atom_id": "CA-R-366",
+      "version": 35
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-GOVERN-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@9.md",
+      "sha256": "30846cc620fab27de3c82457395149d56e4145bfd5cf35bd5b7a5ed4393dffb5",
+      "atom_id": "CA-R-366",
+      "version": 9
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-GOVERN-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@8.md",
+      "sha256": "d1f3e17ec99754fcc38201fd6d5e1db0a54824df8b4f2b504644b7370c05b1fa",
+      "atom_id": "CA-R-366",
+      "version": 8
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-CORE_META_MODEL-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@14.md",
+      "sha256": "22d055046fb3f27a6ed8c416c26ddaa6744f397d8a25a598d339b334d974a893",
+      "atom_id": "CA-R-366",
+      "version": 14
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-GOVERN-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@12.md",
+      "sha256": "3467d4a3ee23726f1944998ffd0658e2767841e50e06051f1c6da02bfa7c7866",
+      "atom_id": "CA-R-366",
+      "version": 12
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-GOVERN-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@7.md",
+      "sha256": "4ff22a17bb0cdb4fcab4f023669035c01a7208fbdbce0b8004d523343fc5a181",
+      "atom_id": "CA-R-366",
+      "version": 7
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-GOVERN-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@13.md",
+      "sha256": "440e28a25284502fd0454cc6ec24b3a5c9e22c7a463ef2d022085bcd97ffed18",
+      "atom_id": "CA-R-366",
+      "version": 13
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-CORE_META_MODEL-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@15.md",
+      "sha256": "8c0f69895a724c3e0ee2cfbe597fe0a08b9b394d341ffd5017d2f44fec6d57b0",
+      "atom_id": "CA-R-366",
+      "version": 15
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-GOVERN-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@10.md",
+      "sha256": "1fbaa9ee75d62886baa3de8a9dddcabb4056c6c2e9a5c69d819f3ac15969dade",
+      "atom_id": "CA-R-366",
+      "version": 10
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-CORE_META_MODEL-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@16.md",
+      "sha256": "9a2c7029f9cb674185738aadc92dae9508a7dc8dd7e11e6558afda6e17747ad3",
+      "atom_id": "CA-R-366",
+      "version": 16
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-GOVERN-CORE-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@11.md",
+      "sha256": "7fa6989177f1dd2b296c7921c1b8c9a0064ce5b4c66c9c2e10be08c832d568a4",
+      "atom_id": "CA-R-366",
+      "version": 11
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-366-CORE_META_MODEL-REQUIREMENT--reference-exact-atom-revisions-by-version-and-time@17.md",
+      "sha256": "26ccf2f04806a1978fe7258b9994681895ad5a874500e09246d33d9bb9865086",
+      "atom_id": "CA-R-366",
+      "version": 17
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "sha256": "a352e5067edc34f9d2bd20f51bfdd5efc1340cb0e521fa13ddf43cfc31b7a078",
+      "atom_id": "CA-R-1690",
+      "version": 33
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "sha256": "26b93faf73b530e5264beeb1b1f3b4e2124055a5d7dbd547e0538698ad74513e",
+      "atom_id": "CA-R-1690",
+      "version": 33
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "sha256": "a352e5067edc34f9d2bd20f51bfdd5efc1340cb0e521fa13ddf43cfc31b7a078",
+      "atom_id": "CA-R-1690",
+      "version": 33
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830",
+      "atom_id": "CA-D-657",
+      "version": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "4060a051d1a8cb9ec71e87ccdc3c2fcbb1e6061bdf391f0744f42444fa6b9392",
+      "atom_id": "CA-D-657",
+      "version": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D657.preview.md",
+      "sha256": "1061a13d80f21025416ab8afc7eb4c7259c03745bb8d9f1bd49eff7f4979d306",
+      "atom_id": "CA-D-657",
+      "version": 5
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D657-draft.preview.md",
+      "sha256": "bc3b1f3e8df4c525d11b4bb192f93de184235b13b60eb7a96ace6a3b34ade0f0",
+      "atom_id": "CA-D-657",
+      "version": 5
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D657-current.preview.md",
+      "sha256": "7944eb19002cc93a84196617eff9159a5504f6d0ca9a8f87529c297fbde06244",
+      "atom_id": "CA-D-657",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830",
+      "atom_id": "CA-D-657",
+      "version": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@5-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "9f9aefcef8a4c8778b351bc0d3a4e0ae20665937931a07c9afd27d843d1e0b06",
+      "atom_id": "CA-D-657",
+      "version": 5
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax@2.md",
+      "sha256": "89946951e721f190ba720d69a5be70fb4be59b985dd197888b63f830bfcfdb09",
+      "atom_id": "CA-D-657",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax@3.md",
+      "sha256": "b11e8b9d3323d8b10d8632a2495ef44c75e9528d4fd03df5e043fab2aef8f65b",
+      "atom_id": "CA-D-657",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax@4.md",
+      "sha256": "e29f22e01381bd5f03f64eb9617d457e3c624491ca1c9e3fcf093711b1d37356",
+      "atom_id": "CA-D-657",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "7d35a7ead39a8eeae5a11c8828ccf4e275badfcf197ac17175eaee2e8ff3779c",
+      "atom_id": "CA-E-622",
+      "version": 53
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "b55c07bc7c7bf016e4cddb7214eab5174e4d2ff2f9e77283707512a9380a0d38",
+      "atom_id": "CA-E-622",
+      "version": 53
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/staged/323-CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "9d6f505d3e6d2234209e01f1c695e0c0da5fa11d95909fa46ab1eb3fdf097712",
+      "atom_id": "CA-E-622",
+      "version": 53
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "7d35a7ead39a8eeae5a11c8828ccf4e275badfcf197ac17175eaee2e8ff3779c",
+      "atom_id": "CA-E-622",
+      "version": 53
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0079-CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "8d912b3b26590beb4c4c44da5bf81718f57019c2ad3442527fbae5d9dd7309af",
+      "atom_id": "CA-E-622",
+      "version": 52
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0083-CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "a2169f7a351548133394626c0d98ddc1d7f8b185db8d2b89b54e69e890835a0a",
+      "atom_id": "CA-E-622",
+      "version": 51
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0081-CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "eb4d468430b2e518d6f5c3487874e42afccd8ec0a2b6cf32c72acd4e4484e137",
+      "atom_id": "CA-E-622",
+      "version": 51
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations@3.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2709\nref_id: CA-R-2709\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Relations\ntier: 3\nstatus: Active\nversion: 3\nupdated_at: 2026-11-05 22:47:24 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nDeclare Atom.Header.Relations\n\n## Claim\n\n### Prose Claim\n\nEach child name is the canonical name of a declared Relation, and each child has one or more base Atom ID values. A present Relations group has at least one child.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Relations{::0..1} :: []{::0};\n\nAtom.Header.Relations.*[string]{::1+};\n\nAtom.Header.Relations.* :: [string]{::1+}\n```\n",
+      "after_sha256": "ad65fadd59fe5141664de09b95637e376fe8e50a175e1246dd3358758e9e059e",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "before": "---\natom_id: CA-R-2709\nref_id: CA-R-2709\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Relations\ntier: 3\nstatus: Active\nversion: 3\nupdated_at: 2026-11-05 22:47:24 +0400\ncarrier_destination:\n  file:\n    name: CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nDeclare Atom.Header.Relations\n\n## Claim\n\n### Prose Claim\n\nEach child name is the canonical name of a declared Relation, and each child has one or more base Atom ID values. A present Relations group has at least one child.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Relations{::0..1} :: []{::0};\n\nAtom.Header.Relations.*[string]{::1+};\n\nAtom.Header.Relations.* :: [string]{::1+}\n```\n",
+      "before_sha256": "ad65fadd59fe5141664de09b95637e376fe8e50a175e1246dd3358758e9e059e",
+      "after": "---\natom_id: CA-R-2709\nref_id: CA-R-2709\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Relations\ntier: 3\nstatus: Active\nversion: 4\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nDeclare Atom.Header.Relations\n\n## Claim\n\n### Prose Claim\n\nEach child name is the canonical name of a declared Relation. Each child has one or more base Atom ID values, except REPLACEMENT_FOR.\n\nREPLACEMENT_FOR stores exact predecessor references as `<Atom ID>@<Version>`, with a positive integer Version. This encoding applies while the predecessor is Current and after it becomes Archived. The replacement Atom owns the stored Relation. Other Relation children retain base Atom ID values.\n\nA present Relations group has at least one child.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom.Header.Relations{::0..1} :: []{::0};\n\nAtom.Header.Relations.*[string]{::1+};\n\nAtom.Header.Relations.* :: [string]{::1+}\n```\n",
+      "after_sha256": "1cd70a75b06e911018e29a714abae1dc21219babd14345d32d09838bdc937603",
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom@10.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-2508\nref_id: CA-R-2508\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\ntier: 3\nstatus: Active\nversion: 10\nupdated_at: \"2026-11-07 15:18:44 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Prose Claim\n\nEach Atom instance has exactly one outgoing HAS_ACTIVE_SUBJECT link. Its target is the declared entity or instance resolved from Header.Topics.Main Subject. An unresolved Subject is a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\nEach Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Container.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{::2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom {::1}((IS_CONTAINED_BY));\n\nAtom//$atom {::1}((HAS_ACTIVE_SUBJECT));\n\nAtom//$atom {::0..1}((GOVERNS));\n\nAtom//$atom {::0+}((CONTRIBUTES_TO));\n\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "after_sha256": "2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d",
+      "before_mode": null,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "before": "---\natom_id: CA-R-2508\nref_id: CA-R-2508\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\ntier: 3\nstatus: Active\nversion: 10\nupdated_at: \"2026-11-07 15:18:44 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Prose Claim\n\nEach Atom instance has exactly one outgoing HAS_ACTIVE_SUBJECT link. Its target is the declared entity or instance resolved from Header.Topics.Main Subject. An unresolved Subject is a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\nEach Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Container.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{::2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom {::1}((IS_CONTAINED_BY));\n\nAtom//$atom {::1}((HAS_ACTIVE_SUBJECT));\n\nAtom//$atom {::0..1}((GOVERNS));\n\nAtom//$atom {::0+}((CONTRIBUTES_TO));\n\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "before_sha256": "2a73d610f76ef135c38f3cc20cf7f081342e76e9e62cf18ef1015429bc25748d",
+      "after": "---\natom_id: CA-R-2508\nref_id: CA-R-2508\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\ntier: 3\nstatus: Active\nversion: 11\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDeclare Atom\n\n## Claim\n\n### Prose Claim\n\nEach Atom instance has exactly one outgoing HAS_ACTIVE_SUBJECT link. Its target is the declared entity or instance resolved from Header.Topics.Main Subject. An unresolved Subject is a diagnostic.\n\nFor each Atom instance, the outgoing GOVERNS Relation has cardinality 0..1 and targets only the canonical Subject the Atom governs through its applicable content. These are separate named outgoing permissions and do not grant an inverse or another Relation. The target-omitted bounds count each Atom\u2019s outgoing links within each Relation Declaration\u2019s admissible endpoint domain; they do not create links.\n\nEach Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance or Scope Unit instance selected by its Header.Container.\n\n### Formal Claim\n\n```CFEL\n# model\nAtom;\n\nAtom.*[string,in(Header,Content)]{::2};\n\nAtom ((NARROWER_THAN)) Continuant;\n\n# instances\nAtom//$atom {::1}((IS_CONTAINED_BY));\n\nAtom//$atom {::1}((HAS_ACTIVE_SUBJECT));\n\nAtom//$atom {::0..1}((GOVERNS));\n\nAtom//$atom {::0+}((CONTRIBUTES_TO));\n\nAtom//$atom {::0+}((REPLACEMENT_FOR));\n\nUNIQUE(Atom//$atom, (.Header.ID, .Header.Version));\n```\n\n## Semantics\n\nAn Atom is the smallest independently governed Object.\n",
+      "after_sha256": "7670aa228bf8041bf1d221037e447e905239637bfe085201acc88be36f62c768",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal@34.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-807\nref_id: CA-R-807\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation\ntier: 1\nstatus: Active\nversion: 34\nupdated_at: 2026-11-02 19:44:26 +0400\ncarrier_destination:\n  file:\n    name: CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nRecord replacement transitions in the Journal\n\n## Claim\n\n### Prose Claim\n\n\nreplacement **or** absorption history.\n\n\nreplacement **or** absorption history **must** be recorded **only** **in** the authoritative Journal event that archives the predecessor. the authoritative Journal event that archives the predecessor **must** name the explicit predecessor Atom ID **and** **`>=1`** already active successor Atom IDs. active current-state Atom relations **must not** carry replacement history. formal `replaced_by` **and** `replacement_of` relation realization **must** remain deferred, **and** **any** later replacement navigation **must** be derived from immutable Journal **and** archive history under separately admitted authority.\n",
+      "after_sha256": "aa0c89c55a00d666662bcf3440b251c62d31b7059105822f2a88f098a2971532",
+      "before_mode": null,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "before": "---\natom_id: CA-R-807\nref_id: CA-R-807\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation\ntier: 1\nstatus: Active\nversion: 34\nupdated_at: 2026-11-02 19:44:26 +0400\ncarrier_destination:\n  file:\n    name: CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nRecord replacement transitions in the Journal\n\n## Claim\n\n### Prose Claim\n\n\nreplacement **or** absorption history.\n\n\nreplacement **or** absorption history **must** be recorded **only** **in** the authoritative Journal event that archives the predecessor. the authoritative Journal event that archives the predecessor **must** name the explicit predecessor Atom ID **and** **`>=1`** already active successor Atom IDs. active current-state Atom relations **must not** carry replacement history. formal `replaced_by` **and** `replacement_of` relation realization **must** remain deferred, **and** **any** later replacement navigation **must** be derived from immutable Journal **and** archive history under separately admitted authority.\n",
+      "before_sha256": "aa0c89c55a00d666662bcf3440b251c62d31b7059105822f2a88f098a2971532",
+      "after": "---\natom_id: CA-R-807\nref_id: CA-R-807\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation\ntier: 1\nstatus: Active\nversion: 35\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nRecord replacement transitions in the Journal\n\n## Claim\n\n### Prose Claim\n\nThe authoritative Journal event that archives a predecessor records its identity and one or more already Current successor Atom IDs.\n\nREPLACEMENT_FOR records the replacement Atom's exact predecessor links before and after adoption. A Draft link records proposed replacement. The Journal records the completed replacement or absorption transition.\n",
+      "after_sha256": "341c95167de583e3b87d0aadb8dde878c50e51a86e6339b7ab24008b5060061c",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived/CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time@35.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-366\nref_id: CA-R-366\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\n  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At\ntier: 3\nstatus: Active\nversion: 35\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nReference exact Atom Revisions by version and time\n\n## Claim\n\n### Prose Claim\n\n\nexact Atom Revision references.\n\n\n**every** exact Atom Revision reference **must** identify Atom identity, Version, **and** Updated At.\n",
+      "after_sha256": "c2ab4d57216130aac1210c8df479336da8ee82acbcda92a6d7c081ad90c4b628",
+      "before_mode": null,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md",
+      "before": "---\natom_id: CA-R-366\nref_id: CA-R-366\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\n  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At\ntier: 3\nstatus: Active\nversion: 35\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nReference exact Atom Revisions by version and time\n\n## Claim\n\n### Prose Claim\n\n\nexact Atom Revision references.\n\n\n**every** exact Atom Revision reference **must** identify Atom identity, Version, **and** Updated At.\n",
+      "before_sha256": "c2ab4d57216130aac1210c8df479336da8ee82acbcda92a6d7c081ad90c4b628",
+      "after": "---\natom_id: CA-R-366\nref_id: CA-R-366\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\n  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At\ntier: 3\nstatus: Active\nversion: 36\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nReference exact Atom Revisions by version and time\n\n## Claim\n\n### Prose Claim\n\n\nexact Atom Revision references.\n\n\nEvery exact Atom Revision reference identifies Atom identity, Version and Updated At. REPLACEMENT_FOR is the sole Relation exception: its target identifies Atom ID and Version as `<Atom ID>@<Version>`.\n",
+      "after_sha256": "9c6c3109b4c07a626be3ec3e6c89fbd83846e989a45ce7a75840140bbfca7236",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations@33.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-1690\nref_id: CA-R-1690\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Governance Origin\ntier: 1\nstatus: Active\nversion: 33\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nPreserve external boundary obligations\n\n## Claim\n\n### Prose Claim\n\n\nidentified external obligations.\n\n\nan Operator-accepted DDL, file schema, API, protocol, host format, supported-platform interface, CI interface, dependency boundary, **or** comparable external obligation is represented by its primary semantic contribution **and** external Governance Origin.\n\n- Content Role follows the Claim's primary contribution under CA-R-1531@20, independently of Governance Origin under CA-R-1701. an external origin does **not** by itself assign Requirement **or** **any** other Content Role.\n- an obligation imposed by an identified external source retains external Governance Origin **and** pins the applicable source version **or** digest. its graph connections use typed Relations whose Carrier encoding is governed by CA-D-268; these Relations do **not** create another Governance Origin.\n- Implementation **must** conform **to** the exact accepted obligation Revision it consumes **and** **must not** rewrite that obligation. a changed external source creates a new accepted Revision **when** the same obligation remains identifiable. a different obligation requires a new Atom **and** explicit predecessor **and** successor Atom IDs **in** the predecessor's archival Journal event, **not** a formal replacement Relation.\n- existing Implementations remain bound **to** their consumed Revisions **until** lineage-impact review determines their disposition.\n\nRequirement authority defines the external boundary **and** admitted Type values. Delivery authority governs Carrier names, identities, **and** Catalog representations. this separation does **not** reclassify those Carrier specifications as Requirements because their source is external.\n",
+      "after_sha256": "a352e5067edc34f9d2bd20f51bfdd5efc1340cb0e521fa13ddf43cfc31b7a078",
+      "before_mode": null,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "before": "---\natom_id: CA-R-1690\nref_id: CA-R-1690\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Governance Origin\ntier: 1\nstatus: Active\nversion: 33\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nPreserve external boundary obligations\n\n## Claim\n\n### Prose Claim\n\n\nidentified external obligations.\n\n\nan Operator-accepted DDL, file schema, API, protocol, host format, supported-platform interface, CI interface, dependency boundary, **or** comparable external obligation is represented by its primary semantic contribution **and** external Governance Origin.\n\n- Content Role follows the Claim's primary contribution under CA-R-1531@20, independently of Governance Origin under CA-R-1701. an external origin does **not** by itself assign Requirement **or** **any** other Content Role.\n- an obligation imposed by an identified external source retains external Governance Origin **and** pins the applicable source version **or** digest. its graph connections use typed Relations whose Carrier encoding is governed by CA-D-268; these Relations do **not** create another Governance Origin.\n- Implementation **must** conform **to** the exact accepted obligation Revision it consumes **and** **must not** rewrite that obligation. a changed external source creates a new accepted Revision **when** the same obligation remains identifiable. a different obligation requires a new Atom **and** explicit predecessor **and** successor Atom IDs **in** the predecessor's archival Journal event, **not** a formal replacement Relation.\n- existing Implementations remain bound **to** their consumed Revisions **until** lineage-impact review determines their disposition.\n\nRequirement authority defines the external boundary **and** admitted Type values. Delivery authority governs Carrier names, identities, **and** Catalog representations. this separation does **not** reclassify those Carrier specifications as Requirements because their source is external.\n",
+      "before_sha256": "a352e5067edc34f9d2bd20f51bfdd5efc1340cb0e521fa13ddf43cfc31b7a078",
+      "after": "---\natom_id: CA-R-1690\nref_id: CA-R-1690\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Rule\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Governance Origin\ntier: 1\nstatus: Active\nversion: 34\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nPreserve external boundary obligations\n\n## Claim\n\n### Prose Claim\n\n\nidentified external obligations.\n\n\nan Operator-accepted DDL, file schema, API, protocol, host format, supported-platform interface, CI interface, dependency boundary, **or** comparable external obligation is represented by its primary semantic contribution **and** external Governance Origin.\n\n- Content Role follows the Claim's primary contribution under CA-R-1531@20, independently of Governance Origin under CA-R-1701. an external origin does **not** by itself assign Requirement **or** **any** other Content Role.\n- an obligation imposed by an identified external source retains external Governance Origin **and** pins the applicable source version **or** digest. its graph connections use typed Relations whose Carrier encoding is governed by CA-D-268; these Relations do **not** create another Governance Origin.\n- Implementation **must** conform **to** the exact accepted obligation Revision it consumes **and** **must not** rewrite that obligation. a changed external source creates a new accepted Revision **when** the same obligation remains identifiable. a different obligation requires a new Atom **and** explicit predecessor **and** successor Atom IDs **in** the predecessor's archival Journal event; the successor records REPLACEMENT_FOR to the exact predecessor Version.\n- existing Implementations remain bound **to** their consumed Revisions **until** lineage-impact review determines their disposition.\n\nRequirement authority defines the external boundary **and** admitted Type values. Delivery authority governs Carrier names, identities, **and** Catalog representations. this separation does **not** reclassify those Carrier specifications as Requirements because their source is external.\n",
+      "after_sha256": "4e68d1298918ddf9f0e12454863a3d10af5d87beefa4a9021a92421f58044d23",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax@6.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-657\nref_id: CA-D-657\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Actor\ntier: 3\nstatus: Active\nversion: 6\nupdated_at: 2026-11-05 22:47:24 +0400\ncarrier_destination:\n  file:\n    name: CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nYAML Frontmatter encodes Atom Properties with minimal syntax\n\n## Claim\n\n### Prose Claim\n\n\nYAML frontmatter of Markdown Atom carriers.\n\n\nEncode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.\n\nSerialize Header keys in the declared Property order, omitting absent optional Properties. Place other admitted Header Properties after the ordered base Properties, with no required order among them. A present Property has a value or, for a group, nonempty children; omit optional empty Properties.\n\nFor Markdown Atom carriers:\n\n- Encode Role and Form as `role` and `form`, each exactly one nonempty string from the applicable domain.\n- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.\n- Encode Topics under `topics` using the Topics serialization rule. Encode direct Node-instance Relation facts under optional `relations`; each canonical Relation name maps to a nonempty YAML sequence of base Atom IDs. A scalar or empty sequence is invalid; omit the group when it has no children. Do not author inverse facts separately.\n- Do not encode an Atom Author. Event authorship is governed by the Event Record model.\n- Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.\n- Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.\n\nLegacy `content_role`, `type`, `subjects.governs` and `subjects.depends_on` remain readable during migration. Conflicting old and new names for the same Property are invalid in any carrier; equal pairs are readable during transition and do not create duplicate logical values. Compatibility does not make the old names canonical in the migrated model.\n\n## Details\n\nThe remaining applicable Status, Version, identity, Tier, Label, Summary, conditional-field, Projection, Draft identity and reference constraints remain governed by their own sources. A generated Projection is not an authored source. A new field requires its own applicable authority. Summary and Claim remain body Properties, not frontmatter copies.\n\n### Conditional fields and expansion\n\n- A Plan Header AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value as the top-level integer frontmatter field `ai_agent_confidence_threshold`; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.\n- `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. Additional Plan, Operations, proof, **or** other Role-specific fields require an applicable Property Declaration and Delivery encoding; their occurrence **in** old Carriers does **not** admit them.\n- The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.\n- A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.\n- Apply explicitly governed migration exceptions **only** within their declared boundary. legacy presence alone is **not** an exception; retired fields under the canonical Property location rules remain rejected.\n\n### Subjects-only edit-draft exception\n\nThe explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `atom_id: <canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `atom_id: <canonical-ID>@draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry exactly one Atom ID; marker and filename rules remain governed by the Draft ID marker and Draft filename marker rules. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.\n",
+      "after_sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830",
+      "before_mode": null,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "before": "---\natom_id: CA-D-657\nref_id: CA-D-657\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Actor\ntier: 3\nstatus: Active\nversion: 6\nupdated_at: 2026-11-05 22:47:24 +0400\ncarrier_destination:\n  file:\n    name: CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nYAML Frontmatter encodes Atom Properties with minimal syntax\n\n## Claim\n\n### Prose Claim\n\n\nYAML frontmatter of Markdown Atom carriers.\n\n\nEncode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.\n\nSerialize Header keys in the declared Property order, omitting absent optional Properties. Place other admitted Header Properties after the ordered base Properties, with no required order among them. A present Property has a value or, for a group, nonempty children; omit optional empty Properties.\n\nFor Markdown Atom carriers:\n\n- Encode Role and Form as `role` and `form`, each exactly one nonempty string from the applicable domain.\n- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.\n- Encode Topics under `topics` using the Topics serialization rule. Encode direct Node-instance Relation facts under optional `relations`; each canonical Relation name maps to a nonempty YAML sequence of base Atom IDs. A scalar or empty sequence is invalid; omit the group when it has no children. Do not author inverse facts separately.\n- Do not encode an Atom Author. Event authorship is governed by the Event Record model.\n- Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.\n- Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.\n\nLegacy `content_role`, `type`, `subjects.governs` and `subjects.depends_on` remain readable during migration. Conflicting old and new names for the same Property are invalid in any carrier; equal pairs are readable during transition and do not create duplicate logical values. Compatibility does not make the old names canonical in the migrated model.\n\n## Details\n\nThe remaining applicable Status, Version, identity, Tier, Label, Summary, conditional-field, Projection, Draft identity and reference constraints remain governed by their own sources. A generated Projection is not an authored source. A new field requires its own applicable authority. Summary and Claim remain body Properties, not frontmatter copies.\n\n### Conditional fields and expansion\n\n- A Plan Header AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value as the top-level integer frontmatter field `ai_agent_confidence_threshold`; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.\n- `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. Additional Plan, Operations, proof, **or** other Role-specific fields require an applicable Property Declaration and Delivery encoding; their occurrence **in** old Carriers does **not** admit them.\n- The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.\n- A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.\n- Apply explicitly governed migration exceptions **only** within their declared boundary. legacy presence alone is **not** an exception; retired fields under the canonical Property location rules remain rejected.\n\n### Subjects-only edit-draft exception\n\nThe explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `atom_id: <canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `atom_id: <canonical-ID>@draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry exactly one Atom ID; marker and filename rules remain governed by the Draft ID marker and Draft filename marker rules. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.\n",
+      "before_sha256": "f0feb98ead15990e4d8f3528f8fc6a181625812465a300e037e07e34576bb830",
+      "after": "---\natom_id: CA-D-657\nref_id: CA-D-657\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator\n  - CAPRMEDIO_MODEL <+ Scope Unit\n  - CAPRMEDIO_MODEL <+ Actor\ntier: 3\nstatus: Active\nversion: 7\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nYAML Frontmatter encodes Atom Properties with minimal syntax\n\n## Claim\n\n### Prose Claim\n\n\nYAML frontmatter of Markdown Atom carriers.\n\n\nEncode each key once and use a YAML sequence for multiple values. Use a nonempty string for each required string; null and collections do not satisfy a scalar requirement. Integers exclude booleans.\n\nSerialize Header keys in the declared Property order, omitting absent optional Properties. Place other admitted Header Properties after the ordered base Properties, with no required order among them. A present Property has a value or, for a group, nonempty children; omit optional empty Properties.\n\nFor Markdown Atom carriers:\n\n- Encode Role and Form as `role` and `form`, each exactly one nonempty string from the applicable domain.\n- Encode identity, Ref ID, Version, Status, Updated At and Tier as `atom_id`, `ref_id`, `version`, `status`, `updated_at` and `tier`. Apply their respective Property rules. An optional Label uses `label`; do not duplicate Summary or Claim in frontmatter.\n- Encode Topics under `topics` using the Topics serialization rule. Encode direct Node-instance Relation facts under optional `relations`; each canonical Relation name maps to a nonempty YAML sequence of base Atom IDs, except REPLACEMENT_FOR, whose sequence contains exact `<Atom ID>@<Version>` predecessor references. A scalar or empty sequence is invalid; omit the group when it has no children. Do not author inverse facts separately.\n- Do not encode an Atom Author. Event authorship is governed by the Event Record model.\n- Derive Target Scope Unit from the active Subject using the applicable model authority. During carrier migration, `current_scope_unit` and `claim_target_scope_unit`, if present, are legacy compatibility data; they do not establish Atom Properties or override the resolved Scope. Their retention, removal and consistency validation require the selected migration's explicit disposition. Do not infer a target from the carrier directory or use either field as an unverified fallback.\n- Place an ordinary RMED Claim in `## Claim` as a container with no direct value. It has one or both `### Formal Claim` and `### Prose Claim` children with unique names. Each child has zero or one direct Markdown value; a Formal Claim value contains a CFEL-labelled code fence. Headings inside a Prose Claim value are not Properties unless an applicable Declaration admits them.\n\nLegacy `content_role`, `type`, `subjects.governs` and `subjects.depends_on` remain readable during migration. Conflicting old and new names for the same Property are invalid in any carrier; equal pairs are readable during transition and do not create duplicate logical values. Compatibility does not make the old names canonical in the migrated model.\n\n## Details\n\nThe remaining applicable Status, Version, identity, Tier, Label, Summary, conditional-field, Projection, Draft identity and reference constraints remain governed by their own sources. A generated Projection is not an authored source. A new field requires its own applicable authority. Summary and Claim remain body Properties, not frontmatter copies.\n\n### Conditional fields and expansion\n\n- A Plan Header AI Agent Confidence Threshold has zero or one integer values. Encode an explicit value as the top-level integer frontmatter field `ai_agent_confidence_threshold`; an unselected override remains omitted, and self-sufficiency does **not** copy an inherited value. A Plan Header has no Implementation Retry Limit Property; the retry limit is governed by the Workflow.\n- `priority` follows the applicable Concern Priority authority for Concern Atoms **only**. Additional Plan, Operations, proof, **or** other Role-specific fields require an applicable Property Declaration and Delivery encoding; their occurrence **in** old Carriers does **not** admit them.\n- The generated `projection` block is admitted **only** **in** a projected representation under the projection source-binding encoding, with **only** its defined `source_carrier_path` String. It is **not** an authored source Atom Property.\n- A new field **or** nested key requires applicable authority that settles its canonical location, value type, cardinality, admission condition, **and** permitted values **or** reference resolution. unadmitted fields are invalid; an admitted Property with an unsettled encoding is a schema gap, **not** permission **to** guess **or** report full conformance.\n- Apply explicitly governed migration exceptions **only** within their declared boundary. legacy presence alone is **not** an exception; retired fields under the canonical Property location rules remain rejected.\n\n### Subjects-only edit-draft exception\n\nThe explicit source-pinned Subjects-only edit draft is a derived proposed next Revision of an existing Atom, not a new Atom Draft or another canonical original. It may carry `atom_id: <canonical-ID>@<proposed-version>-draft` (preferred) or the compatible `atom_id: <canonical-ID>@draft`, `status: Draft`, and a matching Draft-marker filename in the owning role's `draft/` folder while the exact canonical source remains untouched. The reviewed packet retains the canonical target/source pin and exact draft path/digest for that specific proposed edit. Approval restores the canonical ID and original Status, independently validates normalized Subjects-only materialization, and uses the existing exact predecessor archive plus N+1/actual-time update. Staging and publication require no retained Draft-history entry, `revision_lineage`, unique Draft head, origin chain or consuming successor. New-Atom Drafts and ordinary lifecycle Drafts carry exactly one Atom ID; marker and filename rules remain governed by the Draft ID marker and Draft filename marker rules. Canonical ID grammar and the normal source, schema, identity/collision, permission and exact actual-history safeguards are unchanged.\n",
+      "after_sha256": "e1cb049a403cfcdb023fd0cd8ada9bf470948e9cf8a4ea4797681fd703b3033d",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/archived/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity@53.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-E-622\nref_id: CA-E-622\ncontainer:\n  scope_unit: CA-SU-11\nrole: Evaluation\nform: Eval Case\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ Journal\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)\n  - CAPRMEDIO_MODEL <+ Projection\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability\ntier: 4\nrelations:\n  evaluation_for:\n  - CA-R-806\n  - CA-R-1246\n  - CA-R-1437\n  - CA-R-1472\n  - CA-M-120\n  - CA-R-1676\n  - CA-R-1580\n  - CA-R-807\n  - CA-D-268\n  - CA-R-1040\n  - CA-D-483\n  - CA-D-466\nstatus: Active\nversion: 53\nupdated_at: 2026-11-02 18:35:20 +0400\ncarrier_destination:\n  file:\n    name: CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nCanonical relation validity\n\n## Claim\n\n### Prose Claim\n\n\n- admit **`=1`** valid example of each selected known Relation Type under its defining Claim; evaluate any applicable Entity Definition constraints without inventing a default.\n- reject an unknown Relation Type; report missing or conflicting Rule evidence as unresolved only when an existing source contract requires that evidence, without treating every known Type as requiring a new Rule.\n- reject a Relation that violates endpoint or cardinality constraints in an applicable Graph Rule; do not choose default-allow/default-deny when such evidence is absent.\n- resolve **every** target **to** **`=1`** addressable identity under its relation rules; reject missing **or** ambiguous targets.\n- reject a non-Active RMED target of a direct Relation authored by an Active RMED Atom; read target Status from its own Markdown frontmatter under CA-D-483 **and** check lifecycle placement under CA-D-466. this Active-target restriction applies **only** **when** the source is Active **and** both source **and** target have Content Role **in** (Requirement, Method, Evaluation, Delivery). a source **or** target outside that boundary **must not** fail because of this restriction alone; its own applicable Relation constraints still apply.\n- accept `A BLOCKS B` with Done Plan `A`; confirm that Backlog, Active, Canceled, **or** Archived blockers do **not** satisfy the Done start gate for `B`.\n- confirm that an Archived target remains addressable as history **without** becoming Active authority.\n- confirm that **every** independently authored direct Relation is persisted **only** **in** its registered declaration Carrier **and** that **every** inverse remains derived; validate a computed Relation against its admitted derivation authority **and** input facts **without** requiring an invented source declaration.\n- confirm that replacement **and** absorption history uses explicit predecessor **and** successor identities **in** Journal events, **not** formal replacement relation payloads **in** active Atom frontmatter.\n- accept valid uses of one shared Relation Type in multiple graph contexts while preserving each context's applicable governing constraint evidence and existing admission semantics; do not invent a new per-context Rule.\n- reject a missing or conflicting defining Relation Type Claim under CA-R-806; report missing or conflicting governing constraint evidence only where an existing source contract requires it, without creating a new per-Type Rule gate.\n- evaluate the same Relation Type in different graph contexts against any applicable governing constraint evidence and existing admission semantics; an external endpoint or source reference does not itself create a native edge, and no default is invented when Rule evidence is absent.\n- reject an invalid source class **and** an invalid target class independently while retaining the applicable governing constraint context and other constraints.\n- reject duplicate or conflicting definitions of one project-unique Relation Type name; resolve the shared Type by its canonical name and defining Claim rather than by a graph-qualified copy.\n- reject instance-specific redefinitions of a project-shared Relation Type or of a governing constraint's admission semantics.\n- accept a source-traceable reference **or** derived graph view of a Relation fact; reject another independently maintained source declaration of the same fact **or** admission of a foreign Relation Type as native through that view.\n- when a non-authoritative registry Projection is compiled, require it to preserve defining source traceability, canonical name, meaning and any declared direction/inverse/derivation/transitivity **without** inventing Type metadata or copying Entity Definition constraints into it.\n\n- accept an admitted native Relation between nodes **in** the same secondary graph.\n- accept an admitted typed reference **to** another secondary graph **or** its node while preserving endpoint identity **and** graph context.\n- accept an admitted typed reference **to** a source Atom **without** making that Atom a native Term **or** other wrongly classified node.\n- reject a cross-graph endpoint that violates an applicable Graph Rule's class **or** graph-context constraint, **even** **when** both endpoints exist; retain missing constraint evidence as unresolved without choosing default allow or default deny.\n- reject loss of any applicable governing constraint context, silent foreign-node import, **or** a projected Relation treated as independently authored authority; absence of a newly invented Rule is not itself a failure.\n- accept a source-traceable derived Relation **without** its own direct source declaration **only** **when** the governing Relation authority admits that derivation; reject its use **to** bypass an explicit-declaration requirement.\n\n\n**every** known Relation Type accepts valid examples under its defining Claim; any applicable Entity Definition constraint supplies additional source/target, cardinality, lifecycle, or other constraints. reject unknown Types and violations of explicit applicable constraints, while retaining missing or conflicting constraint evidence as unresolved without choosing default allow or default deny.\n\n## Details\n\n### Acceptance criteria\n\n**all** valid fixtures pass **and** **every** invalid fixture fails with the exact Relation Type, governing constraint context, metadata conflict, source declaration, endpoint, lifecycle restriction, **or** declaration Carrier identified.\n\n### Failure disposition\n\nrecord a Concern naming the affected Relation Type **and** violated authority **and** stop relation-schema readiness.\n",
+      "after_sha256": "7d35a7ead39a8eeae5a11c8828ccf4e275badfcf197ac17175eaee2e8ff3779c",
+      "before_mode": null,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "before": "---\natom_id: CA-E-622\nref_id: CA-E-622\ncontainer:\n  scope_unit: CA-SU-11\nrole: Evaluation\nform: Eval Case\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ Journal\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)\n  - CAPRMEDIO_MODEL <+ Projection\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability\ntier: 4\nrelations:\n  evaluation_for:\n  - CA-R-806\n  - CA-R-1246\n  - CA-R-1437\n  - CA-R-1472\n  - CA-M-120\n  - CA-R-1676\n  - CA-R-1580\n  - CA-R-807\n  - CA-D-268\n  - CA-R-1040\n  - CA-D-483\n  - CA-D-466\nstatus: Active\nversion: 53\nupdated_at: 2026-11-02 18:35:20 +0400\ncarrier_destination:\n  file:\n    name: CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nCanonical relation validity\n\n## Claim\n\n### Prose Claim\n\n\n- admit **`=1`** valid example of each selected known Relation Type under its defining Claim; evaluate any applicable Entity Definition constraints without inventing a default.\n- reject an unknown Relation Type; report missing or conflicting Rule evidence as unresolved only when an existing source contract requires that evidence, without treating every known Type as requiring a new Rule.\n- reject a Relation that violates endpoint or cardinality constraints in an applicable Graph Rule; do not choose default-allow/default-deny when such evidence is absent.\n- resolve **every** target **to** **`=1`** addressable identity under its relation rules; reject missing **or** ambiguous targets.\n- reject a non-Active RMED target of a direct Relation authored by an Active RMED Atom; read target Status from its own Markdown frontmatter under CA-D-483 **and** check lifecycle placement under CA-D-466. this Active-target restriction applies **only** **when** the source is Active **and** both source **and** target have Content Role **in** (Requirement, Method, Evaluation, Delivery). a source **or** target outside that boundary **must not** fail because of this restriction alone; its own applicable Relation constraints still apply.\n- accept `A BLOCKS B` with Done Plan `A`; confirm that Backlog, Active, Canceled, **or** Archived blockers do **not** satisfy the Done start gate for `B`.\n- confirm that an Archived target remains addressable as history **without** becoming Active authority.\n- confirm that **every** independently authored direct Relation is persisted **only** **in** its registered declaration Carrier **and** that **every** inverse remains derived; validate a computed Relation against its admitted derivation authority **and** input facts **without** requiring an invented source declaration.\n- confirm that replacement **and** absorption history uses explicit predecessor **and** successor identities **in** Journal events, **not** formal replacement relation payloads **in** active Atom frontmatter.\n- accept valid uses of one shared Relation Type in multiple graph contexts while preserving each context's applicable governing constraint evidence and existing admission semantics; do not invent a new per-context Rule.\n- reject a missing or conflicting defining Relation Type Claim under CA-R-806; report missing or conflicting governing constraint evidence only where an existing source contract requires it, without creating a new per-Type Rule gate.\n- evaluate the same Relation Type in different graph contexts against any applicable governing constraint evidence and existing admission semantics; an external endpoint or source reference does not itself create a native edge, and no default is invented when Rule evidence is absent.\n- reject an invalid source class **and** an invalid target class independently while retaining the applicable governing constraint context and other constraints.\n- reject duplicate or conflicting definitions of one project-unique Relation Type name; resolve the shared Type by its canonical name and defining Claim rather than by a graph-qualified copy.\n- reject instance-specific redefinitions of a project-shared Relation Type or of a governing constraint's admission semantics.\n- accept a source-traceable reference **or** derived graph view of a Relation fact; reject another independently maintained source declaration of the same fact **or** admission of a foreign Relation Type as native through that view.\n- when a non-authoritative registry Projection is compiled, require it to preserve defining source traceability, canonical name, meaning and any declared direction/inverse/derivation/transitivity **without** inventing Type metadata or copying Entity Definition constraints into it.\n\n- accept an admitted native Relation between nodes **in** the same secondary graph.\n- accept an admitted typed reference **to** another secondary graph **or** its node while preserving endpoint identity **and** graph context.\n- accept an admitted typed reference **to** a source Atom **without** making that Atom a native Term **or** other wrongly classified node.\n- reject a cross-graph endpoint that violates an applicable Graph Rule's class **or** graph-context constraint, **even** **when** both endpoints exist; retain missing constraint evidence as unresolved without choosing default allow or default deny.\n- reject loss of any applicable governing constraint context, silent foreign-node import, **or** a projected Relation treated as independently authored authority; absence of a newly invented Rule is not itself a failure.\n- accept a source-traceable derived Relation **without** its own direct source declaration **only** **when** the governing Relation authority admits that derivation; reject its use **to** bypass an explicit-declaration requirement.\n\n\n**every** known Relation Type accepts valid examples under its defining Claim; any applicable Entity Definition constraint supplies additional source/target, cardinality, lifecycle, or other constraints. reject unknown Types and violations of explicit applicable constraints, while retaining missing or conflicting constraint evidence as unresolved without choosing default allow or default deny.\n\n## Details\n\n### Acceptance criteria\n\n**all** valid fixtures pass **and** **every** invalid fixture fails with the exact Relation Type, governing constraint context, metadata conflict, source declaration, endpoint, lifecycle restriction, **or** declaration Carrier identified.\n\n### Failure disposition\n\nrecord a Concern naming the affected Relation Type **and** violated authority **and** stop relation-schema readiness.\n",
+      "before_sha256": "7d35a7ead39a8eeae5a11c8828ccf4e275badfcf197ac17175eaee2e8ff3779c",
+      "after": "---\natom_id: CA-E-622\nref_id: CA-E-622\ncontainer:\n  scope_unit: CA-SU-11\nrole: Evaluation\nform: Eval Case\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Status\n  - CAPRMEDIO_MODEL <+ Journal\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)\n  - CAPRMEDIO_MODEL <+ Projection\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability\ntier: 4\nrelations:\n  evaluation_for:\n  - CA-R-806\n  - CA-R-1246\n  - CA-R-1437\n  - CA-R-1472\n  - CA-M-120\n  - CA-R-1676\n  - CA-R-1580\n  - CA-R-807\n  - CA-D-268\n  - CA-R-1040\n  - CA-D-483\n  - CA-D-466\nstatus: Active\nversion: 54\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nCanonical relation validity\n\n## Claim\n\n### Prose Claim\n\n\n- admit **`=1`** valid example of each selected known Relation Type under its defining Claim; evaluate any applicable Entity Definition constraints without inventing a default.\n- reject an unknown Relation Type; report missing or conflicting Rule evidence as unresolved only when an existing source contract requires that evidence, without treating every known Type as requiring a new Rule.\n- reject a Relation that violates endpoint or cardinality constraints in an applicable Graph Rule; do not choose default-allow/default-deny when such evidence is absent.\n- resolve **every** target **to** **`=1`** addressable identity under its relation rules; reject missing **or** ambiguous targets.\n- accept the exact Archived predecessor target of REPLACEMENT_FOR; reject a non-Active RMED target of another direct Relation authored by an Active RMED Atom; read target Status from its own Markdown frontmatter under CA-D-483 **and** check lifecycle placement under CA-D-466. this Active-target restriction applies **only** **when** the source is Active **and** both source **and** target have Content Role **in** (Requirement, Method, Evaluation, Delivery). a source **or** target outside that boundary **must not** fail because of this restriction alone; its own applicable Relation constraints still apply.\n- accept `A BLOCKS B` with Done Plan `A`; confirm that Backlog, Active, Canceled, **or** Archived blockers do **not** satisfy the Done start gate for `B`.\n- confirm that an Archived target remains addressable as history **without** becoming Active authority.\n- confirm that **every** independently authored direct Relation is persisted **only** **in** its registered declaration Carrier **and** that **every** inverse remains derived; validate a computed Relation against its admitted derivation authority **and** input facts **without** requiring an invented source declaration.\n- confirm that completed replacement and absorption transitions retain explicit predecessor and successor identities in Journal events.\n- accept REPLACEMENT_FOR stored on the replacement Atom, with one or more exact `<Atom ID>@<Version>` predecessor targets; accept same-ID revisions and different-ID replacements, including one successor for multiple predecessors.\n- accept proposed links from Drafts to Current predecessors and retained links to the same predecessor Versions after archival; distinguish proposed replacement from completed replacement.\n- reject malformed, missing or ambiguous predecessor Version references; preserve base-ID-only target encoding for every other Header.Relations child.\n- confirm that reverse navigation reads the same stored fact without a second authored predecessor-side Relation.\n- accept valid uses of one shared Relation Type in multiple graph contexts while preserving each context's applicable governing constraint evidence and existing admission semantics; do not invent a new per-context Rule.\n- reject a missing or conflicting defining Relation Type Claim under CA-R-806; report missing or conflicting governing constraint evidence only where an existing source contract requires it, without creating a new per-Type Rule gate.\n- evaluate the same Relation Type in different graph contexts against any applicable governing constraint evidence and existing admission semantics; an external endpoint or source reference does not itself create a native edge, and no default is invented when Rule evidence is absent.\n- reject an invalid source class **and** an invalid target class independently while retaining the applicable governing constraint context and other constraints.\n- reject duplicate or conflicting definitions of one project-unique Relation Type name; resolve the shared Type by its canonical name and defining Claim rather than by a graph-qualified copy.\n- reject instance-specific redefinitions of a project-shared Relation Type or of a governing constraint's admission semantics.\n- accept a source-traceable reference **or** derived graph view of a Relation fact; reject another independently maintained source declaration of the same fact **or** admission of a foreign Relation Type as native through that view.\n- when a non-authoritative registry Projection is compiled, require it to preserve defining source traceability, canonical name, meaning and any declared direction/inverse/derivation/transitivity **without** inventing Type metadata or copying Entity Definition constraints into it.\n\n- accept an admitted native Relation between nodes **in** the same secondary graph.\n- accept an admitted typed reference **to** another secondary graph **or** its node while preserving endpoint identity **and** graph context.\n- accept an admitted typed reference **to** a source Atom **without** making that Atom a native Term **or** other wrongly classified node.\n- reject a cross-graph endpoint that violates an applicable Graph Rule's class **or** graph-context constraint, **even** **when** both endpoints exist; retain missing constraint evidence as unresolved without choosing default allow or default deny.\n- reject loss of any applicable governing constraint context, silent foreign-node import, **or** a projected Relation treated as independently authored authority; absence of a newly invented Rule is not itself a failure.\n- accept a source-traceable derived Relation **without** its own direct source declaration **only** **when** the governing Relation authority admits that derivation; reject its use **to** bypass an explicit-declaration requirement.\n\n\n**every** known Relation Type accepts valid examples under its defining Claim; any applicable Entity Definition constraint supplies additional source/target, cardinality, lifecycle, or other constraints. reject unknown Types and violations of explicit applicable constraints, while retaining missing or conflicting constraint evidence as unresolved without choosing default allow or default deny.\n\n## Details\n\n### Acceptance criteria\n\n**all** valid fixtures pass **and** **every** invalid fixture fails with the exact Relation Type, governing constraint context, metadata conflict, source declaration, endpoint, lifecycle restriction, **or** declaration Carrier identified.\n\n### Failure disposition\n\nrecord a Concern naming the affected Relation Type **and** violated authority **and** stop relation-schema readiness.\n",
+      "after_sha256": "0c700829ef356e3dd7cda06bdffede0bc55773041f3972216cf3bf4d030e2df6",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3011-CORE_META_MODEL-RELATION_DECLARATION--declare-replacement-for.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-R-3011\nref_id: CA-R-3011\ncontainer:\n  scope_unit: CA-SU-11\nrole: Requirement\nform: Relation Declaration\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//REPLACEMENT_FOR\ntier: 3\nstatus: Active\nversion: 1\nupdated_at: \"2026-11-08 15:22:04 +0400\"\ncarrier_destination:\n  file:\n    name: CA-R-3011-CORE_META_MODEL-RELATION_DECLARATION--declare-replacement-for.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement\n---\n\n## Summary\n\nDeclare REPLACEMENT_FOR\n\n## Claim\n\n### Prose Claim\n\nThe Host is a replacement Atom. The Target is an exact predecessor Atom Version distinct from the Host. One replacement can target several predecessors. Same-ID revisions and different-ID replacements use this Relation.\n\nA Draft Host proposes replacement. Its links remain after promotion, including when the predecessor becomes Archived. Completed replacement requires an adopted successor and an Archived predecessor.\n\n### Formal Claim\n\n```CFEL\n# model\nRelation//REPLACEMENT_FOR ((HAS_CLASSIFICATION)) Derivation == Direct;\n\n# instances\n$replacement[<Atom>] ((REPLACEMENT_FOR)) $predecessor[<Atom>]\n```\n\n## Semantics\n\nREPLACEMENT_FOR relates a replacement Atom to the predecessor Atom Version whose contribution it replaces.\n",
+      "after_sha256": "874058a76443f67a657784ea402618bb7340de0bf24fb7e983ae67d558d74295",
+      "before_mode": null,
+      "after_mode": 420
+    }
+  ],
+  "outputs": [
+    {
+      "atom_id": "CA-R-2709",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "version": 4,
+      "sha256": "1cd70a75b06e911018e29a714abae1dc21219babd14345d32d09838bdc937603"
+    },
+    {
+      "atom_id": "CA-R-2508",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md",
+      "version": 11,
+      "sha256": "7670aa228bf8041bf1d221037e447e905239637bfe085201acc88be36f62c768"
+    },
+    {
+      "atom_id": "CA-R-807",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "version": 35,
+      "sha256": "341c95167de583e3b87d0aadb8dde878c50e51a86e6339b7ab24008b5060061c"
+    },
+    {
+      "atom_id": "CA-R-366",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md",
+      "version": 36,
+      "sha256": "9c6c3109b4c07a626be3ec3e6c89fbd83846e989a45ce7a75840140bbfca7236"
+    },
+    {
+      "atom_id": "CA-R-1690",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "version": 34,
+      "sha256": "4e68d1298918ddf9f0e12454863a3d10af5d87beefa4a9021a92421f58044d23"
+    },
+    {
+      "atom_id": "CA-D-657",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "version": 7,
+      "sha256": "e1cb049a403cfcdb023fd0cd8ada9bf470948e9cf8a4ea4797681fd703b3033d"
+    },
+    {
+      "atom_id": "CA-E-622",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "version": 54,
+      "sha256": "0c700829ef356e3dd7cda06bdffede0bc55773041f3972216cf3bf4d030e2df6"
+    },
+    {
+      "atom_id": "CA-R-3011",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3011-CORE_META_MODEL-RELATION_DECLARATION--declare-replacement-for.md",
+      "version": 1,
+      "sha256": "874058a76443f67a657784ea402618bb7340de0bf24fb7e983ae67d558d74295"
+    }
+  ]
+}

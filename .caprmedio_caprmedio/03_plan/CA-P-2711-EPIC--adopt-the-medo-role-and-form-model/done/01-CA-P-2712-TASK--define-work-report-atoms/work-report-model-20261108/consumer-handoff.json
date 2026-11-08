@@ -1,0 +1,21 @@
+{
+  "status": "PREPARED_MODEL_CONTRACT_NOT_IMPLEMENTED",
+  "scope": "native Plan / Work Report authoring and consumer compatibility",
+  "contracts": [
+    "Admit Plan / Work Report as factual execution record for an admitted Plan of Form Plan, within the same scope boundaries.",
+    "Allocate its own P ID; copy target Summary and Container; store exactly one direct IS_WORK_REPORT_FOR target base ID.",
+    "Apply Work Report-specific Summary + Details layout and completion, rather than executable Objective/DoD rules.",
+    "Keep Details Markdown scalar; four report topics and ordinary subheadings do not create new Property nodes.",
+    "Validate target resolution, own ID, copied Summary/Container, reporting Status and actual supporting evidence.",
+    "Preserve ordinary Atom identity/Version/lifecycle and derived destination rules; no new report-specific ID or carrier format.",
+    "Keep P reports outside normative RMEDO selection and keep I / Code Synopsis as actual code description.",
+    "Retain existing Plan labels as navigation; no new Task kind or label-based authoring gate."
+  ],
+  "not_performed": [
+    "Engine or Workbench implementation",
+    "native Work Report creation/admission",
+    "legacy report conversion",
+    "projection rebuild",
+    "app release"
+  ]
+}

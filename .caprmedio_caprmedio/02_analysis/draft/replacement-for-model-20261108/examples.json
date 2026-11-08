@@ -1,0 +1,64 @@
+{
+  "status": "MODEL_REVIEW_CASES_NOT_NATIVE_EXECUTION",
+  "cases": [
+    {
+      "case": "one Draft proposes replacing two different IDs",
+      "source": "CA-R-901@1-draft",
+      "relations": {
+        "REPLACEMENT_FOR": [
+          "CA-R-101@3",
+          "CA-R-102@5"
+        ]
+      },
+      "expected": "admitted replacement intent; predecessors remain Current"
+    },
+    {
+      "case": "successor promoted and predecessors archived",
+      "source": "CA-R-901",
+      "relations": {
+        "REPLACEMENT_FOR": [
+          "CA-R-101@3",
+          "CA-R-102@5"
+        ]
+      },
+      "expected": "same exact predecessor references retained"
+    },
+    {
+      "case": "same-ID later revision",
+      "source": "CA-R-101@4-draft",
+      "relations": {
+        "REPLACEMENT_FOR": [
+          "CA-R-101@3"
+        ]
+      },
+      "expected": "admitted distinct Atom Version target"
+    },
+    {
+      "case": "REPLACEMENT_FOR missing Version",
+      "relations": {
+        "REPLACEMENT_FOR": [
+          "CA-R-101"
+        ]
+      },
+      "expected": "reject missing exact Version"
+    },
+    {
+      "case": "other Relation uses version suffix",
+      "relations": {
+        "SPECIALIZES": [
+          "CA-R-101@3"
+        ]
+      },
+      "expected": "reject under unchanged base-ID-only rule"
+    },
+    {
+      "case": "target version unavailable",
+      "relations": {
+        "REPLACEMENT_FOR": [
+          "CA-R-101@999"
+        ]
+      },
+      "expected": "reject unresolved exact Version"
+    }
+  ]
+}

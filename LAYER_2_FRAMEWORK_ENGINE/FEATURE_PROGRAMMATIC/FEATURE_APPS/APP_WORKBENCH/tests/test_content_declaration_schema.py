@@ -197,6 +197,58 @@ Keep this heading.""",
         )
         self.assertEqual("Expose separately.", values["content.claim.prose_claim.structured_section"])
 
+    def test_generic_property_keeps_undeclared_children_and_separates_declared_child(self) -> None:
+        body = (
+            "## Operation\r\n\r\nPrepare.\r\n\r\n### Action\r\n\r\nRun it.\r\n\r\n"
+            "### Steps\r\n\r\n1. Verify.\r\n"
+        )
+        operation = self.declaration("CA-R-3", "Atom.Content.Operation:: {::1};")
+        declared_action = self.declaration(
+            "CA-R-3",
+            "Atom.Content.Operation:: {::1};\nAtom.Content.Operation.Action:: {::1};",
+        )
+
+        self.assertEqual(
+            {"content.operation": "Prepare.\r\n\r\n### Action\r\n\r\nRun it.\r\n\r\n### Steps\r\n\r\n1. Verify."},
+            content_columns(self.atom("CA-R-4", body=body), compile_content_schema([operation])),
+        )
+        self.assertEqual(
+            {
+                "content.operation": "Prepare.\r\n\r\n### Steps\r\n\r\n1. Verify.",
+                "content.operation.action": "Run it.",
+            },
+            content_columns(self.atom("CA-R-4", body=body), compile_content_schema([declared_action])),
+        )
+
+    def test_generic_property_reconstructs_no_span_public_records(self) -> None:
+        body = "## Operation\r\n\r\nPrepare.\r\n\r\n### Presentation\r\n\r\nKeep it.\r\n"
+        row = self.atom("CA-R-4", body=body)
+        row["content_properties_json"] = parse_content(body)
+        schema = compile_content_schema([
+            self.declaration("CA-R-3", "Atom.Content.Operation:: {::1};"),
+        ])
+
+        self.assertEqual(
+            {"content.operation": "Prepare.\r\n\r\n### Presentation\r\n\r\nKeep it."},
+            content_columns(row, schema),
+        )
+
+    def test_prose_claim_with_only_declared_child_keeps_empty_parent(self) -> None:
+        schema = compile_content_schema([self.declaration(
+            "CA-R-3",
+            "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::1};\n"
+            "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.Structured Section:: {::1};",
+        )])
+        body = "## Claim\r\n\r\n### Prose Claim\r\n\r\n#### Structured Section\r\n\r\nOnly child.\r\n"
+
+        self.assertEqual(
+            {
+                "content.claim.prose_claim": None,
+                "content.claim.prose_claim.structured_section": "Only child.",
+            },
+            content_columns(self.atom("CA-R-4", body=body), schema),
+        )
+
     def test_undeclared_headings_stay_inside_markdown_and_normalized_declared_duplicates_fail(self) -> None:
         declaration = self.declaration("CA-R-5", "Atom.Content.Summary{::1}:: {::1};")
         schema = compile_content_schema([declaration])

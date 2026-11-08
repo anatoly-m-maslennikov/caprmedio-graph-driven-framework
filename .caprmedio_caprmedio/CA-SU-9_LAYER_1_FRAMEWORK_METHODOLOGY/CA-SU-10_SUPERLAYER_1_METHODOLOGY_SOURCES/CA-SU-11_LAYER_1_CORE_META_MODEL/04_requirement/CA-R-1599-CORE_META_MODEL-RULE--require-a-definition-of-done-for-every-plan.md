@@ -6,13 +6,13 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
 tier: 2
 status: Active
-version: 22
-updated_at: 2026-11-02 00:18:22 +0400
+version: 24
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
     name: CA-R-1599-CORE_META_MODEL-RULE--require-a-definition-of-done-for-every-plan.md
@@ -20,6 +20,7 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Require a Definition of Done for every Plan
@@ -29,7 +30,7 @@ Require a Definition of Done for every Plan
 ### Prose Claim
 
 
-Plan Atoms, including Hubs with no own work.
+Plan Atoms other than Work Reports, including Hubs with no own work.
 
 
-**every** Plan Atom **must** have **`=1`** Definition of Done, including a Hub with no own work.
+Every Plan Atom other than a Work Report **must** have **`=1`** Definition of Done, including a Hub with no own work.

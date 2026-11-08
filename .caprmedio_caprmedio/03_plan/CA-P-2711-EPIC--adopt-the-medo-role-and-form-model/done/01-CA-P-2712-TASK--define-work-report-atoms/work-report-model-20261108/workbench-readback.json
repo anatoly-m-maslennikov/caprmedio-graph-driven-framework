@@ -1,0 +1,71 @@
+{
+  "status": "PASS_CURRENT_SOURCE_READBACK",
+  "row_count": 3,
+  "columns": [
+    {
+      "name": "reference",
+      "type": "VARCHAR",
+      "has_values": true
+    },
+    {
+      "name": "header_identity_id",
+      "type": "VARCHAR",
+      "has_values": true
+    },
+    {
+      "name": "header_context_role",
+      "type": "VARCHAR",
+      "has_values": true
+    },
+    {
+      "name": "header_context_form",
+      "type": "VARCHAR",
+      "has_values": true
+    },
+    {
+      "name": "header_state_status",
+      "type": "VARCHAR",
+      "has_values": true
+    },
+    {
+      "name": "header_state_version",
+      "type": "BIGINT",
+      "has_values": true
+    },
+    {
+      "name": "content.summary",
+      "type": "VARCHAR",
+      "has_values": true
+    }
+  ],
+  "rows": [
+    [
+      "CA-E-802",
+      "CA-E-802",
+      "Evaluation",
+      "Eval Case",
+      "Active",
+      2,
+      "Verify Work Report conformance"
+    ],
+    [
+      "CA-R-970308624",
+      "CA-R-970308624",
+      "Requirement",
+      "Declaration",
+      "Active",
+      2,
+      "Declare Work Report Form"
+    ],
+    [
+      "CA-R-970308626",
+      "CA-R-970308626",
+      "Requirement",
+      "Relation Declaration",
+      "Active",
+      2,
+      "Declare IS_WORK_REPORT_FOR"
+    ]
+  ],
+  "note": "query_schema was refreshed; the three new sources use grouped Header metadata, exposed as header_identity_*, header_context_* and header_state_* columns. This is source readback, not native report admission."
+}

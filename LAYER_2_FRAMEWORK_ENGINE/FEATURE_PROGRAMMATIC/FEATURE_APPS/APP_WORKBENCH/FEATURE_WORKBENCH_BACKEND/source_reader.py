@@ -27,7 +27,7 @@ TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-from atom_operations import control_root as configured_control_root  # noqa: E402
+from atom_operations import control_root as configured_control_root, project_identity_prefix  # noqa: E402
 from carrier_aliases import carrier_read_view  # noqa: E402
 from scope_unit_declarations import (  # noqa: E402
     ScopeDeclarationError,
@@ -184,6 +184,7 @@ class SourceReader:
             self._error(self.root, error)
             raise
         self._declarations = declarations
+        self._project_scope_id = f"{project_identity_prefix(self.root).upper()}-SU-00"
         self._declaration_paths = {Path(path).resolve() for path in declarations.paths}
         self._declaration_directories = {self.control_root}
         self._role_directories = set()
@@ -377,10 +378,12 @@ class SourceReader:
 
     def _scopes(self) -> list[dict[str, Any]]:
         assert self._declarations is not None
-        return [
+        rows = [
             source_scope(item, self.root)
             for item in (self._declarations.root, *self._declarations.units)
         ]
+        rows[0]["scope_unit_id"] = self._project_scope_id
+        return rows
 
     def _read_source(
         self, path: Path, signature: tuple[int, ...], reader: ReadContext

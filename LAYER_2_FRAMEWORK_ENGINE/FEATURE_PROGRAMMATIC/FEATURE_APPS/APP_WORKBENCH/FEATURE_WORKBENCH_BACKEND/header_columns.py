@@ -24,7 +24,7 @@ _SEPARATORS = re.compile(r"[\s-]+")
 
 @dataclass(frozen=True)
 class HeaderColumn:
-    """One source-faithful scalar or collection Header leaf."""
+    """One source-faithful Header value."""
 
     path: tuple[str, ...]
     name: str
@@ -139,7 +139,7 @@ def schema_asset_path(database_path: Path | None) -> Path | None:
 
 
 def infer_header_schema(atom_rows: Sequence[Mapping[str, Any]]) -> HeaderSchema:
-    """Return every observed actual Header leaf; relations stay graph materialized."""
+    """Return observed Header columns; relations stay graph materialized."""
     return HeaderSchemaState.from_atoms(atom_rows).schema
 
 
@@ -169,6 +169,8 @@ def _collect_contribution(
         if not path[:-1] and key == "relations":
             continue
         values.append((path, _value_format(item) if item is not None else None, not _empty(item)))
+        if path == ("context", "container"):
+            direct.add(path)
         if isinstance(item, Mapping):
             if item:
                 _collect_contribution(item, values, direct, path)

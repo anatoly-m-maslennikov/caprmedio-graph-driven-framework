@@ -1,0 +1,9 @@
+{
+  "decision": "Use the existing Plan Form to identify reported work; Task is the contextual name, not a new kind or mandatory Label.",
+  "rationale": "Core Plan Labels have no authoring effect. No Task-only Label predicate is introduced. Formal and prose endpoint constraints both require Role Plan and Form Plan.",
+  "changed_drafts": [
+    "CA-R-970308624",
+    "CA-R-970308626",
+    "CA-E-802"
+  ]
+}

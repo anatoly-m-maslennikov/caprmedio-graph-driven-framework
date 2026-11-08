@@ -100,6 +100,32 @@ class HeaderSqlColumnsTests(unittest.TestCase):
             "SELECT header_identity_id FROM atoms WHERE reference = 'CA-R-3'"
         ).fetchone())
 
+    def test_nested_container_is_queryable_as_json_and_as_leaf_columns(self) -> None:
+        rows = [
+            self.atom("A", {"context": {"container": {"scope_unit": "CA-SU-00"}}}),
+            self.atom("B", {"context": {"container": {"atom": "CA-P-1"}}}),
+            self.atom("C", {}),
+        ]
+        self.store.replace(rows, [])
+        self.assertEqual([
+            ('{"scope_unit":"CA-SU-00"}', "CA-SU-00", None),
+            ('{"atom":"CA-P-1"}', None, "CA-P-1"),
+            (None, None, None),
+        ], self.store._connection.execute(
+            "SELECT header_context_container, header_context_container_scope_unit, "
+            "header_context_container_atom FROM atoms ORDER BY reference"
+        ).fetchall())
+        self.assertEqual("CA-SU-00", self.store._connection.execute(
+            "SELECT header_context_container->>'scope_unit' FROM atoms WHERE reference = 'A'"
+        ).fetchone()[0])
+
+        changed = self.atom("A", {"context": {"container": {"scope_unit": "CA-SU-14"}}})
+        self.assertTrue(self.store.apply([changed, *rows[1:]], [], relation_types=set()))
+        self.assertFalse(self.store.schema_changed)
+        self.assertEqual("CA-SU-14", self.store._connection.execute(
+            "SELECT header_context_container->>'scope_unit' FROM atoms WHERE reference = 'A'"
+        ).fetchone()[0])
+
     def test_schema_change_defers_rebuild_but_same_schema_preserves_unaffected_row(self) -> None:
         initial = [
             self.atom("A", {"atom_id": "A", "volatile": "value", "stable": "first", "zero": 0, "enabled": False}),

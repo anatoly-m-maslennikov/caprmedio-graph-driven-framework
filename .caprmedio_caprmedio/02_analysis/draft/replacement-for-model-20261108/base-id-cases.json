@@ -1,0 +1,19 @@
+{
+  "status": "MODEL_REVIEW_CASES_NOT_RUNTIME_TESTS",
+  "valid": {
+    "relations": {
+      "REPLACEMENT_FOR": [
+        "CA-R-101",
+        "CA-R-102"
+      ]
+    }
+  },
+  "invalid": {
+    "relations": {
+      "REPLACEMENT_FOR": [
+        "CA-R-101@3"
+      ]
+    }
+  },
+  "intent": "Draft links propose replacement; retained links identify predecessor Atoms after archival."
+}

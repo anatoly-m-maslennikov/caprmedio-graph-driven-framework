@@ -50,7 +50,7 @@ class SourceReaderTests(unittest.TestCase):
         self.control = self.root / ".caprmedio_caprmedio"
         self.control.mkdir()
         (self.control / "caprmedio_project_settings.toml").write_text(
-            '[project]\nname = "fixture"\n'
+            '[project]\nname = "fixture"\n[artifacts.identity]\nproject_prefix = "CA"\n'
             '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n',
             encoding="utf-8",
         )
@@ -493,7 +493,7 @@ class SourceReaderTests(unittest.TestCase):
             control = root / ".caprmedio_caprmedio"
             control.mkdir()
             (control / "caprmedio_project_settings.toml").write_text(
-                '[project]\nname = "fixture"\n'
+                '[project]\nname = "fixture"\n[artifacts.identity]\nproject_prefix = "CA"\n'
                 '[paths]\ncontrol_root = ".caprmedio_caprmedio"\n',
                 encoding="utf-8",
             )
@@ -578,15 +578,25 @@ class SourceReaderTests(unittest.TestCase):
         self.assertIn(str(self.root), stderr.getvalue())
         self.assertEqual(self.reader.excluded_count, 0)
 
-    def test_explicit_control_root_supports_fixtures_without_project_settings(self) -> None:
+    def test_explicit_control_root_uses_uppercase_configured_project_prefix(self) -> None:
         source = self._write_atom("MAIN", "04_requirement", "explicit.md", atom_id="CA-R-501")
-        (self.control / "caprmedio_project_settings.toml").unlink()
+        settings = self.control / "caprmedio_project_settings.toml"
+        settings.write_text(settings.read_text().replace('project_prefix = "CA"', 'project_prefix = "demo"'))
 
         reader = SourceReader(self.root, self.control)
         atoms, scopes = reader.capture()
 
         self.assertIn(source.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms})
         self.assertEqual(len(scopes), len(self.declarations))
+        self.assertEqual("DEMO-SU-00", scopes[0]["scope_unit_id"])
+        self.assertEqual("fixture", scopes[0]["name"])
+
+    def test_project_scope_id_requires_configured_prefix(self) -> None:
+        from atom_operations import ToolError
+
+        (self.control / "caprmedio_project_settings.toml").unlink()
+        with self.assertRaisesRegex(ToolError, "Project Settings identity"):
+            SourceReader(self.root, self.control).capture()
 
     def test_move_remove_and_capture_do_not_write_sources(self) -> None:
         source = self._write_atom("MAIN", "07_delivery", "moving.md", atom_id="CA-R-430")

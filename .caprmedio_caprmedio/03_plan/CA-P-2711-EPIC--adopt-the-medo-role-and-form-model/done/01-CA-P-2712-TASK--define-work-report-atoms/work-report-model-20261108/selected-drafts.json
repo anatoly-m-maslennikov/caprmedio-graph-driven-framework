@@ -1,0 +1,121 @@
+{
+  "drafts": [
+    {
+      "atom_id": "CA-R-2511",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-2511@8-draft-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md",
+      "predecessor_sha256": "3efaa884e545f86450f84e0ce35298f05ff3b859f1250cfb14d3a48ebca80024",
+      "draft_version": 8,
+      "draft_sha256": "ba769b021e2bfe0bc147d6e94372982d2556c63a011690198ba9da368b415c75",
+      "summary": "Declare Atom/(.Role := Plan)"
+    },
+    {
+      "atom_id": "CA-R-1575",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1575@26-draft-CORE_META_MODEL-RULE--require-work-or-decomposition-in-every-plan.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1575-CORE_META_MODEL-RULE--require-work-or-decomposition-in-every-plan.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1575-CORE_META_MODEL-RULE--require-work-or-decomposition-in-every-plan.md",
+      "predecessor_sha256": "9ce81d20fe153a58349c9f9a3a71220becf188e961af7be3802bcf3a28043d49",
+      "draft_version": 26,
+      "draft_sha256": "0c71a8aa89baf63abad617618162ec840146ea6d62280ea855aeb6001a8c85c8",
+      "summary": "Require work or decomposition in every Plan"
+    },
+    {
+      "atom_id": "CA-R-1599",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1599@23-draft-CORE_META_MODEL-RULE--require-a-definition-of-done-for-every-plan.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1599-CORE_META_MODEL-RULE--require-a-definition-of-done-for-every-plan.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1599-CORE_META_MODEL-RULE--require-a-definition-of-done-for-every-plan.md",
+      "predecessor_sha256": "3e4b97700b8e5fa10e466eaaa42e07753a409d8877ee0a88c668d7414156db47",
+      "draft_version": 23,
+      "draft_sha256": "68272902cd2f639db6efdd80dc1575c3f9c04adf4e5e4b044ce88c357f46b8ff",
+      "summary": "Require a Definition of Done for every Plan"
+    },
+    {
+      "atom_id": "CA-R-1418",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-1418@29-draft-CORE_META_MODEL--give-every-atom-one-summary.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1418-CORE_META_MODEL--give-every-atom-one-summary.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1418-CORE_META_MODEL--give-every-atom-one-summary.md",
+      "predecessor_sha256": "7e1f5efc7e760f880809267d361c0852978617bc45b1a16aabab3847a72c9fe5",
+      "draft_version": 29,
+      "draft_sha256": "3a53c5c04283446f96f5b8f02b5868b167b7d021358f6b1320373a5e9d4139cc",
+      "summary": "Give Every Atom One Summary"
+    },
+    {
+      "atom_id": "CA-M-306",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-306@35-draft-CORE_META_MODEL--author-plan-atoms.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-306-CORE_META_MODEL--author-plan-atoms.md",
+      "predecessor_sha256": "e1343ce9e55d88a65ded18877e95cce71ff29f3cf690f2c0a46e6f1955154ab6",
+      "draft_version": 35,
+      "draft_sha256": "212576dd76976ec7d948c9f86ab3073f465844ce1afb13ed52198bcfc3a0baf6",
+      "summary": "Author Plan Atoms"
+    },
+    {
+      "atom_id": "CA-M-309",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/draft/CA-M-309@24-draft-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md",
+      "predecessor_sha256": "976a89a66e2cc11c5fa4495c549222e29b6e9b890f21bb1605c1d89d9f4e14e7",
+      "draft_version": 24,
+      "draft_sha256": "e30e5192de96971a24d78c9a2322b1a5a13523128dc237eb52681ae76a955f87",
+      "summary": "Write Plan Claims with the Plan CCE Profile"
+    },
+    {
+      "atom_id": "CA-D-470",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-470@30-draft-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "predecessor_sha256": "67eba152c6e77e4fa19ae32872b17deed593cfcdd477a579f38de742759f60b4",
+      "draft_version": 30,
+      "draft_sha256": "7da083cd488e09187058062887fc3c80d22ca40118942d4a87a4c72865ca8e6c",
+      "summary": "Serialize Plan file sections"
+    },
+    {
+      "atom_id": "CA-R-3006",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3006@5-draft-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "predecessor_sha256": "8b5ef46544b35bf5afeb6cdaff57a49b318a58a26155116b1ea8c351827efab2",
+      "draft_version": 5,
+      "draft_sha256": "b538b039fa8a201bf4a62e2fa9a601944facad2dedb4de8d134f835f3dbc353f",
+      "summary": "Declare Scope Delegation"
+    },
+    {
+      "atom_id": "CA-R-3008",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-3008@5-draft-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3008-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "predecessor_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3008-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "predecessor_sha256": "a0df25080be6bc47582ce8afa2b7a9ba9aad4a05c370b3859e223270d0d0075d",
+      "draft_version": 5,
+      "draft_sha256": "552ef592a62d4e5252edf181f16fb97374e42add77dc6f7ba3d4f10afe8c6030",
+      "summary": "Establish Project and non-Project Scope Unit declarations and delegations"
+    },
+    {
+      "atom_id": "CA-R-970308624",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/engine-refinement-20261108/CA-R-970308624@1-draft-CORE_META_MODEL-DECLARATION--declare-work-report-form.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970308624-CORE_META_MODEL-DECLARATION--declare-work-report-form.md",
+      "predecessor_path": null,
+      "draft_version": 1,
+      "draft_sha256": "02aef6162d88c6a748fb9bd083f3700345511f2210c9e074823f158262c54d05",
+      "summary": "Declare Work Report Form"
+    },
+    {
+      "atom_id": "CA-R-970308626",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/CA-R-970308626@1-draft-CORE_META_MODEL-RELATION_DECLARATION--declare-is-work-report-for.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970308626-CORE_META_MODEL-RELATION_DECLARATION--declare-is-work-report-for.md",
+      "predecessor_path": null,
+      "draft_version": 1,
+      "draft_sha256": "fe9af403003914cf9ac231dde9660e01357d2592138d43fa9aa022d8fec0717b",
+      "summary": "Declare IS_WORK_REPORT_FOR"
+    },
+    {
+      "atom_id": "CA-E-802",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/draft/CA-E-802@1-draft-CORE_META_MODEL-EVAL_CASE--verify-work-report-conformance.md",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-802-CORE_META_MODEL-EVAL_CASE--verify-work-report-conformance.md",
+      "predecessor_path": null,
+      "draft_version": 1,
+      "draft_sha256": "d256c62bf823a879f984b97613381f037b80c78857b383274712f924893c7263",
+      "summary": "Verify Work Report conformance"
+    }
+  ]
+}

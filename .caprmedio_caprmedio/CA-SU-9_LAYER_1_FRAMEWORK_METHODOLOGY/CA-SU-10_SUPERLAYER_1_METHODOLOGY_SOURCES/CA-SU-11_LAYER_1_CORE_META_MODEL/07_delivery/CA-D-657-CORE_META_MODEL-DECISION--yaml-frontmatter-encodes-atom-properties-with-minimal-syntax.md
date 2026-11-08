@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Actor
 tier: 3
 status: Active
-version: 6
-updated_at: 2026-11-05 22:47:24 +0400
+version: 7
+updated_at: "2026-11-08 15:22:04 +0400"
 carrier_destination:
   file:
     name: CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md

@@ -1,0 +1,16 @@
+{
+  "status": "PASS_CONFLICT_REVIEW",
+  "plan_sha256": "5a27e40a64f9b2ede6240bf09df51bf1a1bcd171609e64d6ed369654398f50a6",
+  "reviewer": "replacement_conflicts",
+  "outputs": 8,
+  "effects": 15,
+  "resolved_finding": "Removed unnecessary split-replacement statement; added no replacement multiplicity rule.",
+  "checks": [
+    "sole ID@Version Relation exception",
+    "exact archived predecessor retained",
+    "Draft intent distinct from completed replacement",
+    "single authored direct fact",
+    "7 byte-exact predecessor snapshots"
+  ],
+  "source_only": true
+}

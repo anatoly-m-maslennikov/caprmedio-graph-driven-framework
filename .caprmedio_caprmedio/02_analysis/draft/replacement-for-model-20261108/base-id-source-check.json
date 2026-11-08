@@ -1,0 +1,9 @@
+{
+  "status": "PASS_MODEL_SOURCE_ONLY",
+  "current_sources_checked": 8,
+  "corrected_sources": 7,
+  "header_and_summary_preserved": true,
+  "encoding": "base Atom IDs for all Header.Relations, including REPLACEMENT_FOR",
+  "native_validation_tested": false,
+  "runtime_changed": false
+}

@@ -1,0 +1,20 @@
+{
+  "status": "PASS_MODEL_SOURCE_ONLY",
+  "current_sources": 8,
+  "exact_effects": 15,
+  "exact_predecessor_snapshots": 7,
+  "checks": [
+    "reviewed source hashes and modes",
+    "unchanged predecessor bytes",
+    "singular main Subjects",
+    "stable IDs and Summaries",
+    "selected Versions and Active Status",
+    "sole REPLACEMENT_FOR ID@Version exception",
+    "outgoing Atom permission",
+    "Journal-only and archived-target conflicts repaired"
+  ],
+  "native_execution": false,
+  "runtime_changes": false,
+  "native_validator_tests": false,
+  "projection_rebuild": false
+}

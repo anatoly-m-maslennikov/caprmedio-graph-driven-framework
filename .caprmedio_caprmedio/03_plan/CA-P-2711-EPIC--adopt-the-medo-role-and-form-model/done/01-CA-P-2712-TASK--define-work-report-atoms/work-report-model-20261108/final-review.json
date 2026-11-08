@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "reviewers": [
+    "work_report_model",
+    "work_report_relation"
+  ],
+  "resolved": [
+    "Explicit executable-work and DoD exceptions for Work Report",
+    "Plan Form target instead of semantic Task Label",
+    "Own report ID; same Summary and Container; exactly one direct Task reference",
+    "Markdown Details reuse; no new report-field Properties"
+  ],
+  "plan_sha256": "a912f1ce2d86c6d760735aa14aff6f7b34578ab7bac1c3644001b2f03a3f555a",
+  "source_only": true
+}

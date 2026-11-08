@@ -119,7 +119,7 @@ def registry_contribution(row: Mapping[str, Any]) -> tuple[frozenset[str], tuple
     """Return one source's literal registry input without evaluating CFEL."""
     if row.get("status_group") != "Current" or row.get("role") != "Requirement":
         return frozenset(), ()
-    if row.get("form") not in {"Declaration", "Definition", "Entity Definition", "Relation Definition"}:
+    if row.get("form") not in {"Declaration", "Definition", "Entity Definition", "Relation Declaration", "Relation Definition"}:
         return frozenset(), ()
     names = frozenset(name for subject in _subjects(row.get("header_json", {})) for name in _RELATION.findall(subject))
     return names, tuple(_literal_bindings(source_markdown(row) or "")) if names else ()

@@ -42,6 +42,48 @@ def declarations():
 
 
 class RelationTests(unittest.TestCase):
+    def test_project_root_reference_has_derived_contains(self):
+        from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.incremental_relations import materialize_delta
+
+        root = {"name": "demo", "scope_unit_id": "DEMO-SU-00", "parent_name": None,
+                "declared_label": None, "ordered": False, "order_number": None,
+                "declaration_source_path": "project.md", "declaration_version": 1,
+                "relation_edges_json": [], "hash": None}
+        source = atom("CA-R-3")
+        source["header_json"]["context"] = {"container": {"scope_unit": "DEMO-SU-00"}}
+        sources = declarations() + [source]
+        rows, scopes = materialize(sources, [root])
+        edge = next(row for row in rows if row["ref"] == "CA-R-3")["relation_edges_json"][0]
+        self.assertEqual(("Scope Unit", "demo"), (edge["target_kind"], edge["target_ref"]))
+        self.assertEqual("CA-R-3", scopes[0]["relation_edges_json"][0]["target_ref"])
+        self.assertTrue(scopes[0]["relation_edges_json"][0]["derived"])
+
+        _, _, _, _, state, _ = materialize_delta(declarations(), [root])
+        _, scopes, _, _, state, delta = materialize_delta(
+            sources, [root], state, {source["source_path"]: source},
+        )
+        self.assertIsNotNone(delta)
+        self.assertEqual("CA-R-3", scopes[0]["relation_edges_json"][0]["target_ref"])
+        _, scopes, _, _, _, _ = materialize_delta(
+            declarations(), [root], state, {source["source_path"]: None},
+        )
+        self.assertEqual([], scopes[0]["relation_edges_json"])
+
+    def test_nested_header_container_atom_generates_both_directions(self):
+        parent = atom("CA-P-1")
+        child = atom("CA-P-2")
+        child["header_json"]["context"] = {"container": {"atom": "CA-P-1"}}
+        rows, _ = materialize(declarations() + [parent, child], [])
+        by_ref = {row["ref"]: row for row in rows}
+        direct = by_ref["CA-P-2"]["relation_edges_json"][0]
+        inverse = by_ref["CA-P-1"]["relation_edges_json"][0]
+        self.assertEqual(("IS_CONTAINED_BY", "CA-P-1", False),
+                         (direct["relation_type"], direct["target_ref"], direct["derived"]))
+        self.assertEqual(("CONTAINS", "CA-P-2", True),
+                         (inverse["relation_type"], inverse["target_ref"], inverse["derived"]))
+        self.assertEqual({}, child["header_json"]["relations"])
+        self.assertEqual(1, parent["version"])
+
     def test_inverse_lives_on_counterpart_and_changes_its_hash(self):
         epic = atom("CA-P-1")
         task = atom("CA-P-2", relation={"is_contained_by": ["CA-P-1"]})
@@ -121,6 +163,27 @@ class RelationTests(unittest.TestCase):
         registered, inverses = relation_registry(rows)
         self.assertEqual({"IS_CONTAINED_BY": "CONTAINS"}, inverses)
         self.assertNotIn("A", registered)
+
+    def test_relation_declaration_registers_direct_fact_but_draft_does_not(self):
+        declaration = relation_declaration("CA-R-1", "IS_WORK_REPORT_FOR")
+        declaration["form"] = "Relation Declaration"
+        report = atom("CA-R-REPORT", relation={"IS_WORK_REPORT_FOR": ["CA-P-TASK"]})
+        task = atom("CA-P-TASK")
+
+        rows, _ = materialize([declaration, report, task], [])
+        self.assertIn(
+            {
+                "source_kind": "Atom", "source_ref": "CA-R-REPORT",
+                "target_kind": "Atom", "target_ref": "CA-P-TASK",
+                "relation_type": "IS_WORK_REPORT_FOR", "derived": False,
+            },
+            next(row for row in rows if row["ref"] == "CA-R-REPORT")["relation_edges_json"],
+        )
+
+        draft = dict(declaration, status_group="Draft")
+        self.assertNotIn("IS_WORK_REPORT_FOR", relation_registry([draft])[0])
+        rows, _ = materialize([draft, report, task], [])
+        self.assertEqual([], next(row for row in rows if row["ref"] == "CA-R-REPORT")["relation_edges_json"])
 
     def test_ambiguous_literal_inverses_warn_and_keep_direct_facts(self):
         metadata = [

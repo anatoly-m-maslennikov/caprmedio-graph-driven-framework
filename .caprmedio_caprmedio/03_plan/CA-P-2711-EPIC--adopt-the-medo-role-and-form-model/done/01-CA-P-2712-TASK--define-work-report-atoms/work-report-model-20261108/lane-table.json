@@ -1,0 +1,28 @@
+[
+  {
+    "owner": "work_report_model",
+    "deliverable": "Current Plan/Form/content source inventory",
+    "scope": "read-only Core MODEL",
+    "dependencies": [],
+    "acceptance": "identify required source repairs",
+    "status": "done"
+  },
+  {
+    "owner": "work_report_relation",
+    "deliverable": "Task association/lifecycle conflicts",
+    "scope": "read-only Core MODEL",
+    "dependencies": [
+      "latest human Summary/Container decision"
+    ],
+    "acceptance": "minimal reuse and real gaps identified",
+    "status": "done"
+  },
+  {
+    "owner": "root",
+    "deliverable": "Draft packet, review, promotion, checks and task tracking",
+    "scope": "selected Core MODEL sources and Task-owned evidence",
+    "dependencies": [],
+    "acceptance": "reviewed promoted sources, preserved identities/history, no runtime claims",
+    "status": "done"
+  }
+]

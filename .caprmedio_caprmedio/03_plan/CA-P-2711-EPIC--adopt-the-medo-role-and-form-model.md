@@ -12,8 +12,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit
 tier: 3
 status: Active
-version: 5
-updated_at: "2026-11-07 18:02:00 +0400"
+version: 6
+updated_at: "2026-11-08 19:11:47 +0400"
 carrier_destination:
   file:
     name: CA-P-2711-EPIC--adopt-the-medo-role-and-form-model.md
@@ -43,14 +43,14 @@ The Requirement Semantics Draft is a prerequisite: required outcomes and constra
 
 The selected MODEL sources have been reviewed and promoted manually. This establishes source adoption; instance migration and consumer verification remain separate stages.
 
-[I / Code Synopsis model adoption](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/README.md) is complete. P / Work Report and consumer implementation remain open.
+[I / Code Synopsis model adoption](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/README.md) is complete. [P / Work Report model adoption](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/01-CA-P-2712-TASK--define-work-report-atoms/work-report-model-20261108/README.md) is also complete. Consumer implementation remains open.
 
 ## Work
 
 - [x] Review the proposal and Role Drafts against Current authorities; settle the adoption choices listed in the proposal.
 - [x] Complete the required Declarations and RMED for Forms, Scope Delegation, Tier rules and CONTRIBUTES_TO; review and repair the packet.
 - [x] Adopt the reviewed packet with valid identities, Versions and preserved history.
-- [ ] [CA-P-2712 — Define Work Report Atoms](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/001_backlog/01-CA-P-2712-TASK--define-work-report-atoms.md).
+- [x] [CA-P-2712 — Define Work Report Atoms](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/01-CA-P-2712-TASK--define-work-report-atoms.md).
 - [x] [CA-P-2713 — Define Implementation Atoms](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms.md).
 - [ ] Map affected Current and Draft MEDO Atoms by Claim and scope; report ambiguous cases for resolution.
 - [ ] Preview and review the migration, then apply the accepted mapping.

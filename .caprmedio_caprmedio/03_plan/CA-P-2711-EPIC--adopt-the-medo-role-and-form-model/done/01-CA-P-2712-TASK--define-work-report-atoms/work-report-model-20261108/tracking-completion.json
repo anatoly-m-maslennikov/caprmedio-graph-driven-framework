@@ -1,0 +1,13 @@
+{
+  "status": "DONE_MODEL_SOURCE_ONLY",
+  "task": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/01-CA-P-2712-TASK--define-work-report-atoms.md",
+  "task_version": 3,
+  "task_sha256": "e0ba1bfdf93e3f3b3485813b786be8b4b67d43e1fb543b92f91fefc465238412",
+  "epic": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model.md",
+  "epic_status": "Active",
+  "epic_version": 6,
+  "epic_sha256": "84494dca14e70c24f7be108869d3e5024bb94e211e34e7f9c846d71c50142239",
+  "report": ".caprmedio_caprmedio/03_plan/CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/01-CA-P-2712-TASK--define-work-report-atoms/work-report-model-20261108/README.md",
+  "current_model_sources": 12,
+  "native_report_admission_verified": false
+}

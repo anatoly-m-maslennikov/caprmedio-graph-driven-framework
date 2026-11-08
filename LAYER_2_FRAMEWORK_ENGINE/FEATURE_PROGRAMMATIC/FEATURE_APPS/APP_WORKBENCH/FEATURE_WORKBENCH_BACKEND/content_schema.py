@@ -1,4 +1,5 @@
 # CA-R-2726@5
+# CA-M-464@8
 # CA-M-465@21
 # CA-M-500@2
 # CA-D-672@12
@@ -99,6 +100,10 @@ class ContentSchema:
         body = source_markdown(row)
         if not isinstance(records, list):
             records = parse_content(body, tolerate_duplicate_siblings=True) if isinstance(body, str) else []
+        elif isinstance(body, str) and any(
+            not isinstance(record, Mapping) or _span(record) is None for record in records
+        ):
+            records = parse_content(body, tolerate_duplicate_siblings=True)
         values = _records_by_path(records)
         self._validate(values, row)
         lines = content_lines(body) if isinstance(body, str) else None
@@ -415,12 +420,45 @@ def _value(
             return prose
     record = next(iter(records.get(path, ())), None)
     if record is not None:
-        value = direct_markdown(
-            record, (candidate for group in records.values() for candidate in group), lines,
+        spans_available, value = _value_excluding_declared_children(
+            record, records, declared_children, lines,
         )
+        if not spans_available:
+            value = direct_markdown(
+                record, (candidate for group in records.values() for candidate in group), lines,
+            )
         if isinstance(value, str) and value.strip():
             return value.strip()
     return None
+
+
+def _value_excluding_declared_children(
+    record: Mapping[str, Any], records: Mapping[tuple[str, ...], list[Mapping[str, Any]]],
+    declared_children: frozenset[tuple[str, ...]], lines: list[str] | None,
+) -> tuple[bool, str | None]:
+    """Keep presentation headings, subtracting only declared child spans."""
+    span = _span(record)
+    if span is None or lines is None:
+        return False, None
+    body_start, end = span[1:]
+    children = sorted(
+        (
+            child_span
+            for child_path in declared_children
+            for child in records.get(child_path, ())
+            if (child_span := _span(child)) is not None
+            and body_start <= child_span[0] < end
+        ),
+        key=lambda child_span: child_span[0],
+    )
+    parts: list[str] = []
+    cursor = body_start
+    for child_start, _child_body_start, child_end in children:
+        parts.extend(lines[cursor:child_start])
+        cursor = child_end
+    parts.extend(lines[cursor:end])
+    value = "".join(parts)
+    return True, value.strip() or None
 
 
 def _prose_claim(
@@ -431,27 +469,11 @@ def _prose_claim(
     record = next(iter(records.get(path, ())), None)
     if record is None:
         return _legacy_prose_claim(records, path[:-1], lines)
-    span = _span(record)
-    if span is not None and lines is not None:
-        body_start, end = span[1:]
-        children = sorted(
-            (
-                child_span
-                for child_path in declared_children
-                for child in records.get(child_path, ())
-                if (child_span := _span(child)) is not None
-                and body_start <= child_span[0] < end
-            ),
-            key=lambda child_span: child_span[0],
-        )
-        parts: list[str] = []
-        cursor = body_start
-        for child_start, _child_body_start, child_end in children:
-            parts.extend(lines[cursor:child_start])
-            cursor = child_end
-        parts.extend(lines[cursor:end])
-        value = "".join(parts)
-        return value.strip() or None
+    spans_available, value = _value_excluding_declared_children(
+        record, records, declared_children, lines,
+    )
+    if spans_available:
+        return value
     section = section_markdown(record, lines)
     if section is None:
         return None

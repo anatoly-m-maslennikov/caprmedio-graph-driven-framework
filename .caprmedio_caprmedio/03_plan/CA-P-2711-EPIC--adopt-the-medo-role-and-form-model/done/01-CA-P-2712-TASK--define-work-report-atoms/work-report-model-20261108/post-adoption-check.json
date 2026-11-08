@@ -1,0 +1,19 @@
+{
+  "status": "PASS_MODEL_SOURCE_ONLY",
+  "current_sources": 12,
+  "effects": 33,
+  "preserved_predecessors": 9,
+  "checks": [
+    "reviewed body preservation",
+    "exact output hashes and consumed Draft removal",
+    "ID, Version and Active Status",
+    "byte-exact predecessor history",
+    "own report ID, copied Summary and Container",
+    "single direct base-ID Task binding",
+    "Form-aware work/DoD/CCE/Delivery rules",
+    "worked example assertions"
+  ],
+  "native_run": false,
+  "native_report_admission": false,
+  "runtime_changes": false
+}

@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Content
 tier: 2
 status: Active
-version: 25
-updated_at: 2026-11-02 00:18:22 +0400
+version: 27
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
     name: CA-R-1575-CORE_META_MODEL-RULE--require-work-or-decomposition-in-every-plan.md
@@ -22,6 +22,7 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Require work or decomposition in every Plan
@@ -31,10 +32,10 @@ Require work or decomposition in every Plan
 ### Prose Claim
 
 
-Plan Atoms, their own work, and their direct Plan containment.
+Plan Atoms other than Work Reports, their own work, and their direct Plan containment.
 
 
-**every** Plan Atom **must** have **`>=1`** of:
+Every Plan Atom other than a Work Report **must** have **`>=1`** of:
 
 - its own work content;
 - **`>0`** outgoing derived `CONTAINS` links **to** directly contained Plan Atoms.

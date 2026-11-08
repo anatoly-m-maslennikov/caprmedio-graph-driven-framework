@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "reviewer": "replacement_conflicts",
+  "checked": "seven corrected Current sources against receipt hashes; R2508 outgoing permission",
+  "findings": [],
+  "checks": [
+    "no replacement Version or @ requirement",
+    "uniform base-ID serialization",
+    "replacement owns direct Relation",
+    "multiple predecessors supported",
+    "Draft intent and archived predecessor navigation retained"
+  ],
+  "runtime_checked": false
+}

@@ -1,0 +1,43 @@
+{
+  "status": "APPLIED_VERIFIED",
+  "changed_sources": 7,
+  "changes": [
+    {
+      "atom_id": "CA-R-2709",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2709-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md",
+      "sha256": "a3583ea1566e76295b5271b3abda3a12abe828e11c91cd3a95689f1deb08d920"
+    },
+    {
+      "atom_id": "CA-R-366",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-366-CORE_META_MODEL-RULE--reference-exact-atom-revisions-by-version-and-time.md",
+      "sha256": "38ff93082f1a490a57ad3ddefda69cb90dd92da4cdf42507eeeb6edce31334a9"
+    },
+    {
+      "atom_id": "CA-R-1690",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1690-CORE_META_MODEL-RULE--preserve-external-boundary-obligations.md",
+      "sha256": "1cbdd958249549389d0392cafd3ef0fea761ff60d9f0af20d186d132acba0d49"
+    },
+    {
+      "atom_id": "CA-D-657",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "fba9b105a33eba8d5f9a8bcc7eaa06ba7b0bb6f8c3fcc8780a8b30b073b0c573"
+    },
+    {
+      "atom_id": "CA-R-807",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-807-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md",
+      "sha256": "9c943096dd2a8d1fb16e1e9db91d24fc7cad81cf54e5b03d8e1d0cd7fc905ec3"
+    },
+    {
+      "atom_id": "CA-R-3011",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3011-CORE_META_MODEL-RELATION_DECLARATION--declare-replacement-for.md",
+      "sha256": "188d3d460e4df2326193cc327e5596270f26178accac8ca07273a661597e133a"
+    },
+    {
+      "atom_id": "CA-E-622",
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md",
+      "sha256": "da3e614138d8d825030261e62c89df51f0252f2642ab2002ece236d0ca589bc6"
+    }
+  ],
+  "native_run": false,
+  "runtime_changed": false
+}
