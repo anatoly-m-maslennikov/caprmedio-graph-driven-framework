@@ -1,4 +1,4 @@
-# CA-E-794@2
+# CA-E-794@3
 """Opt-in live Workbench canary against the current Project only.
 
 This is deliberately not part of the normal suite.  It needs both an explicit

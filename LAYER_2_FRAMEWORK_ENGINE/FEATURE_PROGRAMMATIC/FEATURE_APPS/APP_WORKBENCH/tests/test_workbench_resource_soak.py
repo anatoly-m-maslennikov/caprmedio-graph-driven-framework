@@ -1,5 +1,5 @@
-# CA-M-508@3
-# CA-E-800@1
+# CA-M-508@5
+# CA-E-800@3
 """Optional long-running leak acceptance, separate from required Docker cases."""
 import os
 import unittest

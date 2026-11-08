@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 3
 state:
-  status: Active
-  version: 4
-  updated_at: 2026-11-09 00:22:38 +0400
+  status: Done
+  version: 5
+  updated_at: 2026-11-09 02:11:53 +0400
 destination:
   file:
     name: CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes.md
@@ -77,18 +77,18 @@ Subtasks below are work units, each with an estimated 10–20 minutes. Split a l
 - [x] [CA-P-2725 — Review and improve the specification Drafts: pass one](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/10-CA-P-2725-TASK--review-and-improve-the-specification-drafts-pass-one.md).
 - [x] [CA-P-2726 — Review and improve the specification Drafts: pass two](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/11-CA-P-2726-TASK--review-and-improve-the-specification-drafts-pass-two.md).
 - [x] [CA-P-2727 — Promote the reviewed specification Drafts](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/12-CA-P-2727-TASK--promote-the-reviewed-specification-drafts.md).
-- [ ] [CA-P-2728 — Compare promoted specifications with code and write Code Synopses](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/13-CA-P-2728-TASK--compare-promoted-specifications-with-code-and-write-code-synopses.md).
-- [ ] [CA-P-2729 — Review and resolve specification versus code differences](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/14-CA-P-2729-TASK--review-and-resolve-specification-versus-code-differences.md).
-- [ ] [CA-P-2730 — Implement and refactor the accepted specification](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/15-CA-P-2730-TASK--implement-and-refactor-the-accepted-specification.md).
-- [ ] [CA-P-2731 — Verify and locally release the refined Engine](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/16-CA-P-2731-TASK--verify-and-locally-release-the-refined-engine.md).
+- [x] [CA-P-2728 — Compare promoted specifications with code and write Code Synopses](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/13-CA-P-2728-TASK--compare-promoted-specifications-with-code-and-write-code-synopses.md).
+- [x] [CA-P-2729 — Review and resolve specification versus code differences](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/14-CA-P-2729-TASK--review-and-resolve-specification-versus-code-differences.md).
+- [x] [CA-P-2730 — Implement and refactor the accepted specification](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/15-CA-P-2730-TASK--implement-and-refactor-the-accepted-specification.md).
+- [x] [CA-P-2731 — Verify and locally release the refined Engine](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/16-CA-P-2731-TASK--verify-and-locally-release-the-refined-engine.md).
 - [x] [CA-P-2733 — Prepare Drafts for PROGRAMMATIC-local RMEDO](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/17-CA-P-2733-TASK--prepare-drafts-for-programmatic-local-rmedo.md).
 - [x] [CA-P-2734 — Prepare Drafts for APPS-local RMEDO](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/18-CA-P-2734-TASK--prepare-drafts-for-apps-local-rmedo.md).
 
 - [x] [CA-P-2735 — Adopt the reviewed relation packet before implementation](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/19-CA-P-2735-TASK--adopt-the-reviewed-relation-packet-before-implementation.md).
 
-- [ ] [CA-P-2736 — Expose missing declared Content through query_run](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/20-CA-P-2736-TASK--expose-missing-declared-content-through-query-run.md).
+- [x] [CA-P-2736 — Expose missing declared Content through query_run](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/20-CA-P-2736-TASK--expose-missing-declared-content-through-query-run.md).
 
-- [ ] [CA-P-2737 — Map adopted Atoms to implementation modules](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/21-CA-P-2737-TASK--map-adopted-atoms-to-implementation-modules.md).
+- [x] [CA-P-2737 — Map adopted Atoms to implementation modules](CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes/21-CA-P-2737-TASK--map-adopted-atoms-to-implementation-modules.md).
 
 ## Acceptance
 
@@ -120,8 +120,6 @@ Preserve and exclude the 500 benchmark Atoms and their synthetic Scope Declarati
 Prepare, review and adopt the required Scope Delegation Drafts; verify the mixed Declaration/Delegation reader before promotion. Review the corrected R1186/R1187 and D673 Drafts. Keep specification in RMEDO; these are work items, not substitute contracts.
 
 
-## Current work
+## Completion
 
-- Complete implementation and verification under CA-P-2730; its active children are CA-P-2752 and CA-P-2754.
-- Complete the module map and post-adoption comparison under CA-P-2737 and CA-P-2728.
-- Record dispositions under CA-P-2729, then run final verification and local release under CA-P-2731.
+Deployed and verified local release 0.4.4.40. All 251 selected tests and eight isolated Docker E2E cases passed; the separate profiler-off short CPU/RAM and View-result lifecycle gate passed without changed limits. All 105 checked installed production Python modules and both generated schema/relation assets match the release package. Live query_schema exposes dotted paths with snake_case segments, including header.identity.atom_id and content.claim.formal_claim; Mode 2 is enabled. The 171 expected Current source versions match; R2731 is retired. Declared direct/derived bindings have no missing inverse facts. The real-project canary passed all Atom and Scope Unit operations and removed its temporary sources: 48 Scope Units remain, no canary rows or files remain, and all 500 benchmark Atoms are preserved. Ordinary live edit/rename/move visibility was 0.338–0.439 seconds; first/last schema and structural rebuilds took 31.645–40.163 seconds. Release cleanup retained an image without proven Project ownership; deployment itself is healthy. The 78 legacy Atoms, older non-Workbench Tools, standalone chat and native Codex rendering remain explicitly deferred. Code Synopses I4/I5/I6 remain historical Draft reports, not Current implementation authority. Detailed acceptance evidence is in inventory/implementation-evidence.json.

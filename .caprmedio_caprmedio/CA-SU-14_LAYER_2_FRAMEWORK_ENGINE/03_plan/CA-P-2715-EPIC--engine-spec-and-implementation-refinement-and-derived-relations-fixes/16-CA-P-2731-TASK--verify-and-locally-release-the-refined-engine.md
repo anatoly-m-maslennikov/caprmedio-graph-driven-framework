@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Active
-  version: 3
-  updated_at: 2026-11-09 01:44:42 +0400
+  status: Done
+  version: 4
+  updated_at: 2026-11-09 02:11:53 +0400
 destination:
   file:
     name: 16-CA-P-2731-TASK--verify-and-locally-release-the-refined-engine.md

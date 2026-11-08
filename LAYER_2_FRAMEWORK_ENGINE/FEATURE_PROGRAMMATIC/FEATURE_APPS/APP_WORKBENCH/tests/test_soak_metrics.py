@@ -1,5 +1,5 @@
-# CA-E-799@1
-# CA-E-800@1
+# CA-E-799@3
+# CA-E-800@3
 """Small invariant gates for resource-soak metric helpers."""
 
 from __future__ import annotations

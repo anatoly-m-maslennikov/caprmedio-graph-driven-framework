@@ -1,6 +1,6 @@
-# CA-M-508@3
-# CA-E-799@1
-# CA-E-800@1
+# CA-M-508@5
+# CA-E-799@3
+# CA-E-800@3
 """Private, profiler-free resource observations for Workbench acceptance tests."""
 
 from __future__ import annotations

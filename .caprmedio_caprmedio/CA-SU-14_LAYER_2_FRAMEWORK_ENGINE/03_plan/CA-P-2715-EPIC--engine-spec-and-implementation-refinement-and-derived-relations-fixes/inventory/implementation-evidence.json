@@ -294,5 +294,294 @@
     "benchmark_atoms_preserved": 500,
     "retired_without_replacement": "CA-R-2731@2"
   },
-  "release": "Not yet performed"
+  "release": {
+    "version": "0.4.4.40",
+    "container": "2838c0514db0",
+    "image": "sha256:e033a7c788ca95a24e4e6344d79a6abe75f82f7557bd46c957d2b779a6de7481",
+    "release": {
+      "run_id": "local-engine-refinement-schema-20261109-001",
+      "deployment": "healthy",
+      "outcome": "completed_with_cleanup_pending",
+      "cleanup": "Unowned image retained; prior project-owned image removed",
+      "selected_tests": 251,
+      "failed_modules": 0
+    },
+    "schema": {
+      "mode": 2,
+      "naming": "dot-separated paths with snake_case segments",
+      "required": [
+        "header.identity.atom_id",
+        "header.context.container",
+        "header.relations",
+        "content.claim.formal_claim"
+      ]
+    },
+    "source_inventory": {
+      "expected": 172,
+      "current": 171,
+      "retired": "CA-R-2731@2",
+      "version_mismatches": [],
+      "legacy_deferred": 78,
+      "benchmark_preserved": 500
+    },
+    "inverse_checks": [
+      [
+        "CARRIES",
+        "IS_CARRIED_BY",
+        0,
+        0,
+        0
+      ],
+      [
+        "EXECUTES",
+        "IS_EXECUTED_BY",
+        0,
+        0,
+        0
+      ],
+      [
+        "HAS_EVENT_AUTHOR",
+        "IS_EVENT_AUTHOR_OF",
+        0,
+        0,
+        0
+      ],
+      [
+        "INSTANCE_OF",
+        "HAS_INSTANCE",
+        0,
+        0,
+        0
+      ],
+      [
+        "IS_BLOCKED_BY",
+        "BLOCKS",
+        1606,
+        1606,
+        0
+      ],
+      [
+        "IS_CONTAINED_BY",
+        "CONTAINS",
+        5330,
+        5330,
+        0
+      ],
+      [
+        "IS_EXECUTION_OF",
+        "HAS_EXECUTION",
+        0,
+        0,
+        0
+      ],
+      [
+        "IS_PROPERTY_OF",
+        "HAS_PROPERTY",
+        0,
+        0,
+        0
+      ],
+      [
+        "NARROWER_THAN",
+        "HAS_NARROWER",
+        0,
+        0,
+        0
+      ],
+      [
+        "RECORDS",
+        "IS_RECORDED_BY",
+        0,
+        0,
+        0
+      ],
+      [
+        "RUNS",
+        "IS_RUN_BY",
+        0,
+        0,
+        0
+      ],
+      [
+        "SPECIALIZES",
+        "IS_SPECIALIZED_BY",
+        0,
+        0,
+        0
+      ]
+    ],
+    "installed_modules": {
+      "count": 105,
+      "mismatches": []
+    },
+    "installed_module_comparison": {
+      "container": "2838c0514db0",
+      "version": "0.4.4.40",
+      "production_python_modules": 105,
+      "mismatches": [],
+      "scope": [
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker"
+      ],
+      "result": "PASS"
+    },
+    "cleanup_query": {
+      "query_id": "046c0387216042e49802e801c11e7ca3",
+      "sql": "SELECT (SELECT count(*) FROM scope_units) scope_count,(SELECT count(*) FROM scope_units WHERE name LIKE 'CANARY_%') canary_scopes,(SELECT count(*) FROM atoms WHERE reference='CA-R-958638105') canary_atoms,(SELECT count(*) FROM atoms WHERE status_group='Current' AND \"relative path\" LIKE '%WORKBENCH_BURST_500_RENAMED%') preserved_benchmark",
+      "columns": [
+        {
+          "name": "scope_count",
+          "type": "BIGINT",
+          "has_values": true
+        },
+        {
+          "name": "canary_scopes",
+          "type": "BIGINT",
+          "has_values": true
+        },
+        {
+          "name": "canary_atoms",
+          "type": "BIGINT",
+          "has_values": true
+        },
+        {
+          "name": "preserved_benchmark",
+          "type": "BIGINT",
+          "has_values": true
+        }
+      ],
+      "rows": [
+        [
+          48,
+          0,
+          0,
+          500
+        ]
+      ],
+      "row_count": 1,
+      "source_row_count": 1,
+      "column_count": 4,
+      "offset": 0,
+      "page_size": 5,
+      "has_more": false
+    }
+  },
+  "live_canary": {
+    "atom_id": "CA-R-958638105",
+    "created_at": "2026-11-08T22:00:10Z",
+    "dry_run": false,
+    "header_layout": "nested; first/last fixture may rebuild observed Header columns",
+    "health": {
+      "ready": true
+    },
+    "outcome": "passed",
+    "parent_scope_unit": "WORKBENCH_BACKEND",
+    "query_checks": [
+      {
+        "column_count": 4,
+        "row_count": 0,
+        "sql": "SELECT name, scope_unit_id, parent_name, declaration_version FROM scope_units WHERE scope_unit_id = 'CA-SU-951281008'",
+        "valid": true
+      },
+      {
+        "column_count": 4,
+        "row_count": 0,
+        "sql": "SELECT name, scope_unit_id, parent_name, declaration_version FROM scope_units WHERE scope_unit_id = 'CA-SU-974789772'",
+        "valid": true
+      },
+      {
+        "column_count": 1,
+        "row_count": 0,
+        "sql": "SELECT reference FROM atoms WHERE reference = 'CA-R-958638105'",
+        "valid": true
+      }
+    ],
+    "scope_unit_ids": [
+      "CA-SU-951281008",
+      "CA-SU-974789772"
+    ],
+    "scope_units": [
+      "CANARY_A_42B22DF37A",
+      "CANARY_B_42B22DF37A",
+      "CANARY_C_42B22DF37A"
+    ],
+    "url": "http://127.0.0.1:56317",
+    "visibility_seconds": {
+      "atom_create": 35.659,
+      "atom_delete": 32.917,
+      "atom_move": 0.356,
+      "atom_rename": 0.338,
+      "atom_scope_move": 0.092,
+      "atom_scope_rename": 0.25,
+      "atom_update": 0.439,
+      "scope_create_first": 31.645,
+      "scope_create_second": 36.779,
+      "scope_delete_first": 39.973,
+      "scope_delete_second": 33.078,
+      "scope_move_publish_declaration": 36.408,
+      "scope_move_remove_declaration": 40.163,
+      "scope_rename_publish_declaration": 36.893,
+      "scope_rename_remove_declaration": 36.952,
+      "scope_update": 35.666
+    }
+  },
+  "short_resource": {
+    "status": "passed",
+    "runtime_image": "sha256:e033a7c788ca95a24e4e6344d79a6abe75f82f7557bd46c957d2b779a6de7481",
+    "fixture_atoms": 5000,
+    "requested_seconds": 0,
+    "cycles": 2,
+    "calibration_only": false,
+    "cold": {
+      "cpu_seconds": 24.011091,
+      "memory_current": 297472000,
+      "memory_peak": 297480192,
+      "oom_kill": 0,
+      "wall_seconds": 24.1192800939898
+    },
+    "warm_full_reread": {
+      "cpu_seconds": 23.885642,
+      "memory_current": 384987136,
+      "memory_peak": 408322048,
+      "oom_kill": 0,
+      "wall_seconds": 23.975515052996343
+    },
+    "final_full_reread": {
+      "cpu_seconds": 23.819067,
+      "memory_current": 429367296,
+      "memory_peak": 511705088,
+      "oom_kill": 0,
+      "wall_seconds": 23.896026218979387
+    },
+    "idle_15_seconds": {
+      "cpu_seconds": 0.029044,
+      "memory_current": 492015616,
+      "memory_peak": 511705088,
+      "oom_kill": 0
+    },
+    "plateau": {
+      "growth_bytes": 0,
+      "maximum_memory_current": 511705088,
+      "minimum_memory_current": 490393600,
+      "spread_bytes": 21311488
+    },
+    "limits": {
+      "current_memory_bytes": 603979776,
+      "idle_cpu_seconds": 0.75,
+      "peak_memory_bytes": 671088640,
+      "plateau_growth_bytes": 67108864,
+      "rebuild_cpu_seconds": 25.0,
+      "rebuild_wall_seconds": 45
+    },
+    "result": "PASS",
+    "post_reset_result_tables": [],
+    "post_reset_pins": [],
+    "post_reset_watcher_pending": 0
+  },
+  "not_run": [
+    "Opt-in 30-minute soak",
+    "Native Codex host rendering",
+    "Older non-Workbench Tool suite"
+  ]
 }
