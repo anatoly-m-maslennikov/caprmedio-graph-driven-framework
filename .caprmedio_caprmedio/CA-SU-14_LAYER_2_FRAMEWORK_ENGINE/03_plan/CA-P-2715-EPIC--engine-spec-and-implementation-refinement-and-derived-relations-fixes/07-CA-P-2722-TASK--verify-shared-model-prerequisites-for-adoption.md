@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Backlog
-  version: 2
-  updated_at: 2026-11-08 19:15:36 +0400
+  status: Active
+  version: 4
+  updated_at: 2026-11-08 21:55:53 +0400
 destination:
   file:
     name: 07-CA-P-2722-TASK--verify-shared-model-prerequisites-for-adoption.md
@@ -53,3 +53,11 @@ Subtasks below are work units, each with an estimated 10–20 minutes. Split a l
 ## Acceptance
 
 Work Report and IS_REPLACEMENT_FOR have usable accepted definitions; no conflicting shared model edit is hidden in Engine work.
+
+
+## Remaining work
+
+- Prepare the affected Scope Delegation and permission Drafts.
+- Review and correct them in two passes.
+- Verify reader compatibility before adoption.
+- Adopt the reviewed prerequisite and verify the unchanged Scope Unit tree.

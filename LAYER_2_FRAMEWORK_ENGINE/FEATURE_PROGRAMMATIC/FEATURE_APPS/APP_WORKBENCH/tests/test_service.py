@@ -24,9 +24,35 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import WorkbenchUnavailableError  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import (  # noqa: E402
+    RelationRegistry,
+    compile_registry,
+)
 
 
 class ServiceTests(unittest.TestCase):
+
+    def test_initial_refresh_passes_a_validated_delivered_registry_to_materialization(self):
+        reader = unittest.mock.Mock(
+            capture=unittest.mock.Mock(return_value=([], [])),
+            capture_changed=True,
+            capture_delta=None,
+            content_schema=object(),
+            excluded_count=0,
+        )
+        compiled = compile_registry([])
+        delivered = RelationRegistry(frozenset(), {}, {}, frozenset())
+        with (
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.compile_registry", return_value=compiled),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.load_registry_asset", return_value=delivered),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.materialize_delta", return_value=([], [], set(), {}, object(), None)) as materialize,
+        ):
+            service = WorkbenchService(Path("/project"))
+            service._store = unittest.mock.Mock()
+            service._refresh()
+
+        self.assertIs(delivered, materialize.call_args.kwargs["initial_compilation"].registry)
 
     def test_failed_startup_is_reported_once_and_not_retried(self):
         with (

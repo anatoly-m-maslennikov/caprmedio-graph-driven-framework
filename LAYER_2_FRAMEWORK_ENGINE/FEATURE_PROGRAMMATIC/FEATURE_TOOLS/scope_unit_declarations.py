@@ -18,8 +18,8 @@ from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regu
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
-_DECLARATION_FORM = re.compile(
-    r"(?m)^(?:form|type):[ \t]*(?:Scope Unit Declaration|\"Scope Unit Declaration\"|'Scope Unit Declaration')[ \t]*(?:#.*)?$"
+_STRUCTURAL_FORM = re.compile(
+    r"(?m)^(?:form|type):[ \t]*(?:Scope Unit Declaration|Scope Delegation|\"Scope Unit Declaration\"|\"Scope Delegation\"|'Scope Unit Declaration'|'Scope Delegation')[ \t]*(?:#.*)?$"
 )
 _PROJECTION = re.compile(r"(?m)^projection:\s*(?:$|\{)")
 
@@ -63,8 +63,8 @@ def _digest(pins: dict[str, dict[str, Any]]) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-def _selects_declaration_form(raw: bytes) -> bool:
-    """Use only the canonical Form line to decide whether this reader owns a carrier."""
+def _selects_structural_form(raw: bytes) -> bool:
+    """Use only the canonical structural Form line to decide whether this reader owns a carrier."""
     try:
         text = raw.decode("utf-8").replace("\r\n", "\n")
     except UnicodeDecodeError:
@@ -72,7 +72,11 @@ def _selects_declaration_form(raw: bytes) -> bool:
     if not text.startswith("---\n"):
         return False
     closing = text.find("\n---\n", 4)
-    return closing >= 0 and _DECLARATION_FORM.search(text[4:closing]) is not None
+    return closing >= 0 and _STRUCTURAL_FORM.search(text[4:closing]) is not None
+
+
+# Compatibility for current consumers; structural forms now include Delegation.
+_selects_declaration_form = _selects_structural_form
 
 
 def _is_projection(raw: bytes) -> bool:
@@ -99,7 +103,7 @@ def _declaration_candidates(
             raw = reader.read(path, remember=False)
         except FileNotFoundError:
             continue
-        if not _is_projection(raw) and _selects_declaration_form(raw):
+        if not _is_projection(raw) and _selects_structural_form(raw):
             candidates.append((path, raw))
     return tuple(candidates)
 
@@ -141,10 +145,14 @@ def read_scope_unit_declarations(
             try:
                 declaration = parse_scope_unit_declaration(raw, path)
             except ScopeDeclarationError as error:
-                # A selected declaration carrier cannot fall back to an unrelated Requirement.
+                # A selected structural carrier cannot fall back to an unrelated Requirement.
                 if "not an active Requirement Scope Unit Declaration" in str(error):
                     raise ScopeDeclarationError(f"{path}: declaration Form contradicts its required carrier fields") from error
                 raise
+            if parent is None and declaration.form != "Scope Unit Declaration":
+                raise ScopeDeclarationError("Project Scope Unit must use Scope Unit Declaration")
+            if parent is not None and declaration.form not in {"Scope Unit Declaration", "Scope Delegation"}:
+                raise ScopeDeclarationError("non-Project Scope Unit must use Scope Unit Declaration or Scope Delegation")
             if declaration.is_root != (parent is None):
                 raise ScopeDeclarationError(
                     "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"

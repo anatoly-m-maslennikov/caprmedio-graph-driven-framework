@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Backlog
-  version: 2
-  updated_at: 2026-11-08 19:15:36 +0400
+  status: Done
+  version: 4
+  updated_at: 2026-11-08 20:26:04 +0400
 destination:
   file:
     name: 19-CA-P-2735-TASK--adopt-the-reviewed-relation-packet-before-implementation.md

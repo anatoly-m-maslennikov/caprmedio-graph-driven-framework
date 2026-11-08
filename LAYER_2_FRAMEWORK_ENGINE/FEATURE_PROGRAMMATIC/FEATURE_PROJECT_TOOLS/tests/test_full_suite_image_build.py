@@ -10,6 +10,7 @@ from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import full_suite_docker as docker  # noqa: E402
+import runtime_images  # noqa: E402
 from runtime_images import DOCKERFILE, DOCKERIGNORE, FINGERPRINT_LABEL, SCHEMA_LABEL  # noqa: E402
 
 IMAGE = "sha256:" + "a" * 64
@@ -65,13 +66,16 @@ class CurrentSourceImageBuildTests(unittest.TestCase):
                     "Config": {"Labels": labels},
                     "Os": "linux",
                     "Architecture": "arm64"
-                    if docker.ImageManager(self.root).platform == "linux/arm64"
+                    if docker.ImageManager(self.root, project_root=self.root).platform == "linux/arm64"
                     else "amd64",
                 }
                 return subprocess.CompletedProcess(argv, 0, json.dumps([value]))
             return subprocess.CompletedProcess(argv, 0, "")
 
-        with patch.object(docker, "_bounded_run", side_effect=execute):
+        with (
+            patch.object(docker, "_bounded_run", side_effect=execute),
+            patch.object(runtime_images, "_compile_relation_registry", return_value=b'{"schema_version":1}\n'),
+        ):
             with docker.current_code_test_image(self.root) as environment:
                 self.assertEqual(IMAGE, environment["CAPRMEDIO_FIRST_CUT_HTTP_IMAGE"])
                 self.assertEqual(IMAGE, environment["CAPRMEDIO_IMAGE"])

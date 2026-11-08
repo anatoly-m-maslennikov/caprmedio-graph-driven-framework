@@ -1,6 +1,7 @@
-# CA-M-465@21
-# CA-E-677@18
-# CA-E-780@7
+# CA-R-2724@3
+# CA-M-465@24
+# CA-M-509@1
+# CA-D-672@13
 
 """Copy-on-write relation materialization for an incremental source batch."""
 
@@ -12,8 +13,11 @@ from typing import Mapping
 from .index_delta import MaterializationDelta
 from .relations import (
     ATOM, SCOPE, _atom_facts, _materialized_row, _scope_facts,
-    _scope_references, _unique_references, _warn_colliding_uses,
-    registry_contribution, registry_from_contributions,
+    _scope_references, _support_facts, _support_for_fact, _unique_references,
+)
+from .relation_registry import (
+    RelationRegistry, RegistryCompilation, RegistryContribution, _unambiguous_aliases,
+    _warn_colliding_uses, compile_registry, registry_contribution, registry_from_contributions,
 )
 
 
@@ -30,14 +34,93 @@ class RelationState:
     scope_signature: tuple[tuple[str, str | None, str | None], ...]
     registered: frozenset[str]
     inverse: dict[str, str]
+    aliases: dict[str, str]
     excluded_paths: frozenset[str]
     duplicate_refs: frozenset[str]
-    registry_contributions: dict[str, tuple[frozenset[str], tuple[tuple[str, str], ...]]]
+    registry_contributions: dict[str, RegistryContribution]
     collisions: frozenset[str]
+    fact_contributors: dict[tuple, frozenset[tuple[str, str]]]
+    facts_by_endpoint: dict[tuple[str, str], frozenset[tuple]]
+    support: dict[tuple[str, str], frozenset[tuple]]
 
 
 def _scope_signature(scopes: list[dict]) -> tuple[tuple[str, str | None, str | None], ...]:
     return tuple((row["name"], row.get("scope_unit_id"), row.get("parent_name")) for row in scopes)
+
+
+def _registry(
+    contributions: Mapping[str, RegistryContribution],
+) -> RelationRegistry:
+    names, inverse, collisions = registry_from_contributions(contributions)
+    return RelationRegistry(frozenset(names), inverse, _unambiguous_aliases(contributions, names), frozenset(collisions))
+
+
+def _fact_contributors(
+    scopes: list[dict], registry: RelationRegistry, direct: Mapping[str, tuple[tuple, ...]],
+) -> dict[tuple, frozenset[tuple[str, str]]]:
+    contributors: dict[tuple, set[tuple[str, str]]] = {}
+    for fact in _scope_facts(scopes, registry):
+        contributors.setdefault(fact, set()).add(("scope", fact[1]))
+    for path, facts in direct.items():
+        for fact in facts:
+            contributors.setdefault(fact, set()).add(("atom", path))
+    return {fact: frozenset(owners) for fact, owners in contributors.items()}
+
+
+def _facts_by_endpoint(contributors: Mapping[tuple, object]) -> dict[tuple[str, str], frozenset[tuple]]:
+    indexed: dict[tuple[str, str], set[tuple]] = {}
+    for fact in contributors:
+        for endpoint in (fact[:2], fact[3:]):
+            indexed.setdefault(endpoint, set()).add(fact)
+    return {endpoint: frozenset(facts) for endpoint, facts in indexed.items()}
+
+
+def _index_fact(
+    indexed: dict[tuple[str, str], frozenset[tuple]], fact: tuple, *, add: bool,
+) -> None:
+    for endpoint in {fact[:2], fact[3:]}:
+        facts = set(indexed.get(endpoint, ()))
+        if add:
+            facts.add(fact)
+        else:
+            facts.discard(fact)
+        if facts:
+            indexed[endpoint] = frozenset(facts)
+        else:
+            indexed.pop(endpoint, None)
+
+
+def _refresh_support(
+    support: dict[tuple[str, str], frozenset[tuple]], fact: tuple, registry: RelationRegistry,
+    present: set[tuple[str, str]], *, active: bool,
+) -> set[tuple[str, str]]:
+    """Replace this fact's support edges without enumerating unrelated facts."""
+    inverse = registry.inverse.get(fact[2])
+    if inverse is None:
+        return set()
+    reverse = (fact[3], fact[4], inverse, fact[0], fact[1])
+    affected: set[tuple[str, str]] = set()
+    for owner in (fact[:2], reverse[:2]):
+        before = support.get(owner)
+        if before is None:
+            continue
+        edges = set(before)
+        edges.discard((*fact, False))
+        edges.discard((*reverse, True))
+        if edges:
+            support[owner] = frozenset(edges)
+        else:
+            support.pop(owner, None)
+        if before != frozenset(edges):
+            affected.add(owner)
+    for owner, edges in (_support_for_fact(fact, registry, present).items() if active else ()):
+        before = support.get(owner, frozenset())
+        current = set(before)
+        current.update(edges)
+        support[owner] = frozenset(current)
+        if before != support[owner]:
+            affected.add(owner)
+    return affected
 
 
 def _duplicate_membership(atoms: list[dict]) -> tuple[frozenset[str], frozenset[str]]:
@@ -95,36 +178,42 @@ def _delta_edge(
     return affected
 
 
-def _full_state(atoms: list[dict], scopes: list[dict]) -> RelationState:
+def _full_state(
+    atoms: list[dict], scopes: list[dict], compilation: RegistryCompilation | None = None,
+) -> RelationState:
     excluded_paths, duplicate_refs = _duplicate_membership(atoms)
     atoms = _unique_references(atoms)
-    contributions = {row["source_path"]: registry_contribution(row) for row in atoms if isinstance(row.get("source_path"), str)}
-    registered, inverse, collisions = registry_from_contributions(contributions)
-    _warn_colliding_uses(atoms, collisions)
+    compiled = compile_registry(atoms) if compilation is None else compilation
+    contributions = compiled.contributions
+    registry = compiled.registry
+    _warn_colliding_uses(atoms, registry.collisions)
     aliases = _scope_references(scopes)
     raw_by_path = {row["source_path"]: row for row in atoms if isinstance(row.get("source_path"), str)}
-    direct = {path: tuple(_atom_facts(row, aliases, registered)) for path, row in raw_by_path.items()}
+    direct = {path: tuple(_atom_facts(row, aliases, registry)) for path, row in raw_by_path.items()}
+    contributors = _fact_contributors(scopes, registry, direct)
+    facts_by_endpoint = _facts_by_endpoint(contributors)
     outgoing: dict[tuple[str, str], set[tuple]] = {}
-    for fact in _scope_facts(scopes, registered):
-        _add(outgoing, fact, inverse)
-    for facts in direct.values():
-        for fact in facts:
-            _add(outgoing, fact, inverse)
+    for fact in contributors:
+        _add(outgoing, fact, registry.inverse)
+    support = _support_facts(atoms, scopes, registry, direct)
     atom_rows = {}
     for path, row in raw_by_path.items():
-        materialized = _materialized_row(ATOM, row, tuple(sorted(outgoing.get((ATOM, row["ref"]), ()))))
+        facts = tuple(sorted((*outgoing.get((ATOM, row["ref"]), ()), *support.get((ATOM, row["ref"]), ()))))
+        materialized = _materialized_row(ATOM, row, facts)
         if materialized is not None:
             atom_rows[path] = materialized
     scope_rows = {}
     for row in scopes:
-        materialized = _materialized_row(SCOPE, row, tuple(sorted(outgoing.get((SCOPE, row["name"]), ()))))
+        facts = tuple(sorted((*outgoing.get((SCOPE, row["name"]), ()), *support.get((SCOPE, row["name"]), ()))))
+        materialized = _materialized_row(SCOPE, row, facts)
         if materialized is not None:
             scope_rows[row["name"]] = materialized
     return RelationState(
         raw_by_path, {row["ref"]: path for path, row in raw_by_path.items() if row["ref"] is not None}, direct,
         {key: frozenset(value) for key, value in outgoing.items()}, atom_rows, tuple(raw_by_path),
-        scope_rows, tuple(scope_rows), _scope_signature(scopes), frozenset(registered), dict(inverse),
-        excluded_paths, duplicate_refs, contributions, frozenset(collisions),
+        scope_rows, tuple(scope_rows), _scope_signature(scopes), registry.names, dict(registry.inverse), dict(registry.aliases),
+        excluded_paths, duplicate_refs, contributions, registry.collisions, contributors,
+        facts_by_endpoint, {key: frozenset(value) for key, value in support.items()},
     )
 
 
@@ -159,15 +248,14 @@ def _requires_full(state: RelationState, scopes: list[dict], changes: Mapping[st
 
 def _next_registry(
     state: RelationState, changes: Mapping[str, dict | None],
-) -> tuple[dict[str, tuple[frozenset[str], tuple[tuple[str, str], ...]]], set[str], dict[str, str], set[str]]:
+) -> tuple[dict[str, RegistryContribution], RelationRegistry]:
     contributions = dict(state.registry_contributions)
     for path, row in changes.items():
         if row is None:
             contributions.pop(path, None)
         else:
             contributions[path] = registry_contribution(row)
-    registered, inverse, collisions = registry_from_contributions(contributions)
-    return contributions, registered, inverse, collisions
+    return contributions, _registry(contributions)
 
 
 def _rows(state: RelationState) -> tuple[list[dict], list[dict]]:
@@ -178,16 +266,17 @@ def _rows(state: RelationState) -> tuple[list[dict], list[dict]]:
 def materialize_delta(  # noqa: C901
     atoms: list[dict], scopes: list[dict], previous_state: RelationState | None = None,
     changes: Mapping[str, dict | None] | None = None,
+    initial_compilation: RegistryCompilation | None = None,
 ) -> tuple[list[dict], list[dict], set[str], dict[str, str], RelationState, MaterializationDelta | None]:
     """Return a full build or a changed-source relation delta without source mutation."""
     if previous_state is None or changes is None or _requires_full(previous_state, scopes, changes):
-        state = _full_state(atoms, scopes)
+        state = _full_state(atoms, scopes, initial_compilation if previous_state is None else None)
         rows, scope_rows = _rows(state)
         return rows, scope_rows, set(state.registered), dict(state.inverse), state, None
 
-    contributions, registered, inverse, collisions = _next_registry(previous_state, changes)
-    if (frozenset(registered), inverse, frozenset(collisions)) != (
-        previous_state.registered, previous_state.inverse, previous_state.collisions,
+    contributions, registry = _next_registry(previous_state, changes)
+    if (registry.names, registry.inverse, registry.aliases, registry.collisions) != (
+        previous_state.registered, previous_state.inverse, previous_state.aliases, previous_state.collisions,
     ):
         state = _full_state(atoms, scopes)
         rows, scope_rows = _rows(state)
@@ -196,10 +285,13 @@ def materialize_delta(  # noqa: C901
     aliases = _scope_references(scopes)
     raw = dict(previous_state.raw_by_path)
     direct = dict(previous_state.direct_facts)
+    contributors = dict(previous_state.fact_contributors)
+    facts_by_endpoint = dict(previous_state.facts_by_endpoint)
     outgoing = dict(previous_state.outgoing)
     refs = dict(previous_state.refs)
     affected: set[tuple[str, str]] = set()
     changed_paths = set(changes)
+    changed_facts: set[tuple] = set()
     # A carrier rename retains its reference. Remove every old source fact
     # before any replacement fact can use that reference.
     for path in changes:
@@ -207,19 +299,42 @@ def materialize_delta(  # noqa: C901
         if old is not None and old.get("ref") is not None and refs.get(old["ref"]) == path:
             refs.pop(old["ref"])
         for fact in direct.pop(path, ()):
-            affected.update(_delta_edge(outgoing, fact, previous_state.inverse, add=False))
+            owners = set(contributors.get(fact, ()))
+            owners.discard(("atom", path))
+            if owners:
+                contributors[fact] = frozenset(owners)
+            else:
+                contributors.pop(fact, None)
+                _index_fact(facts_by_endpoint, fact, add=False)
+                changed_facts.add(fact)
+                affected.update(_delta_edge(outgoing, fact, previous_state.inverse, add=False))
         raw.pop(path, None)
     for path, new in changes.items():
         if new is not None:
             raw[path] = new
-            facts = tuple(_atom_facts(new, aliases, set(previous_state.registered)))
+            facts = tuple(_atom_facts(new, aliases, registry))
             direct[path] = facts
             for fact in facts:
-                affected.update(_delta_edge(outgoing, fact, previous_state.inverse, add=True))
+                owners = set(contributors.get(fact, ()))
+                if not owners:
+                    _index_fact(facts_by_endpoint, fact, add=True)
+                    changed_facts.add(fact)
+                    affected.update(_delta_edge(outgoing, fact, registry.inverse, add=True))
+                owners.add(("atom", path))
+                contributors[fact] = frozenset(owners)
             if new.get("ref") is not None:
                 affected.add((ATOM, new["ref"]))
                 refs[new["ref"]] = path
-            _warn_colliding_uses([new], collisions)
+            _warn_colliding_uses([new], registry.collisions)
+
+    changed_endpoints = {(ATOM, ref) for ref in set(previous_state.refs) ^ set(refs)}
+    for endpoint in changed_endpoints:
+        changed_facts.update(previous_state.facts_by_endpoint.get(endpoint, ()))
+        changed_facts.update(facts_by_endpoint.get(endpoint, ()))
+    present = {(ATOM, ref) for ref in refs} | {(SCOPE, row["name"]) for row in scopes}
+    support = dict(previous_state.support)
+    for fact in changed_facts:
+        affected.update(_refresh_support(support, fact, registry, present, active=fact in contributors))
 
     atom_rows = dict(previous_state.atom_rows)
     old_atoms = {path: previous_state.atom_rows[path] for path in changed_paths if path in previous_state.atom_rows}
@@ -229,7 +344,10 @@ def materialize_delta(  # noqa: C901
         if path in atom_rows:
             old_atoms.setdefault(path, atom_rows[path])
         ref = raw[path].get("ref")
-        row = _materialized_row(ATOM, raw[path], tuple(sorted(outgoing.get((ATOM, ref), ()))) if ref is not None else ())
+        facts = (() if ref is None else tuple(sorted(
+            (*outgoing.get((ATOM, ref), ()), *support.get((ATOM, ref), ())),
+        )))
+        row = _materialized_row(ATOM, raw[path], facts)
         if row is not None:
             atom_rows[path] = row
             new_atoms[path] = row
@@ -246,12 +364,19 @@ def materialize_delta(  # noqa: C901
             continue
         if name in scope_rows:
             old_scopes[name] = scope_rows[name]
-        row = _materialized_row(SCOPE, scope_sources[name], tuple(sorted(outgoing.get((SCOPE, name), ()))))
+        facts = tuple(sorted((*outgoing.get((SCOPE, name), ()), *support.get((SCOPE, name), ()))))
+        row = _materialized_row(SCOPE, scope_sources[name], facts)
         if row is not None:
             scope_rows[name] = row
             new_scopes[name] = row
 
     order = tuple(path for path in previous_state.atom_order if path in raw) + tuple(path for path in changes if path in raw and path not in previous_state.raw_by_path)
-    state = RelationState(raw, refs, direct, outgoing, atom_rows, order, scope_rows, previous_state.scope_order, previous_state.scope_signature, previous_state.registered, previous_state.inverse, previous_state.excluded_paths, previous_state.duplicate_refs, contributions, previous_state.collisions)
+    state = RelationState(
+        raw, refs, direct, outgoing, atom_rows, order, scope_rows, previous_state.scope_order,
+        previous_state.scope_signature, registry.names, dict(registry.inverse), dict(registry.aliases),
+        previous_state.excluded_paths, previous_state.duplicate_refs, contributions, registry.collisions,
+        contributors, facts_by_endpoint,
+        support,
+    )
     rows, scope_output = _rows(state)
     return rows, scope_output, set(state.registered), dict(state.inverse), state, MaterializationDelta(old_atoms, new_atoms, old_scopes, new_scopes)

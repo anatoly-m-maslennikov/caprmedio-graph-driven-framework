@@ -16,8 +16,8 @@ relations:
   - CA-P-2736
 state:
   status: Active
-  version: 1
-  updated_at: 2026-11-08 19:15:36 +0400
+  version: 3
+  updated_at: 2026-11-08 21:55:53 +0400
 destination:
   file:
     name: CA-P-2740-WORK_REPORT--expose-missing-declared-content-through-query-run.md
@@ -31,4 +31,4 @@ Expose missing declared Content through query_run
 
 ## Details
 
-Found a source-declaration gap and a generic Markdown extraction bug. New Operation Declaration CA-R-970308623@1 passed two independent Sol High reviews and is Current; content.operation is queryable but legacy nested text needs the reviewed extractor fix. Content16, nested-header13 and schema-refresh4 tests pass. The extractor fix passed independent re-review after two corrections. Local release and full live-content verification remain.
+Local release 0.4.4.36 installed the reviewed extractor fix; 153 scoped tests passed. The Operator deferred 78 content-unavailable Atoms: 64 PROGRAMMATIC, 12 APPS and O240/O241. No atom_document helper is planned. The approved cold-start mode uses observed YAML Headers and schema-declared Markdown; explicit schema-mode/build-asset verification remains. No full Content coverage or new deployment is claimed.

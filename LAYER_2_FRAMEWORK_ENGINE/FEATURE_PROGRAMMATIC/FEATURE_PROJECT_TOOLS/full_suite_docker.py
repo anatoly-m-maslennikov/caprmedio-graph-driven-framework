@@ -76,7 +76,7 @@ def current_code_test_image(root: Path):
         raise OSError("test scratch must remain inside the selected Project")
     scratch = Path(tempfile.mkdtemp(prefix="attempt-", dir=parent))
     attempt = uuid.uuid4().hex
-    manager = ImageManager(root, executor=_executor(attempt), build_temp_root=scratch)
+    manager = ImageManager(root, executor=_executor(attempt), build_temp_root=scratch, project_root=root)
     image = manager._build(manager.identity())
     print(f"Test image FINISH: {image}", flush=True)
     environment = {

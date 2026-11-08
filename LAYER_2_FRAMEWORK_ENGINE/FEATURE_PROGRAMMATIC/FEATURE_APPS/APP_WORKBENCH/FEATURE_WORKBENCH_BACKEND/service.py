@@ -18,6 +18,7 @@
 from __future__ import annotations
 
 import datetime as dt
+from dataclasses import replace
 from pathlib import Path
 import shutil
 import sys
@@ -29,6 +30,9 @@ from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .query_store import QueryStore
 from .query_log import QueryLog
 from .incremental_relations import RelationState, materialize_delta
+from .generate_relation_registry import DEFAULT_REGISTRY_PATH
+from .relation_registry import compile_registry
+from .relation_registry_asset import load_registry_asset
 from .runtime_settings import result_ttl_seconds
 from .saved_queries import SavedQueryStore
 from .source_reader import SourceReader
@@ -91,8 +95,19 @@ class WorkbenchService:
                 full = changed = False
                 materialize_seconds = write_seconds = 0.0
                 if changes is None or self._reader.capture_changed:
+                    initial_compilation = None
+                    if self._relation_state is None:
+                        initial_compilation = compile_registry(atoms)
+                        delivered = load_registry_asset(
+                            DEFAULT_REGISTRY_PATH, atoms, initial_compilation,
+                        )
+                        if delivered is not None:
+                            initial_compilation = replace(initial_compilation, registry=delivered)
+                    materialize_args = {"changes": self._reader.capture_delta}
+                    if initial_compilation is not None:
+                        materialize_args["initial_compilation"] = initial_compilation
                     atoms, scopes, registered, _inverse, next_state, delta = materialize_delta(
-                        atoms, scopes, self._relation_state, changes=self._reader.capture_delta,
+                        atoms, scopes, self._relation_state, **materialize_args,
                     )
                     materialize_seconds = time.monotonic() - captured_at
                     schema = self._reader.content_schema

@@ -271,6 +271,7 @@ def run_local_release(
                 image_temporary.mkdir(mode=0o700)
                 manager = _image_manager(
                     package, image_temporary,
+                    project_root=root,
                     build_provenance=release_image_provenance(root, selection, cleanup_runner),
                 )
                 candidate_image = manager.resolve()
@@ -285,7 +286,7 @@ def run_local_release(
                 _clear_target(runtime, root=root, preserve=frozenset(), label="simple-runtime")
                 _copy_tree(package, runtime, preserve=frozenset())
                 _verify_package(runtime, package_identity)
-                manager = _image_manager(runtime)
+                manager = _image_manager(runtime, project_root=root)
                 if (manager.resolve(explicit_id=candidate_image, build_if_missing=False) != candidate_image
                         or manager.identity().fingerprint != candidate_fingerprint):
                     raise LocalReleaseError("local-release-installed-image-mismatch")

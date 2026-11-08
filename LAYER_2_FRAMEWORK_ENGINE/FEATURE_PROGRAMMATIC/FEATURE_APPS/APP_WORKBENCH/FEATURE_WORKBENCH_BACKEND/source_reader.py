@@ -1,17 +1,14 @@
-# CA-R-2723@3
-# CA-R-2725@3
 # CA-R-2726@5
-# CA-M-464@8
-# CA-M-465@23
-# CA-M-500@2
-# CA-D-672@12
+# CA-R-3009@1
+# CA-M-464@9
+# CA-M-465@24
+# CA-D-672@13
 
 """Governed Workbench carrier reader; scheduling belongs to the service."""
 
 from __future__ import annotations
 
 import os
-import re
 import sys
 from collections.abc import Iterator
 from pathlib import Path
@@ -23,6 +20,8 @@ from .source_rows import (
     ReferenceIndex, atom as source_atom, canonical_row, file_signature, frontmatter_bounds, same_row as _same_row,
     scope as source_scope, source_body,
 )
+from .source_roles import ARCHIVE_PARTS as _ARCHIVE_PARTS, FILENAME_MARKER as _FILENAME_MARKER
+from .source_roles import HEADER_MARKER as _HEADER_MARKER, ROLE_MARKERS as _ROLE_MARKERS, ROLES as _ROLES
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
@@ -41,32 +40,6 @@ from VALIDATE_ATOMS.validate_atoms_workers.parsing import (  # noqa: E402
 )
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS  # noqa: E402
-_ROLES = {
-    "01_concern",
-    "02_analysis",
-    "03_plan",
-    "04_requirement",
-    "05_method",
-    "06_evaluation",
-    "07_delivery",
-    "09_operations",
-}
-_ARCHIVE_PARTS = {"archive", "archived", "_projection"}
-_FILENAME_MARKER = re.compile(
-    rb"^(?:[0-9]+-)?[A-Za-z0-9-]+-(?P<role>[A-Za-z][A-Za-z0-9]*)-"
-    rb"(?:[0-9]+|[Dd][Rr][Aa][Ff][Tt])(?:[-.@]|$)"
-)
-_HEADER_MARKER = re.compile(rb"^[ \t]*(?:['\"]?)(?:atom_id|role|content_role)(?:['\"]?):", re.MULTILINE)
-_ROLE_MARKERS = {
-    "01_concern": {"C", "CONC", "CONCERN"},
-    "02_analysis": {"A", "ANAL", "ANALYSIS", "ANRP"},
-    "03_plan": {"P", "PLAN", "EPIC", "TASK"},
-    "04_requirement": {"R", "REQ", "REQU", "REQUIREMENT"},
-    "05_method": {"M", "METH", "METHOD"},
-    "06_evaluation": {"E", "EVAL", "EVALUATION"},
-    "07_delivery": {"D", "DEL", "DELIVERY"},
-    "09_operations": {"O", "OPER", "OPERATION", "OPERATIONS", "ACTION", "WORKFLOW", "STEP"},
-}
 class SourceReader:
     def __init__(self, root: Path, control_root: Path | None = None) -> None:
         self.root = Path(root).resolve()

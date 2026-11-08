@@ -16,8 +16,8 @@ relations:
   - CA-P-2722
 state:
   status: Active
-  version: 1
-  updated_at: 2026-11-08 19:15:36 +0400
+  version: 3
+  updated_at: 2026-11-08 21:55:53 +0400
 destination:
   file:
     name: CA-P-2743-WORK_REPORT--verify-shared-model-prerequisites-for-adoption.md
@@ -31,4 +31,4 @@ Verify shared model prerequisites for adoption
 
 ## Details
 
-CA #5 adopted the canonical Work Report model and IS_WORK_REPORT_FOR, with CA-P-2712 Done@3. Its latest Operator decisions supersede our first provisional report and Draft. Our Work Report model Draft was handed over, not promoted independently. IS_REPLACEMENT_FOR naming cutover remains before this prerequisite Task can finish.
+Work Report and replacement-relation source prerequisites were adopted and verified. A later Core review found the local Scope Delegation permissions missing. The Operator approved updating the affected delegations without changing the Scope Unit tree. Draft preparation, two reviews and reader compatibility checks are in progress; affected promotions remain gated.

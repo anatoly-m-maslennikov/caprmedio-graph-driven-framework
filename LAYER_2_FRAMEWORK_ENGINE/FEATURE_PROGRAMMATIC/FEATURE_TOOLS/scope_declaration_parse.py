@@ -116,12 +116,12 @@ def _safe_component(value: object, field: str) -> str:
     return value
 
 
-def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str]:
+def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str, str]:
     role = value.get("role", value.get("content_role"))
     form = value.get("form", value.get("type"))
     atom_id, version, status = value.get("atom_id"), value.get("version"), value.get("status")
-    if role != "Requirement" or form != "Scope Unit Declaration" or status != "Active":
-        raise ScopeDeclarationError(f"{path}: not an active Requirement Scope Unit Declaration")
+    if role != "Requirement" or form not in {"Scope Unit Declaration", "Scope Delegation"} or status != "Active":
+        raise ScopeDeclarationError(f"{path}: not an active Requirement Scope Unit Declaration or Scope Delegation")
     if not isinstance(atom_id, str) or _ATOM_ID.fullmatch(atom_id) is None:
         raise ScopeDeclarationError(f"{path}: declaration requires an assigned CA-R identity")
     if type(version) is not int or version < 1:
@@ -135,7 +135,7 @@ def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str]:
     active = topics["main_subject"] if has_main_subject else subjects.get("active") if has_legacy_active else None
     if not isinstance(active, str):
         raise ScopeDeclarationError(f"{path}: declaration requires one main Subject")
-    return atom_id, version, _local_subject(active, path)
+    return atom_id, version, _local_subject(active, path), form
 
 
 def _local_subject(active: str, path: Path) -> str:
@@ -219,6 +219,7 @@ class ScopeUnitDeclaration:
     atom_id: str
     version: int
     source: Path
+    form: str = "Scope Unit Declaration"
     scope_unit_id: str | None = None
     label: str | None = None
     ordered: bool = False
@@ -237,15 +238,17 @@ class ScopeUnitDeclaration:
 def parse_scope_unit_declaration(raw: bytes, source: Path) -> ScopeUnitDeclaration:
     """Parse one already-read carrier without traversing, evaluating, or writing."""
     metadata, body = _carrier(raw, source)
-    atom_id, version, active = _metadata(metadata, source)
+    atom_id, version, active, form = _metadata(metadata, source)
     statements = _cfel(body, source)
 
     root = _ROOT_NAME.fullmatch(statements[0]) if len(statements) == 1 else None
     if root is not None:
+        if form != "Scope Unit Declaration":
+            raise ScopeDeclarationError(f"{source}: Project Scope Unit must use Scope Unit Declaration")
         name = _subject(root["name"])
         if active != f"Project//{name}" or _string(root["value"]) != name:
             raise ScopeDeclarationError(f"{source}: root declaration identity is contradictory")
-        return ScopeUnitDeclaration(name=name, atom_id=atom_id, version=version, source=source)
+        return ScopeUnitDeclaration(name=name, atom_id=atom_id, version=version, source=source, form=form)
 
     values: dict[str, str | bool | int] = {}
     parent: str | None = None
@@ -293,7 +296,7 @@ def parse_scope_unit_declaration(raw: bytes, source: Path) -> ScopeUnitDeclarati
     if ordered != isinstance(local_order, int):
         raise ScopeDeclarationError(f"{source}: order.number is required only for ordered Scope Units")
     return ScopeUnitDeclaration(
-        name=name, atom_id=atom_id, version=version, source=source, scope_unit_id=scope_unit_id,
+        name=name, atom_id=atom_id, version=version, source=source, form=form, scope_unit_id=scope_unit_id,
         label=label, ordered=ordered, local_order=local_order, parent=parent,
     )
 

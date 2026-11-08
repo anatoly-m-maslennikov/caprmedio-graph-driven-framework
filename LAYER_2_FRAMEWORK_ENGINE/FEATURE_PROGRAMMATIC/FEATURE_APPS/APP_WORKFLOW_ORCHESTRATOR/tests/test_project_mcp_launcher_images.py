@@ -29,6 +29,9 @@ class ImageGoldenTests(unittest.TestCase):
         parent = APP.parents[3] / ".caprmedio_tmp" / "launcher-epic-1829" / "images"
         parent.mkdir(parents=True, exist_ok=True)
         self.fixture_root = Path(tempfile.mkdtemp(dir=parent))
+        self.registry = patch("runtime_images._compile_relation_registry", return_value=b'{"schema_version":1}\n')
+        self.registry.start()
+        self.addCleanup(self.registry.stop)
 
     def manager(self, source_root: Path, executor) -> ImageManager:
         tagged, sources, inspections = set(), {}, {}
@@ -54,7 +57,8 @@ class ImageGoldenTests(unittest.TestCase):
             return result
 
         return ImageManager(
-            source_root, executor=tagging_executor, timeout=7, uid=1000, gid=1000, platform="linux/amd64"
+            source_root, executor=tagging_executor, timeout=7, uid=1000, gid=1000, platform="linux/amd64",
+            project_root=APP.parents[3],
         )
 
     def source_fixture(self) -> Path:
@@ -148,7 +152,8 @@ class ImageGoldenTests(unittest.TestCase):
                 def executor(argv, **_kwargs):
                     calls.append(tuple(argv))
                     return subprocess.CompletedProcess(argv, 0, "", "")
-                manager = ImageManager(source, executor=executor, uid=1000, gid=1000, platform="linux/amd64", build_temp_root=parent)
+                manager = ImageManager(source, executor=executor, uid=1000, gid=1000, platform="linux/amd64",
+                                       build_temp_root=parent, project_root=APP.parents[3])
                 with self.assertRaises(ImageError) as raised:
                     manager.resolve()
                 self.assertEqual("BUILD_FAILED", raised.exception.code)

@@ -5,6 +5,8 @@ inspected immutable Docker image ID leaves this boundary; no runtime resources
 are started, replaced or retired here.
 """
 
+# CA-D-705@1
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -15,27 +17,40 @@ import os
 from pathlib import Path
 import platform as host_platform
 import re
-import selectors
 import subprocess
 import tempfile
-import time
 
 try:
     from .image_reference import IMMUTABLE_IMAGE
     from .image_metadata import (
-        OCI_VERSION_LABEL, display_image_tag, docker_created_utc, read_framework_version,
+        OCI_VERSION_LABEL, docker_created_utc, read_framework_version,
     )
+    from .image_display_tags import ensure_display_tag
     from .image_provenance import ImageBuildProvenance, label_arguments
+    from .image_relation_registry import RELATION_REGISTRY_COMPILER
+    from .image_relation_registry import compile_relation_registry as _compile_relation_registry
+    from .image_docker_client import MAX_OUTPUT as _MAX_OUTPUT
+    from .image_docker_client import bounded_run as _bounded_run
+    from .image_docker_client import docker_client_environment as _docker_client_environment
 except ImportError:  # direct execution/import with docker/ on sys.path
     from image_reference import IMMUTABLE_IMAGE
-    from image_metadata import OCI_VERSION_LABEL, display_image_tag, docker_created_utc, read_framework_version
+    from image_metadata import OCI_VERSION_LABEL, docker_created_utc, read_framework_version
+    from image_display_tags import ensure_display_tag
     from image_provenance import ImageBuildProvenance, label_arguments
+    from image_relation_registry import RELATION_REGISTRY_COMPILER
+    from image_relation_registry import compile_relation_registry as _compile_relation_registry
+    from image_docker_client import MAX_OUTPUT as _MAX_OUTPUT
+    from image_docker_client import bounded_run as _bounded_run
+    from image_docker_client import docker_client_environment as _docker_client_environment
 
 
 ENGINE_ROOT = "LAYER_2_FRAMEWORK_ENGINE"
 DOCKER_ROOT = ENGINE_ROOT + "/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker"
 DOCKERFILE = DOCKER_ROOT + "/Dockerfile"
 DOCKERIGNORE = DOCKER_ROOT + "/Dockerfile.dockerignore"
+RELATION_REGISTRY = (ENGINE_ROOT
+                     + "/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/"
+                     + "canonical_relation_registry.json")
 SCHEMA_LABEL = "org.caprmedio.runtime.schema"
 FINGERPRINT_LABEL = "org.caprmedio.runtime.fingerprint"
 SCHEMA = "1"
@@ -52,13 +67,7 @@ _CREDENTIAL_DIRECTORIES = frozenset({
     "vault", ".vault", "secrets", ".secrets", "credentials", ".credentials",
 })
 _PLATFORM = re.compile(r"linux/(?:amd64|arm64|arm|386|ppc64le|s390x|riscv64)(?:/v[0-9]+)?")
-_MAX_OUTPUT = 4 * 1024 * 1024
 _DEFAULT_EXECUTOR = subprocess.run
-_DOCKER_ENVIRONMENT = frozenset({
-    "HOME", "PATH", "DOCKER_HOST", "DOCKER_CONTEXT", "DOCKER_CONFIG", "XDG_RUNTIME_DIR", "TMPDIR",
-    "HTTP_PROXY", "HTTPS_PROXY", "ALL_PROXY", "NO_PROXY",
-    "http_proxy", "https_proxy", "all_proxy", "no_proxy",
-})
 
 
 class ImageError(RuntimeError):
@@ -90,6 +99,7 @@ class ImageIdentity:
     manifest: tuple[BuildInput, ...]
     uid: int
     gid: int
+    relation_registry: bytes
 
 
 def _canonical(value: object) -> bytes:
@@ -118,65 +128,16 @@ def _unique_object(pairs):
     return value
 
 
-def _docker_client_environment(*, buildx_config=None):
-    environment = {name: value for name, value in os.environ.items() if name in _DOCKER_ENVIRONMENT}
-    if buildx_config is not None:
-        environment["BUILDX_CONFIG"] = str(buildx_config)
-    return environment
-
-
-def _bounded_run(argv, *, cwd, timeout, capture_stdout=True, max_output=_MAX_OUTPUT,
-                 buildx_config=None):
-    """Read a finite stdout prefix; never retain command stderr or build logs."""
-    deadline = time.monotonic() + timeout
-    environment = _docker_client_environment(buildx_config=buildx_config)
-    process = subprocess.Popen(argv, cwd=cwd, stdin=subprocess.DEVNULL,
-                               stdout=subprocess.PIPE if capture_stdout else subprocess.DEVNULL,
-                               stderr=subprocess.DEVNULL, shell=False, env=environment)
-    selector = None
-    output = bytearray()
-    try:
-        if capture_stdout:
-            selector = selectors.DefaultSelector()
-            selector.register(process.stdout, selectors.EVENT_READ)
-            while selector.get_map():
-                remaining = deadline - time.monotonic()
-                if remaining <= 0:
-                    raise subprocess.TimeoutExpired(argv, timeout)
-                for key, _events in selector.select(remaining):
-                    chunk = os.read(key.fileobj.fileno(), min(65536, max_output + 1 - len(output)))
-                    if not chunk:
-                        selector.unregister(key.fileobj)
-                        continue
-                    output.extend(chunk)
-                    if len(output) > max_output:
-                        raise ValueError("Docker image stdout exceeded its bounded read")
-        remaining = deadline - time.monotonic()
-        if remaining <= 0:
-            raise subprocess.TimeoutExpired(argv, timeout)
-        returncode = process.wait(timeout=remaining)
-        return subprocess.CompletedProcess(argv, returncode, output.decode("utf-8"), "")
-    finally:
-        if selector is not None:
-            selector.close()
-        if process.stdout is not None:
-            process.stdout.close()
-        if process.poll() is None:
-            # Killing the local CLI is not proof that a Docker daemon effect
-            # stopped.  The caller reports uncertainty and never retries it.
-            try:
-                process.kill()
-                process.wait(timeout=1)
-            except (OSError, subprocess.TimeoutExpired):
-                pass
-
-
 class ImageManager:
     def __init__(self, source_root: Path | str, executor: Callable[..., subprocess.CompletedProcess[str]] = _DEFAULT_EXECUTOR,
                  timeout: float = 600, *, uid: int | None = None, gid: int | None = None,
                  platform: str | None = None, build_temp_root: Path | str | None = None,
-                 build_provenance: ImageBuildProvenance | None = None) -> None:
+                 build_provenance: ImageBuildProvenance | None = None,
+                 project_root: Path | str) -> None:
         self.source_root = Path(source_root)
+        if project_root is None:
+            raise ImageError("IMAGE_INPUT_UNAVAILABLE", "An explicit selected Project root is required")
+        self.project_root = Path(project_root)
         self.build_temp_root = Path(build_temp_root) if build_temp_root is not None else None
         if build_provenance is not None and not isinstance(build_provenance, ImageBuildProvenance):
             raise ImageError("IMAGE_INPUT_UNAVAILABLE", "Image build provenance must be explicitly typed")
@@ -208,6 +169,41 @@ class ImageManager:
             return self.source_root.resolve(strict=True)
         except (OSError, ValueError) as error:
             raise self._input_error() from error
+
+    def _project_root(self) -> Path:
+        try:
+            if self.project_root.is_symlink() or not self.project_root.is_dir():
+                raise self._input_error()
+            return self.project_root.resolve(strict=True)
+        except (OSError, ValueError) as error:
+            raise self._input_error() from error
+
+    def _relation_registry(self, root: Path) -> bytes:
+        try:
+            registry = _compile_relation_registry(
+                root, self._project_root(), timeout=self.timeout, max_output=_MAX_OUTPUT,
+            )
+        except Exception as error:
+            raise self._input_error() from error
+        if not isinstance(registry, bytes) or not registry:
+            raise self._input_error()
+        return registry
+
+    def _build_parent(self) -> Path:
+        temporary = self._project_root() / ".caprmedio_tmp"
+        parent = self.build_temp_root or temporary
+        try:
+            if (temporary.is_symlink() or not temporary.is_dir()
+                    or parent.is_symlink() or not parent.is_dir()):
+                raise OSError("unsafe private image temporary root")
+            expected = temporary.resolve(strict=True)
+            resolved = parent.resolve(strict=True)
+            if (not parent.is_absolute() or ".." in parent.parts or resolved != parent
+                    or not resolved.is_relative_to(expected)):
+                raise OSError("unsafe private image temporary root")
+            return resolved
+        except (OSError, ValueError) as error:
+            raise ImageError("BUILD_FAILED", "Private image build context is unavailable") from error
 
     def _file(self, root: Path, relative: str) -> Path:
         path = root
@@ -244,6 +240,11 @@ class ImageManager:
                 if _excluded_file(name):
                     continue
                 path = folder / name
+                relative = path.relative_to(root).as_posix()
+                if relative == RELATION_REGISTRY:
+                    if path.is_symlink() or not path.is_file():
+                        raise self._input_error()
+                    continue
                 if path.is_symlink() or not path.is_file():
                     raise self._input_error()
                 selected.add(path)
@@ -254,10 +255,13 @@ class ImageManager:
         root = self._root()
         try:
             version = read_framework_version(self._file(root, "version.toml"))
-            rows = tuple(BuildInput(path.relative_to(root).as_posix(),
-                                    hashlib.sha256(path.read_bytes()).hexdigest(),
-                                    path.stat().st_mode & 0o777)
-                         for path in self._files(root))
+            registry = self._relation_registry(root)
+            rows = [BuildInput(path.relative_to(root).as_posix(),
+                               hashlib.sha256(path.read_bytes()).hexdigest(),
+                               path.stat().st_mode & 0o777)
+                    for path in self._files(root)]
+            rows.append(BuildInput(RELATION_REGISTRY, hashlib.sha256(registry).hexdigest(), 0o644))
+            rows = tuple(sorted(rows, key=lambda row: row.path))
         except (OSError, ValueError, UnicodeError) as error:
             raise self._input_error() from error
         payload = {"schema": SCHEMA, "platform": self.platform,
@@ -265,7 +269,7 @@ class ImageManager:
                    "files": [[row.path, row.sha256, row.mode] for row in rows]}
         fingerprint = hashlib.sha256(_canonical(payload)).hexdigest()
         return ImageIdentity(fingerprint, "caprmedio-runtime:inputs-" + fingerprint, version,
-                             self.platform, rows, self.uid, self.gid)
+                             self.platform, rows, self.uid, self.gid, registry)
 
     def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None, buildx_config=None,
              allow_failure=False):
@@ -331,48 +335,11 @@ class ImageManager:
         self._inspect_details(image, identity, code=code, built=built)
         return image
 
-    def _display_tag_state(self, tag: str) -> str | None:
-        """Return the digest owning a tag, or None when Docker confirms it absent."""
-        raw = self._run(("docker", "image", "inspect", tag), allow_failure=True)
-        if raw is None:
-            # A missing tag is a normal negative lookup; a daemon failure must
-            # still prove an empty listing before any tag mutation is attempted.
-            listed = self._run(("docker", "image", "ls", "--all", "--quiet", "--no-trunc", tag))
-            if listed.strip():
-                raise ImageError("IMAGE_REFUSED", "Display tag inspection is unavailable")
-            return None
-        try:
-            values = json.loads(raw, object_pairs_hook=_unique_object)
-            if not isinstance(values, list) or len(values) != 1 or not isinstance(values[0], dict):
-                raise ValueError("one display tag is required")
-            value = values[0]
-            image = value["Id"]
-            repo_tags = value.get("RepoTags")
-            if not isinstance(repo_tags, list) or any(not isinstance(item, str) for item in repo_tags):
-                raise ValueError("display tag inventory is invalid")
-            if tag not in repo_tags:
-                raise ImageError("IMAGE_REFUSED", "Display tag inventory is ambiguous")
-            if IMMUTABLE_IMAGE.fullmatch(image) is None:
-                raise ValueError("display tag identity is invalid")
-            return image
-        except (ValueError, TypeError, KeyError) as error:
-            raise ImageError("IMAGE_REFUSED", "Display tag inventory is invalid") from error
-
     def ensure_display_tag(self, image: str, version: str, created: object) -> str:
-        """Add one collision-safe display tag without changing an existing tag."""
-        try:
-            tag = display_image_tag(version, created, image)
-        except ValueError as error:
-            raise ImageError("IMAGE_REFUSED", "Display tag metadata is invalid") from error
-        existing = self._display_tag_state(tag)
-        if existing is not None:
-            if existing != image:
-                raise ImageError("IMAGE_REFUSED", "Display tag is already bound to another image")
-            return tag
-        self._run(("docker", "image", "tag", image, tag), code="BUILD_FAILED")
-        if self._display_tag_state(tag) != image:
-            raise ImageError("BUILD_FAILED", "Docker did not retain the requested display tag")
-        return tag
+        return ensure_display_tag(
+            self._run, image, version, created,
+            lambda message: ImageError("IMAGE_REFUSED", message),
+        )
 
     def _current(self, identity: ImageIdentity):
         if self.identity() != identity:
@@ -413,10 +380,7 @@ class ImageManager:
         try:
             # Retain one private attempt as build evidence.  Cleanup must never
             # mask a build result or retry a denied directory deletion.
-            parent = self.build_temp_root
-            if parent is not None and (not parent.is_absolute() or ".." in parent.parts
-                                       or parent.resolve(strict=True) != parent or not parent.is_dir()):
-                raise OSError("unsafe private image temporary root")
+            parent = self._build_parent()
             attempt = Path(tempfile.mkdtemp(prefix="caprmedio-runtime-image-", dir=parent))
             attempt.chmod(0o700)
             context = attempt / "context"
@@ -460,16 +424,20 @@ class ImageManager:
         root = self._root()
         try:
             for row in identity.manifest:
-                source = self._file(root, row.path)
-                payload = source.read_bytes()
-                if (hashlib.sha256(payload).hexdigest() != row.sha256
-                        or source.stat().st_mode & 0o777 != row.mode):
+                if row.path == RELATION_REGISTRY:
+                    payload = identity.relation_registry
+                else:
+                    source = self._file(root, row.path)
+                    payload = source.read_bytes()
+                if hashlib.sha256(payload).hexdigest() != row.sha256:
                     raise self._input_error()
                 destination = context / row.path
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 with destination.open("xb") as stream:
                     stream.write(payload)
                 destination.chmod(row.mode)
+                if row.path != RELATION_REGISTRY and source.stat().st_mode & 0o777 != row.mode:
+                    raise self._input_error()
         except OSError as error:
             raise ImageError("BUILD_FAILED", "Private image context could not be assembled") from error
         self._verify_context(context, identity)

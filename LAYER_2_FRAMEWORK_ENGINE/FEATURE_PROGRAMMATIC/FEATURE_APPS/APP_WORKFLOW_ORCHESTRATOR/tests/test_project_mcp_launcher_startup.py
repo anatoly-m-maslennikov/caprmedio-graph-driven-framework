@@ -39,6 +39,7 @@ class Backend:
     def __init__(self) -> None:
         self.rows = []
         self.resolve_image_calls = 0
+        self.image_project_roots = []
         self.start_calls = 0
         self.health_calls = []
         self.inspect_envs = []
@@ -49,8 +50,9 @@ class Backend:
         self.start_entered = threading.Event()
         self.release_start = None
 
-    def resolve_image(self, source_root, explicit_id):
+    def resolve_image(self, source_root, explicit_id, *, project_root):
         self.resolve_image_calls += 1
+        self.image_project_roots.append(project_root)
         return IMAGE_ID, FINGERPRINT
 
     def inspect(self, selection):
@@ -160,6 +162,7 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertEqual(56317, result["port"])
         self.assertTrue(result["readiness"])
         self.assertEqual("http://127.0.0.1:56317/caprmedio/mcp", result["url"])
+        self.assertEqual([self.project_root], self.backend.image_project_roots)
         self.assertEqual(1, len(self.backend.health_calls))
         url, remaining_timeout = self.backend.health_calls[0]
         self.assertEqual("http://127.0.0.1:56317/caprmedio/mcp", url)
@@ -266,7 +269,7 @@ class LauncherStartupContractTests(unittest.TestCase):
                                   ("IMAGE_REFUSED", "refused"),
                                   ("BUILD_FAILED", "failed")):
             with self.subTest(code=code):
-                self.backend.resolve_image = lambda *_args, code=code: (_ for _ in ()).throw(ImageError(code))
+                self.backend.resolve_image = lambda *_args, code=code, **_kwargs: (_ for _ in ()).throw(ImageError(code))
                 self.assert_public_failure(self.launch(), disposition, code)
 
     def test_lock_and_start_failures_preserve_their_codes(self):

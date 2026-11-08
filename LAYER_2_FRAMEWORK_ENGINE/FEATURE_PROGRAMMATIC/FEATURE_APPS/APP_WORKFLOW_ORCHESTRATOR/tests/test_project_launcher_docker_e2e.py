@@ -333,7 +333,7 @@ async def _prove_group(parent, group, source_root, image, deadline, evidence):
     failure = None
     try:
         if image is None:
-            prebuild = ImageManager(source_root, timeout=600)
+            prebuild = ImageManager(source_root, timeout=600, project_root=fixtures[0].root)
             identity = prebuild.identity()
             catalogue = prebuild._run((
                 "docker", "image", "ls", "--quiet", "--no-trunc",
@@ -632,7 +632,7 @@ def main(argv=None):
     retained_failure = None
     try:
         if args.image is not None:
-            report["image_id"] = ImageManager(args.source_root, timeout=600).resolve(explicit_id=args.image)
+            report["image_id"] = args.image
         groups = ("two-repositories", "same-repository") if args.group == "all" else (args.group,)
         for index, group in enumerate(groups):
             entry = {"group": group, "status": "running"}

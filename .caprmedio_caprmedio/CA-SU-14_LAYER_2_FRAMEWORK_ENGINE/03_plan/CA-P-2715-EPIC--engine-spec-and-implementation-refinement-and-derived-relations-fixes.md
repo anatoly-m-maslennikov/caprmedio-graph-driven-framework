@@ -13,8 +13,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-08 19:15:36 +0400
+  version: 3
+  updated_at: 2026-11-08 21:55:53 +0400
 destination:
   file:
     name: CA-P-2715-EPIC--engine-spec-and-implementation-refinement-and-derived-relations-fixes.md
@@ -109,3 +109,12 @@ Fetch and analyze Atoms with query_run. Source-copy Draft creation waits for the
 CA-P-2716 assigns one drafting owner per Atom. Workbench tool candidates already owned by WORKBENCH are handled by CA-P-2724, not duplicated by CA-P-2723. PROGRAMMATIC-local and APPS-local candidates are owned only by CA-P-2733 and CA-P-2734.
 
 Keep inventories thin: Atom ID | Draft ID | Owner Task | Status. Store file paths in a separate local execution cache when needed; the tracking file is not a second source/specification. Use small report files and the Task/Work Report Atoms for execution tracking; do not create a second large specification in mapping files.
+
+
+## Current scope checkpoint
+
+The Operator approved updating the affected Scope Delegations and their local permissions without changing the Scope Unit tree. Complete this prerequisite before affected Draft promotions.
+
+Preserve and exclude the 500 benchmark Atoms and their synthetic Scope Declaration. Defer the 78 content-unavailable RMEDO Atoms: 64 PROGRAMMATIC-local, 12 APPS-local and O240/O241. Do not add a full-document SQL helper for them.
+
+Prepare, review and adopt the required Scope Delegation Drafts; verify the mixed Declaration/Delegation reader before promotion. Review the corrected R1186/R1187 and D673 Drafts. Keep specification in RMEDO; these are work items, not substitute contracts.

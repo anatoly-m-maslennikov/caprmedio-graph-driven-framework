@@ -91,8 +91,12 @@ class ImageMetadataTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(dir=parent)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name)
-        self.scratch = Path(tempfile.mkdtemp(dir=self.root))
         self.project_temp = self.root / ".caprmedio_tmp"
+        self.project_temp.mkdir()
+        self.scratch = Path(tempfile.mkdtemp(dir=self.project_temp))
+        compiler = patch.object(runtime_images, "_compile_relation_registry", return_value=b'{"schema_version":1}\n')
+        compiler.start()
+        self.addCleanup(compiler.stop)
         self._write_fixture(VERSION)
 
     def _write_fixture(self, version: str) -> None:
@@ -110,7 +114,8 @@ class ImageMetadataTests(unittest.TestCase):
 
     def _manager(self, probe: DockerProbe) -> ImageManager:
         manager = ImageManager(self.root, executor=probe, timeout=5, uid=1000, gid=1000,
-                               platform="linux/amd64", build_temp_root=self.scratch)
+                               platform="linux/amd64", build_temp_root=self.scratch,
+                               project_root=self.root)
         identity = manager.identity()
         probe.labels.update({SCHEMA_LABEL: "1", FINGERPRINT_LABEL: identity.fingerprint,
                              OCI_VERSION_LABEL: identity.version})

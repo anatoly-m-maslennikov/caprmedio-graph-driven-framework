@@ -21,7 +21,10 @@ import local_release  # noqa: E402
 from local_release import run_local_release, _launcher_image  # noqa: E402
 from project_selection import resolve_project  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
-from release_registry_test_fixture import write_registry_generator  # noqa: E402
+from release_registry_test_fixture import (  # noqa: E402
+    write_registry_generator,
+    write_relation_registry_generator,
+)
 
 
 class SimpleLocalReleaseTests(unittest.TestCase):
@@ -88,6 +91,12 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         catalog_generator.parent.mkdir(parents=True)
         catalog_generator.write_text("# catalog generator fixture\n", encoding="utf-8")
         write_registry_generator(catalog_generator.parent)
+        workbench_backend = (
+            self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/"
+            "APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND"
+        )
+        workbench_backend.mkdir(parents=True)
+        write_relation_registry_generator(workbench_backend)
         self.image_id = "sha256:" + "a" * 64
         self.image = SimpleNamespace(resolve=Mock(return_value=self.image_id),
                                      identity=lambda: SimpleNamespace(fingerprint="b" * 64))

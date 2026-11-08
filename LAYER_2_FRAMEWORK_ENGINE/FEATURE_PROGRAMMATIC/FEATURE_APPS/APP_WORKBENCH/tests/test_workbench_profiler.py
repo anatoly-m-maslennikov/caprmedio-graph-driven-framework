@@ -37,7 +37,7 @@ class WorkbenchProfilerTest(unittest.TestCase):
         self.control = self.project / ".caprmedio_caprmedio"
         self.control.mkdir(parents=True)
         (self.control / "caprmedio_project_settings.toml").write_text(
-            "[project]\nname = 'fixture'\n[paths]\n"
+            "[project]\nname = 'fixture'\n[artifacts.identity]\nproject_prefix = 'CA'\n[paths]\n"
             "control_root = '.caprmedio_caprmedio'\ntemporary_root = '.caprmedio_tmp'\n",
             encoding="utf-8",
         )

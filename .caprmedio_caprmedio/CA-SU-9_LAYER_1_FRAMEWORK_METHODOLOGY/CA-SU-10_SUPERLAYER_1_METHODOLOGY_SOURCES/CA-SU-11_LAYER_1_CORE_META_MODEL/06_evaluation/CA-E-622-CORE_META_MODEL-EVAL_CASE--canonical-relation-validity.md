@@ -1,23 +1,25 @@
 ---
-atom_id: CA-E-622
-ref_id: CA-E-622
-container:
-  scope_unit: CA-SU-11
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  dependencies:
-  - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Atom.Header.Status
-  - CAPRMEDIO_MODEL <+ Journal
-  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
-  - CAPRMEDIO_MODEL <+ Projection
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
-tier: 4
+identity:
+  atom_id: CA-E-622
+  ref_id: CA-E-622
+context:
+  container:
+    scope_unit: CA-SU-11
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Atom
+    - CAPRMEDIO_MODEL <+ Atom.Header.Role
+    - CAPRMEDIO_MODEL <+ Atom.Header.Status
+    - CAPRMEDIO_MODEL <+ Journal
+    - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+    - CAPRMEDIO_MODEL <+ Entity
+    - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
+    - CAPRMEDIO_MODEL <+ Projection
+    - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  tier: 4
 relations:
   evaluation_for:
   - CA-R-806
@@ -32,10 +34,11 @@ relations:
   - CA-R-1040
   - CA-D-483
   - CA-D-466
-status: Active
-version: 54
-updated_at: "2026-11-08 15:22:04 +0400"
-carrier_destination:
+state:
+  status: Active
+  version: 55
+  updated_at: 2026-11-08 20:06:37 +0400
+destination:
   file:
     name: CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation
@@ -55,14 +58,14 @@ Canonical relation validity
 - reject an unknown Relation Type; report missing or conflicting Rule evidence as unresolved only when an existing source contract requires that evidence, without treating every known Type as requiring a new Rule.
 - reject a Relation that violates endpoint or cardinality constraints in an applicable Graph Rule; do not choose default-allow/default-deny when such evidence is absent.
 - resolve **every** target **to** **`=1`** addressable identity under its relation rules; reject missing **or** ambiguous targets.
-- accept the Archived predecessor identified by a REPLACEMENT_FOR base Atom ID; reject a non-Active RMED target of another direct Relation authored by an Active RMED Atom; read target Status from its own Markdown frontmatter under CA-D-483 **and** check lifecycle placement under CA-D-466. this Active-target restriction applies **only** **when** the source is Active **and** both source **and** target have Content Role **in** (Requirement, Method, Evaluation, Delivery). a source **or** target outside that boundary **must not** fail because of this restriction alone; its own applicable Relation constraints still apply.
+- accept the Archived predecessor identified by a IS_REPLACEMENT_FOR base Atom ID; reject a non-Active RMED target of another direct Relation authored by an Active RMED Atom; read target Status from its own Markdown frontmatter under CA-D-483 **and** check lifecycle placement under CA-D-466. this Active-target restriction applies **only** **when** the source is Active **and** both source **and** target have Content Role **in** (Requirement, Method, Evaluation, Delivery). a source **or** target outside that boundary **must not** fail because of this restriction alone; its own applicable Relation constraints still apply.
 - accept `A BLOCKS B` with Done Plan `A`; confirm that Backlog, Active, Canceled, **or** Archived blockers do **not** satisfy the Done start gate for `B`.
 - confirm that an Archived target remains addressable as history **without** becoming Active authority.
 - confirm that **every** independently authored direct Relation is persisted **only** **in** its registered declaration Carrier **and** that **every** inverse remains derived; validate a computed Relation against its admitted derivation authority **and** input facts **without** requiring an invented source declaration.
 - confirm that completed replacement and absorption transitions retain explicit predecessor and successor identities in Journal events.
-- accept REPLACEMENT_FOR stored on the replacement Atom, with one or more base Atom ID targets, including one successor for multiple predecessors.
+- accept IS_REPLACEMENT_FOR stored on the replacement Atom, with one or more base Atom ID targets, including one successor for multiple predecessors.
 - accept proposed links from Drafts to Current predecessors and retained links to the same predecessor Atom IDs after archival; distinguish proposed replacement from completed replacement.
-- reject malformed, missing or ambiguous predecessor Atom IDs; enforce base-ID-only target encoding for every Header.Relations child, including REPLACEMENT_FOR.
+- reject malformed, missing or ambiguous predecessor Atom IDs; enforce base-ID-only target encoding for every Header.Relations child, including IS_REPLACEMENT_FOR.
 - confirm that reverse navigation reads the same stored fact without a second authored predecessor-side Relation.
 - accept valid uses of one shared Relation Type in multiple graph contexts while preserving each context's applicable governing constraint evidence and existing admission semantics; do not invent a new per-context Rule.
 - reject a missing or conflicting defining Relation Type Claim under CA-R-806; report missing or conflicting governing constraint evidence only where an existing source contract requires it, without creating a new per-Type Rule gate.

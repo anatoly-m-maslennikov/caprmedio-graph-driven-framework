@@ -98,7 +98,8 @@ class Runtime:
             from .runtime_images import ImageManager
         except ImportError:  # direct execution: docker/ is the import root
             from runtime_images import ImageManager
-        return ImageManager(SOURCE_ROOT, build_temp_root=self._project_temp_root(create=create_temp))
+        return ImageManager(SOURCE_ROOT, project_root=self.root,
+                            build_temp_root=self._project_temp_root(create=create_temp))
 
     def _ensure_launch_image(self):
         if self.image is not None:

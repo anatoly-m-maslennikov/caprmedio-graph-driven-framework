@@ -68,6 +68,56 @@ class IncrementalRelationTests(unittest.TestCase):
         self.assertEqual([], by_ref["CA-P-1"]["relation_edges_json"])
         self.assertEqual("CONTAINS", by_ref["CA-P-3"]["relation_edges_json"][0]["relation_type"])
 
+    def test_legacy_inverse_writing_contributes_the_one_canonical_fact(self):
+        parent = atom("CA-P-1", relation={"CONTAINS": ["CA-P-2"]})
+        child = atom("CA-P-2", relation={"IS_CONTAINED_BY": ["CA-P-1"]})
+        rows, _scopes, _registered, _inverse, state, _delta = materialize_delta(
+            declarations() + [parent, child], [],
+        )
+        by_ref = {row["ref"]: row for row in rows}
+        self.assertEqual(1, len(by_ref["CA-P-2"]["relation_edges_json"]))
+        self.assertEqual("IS_CONTAINED_BY", by_ref["CA-P-2"]["relation_edges_json"][0]["relation_type"])
+        self.assertEqual(1, len(by_ref["CA-P-1"]["relation_edges_json"]))
+        self.assertEqual("CONTAINS", by_ref["CA-P-1"]["relation_edges_json"][0]["relation_type"])
+
+        rows, _scopes, _registered, _inverse, _state, delta = materialize_delta(
+            declarations() + [child], [], state, {parent["source_path"]: None},
+        )
+        self.assertIn(child["source_path"], delta.new_atoms)
+        self.assertIn(
+            "IS_CONTAINED_BY",
+            {edge["relation_type"]
+             for edge in next(row for row in rows if row["ref"] == "CA-P-2")["relation_edges_json"]},
+        )
+
+    def test_dangling_inverse_edge_survives_target_delete_and_reappearance(self):
+        for authored_relation in ("IS_CONTAINED_BY", "CONTAINS"):
+            with self.subTest(authored_relation=authored_relation):
+                source = atom("CA-P-1", relation={authored_relation: ["CA-P-2"]})
+                target = atom("CA-P-2")
+                initial = declarations() + [source, target]
+                _rows, _scopes, _registered, _inverse, state, _delta = materialize_delta(initial, [])
+
+                rows, _scopes, _registered, _inverse, state, delta = materialize_delta(
+                    declarations() + [source], [], state, {target["source_path"]: None},
+                )
+                self.assertIn(source["source_path"], delta.new_atoms)
+                self.assertEqual(
+                    {("IS_CONTAINED_BY", False), ("CONTAINS", True)},
+                    {(edge["relation_type"], edge["derived"])
+                     for edge in next(row for row in rows if row["ref"] == "CA-P-1")["relation_edges_json"]},
+                )
+
+                restored = dict(target, version=2)
+                expected, _scopes, _registered, _inverse, _state, _delta = materialize_delta(
+                    declarations() + [source, restored], [],
+                )
+                rows, _scopes, _registered, _inverse, _state, delta = materialize_delta(
+                    declarations() + [source, restored], [], state, {restored["source_path"]: restored},
+                )
+                self.assertEqual(expected, rows)
+                self.assertEqual({source["source_path"], restored["source_path"]}, set(delta.new_atoms))
+
     def test_delete_returns_old_row_and_prunes_state(self):
         source = atom("CA-P-1")
         rows, _scopes, _registered, _inverse, state, _delta = materialize_delta(declarations() + [source], [])
@@ -124,6 +174,60 @@ class IncrementalRelationTests(unittest.TestCase):
         finally:
             incremental._atom_facts = original
         self.assertEqual(5, calls)
+
+    def test_ordinary_delta_refreshes_only_the_changed_fact_support(self):
+        import APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.incremental_relations as incremental
+
+        leaves = [
+            atom(
+                f"CA-P-{number}",
+                relation={"IS_CONTAINED_BY": [f"CA-P-MISSING-{number}"]},
+            )
+            for number in range(1000)
+        ]
+        _rows, _scopes, _registered, _inverse, state, _delta = materialize_delta(
+            declarations() + leaves, [],
+        )
+
+        class GuardedBucket(frozenset):
+            reads = 0
+
+            def __iter__(self):
+                type(self).reads += 1
+                return super().__iter__()
+
+        endpoint = ("Atom", "CA-P-999")
+        guarded = GuardedBucket(state.facts_by_endpoint[endpoint])
+        state.facts_by_endpoint[endpoint] = guarded
+        guarded_support = GuardedBucket(state.support[endpoint])
+        state.support[endpoint] = guarded_support
+        original = incremental._support_for_fact
+        calls = []
+
+        def counted(fact, *args):
+            calls.append(fact)
+            return original(fact, *args)
+
+        incremental._support_for_fact = counted
+        try:
+            changed = dict(leaves[0], version=2)
+            original_compiler = incremental.compile_registry
+            incremental.compile_registry = lambda _atoms: self.fail("ordinary delta compiled all sources")
+            try:
+                _rows, _scopes, _registered, _inverse, next_state, _delta = materialize_delta(
+                    declarations() + [changed, *leaves[1:]], [], state,
+                    {changed["source_path"]: changed},
+                )
+            finally:
+                incremental.compile_registry = original_compiler
+        finally:
+            incremental._support_for_fact = original
+        self.assertEqual(
+            [("Atom", "CA-P-0", "IS_CONTAINED_BY", "Atom", "CA-P-MISSING-0")], calls
+        )
+        self.assertEqual(0, GuardedBucket.reads)
+        self.assertIs(guarded, next_state.facts_by_endpoint[endpoint])
+        self.assertIs(guarded_support, next_state.support[endpoint])
 
     def test_duplicate_reference_changes_use_full_membership_boundary(self):
         first = atom("CA-R-X")

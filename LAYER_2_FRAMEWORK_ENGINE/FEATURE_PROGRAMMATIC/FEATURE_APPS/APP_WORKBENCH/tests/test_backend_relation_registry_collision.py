@@ -85,6 +85,25 @@ class RelationRegistryCollisionTests(unittest.TestCase):
         )
         self.assertEqual([["CA-R-4", "CA-R-5"]], result["rows"])
 
+    def test_native_graph_uses_one_canonical_fact_for_legacy_inverse_spelling(self) -> None:
+        direct = atom("CA-R-10", subjects="Subject/Graph/Relation//IS_CONTAINED_BY")
+        direct["content_markdown"] = "```CFEL\nRelation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n```\n"
+        inverse = atom("CA-R-11", subjects="Subject/Graph/Relation//CONTAINS")
+        inverse["content_markdown"] = "```CFEL\nRelation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;\n```\n"
+        parent = atom("CA-P-1")
+        child = atom("CA-P-2", relations={"CONTAINS": ["CA-P-1"]})
+
+        registered, _inverse = relation_registry([direct, inverse, parent, child])
+        rows, scopes = materialize([direct, inverse, parent, child], [])
+        self.store.replace(rows, scopes, relation_types=registered)
+        result = self.store.run(
+            "FROM GRAPH_TABLE (caprmedio "
+            "MATCH (source:Reference)-[edge:IS_CONTAINED_BY]->(target:Reference) "
+            "COLUMNS (source.ref AS source_ref, target.ref AS target_ref, edge.derived AS derived))"
+        )
+
+        self.assertEqual([["CA-P-1", "CA-P-2", False]], result["rows"])
+
 
 if __name__ == "__main__":
     unittest.main()

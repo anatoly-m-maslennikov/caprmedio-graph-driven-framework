@@ -402,9 +402,9 @@ class Launcher:
         return ProjectMcpBackend(build_if_missing=build_if_missing, build_timeout=build_timeout)
 
     @staticmethod
-    def _image(backend, source_root, image):
+    def _image(backend, source_root, image, project_root):
         try:
-            image_id, fingerprint = backend.resolve_image(source_root, image)
+            image_id, fingerprint = backend.resolve_image(source_root, image, project_root=project_root)
         except ImageError as error:
             raise LaunchError(getattr(error, "code", "IMAGE_REFUSED")) from None
         except LaunchError:
@@ -535,7 +535,7 @@ class Launcher:
                                     build_timeout=bounded_build_timeout)
             with _project_lock(selection, startup_timeout):
                 try:
-                    image_id, fingerprint = self._image(backend, source, image)
+                    image_id, fingerprint = self._image(backend, source, image, selection.root)
                 except LaunchError as error:
                     result = self._failure(error.code, selection)
                     _record_safe_metadata(selection, result)

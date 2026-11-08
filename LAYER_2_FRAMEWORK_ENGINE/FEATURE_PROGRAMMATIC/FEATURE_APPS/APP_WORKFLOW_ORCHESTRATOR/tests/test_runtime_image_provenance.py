@@ -102,10 +102,11 @@ class ImageProvenanceTests(unittest.TestCase):
             platform="linux/amd64",
             build_temp_root=self.temporary,
             build_provenance=self.owner,
+            project_root=fixtures.APP.parents[3],
         )
         self.assertEqual(manager.resolve(), fixtures.IMAGE_ID)
         self.assertEqual({key: labels[key] for key in self.owner.labels()}, self.owner.labels())
-        plain = ImageManager(self.source, platform="linux/amd64")
+        plain = ImageManager(self.source, platform="linux/amd64", project_root=fixtures.APP.parents[3])
         self.assertEqual(manager.identity(), plain.identity())
         self.assertEqual(sum("build" in call for call in calls), 1)
 
@@ -114,7 +115,8 @@ class ImageProvenanceTests(unittest.TestCase):
             with self.subTest(metadata=metadata):
                 calls: list[list[str]] = []
                 manager = ImageManager(
-                    self.source, platform="linux/amd64", build_provenance=self.owner
+                    self.source, platform="linux/amd64", build_provenance=self.owner,
+                    project_root=fixtures.APP.parents[3],
                 )
                 labels = {
                     SCHEMA_LABEL: "1",
@@ -188,6 +190,7 @@ class ImageProvenanceTests(unittest.TestCase):
             platform="linux/amd64",
             build_temp_root=self.temporary,
             build_provenance=self.owner,
+            project_root=fixtures.APP.parents[3],
         )
         with self.assertRaises(ImageError) as raised:
             manager.resolve()

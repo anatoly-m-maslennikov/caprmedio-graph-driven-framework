@@ -1,0 +1,88 @@
+---
+identity:
+  atom_id: CA-M-408
+  ref_id: CA-M-408@12-draft
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: Method
+  form: Direct Policy
+  topics:
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
+      Structure
+    dependencies:
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  tier: 4
+relations:
+  derived_from:
+  - CA-A-053
+  child_of:
+  - CA-M-415
+state:
+  status: Draft
+  version: 12
+  updated_at: 2026-11-08 20:40:58 +0400
+current_scope_unit: PROGRAMMATIC
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
+---
+# Summary
+
+Allocate owned state and lifecycle to objects
+
+introduce an object **only** **when** one PROGRAMMATIC responsibility needs identity
+across calls because it owns mutable technical state, preserves an invariant,
+manages a resource **or** lifecycle, **or** implements a replaceable adapter. do **not**
+create an object merely **to** group functions **or** **to** perform a bounded one-shot
+effect.
+
+## Details
+
+Candidate source: [CA-M-158@13](archive/CA-M-158-PROGRAMMATIC-CORE-METHOD--allocate-owned-state-and-lifecycle-to-objects@13.md)
+
+## Applicable when
+
+apply **when** a Tool, App backend service, **or** MCP component **must** retain state,
+preserve an invariant across calls, acquire **or** release a resource, transition
+through a lifecycle, **or** encapsulate one replaceable technical adapter.
+
+## Procedure
+
+- give the class **or** object a specific, intention-revealing noun phrase that
+   states the one state, invariant, resource, lifecycle, **or** adapter
+   responsibility it owns; do **not** use an unqualified generic name such as
+   `Manager`, `Helper`, **or** `Utils`.
+- give **every** effectful method a specific verb phrase that declares the effect
+   **or** lifecycle transition it performs.
+- keep construction free of I/O **and** start acquisition **or** activation through
+   an explicit method.
+- make acquisition, use, failure, **and** release **or** recovery boundaries
+   explicit.
+- keep deterministic transformations outside the object **unless** they require
+   its owned responsibility.
+- compose the object from explicit collaborators instead of inheriting
+   behavior for code reuse.
+- use inheritance **only** for one stable, substitutable subtype contract; stop
+   **when** a module, function, **or** composed adapter expresses the variation.
+
+## Outcome
+
+**every** object has one clearly named owner responsibility, a visible invariant **or**
+lifecycle, explicit collaborators, **and** no unrelated function-grouping role.
+
+## Failure or stop
+
+stop **and** split **or** redesign the object **when** it owns unrelated state **or**
+lifecycle concerns, hides an external effect, exists **only** as a namespace **or**
+one-shot effect wrapper, **or** uses an ambiguous generic name **or** inheritance
+**where** composition provides the same substitution boundary.
+
+## Sources
+
+- [Python Functional Programming HOWTO](https://docs.python.org/3.14/howto/functional.html)
+- [Python documentation: data classes](https://docs.python.org/3.14/library/dataclasses.html)
+- [PEP 544 — Protocols](https://peps.python.org/pep-0544/)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

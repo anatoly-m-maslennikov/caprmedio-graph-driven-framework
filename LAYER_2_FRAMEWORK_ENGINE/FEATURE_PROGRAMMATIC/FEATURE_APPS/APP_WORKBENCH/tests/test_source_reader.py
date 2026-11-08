@@ -37,7 +37,7 @@ SCOPE_COLUMNS = (
 )
 ROLES = (
     "01_concern", "02_analysis", "03_plan", "04_requirement", "05_method",
-    "06_evaluation", "07_delivery", "09_operations",
+    "06_evaluation", "07_delivery", "08_implementation", "09_operations",
 )
 
 
@@ -190,6 +190,22 @@ class SourceReaderTests(unittest.TestCase):
             },
             set(),
         )
+
+    def test_implementation_role_accepts_current_and_draft_carriers(self) -> None:
+        current = self._write_atom(
+            "MAIN", "08_implementation", "CA-I-801-current.md", atom_id="CA-I-801",
+        )
+        draft = self._write_atom(
+            "MAIN", "08_implementation", "CA-I-draft-next.md", atom_id="CA-I-draft",
+            status="Draft", parts=("draft",),
+        )
+
+        atoms, _scopes, stderr = self._capture()
+        by_path = {row["source_path"]: row for row in atoms}
+
+        self.assertEqual("", stderr)
+        self.assertEqual("Current", by_path[current.relative_to(self.root).as_posix()]["status_group"])
+        self.assertEqual("Draft", by_path[draft.relative_to(self.root).as_posix()]["status_group"])
 
     def test_role_only_drafts_keep_distinct_technical_references(self) -> None:
         drafts = (

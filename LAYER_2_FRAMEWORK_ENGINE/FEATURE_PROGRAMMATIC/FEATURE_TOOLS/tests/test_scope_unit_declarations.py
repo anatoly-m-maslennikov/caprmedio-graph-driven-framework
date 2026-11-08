@@ -328,6 +328,30 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(ScopeDeclarationError, "no current Scope Unit Declarations"):
             read_scope_unit_declarations(self.root, self.control.name)
 
+    def test_non_root_scope_delegation_is_read_during_cutover(self) -> None:
+        root_source, parent_source, child_source = self.complete_tree()
+        parent_source.write_text(parent_source.read_text(encoding="utf-8").replace(
+            "form: Scope Unit Declaration", "form: Scope Delegation",
+        ), encoding="utf-8")
+
+        declarations = read_scope_unit_declarations(self.root, self.control.name)
+
+        self.assertEqual("Scope Unit Declaration", declarations.root.form)
+        self.assertEqual("Scope Delegation", declarations.by_name["PARENT"].form)
+        self.assertEqual("Scope Unit Declaration", declarations.by_name["CHILD"].form)
+        self.assertEqual({root_source, parent_source, child_source}, set(declarations.paths))
+
+    def test_project_root_scope_delegation_refuses(self) -> None:
+        source = self.declaration("demo", "CA-R-1", source=self.control / "CA-R-1-demo.md", project=True)
+        source.write_text(source.read_text(encoding="utf-8").replace(
+            "form: Scope Unit Declaration", "form: Scope Delegation",
+        ), encoding="utf-8")
+
+        with self.assertRaisesRegex(ScopeDeclarationError, "Project Scope Unit must use Scope Unit Declaration"):
+            parse_scope_unit_declaration(source.read_bytes(), source)
+        with self.assertRaisesRegex(ScopeDeclarationError, "Project Scope Unit must use Scope Unit Declaration"):
+            read_scope_unit_declarations(self.root, self.control.name)
+
     def test_parser_rejects_order_number_for_unordered_scope_unit(self) -> None:
         source = self.declaration("UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT)
         source.write_text(source.read_text(encoding="utf-8").replace(

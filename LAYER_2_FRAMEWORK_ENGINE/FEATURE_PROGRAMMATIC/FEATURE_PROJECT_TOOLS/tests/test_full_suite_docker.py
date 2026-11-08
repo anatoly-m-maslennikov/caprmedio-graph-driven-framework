@@ -56,6 +56,7 @@ class FullSuiteDockerTests(unittest.TestCase):
             manager._build.assert_called_once_with(manager.identity.return_value)
             manager.resolve.assert_not_called()
             self.assertEqual(self.root, factory.call_args.args[0])
+            self.assertEqual(self.root, factory.call_args.kwargs["project_root"])
             self.assertEqual(IMAGE, cleanup.call_args.args[1])
 
     def test_owned_cleanup_runs_even_when_tests_raise(self):

@@ -10,7 +10,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import (
-    canonical, materialize, materialize_with_registry, relation_registry,
+    canonical, compile_relation_registry, materialize, materialize_with_registry, relation_registry,
 )
 
 
@@ -185,6 +185,42 @@ class RelationTests(unittest.TestCase):
         rows, _ = materialize([draft, report, task], [])
         self.assertEqual([], next(row for row in rows if row["ref"] == "CA-R-REPORT")["relation_edges_json"])
 
+    def test_inverse_alias_without_own_declaration_normalizes_once(self):
+        declaration = relation_declaration(
+            "CA-R-1", "CONTAINS",
+            "Relation//IS_CONTAINED_BY ((IS_INVERSE_ALIAS_FOR)) Relation//CONTAINS;",
+        )
+        parent = atom("CA-P-1", relation={"CONTAINS": ["CA-P-2"]})
+        child = atom("CA-P-2", relation={"IS_CONTAINED_BY": ["CA-P-1"]})
+        registry = compile_relation_registry([declaration, parent, child])
+
+        self.assertEqual({"CONTAINS"}, set(registry.names))
+        self.assertEqual({"IS_CONTAINED_BY": "CONTAINS"}, registry.aliases)
+        rows, _ = materialize([declaration, parent, child], [])
+        edges = next(row for row in rows if row["ref"] == "CA-P-1")["relation_edges_json"]
+        self.assertEqual(
+            [{"source_kind": "Atom", "source_ref": "CA-P-1", "target_kind": "Atom",
+              "target_ref": "CA-P-2", "relation_type": "CONTAINS", "derived": False}],
+            edges,
+        )
+        self.assertEqual({"IS_CONTAINED_BY": ["CA-P-1"]}, child["header_json"]["relations"])
+
+    def test_conditional_literal_metadata_is_warned_and_omitted(self):
+        conditional = relation_declaration(
+            "CA-R-1", "DIRECT",
+            "IF(registered)\nTHEN(\n"
+            "Relation//DIRECT ((HAS_INVERSE)) Relation//INVERSE;\n"
+            "Relation//LEGACY ((IS_INVERSE_ALIAS_FOR)) Relation//DIRECT;\n)\n",
+        )
+        inverse = relation_declaration("CA-R-2", "INVERSE")
+        errors = StringIO()
+        with redirect_stderr(errors):
+            registry = compile_relation_registry([conditional, inverse])
+        self.assertEqual({"DIRECT", "INVERSE"}, set(registry.names))
+        self.assertEqual({}, registry.inverse)
+        self.assertEqual({}, registry.aliases)
+        self.assertIn("conditional/grouped CFEL relation metadata is unsupported", errors.getvalue())
+
     def test_ambiguous_literal_inverses_warn_and_keep_direct_facts(self):
         metadata = [
             relation_declaration("A", "A", "Relation//A ((HAS_INVERSE)) Relation//B;"),
@@ -300,7 +336,7 @@ class RelationTests(unittest.TestCase):
     def test_registry_is_calculated_once_per_materialization(self):
         import APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations as relations
 
-        original = relations.relation_registry
+        original = relations.compile_relation_registry
         calls = 0
 
         def counted(rows):
@@ -308,11 +344,11 @@ class RelationTests(unittest.TestCase):
             calls += 1
             return original(rows)
 
-        relations.relation_registry = counted
+        relations.compile_relation_registry = counted
         try:
             materialize_with_registry(declarations() + [atom("CA-P-1")], [])
         finally:
-            relations.relation_registry = original
+            relations.compile_relation_registry = original
         self.assertEqual(1, calls)
 
     def test_reuses_direct_facts_for_unchanged_rows(self):

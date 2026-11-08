@@ -106,8 +106,8 @@ class ProjectMcpBackend:
         self.build_if_missing = build_if_missing
         self.build_timeout = build_timeout
 
-    def resolve_image(self, source_root, explicit_id):
-        manager = ImageManager(source_root, timeout=self.build_timeout)
+    def resolve_image(self, source_root, explicit_id, *, project_root):
+        manager = ImageManager(source_root, timeout=self.build_timeout, project_root=project_root)
         image_id = manager.resolve(explicit_id=explicit_id, build_if_missing=self.build_if_missing)
         return image_id, manager.identity().fingerprint
 

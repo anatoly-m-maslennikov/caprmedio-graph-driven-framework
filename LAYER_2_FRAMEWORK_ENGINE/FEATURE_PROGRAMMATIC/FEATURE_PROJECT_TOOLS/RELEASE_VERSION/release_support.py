@@ -298,6 +298,30 @@ def _generate_tool_registry(package: Path) -> Path:
     return output
 
 
+def _generate_relation_registry(package: Path, project_root: Path) -> Path:
+    script = package / (
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
+        "FEATURE_WORKBENCH_BACKEND/generate_relation_registry.py"
+    )
+    output = script.with_name("canonical_relation_registry.json")
+    if not script.is_file() or script.is_symlink():
+        raise LocalReleaseError("local-release-relation-registry-unavailable")
+    try:
+        output.unlink(missing_ok=True)
+        result = subprocess.run(
+            (
+                sys.executable, "-B", str(script), "--project-root", str(project_root),
+                "--output", str(output),
+            ),
+            cwd=package, text=True, capture_output=True, check=False,
+        )
+    except OSError as error:
+        raise LocalReleaseError("local-release-relation-registry-unavailable") from error
+    if result.returncode != 0 or not output.is_file() or output.is_symlink():
+        raise LocalReleaseError("local-release-relation-registry-generation-failed")
+    return output
+
+
 def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tuple[str, int]]:
     excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", "node_modules"})
     trees = (
@@ -336,6 +360,8 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
             raise LocalReleaseError("local-release-package-source-changed")
     registry = _generate_tool_registry(package)
     expected[registry.relative_to(package).as_posix()] = _file_identity(registry)
+    relation_registry = _generate_relation_registry(package, root)
+    expected[relation_registry.relative_to(package).as_posix()] = _file_identity(relation_registry)
     for relative in (
         "SKILLS/ca/SKILL.md",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/project_mcp_bootstrap.py",
@@ -343,6 +369,8 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
+        "FEATURE_WORKBENCH_BACKEND/generate_relation_registry.py",
     ):
         if relative not in expected:
             raise LocalReleaseError("local-release-package-source-unavailable")
@@ -376,14 +404,17 @@ def _cleanup_staging(root: Path, staging: Path | None) -> str:
     return f"Retained temporary staging: `{staging.relative_to(root).as_posix()}`.\n" if os.path.lexists(staging) else ""
 
 
-def _image_manager(source: Path, temporary: Path | None = None, *, build_provenance: dict[str, str] | None = None):
+def _image_manager(source: Path, temporary: Path | None = None, *, project_root: Path,
+                   build_provenance: dict[str, str] | None = None):
     docker = Path(__file__).resolve().parents[4] / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker"
     if str(docker) not in sys.path:
         sys.path.insert(0, str(docker))
     from runtime_images import ImageManager
     from image_provenance import ImageBuildProvenance
     provenance = ImageBuildProvenance(**build_provenance) if build_provenance is not None else None
-    return ImageManager(source, build_temp_root=temporary, build_provenance=provenance)
+    return ImageManager(
+        source, project_root=project_root, build_temp_root=temporary, build_provenance=provenance,
+    )
 
 
 def _launcher_image(selection) -> str | None:

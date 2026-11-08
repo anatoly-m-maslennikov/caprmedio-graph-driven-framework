@@ -1,0 +1,75 @@
+---
+identity:
+  atom_id: CA-E-539
+  ref_id: CA-E-539@14-draft
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: Evaluation
+  form: Direct Policy
+  topics:
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static
+      Analysis/Python Code
+    dependencies:
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+  tier: 5
+relations:
+  evaluation_for:
+  - CA-M-419
+  - CA-M-420
+  - CA-M-428
+state:
+  status: Draft
+  version: 14
+  updated_at: 2026-11-08 20:40:58 +0400
+destination:
+  file:
+    name: CA-E-539@14-draft-PROGRAMMATIC-DIRECT_POLICY--evaluate-python-source-boundaries-and-lint-ratchets.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/draft/engine-refinement-20261108
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+---
+# Summary
+
+Evaluate Python source boundaries and lint ratchets
+
+## Scope
+
+new **or** materially changed hand-authored PROGRAMMATIC Python source **in**
+Tools, App backend services, **and** MCP components.
+
+## Claim
+
+given changed-source measurements, the admitted pinned Ruff profile, diagnostics,
+baseline, **and** bounded exception evidence, admit source-boundary conformance
+**only when** **all** applicable size, cohesion, complexity, lint, **and** ratchet
+conditions below hold. reject a violated condition; return unresolved **when**
+required measurements, configuration, **or** exception authority are unavailable.
+
+## Details
+
+- target **`<=200`** physical lines per file **and** **`<=25`** logical lines per
+  executable unit. units with 26–40 logical lines retain one coherent job;
+  a larger file **or** unit requires one specific accepted bounded exception.
+- the exception identifies measured size **or** failed rule, applicable maximum,
+  reason, bounded scope, **and** reconsideration condition; a unit-size exception
+  preserves a single responsibility.
+- **every** changed executable unit has current cyclomatic-complexity evidence
+  from the admitted `C901` profile. its value satisfies the admitted maximum
+  materialized **in** canonical configuration **or** its accepted bounded exception.
+- changed source passes the current pinned Ruff formatting **and** lint profile
+  **or** records the bounded exception for the failed rule. an absent profile
+  **or** unpinned checker yields unresolved conformance.
+- a static mapping larger than 20 entries **or** 25 source lines is externalized.
+  CA-M-419 owns the representation choice for that data.
+- changed source does **not** silently regress below its admitted passing
+  boundary. unmodified oversized legacy source **and** generated Runtime **or**
+  Delivery outputs are outside this changed-source check.
+- review cohesion, responsibility, dependency direction, **and** testability
+  separately from size **and** complexity scores. reducing a score does **not**
+  justify obscuring a separate responsibility **or** required recovery boundary.
+  measurements guide diagnosis **and** do **not** independently prove quality.
+
+this policy preserves the previously accepted CA-M-419, CA-M-420, **and**
+CA-M-428 acceptance conditions under Evaluation ownership.
