@@ -27,7 +27,7 @@ Source: Current RMEDO rows fetched with query_run. Draft and Archive sources are
 | CA-E-787 | CA-E-787@3-draft | CA-P-2724 | Draft prepared (preserved) |
 | CA-E-788 | CA-E-788@2-draft | CA-P-2724 | Draft prepared (preserved) |
 | CA-E-795 | CA-E-795@2-draft | CA-P-2724 | Draft prepared (preserved) |
-| CA-D-672 | — | CA-P-2724 | Coordinated (root-owned) |
+| CA-D-672 | CA-D-672@14-draft | CA-P-2724 | Draft prepared (Decision) |
 | CA-D-695 | CA-D-695@3-draft | CA-P-2724 | Draft prepared (Solution) |
 | CA-D-696 | CA-D-696@2-draft | CA-P-2724 | Draft prepared (Solution) |
 | CA-D-697 | CA-D-697@2-draft | CA-P-2724 | Draft prepared (Solution) |

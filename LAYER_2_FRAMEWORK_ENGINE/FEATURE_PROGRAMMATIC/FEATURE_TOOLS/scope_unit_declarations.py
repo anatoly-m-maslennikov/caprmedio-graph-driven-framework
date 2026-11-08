@@ -11,6 +11,7 @@ from typing import Any
 from scope_declaration_parse import (
     ScopeDeclarationError,
     ScopeUnitDeclarations,
+    _carrier,
     assemble_scope_unit_declarations,
     parse_scope_unit_declaration,
 )
@@ -18,8 +19,8 @@ from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regu
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
-_STRUCTURAL_FORM = re.compile(
-    r"(?m)^(?:form|type):[ \t]*(?:Scope Unit Declaration|Scope Delegation|\"Scope Unit Declaration\"|\"Scope Delegation\"|'Scope Unit Declaration'|'Scope Delegation')[ \t]*(?:#.*)?$"
+_STRUCTURAL_FORM_HINT = re.compile(
+    r"(?m)^[ \t]*(?:form|type):[ \t]*(?:Scope Unit Declaration|Scope Delegation|\"Scope Unit Declaration\"|\"Scope Delegation\"|'Scope Unit Declaration'|'Scope Delegation')[ \t]*(?:#.*)?$"
 )
 _PROJECTION = re.compile(r"(?m)^projection:\s*(?:$|\{)")
 
@@ -63,8 +64,8 @@ def _digest(pins: dict[str, dict[str, Any]]) -> str:
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
-def _selects_structural_form(raw: bytes) -> bool:
-    """Use only the canonical structural Form line to decide whether this reader owns a carrier."""
+def _selects_structural_form(raw: bytes, source: Path | None = None) -> bool:
+    """Use the safe Header read view; a malformed structural hint fails closed later."""
     try:
         text = raw.decode("utf-8").replace("\r\n", "\n")
     except UnicodeDecodeError:
@@ -72,7 +73,14 @@ def _selects_structural_form(raw: bytes) -> bool:
     if not text.startswith("---\n"):
         return False
     closing = text.find("\n---\n", 4)
-    return closing >= 0 and _STRUCTURAL_FORM.search(text[4:closing]) is not None
+    if closing < 0:
+        return False
+    frontmatter = text[4:closing]
+    try:
+        header, _ = _carrier(raw, source or Path("<structural carrier>"))
+    except ScopeDeclarationError:
+        return _STRUCTURAL_FORM_HINT.search(frontmatter) is not None
+    return header.get("form") in {"Scope Unit Declaration", "Scope Delegation"}
 
 
 # Compatibility for current consumers; structural forms now include Delegation.
@@ -103,7 +111,7 @@ def _declaration_candidates(
             raw = reader.read(path, remember=False)
         except FileNotFoundError:
             continue
-        if not _is_projection(raw) and _selects_structural_form(raw):
+        if not _is_projection(raw) and _selects_structural_form(raw, path):
             candidates.append((path, raw))
     return tuple(candidates)
 

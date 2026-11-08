@@ -163,7 +163,7 @@ def _local_subject(active: str, path: Path) -> str:
     return notation.render_subject(local)
 
 
-def _cfel(body: str, path: Path) -> list[str]:
+def _cfel(body: str, path: Path, *, allow_claim_prose: bool = False) -> list[str]:
     lines = body.splitlines()
     headings = []
     fence = None
@@ -199,7 +199,7 @@ def _cfel(body: str, path: Path) -> list[str]:
             raise ScopeDeclarationError(f"{path}: declaration requires one Formal Claim")
         formal_start = formal[0][2]
         formal_end = next((row[2] for row in children if row[2] > formal_start), end)
-        if "\n".join(lines[start + 1:children[0][2]]).strip():
+        if not allow_claim_prose and "\n".join(lines[start + 1:children[0][2]]).strip():
             raise ScopeDeclarationError(f"{path}: ambiguous Claim container")
         claim = "\n".join(lines[formal_start + 1:formal_end]).strip()
     matched = re.fullmatch(r"```CFEL\n(?P<cfel>.*?)\n```", claim, re.DOTALL)
@@ -239,7 +239,7 @@ def parse_scope_unit_declaration(raw: bytes, source: Path) -> ScopeUnitDeclarati
     """Parse one already-read carrier without traversing, evaluating, or writing."""
     metadata, body = _carrier(raw, source)
     atom_id, version, active, form = _metadata(metadata, source)
-    statements = _cfel(body, source)
+    statements = _cfel(body, source, allow_claim_prose=form == "Scope Delegation")
 
     root = _ROOT_NAME.fullmatch(statements[0]) if len(statements) == 1 else None
     if root is not None:

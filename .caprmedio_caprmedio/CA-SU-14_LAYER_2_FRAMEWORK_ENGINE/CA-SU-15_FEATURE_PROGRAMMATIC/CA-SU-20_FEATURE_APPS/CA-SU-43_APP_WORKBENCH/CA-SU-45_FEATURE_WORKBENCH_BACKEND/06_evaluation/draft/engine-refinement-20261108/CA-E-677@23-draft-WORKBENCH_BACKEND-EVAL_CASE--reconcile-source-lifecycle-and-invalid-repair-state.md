@@ -21,7 +21,7 @@ relations:
 state:
   status: Draft
   version: 23
-  updated_at: 2026-11-08 20:40:58 +0400
+  updated_at: 2026-11-08 22:34:15 +0400
 destination:
   file:
     name: CA-E-677@23-draft-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -42,9 +42,9 @@ Atomic file-backed refresh of governed sources, Current declarations, and the re
 
 ### Prose Claim
 
-The indexer transactionally applies selected source changes to `atoms`, `scope_units` and graph facts. An ordinary Atom create, edit, rename, move or removal inserts, updates or removes only the changed rows and affected relation neighbors; unrelated SQL rows are not rebuilt. Initial indexing, explicit full reread, actual structural or relation-registry changes, and a complete-inventory schema change retain the admitted rebuild path. Current and Draft Atom carriers are included, including Done and Canceled Current statuses; Archived carriers are excluded. Only Current Scope Unit Declarations establish `scope_units`; Draft Declarations remain Atom rows.
+The indexer transactionally applies selected source changes to `atoms`, `scope_units` and graph facts. An ordinary Atom create, edit, rename, move or removal inserts, updates or removes only the changed rows and affected relation neighbors; unrelated SQL rows are not rebuilt. Initial indexing, explicit full reread, actual structural or relation-registry changes, and a complete-inventory schema change retain the admitted rebuild path. Current and Draft Atom carriers are included, including Done and Canceled Current statuses; Archived carriers are excluded. Current Scope Unit Declarations and Current Scope Delegations establish `scope_units`; Draft Declarations and Delegations remain Atom rows.
 
-The rebuildable schema asset is derived state under `.caprmedio_runtime/workbench`, not a source or public table. A complete valid-source inventory supplies one flattened SQL column for every observed raw Header Property path and Content columns generated only from Current model Declarations. Header paths flatten every segment with lowercase snake_case; Content paths retain dots between path levels and use snake_case within segments. The declaration generator compiles declared Content paths and applicability without evaluating arbitrary CFEL formulas or prose. A newly observed Header path, a changed declared Content schema, or a path empty across the complete valid inventory rebuilds the affected schema and source tables and rereads that inventory. An ordinary value change with unchanged schema remains incremental.
+The rebuildable schema asset is derived state under `.caprmedio_runtime/workbench`, not a source or public table. Regenerate it during image build from the complete valid-source inventory. At cold start, Mode 1 supplies only current-model-declared Header Properties and current-model-declared Markdown Properties. Enabled Mode 2 supplies one flattened SQL column for every observed raw Header Property path and Content columns generated only from Current model Declarations. Under Mode 2, Header paths flatten every segment with lowercase snake_case; Content paths retain dots between path levels and use snake_case within segments. The declaration generator compiles declared Content paths and applicability without evaluating arbitrary CFEL formulas or prose. Under Mode 2, a newly observed Header path or a path empty across the complete valid inventory rebuilds the affected schema and source tables and rereads that inventory; in either mode, a changed declared Content schema does the same. An ordinary value change with unchanged schema remains incremental.
 
 Each public row hash is SHA-256 of deterministic canonical row JSON excluding `hash`, with materialized relations in the Atom payload. Ordinary source-capture failures go to stderr, are skipped, and are not retried. An indexing transaction failure or invalid Current Scope Unit Declaration instead makes the owner unavailable and requires explicit restart after correction. The database, schema asset, internal results and spill data stay under the owned Workbench runtime directory; no intermediate source copy is created. Saved SQL files are separate UTF-8 runtime artifacts and are not removed or changed by source refresh.
 
@@ -65,11 +65,13 @@ Compare unprofiled CPU and RAM on the same frozen source inventory and resource 
 | Repository parent folder is named `archive` or `draft` | Classify each source relative to the selected repository, without inheriting lifecycle from the parent mount path. |
 | Plain review Markdown without a closed Atom Header; or a role-mismatched proof copy | Ignore it without reporting a malformed Atom. Canonical Atom filename candidates still report invalid source content. |
 | Current Active, Done, Canceled; Draft; and Archived carrier | The first four have Current/Draft `atoms` rows; Archived is absent. |
-| Current and Draft Scope Unit Declarations | Only Current produces Scope Unit structure; Drafts remain queryable Atom rows. |
-| Complete valid inventory observes a new raw Header path | Rebuild the derived schema/source tables and reread the inventory; expose the flattened raw Header path without creating a source-header copy. |
-| Complete valid inventory loses the last observed raw Header path | Rebuild the derived schema/source tables and reread the inventory; remove that column. |
-| A raw Header path changes inferred format/type | Rebuild the derived schema/source tables and reread the inventory. |
-| A previously populated raw Header path becomes globally empty | Rebuild the derived schema/source tables and reread the inventory; retain the observed empty Header column. |
+| Current and Draft Scope Unit Declarations and Scope Delegations | Only Current structural sources produce Scope Unit structure; Drafts remain queryable Atom rows. |
+| Image-build cold start, Mode 1 | Regenerate the schema asset from the complete valid source inventory; expose only current-model-declared Header and Markdown Properties. |
+| Image-build cold start, enabled Mode 2 | Regenerate the schema asset from the complete valid source inventory; expose every observed raw Header path and only current-model-declared Markdown Properties, including the `header_context_container` JSON exception alongside its descendants. |
+| Complete valid inventory observes a new raw Header path under Mode 2 | Rebuild the derived schema/source tables and reread the inventory; expose the flattened raw Header path without creating a source-header copy. |
+| Complete valid inventory loses the last observed raw Header path under Mode 2 | Rebuild the derived schema/source tables and reread the inventory; remove that column. |
+| A raw Header path changes inferred format/type under Mode 2 | Rebuild the derived schema/source tables and reread the inventory. |
+| A previously populated raw Header path becomes globally empty under Mode 2 | Rebuild the derived schema/source tables and reread the inventory; retain the observed empty Header column. |
 | Current model Declaration adds, removes, or changes an applicable Content Property | Regenerate declared Content schema, rebuild affected schema/source tables and reread the inventory; undeclared Content headings do not become SQL columns. |
 | Ordinary value edit with unchanged schema | Refresh only changed rows, relation neighbors, mappings and hashes; do not rebuild the schema or reread all Atoms. |
 | Saved SQL while source refresh fails or skips a source | The saved SQL file remains unchanged; the query response reports the source error separately and does not retry or roll back the saved file. |

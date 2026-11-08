@@ -1,7 +1,7 @@
 ---
 identity:
   atom_id: CA-R-2654
-  ref_id: CA-R-2654@2-draft
+  ref_id: CA-R-2654
 context:
   role: Requirement
   form: Scope Delegation
@@ -11,13 +11,13 @@ context:
   container:
     scope_unit: CA-SU-14
 state:
-  status: Draft
+  status: Active
   version: 2
-  updated_at: 2026-11-08 21:55:04 +0400
+  updated_at: 2026-11-08 22:18:08 +0400
 destination:
   file:
-    name: CA-R-2654@2-draft-FRAMEWORK_ENGINE-SCOPE_DELEGATION--declare-programmatic.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement/draft/engine-refinement-20261108
+    name: CA-R-2654-FRAMEWORK_ENGINE-SCOPE_DELEGATION--declare-programmatic.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement
 ---
 ## Summary
 

@@ -25,6 +25,16 @@ Declare GRAPH_UI
 
 ## Claim
 
+Within this delegation, the admitted local Role/Form pairs used by the reviewed current local RMEDO are exactly: Evaluation/Eval Case, already globally admitted by CA-R-3008. No additional Role/Form pair is admitted. The current local Method/Eng Decision record is a legacy unadmitted Form; it remains a diagnostic and this delegation does not grant it admission.
+
+The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared model entities or declared instances resolved at this existing active Subject address:
+
+- Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+
+Each entry selects that single endpoint object. It does not select the address string, other members of its type, or descendants. An unresolved entry remains a diagnostic and grants no admission.
+
+These permissions apply only to Atoms whose Header.Container-derived IS_CONTAINED_BY target is GRAPH_UI.
+
 ### Formal Claim
 
 ```CFEL

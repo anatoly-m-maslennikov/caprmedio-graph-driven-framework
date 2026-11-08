@@ -25,6 +25,25 @@ Declare WORKFLOW_ORCHESTRATOR
 
 ## Claim
 
+Within this delegation, the admitted local Role/Form pairs used by the reviewed current local RMEDO are exactly: Evaluation/Eval Case, already globally admitted by CA-R-3008. No additional Role/Form pair is admitted. Current local records with Requirement/Rule, Method/Eng Decision and Delivery/Eng Decision are legacy unadmitted Forms; they remain diagnostics and this delegation does not grant them admission.
+
+The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared model entities or declared instances resolved at these existing active Subject addresses:
+
+- Subject/CAPRMEDIO/Carrier
+- Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+- Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+- Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+- Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+- Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
+- Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+- Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+- Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Coverage
+- Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+
+Each entry selects that single endpoint object. It does not select the address string, other members of its type, or descendants. An unresolved entry remains a diagnostic and grants no admission.
+
+These permissions apply only to Atoms whose Header.Container-derived IS_CONTAINED_BY target is WORKFLOW_ORCHESTRATOR.
+
 ### Formal Claim
 
 ```CFEL

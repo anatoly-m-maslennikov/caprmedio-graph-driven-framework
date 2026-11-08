@@ -6,6 +6,8 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import yaml
+
 TOOLS = Path(__file__).resolve().parents[1]
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
@@ -13,7 +15,8 @@ if str(TOOLS) not in sys.path:
 from project_selection import resolve_project
 from scope_declaration_parse import ScopeDeclarationError, parse_scope_unit_declaration
 from scope_declaration_render import PROJECT, render_scope_declaration
-from scope_unit_declarations import read_scope_unit_declarations
+from scope_unit_declarations import _selects_structural_form, read_scope_unit_declarations
+from header_groups import nested_header
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
@@ -340,6 +343,63 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         self.assertEqual("Scope Delegation", declarations.by_name["PARENT"].form)
         self.assertEqual("Scope Unit Declaration", declarations.by_name["CHILD"].form)
         self.assertEqual({root_source, parent_source, child_source}, set(declarations.paths))
+
+    def test_nested_non_root_scope_delegation_is_read_during_cutover(self) -> None:
+        _, parent_source, child_source = self.complete_tree()
+        raw = parent_source.read_text(encoding="utf-8")
+        _, frontmatter, body = raw.split("---", 2)
+        header = nested_header(yaml.safe_load(frontmatter))
+        header["context"]["form"] = "Scope Delegation"
+        parent_source.write_text(
+            "---\n" + yaml.safe_dump(header, sort_keys=False) + "---" + body,
+            encoding="utf-8",
+        )
+
+        declarations = read_scope_unit_declarations(self.root, self.control.name)
+
+        self.assertEqual("Scope Delegation", declarations.by_name["PARENT"].form)
+        self.assertEqual("CHILD", declarations.by_name["CHILD"].name)
+
+    def test_structural_form_reader_accepts_valid_header_indentation_and_flow_style(self) -> None:
+        for serializer in (
+            lambda value: yaml.safe_dump(value, sort_keys=False, indent=4),
+            lambda value: yaml.safe_dump(value, sort_keys=False, default_flow_style=True),
+        ):
+            with self.subTest(serializer=serializer):
+                _, parent_source, _ = self.complete_tree()
+                _, frontmatter, body = parent_source.read_text(encoding="utf-8").split("---", 2)
+                header = nested_header(yaml.safe_load(frontmatter))
+                header["context"]["form"] = "Scope Delegation"
+                parent_source.write_text("---\n" + serializer(header) + "---" + body, encoding="utf-8")
+
+                declarations = read_scope_unit_declarations(self.root, self.control.name)
+
+                self.assertEqual("Scope Delegation", declarations.by_name["PARENT"].form)
+
+    def test_nested_non_header_form_is_not_a_structural_candidate(self) -> None:
+        raw = b"""---
+context:
+  role: Requirement
+  form: Policy
+parameters:
+  form: Scope Delegation
+---
+"""
+
+        self.assertFalse(_selects_structural_form(raw))
+
+    def test_scope_delegation_allows_prose_before_its_formal_claim(self) -> None:
+        _, parent_source, _ = self.complete_tree()
+        raw = parent_source.read_text(encoding="utf-8").replace(
+            "form: Scope Unit Declaration", "form: Scope Delegation",
+        ).replace("### Formal Claim\n\n", "Delegation permissions.\n\n### Formal Claim\n\n")
+
+        self.assertEqual("PARENT", parse_scope_unit_declaration(raw.encode(), parent_source).name)
+
+        with self.assertRaisesRegex(ScopeDeclarationError, "ambiguous Claim container"):
+            parse_scope_unit_declaration(
+                raw.replace("form: Scope Delegation", "form: Scope Unit Declaration").encode(), parent_source,
+            )
 
     def test_project_root_scope_delegation_refuses(self) -> None:
         source = self.declaration("demo", "CA-R-1", source=self.control / "CA-R-1-demo.md", project=True)

@@ -1,7 +1,7 @@
 ---
 identity:
   atom_id: CA-R-2901
-  ref_id: CA-R-2901@3-draft
+  ref_id: CA-R-2901
 context:
   container:
     scope_unit: CA-SU-43
@@ -11,13 +11,13 @@ context:
     main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//CODEX_EXTENSION
   tier: 3
 state:
-  status: Draft
+  status: Active
   version: 3
-  updated_at: 2026-11-08 20:10:59 +0400
+  updated_at: 2026-11-08 22:18:08 +0400
 destination:
   file:
-    name: CA-R-2901@3-draft-WORKBENCH-SCOPE_DELEGATION--declare-codex-extension.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement/draft/engine-refinement-20261108
+    name: CA-R-2901-WORKBENCH-SCOPE_DELEGATION--declare-codex-extension.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/04_requirement
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 author: Anatoly Maslennikov

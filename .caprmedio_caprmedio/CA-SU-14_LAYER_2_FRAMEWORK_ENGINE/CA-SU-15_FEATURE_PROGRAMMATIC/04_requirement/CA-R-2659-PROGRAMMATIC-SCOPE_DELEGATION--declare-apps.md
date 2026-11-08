@@ -1,7 +1,7 @@
 ---
 identity:
   atom_id: CA-R-2659
-  ref_id: CA-R-2659@2-draft
+  ref_id: CA-R-2659
 context:
   container:
     scope_unit: CA-SU-15
@@ -11,13 +11,13 @@ context:
     main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//APPS
   tier: 3
 state:
-  status: Draft
+  status: Active
   version: 2
-  updated_at: 2026-11-08 20:40:58 +0400
+  updated_at: 2026-11-08 22:18:08 +0400
 destination:
   file:
-    name: CA-R-2659@2-draft-PROGRAMMATIC-SCOPE_DELEGATION--declare-apps.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement/draft/engine-refinement-20261108
+    name: CA-R-2659-PROGRAMMATIC-SCOPE_DELEGATION--declare-apps.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
 ---
 ## Summary
 
