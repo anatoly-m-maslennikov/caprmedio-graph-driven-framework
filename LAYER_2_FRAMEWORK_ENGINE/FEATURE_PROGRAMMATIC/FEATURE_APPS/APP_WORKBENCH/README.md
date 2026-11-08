@@ -118,7 +118,7 @@ one selected expression per line, with leading commas after the first;
 lowercase `from`, `where`, `and` and other clauses; `where true` followed by
 one condition per line; and a semicolon on its own line. Quote column names
 with double quotes and string values with single quotes. Use the actual names
-returned by `/schema`, including dotted Content paths with snake_case segments.
+returned by `/schema`, including dotted Header and Content paths with snake_case segments.
 
 ```sql
 SELECT
@@ -126,7 +126,7 @@ SELECT
   ,"content.claim.formal_claim"
 from atoms
 where true
-  and "header_status" = 'Active'
+  and "header.state.status" = 'Active'
   and "content.claim.formal_claim" is not null
 ;
 ```
@@ -136,10 +136,10 @@ SELECT
   "reference"
   ,"relative path"
   ,"filename"
-  ,"header_relations"->'$.CONTAINS' as contains
+  ,"header.relations"->'$.CONTAINS' as contains
 from atoms
 where true
-  and json_exists("header_relations", '$.CONTAINS')
+  and json_exists("header.relations", '$.CONTAINS')
 ;
 ```
 
@@ -179,17 +179,33 @@ Public Content values, schemas and hashes remain unchanged.
 
 ## Rebuildable SQL schema assets
 
-`projection-schema.json` records the `header_*` columns inferred from actual
-raw Header paths. `content-schema.json` records only the `content.*` columns
-compiled from Current model Declarations, plus their source provenance. Both
-files live beside `projection.duckdb`, are derived runtime assets, and can be
-discarded with the database.
+Header and Content SQL names preserve dots between path levels and use
+snake_case within segments: `header.identity.atom_id`,
+`header.context.role`, and `content.claim.formal_claim`. Short Header aliases
+and the former underscore-flattened Header names are not retained. Existing
+saved SQL is not rewritten; use `/schema` for the actual available paths.
+
+The cold-start setting `workbench.schema_mode` in
+`.caprmedio_runtime/caprmedio_runtime_settings.toml` selects:
+
+- `1`: model-declared Header properties and model-declared Content properties.
+  Header names bind through the existing carrier adapter; accepted historical
+  spellings are value-read aliases, not extra columns.
+- `2` (default): observed raw Header paths and model-declared Content properties.
+  Flat and nested source paths remain distinct.
+
+Image builds generate `workbench_schema.json` from the source inventory.
+Current source inputs remain authoritative. The selected runtime Header schema
+is recorded in `projection-schema.json`; `content-schema.json` records declared
+Content paths and their provenance. These runtime files live beside
+`projection.duckdb` and can be discarded with the database.
 
 The index uses an ordinary single-row delta when those table shapes are
-unchanged. A newly populated or globally empty Header path, or a changed
-declared Content shape, requires a full reread and replacement of the two
-public tables. A Declaration version or path change with the same Content
-shape updates its asset provenance but does not rebuild tables.
+unchanged. Mode 2 observed Header schema changes, Mode 1 declared Header schema
+changes, and declared Content schema changes require a full reread and replacement
+of the source tables. Same-shape Declaration version or path changes refresh
+provenance without rebuilding tables. An undeclared observed Header property
+does not change Mode 1 columns.
 
 `watchdog` watches only the selected repository's CAPRMEDIO source folder,
 even when a larger parent folder is mounted.

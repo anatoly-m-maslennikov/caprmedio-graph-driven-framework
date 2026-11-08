@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Active
-  version: 2
-  updated_at: 2026-11-08 19:15:36 +0400
+  status: Done
+  version: 3
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: 17-CA-P-2733-TASK--prepare-drafts-for-programmatic-local-rmedo.md

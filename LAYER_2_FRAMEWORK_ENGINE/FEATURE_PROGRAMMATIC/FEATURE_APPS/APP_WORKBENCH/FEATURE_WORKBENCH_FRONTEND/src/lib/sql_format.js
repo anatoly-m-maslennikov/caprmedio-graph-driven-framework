@@ -1,6 +1,4 @@
-// CA-R-2727@16
-// CA-M-468@4
-// CA-D-674@21
+// CA-M-468@5
 import { sql } from '@codemirror/lang-sql';
 import { duckdb, formatDialect } from '@dlh.io/dlh-sql-formatter';
 

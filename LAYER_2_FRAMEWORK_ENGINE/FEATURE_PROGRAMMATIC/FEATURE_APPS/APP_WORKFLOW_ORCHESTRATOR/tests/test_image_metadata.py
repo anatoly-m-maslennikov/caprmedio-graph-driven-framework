@@ -97,6 +97,9 @@ class ImageMetadataTests(unittest.TestCase):
         compiler = patch.object(runtime_images, "_compile_relation_registry", return_value=b'{"schema_version":1}\n')
         compiler.start()
         self.addCleanup(compiler.stop)
+        schema = patch.object(runtime_images, "_compile_workbench_schema", return_value=b'{"schema_version":1}\n')
+        schema.start()
+        self.addCleanup(schema.stop)
         self._write_fixture(VERSION)
 
     def _write_fixture(self, version: str) -> None:

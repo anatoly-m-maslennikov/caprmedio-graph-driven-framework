@@ -1,4 +1,3 @@
-// CA-E-682@1
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { applyNativeEvent, historyEntries, interaction, inputAnswers, sseFrames } from './codex_protocol.js';

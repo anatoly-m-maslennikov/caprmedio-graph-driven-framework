@@ -11,12 +11,12 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Version
   - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
 tier: 1
-status: Active
-version: 28
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 30
+updated_at: 2026-11-09 00:51:00 +0400
 carrier_destination:
   file:
-    name: CA-D-446-CORE_META_MODEL-DECISION--give-every-non-draft-atom-revision-one-identifier.md
+    name: CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -33,12 +33,12 @@ Give Every Non-Draft Atom Revision One Identifier
 Current Atom sources, Archived Atom versions and Draft Atom sources.
 
 
-For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.
+For each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with Archived Status encoded by the common named-value rule and its prior Updated At retained; Git history preserves exact pre-archive bytes.
 
-- for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.
+- for a Current or Archived Atom version, carry the canonical Atom ID as a String at its declared Header path **and** Version Number at its declared Header path; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.
 - a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule.
 - when an identified Atom is changed to Draft, its Draft Carrier carries the corresponding Draft marker admitted by CA-D-378; the marker and filename remain governed by CA-D-378 and CA-D-650. Do **not** create a second concurrent Draft Carrier for that Status edit.
-- when a Current Atom changes, create an Archive Carrier for the predecessor with its qualified ID, `status: Archived`, unchanged numeric Version and old Updated At; the Current successor retains the canonical ID, advances Version from N to N+1, and receives actual edit time under CA-R-1432/CA-R-1788. An exact no-op retains Version/time. There is no demotion Version exception.
+- when a Current Atom changes, create an Archive Carrier for the predecessor with its qualified Ref ID, encoded Archived Status, unchanged numeric Version and old Updated At; the Current successor retains the canonical ID, advances Version from N to N+1, and receives actual edit time under CA-R-1432/CA-R-1788. An exact no-op retains Version/time. There is no demotion Version exception.
 - a Draft carrying `<canonical-ID>@<proposed-version>-draft` for an existing Atom proposes an update to that same canonical Atom at the marker's proposed Version. For an actual update, that Version must be the current canonical Version plus one under the existing version-advance rule; archive the current canonical predecessor with its old numeric Version, Updated At and unrelated content, and update that Atom, subject to exact-current, identity/collision, Summary/replacement, Type/Status, schema and permission rules. An exact no-op retains the existing Version/time and creates no predecessor archive. This same-canonical rule does not determine promotion behavior for the role-only new-Atom marker.
 
 ## Details

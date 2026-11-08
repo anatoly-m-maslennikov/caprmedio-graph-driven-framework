@@ -21,6 +21,7 @@ from scope_unit_declarations import ScopeDeclarationError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import source_reader as source_reader_module  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import materialize  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import source_markdown  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.header_columns import infer_header_schema  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader, _same_row  # noqa: E402
 
 
@@ -269,6 +270,144 @@ class SourceReaderTests(unittest.TestCase):
         self.assertIsNone(row["tier"])
         self.assertEqual(value, row["header_json"]["version"])
         self.assertEqual(value, row["header_json"]["tier"])
+
+    def test_mode_one_excludes_only_ordinary_declared_header_format_errors(self) -> None:
+        declaration = self._write_atom(
+            "MAIN", "04_requirement", "CA-R-701-MAIN-DECLARATION--header.md",
+            atom_id="CA-R-701", form="Declaration", body="""## Claim
+
+~~~CFEL
+# model
+Atom.Header.Tier:: [int]{::1};
+~~~
+""",
+        )
+        bad = self._write_atom("MAIN", "04_requirement", "bad.md", atom_id="CA-R-BAD")
+        good = self._write_atom("MAIN", "04_requirement", "good.md", atom_id="CA-R-GOOD")
+        for path, value in ((bad, "principle"), (good, "1")):
+            path.write_text(
+                path.read_text(encoding="utf-8").replace("subjects: {}", f"tier: {value}\nsubjects: {{}}"),
+                encoding="utf-8",
+            )
+        reader = SourceReader(self.root, schema_mode=1)
+        stderr = StringIO()
+        with redirect_stderr(stderr):
+            atoms, _scopes = reader.capture()
+        refs = {row["ref"] for row in atoms}
+        self.assertIn("CA-R-GOOD", refs)
+        self.assertNotIn("CA-R-BAD", refs)
+        self.assertIn("header.context.tier requires BIGINT", stderr.getvalue())
+        with redirect_stderr(StringIO()) as repeated:
+            reader.capture()
+        self.assertEqual("", repeated.getvalue())
+        declaration.write_text(
+            declaration.read_text(encoding="utf-8").replace("subjects: {}", "tier: principle\nsubjects: {}"),
+            encoding="utf-8",
+        )
+        with self.assertRaisesRegex(ValueError, "CA-R-701.*requires BIGINT"):
+            reader.capture([{
+                "operation": "update", "old_path": None,
+                "new_path": declaration.relative_to(self.root).as_posix(),
+            }])
+
+    def test_mode_two_header_declaration_shape_change_stays_incremental(self) -> None:
+        declaration = self._write_atom(
+            "MAIN", "04_requirement", "CA-R-702-MAIN-DECLARATION--header.md",
+            atom_id="CA-R-702", form="Declaration", body="""## Claim
+
+~~~CFEL
+# model
+Atom.Header.Tier:: [int]{::1};
+~~~
+""",
+        )
+        before, _scopes, _stderr = self._capture()
+        before_shape = infer_header_schema(before).shape
+        declaration.write_text(
+            declaration.read_text(encoding="utf-8").replace(
+                "Atom.Header.Tier:: [int]{::1};",
+                "Atom.Header.Tier:: [int]{::1};\nAtom.Header.Declared Later:: [string]{::0..1};",
+            ),
+            encoding="utf-8",
+        )
+        event = {
+            "operation": "update", "old_path": None,
+            "new_path": declaration.relative_to(self.root).as_posix(),
+        }
+        with patch.object(self.reader, "_capture_full", wraps=self.reader._capture_full) as full:
+            after, _scopes = self.reader.capture([event])
+        self.assertFalse(full.called)
+        self.assertEqual(before_shape, infer_header_schema(after).shape)
+        self.assertIsNotNone(self.reader.capture_delta)
+
+    def test_mode_one_delta_validates_only_changed_header_rows(self) -> None:
+        self._write_atom(
+            "MAIN", "04_requirement", "CA-R-703-MAIN-DECLARATION--header.md",
+            atom_id="CA-R-703", form="Declaration", body="""## Claim
+
+~~~CFEL
+# model
+Atom.Header.Tier:: [int]{::1};
+~~~
+""",
+        )
+        sources = [
+            self._write_atom("MAIN", "04_requirement", f"ordinary-{index}.md", atom_id=f"CA-R-{710 + index}")
+            for index in range(12)
+        ]
+        for source in sources:
+            source.write_text(
+                source.read_text(encoding="utf-8").replace("subjects: {}", "tier: 1\nsubjects: {}"),
+                encoding="utf-8",
+            )
+        reader = SourceReader(self.root, schema_mode=1)
+        reader.capture()
+        changed = sources[0]
+        changed.write_text(
+            changed.read_text(encoding="utf-8").replace("version: 1", "version: 2"),
+            encoding="utf-8",
+        )
+        event = {"operation": "update", "old_path": None, "new_path": changed.relative_to(self.root).as_posix()}
+        with patch.object(
+            reader._header_schema, "validation_errors", wraps=reader._header_schema.validation_errors,
+        ) as validation:
+            reader.capture([event])
+        validated = validation.call_args.args[0]
+        self.assertEqual(1, validation.call_count)
+        self.assertEqual([changed.relative_to(self.root).as_posix()], [row["source_path"] for row in validated])
+        self.assertGreater(len(reader._accepted_rows()), len(validated))
+
+    def test_mode_one_validates_newly_admitted_duplicate_partner(self) -> None:
+        self._write_atom(
+            "MAIN", "04_requirement", "CA-R-704-MAIN-DECLARATION--header.md",
+            atom_id="CA-R-704", form="Declaration", body="""## Claim
+
+~~~CFEL
+# model
+Atom.Header.Tier:: [int]{::1};
+~~~
+""",
+        )
+        first = self._write_atom("MAIN", "04_requirement", "CA-R-900-one.md", atom_id="CA-R-900")
+        survivor = self._write_atom("MAIN", "04_requirement", "CA-R-900-two.md", atom_id="CA-R-900")
+        survivor.write_text(
+            survivor.read_text(encoding="utf-8").replace("subjects: {}", "tier: principle\nsubjects: {}"),
+            encoding="utf-8",
+        )
+        reader = SourceReader(self.root, schema_mode=1)
+        reader.capture()
+        self.assertNotIn(survivor, reader._references.accepted)
+        first.unlink()
+        event = {"operation": "delete", "old_path": first.relative_to(self.root).as_posix(), "new_path": None}
+        stderr = StringIO()
+        with patch.object(
+            reader._header_schema, "validation_errors", wraps=reader._header_schema.validation_errors,
+        ) as validation, redirect_stderr(stderr):
+            atoms, _scopes = reader.capture([event])
+        validated = validation.call_args.args[0]
+        self.assertEqual([survivor.relative_to(self.root).as_posix()], [row["source_path"] for row in validated])
+        self.assertNotIn("CA-R-900", {row["ref"] for row in atoms})
+        self.assertIn("header.context.tier requires BIGINT", stderr.getvalue())
 
     def test_crlf_body_and_legacy_header_aliases_are_preserved(self) -> None:
         path = self._path("CHILD", "05_method", "aliases.md")

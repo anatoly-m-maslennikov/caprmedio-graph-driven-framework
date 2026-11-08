@@ -69,23 +69,23 @@ class HeaderSqlColumnsTests(unittest.TestCase):
 
         fields = atom_fields(self.store._header_schema, self.store._content_schema)
         self.assertTrue({
-            "header_atom_id", "header_identity_atom_id", "header_status", "header_state_status",
-            "header_enabled", "header_zero", "header_tags", "header_metadata_answer",
-            "header_unknown_residue", "header_items", "header_relations",
+            "header.atom_id", "header.identity.atom_id", "header.status", "header.state.status",
+            "header.enabled", "header.zero", "header.tags", "header.metadata.answer",
+            "header.unknown_residue", "header.items", "header.relations",
         } <= set(fields))
         self.assertNotIn("id", fields)
         self.assertNotIn("status", fields)
         values = self.store._connection.execute(
-            "SELECT header_enabled, header_zero, header_tags, header_metadata_answer, header_items, "
-            "header_identity_atom_id, header_atom_id FROM atoms ORDER BY reference"
+            'SELECT "header.enabled", "header.zero", "header.tags", "header.metadata.answer", '
+            '"header.items", "header.identity.atom_id", "header.atom_id" FROM atoms ORDER BY reference'
         ).fetchall()
         self.assertEqual((False, 0, '["one"]', 42, None, None, "CA-R-1"), values[0])
         self.assertEqual((None, None, None, None, '[{"answer":1}]', "CA-R-2", None), values[1])
         asset = json.loads((self.database.parent / "projection-schema.json").read_text(encoding="utf-8"))
         self.assertIn(
             {
-                "path": ["identity", "atom_id"], "name": "header_identity_atom_id", "format": "VARCHAR",
-                "populated": True,
+                "path": ["identity", "atom_id"], "name": "header.identity.atom_id", "format": "VARCHAR",
+                "populated": True, "reader": None,
             },
             asset["header_columns"],
         )
@@ -94,10 +94,10 @@ class HeaderSqlColumnsTests(unittest.TestCase):
         self.store.replace([self.atom("CA-R-3", {"identity": {"id": "CA-R-3"}})], [])
 
         fields = atom_fields(self.store._header_schema, self.store._content_schema)
-        self.assertIn("header_identity_id", fields)
-        self.assertNotIn("header_identity_atom_id", fields)
+        self.assertIn("header.identity.id", fields)
+        self.assertNotIn("header.identity.atom_id", fields)
         self.assertEqual(("CA-R-3",), self.store._connection.execute(
-            "SELECT header_identity_id FROM atoms WHERE reference = 'CA-R-3'"
+            'SELECT "header.identity.id" FROM atoms WHERE reference = \'CA-R-3\''
         ).fetchone())
 
     def test_nested_container_is_queryable_as_json_and_as_leaf_columns(self) -> None:
@@ -112,18 +112,18 @@ class HeaderSqlColumnsTests(unittest.TestCase):
             ('{"atom":"CA-P-1"}', None, "CA-P-1"),
             (None, None, None),
         ], self.store._connection.execute(
-            "SELECT header_context_container, header_context_container_scope_unit, "
-            "header_context_container_atom FROM atoms ORDER BY reference"
+            'SELECT "header.context.container", "header.context.container.scope_unit", '
+            '"header.context.container.atom" FROM atoms ORDER BY reference'
         ).fetchall())
         self.assertEqual("CA-SU-00", self.store._connection.execute(
-            "SELECT header_context_container->>'scope_unit' FROM atoms WHERE reference = 'A'"
+            'SELECT "header.context.container"->>\'scope_unit\' FROM atoms WHERE reference = \'A\''
         ).fetchone()[0])
 
         changed = self.atom("A", {"context": {"container": {"scope_unit": "CA-SU-14"}}})
         self.assertTrue(self.store.apply([changed, *rows[1:]], [], relation_types=set()))
         self.assertFalse(self.store.schema_changed)
         self.assertEqual("CA-SU-14", self.store._connection.execute(
-            "SELECT header_context_container->>'scope_unit' FROM atoms WHERE reference = 'A'"
+            'SELECT "header.context.container"->>\'scope_unit\' FROM atoms WHERE reference = \'A\''
         ).fetchone()[0])
 
     def test_schema_change_defers_rebuild_but_same_schema_preserves_unaffected_row(self) -> None:
@@ -150,18 +150,18 @@ class HeaderSqlColumnsTests(unittest.TestCase):
         ]
         self.assertTrue(self.store.apply(empty, [], relation_types=set()))
         self.assertTrue(self.store.schema_changed)
-        self.assertIn("header_volatile", atom_fields(self.store._header_schema, self.store._content_schema))
+        self.assertIn("header.volatile", atom_fields(self.store._header_schema, self.store._content_schema))
         self.store.replace(empty, [])
         fields = atom_fields(self.store._header_schema, self.store._content_schema)
-        self.assertIn("header_volatile", fields)
-        self.assertIn("header_zero", fields)
-        self.assertIn("header_enabled", fields)
+        self.assertIn("header.volatile", fields)
+        self.assertIn("header.zero", fields)
+        self.assertIn("header.enabled", fields)
         self.assertFalse(next(
-            column.populated for column in self.store._header_schema.columns if column.name == "header_volatile"
+            column.populated for column in self.store._header_schema.columns if column.name == "header.volatile"
         ))
         asset = json.loads((self.database.parent / "projection-schema.json").read_text(encoding="utf-8"))
         self.assertFalse(next(
-            column["populated"] for column in asset["header_columns"] if column["name"] == "header_volatile"
+            column["populated"] for column in asset["header_columns"] if column["name"] == "header.volatile"
         ))
 
         with_empty_path = [
@@ -174,12 +174,12 @@ class HeaderSqlColumnsTests(unittest.TestCase):
         self.assertTrue(self.store.apply(with_empty_path, [], relation_types=set()))
         self.assertTrue(self.store.schema_changed)
         self.store.replace(with_empty_path, [])
-        self.assertIn("header_optional", atom_fields(self.store._header_schema, self.store._content_schema))
+        self.assertIn("header.optional", atom_fields(self.store._header_schema, self.store._content_schema))
 
         self.assertTrue(self.store.apply(empty, [], relation_types=set()))
         self.assertTrue(self.store.schema_changed)
         self.store.replace(empty, [])
-        self.assertNotIn("header_optional", atom_fields(self.store._header_schema, self.store._content_schema))
+        self.assertNotIn("header.optional", atom_fields(self.store._header_schema, self.store._content_schema))
 
         changed_type = [
             self.atom("A", {"atom_id": "A", "volatile": "", "stable": 1, "zero": 0, "enabled": False}),
@@ -200,24 +200,24 @@ class HeaderSqlColumnsTests(unittest.TestCase):
         self.store.replace(rows, [])
 
         fields = atom_fields(self.store._header_schema, self.store._content_schema)
-        self.assertIn("header_mixed", fields)
-        self.assertIn("header_mixed_child", fields)
-        self.assertIn("header_all_empty", fields)
-        self.assertIn("header_empty_map", fields)
-        self.assertIn("header_group_only_child", fields)
-        self.assertNotIn("header_group_only", fields)
+        self.assertIn("header.mixed", fields)
+        self.assertIn("header.mixed.child", fields)
+        self.assertIn("header.all_empty", fields)
+        self.assertIn("header.empty_map", fields)
+        self.assertIn("header.group_only.child", fields)
+        self.assertNotIn("header.group_only", fields)
         values = self.store._connection.execute(
-            "SELECT header_mixed FROM atoms ORDER BY reference"
+            'SELECT "header.mixed" FROM atoms ORDER BY reference'
         ).fetchall()
         self.assertEqual([{"child": 2}, [], {}, 1, ""], [json.loads(value[0]) for value in values])
         self.assertEqual(
             [(2,)], self.store._connection.execute(
-                "SELECT header_mixed_child FROM atoms WHERE reference = 'group'"
+                'SELECT "header.mixed.child" FROM atoms WHERE reference = \'group\''
             ).fetchall(),
         )
         self.assertEqual(
             [(None,), ('{}',), (None,), ('""',), ('[]',)], self.store._connection.execute(
-                "SELECT header_all_empty FROM atoms ORDER BY reference"
+                'SELECT "header.all_empty" FROM atoms ORDER BY reference'
             ).fetchall(),
         )
 
@@ -252,7 +252,7 @@ class HeaderSqlColumnsTests(unittest.TestCase):
             self.atom("B", {"atom_id": "B", "relations": {}}),
         ], [])
         relations = self.store._connection.execute(
-            "SELECT header_relations FROM atoms WHERE reference = 'A'"
+            'SELECT "header.relations" FROM atoms WHERE reference = \'A\''
         ).fetchone()[0]
         self.assertEqual(
             {"CONTAINS": [{"kind": "Atom", "reference": "B", "derived": False}]}, json.loads(relations),

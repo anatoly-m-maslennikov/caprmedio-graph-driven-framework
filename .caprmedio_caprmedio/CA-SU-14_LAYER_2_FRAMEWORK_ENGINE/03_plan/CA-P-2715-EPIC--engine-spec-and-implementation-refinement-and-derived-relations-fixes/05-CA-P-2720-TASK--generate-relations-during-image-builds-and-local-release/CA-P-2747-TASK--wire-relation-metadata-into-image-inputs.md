@@ -15,9 +15,9 @@ relations:
   IS_BLOCKED_BY:
   - CA-P-2735
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-08 21:07:44 +0400
+  status: Done
+  version: 2
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: CA-P-2747-TASK--wire-relation-metadata-into-image-inputs.md

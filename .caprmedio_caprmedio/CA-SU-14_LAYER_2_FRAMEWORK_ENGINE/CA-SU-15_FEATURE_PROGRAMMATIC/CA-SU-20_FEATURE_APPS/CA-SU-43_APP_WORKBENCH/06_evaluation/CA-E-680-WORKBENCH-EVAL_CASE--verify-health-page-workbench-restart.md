@@ -1,20 +1,23 @@
 ---
-atom_id: CA-E-680
-ref_id: CA-E-680
-container:
-  scope_unit: CA-SU-43
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-tier: 5
+identity:
+  atom_id: CA-E-680
+  ref_id: CA-E-680
+context:
+  container:
+    scope_unit: CA-SU-43
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Projection
+  tier: 5
 relations:
   evaluation_for:
   - CA-R-2782
-status: Active
-version: 1
-updated_at: 2026-11-05 06:00:43 +0400
-carrier_destination:
+state:
+  status: Active
+  version: 2
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-E-680-WORKBENCH-EVAL_CASE--verify-health-page-workbench-restart.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation

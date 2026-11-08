@@ -1,7 +1,6 @@
-# CA-R-2726@5
-# CA-M-465@23
-# CA-M-500@1
-# CA-D-672@12
+# CA-R-2726@6
+# CA-M-500@3
+# CA-D-672@14
 
 """Project transient parser records into the two public SQL tables."""
 
@@ -19,7 +18,7 @@ from .relations import canonical
 
 
 ATOM_METADATA_FIELDS = ("relative path", "filename", "status_group", "reference")
-ATOM_TRAILER_FIELDS = ("header_relations", "hash")
+ATOM_TRAILER_FIELDS = ("header.relations", "hash")
 SCOPE_FIELDS = (
     "name", "scope_unit_id", "parent_name", "declared_label", "ordered",
     "order_number", "declaration_source_path", "declaration_version", "relations", "hash",
@@ -40,9 +39,9 @@ def _atom(row: Row, outgoing: Outgoing, header_schema: HeaderSchema, content_sch
         "filename": path.name,
         "status_group": row["status_group"],
         "reference": reference,
-        **{column.name: header_schema.value(row.get("header_json"), column) for column in header_schema.columns},
+        **{column.name: header_schema.value(row, column) for column in header_schema.columns},
         **content_columns(row, content_schema),
-        "header_relations": outgoing.get(("Atom", reference), {}) if isinstance(reference, str) else {},
+        "header.relations": outgoing.get(("Atom", reference), {}) if isinstance(reference, str) else {},
     }
     public["hash"] = hashlib.sha256(canonical(public).encode("utf-8")).hexdigest()
     return public
@@ -112,7 +111,7 @@ def insert_rows(
     content_ddl = [f"{quote_identifier(name)} VARCHAR" for name in content_schema.names]
     columns = [
         '"relative path" VARCHAR NOT NULL', "filename VARCHAR NOT NULL", "status_group VARCHAR NOT NULL",
-        "reference VARCHAR UNIQUE", *header_ddl, *content_ddl, "header_relations JSON NOT NULL",
+        "reference VARCHAR UNIQUE", *header_ddl, *content_ddl, '"header.relations" JSON NOT NULL',
         "hash VARCHAR NOT NULL", 'PRIMARY KEY("relative path", filename)',
     ]
     connection.execute(f"CREATE TABLE main.atoms({', '.join(columns)})")
@@ -122,6 +121,6 @@ def insert_rows(
         declaration_source_path VARCHAR NOT NULL UNIQUE, declaration_version BIGINT NOT NULL,
         relations JSON NOT NULL, hash VARCHAR NOT NULL
     )""")
-    _insert(connection, "atoms", fields, atom_rows, json_fields=header_schema.json_names | {"header_relations"})
+    _insert(connection, "atoms", fields, atom_rows, json_fields=header_schema.json_names | {"header.relations"})
     _insert(connection, "scope_units", SCOPE_FIELDS, scope_rows, json_fields=frozenset({"relations"}))
     return atom_rows, scope_rows

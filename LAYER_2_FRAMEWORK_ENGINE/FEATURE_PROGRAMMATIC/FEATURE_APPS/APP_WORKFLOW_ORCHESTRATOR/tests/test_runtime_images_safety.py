@@ -195,6 +195,9 @@ class ImageCredentialContextTests(unittest.TestCase):
         compiler = patch.object(images, "_compile_relation_registry", return_value=b'{"schema_version":1}\n')
         compiler.start()
         self.addCleanup(compiler.stop)
+        schema = patch.object(images, "_compile_workbench_schema", return_value=b'{"schema_version":1}\n')
+        schema.start()
+        self.addCleanup(schema.stop)
         parent = APP.parents[3] / ".caprmedio_tmp/launcher-epic-1829/images"
         parent.mkdir(parents=True, exist_ok=True)
         source = Path(tempfile.mkdtemp(prefix="image-credentials-", dir=parent))

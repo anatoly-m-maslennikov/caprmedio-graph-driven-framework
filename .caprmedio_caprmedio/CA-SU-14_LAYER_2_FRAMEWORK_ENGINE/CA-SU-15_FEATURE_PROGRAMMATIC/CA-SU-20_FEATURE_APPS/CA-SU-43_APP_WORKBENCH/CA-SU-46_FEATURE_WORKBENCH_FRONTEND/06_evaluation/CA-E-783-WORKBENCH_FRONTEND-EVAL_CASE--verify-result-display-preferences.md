@@ -1,21 +1,24 @@
 ---
-atom_id: CA-E-783
-ref_id: CA-E-783
-container:
-  scope_unit: CA-SU-46
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-tier: 5
+identity:
+  atom_id: CA-E-783
+  ref_id: CA-E-783
+context:
+  container:
+    scope_unit: CA-SU-46
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Projection
+  tier: 5
 relations:
   evaluation_for:
   - CA-R-2727
   - CA-D-674
-status: Active
-version: 3
-updated_at: 2026-11-06 20:37:19 +0400
-carrier_destination:
+state:
+  status: Active
+  version: 4
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-E-783-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-display-preferences.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation

@@ -15,9 +15,9 @@ relations:
   IS_WORK_REPORT_FOR:
   - CA-P-2733
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-08 19:15:36 +0400
+  status: Done
+  version: 2
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: CA-P-2742-WORK_REPORT--prepare-drafts-for-programmatic-local-rmedo.md
@@ -31,4 +31,4 @@ Prepare Drafts for PROGRAMMATIC-local RMEDO
 
 ## Details
 
-Queried the local PROGRAMMATIC candidates. Sol High identified a first batch of reusable Direct Policy candidates and two local Decision candidates. Conditional wording alone does not prove Approach Policy applicability. Six local structural Declarations lack explicit container fields, explaining the 147 location-based versus141 explicit-owner count. Full Content fetching and complete Draft creation remain.
+All 83 readable PROGRAMMATIC-local candidates completed preparation and adoption. Sixty-four unavailable legacy sources remain deferred. The implementation prompt was refreshed from 41 applicable Current Policies fetched by query_run; complete query-exposed legacy subtrees were retained.

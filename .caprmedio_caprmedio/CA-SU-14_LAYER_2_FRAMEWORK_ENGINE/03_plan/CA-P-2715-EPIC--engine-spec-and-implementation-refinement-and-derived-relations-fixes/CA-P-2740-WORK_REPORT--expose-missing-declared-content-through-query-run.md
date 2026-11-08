@@ -15,9 +15,9 @@ relations:
   IS_WORK_REPORT_FOR:
   - CA-P-2736
 state:
-  status: Active
-  version: 3
-  updated_at: 2026-11-08 21:55:53 +0400
+  status: Done
+  version: 4
+  updated_at: 2026-11-09 01:40:38 +0400
 destination:
   file:
     name: CA-P-2740-WORK_REPORT--expose-missing-declared-content-through-query-run.md
@@ -31,4 +31,4 @@ Expose missing declared Content through query_run
 
 ## Details
 
-Local release 0.4.4.36 installed the reviewed extractor fix; 153 scoped tests passed. The Operator deferred 78 content-unavailable Atoms: 64 PROGRAMMATIC, 12 APPS and O240/O241. No atom_document helper is planned. The approved cold-start mode uses observed YAML Headers and schema-declared Markdown; explicit schema-mode/build-asset verification remains. No full Content coverage or new deployment is claimed.
+Operation Declaration and reader corrections expose the supported declared Content through query_run. The 78 unavailable legacy Atoms remain explicitly deferred. The new literal schema generator reads Current Header and Content Declarations; Mode 2 remains factual Headers plus declared Content. No atom_document or raw-source SQL escape was added.

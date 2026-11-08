@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Backlog
-  version: 2
-  updated_at: 2026-11-08 19:15:36 +0400
+  status: Done
+  version: 3
+  updated_at: 2026-11-09 01:40:38 +0400
 destination:
   file:
     name: 14-CA-P-2729-TASK--review-and-resolve-specification-versus-code-differences.md

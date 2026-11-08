@@ -1,9 +1,8 @@
-// CA-E-683@2
-// CA-E-684@2
-// CA-E-781@1
-// CA-E-782@1
-// CA-E-783@2
-// CA-E-786@1
+// CA-E-683@6
+// CA-E-781@2
+// CA-E-782@2
+// CA-E-783@4
+// CA-E-786@2
 import { expect, test, type Page } from '@playwright/test';
 
 const url = process.env.WORKBENCH_E2E_URL!;
@@ -451,7 +450,7 @@ test('uses palette navigation, quoted status completion, and focus after hiding 
   const schema = await (await schemaResponse).json() as {
     tables: { atoms: Array<{ name: string; values?: string[] }> };
   };
-  expect(schema.tables.atoms.find((column) => column.name === 'header_status')?.values).toContain('Active');
+  expect(schema.tables.atoms.find((column) => column.name === 'header.state.status')?.values).toContain('Active');
   await page.keyboard.press('Meta+P');
   const palette = page.getByRole('dialog', { name: 'Command palette' });
   await expect(palette.getByRole('textbox')).toBeFocused();
@@ -468,13 +467,13 @@ test('uses palette navigation, quoted status completion, and focus after hiding 
   await expect(palette).toBeHidden();
   await expect(page.getByRole('region', { name: 'Settings' })).toBeVisible();
   await page.getByRole('tab', { name: /^View 1/ }).click();
-  await replaceSql(page, "SELECT header_status FROM atoms WHERE header_status = 'Act'");
+  await replaceSql(page, "SELECT \"header.state.status\" FROM atoms WHERE \"header.state.status\" = 'Act'");
   await page.keyboard.press('ArrowLeft');
   await page.keyboard.press('Control+Space');
   const active = page.getByRole('option', { name: 'Active', exact: true });
   await expect(active).toBeVisible();
   await active.click();
-  await expect(editor(page)).toContainText("status = 'Active'");
+  await expect(editor(page)).toContainText("header.state.status\" = 'Active'");
   const editorToggle = page.getByRole('button', { name: /Query editor.*Hide editor/ });
   await expect(editorToggle).toHaveAttribute('aria-expanded', 'true');
   await editorToggle.click();

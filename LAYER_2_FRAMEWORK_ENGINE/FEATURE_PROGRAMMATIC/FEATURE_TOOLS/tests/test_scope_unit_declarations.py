@@ -388,6 +388,18 @@ parameters:
 
         self.assertFalse(_selects_structural_form(raw))
 
+    def test_malformed_canonical_flow_form_fails_closed(self) -> None:
+        for context in (
+            "context: {form: Scope Delegation, role: Requirement",
+            "context: {role: Requirement, form: Scope Delegation",
+        ):
+            with self.subTest(context=context):
+                raw = f"---\n{context}\n---\n".encode()
+                self.assertTrue(_selects_structural_form(raw))
+
+        unrelated = b"---\nparameters: {form: Scope Delegation\n---\n"
+        self.assertFalse(_selects_structural_form(unrelated))
+
     def test_scope_delegation_allows_prose_before_its_formal_claim(self) -> None:
         _, parent_source, _ = self.complete_tree()
         raw = parent_source.read_text(encoding="utf-8").replace(

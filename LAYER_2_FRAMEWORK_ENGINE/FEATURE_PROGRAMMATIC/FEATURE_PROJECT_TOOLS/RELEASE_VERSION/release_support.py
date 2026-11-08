@@ -1,8 +1,7 @@
 """Filesystem and package support for the direct local-release runner."""
 
-# CA-R-2785@3
-# CA-M-473@3
-# CA-D-678@4
+# CA-R-2785@4
+# CA-D-678@5
 # CA-D-704@1
 
 from __future__ import annotations
@@ -23,10 +22,11 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 from project_selection import active_selection
-
-
-class LocalReleaseError(RuntimeError):
-    """A pre-effect refusal from the bounded local-release runner."""
+from release_assets import (
+    LocalReleaseError,
+    generate_relation_registry,
+    generate_workbench_schema,
+)
 
 
 _SOURCE_UNITS = ("CORE_META_MODEL", "INSTALLED_EXTENSIONS", "PROJECT_CONFIGURATION")
@@ -297,31 +297,6 @@ def _generate_tool_registry(package: Path) -> Path:
         raise LocalReleaseError("local-release-tool-registry-generation-failed")
     return output
 
-
-def _generate_relation_registry(package: Path, project_root: Path) -> Path:
-    script = package / (
-        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
-        "FEATURE_WORKBENCH_BACKEND/generate_relation_registry.py"
-    )
-    output = script.with_name("canonical_relation_registry.json")
-    if not script.is_file() or script.is_symlink():
-        raise LocalReleaseError("local-release-relation-registry-unavailable")
-    try:
-        output.unlink(missing_ok=True)
-        result = subprocess.run(
-            (
-                sys.executable, "-B", str(script), "--project-root", str(project_root),
-                "--output", str(output),
-            ),
-            cwd=package, text=True, capture_output=True, check=False,
-        )
-    except OSError as error:
-        raise LocalReleaseError("local-release-relation-registry-unavailable") from error
-    if result.returncode != 0 or not output.is_file() or output.is_symlink():
-        raise LocalReleaseError("local-release-relation-registry-generation-failed")
-    return output
-
-
 def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tuple[str, int]]:
     excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", "node_modules"})
     trees = (
@@ -360,8 +335,10 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
             raise LocalReleaseError("local-release-package-source-changed")
     registry = _generate_tool_registry(package)
     expected[registry.relative_to(package).as_posix()] = _file_identity(registry)
-    relation_registry = _generate_relation_registry(package, root)
+    relation_registry = generate_relation_registry(package, root)
     expected[relation_registry.relative_to(package).as_posix()] = _file_identity(relation_registry)
+    workbench_schema = generate_workbench_schema(package, root)
+    expected[workbench_schema.relative_to(package).as_posix()] = _file_identity(workbench_schema)
     for relative in (
         "SKILLS/ca/SKILL.md",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/project_mcp_bootstrap.py",
@@ -371,6 +348,8 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
         "FEATURE_WORKBENCH_BACKEND/generate_relation_registry.py",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
+        "FEATURE_WORKBENCH_BACKEND/generate_workbench_schema.py",
     ):
         if relative not in expected:
             raise LocalReleaseError("local-release-package-source-unavailable")

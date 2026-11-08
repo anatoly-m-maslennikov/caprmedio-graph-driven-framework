@@ -1,21 +1,27 @@
 ---
-atom_id: CA-E-674
-ref_id: CA-E-674
-container:
-  scope_unit: CA-SU-43
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-tier: 5
+identity:
+  atom_id: CA-E-674
+  ref_id: CA-E-674
+context:
+  container:
+    scope_unit: CA-SU-43
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Projection
+  tier: 5
 relations:
-  evaluation_for: [CA-R-2728, CA-M-462, CA-M-463]
-status: Active
-version: 5
-updated_at: 2026-11-04 16:59:55 +0400
-carrier_destination:
+  evaluation_for:
+  - CA-R-2728
+  - CA-M-462
+  - CA-M-463
+state:
+  status: Active
+  version: 6
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
-    name: CA-E-674-WORKBENCH-EVAL_CASE--enforce-native-read-only-access-and-exclusive-owner-handoff.md
+    name: CA-E-674-WORKBENCH-EVAL_CASE--enforce-native-read-only-and-exclusive-owner-handoff.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH

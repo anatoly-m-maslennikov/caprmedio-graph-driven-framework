@@ -2,7 +2,7 @@
 
 Source: Current RMEDO rows fetched with query_run. Draft and Archive sources are not migration targets.
 
-| Atom ID | Draft ID | Owner Task | Status |
+| Atom ID | Reviewed version | Owner Task | Status |
 | --- | --- | --- | --- |
 | CA-R-970308123 | — | CA-P-2724 | Excluded: Operator; preserve benchmark corpus |
 | CA-R-970308124 | — | CA-P-2724 | Excluded: Operator; preserve benchmark corpus |

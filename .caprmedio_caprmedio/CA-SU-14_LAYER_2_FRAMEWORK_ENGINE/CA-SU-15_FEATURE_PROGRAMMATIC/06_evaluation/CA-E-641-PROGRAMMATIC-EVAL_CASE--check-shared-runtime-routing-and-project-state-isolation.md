@@ -1,23 +1,31 @@
 ---
-atom_id: CA-E-641
-ref_id: CA-E-641
-container:
-  scope_unit: CA-SU-15
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
-tier: 6
+identity:
+  atom_id: CA-E-641
+  ref_id: CA-E-641
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic
+      Testing
+  tier: 6
 relations:
   evaluation_for:
   - CA-R-2008
   - CA-M-401
-status: Active
-version: 17
-updated_at: 2026-11-02 19:44:26 +0400
+state:
+  status: Active
+  version: 18
+  updated_at: 2026-11-09 00:09:26 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-641-PROGRAMMATIC-EVAL_CASE--check-shared-runtime-routing-and-project-state-isolation.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
 # Summary
 

@@ -1,4 +1,3 @@
-// CA-E-797@1
 import assert from 'node:assert/strict';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';

@@ -1,4 +1,4 @@
-<!-- CA-D-674@22 -->
+<!-- CA-D-674@23 -->
 <script lang="ts">
   import { tick } from 'svelte';
   import { filterCommands, moveSelection } from './palette_helpers.js';

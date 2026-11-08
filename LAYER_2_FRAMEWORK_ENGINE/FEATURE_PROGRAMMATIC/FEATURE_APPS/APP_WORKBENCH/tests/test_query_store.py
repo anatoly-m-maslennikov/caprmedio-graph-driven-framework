@@ -117,8 +117,8 @@ class QueryStoreTest(unittest.TestCase):
         )["rows"]
         atom_fields = tuple(column for table, column in schema if table == "atoms")
         self.assertTrue({
-            "relative path", "filename", "status_group", "reference", "header_atom_id",
-            "header_version", "header_status", "header_relations", "hash",
+            "relative path", "filename", "status_group", "reference", "header.atom_id",
+            "header.version", "header.status", "header.relations", "hash",
         } <= set(atom_fields))
         self.assertFalse(any(field.startswith("content.") for field in atom_fields))
         self.assertEqual(
@@ -153,7 +153,7 @@ class QueryStoreTest(unittest.TestCase):
 
         schema = self.store.schema()["tables"]
 
-        status = next(column for column in schema["atoms"] if column["name"] == "header_status")
+        status = next(column for column in schema["atoms"] if column["name"] == "header.status")
         self.assertEqual(["Active", "Done"], status["values"])
 
     def test_normal_source_edit_uses_delta_not_projection_replacement(self) -> None:
@@ -171,7 +171,7 @@ class QueryStoreTest(unittest.TestCase):
         self.assertTrue(changed)
         full_replace.assert_not_called()
         self.assertEqual([["A", 2], ["B", 1]], self.store.run(
-            "SELECT reference, header_version FROM atoms ORDER BY reference"
+            'SELECT reference, "header.version" FROM atoms ORDER BY reference'
         )["rows"])
 
     def test_full_replace_projects_once_and_sql_matches_retained_snapshot(self) -> None:
@@ -194,7 +194,7 @@ class QueryStoreTest(unittest.TestCase):
         scope_fields = [column[0] for column in self.store._connection.execute(
             "SELECT * FROM scope_units LIMIT 0"
         ).description]
-        atom_json = snapshot.header_schema.json_names | {"header_relations"}
+        atom_json = snapshot.header_schema.json_names | {"header.relations"}
         sql_atoms = [
             {
                 name: json.loads(value) if name in atom_json and value is not None else value
@@ -379,7 +379,7 @@ class QueryStoreTest(unittest.TestCase):
             direct,
         )
         public_rows = self.store.run(
-            'SELECT "relative path", filename, reference, header_relations FROM atoms '
+            'SELECT "relative path", filename, reference, "header.relations" FROM atoms '
             "WHERE reference IN ('A', 'B') ORDER BY reference"
         )["rows"]
         self.assertEqual(
@@ -401,7 +401,7 @@ class QueryStoreTest(unittest.TestCase):
         )
         self.assertEqual(
             {},
-            json.loads(self.store.run("SELECT header_relations FROM atoms WHERE reference = 'A@2-draft'")["rows"][0][0]),
+            json.loads(self.store.run('SELECT "header.relations" FROM atoms WHERE reference = \'A@2-draft\'')["rows"][0][0]),
         )
         self.assertEqual(
             {"OWNS": [{"kind": "Atom", "reference": "A", "derived": False}]},

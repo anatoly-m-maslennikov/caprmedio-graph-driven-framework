@@ -1,0 +1,36 @@
+[
+  {
+    "owner": "carrier_archive_review",
+    "deliverable": "Exact four predecessor metadata and filename repair contract",
+    "edit_scope": "read-only selected archives and archive rules",
+    "dependencies": [],
+    "acceptance": "Status/Ref ID/destination corrected with stable ID,Version,Updated At and body",
+    "status": "done"
+  },
+  {
+    "owner": "carrier_yaml_conflicts",
+    "deliverable": "Current YAML-rule conflicts",
+    "edit_scope": "read-only canonical Core Delivery rules",
+    "dependencies": [],
+    "acceptance": "precise remaining conflicting IDs and minimal fixes",
+    "status": "done"
+  },
+  {
+    "owner": "carrier_markdown_conflicts",
+    "deliverable": "Current Markdown-rule conflicts",
+    "edit_scope": "read-only canonical Core Delivery rules",
+    "dependencies": [],
+    "acceptance": "headings/hierarchy conflicts separated from protected filenames",
+    "status": "done"
+  },
+  {
+    "owner": "root",
+    "deliverable": "Integrate bounded source cleanup and verify",
+    "edit_scope": "selected Core source/archive files and this evidence folder",
+    "dependencies": [
+      "reviews"
+    ],
+    "acceptance": "proper archive Status/Ref ID; no selected Current old encoding conflicts; unrelated work untouched",
+    "status": "done"
+  }
+]

@@ -1,6 +1,4 @@
-// CA-R-2902@4
-// CA-M-476@4
-// CA-D-674@22
+// CA-D-674@23
 import type { CheckResult, GridState, QueryResult, QueryLogItem, SavedIdentity, SavedItem, Schema, SourceSyncStatus, ViewRunResponse, WorkspaceState, WorkspaceView } from './types';
 import type { OperationCaller } from './transport';
 

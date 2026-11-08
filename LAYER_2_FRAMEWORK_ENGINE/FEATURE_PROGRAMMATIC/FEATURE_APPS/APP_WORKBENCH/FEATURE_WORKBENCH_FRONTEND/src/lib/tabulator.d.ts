@@ -1,4 +1,4 @@
-// CA-M-492@1
+// CA-M-492@3
 declare module 'tabulator-tables' {
   export const TabulatorFull: any;
 }

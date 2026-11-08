@@ -86,8 +86,8 @@ class Workload:
         assert store is not None
         with store._lock:
             rows = store._connection.execute(
-                'SELECT header_state_version, header_context_container_scope_unit, filename, "relative path", '
-                "header_destination_file_path FROM atoms WHERE reference = ?", [reference]
+                'SELECT "header.state.version", "header.context.container.scope_unit", filename, "relative path", '
+                '"header.destination.file.path" FROM atoms WHERE reference = ?', [reference]
             ).fetchall()
         return rows == [(version, scope_id, path.name, self.fixture.relative(path.parent), self.fixture.relative(path.parent))]
 
@@ -135,9 +135,9 @@ class Workload:
         reference, path = self._write_cycle_atom(index + 100_000, version=1)
         text = path.read_text(encoding="utf-8").replace("relations: {", "soak_probe_key: true\nrelations: {", 1)
         path.write_text(text, encoding="utf-8")
-        wait_until(lambda: self._has_column("header_soak_probe_key") and self._has_reference(reference), operation="schema add")
+        wait_until(lambda: self._has_column("header.soak_probe_key") and self._has_reference(reference), operation="schema add")
         path.write_text(text.replace("soak_probe_key: true\n", "", 1), encoding="utf-8")
-        wait_until(lambda: not self._has_column("header_soak_probe_key"), operation="schema remove")
+        wait_until(lambda: not self._has_column("header.soak_probe_key"), operation="schema remove")
         path.unlink()
         wait_until(lambda: not self._has_reference(reference), operation="schema delete")
 

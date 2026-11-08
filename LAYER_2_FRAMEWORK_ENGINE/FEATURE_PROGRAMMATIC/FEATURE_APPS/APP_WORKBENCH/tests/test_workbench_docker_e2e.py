@@ -1,12 +1,11 @@
-# CA-E-753@1
-# CA-D-673@13
-# CA-E-676@11
-# CA-E-683@4
-# CA-E-780@7
-# CA-E-677@18
-# CA-E-784@1
-# CA-E-785@1
-# CA-E-787@1
+# CA-E-753@2
+# CA-E-676@12
+# CA-E-683@6
+# CA-E-780@8
+# CA-E-677@23
+# CA-E-784@2
+# CA-E-785@2
+# CA-E-787@3
 """Real Workbench MCP/HTTP proof against the full-suite current-code image."""
 
 from __future__ import annotations
@@ -66,7 +65,9 @@ class WorkbenchDockerE2E(
         cls.port = free_port()
         cls.name = f"caprmedio-workbench-e2e-{uuid4().hex}"
         cls.url = f"http://127.0.0.1:{cls.port}"
-        cls.target = next((path for path in REPOSITORY.rglob("CA-R-2723*.md") if "archive" not in {part.casefold() for part in path.parts}), None)
+        cls.target = next((path for path in (REPOSITORY / ".caprmedio_caprmedio").rglob("CA-R-2723-*.md") if not
+                           {"archive", "archived", "draft", "drafts"}.intersection(
+                               part.casefold() for part in path.relative_to(REPOSITORY).parts)), None)
         if cls.target is None:
             raise RuntimeError("current CA-R-2723 source is required for the Workbench Docker proof")
         cls.before_hash = hashlib.sha256(cls.target.read_bytes()).hexdigest()
@@ -243,7 +244,7 @@ class WorkbenchDockerE2E(
          legacy_query, legacy_worksheet, invalid, invalid_is_error) = asyncio.run(exercise())
         self.assertEqual({"atoms", "scope_units", "change_log"}, set(schema["tables"]))
         status_column = next(
-            column for column in schema["tables"]["atoms"] if column["name"] == "header_status"
+            column for column in schema["tables"]["atoms"] if column["name"] == "header.status"
         )
         self.assertTrue(all(isinstance(value, str) for value in status_column.get("values", [])))
         self.assertEqual([["λ"]], ran["rows"])
@@ -329,7 +330,7 @@ class WorkbenchDockerE2E(
         self.assertEqual(200, status, schema)
         self.assertEqual({"atoms", "scope_units", "change_log"}, set(schema["tables"]))
         status_column = next(
-            column for column in schema["tables"]["atoms"] if column["name"] == "header_status"
+            column for column in schema["tables"]["atoms"] if column["name"] == "header.status"
         )
         self.assertTrue(all(isinstance(value, str) for value in status_column.get("values", [])))
         status, ran = request(

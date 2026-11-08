@@ -6,6 +6,7 @@ are started, replaced or retired here.
 """
 
 # CA-D-705@1
+# CA-M-500@3
 
 from __future__ import annotations
 
@@ -29,6 +30,8 @@ try:
     from .image_provenance import ImageBuildProvenance, label_arguments
     from .image_relation_registry import RELATION_REGISTRY_COMPILER
     from .image_relation_registry import compile_relation_registry as _compile_relation_registry
+    from .image_relation_registry import WORKBENCH_SCHEMA_COMPILER
+    from .image_relation_registry import compile_workbench_schema as _compile_workbench_schema
     from .image_docker_client import MAX_OUTPUT as _MAX_OUTPUT
     from .image_docker_client import bounded_run as _bounded_run
     from .image_docker_client import docker_client_environment as _docker_client_environment
@@ -39,6 +42,8 @@ except ImportError:  # direct execution/import with docker/ on sys.path
     from image_provenance import ImageBuildProvenance, label_arguments
     from image_relation_registry import RELATION_REGISTRY_COMPILER
     from image_relation_registry import compile_relation_registry as _compile_relation_registry
+    from image_relation_registry import WORKBENCH_SCHEMA_COMPILER
+    from image_relation_registry import compile_workbench_schema as _compile_workbench_schema
     from image_docker_client import MAX_OUTPUT as _MAX_OUTPUT
     from image_docker_client import bounded_run as _bounded_run
     from image_docker_client import docker_client_environment as _docker_client_environment
@@ -51,6 +56,10 @@ DOCKERIGNORE = DOCKER_ROOT + "/Dockerfile.dockerignore"
 RELATION_REGISTRY = (ENGINE_ROOT
                      + "/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/"
                      + "canonical_relation_registry.json")
+WORKBENCH_SCHEMA = (ENGINE_ROOT
+                    + "/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/"
+                    + "workbench_schema.json")
+_GENERATED_ASSETS = frozenset({RELATION_REGISTRY, WORKBENCH_SCHEMA})
 SCHEMA_LABEL = "org.caprmedio.runtime.schema"
 FINGERPRINT_LABEL = "org.caprmedio.runtime.fingerprint"
 SCHEMA = "1"
@@ -100,6 +109,7 @@ class ImageIdentity:
     uid: int
     gid: int
     relation_registry: bytes
+    workbench_schema: bytes
 
 
 def _canonical(value: object) -> bytes:
@@ -178,16 +188,20 @@ class ImageManager:
         except (OSError, ValueError) as error:
             raise self._input_error() from error
 
-    def _relation_registry(self, root: Path) -> bytes:
+    def _generated_assets(self, root: Path) -> tuple[bytes, bytes]:
         try:
+            project = self._project_root()
             registry = _compile_relation_registry(
-                root, self._project_root(), timeout=self.timeout, max_output=_MAX_OUTPUT,
+                root, project, timeout=self.timeout, max_output=_MAX_OUTPUT,
+            )
+            schema = _compile_workbench_schema(
+                root, project, timeout=self.timeout, max_output=_MAX_OUTPUT,
             )
         except Exception as error:
             raise self._input_error() from error
-        if not isinstance(registry, bytes) or not registry:
+        if not all(isinstance(asset, bytes) and asset for asset in (registry, schema)):
             raise self._input_error()
-        return registry
+        return registry, schema
 
     def _build_parent(self) -> Path:
         temporary = self._project_root() / ".caprmedio_tmp"
@@ -241,7 +255,7 @@ class ImageManager:
                     continue
                 path = folder / name
                 relative = path.relative_to(root).as_posix()
-                if relative == RELATION_REGISTRY:
+                if relative in _GENERATED_ASSETS:
                     if path.is_symlink() or not path.is_file():
                         raise self._input_error()
                     continue
@@ -255,12 +269,13 @@ class ImageManager:
         root = self._root()
         try:
             version = read_framework_version(self._file(root, "version.toml"))
-            registry = self._relation_registry(root)
+            registry, schema = self._generated_assets(root)
             rows = [BuildInput(path.relative_to(root).as_posix(),
                                hashlib.sha256(path.read_bytes()).hexdigest(),
                                path.stat().st_mode & 0o777)
                     for path in self._files(root)]
             rows.append(BuildInput(RELATION_REGISTRY, hashlib.sha256(registry).hexdigest(), 0o644))
+            rows.append(BuildInput(WORKBENCH_SCHEMA, hashlib.sha256(schema).hexdigest(), 0o644))
             rows = tuple(sorted(rows, key=lambda row: row.path))
         except (OSError, ValueError, UnicodeError) as error:
             raise self._input_error() from error
@@ -269,7 +284,7 @@ class ImageManager:
                    "files": [[row.path, row.sha256, row.mode] for row in rows]}
         fingerprint = hashlib.sha256(_canonical(payload)).hexdigest()
         return ImageIdentity(fingerprint, "caprmedio-runtime:inputs-" + fingerprint, version,
-                             self.platform, rows, self.uid, self.gid, registry)
+                             self.platform, rows, self.uid, self.gid, registry, schema)
 
     def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None, buildx_config=None,
              allow_failure=False):
@@ -426,6 +441,8 @@ class ImageManager:
             for row in identity.manifest:
                 if row.path == RELATION_REGISTRY:
                     payload = identity.relation_registry
+                elif row.path == WORKBENCH_SCHEMA:
+                    payload = identity.workbench_schema
                 else:
                     source = self._file(root, row.path)
                     payload = source.read_bytes()
@@ -436,7 +453,7 @@ class ImageManager:
                 with destination.open("xb") as stream:
                     stream.write(payload)
                 destination.chmod(row.mode)
-                if row.path != RELATION_REGISTRY and source.stat().st_mode & 0o777 != row.mode:
+                if row.path not in _GENERATED_ASSETS and source.stat().st_mode & 0o777 != row.mode:
                     raise self._input_error()
         except OSError as error:
             raise ImageError("BUILD_FAILED", "Private image context could not be assembled") from error

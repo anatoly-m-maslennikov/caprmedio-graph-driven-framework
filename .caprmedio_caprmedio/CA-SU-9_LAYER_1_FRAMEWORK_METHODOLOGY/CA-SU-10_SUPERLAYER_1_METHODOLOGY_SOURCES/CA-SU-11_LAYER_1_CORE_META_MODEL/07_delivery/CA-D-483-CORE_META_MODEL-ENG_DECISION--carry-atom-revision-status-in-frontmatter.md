@@ -12,12 +12,12 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Form
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
-status: Active
-version: 24
-updated_at: 2026-11-03 23:25:51 +0400
+status: active
+version: 26
+updated_at: 2026-11-09 00:51:00 +0400
 carrier_destination:
   file:
-    name: CA-D-483-CORE_META_MODEL-DECISION--carry-atom-revision-status-in-frontmatter.md
+    name: CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -34,10 +34,10 @@ Carry Atom Revision Status in frontmatter
 the Status property carried by an Atom Revision.
 
 
-**every** Atom Revision **must** carry **`=1`** explicit `status` value **in** its own Markdown frontmatter.
+Every Atom Revision carries exactly one explicit Status value at its declared Header path in its own Markdown frontmatter.
 
 - the value **must** belong **to** the applicable Content Role **and** Type Status model.
 - placement **must** agree under CA-D-466 **and** its specific Delivery rules; it is **not** a second Status source.
 - another Revision **or** a containing Hub **must not** override this Revision's carried Status.
 
-- encode `status` as **=1** nonempty YAML string using the exact value admitted by the selected Status model. do **not** accept a list, null, **or** another Revision's value as this Revision's Status.
+- Encode Status as one nonempty YAML string using the common named-value encoding. Its decoded value resolves to exactly one Status admitted by the applicable model. A list, null or another Revision’s value is invalid.

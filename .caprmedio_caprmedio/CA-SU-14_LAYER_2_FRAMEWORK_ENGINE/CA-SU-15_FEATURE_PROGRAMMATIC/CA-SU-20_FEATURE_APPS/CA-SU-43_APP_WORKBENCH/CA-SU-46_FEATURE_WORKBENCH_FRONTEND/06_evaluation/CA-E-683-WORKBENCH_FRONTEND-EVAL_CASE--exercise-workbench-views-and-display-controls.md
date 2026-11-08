@@ -1,13 +1,15 @@
 ---
-atom_id: CA-E-683
-ref_id: CA-E-683
-container:
-  scope_unit: CA-SU-46
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-tier: 5
+identity:
+  atom_id: CA-E-683
+  ref_id: CA-E-683
+context:
+  container:
+    scope_unit: CA-SU-46
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Projection
+  tier: 5
 relations:
   evaluation_for:
   - CA-R-2727
@@ -16,10 +18,11 @@ relations:
   - CA-M-469
   - CA-M-470
   - CA-D-674
-status: Active
-version: 5
-updated_at: 2026-11-06 21:54:03 +0400
-carrier_destination:
+state:
+  status: Active
+  version: 6
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-E-683-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-views-and-display-controls.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/06_evaluation
@@ -58,7 +61,7 @@ Rename a non-active tab through its context menu and rename the current View thr
 | Native window close warning | Unsaved input uses the browser warning when the browser permits it; no cross-browser controller is added. |
 | Hide editor | The full Query editor header panel is the only collapse control. Pale Hide editor or Show editor text appears on its right, and the same View preserves its query and cursor when reopened; no separate toolbar toggle is present. |
 | Open Saved modal | Cmd+P -> Open Saved opens a modal; no separate toolbar button or dedicated shortcut is present. The modal has an autofocus ID/URL input. Native Cmd+V paste is accepted; Enter opens without execution; Escape and Cancel close it; no inline open form is shown. |
-| Completion | Actual tables and columns are offered, including dotted Content paths with snake_case segments such as `content.claim.prose_claim`; space-based Content names are not required. A prefix on the actual Header Status column such as `header_status = 'Act` offers and inserts `Active` with correct quoting. The editor does not execute SQL or create a saved record for suggestions. |
+| Completion | Actual tables and columns are offered, including dotted Content paths with snake_case segments such as `content.claim.prose_claim`; space-based Content names are not required. A prefix on the actual Header Status column such as `"header.state.status" = 'Act` offers and inserts `Active` with correct quoting. The editor does not execute SQL or create a saved record for suggestions. |
 | Hotkey hints | Each known shortcut appears inside its action button or immediately beside it, including Run and Check. |
 | Default query actions | Run, Check, pagination and query errors create no saved Journal entries and do not mark local edits saved. Cmd+Enter runs and Shift+Cmd+Enter checks the whole current View query. |
 | Run & Save | Run & Save executes the whole current View query, then creates a saved query only after a successful Run. The answer shows its ID, kind and full URL only when save succeeds. A failed save leaves the visible result rows, query ID, previous saved identity and dirty state, and shows the save error. |

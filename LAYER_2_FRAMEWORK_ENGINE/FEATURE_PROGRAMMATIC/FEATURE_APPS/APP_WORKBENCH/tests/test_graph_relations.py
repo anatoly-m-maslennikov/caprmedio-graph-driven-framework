@@ -117,7 +117,7 @@ class GraphRelationsTests(unittest.TestCase):
             ).fetchall(),
         )
         relations = dict(self.store._connection.execute(
-            "SELECT reference, header_relations FROM atoms WHERE reference IN ('A', 'B', 'C')"
+            'SELECT reference, "header.relations" FROM atoms WHERE reference IN (\'A\', \'B\', \'C\')'
         ).fetchall())
         self.assertEqual(
             {"CONTAINS": [{"kind": "Atom", "reference": "C", "derived": False}],

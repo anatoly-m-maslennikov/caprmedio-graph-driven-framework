@@ -15,9 +15,9 @@ relations:
   IS_WORK_REPORT_FOR:
   - CA-P-2747
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-08 21:07:44 +0400
+  status: Done
+  version: 2
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: CA-P-2748-WORK_REPORT--wire-relation-metadata-into-image-inputs.md
@@ -31,4 +31,4 @@ Wire relation metadata into image inputs
 
 ## Details
 
-Reviewed the adopted delivery contract and every image-build entry point. The backend generator API is available; its independent correctness fixes remain with CA-P-2718. This child owns the image-input adapter work that can proceed against that explicit API. No image build, release or installed verification is claimed.
+The declaration-derived relation registry is a generated image input with deterministic fingerprinting and selected-Project binding. Fixture tests and installed 0.4.4.39 verification passed. New schema-image integration is tracked separately by P2752.

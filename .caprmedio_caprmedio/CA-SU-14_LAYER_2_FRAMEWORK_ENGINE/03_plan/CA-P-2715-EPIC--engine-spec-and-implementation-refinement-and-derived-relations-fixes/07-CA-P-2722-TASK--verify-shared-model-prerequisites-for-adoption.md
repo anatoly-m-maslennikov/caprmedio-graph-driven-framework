@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Active
-  version: 4
-  updated_at: 2026-11-08 21:55:53 +0400
+  status: Done
+  version: 5
+  updated_at: 2026-11-08 23:32:22 +0400
 destination:
   file:
     name: 07-CA-P-2722-TASK--verify-shared-model-prerequisites-for-adoption.md

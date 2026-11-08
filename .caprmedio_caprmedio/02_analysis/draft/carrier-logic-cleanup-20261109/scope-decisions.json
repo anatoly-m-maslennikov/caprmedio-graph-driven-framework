@@ -1,0 +1,31 @@
+{
+  "amended_ids": [
+    "CA-D-269",
+    "CA-D-446",
+    "CA-D-472",
+    "CA-D-473",
+    "CA-D-483",
+    "CA-D-650",
+    "CA-D-470",
+    "CA-D-479",
+    "CA-D-378"
+  ],
+  "retired_ids": [
+    "CA-D-663"
+  ],
+  "retained_ids": [
+    "CA-D-270",
+    "CA-D-389",
+    "CA-D-399",
+    "CA-D-400",
+    "CA-D-401",
+    "CA-D-402",
+    "CA-D-404"
+  ],
+  "rationale": [
+    "D269 retains useful typed-reference/scalar/escaping constraints, so amend it rather than broaden changes to 4 inbound consumers.",
+    "D663 is wholly superseded; no raw Current Core source cites it. E520 already refers to D479; its old derived graph edge is not source authority.",
+    "Filename rules are exempt Carrier metadata, not obsolete YAML naming rules."
+  ],
+  "no_code_changes": true
+}

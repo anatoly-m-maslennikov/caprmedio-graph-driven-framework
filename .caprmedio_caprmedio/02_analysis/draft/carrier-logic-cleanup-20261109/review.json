@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "plan_sha256": "66a5b1c855d0fe5eccf6ea491f008d12599a66dbc3ae2fe63b3ec5cb8e001023",
+  "drafts": 9,
+  "retirements": [
+    "CA-D-663"
+  ],
+  "reviews": {
+    "archive_repair": "Independent four-archive hash, metadata and body verification PASS",
+    "yaml": "D269,D446,D472,D473,D483,D650,D378 PASS. D446 Ref ID finding withdrawn against R2966.",
+    "markdown": "D470 explicit D479 authority reference added and verified. D479 replacement pointer direction PASS."
+  },
+  "preservation": [
+    "All selected preimages and Draft hashes pinned",
+    "Old archive numeric Version, Updated At and body preserved",
+    "Base IDs and Summaries stable",
+    "Physical legacy filenames preserved"
+  ],
+  "not_checked": [
+    "Native adapter implementation",
+    "Source-wide carrier migration",
+    "Engine runtime"
+  ],
+  "native_run": false,
+  "journal_append": false
+}

@@ -1,0 +1,40 @@
+{
+  "status": "SOURCE_ADOPTION_APPLIED_VERIFIED",
+  "plan_sha256": "4d6b32bc32cb403c29ffe3113e702cdfff094dbaa60276f8e7a1313bf3a5dd8e",
+  "run": false,
+  "journal_append": false,
+  "outputs": [
+    {
+      "atom_id": "CA-D-664",
+      "version": 6,
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files@6.md",
+      "ref_id": "CA-D-664@6",
+      "sha256": "edf9acbb84ff77ce2ce3aaa6d3c582ac9ea1bd62ca4ba831140df2716e512f8c",
+      "body_sha256": "faca7fa874fd52521f4b1d3c8b63acc53c882dc8a087acb4b50bb25a5730f7f2"
+    },
+    {
+      "atom_id": "CA-D-657",
+      "version": 7,
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax@7.md",
+      "ref_id": "CA-D-657@7",
+      "sha256": "e5535667b4814949b725f0299503d1881897bb283ba1115e2976877a3857bc8c",
+      "body_sha256": "f6cb107310a2c889a9f8b8878d53053c82119bebbac6e3c87283ab38b83afe9d"
+    },
+    {
+      "atom_id": "CA-D-479",
+      "version": 32,
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@32.md",
+      "ref_id": "CA-D-479@32",
+      "sha256": "f00d63213bc22f26f4db500906dec25c36b03f855387ee99fb188e865a37141f",
+      "body_sha256": "5048cbe78033e8ef57798b011de46d6a6896a7c87e2c821d835de44f5b17ec76"
+    },
+    {
+      "atom_id": "CA-D-662",
+      "version": 4,
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-662-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml@4.md",
+      "ref_id": "CA-D-662@4",
+      "sha256": "b591ac4d7e2bb6626897d402b0d248d74eced1c596acfc5eeaf5b3ee089fdcc0",
+      "body_sha256": "51289d635592a05bbe346dc7d5577be1d15d05c481c146c58698b03cb138c1db"
+    }
+  ]
+}

@@ -57,7 +57,7 @@ class HeaderSchemaDeltaTests(unittest.TestCase):
         current["b.md"] = changed
 
         self.assertEqual(infer_header_schema(list(current.values())), candidate.schema)
-        context = next(column for column in candidate.schema.columns if column.name == "header_context")
+        context = next(column for column in candidate.schema.columns if column.name == "header.context")
         self.assertTrue(context.populated)
         self.assertEqual("JSON", context.format)
 
@@ -70,7 +70,7 @@ class HeaderSchemaDeltaTests(unittest.TestCase):
         candidate = state.updated({"b.md": current["b.md"]}, {})
 
         self.assertEqual(infer_header_schema([current["a.md"]]), candidate.schema)
-        self.assertEqual(("header_kept",), candidate.schema.names)
+        self.assertEqual(("header.kept",), candidate.schema.names)
         self.assertFalse(candidate.schema.columns[0].populated)
 
     def test_delta_detects_bool_integer_type_change_and_name_collision(self) -> None:

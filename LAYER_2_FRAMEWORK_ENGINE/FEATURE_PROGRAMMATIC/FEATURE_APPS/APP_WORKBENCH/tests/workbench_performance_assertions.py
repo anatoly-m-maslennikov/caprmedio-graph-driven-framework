@@ -57,9 +57,9 @@ def assert_performance_batch(
     case.assertEqual(expected_total, counts["total"], counts)
     case.assertEqual(expected_total, counts["distinct_references"], counts)
     batch = rows(
-        "SELECT reference, header_state_version, header_context_container_scope_unit\n"
-        '  ,header_context_scope_unit_name, "relative path"\n'
-        "  ,header_destination_file_name, header_destination_file_path, header_relations\n"
+        'SELECT reference, "header.state.version", "header.context.container.scope_unit"\n'
+        '  ,"header.context.scope_unit_name", "relative path"\n'
+        '  ,"header.destination.file.name", "header.destination.file.path", "header.relations"\n'
         '  ,"content.summary" AS content_summary\n'
         '  ,"content.claim.prose_claim" AS content_claim\n'
         "FROM atoms\n"
@@ -76,14 +76,14 @@ def assert_performance_batch(
     for row in batch:
         atom_id = str(row["reference"])
         path = fixture.batch_directory / f"{atom_id}-{suffix}.md"
-        case.assertEqual(version, row["header_state_version"], row)
-        case.assertEqual(scope_id, row["header_context_container_scope_unit"], row)
-        case.assertEqual(scope_name, row["header_context_scope_unit_name"], row)
+        case.assertEqual(version, row["header.state.version"], row)
+        case.assertEqual(scope_id, row["header.context.container.scope_unit"], row)
+        case.assertEqual(scope_name, row["header.context.scope_unit_name"], row)
         case.assertEqual(expected_directory, row["relative path"], row)
-        case.assertEqual(path.name, row["header_destination_file_name"], row)
-        case.assertEqual(fixture.relative(path.parent), row["header_destination_file_path"], row)
+        case.assertEqual(path.name, row["header.destination.file.name"], row)
+        case.assertEqual(fixture.relative(path.parent), row["header.destination.file.path"], row)
         case.assertEqual(f"Index representative Atom {atom_id}.", row["content_summary"])
-        relations = _json(row["header_relations"])
+        relations = _json(row["header.relations"])
         case.assertEqual(
             [{"kind": "Atom", "reference": BASE_REFERENCE, "derived": False}],
             relations.get("IS_BLOCKED_BY"),
@@ -112,9 +112,9 @@ def _assert_absent(
     expected_total: int,
 ) -> None:
     case.assertEqual([], batch, batch)
-    base = rows(f"SELECT header_relations\nFROM atoms\nwhere reference = '{BASE_REFERENCE}'\n;")
+    base = rows(f'SELECT "header.relations"\nFROM atoms\nwhere reference = \'{BASE_REFERENCE}\'\n;')
     case.assertEqual(1, len(base), base)
-    derived = _json(base[0]["header_relations"]).get("BLOCKS", [])
+    derived = _json(base[0]["header.relations"]).get("BLOCKS", [])
     case.assertFalse({str(item["reference"]) for item in derived} & batch_ids())
     scope_rows = rows(
         "SELECT relations\nFROM scope_units\nwhere scope_unit_id IN ('TEST-SU-1', 'TEST-SU-2')\n;"
@@ -135,11 +135,11 @@ def _assert_present_graph(
     scope_name: str,
     absent_scope_name: str | None,
 ) -> None:
-    base = rows(f"SELECT header_relations\nFROM atoms\nwhere reference = '{BASE_REFERENCE}'\n;")
+    base = rows(f'SELECT "header.relations"\nFROM atoms\nwhere reference = \'{BASE_REFERENCE}\'\n;')
     case.assertEqual(1, len(base), base)
     derived = {
         str(item["reference"])
-        for item in _json(base[0]["header_relations"]).get("BLOCKS", [])
+        for item in _json(base[0]["header.relations"]).get("BLOCKS", [])
         if item == {"kind": "Atom", "reference": item.get("reference"), "derived": True}
     }
     case.assertTrue(expected_ids <= derived)

@@ -6,7 +6,7 @@ from io import StringIO
 from pathlib import Path
 import sys
 import unittest
-from unittest.mock import Mock, call, patch
+from unittest.mock import ANY, Mock, call, patch
 
 APP_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(APP_ROOT))
@@ -55,7 +55,9 @@ class SchemaRefreshServiceTests(unittest.TestCase):
             service._refresh([EVENT])
         reader.capture.assert_has_calls([call([EVENT]), call()])
         materialize.assert_has_calls([call(rows, scopes, old_state, changes=reader.capture_delta), call(final, scopes, old_state)])
-        service._store.replace.assert_called_once_with(final, scopes, relation_types=set(), content_schema=reader.content_schema)
+        service._store.replace.assert_called_once_with(
+            final, scopes, relation_types=set(), content_schema=reader.content_schema, header_schema=ANY,
+        )
         service._store.drop.assert_not_called()
         service._store.unpin.assert_not_called()
         self.assertIs(next_state, service._relation_state)

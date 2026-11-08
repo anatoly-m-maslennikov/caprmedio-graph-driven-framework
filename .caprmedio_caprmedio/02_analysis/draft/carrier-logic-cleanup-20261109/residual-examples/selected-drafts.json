@@ -1,0 +1,37 @@
+{
+  "drafts": [
+    {
+      "atom_id": "CA-D-565",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-565-CORE_META_MODEL-DECISION--bind-new-archived-revision-markdown-carrier.md",
+      "predecessor_sha256": "d1208f15a3b81f30c5fc20a076b438944de8aafa08910e512db3287c4cd0050d",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-565@22-draft-CORE_META_MODEL-DECISION--bind-new-archived-revision-markdown-carrier.md",
+      "draft_version": 22,
+      "draft_sha256": "3820368100d3e9e07a67fe6e4b4a52a8efcc39a59b659aac6487b3727310d992"
+    },
+    {
+      "atom_id": "CA-D-568",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-568-CORE_META_MODEL-ENG_DECISION--bind-draft-identity-continuity-evidence.md",
+      "predecessor_sha256": "5673fc3c756aa4bd8bcc6bb5aaca71d56bca5775c565de643574ab2d3486b23f",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-568@20-draft-CORE_META_MODEL-ENG_DECISION--bind-draft-identity-continuity-evidence.md",
+      "draft_version": 20,
+      "draft_sha256": "f8b73d0e79c3e1385054b76e9d4350da988b33d6322b12e3f6a186a54dfae69b"
+    },
+    {
+      "atom_id": "CA-D-570",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-570-CORE_META_MODEL-DECISION--serialize-draft-revision-lineage.md",
+      "predecessor_sha256": "9f41ae4ae1f88982ffd94e82819f7945e925a9eadc0178375e70046a4ae954f8",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-570@25-draft-CORE_META_MODEL-DECISION--serialize-draft-revision-lineage.md",
+      "draft_version": 25,
+      "draft_sha256": "001746a8e599b009213a13e5a6ed733cc013d260f2afa90fe6da37f229b02446"
+    },
+    {
+      "atom_id": "CA-D-657",
+      "target_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-657-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "predecessor_sha256": "aed923f7e1904b21e031aea18615ed50d7d06cc595e51b1cb5f3a3c0cc489ba1",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@10-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "draft_version": 10,
+      "draft_sha256": "1dabdd44644a13fbf52b7ff3f329ac55ccf767c3c0979b8fb2ef07f28bf9b8e7"
+    }
+  ],
+  "retirements": []
+}

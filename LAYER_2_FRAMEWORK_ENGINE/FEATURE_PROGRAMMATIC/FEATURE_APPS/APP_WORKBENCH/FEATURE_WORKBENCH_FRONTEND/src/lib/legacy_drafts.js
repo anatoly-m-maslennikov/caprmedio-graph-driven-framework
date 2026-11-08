@@ -1,5 +1,4 @@
 // @ts-nocheck
-// CA-D-681@4
 
 const record = (value) => value !== null && typeof value === 'object' && !Array.isArray(value);
 

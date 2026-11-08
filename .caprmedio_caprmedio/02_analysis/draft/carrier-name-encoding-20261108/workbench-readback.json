@@ -1,0 +1,43 @@
+{
+  "status": "PASS_CURRENT_SOURCE_READBACK",
+  "row_count": 4,
+  "columns": [
+    {
+      "name": "reference",
+      "type": "VARCHAR",
+      "has_values": true
+    },
+    {
+      "name": "status_group",
+      "type": "VARCHAR",
+      "has_values": true
+    },
+    {
+      "name": "content.summary",
+      "type": "VARCHAR",
+      "has_values": true
+    }
+  ],
+  "rows": [
+    [
+      "CA-D-479",
+      "Current",
+      "Use stable headings for Atom body Properties"
+    ],
+    [
+      "CA-D-657",
+      "Current",
+      "YAML Frontmatter encodes Atom Properties with minimal syntax"
+    ],
+    [
+      "CA-D-662",
+      "Current",
+      "Encode Node Declarations in YAML"
+    ],
+    [
+      "CA-D-664",
+      "Current",
+      "Deliver Atoms to Markdown files"
+    ]
+  ]
+}

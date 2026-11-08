@@ -1,5 +1,3 @@
-// CA-R-2791@1
-// CA-D-680@1
 
 /** @typedef {{id: string, role: string, text: string}} ChatEntry */
 /** @typedef {{id: string | number, method: string, params: Record<string, any>}} NativeRequest */

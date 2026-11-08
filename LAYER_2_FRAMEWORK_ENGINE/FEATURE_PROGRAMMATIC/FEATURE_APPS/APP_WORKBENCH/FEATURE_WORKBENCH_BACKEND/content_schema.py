@@ -1,8 +1,8 @@
-# CA-R-2726@5
-# CA-M-464@8
-# CA-M-465@21
-# CA-M-500@2
-# CA-D-672@12
+# CA-R-2726@6
+# CA-M-464@9
+# CA-M-465@24
+# CA-M-500@3
+# CA-D-672@14
 
 """Compile declared Markdown Content properties into a Workbench SQL schema."""
 
@@ -12,20 +12,18 @@ from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 import json
 from pathlib import Path
-import re
 from typing import Any
 
 from markdown_it import MarkdownIt
 
-from .markdown_content import (
-    content_key, content_lines, direct_markdown, parse_content, section_markdown, source_markdown,
+from .declaration_cfel import (
+    allowed_children as _allowed_children, container as _container, filters as _filters,
+    model_statements as _model_statements, segments as _segments,
 )
+from .markdown_content import content_lines, direct_markdown, parse_content, section_markdown, source_markdown
 
 
 _DECLARATION_FORMS = frozenset({"Declaration", "Entity Definition", "Relation Definition"})
-_ROLE_SETS = {"RMED": frozenset({"Requirement", "Method", "Evaluation", "Delivery"})}
-
-
 @dataclass(frozen=True)
 class DeclarationSource:
     """One Current Declaration which contributed to the compiled schema."""
@@ -226,24 +224,6 @@ def _declared_children(
     )
 
 
-def _model_statements(body: str) -> list[str]:
-    lines = body.splitlines()
-    model_start = next((index for index, line in enumerate(lines) if line.strip().casefold() == "# model"), None)
-    if model_start is None:
-        return []
-    model_lines = []
-    for line in lines[model_start + 1 :]:
-        if line.strip().startswith("#"):
-            break
-        model_lines.append(line)
-    # ``;>`` is a CFEL relation operator, not a statement terminator.
-    return [
-        statement.strip()
-        for statement in re.split(r";(?!>)", "\n".join(model_lines))
-        if statement.strip()
-    ]
-
-
 def _statement_rules(statement: str, source: DeclarationSource) -> list[ContentRule]:
     if not statement.startswith("Atom") or ";>" in statement or "((" in statement:
         return []
@@ -265,133 +245,6 @@ def _statement_rules(statement: str, source: DeclarationSource) -> list[ContentR
             for choice in choices
         ]
     return [ContentRule(tuple(segments), roles, forms, not _container(remainder), source)]
-
-
-def _segments(tail: str) -> tuple[list[str], str]:
-    result: list[str] = []
-    index = 0
-    while index < len(tail) and tail[index] == ".":
-        index += 1
-        end = _segment_end(tail, index)
-        raw = tail[index:end].strip()
-        if not raw:
-            return [], tail[index:]
-        result.append(raw if raw in {"*", "**"} else _key(raw))
-        index = end
-    return result, tail[index:]
-
-
-def _segment_end(value: str, start: int) -> int:
-    candidates = [len(value)]
-    for token in (".", "[", "{", ";"):
-        found = value.find(token, start)
-        if found >= 0:
-            candidates.append(found)
-    colon = value.find("::", start)
-    if colon >= 0:
-        candidates.append(colon)
-    return min(candidates)
-
-
-def _key(value: str) -> str:
-    try:
-        return content_key(value)
-    except ValueError as error:
-        raise ValueError(f"Content declaration property has no usable key: {value!r}") from error
-
-
-def _filters(prefix: str, field: str) -> frozenset[str] | None:
-    groups = _filter_groups(prefix)
-    _reject_unsupported_filters(groups)
-    matches = [item for item in groups if _selector_field(item) == field]
-    if not matches:
-        return None
-    values = [_filter_values(item, field) for item in matches]
-    if len(values) != 1:
-        raise ValueError(f"unsupported Content declaration: multiple Header.{field} filters")
-    return values[0]
-
-
-def _filter_groups(prefix: str) -> list[str]:
-    groups: list[str] = []
-    index = 0
-    while True:
-        start = prefix.find("/(", index)
-        if start < 0:
-            return groups
-        depth = 1
-        end = start + 2
-        while end < len(prefix) and depth:
-            if prefix[end] == "(":
-                depth += 1
-            elif prefix[end] == ")":
-                depth -= 1
-            end += 1
-        if depth:
-            raise ValueError("unsupported Content declaration: unclosed Header filter")
-        groups.append(prefix[start + 2 : end - 1].strip())
-        index = end
-
-
-def _reject_unsupported_filters(groups: Sequence[str]) -> None:
-    for expression in groups:
-        if _selector_field(expression, complete=True) is not None:
-            continue
-        known = re.match(r"\.Header\.(?:Context\.)?(Role|Form)\b", expression)
-        if known is not None:
-            raise ValueError(
-                f"unsupported Content declaration Header.{known.group(1)} filter: {expression}"
-            )
-        raise ValueError(f"unsupported Content declaration selector: {expression}")
-
-
-def _selector_field(expression: str, *, complete: bool = False) -> str | None:
-    if complete:
-        match = re.fullmatch(
-            r"\.Header\.(?:Context\.)?(Role|Form)\s*(in|:=|=|:)\s*.+", expression,
-        )
-    else:
-        match = re.match(r"\.Header\.(?:Context\.)?(Role|Form)\b", expression)
-    return match.group(1) if match is not None else None
-
-
-def _filter_values(expression: str, field: str) -> frozenset[str]:
-    match = re.fullmatch(
-        rf"\.Header\.(?:Context\.)?{field}\s*(in|:=|=|:)\s*(.+)", expression,
-    )
-    if match is None:
-        raise ValueError(f"unsupported Content declaration Header.{field} filter: {expression}")
-    operator, value = match.groups()
-    value = value.strip()
-    if operator == "in" and field == "Role" and value in _ROLE_SETS:
-        return _ROLE_SETS[value]
-    if value.startswith("("):
-        if not value.endswith(")"):
-            raise ValueError(f"unsupported Content declaration Header.{field} filter: {expression}")
-        items = value[1:-1].split(",")
-    elif operator == "in":
-        raise ValueError(f"unsupported Content declaration Header.{field} filter: {expression}")
-    else:
-        items = (value,)
-    result = frozenset(_unquote(item.strip()) for item in items if item.strip())
-    if not result:
-        raise ValueError(f"unsupported Content declaration Header.{field} filter: {expression}")
-    return result
-
-
-def _unquote(value: str) -> str:
-    return value[1:-1] if len(value) >= 2 and value[0] == value[-1] and value[0] in "\"'" else value
-
-
-def _allowed_children(remainder: str) -> tuple[str, ...]:
-    match = re.search(r"\bin\s*\(([^)]*)\)", remainder)
-    if match is None:
-        return ()
-    return tuple(_key(item.strip()) for item in match.group(1).split(",") if item.strip())
-
-
-def _container(remainder: str) -> bool:
-    return bool(re.search(r"::\s*\[\s*\]", remainder))
 
 
 def _records_by_path(records: object) -> dict[tuple[str, ...], list[Mapping[str, Any]]]:

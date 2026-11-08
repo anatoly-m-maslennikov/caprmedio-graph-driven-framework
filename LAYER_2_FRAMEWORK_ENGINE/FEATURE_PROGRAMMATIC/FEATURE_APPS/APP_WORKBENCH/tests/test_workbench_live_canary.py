@@ -197,9 +197,9 @@ class WorkbenchLiveCanary(unittest.TestCase):
     @staticmethod
     def _atom_query(atom_id: str) -> str:
         return (
-            'SELECT reference, "relative path", header_state_version '
-            ", header_context_container_scope_unit, header_context_scope_unit_name "
-            ", header_destination_file_name, header_destination_file_path "
+            'SELECT reference, "relative path", "header.state.version" '
+            ', "header.context.container.scope_unit", "header.context.scope_unit_name" '
+            ', "header.destination.file.name", "header.destination.file.path" '
             f"FROM atoms WHERE reference = '{atom_id}'"
         )
 

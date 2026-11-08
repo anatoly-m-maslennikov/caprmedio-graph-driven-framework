@@ -1,17 +1,20 @@
 ---
-atom_id: CA-R-2998
-ref_id: CA-R-2998
-container:
-  scope_unit: CA-SU-45
-role: Requirement
-form: Rule
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-07 03:26:51 +0400
-carrier_destination:
+identity:
+  atom_id: CA-R-2998
+  ref_id: CA-R-2998
+context:
+  container:
+    scope_unit: CA-SU-45
+  role: Requirement
+  form: Rule
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Projection
+  tier: 3
+state:
+  status: Active
+  version: 2
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-R-2998-WORKBENCH_BACKEND-RULE--profile-workbench-without-changing-source-files.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/04_requirement

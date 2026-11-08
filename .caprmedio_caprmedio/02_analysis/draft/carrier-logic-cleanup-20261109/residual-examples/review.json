@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "reviewer": "carrier_yaml_conflicts",
+  "scope": "D565,D568,D570,D657 Header path/Status wire examples only; marker alternatives, pins and lifecycle semantics preserved",
+  "plan_sha256": "6fd00edbed41803b9e55e897085af140e9507eea1029a0e0900f74ea9d3bb32e",
+  "native_run": false,
+  "journal_append": false
+}

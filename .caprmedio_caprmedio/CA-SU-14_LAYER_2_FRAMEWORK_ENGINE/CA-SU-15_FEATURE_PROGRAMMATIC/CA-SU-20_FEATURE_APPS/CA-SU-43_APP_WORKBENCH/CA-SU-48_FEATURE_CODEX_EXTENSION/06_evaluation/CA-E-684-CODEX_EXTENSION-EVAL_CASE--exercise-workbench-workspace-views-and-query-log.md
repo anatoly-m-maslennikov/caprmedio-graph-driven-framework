@@ -1,23 +1,26 @@
 ---
-atom_id: CA-E-684
-ref_id: CA-E-684
-container:
-  scope_unit: CA-SU-48
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Workspace
-tier: 5
+identity:
+  atom_id: CA-E-684
+  ref_id: CA-E-684
+context:
+  container:
+    scope_unit: CA-SU-48
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Workspace
+  tier: 5
 relations:
   evaluation_for:
   - CA-R-2902
   - CA-R-2903
   - CA-M-476
   - CA-D-681
-status: Active
-version: 7
-updated_at: 2026-11-06 23:01:24 +0400
-carrier_destination:
+state:
+  status: Active
+  version: 8
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-E-684-CODEX_EXTENSION-EVAL_CASE--exercise-workbench-workspace-views-and-query-log.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/06_evaluation

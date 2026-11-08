@@ -1,0 +1,23 @@
+{
+  "status": "DRAFTS_CREATED_VERIFIED",
+  "drafts": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-664@7-draft-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md",
+      "sha256": "16a18fc6e2aaa3439c728b9c78a46c1a82afed1698b73dfcb0e0bfb18759140b"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-657@8-draft-CORE_META_MODEL-DECISION--yaml-frontmatter-encodes-atom-properties-with-minimal-syntax.md",
+      "sha256": "4ecb75954de075ef0a6872a8f10a04509301f874054c580b3d362d367b15da40"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@33-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "56e5f75edc8ede4ddb6e780e8667baec8d23540b73462ec6673fbdf271d93a77"
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-662@5-draft-CORE_META_MODEL-ENG_DECISION--encode-node-declarations-in-yaml.md",
+      "sha256": "0b97e04f8b030abb9701d73086ceb9f5f612dc3b560ad7e8b58a56f410f8e034"
+    }
+  ],
+  "current_sources_changed": false,
+  "native_run": false
+}

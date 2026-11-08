@@ -1,0 +1,110 @@
+{
+  "marker_tests": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"query_id\": \"735df012d2994336a8a785ad337a2b5c\", \"sql\": \"WITH cases(filename, ref_id, is_plan, expected) AS (VALUES ('CA-R-123-X--s.md','CA-R-123',false,true),('03-CA-P-123-TASK--s.md','CA-P-123',true,true),('CA-R-123@6-draft-X--s.md','CA-R-123@6-draft',false,true),('CA-R-123@6-X--s.md','CA-R-123@6',false,true),('CA-R-123-X--s.md','CA-R-123@6-draft',false,false),('CA-R-1234-X--s.md','CA-R-123',false,false)) SELECT filename, regexp_matches(filename,'^'||CASE WHEN is_plan THEN '([0-9]+-)?' ELSE '' END||regexp_escape(ref_id)||'(-|\\\\.)') = expected AS passed FROM cases\", \"columns\": [{\"name\": \"filename\", \"type\": \"VARCHAR\", \"has_values\": true}, {\"name\": \"passed\", \"type\": \"BOOLEAN\", \"has_values\": true}], \"rows\": [[\"CA-R-123-X--s.md\", true], [\"03-CA-P-123-TASK--s.md\", true], [\"CA-R-123@6-draft-X--s.md\", true], [\"CA-R-123@6-X--s.md\", true], [\"CA-R-123-X--s.md\", true], [\"CA-R-1234-X--s.md\", true]], \"row_count\": 6, \"source_row_count\": 6, \"column_count\": 2, \"offset\": 0, \"page_size\": 10, \"has_more\": false}"
+      }
+    ],
+    "structuredContent": {
+      "query_id": "735df012d2994336a8a785ad337a2b5c",
+      "sql": "WITH cases(filename, ref_id, is_plan, expected) AS (VALUES ('CA-R-123-X--s.md','CA-R-123',false,true),('03-CA-P-123-TASK--s.md','CA-P-123',true,true),('CA-R-123@6-draft-X--s.md','CA-R-123@6-draft',false,true),('CA-R-123@6-X--s.md','CA-R-123@6',false,true),('CA-R-123-X--s.md','CA-R-123@6-draft',false,false),('CA-R-1234-X--s.md','CA-R-123',false,false)) SELECT filename, regexp_matches(filename,'^'||CASE WHEN is_plan THEN '([0-9]+-)?' ELSE '' END||regexp_escape(ref_id)||'(-|\\.)') = expected AS passed FROM cases",
+      "columns": [
+        {
+          "name": "filename",
+          "type": "VARCHAR",
+          "has_values": true
+        },
+        {
+          "name": "passed",
+          "type": "BOOLEAN",
+          "has_values": true
+        }
+      ],
+      "rows": [
+        [
+          "CA-R-123-X--s.md",
+          true
+        ],
+        [
+          "03-CA-P-123-TASK--s.md",
+          true
+        ],
+        [
+          "CA-R-123@6-draft-X--s.md",
+          true
+        ],
+        [
+          "CA-R-123@6-X--s.md",
+          true
+        ],
+        [
+          "CA-R-123-X--s.md",
+          true
+        ],
+        [
+          "CA-R-1234-X--s.md",
+          true
+        ]
+      ],
+      "row_count": 6,
+      "source_row_count": 6,
+      "column_count": 2,
+      "offset": 0,
+      "page_size": 10,
+      "has_more": false
+    },
+    "isError": false
+  },
+  "residual_readback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"query_id\": \"147eafbfd6da44489852a1cf4057fc8f\", \"sql\": \"SELECT reference,COALESCE(header_state_version,header_version) AS version FROM atoms WHERE status_group='Current' AND reference IN ('CA-D-565','CA-D-568','CA-D-570','CA-D-657') AND \\\"relative path\\\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery' ORDER BY reference\", \"columns\": [{\"name\": \"reference\", \"type\": \"VARCHAR\", \"has_values\": true}, {\"name\": \"version\", \"type\": \"BIGINT\", \"has_values\": true}], \"rows\": [[\"CA-D-565\", 23], [\"CA-D-568\", 21], [\"CA-D-570\", 26], [\"CA-D-657\", 11]], \"row_count\": 4, \"source_row_count\": 4, \"column_count\": 2, \"offset\": 0, \"page_size\": 5, \"has_more\": false}"
+      }
+    ],
+    "structuredContent": {
+      "query_id": "147eafbfd6da44489852a1cf4057fc8f",
+      "sql": "SELECT reference,COALESCE(header_state_version,header_version) AS version FROM atoms WHERE status_group='Current' AND reference IN ('CA-D-565','CA-D-568','CA-D-570','CA-D-657') AND \"relative path\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery' ORDER BY reference",
+      "columns": [
+        {
+          "name": "reference",
+          "type": "VARCHAR",
+          "has_values": true
+        },
+        {
+          "name": "version",
+          "type": "BIGINT",
+          "has_values": true
+        }
+      ],
+      "rows": [
+        [
+          "CA-D-565",
+          23
+        ],
+        [
+          "CA-D-568",
+          21
+        ],
+        [
+          "CA-D-570",
+          26
+        ],
+        [
+          "CA-D-657",
+          11
+        ]
+      ],
+      "row_count": 4,
+      "source_row_count": 4,
+      "column_count": 2,
+      "offset": 0,
+      "page_size": 5,
+      "has_more": false
+    },
+    "isError": false
+  },
+  "saved_query_id": "01a1bcf2-397a-75a1-806f-c510c4262718",
+  "persistence_confirmed": true
+}

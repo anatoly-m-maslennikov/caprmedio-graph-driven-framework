@@ -11,9 +11,9 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Status
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
-status: Active
-version: 21
-updated_at: 2026-11-03 23:25:51 +0400
+status: active
+version: 23
+updated_at: 2026-11-09 00:57:07 +0400
 carrier_destination:
   file:
     name: CA-D-565-CORE_META_MODEL-DECISION--bind-new-archived-revision-markdown-carrier.md
@@ -33,7 +33,7 @@ Bind new archived Revision Markdown Carrier
 The single Markdown Archive Carrier created for an Atom Revision newly placed in Archived status.
 
 
-**when** an Atom Revision newly attains its model-admitted `Archived` Status **and** no more-specific applicable Delivery mapping exists for its Artifact Type, its **`=1`** Markdown Archive Carrier **must** be classified as that Revision's Archive Carrier **and** be placed at `archive/<canonical-ID>@<version>[-<remaining-filename-components>].md`: the owning Content Role's existing `archive/` directory is retained, and the single `@<version>` marker occupies the Atom-ID segment under CA-D-283/CA-D-289. Preserve the archived Atom's numeric Version and prior Updated At; its new Archive Carrier carries `status: Archived`.
+**when** an Atom Revision newly attains its model-admitted `Archived` Status **and** no more-specific applicable Delivery mapping exists for its Artifact Type, its **`=1`** Markdown Archive Carrier **must** be classified as that Revision's Archive Carrier **and** be placed at `archive/<canonical-ID>@<version>[-<remaining-filename-components>].md`: the owning Content Role's existing `archive/` directory is retained, and the single `@<version>` marker occupies the Atom-ID segment under CA-D-283/CA-D-289. Preserve the archived Atom's numeric Version and prior Updated At; its new Archive Carrier carries logical Archived Status encoded as `archived` through the common named-value rule.
 
 ## Details
 

@@ -1,5 +1,3 @@
-// CA-R-2902@4
-// CA-M-476@4
 import { mount } from 'svelte';
 import App from './App.svelte';
 import './app.css';

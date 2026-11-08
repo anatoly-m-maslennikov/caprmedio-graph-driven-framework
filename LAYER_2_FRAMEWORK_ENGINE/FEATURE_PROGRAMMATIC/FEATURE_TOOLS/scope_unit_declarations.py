@@ -19,8 +19,12 @@ from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regu
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
+_STRUCTURAL_FORM_VALUE = r"(?:Scope Unit Declaration|Scope Delegation|\"Scope Unit Declaration\"|\"Scope Delegation\"|'Scope Unit Declaration'|'Scope Delegation')"
 _STRUCTURAL_FORM_HINT = re.compile(
-    r"(?m)^[ \t]*(?:form|type):[ \t]*(?:Scope Unit Declaration|Scope Delegation|\"Scope Unit Declaration\"|\"Scope Delegation\"|'Scope Unit Declaration'|'Scope Delegation')[ \t]*(?:#.*)?$"
+    rf"^(?:form|type):[ \t]*{_STRUCTURAL_FORM_VALUE}[ \t]*(?:#.*)?$"
+)
+_FLOW_STRUCTURAL_FORM_HINT = re.compile(
+    rf"(?:^|[{{,][ \t]*)(?:form|type):[ \t]*{_STRUCTURAL_FORM_VALUE}(?=[ \t]*(?:,|}}|$))"
 )
 _PROJECTION = re.compile(r"(?m)^projection:\s*(?:$|\{)")
 
@@ -79,8 +83,41 @@ def _selects_structural_form(raw: bytes, source: Path | None = None) -> bool:
     try:
         header, _ = _carrier(raw, source or Path("<structural carrier>"))
     except ScopeDeclarationError:
-        return _STRUCTURAL_FORM_HINT.search(frontmatter) is not None
+        return _structural_form_hint(frontmatter)
     return header.get("form") in {"Scope Unit Declaration", "Scope Delegation"}
+
+
+def _structural_form_hint(frontmatter: str) -> bool:
+    """Fail closed for malformed canonical forms without treating nested data as authority."""
+    direct_indent: int | None = None
+    child_indent: int | None = None
+    for line in frontmatter.splitlines():
+        if not line.strip() or line.lstrip().startswith("#"):
+            continue
+        indent = len(line) - len(line.lstrip(" \t"))
+        stripped = line[indent:]
+        if indent == 0:
+            direct_indent = None
+            child_indent = None
+            key, separator, value = stripped.partition(":")
+            if key == "context" and separator:
+                direct_indent = 0
+                if value.lstrip().startswith("{"):
+                    return _FLOW_STRUCTURAL_FORM_HINT.search(value) is not None
+            elif _STRUCTURAL_FORM_HINT.fullmatch(stripped):
+                return True
+            continue
+        if direct_indent is None:
+            continue
+        if child_indent is None:
+            child_indent = indent
+        if indent < child_indent:
+            direct_indent = None
+            child_indent = None
+            continue
+        if indent == child_indent and _STRUCTURAL_FORM_HINT.fullmatch(stripped):
+            return True
+    return False
 
 
 # Compatibility for current consumers; structural forms now include Delegation.

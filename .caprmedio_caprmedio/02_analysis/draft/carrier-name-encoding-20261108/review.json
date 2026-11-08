@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "reviewer": "work_report_relation",
+  "plan_sha256": "0b764ffa568b53a53899ef78fc29d3f29215a2b6372e3251e1de9199e654d180",
+  "scope": "4 general Delivery source Atoms only",
+  "checks": [
+    "YAML recursive names/named-values encoding",
+    "exact IDs, scalar types, free text and physical Carrier metadata",
+    "declared Content Title Case/depth mapping",
+    "collision rejection and declared-only heading boundary",
+    "legacy spelling preserved until selected migration"
+  ],
+  "not_checked": [
+    "runtime adapter implementation",
+    "bulk carrier migration"
+  ]
+}

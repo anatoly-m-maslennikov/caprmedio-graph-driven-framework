@@ -1,5 +1,4 @@
-<!-- CA-R-2727@14 -->
-<!-- CA-D-674@18 -->
+<!-- CA-M-469@8 -->
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { ResultDisplayPreferences } from './types';

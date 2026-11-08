@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Backlog
-  version: 2
-  updated_at: 2026-11-08 19:15:36 +0400
+  status: Done
+  version: 3
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: 12-CA-P-2727-TASK--promote-the-reviewed-specification-drafts.md

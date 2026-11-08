@@ -1,24 +1,27 @@
 ---
-atom_id: CA-E-785
-ref_id: CA-E-785
-container:
-  scope_unit: CA-SU-43
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-tier: 5
+identity:
+  atom_id: CA-E-785
+  ref_id: CA-E-785
+context:
+  container:
+    scope_unit: CA-SU-43
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Projection
+  tier: 5
 relations:
   evaluation_for:
   - CA-R-2776
   - CA-M-470
   - CA-D-675
-status: Active
-version: 1
-updated_at: 2026-11-05 20:27:41 +0400
-carrier_destination:
+state:
+  status: Active
+  version: 2
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
-    name: CA-E-785-WORKBENCH-EVAL_CASE--verify-workbench-result-retention-and-one-query-views.md
+    name: CA-E-785-WORKBENCH-EVAL_CASE--verify-result-retention-and-one-query-views.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/06_evaluation
 current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH

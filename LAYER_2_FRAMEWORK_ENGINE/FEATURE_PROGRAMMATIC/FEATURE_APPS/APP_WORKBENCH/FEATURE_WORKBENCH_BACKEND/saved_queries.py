@@ -1,6 +1,6 @@
-# CA-R-2776@6
-# CA-M-470@7
-# CA-D-673@13
+# CA-R-2776@7
+# CA-M-470@9
+# CA-D-673@15
 
 """Project-Journal saved SQL with read-only legacy-file fallback."""
 

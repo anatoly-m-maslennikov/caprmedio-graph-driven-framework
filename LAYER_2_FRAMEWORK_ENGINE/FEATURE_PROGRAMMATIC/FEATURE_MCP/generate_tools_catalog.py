@@ -1,6 +1,5 @@
-# CA-R-2785@2
-# CA-M-473@2
-# CA-D-678@2
+# CA-R-2785@4
+# CA-D-678@5
 
 """Generate the released MCP discovery catalog after server readiness."""
 

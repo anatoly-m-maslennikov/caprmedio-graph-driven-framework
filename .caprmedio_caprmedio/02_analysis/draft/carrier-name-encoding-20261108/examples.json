@@ -1,0 +1,51 @@
+{
+  "status": "REVIEWED_CONTRACT_EXAMPLES_NOT_RUNTIME_TESTS",
+  "yaml_names": [
+    {
+      "model_name": "Form",
+      "yaml_key": "form"
+    },
+    {
+      "model_name": "AI Agent Confidence Threshold",
+      "yaml_key": "ai_agent_confidence_threshold"
+    }
+  ],
+  "yaml_named_values": [
+    {
+      "model_value": "Work Report",
+      "yaml_value": "work_report"
+    },
+    {
+      "model_value": "Active",
+      "yaml_value": "active"
+    },
+    {
+      "model_name": "IS_WORK_REPORT_FOR",
+      "yaml_relation_key": "is_work_report_for"
+    }
+  ],
+  "preserved_values": [
+    "CA-P-123",
+    "CA-P-123@2-draft",
+    "CA-P-123-Work Report.md",
+    "Folder With Capitals/File.md",
+    "Free text keeps its spelling."
+  ],
+  "markdown": [
+    {
+      "path": "atom.content.sadf_ffff",
+      "heading": "## Sadf Ffff"
+    },
+    {
+      "path": "atom.content.sadf_ffff.aaa_bbb",
+      "heading": "### Aaa Bbb"
+    }
+  ],
+  "failure_cases": [
+    "Distinct sibling names normalize to one key",
+    "Distinct named values normalize to one token in the same typed domain",
+    "Distinct sibling Property keys render to one heading",
+    "A declared property path requires more than six Markdown heading markers"
+  ],
+  "boundary": "Unknown headings remain Markdown text; equal leaf names under different parents remain distinct."
+}

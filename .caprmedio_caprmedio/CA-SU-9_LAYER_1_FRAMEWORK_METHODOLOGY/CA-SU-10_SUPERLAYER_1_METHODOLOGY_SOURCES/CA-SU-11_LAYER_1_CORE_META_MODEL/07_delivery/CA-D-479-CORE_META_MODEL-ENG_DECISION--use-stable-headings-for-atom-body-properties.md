@@ -14,12 +14,15 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Content.Details
   - CAPRMEDIO_MODEL <+ Term//Property
 tier: 3
-status: Active
-version: 32
-updated_at: 2026-11-05 22:47:24 +0400
+relations:
+  is_replacement_for:
+  - CA-D-663
+status: active
+version: 36
+updated_at: 2026-11-09 00:51:00 +0400
 carrier_destination:
   file:
-    name: CA-D-479-CORE_META_MODEL-POLICY--use-stable-headings-for-atom-body-properties.md
+    name: CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
@@ -40,7 +43,11 @@ For ordinary RMED, carry one `## Summary` and one `## Claim` as sibling Properti
 
 Map declared headings to their Property paths with a code-fence-aware outline. Only headings admitted as children by an applicable declaration are Properties. Other headings within a Markdown value, including unknown `##` headings within Prose Claim, remain part of that value and do not terminate it. A recognized Property section ends at the next recognized sibling or ancestor heading, or at the end of Main Content. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a Property subtree includes its selected heading and its descendants.
 
-Normalize recognized Property heading names to lowercase, replace spaces with underscores, and strip characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or duplicate normalized key under one parent. A flattened lookup is admissible only when unambiguous; canonical paths retain their parent chain.
+Map each declared Content Property key to a heading by replacing underscores with spaces and capitalizing the first letter of each word. The first Property level below Content uses `##`; each dependent Property adds one `#`. Thus `atom.content.sadf_ffff` renders as `## Sadf Ffff`, and `atom.content.sadf_ffff.aaa_bbb` renders as `### Aaa Bbb`.
+
+Read a recognized heading through that declared key-to-heading mapping. Reject an empty key, duplicate sibling key or a collision between distinct declared sibling keys and their rendered headings. Preserve the parent chain; identical leaf names under different parents remain distinct. A flattened lookup is admissible only when unambiguous.
+
+This layout uses Markdown ATX headings, with at most six `#` characters. A deeper declared Property path is unsupported by this layout; report it rather than flattening or dropping it.
 
 Legacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Role-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.
 

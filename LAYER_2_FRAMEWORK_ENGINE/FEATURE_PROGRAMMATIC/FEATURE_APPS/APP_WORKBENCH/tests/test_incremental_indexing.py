@@ -69,7 +69,9 @@ class IncrementalIndexingTests(unittest.TestCase):
         with self.no_full_work():
             self.service._refresh([self.event(self.paths["A"])])
         self.assertEqual([["CA-R-A", "CA-R-C"]], self.graph())
-        self.assertEqual([[2]], self.store.run("SELECT header_version FROM atoms WHERE header_atom_id='CA-R-A'")["rows"])
+        self.assertEqual([[2]], self.store.run(
+            'SELECT "header.version" FROM atoms WHERE "header.atom_id"=\'CA-R-A\''
+        )["rows"])
         current_untouched = next(row for row in self.store._projection.atoms.values() if row["reference"] == "CA-R-D")
         self.assertIs(untouched, current_untouched)
         self.assertEqual(1, len(previous.graph.edges["BLOCKS"]))
@@ -80,7 +82,9 @@ class IncrementalIndexingTests(unittest.TestCase):
         with self.no_full_work():
             self.service._refresh([self.event(None, old=old, operation="remove")])
         self.assertEqual([["CA-R-A", "CA-R-B"]], self.graph())
-        self.assertEqual([[0]], self.store.run("SELECT count(*) FROM atoms WHERE header_atom_id='CA-R-B'")["rows"])
+        self.assertEqual([[0]], self.store.run(
+            'SELECT count(*) FROM atoms WHERE "header.atom_id"=\'CA-R-B\''
+        )["rows"])
         write_atom(old, "CA-R-B")
         with self.no_full_work():
             self.service._refresh([self.event(old, operation="create")])
@@ -88,7 +92,9 @@ class IncrementalIndexingTests(unittest.TestCase):
         old.rename(renamed)
         with self.no_full_work():
             self.service._refresh([self.event(renamed, old=old, operation="rename")])
-        self.assertEqual([["renamed.md"]], self.store.run("SELECT filename FROM atoms WHERE header_atom_id='CA-R-B'")["rows"])
+        self.assertEqual([["renamed.md"]], self.store.run(
+            'SELECT filename FROM atoms WHERE "header.atom_id"=\'CA-R-B\''
+        )["rows"])
         self.assertEqual([["CA-R-A", "CA-R-B"]], self.graph())
 
     def test_unchanged_source_skips_database_and_materialization(self):

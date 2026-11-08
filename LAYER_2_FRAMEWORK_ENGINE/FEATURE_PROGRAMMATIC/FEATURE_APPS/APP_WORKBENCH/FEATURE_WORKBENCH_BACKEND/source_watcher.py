@@ -1,7 +1,7 @@
-# CA-R-2950@1
-# CA-M-465@17
-# CA-M-490@1
-# CA-D-695@1
+# CA-R-2950@2
+# CA-M-465@24
+# CA-M-490@3
+# CA-D-695@3
 
 """Translate native selected-source watcher callbacks into Workbench changes."""
 
@@ -123,6 +123,8 @@ class SourceWatcher:
 
     def _watch_directory_tree(self, path: str) -> None:
         directory = Path(path).resolve(strict=False)
+        if not directory.is_relative_to(self._resolved_control_root):
+            return
         self._watch_directory(str(directory))
         if directory.is_dir():
             for child in directory.rglob("*"):
@@ -168,8 +170,8 @@ class _Handler(FileSystemEventHandler):
         self._watcher = watcher
 
     def on_created(self, event: Any) -> None:
-        # Docker bind mounts can report a new directory as a file.
-        if not event.is_directory and Path(event.src_path).is_dir():
+        # Docker bind mounts can report a directory as a file.
+        if event.is_directory or Path(event.src_path).is_dir():
             self._watcher._watch_directory_tree(event.src_path)
         self._watcher._created(event.src_path)
 
@@ -181,6 +183,6 @@ class _Handler(FileSystemEventHandler):
         self._watcher._unwatch_directory(event.src_path)
 
     def on_moved(self, event: Any) -> None:
-        if not event.is_directory and Path(event.dest_path).is_dir():
+        if event.is_directory or Path(event.dest_path).is_dir():
             self._watcher._watch_directory_tree(event.dest_path)
         self._watcher._moved(event.src_path, event.dest_path)

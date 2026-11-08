@@ -1,21 +1,19 @@
-# CA-R-2726@5
-# CA-R-3009@1
+# CA-R-2723@4
+# CA-R-2726@6
+# CA-R-3009@2
 # CA-M-464@9
 # CA-M-465@24
-# CA-D-672@13
-
+# CA-D-672@14
 """Governed Workbench carrier reader; scheduling belongs to the service."""
-
 from __future__ import annotations
-
 import os
 import sys
-from collections.abc import Iterator
+from collections.abc import Iterable, Iterator
 from pathlib import Path
 from typing import Any
-
-from .content_schema import ContentSchema
+from .content_schema import ContentSchema, _is_declaration
 from .source_content_schema import SourceContentSchema
+from .source_header_schema import SourceHeaderSchema
 from .source_rows import (
     ReferenceIndex, atom as source_atom, canonical_row, file_signature, frontmatter_bounds, same_row as _same_row,
     scope as source_scope, source_body,
@@ -25,7 +23,6 @@ from .source_roles import HEADER_MARKER as _HEADER_MARKER, ROLE_MARKERS as _ROLE
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
-
 from atom_operations import control_root as configured_control_root, project_identity_prefix  # noqa: E402
 from carrier_aliases import carrier_read_view  # noqa: E402
 from scope_unit_declarations import (  # noqa: E402
@@ -41,8 +38,11 @@ from VALIDATE_ATOMS.validate_atoms_workers.parsing import (  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS  # noqa: E402
 class SourceReader:
-    def __init__(self, root: Path, control_root: Path | None = None) -> None:
+    def __init__(self, root: Path, control_root: Path | None = None, *, schema_mode: int = 2) -> None:
+        if type(schema_mode) is not int or schema_mode not in {1, 2}:
+            raise ValueError("workbench.schema_mode must be 1 or 2")
         self.root = Path(root).resolve()
+        self._schema_mode = schema_mode
         if control_root is None:
             self.control_root = configured_control_root(self.root)
         else:
@@ -60,25 +60,29 @@ class SourceReader:
         self._references = ReferenceIndex()
         self._inventory_ready = False
         self._content_schema = SourceContentSchema()
+        self._header_schema = SourceHeaderSchema()
         self._content_invalid: set[Path] = set()
+        self._header_invalid: set[Path] = set()
         self.excluded_count = 0
         self.capture_changed = True
         self.capture_delta: dict[str, dict[str, Any] | None] | None = None
-
     @property
     def content_schema(self) -> ContentSchema | None:
         return self._content_schema.schema
-
+    @property
+    def header_schema(self) -> Any | None:
+        return self._header_schema.schema
     def release_cache(self) -> None:
         """Release parsed successful rows while retaining failed signatures."""
         self._cached.clear()
         self._references = ReferenceIndex()
         self._inventory_ready = False
         self._content_schema.reset()
+        self._header_schema.reset()
         self._content_invalid.clear()
+        self._header_invalid.clear()
         self.capture_changed = True
         self.capture_delta = None
-
     def capture(
         self, changes: list[dict[str, str | None]] | None = None,
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -91,7 +95,6 @@ class SourceReader:
             or self._declarations_changed(changes, reader)
         ):
             return self._capture_full(reader)
-
         previous = dict(self._cached)
         affected = self._apply_changes(changes)
         for path in sorted(affected):
@@ -118,6 +121,28 @@ class SourceReader:
                 for path in content_paths
             }):
                 return self._capture_full(reader, revalidate_content=True)
+        header_rows = {
+            path.relative_to(self.root).as_posix(): (
+                self._cached.get(path, (None, None))[1] if path in self._references.accepted else None
+            )
+            for path in affected | content_paths
+        }
+        header_changed = self._header_schema.update(
+            header_rows, accept_shape=self._schema_mode == 2,
+        )
+        if header_changed and self._schema_mode == 1:
+            return self._capture_full(reader)
+        invalid = self._exclude_invalid_header_sources([row for row in header_rows.values() if row is not None])
+        if invalid:
+            content_paths = self._references.update(current, self._cached_rows(), invalid)
+            rows = {
+                path.relative_to(self.root).as_posix(): (
+                    self._cached.get(path, (None, None))[1] if path in self._references.accepted else None
+                )
+                for path in content_paths
+            }
+            if self._content_schema.update(rows):
+                return self._capture_full(reader, revalidate_content=True)
         self.capture_delta = {
             path.relative_to(self.root).as_posix(): self._cached.get(path, (None, None))[1]
             for path in affected
@@ -128,7 +153,6 @@ class SourceReader:
             for path in affected
         )
         return self._rows(), self._scopes()
-
     def _prune_missing_reference_aliases(self, affected: set[Path]) -> set[Path]:
         """Drop a cached path that disappeared before its move event arrived."""
         references = {
@@ -143,7 +167,6 @@ class SourceReader:
                 if path not in affected and file_signature(path) is None:
                     removed.update(self._remove_paths(path))
         return removed
-
     def _capture_full(
         self, reader: ReadContext, *, revalidate_content: bool = False,
     ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
@@ -184,6 +207,11 @@ class SourceReader:
             self._refresh_path(path, reader)
         self._references.rebuild(self._cached_rows())
         self._rebuild_content_schema(revalidated=revalidate_content)
+        self._rebuild_header_schema()
+        while self._exclude_invalid_header_sources():
+            self._references.rebuild(self._cached_rows())
+            self._rebuild_content_schema(revalidated=revalidate_content)
+            self._rebuild_header_schema()
         self.excluded_count = len(self._failed)
         return self._rows(), self._scopes()
     def _declarations_changed(
@@ -197,13 +225,11 @@ class SourceReader:
             if new is not None and self._is_declaration_candidate(new, reader):
                 return True
         return False
-
     def _touches_declaration(self, path: Path | None) -> bool:
         return path is not None and any(
             declaration == path or declaration.is_relative_to(path)
             for declaration in self._declaration_paths
         )
-
     def _is_declaration_candidate(self, path: Path, reader: ReadContext) -> bool:
         if (
             path.suffix != ".md"
@@ -217,7 +243,6 @@ class SourceReader:
         except (OSError, RuntimeError):
             return False
         return _selects_declaration_form(raw) and not _is_projection(raw)
-
     def _apply_changes(self, changes: list[dict[str, str | None]]) -> set[Path]:
         affected: set[Path] = set()
         for change in changes:
@@ -231,7 +256,6 @@ class SourceReader:
                 else:
                     affected.update(self._add_paths(new))
         return affected
-
     def _change_path(self, value: str | None) -> Path | None:
         if value is None:
             return None
@@ -239,7 +263,6 @@ class SourceReader:
         if relative.is_absolute() or ".." in relative.parts:
             return None
         return self.root / relative
-
     def _remove_paths(self, path: Path) -> set[Path]:
         if path.suffix == ".md":
             removed = {path} if path in self._source_paths else set()
@@ -252,8 +275,8 @@ class SourceReader:
             self._cached.pop(source, None)
             self._failed.pop(source, None)
             self._content_invalid.discard(source)
+            self._header_invalid.discard(source)
         return removed
-
     def _add_paths(self, path: Path) -> set[Path]:
         if path.suffix == ".md":
             added = {path} if self._is_source_path(path) else set()
@@ -267,7 +290,6 @@ class SourceReader:
             added = set()
         self._source_paths.update(added)
         return added
-
     def _is_source_path(self, path: Path) -> bool:
         if path.suffix != ".md":
             return False
@@ -276,10 +298,8 @@ class SourceReader:
             if role is None or _archived(path.relative_to(role).parts):
                 return False
         return not self._has_symlink_ancestor(path)
-
     def _role_directory(self, path: Path) -> Path | None:
         return next((parent for parent in path.parents if parent in self._role_directories), None)
-
     def _has_symlink_ancestor(self, path: Path) -> bool:
         if not path.is_relative_to(self.control_root):
             return True
@@ -289,7 +309,6 @@ class SourceReader:
                 return True
             current = current.parent
         return self.control_root.is_symlink()
-
     def _rebuild_content_schema(self, *, revalidated: bool = False) -> None:
         if revalidated:
             self._content_invalid.clear()
@@ -297,14 +316,30 @@ class SourceReader:
             self._content_invalid.intersection_update(self._source_paths)
         self._exclude_content_errors(self._content_schema.rebuild(self._accepted_rows()))
         self._references.rebuild(self._cached_rows())
-
+    def _rebuild_header_schema(self) -> None:
+        self._header_schema.rebuild(self._accepted_rows())
+    def _exclude_invalid_header_sources(self, rows: Iterable[dict[str, Any]] | None = None) -> set[Path]:
+        if self._schema_mode != 1: return set()
+        errors = self._header_schema.validation_errors(self._accepted_rows() if rows is None else rows)
+        removed = set()
+        for relative, error in errors.items():
+            path = self.root / relative
+            cached = self._cached.get(path)
+            if cached is not None and _is_declaration(cached[1]):
+                raise ValueError(f"{relative}: {error}")
+            if cached is not None:
+                self._cached.pop(path)
+                self._failed[path] = cached[0]
+                self._header_invalid.add(path)
+                self._error(path, error)
+                removed.add(path)
+        return removed
     def _exclude_invalid_content_sources(
         self, rows: dict[str, dict[str, Any] | None],
     ) -> set[Path]:
         return self._exclude_content_errors(self._content_schema.validation_errors(
             row for row in rows.values() if row is not None
         ))
-
     def _exclude_content_errors(self, errors: dict[str, ValueError]) -> set[Path]:
         removed = set()
         for relative, error in errors.items():
@@ -316,13 +351,13 @@ class SourceReader:
                 self._content_invalid.add(path)
                 self._error(path, error)
         return removed
-
     def _refresh_path(self, path: Path, reader: ReadContext) -> None:
         signature = file_signature(path)
         if signature is None:
             self._cached.pop(path, None)
             self._failed.pop(path, None)
             self._content_invalid.discard(path)
+            self._header_invalid.discard(path)
             self._source_paths.discard(path)
             return
         if self._failed.get(path) == signature:
@@ -333,22 +368,18 @@ class SourceReader:
             return
         self._cached.pop(path, None)
         self._read_source(path, signature, reader)
-
     def _rows(self) -> list[dict[str, Any]]:
         return [
             self._cached[path][1]
             for path in sorted(self._source_paths)
             if path in self._cached
         ]
-
     def _cached_rows(
         self, cached: dict[Path, tuple[tuple[int, ...], dict[str, Any]]] | None = None,
     ) -> dict[Path, dict[str, Any]]:
         return {path: item[1] for path, item in (self._cached if cached is None else cached).items()}
-
     def _accepted_rows(self) -> list[dict[str, Any]]:
         return [self._cached[path][1] for path in sorted(self._references.accepted) if path in self._cached]
-
     def _scopes(self) -> list[dict[str, Any]]:
         assert self._declarations is not None
         rows = [
@@ -357,7 +388,6 @@ class SourceReader:
         ]
         rows[0]["scope_unit_id"] = self._project_scope_id
         return rows
-
     def _read_source(
         self, path: Path, signature: tuple[int, ...], reader: ReadContext
     ) -> dict[str, Any] | None:
@@ -376,6 +406,7 @@ class SourceReader:
             self._cached.pop(path, None)
             self._failed.pop(path, None)
             self._content_invalid.discard(path)
+            self._header_invalid.discard(path)
             return None
         try:
             parsed = parse_carrier(raw, path)
@@ -398,64 +429,48 @@ class SourceReader:
             self._cached.pop(path, None)
             self._failed[path] = signature
             self._content_invalid.discard(path)
+            self._header_invalid.discard(path)
             self.excluded_count += 1
             self._error(path, error)
             return None
         self._failed.pop(path, None)
+        self._header_invalid.discard(path)
         self._cached[path] = (signature, row)
         return row
-
     def _inventory_paths(self) -> set[Path]:
         paths = set(self._declaration_paths)
         for role in self._role_directories:
             if role.is_dir() and not role.is_symlink():
                 paths.update(_markdown_paths(role))
         return paths
-
     @staticmethod
     def _error(path: Path, error: BaseException) -> None:
         print(f"source-reader: {path}: {error}", file=sys.stderr)
-
-
 def capture_inventory(
     root: Path, control_root: Path | None = None
 ) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     return SourceReader(root, control_root).capture()
-
-
 def _filename_candidate(path: Path) -> bool:
     return _filename_marker(path) is not None
-
-
 def _canonical_filename_candidate(path: Path) -> bool:
     return _filename_role_matches(path) and _filename_candidate(path)
-
-
 def _filename_marker(path: Path) -> str | None:
     match = _FILENAME_MARKER.search(path.name.encode("utf-8"))
     return match.group("role").decode("utf-8").upper() if match else None
-
-
 def _filename_role_matches(path: Path) -> bool:
     marker = _filename_marker(path)
     if marker is None:
         return True
     role = next((part for part in reversed(path.parts[:-1]) if part in _ROLES), None)
     return role is None or marker in _ROLE_MARKERS[role]
-
-
 def _header_candidate(raw: bytes) -> bool:
     bounds = frontmatter_bounds(raw)
     if bounds is None:
         return False
     opening, boundary, _ = bounds
     return _HEADER_MARKER.search(raw[opening:boundary]) is not None
-
-
 def _candidate(path: Path, raw: bytes) -> bool:
     return _filename_role_matches(path) and (_filename_candidate(path) or _header_candidate(raw))
-
-
 def _group(path: Path, header: dict[str, Any]) -> str | None:
     parts = {item.casefold() for item in path.parts}
     status = header.get("status")
@@ -465,12 +480,8 @@ def _group(path: Path, header: dict[str, Any]) -> str | None:
     if parts & {"draft", "drafts"} or status == "draft":
         return "Draft"
     return "Current"
-
-
 def _archived(parts: tuple[str, ...]) -> bool:
     return bool({part.casefold() for part in parts} & _ARCHIVE_PARTS)
-
-
 def _markdown_paths(root: Path) -> Iterator[Path]:
     for directory, names, files in os.walk(root, topdown=True, followlinks=False):
         base = Path(directory)

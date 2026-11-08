@@ -56,7 +56,7 @@ class ProjectionDeltaTest(unittest.TestCase):
     def test_schema_or_deletion_never_reuses_stale_public_rows(self) -> None:
         first, second = self.atom("A"), self.atom("B")
         previous = self.project([first, second])
-        changed_schema = HeaderSchema((HeaderColumn(("kind",), "header_kind", "VARCHAR", True),))
+        changed_schema = HeaderSchema((HeaderColumn(("kind",), "header.kind", "VARCHAR", True),))
 
         schema_current = self.project([first, second], previous, changed_schema)
         deleted_current = self.project([first], previous)
@@ -79,7 +79,7 @@ class ProjectionDeltaTest(unittest.TestCase):
         self.assertIsNot(previous.atoms[(".", "B.md")], current.atoms[(".", "B.md")])
         self.assertEqual(
             [{"kind": "Atom", "reference": "A", "derived": True}],
-            current.atoms[(".", "B.md")]["header_relations"]["IS_BLOCKED_BY"],
+            current.atoms[(".", "B.md")]["header.relations"]["IS_BLOCKED_BY"],
         )
 
 

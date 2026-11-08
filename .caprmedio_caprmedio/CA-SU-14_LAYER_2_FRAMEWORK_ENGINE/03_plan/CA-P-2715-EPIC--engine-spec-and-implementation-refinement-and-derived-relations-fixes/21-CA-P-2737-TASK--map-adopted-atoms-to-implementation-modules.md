@@ -15,9 +15,9 @@ relations:
   IS_BLOCKED_BY:
   - CA-P-2727
 state:
-  status: Backlog
-  version: 2
-  updated_at: 2026-11-08 19:15:36 +0400
+  status: Done
+  version: 3
+  updated_at: 2026-11-09 01:40:38 +0400
 destination:
   file:
     name: 21-CA-P-2737-TASK--map-adopted-atoms-to-implementation-modules.md

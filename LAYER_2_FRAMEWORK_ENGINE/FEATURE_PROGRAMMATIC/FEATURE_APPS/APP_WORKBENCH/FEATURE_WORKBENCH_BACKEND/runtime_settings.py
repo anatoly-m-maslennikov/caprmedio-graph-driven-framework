@@ -1,4 +1,4 @@
-# CA-D-675@13
+# CA-D-675@14
 
 """Read the fixed Workbench runtime retention setting at startup."""
 
@@ -9,6 +9,7 @@ import tomllib
 
 
 DEFAULT_RESULT_TTL_SECONDS = 3600
+DEFAULT_SCHEMA_MODE = 2
 
 
 def result_ttl_seconds(root: Path) -> int:
@@ -26,4 +27,22 @@ def result_ttl_seconds(root: Path) -> int:
     value = workbench.get("result_ttl_seconds", DEFAULT_RESULT_TTL_SECONDS)
     if isinstance(value, bool) or not isinstance(value, int) or value <= 0:
         raise ValueError("workbench.result_ttl_seconds must be a positive integer")
+    return value
+
+
+def schema_mode(root: Path) -> int:
+    """Return the selected cold-start schema mode without a public query option."""
+    path = Path(root) / ".caprmedio_runtime" / "caprmedio_runtime_settings.toml"
+    if not path.exists():
+        return DEFAULT_SCHEMA_MODE
+    try:
+        document = tomllib.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, tomllib.TOMLDecodeError) as error:
+        raise ValueError("invalid Workbench runtime settings") from error
+    workbench = document.get("workbench", {})
+    if not isinstance(workbench, dict):
+        raise ValueError("invalid Workbench runtime settings")
+    value = workbench.get("schema_mode", DEFAULT_SCHEMA_MODE)
+    if type(value) is not int or value not in {1, 2}:
+        raise ValueError("workbench.schema_mode must be 1 or 2")
     return value

@@ -1,23 +1,26 @@
 ---
-atom_id: CA-E-653
-ref_id: CA-E-653
-container:
-  scope_unit: CA-SU-15
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-  dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
-tier: 5
+identity:
+  atom_id: CA-E-653
+  ref_id: CA-E-653
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+    dependencies:
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  tier: 5
 relations:
   evaluation_for:
   - CA-R-2117
   - CA-M-431
-status: Active
-version: 10
-updated_at: 2026-10-27 19:59:38 +0400
-carrier_destination:
+state:
+  status: Active
+  version: 11
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-E-653-PROGRAMMATIC-EVAL_CASE--verify-rmed-implementation-traceability.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
@@ -40,38 +43,25 @@ source boundary.
 
 ## Claim
 
-Each applicable assessed PROGRAMMATIC module and identifiable behavior-owning
-unit has a valid current `# implementation of:` block that names the correct
-RMED roles and narrowest applicable graph branches without claiming that the
-comment itself proves conformance or completion.
+Each assessed module that directly implements a Requirement, Evaluation, Delivery or non-Policy Method (Solution or Decision) has one header comment per implemented Atom. Each comment contains only its Atom ID and Version. Optional comments on narrower owning units follow the same syntax. Comments do not prove conformance or completion.
 
 ## Details
 
 ### Applicable conditions
 
-Do not infer applicability from a projection alone. Apply the case only to the
-admitted source boundary.
+Do not infer applicability from a projection alone. Apply this case only to the admitted source boundary.
 
 ### Test case
 
-Use an isolated fixture containing a module that realizes several Requirement,
-Method, Evaluation, and Delivery branches, including one independent error,
-retry, or logging policy leaf. Inspect its module header and each identifiable
-owning function or class. Parse every block and verify the exact role syntax,
-Atom-ID-only values, current active resolution, branch applicability, narrowest
-leaf selection, ancestor de-duplication, separate independent branches, and
-module/unit coverage. Include malformed, stale, archived, versioned, path-based,
-title-based, wrong-role, and excluded-file cases.
+Use an isolated fixture with a module that directly implements several Requirement, Evaluation, Delivery and non-Policy Method claims. Include an Atom that is only called by the module and a generic coding Policy that guides it without being implemented.
+
+Verify one bare versioned Atom comment per line before the first code, using the file language's comment syntax, for example `# CA-R-2117@13`. Resolve each cited ID and Version against the applicable Current authority and check that the module materially implements that claim. Accept optional narrower function or class comments; their absence alone is not failure. Do not require role-labelled blocks, a marker, narrowest-leaf selection or automatic ancestor removal.
+
+Include valid many-to-many ownership and false positives: malformed or unversioned IDs, stale or unresolved versions, paths or titles used as IDs, a Method Policy cited only as guidance, and an Atom that is only called. Check excluded files separately rather than changing them automatically.
 
 ### Acceptance criteria
 
-Pass only when every applicable assessed module and identifiable owning unit has
-the required valid block; empty roles are omitted; all referenced IDs resolve to
-current Atoms of the named role; independent branches have distinct citations
-within that block (or narrower branch-specific blocks when locality requires
-them); and no comment is treated as evidence of semantic conformance or
-observed outcome. A many-to-many mapping passes when each cited relationship is
-substantive and the implementation owner remains clear.
+Pass when each assessed module carries the required bare ID-and-Version comments, each cited relationship is substantive, and optional narrower comments are valid when present. Reject role labels, prose or an `implementation of` marker in those comments. Generic coding Policies and called-only Atoms do not become implementation owners. A stale or unresolved citation is a reported traceability gap, not a reason to invent an ID or silently bump its Version.
 
 ### Failure disposition
 

@@ -24,6 +24,7 @@ from scope_declaration_test_support import write_scope_unit_declarations  # noqa
 from release_registry_test_fixture import (  # noqa: E402
     write_registry_generator,
     write_relation_registry_generator,
+    write_workbench_schema_generator,
 )
 
 
@@ -97,6 +98,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         )
         workbench_backend.mkdir(parents=True)
         write_relation_registry_generator(workbench_backend)
+        write_workbench_schema_generator(workbench_backend)
         self.image_id = "sha256:" + "a" * 64
         self.image = SimpleNamespace(resolve=Mock(return_value=self.image_id),
                                      identity=lambda: SimpleNamespace(fingerprint="b" * 64))

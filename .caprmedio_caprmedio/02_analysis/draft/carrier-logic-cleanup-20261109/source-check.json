@@ -1,0 +1,106 @@
+{
+  "status": "PASS",
+  "scope": "selected Core Delivery authority and archive metadata only",
+  "current_amendments": [
+    {
+      "atom_id": "CA-D-269",
+      "version": 30
+    },
+    {
+      "atom_id": "CA-D-446",
+      "version": 30
+    },
+    {
+      "atom_id": "CA-D-472",
+      "version": 31
+    },
+    {
+      "atom_id": "CA-D-473",
+      "version": 27
+    },
+    {
+      "atom_id": "CA-D-483",
+      "version": 26
+    },
+    {
+      "atom_id": "CA-D-650",
+      "version": 16
+    },
+    {
+      "atom_id": "CA-D-470",
+      "version": 33
+    },
+    {
+      "atom_id": "CA-D-479",
+      "version": 36
+    },
+    {
+      "atom_id": "CA-D-378",
+      "version": 31
+    }
+  ],
+  "retired_ids": [
+    "CA-D-663"
+  ],
+  "properly_archived_refs": [
+    "CA-D-269@28",
+    "CA-D-446@28",
+    "CA-D-472@29",
+    "CA-D-473@25",
+    "CA-D-483@24",
+    "CA-D-650@14",
+    "CA-D-470@31",
+    "CA-D-479@34",
+    "CA-D-378@29",
+    "CA-D-663@2",
+    "CA-D-664@6",
+    "CA-D-657@7",
+    "CA-D-479@32",
+    "CA-D-662@4"
+  ],
+  "archived_count": 14,
+  "exact_effects_verified": 33,
+  "ids_summaries_preserved": true,
+  "archive_body_version_timestamp_preserved": true,
+  "replacement_link": "D479 IS_REPLACEMENT_FOR D663, stored on D479, base ID only",
+  "native_run": false,
+  "journal_append": false,
+  "not_performed": [
+    "Source-wide carrier/name migration",
+    "Runtime/Engine implementation",
+    "Projection rebuild",
+    "Commit/push"
+  ],
+  "residual_cleanup": {
+    "status": "PASS",
+    "amendments": [
+      {
+        "atom_id": "CA-D-565",
+        "version": 23,
+        "archive_ref": "CA-D-565@21"
+      },
+      {
+        "atom_id": "CA-D-568",
+        "version": 21,
+        "archive_ref": "CA-D-568@19"
+      },
+      {
+        "atom_id": "CA-D-570",
+        "version": 26,
+        "archive_ref": "CA-D-570@24"
+      },
+      {
+        "atom_id": "CA-D-657",
+        "version": 11,
+        "archive_ref": "CA-D-657@9"
+      }
+    ],
+    "effects_verified": 12,
+    "residual_old_wire_examples": [],
+    "archive_body_version_timestamp_preserved": true,
+    "native_run": false,
+    "journal_append": false
+  },
+  "total_amended_sources": 13,
+  "total_archived_records_verified": 18
+}

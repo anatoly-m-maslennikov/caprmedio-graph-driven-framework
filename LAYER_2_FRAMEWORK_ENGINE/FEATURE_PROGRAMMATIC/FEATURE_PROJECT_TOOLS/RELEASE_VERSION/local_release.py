@@ -1,8 +1,7 @@
 """Direct local replacement workflow for the Project-owned framework release."""
 
-# CA-R-2785@3
-# CA-M-473@3
-# CA-D-678@4
+# CA-R-2785@4
+# CA-D-678@5
 from __future__ import annotations
 
 import json

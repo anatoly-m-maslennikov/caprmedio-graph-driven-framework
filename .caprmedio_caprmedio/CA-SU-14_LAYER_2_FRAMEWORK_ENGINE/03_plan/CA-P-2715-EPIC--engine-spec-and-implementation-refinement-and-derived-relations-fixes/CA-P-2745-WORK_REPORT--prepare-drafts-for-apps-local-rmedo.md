@@ -15,9 +15,9 @@ relations:
   IS_WORK_REPORT_FOR:
   - CA-P-2734
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-08 20:22:21 +0400
+  status: Done
+  version: 2
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: CA-P-2745-WORK_REPORT--prepare-drafts-for-apps-local-rmedo.md
@@ -31,4 +31,4 @@ Prepare Drafts for APPS-local RMEDO
 
 ## Details
 
-Queried all16 original APPS-local candidates. Four have reviewable Drafts;12 are Held for insufficient query-exposed Content. Removed only the12 unreviewed clones created by this lane after exact-output verification; all Current sources and prior Drafts remain unchanged. Held items have no newly created Draft and remain part of this Task.
+The four readable APPS-local candidates completed preparation and adoption. Twelve unavailable legacy sources remain deferred. The delegation tree is unchanged; permissions-only prerequisite changes do not migrate the excluded receivers local RMEDO.

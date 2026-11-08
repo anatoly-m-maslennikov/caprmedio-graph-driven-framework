@@ -15,9 +15,9 @@ relations:
   IS_WORK_REPORT_FOR:
   - CA-P-2718
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-08 21:10:44 +0400
+  status: Done
+  version: 2
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: CA-P-2751-WORK_REPORT--generate-the-canonical-relation-registry-from-declarations.md
@@ -31,4 +31,4 @@ Generate the canonical relation registry from declarations
 
 ## Details
 
-Implemented the first registry/materialization and generator slice. Initial67focused and31connected checks passed. Independent Sol High review then found missing-source canonical-edge retention, an ordinary full-support scan, conditional-metadata admission and incomplete source provenance. These are being fixed before acceptance. No generator release or final conformance is claimed.
+The deterministic source compiler and bounded incremental relation state are implemented. The installed 0.4.4.39 registry matches the source compilation. The asset has 47 names and 49 source pins; ordinary deltas do not reparse unchanged declarations.

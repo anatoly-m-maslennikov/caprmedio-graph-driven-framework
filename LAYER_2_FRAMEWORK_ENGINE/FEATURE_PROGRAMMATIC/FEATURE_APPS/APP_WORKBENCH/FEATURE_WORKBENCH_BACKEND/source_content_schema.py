@@ -1,7 +1,7 @@
-# CA-R-2726@5
-# CA-M-465@19
-# CA-M-500@2
-# CA-D-672@12
+# CA-R-2726@6
+# CA-M-465@24
+# CA-M-500@3
+# CA-D-672@14
 
 """Retain the compiled Content schema used to validate changed source Atoms."""
 

@@ -8,14 +8,14 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold
   dependencies:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
   - CAPRMEDIO_MODEL <+ Carrier/File
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
 tier: 3
-status: Active
-version: 29
-updated_at: 2026-11-02 18:35:20 +0400
+status: active
+version: 31
+updated_at: 2026-11-09 00:51:00 +0400
 carrier_destination:
   file:
     name: CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md
@@ -32,10 +32,10 @@ Serialize explicit Plan confidence overrides
 ### Prose Claim
 
 
-explicit Plan Autonomous Confidence Threshold overrides in Plan Atom Markdown File Carriers.
+explicit Plan AI Agent Confidence Threshold overrides in Plan Atom Markdown File Carriers.
 
 
-an explicit Plan Autonomous Confidence Threshold override **must** use the top-level integer frontmatter field `autonomous_confidence_threshold` **in** that Plan Atom's own mandatory Markdown File Carrier.
+An explicit Plan AI Agent Confidence Threshold override is an integer at its declared Header path in that Plan Atom’s own Markdown File Carrier. Apply the common recursive name encoding.
 
 - a Hub uses that same file, **not** a separately identified Objective **or** Epic settings file.
 - omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.

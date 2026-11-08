@@ -1,5 +1,5 @@
-// CA-E-783@1
-// CA-E-786@1
+// CA-E-783@4
+// CA-E-786@2
 import { expect, test, type Page } from '@playwright/test';
 
 const url = process.env.WORKBENCH_E2E_URL!;
@@ -198,6 +198,25 @@ test('keeps SQL NULL and the literal null in separate groups', async ({ page }) 
     .map((node) => node.textContent?.trim() ?? '')
     .filter((text) => /^group_value: (?:NULL|null) \(\d+\)$/.test(text))))
     .toEqual(expect.arrayContaining(['group_value: NULL (2)', 'group_value: null (1)']));
+});
+
+test('keeps dotted SQL column names as labels without using them as Tabulator fields', async ({ page }) => {
+  await prepare(page, 1, `
+    SELECT
+      'CA-R-1' AS "header.identity.atom_id",
+      'Method' AS "header.context.role",
+      'Active' AS "header.state.status",
+      'formal' AS "content.claim.formal_claim"
+  `);
+  await run(page, 1);
+  for (const name of ['header.identity.atom_id', 'header.context.role', 'header.state.status', 'content.claim.formal_claim']) {
+    await expect(column(page, name).locator('.column-name')).toHaveText(name);
+  }
+  await expect(page.locator('.tabulator-row').first().locator('.tabulator-cell')).toHaveText(['CA-R-1', 'Method', 'Active', 'formal']);
+  const sorted = page.waitForRequest((item) => fetchRequest(item, 0));
+  const menu = await openHeaderMenu(page, 'header.identity.atom_id');
+  await menu.locator('.tabulator-menu-item').getByText('Column Sort ascending', { exact: true }).click();
+  await sorted;
 });
 
 test('keeps Tabulator header and data rows legible in light and dark themes', async ({ page }) => {

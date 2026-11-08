@@ -13,7 +13,9 @@ sys.path.insert(0, str(APP_ROOT))
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.runtime_settings import (  # noqa: E402
     DEFAULT_RESULT_TTL_SECONDS,
+    DEFAULT_SCHEMA_MODE,
     result_ttl_seconds,
+    schema_mode,
 )
 
 
@@ -26,6 +28,7 @@ class RuntimeSettingsTests(unittest.TestCase):
 
     def test_missing_file_uses_the_declared_default(self) -> None:
         self.assertEqual(DEFAULT_RESULT_TTL_SECONDS, result_ttl_seconds(self.root))
+        self.assertEqual(DEFAULT_SCHEMA_MODE, schema_mode(self.root))
 
     def test_positive_configured_ttl_is_read_once_at_start(self) -> None:
         self.path.parent.mkdir(parents=True)
@@ -37,6 +40,14 @@ class RuntimeSettingsTests(unittest.TestCase):
         self.path.write_text("[workbench]\nresult_ttl_seconds = 0\n", encoding="utf-8")
         with self.assertRaisesRegex(ValueError, "positive integer"):
             result_ttl_seconds(self.root)
+
+    def test_schema_mode_is_fixed_to_the_two_admitted_cold_start_modes(self) -> None:
+        self.path.parent.mkdir(parents=True)
+        self.path.write_text("[workbench]\nschema_mode = 1\n", encoding="utf-8")
+        self.assertEqual(1, schema_mode(self.root))
+        self.path.write_text("[workbench]\nschema_mode = 3\n", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "schema_mode"):
+            schema_mode(self.root)
 
 if __name__ == "__main__":
     unittest.main()

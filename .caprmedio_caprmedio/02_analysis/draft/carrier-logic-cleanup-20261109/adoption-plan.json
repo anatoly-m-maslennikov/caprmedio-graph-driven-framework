@@ -1,0 +1,811 @@
+{
+  "status": "PREPARED_SOURCE_CLEANUP_REVIEW_PENDING",
+  "selected_versions": {
+    "CA-D-269": 30,
+    "CA-D-446": 30,
+    "CA-D-472": 31,
+    "CA-D-473": 27,
+    "CA-D-483": 26,
+    "CA-D-650": 16,
+    "CA-D-470": 33,
+    "CA-D-479": 36,
+    "CA-D-378": 31
+  },
+  "version_pins": [
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "sha256": "1e015cdfc9c0298838abca19238d57f424db0c92f81b99cc233e23f6df9024d4",
+      "atom_id": "CA-D-269",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "sha256": "c36ab2a99fb7309b6c74442a4972d09cd0368edb8cf3cb1b3153937752c5b4bc",
+      "atom_id": "CA-D-269",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "sha256": "1e015cdfc9c0298838abca19238d57f424db0c92f81b99cc233e23f6df9024d4",
+      "atom_id": "CA-D-269",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-269@29-draft-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "sha256": "0818647648fc6d7e075fc81a3ae576456e4f3612c5f0b0c33dc0d5ada1263012",
+      "atom_id": "CA-D-269",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-MMODEL-CORE-DELIVERY--serialize-claim-subject-relations-in-frontmatter@3.md",
+      "sha256": "a719a3a5f4ea01675db3c3afdaf617ecfc9432773374fa690f2bd268447b3297",
+      "atom_id": "CA-D-269",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-MMODEL-CORE-DELIVERY--serialize-claim-subject-relations-in-frontmatter@2.md",
+      "sha256": "470e5305354c8066cdf5771603bfefea8bb0d2ae1c09fa66a9ee79b670a5b4e9",
+      "atom_id": "CA-D-269",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-CORE_META_MODEL-CORE-DELIVERY--serialize-atom-subjects-in-frontmatter@5.md",
+      "sha256": "74e41bddc77942668f78d4efc70ffeea15f9de9199d932d4ce10fa8903e4f99a",
+      "atom_id": "CA-D-269",
+      "version": 5
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter@7.md",
+      "sha256": "ab01104d1a8827664d3c2ba98e4ea7ac9f3d2f1a3fae197f03dcda56586ff319",
+      "atom_id": "CA-D-269",
+      "version": 7
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter@6.md",
+      "sha256": "bb2c608c3a765f9ffba074e1e8de941708222cc361090b3fae4ad92c09c53685",
+      "atom_id": "CA-D-269",
+      "version": 6
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-MMODEL-CORE-DELIVERY--serialize-claim-subject-relations-in-frontmatter@1.md",
+      "sha256": "2d2cac8f3ae931f06f1679cdf5cf06546bfb94c939017e808877267a1478901e",
+      "atom_id": "CA-D-269",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-MMODEL-CORE-DELIVERY--serialize-atom-subjects-in-frontmatter@4.md",
+      "sha256": "150139008ad9b2fdee1ce86f5dfeef18718ca34cee8ccc0ced65c214709afc76",
+      "atom_id": "CA-D-269",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-269-CORE_META_MODEL-DELIVERY--serialize-atom-subjects-in-frontmatter@8.md",
+      "sha256": "2ad1932ff0943a67f0b67505f3ce79cc351130795a5c6baf8f6c1f84a18adf12",
+      "atom_id": "CA-D-269",
+      "version": 8
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "f94363a6e3486c77db579a038c5abac9ec5e052b12dd7e8392a412d16b6f5c71",
+      "atom_id": "CA-D-446",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "ef1289012f3c889f38c16bdd75e67ae7d3205b974a0c48d75064de408ba20b35",
+      "atom_id": "CA-D-446",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "f94363a6e3486c77db579a038c5abac9ec5e052b12dd7e8392a412d16b6f5c71",
+      "atom_id": "CA-D-446",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-446@29-draft-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "sha256": "20fd31ba9c6a7313b4acd4bf6af1f0a0483d461e30d621ae370ca18d98baf85e",
+      "atom_id": "CA-D-446",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "93437ced84e920111b9ef5737fcceb9d7530cf70ff87d5e55c5dd451419d3681",
+      "atom_id": "CA-D-472",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "8f70b33b9f51b025e292775cabe031ede9c23cce1004c5cf7c0e00db450d767d",
+      "atom_id": "CA-D-472",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/question-resolutions-20261102/C620/containment-correction/staged/383-CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "35805a8cc0fee1bef24c56d8224e076e257bcaac2f1635b3eaf74bc573d8935c",
+      "atom_id": "CA-D-472",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "93437ced84e920111b9ef5737fcceb9d7530cf70ff87d5e55c5dd451419d3681",
+      "atom_id": "CA-D-472",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0043-CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "27cb5ebb84c38a4b71330c66c273beccf14c4361ca72d6acae0e31d7e2212a08",
+      "atom_id": "CA-D-472",
+      "version": 27
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/cfel-contract-completion-20261102/integration/staged/0041-CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "5eab906bfe6a6717193988729a35eb93bd7f238788cfa07ea9d664ec825651c8",
+      "atom_id": "CA-D-472",
+      "version": 27
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-472@30-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "sha256": "ed974077f85726b847fec03ecec406e7dedb178c71351d7c4f93599a5cf7169f",
+      "atom_id": "CA-D-472",
+      "version": 30
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "sha256": "1179a27fbf9d754f09eaf0277e9de9b846d7c9f3ed81e0b0e38ab9abfcdf1ec1",
+      "atom_id": "CA-D-473",
+      "version": 25
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "sha256": "9a711573629c4fa873c6cc69ce554ef5f3ae6716424c8a557b4ad3180fffb061",
+      "atom_id": "CA-D-473",
+      "version": 25
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "sha256": "1179a27fbf9d754f09eaf0277e9de9b846d7c9f3ed81e0b0e38ab9abfcdf1ec1",
+      "atom_id": "CA-D-473",
+      "version": 25
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-473@26-draft-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "sha256": "010e5fefd15f430b94879b3b6abe0ccc4dfb84898bd7bf04fb4bf1b93b846300",
+      "atom_id": "CA-D-473",
+      "version": 26
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "c5ffef23a4af6401a1205cbb0a322627bf353f83a32c16a7cce5ce65c1161d54",
+      "atom_id": "CA-D-483",
+      "version": 24
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "94e72c00a7677650d157ced561758b3e76a93a15c90a572eed917b7e13945055",
+      "atom_id": "CA-D-483",
+      "version": 24
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "c5ffef23a4af6401a1205cbb0a322627bf353f83a32c16a7cce5ce65c1161d54",
+      "atom_id": "CA-D-483",
+      "version": 24
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-483@25-draft-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "sha256": "7ee5893ecb4806f9c487100e3134d31a77bbb7b9d029da793c946f7d0188c1b7",
+      "atom_id": "CA-D-483",
+      "version": 25
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter@23.md",
+      "sha256": "7be6d9464f311af977afdc67a3144c79a0353b62ebe2c96bcd5014d37871fb1d",
+      "atom_id": "CA-D-483",
+      "version": 23
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "3d19f896cbddc5151c80b8d2d65bee60994fefb68ad20df03101241d2b0a2d10",
+      "atom_id": "CA-D-650",
+      "version": 14
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "13f243f9a6accf5588350b3fc96e19a894666bb0bd18df55bb72187dda8667ad",
+      "atom_id": "CA-D-650",
+      "version": 14
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "3d19f896cbddc5151c80b8d2d65bee60994fefb68ad20df03101241d2b0a2d10",
+      "atom_id": "CA-D-650",
+      "version": 14
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "725c4fb59a49cad3a0eaf69eec9b1c61526afa8b8e8cb1631b5097a7096a9325",
+      "atom_id": "CA-D-650",
+      "version": 15
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames@13.md",
+      "sha256": "8eb336bfbe75f91e24d775d0772943ec7b5b31a701909b5cfc53327eb1c49382",
+      "atom_id": "CA-D-650",
+      "version": 13
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-650@12-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "sha256": "f57ef1f26ba3af1e669f92c48b3ce8711209f291fe224ab527ff7334f650d86e",
+      "atom_id": "CA-D-650",
+      "version": 12
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "sha256": "a599dbfefaeb7264eee29fbcc7a7479d827b413ba87cb736143bd535e33e21cd",
+      "atom_id": "CA-D-470",
+      "version": 31
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "sha256": "9f09369af3e2f4da059631fcaf41c9429df3c6f30e18b20cffb79a9c9a687ecc",
+      "atom_id": "CA-D-470",
+      "version": 31
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "sha256": "a599dbfefaeb7264eee29fbcc7a7479d827b413ba87cb736143bd535e33e21cd",
+      "atom_id": "CA-D-470",
+      "version": 31
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-470@32-draft-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "sha256": "0ccdca0af659f97862786405fab52b6d3f70f91891a6207f7e81155f5a06e91e",
+      "atom_id": "CA-D-470",
+      "version": 32
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections@29.md",
+      "sha256": "67eba152c6e77e4fa19ae32872b17deed593cfcdd477a579f38de742759f60b4",
+      "atom_id": "CA-D-470",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "ff6edfc99f6359c004ed85807d8b6fbdb520cf343e22b888ac93544717939d1c",
+      "atom_id": "CA-D-479",
+      "version": 32
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "e8a55bea9a32fec66188c7828b149af751f06bb13deb3ab7181596965ecb819a",
+      "atom_id": "CA-D-479",
+      "version": 32
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/claim/carriers/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "30618f29a136f54f81679912b60cdab9fbcd670764d9654b228e4857d968ed4f",
+      "atom_id": "CA-D-479",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/03_plan/CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-header-content-20261103/integration/prospective/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "c792456553d706316eb23e9d885fcd570a0168e111dcf5adc428008851c00af3",
+      "atom_id": "CA-D-479",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/02_analysis/draft/epic-completion-20261104/application/property-order-20261105/layout/D479-current.preview.md",
+      "sha256": "da887204d42fcabee264b4c5fe821f528ff7c0cbde97eeb11bafbaae2b4b9289",
+      "atom_id": "CA-D-479",
+      "version": 30
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "c54746d389fc2af003a3590d940bbbbf6a9139edbeba6b5f1bf250e41ee932c8",
+      "atom_id": "CA-D-479",
+      "version": 34
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@35-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "sha256": "45982f36a6fa45b73121bc6be94bd3cbe68ca1934f13b94f630110ce29bd9cf8",
+      "atom_id": "CA-D-479",
+      "version": 35
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@29.md",
+      "sha256": "c792456553d706316eb23e9d885fcd570a0168e111dcf5adc428008851c00af3",
+      "atom_id": "CA-D-479",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@27.md",
+      "sha256": "c6cb26f4876ddf9bc299de08032268b11eef5b89d6e8296009b3a4f468d4f051",
+      "atom_id": "CA-D-479",
+      "version": 27
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@30.md",
+      "sha256": "a6613b33f5070c4f0f788f5fd3efd8e1920fcaf7da1167bccc7a93e9aa6ebad1",
+      "atom_id": "CA-D-479",
+      "version": 30
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@32.md",
+      "sha256": "f00d63213bc22f26f4db500906dec25c36b03f855387ee99fb188e865a37141f",
+      "atom_id": "CA-D-479",
+      "version": 32
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties@25.md",
+      "sha256": "b8a42e32f6fa6b795a1b325e07f0a3727e09fe0a4f77e09bad9ea956d5197e0d",
+      "atom_id": "CA-D-479",
+      "version": 25
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "5a234ccfcf0d149e60792c7a9ed71a7fe3e5e972fef2b679f9bb6976536a3bb6",
+      "atom_id": "CA-D-378",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "653221dcfde6daa4cc162798b76490f2bf71875ed4cbe74794b392b9be1bd9e1",
+      "atom_id": "CA-D-378",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "5a234ccfcf0d149e60792c7a9ed71a7fe3e5e972fef2b679f9bb6976536a3bb6",
+      "atom_id": "CA-D-378",
+      "version": 29
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-378@30-draft-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "af6943bd8f4e6cebc1a45e5b366f23c097cd70b5c0e37f283980b9a70dee8aed",
+      "atom_id": "CA-D-378",
+      "version": 30
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-378-CORE_META_MODEL-DELIVERY--serialize-assigned-atom-identities@2.md",
+      "sha256": "78ee586527428613c076406add76aa613a7bea08514fac25074a8e8b4be1cfa2",
+      "atom_id": "CA-D-378",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-378-CORE_META_MODEL-DELIVERY--serialize-assigned-atom-identities@3.md",
+      "sha256": "3571d8f9c19503accfa247bdc60a931a4ee3dc93b9e209e85678da6fd9c5cd15",
+      "atom_id": "CA-D-378",
+      "version": 3
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-378@28-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "sha256": "af1b56422bea50700843eba8f526ab66a5875ee1f0d359b595bcfc0706c6e1f7",
+      "atom_id": "CA-D-378",
+      "version": 28
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-378-CORE_META_MODEL-DELIVERY--serialize-assigned-atom-identities@4.md",
+      "sha256": "c0bc1fa80fb0697d96f5b191b6988f2c95a10eb147baf2c0e7c1b1e28a8ee45d",
+      "atom_id": "CA-D-378",
+      "version": 4
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-378-CORE_META_MODEL-DELIVERY--serialize-assigned-atom-identities@1.md",
+      "sha256": "23e97824a8fe7bf608f5fa0cd6e4063008f8117110a1fb7f325232dc7b95276f",
+      "atom_id": "CA-D-378",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archive/CA-D-378-CORE_META_MODEL-DELIVERY--serialize-assigned-atom-identities@5.md",
+      "sha256": "c0c27d2a00636cd485ca994a9f38d02b16a6610a5e0e8c89abcc51541b6ee4a5",
+      "atom_id": "CA-D-378",
+      "version": 5
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-663-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "sha256": "1d789aa984e2a8abbd1820fb278ab4e451c94ebd9d014ec05ce2626276cf81a4",
+      "atom_id": "CA-D-663",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/000_CAPRMEDIO_framework/applicable_methodology/07_delivery/CA-D-663-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "sha256": "b19c7d868cee8248f7e310e181b86b8eaaed34c863ef71b6c0b5b8d94fd010b7",
+      "atom_id": "CA-D-663",
+      "version": 2
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-663-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "sha256": "1d789aa984e2a8abbd1820fb278ab4e451c94ebd9d014ec05ce2626276cf81a4",
+      "atom_id": "CA-D-663",
+      "version": 2
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-269@28-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-269\nref_id: CA-D-269@28\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\ntier: 3\nstatus: archived\nversion: 28\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-269@28-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Atom Subjects in Frontmatter\n\n## Claim\n\n### Prose Claim\n\n\nNew or migrated Markdown Atom carriers.\n\n\nFor Markdown Atom carriers, encode `subjects` as a mapping with one scalar nonempty Entity path under `active` and zero or more unique nonempty Entity paths as a YAML sequence under `passive`. An omitted `passive` means zero. The grouping mapping has no direct value; its child values are counted separately. A Draft may be incomplete before promotion.\n\nPreserve the decoded Entity paths exactly under the applicable notation and resolve targets under the applicable Subject rules. A defining Atom may introduce its target and path together. Do not add an intermediate reference object or a repeated target-type field. YAML quotes are not part of the decoded expression; preserve escapes and reference boundaries. Each YAML key occurs once within its own mapping. Preserve formal cardinality annotations and decoded Entity escapes exactly; do not serialize notation as extra YAML fields.\n\nThe canonical keys are `active` and `passive`. Existing `governs` and `depends_on` remain readable during carrier migration. Mixed old and new aliases with unequal values are invalid. Equal aliases can be read during transition, without asserting additional Subjects.\n\n## Details\n\nReference migration preserves target identity and follows the governing Entity rules. Subject paths are distinct from formal Relation expressions in the body Claim.\n",
+      "after_sha256": "c6ad26eecc1ee324891c5600ff9e8b5e544da70212d2655e785d2a8459a9dd9c",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "before": "---\natom_id: CA-D-269\nref_id: CA-D-269\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\ntier: 3\nstatus: Active\nversion: 28\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-269-CORE_META_MODEL-POLICY--serialize-atom-subjects-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Atom Subjects in Frontmatter\n\n## Claim\n\n### Prose Claim\n\n\nNew or migrated Markdown Atom carriers.\n\n\nFor Markdown Atom carriers, encode `subjects` as a mapping with one scalar nonempty Entity path under `active` and zero or more unique nonempty Entity paths as a YAML sequence under `passive`. An omitted `passive` means zero. The grouping mapping has no direct value; its child values are counted separately. A Draft may be incomplete before promotion.\n\nPreserve the decoded Entity paths exactly under the applicable notation and resolve targets under the applicable Subject rules. A defining Atom may introduce its target and path together. Do not add an intermediate reference object or a repeated target-type field. YAML quotes are not part of the decoded expression; preserve escapes and reference boundaries. Each YAML key occurs once within its own mapping. Preserve formal cardinality annotations and decoded Entity escapes exactly; do not serialize notation as extra YAML fields.\n\nThe canonical keys are `active` and `passive`. Existing `governs` and `depends_on` remain readable during carrier migration. Mixed old and new aliases with unequal values are invalid. Equal aliases can be read during transition, without asserting additional Subjects.\n\n## Details\n\nReference migration preserves target identity and follows the governing Entity rules. Subject paths are distinct from formal Relation expressions in the body Claim.\n",
+      "before_sha256": "1e015cdfc9c0298838abca19238d57f424db0c92f81b99cc233e23f6df9024d4",
+      "after": "---\natom_id: CA-D-269\nref_id: CA-D-269\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\ntier: 3\nstatus: active\nversion: 30\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Atom Subjects in Frontmatter\n\n## Claim\n\n### Prose Claim\n\nSerialize the Atom\u2019s declared Topics Properties at their Header paths through the common recursive YAML mapping.\n\n- Main Subject carries one nonempty typed reference path.\n- Dependencies carries zero or more distinct nonempty typed reference paths. Omit an absent optional collection.\n- Encode declared name components with the common name rule. Preserve reference syntax, opaque IDs, formal count annotations, escapes and reference boundaries.\n- Resolve decoded references to their canonical declared targets. A defining Atom can introduce its target and path together.\n- YAML quoting preserves the decoded expression; quotes are not part of that expression.\n\nRead governed legacy Subject fields only within the admitted migration boundary. Unequal decoded aliases are invalid; equal aliases represent one value. New output follows the declared Header hierarchy.\n\n## Details\n\nReference migration preserves target identity and follows the governing Entity rules. Subject paths are distinct from formal Relation expressions in the body Claim.\n",
+      "after_sha256": "121e04f8380105a51e1aaa7854f8d9fce4e553a5a18fd66f3570cf8bb93aab73",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-446@28-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-446\nref_id: CA-D-446@28\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\n  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'\ntier: 1\nstatus: archived\nversion: 28\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-446@28-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nGive Every Non-Draft Atom Revision One Identifier\n\n## Claim\n\n### Prose Claim\n\n\nCurrent Atom sources, Archived Atom versions and Draft Atom sources.\n\n\nFor each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.\n\n- for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.\n- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule.\n- when an identified Atom is changed to Draft, its Draft Carrier carries the corresponding Draft marker admitted by CA-D-378; the marker and filename remain governed by CA-D-378 and CA-D-650. Do **not** create a second concurrent Draft Carrier for that Status edit.\n- when a Current Atom changes, create an Archive Carrier for the predecessor with its qualified ID, `status: Archived`, unchanged numeric Version and old Updated At; the Current successor retains the canonical ID, advances Version from N to N+1, and receives actual edit time under CA-R-1432/CA-R-1788. An exact no-op retains Version/time. There is no demotion Version exception.\n- a Draft carrying `<canonical-ID>@<proposed-version>-draft` for an existing Atom proposes an update to that same canonical Atom at the marker's proposed Version. For an actual update, that Version must be the current canonical Version plus one under the existing version-advance rule; archive the current canonical predecessor with its old numeric Version, Updated At and unrelated content, and update that Atom, subject to exact-current, identity/collision, Summary/replacement, Type/Status, schema and permission rules. An exact no-op retains the existing Version/time and creates no predecessor archive. This same-canonical rule does not determine promotion behavior for the role-only new-Atom marker.\n\n## Details\n\n### Draft Atom Identity\n\nDraft Atom ID is mandatory. Its marker form is as stated in the Claim and CA-D-378.\n\nNew-Atom Drafts and ordinary lifecycle Draft demotion/update/identification carry the marker admitted by CA-D-378; their filenames follow CA-D-650. A Draft marker does not change the existing Current Atom uniqueness rule. For a Draft marked `<canonical-ID>@<proposed-version>-draft`, promotion proposes an update to the same canonical Atom at the proposed Version, subject to the ordinary currentness, schema, identity/collision, permission, Summary/replacement and change-class rules. Draft identity continuity does not require a retained-history entry, lineage/head/origin chain or consuming successor under CA-D-568/CA-D-570.\n",
+      "after_sha256": "f0807889731d4a637385aee1dea0286dd46ccd857b477116fed050babaa41c8a",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "before": "---\natom_id: CA-D-446\nref_id: CA-D-446\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\n  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'\ntier: 1\nstatus: Active\nversion: 28\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-446-CORE_META_MODEL-DECISION--give-every-non-draft-atom-revision-one-identifier.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nGive Every Non-Draft Atom Revision One Identifier\n\n## Claim\n\n### Prose Claim\n\n\nCurrent Atom sources, Archived Atom versions and Draft Atom sources.\n\n\nFor each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with `status: Archived` and its prior Updated At retained; Git history preserves exact pre-archive bytes.\n\n- for a Current or Archived Atom version, carry the canonical Atom ID as the top-level String `atom_id` **and** Version Number as `version`; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.\n- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule.\n- when an identified Atom is changed to Draft, its Draft Carrier carries the corresponding Draft marker admitted by CA-D-378; the marker and filename remain governed by CA-D-378 and CA-D-650. Do **not** create a second concurrent Draft Carrier for that Status edit.\n- when a Current Atom changes, create an Archive Carrier for the predecessor with its qualified ID, `status: Archived`, unchanged numeric Version and old Updated At; the Current successor retains the canonical ID, advances Version from N to N+1, and receives actual edit time under CA-R-1432/CA-R-1788. An exact no-op retains Version/time. There is no demotion Version exception.\n- a Draft carrying `<canonical-ID>@<proposed-version>-draft` for an existing Atom proposes an update to that same canonical Atom at the marker's proposed Version. For an actual update, that Version must be the current canonical Version plus one under the existing version-advance rule; archive the current canonical predecessor with its old numeric Version, Updated At and unrelated content, and update that Atom, subject to exact-current, identity/collision, Summary/replacement, Type/Status, schema and permission rules. An exact no-op retains the existing Version/time and creates no predecessor archive. This same-canonical rule does not determine promotion behavior for the role-only new-Atom marker.\n\n## Details\n\n### Draft Atom Identity\n\nDraft Atom ID is mandatory. Its marker form is as stated in the Claim and CA-D-378.\n\nNew-Atom Drafts and ordinary lifecycle Draft demotion/update/identification carry the marker admitted by CA-D-378; their filenames follow CA-D-650. A Draft marker does not change the existing Current Atom uniqueness rule. For a Draft marked `<canonical-ID>@<proposed-version>-draft`, promotion proposes an update to the same canonical Atom at the proposed Version, subject to the ordinary currentness, schema, identity/collision, permission, Summary/replacement and change-class rules. Draft identity continuity does not require a retained-history entry, lineage/head/origin chain or consuming successor under CA-D-568/CA-D-570.\n",
+      "before_sha256": "f94363a6e3486c77db579a038c5abac9ec5e052b12dd7e8392a412d16b6f5c71",
+      "after": "---\natom_id: CA-D-446\nref_id: CA-D-446\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\n  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'\ntier: 1\nstatus: active\nversion: 30\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nGive Every Non-Draft Atom Revision One Identifier\n\n## Claim\n\n### Prose Claim\n\n\nCurrent Atom sources, Archived Atom versions and Draft Atom sources.\n\n\nFor each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with Archived Status encoded by the common named-value rule and its prior Updated At retained; Git history preserves exact pre-archive bytes.\n\n- for a Current or Archived Atom version, carry the canonical Atom ID as a String at its declared Header path **and** Version Number at its declared Header path; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.\n- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule.\n- when an identified Atom is changed to Draft, its Draft Carrier carries the corresponding Draft marker admitted by CA-D-378; the marker and filename remain governed by CA-D-378 and CA-D-650. Do **not** create a second concurrent Draft Carrier for that Status edit.\n- when a Current Atom changes, create an Archive Carrier for the predecessor with its qualified Ref ID, encoded Archived Status, unchanged numeric Version and old Updated At; the Current successor retains the canonical ID, advances Version from N to N+1, and receives actual edit time under CA-R-1432/CA-R-1788. An exact no-op retains Version/time. There is no demotion Version exception.\n- a Draft carrying `<canonical-ID>@<proposed-version>-draft` for an existing Atom proposes an update to that same canonical Atom at the marker's proposed Version. For an actual update, that Version must be the current canonical Version plus one under the existing version-advance rule; archive the current canonical predecessor with its old numeric Version, Updated At and unrelated content, and update that Atom, subject to exact-current, identity/collision, Summary/replacement, Type/Status, schema and permission rules. An exact no-op retains the existing Version/time and creates no predecessor archive. This same-canonical rule does not determine promotion behavior for the role-only new-Atom marker.\n\n## Details\n\n### Draft Atom Identity\n\nDraft Atom ID is mandatory. Its marker form is as stated in the Claim and CA-D-378.\n\nNew-Atom Drafts and ordinary lifecycle Draft demotion/update/identification carry the marker admitted by CA-D-378; their filenames follow CA-D-650. A Draft marker does not change the existing Current Atom uniqueness rule. For a Draft marked `<canonical-ID>@<proposed-version>-draft`, promotion proposes an update to the same canonical Atom at the proposed Version, subject to the ordinary currentness, schema, identity/collision, permission, Summary/replacement and change-class rules. Draft identity continuity does not require a retained-history entry, lineage/head/origin chain or consuming successor under CA-D-568/CA-D-570.\n",
+      "after_sha256": "7c75cb0bb7cd0a2781d6b762475eaee00059f81a131224784ace5f30fd480a83",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-472@29-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-472\nref_id: CA-D-472@29\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence\n  - CAPRMEDIO_MODEL <+ Carrier/File\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done\ntier: 3\nstatus: archived\nversion: 29\nupdated_at: 2026-11-02 18:35:20 +0400\ncarrier_destination:\n  file:\n    name: CA-D-472@29-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan confidence overrides\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan Autonomous Confidence Threshold overrides in Plan Atom Markdown File Carriers.\n\n\nan explicit Plan Autonomous Confidence Threshold override **must** use the top-level integer frontmatter field `autonomous_confidence_threshold` **in** that Plan Atom's own mandatory Markdown File Carrier.\n\n- a Hub uses that same file, **not** a separately identified Objective **or** Epic settings file.\n- omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.\n- retain an explicit override even **when** it equals the inherited value.\n- `epic_overrides` is **not** an alternative canonical encoding.\n",
+      "after_sha256": "cca3d640d710a84cfc30cd91ad7bd7bdc883bd197ed03ea2ac3acf3642479bdf",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "before": "---\natom_id: CA-D-472\nref_id: CA-D-472\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold\n  dependencies:\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence\n  - CAPRMEDIO_MODEL <+ Carrier/File\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'\ntier: 3\nstatus: Active\nversion: 29\nupdated_at: 2026-11-02 18:35:20 +0400\ncarrier_destination:\n  file:\n    name: CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan confidence overrides\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan Autonomous Confidence Threshold overrides in Plan Atom Markdown File Carriers.\n\n\nan explicit Plan Autonomous Confidence Threshold override **must** use the top-level integer frontmatter field `autonomous_confidence_threshold` **in** that Plan Atom's own mandatory Markdown File Carrier.\n\n- a Hub uses that same file, **not** a separately identified Objective **or** Epic settings file.\n- omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.\n- retain an explicit override even **when** it equals the inherited value.\n- `epic_overrides` is **not** an alternative canonical encoding.\n",
+      "before_sha256": "93437ced84e920111b9ef5737fcceb9d7530cf70ff87d5e55c5dd451419d3681",
+      "after": "---\natom_id: CA-D-472\nref_id: CA-D-472\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence\n  - CAPRMEDIO_MODEL <+ Carrier/File\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done\ntier: 3\nstatus: active\nversion: 31\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan confidence overrides\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan AI Agent Confidence Threshold overrides in Plan Atom Markdown File Carriers.\n\n\nAn explicit Plan AI Agent Confidence Threshold override is an integer at its declared Header path in that Plan Atom\u2019s own Markdown File Carrier. Apply the common recursive name encoding.\n\n- a Hub uses that same file, **not** a separately identified Objective **or** Epic settings file.\n- omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.\n- retain an explicit override even **when** it equals the inherited value.\n- `epic_overrides` is **not** an alternative canonical encoding.\n",
+      "after_sha256": "4b6bf3191773d4b250d50e1856f67211b6831e36f7b69f7e7a0136a923b652a0",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-473@25-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-473\nref_id: CA-D-473@25\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nrelations:\n  delivery_for:\n  - CA-R-1585\nstatus: archived\nversion: 25\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-473@25-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan Assignees\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan Assignee overrides in Plan File Carriers.\n\n\na Plan File Carrier **may** serialize **`=1`** explicit Assignee override as top-level frontmatter `assignee`; omission **must** preserve CA-R-1585-CORE_META_MODEL-RULE--default-plan-work-assignment-to-an-ai-agent for its own work rather than copying the default.\n",
+      "after_sha256": "523face5086efffb6ed7cc9c6b5ac785d39b868d92623872c7f437d386542254",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "before": "---\natom_id: CA-D-473\nref_id: CA-D-473\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nrelations:\n  delivery_for:\n  - CA-R-1585\nstatus: Active\nversion: 25\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-473-CORE_META_MODEL-DECISION--serialize-explicit-plan-assignees.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan Assignees\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan Assignee overrides in Plan File Carriers.\n\n\na Plan File Carrier **may** serialize **`=1`** explicit Assignee override as top-level frontmatter `assignee`; omission **must** preserve CA-R-1585-CORE_META_MODEL-RULE--default-plan-work-assignment-to-an-ai-agent for its own work rather than copying the default.\n",
+      "before_sha256": "1179a27fbf9d754f09eaf0277e9de9b846d7c9f3ed81e0b0e38ab9abfcdf1ec1",
+      "after": "---\natom_id: CA-D-473\nref_id: CA-D-473\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nrelations:\n  delivery_for:\n  - CA-R-1585\nstatus: active\nversion: 27\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan Assignees\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan Assignee overrides in Plan File Carriers.\n\n\nWhere the model admits an explicit Assignee override, a Plan File Carrier serializes **`=1`** such value at its declared Header path through the common name encoding; omission **must** preserve CA-R-1585-CORE_META_MODEL-RULE--default-plan-work-assignment-to-an-ai-agent for its own work rather than copying the default.\n",
+      "after_sha256": "8018a594ec65f292d72f69cc52976cc4771be174a02c7c643e80435c8dfd4059",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-483@24-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-483\nref_id: CA-D-483@24\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Form\n  - CAPRMEDIO_MODEL <+ Carrier\ntier: 3\nstatus: archived\nversion: 24\nupdated_at: 2026-11-03 23:25:51 +0400\ncarrier_destination:\n  file:\n    name: CA-D-483@24-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nCarry Atom Revision Status in frontmatter\n\n## Claim\n\n### Prose Claim\n\n\nthe Status property carried by an Atom Revision.\n\n\n**every** Atom Revision **must** carry **`=1`** explicit `status` value **in** its own Markdown frontmatter.\n\n- the value **must** belong **to** the applicable Content Role **and** Type Status model.\n- placement **must** agree under CA-D-466 **and** its specific Delivery rules; it is **not** a second Status source.\n- another Revision **or** a containing Hub **must not** override this Revision's carried Status.\n\n- encode `status` as **=1** nonempty YAML string using the exact value admitted by the selected Status model. do **not** accept a list, null, **or** another Revision's value as this Revision's Status.\n",
+      "after_sha256": "21f68752020c1c82cafb72112029768ed0308b5ed5ee266df63dc2b76463d676",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "before": "---\natom_id: CA-D-483\nref_id: CA-D-483\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Form\n  - CAPRMEDIO_MODEL <+ Carrier\ntier: 3\nstatus: Active\nversion: 24\nupdated_at: 2026-11-03 23:25:51 +0400\ncarrier_destination:\n  file:\n    name: CA-D-483-CORE_META_MODEL-DECISION--carry-atom-revision-status-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nCarry Atom Revision Status in frontmatter\n\n## Claim\n\n### Prose Claim\n\n\nthe Status property carried by an Atom Revision.\n\n\n**every** Atom Revision **must** carry **`=1`** explicit `status` value **in** its own Markdown frontmatter.\n\n- the value **must** belong **to** the applicable Content Role **and** Type Status model.\n- placement **must** agree under CA-D-466 **and** its specific Delivery rules; it is **not** a second Status source.\n- another Revision **or** a containing Hub **must not** override this Revision's carried Status.\n\n- encode `status` as **=1** nonempty YAML string using the exact value admitted by the selected Status model. do **not** accept a list, null, **or** another Revision's value as this Revision's Status.\n",
+      "before_sha256": "c5ffef23a4af6401a1205cbb0a322627bf353f83a32c16a7cce5ce65c1161d54",
+      "after": "---\natom_id: CA-D-483\nref_id: CA-D-483\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Form\n  - CAPRMEDIO_MODEL <+ Carrier\ntier: 3\nstatus: active\nversion: 26\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nCarry Atom Revision Status in frontmatter\n\n## Claim\n\n### Prose Claim\n\n\nthe Status property carried by an Atom Revision.\n\n\nEvery Atom Revision carries exactly one explicit Status value at its declared Header path in its own Markdown frontmatter.\n\n- the value **must** belong **to** the applicable Content Role **and** Type Status model.\n- placement **must** agree under CA-D-466 **and** its specific Delivery rules; it is **not** a second Status source.\n- another Revision **or** a containing Hub **must not** override this Revision's carried Status.\n\n- Encode Status as one nonempty YAML string using the common named-value encoding. Its decoded value resolves to exactly one Status admitted by the applicable model. A list, null or another Revision\u2019s value is invalid.\n",
+      "after_sha256": "fc23b9cb2d6a55f265672f9cdb46a182263cf9254bdf846f6786fea36d0971c4",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-650@14-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-650\nref_id: CA-D-650@14\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\ntier: 3\nstatus: archived\nversion: 14\nupdated_at: 2026-11-03 23:25:51 +0400\ncarrier_destination:\n  file:\n    name: CA-D-650@14-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize numbered version-qualified Draft Atom filenames\n\n## Claim\n\n### Prose Claim\n\nA Draft revision of an existing Atom carries its base canonical ID in the Header as `atom_id: <canonical-ID>`, with `status: Draft` and `version: <proposed-version>`. Its filename carries exactly one `<canonical-ID>@<proposed-version>-draft` marker as the Atom-ID segment before the remaining mutable filename components.\n\nFor an existing Atom, `<proposed-version>` follows the applicable current revision rule, normally `<current-version> + 1`. The filename marker qualifies the proposed revision; it is not a second Header identity.\n\nA new Atom Draft allocates an unused canonical ID, carries `status: Draft` and `version: 1`, and uses the same qualified filename marker with `@1-draft`. Classification-only changes and other non-replacement edits keep the ordinary identity rule; this filename contract adds no new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "after_sha256": "eb419e58b986e2d6ce80569e84848e1ce03320b90b984a7bf51f83af252fda93",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "before": "---\natom_id: CA-D-650\nref_id: CA-D-650\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\ntier: 3\nstatus: Active\nversion: 14\nupdated_at: 2026-11-03 23:25:51 +0400\ncarrier_destination:\n  file:\n    name: CA-D-650-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize numbered version-qualified Draft Atom filenames\n\n## Claim\n\n### Prose Claim\n\nA Draft revision of an existing Atom carries its base canonical ID in the Header as `atom_id: <canonical-ID>`, with `status: Draft` and `version: <proposed-version>`. Its filename carries exactly one `<canonical-ID>@<proposed-version>-draft` marker as the Atom-ID segment before the remaining mutable filename components.\n\nFor an existing Atom, `<proposed-version>` follows the applicable current revision rule, normally `<current-version> + 1`. The filename marker qualifies the proposed revision; it is not a second Header identity.\n\nA new Atom Draft allocates an unused canonical ID, carries `status: Draft` and `version: 1`, and uses the same qualified filename marker with `@1-draft`. Classification-only changes and other non-replacement edits keep the ordinary identity rule; this filename contract adds no new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "before_sha256": "3d19f896cbddc5151c80b8d2d65bee60994fefb68ad20df03101241d2b0a2d10",
+      "after": "---\natom_id: CA-D-650\nref_id: CA-D-650\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\ntier: 3\nstatus: active\nversion: 16\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize numbered version-qualified Draft Atom filenames\n\n## Claim\n\n### Prose Claim\n\nA Draft revision of an existing Atom carries its exact base canonical ID and positive integer proposed Version at their declared Header paths. The logical Status is Draft, encoded as `draft` by the common YAML rule. Its filename carries exactly one `<canonical-ID>@<proposed-version>-draft` marker as the Atom-ID segment before the remaining mutable filename components.\n\nFor an existing Atom, `<proposed-version>` follows the applicable current revision rule, normally `<current-version> + 1`. The filename marker qualifies the proposed revision; it is not a second Header identity.\n\nA new Atom Draft allocates an unused canonical ID, carries logical Draft Status and integer Version 1 at their declared Header paths, and uses the same qualified filename marker with `@1-draft`. Classification-only changes and other non-replacement edits keep the ordinary identity rule; this filename contract adds no new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "after_sha256": "3c4dee397801a72b0e86286d2c92ee304725f70cd3c5d64e7a57bbb9f65f42d1",
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-470@31-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-470\nref_id: CA-D-470@31\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nstatus: archived\nversion: 31\nupdated_at: 2026-11-08 19:06:46 +0400\ncarrier_destination:\n  file:\n    name: CA-D-470@31-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n\n## Summary\n\nSerialize Plan file sections\n\n## Claim\n\n### Prose Claim\n\n\nPlan Markdown File Carriers and their body-section layout.\n\nFor Work Report, serialize YAML Frontmatter followed by `## Summary` and `## Details`. Details contains the actual changes, checks, results and remaining gaps. Subheadings within this Markdown value are text, not additional modeled Properties.\n\nThe following intended-work layout applies to other Plan Forms.\n\n\n**every** Plan Markdown File Carrier **must** contain YAML Frontmatter followed by the Plan layout registered **in** CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties:\n\n1. `# Summary` carries the Summary value.\n2. `## Objective` carries the intended work **or** outcome Claim, including its applicability restrictions.\n3. `## Details` carries supporting information **and** **`=1`** nested `### Definition of Done` section with the Plan's falsifying Condition Expression.\n\nthe Definition of Done is the Plan's existing Property, **not** a second completion Claim **or** an optional detail. carry its value **only** **in** that nested section. **any** other supporting Details **must** stay within the Objective. use CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties for section boundaries; do **not** duplicate these Properties **in** frontmatter **or** add a separate Scope section duplicating restrictions **in** the Objective. a Hub uses this same mandatory file, **not** an additional Objective Atom.\n",
+      "after_sha256": "41430f447515ba4438f82fcdeb9ea763699644d3acbc2ce60de977574144828e",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "before": "---\natom_id: CA-D-470\nref_id: CA-D-470\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nstatus: Active\nversion: 31\nupdated_at: 2026-11-08 19:06:46 +0400\ncarrier_destination:\n  file:\n    name: CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n\n## Summary\n\nSerialize Plan file sections\n\n## Claim\n\n### Prose Claim\n\n\nPlan Markdown File Carriers and their body-section layout.\n\nFor Work Report, serialize YAML Frontmatter followed by `## Summary` and `## Details`. Details contains the actual changes, checks, results and remaining gaps. Subheadings within this Markdown value are text, not additional modeled Properties.\n\nThe following intended-work layout applies to other Plan Forms.\n\n\n**every** Plan Markdown File Carrier **must** contain YAML Frontmatter followed by the Plan layout registered **in** CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties:\n\n1. `# Summary` carries the Summary value.\n2. `## Objective` carries the intended work **or** outcome Claim, including its applicability restrictions.\n3. `## Details` carries supporting information **and** **`=1`** nested `### Definition of Done` section with the Plan's falsifying Condition Expression.\n\nthe Definition of Done is the Plan's existing Property, **not** a second completion Claim **or** an optional detail. carry its value **only** **in** that nested section. **any** other supporting Details **must** stay within the Objective. use CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties for section boundaries; do **not** duplicate these Properties **in** frontmatter **or** add a separate Scope section duplicating restrictions **in** the Objective. a Hub uses this same mandatory file, **not** an additional Objective Atom.\n",
+      "before_sha256": "a599dbfefaeb7264eee29fbcc7a7479d827b413ba87cb736143bd535e33e21cd",
+      "after": "---\natom_id: CA-D-470\nref_id: CA-D-470\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nstatus: active\nversion: 33\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n\n## Summary\n\nSerialize Plan file sections\n\n## Claim\n\n### Prose Claim\n\nDeliver the Plan\u2019s admitted Header as YAML and its declared Content tree as Markdown through the common Atom delivery mapping. Render every declared Property\u2019s heading, nesting and sibling order from that tree under CA-D-479.\n\nFor Work Report, carry Summary and Details. Details records actual changes, checks, results and remaining gaps. Undeclared subheadings remain part of its Markdown value.\n\nFor other Plan Forms, retain the required intended work or outcome and completion content at their declared Property paths. The applicable model determines those paths; Delivery adds no Objective alias or extra nesting for Definition of Done. A missing required Property declaration is a diagnostic, not permission to invent or omit that Property.\n\nEach Plan retains its own file. A Hub uses that same file, with admitted supporting content in its declared places. Legacy layouts remain readable only within the selected migration boundary.\n",
+      "after_sha256": "1339d792b016eef829996c314117a56b29aae9ff5e2b38fc455795fa2ed1f7db",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-479@34-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-479\nref_id: CA-D-479@34\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Content.Details\n  - CAPRMEDIO_MODEL <+ Term//Property\ntier: 3\nstatus: archived\nversion: 34\nupdated_at: 2026-11-09 00:03:55 +0400\ncarrier_destination:\n  file:\n    name: CA-D-479@34-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nUse stable headings for Atom body Properties\n\n## Claim\n\n### Prose Claim\n\nApplicability: Structured Main Content of Markdown Atom carriers.\n\nSerialize Content headings in their declared sibling order. Omit absent optional Properties. Other admitted sibling Properties follow the ordered Properties, with no required order among them. For a declared Workflow Claim, Mermaid Scheme precedes Prose Claim, which precedes Formal Claim.\n\nFor ordinary RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally followed by `## Semantics` and `## Details` in that order. Claim has no direct value and contains one or both `### Formal Claim` and `### Prose Claim`, with unique sibling names. Formal Claim contains a CFEL-labelled code fence; Prose Claim contains ordinary Markdown. Omit absent optional Properties. Do not duplicate Claim in frontmatter.\n\nMap declared headings to their Property paths with a code-fence-aware outline. Only headings admitted as children by an applicable declaration are Properties. Other headings within a Markdown value, including unknown `##` headings within Prose Claim, remain part of that value and do not terminate it. A recognized Property section ends at the next recognized sibling or ancestor heading, or at the end of Main Content. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a Property subtree includes its selected heading and its descendants.\n\nMap each declared Content Property key to a heading by replacing underscores with spaces and capitalizing the first letter of each word. The first Property level below Content uses `##`; each dependent Property adds one `#`. Thus `atom.content.sadf_ffff` renders as `## Sadf Ffff`, and `atom.content.sadf_ffff.aaa_bbb` renders as `### Aaa Bbb`.\n\nRead a recognized heading through that declared key-to-heading mapping. Reject an empty key, duplicate sibling key or a collision between distinct declared sibling keys and their rendered headings. Preserve the parent chain; identical leaf names under different parents remain distinct. A flattened lookup is admissible only when unambiguous.\n\nThis layout uses Markdown ATX headings, with at most six `#` characters. A deeper declared Property path is unsupported by this layout; report it rather than flattening or dropping it.\n\nLegacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Role-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.\n\n",
+      "after_sha256": "c2c78ef5eaade2c77d5efc92ce9c9200ebfc25ea00375a3e5e8a6084299f5c9c",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "before": "---\natom_id: CA-D-479\nref_id: CA-D-479\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Content.Details\n  - CAPRMEDIO_MODEL <+ Term//Property\ntier: 3\nstatus: Active\nversion: 34\nupdated_at: 2026-11-09 00:03:55 +0400\ncarrier_destination:\n  file:\n    name: CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nUse stable headings for Atom body Properties\n\n## Claim\n\n### Prose Claim\n\nApplicability: Structured Main Content of Markdown Atom carriers.\n\nSerialize Content headings in their declared sibling order. Omit absent optional Properties. Other admitted sibling Properties follow the ordered Properties, with no required order among them. For a declared Workflow Claim, Mermaid Scheme precedes Prose Claim, which precedes Formal Claim.\n\nFor ordinary RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally followed by `## Semantics` and `## Details` in that order. Claim has no direct value and contains one or both `### Formal Claim` and `### Prose Claim`, with unique sibling names. Formal Claim contains a CFEL-labelled code fence; Prose Claim contains ordinary Markdown. Omit absent optional Properties. Do not duplicate Claim in frontmatter.\n\nMap declared headings to their Property paths with a code-fence-aware outline. Only headings admitted as children by an applicable declaration are Properties. Other headings within a Markdown value, including unknown `##` headings within Prose Claim, remain part of that value and do not terminate it. A recognized Property section ends at the next recognized sibling or ancestor heading, or at the end of Main Content. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a Property subtree includes its selected heading and its descendants.\n\nMap each declared Content Property key to a heading by replacing underscores with spaces and capitalizing the first letter of each word. The first Property level below Content uses `##`; each dependent Property adds one `#`. Thus `atom.content.sadf_ffff` renders as `## Sadf Ffff`, and `atom.content.sadf_ffff.aaa_bbb` renders as `### Aaa Bbb`.\n\nRead a recognized heading through that declared key-to-heading mapping. Reject an empty key, duplicate sibling key or a collision between distinct declared sibling keys and their rendered headings. Preserve the parent chain; identical leaf names under different parents remain distinct. A flattened lookup is admissible only when unambiguous.\n\nThis layout uses Markdown ATX headings, with at most six `#` characters. A deeper declared Property path is unsupported by this layout; report it rather than flattening or dropping it.\n\nLegacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Role-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.\n\n",
+      "before_sha256": "c54746d389fc2af003a3590d940bbbbf6a9139edbeba6b5f1bf250e41ee932c8",
+      "after": "---\natom_id: CA-D-479\nref_id: CA-D-479\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Content.Details\n  - CAPRMEDIO_MODEL <+ Term//Property\ntier: 3\nrelations:\n  is_replacement_for:\n  - CA-D-663\nstatus: active\nversion: 36\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nUse stable headings for Atom body Properties\n\n## Claim\n\n### Prose Claim\n\nApplicability: Structured Main Content of Markdown Atom carriers.\n\nSerialize Content headings in their declared sibling order. Omit absent optional Properties. Other admitted sibling Properties follow the ordered Properties, with no required order among them. For a declared Workflow Claim, Mermaid Scheme precedes Prose Claim, which precedes Formal Claim.\n\nFor ordinary RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally followed by `## Semantics` and `## Details` in that order. Claim has no direct value and contains one or both `### Formal Claim` and `### Prose Claim`, with unique sibling names. Formal Claim contains a CFEL-labelled code fence; Prose Claim contains ordinary Markdown. Omit absent optional Properties. Do not duplicate Claim in frontmatter.\n\nMap declared headings to their Property paths with a code-fence-aware outline. Only headings admitted as children by an applicable declaration are Properties. Other headings within a Markdown value, including unknown `##` headings within Prose Claim, remain part of that value and do not terminate it. A recognized Property section ends at the next recognized sibling or ancestor heading, or at the end of Main Content. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a Property subtree includes its selected heading and its descendants.\n\nMap each declared Content Property key to a heading by replacing underscores with spaces and capitalizing the first letter of each word. The first Property level below Content uses `##`; each dependent Property adds one `#`. Thus `atom.content.sadf_ffff` renders as `## Sadf Ffff`, and `atom.content.sadf_ffff.aaa_bbb` renders as `### Aaa Bbb`.\n\nRead a recognized heading through that declared key-to-heading mapping. Reject an empty key, duplicate sibling key or a collision between distinct declared sibling keys and their rendered headings. Preserve the parent chain; identical leaf names under different parents remain distinct. A flattened lookup is admissible only when unambiguous.\n\nThis layout uses Markdown ATX headings, with at most six `#` characters. A deeper declared Property path is unsupported by this layout; report it rather than flattening or dropping it.\n\nLegacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Role-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.\n\n",
+      "after_sha256": "f9782cfa1185b634ccbdb07fdc225fc6867c8b882fde46270eafa9054ead733d",
+      "before_mode": 384,
+      "after_mode": 384
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-378@29-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-378\nref_id: CA-D-378@29\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\ntier: 3\nstatus: archived\nversion: 29\nupdated_at: 2026-11-03 23:17:14 +0400\ncarrier_destination:\n  file:\n    name: CA-D-378@29-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Assigned Atom Identities\n\n## Claim\n\n### Prose Claim\n\nEvery assigned Current or Archived Atom ID must begin with the registered uppercase Project identity prefix and match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. The Content Role Identity Letter is one of `C`, `A`, `P`, `R`, `M`, `E`, `D`, or `O`.\n\nEvery Draft carries its base canonical ID in the Header as `atom_id: <canonical-ID>`, with `status: Draft` and a separate numeric `version`. Its filename carries exactly one `<canonical-ID>@<version>-draft` marker before the remaining mutable filename components.\n\nFor a Draft revision of an existing Atom, `<version>` follows the applicable current-version-plus-one rule. A new Atom Draft allocates an unused canonical ID and uses `version: 1` with the same qualified `@1-draft` filename marker. Classification-only changes and other non-replacement edits retain the ordinary identity rule; this Draft marker does not add a new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "after_sha256": "c1fbd4a308964e066b2016d44eb5ee852d1c8fb077553631751d58fe2ddc7ac3",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "before": "---\natom_id: CA-D-378\nref_id: CA-D-378\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\ntier: 3\nstatus: Active\nversion: 29\nupdated_at: 2026-11-03 23:17:14 +0400\ncarrier_destination:\n  file:\n    name: CA-D-378-CORE_META_MODEL-DECISION--serialize-assigned-atom-identities.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Assigned Atom Identities\n\n## Claim\n\n### Prose Claim\n\nEvery assigned Current or Archived Atom ID must begin with the registered uppercase Project identity prefix and match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. The Content Role Identity Letter is one of `C`, `A`, `P`, `R`, `M`, `E`, `D`, or `O`.\n\nEvery Draft carries its base canonical ID in the Header as `atom_id: <canonical-ID>`, with `status: Draft` and a separate numeric `version`. Its filename carries exactly one `<canonical-ID>@<version>-draft` marker before the remaining mutable filename components.\n\nFor a Draft revision of an existing Atom, `<version>` follows the applicable current-version-plus-one rule. A new Atom Draft allocates an unused canonical ID and uses `version: 1` with the same qualified `@1-draft` filename marker. Classification-only changes and other non-replacement edits retain the ordinary identity rule; this Draft marker does not add a new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "before_sha256": "5a234ccfcf0d149e60792c7a9ed71a7fe3e5e972fef2b679f9bb6976536a3bb6",
+      "after": "---\natom_id: CA-D-378\nref_id: CA-D-378\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\ntier: 3\nstatus: active\nversion: 31\nupdated_at: 2026-11-09 00:51:00 +0400\ncarrier_destination:\n  file:\n    name: CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Assigned Atom Identities\n\n## Claim\n\n### Prose Claim\n\nEvery assigned Current or Archived Atom ID must begin with the registered uppercase Project identity prefix and match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. The Content Role Identity Letter is one of `C`, `A`, `P`, `R`, `M`, `E`, `D`, or `O`.\n\nEvery Draft carries its exact base canonical ID and positive integer Version at their declared Header paths. The logical Status is Draft, encoded as `draft` by the common YAML rule. Its filename carries exactly one `<canonical-ID>@<version>-draft` marker before the remaining mutable filename components.\n\nFor a Draft revision of an existing Atom, `<version>` follows the applicable current-version-plus-one rule. A new Atom Draft allocates an unused canonical ID and uses integer Version 1 at its declared Header path with the same qualified `@1-draft` filename marker. Classification-only changes and other non-replacement edits retain the ordinary identity rule; this Draft marker does not add a new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "after_sha256": "c573495a8f88f13ab1b6d0ab0fb76d79dec923631294c67f2d182cac1a3f0e2b",
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-663@2-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\natom_id: CA-D-663\nref_id: CA-D-663@2\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Eng Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File/Markdown\ntier: 3\nstatus: archived\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-663@2-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n# Summary\n\nMap Markdown headings to Property paths\n\n## Claim\n\n### Prose Claim\n\n\n- Map heading ancestry to nested Content Properties.\n- The first heading may have any level.\n- Skipped levels create no empty Properties.\n- Fenced heading-like text creates no section.\n- Preserve the actual heading tree.\n\n## Details\n\nBoth examples expose content.1.2.3 with direct value 4:\n\n```markdown\n# 1\n## 2\n### 3\n4\n```\n\n```markdown\n## 1\n### 2\n5\n#### 3\n4\n```\n\nIn the second example, content.1.2 has its direct content 5 and a child section 3 containing 4. Retrieving the parent section returns its descendant subtree as well. Value cardinality counts direct content, not the children's values. Property declarations independently permit or forbid direct values and children; no special double-dot Property notation is introduced.\n\nNormalize each heading name to lowercase, replace spaces with underscores, and remove characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or two equal normalized keys under the same parent; never merge or overwrite their content. Equal keys under different parents retain distinct paths. A failed mapping leaves the original Markdown intact and reports the conflict; it does not prevent retaining or reading the source as Markdown.\n\nRetrieving a section returns its selected heading and the entire descendant subtree through the next real heading of the same or higher level. In the second example, retrieving `content.1.2` returns `### 2`, its direct content `5`, and the child heading `#### 3` with content `4`. The selected heading and child content do not add to the direct-value count.\n\nParsing arbitrary Markdown does not establish Atom Form conformance or graph authority.\n",
+      "after_sha256": "1ec1c6aa36d5bcf8830dc966fcabd56720b1a770a40d45a86aa5bfc918154d91",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-269@29-draft-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "before": "---\natom_id: CA-D-269\nref_id: CA-D-269@29-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Topics\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON\n  - CAPRMEDIO_MODEL <+ Entity\n  - CAPRMEDIO_MODEL <+ CFEL <+ Relation\ntier: 3\nstatus: Draft\nversion: 29\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-269@29-draft-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Atom Subjects in Frontmatter\n\n## Claim\n\n### Prose Claim\n\nSerialize the Atom\u2019s declared Topics Properties at their Header paths through the common recursive YAML mapping.\n\n- Main Subject carries one nonempty typed reference path.\n- Dependencies carries zero or more distinct nonempty typed reference paths. Omit an absent optional collection.\n- Encode declared name components with the common name rule. Preserve reference syntax, opaque IDs, formal count annotations, escapes and reference boundaries.\n- Resolve decoded references to their canonical declared targets. A defining Atom can introduce its target and path together.\n- YAML quoting preserves the decoded expression; quotes are not part of that expression.\n\nRead governed legacy Subject fields only within the admitted migration boundary. Unequal decoded aliases are invalid; equal aliases represent one value. New output follows the declared Header hierarchy.\n\n## Details\n\nReference migration preserves target identity and follows the governing Entity rules. Subject paths are distinct from formal Relation expressions in the body Claim.\n",
+      "before_sha256": "0818647648fc6d7e075fc81a3ae576456e4f3612c5f0b0c33dc0d5ada1263012",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-446@29-draft-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "before": "---\natom_id: CA-D-446\nref_id: CA-D-446@29-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\n  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'\ntier: 1\nstatus: Draft\nversion: 29\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-446@29-draft-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nGive Every Non-Draft Atom Revision One Identifier\n\n## Claim\n\n### Prose Claim\n\n\nCurrent Atom sources, Archived Atom versions and Draft Atom sources.\n\n\nFor each canonical Atom ID, at most one Current Atom source **may** exist across all admitted Status values. Every Current or Archived Atom version **must** be identified by exactly one canonical Atom ID and Version Number; Archived versions **may** retain that ID at distinct Version Numbers. Every Draft Atom **must** carry one `atom_id` marker form specified by CA-D-378; a Current source uses the canonical ID. An Archived predecessor is identified by its canonical ID qualified once with its unchanged numeric Version, with Archived Status encoded by the common named-value rule and its prior Updated At retained; Git history preserves exact pre-archive bytes.\n\n- for a Current or Archived Atom version, carry the canonical Atom ID as a String at its declared Header path **and** Version Number at its declared Header path; their pair identifies one Atom version **without** another `identifier` field. A Draft carries only the explicit marker allowed by the Claim and CA-D-378.\n- a Draft Carrier **must** carry `atom_id` using only the Draft marker forms admitted by CA-D-378. These forms do not change the Current Atom ID uniqueness rule.\n- when an identified Atom is changed to Draft, its Draft Carrier carries the corresponding Draft marker admitted by CA-D-378; the marker and filename remain governed by CA-D-378 and CA-D-650. Do **not** create a second concurrent Draft Carrier for that Status edit.\n- when a Current Atom changes, create an Archive Carrier for the predecessor with its qualified Ref ID, encoded Archived Status, unchanged numeric Version and old Updated At; the Current successor retains the canonical ID, advances Version from N to N+1, and receives actual edit time under CA-R-1432/CA-R-1788. An exact no-op retains Version/time. There is no demotion Version exception.\n- a Draft carrying `<canonical-ID>@<proposed-version>-draft` for an existing Atom proposes an update to that same canonical Atom at the marker's proposed Version. For an actual update, that Version must be the current canonical Version plus one under the existing version-advance rule; archive the current canonical predecessor with its old numeric Version, Updated At and unrelated content, and update that Atom, subject to exact-current, identity/collision, Summary/replacement, Type/Status, schema and permission rules. An exact no-op retains the existing Version/time and creates no predecessor archive. This same-canonical rule does not determine promotion behavior for the role-only new-Atom marker.\n\n## Details\n\n### Draft Atom Identity\n\nDraft Atom ID is mandatory. Its marker form is as stated in the Claim and CA-D-378.\n\nNew-Atom Drafts and ordinary lifecycle Draft demotion/update/identification carry the marker admitted by CA-D-378; their filenames follow CA-D-650. A Draft marker does not change the existing Current Atom uniqueness rule. For a Draft marked `<canonical-ID>@<proposed-version>-draft`, promotion proposes an update to the same canonical Atom at the proposed Version, subject to the ordinary currentness, schema, identity/collision, permission, Summary/replacement and change-class rules. Draft identity continuity does not require a retained-history entry, lineage/head/origin chain or consuming successor under CA-D-568/CA-D-570.\n",
+      "before_sha256": "20fd31ba9c6a7313b4acd4bf6af1f0a0483d461e30d621ae370ca18d98baf85e",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-472@30-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "before": "---\natom_id: CA-D-472\nref_id: CA-D-472@30-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Plan).Header.AI Agent Confidence Threshold\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)\n  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence\n  - CAPRMEDIO_MODEL <+ Carrier/File\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done\ntier: 3\nstatus: Draft\nversion: 30\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-472@30-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan confidence overrides\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan AI Agent Confidence Threshold overrides in Plan Atom Markdown File Carriers.\n\n\nAn explicit Plan AI Agent Confidence Threshold override is an integer at its declared Header path in that Plan Atom\u2019s own Markdown File Carrier. Apply the common recursive name encoding.\n\n- a Hub uses that same file, **not** a separately identified Objective **or** Epic settings file.\n- omit an unselected override **without** copying its inherited value; the mandatory file requirement does **not** turn inheritance into a local selection.\n- retain an explicit override even **when** it equals the inherited value.\n- `epic_overrides` is **not** an alternative canonical encoding.\n",
+      "before_sha256": "ed974077f85726b847fec03ecec406e7dedb178c71351d7c4f93599a5cf7169f",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-473@26-draft-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "before": "---\natom_id: CA-D-473\nref_id: CA-D-473@26-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nrelations:\n  delivery_for:\n  - CA-R-1585\nstatus: Draft\nversion: 26\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-473@26-draft-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize explicit Plan Assignees\n\n## Claim\n\n### Prose Claim\n\n\nexplicit Plan Assignee overrides in Plan File Carriers.\n\n\nWhere the model admits an explicit Assignee override, a Plan File Carrier serializes **`=1`** such value at its declared Header path through the common name encoding; omission **must** preserve CA-R-1585-CORE_META_MODEL-RULE--default-plan-work-assignment-to-an-ai-agent for its own work rather than copying the default.\n",
+      "before_sha256": "010e5fefd15f430b94879b3b6abe0ccc4dfb84898bd7bf04fb4bf1b93b846300",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-483@25-draft-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "before": "---\natom_id: CA-D-483\nref_id: CA-D-483@25-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Header.Form\n  - CAPRMEDIO_MODEL <+ Carrier\ntier: 3\nstatus: Draft\nversion: 25\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-483@25-draft-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nCarry Atom Revision Status in frontmatter\n\n## Claim\n\n### Prose Claim\n\n\nthe Status property carried by an Atom Revision.\n\n\nEvery Atom Revision carries exactly one explicit Status value at its declared Header path in its own Markdown frontmatter.\n\n- the value **must** belong **to** the applicable Content Role **and** Type Status model.\n- placement **must** agree under CA-D-466 **and** its specific Delivery rules; it is **not** a second Status source.\n- another Revision **or** a containing Hub **must not** override this Revision's carried Status.\n\n- Encode Status as one nonempty YAML string using the common named-value encoding. Its decoded value resolves to exactly one Status admitted by the applicable model. A list, null or another Revision\u2019s value is invalid.\n",
+      "before_sha256": "7ee5893ecb4806f9c487100e3134d31a77bbb7b9d029da793c946f7d0188c1b7",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "before": "---\natom_id: CA-D-650\nref_id: CA-D-650@15-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.ID\n  - CAPRMEDIO_MODEL <+ Atom.Header.Version\ntier: 3\nstatus: Draft\nversion: 15\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-650@15-draft-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize numbered version-qualified Draft Atom filenames\n\n## Claim\n\n### Prose Claim\n\nA Draft revision of an existing Atom carries its exact base canonical ID and positive integer proposed Version at their declared Header paths. The logical Status is Draft, encoded as `draft` by the common YAML rule. Its filename carries exactly one `<canonical-ID>@<proposed-version>-draft` marker as the Atom-ID segment before the remaining mutable filename components.\n\nFor an existing Atom, `<proposed-version>` follows the applicable current revision rule, normally `<current-version> + 1`. The filename marker qualifies the proposed revision; it is not a second Header identity.\n\nA new Atom Draft allocates an unused canonical ID, carries logical Draft Status and integer Version 1 at their declared Header paths, and uses the same qualified filename marker with `@1-draft`. Classification-only changes and other non-replacement edits keep the ordinary identity rule; this filename contract adds no new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "before_sha256": "725c4fb59a49cad3a0eaf69eec9b1c61526afa8b8e8cb1631b5097a7096a9325",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-470@32-draft-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "before": "---\natom_id: CA-D-470\nref_id: CA-D-470@32-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details\n  - CAPRMEDIO_MODEL <+ Carrier/File\ntier: 3\nstatus: Draft\nversion: 32\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-470@32-draft-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n\n## Summary\n\nSerialize Plan file sections\n\n## Claim\n\n### Prose Claim\n\nDeliver the Plan\u2019s admitted Header as YAML and its declared Content tree as Markdown through the common Atom delivery mapping. Render every declared Property\u2019s heading, nesting and sibling order from that tree under CA-D-479.\n\nFor Work Report, carry Summary and Details. Details records actual changes, checks, results and remaining gaps. Undeclared subheadings remain part of its Markdown value.\n\nFor other Plan Forms, retain the required intended work or outcome and completion content at their declared Property paths. The applicable model determines those paths; Delivery adds no Objective alias or extra nesting for Definition of Done. A missing required Property declaration is a diagnostic, not permission to invent or omit that Property.\n\nEach Plan retains its own file. A Hub uses that same file, with admitted supporting content in its declared places. Legacy layouts remain readable only within the selected migration boundary.\n",
+      "before_sha256": "0ccdca0af659f97862786405fab52b6d3f70f91891a6207f7e81155f5a06e91e",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@35-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "before": "---\natom_id: CA-D-479\nref_id: CA-D-479@35-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Policy\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Content.Summary\n  - CAPRMEDIO_MODEL <+ Atom.Content\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Atom.Content.Details\n  - CAPRMEDIO_MODEL <+ Term//Property\ntier: 3\nrelations:\n  is_replacement_for:\n  - CA-D-663\nstatus: Draft\nversion: 35\nupdated_at: 2026-11-09 00:43:15 +0400\ncarrier_destination:\n  file:\n    name: CA-D-479@35-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nUse stable headings for Atom body Properties\n\n## Claim\n\n### Prose Claim\n\nApplicability: Structured Main Content of Markdown Atom carriers.\n\nSerialize Content headings in their declared sibling order. Omit absent optional Properties. Other admitted sibling Properties follow the ordered Properties, with no required order among them. For a declared Workflow Claim, Mermaid Scheme precedes Prose Claim, which precedes Formal Claim.\n\nFor ordinary RMED, carry one `## Summary` and one `## Claim` as sibling Properties, optionally followed by `## Semantics` and `## Details` in that order. Claim has no direct value and contains one or both `### Formal Claim` and `### Prose Claim`, with unique sibling names. Formal Claim contains a CFEL-labelled code fence; Prose Claim contains ordinary Markdown. Omit absent optional Properties. Do not duplicate Claim in frontmatter.\n\nMap declared headings to their Property paths with a code-fence-aware outline. Only headings admitted as children by an applicable declaration are Properties. Other headings within a Markdown value, including unknown `##` headings within Prose Claim, remain part of that value and do not terminate it. A recognized Property section ends at the next recognized sibling or ancestor heading, or at the end of Main Content. Heading-like text in a fence is content. Direct value counts and dependent Property counts are independent. Retrieving a Property subtree includes its selected heading and its descendants.\n\nMap each declared Content Property key to a heading by replacing underscores with spaces and capitalizing the first letter of each word. The first Property level below Content uses `##`; each dependent Property adds one `#`. Thus `atom.content.sadf_ffff` renders as `## Sadf Ffff`, and `atom.content.sadf_ffff.aaa_bbb` renders as `### Aaa Bbb`.\n\nRead a recognized heading through that declared key-to-heading mapping. Reject an empty key, duplicate sibling key or a collision between distinct declared sibling keys and their rendered headings. Preserve the parent chain; identical leaf names under different parents remain distinct. A flattened lookup is admissible only when unambiguous.\n\nThis layout uses Markdown ATX headings, with at most six `#` characters. A deeper declared Property path is unsupported by this layout; report it rather than flattening or dropping it.\n\nLegacy layouts remain readable during migration. The existing C/A/P/O primary-content headings and their own Role-specific content rules remain applicable. A Draft may be incomplete but must satisfy the applicable complete contract before promotion.\n\n",
+      "before_sha256": "45982f36a6fa45b73121bc6be94bd3cbe68ca1934f13b94f630110ce29bd9cf8",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-378@30-draft-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "before": "---\natom_id: CA-D-378\nref_id: CA-D-378@30-draft\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID\n  dependencies:\n  - CAPRMEDIO_MODEL <+ Atom.Header.Role\n  - CAPRMEDIO_MODEL <+ Project\n  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)\ntier: 3\nstatus: Draft\nversion: 30\nupdated_at: 2026-11-09 00:48:50 +0400\ncarrier_destination:\n  file:\n    name: CA-D-378@30-draft-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n## Summary\n\nSerialize Assigned Atom Identities\n\n## Claim\n\n### Prose Claim\n\nEvery assigned Current or Archived Atom ID must begin with the registered uppercase Project identity prefix and match `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-<GLOBAL_NUMBER_WITHIN_CONTENT_ROLE>`. The Content Role Identity Letter is one of `C`, `A`, `P`, `R`, `M`, `E`, `D`, or `O`.\n\nEvery Draft carries its exact base canonical ID and positive integer Version at their declared Header paths. The logical Status is Draft, encoded as `draft` by the common YAML rule. Its filename carries exactly one `<canonical-ID>@<version>-draft` marker before the remaining mutable filename components.\n\nFor a Draft revision of an existing Atom, `<version>` follows the applicable current-version-plus-one rule. A new Atom Draft allocates an unused canonical ID and uses integer Version 1 at its declared Header path with the same qualified `@1-draft` filename marker. Classification-only changes and other non-replacement edits retain the ordinary identity rule; this Draft marker does not add a new identity meaning.\n\nExisting legacy Draft filenames are not normalized, renamed, or migrated automatically by this rule.\n",
+      "before_sha256": "af6943bd8f4e6cebc1a45e5b366f23c097cd70b5c0e37f283980b9a70dee8aed",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-663-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "before": "---\natom_id: CA-D-663\nref_id: CA-D-663\ncontainer:\n  scope_unit: CA-SU-11\nrole: Delivery\nform: Eng Decision\ntopics:\n  main_subject: CAPRMEDIO_MODEL <+ Carrier/File/Markdown\ntier: 3\nstatus: Active\nversion: 2\nupdated_at: 2026-11-02 00:18:22 +0400\ncarrier_destination:\n  file:\n    name: CA-D-663-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md\n    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery\ncurrent_scope_unit: CORE_META_MODEL\nclaim_target_scope_unit: CORE_META_MODEL\n---\n# Summary\n\nMap Markdown headings to Property paths\n\n## Claim\n\n### Prose Claim\n\n\n- Map heading ancestry to nested Content Properties.\n- The first heading may have any level.\n- Skipped levels create no empty Properties.\n- Fenced heading-like text creates no section.\n- Preserve the actual heading tree.\n\n## Details\n\nBoth examples expose content.1.2.3 with direct value 4:\n\n```markdown\n# 1\n## 2\n### 3\n4\n```\n\n```markdown\n## 1\n### 2\n5\n#### 3\n4\n```\n\nIn the second example, content.1.2 has its direct content 5 and a child section 3 containing 4. Retrieving the parent section returns its descendant subtree as well. Value cardinality counts direct content, not the children's values. Property declarations independently permit or forbid direct values and children; no special double-dot Property notation is introduced.\n\nNormalize each heading name to lowercase, replace spaces with underscores, and remove characters other than letters, numbers, underscore and hyphen. Reject an empty normalized key or two equal normalized keys under the same parent; never merge or overwrite their content. Equal keys under different parents retain distinct paths. A failed mapping leaves the original Markdown intact and reports the conflict; it does not prevent retaining or reading the source as Markdown.\n\nRetrieving a section returns its selected heading and the entire descendant subtree through the next real heading of the same or higher level. In the second example, retrieving `content.1.2` returns `### 2`, its direct content `5`, and the child heading `#### 3` with content `4`. The selected heading and child content do not add to the direct-value count.\n\nParsing arbitrary Markdown does not establish Atom Form conformance or graph authority.\n",
+      "before_sha256": "1d789aa984e2a8abbd1820fb278ab4e451c94ebd9d014ec05ce2626276cf81a4",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 384,
+      "after_mode": 384
+    }
+  ],
+  "outputs": [
+    {
+      "atom_id": "CA-D-269",
+      "version": 30,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-269-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "current_sha256": "121e04f8380105a51e1aaa7854f8d9fce4e553a5a18fd66f3570cf8bb93aab73",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-269@28-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md",
+      "archive_sha256": "c6ad26eecc1ee324891c5600ff9e8b5e544da70212d2655e785d2a8459a9dd9c",
+      "archived_version": 28,
+      "archived_updated_at": "2026-11-02 00:18:22 +0400",
+      "archived_body_sha256": "827548635ced2a24a6d70572836ad971a25c0ff129e9b630a2702051541bbd4c",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-269@29-draft-CORE_META_MODEL-ENG_DECISION--serialize-atom-subjects-in-frontmatter.md"
+    },
+    {
+      "atom_id": "CA-D-446",
+      "version": 30,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-446-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "current_sha256": "7c75cb0bb7cd0a2781d6b762475eaee00059f81a131224784ace5f30fd480a83",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-446@28-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md",
+      "archive_sha256": "f0807889731d4a637385aee1dea0286dd46ccd857b477116fed050babaa41c8a",
+      "archived_version": 28,
+      "archived_updated_at": "2026-11-02 00:18:22 +0400",
+      "archived_body_sha256": "020cf2dcd090ca0de849c2e0543b33929c436af17d5688f9e40e7b82cdd01f42",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-446@29-draft-CORE_META_MODEL-ENG_DECISION--give-every-non-draft-atom-revision-one-identifier.md"
+    },
+    {
+      "atom_id": "CA-D-472",
+      "version": 31,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-472-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "current_sha256": "4b6bf3191773d4b250d50e1856f67211b6831e36f7b69f7e7a0136a923b652a0",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-472@29-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md",
+      "archive_sha256": "cca3d640d710a84cfc30cd91ad7bd7bdc883bd197ed03ea2ac3acf3642479bdf",
+      "archived_version": 29,
+      "archived_updated_at": "2026-11-02 18:35:20 +0400",
+      "archived_body_sha256": "e0d2f13e834041939ae9b3d162b3cfa89bbb56666c5f4af94e48ba066db6c2a4",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-472@30-draft-CORE_META_MODEL-DECISION--serialize-explicit-plan-confidence-overrides.md"
+    },
+    {
+      "atom_id": "CA-D-473",
+      "version": 27,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-473-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "current_sha256": "8018a594ec65f292d72f69cc52976cc4771be174a02c7c643e80435c8dfd4059",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-473@25-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md",
+      "archive_sha256": "523face5086efffb6ed7cc9c6b5ac785d39b868d92623872c7f437d386542254",
+      "archived_version": 25,
+      "archived_updated_at": "2026-11-02 00:18:22 +0400",
+      "archived_body_sha256": "0934f879e4b3dd49a117af6a8c8d52cc2acc62db8efa15ab40a29e3f18967018",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-473@26-draft-CORE_META_MODEL-ENG_DECISION--serialize-explicit-plan-assignees.md"
+    },
+    {
+      "atom_id": "CA-D-483",
+      "version": 26,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-483-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "current_sha256": "fc23b9cb2d6a55f265672f9cdb46a182263cf9254bdf846f6786fea36d0971c4",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-483@24-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md",
+      "archive_sha256": "21f68752020c1c82cafb72112029768ed0308b5ed5ee266df63dc2b76463d676",
+      "archived_version": 24,
+      "archived_updated_at": "2026-11-03 23:25:51 +0400",
+      "archived_body_sha256": "82cf705d828556d42debfe22d6df7c883289a0ff340cd6d17d2269dfd2b24d00",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-483@25-draft-CORE_META_MODEL-ENG_DECISION--carry-atom-revision-status-in-frontmatter.md"
+    },
+    {
+      "atom_id": "CA-D-650",
+      "version": 16,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-650-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "current_sha256": "3c4dee397801a72b0e86286d2c92ee304725f70cd3c5d64e7a57bbb9f65f42d1",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-650@14-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md",
+      "archive_sha256": "eb419e58b986e2d6ce80569e84848e1ce03320b90b984a7bf51f83af252fda93",
+      "archived_version": 14,
+      "archived_updated_at": "2026-11-03 23:25:51 +0400",
+      "archived_body_sha256": "990531ae062474dc9b03c93dec850334beaf0991d192ccedb16630d6ea39c8f7",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-650@15-draft-CORE_META_MODEL-ENG_DECISION-CORE_META_MODEL--serialize-numbered-version-qualified-draft-atom-filenames.md"
+    },
+    {
+      "atom_id": "CA-D-470",
+      "version": 33,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "current_sha256": "1339d792b016eef829996c314117a56b29aae9ff5e2b38fc455795fa2ed1f7db",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-470@31-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md",
+      "archive_sha256": "41430f447515ba4438f82fcdeb9ea763699644d3acbc2ce60de977574144828e",
+      "archived_version": 31,
+      "archived_updated_at": "2026-11-08 19:06:46 +0400",
+      "archived_body_sha256": "d41a07c8c3ce0c153866359f01b5fa04d213e72cb811d9059627175ec75d0c36",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-470@32-draft-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md"
+    },
+    {
+      "atom_id": "CA-D-479",
+      "version": 36,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "current_sha256": "f9782cfa1185b634ccbdb07fdc225fc6867c8b882fde46270eafa9054ead733d",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-479@34-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md",
+      "archive_sha256": "c2c78ef5eaade2c77d5efc92ce9c9200ebfc25ea00375a3e5e8a6084299f5c9c",
+      "archived_version": 34,
+      "archived_updated_at": "2026-11-09 00:03:55 +0400",
+      "archived_body_sha256": "aa38c6d3a0eb0f3cb37b97ed4aa7a219198e38bbe4f7f27567a7f1ae19dc4151",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-479@35-draft-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties.md"
+    },
+    {
+      "atom_id": "CA-D-378",
+      "version": 31,
+      "current_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-378-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "current_sha256": "c573495a8f88f13ab1b6d0ab0fb76d79dec923631294c67f2d182cac1a3f0e2b",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-378@29-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md",
+      "archive_sha256": "c1fbd4a308964e066b2016d44eb5ee852d1c8fb077553631751d58fe2ddc7ac3",
+      "archived_version": 29,
+      "archived_updated_at": "2026-11-03 23:17:14 +0400",
+      "archived_body_sha256": "02f7d2bc77385720cfa537d40b1cf86067c20b8f18e2c1d9cc9fba80c54175fd",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/CA-D-378@30-draft-CORE_META_MODEL-ENG_DECISION--serialize-assigned-atom-identities.md"
+    },
+    {
+      "atom_id": "CA-D-663",
+      "retired": true,
+      "replacement_id": "CA-D-479",
+      "archive_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/archived/CA-D-663@2-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md",
+      "archive_sha256": "1ec1c6aa36d5bcf8830dc966fcabd56720b1a770a40d45a86aa5bfc918154d91",
+      "archived_version": 2,
+      "archived_updated_at": "2026-11-02 00:18:22 +0400",
+      "archived_body_sha256": "a37afc60e8faeea9a771c8a07aae38acc4892721bcbd2ef36a1aedb616934715",
+      "retired_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-663-CORE_META_MODEL-ENG_DECISION--map-markdown-headings-to-property-paths.md"
+    }
+  ],
+  "native_workflow_admission": false,
+  "journal_append": false,
+  "scope": "Core Carrier naming/declared-tree conflicts only; proper predecessor archive metadata; no runtime or physical carrier migration"
+}

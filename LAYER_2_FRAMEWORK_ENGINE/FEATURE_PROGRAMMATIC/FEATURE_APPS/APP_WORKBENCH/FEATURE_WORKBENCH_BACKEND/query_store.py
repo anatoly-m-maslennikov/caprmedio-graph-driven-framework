@@ -1,17 +1,18 @@
-# CA-R-2728@6
-# CA-R-2729@7
-# CA-R-2953@1
-# CA-M-462@10
-# CA-M-463@6
-# CA-M-493@1
-# CA-D-673@13
-# CA-D-697@1
-# CA-R-2950@1
-# CA-R-2724@3
-# CA-M-490@2
-# CA-D-695@2
-# CA-M-465@23
-# CA-D-675@13
+# CA-R-2725@4
+# CA-R-2728@7
+# CA-R-2729@8
+# CA-R-2953@2
+# CA-M-462@11
+# CA-M-463@7
+# CA-M-493@2
+# CA-D-673@15
+# CA-D-697@2
+# CA-R-2950@2
+# CA-R-2724@4
+# CA-M-490@3
+# CA-D-695@3
+# CA-M-500@3
+# CA-D-672@14
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
@@ -27,7 +28,7 @@ from typing import Any
 
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .graph_store import quote_identifier
-from .header_columns import HeaderSchema, HeaderSchemaState, schema_asset_path
+from .header_columns import HeaderSchema, HeaderSchemaState, header_schema_for_mode, schema_asset_path
 from .content_schema import ContentSchema, compile_content_schema, content_schema_asset_path
 from .index_delta import MaterializationDelta
 from .projection_delta import ProjectionSnapshot, apply as apply_projection_delta, snapshot
@@ -84,13 +85,16 @@ class QueryStore:
 
     def __init__(
         self, *, extension_directory: Path | None = None, database_path: Path | None = None,
-        result_ttl_seconds: int = 3600,
+        result_ttl_seconds: int = 3600, schema_mode: int = 2,
     ) -> None:
         if type(result_ttl_seconds) is not int or result_ttl_seconds <= 0:
             raise ValueError("result_ttl_seconds must be a positive integer")
+        if type(schema_mode) is not int or schema_mode not in {1, 2}:
+            raise ValueError("workbench.schema_mode must be 1 or 2")
         self._extension_directory = extension_directory
         self._database_path = database_path
         self._result_ttl_seconds = result_ttl_seconds
+        self._schema_mode = schema_mode
         self._lock = threading.RLock()
         self._connection = _connect(extension_directory, database_path)
         self._available = True
@@ -125,13 +129,14 @@ class QueryStore:
     def replace(
         self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]],
         *, relation_types: set[str] | None = None, content_schema: ContentSchema | None = None,
+        header_schema: HeaderSchema | None = None,
     ) -> None:
         with self._lock:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             try:
-                header_state = HeaderSchemaState.from_atoms(atom_rows)
-                header_schema = header_state.schema
+                header_state = HeaderSchemaState.from_atoms(atom_rows) if self._schema_mode == 2 else self._header_state
+                header_schema = header_schema or header_schema_for_mode(self._schema_mode, atom_rows)
                 if content_schema is None:
                     content_schema = compile_content_schema(atom_rows)
                 self._connection.execute("BEGIN TRANSACTION")
@@ -180,7 +185,7 @@ class QueryStore:
     def apply(
         self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]],
         *, relation_types: set[str], content_schema: ContentSchema | None = None,
-        delta: MaterializationDelta | None = None,
+        delta: MaterializationDelta | None = None, header_schema: HeaderSchema | None = None,
     ) -> bool:
         """Apply the materialized delta without replacing unaffected public rows."""
         with self._lock:
@@ -190,15 +195,20 @@ class QueryStore:
                 self.replace(atom_rows, scope_rows, relation_types=relation_types, content_schema=content_schema)
                 return True
             try:
-                if delta is None:
+                if self._schema_mode == 1:
+                    header_state = self._header_state
+                elif delta is None:
                     header_state = HeaderSchemaState.from_atoms(atom_rows)
                 else:
                     header_state = self._header_state.updated(delta.old_atoms, delta.new_atoms)
-                header_schema = header_state.schema
+                header_schema = header_schema or (
+                    self._header_schema if self._schema_mode == 1 else header_state.schema
+                )
                 if content_schema is None:
                     content_schema = compile_content_schema(atom_rows)
                 self._schema_changed = (
-                    header_schema != self._header_schema or content_schema.shape != self._content_schema.shape
+                    header_schema.shape != self._header_schema.shape
+                    or content_schema.shape != self._content_schema.shape
                 )
                 if self._schema_changed:
                     return True
@@ -211,7 +221,9 @@ class QueryStore:
                 self._connection.execute("COMMIT")
                 self._projection = projection
                 self._header_state = header_state
+                self._header_schema = header_schema
                 self._content_schema = content_schema
+                header_schema.write(schema_asset_path(self._database_path))
                 content_schema.write(content_schema_asset_path(self._database_path))
                 self._info_edit("delete", "atoms", change.deleted_atoms, started, change.reference)
                 self._info_edit("delete", "scope_units", change.deleted_scopes, started)

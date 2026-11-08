@@ -1,23 +1,26 @@
 ---
-atom_id: CA-E-784
-ref_id: CA-E-784
-container:
-  scope_unit: CA-SU-45
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
-tier: 5
+identity:
+  atom_id: CA-E-784
+  ref_id: CA-E-784
+context:
+  container:
+    scope_unit: CA-SU-45
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Projection
+  tier: 5
 relations:
   evaluation_for:
   - CA-M-462
   - CA-M-493
   - CA-D-697
   - CA-O-240
-status: Active
-version: 1
-updated_at: 2026-11-05 20:32:03 +0400
-carrier_destination:
+state:
+  status: Active
+  version: 2
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-E-784-WORKBENCH_BACKEND-EVAL_CASE--verify-native-cached-query-grid-pages.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation

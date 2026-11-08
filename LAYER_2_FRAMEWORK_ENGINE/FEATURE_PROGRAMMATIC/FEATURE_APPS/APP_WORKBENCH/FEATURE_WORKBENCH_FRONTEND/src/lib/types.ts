@@ -1,7 +1,4 @@
-// CA-R-2727@14
-// CA-D-674@18
-// CA-M-476@5
-// CA-D-681@9
+// CA-D-674@23
 export type Column = { name: string; type: string; has_values?: boolean };
 
 export type SavedIdentity = {

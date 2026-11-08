@@ -1,8 +1,6 @@
-# CA-R-2726@5
-# CA-M-465@23
-# CA-M-500@1
-# CA-D-672@12
-# CA-E-677@14
+# CA-R-2726@6
+# CA-M-500@3
+# CA-D-672@14
 
 """Apply the materialized source delta to the public Workbench projection."""
 
@@ -142,7 +140,7 @@ def _write_public_delta(
     _insert_rows(
         connection, "atoms", atom_fields(current.header_schema, current.content_schema),
         [current.atoms[key] for key in changed_atoms if key in current.atoms],
-        json_fields=current.header_schema.json_names | {"header_relations"},
+        json_fields=current.header_schema.json_names | {"header.relations"},
     )
     _insert_rows(
         connection, "scope_units", SCOPE_FIELDS,

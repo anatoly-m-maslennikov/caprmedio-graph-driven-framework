@@ -68,6 +68,22 @@ class RelationRegistryImageInputTests(unittest.TestCase):
         )
         return source
 
+    def schema_compiler_source(self, name: str, schema: bytes) -> Path:
+        source = self.temporary / name
+        compiler = source / images.WORKBENCH_SCHEMA_COMPILER
+        compiler.parent.mkdir(parents=True)
+        compiler.write_text(
+            "import argparse\n"
+            "from pathlib import Path\n"
+            "parser = argparse.ArgumentParser()\n"
+            "parser.add_argument('--project-root')\n"
+            "parser.add_argument('--output')\n"
+            "args = parser.parse_args()\n"
+            f"Path(args.output).write_bytes({schema!r})\n",
+            encoding="utf-8",
+        )
+        return source
+
     def test_independent_source_roots_run_their_own_registry_compiler(self):
         first = self.compiler_source("source-one", b'{"source":"one"}\n')
         second = self.compiler_source("source-two", b'{"source":"two"}\n')
@@ -82,6 +98,19 @@ class RelationRegistryImageInputTests(unittest.TestCase):
         self.assertEqual(
             b'{"source":"one"}\n',
             images._compile_relation_registry(first, self.project, timeout=5, max_output=1024),
+        )
+        self.assertEqual([], list((self.project / ".caprmedio_tmp").iterdir()))
+
+    def test_schema_compiler_uses_selected_source_and_private_project_staging(self):
+        first = self.schema_compiler_source("schema-one", b'{"mode":"header"}\n')
+        second = self.schema_compiler_source("schema-two", b'{"mode":"markdown"}\n')
+        self.assertEqual(
+            b'{"mode":"header"}\n',
+            images._compile_workbench_schema(first, self.project, timeout=5, max_output=1024),
+        )
+        self.assertEqual(
+            b'{"mode":"markdown"}\n',
+            images._compile_workbench_schema(second, self.project, timeout=5, max_output=1024),
         )
         self.assertEqual([], list((self.project / ".caprmedio_tmp").iterdir()))
 
@@ -100,6 +129,18 @@ class RelationRegistryImageInputTests(unittest.TestCase):
             "Path(args.output).write_bytes(REGISTRY)\n",
             encoding="utf-8",
         )
+        schema_compiler = self.source / images.WORKBENCH_SCHEMA_COMPILER
+        schema_compiler.write_text(
+            "import argparse\n"
+            "from pathlib import Path\n"
+            "from registry_dependency import REGISTRY\n"
+            "parser = argparse.ArgumentParser()\n"
+            "parser.add_argument('--project-root')\n"
+            "parser.add_argument('--output')\n"
+            "args = parser.parse_args()\n"
+            "Path(args.output).write_bytes(REGISTRY)\n",
+            encoding="utf-8",
+        )
         before = {
             path.relative_to(self.source): path.read_bytes()
             for path in self.source.rglob("*") if path.is_file()
@@ -107,6 +148,10 @@ class RelationRegistryImageInputTests(unittest.TestCase):
         self.assertEqual(
             b'{"fresh":true}\n',
             images._compile_relation_registry(self.source, self.project, timeout=5, max_output=1024),
+        )
+        self.assertEqual(
+            b'{"fresh":true}\n',
+            images._compile_workbench_schema(self.source, self.project, timeout=5, max_output=1024),
         )
         after = {
             path.relative_to(self.source): path.read_bytes()
@@ -119,9 +164,11 @@ class RelationRegistryImageInputTests(unittest.TestCase):
         stale = self.source / images.RELATION_REGISTRY
         stale.parent.mkdir(parents=True, exist_ok=True)
         stale.write_bytes(b"stale-handwritten-registry")
-        with patch.object(images, "_compile_relation_registry", return_value=b'{"input_digest":"one"}\n'):
+        with patch.object(images, "_compile_relation_registry", return_value=b'{"input_digest":"one"}\n'), \
+                patch.object(images, "_compile_workbench_schema", return_value=b'{"schema":"one"}\n'):
             before = self.manager().identity()
-        with patch.object(images, "_compile_relation_registry", return_value=b'{"input_digest":"two"}\n'):
+        with patch.object(images, "_compile_relation_registry", return_value=b'{"input_digest":"two"}\n'), \
+                patch.object(images, "_compile_workbench_schema", return_value=b'{"schema":"two"}\n'):
             after = self.manager().identity()
         rows = {row.path: row for row in after.manifest}
         self.assertNotEqual(before.fingerprint, after.fingerprint)
@@ -135,7 +182,8 @@ class RelationRegistryImageInputTests(unittest.TestCase):
         registry = b'{"input_digest":"current","schema_version":1}\n'
         contexts = []
         manager = self.manager()
-        with patch.object(images, "_compile_relation_registry", return_value=registry):
+        with patch.object(images, "_compile_relation_registry", return_value=registry), \
+                patch.object(images, "_compile_workbench_schema", return_value=b'{"schema":"current"}\n'):
             identity = manager.identity()
 
             def executor(argv, **_kwargs):
@@ -174,11 +222,33 @@ class RelationRegistryImageInputTests(unittest.TestCase):
         for compiler in (ValueError("invalid declarations"), b""):
             with self.subTest(compiler=type(compiler).__name__):
                 calls = []
-                with patch.object(images, "_compile_relation_registry", side_effect=compiler):
+                with patch.object(images, "_compile_relation_registry", side_effect=compiler), \
+                        patch.object(images, "_compile_workbench_schema", return_value=b'{"schema":"current"}\n'):
                     with self.assertRaises(images.ImageError) as raised:
                         self.manager(lambda argv, **_kwargs: calls.append(argv)).resolve()
                 self.assertEqual("IMAGE_INPUT_UNAVAILABLE", raised.exception.code)
                 self.assertEqual([], calls)
+
+    def test_schema_bytes_change_fingerprint_enter_context_and_fail_closed(self):
+        with patch.object(images, "_compile_relation_registry", return_value=b'{"registry":"current"}\n'), \
+                patch.object(images, "_compile_workbench_schema", return_value=b'{"schema":"one"}\n'):
+            before = self.manager().identity()
+        with patch.object(images, "_compile_relation_registry", return_value=b'{"registry":"current"}\n'), \
+                patch.object(images, "_compile_workbench_schema", return_value=b'{"schema":"two"}\n'):
+            after = self.manager().identity()
+        self.assertNotEqual(before.fingerprint, after.fingerprint)
+        self.assertIn(images.WORKBENCH_SCHEMA, {row.path for row in after.manifest})
+        context = self.temporary / "context"
+        context.mkdir()
+        self.manager()._assemble(context, after)
+        self.assertEqual(b'{"schema":"two"}\n', (context / images.WORKBENCH_SCHEMA).read_bytes())
+        for compiler in (ValueError("invalid schema"), b""):
+            with self.subTest(compiler=type(compiler).__name__), \
+                    patch.object(images, "_compile_relation_registry", return_value=b'{"registry":"current"}\n'), \
+                    patch.object(images, "_compile_workbench_schema", side_effect=compiler):
+                with self.assertRaises(images.ImageError) as raised:
+                    self.manager().identity()
+            self.assertEqual("IMAGE_INPUT_UNAVAILABLE", raised.exception.code)
 
     def test_runtime_and_backend_pass_the_explicit_selected_project_root(self):
         runtime_root = self.temporary / "runtime-project"

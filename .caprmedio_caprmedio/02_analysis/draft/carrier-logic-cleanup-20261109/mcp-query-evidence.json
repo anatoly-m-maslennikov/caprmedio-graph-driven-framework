@@ -1,0 +1,159 @@
+{
+  "saved_query_id": "01a1bcf2-397a-75a1-806f-c510c4262718",
+  "name": "Atom carrier inconsistencies",
+  "saved_query_url": "http://127.0.0.1:56317/caprmedio/workbench/caprmedio?query=01a1bcf2-397a-75a1-806f-c510c4262718&project_root=%2FUsers%2Fam%2FDocuments%2FMy_Repos%2Fcaprmedio-graph-driven-framework",
+  "row_count": 3603,
+  "coverage": "Indexed Atoms only; current index contains no Archived rows. Exact scope-to-folder/summary-slug derivation is not included.",
+  "sql": "-- Compare indexed Atom carrier facts; this query does not infer scope-to-folder rules.\nWITH source AS (\n  SELECT reference, status_group, \"relative path\" AS actual_path, filename AS actual_filename,\n    \"content.summary\" AS summary,\n    NULLIF(header_identity_atom_id, '') AS grouped_id,\n    NULLIF(header_identity_id, '') AS alternate_id,\n    NULLIF(header_atom_id, '') AS legacy_id,\n    NULLIF(header_identity_ref_id, '') AS grouped_ref_id,\n    NULLIF(header_ref_id, '') AS legacy_ref_id,\n    NULLIF(header_state_status, '') AS grouped_status,\n    NULLIF(header_status, '') AS legacy_status,\n    header_state_version AS grouped_version, header_version AS legacy_version,\n    COALESCE(NULLIF(header_context_role, ''), NULLIF(header_role, ''), header_content_role) AS role,\n    header_destination_file_path AS grouped_path, header_carrier_destination_file_path AS legacy_path,\n    header_destination_file_name AS grouped_name, header_carrier_destination_file_name AS legacy_name\n  FROM atoms\n), resolved AS (\n  SELECT *, COALESCE(grouped_id, alternate_id, legacy_id) AS atom_id,\n    COALESCE(grouped_ref_id, legacy_ref_id) AS stored_ref_id,\n    COALESCE(grouped_version, legacy_version) AS version,\n    COALESCE(grouped_status, legacy_status) AS status,\n    COALESCE(NULLIF(grouped_path, ''), NULLIF(legacy_path, '')) AS stored_path,\n    COALESCE(NULLIF(grouped_name, ''), NULLIF(legacy_name, '')) AS stored_filename\n  FROM source\n), expected AS (\n  SELECT *, CASE\n    WHEN status_group = 'Current' THEN atom_id\n    WHEN status_group = 'Archived' AND version IS NOT NULL THEN atom_id || '@' || CAST(version AS VARCHAR)\n    WHEN status_group = 'Draft' AND version IS NOT NULL THEN atom_id || '@' || CAST(version AS VARCHAR) || '-draft'\n    END AS expected_ref_id,\n    CASE WHEN lower(role) = 'plan' OR atom_id LIKE 'CA-P-%' THEN '([0-9]+-)?' ELSE '' END AS sequence_pattern\n  FROM resolved\n), audit AS (\n  SELECT *, concat_ws('; ',\n    CASE WHEN atom_id IS NULL THEN 'missing Atom ID' END,\n    CASE WHEN grouped_id IS NOT NULL AND alternate_id IS NOT NULL AND grouped_id <> alternate_id THEN 'ID aliases disagree' END,\n    CASE WHEN legacy_id IS NOT NULL AND ((grouped_id IS NOT NULL AND legacy_id <> grouped_id) OR (alternate_id IS NOT NULL AND legacy_id <> alternate_id)) THEN 'legacy/grouped ID disagree' END,\n    CASE WHEN grouped_ref_id IS NOT NULL AND legacy_ref_id IS NOT NULL AND grouped_ref_id <> legacy_ref_id THEN 'Ref ID aliases disagree' END,\n    CASE WHEN grouped_status IS NOT NULL AND legacy_status IS NOT NULL AND lower(grouped_status) <> lower(legacy_status) THEN 'Status aliases disagree' END,\n    CASE WHEN grouped_version IS NOT NULL AND legacy_version IS NOT NULL AND grouped_version <> legacy_version THEN 'Version aliases disagree' END,\n    CASE WHEN status IS NULL THEN 'missing Status' END,\n    CASE WHEN version IS NULL OR version < 1 THEN 'missing/invalid Version' END,\n    CASE WHEN stored_ref_id IS NULL THEN 'missing Ref ID' END,\n    CASE WHEN expected_ref_id IS NOT NULL AND stored_ref_id IS NOT NULL AND stored_ref_id <> expected_ref_id THEN 'Ref ID disagrees with ID/Status Group/Version' END,\n    CASE WHEN stored_path IS NULL THEN 'missing destination path' END,\n    CASE WHEN stored_filename IS NULL THEN 'missing destination filename' END,\n    CASE WHEN grouped_path IS NOT NULL AND legacy_path IS NOT NULL AND grouped_path <> legacy_path THEN 'destination path aliases disagree' END,\n    CASE WHEN grouped_name IS NOT NULL AND legacy_name IS NOT NULL AND grouped_name <> legacy_name THEN 'destination filename aliases disagree' END,\n    CASE WHEN stored_path IS NOT NULL AND actual_path IS DISTINCT FROM stored_path THEN 'actual directory differs from destination path' END,\n    CASE WHEN stored_filename IS NOT NULL AND actual_filename IS DISTINCT FROM stored_filename THEN 'actual filename differs from destination filename' END,\n    CASE WHEN stored_path IS NOT NULL AND (starts_with(stored_path, '/') OR regexp_matches(stored_path, '(^|/)\\.\\.(/|$)')) THEN 'destination path is not repository-relative' END,\n    CASE WHEN stored_filename IS NOT NULL AND (contains(stored_filename, '/') OR contains(stored_filename, chr(92))) THEN 'destination filename includes a directory' END,\n    CASE WHEN expected_ref_id IS NOT NULL AND NOT regexp_matches(actual_filename, '^' || sequence_pattern || regexp_escape(expected_ref_id) || '(-|\\.)') THEN 'actual filename disagrees with identity/status/version' END,\n    CASE WHEN expected_ref_id IS NOT NULL AND stored_filename IS NOT NULL AND NOT regexp_matches(stored_filename, '^' || sequence_pattern || regexp_escape(expected_ref_id) || '(-|\\.)') THEN 'destination filename disagrees with identity/status/version' END,\n    CASE WHEN NOT ends_with(actual_filename, '.md') THEN 'actual filename has no .md extension' END,\n    CASE WHEN stored_filename IS NOT NULL AND NOT ends_with(stored_filename, '.md') THEN 'destination filename has no .md extension' END,\n    CASE WHEN regexp_matches(actual_path, '(^|/)draft(/|$)') AND status_group <> 'Draft' THEN 'draft folder disagrees with Status Group' END,\n    CASE WHEN regexp_matches(actual_path, '(^|/)(archive|archived)(/|$)') AND status_group <> 'Archived' THEN 'archive folder disagrees with Status Group' END\n  ) AS inconsistencies\n  FROM expected\n)\nSELECT reference, atom_id, status_group, status, version, role,\n  actual_path, actual_filename, stored_path, stored_filename,\n  stored_ref_id, expected_ref_id, inconsistencies\nFROM audit WHERE inconsistencies <> ''\nORDER BY actual_path, actual_filename;\n",
+  "readback": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"query_id\": \"78944973fa624c7b9137c006317cbabf\", \"sql\": \"SELECT reference, COALESCE(header_state_version,header_version) AS version FROM atoms WHERE status_group='Current' AND reference IN ('CA-D-269','CA-D-446','CA-D-472','CA-D-473','CA-D-483','CA-D-650','CA-D-470','CA-D-479','CA-D-378','CA-D-663') AND \\\"relative path\\\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery' ORDER BY reference\", \"columns\": [{\"name\": \"reference\", \"type\": \"VARCHAR\", \"has_values\": true}, {\"name\": \"version\", \"type\": \"BIGINT\", \"has_values\": true}], \"rows\": [[\"CA-D-269\", 30], [\"CA-D-378\", 31], [\"CA-D-446\", 30], [\"CA-D-470\", 33], [\"CA-D-472\", 31], [\"CA-D-473\", 27], [\"CA-D-479\", 36], [\"CA-D-483\", 26], [\"CA-D-650\", 16]], \"row_count\": 9, \"source_row_count\": 9, \"column_count\": 2, \"offset\": 0, \"page_size\": 15, \"has_more\": false}"
+      }
+    ],
+    "structuredContent": {
+      "query_id": "78944973fa624c7b9137c006317cbabf",
+      "sql": "SELECT reference, COALESCE(header_state_version,header_version) AS version FROM atoms WHERE status_group='Current' AND reference IN ('CA-D-269','CA-D-446','CA-D-472','CA-D-473','CA-D-483','CA-D-650','CA-D-470','CA-D-479','CA-D-378','CA-D-663') AND \"relative path\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery' ORDER BY reference",
+      "columns": [
+        {
+          "name": "reference",
+          "type": "VARCHAR",
+          "has_values": true
+        },
+        {
+          "name": "version",
+          "type": "BIGINT",
+          "has_values": true
+        }
+      ],
+      "rows": [
+        [
+          "CA-D-269",
+          30
+        ],
+        [
+          "CA-D-378",
+          31
+        ],
+        [
+          "CA-D-446",
+          30
+        ],
+        [
+          "CA-D-470",
+          33
+        ],
+        [
+          "CA-D-472",
+          31
+        ],
+        [
+          "CA-D-473",
+          27
+        ],
+        [
+          "CA-D-479",
+          36
+        ],
+        [
+          "CA-D-483",
+          26
+        ],
+        [
+          "CA-D-650",
+          16
+        ]
+      ],
+      "row_count": 9,
+      "source_row_count": 9,
+      "column_count": 2,
+      "offset": 0,
+      "page_size": 15,
+      "has_more": false
+    },
+    "isError": false
+  },
+  "after": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"query_id\": \"2c81913f9b9f4de692a485bff43ed378\", \"sql\": \"SELECT reference FROM atoms WHERE status_group='Current' AND \\\"relative path\\\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery' AND (\\\"content.claim.prose_claim\\\" ILIKE '%top-level%' OR \\\"content.claim.prose_claim\\\" LIKE '%status: Draft%' OR \\\"content.claim.prose_claim\\\" LIKE '%status: Archived%' OR \\\"content.claim.prose_claim\\\" ILIKE '%exact value admitted%') ORDER BY reference\", \"columns\": [{\"name\": \"reference\", \"type\": \"VARCHAR\", \"has_values\": true}], \"rows\": [[\"CA-D-565\"], [\"CA-D-568\"]], \"row_count\": 2, \"source_row_count\": 2, \"column_count\": 1, \"offset\": 0, \"page_size\": 10, \"has_more\": false}"
+      }
+    ],
+    "structuredContent": {
+      "query_id": "2c81913f9b9f4de692a485bff43ed378",
+      "sql": "SELECT reference FROM atoms WHERE status_group='Current' AND \"relative path\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery' AND (\"content.claim.prose_claim\" ILIKE '%top-level%' OR \"content.claim.prose_claim\" LIKE '%status: Draft%' OR \"content.claim.prose_claim\" LIKE '%status: Archived%' OR \"content.claim.prose_claim\" ILIKE '%exact value admitted%') ORDER BY reference",
+      "columns": [
+        {
+          "name": "reference",
+          "type": "VARCHAR",
+          "has_values": true
+        }
+      ],
+      "rows": [
+        [
+          "CA-D-565"
+        ],
+        [
+          "CA-D-568"
+        ]
+      ],
+      "row_count": 2,
+      "source_row_count": 2,
+      "column_count": 1,
+      "offset": 0,
+      "page_size": 10,
+      "has_more": false
+    },
+    "isError": false
+  },
+  "remaining_before_residual": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"query_id\": \"31c143278ecc49f592bab6bc2ab9d692\", \"sql\": \"SELECT reference,\\\"content.summary\\\",substr(\\\"content.claim.prose_claim\\\",1,1500) AS claim FROM atoms WHERE status_group='Current' AND reference IN ('CA-D-565','CA-D-568') AND \\\"relative path\\\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery'\", \"columns\": [{\"name\": \"reference\", \"type\": \"VARCHAR\", \"has_values\": true}, {\"name\": \"content.summary\", \"type\": \"VARCHAR\", \"has_values\": true}, {\"name\": \"claim\", \"type\": \"VARCHAR\", \"has_values\": true}], \"rows\": [[\"CA-D-565\", \"Bind new archived Revision Markdown Carrier\", \"The single Markdown Archive Carrier created for an Atom Revision newly placed in Archived status.\\n\\n\\n**when** an Atom Revision newly attains its model-admitted `Archived` Status **and** no more-specific applicable Delivery mapping exists for its Artifact Type, its **`=1`** Markdown Archive Carrier **must** be classified as that Revision's Archive Carrier **and** be placed at `archive/<canonical-ID>@<version>[-<remaining-filename-components>].md`: the owning Content Role's existing `archive/` directory is retained, and the single `@<version>` marker occupies the Atom-ID segment under CA-D-283/CA-D-289. Preserve the archived Atom's numeric Version and prior Updated At; its new Archive Carrier carries `status: Archived`.\"], [\"CA-D-568\", \"Bind Draft Identity Continuity Evidence\", \"identity continuity when a Draft Atom is created, updated or admitted to a non-Draft Status.\\n\\n\\nDraft identity continuity **must** follow the exact admitted target and the applicable identity rules; retained Draft history **must not** be a prerequisite for Create, Update, promotion, another admitted Status change or their success.\\n\\n- do **not** require, reconstruct, register, resolve or validate a `revision_lineage.history_entry_ref`, unique Draft head, origin chain, direct retained-history parent, pending head reservation or consuming successor before an otherwise admitted effect. A manually authored Draft is not refused merely because those records are absent, incomplete, malformed or unavailable.\\n- Draft `atom_id` presence and marker form follow CA-D-378 and CA-D-446; Draft filename identity-segment serialization follows CA-D-650. Do **not** restore a former assigned Identity from an archive, lineage/origin metadata, Journal, prior tool demotion or another historical record. Preserve real historical identities without releasing them for reuse. Ordinary Content Role, Summary/replacement, identity/collision, expected-target/currentness, permission and Carrier/schema checks remain applicable; absence of retained Draft history is not itself an identity conflict.\\n- When a Current Atom revision is updated, preserve the predecessor's old numeric Version, Updated At and unrelated content while archiving it with `status: Archived` and the version-qualified identity; exact pre-archiv\"]], \"row_count\": 2, \"source_row_count\": 2, \"column_count\": 3, \"offset\": 0, \"page_size\": 3, \"has_more\": false}"
+      }
+    ],
+    "structuredContent": {
+      "query_id": "31c143278ecc49f592bab6bc2ab9d692",
+      "sql": "SELECT reference,\"content.summary\",substr(\"content.claim.prose_claim\",1,1500) AS claim FROM atoms WHERE status_group='Current' AND reference IN ('CA-D-565','CA-D-568') AND \"relative path\" LIKE '%CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery'",
+      "columns": [
+        {
+          "name": "reference",
+          "type": "VARCHAR",
+          "has_values": true
+        },
+        {
+          "name": "content.summary",
+          "type": "VARCHAR",
+          "has_values": true
+        },
+        {
+          "name": "claim",
+          "type": "VARCHAR",
+          "has_values": true
+        }
+      ],
+      "rows": [
+        [
+          "CA-D-565",
+          "Bind new archived Revision Markdown Carrier",
+          "The single Markdown Archive Carrier created for an Atom Revision newly placed in Archived status.\n\n\n**when** an Atom Revision newly attains its model-admitted `Archived` Status **and** no more-specific applicable Delivery mapping exists for its Artifact Type, its **`=1`** Markdown Archive Carrier **must** be classified as that Revision's Archive Carrier **and** be placed at `archive/<canonical-ID>@<version>[-<remaining-filename-components>].md`: the owning Content Role's existing `archive/` directory is retained, and the single `@<version>` marker occupies the Atom-ID segment under CA-D-283/CA-D-289. Preserve the archived Atom's numeric Version and prior Updated At; its new Archive Carrier carries `status: Archived`."
+        ],
+        [
+          "CA-D-568",
+          "Bind Draft Identity Continuity Evidence",
+          "identity continuity when a Draft Atom is created, updated or admitted to a non-Draft Status.\n\n\nDraft identity continuity **must** follow the exact admitted target and the applicable identity rules; retained Draft history **must not** be a prerequisite for Create, Update, promotion, another admitted Status change or their success.\n\n- do **not** require, reconstruct, register, resolve or validate a `revision_lineage.history_entry_ref`, unique Draft head, origin chain, direct retained-history parent, pending head reservation or consuming successor before an otherwise admitted effect. A manually authored Draft is not refused merely because those records are absent, incomplete, malformed or unavailable.\n- Draft `atom_id` presence and marker form follow CA-D-378 and CA-D-446; Draft filename identity-segment serialization follows CA-D-650. Do **not** restore a former assigned Identity from an archive, lineage/origin metadata, Journal, prior tool demotion or another historical record. Preserve real historical identities without releasing them for reuse. Ordinary Content Role, Summary/replacement, identity/collision, expected-target/currentness, permission and Carrier/schema checks remain applicable; absence of retained Draft history is not itself an identity conflict.\n- When a Current Atom revision is updated, preserve the predecessor's old numeric Version, Updated At and unrelated content while archiving it with `status: Archived` and the version-qualified identity; exact pre-archiv"
+        ]
+      ],
+      "row_count": 2,
+      "source_row_count": 2,
+      "column_count": 3,
+      "offset": 0,
+      "page_size": 3,
+      "has_more": false
+    },
+    "isError": false
+  }
+}

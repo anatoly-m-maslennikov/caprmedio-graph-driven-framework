@@ -139,8 +139,8 @@ class WorkbenchWatcherDockerMixin:
                         url + f"{workbench_path}/run", method="POST",
                         payload={
                             "sql": (
-                                "SELECT header_version, \"relative path\", filename FROM atoms "
-                                f"WHERE header_atom_id = '{atom_id}'"
+                                'SELECT "header.version", "relative path", filename FROM atoms '
+                                f'WHERE "header.atom_id" = \'{atom_id}\''
                             ),
                         },
                     )
@@ -235,7 +235,7 @@ class WorkbenchWatcherDockerMixin:
                 )
                 initial = request(
                     url + f"{workbench_path}/run", method="POST",
-                    payload={"sql": "SELECT header_version FROM atoms WHERE header_atom_id = 'CA-R-901'"},
+                    payload={"sql": 'SELECT "header.version" FROM atoms WHERE "header.atom_id" = \'CA-R-901\''},
                 )
                 self.assertEqual(200, initial[0], initial[1])
                 self.assertEqual([[1]], initial[1]["rows"])

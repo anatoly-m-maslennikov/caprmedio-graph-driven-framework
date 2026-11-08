@@ -32,6 +32,9 @@ class ImageGoldenTests(unittest.TestCase):
         self.registry = patch("runtime_images._compile_relation_registry", return_value=b'{"schema_version":1}\n')
         self.registry.start()
         self.addCleanup(self.registry.stop)
+        self.schema = patch("runtime_images._compile_workbench_schema", return_value=b'{"schema_version":1}\n')
+        self.schema.start()
+        self.addCleanup(self.schema.stop)
 
     def manager(self, source_root: Path, executor) -> ImageManager:
         tagged, sources, inspections = set(), {}, {}

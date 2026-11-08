@@ -1,5 +1,3 @@
-<!-- CA-R-2791@1 -->
-<!-- CA-D-680@1 -->
 <script lang="ts">
   import { inputAnswers, record } from './codex_protocol.js';
   import type { NativeRequest } from './codex_protocol.js';

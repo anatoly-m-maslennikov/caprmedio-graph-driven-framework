@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "amendments": [
+    {
+      "atom_id": "CA-D-565",
+      "version": 23,
+      "archive_ref": "CA-D-565@21"
+    },
+    {
+      "atom_id": "CA-D-568",
+      "version": 21,
+      "archive_ref": "CA-D-568@19"
+    },
+    {
+      "atom_id": "CA-D-570",
+      "version": 26,
+      "archive_ref": "CA-D-570@24"
+    },
+    {
+      "atom_id": "CA-D-657",
+      "version": 11,
+      "archive_ref": "CA-D-657@9"
+    }
+  ],
+  "effects_verified": 12,
+  "residual_old_wire_examples": [],
+  "archive_body_version_timestamp_preserved": true,
+  "native_run": false,
+  "journal_append": false
+}

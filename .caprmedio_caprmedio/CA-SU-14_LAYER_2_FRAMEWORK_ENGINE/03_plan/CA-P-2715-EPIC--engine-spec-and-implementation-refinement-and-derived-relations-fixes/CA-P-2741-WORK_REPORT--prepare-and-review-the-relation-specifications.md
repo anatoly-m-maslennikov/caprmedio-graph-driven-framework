@@ -16,8 +16,8 @@ relations:
   - CA-P-2717
 state:
   status: Done
-  version: 3
-  updated_at: 2026-11-08 20:22:21 +0400
+  version: 4
+  updated_at: 2026-11-09 00:18:04 +0400
 destination:
   file:
     name: CA-P-2741-WORK_REPORT--prepare-and-review-the-relation-specifications.md
@@ -31,4 +31,4 @@ Prepare and review the relation specifications
 
 ## Details
 
-Both independent Sol High review passes passed after narrow alignment fixes. Promoted13 reviewed sources and retired old REPLACEMENT_FOR declaration R3011, preserving predecessor archives through a sealed39-effect plan. query_run verified all13 Current IDs/versions and the new R970308625 IS_REPLACEMENT_FOR R3011 link. Recorded the observed replacement transition in the Project Journal. Canonical-registry code and full release verification remain in dependent implementation Tasks.
+The canonical relation packet passed two reviews and is adopted. IS_REPLACEMENT_FOR replaces the obsolete source; canonical names, aliases and inverse bindings remain source-derived. Source adoption and the installed registry were verified separately.

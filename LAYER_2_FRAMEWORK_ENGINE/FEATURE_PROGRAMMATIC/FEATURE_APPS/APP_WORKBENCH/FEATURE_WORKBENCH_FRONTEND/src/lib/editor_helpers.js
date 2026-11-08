@@ -1,11 +1,11 @@
 // @ts-nocheck
-// CA-R-2726@5
-// CA-E-675@6
-// CA-M-468@2
+// CA-M-468@5
 export function statusCompletion(text, cursor, schema) {
-  const match = /\b(header_(?:state_)?status)\s*=\s*'([^']*)$/.exec(text.slice(0, cursor));
+  const match = /"(header(?:\.[a-z0-9_]+)*\.status)"\s*=\s*'([^']*)$/.exec(text.slice(0, cursor));
   if (!match) return null;
-  const values = schema.tables.atoms?.find((column) => column.name === match[1])?.values ?? [];
+  const column = schema.tables.atoms?.find((candidate) => candidate.name === match[1]);
+  if (!column) return null;
+  const values = column.values ?? [];
   return {
     from: cursor - match[2].length,
     to: text[cursor] === "'" ? cursor + 1 : cursor,

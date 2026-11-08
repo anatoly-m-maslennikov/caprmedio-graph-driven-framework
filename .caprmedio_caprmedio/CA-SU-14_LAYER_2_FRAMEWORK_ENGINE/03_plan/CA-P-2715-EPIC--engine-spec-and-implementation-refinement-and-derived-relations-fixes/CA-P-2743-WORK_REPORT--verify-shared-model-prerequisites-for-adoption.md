@@ -15,9 +15,9 @@ relations:
   IS_WORK_REPORT_FOR:
   - CA-P-2722
 state:
-  status: Active
-  version: 3
-  updated_at: 2026-11-08 21:55:53 +0400
+  status: Done
+  version: 4
+  updated_at: 2026-11-08 23:32:22 +0400
 destination:
   file:
     name: CA-P-2743-WORK_REPORT--verify-shared-model-prerequisites-for-adoption.md
@@ -31,4 +31,4 @@ Verify shared model prerequisites for adoption
 
 ## Details
 
-Work Report and replacement-relation source prerequisites were adopted and verified. A later Core review found the local Scope Delegation permissions missing. The Operator approved updating the affected delegations without changing the Scope Unit tree. Draft preparation, two reviews and reader compatibility checks are in progress; affected promotions remain gated.
+Verified the Work Report and replacement-relation prerequisites. The Operator-approved Scope Delegation update is adopted for all 13 affected units, after two source reviews; predecessor archives are preserved. Live release 0.4.4.39 reads the nested Headers, and all 48 Scope Unit IDs, parents, labels and ordering values match the pre-adoption snapshot. Receiver-local RMEDO was not migrated. Target resolution and broad native admission are not claimed. Malformed-flow reader hardening and the independent large-move regression remain in the runtime work lane.

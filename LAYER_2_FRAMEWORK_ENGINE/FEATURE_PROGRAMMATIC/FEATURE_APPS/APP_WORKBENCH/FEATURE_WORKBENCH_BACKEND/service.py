@@ -1,22 +1,19 @@
-# CA-R-2728@6
-# CA-R-2729@7
-# CA-R-2950@1
-# CA-R-2952@1
-# CA-M-465@19
-# CA-M-490@2
-# CA-M-491@1
-# CA-D-695@2
-# CA-D-696@1
-# CA-D-673@13
-# CA-R-2786@1
-# CA-M-474@1
-# CA-R-2903@3
-# CA-M-502@1
-
+# CA-R-2728@7
+# CA-R-2729@8
+# CA-R-2950@2
+# CA-R-2952@2
+# CA-M-465@24
+# CA-M-490@3
+# CA-M-491@2
+# CA-D-695@3
+# CA-D-696@2
+# CA-D-673@15
+# CA-R-2786@2
+# CA-M-474@2
+# CA-R-2903@4
+# CA-M-502@2
 """One Project's direct file reader, background indexer, and SQL capability."""
-
 from __future__ import annotations
-
 import datetime as dt
 from dataclasses import replace
 from pathlib import Path
@@ -33,28 +30,26 @@ from .incremental_relations import RelationState, materialize_delta
 from .generate_relation_registry import DEFAULT_REGISTRY_PATH
 from .relation_registry import compile_registry
 from .relation_registry_asset import load_registry_asset
-from .runtime_settings import result_ttl_seconds
+from .runtime_settings import result_ttl_seconds, schema_mode
 from .saved_queries import SavedQueryStore
 from .source_reader import SourceReader
 from .source_watcher import Change, SourceWatcher
 from .statements import select_statement
 from .watcher_change_log import WatcherChangeLog
+from .workbench_schema_asset import DEFAULT_SCHEMA_PATH, compile_schema, load_schema_asset
 from .workspace import WorkspaceStore
-
-
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from work_journal import configured_journal_root  # noqa: E402
-
-
 class WorkbenchService:
     """Own only the Workbench lifecycle; QueryStore owns database serialization."""
 
     def __init__(self, root: Path, *, extension_directory: Path | None = None) -> None:
         self._root = Path(root).resolve()
-        self._reader = SourceReader(self._root)
+        self._schema_mode = schema_mode(self._root)
+        self._reader = SourceReader(self._root, schema_mode=self._schema_mode)
         self._saved_queries = SavedQueryStore(self._root)
         self._workspaces = WorkspaceStore(self._root)
         self._workspaces.clear_transient_results()
@@ -78,7 +73,6 @@ class WorkbenchService:
         self._paths: set[str] = set()
         self._syncing = 0
         self._last_synced_at: str | None = None
-
     def _refresh(self, changes: list[Change] | None = None) -> None:
         self._begin_sync()
         succeeded = False
@@ -112,16 +106,28 @@ class WorkbenchService:
                     materialize_seconds = time.monotonic() - captured_at
                     schema = self._reader.content_schema
                     assert schema is not None
+                    declared_header = self._reader.header_schema
+                    assert declared_header is not None
                     assert self._store is not None
                     full = delta is None
+                    header_schema = (
+                        self._header_schema(atoms, schema, declared_header) if full
+                        else declared_header if self._schema_mode == 1 else None
+                    )
                     writing_started = time.monotonic()
                     if full:
-                        self._store.replace(atoms, scopes, relation_types=registered, content_schema=schema)
+                        self._store.replace(
+                            atoms, scopes, relation_types=registered, content_schema=schema,
+                            header_schema=header_schema,
+                        )
                         changed = True
                     else:
-                        changed = self._store.apply(
-                            atoms, scopes, relation_types=registered, content_schema=schema, delta=delta,
-                        )
+                        apply_args = {
+                            "relation_types": registered, "content_schema": schema, "delta": delta,
+                        }
+                        if header_schema is not None:
+                            apply_args["header_schema"] = header_schema
+                        changed = self._store.apply(atoms, scopes, **apply_args)
                     write_seconds += time.monotonic() - writing_started
                     if not full and self._store.schema_changed is True:
                         full = True
@@ -135,8 +141,14 @@ class WorkbenchService:
                         materialize_seconds += time.monotonic() - recaptured_at
                         schema = self._reader.content_schema
                         assert schema is not None
+                        declared_header = self._reader.header_schema
+                        assert declared_header is not None
+                        header_schema = self._header_schema(atoms, schema, declared_header)
                         writing_started = time.monotonic()
-                        self._store.replace(atoms, scopes, relation_types=registered, content_schema=schema)
+                        self._store.replace(
+                            atoms, scopes, relation_types=registered, content_schema=schema,
+                            header_schema=header_schema,
+                        )
                         write_seconds += time.monotonic() - writing_started
                         changed = True
                     self._relation_state = next_state
@@ -158,22 +170,18 @@ class WorkbenchService:
                 )
         finally:
             self._finish_sync(succeeded)
-
     def _begin_sync(self) -> None:
         with self._sync_status_lock:
             self._syncing += 1
-
     def _finish_sync(self, succeeded: bool) -> None:
         with self._sync_status_lock:
             if succeeded:
                 self._last_synced_at = dt.datetime.now(dt.UTC).isoformat()
             self._syncing -= 1
-
     def sync_status(self) -> dict[str, bool | str | None]:
         """Return the owner-local indexing snapshot without starting Workbench."""
         with self._sync_status_lock:
             return {"syncing": self._syncing > 0, "last_synced_at": self._last_synced_at}
-
     def _index(self) -> None:
         try:
             self._watcher = SourceWatcher(self._reader.root, self._reader.control_root)
@@ -197,19 +205,15 @@ class WorkbenchService:
             if self._watcher is not None:
                 self._watcher.close()
                 self._watcher = None
-
     def _rehydrate_watcher_changes(self) -> None:
         assert self._store is not None
         self._store.sync_change_log(self._watcher_change_log, initialize=True)
-
     def _record_watcher_changes(self, batch: list[Change]) -> None:
         assert self._store is not None
         self._store.sync_change_log(self._watcher_change_log, batch)
-
     def _prune_watcher_changes(self) -> None:
         assert self._store is not None
         self._store.sync_change_log(self._watcher_change_log)
-
     def _journal_only(self, batch: list[Change]) -> bool:
         journal = (self._root / configured_journal_root(self._root)).resolve()
         paths = [
@@ -221,7 +225,6 @@ class WorkbenchService:
         return bool(paths) and all(
             (self._root / path).resolve().is_relative_to(journal) for path in paths
         )
-
     def _start(self) -> None:
         with self._start_lock:
             if self._failure:
@@ -233,6 +236,7 @@ class WorkbenchService:
                     extension_directory=self._extension_directory,
                     database_path=self._database_path,
                     result_ttl_seconds=result_ttl_seconds(self._root),
+                    schema_mode=self._schema_mode,
                 )
                 self._rehydrate_watcher_changes()
                 self._thread = threading.Thread(target=self._index, name="workbench-index", daemon=True)
@@ -250,7 +254,11 @@ class WorkbenchService:
                 )
                 print(self._failure, file=sys.stderr)
                 raise self._failure from error
-
+    def _header_schema(self, atoms: list[dict[str, Any]], content: Any, declared_header: Any) -> Any:
+        """Use a matching delivered asset, otherwise rebuild the disposable schema from source."""
+        compilation = compile_schema(atoms, content, declared_header)
+        delivered = load_schema_asset(DEFAULT_SCHEMA_PATH, atoms, compilation)
+        return (delivered or compilation).header(self._schema_mode)
     def run(
         self, sql: str, page_size: int = 100, cursor_position: int | None = None,
         *, save: bool = False, preview: int | None = None, name: str | None = None,
@@ -280,7 +288,6 @@ class WorkbenchService:
         except (QueryExecutionError, WorkbenchUnavailableError) as error:
             self._log_attempt(selected, self._failed_metadata(error))
             raise
-
     def _run_store(
         self, selected: str, *, page_size: int = 100, preview: int | None = None,
         include_rows: bool,
@@ -289,38 +296,31 @@ class WorkbenchService:
         assert self._store is not None
         self._store.prune_results()
         return self._store.run(selected, page_size=page_size, preview=preview, include_rows=include_rows)
-
     @staticmethod
     def _result_metadata(result: dict[str, Any]) -> dict[str, Any]:
         return {
             "status": "success", "error": None, "query_id": result["query_id"],
             "row_count": result["row_count"], "column_count": result["column_count"],
         }
-
     @staticmethod
     def _failed_metadata(error: Exception) -> dict[str, Any]:
         return {"status": "failed", "error": str(error), "query_id": None, "row_count": None, "column_count": None}
-
     def _log_attempt(self, sql: str, metadata: dict[str, Any]) -> None:
         try:
             self._query_log.append_async(sql, metadata)
         except Exception as error:
             print(f"query log failed: {error}", file=sys.stderr)
-
     def _drop_result(self, query_id: str | None) -> None:
         if query_id is not None and self._store is not None:
             self._store.drop(query_id)
-
     def _unpin_result(self, query_id: str | None) -> None:
         if query_id is not None and self._store is not None:
             self._store.unpin(query_id)
-
     @staticmethod
     def _arguments(name: str, arguments: object, allowed: set[str], required: set[str] = set()) -> dict[str, Any]:
         if not isinstance(arguments, dict) or set(arguments) - allowed or required - set(arguments):
             raise ValueError(f"invalid {name} arguments")
         return arguments
-
     @staticmethod
     def _limit(value: object, field: str = "limit") -> int:
         if isinstance(value, bool) or not isinstance(value, int) or not 1 <= value <= 1000:

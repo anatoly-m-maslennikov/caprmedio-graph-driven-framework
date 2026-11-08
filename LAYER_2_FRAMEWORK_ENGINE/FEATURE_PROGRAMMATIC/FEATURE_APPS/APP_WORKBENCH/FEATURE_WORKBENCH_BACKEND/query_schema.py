@@ -1,5 +1,5 @@
-# CA-R-2728@6
-# CA-D-672@12
+# CA-R-2728@7
+# CA-D-672@14
 
 """Expose the current public SQL table shapes for Workbench autocomplete."""
 

@@ -12,6 +12,7 @@ import tempfile
 import threading
 import time
 import unittest
+from unittest import mock
 
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
@@ -124,7 +125,7 @@ class SourceWatcherTests(unittest.TestCase):
         self.observer.handler.on_deleted(self.event(directory))
         self.assertIn(str(directory.resolve()), self.observer.unscheduled)
 
-    def test_native_directory_events_reuse_the_recursive_observer(self) -> None:
+    def test_native_directory_events_watch_the_created_and_moved_subtrees(self) -> None:
         directory = self.control / "new"
         directory.mkdir()
         self.observer.handler.on_created(self.event(directory, directory=True))
@@ -132,8 +133,56 @@ class SourceWatcherTests(unittest.TestCase):
         destination = self.control / "renamed"
         directory.rename(destination)
         self.observer.handler.on_moved(self.event(directory, destination=destination, directory=True))
+        self.assertEqual([
+            (str(self.control), True),
+            (str(directory.resolve(strict=False)), False),
+            (str(destination.resolve()), False),
+        ], self.observer.schedules)
+        self.assertIn(self.watcher._control_root, self.watcher._watched_directories)
+        self.assertIn(destination.resolve(), self.watcher._watched_directories)
+        self.assertEqual(2, len(self.watcher._watched_directories))
+
+    def test_native_large_directory_move_watches_destination_before_move_record(self) -> None:
+        source = self.control / "source" / "batch"
+        source.mkdir(parents=True)
+        for index in range(500):
+            (source / f"CA-R-{index:03d}.md").touch()
+        destination = self.control / "target" / "batch"
+        destination.parent.mkdir()
+        source.rename(destination)
+
+        self.observer.handler.on_moved(self.event(source, destination=destination, directory=True))
+
+        self.assertIn((str(destination.resolve()), False), self.observer.schedules)
+        self.assertEqual([
+            {
+                "operation": "move",
+                "old_path": ".caprmedio_example/source/batch",
+                "new_path": ".caprmedio_example/target/batch",
+            },
+        ], self.watcher.changes(0))
+
+    def test_native_directory_move_outside_is_removed_without_outside_traversal(self) -> None:
+        source = self.control / "source"
+        source.mkdir()
+        destination = self.root / "outside" / "source"
+        destination.parent.mkdir()
+        source.rename(destination)
+
+        with mock.patch.object(Path, "rglob", side_effect=AssertionError("outside traversal")):
+            self.observer.handler.on_moved(self.event(
+                source, destination=destination, directory=True,
+            ))
+
         self.assertEqual([(str(self.control), True)], self.observer.schedules)
-        self.assertEqual(1, len(self.watcher._watched_directories))
+        self.assertNotIn(destination.resolve(), self.watcher._watched_directories)
+        self.assertEqual([
+            {
+                "operation": "remove",
+                "old_path": ".caprmedio_example/source",
+                "new_path": None,
+            },
+        ], self.watcher.changes(0))
 
     def test_moved_in_directory_gets_a_child_watch_before_move_is_recorded(self) -> None:
         source = self.root / "outside"

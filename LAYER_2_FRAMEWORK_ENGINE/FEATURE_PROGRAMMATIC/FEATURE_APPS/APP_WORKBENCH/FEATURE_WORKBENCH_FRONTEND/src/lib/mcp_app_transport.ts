@@ -1,6 +1,3 @@
-// CA-R-2902@4
-// CA-M-476@5
-// CA-D-681@9
 import type { OperationCaller } from './transport';
 import type { WorkspaceState } from './types';
 

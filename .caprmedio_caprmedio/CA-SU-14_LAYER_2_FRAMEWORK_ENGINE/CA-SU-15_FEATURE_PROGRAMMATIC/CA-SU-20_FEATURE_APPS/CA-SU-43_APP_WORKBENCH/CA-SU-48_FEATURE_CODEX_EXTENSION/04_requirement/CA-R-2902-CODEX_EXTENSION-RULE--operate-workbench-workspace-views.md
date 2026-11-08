@@ -1,20 +1,23 @@
 ---
-atom_id: CA-R-2902
-ref_id: CA-R-2902
-container:
-  scope_unit: CA-SU-48
-role: Requirement
-form: Rule
-topics:
-  main_subject: CAPRMEDIO_MODEL <+ Workspace
-  dependencies:
-  - CAPRMEDIO_MODEL <+ View
-  - CAPRMEDIO_MODEL <+ Project
-tier: 3
-status: Active
-version: 4
-updated_at: 2026-11-06 20:46:20 +0400
-carrier_destination:
+identity:
+  atom_id: CA-R-2902
+  ref_id: CA-R-2902
+context:
+  container:
+    scope_unit: CA-SU-48
+  role: Requirement
+  form: Rule
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Workspace
+    dependencies:
+    - CAPRMEDIO_MODEL <+ View
+    - CAPRMEDIO_MODEL <+ Project
+  tier: 3
+state:
+  status: Active
+  version: 5
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
   file:
     name: CA-R-2902-CODEX_EXTENSION-RULE--operate-workbench-workspace-views.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-48_FEATURE_CODEX_EXTENSION/04_requirement
