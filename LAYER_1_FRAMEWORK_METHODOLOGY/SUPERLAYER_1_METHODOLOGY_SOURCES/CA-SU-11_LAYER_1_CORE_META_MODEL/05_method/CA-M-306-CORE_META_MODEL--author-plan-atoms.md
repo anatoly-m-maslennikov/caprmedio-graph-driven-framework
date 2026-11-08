@@ -21,13 +21,14 @@ relations:
   depends_on:
   - CA-R-1588
 status: Active
-version: 34
-updated_at: 2026-11-04 16:52:59 +0400
+version: 36
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
-    name: CA-M-306-IMPLEMENTATION_METHOD--author-plan-atoms.md
+    name: CA-M-306-CORE_META_MODEL--author-plan-atoms.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method
 ---
+
 ## Summary
 
 Author Plan Atoms
@@ -36,7 +37,9 @@ Author Plan Atoms
 
 ### Prose Claim
 
-To author a Plan Atom, apply the common Plan rules independently of Label:
+To author a Work Report, bind its Task through IS_WORK_REPORT_FOR, copy that Task’s Summary and Container, and record actual changes, checks, results and remaining gaps in Details. Update the record throughout execution.
+
+For other Plan Forms, apply the common Plan rules independently of Label:
 
 1. State the intended work or outcome and provide own work, direct Plan decomposition, or both under CA-R-1575. Apply the executable leaf-work bound under CA-R-1589.
 2. Resolve the active Subject and its target Scope under CA-R-1588. Apply the applicable completion and verification rules, including CA-R-1599, and use Labels only under their governing rules. For a containing Plan whose Status is Done or Canceled, require every directly contained Plan to be Done or Canceled; mixed terminal statuses are allowed, and containment does not force a child Status to match the parent.

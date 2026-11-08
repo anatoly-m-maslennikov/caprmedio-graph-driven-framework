@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
 tier: 3
 status: Active
-version: 10
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 11
+updated_at: "2026-11-08 15:22:04 +0400"
 carrier_destination:
   file:
     name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
@@ -49,6 +49,8 @@ Atom//$atom {::1}((HAS_ACTIVE_SUBJECT));
 Atom//$atom {::0..1}((GOVERNS));
 
 Atom//$atom {::0+}((CONTRIBUTES_TO));
+
+Atom//$atom {::0+}((REPLACEMENT_FOR));
 
 UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
 ```

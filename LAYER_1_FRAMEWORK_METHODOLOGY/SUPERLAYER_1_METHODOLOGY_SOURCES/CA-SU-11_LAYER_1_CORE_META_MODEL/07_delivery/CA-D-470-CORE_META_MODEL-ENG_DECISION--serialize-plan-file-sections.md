@@ -11,20 +11,21 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Details
   - CAPRMEDIO_MODEL <+ Carrier/File
 tier: 3
 status: Active
-version: 29
-updated_at: 2026-11-02 00:18:22 +0400
+version: 31
+updated_at: 2026-11-08 19:06:46 +0400
 carrier_destination:
   file:
-    name: CA-D-470-CORE_META_MODEL-DECISION--serialize-plan-file-sections.md
+    name: CA-D-470-CORE_META_MODEL-ENG_DECISION--serialize-plan-file-sections.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Serialize Plan file sections
@@ -35,6 +36,10 @@ Serialize Plan file sections
 
 
 Plan Markdown File Carriers and their body-section layout.
+
+For Work Report, serialize YAML Frontmatter followed by `## Summary` and `## Details`. Details contains the actual changes, checks, results and remaining gaps. Subheadings within this Markdown value are text, not additional modeled Properties.
+
+The following intended-work layout applies to other Plan Forms.
 
 
 **every** Plan Markdown File Carrier **must** contain YAML Frontmatter followed by the Plan layout registered **in** CA-D-479-CORE_META_MODEL-ENG_DECISION--use-stable-headings-for-atom-body-properties:
