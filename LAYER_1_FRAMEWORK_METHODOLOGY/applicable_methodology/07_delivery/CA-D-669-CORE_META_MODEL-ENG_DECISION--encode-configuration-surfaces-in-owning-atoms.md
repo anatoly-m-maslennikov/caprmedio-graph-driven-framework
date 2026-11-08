@@ -1,0 +1,37 @@
+---
+atom_id: CA-D-669
+ref_id: CA-D-669
+role: Delivery
+form: Eng Decision
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Atom
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Atom.Content
+  - CAPRMEDIO_MODEL <+ Project.Settings
+tier: 3
+status: Active
+version: 4
+updated_at: "2026-11-07 15:28:42 +0400"
+carrier_destination:
+  file:
+    name: CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
+container:
+  scope_unit: CA-SU-11
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-669-CORE_META_MODEL-ENG_DECISION--encode-configuration-surfaces-in-owning-atoms.md
+  source_atom_id: CA-D-669
+  source_atom_revision: 4
+  source_sha256: 7732b3c3557fddd9d8ee970975d8918ae9004b4559cce9274b47a14b25e1d21f
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+
+## Summary
+
+Encode configuration surfaces in owning Atoms
+
+## Claim
+
+### Prose Claim
+
+An owning Atom may carry its defined machine-readable properties in YAML frontmatter. Its ordinary RMED Claim is a zero-value container with one or both Formal Claim and Prose Claim children, each with zero or one Markdown values. A Formal Claim value contains a CFEL-labelled fence. Frontmatter is not a second Claim or independent source. Project initialization inputs and applicable CAPRMEDIO behavior and configuration choices belong to Project Settings; The Project structural declaration belongs to its Scope Unit Declaration Atom; a non-Project Scope Unit’s structural declaration belongs to its Scope Delegation Atom.
