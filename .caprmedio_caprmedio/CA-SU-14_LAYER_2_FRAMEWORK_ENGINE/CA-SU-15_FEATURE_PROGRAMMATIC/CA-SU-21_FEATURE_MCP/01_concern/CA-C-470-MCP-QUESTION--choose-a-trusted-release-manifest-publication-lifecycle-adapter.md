@@ -15,15 +15,25 @@ topics:
   - Journal
   - Subject/Engineering/Runtime
 relations:
-  concern_about: [CA-M-339, CA-E-582, CA-D-576]
-status: active
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
+  concern_about:
+  - CA-M-339
+  - CA-E-582
+  - CA-D-576
+  - CA-R-1847
+  - CA-D-547
+status: Resolved
+version: 4
+updated_at: 2026-11-09 15:11:21 +0400
 current_scope_unit: MCP
 local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-C-470-MCP-QUESTION--choose-a-trusted-release-manifest-publication-lifecycle-adapter.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/01_concern
 ---
+
 # Summary
 
 Choose a trusted lifecycle adapter for Release manifest publication
@@ -43,3 +53,9 @@ Without a trusted adapter, a callback can self-grant publication or an interrupt
 ## Decision
 
 Use one narrow MCP-owned `release_manifest_lifecycle.py` adapter. A trusted host constructs its context only after validating the named human Operator against `operators_registry`; its grant binds the Project root, observed manifest bytes, accepted source frontier, and candidate digest. The adapter seals the existing pending Journal intent before replacement and finalizes it only after exact target-byte inspection. It never replays an ambiguous mutation and does not create a Workflow, Workflow Run, Action Run, or ledger.
+
+## Details
+
+### Resolution
+
+Resolved as obsolete by explicit Operator decision. The additive Release-admission publisher D576 and its Evaluation E582 were withdrawn; no lifecycle-adapter implementation repair is claimed. Current R1847 and D547 keep direct local/public release runners without that extra admission gate. Existing Run and Journal history stays preserved; no runtime code or release Workflow was changed.

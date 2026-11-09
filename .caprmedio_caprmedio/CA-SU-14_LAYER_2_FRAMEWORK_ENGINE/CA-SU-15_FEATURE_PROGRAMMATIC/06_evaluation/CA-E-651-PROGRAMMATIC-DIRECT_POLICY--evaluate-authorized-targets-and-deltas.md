@@ -8,15 +8,16 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Effect Authorization
   tier: 2
 relations:
   evaluation_for:
   - CA-M-404
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 15
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-651-PROGRAMMATIC-DIRECT_POLICY--evaluate-authorized-targets-and-deltas.md
@@ -25,19 +26,22 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Evaluate authorized targets and deltas
 
-## Scope
-
-PROGRAMMATIC mutations and delegated effects, including independent members of a batch and concurrent requests crossing file, process, persistence or transport boundaries.
-
 ## Claim
+
+### Prose Claim
 
 Accept effect conformance only when the observed effects stay within the actually authorized target and delta under the required expected state. Reading additional state, finding a convenient replacement target or receiving a successful adapter response does not authorize an extra effect. Ambiguous, stale, unsupported or unauthorized bindings stop the affected change while unrelated authorized work remains independently reportable.
 
 ## Details
+
+### Scope
+
+PROGRAMMATIC mutations and delegated effects, including independent members of a batch and concurrent requests crossing file, process, persistence or transport boundaries.
 
 - Bind the actual instruction, explicit target, allowed delta and required preconditions; compare observed changed paths, resources and values with that boundary, not merely the final success flag.
 - Exercise an authorized exact change and wrong-Project, wrong-target, extra-delta, target-substitution, stale-source, ambiguous and unsupported cases. Rejected cases have no unauthorized effect.

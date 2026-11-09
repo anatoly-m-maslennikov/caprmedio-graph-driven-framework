@@ -8,17 +8,22 @@ context:
   role: Delivery
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
+      Architecture <+ Communication <+ Interface Contracts
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   delivery_for:
   - CA-R-2724
   - CA-R-2728
   - CA-R-2729
+  - CA-R-2953
+  - CA-R-2727
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 16
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-D-673-WORKBENCH-SOLUTION--deliver-shared-query-run-and-check-results.md
@@ -68,3 +73,27 @@ Page and View Fetch may apply one request-local grid specification to the existi
 Standalone and embedded pages use the same backend Workspace/View operations. Generic query_run and query_page remain available for direct MCP/HTTP callers. Current Views contain one query, and saved historical text remains readable without silently executing only part of it.
 
 MCP and HTTP call the same backend operation API. HTTP must not construct and unwrap MCP protocol requests/results merely to reach that backend. Reuse the existing Project selection, configured exclusions, current installed-contract checks, resource ownership and lifecycle guards for both transports. Keep transport-envelope checks in the adapters and operation-argument validation in the shared backend. Preserve successful and partial results and their existing public error semantics.
+
+### Workspace and View operation contracts
+
+| Operation | Inputs | Result |
+|---|---|---|
+| `workspace_open` | `session_id` | Initialize or resume this Workspace with one initial View; return its state, canonical project_name and request-derived URL. |
+| `workspace_list` | none | Known Workspace IDs for the explicit Project; no result rows. |
+| `workspace_get` | `workspace_id` | Current Views, SQL, names, revisions, active View ID, result metadata, canonical project_name and request-derived Workspace URL; no rows. |
+| `view_create` | `workspace_id`, `position` (`first` or `last`, default `last`), optional `name` | New stable View ID and state. |
+| `view_duplicate` | `workspace_id`, `view_id` | New independent View copying query and cursor, next free name, active ID and Workspace state; no execution or copied results. |
+| `view_list` | `workspace_id` | Ordered View IDs, names and result metadata; no SQL or rows. |
+| `view_get` | `workspace_id`, `view_id` | One View's SQL, revision and result metadata; no rows. |
+| `view_update` | `workspace_id`, `view_id`, `sql`, optional `cursor_position` (editor metadata only), required `expected_revision` | Updated View. A revision mismatch fails and leaves both the server SQL and the browser's unsynced draft intact; `cursor_position` never selects a statement. |
+| `view_run` | `workspace_id`, `view_id`, optional `cursor_position` (editor metadata only), `preview`, `save`, `name` | Run the whole View only when it contains exactly one SQL statement; reject multiple statements and never select by cursor. Return success/fail, error, counts and query ID, with no rows. Existing successful Run-and-save behavior is available through `save=true`. |
+| `view_check` | `workspace_id`, `view_id`, optional `cursor_position` (editor metadata only) | Check the whole View only when it contains exactly one SQL statement; reject multiple statements and never select by cursor; no query-log entry. |
+| `view_fetch` | `workspace_id`, `view_id`, `offset` (default 0), `page_size` (default 100, 1..1000), optional `preview` | Fetch a page of the View's current result; preview caps the page without rerunning the SQL. |
+| `view_focus` | `workspace_id`, `view_id` | Set the Workspace's active View. |
+| `view_rename` | `workspace_id`, `view_id`, `name` | Update the current View name. |
+| `view_remove` | `workspace_id`, `view_id` | Remove the View; reject the last View. |
+| `view_save` | either `workspace_id` + `view_id`, or existing `sql` + optional `name` | Reuse saving of the View's one complete query and its saved ID/URL. The two input modes are exclusive. Saved View names/SQL are snapshots, not renamed in place. |
+| `query_log_list` | optional `limit` (default 20, 1..1000) | Recent retained log records. |
+| `query_log_get` | `log_id` | One retained log record. |
+
+Use the existing UUID generator for new View IDs. Keep Workspace documents under `.caprmedio_runtime/workbench/workspaces`; they contain no duplicate chat history or result rows.

@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
 tier: 0
 status: Active
-version: 28
-updated_at: 2026-11-02 19:44:26 +0400
+version: 29
+updated_at: 2026-11-09 15:54:30 +0400
 carrier_destination:
   file:
     name: CA-R-705-CAPRMEDIO-SCOPE_CONTRACT-RULE--define-framework-composition.md
@@ -23,6 +23,7 @@ llm_session_ids:
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 ---
+
 ## Summary
 
 Define Framework composition
@@ -32,4 +33,4 @@ Define Framework composition
 ### Prose Claim
 
 
-the CAPRMEDIO Framework **must** comprise **all** outputs of the caprmedio Project delivered **to** the repository's root Implementation Folders. OPERATOR_DOCUMENTATION, CORE_EXTENSIONS, **and** RELEASES are downstream Project Layers; COMMUNITY_EXTENSIONS **and** FIELD are direct Project Features.
+the CAPRMEDIO Framework **must** comprise **all** outputs of the caprmedio Project delivered **to** the repository's root Implementation Folders. OPERATOR_DOCUMENTATION, CORE_EXTENSIONS, **and** FRAMEWORK_DELIVERY are downstream Project Layers; COMMUNITY_EXTENSIONS **and** FIELD are direct Project Features.

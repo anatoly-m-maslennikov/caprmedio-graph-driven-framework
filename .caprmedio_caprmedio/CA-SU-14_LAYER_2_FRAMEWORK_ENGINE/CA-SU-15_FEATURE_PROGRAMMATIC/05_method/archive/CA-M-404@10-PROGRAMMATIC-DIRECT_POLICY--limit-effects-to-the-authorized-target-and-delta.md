@@ -1,0 +1,48 @@
+---
+identity:
+  atom_id: CA-M-404@10
+  ref_id: CA-M-404@10
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: Method
+  form: Direct Policy
+  topics:
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Effect Authorization
+    dependencies:
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
+      Authorization
+  tier: 1
+state:
+  status: Archived
+  version: 10
+  updated_at: 2026-11-09 00:09:26 +0400
+destination:
+  file:
+    name: CA-M-404@10-PROGRAMMATIC-DIRECT_POLICY--limit-effects-to-the-authorized-target-and-delta.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive
+current_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+---
+# Summary
+
+Limit effects to the authorized target and delta
+
+## Scope
+
+New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
+
+## Claim
+
+**To** change state, bind the admitted target, explicit delta and required expected state, then apply **only** that authorized change.
+
+## Details
+
+Candidate source: [CA-M-388@2](archive/CA-M-388-PROGRAMMATIC-CORE--limit-effects-to-the-authorized-target-and-delta@2.md)
+
+- Do not substitute targets, broaden the affected frontier or add semantic operations.
+- Observing additional files or state does not grant permission to change them.
+- An unresolved, ambiguous, stale or unsupported binding stops the affected change; it does not authorize a fallback target or broader effect.
+
+Source basis: CA-M-376, CA-M-381.

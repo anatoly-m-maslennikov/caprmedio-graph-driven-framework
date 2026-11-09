@@ -8,7 +8,7 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
 tier: 1
 relations:
   child_of:

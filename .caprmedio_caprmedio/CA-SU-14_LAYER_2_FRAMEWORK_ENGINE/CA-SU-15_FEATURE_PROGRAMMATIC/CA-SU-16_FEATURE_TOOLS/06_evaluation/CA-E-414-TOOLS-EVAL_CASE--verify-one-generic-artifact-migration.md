@@ -6,7 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification"
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact

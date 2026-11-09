@@ -12,7 +12,7 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Applicable Methodology'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
 tier: 1
 status: Active

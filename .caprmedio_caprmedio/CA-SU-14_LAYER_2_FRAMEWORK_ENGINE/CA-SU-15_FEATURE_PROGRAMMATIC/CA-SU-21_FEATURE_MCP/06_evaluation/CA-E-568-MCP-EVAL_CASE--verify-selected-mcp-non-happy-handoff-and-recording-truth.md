@@ -9,8 +9,10 @@ topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
@@ -20,8 +22,8 @@ relations:
   - CA-R-1847
   - CA-R-1848
 status: Active
-version: 15
-updated_at: 2026-10-27 19:59:37 +0400
+version: 16
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-568-MCP-EVAL_CASE--verify-selected-mcp-non-happy-handoff-and-recording-truth.md
@@ -30,21 +32,24 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify selected MCP non-happy, handoff, and recording truth
 
-## Scope
-
-Functional MCP failures for unauthorized execute, incomplete or stale binding manifests, deferred/handoff, cancellation, partial/unknown effects, and truthful plain-Journal logging failure.
-
-Verify that host/gateway start or recreation reads the changed blacklist and that implementation-only reload retains the existing Settings snapshot. Refusal disables callable admission without erasing source Atoms, retained code or read-only analysis.
-
 ## Claim
+
+### Prose Claim
 
 Every realization **must** preserve the shared service's actual non-happy evidence and must never replay work because logging fails or recorded rows repeat.
 
 ## Details
+
+### Scope
+
+Functional MCP failures for unauthorized execute, incomplete or stale binding manifests, deferred/handoff, cancellation, partial/unknown effects, and truthful plain-Journal logging failure.
+
+Verify that host/gateway start or recreation reads the changed blacklist and that implementation-only reload retains the existing Settings snapshot. Refusal disables callable admission without erasing source Atoms, retained code or read-only analysis.
 
 Verify `project_mcp.tool_blacklist` with an absent/empty list and exact listed tool names. A blocked tool is absent from discovery and direct or cached invocation refuses before any handler call or effect. This Project blocks `release_version` and `public.release`; retain their implementation and binding contracts for later reuse, with normal selected capabilities unaffected. Verify release runner behavior through repository-host invocation, without using the blacklist as an exception to release verification or permission checks.
 
@@ -85,7 +90,7 @@ For the two direct Release commands, verify the closed connected-Project request
 
 Acceptance retains request traces, target mutation traces, service invocation count, actual supplied log data and logging diagnostics, and independently observed output/result/effect references. This is planned functional proof, not a runtime pass.
 
-### Sources
+#### Sources
 
 - CA-R-1847 v10; CA-R-1848 v6; CA-D-547 v7; CA-A-1142 v2; CA-P-1618 v1; CA-P-1535 v2; CA-D-527 v3; CA-R-1850 v2; CA-R-1866 v3; CA-R-1867 v1.
 - Current CA-O-016 Project Configuration Workflow (observed Version 18), CA-R-1527 Core Meta Model General, CA-R-1845 and CA-D-544 supply the Integrated prompt/continuation contract; CA-E-652 remains Workflow-level algorithm/evaluation authority, not an MCP admission gate.

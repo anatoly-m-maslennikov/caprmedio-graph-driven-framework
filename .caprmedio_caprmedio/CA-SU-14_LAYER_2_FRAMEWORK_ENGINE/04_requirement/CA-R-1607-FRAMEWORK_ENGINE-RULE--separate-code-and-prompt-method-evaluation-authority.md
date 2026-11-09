@@ -6,11 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit: TOOLS'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  {"main_subject": "CAPRMEDIO_MODEL <+ Atom.Header.Container", "dependencies": ["CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)", "CAPRMEDIO_MODEL <+ Scope Unit", "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring", "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring"]}
 tier: 1
 status: Active
 version: 12
@@ -22,6 +18,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
 ---
-# Separate Code and Prompt Method-Evaluation Authority
+## Summary
+
+Separate Code and Prompt Method-Evaluation Authority
+
+## Claim
+
+### Prose Claim
 
 A Method **or** Evaluation that applies only to executable code **must** be owned by TOOLS **or** its applicable code Scope Unit. A Method **or** Evaluation that applies only to prompt implementations **must** be owned by PROMPTS, ACTION_PROMPTS, OPERATOR_PROMPTS, **or** its applicable prompt Scope Unit. Cross-implementation authority **must** remain at the lowest common Scope Unit and state both implementation classes explicitly.

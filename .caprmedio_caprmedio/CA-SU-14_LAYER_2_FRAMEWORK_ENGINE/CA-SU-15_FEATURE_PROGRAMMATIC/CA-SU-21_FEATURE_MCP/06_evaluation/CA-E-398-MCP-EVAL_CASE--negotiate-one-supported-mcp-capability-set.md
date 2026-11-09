@@ -6,46 +6,59 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
 tier: 3
 relations:
   evaluation_for:
-  - CA-M-178
+  - CA-R-1116
   derived_from:
   - CA-A-057
+  IS_REPLACEMENT_FOR:
+  - CA-E-284
 status: Active
-version: 18
-updated_at: 2026-11-02 19:44:26 +0400
+version: 20
+updated_at: 2026-11-09 19:30:15 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: MCP
+destination:
+  file:
+    name: CA-E-398-MCP-EVAL_CASE--negotiate-one-supported-mcp-capability-set.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
-# Negotiate one supported MCP capability set
 
-## Claim checked
+## Summary
+
+Negotiate one supported MCP capability set
+
+## Claim
+
+### Prose Claim
 
 Supported MCP peers reach operation with exactly the declared negotiated
 revision **and** capability set.
 
-## Test case
+## Details
+
+### Test case
 
 Initialize the adapter once with a supported revision **and** capability set **and**
 once with one unsupported required capability.
 
-## Acceptance criteria
+### Acceptance criteria
 
 pass **only** **when** the supported peer reaches operation with exactly the negotiated
 set **and** the unsupported peer receives a stable incompatibility response **before**
 **any** capability executes.
 
-## Failure disposition
+### Failure disposition
 
 Stop the affected session **before** registry use **or** Tool dispatch.
 
-## Sources
+### Sources
 
 - [Model Context Protocol: lifecycle](https://modelcontextprotocol.io/specification/2025-06-18/basic/lifecycle)
-- [CA-M-178 — Negotiate declared MCP protocol capabilities](../05_method/CA-M-178-MCP-ENG_DECISION--negotiate-declared-mcp-protocol-capabilities.md)
+- [CA-R-1116 — Negotiate supported MCP protocol capabilities](../04_requirement/CA-R-1116-MCP-RULE--negotiate-supported-mcp-protocol-capabilities.md)

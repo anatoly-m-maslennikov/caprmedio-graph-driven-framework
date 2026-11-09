@@ -6,16 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt
+    Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Step'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
 tier: 3
 status: Active
-version: 13
-updated_at: 2026-10-27 19:59:37 +0400
+version: 14
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-564-PROMPTS-EVAL_CASE--verify-implementation-prompt-source-currentness.md
@@ -24,19 +28,22 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify implementation prompt source currentness
 
-## Scope
-
-the source-binding frontier for all seven Implementation Workflow prompts.
-
 ## Claim
+
+### Prose Claim
 
 the Implementation passes this Evaluation only when each required source identity, version, path, and digest matches current fully reviewed authority.
 
 ## Details
+
+### Scope
+
+the source-binding frontier for all seven Implementation Workflow prompts.
 
 The stale delivered O016v9 and old Step/Action pins fail this case until an independent PROMPTS review has refreshed them; a digest edit alone is not a pass.
 

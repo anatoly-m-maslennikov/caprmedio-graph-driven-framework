@@ -6,7 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'

@@ -6,8 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python
-    Code
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code"
 tier: 4
 relations:
   evaluation_for:

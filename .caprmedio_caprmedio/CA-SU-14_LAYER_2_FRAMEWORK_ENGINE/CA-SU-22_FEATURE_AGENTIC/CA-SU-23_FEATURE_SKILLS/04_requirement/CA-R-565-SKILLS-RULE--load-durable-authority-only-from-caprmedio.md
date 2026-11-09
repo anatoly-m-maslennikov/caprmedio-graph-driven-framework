@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Retrieval"
 tier: 2
 relations:
   child_of:
@@ -23,6 +23,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Load durable authority only from CAPRMEDIO
+## Summary
+
+Load durable authority only from CAPRMEDIO
+
+## Claim
+
+### Prose Claim
 
 CAPRMEDIO Skills **must** load durable project authority **only** from the owning project's governed `.caprmedio/` graph; host- **or** agent-specific memory, instruction, **and** context files, including `MEMORY.md`, `AGENTS.md`, **and** equivalents, **may** supply **only** ephemeral session context **and** operative planning.

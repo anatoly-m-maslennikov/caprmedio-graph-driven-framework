@@ -6,7 +6,8 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic
+    Testing
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
@@ -19,10 +20,10 @@ topics:
 tier: 3
 relations:
   depends_on:
-  - CA-D-678
+  - CA-R-2785
 status: Active
-version: 10
-updated_at: 2026-11-05 13:04:02 +0400
+version: 11
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
     name: CA-E-525-DISCOVER_TOOLS-EVAL_CASE--verify-discover-tools.md
@@ -30,6 +31,7 @@ carrier_destination:
 current_scope_unit: DISCOVER_TOOLS
 author: Anatoly Maslennikov
 ---
+
 # Summary
 
 Verify DISCOVER_TOOLS
@@ -53,4 +55,4 @@ the Evaluation **must** check the DISCOVER_TOOLS Tool against its declared resul
 
 Verify the release script captures the actual MCP descriptors and that empty-request `discover_tools` returns the generated catalog. Add, remove and change descriptor inputs between generations and verify the next catalog reflects the change. Each tool appears once; the existing discovery name is at root, query/Worksheet/maintenance tools are grouped correctly, and unrelated tools remain at root. Respect the actual blacklist. Missing or corrupt generated data is an explicit error. Existing explicit selector search continues to use its source-binding contract. The release hook runs after replacement/readiness and its failure prevents successful completion. No tool or Workflow is invoked to generate this metadata.
 
-Related contracts: CA-R-2785; CA-D-678.
+Related contracts: CA-R-2785.

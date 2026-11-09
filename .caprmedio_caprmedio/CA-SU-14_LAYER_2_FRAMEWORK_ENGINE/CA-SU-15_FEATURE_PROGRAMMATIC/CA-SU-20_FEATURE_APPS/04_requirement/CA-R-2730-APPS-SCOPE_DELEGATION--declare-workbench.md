@@ -12,33 +12,49 @@ context:
     scope_unit: CA-SU-20
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-08 22:18:08 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-R-2730-APPS-SCOPE_DELEGATION--declare-workbench.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/04_requirement
 ---
+
 ## Summary
 
 Declare WORKBENCH
 
 ## Claim
 
-The additional admitted local Role/Form pairs are exactly: Requirement/Solution, Requirement/Direct Policy, Method/Direct Policy and Delivery/Solution. Existing default admissions under CA-R-3008 continue to apply.
 
-The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared model entities or declared instances resolved at these existing active Subject addresses:
+### Prose Claim
 
-- CAPRMEDIO_MODEL <+ Projection
-- CAPRMEDIO_MODEL <+ Project
-- CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH_BACKEND
-- CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH_FRONTEND
-- CAPRMEDIO_STRUCTURE <+ Scope Unit//CODEX_EXTENSION
-- Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+The receiving Scope Unit is WORKBENCH. Existing default Role and Form admissions remain applicable. The additional local Role/Form pairs are exactly:
 
-Each entry selects that single endpoint object. It does not select the address string, other members of its type, or descendants. An unresolved entry remains a diagnostic and grants no admission.
+- Delivery / Solution;
+- Method / Direct Policy;
+- Requirement / Direct Policy;
+- Requirement / Solution;
 
-These permissions apply only to Atoms whose Header.Container-derived IS_CONTAINED_BY target is WORKBENCH.
+The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+
+- `CAPRMEDIO_MODEL <+ Project`;
+- `CAPRMEDIO_MODEL <+ Projection`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Query Authoring <+ SQL`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Test Design`;
+- `CAPRMEDIO_STRUCTURE <+ Scope Unit//CODEX_EXTENSION`;
+- `CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH_BACKEND`;
+- `CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH_FRONTEND`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure`;
+
+Each address selects one endpoint object, not the address string, other members of its type or descendants. An unresolved address is diagnostic and grants no admission. These permissions apply only to local Atoms whose Header.Container resolves to WORKBENCH. The Scope Unit identity, Parent, responsibility and structural tree are unchanged.
 
 ### Formal Claim
 

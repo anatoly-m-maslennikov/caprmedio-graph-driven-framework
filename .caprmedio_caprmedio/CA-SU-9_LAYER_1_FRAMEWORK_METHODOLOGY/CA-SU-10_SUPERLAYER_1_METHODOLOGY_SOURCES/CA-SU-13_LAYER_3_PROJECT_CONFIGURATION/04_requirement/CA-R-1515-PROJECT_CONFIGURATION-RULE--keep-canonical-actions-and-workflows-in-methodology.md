@@ -15,7 +15,7 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure"
 tier: 2
 status: Active
 version: 25

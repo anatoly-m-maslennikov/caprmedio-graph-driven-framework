@@ -1,0 +1,44 @@
+---
+atom_id: CA-O-165
+ref_id: CA-O-165
+container:
+  scope_unit: CA-SU-27
+role: Operations
+form: Action
+topics:
+  main_subject: Subject/caprmedio/Action//Validate local release inputs
+  dependencies:
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Release.ID
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification
+tier: 3
+status: Active
+version: 23
+updated_at: 2026-11-09 15:54:30 +0400
+carrier_destination:
+  file:
+    name: CA-O-165-FRAMEWORK_DELIVERY-ACTION--validate-local-release-inputs.md
+    path: .caprmedio_caprmedio/CA-SU-27_LAYER_5_FRAMEWORK_DELIVERY/09_operations
+current_scope_unit: FRAMEWORK_DELIVERY
+author: Anatoly Maslennikov
+relations: {}
+---
+
+# Summary
+
+Validate local release inputs
+
+## Action
+
+Validate local release inputs **means** the Action that checks the explicit local-release inputs and configured delivery paths for file/path safety before the declared local validation scope. The complete discovered suite remains the default; a focused scope requires the explicit current Operator record admitted by CA-O-164.
+
+## Scope
+
+The Action checks the configured source and delivery paths, Project Structure, protected settings, compiler, and target paths `LAYER_1_FRAMEWORK_METHODOLOGY/` and `.caprmedio_caprmedio/000_CAPRMEDIO_framework/` for ordinary input and file/path safety. It does not separately validate Active Atom metadata, placement or relations; release verification uses the declared scope and records whether it is complete or focused.
+
+## Details
+
+Missing, ambiguous or unsafe required input stops before tests or delivery writes and is reported for manual handling. This Action does not copy or clear product or installed contents, compile, install, push, or open a PR.

@@ -6,7 +6,7 @@ container:
 role: Method
 form: Eng Policy
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/UX
 tier: 1

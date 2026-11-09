@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation"
 tier: 3
 status: Active
 version: 10

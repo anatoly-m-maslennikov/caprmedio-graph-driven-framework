@@ -8,7 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance
+      <+ Measurement and Profiling
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 6
 relations:
   is_evaluation_for:
@@ -18,8 +21,8 @@ relations:
   - CA-E-677
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 4
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-799-WORKBENCH-EVAL_CASE--verify-profiler-off-workbench-resource-regression-guards.md
@@ -34,6 +37,8 @@ author: Anatoly Maslennikov
 Verify profiler-off Workbench resource regression guards
 
 ## Claim
+
+### Prose Claim
 
 Run the existing disposable 5,000-Atom Workbench Docker fixture with `tracemalloc` and CPU profiling disabled. Take cgroup snapshots immediately before and after cold index, warm full reread and a true 15-second idle interval. Verify frozen controlled-fixture limits for those CPU interval deltas and current RAM values, plus the separate cumulative peak-RAM ceiling. Verify no cgroup OOM kill.
 

@@ -8,14 +8,14 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
+      Authoring
+    dependencies: []
   tier: 3
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 12
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-421-PROGRAMMATIC-DIRECT_POLICY--reuse-suitable-established-solutions.md
@@ -23,21 +23,24 @@ destination:
 current_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Reuse suitable established solutions
 
-## Scope
-
-New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
-
 ## Claim
+
+### Prose Claim
 
 **To** implement declared PROGRAMMATIC behavior, prefer well-adopted, well-suited existing libraries, approaches and tools over reimplementing their mechanics; use custom mechanics **when** existing solutions cannot meet a declared requirement **or** the custom choice provides a concrete benefit.
 
 At the real library boundary, verify the selected solution's public API, actual defaults and event behavior; do not let assumed local behavior contradict the system contract.
 
 ## Details
+
+### Scope
+
+New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
 
 Candidate source: [CA-M-391@2](archive/CA-M-391-PROGRAMMATIC-CORE--reuse-suitable-established-solutions@2.md)
 

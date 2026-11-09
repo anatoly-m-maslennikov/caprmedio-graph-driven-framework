@@ -8,15 +8,16 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
+      Authoring
   tier: 4
 relations:
   evaluation_for:
   - CA-M-421
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 16
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-646-PROGRAMMATIC-DIRECT_POLICY--evaluate-suitable-established-reuse.md
@@ -25,19 +26,22 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Evaluate suitable established reuse
 
-## Scope
-
-New PROGRAMMATIC libraries, mechanisms, adapters, parsers, serializers, concurrency and testing approaches.
-
 ## Claim
+
+### Prose Claim
 
 Accept a custom mechanism when proportional fit and dependency-cost evidence support it: an unmet declared need, a concrete benefit, or materially lower operational or maintenance risk can justify the choice. Prefer a well-adopted suitable library, approach or tool when it satisfies declared behavior; this is a fit decision, not a brand mandate. Ordinary choices do not require separate catalog paperwork.
 
 ## Details
+
+### Scope
+
+New PROGRAMMATIC libraries, mechanisms, adapters, parsers, serializers, concurrency and testing approaches.
 
 - Compare established candidates when the choice is non-obvious or risk-bearing, considering behavior, compatibility, security, performance, licensing and maintenance.
 - Verify the selected solution owns the required behavior and wrappers do not recreate a second semantic implementation.

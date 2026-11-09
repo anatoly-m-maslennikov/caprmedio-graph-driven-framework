@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling"
 tier: 3
 status: Active
 version: 31

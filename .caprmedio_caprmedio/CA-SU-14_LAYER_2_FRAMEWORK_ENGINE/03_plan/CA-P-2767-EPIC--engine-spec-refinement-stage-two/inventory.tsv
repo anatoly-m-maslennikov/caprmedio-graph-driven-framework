@@ -1,0 +1,324 @@
+Atom ID	Role	Scope Unit	Version	Status
+CA-D-005	Delivery	CA-SU-20	19	Held: declared Content unavailable
+CA-D-250	Delivery	CA-SU-15	25	Held: declared Content unavailable
+CA-D-437	Delivery	CA-SU-15	23	Held: declared Content unavailable
+CA-D-486	Delivery	CA-SU-24	10	Held: declared Content unavailable
+CA-D-489	Delivery	CA-SU-20	10	Held: declared Content unavailable
+CA-D-490	Delivery	CA-SU-2	9	Held: declared Content unavailable
+CA-D-509	Delivery	CA-SU-24	13	Ready
+CA-D-510	Delivery	CA-SU-24	16	Ready
+CA-D-511	Delivery	CA-SU-24	14	Ready
+CA-D-521	Delivery	CA-SU-2	20	Ready
+CA-D-522	Delivery	CA-SU-2	14	Ready
+CA-D-523	Delivery	CA-SU-21	12	Ready
+CA-D-524	Delivery	CA-SU-2	9	Ready
+CA-D-525	Delivery	CA-SU-2	16	Ready
+CA-D-526	Delivery	CA-SU-2	13	Ready
+CA-D-544	Delivery	CA-SU-24	18	Ready
+CA-D-545	Delivery	CA-SU-24	13	Ready
+CA-D-546	Delivery	CA-SU-24	12	Ready
+CA-D-547	Delivery	CA-SU-21	20	Ready
+CA-D-548	Delivery	CA-SU-21	11	Ready
+CA-D-576	Delivery	CA-SU-21	14	Ready
+CA-D-577	Delivery	CA-SU-2	15	Ready
+CA-D-578	Delivery	CA-SU-21	18	Ready
+CA-D-583	Delivery	CA-SU-2	13	Ready
+CA-D-589	Delivery	CA-SU-2	18	Ready
+CA-D-590	Delivery	CA-SU-2	14	Ready
+CA-D-592	Delivery	CA-SU-21	12	Ready
+CA-D-593	Delivery	CA-SU-21	17	Ready
+CA-D-594	Delivery	CA-SU-2	18	Ready
+CA-D-595	Delivery	CA-SU-21	17	Ready
+CA-D-638	Delivery	CA-SU-15	14	Ready
+CA-D-639	Delivery	CA-SU-21	15	Ready
+CA-D-640	Delivery	CA-SU-15	16	Ready
+CA-D-672	Delivery	CA-SU-45	14	Ready
+CA-D-673	Delivery	CA-SU-43	15	Ready
+CA-D-674	Delivery	CA-SU-46	23	Ready
+CA-D-675	Delivery	CA-SU-43	14	Ready
+CA-D-676	Delivery	CA-SU-43	3	Ready
+CA-D-677	Delivery	CA-SU-43	2	Ready
+CA-D-678	Delivery	CA-SU-15	5	Ready
+CA-D-679	Delivery	CA-SU-43	2	Ready
+CA-D-681	Delivery	CA-SU-48	11	Ready
+CA-D-695	Delivery	CA-SU-45	3	Ready
+CA-D-696	Delivery	CA-SU-45	2	Ready
+CA-D-697	Delivery	CA-SU-45	2	Ready
+CA-D-698	Delivery	CA-SU-45	3	Ready
+CA-D-703	Delivery	CA-SU-45	2	Ready
+CA-D-704	Delivery	CA-SU-21	1	Ready
+CA-D-705	Delivery	CA-SU-45	1	Ready
+CA-E-067	Evaluation	CA-SU-44	27	Ready
+CA-E-253	Evaluation	CA-SU-15	26	Held: declared Content unavailable
+CA-E-254	Evaluation	CA-SU-15	25	Held: declared Content unavailable
+CA-E-255	Evaluation	CA-SU-15	26	Held: declared Content unavailable
+CA-E-256	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-257	Evaluation	CA-SU-15	26	Held: declared Content unavailable
+CA-E-258	Evaluation	CA-SU-15	25	Held: declared Content unavailable
+CA-E-259	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-260	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-261	Evaluation	CA-SU-15	25	Held: declared Content unavailable
+CA-E-262	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-263	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-264	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-265	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-266	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-267	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-268	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-269	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-270	Evaluation	CA-SU-15	26	Held: declared Content unavailable
+CA-E-271	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-272	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-273	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-274	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-275	Evaluation	CA-SU-21	18	Held: declared Content unavailable
+CA-E-276	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-277	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-278	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-279	Evaluation	CA-SU-21	18	Held: declared Content unavailable
+CA-E-280	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-281	Evaluation	CA-SU-21	18	Ready
+CA-E-282	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-283	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-284	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-285	Evaluation	CA-SU-21	20	Held: declared Content unavailable
+CA-E-286	Evaluation	CA-SU-21	17	Held: declared Content unavailable
+CA-E-287	Evaluation	CA-SU-21	16	Held: declared Content unavailable
+CA-E-309	Evaluation	CA-SU-15	20	Held: declared Content unavailable
+CA-E-310	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-311	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-314	Evaluation	CA-SU-20	19	Held: declared Content unavailable
+CA-E-349	Evaluation	CA-SU-20	15	Held: declared Content unavailable
+CA-E-350	Evaluation	CA-SU-20	18	Held: declared Content unavailable
+CA-E-351	Evaluation	CA-SU-20	17	Held: declared Content unavailable
+CA-E-352	Evaluation	CA-SU-20	17	Held: declared Content unavailable
+CA-E-356	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-357	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-358	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-359	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-360	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-361	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-362	Evaluation	CA-SU-15	15	Held: declared Content unavailable
+CA-E-363	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-364	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-365	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-366	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-367	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-368	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-369	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-370	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-371	Evaluation	CA-SU-15	18	Held: declared Content unavailable
+CA-E-372	Evaluation	CA-SU-15	20	Held: declared Content unavailable
+CA-E-373	Evaluation	CA-SU-15	19	Held: declared Content unavailable
+CA-E-374	Evaluation	CA-SU-15	19	Held: declared Content unavailable
+CA-E-375	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-376	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-377	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-378	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-385	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-388	Evaluation	CA-SU-15	19	Held: declared Content unavailable
+CA-E-389	Evaluation	CA-SU-15	28	Ready
+CA-E-390	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-391	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-392	Evaluation	CA-SU-15	20	Held: declared Content unavailable
+CA-E-393	Evaluation	CA-SU-15	19	Held: declared Content unavailable
+CA-E-394	Evaluation	CA-SU-15	20	Held: declared Content unavailable
+CA-E-395	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-396	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-397	Evaluation	CA-SU-15	20	Held: declared Content unavailable
+CA-E-398	Evaluation	CA-SU-21	18	Held: declared Content unavailable
+CA-E-399	Evaluation	CA-SU-21	18	Held: declared Content unavailable
+CA-E-408	Evaluation	CA-SU-20	13	Held: declared Content unavailable
+CA-E-451	Evaluation	CA-SU-15	22	Held: declared Content unavailable
+CA-E-452	Evaluation	CA-SU-15	24	Held: declared Content unavailable
+CA-E-453	Evaluation	CA-SU-15	23	Held: declared Content unavailable
+CA-E-454	Evaluation	CA-SU-15	20	Held: declared Content unavailable
+CA-E-455	Evaluation	CA-SU-15	21	Held: declared Content unavailable
+CA-E-467	Evaluation	CA-SU-15	16	Held: declared Content unavailable
+CA-E-492	Evaluation	CA-SU-2	15	Held: declared Content unavailable
+CA-E-493	Evaluation	CA-SU-2	13	Held: declared Content unavailable
+CA-E-524	Evaluation	CA-SU-24	20	Ready
+CA-E-531	Evaluation	CA-SU-2	11	Ready
+CA-E-532	Evaluation	CA-SU-2	12	Ready
+CA-E-533	Evaluation	CA-SU-21	13	Ready
+CA-E-534	Evaluation	CA-SU-21	10	Ready
+CA-E-535	Evaluation	CA-SU-2	9	Ready
+CA-E-536	Evaluation	CA-SU-15	18	Ready
+CA-E-537	Evaluation	CA-SU-2	12	Ready
+CA-E-538	Evaluation	CA-SU-2	12	Ready
+CA-E-539	Evaluation	CA-SU-15	14	Ready
+CA-E-540	Evaluation	CA-SU-15	14	Ready
+CA-E-563	Evaluation	CA-SU-24	12	Ready
+CA-E-564	Evaluation	CA-SU-24	13	Ready
+CA-E-565	Evaluation	CA-SU-24	12	Ready
+CA-E-566	Evaluation	CA-SU-24	10	Ready
+CA-E-567	Evaluation	CA-SU-21	13	Ready
+CA-E-568	Evaluation	CA-SU-21	15	Ready
+CA-E-582	Evaluation	CA-SU-21	15	Ready
+CA-E-583	Evaluation	CA-SU-2	17	Ready
+CA-E-584	Evaluation	CA-SU-21	11	Ready
+CA-E-585	Evaluation	CA-SU-21	10	Ready
+CA-E-590	Evaluation	CA-SU-2	16	Ready
+CA-E-594	Evaluation	CA-SU-2	18	Ready
+CA-E-595	Evaluation	CA-SU-2	16	Ready
+CA-E-598	Evaluation	CA-SU-21	12	Ready
+CA-E-599	Evaluation	CA-SU-21	15	Ready
+CA-E-600	Evaluation	CA-SU-2	21	Ready
+CA-E-601	Evaluation	CA-SU-21	15	Ready
+CA-E-637	Evaluation	CA-SU-15	13	Ready
+CA-E-638	Evaluation	CA-SU-15	13	Ready
+CA-E-639	Evaluation	CA-SU-15	16	Ready
+CA-E-640	Evaluation	CA-SU-21	13	Ready
+CA-E-641	Evaluation	CA-SU-15	18	Ready
+CA-E-642	Evaluation	CA-SU-15	15	Ready
+CA-E-643	Evaluation	CA-SU-15	15	Ready
+CA-E-644	Evaluation	CA-SU-15	15	Ready
+CA-E-645	Evaluation	CA-SU-15	14	Ready
+CA-E-646	Evaluation	CA-SU-15	15	Ready
+CA-E-647	Evaluation	CA-SU-15	14	Ready
+CA-E-648	Evaluation	CA-SU-15	14	Ready
+CA-E-649	Evaluation	CA-SU-15	14	Ready
+CA-E-650	Evaluation	CA-SU-15	16	Ready
+CA-E-651	Evaluation	CA-SU-15	14	Ready
+CA-E-653	Evaluation	CA-SU-15	11	Ready
+CA-E-673	Evaluation	CA-SU-43	4	Ready
+CA-E-674	Evaluation	CA-SU-43	6	Ready
+CA-E-675	Evaluation	CA-SU-43	7	Ready
+CA-E-676	Evaluation	CA-SU-45	12	Ready
+CA-E-677	Evaluation	CA-SU-45	23	Ready
+CA-E-679	Evaluation	CA-SU-43	2	Ready
+CA-E-680	Evaluation	CA-SU-43	2	Ready
+CA-E-681	Evaluation	CA-SU-43	2	Ready
+CA-E-683	Evaluation	CA-SU-46	6	Ready
+CA-E-684	Evaluation	CA-SU-48	8	Ready
+CA-E-750	Evaluation	CA-SU-45	2	Ready
+CA-E-751	Evaluation	CA-SU-45	2	Ready
+CA-E-752	Evaluation	CA-SU-45	2	Ready
+CA-E-753	Evaluation	CA-SU-45	2	Ready
+CA-E-780	Evaluation	CA-SU-45	8	Ready
+CA-E-781	Evaluation	CA-SU-46	2	Ready
+CA-E-782	Evaluation	CA-SU-46	2	Ready
+CA-E-783	Evaluation	CA-SU-46	4	Ready
+CA-E-784	Evaluation	CA-SU-45	2	Ready
+CA-E-785	Evaluation	CA-SU-43	2	Ready
+CA-E-786	Evaluation	CA-SU-46	2	Ready
+CA-E-787	Evaluation	CA-SU-45	3	Ready
+CA-E-788	Evaluation	CA-SU-45	2	Ready
+CA-E-794	Evaluation	CA-SU-43	3	Ready
+CA-E-795	Evaluation	CA-SU-45	2	Ready
+CA-E-796	Evaluation	CA-SU-2	2	Ready
+CA-E-797	Evaluation	CA-SU-15	2	Ready
+CA-E-798	Evaluation	CA-SU-21	1	Ready
+CA-E-799	Evaluation	CA-SU-43	3	Ready
+CA-E-800	Evaluation	CA-SU-43	3	Ready
+CA-E-803	Evaluation	CA-SU-45	1	Ready
+CA-E-804	Evaluation	CA-SU-45	1	Ready
+CA-M-153	Method	CA-SU-44	26	Ready
+CA-M-167	Method	CA-SU-21	18	Held: declared Content unavailable
+CA-M-168	Method	CA-SU-21	19	Held: declared Content unavailable
+CA-M-169	Method	CA-SU-21	20	Held: declared Content unavailable
+CA-M-170	Method	CA-SU-21	18	Held: declared Content unavailable
+CA-M-171	Method	CA-SU-21	18	Held: declared Content unavailable
+CA-M-172	Method	CA-SU-21	19	Held: declared Content unavailable
+CA-M-173	Method	CA-SU-21	18	Held: declared Content unavailable
+CA-M-174	Method	CA-SU-21	19	Held: declared Content unavailable
+CA-M-175	Method	CA-SU-21	19	Ready
+CA-M-176	Method	CA-SU-21	21	Held: declared Content unavailable
+CA-M-177	Method	CA-SU-21	20	Held: declared Content unavailable
+CA-M-178	Method	CA-SU-21	19	Held: declared Content unavailable
+CA-M-179	Method	CA-SU-21	20	Held: declared Content unavailable
+CA-M-180	Method	CA-SU-21	19	Held: declared Content unavailable
+CA-M-181	Method	CA-SU-21	17	Held: declared Content unavailable
+CA-M-191	Method	CA-SU-15	24	Ready
+CA-M-193	Method	CA-SU-15	26	Ready
+CA-M-196	Method	CA-SU-20	21	Held: declared Content unavailable
+CA-M-222	Method	CA-SU-20	21	Held: declared Content unavailable
+CA-M-242	Method	CA-SU-20	15	Held: declared Content unavailable
+CA-M-284	Method	CA-SU-15	28	Ready
+CA-M-302	Method	CA-SU-2	13	Held: declared Content unavailable
+CA-M-317	Method	CA-SU-24	16	Ready
+CA-M-320	Method	CA-SU-2	13	Ready
+CA-M-321	Method	CA-SU-2	15	Ready
+CA-M-322	Method	CA-SU-21	13	Ready
+CA-M-323	Method	CA-SU-2	9	Ready
+CA-M-324	Method	CA-SU-2	13	Ready
+CA-M-325	Method	CA-SU-2	12	Ready
+CA-M-326	Method	CA-SU-24	12	Ready
+CA-M-327	Method	CA-SU-24	12	Ready
+CA-M-328	Method	CA-SU-24	14	Ready
+CA-M-329	Method	CA-SU-24	14	Ready
+CA-M-340	Method	CA-SU-2	17	Ready
+CA-M-341	Method	CA-SU-21	12	Ready
+CA-M-347	Method	CA-SU-2	17	Ready
+CA-M-350	Method	CA-SU-21	12	Ready
+CA-M-351	Method	CA-SU-2	18	Ready
+CA-M-352	Method	CA-SU-2	16	Ready
+CA-M-354	Method	CA-SU-21	13	Ready
+CA-M-355	Method	CA-SU-21	17	Ready
+CA-M-356	Method	CA-SU-2	19	Ready
+CA-M-357	Method	CA-SU-21	13	Ready
+CA-M-395	Method	CA-SU-15	15	Ready
+CA-M-396	Method	CA-SU-15	14	Ready
+CA-M-397	Method	CA-SU-15	15	Ready
+CA-M-398	Method	CA-SU-15	14	Ready
+CA-M-399	Method	CA-SU-15	15	Ready
+CA-M-400	Method	CA-SU-15	15	Ready
+CA-M-401	Method	CA-SU-15	13	Ready
+CA-M-402	Method	CA-SU-15	12	Ready
+CA-M-403	Method	CA-SU-15	10	Ready
+CA-M-404	Method	CA-SU-15	10	Ready
+CA-M-405	Method	CA-SU-15	11	Ready
+CA-M-406	Method	CA-SU-15	12	Ready
+CA-M-407	Method	CA-SU-15	12	Ready
+CA-M-408	Method	CA-SU-15	12	Ready
+CA-M-409	Method	CA-SU-15	12	Ready
+CA-M-410	Method	CA-SU-15	10	Ready
+CA-M-411	Method	CA-SU-15	10	Ready
+CA-M-412	Method	CA-SU-15	11	Ready
+CA-M-413	Method	CA-SU-15	13	Ready
+CA-M-414	Method	CA-SU-15	14	Ready
+CA-M-415	Method	CA-SU-15	12	Ready
+CA-M-416	Method	CA-SU-15	12	Ready
+CA-M-417	Method	CA-SU-15	10	Ready
+CA-M-418	Method	CA-SU-15	12	Ready
+CA-M-419	Method	CA-SU-15	12	Ready
+CA-M-420	Method	CA-SU-15	13	Ready
+CA-M-421	Method	CA-SU-15	11	Ready
+CA-M-422	Method	CA-SU-15	11	Ready
+CA-M-423	Method	CA-SU-15	10	Ready
+CA-M-424	Method	CA-SU-15	14	Ready
+CA-M-425	Method	CA-SU-15	12	Ready
+CA-M-426	Method	CA-SU-15	10	Ready
+CA-M-427	Method	CA-SU-15	12	Ready
+CA-M-428	Method	CA-SU-15	12	Ready
+CA-M-429	Method	CA-SU-15	14	Ready
+CA-M-430	Method	CA-SU-15	12	Ready
+CA-M-431	Method	CA-SU-15	12	Ready
+CA-M-432	Method	CA-SU-15	9	Ready
+CA-M-462	Method	CA-SU-45	11	Ready
+CA-M-463	Method	CA-SU-45	7	Ready
+CA-M-464	Method	CA-SU-45	9	Ready
+CA-M-465	Method	CA-SU-45	24	Ready
+CA-M-466	Method	CA-SU-46	6	Ready
+CA-M-467	Method	CA-SU-46	3	Ready
+CA-M-468	Method	CA-SU-46	5	Ready
+CA-M-469	Method	CA-SU-46	8	Ready
+CA-M-470	Method	CA-SU-43	9	Ready
+CA-M-471	Method	CA-SU-43	4	Ready
+CA-M-472	Method	CA-SU-43	2	Ready
+CA-M-473	Method	CA-SU-15	4	Ready
+CA-M-474	Method	CA-SU-43	2	Ready
+CA-M-476	Method	CA-SU-48	6	Ready
+CA-M-490	Method	CA-SU-45	3	Ready
+CA-M-491	Method	CA-SU-45	2	Ready
+CA-M-492	Method	CA-SU-46	3	Ready
+CA-M-493	Method	CA-SU-45	2	Ready
+CA-M-500	Method	CA-SU-45	3	Ready
+CA-M-501	Method	CA-SU-43	3	Ready
+CA-M-502	Method	CA-SU-45	2	Ready
+CA-M-503	Method	CA-SU-45	2	Ready
+CA-M-504	Method	CA-SU-2	2	Ready
+CA-M-505	Method	CA-SU-15	2	Ready
+CA-M-506	Method	CA-SU-21	2	Ready
+CA-M-508	Method	CA-SU-43	5	Ready
+CA-M-509	Method	CA-SU-45	1	Ready

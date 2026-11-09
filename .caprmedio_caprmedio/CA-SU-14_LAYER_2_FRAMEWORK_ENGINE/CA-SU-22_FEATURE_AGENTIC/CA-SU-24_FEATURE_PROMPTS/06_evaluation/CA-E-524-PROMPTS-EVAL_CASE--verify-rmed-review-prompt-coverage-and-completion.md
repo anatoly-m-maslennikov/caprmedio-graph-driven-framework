@@ -6,7 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Carrier
@@ -17,7 +17,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
 tier: 4
@@ -31,8 +31,8 @@ relations:
   - CA-R-1802
   - CA-R-2447
 status: Active
-version: 20
-updated_at: 2026-10-30 03:11:57 +0400
+version: 21
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-524-PROMPTS-EVAL_CASE--verify-rmed-review-prompt-coverage-and-completion.md
@@ -41,19 +41,22 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify RMED review prompt coverage and completion
 
-## Scope
-
-the delivered RMED review prompts **and** their report-based progress aggregation.
-
 ## Claim
+
+### Prose Claim
 
 the Implementation passes this Evaluation **only** **when** its observed results satisfy the following golden scenarios with the declared current source bindings.
 
 ## Details
+
+### Scope
+
+the delivered RMED review prompts **and** their report-based progress aggregation.
 
 | Scenario | Expected result |
 |---|---|

@@ -16,8 +16,8 @@ relations:
   - CA-D-674
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-786-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-grid-context-actions.md
@@ -49,4 +49,3 @@ A real-browser evaluation **must**:
 - keep Adaptive row sizing, Fixed-value visibility and Full/Limited N preferences working while grid actions are used; resize and zoom changes remain display-only and do not rerun the View query.
 
 The evaluation passes only when the grid is read-only, every approved action is available with the stated global behavior, and no unsupported grid feature or query rerun appears.
-

@@ -8,7 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
+      Architecture <+ Communication <+ Interface Contracts
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   evaluation_for:
@@ -20,8 +23,8 @@ relations:
   - CA-D-674
 state:
   status: Active
-  version: 6
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 7
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-683-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-views-and-display-controls.md
@@ -39,13 +42,13 @@ Exercise Workbench Views and display controls
 
 ### Prose Claim
 
-The Workbench interface preserves View input and uses the shared backend contracts for its query and saved-resource actions. Exercise the accepted controls through the built frontend and real backend. Prefer complete browser flows over checks of component internals. Keep focused tests only for behavior not covered end-to-end.
+The Workbench browser interface preserves View input and uses the shared backend contracts for its query and saved-resource actions. Exercise the accepted controls through the built frontend and real backend. Prefer complete browser flows over checks of component internals. Keep focused tests only for behavior not covered end-to-end. The same acceptance remains required for the native Workbench surface where the control is shared; native execution status in this review: not run.
 
-Verify Format through its button and command-palette entry in the shared standalone/native Query editor. A compact query becomes the Method's line layout, including leading commas, uppercase SELECT, lowercase clauses, two-space indentation and a separate semicolon. Quoted identifiers, string values, comments, CTEs and nested queries keep their meaning. Formatting twice is stable. The editor reports an ordinary unsaved edit, existing autosave/restore retains it, and no Run, Check or Save is sent. If the library rejects input, display the error and keep the original query and existing results unchanged.
+Verify Format through its button and command-palette entry in the Query editor. A compact query becomes the method's line layout, including leading commas, uppercase SELECT, lowercase clauses, two-space indentation and a separate semicolon. Quoted identifiers, string values, comments, CTEs and nested queries keep their meaning. Formatting twice is stable. The editor reports an ordinary unsaved edit, existing autosave/restore retains it, and no Run, Check or Save is sent. If the library rejects input, display the error and keep the original query and existing results unchanged. The same formatting acceptance remains required in the native editor; native execution status: not run.
 
-Exercise the View actions through the built frontend and real backend. Clicking a View's Saved link preserves the View count, active View ID, unsaved edits and existing results. Opening the same saved ID or URL through Open Saved focuses the matching open View rather than creating another; different saved IDs with equal SQL are not merged. Verify standalone reload retains the saved identity needed for this reuse.
+Exercise View actions through the built frontend and real backend. Clicking a View's Saved link preserves the View count, active View ID, unsaved edits and existing results. Opening the same saved ID or URL through Open Saved focuses the matching open View rather than creating another; different saved IDs with equal SQL are not merged. Verify standalone reload retains the saved identity needed for this reuse.
 
-Rename a non-active tab through its context menu and rename the current View through the palette; the dialog starts with its current display name. Duplicate through both entry points. Verify new stable IDs, exact query and cursor copies, names such as `Report(1)` and `Report(2)`, collision handling, focus and persistence. The source stays unchanged; copies have no prior result or saved-item identity, and no Run, Check or Save is sent. Running a copy later produces its own result without changing the source. Check the same duplicate operation through the native bridge.
+Exercise rename and duplicate flows without replacing the focused cases that own their detailed contracts. Rename a non-active tab through its context menu and rename the current View through the palette; the dialog starts with its current display name. Duplicate through both entry points. Verify new stable IDs, exact query and cursor copies, names such as Report(1) and Report(2), collision handling, focus and persistence. The source stays unchanged; copies have no prior result or saved-item identity, and no Run, Check or Save is sent. Running a copy later produces its own result without changing the source. The native bridge duplicate path remains a required future acceptance check; native execution status: not run.
 
 ## Details
 

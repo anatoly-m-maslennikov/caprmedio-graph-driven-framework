@@ -6,8 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
-    Structure
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
 tier: 1
 relations:
   child_of:
@@ -23,6 +22,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Use one portable shared Skill runtime
+## Summary
+
+Use one portable shared Skill runtime
+
+## Claim
+
+### Prose Claim
 
 **all** CAPRMEDIO Skills for one agent host invoke one versioned portable shared runtime that deterministically resolves the owning project, project-local governance, routing, **and** required session **or** Journal setup; thin wrappers duplicate no shared mechanics **and** fail closed **when** the runtime boundary cannot be resolved.

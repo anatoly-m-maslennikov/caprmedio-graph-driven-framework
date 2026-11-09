@@ -8,7 +8,7 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/File
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 3
 status: Active
 version: 28

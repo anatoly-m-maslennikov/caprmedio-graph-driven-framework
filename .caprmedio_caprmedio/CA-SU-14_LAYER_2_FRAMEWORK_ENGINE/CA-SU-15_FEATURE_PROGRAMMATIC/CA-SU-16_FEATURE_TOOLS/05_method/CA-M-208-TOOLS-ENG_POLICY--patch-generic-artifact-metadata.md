@@ -6,7 +6,7 @@ container:
 role: Method
 form: Eng Policy
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization"
 tier: 1
 relations:
   method_for:

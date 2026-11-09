@@ -1,0 +1,129 @@
+{
+  "metadata_readback": {
+    "query_id": "6c2191ba09b64a4fb47d5510a4d62aad",
+    "sql": "SELECT reference,status_group,\"header.context.role\" AS role,\"header.context.form\" AS form,\"header.context.container.scope_unit\" AS container,\"header.state.status\" AS status,\"header.state.version\" AS version,\"content.claim.prose_claim\" AS claim FROM atoms WHERE reference IN ('CA-M-514','CA-M-515') ORDER BY reference",
+    "columns": [
+      {
+        "name": "reference",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "status_group",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "role",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "form",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "container",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "status",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "version",
+        "type": "BIGINT",
+        "has_values": true
+      },
+      {
+        "name": "claim",
+        "type": "VARCHAR",
+        "has_values": false
+      }
+    ],
+    "rows": [
+      [
+        "CA-M-514",
+        "Current",
+        "method",
+        "direct_policy",
+        "CA-SU-14",
+        "active",
+        2,
+        null
+      ],
+      [
+        "CA-M-515",
+        "Current",
+        "method",
+        "direct_policy",
+        "CA-SU-14",
+        "active",
+        2,
+        null
+      ]
+    ],
+    "row_count": 2,
+    "source_row_count": 2,
+    "column_count": 8,
+    "offset": 0,
+    "page_size": 4,
+    "has_more": false
+  },
+  "content_readback": {
+    "query_id": "f01c49c4dfba466586af483f11b4b149",
+    "sql": "SELECT reference,substr(\"content.summary\",1,90) AS summary,substr(\"content.claim.prose_claim\",1,130) AS claim FROM atoms WHERE reference IN ('CA-M-327','CA-M-328','CA-M-514','CA-M-515') ORDER BY reference",
+    "columns": [
+      {
+        "name": "reference",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "summary",
+        "type": "VARCHAR",
+        "has_values": true
+      },
+      {
+        "name": "claim",
+        "type": "VARCHAR",
+        "has_values": true
+      }
+    ],
+    "rows": [
+      [
+        "CA-M-327",
+        "Stage golden E2E tests before implementation work",
+        "**to** prepare implementation, first specify executable golden E2E cases from E authority and runnable baselines, then implement o"
+      ],
+      [
+        "CA-M-328",
+        "Diagnose, admit, and repair implementation failures",
+        "**to** handle a failure, retain the actual failing evidence, diagnose its category, admit retry only through current permission/co"
+      ],
+      [
+        "CA-M-514",
+        "Use MCP for AI Agent access",
+        null
+      ],
+      [
+        "CA-M-515",
+        "Use APIs for internal Engine calls",
+        null
+      ]
+    ],
+    "row_count": 4,
+    "source_row_count": 4,
+    "column_count": 3,
+    "offset": 0,
+    "page_size": 4,
+    "has_more": false
+  },
+  "limitation": "Workbench extracts Header/Summary but returns null for the two nested/lowercase Method Direct Policy Claim values. Exact on-disk Claims verified; extraction gap reported to owner.",
+  "source_effects": "Only the two newly allocated IDs and consumed Drafts",
+  "native_run": false,
+  "journal_append": false
+}

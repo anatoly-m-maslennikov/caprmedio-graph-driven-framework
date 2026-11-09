@@ -8,10 +8,12 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface
+      Contracts
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
+      Structure
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
   tier: 4
 relations:
   derived_from:
@@ -20,8 +22,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 14
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-M-413-PROGRAMMATIC-DIRECT_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md
@@ -33,9 +35,14 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Define typed contracts at replaceable technical boundaries
+
+## Claim
+
+### Prose Claim
 
 declare an explicit typed contract wherever a PROGRAMMATIC component depends on
 a replaceable technical implementation, adapter, transport, storage mechanism,
@@ -47,12 +54,12 @@ When the boundary carries user-edited or externally applied mutable state, the c
 
 Candidate source: [CA-M-159@9](archive/CA-M-159-PROGRAMMATIC-CORE-METHOD--define-typed-contracts-at-replaceable-technical-boundaries@9.md)
 
-## Applicable when
+### Applicable when
 
 apply **when** a Tool, App backend service, **or** MCP component can substitute one
 technical implementation for another **or** crosses a host-owned interface.
 
-## Procedure
+### Procedure
 
 1. define the accepted inputs, outcomes, failure values, ownership boundary,
    **and** compatibility expectation at the interface. When the boundary carries
@@ -70,18 +77,18 @@ technical implementation for another **or** crosses a host-owned interface.
 5. record an exception **in** its bounded owner **when** a required external interface
    cannot meet the contract directly.
 
-## Outcome
+### Outcome
 
 the component can replace the bounded technical implementation **without**
 silently changing its callers' declared expectations.
 
-## Failure or stop
+### Failure or stop
 
 stop substitution **or** host integration **when** the boundary has no explicit
 contract, its failures cannot be represented, **or** compatibility cannot be
 identified from current authority.
 
-## Sources
+### Sources
 
 - [PEP 544 — Protocols](https://peps.python.org/pep-0544/)
 - [Python documentation: `typing.Protocol`](https://docs.python.org/3.14/library/typing.html#typing.Protocol)

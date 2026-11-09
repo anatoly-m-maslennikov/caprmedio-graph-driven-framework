@@ -17,6 +17,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: APPS
 ---
-# Render interconnected HTML graph views
+## Summary
+
+Render interconnected HTML graph views
+
+## Claim
+
+### Prose Claim
 
 the optional `GRAPH_UI` unit **must** render interconnected HTML graph views through `WORKBENCH` from its current derived read model **and** the governed source frontier behind that model. It **may** also consume a persisted `GENERATE_ENTITY_GRAPH` Projection for declared Terms, their direct-parent tree, direct dependency graph, **and** complete dependency-Term closure. The views **must** provide short **and** detailed node presentation, tier, current Structural-unit, Content-role, **and** Type filters, orphan **and** cycle visibility controls, source lineage, unknown-region diagnostics, **and** access **to** current Atom content **without** treating **any** Projection as governed authority **or** modifying authority. Disabling or omitting `GRAPH_UI` **must not** disable `WORKBENCH`, Tools, or MCP.

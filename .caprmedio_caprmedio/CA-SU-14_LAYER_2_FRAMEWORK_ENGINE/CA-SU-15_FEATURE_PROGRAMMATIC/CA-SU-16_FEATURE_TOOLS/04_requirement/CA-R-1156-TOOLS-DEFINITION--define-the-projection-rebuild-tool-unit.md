@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Definition
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication"
 tier: 1
 status: Active
 version: 30

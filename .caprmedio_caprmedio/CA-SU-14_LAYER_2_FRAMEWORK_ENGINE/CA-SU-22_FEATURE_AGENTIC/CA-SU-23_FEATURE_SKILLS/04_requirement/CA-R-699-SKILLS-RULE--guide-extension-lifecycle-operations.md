@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Decision
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Decision", "dependencies": ["Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"]}
 tier: 1
 relations:
   child_of:
@@ -23,6 +23,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Guide Extension lifecycle operations
+## Summary
+
+Guide Extension lifecycle operations
+
+## Claim
+
+### Prose Claim
 
 the framework **must** provide one Skill that resolves an operator's Extension install, uninstall, update, **or** downgrade intent, presents the exact source **and** target version, **and** invokes the governed Tool **only** **after** explicit approval.

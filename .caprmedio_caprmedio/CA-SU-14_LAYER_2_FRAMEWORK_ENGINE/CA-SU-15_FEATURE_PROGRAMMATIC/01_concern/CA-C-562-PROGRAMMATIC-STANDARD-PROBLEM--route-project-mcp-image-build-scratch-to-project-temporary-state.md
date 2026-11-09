@@ -8,13 +8,14 @@ form: Problem
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
-  concern_about: [CA-R-1901, CA-M-356]
+  concern_about:
+  - CA-R-1901
 status: Active
-version: 1
-updated_at: "2026-10-21T09:20:17Z"
+version: 2
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
-    name: CA-C-562-PROGRAMMATIC-PROBLEM--route-project-mcp-image-build-scratch-to-project-temporary-state.md
+    name: CA-C-562-PROGRAMMATIC-STANDARD-PROBLEM--route-project-mcp-image-build-scratch-to-project-temporary-state.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
@@ -23,6 +24,7 @@ global_tier: 8
 author: Anatoly Maslennikov
 priority: high
 ---
+
 # Summary
 
 Route Project MCP image build scratch to Project Temporary State

@@ -8,7 +8,10 @@ context:
   role: Delivery
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Schema
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   delivery_for:
@@ -19,8 +22,8 @@ relations:
   - CA-M-509
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-08 23:52:13 +0400
+  version: 16
+  updated_at: 2026-11-09 07:47:25 +0400
 destination:
   file:
     name: CA-D-672-WORKBENCH_BACKEND-DECISION--deliver-duckdb-atom-content-and-relation-records.md
@@ -44,7 +47,7 @@ The derived `atoms` and `scope_units` tables and their complete parsed Header, M
 
 The Workbench Projection must read governed source files directly with the Current model parser into a file-backed DuckDB reader. It exposes exactly two public source tables, `atoms` and `scope_units`; a separate technical `change_log` table may be exposed for watcher observations, but it is not a graph source or source of truth. Internal graph mappings and materialized query results remain derived implementation state under the Workbench runtime directory. Source bytes are transient parser input only; do not store source-byte copies, raw frontmatter or intermediate source files. Retain successful parsed-row snapshots and filesystem signatures for incremental refresh under the admitted indexing Method. Database and spill files are allowed under the owned runtime directory.
 
-Parse complete YAML Headers and Markdown Content, including nested Header mappings and complete heading paths. The parser preserves native distinctions between a missing key, null, empty value, scalar, list, map, false, and zero. It keeps the original Markdown body and mapped section occurrences. It applies the Current model directly. At cold start, select exactly one schema mode. Mode 1 exposes only current-model-declared Header Properties and current-model-declared Markdown Properties. Mode 2 exposes every observed raw Header Property path and current-model-declared Markdown Properties; Mode 2 is enabled now. The schema is a rebuildable derived asset under `.caprmedio_runtime/workbench` and regenerates during image build from the complete valid source inventory; the reader does not evaluate generic CFEL or arbitrary prose. Current legacy Scope Unit Declarations and Current Scope Delegations define `scope_units`; accept both sources without changing the existing Declaration tree. Applicable Current structural Declaration or Scope Delegation changes that govern scope or Relations refresh the actual indexed facts.
+Parse complete YAML Headers and Markdown Content, including nested Header mappings and complete heading paths. The parser preserves native distinctions between a missing key, null, empty value, scalar, list, map, false, and zero. It keeps the original Markdown body and mapped section occurrences. It applies the Current model directly. At cold start, select exactly one schema mode. Mode 1 exposes only current-model-declared Header Properties and current-model-declared Markdown Properties. Mode 2 exposes every observed raw Header Property path and current-model-declared Markdown Properties; Mode 2 is enabled now. The image carries generated `workbench_schema.json` with the backend package; the selected projection and Content schema records live under `.caprmedio_runtime/workbench`. These rebuildable derived assets come from the complete valid source inventory; the reader does not evaluate generic CFEL or arbitrary prose. Current legacy Scope Unit Declarations and Current Scope Delegations define `scope_units`; accept both sources without changing the existing Declaration tree. Applicable Current structural Declaration or Scope Delegation changes that govern scope or Relations refresh the actual indexed facts.
 
 Header and Markdown SQL column names use dots between path levels and lowercase snake_case within each segment, for example `header.identity.atom_id`, `header.context.container` and `content.claim.formal_claim`. The generated schema asset, public SQL interface, MCP results and `query_schema` use the same names; do not replace path separators with underscores.
 
@@ -56,7 +59,7 @@ Remove old short Header convenience-column names such as `id`, `status` and `rol
 
 The public SQL interface uses the following columns. Private parsed Header and Markdown data may remain available to the reader and graph pipeline, but it is not exposed as raw JSON or whole-body public columns.
 
-Under Mode 2, generate Header columns from the actual raw paths: a flat `atom_id` becomes `header.atom_id`, while nested `identity.atom_id` becomes `header.identity.atom_id`. These are source paths, not duplicate aliases. Under Mode 1, generate Header columns only from current-model-declared Header Properties. Keep Content columns model-declared in both modes. Store the rebuildable schema asset under `.caprmedio_runtime/workbench` and regenerate it during image build. Under Mode 2, a new observed Header path, removed last Header path, Header format/type change, or previously populated Header path globally empty across the complete valid source inventory triggers a schema/table rebuild and full source reread. In Mode 1, a changed declared Header or Markdown schema does the same. Observed empty Header paths remain columns under Mode 2; ordinary edits with unchanged schema remain incremental.
+Under Mode 2, generate Header columns from the actual raw paths: a flat `atom_id` becomes `header.atom_id`, while nested `identity.atom_id` becomes `header.identity.atom_id`. These are source paths, not duplicate aliases. Under Mode 1, generate Header columns only from current-model-declared Header Properties. Keep Content columns model-declared in both modes. Generate the package-delivered schema asset during image build and retain selected runtime schema records under `.caprmedio_runtime/workbench`. Under Mode 2, a new observed Header path, removed last Header path, Header format/type change, or previously populated Header path globally empty across the complete valid source inventory triggers a schema/table rebuild and full source reread. In Mode 1, a changed declared Header or Markdown schema does the same. Observed empty Header paths remain columns under Mode 2; ordinary edits with unchanged schema remain incremental.
 
 #### `atoms`
 

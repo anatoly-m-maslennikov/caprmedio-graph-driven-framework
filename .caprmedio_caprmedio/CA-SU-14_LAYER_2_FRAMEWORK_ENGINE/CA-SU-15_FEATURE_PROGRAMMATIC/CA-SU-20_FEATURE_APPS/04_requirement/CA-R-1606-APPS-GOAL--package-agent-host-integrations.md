@@ -18,6 +18,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: APPS
 ---
-# Package Agent-Host Integrations
+## Summary
+
+Package Agent-Host Integrations
+
+## Claim
+
+### Prose Claim
 
 AGENT_HOST_PLUGINS **must** own installable host-specific integration packages and wiring while referencing, rather than duplicating, provider-neutral Tools, Prompts, Skills, MCP, Apps, **and** methodology behavior.

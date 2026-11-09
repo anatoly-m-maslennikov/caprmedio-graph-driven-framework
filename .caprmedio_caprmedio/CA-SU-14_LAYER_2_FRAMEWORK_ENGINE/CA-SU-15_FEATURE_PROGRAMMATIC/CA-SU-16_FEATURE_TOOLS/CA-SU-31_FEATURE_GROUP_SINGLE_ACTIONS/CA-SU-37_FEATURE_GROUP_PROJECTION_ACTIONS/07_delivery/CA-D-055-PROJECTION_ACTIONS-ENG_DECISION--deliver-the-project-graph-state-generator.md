@@ -6,7 +6,7 @@ container:
 role: Delivery
 form: Eng Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication"
 tier: 2
 relations:
   delivery_for:

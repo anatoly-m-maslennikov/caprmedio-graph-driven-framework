@@ -8,10 +8,11 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
       Analysis/Python Code
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
+      Analysis
   tier: 5
 relations:
   evaluation_for:
@@ -20,8 +21,8 @@ relations:
   - CA-M-428
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 15
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-539-PROGRAMMATIC-DIRECT_POLICY--evaluate-python-source-boundaries-and-lint-ratchets.md
@@ -30,16 +31,14 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Evaluate Python source boundaries and lint ratchets
 
-## Scope
-
-new **or** materially changed hand-authored PROGRAMMATIC Python source **in**
-Tools, App backend services, **and** MCP components.
-
 ## Claim
+
+### Prose Claim
 
 given changed-source measurements, the admitted pinned Ruff profile, diagnostics,
 baseline, **and** bounded exception evidence, admit source-boundary conformance
@@ -48,6 +47,11 @@ conditions below hold. reject a violated condition; return unresolved **when**
 required measurements, configuration, **or** exception authority are unavailable.
 
 ## Details
+
+### Scope
+
+new **or** materially changed hand-authored PROGRAMMATIC Python source **in**
+Tools, App backend services, **and** MCP components.
 
 - target **`<=200`** physical lines per file **and** **`<=25`** logical lines per
   executable unit. units with 26–40 logical lines retain one coherent job;

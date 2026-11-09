@@ -8,15 +8,18 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
+      Architecture <+ Component Structure
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
-  - CA-D-674
+  - CA-R-2727
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 4
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-492-WORKBENCH_FRONTEND-DECISION--use-tabulator-for-read-only-result-grid.md
@@ -50,4 +53,3 @@ Each grid instance owns its pending browser callbacks. Wait for Tabulator's publ
 
 - [Tabulator 6.x documentation](https://www.tabulator.info/docs/6.x)
 - [Tabulator 6.x MIT license](https://www.tabulator.info/docs/6.x/license)
-

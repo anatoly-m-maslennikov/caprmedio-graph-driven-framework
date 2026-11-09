@@ -6,7 +6,7 @@ container:
 role: Method
 form: Eng Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis"
 tier: 2
 relations:
   method_for:

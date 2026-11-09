@@ -6,15 +6,16 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Data/Golden Corpora
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test
+    Data/Golden Corpora
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Test Design
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design
 tier: 3
 status: Active
-version: 12
-updated_at: 2026-10-27 19:59:37 +0400
+version: 13
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-563-PROMPTS-EVAL_CASE--verify-implementation-prompt-golden-e2e-preparation.md
@@ -23,18 +24,21 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify implementation prompt golden E2E preparation
 
-## Scope
-
-tests-first preparation for one bounded implementation packet.
-
 ## Claim
+
+### Prose Claim
 
 the Implementation passes this Evaluation only when golden E2E cases, selected E authority, and runnable baseline evidence exist before behavior implementation.
 
 ## Details
+
+### Scope
+
+tests-first preparation for one bounded implementation packet.
 
 An expected initial failing case remains a truthful non-pass and consumes zero retries. Mocked external boundaries do not replace the selected behavior under test.

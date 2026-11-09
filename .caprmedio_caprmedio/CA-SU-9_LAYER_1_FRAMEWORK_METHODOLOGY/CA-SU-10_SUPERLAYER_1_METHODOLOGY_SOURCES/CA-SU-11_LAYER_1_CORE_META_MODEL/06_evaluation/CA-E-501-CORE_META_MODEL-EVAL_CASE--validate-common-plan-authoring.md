@@ -16,7 +16,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
 tier: 4
 relations:
   evaluation_for:

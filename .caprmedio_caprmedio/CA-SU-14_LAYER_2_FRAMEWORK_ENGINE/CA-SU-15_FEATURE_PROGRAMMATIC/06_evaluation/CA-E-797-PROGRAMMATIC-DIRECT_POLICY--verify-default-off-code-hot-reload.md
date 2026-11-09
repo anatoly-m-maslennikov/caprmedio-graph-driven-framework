@@ -8,18 +8,22 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-  tier: 2
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Code Hot Reload
+  tier: 3
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-797-PROGRAMMATIC-DIRECT_POLICY--verify-default-off-code-hot-reload.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 current_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+relations:
+  evaluation_for:
+  - CA-M-505
 ---
 
 ## Summary

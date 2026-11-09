@@ -8,18 +8,20 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
+      Architecture <+ Communication <+ Interface Contracts
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   evaluation_for:
   - CA-R-2729
   - CA-R-2727
   - CA-D-673
-  - CA-D-674
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 5
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-673-WORKBENCH-EVAL_CASE--align-mcp-run-check-and-web-results.md

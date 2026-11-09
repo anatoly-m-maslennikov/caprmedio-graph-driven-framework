@@ -8,17 +8,22 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification
+      <+ Test Design
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2727
   - CA-R-2728
   - CA-R-2776
+  SPECIALIZES:
+  - CA-M-424
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-472-WORKBENCH-DECISION--test-workbench-through-its-public-interfaces.md
@@ -34,6 +39,8 @@ Test Workbench through its public interfaces
 
 ## Claim
 
-Prefer end-to-end tests through the real browser, MCP and HTTP interfaces. Assert user-visible results, not private classes, constructor arguments, call counts or internal call order. Remove unit tests that only repeat those end-to-end checks. Keep focused tests for behavior that the end-to-end tests do not cover.
+### Prose Claim
+
+Test Workbench through its real browser, MCP and HTTP interfaces.
 
 Use Playwright with Chromium for browser checks against the existing Workbench test container. Reuse that container; do not start a Vite development server or mock the Workbench backend. Keep browser testing dependencies in the frontend's development dependencies. Do not add retries.

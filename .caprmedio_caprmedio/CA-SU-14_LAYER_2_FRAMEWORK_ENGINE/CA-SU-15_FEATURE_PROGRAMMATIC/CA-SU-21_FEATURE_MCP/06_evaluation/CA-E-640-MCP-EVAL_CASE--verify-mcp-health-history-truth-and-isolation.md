@@ -12,8 +12,8 @@ relations:
   evaluation_for:
   - CA-R-2446
 status: Active
-version: 13
-updated_at: 2026-11-02 19:44:26 +0400
+version: 14
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-640-MCP-EVAL_CASE--verify-mcp-health-history-truth-and-isolation.md
@@ -22,19 +22,22 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify MCP health history truth and isolation
 
-## Scope
-
-The changed MCP health route, bounded Gateway observer and HTML representation under CA-R-2446.
-
 ## Claim
+
+### Prose Claim
 
 Accept the health increment only when isolated functional checks demonstrate preserved machine readiness, truthful bounded Tool/Workflow observations, escaped safe HTML and no diagnostic-GET execution effects. A green gateway check or scheduler success alone is not functional Tool/Workflow acceptance.
 
 ## Details
+
+### Scope
+
+The changed MCP health route, bounded Gateway observer and HTML representation under CA-R-2446.
 
 - Use disposable independent Project fixtures and an isolated ASGI app or distinct nonproduction listener/state. Do not test mutations on the production MCP port or use mutable live Atoms as a golden oracle.
 - Verify default/JSON/* Accept returns the existing ready boolean shape and 200/503 semantics; explicit HTML returns the browser view with the same readiness status. Missing/dead generation is 503. Hostile Host/Origin requests retain 421/403 and cause no Tool/reload effects.

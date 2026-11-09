@@ -23,6 +23,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Guide Project Adaptation promotion
+## Summary
+
+Guide Project Adaptation promotion
+
+## Claim
+
+### Prose Claim
 
 the framework **must** provide one Skill that guides Extension-candidate scoping **and** review, invokes the governed extraction Tool, **and** requires explicit operator approval **before** creating **or** reconciling Extension authority.

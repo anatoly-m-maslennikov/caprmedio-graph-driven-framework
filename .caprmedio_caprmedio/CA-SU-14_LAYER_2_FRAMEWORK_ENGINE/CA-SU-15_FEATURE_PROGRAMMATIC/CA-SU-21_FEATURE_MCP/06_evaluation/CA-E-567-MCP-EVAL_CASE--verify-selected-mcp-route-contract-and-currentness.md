@@ -9,8 +9,10 @@ topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Run
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
@@ -20,8 +22,8 @@ relations:
   - CA-R-1847
   - CA-R-1848
 status: Active
-version: 13
-updated_at: 2026-10-27 19:59:37 +0400
+version: 14
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-567-MCP-EVAL_CASE--verify-selected-mcp-route-contract-and-currentness.md
@@ -30,21 +32,24 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify selected MCP route contract and currentness
 
-## Scope
-
-Functional MCP request/response validation for all fifteen selected route
-registrations, their one closed current binding manifest, and current
-preview/authorized execute handoffs.
-
 ## Claim
+
+### Prose Claim
 
 Every realization **must** demonstrate the exact selected route registry, stable existing helpers, and source-bound request/result envelope before runtime acceptance.
 
 ## Details
+
+### Scope
+
+Functional MCP request/response validation for all fifteen selected route
+registrations, their one closed current binding manifest, and current
+preview/authorized execute handoffs.
 
 Start the current reloadable server against a functional isolated Project fixture.
 Assert the manifest's canonical digest and all fifteen unique route entries. For
@@ -93,7 +98,7 @@ blindly replacing expected digests.
 
 Acceptance compares MCP tool inventory, annotations, full envelopes, service-call trace, mutation trace, and returned references. This carrier specifies functional proof; it is not a runtime pass.
 
-### Sources
+#### Sources
 
 - Current CA-R-1847, CA-R-1848, CA-D-547, CA-A-1142, CA-P-1618 and CA-P-1535; CA-D-527 v3; CA-R-1850 v2; CA-R-1866 v2; CA-R-1867 v1.
 - Current CA-O-016 Project Configuration Workflow (observed Version 18), CA-R-1527 Core Meta Model General, CA-R-1845 and CA-D-544 supply the Integrated prompt/continuation contract; CA-E-652 remains Workflow-level algorithm/evaluation authority, not an MCP admission gate.

@@ -6,22 +6,23 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
   - Subject/CAPRMEDIO/Carrier/Docker Image
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
+    Structure
   - Subject/CAPRMEDIO/Carrier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
 tier: 5
 relations:
   evaluation_for:
   - CA-R-1901
-  - CA-M-356
 status: Active
-version: 21
-updated_at: 2026-11-07 03:28:18 +0400
+version: 23
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
     name: CA-E-600-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-project-mcp-image-and-runtime-admission.md
@@ -29,19 +30,22 @@ carrier_destination:
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 verify Project MCP image and runtime admission
 
-## Scope
-
-image-fingerprint, lock, Docker-publication, and runtime-reuse checks for the Project MCP launcher.
-
 ## Claim
+
+### Prose Claim
 
 the Evaluation **must** prove that only a matching immutable image and a healthy same-Project runtime published on the fixed Project Settings port can be used.
 
 ## Details
+
+### Scope
+
+image-fingerprint, lock, Docker-publication, and runtime-reuse checks for the Project MCP launcher.
 
 - regression-test and real-build-check that Buildx writable configuration, state, and logs are located only in the private build attempt sibling `buildx/` directory selected by `BUILDX_CONFIG`; unrelated secret environment variables are excluded, the admitted manifest remains exact, and any failure preserves the immutable admitted context without a `~/.docker/buildx` write or worker start.
 - unit-test the ordered source manifest/fingerprint against a changed explicit `--source-root` Engine, dependency, Dockerfile/ignore, platform, or build argument; each change produces a different fingerprint. Verify Project Carriers, credentials, installed state, generated outputs, and any unrelated repository source do not enter the image fingerprint.
@@ -54,12 +58,12 @@ the Evaluation **must** prove that only a matching immutable image and a healthy
 - test clean installation and upgrade of the executable `.caprmedio_runtime/start_mcp.py`: its bytes match the selected Engine package, upgrade refreshes it, existing configuration and state remain unchanged, and installation starts neither MCP nor a Workflow. Test explicit bootstrap invocation against an installed package in a target Project without an Engine source checkout.
 - verify the admitted launcher starts neither worker, queue, Agent, Workflow, Tool call, proxy, nor Release action. Docker absence or denial is incomplete/failed evidence for the real-Docker case, not a passing mock result.
 
-### Readable metadata acceptance
+#### Readable metadata acceptance
 
 Use frozen synthetic source/package fixtures and the real canonical image naming boundary. Verify version.toml is required and fingerprinted; changing framework.version changes identity, and unrelated Project/runtime state remains excluded. New builds carry the exact OCI version label; absent/invalid version and malformed or unavailable Docker Created metadata fail truthfully. Assert caprmedio-runtime:<framework-version>-<UTC-build-date-YYYYMMDDTHHMMSSZ>-<first12-image-sha>, using the inspected image timestamp rather than the current maintenance clock, including cached/reused images. Check absent-tag addition, existing same-digest no-op and occupied other-digest refusal without movement. Keep mutable-ref/wrong-schema/platform/fingerprint refusals and full immutable SHA launch unchanged. Exercise development, release and disposable test-build callers with consistent packaged fixtures and safe test-image cleanup. For explicit historical maintenance, verify exact image identity/version/date, no unrelated-image or runtime change, and report unknown version evidence as deferred. Real Docker evidence uses an isolated disposable image/build and readback, never a production mutation test or a claimed pass from mocks alone.
 
 
-### Dependency cache acceptance
+#### Dependency cache acceptance
 
 Check that the Dockerfile copies the dependency manifest/lock before installation, uses a BuildKit uv download cache, and copies the Framework version after dependency installation. A version-only rebuild must reuse the dependency-installation layer while still delivering the new version file and changing the admitted image identity. Verify with two isolated builds and actual build logs; do not infer cache reuse from source ordering alone. Keep the existing locked dependency groups, immutable-image/port/refusal checks and runtime-start boundaries.
 

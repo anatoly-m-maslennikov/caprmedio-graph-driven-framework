@@ -8,7 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance
+      <+ Measurement and Profiling
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 6
 relations:
   is_evaluation_for:
@@ -18,8 +21,8 @@ relations:
   - CA-E-677
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 4
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-800-WORKBENCH-EVAL_CASE--soak-workbench-lifecycle-for-resource-leaks.md
@@ -34,6 +37,8 @@ author: Anatoly Maslennikov
 Soak Workbench lifecycle for resource leaks
 
 ## Claim
+
+### Prose Claim
 
 When explicitly enabled, run one identified real Workbench watchdog, DuckDB owner and service continuously for at least 1,800 seconds against an owned disposable Project. Repeatedly create, update, rename, move and remove sources with valid unique numeric IDs; change declared columns; run successful and failed queries; rerun and remove Views; and wait for asynchronous work to drain. Do not restart, reread or replace the owner before the final leak assertions.
 

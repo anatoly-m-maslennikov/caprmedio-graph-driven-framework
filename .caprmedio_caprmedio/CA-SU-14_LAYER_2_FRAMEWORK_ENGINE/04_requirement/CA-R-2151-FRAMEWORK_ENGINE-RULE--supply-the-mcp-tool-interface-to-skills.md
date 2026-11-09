@@ -6,9 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/UX/CAPRMEDIO Skill and MCP Entry Interface
+  {"main_subject": "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts", "dependencies": ["Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction"]}
 tier: 1
 relations:
   child_of:
@@ -35,6 +33,12 @@ relational_endpoints:
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
 ---
-# Supply the MCP Tool interface to SKILLS
+## Summary
+
+Supply the MCP Tool interface to SKILLS
+
+## Claim
+
+### Prose Claim
 
 MCP supplies SKILLS with the current generated discovery **and** invocation interface for active Tools. Skills select **and** use that interface **without** redefining Tool behavior, while MCP preserves each Tool's identity, accepted inputs, structured outputs, **and** failure meaning.

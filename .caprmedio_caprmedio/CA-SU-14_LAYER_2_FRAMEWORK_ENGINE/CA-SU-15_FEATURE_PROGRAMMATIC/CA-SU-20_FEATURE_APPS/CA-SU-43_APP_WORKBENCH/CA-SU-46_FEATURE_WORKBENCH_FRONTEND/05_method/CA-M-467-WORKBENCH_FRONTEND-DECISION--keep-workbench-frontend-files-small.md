@@ -8,15 +8,18 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
+      Authoring <+ Code Authoring
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2727
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 4
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-467-WORKBENCH_FRONTEND-DECISION--keep-workbench-frontend-files-small.md

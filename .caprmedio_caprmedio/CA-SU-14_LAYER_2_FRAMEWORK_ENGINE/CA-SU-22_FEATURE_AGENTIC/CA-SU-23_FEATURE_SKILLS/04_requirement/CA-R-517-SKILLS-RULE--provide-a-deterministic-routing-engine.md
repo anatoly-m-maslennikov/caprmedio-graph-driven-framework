@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection"
 tier: 1
 relations:
   child_of:
@@ -22,6 +22,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Provide a deterministic routing engine
+## Summary
+
+Provide a deterministic routing engine
+
+## Claim
+
+### Prose Claim
 
 the framework **must** provide a deterministic engine that resolves normalized operator intent **and** current context **to** ordered route candidates from the canonical routing tree.

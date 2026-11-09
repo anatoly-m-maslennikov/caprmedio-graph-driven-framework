@@ -6,9 +6,7 @@ container:
 role: Requirement
 form: Goal
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring", "dependencies": ["CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action"]}
 tier: 1
 status: Active
 version: 14
@@ -20,6 +18,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: PROMPTS
 ---
-# Implement Actions as Agent Instructions
+## Summary
+
+Implement Actions as Agent Instructions
+
+## Claim
+
+### Prose Claim
 
 ACTION_PROMPTS **must** own self-contained agent-facing prompt implementations of methodology Actions. An ACTION_PROMPT supplies executable instructions **and** invocation context but does **not** own the Action meaning, Workflow state, Step transition, **or** Operator authority.

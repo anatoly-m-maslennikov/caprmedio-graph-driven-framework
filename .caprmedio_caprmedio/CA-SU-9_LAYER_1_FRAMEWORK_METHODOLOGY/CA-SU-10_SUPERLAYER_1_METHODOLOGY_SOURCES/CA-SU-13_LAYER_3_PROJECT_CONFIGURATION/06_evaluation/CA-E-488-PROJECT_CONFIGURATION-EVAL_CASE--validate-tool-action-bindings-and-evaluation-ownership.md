@@ -15,7 +15,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
 tier: 4
 relations:
   evaluation_for:

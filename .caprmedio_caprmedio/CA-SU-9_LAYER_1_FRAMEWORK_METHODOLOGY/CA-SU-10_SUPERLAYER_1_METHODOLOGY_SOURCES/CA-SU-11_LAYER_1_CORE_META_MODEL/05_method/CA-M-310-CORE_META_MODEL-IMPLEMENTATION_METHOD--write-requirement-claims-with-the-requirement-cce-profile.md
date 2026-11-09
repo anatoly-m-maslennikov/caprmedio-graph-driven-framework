@@ -9,7 +9,7 @@ topics:
   main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Content.Claim'
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Atom.Content
 tier: 6
 relations:

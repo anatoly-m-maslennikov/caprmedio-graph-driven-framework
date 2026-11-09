@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Definition
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  {"main_subject": "CAPRMEDIO_MODEL <+ Scope Unit"}
 tier: 1
 status: Active
 version: 26
@@ -16,7 +16,13 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: APPS
 ---
-# Define the APPS Scope Unit topology
+## Summary
+
+Define the APPS Scope Unit topology
+
+## Claim
+
+### Prose Claim
 
 `APPS` **must** own the following immediate `unordered_unit` Scope Units: `WORKBENCH`, `GRAPH_UI`, `WORKFLOW_ORCHESTRATOR`, **and** `AGENT_HOST_PLUGINS`.
 

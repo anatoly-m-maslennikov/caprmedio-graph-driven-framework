@@ -8,8 +8,7 @@ context:
   role: Requirement
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
-      Structure
+    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability/Provenance"
   tier: 3
 state:
   status: Active

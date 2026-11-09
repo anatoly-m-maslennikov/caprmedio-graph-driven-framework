@@ -16,8 +16,8 @@ relations:
   - CA-D-674
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-782-WORKBENCH_FRONTEND-EVAL_CASE--verify-view-rename-modal.md
@@ -26,6 +26,7 @@ current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov
 ---
+
 ## Summary
 
 Verify the shared View rename modal

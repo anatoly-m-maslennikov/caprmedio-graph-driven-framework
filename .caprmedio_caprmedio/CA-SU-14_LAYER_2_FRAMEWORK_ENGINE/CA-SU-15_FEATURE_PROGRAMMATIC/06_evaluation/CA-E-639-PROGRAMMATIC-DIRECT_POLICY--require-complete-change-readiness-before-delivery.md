@@ -8,8 +8,8 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
-      Structure
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change
+      Readiness
   tier: 5
 relations:
   evaluation_for:
@@ -21,8 +21,8 @@ relations:
   - CA-M-405
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 17
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-639-PROGRAMMATIC-DIRECT_POLICY--require-complete-change-readiness-before-delivery.md
@@ -31,19 +31,22 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Require complete change readiness before delivery
 
-## Scope
-
-Preparation and readiness claims for new or changed PROGRAMMATIC implementation, including descendant Scope Units, before an acceptance or delivery attempt.
-
 ## Claim
+
+### Prose Claim
 
 A PROGRAMMATIC change may be represented as ready for acceptance or delivery only when its known required affected-surface and dependency closure is reconciled as one coherent increment. Known, mechanically checkable omissions in required consumers, contracts, schemas, configuration, dependencies, fixtures or delivery carriers must be resolved during preparation rather than knowingly deferred for downstream acceptance tests to discover. An unresolved required obligation remains an explicit readiness gap, not a completed or ready result.
 
 ## Details
+
+### Scope
+
+Preparation and readiness claims for new or changed PROGRAMMATIC implementation, including descendant Scope Units, before an acceptance or delivery attempt.
 
 - Judge completeness against the applicable governing specification and the actual bounded affected surface. Do not require unrelated Project work, invent additional business rules, or silently expand the authorized change.
 - Include affected callers and adapters, parser/validator and registry bindings, configuration and dependency realization, test-world inputs, and delivery/packaging boundaries where the change actually affects them. A valid isolated component is not evidence that its affected consumers or delivered realization are coherent.

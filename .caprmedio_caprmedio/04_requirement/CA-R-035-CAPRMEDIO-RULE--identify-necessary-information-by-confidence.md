@@ -13,7 +13,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
 tier: 2
 relations:
   child_of:

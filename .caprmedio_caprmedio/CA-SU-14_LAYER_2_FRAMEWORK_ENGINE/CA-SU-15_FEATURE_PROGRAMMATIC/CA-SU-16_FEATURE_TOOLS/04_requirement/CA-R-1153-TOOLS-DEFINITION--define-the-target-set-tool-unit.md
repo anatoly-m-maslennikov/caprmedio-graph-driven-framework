@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Definition
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection"
 tier: 1
 status: Active
 version: 29

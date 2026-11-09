@@ -8,18 +8,20 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
-  tier: 5
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Query Processing
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
+  tier: 8
 relations:
   evaluation_for:
   - CA-M-462
-  - CA-M-493
-  - CA-D-697
+  - CA-R-2953
   - CA-O-240
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 4
+  updated_at: 2026-11-09 21:15:45 +0400
 destination:
   file:
     name: CA-E-784-WORKBENCH_BACKEND-EVAL_CASE--verify-native-cached-query-grid-pages.md

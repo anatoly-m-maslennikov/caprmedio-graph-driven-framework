@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure"
   dependencies:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_META_MODEL
   - CAPRMEDIO_MODEL <+ Journal

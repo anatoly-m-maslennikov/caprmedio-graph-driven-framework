@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
   dependencies:
   - CAPRMEDIO_MODEL <+ Term//Property
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
 tier: 3
 status: Active
 version: 27

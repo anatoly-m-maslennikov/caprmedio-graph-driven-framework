@@ -8,19 +8,20 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
-  tier: 5
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability
+      <+ Logging
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
+  tier: 6
 relations:
   evaluation_for:
   - CA-R-2950
   - CA-R-2724
-  - CA-M-490
-  - CA-D-695
   - CA-C-704
 state:
   status: Active
-  version: 8
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 10
+  updated_at: 2026-11-09 21:15:45 +0400
 destination:
   file:
     name: CA-E-780-WORKBENCH_BACKEND-EVAL_CASE--verify-watcher-change-log.md
@@ -29,6 +30,7 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
+
 ## Summary
 
 Verify the Workbench watcher change log

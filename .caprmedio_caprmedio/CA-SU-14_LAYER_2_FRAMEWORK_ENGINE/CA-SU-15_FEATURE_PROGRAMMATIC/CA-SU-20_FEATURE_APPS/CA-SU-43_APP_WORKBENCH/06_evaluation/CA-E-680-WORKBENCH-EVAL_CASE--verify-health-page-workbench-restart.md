@@ -8,15 +8,18 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution
+      Control
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   evaluation_for:
   - CA-R-2782
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-680-WORKBENCH-EVAL_CASE--verify-health-page-workbench-restart.md
@@ -31,6 +34,8 @@ author: Anatoly Maslennikov
 Verify health-page Workbench restart
 
 ## Claim
+
+### Prose Claim
 
 The health page's Restart Workbench button invokes the same native MCP operation and shows the actual success or failure. The page remains available when Workbench fails. Opening the page is read-only; no restart occurs before the explicit POST action.
 

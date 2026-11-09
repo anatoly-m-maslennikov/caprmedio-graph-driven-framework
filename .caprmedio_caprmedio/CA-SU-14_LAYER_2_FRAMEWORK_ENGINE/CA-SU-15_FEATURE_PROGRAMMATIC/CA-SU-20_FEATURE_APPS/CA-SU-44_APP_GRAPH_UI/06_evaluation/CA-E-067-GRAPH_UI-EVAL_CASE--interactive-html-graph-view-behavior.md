@@ -15,8 +15,8 @@ relations:
   derived_from:
   - CA-A-057
 status: Active
-version: 27
-updated_at: 2026-11-03 23:17:14 +0400
+version: 29
+updated_at: 2026-11-09 17:00:18 +0400
 carrier_destination:
   file:
     name: CA-E-067-GRAPH_UI-EVAL_CASE--interactive-html-graph-view-behavior.md
@@ -28,21 +28,24 @@ current_scope_unit: GRAPH_UI
 claim_target_scope_unit: GRAPH_UI
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Interactive HTML graph view behavior
 
-## Scope
-
-GRAPH_UI contribution represented by this existing legacy Atom.
-
 ## Claim
 
-## Claim checked
+### Prose Claim
 
 the single generated MRT renders current active Requirement Subject **and** lineage-section views from their STG Projections **and** actual Atom sources **without** becoming a second authority surface.
 
-## Test case
+## Details
+
+### Scope
+
+GRAPH_UI contribution represented by this existing legacy Atom.
+
+### Test case
 
 1. Create current `stg_requirements_subjects.md` **and** `stg_requirements_lineage_sections.md` at registered destinations beneath `.caprmedio_caprmedio/_projection/` for multiple selected declared Scope Units, materialize the MRT, **and** require exactly one `.caprmedio_caprmedio/_projection/mrt_atoms.html` with embedded JavaScript **and** presentation assets **and** no sibling script, stylesheet, data, index, view, **or** per-Atom HTML files.
 2. Require the MRT source-lineage manifest **to** name **every** consumed STG file **and** **every** underlying active Atom with canonical path **and** digest; require the Subject **and** lineage-section views **to** match the STG structure while node text, body, frontmatter, **and** live digest match the actual Atom.
@@ -53,15 +56,15 @@ the single generated MRT renders current active Requirement Subject **and** line
 7. Change one STG file **and** one Atom independently **after** MRT generation; require the embedded JavaScript **to** retrieve the current sources **and** visibly distinguish stale STG, stale MRT, **and** changed-Atom digest states.
 8. Preserve filter **and** focused-node state **in** the URL, keep **every** identity linked **to** its canonical Atom path, **and** prove deleting `mrt_atoms.html` changes no Atom, STG Projection, Journal, `WORKBENCH`, Tool, **or** MCP capability.
 
-## Acceptance criteria
+### Acceptance criteria
 
 **every** selected active Requirement **and** direct edge appears **in** the correct Subject **and** lineage-section view, the one-file MRT declares complete STG-and-Atom lineage, **every** filter **and** display mode behaves deterministically, live interactions expose the required source forms **and** stale states, **and** the HTML remains non-authoritative.
 
-## Failure disposition
+### Failure disposition
 
 Reject the MRT build, identify the first missing, extra, ambiguous, stale, incorrectly linked, **or** incorrectly interactive element, **and** retain the STG Requirement Projections as the preceding current derived views.
 
-## Sources
+### Sources
 
 - [CA-R-1076 — Render interconnected HTML graph views](../04_requirement/CA-R-1076-GRAPH_UI-RULE--render-interconnected-html-graph-views.md)
-- [CA-M-153 — Render and navigate active graph HTML](../05_method/CA-M-153-GRAPH_UI-ENG_DECISION--render-and-navigate-active-graph-html.md)
+- [CA-M-153 — Render and navigate active graph HTML](../05_method/CA-M-153-GRAPH_UI-SOLUTION--render-and-navigate-active-graph-html.md)

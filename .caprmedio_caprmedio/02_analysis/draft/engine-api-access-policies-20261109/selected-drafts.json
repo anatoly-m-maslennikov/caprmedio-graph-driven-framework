@@ -1,0 +1,23 @@
+{
+  "route": "Explicit Operator authorization for two manual Draft files, followed by promotion",
+  "drafts": [
+    {
+      "atom_id": "CA-M-514",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-514@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "draft_sha256": "b966ea1816428dacb8f7400c1d34529fe5f068ae808e8762f51605f4e2be40e1",
+      "summary": "Use MCP for AI Agent access",
+      "claim": "AI Agents access Engine capabilities ONLY through MCP.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-514-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md"
+    },
+    {
+      "atom_id": "CA-M-515",
+      "draft_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-515@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "draft_sha256": "e27742a4eacf4dcb5be7619b33070bca5cd770ac14aebef7762487c0366bee32",
+      "summary": "Use APIs for internal Engine calls",
+      "claim": "All other Engine components access Engine capabilities ONLY through programmatic APIs, directly.",
+      "current_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-515-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md"
+    }
+  ],
+  "native_run": false,
+  "journal_append": false
+}

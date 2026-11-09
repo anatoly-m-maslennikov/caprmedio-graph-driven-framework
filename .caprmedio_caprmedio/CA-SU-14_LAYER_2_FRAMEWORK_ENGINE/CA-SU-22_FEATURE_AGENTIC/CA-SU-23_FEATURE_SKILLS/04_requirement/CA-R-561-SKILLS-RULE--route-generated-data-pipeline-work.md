@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"}
 tier: 1
 relations:
   child_of:
@@ -26,6 +26,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Route generated-data pipeline work
+## Summary
+
+Route generated-data pipeline work
+
+## Claim
+
+### Prose Claim
 
 Skills that handle generated-data pipeline work **must** route stage selection, validation, **and** materialization through the governed stage vocabulary **and** deterministic Tools **without** redefining either.

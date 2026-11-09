@@ -18,7 +18,7 @@ context:
     - CAPRMEDIO_MODEL <+ Entity
     - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
     - CAPRMEDIO_MODEL <+ Projection
-    - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+    - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   tier: 4
 relations:
   evaluation_for:

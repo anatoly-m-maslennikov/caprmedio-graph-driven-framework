@@ -10,33 +10,44 @@ topics:
 tier: 3
 relations:
   evaluation_for:
-  - CA-M-181
+  - CA-R-1119
   derived_from:
   - CA-A-057
 status: Active
-version: 16
-updated_at: 2026-11-02 19:44:26 +0400
+version: 18
+updated_at: 2026-11-09 21:15:45 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: MCP
+destination:
+  file:
+    name: CA-E-287-MCP-EVAL_CASE--distinguish-one-protocol-failure-from-one-tool-failure.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
-# Distinguish one protocol failure from one Tool failure
 
-## Claim checked
+## Summary
+
+Distinguish one protocol failure from one Tool failure
+
+## Claim
+
+### Prose Claim
 
 MCP returns stable model-readable responses that distinguish a protocol failure from a canonical Tool failure.
 
-## Test case
+## Details
+
+### Test case
 
 Produce one invalid protocol message **and** one valid message whose canonical Tool returns a structured failure.
 
-## Acceptance criteria
+### Acceptance criteria
 
 the two responses are distinct, retain applicable provenance, **and** expose no internal implementation detail.
 
-## Failure disposition
+### Failure disposition
 
 Reject the result adapter **until** it preserves the required distinction.

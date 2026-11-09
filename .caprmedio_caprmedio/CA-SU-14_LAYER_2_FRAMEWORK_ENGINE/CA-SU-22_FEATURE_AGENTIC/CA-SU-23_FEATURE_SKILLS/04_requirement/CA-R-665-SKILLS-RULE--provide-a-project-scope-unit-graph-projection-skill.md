@@ -6,11 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Guidance", "dependencies": ["CAPRMEDIO_MODEL <+ Projection", "CAPRMEDIO_MODEL <+ Scope Unit", "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts"]}
 tier: 1
 relations:
   child_of:
@@ -26,7 +22,13 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Provide a Project Scope Unit Graph Projection skill
+## Summary
+
+Provide a Project Scope Unit Graph Projection skill
+
+## Claim
+
+### Prose Claim
 
 the framework **must** provide `ca-project-settings` as the thin Operator-facing Skill that:
 

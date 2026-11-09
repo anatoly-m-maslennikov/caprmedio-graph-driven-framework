@@ -6,10 +6,7 @@ container:
 role: Requirement
 form: Goal
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Decision
-  dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Decision", "dependencies": ["Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring", "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator"]}
 tier: 1
 status: Active
 version: 14
@@ -21,6 +18,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: PROMPTS
 ---
-# Request Operator Decisions and Input
+## Summary
+
+Request Operator Decisions and Input
+
+## Claim
+
+### Prose Claim
 
 OPERATOR_PROMPTS **must** own user-facing prompts that request an Operator decision, authorization, clarification, **or** input. They **must not** be treated as agent-executable Action implementations **or** as substitutes for the Operator's response.

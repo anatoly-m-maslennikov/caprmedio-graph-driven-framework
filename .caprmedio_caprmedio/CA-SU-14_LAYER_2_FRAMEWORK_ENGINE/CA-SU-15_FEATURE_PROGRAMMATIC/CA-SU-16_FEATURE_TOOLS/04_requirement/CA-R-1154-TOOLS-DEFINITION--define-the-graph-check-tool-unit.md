@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Definition
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis"
 tier: 1
 status: Active
 version: 29

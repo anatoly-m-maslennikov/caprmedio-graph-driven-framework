@@ -6,7 +6,7 @@ container:
 role: Method
 form: Eng Policy
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout"
 tier: 2
 relations:
   method_for:

@@ -6,37 +6,49 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output
+    Publication
 tier: 3
 relations:
   evaluation_for:
-  - CA-M-176
+  - CA-R-1114
   derived_from:
   - CA-A-057
 status: Active
-version: 17
-updated_at: 2026-11-02 19:44:26 +0400
+version: 19
+updated_at: 2026-11-09 21:15:45 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: MCP
+destination:
+  file:
+    name: CA-E-282-MCP-EVAL_CASE--rebuild-one-unchanged-mcp-registry-identically.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
-# Rebuild one unchanged MCP registry identically
 
-## Claim checked
+## Summary
 
-Repeated MCP registry generation over one unchanged sealed frontier is semantically idempotent.
+Rebuild one unchanged MCP registry identically
 
-## Test case
+## Claim
 
-Generate the registry twice from the same Tool-contract **and** project frontier.
+### Prose Claim
 
-## Acceptance criteria
+Verify that rebuilding MCP registration from unchanged installed provider code, code-owned inventory and configuration yields the same callable identities and schemas. Volatile execution metadata does not change registration.
+
+## Details
+
+### Test case
+
+Generate the registry twice from the same installed provider code, code-owned inventory and configuration.
+
+### Acceptance criteria
 
 the two registries have the same capability identities **and** schemas; volatile execution metadata does **not** change that result.
 
-## Failure disposition
+### Failure disposition
 
-Stop publication **and** report the first nondeterministic source **or** ordering defect.
+Stop publication **and** report the first nondeterministic configured entry or ordering defect.

@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection", "dependencies": ["CAPRMEDIO_MODEL <+ Project"]}
 tier: 1
 status: Active
 version: 24
@@ -17,7 +17,13 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: MCP
 ---
-# Bind MCP operation to the current project frontier
+## Summary
+
+Bind MCP operation to the current project frontier
+
+## Claim
+
+### Prose Claim
 
 A legacy one-Project MCP service instance **must** bind **to** exactly one
 resolved CAPRMEDIO Project root, selected installed Tool release, **and** generated code/configuration MCP registry revision. In the shared

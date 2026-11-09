@@ -8,8 +8,8 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python
-      Code
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
+      Authoring/Python Code
     dependencies:
     - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
     - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
@@ -22,8 +22,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 15
+  updated_at: 2026-11-09 07:45:15 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -35,9 +35,14 @@ destination:
     name: CA-M-429-PROGRAMMATIC-DIRECT_POLICY--use-uv-as-the-default-python-workflow-frontend.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Use uv as the default Python workflow frontend
+
+## Claim
+
+### Prose Claim
 
 use uv as the default frontend for **every** admitted Python workflow capability
 that uv provides. this Method owns that tool selection; configuration **and**
@@ -48,12 +53,12 @@ Implementation materialize it, Delivery governs its carriers, Operations defines
 
 Candidate source: [CA-M-221@15](archive/CA-M-221-PROGRAMMATIC-CORE-METHOD--use-uv-as-the-default-python-workflow-frontend@15.md)
 
-## Applicable when
+### Applicable when
 
 apply **when** developing, evaluating, building, packaging, **or** executing
 PROGRAMMATIC Python source, including installed Project Tools **and** host launchers.
 
-## Procedure
+### Procedure
 
 1. resolve the supported Python boundary from its accepted Method **and** canonical
    Project technical-configuration materialization, **then** install **or** select it
@@ -79,20 +84,20 @@ PROGRAMMATIC Python source, including installed Project Tools **and** host launc
    processes reuse **only** that environment's interpreter. Route uv cache,
    build, **and** staging state into `.caprmedio_tmp/`.
 
-## Outcome
+### Outcome
 
 one declared Python boundary **and** one reviewed lockfile reproduce the admitted
 Python environment **and** commands **without** an undeclared manager **or** dependency
 source.
 
-## Failure or stop
+### Failure or stop
 
 stop **when** the supported interpreter cannot be resolved, the lockfile is stale,
 a command would update the environment implicitly during evidence collection,
 or a Project-Python command would use a non-uv, naked/system, or system-library
 fallback.
 
-## Sources
+### Sources
 
 - [uv: Features](https://docs.astral.sh/uv/getting-started/features/)
 - [uv: Installing and managing Python](https://docs.astral.sh/uv/guides/install-python/)

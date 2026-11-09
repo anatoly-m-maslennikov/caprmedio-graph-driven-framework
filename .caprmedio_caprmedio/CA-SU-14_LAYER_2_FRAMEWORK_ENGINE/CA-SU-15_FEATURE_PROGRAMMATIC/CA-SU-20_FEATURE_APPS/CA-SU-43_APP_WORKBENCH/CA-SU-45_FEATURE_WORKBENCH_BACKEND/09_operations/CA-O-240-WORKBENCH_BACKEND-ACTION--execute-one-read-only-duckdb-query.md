@@ -6,7 +6,7 @@ container:
 role: Operations
 form: Action
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection
+  {"main_subject": "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing", "dependencies": ["CAPRMEDIO_MODEL <+ Projection"]}
 tier: 6
 relations:
   depends_on:
@@ -32,12 +32,13 @@ author: Anatoly Maslennikov
 
 Execute one read-only DuckDB query
 
-## Claim scope
+## Operation
+
+### Claim scope
 
 One synchronous public Run or Check request.
 
-## Claim
-
+### Claim
 Execute one whole read-only Run or Check query through the Project's shared owner:
 
 - validate the supplied whole query and its public arguments; a cursor position neither selects a statement nor executes a fragment;

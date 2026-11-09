@@ -15,7 +15,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
 tier: 2
 relations:

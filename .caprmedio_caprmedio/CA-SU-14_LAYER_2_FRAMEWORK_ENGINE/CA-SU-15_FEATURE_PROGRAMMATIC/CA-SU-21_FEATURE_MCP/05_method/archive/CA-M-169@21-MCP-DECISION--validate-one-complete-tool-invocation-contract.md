@@ -1,0 +1,55 @@
+---
+atom_id: CA-M-169@21
+ref_id: CA-M-169@21
+container:
+  scope_unit: CA-SU-21
+role: Method
+form: Decision
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+tier: 2
+relations:
+  method_for:
+  - CA-R-1107
+  derived_from:
+  - CA-A-057
+status: Archived
+version: 21
+updated_at: 2026-11-09 07:45:15 +0400
+cce_version: cce_1
+cce_form: method
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
+current_scope_unit: MCP
+destination:
+  file:
+    name: CA-M-169@21-MCP-DECISION--validate-one-complete-tool-invocation-contract.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/05_method/archive
+---
+
+## Summary
+
+Validate one complete Tool invocation contract
+
+## Claim
+
+### Prose Claim
+
+#### Applicable when
+
+Apply **before** MCP exposes one Tool descriptor.
+
+#### Procedure
+
+1. Call the Tool's canonical `describe_tool()` implementation and validate it against `CA-D-621-TOOLS-DELIVERY--encode-uniform-tool-self-description`.
+2. Resolve model symbols and the provider adapter only from trusted installed Engine code; derive schemas from the canonical models and validate every descriptor field against the same Tool identity.
+3. Reject a handwritten duplicate schema, missing field, conflicting field, ambiguous binding, or unresolved callable entrypoint; return field-level diagnostics without repairing, reinterpreting, importing untrusted code, or invoking the Tool.
+
+#### Outcome
+
+One complete canonical descriptor is eligible for MCP projection, or that descriptor is quarantined as unavailable.
+
+#### Failure or stop
+
+Stop exposure of **that** descriptor **when** **any** contract field is missing, conflicting, ambiguous, handwritten as a second schema, or unresolved.

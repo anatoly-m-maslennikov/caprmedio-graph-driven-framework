@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
 tier: 1
 relations:
   child_of:
@@ -22,6 +22,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Initialize the session engine at host context boundaries
+## Summary
+
+Initialize the session engine at host context boundaries
+
+## Claim
+
+### Prose Claim
 
 Each supported agent-host adapter **must** initialize the CAPRMEDIO session engine at the host's session-start **and** post-compaction boundaries **without** requiring `/ca` invocation.

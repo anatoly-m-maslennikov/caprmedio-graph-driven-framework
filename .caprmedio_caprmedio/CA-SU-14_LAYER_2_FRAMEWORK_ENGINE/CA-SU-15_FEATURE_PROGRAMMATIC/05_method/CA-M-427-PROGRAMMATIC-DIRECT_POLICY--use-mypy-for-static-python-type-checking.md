@@ -8,10 +8,9 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
       Analysis
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+    dependencies: []
   tier: 4
 relations:
   derived_from:
@@ -20,8 +19,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 13
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-427-PROGRAMMATIC-DIRECT_POLICY--use-mypy-for-static-python-type-checking.md
@@ -33,9 +32,14 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Use Mypy for static Python type checking
+
+## Claim
+
+### Prose Claim
 
 use Mypy as the selected static type checker for hand-authored PROGRAMMATIC
 Python source. CA-E-540 owns strict-profile, baseline, **and** suppression
@@ -45,11 +49,11 @@ acceptance policy.
 
 Candidate source: [CA-M-283@9](archive/CA-M-283-PROGRAMMATIC-CORE-METHOD--use-mypy-for-static-python-type-checking@9.md)
 
-## Applicable when
+### Applicable when
 
 apply **to** new **or** materially changed Python source within Tools, App, **or** MCP.
 
-## Procedure
+### Procedure
 
 1. materialize one pinned Mypy profile **and** bounded target set **in**
    `pyproject.toml`.
@@ -60,18 +64,18 @@ apply **to** new **or** materially changed Python source within Tools, App, **or
 5. keep static typing evidence distinct from runtime validation **and** behavioral
    evidence.
 
-## Outcome
+### Outcome
 
 changed Python interfaces become more explicit **without** making untyped legacy
 source an unrelated whole-project blocker.
 
-## Failure or stop
+### Failure or stop
 
 return unavailable configuration **when** the profile **or** target set is absent.
 typing acceptance, baseline regression, **and** suppression disposition follow
 CA-E-540.
 
-## Sources
+### Sources
 
 - [Mypy documentation](https://mypy.readthedocs.io/en/stable/)
 - [Mypy: using Mypy with an existing codebase](https://mypy.readthedocs.io/en/stable/existing_code.html)

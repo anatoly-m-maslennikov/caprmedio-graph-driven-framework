@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
   - CAPRMEDIO_MODEL <+ Term
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 1
 status: Active
 version: 6

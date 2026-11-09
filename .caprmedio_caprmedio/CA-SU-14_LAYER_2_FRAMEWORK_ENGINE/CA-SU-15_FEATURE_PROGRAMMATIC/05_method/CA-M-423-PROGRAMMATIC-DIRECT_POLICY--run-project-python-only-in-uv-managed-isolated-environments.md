@@ -8,16 +8,14 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python
-      Code
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python
-      Code
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
+      Authoring/Python Code
+    dependencies: []
   tier: 3
 state:
   status: Active
-  version: 10
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 11
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-423-PROGRAMMATIC-DIRECT_POLICY--run-project-python-only-in-uv-managed-isolated-environments.md
@@ -25,19 +23,22 @@ destination:
 current_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 run Project Python **only** in uv-managed isolated environments
 
-## Scope
-
-the interpreter and library environment used to execute, develop, evaluate, build, package, or otherwise run Project Python source.
-
 ## Claim
+
+### Prose Claim
 
 Project Python **must** execute **only** through a uv-managed isolated environment **and** **must not** use naked **or** system Python, **or** system-installed libraries.
 
 ## Details
+
+### Scope
+
+the interpreter and library environment used to execute, develop, evaluate, build, package, or otherwise run Project Python source.
 
 Candidate source: [CA-M-358@2](archive/CA-M-358-PROGRAMMATIC-GENERAL--run-project-python-only-in-uv-managed-isolated-environments@2.md)
 
@@ -47,10 +48,10 @@ Candidate source: [CA-M-358@2](archive/CA-M-358-PROGRAMMATIC-GENERAL--run-projec
 4. apply the same isolated-environment boundary to development, tests, host launchers, **and** installed Project Tools. Non-Python executables **and** installing uv itself do **not** create a system-Python fallback for Project source.
 5. stop **when** uv cannot resolve the declared interpreter **or** locked environment. Do **not** substitute a system interpreter, ambient virtual environment, **or** globally installed library.
 
-## Outcome
+### Outcome
 
 Project Python execution has one reproducible uv-managed interpreter and dependency boundary.
 
-## Failure or stop
+### Failure or stop
 
 stop before execution when the command would use an ambient interpreter, an unlocked environment, or any system-installed Project library.

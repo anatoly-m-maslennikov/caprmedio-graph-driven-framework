@@ -12,7 +12,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Actor
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
 tier: 5

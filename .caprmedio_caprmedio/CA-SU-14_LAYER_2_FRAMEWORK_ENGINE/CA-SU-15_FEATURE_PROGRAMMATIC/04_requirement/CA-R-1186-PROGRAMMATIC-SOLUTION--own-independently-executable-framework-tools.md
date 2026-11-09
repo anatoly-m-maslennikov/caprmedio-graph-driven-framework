@@ -8,10 +8,9 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
-      Structure
+    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+    - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
   tier: 3
 state:
   status: Active

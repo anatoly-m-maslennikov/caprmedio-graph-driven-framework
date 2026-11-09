@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Definition
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  {"main_subject": "CAPRMEDIO_MODEL <+ Scope Unit"}
 tier: 1
 relations:
   child_of:
@@ -22,6 +22,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
 ---
-# Define FRAMEWORK_ENGINE Feature topology
+## Summary
+
+Define FRAMEWORK_ENGINE Feature topology
+
+## Claim
+
+### Prose Claim
 
 FRAMEWORK_ENGINE owns exactly two immediate unordered Feature Scope Units: `PROGRAMMATIC` **and** `AGENTIC`.

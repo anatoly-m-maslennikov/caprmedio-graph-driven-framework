@@ -8,7 +8,7 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Observability/Logging
     dependencies:
     - Subject/CAPRMEDIO/Graph/Node/Project Model/History
     - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
@@ -22,8 +22,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 16
+  updated_at: 2026-11-09 21:15:45 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -35,9 +35,14 @@ destination:
     name: CA-M-414-PROGRAMMATIC-DIRECT_POLICY--emit-structured-operational-diagnostics.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Emit structured operational diagnostics
+
+## Claim
+
+### Prose Claim
 
 emit structured operational diagnostics for PROGRAMMATIC work under the active
 Logging Policy **in** `CAPRMEDIO-GOV-REQU-315`, including its ERROR, WARNING, INFO,
@@ -49,21 +54,21 @@ meaning.
 
 Candidate source: [CA-M-163@15](archive/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics@15.md)
 
-## Applicable when
+### Applicable when
 
 apply **when** a Tool, App backend service, **or** MCP component reports normal
 operation, degraded operation, failure, recovery, **or** diagnostic detail.
 
-## Procedure
+### Procedure
 
 1. select ERROR, WARNING, INFO, **or** DEBUG according **to** the active Logging Policy;
    do **not** introduce a fifth shared severity.
-   Apply CA-M-396 and CA-M-397 to failure classification: invalid input or Project
+   Apply CA-M-396 to failure classification: invalid input or Project
    artifacts produce WARNING diagnostics and an explicit request-output error;
    ERROR is reserved for a genuine blocking failure of the runtime itself.
    A refused request or failed business Workflow is not by itself an ERROR-level
-   runtime failure. Preserve partial results under CA-M-398, use the shared
-   boundary under CA-M-400, and leave business lifecycle recording with CA-M-399.
+   runtime failure. Preserve partial results under CA-M-405, use the shared
+   boundary under CA-M-396, and leave business lifecycle recording with CA-M-399.
 2. emit records through one project-owned logging abstraction **and** schema.
    include timestamp, level, component, operation, outcome, **and** the canonical
    action **or** event identity **when** one exists.
@@ -89,7 +94,7 @@ operation, degraded operation, failure, recovery, **or** diagnostic detail.
    materialization **and** operational boundaries.
 6. make logging failure observable **without** silently breaking primary work.
 
-### Technical warnings are not business Journal records
+#### Technical warnings are not business Journal records
 
 When a bounded scan isolates a schema-invalid Atom and continues with a warning,
 emit the warning through the selected Docker `stderr` diagnostic stream with the
@@ -101,19 +106,19 @@ rewrite historical Journal records. Docker local rotation is bounded to
 may drop new technical messages when full; a logging failure remains observable
 without breaking the primary scan.
 
-## Outcome
+### Outcome
 
 Operators can diagnose component behavior **without** exposing secrets, confusing
 operational diagnostics with governed Journal history, **or** relying on an
 undeclared sink behavior.
 
-## Failure or stop
+### Failure or stop
 
 stop emission **or** release of the affected diagnostic path **when** required context
 cannot be sanitized, a logging failure is hidden, **or** the component would use
 the Journal as a substitute logging sink.
 
-## Sources
+### Sources
 
 - [Python Logging HOWTO](https://docs.python.org/3.14/howto/logging.html)
 - [Python Logging Cookbook](https://docs.python.org/3.14/howto/logging-cookbook.html)

@@ -1,0 +1,82 @@
+{
+  "status": "REVIEWED_TWO_POLICY_PROMOTION",
+  "route": "Explicit Operator authorization: manually create two Drafts, then promote",
+  "selected_versions": {
+    "CA-M-514": 2,
+    "CA-M-515": 2
+  },
+  "version_pins": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-514@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "sha256": "b966ea1816428dacb8f7400c1d34529fe5f068ae808e8762f51605f4e2be40e1",
+      "atom_id": "CA-M-514",
+      "version": 1
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-515@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "sha256": "e27742a4eacf4dcb5be7619b33070bca5cd770ac14aebef7762487c0366bee32",
+      "atom_id": "CA-M-515",
+      "version": 1
+    }
+  ],
+  "operations": [
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-514-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nidentity:\n  atom_id: CA-M-514\n  ref_id: CA-M-514\ncontext:\n  container:\n    scope_unit: CA-SU-14\n  role: method\n  form: direct_policy\n  topics:\n    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication\n  tier: 3\nstate:\n  status: active\n  version: 2\n  updated_at: 2026-11-09 21:15:24 +0400\ndestination:\n  file:\n    name: CA-M-514-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md\n    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method\n---\n\n## Summary\n\nUse MCP for AI Agent access\n\n## Claim\n\n### Prose Claim\n\nAI Agents access Engine capabilities ONLY through MCP.\n",
+      "after_sha256": "6fc60b756df6e739bb8e71576625e39d34b784ec13f623ae7530c5639a9127bc",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-515-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "before": null,
+      "before_sha256": null,
+      "after": "---\nidentity:\n  atom_id: CA-M-515\n  ref_id: CA-M-515\ncontext:\n  container:\n    scope_unit: CA-SU-14\n  role: method\n  form: direct_policy\n  topics:\n    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication\n  tier: 3\nstate:\n  status: active\n  version: 2\n  updated_at: 2026-11-09 21:15:24 +0400\ndestination:\n  file:\n    name: CA-M-515-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md\n    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method\n---\n\n## Summary\n\nUse APIs for internal Engine calls\n\n## Claim\n\n### Prose Claim\n\nAll other Engine components access Engine capabilities ONLY through programmatic APIs, directly.\n",
+      "after_sha256": "57bae04676fa283afcaabf5ca3a795d1b36c953a7e25eeeaa8ba26db1f086602",
+      "before_mode": null,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-514@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "before": "---\nidentity:\n  atom_id: CA-M-514\n  ref_id: CA-M-514@1-draft\ncontext:\n  container:\n    scope_unit: CA-SU-14\n  role: method\n  form: direct_policy\n  topics:\n    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication\n  tier: 3\nstate:\n  status: draft\n  version: 1\n  updated_at: 2026-11-09 21:14:14 +0400\ndestination:\n  file:\n    name: CA-M-514@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md\n    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft\n---\n\n## Summary\n\nUse MCP for AI Agent access\n\n## Claim\n\n### Prose Claim\n\nAI Agents access Engine capabilities ONLY through MCP.\n",
+      "before_sha256": "b966ea1816428dacb8f7400c1d34529fe5f068ae808e8762f51605f4e2be40e1",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    },
+    {
+      "path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-515@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "before": "---\nidentity:\n  atom_id: CA-M-515\n  ref_id: CA-M-515@1-draft\ncontext:\n  container:\n    scope_unit: CA-SU-14\n  role: method\n  form: direct_policy\n  topics:\n    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication\n  tier: 3\nstate:\n  status: draft\n  version: 1\n  updated_at: 2026-11-09 21:14:14 +0400\ndestination:\n  file:\n    name: CA-M-515@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md\n    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft\n---\n\n## Summary\n\nUse APIs for internal Engine calls\n\n## Claim\n\n### Prose Claim\n\nAll other Engine components access Engine capabilities ONLY through programmatic APIs, directly.\n",
+      "before_sha256": "e27742a4eacf4dcb5be7619b33070bca5cd770ac14aebef7762487c0366bee32",
+      "after": null,
+      "after_sha256": null,
+      "before_mode": 420,
+      "after_mode": 420
+    }
+  ],
+  "outputs": [
+    {
+      "atom_id": "CA-M-514",
+      "version": 2,
+      "status": "Active (encoded active)",
+      "current_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-514-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "current_sha256": "6fc60b756df6e739bb8e71576625e39d34b784ec13f623ae7530c5639a9127bc",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-514@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "claim": "AI Agents access Engine capabilities ONLY through MCP."
+    },
+    {
+      "atom_id": "CA-M-515",
+      "version": 2,
+      "status": "Active (encoded active)",
+      "current_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-515-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "current_sha256": "57bae04676fa283afcaabf5ca3a795d1b36c953a7e25eeeaa8ba26db1f086602",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-515@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "claim": "All other Engine components access Engine capabilities ONLY through programmatic APIs, directly."
+    }
+  ],
+  "native_workflow_admission": false,
+  "journal_append": false
+}

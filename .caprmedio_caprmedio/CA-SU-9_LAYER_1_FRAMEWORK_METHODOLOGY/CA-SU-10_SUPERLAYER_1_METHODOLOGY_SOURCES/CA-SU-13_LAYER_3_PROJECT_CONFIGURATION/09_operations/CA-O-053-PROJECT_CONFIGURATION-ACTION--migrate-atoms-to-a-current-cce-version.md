@@ -6,15 +6,15 @@ container:
 role: Operations
 form: Action
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Transformation"
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Controlled English"
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Decision Confidence"
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
 tier: 3

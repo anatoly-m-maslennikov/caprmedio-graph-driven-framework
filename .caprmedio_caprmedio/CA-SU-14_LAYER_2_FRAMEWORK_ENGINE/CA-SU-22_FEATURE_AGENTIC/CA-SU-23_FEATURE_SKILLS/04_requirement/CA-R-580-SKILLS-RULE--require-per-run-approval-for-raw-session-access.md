@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
 tier: 1
 relations:
   child_of:
@@ -24,6 +24,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Require per-run approval for raw session access
+## Summary
+
+Require per-run approval for raw session access
+
+## Claim
+
+### Prose Claim
 
 CAPRMEDIO **must** read raw session transcripts for a review run **only** **after** the operator explicitly approves that run **and** its bounded session scope.

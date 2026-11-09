@@ -8,7 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Indexing
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   evaluation_for:
@@ -20,8 +23,8 @@ relations:
   - CA-D-675
 state:
   status: Active
-  version: 23
-  updated_at: 2026-11-08 23:52:13 +0400
+  version: 24
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -30,6 +33,7 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
+
 ## Summary
 
 Reconcile source lifecycle changes and repaired validity

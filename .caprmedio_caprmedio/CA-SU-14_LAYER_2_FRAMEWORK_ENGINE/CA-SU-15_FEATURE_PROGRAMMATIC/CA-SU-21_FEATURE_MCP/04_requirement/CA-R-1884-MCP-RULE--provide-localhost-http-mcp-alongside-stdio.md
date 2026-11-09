@@ -6,10 +6,10 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
 tier: 3
 status: Active

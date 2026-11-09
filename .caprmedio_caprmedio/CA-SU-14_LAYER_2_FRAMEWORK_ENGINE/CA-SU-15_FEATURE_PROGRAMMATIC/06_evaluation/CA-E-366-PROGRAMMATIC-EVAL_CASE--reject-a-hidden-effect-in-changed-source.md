@@ -6,9 +6,11 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
+    Authorization
 tier: 5
 relations:
   evaluation_for:
@@ -16,8 +18,8 @@ relations:
   derived_from:
   - CA-A-053
 status: Active
-version: 22
-updated_at: 2026-10-27 19:59:33 +0400
+version: 23
+updated_at: 2026-11-09 14:19:14 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -25,28 +27,39 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-366-PROGRAMMATIC-EVAL_CASE--reject-a-hidden-effect-in-changed-source.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reject a hidden effect in changed source
 
-## Claim checked
+## Summary
+
+Reject a hidden effect in changed source
+
+## Claim
+
+### Prose Claim
 
 one changed effect function declares its complete effect boundary **or** allocates
 persistent ownership **to** an object.
 
-## Test case
+## Details
 
-evaluate one changed function that reads the process environment implicitly
-**before** writing its declared target.
+### Test case
 
-## Acceptance criteria
 
-pass **only** **when** the function is rejected **until** the environment observation is
-an explicit input **or** an owned adapter boundary.
+Evaluate a changed function that reads the process environment implicitly before writing its declared target, or performs a persistence, Run or Journal write while presented as pure computation.
 
-## Failure disposition
+### Acceptance criteria
+
+
+Pass only when hidden environment observation is rejected until it is an explicit input or an owned adapter boundary. Persistence and execution recording must be delegated to the declared authorized effect owner or executor; generated output is not durable terminal completion.
+
+### Failure disposition
 
 block the changed unit **until** the hidden observation is removed.
 
-## Sources
+### Sources
 
-- [CA-M-425 — Separate deterministic transformations from effects and lifecycle](../05_method/CA-M-425-PROGRAMMATIC-ENG_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle.md)
+- [CA-M-425 — Separate deterministic transformations from effects and lifecycle](../05_method/CA-M-425-PROGRAMMATIC-DIRECT_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle.md)

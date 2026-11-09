@@ -6,9 +6,9 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout"
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout"
 tier: 4
 relations:
   evaluation_for:

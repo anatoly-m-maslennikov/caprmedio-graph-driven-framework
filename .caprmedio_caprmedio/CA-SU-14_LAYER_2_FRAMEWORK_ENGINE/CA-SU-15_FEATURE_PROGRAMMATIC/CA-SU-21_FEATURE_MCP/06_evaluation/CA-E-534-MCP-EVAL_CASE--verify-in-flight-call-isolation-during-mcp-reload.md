@@ -6,7 +6,8 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -16,8 +17,8 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
 status: Active
-version: 10
-updated_at: 2026-11-07 04:28:07 +0400
+version: 11
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-534-MCP-EVAL_CASE--verify-in-flight-call-isolation-during-mcp-reload.md
@@ -25,21 +26,24 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify in-flight call isolation during MCP reload
 
-## Scope
-
-These in-flight generation checks apply only with optional hot reload explicitly enabled.
-
-server-side hot reload for the Project-local MCP gateway.
-
 ## Claim
+
+### Prose Claim
 
 the MCP Evaluation **must** verify that reload preserves admitted call identity, authority **and** truthful outcomes.
 
 ## Details
+
+### Scope
+
+These in-flight generation checks apply only with optional hot reload explicitly enabled.
+
+server-side hot reload for the Project-local MCP gateway.
 
 - hold a call on A while publishing B; verify that the old call completes on A **and** a new call executes on B.
 - verify that old generations remain alive while their admitted calls are running.

@@ -8,7 +8,9 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
@@ -17,8 +19,8 @@ relations:
   - CA-R-2776
 state:
   status: Active
-  version: 9
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 10
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-470-WORKBENCH-DECISION--save-sql-and-browser-state.md
@@ -37,6 +39,8 @@ Save SQL and browser state for Workbench
 Open SQL Views, browser drafts and saved-item Journal records.
 
 ## Claim
+
+### Prose Claim
 
 Save every open View's query text, current local View name and tab state in browser local storage every 5 seconds and restore it on the next page load. Ask before closing an unsaved tab or window; a native beforeunload warning is allowed. Flush the latest draft on pagehide and beforeunload when possible. A View's open lifetime pins its current temporary query result; closing the View unpins it, while a young unpinned result remains subject to the shared backend TTL.
 

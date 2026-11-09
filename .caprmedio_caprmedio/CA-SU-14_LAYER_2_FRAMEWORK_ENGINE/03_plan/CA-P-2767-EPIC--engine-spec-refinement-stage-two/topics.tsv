@@ -1,0 +1,324 @@
+Atom ID	old topic	new topic	status
+CA-D-005	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Held: prior 78-RMEDO Content deferral
+CA-D-250	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery	Held: prior 78-RMEDO Content deferral
+CA-D-437	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout	Held: prior 78-RMEDO Content deferral
+CA-D-486	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout	Applied
+CA-D-489	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Held: prior 78-RMEDO Content deferral
+CA-D-490	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Applied
+CA-D-509	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Applied
+CA-D-510	Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability	Applied
+CA-D-511	Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability	Applied
+CA-D-521	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-D-522	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-D-523	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-D-524	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Coverage	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Coverage	Applied
+CA-D-525	Subject/CAPRMEDIO/Carrier	Subject/CAPRMEDIO/Carrier	Applied
+CA-D-526	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-D-544	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Applied
+CA-D-545	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Applied
+CA-D-546	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Applied
+CA-D-547	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-D-548	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Applied
+CA-D-576	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Held: Its governing M339/R1882 targets have no Current resolution; do not invent replacement authority.
+CA-D-577	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Held: Release-specific placement needs a Project Configuration handoff; do not break ancestry or silently withdraw retained RMED.
+CA-D-578	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-D-583	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-D-589	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-D-590	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-D-592	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage	Applied
+CA-D-593	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Applied
+CA-D-594	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery	Applied
+CA-D-595	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-D-638	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Reproducibility	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Reproducibility	Applied
+CA-D-639	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Applied
+CA-D-640	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-D-672	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema	Applied
+CA-D-673	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-D-674	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Delivery <+ Packaging	Applied
+CA-D-675	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State	Applied
+CA-D-676	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control	Applied
+CA-D-677	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control	Applied
+CA-D-678	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Applied
+CA-D-679	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing	Applied
+CA-D-681	CAPRMEDIO_MODEL <+ Workspace	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-D-695	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging	Applied
+CA-D-696	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization	Applied
+CA-D-697	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing	Applied
+CA-D-698	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging	Applied
+CA-D-703	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling	Applied
+CA-D-704	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-D-705	CAPRMEDIO_MODEL <+ CFEL <+ Relation	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema	Applied
+CA-E-067	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Applied
+CA-E-253	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-254	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-255	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation	Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation	Held: prior 78-RMEDO Content deferral
+CA-E-256	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Held: prior 78-RMEDO Content deferral
+CA-E-257	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-258	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-259	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Held: prior 78-RMEDO Content deferral
+CA-E-260	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-261	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-262	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-263	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-264	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-265	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-266	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-267	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-268	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-269	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-270	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Held: prior 78-RMEDO Content deferral
+CA-E-271	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-272	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-273	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-274	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection	Replaced by CA-E-810
+CA-E-275	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-276	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Replaced by CA-E-811
+CA-E-277	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Applied
+CA-E-278	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Replaced by CA-E-812
+CA-E-279	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-280	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-281	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Applied
+CA-E-282	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Applied
+CA-E-283	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection	Replaced by CA-E-813
+CA-E-284	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Replaced by CA-E-398
+CA-E-285	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-286	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-287	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Applied
+CA-E-309	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-310	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-311	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Held: prior 78-RMEDO Content deferral
+CA-E-314	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Held: prior 78-RMEDO Content deferral
+CA-E-349	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Accessibility	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Accessibility	Held: prior 78-RMEDO Content deferral
+CA-E-350	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-351	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Held: prior 78-RMEDO Content deferral
+CA-E-352	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Recovery	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Recovery	Held: prior 78-RMEDO Content deferral
+CA-E-356	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Held: prior 78-RMEDO Content deferral
+CA-E-357	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Held: prior 78-RMEDO Content deferral
+CA-E-358	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Held: prior 78-RMEDO Content deferral
+CA-E-359	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Held: prior 78-RMEDO Content deferral
+CA-E-360	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-361	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-362	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-363	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-364	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-365	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Held: prior 78-RMEDO Content deferral
+CA-E-366	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-367	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Held: prior 78-RMEDO Content deferral
+CA-E-368	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-369	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-370	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-371	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-372	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-373	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-374	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-375	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Held: prior 78-RMEDO Content deferral
+CA-E-376	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-377	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-378	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-385	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Held: prior 78-RMEDO Content deferral
+CA-E-388	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-389	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Applied
+CA-E-390	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Data/Golden Corpora	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Data/Golden Corpora	Held: prior 78-RMEDO Content deferral
+CA-E-391	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-392	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: prior 78-RMEDO Content deferral
+CA-E-393	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-394	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Held: prior 78-RMEDO Content deferral
+CA-E-395	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-396	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage	Held: prior 78-RMEDO Content deferral
+CA-E-397	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Held: prior 78-RMEDO Content deferral
+CA-E-398	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-399	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Applied
+CA-E-408	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Held: prior 78-RMEDO Content deferral
+CA-E-451	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-452	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Held: prior 78-RMEDO Content deferral
+CA-E-453	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Held: prior 78-RMEDO Content deferral
+CA-E-454	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Held: prior 78-RMEDO Content deferral
+CA-E-455	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Held: prior 78-RMEDO Content deferral
+CA-E-467	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout	Held: prior 78-RMEDO Content deferral
+CA-E-492	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Applied
+CA-E-493	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Applied
+CA-E-524	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage	Applied
+CA-E-531	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Applied
+CA-E-532	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Applied
+CA-E-533	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-534	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-535	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Coverage	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Coverage	Applied
+CA-E-536	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing/Canary Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing/Canary Testing	Applied
+CA-E-537	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-538	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-539	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code	Applied
+CA-E-540	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Applied
+CA-E-563	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Data/Golden Corpora	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Data/Golden Corpora	Applied
+CA-E-564	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Applied
+CA-E-565	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-566	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Retry and Repair Results	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Applied
+CA-E-567	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Applied
+CA-E-568	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Applied
+CA-E-582	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Held: Its governing M339/R1882 targets have no Current resolution.
+CA-E-583	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-584	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-585	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-590	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Applied
+CA-E-594	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-595	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-598	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage	Applied
+CA-E-599	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Applied
+CA-E-600	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-601	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-637	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Applied
+CA-E-638	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing/Canary Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing/Canary Testing	Replaced by CA-E-536
+CA-E-639	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change Readiness	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change Readiness	Applied
+CA-E-640	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Applied
+CA-E-641	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing	Applied
+CA-E-642	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage	Applied
+CA-E-643	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Resource Limits	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Resource Limits	Applied
+CA-E-644	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Applied
+CA-E-645	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Outcome Reporting	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Outcome Reporting	Applied
+CA-E-646	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Applied
+CA-E-647	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Applied
+CA-E-648	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Applied
+CA-E-649	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Applied
+CA-E-650	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts	Applied
+CA-E-651	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Applied
+CA-E-653	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability	Applied
+CA-E-673	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-E-674	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing	Applied
+CA-E-675	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Source Retrieval	Applied
+CA-E-676	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing	Applied
+CA-E-677	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing	Applied
+CA-E-679	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control	Applied
+CA-E-680	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control	Applied
+CA-E-681	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing	Applied
+CA-E-683	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-E-684	CAPRMEDIO_MODEL <+ Workspace	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-E-750	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Source Retrieval	Applied
+CA-E-751	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State	Applied
+CA-E-752	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Failure Handling	Applied
+CA-E-753	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-E-780	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging	Applied
+CA-E-781	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization	Applied
+CA-E-782	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_MODEL <+ Projection	Applied
+CA-E-783	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_MODEL <+ Projection	Applied
+CA-E-784	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing	Applied
+CA-E-785	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State	Applied
+CA-E-786	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_MODEL <+ Projection	Applied
+CA-E-787	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging	Applied
+CA-E-788	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State	Applied
+CA-E-794	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing	Applied
+CA-E-795	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling	Applied
+CA-E-796	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-E-797	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Code Hot Reload	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Code Hot Reload	Applied
+CA-E-798	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-E-799	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling	Applied
+CA-E-800	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling	Applied
+CA-E-803	CAPRMEDIO_MODEL <+ CFEL <+ Relation	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema	Applied
+CA-E-804	CAPRMEDIO_MODEL <+ CFEL <+ Relation	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema	Applied
+CA-M-153	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Applied
+CA-M-167	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-168	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection	Replaced by CA-M-510
+CA-M-169	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-170	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Replaced by CA-M-511
+CA-M-171	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Applied
+CA-M-172	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Applied
+CA-M-173	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-174	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-175	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry	Applied
+CA-M-176	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Applied
+CA-M-177	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection	Replaced by CA-M-512
+CA-M-178	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-179	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-180	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Applied
+CA-M-181	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation	Applied
+CA-M-191	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability/Provenance	Applied
+CA-M-193	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-196	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Held: prior 78-RMEDO Content deferral
+CA-M-222	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Held: prior 78-RMEDO Content deferral
+CA-M-242	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit	Held: prior 78-RMEDO Content deferral
+CA-M-284	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration	Applied
+CA-M-302	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run	Applied
+CA-M-317	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Applied
+CA-M-320	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-321	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-322	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-323	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Coverage	Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Coverage	Applied
+CA-M-324	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-325	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-326	Subject/caprmedio/Workflow//Implementation Workflow.Step Prompt Construction	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring	Applied
+CA-M-327	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Held: generic implementation methodology needs a Core/PROGRAMMATIC ownership decision; handoff prepared
+CA-M-328	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Held: generic implementation methodology needs a Core/PROGRAMMATIC ownership decision; handoff prepared
+CA-M-329	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Applied
+CA-M-340	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-341	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-347	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-350	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication	Applied
+CA-M-351	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-352	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-354	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage	Applied
+CA-M-355	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Subject/CAPRMEDIO/Graph/Node/Project Model/Project	Applied
+CA-M-356	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-357	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-395	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change Readiness	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change Readiness	Applied
+CA-M-396	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Applied
+CA-M-397	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Applied
+CA-M-398	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Outcome Reporting	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Outcome Reporting	Applied
+CA-M-399	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability/Provenance	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability/Provenance	Applied
+CA-M-400	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling	Applied
+CA-M-401	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-402	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Applied
+CA-M-403	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Applied
+CA-M-404	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization	Applied
+CA-M-405	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Outcome Reporting	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Outcome Reporting	Applied
+CA-M-406	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Applied
+CA-M-407	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Applied
+CA-M-408	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Applied
+CA-M-409	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-410	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Resource Limits	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Resource Limits	Applied
+CA-M-411	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Applied
+CA-M-412	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration	Applied
+CA-M-413	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts	Applied
+CA-M-414	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Observability/Logging	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Observability/Logging	Applied
+CA-M-415	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Applied
+CA-M-416	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Performance/Measurement and Profiling	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Performance/Measurement and Profiling	Applied
+CA-M-417	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration	Held: Duplicate absorption is prepared but depends on held E454 consumer review.
+CA-M-418	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts	Applied
+CA-M-419	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Applied
+CA-M-420	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Applied
+CA-M-421	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Applied
+CA-M-422	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Temporary State	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Temporary State	Applied
+CA-M-423	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Applied
+CA-M-424	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Design	Applied
+CA-M-425	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-426	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Held: Duplicate absorption is prepared but held E260/E261/E360/E361/E366 consumers cannot yet be reviewed.
+CA-M-427	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Applied
+CA-M-428	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis	Applied
+CA-M-429	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code	Applied
+CA-M-430	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation	Applied
+CA-M-431	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring	Applied
+CA-M-432	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure	Applied
+CA-M-462	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing	Applied
+CA-M-463	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State	Applied
+CA-M-464	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Source Retrieval	Applied
+CA-M-465	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing	Applied
+CA-M-466	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure	Applied
+CA-M-467	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Code Authoring	Applied
+CA-M-468	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Query Authoring <+ SQL	Applied
+CA-M-469	PROJECT_STRUCTURE <+ Aspect//Visual Design	PROJECT_STRUCTURE <+ Aspect//Visual Design	Applied
+CA-M-470	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage	Applied
+CA-M-471	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-M-472	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Test Design	Applied
+CA-M-473	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation	Applied
+CA-M-474	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing	Applied
+CA-M-476	CAPRMEDIO_MODEL <+ Workspace	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts	Applied
+CA-M-490	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging	Applied
+CA-M-491	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization	Applied
+CA-M-492	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure	Applied
+CA-M-493	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing	Applied
+CA-M-500	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema	Applied
+CA-M-501	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Query Authoring <+ SQL	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Query Authoring <+ SQL	Applied
+CA-M-502	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging	Applied
+CA-M-503	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling	Applied
+CA-M-504	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control	Applied
+CA-M-505	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Code Hot Reload	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Code Hot Reload	Applied
+CA-M-506	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication	Applied
+CA-M-508	CAPRMEDIO_MODEL <+ Projection	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling	Applied
+CA-M-509	CAPRMEDIO_MODEL <+ CFEL <+ Relation	CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema	Applied

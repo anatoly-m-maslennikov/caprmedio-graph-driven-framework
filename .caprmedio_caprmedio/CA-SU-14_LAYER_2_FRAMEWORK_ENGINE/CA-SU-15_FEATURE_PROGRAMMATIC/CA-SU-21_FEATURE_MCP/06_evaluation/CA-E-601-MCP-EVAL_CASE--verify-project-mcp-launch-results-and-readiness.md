@@ -6,21 +6,24 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
+    Structure
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
   - Subject/CAPRMEDIO/Carrier
 tier: 3
 relations:
   evaluation_for:
   - CA-O-235
 status: Active
-version: 15
-updated_at: 2026-10-27 19:59:38 +0400
+version: 16
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-601-MCP-EVAL_CASE--verify-project-mcp-launch-results-and-readiness.md
@@ -28,19 +31,22 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 verify Project MCP launch results and readiness
 
-## Scope
-
-the observable output and host-side MCP readiness boundary of the Project MCP launcher.
-
 ## Claim
+
+### Prose Claim
 
 the Evaluation **must** verify that every launcher disposition is structured, safe, and attributable, and that a success URL is returned only after actual loopback Host/Origin-protected host readiness.
 
 ## Details
+
+### Scope
+
+the observable output and host-side MCP readiness boundary of the Project MCP launcher.
 
 - exercise each exact safe code in CA-O-235: `READY_STARTED`, `READY_REUSED`, `PROJECT_SELECTION_REFUSED`, `IMAGE_INPUT_UNAVAILABLE`, `IMAGE_REFUSED`, `PROJECT_LOCK_BUSY`, `RUNTIME_MISMATCH`, `RUNTIME_UNHEALTHY`, `BUILD_FAILED`, `DOCKER_START_FAILED`, `DOCKER_PUBLICATION_FAILED`, and `READINESS_FAILED`. Each outcome has one matching disposition; only ready `started`/`reused` outcomes contain a URL. Verify default JSON result output and `--output url`, which emits no URL for every non-success.
 - for a real-Docker gate, connect from the host to the exact Docker-reported `127.0.0.1` port and complete the Host/Origin-protected MCP initialization/readiness exchange. Prove that container health or an open socket alone cannot produce a success URL, and that Authorization values neither grant nor deny localhost readiness.

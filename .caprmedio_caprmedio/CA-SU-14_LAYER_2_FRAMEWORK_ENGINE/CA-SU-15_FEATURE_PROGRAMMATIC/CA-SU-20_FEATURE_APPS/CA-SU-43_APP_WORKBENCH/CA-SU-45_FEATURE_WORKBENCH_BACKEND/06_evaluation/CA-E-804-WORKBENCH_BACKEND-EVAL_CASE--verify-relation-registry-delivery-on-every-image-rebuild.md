@@ -8,16 +8,18 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Schema
+    dependencies:
+    - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   tier: 7
 relations:
   evaluation_for:
   - CA-M-509
-  - CA-D-705
 state:
   status: Active
-  version: 1
-  updated_at: 2026-11-08 20:06:37 +0400
+  version: 3
+  updated_at: 2026-11-09 19:30:15 +0400
 destination:
   file:
     name: CA-E-804-WORKBENCH_BACKEND-EVAL_CASE--verify-relation-registry-delivery-on-every-image-rebuild.md

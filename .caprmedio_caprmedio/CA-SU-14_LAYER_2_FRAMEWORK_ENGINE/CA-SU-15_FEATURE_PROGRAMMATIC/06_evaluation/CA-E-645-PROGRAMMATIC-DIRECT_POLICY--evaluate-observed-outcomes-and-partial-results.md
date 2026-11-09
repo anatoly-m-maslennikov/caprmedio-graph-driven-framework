@@ -8,18 +8,19 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Outcome Reporting
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output
+      Publication
   tier: 3
 relations:
   evaluation_for:
   - CA-M-405
-  - CA-M-398
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 16
+  updated_at: 2026-11-09 21:15:45 +0400
 destination:
   file:
     name: CA-E-645-PROGRAMMATIC-DIRECT_POLICY--evaluate-observed-outcomes-and-partial-results.md
@@ -28,19 +29,22 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Evaluate observed outcomes and partial results
 
-## Scope
-
-PROGRAMMATIC operations that can complete, no-op, partially apply, fail, cancel or become uncertain across Tools, workflows, Apps, MCP and background work.
-
 ## Claim
+
+### Prose Claim
 
 Accept outcome reporting only when it describes observed state truthfully. Complete, no-op, partial, failed, canceled and uncertain outcomes remain distinguishable; a partial result preserves completed data with the error, and a no-op does not claim a fictional write. Do not require replay or weaken atomicity merely to obtain a result.
 
 ## Details
+
+### Scope
+
+PROGRAMMATIC operations that can complete, no-op, partially apply, fail, cancel or become uncertain across Tools, workflows, Apps, MCP and background work.
 
 - Exercise success, valid no-op, invalid input, mid-operation failure, cancellation and unavailable-observation cases.
 - Compare returned records with durable effects and verify completed items, errors and uncertainty are represented without invented success.

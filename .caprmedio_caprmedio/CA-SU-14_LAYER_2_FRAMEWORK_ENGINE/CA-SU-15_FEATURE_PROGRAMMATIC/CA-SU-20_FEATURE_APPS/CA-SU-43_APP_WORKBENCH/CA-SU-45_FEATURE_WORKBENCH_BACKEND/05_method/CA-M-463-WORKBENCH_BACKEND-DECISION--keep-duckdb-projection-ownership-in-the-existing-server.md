@@ -8,7 +8,10 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
+      <+ Temporary State
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
@@ -16,8 +19,8 @@ relations:
   - CA-R-2729
 state:
   status: Active
-  version: 7
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 8
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-463-WORKBENCH_BACKEND-DECISION--keep-duckdb-projection-ownership-in-the-existing-server.md

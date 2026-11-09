@@ -10,13 +10,13 @@ topics:
 tier: 3
 relations:
   evaluation_for:
-  - CA-M-175
+  - CA-R-1113
   - CA-R-1113
   derived_from:
   - CA-A-057
 status: Active
-version: 18
-updated_at: 2026-11-05 13:48:40 +0400
+version: 20
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
     name: CA-E-281-MCP-EVAL_CASE--operate-mcp-headlessly-without-an-app.md
@@ -34,6 +34,8 @@ current_scope_unit: MCP
 Operate MCP headlessly without an App
 
 ## Claim
+
+### Prose Claim
 
 The project-local provider-neutral MCP service exposes an eligible Tool without App or plugin presentation, and binds every request to its admitted ProjectSelection before native dispatch.
 

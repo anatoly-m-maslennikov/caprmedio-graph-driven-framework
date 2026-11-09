@@ -8,7 +8,7 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Realization Graph)
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   - CAPRMEDIO_MODEL <+ Entity
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
   - CAPRMEDIO_MODEL <+ Journal

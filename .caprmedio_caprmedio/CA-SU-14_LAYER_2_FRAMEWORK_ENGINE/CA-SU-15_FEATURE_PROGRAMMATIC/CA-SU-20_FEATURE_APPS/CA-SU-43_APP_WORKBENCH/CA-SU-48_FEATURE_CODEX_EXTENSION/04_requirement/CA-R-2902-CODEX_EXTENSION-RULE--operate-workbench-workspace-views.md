@@ -15,8 +15,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 6
+  updated_at: 2026-11-09 21:15:45 +0400
 destination:
   file:
     name: CA-R-2902-CODEX_EXTENSION-RULE--operate-workbench-workspace-views.md
@@ -24,6 +24,10 @@ destination:
 current_scope_unit: CODEX_EXTENSION
 claim_target_scope_unit: CODEX_EXTENSION
 author: Anatoly Maslennikov
+relations:
+  IS_REPLACEMENT_FOR:
+  - CA-M-476
+  - CA-D-681
 ---
 
 ## Summary
@@ -31,6 +35,8 @@ author: Anatoly Maslennikov
 Operate Workbench Workspace Views
 
 ## Claim
+
+### Prose Claim
 
 The Workbench **must** be exposed as a native plugin UI in the existing Codex chat. A page opened by `open_in_codex(type=browser)` is not an integrated plugin UI and does not satisfy this requirement. The native UI **must not** create a standalone chat, host-specific side-panel API, browser iframe fallback, second MCP service, or separate Workspace identity.
 
@@ -49,3 +55,23 @@ View Save **must** reuse the existing `view_save` capability with the selected W
 The native UI, standalone browser and MCP **must** expose the same Workspace and View effects. Each View is one SQL query: Run and Check validate the whole View, reject multiple statements, and never select by cursor. Existing saved multi-script queries remain intact and are never partially executed through a View. No magic Workflow, separate chat controls, code runner, scheduler, retry behavior, or standalone-chat bridge is introduced.
 
 In the standalone browser, an explicit `?workspace=<workspace_id>` URL **must** select that Workspace. `embedded=1` is only a density-default marker and **must not** affect backend identity or Workspace selection. Assigning a standalone Workspace **must** preserve existing URL parameters, including the saved-query/open-saved `query`. On first explicit standalone Workspace binding, migrate an unbound browser draft at most once without executing SQL; retain the local copy until the backend confirms the copy. Do not repeat a confirmed migration, merge shared Project Workspaces, import another chat's draft, or import an unbound browser draft into a native Workspace.
+
+## Details
+
+### Native application and transport
+
+The shared Svelte Workbench UI **must** use MCP Apps initialization and the `tools/call` bridge in native mode. It **must** inject the explicit `project_root` into every call, preserve `structuredContent`, reject `isError`, and add no domain logic, response adapter, MCP service, chat, or UI-specific handler. Standalone mode retains the existing HTTP bootstrap; native mode and standalone mode use the same `App.svelte` and Workbench backend.
+
+`workspace_open` is the sole UI-bearing MCP tool. Its descriptor **must** link `ui://caprmedio/workbench.html`, served as `text/html;profile=mcp-app`. `workbench_app.html` **must** be one self-contained MCP App resource built with the existing Vite/Svelte toolchain: its JavaScript and CSS are inline, it opens no browser, makes no Workbench HTTP request, and needs no second server. `FEATURE_MCP` adds that resource URI only to the existing `workspace_open` descriptor and serves the built resource through its existing registry/read handler; existing dispatch, Project validation, and structured-result paths remain unchanged.
+
+`FEATURE_CODEX_EXTENSION` instructions **must** direct the caller to invoke `workspace_open` with the host-supplied session ID and trusted Project root. Its hook supplies context only, starts nothing, and registers no panel; `plugin.json` adds no panel or connection declaration. The existing `caprmedio-workbench` package **must** be registered in `.agents/plugins/marketplace.json` under `caprmedio-local` with local source `./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_CODEX_EXTENSION/plugin`. The desktop app discovers it after restart and the Operator installs it and explicitly trusts the bundled hook through `/hooks`. Activation requires a new or resumed native chat; building or releasing the backend neither installs the plugin nor retroactively runs a hook.
+
+### Host boundary and evidence
+
+Native UI delivery is complete only when the host renders the Workbench and it exercises the same MCP Workspace/View effects. The existing `workbench_ui_probe` and `workbench_ui_ping` are separate read-only compatibility evidence: the probe resource is not the Workbench resource and does not activate Workbench. They use the existing MCP connection, take no native arguments, return fixed messages, do not read Project data or start Workbench, and reject unexpected arguments and unknown resource URIs.
+
+The probe alone links `ui://caprmedio/workbench-compatibility-v2.html` with `text/html;profile=mcp-app`. It declares inline and fullscreen capability, shows current and offered modes, enables Expand only when fullscreen is offered, requests it through `ui/request-display-mode`, displays the returned mode, and merges `ui/notifications/host-context-changed`. Acceptance, retained-inline, rejection, and unsupported-fullscreen cases remain distinct. Fullscreen or move-to-panel is exercised only if offered by the host; neither proves a persistent right panel. In a real host, right-panel support remains unproven unless an offered move-to-panel action preserves the same resource, initial result, and bridge.
+
+### Project name boundary
+
+Public `workspace_open` and `workspace_get` responses **must** include `project_name` alongside the existing Workspace state and request-derived `workspace_url`. The public Workspace adapter obtains `project_name` from the selected Project's validated settings through the existing ProjectSelection settings/name reader, for both HTTP and MCP. The initial native Workspace result supplies this canonical name for the Project header. A missing name is a binding error; it does not permit a directory-basename inference, query, parser, fallback name, or tool. Workspace persistence and other tool inputs remain unchanged.

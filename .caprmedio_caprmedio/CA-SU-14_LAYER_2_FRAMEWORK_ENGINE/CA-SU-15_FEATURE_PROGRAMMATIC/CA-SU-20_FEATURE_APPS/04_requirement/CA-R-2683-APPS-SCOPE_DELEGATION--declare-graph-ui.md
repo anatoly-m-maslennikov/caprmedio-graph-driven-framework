@@ -12,28 +12,32 @@ context:
     scope_unit: CA-SU-20
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-08 23:18:49 +0400
+  version: 4
+  updated_at: 2026-11-09 17:00:18 +0400
 destination:
   file:
     name: CA-R-2683-APPS-SCOPE_DELEGATION--declare-graph-ui.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/04_requirement
 ---
+
 ## Summary
 
 Declare GRAPH_UI
 
 ## Claim
 
-Within this delegation, the admitted local Role/Form pairs used by the reviewed current local RMEDO are exactly: Evaluation/Eval Case, already globally admitted by CA-R-3008. No additional Role/Form pair is admitted.
 
-The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared model entities or declared instances resolved at this existing active Subject address:
+### Prose Claim
 
-- Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
+The receiving Scope Unit is GRAPH_UI. Existing default Role and Form admissions remain applicable. The additional local Role/Form pairs are exactly:
 
-Each entry selects that single endpoint object. It does not select the address string, other members of its type, or descendants. An unresolved entry remains a diagnostic and grants no admission.
+- Method / Solution;
 
-These permissions apply only to Atoms whose Header.Container-derived IS_CONTAINED_BY target is GRAPH_UI.
+The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation`;
+
+Each address selects one endpoint object, not the address string, other members of its type or descendants. An unresolved address is diagnostic and grants no admission. These permissions apply only to local Atoms whose Header.Container resolves to GRAPH_UI. The Scope Unit identity, Parent, responsibility and structural tree are unchanged.
 
 ### Formal Claim
 
@@ -49,4 +53,3 @@ Scope Unit//GRAPH_UI.order.ordered == false;
 
 Scope Unit//GRAPH_UI ((IS_CONTAINED_BY)) Scope Unit//APPS
 ```
-

@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Guidance
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Guidance", "dependencies": ["Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"]}
 tier: 1
 relations:
   child_of:
@@ -22,6 +22,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Calibrate guidance to current adequacy
+## Summary
+
+Calibrate guidance to current adequacy
+
+## Claim
+
+### Prose Claim
 
 CAPRMEDIO Skills **and** their prompts provide **only** the guidance necessary **to** meet the operator-defined adequacy threshold under the current model, provider, host, task, risk, **and** Evaluation conditions, increasing **or** reducing guidance **when** evidence changes those conditions.

@@ -8,16 +8,18 @@ form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing
 tier: 3
 status: Active
-version: 12
-updated_at: 2026-10-27 19:59:37 +0400
+version: 13
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-532-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-orchestrator-authority-and-recovery-boundaries.md
@@ -25,19 +27,24 @@ carrier_destination:
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify orchestrator authority and recovery boundaries
 
-## Scope
-
-WORKFLOW_ORCHESTRATOR's initial local execution capability.
-
 ## Claim
+
+### Prose Claim
+
+This retained contract applies only when AI-Agent execution is separately admitted. It does not enable that execution or claim that its runtime implementation is present.
 
 the Evaluation **must** verify rejection of orchestration requests **or** Agent output outside declared authority.
 
 ## Details
+
+### Scope
+
+WORKFLOW_ORCHESTRATOR's initial local execution capability.
 
 - reject unsupported Workflows, traversal, symlinks, protected paths, unknown fields, stale input **and** conflicting duplicate Run requests.
 - check phases cannot modify source Atoms; allow_fixes=false preserves source bytes.

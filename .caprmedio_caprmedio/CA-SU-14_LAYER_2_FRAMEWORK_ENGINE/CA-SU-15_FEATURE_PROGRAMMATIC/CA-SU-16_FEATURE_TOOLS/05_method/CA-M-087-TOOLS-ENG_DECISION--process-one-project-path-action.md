@@ -6,7 +6,7 @@ container:
 role: Method
 form: Eng Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom

@@ -6,7 +6,7 @@ container:
 role: Evaluation
 form: Eval Policy
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   dependencies:
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation

@@ -8,15 +8,16 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Effect Authorization
   tier: 5
 relations:
   evaluation_for:
   - CA-M-191
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 15
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-649-PROGRAMMATIC-DIRECT_POLICY--verify-initiative-binding-before-mutation.md
@@ -25,19 +26,22 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify initiative binding before mutation
 
-## Scope
-
-Every PROGRAMMATIC mutation, including direct Tools, container operations and workflow steps that can change Project or runtime state.
-
 ## Claim
+
+### Prose Claim
 
 A mutation passes only when it carries both a sealed Initiative ID and a stable Action ID, together with its short human-derived summary and any qualified Plan artifact or ephemeral P/session context, before Hook, queue, worker, retry, Git, Journal or reconcile processing. Both IDs are validated before the first effect, propagated unchanged across every handoff, and an Action ID is never reused for another Initiative. A commit parent or implementation detail is not an initiative or action identity.
 
 ## Details
+
+### Scope
+
+Every PROGRAMMATIC mutation, including direct Tools, container operations and workflow steps that can change Project or runtime state.
 
 - Submit a mutation with both sealed Initiative and stable Action IDs, a human summary and optional Plan or P/session context; verify both IDs before Hook or queue admission and in every operation record.
 - Submit a missing, empty, malformed, mutable, mismatched or reused identity and verify rejection before any effect.

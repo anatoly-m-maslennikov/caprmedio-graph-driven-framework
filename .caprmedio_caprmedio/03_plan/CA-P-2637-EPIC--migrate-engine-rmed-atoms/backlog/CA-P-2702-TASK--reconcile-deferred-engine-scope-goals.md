@@ -7,7 +7,7 @@ role: Plan
 form: Plan
 label: Task
 topics:
-  main_subject: Entity/Aspect/Engineering/Architecture/Component Structure
+  main_subject: "Entity/Aspect/Engineering/Development/Architecture/Component Structure"
 
 tier: 4
 status: Backlog

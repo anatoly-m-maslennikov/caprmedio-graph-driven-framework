@@ -8,12 +8,13 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
+      Authoring <+ Query Authoring <+ SQL
   tier: 4
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-08 23:52:13 +0400
+  version: 4
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-501-WORKBENCH-DIRECT_POLICY--write-workbench-sql-queries-in-the-established-style.md
@@ -53,4 +54,3 @@ Use uppercase `SELECT` on its own line. Indent selected columns and conditions b
 Use complete Header and declared Content paths, with dots between levels and snake_case within each segment.
 
 When formatting existing SQL, retain its expressions, identifiers, literal values and comments. Apply layout and keyword case without adding clauses, conditions or identifier quotes to reproduce an example.
-

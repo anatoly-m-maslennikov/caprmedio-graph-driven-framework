@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "outputs": [
+    {
+      "atom_id": "CA-M-514",
+      "version": 2,
+      "status": "Active (encoded active)",
+      "current_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-514-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "current_sha256": "6fc60b756df6e739bb8e71576625e39d34b784ec13f623ae7530c5639a9127bc",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-514@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-mcp-for-ai-agent-access.md",
+      "claim": "AI Agents access Engine capabilities ONLY through MCP."
+    },
+    {
+      "atom_id": "CA-M-515",
+      "version": 2,
+      "status": "Active (encoded active)",
+      "current_path": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/CA-M-515-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "current_sha256": "57bae04676fa283afcaabf5ca3a795d1b36c953a7e25eeeaa8ba26db1f086602",
+      "consumed_draft": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/05_method/draft/CA-M-515@1-draft-FRAMEWORK_ENGINE-DIRECT_POLICY--use-apis-for-internal-engine-calls.md",
+      "claim": "All other Engine components access Engine capabilities ONLY through programmatic APIs, directly."
+    }
+  ],
+  "native_run": false,
+  "journal_append": false,
+  "not_performed": [
+    "Runtime/code changes",
+    "Commit/push"
+  ]
+}

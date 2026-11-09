@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "scope": "Only the two Operator-approved Claims; Method / Direct Policy; ENGINE container; one main Subject each",
+  "checks": [
+    "Exact ONLY wording",
+    "Fresh unique Atom IDs under shared identity lock",
+    "Draft Header types and destinations",
+    "Promotion takes max(all Versions)+1",
+    "Body/Summary unchanged by promotion"
+  ],
+  "native_run": false,
+  "journal_append": false
+}

@@ -8,7 +8,7 @@ context:
   role: Delivery
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Reproducibility
     dependencies:
     - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
     - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
@@ -20,8 +20,8 @@ relations:
   - CA-M-395
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 15
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-D-638-PROGRAMMATIC-DIRECT_POLICY--deliver-a-closed-reproducible-fixture-and-package-boundary.md
@@ -30,19 +30,22 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Deliver a closed reproducible fixture and package boundary
 
-## Scope
-
-Reproducible fixture/replay bundles and implementation packages delivered for a bounded PROGRAMMATIC change, including descendant Scope Units. Existing component-specific delivery places and package formats remain authoritative.
-
 ## Claim
+
+### Prose Claim
 
 A delivered fixture/replay bundle or implementation package must expose one inspectable manifest binding its entrypoint and declared execution environment to the complete selected input and dependency boundary. Required bytes are carried in the bundle or identified as explicit external dependencies; successful use must not depend on undeclared ambient files, imports, mutable Project Atoms or authoring-workspace state.
 
 ## Details
+
+### Scope
+
+Reproducible fixture/replay bundles and implementation packages delivered for a bounded PROGRAMMATIC change, including descendant Scope Units. Existing component-specific delivery places and package formats remain authoritative.
 
 - Place the manifest with the delivered bundle/package metadata in its declared Delivery place. Use its existing manifest/metadata format when it can preserve these distinctions; do not maintain a second independent inventory for the same boundary. Resolve carried paths relative to the bundle/package boundary; distinguish external references explicitly.
 - The manifest identifies the bundle/schema revision, entrypoint and invocation context, selected interpreter/dependency environment, and required member/support/configuration/schema inputs. Bind carried inputs to their paths and content digests; when an input is an identified Atom, preserve its actual Atom ID and Version as well. A dependency on an external service or environment is declared, not falsely represented as bundled bytes.

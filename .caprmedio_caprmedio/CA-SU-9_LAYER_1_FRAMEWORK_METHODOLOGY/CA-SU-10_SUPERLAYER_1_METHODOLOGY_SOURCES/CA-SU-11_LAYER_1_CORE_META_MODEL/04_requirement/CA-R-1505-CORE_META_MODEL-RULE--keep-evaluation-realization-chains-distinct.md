@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   dependencies:
   - CAPRMEDIO_MODEL <+ Package/Implementation
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)

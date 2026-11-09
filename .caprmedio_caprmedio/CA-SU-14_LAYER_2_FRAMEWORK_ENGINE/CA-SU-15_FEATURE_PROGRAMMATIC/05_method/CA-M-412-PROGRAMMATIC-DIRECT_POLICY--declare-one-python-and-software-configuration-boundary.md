@@ -8,8 +8,7 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python
-      Code
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration
     dependencies:
     - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
   tier: 4
@@ -20,8 +19,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 12
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-M-412-PROGRAMMATIC-DIRECT_POLICY--declare-one-python-and-software-configuration-boundary.md
@@ -30,16 +29,14 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Declare one Python and software configuration boundary
 
-## Scope
-
-apply **when** Python source **or** a development workflow depends on an interpreter,
-dependency, formatter, linter, type checker, evaluator, **or** packager setting.
-
 ## Claim
+
+### Prose Claim
 
 select the stable CPython `3.14.*` series **and** require one project-owned
 technical configuration boundary for interpreter, formatting, linting, typing,
@@ -50,9 +47,14 @@ separate from CAPRMEDIO project settings.
 
 ## Details
 
+### Scope
+
+apply **when** Python source **or** a development workflow depends on an interpreter,
+dependency, formatter, linter, type checker, evaluator, **or** packager setting.
+
 Candidate source: [CA-M-281@13](archive/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--declare-one-python-and-software-configuration-boundary@13.md)
 
-### Procedure
+#### Procedure
 1. resolve the current Delivery carrier, **then** materialize the selected
    interpreter series **and** admitted development-tool profiles through that
    boundary.
@@ -64,19 +66,19 @@ Candidate source: [CA-M-281@13](archive/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTA
 5. keep runtime project settings outside `pyproject.toml` **and** expose them **only**
    through the shared Settings Reader.
 
-### Outcome
+#### Outcome
 
 this Method owns one set of Python workflow selections; Delivery owns its
 carrier, **and** configuration **and** Implementation reproduce the selections **without**
 becoming another methodological authority.
 
-### Failure or stop
+#### Failure or stop
 
 stop **when** two carriers disagree, a moving `latest` label replaces the selected
 series, the materialization conflicts with its Delivery, **or** technical **and**
 CAPRMEDIO project settings are mixed.
 
-### Sources
+#### Sources
 
 - [Python 3.14 release notes](https://docs.python.org/3.14/whatsnew/3.14.html)
 - [PyPA: `pyproject.toml` specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/)

@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Goal
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Prompt Authoring
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"
 tier: 0
 status: Active
 version: 2

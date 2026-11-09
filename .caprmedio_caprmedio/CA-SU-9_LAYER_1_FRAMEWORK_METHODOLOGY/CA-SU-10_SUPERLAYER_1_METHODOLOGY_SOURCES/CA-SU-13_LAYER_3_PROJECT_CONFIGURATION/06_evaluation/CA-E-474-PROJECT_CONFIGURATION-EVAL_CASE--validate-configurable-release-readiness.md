@@ -6,16 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Release Readiness'
+  main_subject: CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form
+    := Workflow)//Release Readiness
   dependencies:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
+    >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Release Readiness'
-  - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Implementation Workflow'
+  - CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess
+    Release Readiness
+  - CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Implementation
+    Workflow
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Event Record
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
@@ -23,14 +27,10 @@ topics:
 tier: 4
 relations:
   evaluation_for:
-  - CA-O-025
-  - CA-O-026
-  - CA-O-027
-  - CA-R-1692
   - CA-R-1646
 status: Active
-version: 27
-updated_at: 2026-11-02 18:35:20 +0400
+version: 28
+updated_at: 2026-11-09 15:54:30 +0400
 carrier_destination:
   file:
     name: CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md
@@ -38,6 +38,7 @@ carrier_destination:
 current_scope_unit: PROJECT_CONFIGURATION
 claim_target_scope_unit: PROJECT_CONFIGURATION
 ---
+
 ## Summary
 
 Validate configurable release readiness

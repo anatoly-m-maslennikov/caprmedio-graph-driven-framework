@@ -8,7 +8,10 @@ context:
   role: Method
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Source Retrieval
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
@@ -20,8 +23,8 @@ relations:
   - CA-M-509
 state:
   status: Active
-  version: 9
-  updated_at: 2026-11-08 20:06:37 +0400
+  version: 10
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-464-WORKBENCH_BACKEND-SOLUTION--preserve-governed-atom-data-and-reuse-native-sql.md
@@ -30,7 +33,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 
 ## Summary
 

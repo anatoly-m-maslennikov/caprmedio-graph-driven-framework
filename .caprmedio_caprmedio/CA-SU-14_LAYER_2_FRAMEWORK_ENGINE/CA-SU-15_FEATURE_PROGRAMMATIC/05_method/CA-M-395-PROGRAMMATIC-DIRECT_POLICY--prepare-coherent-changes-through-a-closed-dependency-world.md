@@ -8,8 +8,8 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component
-      Structure
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change
+      Readiness
     dependencies:
     - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
     - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
@@ -25,8 +25,8 @@ relations:
   - CA-M-417
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 16
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-M-395-PROGRAMMATIC-DIRECT_POLICY--prepare-coherent-changes-through-a-closed-dependency-world.md
@@ -35,19 +35,22 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Prepare coherent changes through a closed dependency world
 
-## Scope
-
-Preparation of a bounded PROGRAMMATIC implementation change and its applicable test/fixture world, including descendant Scope Units.
-
 ## Claim
+
+### Prose Claim
 
 Prepare a change by deriving its bounded affected-surface and dependency closure from applicable governing sources and actual consumers, then reconcile that closure through existing canonical owners as one coherent increment. Construct the required verification world from an explicit, self-contained selection of consistent inputs rather than ambient mutable Project state or duplicated fixture logic.
 
 ## Details
+
+### Scope
+
+Preparation of a bounded PROGRAMMATIC implementation change and its applicable test/fixture world, including descendant Scope Units.
 
 1. Bind the requested outcome, applicable source revisions, authorized scope and expected state. Identify the actual consumers and supporting contracts, schemas/registries, configuration, dependencies, fixtures and delivery carriers affected by the change. Record an unresolved required input or semantic decision explicitly; use the existing authority/conflict boundary instead of inventing its answer.
 2. Map each required adjustment to its existing capability or artifact owner. Reuse canonical parsers, resolvers, adapters and valid scenario/carrier builders; do not create another behavioral owner or a facade over unreconciled consumers. Keep the closure bounded to what the requested change actually needs.

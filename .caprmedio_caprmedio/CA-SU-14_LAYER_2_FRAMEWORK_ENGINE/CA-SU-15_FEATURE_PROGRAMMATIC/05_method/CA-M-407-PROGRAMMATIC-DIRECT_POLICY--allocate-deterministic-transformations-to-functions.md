@@ -8,9 +8,9 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
+      Authoring
+    dependencies: []
   tier: 4
 relations:
   derived_from:
@@ -19,8 +19,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 13
+  updated_at: 2026-11-09 07:45:14 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -32,9 +32,14 @@ destination:
     name: CA-M-407-PROGRAMMATIC-DIRECT_POLICY--allocate-deterministic-transformations-to-functions.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Allocate deterministic transformations to functions
+
+## Claim
+
+### Prose Claim
 
 use a side-effect-free function as the default unit of PROGRAMMATIC behavior.
 implement one deterministic transformation as a function **when** its result
@@ -45,13 +50,13 @@ across calls.
 
 Candidate source: [CA-M-157@12](archive/CA-M-157-PROGRAMMATIC-CORE-METHOD--allocate-deterministic-transformations-to-functions@12.md)
 
-## Applicable when
+### Applicable when
 
 apply **when** Tools, App backend services, **or** MCP components parse, classify,
 validate, plan, project, format, **or** **otherwise** transform explicit input into a
 result.
 
-## Procedure
+### Procedure
 
 - use a function **unless** the responsibility **must** own mutable state, an
    invariant across calls, a resource, a lifecycle, **or** a replaceable adapter.
@@ -67,20 +72,20 @@ result.
 - group related functions **in** a specifically named module; do **not** create a
    class **only** **to** provide a namespace.
 
-## Outcome
+### Outcome
 
 behavior is locally readable, reproducible from declared input, **and** free of
 observable side effects. it can be reused, checked, **or** extended **without**
 constructing component lifecycle state.
 
-## Failure or stop
+### Failure or stop
 
 stop treating the unit as a deterministic transformation **when** it applies an
 external effect. a bounded one-shot effect **may** remain a function under
 CA-M-425; allocate an object **only** **when** identity across calls **or** owned state,
 invariant, resource, lifecycle, **or** adapter behavior is required.
 
-## Sources
+### Sources
 
 - [Python Functional Programming HOWTO](https://docs.python.org/3.14/howto/functional.html)
 - [PEP 8 — Style Guide for Python Code](https://peps.python.org/pep-0008/)

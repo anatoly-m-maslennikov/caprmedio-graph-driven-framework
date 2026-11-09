@@ -8,11 +8,9 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python
-      Code
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Code Authoring/Python
-      Code
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
+      Authoring/Python Code
+    dependencies: []
   tier: 4
 relations:
   derived_from:
@@ -21,8 +19,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 13
+  updated_at: 2026-11-09 07:45:14 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -34,9 +32,14 @@ destination:
     name: CA-M-406-PROGRAMMATIC-DIRECT_POLICY--adopt-current-python-idioms-only-for-declared-benefit.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Adopt current Python idioms only for declared benefit
+
+## Claim
+
+### Prose Claim
 
 adopt a stable idiom available **in** the selected Python boundary **only** **when** it
 improves a named project quality such as correctness, understandability,
@@ -47,12 +50,12 @@ newer construct adds no useful distinction.
 
 Candidate source: [CA-M-280@8](archive/CA-M-280-PROGRAMMATIC-CORE-METHOD--adopt-current-python-idioms-only-for-declared-benefit@8.md)
 
-## Applicable when
+### Applicable when
 
 apply **when** new **or** materially changed PROGRAMMATIC Python source proposes a
 runtime-specific language construct **or** concurrency model.
 
-## Procedure
+### Procedure
 
 1. state the quality improved **and** the supported Python boundary that admits
    the idiom.
@@ -64,17 +67,17 @@ runtime-specific language construct **or** concurrency model.
 5. record a compatibility exception **when** an admitted host boundary cannot use
    the selected idiom.
 
-## Outcome
+### Outcome
 
 current Python capabilities improve the code for an explicit reason **without**
 turning novelty into a requirement **or** obscuring the supported boundary.
 
-## Failure or stop
+### Failure or stop
 
 stop adoption **when** the benefit is unnamed, the simpler idiom is equally clear,
 **or** the construct exceeds the selected runtime **or** compatibility boundary.
 
-## Sources
+### Sources
 
 - [PEP 750 — Template Strings](https://peps.python.org/pep-0750/)
 - [Python documentation: task groups](https://docs.python.org/3.14/library/asyncio-task.html#task-groups)

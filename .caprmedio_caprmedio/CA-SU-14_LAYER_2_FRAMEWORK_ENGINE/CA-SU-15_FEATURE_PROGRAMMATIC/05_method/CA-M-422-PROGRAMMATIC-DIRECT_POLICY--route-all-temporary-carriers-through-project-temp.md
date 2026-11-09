@@ -8,18 +8,19 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory
-      Layout
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Temporary
+      State
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout
+    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory
+      Layout
   tier: 3
 relations:
   method_for:
   - CA-R-1473
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 12
+  updated_at: 2026-11-09 07:45:15 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -32,9 +33,14 @@ destination:
     name: CA-M-422-PROGRAMMATIC-DIRECT_POLICY--route-all-temporary-carriers-through-project-temp.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Route all temporary Carriers through project temp
+
+## Claim
+
+### Prose Claim
 
 resolve the configured Project Temporary State root **before** a PROGRAMMATIC
 component creates a temporary Carrier **or** invokes a dependency that can create

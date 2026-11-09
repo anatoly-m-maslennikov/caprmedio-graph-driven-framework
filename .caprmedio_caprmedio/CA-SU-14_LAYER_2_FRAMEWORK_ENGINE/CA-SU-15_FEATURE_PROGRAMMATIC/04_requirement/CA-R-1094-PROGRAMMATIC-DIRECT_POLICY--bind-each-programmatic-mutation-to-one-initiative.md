@@ -8,8 +8,7 @@ context:
   role: Requirement
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect
-      Authorization
+    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"
   tier: 3
 state:
   status: Active

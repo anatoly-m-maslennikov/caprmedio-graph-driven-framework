@@ -6,9 +6,11 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
+    Authorization
 tier: 5
 relations:
   evaluation_for:
@@ -17,8 +19,8 @@ relations:
   derived_from:
   - CA-A-053
 status: Active
-version: 24
-updated_at: 2026-10-27 19:59:31 +0400
+version: 25
+updated_at: 2026-11-09 14:19:14 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -26,34 +28,48 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-260-PROGRAMMATIC-EVAL_CASE--verify-decision-precedes-effect-application.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Verify decision precedes effect application
 
-## Claim checked
+## Summary
+
+Verify decision precedes effect application
+
+## Claim
+
+### Prose Claim
 
 one PROGRAMMATIC effect is applied **only** **after** a deterministic decision supplies
 its target, ordering, **and** expected outcome.
 
-## Applicable conditions
+## Details
+
+### Applicable conditions
 
 apply **when** a component combines a decision with an external effect,
 asynchronous work, **or** lifecycle transition.
 
-## Test case
+### Test case
 
 evaluate one effect request by observing its decision result **before** allowing
 the declared effect owner **to** apply it.
 
-## Acceptance criteria
+### Acceptance criteria
+
 
 pass **only** **when** the decision result **contains** the target, ordering, **and** expected
 outcome, **and** the effect owner reports completion facts **without** adding,
 reordering, **or** suppressing a decision.
 
-## Failure disposition
+Verify that completion facts return to the decision boundary and actual execution recording remains with its declared executor. Generated output or a completion fact alone does not claim durable terminal completion.
+
+### Failure disposition
 
 stop the operation **and** return the missing decision boundary **to** its owner.
 
-## Sources
+### Sources
 
-- [CA-M-425 — Separate deterministic transformations from effects and lifecycle](../05_method/CA-M-425-PROGRAMMATIC-ENG_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle.md)
+- [CA-M-425 — Separate deterministic transformations from effects and lifecycle](../05_method/CA-M-425-PROGRAMMATIC-DIRECT_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle.md)

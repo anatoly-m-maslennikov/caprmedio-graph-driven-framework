@@ -10,7 +10,7 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 tier: 4
 relations:

@@ -8,7 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
+      <+ Temporary State
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   evaluation_for:
@@ -17,8 +20,8 @@ relations:
   - CA-D-675
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-785-WORKBENCH-EVAL_CASE--verify-result-retention-and-one-query-views.md

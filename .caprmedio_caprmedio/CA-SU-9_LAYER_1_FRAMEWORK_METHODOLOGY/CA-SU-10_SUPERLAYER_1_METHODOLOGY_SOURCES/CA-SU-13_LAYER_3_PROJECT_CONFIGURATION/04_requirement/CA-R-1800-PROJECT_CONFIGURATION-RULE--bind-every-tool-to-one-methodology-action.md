@@ -13,7 +13,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure"
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
 tier: 3
 relations:

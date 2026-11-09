@@ -15,7 +15,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Validation"
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
 tier: 4

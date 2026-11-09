@@ -6,11 +6,12 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication/API
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
+    Authorization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/API
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
 tier: 5
@@ -19,8 +20,8 @@ relations:
   - CA-R-1885
   - CA-M-357
 status: Active
-version: 10
-updated_at: 2026-10-27 19:59:37 +0400
+version: 11
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-585-MCP-EVAL_CASE--verify-http-mcp-access-and-secret-boundaries.md
@@ -28,19 +29,22 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 verify HTTP MCP access and secret boundaries
 
-## Scope
-
-the additional localhost HTTP transport for the existing Project MCP Gateway.
-
 ## Claim
+
+### Prose Claim
 
 the Evaluation **must** verify that HTTP access failures occur before MCP handling and preserve the existing permission and secret boundaries.
 
 ## Details
+
+### Scope
+
+the additional localhost HTTP transport for the existing Project MCP Gateway.
 
 1. include good Requests with absent, valid-looking, and arbitrary Authorization values, hostile Host/Origin cases, absent Origin, and Session continuations.
 2. verify Host/Origin rejection and no Tool invocation or reload receipt on rejected Requests; Authorization values do not grant, deny, or otherwise alter admitted localhost access.

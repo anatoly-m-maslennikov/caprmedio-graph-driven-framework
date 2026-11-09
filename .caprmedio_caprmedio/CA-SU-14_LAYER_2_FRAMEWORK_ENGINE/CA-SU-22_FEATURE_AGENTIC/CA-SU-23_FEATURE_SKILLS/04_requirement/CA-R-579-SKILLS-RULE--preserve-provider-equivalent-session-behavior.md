@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface Contracts"}
 tier: 1
 relations:
   child_of:
@@ -22,6 +22,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Preserve provider-equivalent session behavior
+## Summary
+
+Preserve provider-equivalent session behavior
+
+## Claim
+
+### Prose Claim
 
 Supported agent-host adapters **must** preserve equivalent CAPRMEDIO routing, authority, persistence, **and** reconciliation behavior despite provider-specific session **and** compaction mechanisms.

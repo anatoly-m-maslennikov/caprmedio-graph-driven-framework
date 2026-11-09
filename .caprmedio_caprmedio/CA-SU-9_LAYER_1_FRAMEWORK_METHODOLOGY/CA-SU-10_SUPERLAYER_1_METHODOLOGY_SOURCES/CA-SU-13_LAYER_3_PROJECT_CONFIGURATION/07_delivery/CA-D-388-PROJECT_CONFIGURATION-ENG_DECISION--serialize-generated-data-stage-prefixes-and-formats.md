@@ -8,7 +8,7 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Serialization"
   - CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active

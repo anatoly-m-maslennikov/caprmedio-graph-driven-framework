@@ -8,15 +8,18 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Query Processing
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2728
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 12
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-462-WORKBENCH_BACKEND-DECISION--constrain-public-duckdb-queries-to-native-read-only-access.md
@@ -35,6 +38,8 @@ Constrain public DuckDB queries to native read-only access.
 Trusted public SQL and internal result materialization for one Project.
 
 ## Claim
+
+### Prose Claim
 
 Admit one whole read query from trusted Operator input through MCP or the Workbench web interface with DuckDB's native parsing and query APIs, including DuckPGQ's SQL/PGQ grammar. A public Run or Check contains exactly one whole query; a cursor position never selects a statement or a SQL fragment. Use native tokenization where statement extraction does not support that grammar. Do not introduce a SQL parser, function sandbox or second query language.
 

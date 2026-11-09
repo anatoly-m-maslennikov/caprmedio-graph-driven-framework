@@ -8,15 +8,18 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Schema
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2726
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-08 23:52:13 +0400
+  version: 5
+  updated_at: 2026-11-09 07:47:25 +0400
 destination:
   file:
     name: CA-M-500-DECISION--rebuild-workbench-schema-from-source-atoms.md
@@ -46,7 +49,7 @@ Use the existing declared Header formats in Mode 1, including the existing times
 
 At cold start, choose exactly one schema mode. Mode 1 exposes only current-model-declared Header Properties and current-model-declared Markdown Properties. Mode 2 exposes every observed raw Header Property path found in valid source Atoms, including paths whose observed values are null or empty, while Content remains only current-model-declared Markdown Properties. Mode 2 is enabled now. Under Mode 2, retain dots between Header path levels and normalize each segment to lowercase snake_case; grouping nodes without an observed direct Property do not add whole-object columns. The explicit exception is the observed Header.Context.Container mapping: expose `header.context.container` as JSON alongside its observed descendant columns. This adds no whole-Header bucket or other grouping-node exception. Read all valid Current and Draft Atoms with the existing readers for filenames, paths, YAML, Markdown and Declarations. Use those sources to build the schema asset. Header Relations retain their existing special projection: expose one `header.relations` JSON column from the native direct-and-derived graph facts, not a second raw mapping or per-link columns.
 
-The asset is derived data under `.caprmedio_runtime/workbench`, not another source of truth. Regenerate it from the source Atoms during image build and rebuild it when it is missing or the selected mode's source schema changes.
+Deliver the generated `workbench_schema.json` with the backend package during image build. Keep the selected projection and Content schema records under `.caprmedio_runtime/workbench` beside the derived database. Both are rebuildable derived assets, not sources of truth. Validate the delivered asset against its source inputs; rebuild from valid sources when it is missing, stale or the selected schema changes.
 
 Under Mode 2, if the complete valid-source inventory finds a new observed Header path, a removed last Header path, a Header format/type change, or a previously populated Header path globally empty:
 

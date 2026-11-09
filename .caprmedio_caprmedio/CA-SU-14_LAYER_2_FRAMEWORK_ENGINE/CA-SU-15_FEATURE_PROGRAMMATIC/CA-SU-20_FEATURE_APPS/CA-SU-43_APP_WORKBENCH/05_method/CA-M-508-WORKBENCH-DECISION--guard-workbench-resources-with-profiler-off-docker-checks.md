@@ -8,7 +8,10 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance
+      <+ Measurement and Profiling
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   is_method_for:
@@ -16,8 +19,8 @@ relations:
   - CA-R-2786
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 6
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-508-WORKBENCH-DECISION--guard-workbench-resources-with-profiler-off-docker-checks.md
@@ -32,6 +35,8 @@ author: Anatoly Maslennikov
 Guard Workbench resources with profiler-off Docker checks
 
 ## Claim
+
+### Prose Claim
 
 Measure Workbench resource regressions in the existing controlled 5,000-Atom Docker fixture with allocation and CPU profiling disabled. Record cgroup CPU interval deltas and current RAM for cold index and warm full reread. Record the separate cumulative cgroup peak-RAM ceiling. Record cgroup CPU interval work and current RAM across a true 15-second idle interval without in-container polling.
 

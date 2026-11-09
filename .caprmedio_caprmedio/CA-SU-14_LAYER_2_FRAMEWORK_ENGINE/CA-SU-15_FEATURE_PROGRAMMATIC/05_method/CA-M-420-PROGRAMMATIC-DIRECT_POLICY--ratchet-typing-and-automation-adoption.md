@@ -8,7 +8,7 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
       Analysis
     dependencies:
     - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
@@ -20,8 +20,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 14
+  updated_at: 2026-11-09 07:45:14 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -33,9 +33,14 @@ destination:
     name: CA-M-420-PROGRAMMATIC-DIRECT_POLICY--ratchet-typing-and-automation-adoption.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Ratchet typing and automation adoption
+
+## Claim
+
+### Prose Claim
 
 advance PROGRAMMATIC typing **and** automation through bounded target selection,
 explicit tool configuration, **and** deliberate expansion. Evaluation authority
@@ -46,13 +51,13 @@ owns acceptance profiles **and** regression policy under CA-E-539, CA-E-540,
 
 Candidate source: [CA-M-164@13](archive/CA-M-164-PROGRAMMATIC-CORE-METHOD--ratchet-typing-and-automation-adoption@13.md)
 
-## Applicable when
+### Applicable when
 
 apply **when** a Tool, App backend service, **or** MCP component adds **or** materially
 changes source that falls within an admitted typing, formatting, linting, **or**
 behavioral-check capability.
 
-## Procedure
+### Procedure
 
 1. resolve **every** selected typing, formatting, linting, **or** behavioral-check
    capability from its accepted Method owner.
@@ -67,18 +72,18 @@ behavioral-check capability.
    declared owner. Journal writes remain limited to the existing business-lifecycle
    contract; technical checks do not add hidden Journal effects.
 
-## Outcome
+### Outcome
 
 automation **and** typing improve monotonically at an admitted surface **without**
 turning an unselected tool, version, **or** strictness level into shared authority.
 
-## Failure or stop
+### Failure or stop
 
 return unresolved selection **when** no accepted Method owns the tool choice **or**
 the bounded materialization is unavailable. Evaluation authority determines
 whether the supplied baseline **and** execution evidence admit the claimed ratchet.
 
-## Sources
+### Sources
 
 - [Ruff documentation](https://docs.astral.sh/ruff/)
 - [Mypy: using Mypy with an existing codebase](https://mypy.readthedocs.io/en/stable/existing_code.html)

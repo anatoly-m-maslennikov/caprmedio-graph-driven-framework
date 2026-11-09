@@ -8,10 +8,9 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data
       Validation
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+    dependencies: []
   tier: 4
 relations:
   derived_from:
@@ -20,8 +19,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 13
+  updated_at: 2026-11-09 07:45:15 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -33,9 +32,14 @@ destination:
     name: CA-M-430-PROGRAMMATIC-DIRECT_POLICY--validate-untrusted-structured-data-with-pydantic.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Validate untrusted structured data with Pydantic
+
+## Claim
+
+### Prose Claim
 
 use Pydantic **when** untrusted structured data crosses an admitted Python
 boundary. validate once at the boundary **and** pass accepted typed values into
@@ -45,13 +49,13 @@ the deterministic core **without** making Pydantic the universal internal model.
 
 Candidate source: [CA-M-286@8](archive/CA-M-286-PROGRAMMATIC-CORE-METHOD--validate-untrusted-structured-data-with-pydantic@8.md)
 
-## Applicable when
+### Applicable when
 
 apply **to** an admitted CLI payload, Hook event, configuration carrier, Journal
 record, protocol message, **or** external adapter whose invalid structure could
 hide a contract defect.
 
-## Procedure
+### Procedure
 
 1. define the bounded input model with field types **and** constraints **before**
    custom validators.
@@ -63,17 +67,17 @@ hide a contract defect.
 5. add Pydantic as a runtime dependency **only** **where** validation **and** schema value
    justify its dependency cost.
 
-## Outcome
+### Outcome
 
 untrusted structured inputs become explicit typed values at one boundary while
 the internal model remains independent of the validation library.
 
-## Failure or stop
+### Failure or stop
 
 stop admission **when** the boundary is **not** declared, coercion is silent, extra
 fields escape a closed contract, **or** the dependency has no bounded benefit.
 
-## Sources
+### Sources
 
 - [Pydantic: models](https://docs.pydantic.dev/latest/concepts/models/)
 - [Pydantic: strict mode](https://docs.pydantic.dev/latest/concepts/strict_mode/)

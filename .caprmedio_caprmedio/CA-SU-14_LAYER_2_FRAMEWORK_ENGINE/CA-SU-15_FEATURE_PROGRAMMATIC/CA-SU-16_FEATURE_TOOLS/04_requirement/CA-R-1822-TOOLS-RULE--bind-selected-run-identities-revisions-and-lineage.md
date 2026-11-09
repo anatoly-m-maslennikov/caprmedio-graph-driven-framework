@@ -11,9 +11,9 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability"
 tier: 3
 status: Active
 version: 11

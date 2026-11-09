@@ -8,12 +8,13 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Resource Limits
   tier: 3
 state:
   status: Active
-  version: 10
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 11
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-M-410-PROGRAMMATIC-DIRECT_POLICY--bound-resource-use-to-the-workload.md
@@ -21,19 +22,22 @@ destination:
 current_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Bound resource use to the workload
 
-## Scope
-
-New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
-
 ## Claim
+
+### Prose Claim
 
 **To** implement PROGRAMMATIC behavior, account for input size and resource growth, choose bounded or incremental processing and controlled concurrency, and apply appropriate resource budgets to prevent uncontrolled growth and resource exhaustion, including out-of-memory failures.
 
 ## Details
+
+### Scope
+
+New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
 
 Candidate source: [CA-M-386@2](archive/CA-M-386-PROGRAMMATIC-CORE--bound-resource-use-to-the-workload@2.md)
 

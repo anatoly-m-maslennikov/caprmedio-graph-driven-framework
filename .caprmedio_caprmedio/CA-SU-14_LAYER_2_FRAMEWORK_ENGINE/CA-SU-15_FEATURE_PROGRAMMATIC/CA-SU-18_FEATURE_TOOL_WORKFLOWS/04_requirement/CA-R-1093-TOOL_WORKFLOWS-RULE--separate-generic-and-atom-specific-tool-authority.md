@@ -9,7 +9,7 @@ topics:
   main_subject: Subject/CAPRMEDIO/Graph/Rule
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
 tier: 1
 status: Active
 version: 24

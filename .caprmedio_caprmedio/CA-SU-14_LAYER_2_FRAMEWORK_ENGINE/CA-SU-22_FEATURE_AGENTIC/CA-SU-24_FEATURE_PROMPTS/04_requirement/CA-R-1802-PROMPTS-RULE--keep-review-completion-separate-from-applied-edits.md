@@ -10,7 +10,7 @@ topics:
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage"
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
 tier: 3
 status: Active

@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Definition
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  {"main_subject": "CAPRMEDIO_MODEL <+ Scope Unit"}
 tier: 1
 status: Active
 version: 22
@@ -16,6 +16,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: APPS
 ---
-# Define the AGENT_HOST_PLUGINS unit
+## Summary
+
+Define the AGENT_HOST_PLUGINS unit
+
+## Claim
+
+### Prose Claim
 
 `AGENT_HOST_PLUGINS` with prefix `AGENT_HOST_PLUGINS` **must** be one `unordered_unit` owned immediately by `APPS` at Structural level `4`, addressed by `002_FRAMEWORK_ENGINE/PROGRAMMATIC/APPS/AGENT_HOST_PLUGINS`, **and** realized under `002_FRAMEWORK_ENGINE/PROGRAMMATIC/APPS/AGENT_HOST_PLUGINS/`; it owns installable agent-host-specific plugin packages **and** their host wiring **without** duplicating provider-neutral CAPRMEDIO Skill, Tool, **or** Methodology behavior.

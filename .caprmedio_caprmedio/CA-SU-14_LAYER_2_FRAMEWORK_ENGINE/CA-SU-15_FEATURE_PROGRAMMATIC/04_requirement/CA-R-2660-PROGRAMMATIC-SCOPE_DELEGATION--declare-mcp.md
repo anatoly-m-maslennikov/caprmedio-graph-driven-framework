@@ -12,13 +12,14 @@ context:
   tier: 3
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-08 23:18:49 +0400
+  version: 4
+  updated_at: 2026-11-09 17:00:18 +0400
 destination:
   file:
     name: CA-R-2660-PROGRAMMATIC-SCOPE_DELEGATION--declare-mcp.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
 ---
+
 ## Summary
 
 Declare MCP
@@ -43,19 +44,23 @@ Scope Unit//MCP ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 
 ### Prose Claim
 
-The explicit default Role/Form pairs below are: `Requirement/Requirement`, `Requirement/Declaration`, `Requirement/Scope Delegation`, `Method/Decision`, `Evaluation/Decision`, `Evaluation/Eval Case`, `Delivery/Decision`, `Operations/Decision`, `Operations/Workflow`, `Operations/Step`, `Operations/Action`. Existing global default admissions, including existing Declaration families, remain unchanged; no additional pairs are granted. No exact Current Solution, Direct Policy, or Approach Policy Role/Form pair is selected. Implementation / Code Synopsis remains admitted by the global default, and Plan / Work Report remains admitted only for an already admitted Task with the same Container and within the selected target boundary.
+The receiving Scope Unit is MCP. Existing default Role and Form admissions remain applicable. The additional local Role/Form pairs are exactly:
 
-For every admitted local Atom, the Header.Container-derived IS_CONTAINED_BY target must be exactly `Scope Unit//MCP` (`CA-SU-21`). Its HAS_ACTIVE_SUBJECT target is closed to exactly the declared model entities or declared instances resolved at these Current local main Subject addresses:
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry`
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation`
-- `Subject/CAPRMEDIO/Graph/Node/Project Model/Project`
+- Method / Solution;
+- Delivery / Solution;
 
-The selection contains exact objects only, not strings, type members, or descendants; an unresolved address grants no admission.
+The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry`;
+- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation`;
+- `Subject/CAPRMEDIO/Graph/Node/Project Model/Project`;
+
+Each address selects one endpoint object, not the address string, other members of its type or descendants. An unresolved address is diagnostic and grants no admission. These permissions apply only to local Atoms whose Header.Container resolves to MCP. The Scope Unit identity, Parent, responsibility and structural tree are unchanged.

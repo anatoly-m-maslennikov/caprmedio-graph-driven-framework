@@ -9,7 +9,7 @@ topics:
   main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Form'
 tier: 1
 status: Active

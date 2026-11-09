@@ -6,47 +6,59 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
+    Structure
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Subject/CAPRMEDIO/Carrier
 tier: 5
 relations:
   evaluation_for:
-  - CA-M-417
   - CA-M-284
   derived_from:
   - CA-A-053
 status: Active
-version: 20
-updated_at: 2026-10-27 19:59:35 +0400
+version: 21
+updated_at: 2026-11-09 14:19:14 +0400
 cce_version: cce_1
 cce_form: evaluation
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-454-PROGRAMMATIC-EVAL_CASE--use-one-settings-reader-across-engine-software.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Use one Settings Reader across Engine software
 
-## Claim checked
+## Summary
 
-representative Tool, App, **and** MCP consumers use one immutable, validated,
-versioned settings snapshot.
+Use one Settings Reader across Engine software
 
-## Test case
+## Claim
 
-replace the shared Reader with a recording fake **and** execute one representative
-consumer from **every** PROGRAMMATIC child feature.
+### Prose Claim
 
-## Acceptance criteria
+Verify that applicable Tool, App and MCP consumers use an immutable, validated settings snapshot with actual values, the selected Project, physical source path, raw SHA-256 digest and declared schema marker.
 
-pass **only** **when** the shared Reader validates the input at its boundary **and** **every** consumer receives the immutable snapshot explicitly, preserves the same Carrier **and** digest provenance, **and** performs no direct read, fallback, private default selection, **or** mutation. a consumer **may** reuse an already validated snapshot **without** calling the Reader; this Evaluation does **not** impose a per-consumer read count.
+## Details
 
-## Failure disposition
+### Test case
+
+
+Use a recording fake for the shared Reader and exercise representative applicable Tool, App and MCP consumers from each relevant PROGRAMMATIC child feature. A feature with no settings-dependent consumer adds no artificial test fixture.
+
+### Acceptance criteria
+
+
+
+Pass only when the Reader validates the complete input and returns the declared immutable snapshot with actual values, selected Project, source path, raw SHA-256 digest and schema marker. Each exercised consumer receives it explicitly, preserves its provenance, and performs no direct read, fallback, private default selection or mutation. Component-specific interpretation stays outside the Reader. The Reader does not query the Work Journal or infer logical currentness. A consumer may reuse an already validated snapshot; no per-consumer read count is imposed.
+
+### Failure disposition
 
 reject the bypassing consumer **until** it accepts the shared snapshot explicitly.
 
-## Sources
+### Sources
 
 - [Python documentation: `unittest.mock`](https://docs.python.org/3.14/library/unittest.mock.html)
-- [CA-M-284 — Read Engine settings through one shared boundary](../05_method/CA-M-284-PROGRAMMATIC-ENG_POLICY--read-engine-settings-through-one-shared-boundary.md)
+- [CA-M-284 — Read Engine settings through one shared boundary](../05_method/CA-M-284-PROGRAMMATIC-DIRECT_POLICY--read-engine-settings-through-one-shared-boundary.md)

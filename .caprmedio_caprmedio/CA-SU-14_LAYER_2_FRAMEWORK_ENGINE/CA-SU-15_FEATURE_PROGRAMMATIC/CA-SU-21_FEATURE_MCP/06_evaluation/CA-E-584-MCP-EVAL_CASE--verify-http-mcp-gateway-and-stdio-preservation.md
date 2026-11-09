@@ -6,11 +6,12 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
+    Structure
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
 tier: 5
@@ -19,8 +20,8 @@ relations:
   - CA-R-1884
   - CA-M-341
 status: Active
-version: 11
-updated_at: 2026-10-27 19:59:37 +0400
+version: 12
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-584-MCP-EVAL_CASE--verify-http-mcp-gateway-and-stdio-preservation.md
@@ -28,19 +29,22 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 verify HTTP MCP Gateway and stdio preservation
 
-## Scope
-
-the additional localhost HTTP transport for the existing Project MCP Gateway.
-
 ## Claim
+
+### Prose Claim
 
 the Evaluation **must** verify that real MCP HTTP initialization, discovery, calls and reload use the existing Gateway without breaking stdio behavior.
 
 ## Details
+
+### Scope
+
+the additional localhost HTTP transport for the existing Project MCP Gateway.
 
 1. build e2e fixtures first with a real Gateway and disposable mock implementation. Exercise handshake, Tool discovery and a Tool call through the real Streamable HTTP application.
 2. reload the mock implementation on the same HTTP connection and verify the new registry and result; preserve an in-flight old-generation call until it drains.

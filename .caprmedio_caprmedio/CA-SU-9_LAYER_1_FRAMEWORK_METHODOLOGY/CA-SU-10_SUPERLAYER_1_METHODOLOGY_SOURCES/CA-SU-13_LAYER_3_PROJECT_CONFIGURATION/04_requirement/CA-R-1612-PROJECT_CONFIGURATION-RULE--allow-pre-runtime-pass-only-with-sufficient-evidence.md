@@ -10,7 +10,7 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
 tier: 3
 status: Active
 version: 26

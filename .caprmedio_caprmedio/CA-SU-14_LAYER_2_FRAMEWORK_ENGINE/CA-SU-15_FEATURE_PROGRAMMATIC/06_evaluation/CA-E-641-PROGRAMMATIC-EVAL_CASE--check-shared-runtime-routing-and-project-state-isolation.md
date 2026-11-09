@@ -8,17 +8,16 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic
       Testing
   tier: 6
 relations:
   evaluation_for:
   - CA-R-2008
-  - CA-M-401
 state:
   status: Active
-  version: 18
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 20
+  updated_at: 2026-11-09 21:15:45 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
@@ -27,16 +26,14 @@ destination:
     name: CA-E-641-PROGRAMMATIC-EVAL_CASE--check-shared-runtime-routing-and-project-state-isolation.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Summary
+
+## Summary
 
 Check shared-runtime routing and Project state isolation
 
-## Scope
-
-The shared Docker/MCP binding, bounded Project pool, public Tool frontier and
-same-listener health view governed by CA-R-2008.
-
 ## Claim
+
+### Prose Claim
 
 Accept the shared-runtime increment only when a reproducible two-Project
 verification world demonstrates explicit routing, concurrent state isolation,
@@ -46,6 +43,11 @@ does not claim that active tests, deployment or installed adoption have
 occurred.
 
 ## Details
+
+### Scope
+
+The shared Docker/MCP binding, bounded Project pool, public Tool frontier and
+same-listener health view governed by CA-R-2008.
 
 - Build two disposable valid Projects under one configured host
   `projects_root`, with authoritative prefixes, distinct declarations,
@@ -95,7 +97,7 @@ occurred.
   concurrent edits. These source checks remain evidence to collect; the
   source record does not claim tests or runtime activation.
 
-## Acceptance and failure disposition
+### Acceptance and failure disposition
 
 Use an isolated nonproduction listener/state and frozen disposable fixture
 inputs; do not mutate the production MCP port, home configuration or live

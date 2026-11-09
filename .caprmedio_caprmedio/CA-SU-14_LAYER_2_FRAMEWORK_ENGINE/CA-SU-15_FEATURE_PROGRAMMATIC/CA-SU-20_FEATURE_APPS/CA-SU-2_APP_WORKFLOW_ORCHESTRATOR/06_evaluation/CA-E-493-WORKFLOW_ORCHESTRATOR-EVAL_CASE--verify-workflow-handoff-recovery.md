@@ -8,9 +8,11 @@ form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
@@ -23,20 +25,33 @@ relations:
   depends_on:
   - CA-E-352
 status: Active
-version: 13
-updated_at: 2026-10-27 19:59:36 +0400
+version: 14
+updated_at: 2026-11-09 07:45:15 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: WORKFLOW_ORCHESTRATOR
+destination:
+  file:
+    name: CA-E-493-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-workflow-handoff-recovery.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-2_APP_WORKFLOW_ORCHESTRATOR/06_evaluation
 ---
-# Verify Workflow handoff recovery
+
+## Summary
+
+Verify Workflow handoff recovery
+
+## Claim
+
+### Prose Claim
 
 the Evaluation **must** check WORKFLOW_ORCHESTRATOR recovery at the boundaries of an update-to-replacement handoff under CA-R-1524.
 
-## Interruption cases
+## Details
+
+### Interruption cases
 
 - interrupt **before** the handoff is durable: recovery **must not** assume an accepted successor dispatch.
 - interrupt **after** durable handoff but **before** successor start: resume the same continuation intent **without** losing the accepted request.

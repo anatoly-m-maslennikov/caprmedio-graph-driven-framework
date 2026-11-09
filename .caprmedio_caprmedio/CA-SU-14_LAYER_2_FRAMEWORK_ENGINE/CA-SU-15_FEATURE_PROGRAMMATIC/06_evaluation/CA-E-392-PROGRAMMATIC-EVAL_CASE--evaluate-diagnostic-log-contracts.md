@@ -6,10 +6,10 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Observability/Logging
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Observability/Logging"
 tier: 1
 relations:
   evaluation_for:

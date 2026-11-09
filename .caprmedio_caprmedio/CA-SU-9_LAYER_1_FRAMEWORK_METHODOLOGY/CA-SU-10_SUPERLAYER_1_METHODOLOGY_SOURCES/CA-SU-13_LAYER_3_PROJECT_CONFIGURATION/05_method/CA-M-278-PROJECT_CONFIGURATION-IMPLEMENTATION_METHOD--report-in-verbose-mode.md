@@ -11,7 +11,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
   - CAPRMEDIO_MODEL <+ Project.Settings.Interaction
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Communication
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication"
 tier: 3
 status: Active
 version: 31

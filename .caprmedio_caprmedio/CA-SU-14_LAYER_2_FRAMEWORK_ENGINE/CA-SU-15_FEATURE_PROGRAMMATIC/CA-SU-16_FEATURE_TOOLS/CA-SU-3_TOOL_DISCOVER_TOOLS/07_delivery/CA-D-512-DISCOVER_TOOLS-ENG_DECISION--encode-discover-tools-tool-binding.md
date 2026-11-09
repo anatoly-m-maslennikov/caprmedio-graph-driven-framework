@@ -6,9 +6,9 @@ container:
 role: Delivery
 form: Eng Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
     Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -20,10 +20,10 @@ topics:
 tier: 3
 relations:
   depends_on:
-  - CA-D-678
+  - CA-R-2785
 status: Active
-version: 16
-updated_at: 2026-11-05 14:23:38 +0400
+version: 17
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
     name: CA-D-512-DISCOVER_TOOLS-ENG_DECISION--encode-discover-tools-tool-binding.md
@@ -31,6 +31,7 @@ carrier_destination:
 current_scope_unit: DISCOVER_TOOLS
 author: Anatoly Maslennikov
 ---
+
 # Summary
 
 Encode DISCOVER_TOOLS Tool binding
@@ -61,4 +62,4 @@ mcp_name = "discover_tools"
 
 ## Root MCP catalog
 
-An empty `request` returns the generated root catalog carried by CA-D-678. It contains `root`, `groups` and `updated_at`, and uses the actual released MCP names, descriptions, schemas and annotations. The root entry is `discover_tools`; groups are Queries, Views and Service. Missing or invalid generated data is an explicit error. The existing explicit query, Scope Unit, availability, offset and limit selectors retain their source-binding search contract. Native descriptors do not acquire invented source paths, SHA-256 bindings or executable status from folder names.
+An empty `request` returns the generated root catalog carried by CA-R-2785. It contains `root`, `groups` and `updated_at`, and uses the actual released MCP names, descriptions, schemas and annotations. The root entry is `discover_tools`; groups are Queries, Views and Service. Missing or invalid generated data is an explicit error. The existing explicit query, Scope Unit, availability, offset and limit selectors retain their source-binding search contract. Native descriptors do not acquire invented source paths, SHA-256 bindings or executable status from folder names.

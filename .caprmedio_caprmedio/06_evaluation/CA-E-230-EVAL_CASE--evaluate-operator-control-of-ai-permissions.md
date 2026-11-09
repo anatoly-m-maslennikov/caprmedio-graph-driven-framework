@@ -9,10 +9,10 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent.Permissions
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification <+ Dynamic Testing
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Dynamic Testing"
 tier: 5
 relations:
   child_of:

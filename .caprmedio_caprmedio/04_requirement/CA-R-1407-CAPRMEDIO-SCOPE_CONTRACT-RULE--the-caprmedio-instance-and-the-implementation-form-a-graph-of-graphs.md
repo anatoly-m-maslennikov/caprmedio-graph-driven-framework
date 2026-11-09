@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
   dependencies:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure"
   - CAPRMEDIO_MODEL <+ Package/Implementation
   - CAPRMEDIO_MODEL <+ Entity
 tier: 0

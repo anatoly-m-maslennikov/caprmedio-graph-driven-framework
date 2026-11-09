@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Definition
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Coverage
+  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Performance/Measurement and Profiling"}
 tier: 1
 relations:
   child_of:
@@ -24,6 +24,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Use repeat correction rate as the primary self-improvement metric
+## Summary
+
+Use repeat correction rate as the primary self-improvement metric
+
+## Claim
+
+### Prose Claim
 
 CAPRMEDIO **must** provide `repeat_correction_rate` as the primary self-improvement metric, calculated as repeated operator corrections for previously addressed failure classes divided by comparable opportunities for those failures.

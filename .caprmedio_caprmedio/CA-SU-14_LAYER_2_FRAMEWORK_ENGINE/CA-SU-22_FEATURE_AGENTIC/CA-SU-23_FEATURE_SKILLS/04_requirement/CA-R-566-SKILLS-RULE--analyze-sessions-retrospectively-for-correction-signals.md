@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification"
 tier: 1
 relations:
   child_of:
@@ -23,6 +23,12 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
 ---
-# Analyze sessions retrospectively for correction signals
+## Summary
+
+Analyze sessions retrospectively for correction signals
+
+## Claim
+
+### Prose Claim
 
 CAPRMEDIO **must** derive self-improvement correction signals by retrospectively analyzing available project sessions **when** proposed by a recurring Project Review **or** initiated on demand; a scheduled Routine **may** perform the analysis **only** **after** explicit operator enablement, **and** reviewed sessions need **not** have invoked `/ca`.

@@ -11,12 +11,10 @@ tier: 5
 relations:
   concern_about:
   - CA-R-2902
-  - CA-M-476
-  - CA-D-681
   - CA-E-684
 status: Active
-version: 1
-updated_at: 2026-11-07 00:45:56 +0400
+version: 2
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
     name: CA-C-705-CODEX_EXTENSION-PROBLEM--native-workbench-does-not-appear-in-the-current-codex-chat.md

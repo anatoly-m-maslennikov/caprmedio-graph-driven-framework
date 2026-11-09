@@ -8,12 +8,13 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Code Hot Reload
   tier: 2
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-505-PROGRAMMATIC-DIRECT_POLICY--disable-code-hot-reload-by-default.md

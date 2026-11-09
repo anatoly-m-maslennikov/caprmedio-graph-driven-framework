@@ -8,7 +8,7 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
   tier: 3
 state:
   status: Active

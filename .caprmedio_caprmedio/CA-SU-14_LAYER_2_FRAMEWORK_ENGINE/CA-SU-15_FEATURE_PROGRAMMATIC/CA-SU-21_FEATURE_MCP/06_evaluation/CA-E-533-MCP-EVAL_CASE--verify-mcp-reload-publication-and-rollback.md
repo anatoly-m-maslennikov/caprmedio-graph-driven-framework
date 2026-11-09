@@ -6,10 +6,11 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
@@ -17,8 +18,8 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
 tier: 3
 status: Active
-version: 13
-updated_at: 2026-11-07 04:28:07 +0400
+version: 14
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-533-MCP-EVAL_CASE--verify-mcp-reload-publication-and-rollback.md
@@ -26,19 +27,22 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify MCP reload publication and rollback
 
-## Scope
-
-server-side hot reload for the Project-local MCP gateway.
-
 ## Claim
+
+### Prose Claim
 
 the MCP Evaluation **must** verify implementation reload through the real stdio protocol with controlled mock implementations.
 
 ## Details
+
+### Scope
+
+server-side hot reload for the Project-local MCP gateway.
 
 - keep one client connection open; call implementation A, reload B, then call B successfully without reconnect.
 - add, remove **and** change a Tool contract; verify the published list **and** negotiated notification.

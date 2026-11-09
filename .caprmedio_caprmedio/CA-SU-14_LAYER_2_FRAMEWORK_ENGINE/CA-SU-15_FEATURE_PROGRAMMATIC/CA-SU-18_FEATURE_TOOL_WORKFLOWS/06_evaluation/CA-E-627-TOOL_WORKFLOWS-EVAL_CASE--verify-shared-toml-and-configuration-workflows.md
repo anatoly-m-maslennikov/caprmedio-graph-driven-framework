@@ -8,7 +8,7 @@ form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication/API
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/API"
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit

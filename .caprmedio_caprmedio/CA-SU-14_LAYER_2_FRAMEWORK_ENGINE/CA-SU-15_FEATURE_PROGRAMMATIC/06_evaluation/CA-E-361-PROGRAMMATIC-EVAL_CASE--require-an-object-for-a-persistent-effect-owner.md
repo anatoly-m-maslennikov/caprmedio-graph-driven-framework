@@ -6,9 +6,11 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
+    Structure
 tier: 5
 relations:
   evaluation_for:
@@ -16,8 +18,8 @@ relations:
   derived_from:
   - CA-A-053
 status: Active
-version: 21
-updated_at: 2026-10-27 19:59:33 +0400
+version: 22
+updated_at: 2026-11-09 14:19:14 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -25,29 +27,40 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-361-PROGRAMMATIC-EVAL_CASE--require-an-object-for-a-persistent-effect-owner.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Require an object for a persistent effect owner
 
-## Claim checked
+## Summary
+
+Require an object for a persistent effect owner
+
+## Claim
+
+### Prose Claim
 
 one effect that owns identity, state, an invariant, a resource, a lifecycle, **or**
 a replaceable adapter across calls is applied through a specifically named
 object method.
 
-## Test case
+## Details
+
+### Test case
 
 evaluate one standalone function that acquires a resource **and** retains its
 lifecycle state for a later call.
 
-## Acceptance criteria
+### Acceptance criteria
 
 pass **only** **when** the function is rejected **and** the persistent responsibility is
 allocated **to** one object with explicit acquisition, use, **and** release boundaries.
 
-## Failure disposition
+### Failure disposition
 
 reject the effect boundary **until** its persistent owner is explicit.
 
-## Sources
+### Sources
 
-- [CA-M-425 — Separate deterministic transformations from effects and lifecycle](../05_method/CA-M-425-PROGRAMMATIC-ENG_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle.md)
+- [CA-M-425 — Separate deterministic transformations from effects and lifecycle](../05_method/CA-M-425-PROGRAMMATIC-DIRECT_POLICY--separate-deterministic-transformations-from-effects-and-lifecycle.md)

@@ -11,7 +11,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Package/Implementation
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)

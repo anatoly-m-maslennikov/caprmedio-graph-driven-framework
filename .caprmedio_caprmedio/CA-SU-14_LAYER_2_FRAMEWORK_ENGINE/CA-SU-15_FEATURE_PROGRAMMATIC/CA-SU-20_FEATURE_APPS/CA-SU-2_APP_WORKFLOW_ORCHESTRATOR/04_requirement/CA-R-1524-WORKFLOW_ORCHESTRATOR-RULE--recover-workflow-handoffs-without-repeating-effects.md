@@ -6,16 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+  {"main_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run", "dependencies": ["CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow", "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Step Run", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action", "CAPRMEDIO_MODEL <+ Atom.Header.Version", "CAPRMEDIO_MODEL <+ Journal", "CAPRMEDIO_MODEL <+ Event Record", "CAPRMEDIO_MODEL <+ Projection", "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator"]}
 tier: 1
 status: Active
 version: 13
@@ -27,7 +18,13 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 ---
-# Recover Workflow handoffs without repeating effects
+## Summary
+
+Recover Workflow handoffs without repeating effects
+
+## Claim
+
+### Prose Claim
 
 WORKFLOW_ORCHESTRATOR **must** recover accepted work **and** admitted Run handoffs **after** interruption **without** losing work **or** blindly repeating effects.
 

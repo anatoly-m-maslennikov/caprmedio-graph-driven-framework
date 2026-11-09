@@ -11,17 +11,19 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
   - Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Component Structure
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source
+    Selection
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
+    Structure
   - Subject/CAPRMEDIO/Carrier
 tier: 5
 relations:
   evaluation_for:
   - CA-R-1900
-  - CA-M-355
+  - CA-R-1900
 status: Active
-version: 15
-updated_at: 2026-11-05 13:48:40 +0400
+version: 17
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
     name: CA-E-599-MCP-EVAL_CASE--verify-project-mcp-launch-selection-and-isolation.md
@@ -35,6 +37,8 @@ author: Anatoly Maslennikov
 Verify Project MCP launch selection and isolation
 
 ## Claim
+
+### Prose Claim
 
 The launcher binds only the selected Project context and refuses malformed or mismatched hook input without an effect or cross-Project state access.
 

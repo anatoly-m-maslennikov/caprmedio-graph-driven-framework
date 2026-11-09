@@ -1,0 +1,90 @@
+Atom ID	Role	Scope Unit	Form result	Status
+CA-D-486	Delivery	CA-SU-24	Decision	Reviewed: keep
+CA-D-490	Delivery	CA-SU-2	Decision	Reviewed: keep
+CA-D-509	Delivery	CA-SU-24	Decision	Reviewed: keep
+CA-D-510	Delivery	CA-SU-24	Decision	Reviewed: keep
+CA-D-511	Delivery	CA-SU-24	Decision	Reviewed: keep
+CA-D-521	Delivery	CA-SU-2	Decision	Reviewed: keep
+CA-D-522	Delivery	CA-SU-2	Decision	Reviewed: keep
+CA-D-523	Delivery	CA-SU-21	Decision	Reviewed: keep
+CA-D-524	Delivery	CA-SU-2	Decision	Reviewed: keep
+CA-D-525	Delivery	CA-SU-2	Decision	Reviewed: keep
+CA-D-526	Delivery	CA-SU-2	Decision	Reviewed: keep
+CA-D-544	Delivery	CA-SU-24	Decision	Reviewed: keep
+CA-D-545	Delivery	CA-SU-24	Decision	Reviewed: keep
+CA-D-546	Delivery	CA-SU-24	Decision	Reviewed: keep
+CA-D-547	Delivery	CA-SU-21	Solution	Applied
+CA-D-548	Delivery	CA-SU-21	Solution	Applied
+CA-D-578	Delivery	CA-SU-21	Decision	Reviewed: keep
+CA-D-592	Delivery	CA-SU-21	Decision	Reviewed: keep
+CA-D-593	Delivery	CA-SU-21	Solution	Applied
+CA-D-594	Delivery	CA-SU-2	Decision	Reviewed: keep
+CA-D-595	Delivery	CA-SU-21	Decision	Reviewed: keep
+CA-D-639	Delivery	CA-SU-21	Decision	Reviewed: keep
+CA-D-640	Delivery	CA-SU-15	Decision	Reviewed: keep
+CA-D-672	Delivery	CA-SU-45	Decision	Reviewed: keep
+CA-D-674	Delivery	CA-SU-46	Decision	Reviewed: keep
+CA-D-675	Delivery	CA-SU-43	Solution	Applied
+CA-D-676	Delivery	CA-SU-43	Decision	Reviewed: keep
+CA-D-677	Delivery	CA-SU-43	Decision	Reviewed: keep
+CA-D-678	Delivery	CA-SU-15	Decision	Reviewed: keep
+CA-D-679	Delivery	CA-SU-43	Decision	Reviewed: keep
+CA-D-681	Delivery	CA-SU-48	Solution	Applied
+CA-D-704	Delivery	CA-SU-21	Solution	Applied
+CA-D-705	Delivery	CA-SU-45	Decision	Reviewed: keep
+CA-M-153	Method	CA-SU-44	Solution	Applied
+CA-M-167	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-169	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-171	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-172	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-173	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-174	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-175	Method	CA-SU-21	Solution	Applied
+CA-M-176	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-178	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-179	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-180	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-181	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-193	Method	CA-SU-15	Solution	Applied
+CA-M-302	Method	CA-SU-2	Solution	Applied
+CA-M-317	Method	CA-SU-24	Solution	Applied
+CA-M-320	Method	CA-SU-2	Decision	Reviewed: keep
+CA-M-321	Method	CA-SU-2	Decision	Reviewed: keep
+CA-M-322	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-323	Method	CA-SU-2	Decision	Reviewed: keep
+CA-M-324	Method	CA-SU-2	Decision	Reviewed: keep
+CA-M-325	Method	CA-SU-2	Decision	Reviewed: keep
+CA-M-326	Method	CA-SU-24	Decision	Reviewed: keep
+CA-M-327	Method	CA-SU-14	Direct Policy	Applied
+CA-M-328	Method	CA-SU-14	Direct Policy	Applied
+CA-M-329	Method	CA-SU-24	Decision	Reviewed: keep
+CA-M-341	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-350	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-354	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-355	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-356	Method	CA-SU-2	Decision	Reviewed: keep
+CA-M-357	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-401	Method	CA-SU-15	Solution	Applied
+CA-M-462	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-463	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-466	Method	CA-SU-46	Solution	Applied
+CA-M-467	Method	CA-SU-46	Decision	Reviewed: keep
+CA-M-468	Method	CA-SU-46	Decision	Reviewed: keep
+CA-M-469	Method	CA-SU-46	Decision	Reviewed: keep
+CA-M-470	Method	CA-SU-43	Decision	Reviewed: keep
+CA-M-472	Method	CA-SU-43	Decision	Reviewed: keep
+CA-M-473	Method	CA-SU-15	Decision	Reviewed: keep
+CA-M-474	Method	CA-SU-43	Decision	Reviewed: keep
+CA-M-490	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-491	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-492	Method	CA-SU-46	Decision	Reviewed: keep
+CA-M-493	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-500	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-502	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-503	Method	CA-SU-45	Decision	Reviewed: keep
+CA-M-504	Method	CA-SU-2	Decision	Reviewed: keep
+CA-M-506	Method	CA-SU-21	Solution	Applied
+CA-M-508	Method	CA-SU-43	Decision	Reviewed: keep
+CA-M-510	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-511	Method	CA-SU-21	Decision	Reviewed: keep
+CA-M-512	Method	CA-SU-21	Decision	Reviewed: keep

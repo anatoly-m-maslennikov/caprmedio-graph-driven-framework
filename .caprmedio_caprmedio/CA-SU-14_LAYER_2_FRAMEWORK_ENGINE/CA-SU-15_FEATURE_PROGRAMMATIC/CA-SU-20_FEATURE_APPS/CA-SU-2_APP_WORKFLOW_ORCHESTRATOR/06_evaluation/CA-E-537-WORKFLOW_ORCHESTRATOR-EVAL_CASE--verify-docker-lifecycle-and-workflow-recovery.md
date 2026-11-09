@@ -6,15 +6,17 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
-tier: 4
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Recovery
+tier: 6
 relations:
   evaluation_for:
   - CA-R-1818
@@ -22,8 +24,8 @@ relations:
   - CA-D-525
   - CA-D-526
 status: Active
-version: 12
-updated_at: 2026-10-27 19:59:37 +0400
+version: 13
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-537-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-docker-lifecycle-and-workflow-recovery.md
@@ -31,19 +33,24 @@ carrier_destination:
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 verify Docker lifecycle **and** Workflow recovery
 
-## Scope
-
-the Docker runtime's mocked end-to-end **and** lifecycle tests.
-
 ## Claim
+
+### Prose Claim
+
+This retained contract applies only when AI-Agent execution is separately admitted. It does not enable that execution or claim that its runtime implementation is present.
 
 the Evaluation **must** verify that Docker lifecycle operations preserve authorized Workflow behavior **and** durable evidence **without** dispatch duplication.
 
 ## Details
+
+### Scope
+
+the Docker runtime's mocked end-to-end **and** lifecycle tests.
 
 - build the image **and** start a mock Agent plus real DBOS worker; verify current readiness rather than container existence alone.
 - enqueue through MCP, disconnect the client, observe completion, confirmed Journal events **and** a full report.

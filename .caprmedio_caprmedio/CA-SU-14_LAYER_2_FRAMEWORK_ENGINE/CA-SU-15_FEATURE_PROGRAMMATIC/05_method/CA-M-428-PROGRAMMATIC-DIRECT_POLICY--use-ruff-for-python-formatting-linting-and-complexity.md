@@ -8,10 +8,9 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
       Analysis
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Static Analysis
+    dependencies: []
   tier: 4
 relations:
   derived_from:
@@ -20,8 +19,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 13
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-428-PROGRAMMATIC-DIRECT_POLICY--use-ruff-for-python-formatting-linting-and-complexity.md
@@ -33,9 +32,14 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Use Ruff for Python formatting, linting, and complexity
+
+## Claim
+
+### Prose Claim
 
 use Ruff as the selected formatter **and** linter for hand-authored PROGRAMMATIC
 Python source, including cyclomatic-complexity lint for changed executable
@@ -45,11 +49,11 @@ units.
 
 Candidate source: [CA-M-282@9](archive/CA-M-282-PROGRAMMATIC-CORE-METHOD--use-ruff-for-python-formatting-linting-and-complexity@9.md)
 
-## Applicable when
+### Applicable when
 
 apply **to** new **or** materially changed Python source within Tools, App, **or** MCP.
 
-## Procedure
+### Procedure
 
 1. materialize one pinned Ruff profile **in** `pyproject.toml`.
 2. run Ruff formatting **and** linting through the selected uv workflow.
@@ -59,17 +63,17 @@ apply **to** new **or** materially changed Python source within Tools, App, **or
    CA-E-539 for its acceptance **and** disposition decision.
 5. keep Ruff evidence distinct from typing **and** behavioral evidence.
 
-## Outcome
+### Outcome
 
 mechanical style, lint, **and** cyclomatic-complexity checks use one reproducible
 Method-owned selection **and** one materialized profile.
 
-## Failure or stop
+### Failure or stop
 
 return unavailable configuration **when** Ruff is unpinned **or** the current profile
 is absent. changed-source acceptance **and** exception admission follow CA-E-539.
 
-## Sources
+### Sources
 
 - [Ruff documentation](https://docs.astral.sh/ruff/)
 - [Ruff: configuration](https://docs.astral.sh/ruff/configuration/)

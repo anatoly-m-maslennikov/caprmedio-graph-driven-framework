@@ -8,7 +8,10 @@ context:
   role: Method
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
+      Handling <+ Indexing
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 4
 relations:
   method_for:
@@ -16,10 +19,12 @@ relations:
   - CA-R-2725
   depends_on:
   - CA-M-509
+  IS_REPLACEMENT_FOR:
+  - CA-O-241
 state:
   status: Active
-  version: 24
-  updated_at: 2026-11-08 20:06:37 +0400
+  version: 26
+  updated_at: 2026-11-09 21:15:45 +0400
 destination:
   file:
     name: CA-M-465-WORKBENCH_BACKEND-SOLUTION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
@@ -29,14 +34,9 @@ claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
 
-
 ## Summary
 
 Reconcile DuckDB derived state from a stable governed inventory.
-
-## Claim scope
-
-Technical background indexing of the selected source inventory into the file-backed DuckDB Projection.
 
 ## Claim
 
@@ -90,3 +90,19 @@ Keep only aggregate Header schema counters between refreshes. For an incremental
 Keep cached original Markdown in UTF-8 bytes rather than widened Python strings. Decode transiently when Content extraction or model-declaration compilation needs text; keep the existing public parser and public values as strings. Preserve original line endings, Content values, relation interpretation, source hashes and public row hashes. Do not retain another complete decoded body. Adopt this representation only after unprofiled correctness, ordinary-edit, bulk and rebuild gates pass; report measured process RAM separately from encoded-byte estimates.
 
 On a full rebuild, derive the public Atom and Scope Unit rows once and reuse those rows for SQL insertion and the retained projection snapshot. Do not repeat Content decoding, extraction or public-row hashing for the second consumer. This reuses the existing full-build result; it is not another retained cache. Publish the new snapshot only after the database transaction succeeds.
+
+## Details
+
+### Claim scope
+
+Technical background indexing of the selected source inventory into the file-backed DuckDB Projection.
+
+### Direct indexing inputs and publication
+
+For reconciliation, read YAML properties and real Markdown heading paths directly. Do not use a generic CFEL evaluator, prose interpreter, or intermediate per-Atom data file. Generated schema assets from declarations remain admitted.
+
+Derive the current Scope Unit inventory from Current Scope Unit Declarations only: a Draft Declaration remains queryable but does not establish a current Scope Unit. Store each indexed object's outgoing direct and declared-derived Relations in its own row while source carriers retain direct Relations only. When a source or relevant Declaration changes, rebuild affected source and counterpart rows, their hashes, and DuckPGQ vertex and edge mappings; refresh the registered property graph before making the new indexed state available to queries.
+
+For an invalid, unreadable, or unstable ordinary source, exclude its owned rows and supported direct and derived graph facts, refresh affected counterpart rows and hashes, report its path, error and available location to stderr, and continue with unrelated valid sources. Do not treat that source error as deletion, repair it, retain stale rows, return diagnostics as query rows, or automatically resubmit it. An invalid Current Scope Unit Declaration instead remains a fatal unavailable state requiring explicit restart after correction.
+
+Emit actual indexed, removed and excluded-source counts to technical stdout or stderr while reserving stdio MCP stdout for its protocol. After a successful refresh, release only disposable per-refresh parsing temporaries. Retain the owner-local parsed-source rows, signatures and incremental caches required for the existing delta algorithm and object-identity reuse. Existing materialized query results remain unchanged until the owner closes.

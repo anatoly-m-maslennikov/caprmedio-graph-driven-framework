@@ -6,11 +6,12 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
-tier: 4
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
+tier: 5
 status: Active
-version: 2
-updated_at: 2026-11-07 04:28:07 +0400
+version: 3
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-796-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-runtime-without-ai-agent-orchestration.md
@@ -18,6 +19,9 @@ carrier_destination:
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
 author: Anatoly Maslennikov
+relations:
+  evaluation_for:
+  - CA-M-504
 ---
 
 ## Summary

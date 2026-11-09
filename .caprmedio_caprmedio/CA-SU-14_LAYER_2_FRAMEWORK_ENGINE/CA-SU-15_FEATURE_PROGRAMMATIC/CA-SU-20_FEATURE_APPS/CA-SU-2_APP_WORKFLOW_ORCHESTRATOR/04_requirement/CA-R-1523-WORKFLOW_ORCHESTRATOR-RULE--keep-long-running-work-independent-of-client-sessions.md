@@ -6,14 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery
+  {"main_subject": "CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run", "dependencies": ["CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow", "CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action", "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator", "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact", "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Recovery"]}
 tier: 1
 status: Active
 version: 15
@@ -25,7 +18,13 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 ---
-# Keep long-running work independent of client sessions
+## Summary
+
+Keep long-running work independent of client sessions
+
+## Claim
+
+### Prose Claim
 
 WORKFLOW_ORCHESTRATOR **must** keep accepted work independent of the lifetime of the client session that submitted it.
 

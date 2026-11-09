@@ -8,8 +8,11 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
-  tier: 5
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
+      <+ Temporary State
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
+  tier: 7
 relations:
   evaluation_for:
   - CA-M-462
@@ -17,8 +20,8 @@ relations:
   - CA-O-240
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-788-WORKBENCH_BACKEND-EVAL_CASE--verify-cached-result-lifecycle.md

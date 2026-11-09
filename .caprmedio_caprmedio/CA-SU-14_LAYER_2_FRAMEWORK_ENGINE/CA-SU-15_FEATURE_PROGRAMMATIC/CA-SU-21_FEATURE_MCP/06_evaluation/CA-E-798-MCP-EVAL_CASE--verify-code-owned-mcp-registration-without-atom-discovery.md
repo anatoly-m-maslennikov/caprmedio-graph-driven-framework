@@ -6,17 +6,17 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
 tier: 4
 relations:
   evaluation_for:
-  - CA-R-1106
+  - CA-R-3013
   - CA-R-1108
   - CA-M-506
   - CA-D-704
 status: Active
-version: 1
-updated_at: 2026-11-07 13:08:03 +0400
+version: 3
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
     name: CA-E-798-MCP-EVAL_CASE--verify-code-owned-mcp-registration-without-atom-discovery.md

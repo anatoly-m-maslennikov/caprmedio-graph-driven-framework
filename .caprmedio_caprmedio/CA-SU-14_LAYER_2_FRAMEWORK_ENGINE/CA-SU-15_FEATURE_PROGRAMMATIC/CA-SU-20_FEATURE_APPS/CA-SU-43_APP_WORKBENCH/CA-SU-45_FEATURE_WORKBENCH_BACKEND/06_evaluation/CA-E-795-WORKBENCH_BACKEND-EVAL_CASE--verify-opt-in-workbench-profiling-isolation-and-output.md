@@ -8,17 +8,18 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance
+      <+ Measurement and Profiling
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   evaluation_for:
   - CA-R-2998
-  - CA-M-503
-  - CA-D-703
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 4
+  updated_at: 2026-11-09 21:15:45 +0400
 destination:
   file:
     name: CA-E-795-WORKBENCH_BACKEND-EVAL_CASE--verify-opt-in-workbench-profiling-isolation-and-output.md

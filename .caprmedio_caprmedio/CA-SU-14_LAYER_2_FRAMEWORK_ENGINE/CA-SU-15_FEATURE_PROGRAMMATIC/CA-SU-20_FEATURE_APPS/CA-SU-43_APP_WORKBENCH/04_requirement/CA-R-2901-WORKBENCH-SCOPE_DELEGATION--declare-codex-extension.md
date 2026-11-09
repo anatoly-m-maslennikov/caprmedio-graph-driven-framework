@@ -12,8 +12,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-08 22:18:08 +0400
+  version: 5
+  updated_at: 2026-11-09 17:00:18 +0400
 destination:
   file:
     name: CA-R-2901-WORKBENCH-SCOPE_DELEGATION--declare-codex-extension.md
@@ -31,7 +31,19 @@ Declare CODEX_EXTENSION
 
 ### Prose Claim
 
-The receiving Scope Unit is CODEX_EXTENSION. These permissions apply only to local Atoms whose Header.Container-derived `IS_CONTAINED_BY` target is CODEX_EXTENSION. Its default local admissions remain applicable. Its explicit local Role/Form pairs are Requirement / Entity Definition, Requirement / Rule, Method / Solution, Evaluation / Eval Case, and Delivery / Decision. Each selection is limited to declared model entities or declared instances resolved at [`CAPRMEDIO_MODEL <+ Workspace`, `CAPRMEDIO_MODEL <+ View`]. These selections identify endpoint objects, not strings, all members of a type, or descendants. An unresolved address is diagnostic and grants no admission.
+The receiving Scope Unit is CODEX_EXTENSION. Existing default Role and Form admissions remain applicable. The additional local Role/Form pairs are exactly:
+
+- Delivery / Solution;
+- Method / Solution;
+- Requirement / Rule;
+
+The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+
+- `CAPRMEDIO_MODEL <+ View`;
+- `CAPRMEDIO_MODEL <+ Workspace`;
+- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`;
+
+Each address selects one endpoint object, not the address string, other members of its type or descendants. An unresolved address is diagnostic and grants no admission. These permissions apply only to local Atoms whose Header.Container resolves to CODEX_EXTENSION. The Scope Unit identity, Parent, responsibility and structural tree are unchanged.
 
 ### Formal Claim
 

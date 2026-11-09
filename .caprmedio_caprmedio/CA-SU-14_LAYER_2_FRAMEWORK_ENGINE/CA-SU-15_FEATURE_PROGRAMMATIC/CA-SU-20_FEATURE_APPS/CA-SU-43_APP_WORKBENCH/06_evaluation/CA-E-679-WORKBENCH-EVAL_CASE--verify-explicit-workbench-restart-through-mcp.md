@@ -8,15 +8,18 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution
+      Control
+    dependencies:
+    - CAPRMEDIO_MODEL <+ Projection
   tier: 5
 relations:
   evaluation_for:
   - CA-R-2782
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-09 07:45:14 +0400
 destination:
   file:
     name: CA-E-679-WORKBENCH-EVAL_CASE--verify-explicit-workbench-restart-through-mcp.md
@@ -31,6 +34,8 @@ author: Anatoly Maslennikov
 Verify explicit Workbench restart through MCP
 
 ## Claim
+
+### Prose Claim
 
 An explicit MCP Workbench restart returns only after a fresh owner is ready, clears old query-result IDs, preserves sources and saved items, and leaves the MCP session and unrelated services usable. Invalid startup returns an explicit error and does not trigger automatic recovery.
 

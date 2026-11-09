@@ -6,7 +6,7 @@ container:
 role: Delivery
 form: Eng Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
   dependencies:
   - Subject/CAPRMEDIO/Carrier
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'

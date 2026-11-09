@@ -8,7 +8,7 @@ form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 tier: 2

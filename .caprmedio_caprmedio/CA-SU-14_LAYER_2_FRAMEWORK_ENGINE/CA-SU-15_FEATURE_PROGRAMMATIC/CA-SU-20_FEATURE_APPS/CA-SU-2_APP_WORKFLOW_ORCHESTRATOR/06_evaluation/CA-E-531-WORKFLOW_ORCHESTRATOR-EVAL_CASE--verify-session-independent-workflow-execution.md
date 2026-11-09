@@ -8,16 +8,18 @@ form: Eval Case
 topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Workflow'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
+    Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic Testing
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing
 tier: 3
 status: Active
-version: 11
-updated_at: 2026-10-27 19:59:37 +0400
+version: 12
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-531-WORKFLOW_ORCHESTRATOR-EVAL_CASE--verify-session-independent-workflow-execution.md
@@ -25,19 +27,24 @@ carrier_destination:
 current_scope_unit: WORKFLOW_ORCHESTRATOR
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify session-independent Workflow execution
 
-## Scope
-
-WORKFLOW_ORCHESTRATOR's initial local execution capability.
-
 ## Claim
+
+### Prose Claim
+
+This retained contract applies only when AI-Agent execution is separately admitted. It does not enable that execution or claim that its runtime implementation is present.
 
 the Evaluation **must** verify independent execution through mock Agent end-to-end cases **and** the real DBOS queue.
 
 ## Details
+
+### Scope
+
+WORKFLOW_ORCHESTRATOR's initial local execution capability.
 
 - queue a Run from a short-lived client, disconnect it, start a separate worker **and** verify recorded gather/check/fix results.
 - verify clean checks, admitted fixes, blocked reports, Agent failure, timeout, duplicate requests **and** mismatched identities.

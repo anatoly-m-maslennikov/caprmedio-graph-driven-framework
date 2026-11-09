@@ -8,17 +8,19 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
+      Architecture <+ Communication <+ Interface Contracts
   tier: 4
 relations:
   method_for:
   - CA-R-2728
   - CA-R-2729
   - CA-R-2776
+  - CA-R-2727
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 5
+  updated_at: 2026-11-09 07:45:15 +0400
 destination:
   file:
     name: CA-M-471-WORKBENCH-DIRECT_POLICY--expose-workbench-capabilities-through-mcp.md
@@ -38,6 +40,8 @@ Workbench backend capabilities exposed through MCP.
 
 ## Claim
 
-Expose every Workbench backend capability through MCP with the same arguments, results, errors and saved URLs as the web interface. Include `query_run(save=true)`, `query_page`, `query_check`, `query_schema`, `view_save`, `query_load` and `query_saved_list`. There is no separate `query_save` or `worksheet_save` capability. Browser-only preferences and local draft state are not backend capabilities and are not exposed through MCP.
+### Prose Claim
+
+Implement each Workbench backend capability once in the shared backend. Expose it through web and MCP adapters with the same arguments, results, errors and saved URLs. Include `query_run(save=true)`, `query_page`, `query_check`, `query_schema`, `view_save`, `query_load` and `query_saved_list`. There is no separate `query_save` or `worksheet_save` capability. Browser-only preferences and local draft state are not backend capabilities and are not exposed through MCP.
 
 Workspace and View coordination is a backend capability and is exposed through MCP with the same state as the embedded interface. Native Codex chat is outside Workbench; Workbench does not duplicate its conversation control.

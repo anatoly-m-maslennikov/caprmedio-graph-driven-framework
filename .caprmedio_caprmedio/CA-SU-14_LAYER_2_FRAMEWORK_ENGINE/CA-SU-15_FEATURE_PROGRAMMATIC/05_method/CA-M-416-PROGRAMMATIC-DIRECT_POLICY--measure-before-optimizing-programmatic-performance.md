@@ -8,8 +8,8 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Verification/Dynamic
-      Testing
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Performance/Measurement
+      and Profiling
   tier: 4
 relations:
   derived_from:
@@ -18,8 +18,8 @@ relations:
   - CA-M-415
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 13
+  updated_at: 2026-11-09 07:45:14 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -31,9 +31,14 @@ destination:
     name: CA-M-416-PROGRAMMATIC-DIRECT_POLICY--measure-before-optimizing-programmatic-performance.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method
 ---
-# Summary
+
+## Summary
 
 Measure before optimizing PROGRAMMATIC performance
+
+## Claim
+
+### Prose Claim
 
 measure a PROGRAMMATIC performance concern **before** accepting an optimization;
 use a representative workload for its Hook, interactive, batch, MCP, App, **or**
@@ -43,12 +48,12 @@ background surface rather than treating one surface as universal.
 
 Candidate source: [CA-M-165@9](archive/CA-M-165-PROGRAMMATIC-CORE-METHOD--measure-before-optimizing-programmatic-performance@9.md)
 
-## Applicable when
+### Applicable when
 
 apply **when** a Tool, App backend service, **or** MCP component proposes **or** assesses
 a performance-sensitive change.
 
-## Procedure
+### Procedure
 
 1. profile the applicable surface **to** locate the measured bottleneck, **then**
    select its representative workload.
@@ -59,17 +64,17 @@ a performance-sensitive change.
 4. leave numeric budgets **to** a later bounded authority **until** current baselines
    **and** Operator priorities establish them.
 
-## Outcome
+### Outcome
 
 an accepted performance claim is tied **to** one reproducible workload **and**
 measurement boundary instead of a universal **or** unmeasured optimization claim.
 
-## Failure or stop
+### Failure or stop
 
 stop the performance claim **when** no representative workload, preserved
 baseline, **or** comparable observation exists; do **not** invent a numeric budget.
 
-## Sources
+### Sources
 
 - [Python documentation: profilers](https://docs.python.org/3.14/library/profile.html)
 - [pyperf documentation](https://pyperf.readthedocs.io/en/latest/)

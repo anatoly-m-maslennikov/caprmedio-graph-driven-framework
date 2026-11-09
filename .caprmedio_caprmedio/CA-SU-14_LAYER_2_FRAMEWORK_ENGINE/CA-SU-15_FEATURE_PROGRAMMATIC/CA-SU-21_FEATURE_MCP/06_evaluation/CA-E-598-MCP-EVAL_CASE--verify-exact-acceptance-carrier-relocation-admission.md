@@ -6,18 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Validation
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Serialization
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization
   - Subject/CAPRMEDIO/Carrier/File
 tier: 3
 status: Active
-version: 12
-updated_at: 2026-10-27 19:59:38 +0400
+version: 13
+updated_at: 2026-11-09 07:45:14 +0400
 carrier_destination:
   file:
     name: CA-E-598-MCP-EVAL_CASE--verify-exact-acceptance-carrier-relocation-admission.md
@@ -25,19 +25,22 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+
+## Summary
 
 Verify exact acceptance-carrier relocation admission
 
-## Scope
-
-the one registered relocation of three acceptance carriers under the current Epic.
-
 ## Claim
+
+### Prose Claim
 
 the exact acceptance-carrier relocation admission **must** pass its declared unchanged-bytes and no-broadened-authority checks.
 
 ## Details
+
+### Scope
+
+the one registered relocation of three acceptance carriers under the current Epic.
 
 - exactly one candidate replaces exactly the three registered prior source paths with their registered current paths; the listed carrier bytes, identities, versions and digests remain unchanged.
 - malformed, duplicate, missing, unknown, unsafe, stale or mismatched registration fields, input hashes or path occurrences refuse before effects.
