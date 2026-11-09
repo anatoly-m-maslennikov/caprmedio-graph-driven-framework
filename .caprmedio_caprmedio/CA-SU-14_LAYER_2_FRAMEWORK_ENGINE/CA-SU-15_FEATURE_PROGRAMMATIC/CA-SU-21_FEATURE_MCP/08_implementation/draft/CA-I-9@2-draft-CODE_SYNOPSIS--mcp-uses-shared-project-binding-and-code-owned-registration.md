@@ -29,13 +29,13 @@ MCP uses shared Project binding and code-owned registration
 
 ### Prose Claim
 
-The inspected MCP code validates an explicit Project binding, registers configured code-owned routes and shares Workbench handlers. Hot reload is opt-in. Existing release and entrypoint code already wires catalog generation and the shared HTTP server.
+The inspected MCP code validates an explicit Project binding, registers code-owned native Tools and shares Workbench handlers. Hot reload is opt-in. Existing release and entrypoint code already wires catalog generation and the shared HTTP server.
 
 **Code locations and review notes**
 
 [shared_gateway.py](../../../../../../LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/shared_gateway.py) validates the outer Project selection before dispatch.
 
-[selected_route_registration.py](../../../../../../LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/selected_route_registration.py) registers configured selected routes; source admission remains an invocation check.
+[shared_project_catalog.py](../../../../../../LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/shared_project_catalog.py) discovers each selected Project’s initialized native Tool frontier and combines it with Workbench tools.
 
 [direct_gateway.py](../../../../../../LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/direct_gateway.py) serves tools in process while reload is disabled.
 

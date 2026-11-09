@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Code Synopsis)
 tier: 3
 status: Active
-version: 2
-updated_at: "2026-11-07 17:10:31 +0400"
+version: 3
+updated_at: 2026-11-09 23:45:16 +0400
 carrier_destination:
   file:
     name: CA-R-3010-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md
@@ -32,6 +32,8 @@ A Code Synopsis identifies one or more unambiguous code locations in its Project
 ```CFEL
 # model
 Atom/(.Header.Form := Code Synopsis);
+
+Atom/(.Header.Form := Code Synopsis).Header.Status: Resolved;
 
 Atom/(.Header.Form := Code Synopsis).Content.Summary ;> Atom/(.Header.Form := Code Synopsis).Content.Claim;
 
@@ -57,3 +59,10 @@ Atom/(.Header.Form := Code Synopsis)//$synopsis.Header.Role:: [in (Implementatio
 ## Semantics
 
 A Code Synopsis is an authored, concise explanation of an actual code area and its relevant rationale.
+
+For a Code Synopsis, **Resolved** means the review is complete:
+
+- Every finding that needs fixing or adopting is covered by Active C or RMEDO Atoms; or
+- The review found nothing to fix or adopt.
+
+Drafts do not count as handoff. The resulting Atoms keep their own statuses. Resolved closes the Code Synopsis review; it does not mean the resulting Concerns are resolved or the RMEDO changes are implemented.

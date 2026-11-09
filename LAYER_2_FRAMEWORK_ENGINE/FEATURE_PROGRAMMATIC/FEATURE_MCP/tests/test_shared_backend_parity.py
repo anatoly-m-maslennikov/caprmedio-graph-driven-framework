@@ -10,7 +10,6 @@ import asyncio
 from pathlib import Path
 import sys
 import tempfile
-from types import SimpleNamespace
 import unittest
 
 MCP = Path(__file__).resolve().parents[1]
@@ -51,7 +50,9 @@ class _Gateway:
         self.root = Path(root)
         self.selection = selection
         self.tool_blacklist = self.blacklists.get(str(root), frozenset())
-        self.active = SimpleNamespace(tools=[])
+        self.ready = True
+        from workbench_tools import native_tools
+        self.tools = native_tools()
         self.workbench = _Workbench()
         self.workbenches.append(self.workbench)
 

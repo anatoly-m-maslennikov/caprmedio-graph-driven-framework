@@ -278,12 +278,16 @@ With an explicit Project root, Journal writes and queries use that Project's set
 
 ## First usable cut
 
-The original six source-bound routes cover Create Atom, Update Atom, Replace
-Atom, Change Atom Status, Implementation, and Build Applicable Methodology.
-Discovery reports what is actually callable; a source definition alone does not
-prove execution support. Automatic AI Agent execution has been removed from the
-runtime. Its methodology remains available; the general Workflow queue and
-deterministic handlers remain.
+The current implementation keeps Workbench, standalone Subject/Topics view
+builders, and host local/public release. The shared MCP exposes Workbench query,
+Workspace, View and service tools. Legacy discovery, Atom mutation, selected
+execution, workflow queues and reversal interfaces are retired in code.
+
+The standalone Subject renderer supports seven views without the old execution
+engine. See [the retained runtime and builders](.caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/CA-P-2849-WORK_REPORT--2848.md)
+for entry points, shared dependencies and verification limits. This code-first
+retirement does not claim that the corresponding methodology Atoms have already
+been reconciled or that an installed runtime has been replaced.
 
 Two Project-owned release commands run directly from the repository on the host:
 
@@ -307,16 +311,14 @@ Local release skips an empty initial commit; commit failure or remaining changes
 stop it before tests, builds or Docker work. Existing environment-file exclusions
 remain; excluded nonignored changes must be resolved before release.
 
-The reusable beta package is in `.caprmedio_install/simple_local_release/package`;
-its installed Project copy is in `.caprmedio_runtime/simple_local_release/package`.
+The installed Project package is in `.caprmedio_runtime/simple_local_release/package`.
 Configuration and existing Project records remain outside the replacement
 boundary. Python runs through locked `uv` environments, not system libraries.
 
 Use the locked host commands in [Project release tools](LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/README.md),
 with an Operator-selected run ID and a JSON content draft for Public release.
-They use the host's Git, GitHub and Docker tools independently of MCP. The
-release MCP bindings remain available for reuse in code, but this Project
-disables them through `project_mcp.tool_blacklist`. Regular
+They use the host's Git, GitHub and Docker tools independently of MCP. Legacy
+release MCP bindings are retired; the two host commands remain. Regular
 Project MCP runs in Docker on localhost without a password; the
 [launcher documentation](LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/README.md)
 describes Project selection and endpoint startup.

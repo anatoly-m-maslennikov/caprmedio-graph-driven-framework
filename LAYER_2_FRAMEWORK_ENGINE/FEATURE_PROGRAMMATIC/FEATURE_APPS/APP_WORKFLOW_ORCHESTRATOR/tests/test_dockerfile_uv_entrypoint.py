@@ -26,6 +26,18 @@ class DockerfileUVEntrypointTests(unittest.TestCase):
         command = json.loads(rows[0].removeprefix("ENTRYPOINT "))
         self.assertEqual(command[0], "/opt/venv/bin/python")
         self.assertEqual(command[1:], ["LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"])
+        self.assertNotIn("workflow-orchestrator", dockerfile.read_text())
+        self.assertNotIn("generate_tool_registry", dockerfile.read_text())
+
+    def test_image_copies_only_programmatic_runtime_and_canonical_ca_skill(self):
+        dockerfile = (Path(__file__).resolve().parents[1] / "docker/Dockerfile").read_text()
+        self.assertIn(
+            "COPY LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC",
+            dockerfile,
+        )
+        self.assertIn("FEATURE_AGENTIC/FEATURE_SKILLS/ca", dockerfile)
+        self.assertNotIn("COPY LAYER_2_FRAMEWORK_ENGINE ./LAYER_2_FRAMEWORK_ENGINE", dockerfile)
+        self.assertNotIn("FEATURE_AGENTIC/FEATURE_PROMPTS", dockerfile)
 
 
 if __name__ == "__main__":

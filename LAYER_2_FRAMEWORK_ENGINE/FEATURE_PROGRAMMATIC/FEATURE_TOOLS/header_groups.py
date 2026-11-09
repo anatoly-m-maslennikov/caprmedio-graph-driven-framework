@@ -2,7 +2,6 @@
 
 # implementation of: CA-D-657
 
-from copy import deepcopy
 from typing import Any
 
 
@@ -118,25 +117,6 @@ def header_path(name: str, metadata: dict[str, Any]) -> tuple[str, ...]:
     return paths[0] if grouped else ((name,) if "." not in name else paths[-1])
 
 
-def header_key_order(path: tuple[str, ...]) -> tuple[str, ...]:
-    if not path:
-        return GROUP_ORDER
-    if path == ("context",):
-        return GROUP_FIELDS["context"] + tuple(ROLE_FIELDS)
-    if len(path) == 1 and path[0] in GROUP_FIELDS:
-        return GROUP_FIELDS[path[0]]
-    if len(path) == 2 and path[0] == "context":
-        return ROLE_FIELDS.get(path[1], ())
-    return ("file",) if path == ("destination",) else ("name", "path") if path == ("destination", "file") else ()
-
-
-def _ordered(mapping: dict[str, Any], path: tuple[str, ...] = ()) -> dict[str, Any]:
-    keys = tuple(key for key in header_key_order(path) if key in mapping)
-    keys += tuple(key for key in mapping if key not in keys)
-    return {key: _ordered(value, path + (key,)) if isinstance(value, dict) else deepcopy(value)
-            for key in keys for value in (mapping[key],)}
-
-
 def validate_header_groups(metadata: dict[str, Any]) -> None:
     for group in GROUP_ORDER:
         if group in metadata and not isinstance(metadata[group], dict):
@@ -145,33 +125,3 @@ def validate_header_groups(metadata: dict[str, Any]) -> None:
     for role in ROLE_FIELDS:
         if role in context and not isinstance(context[role], dict):
             raise ValueError(f"Header context.{role} must be a mapping.")
-
-
-def nested_header(metadata: dict[str, Any]) -> dict[str, Any]:
-    """Author only declared groups, preserving all unmapped fields and absent values."""
-    result = deepcopy(metadata)
-    validate_header_groups(metadata)
-    fields = tuple(field for values in GROUP_FIELDS.values() for field in values)
-    fields += ("destination", "priority", *ROLE_FIELDS["plan"])
-    for topic in TOPIC_SUBJECT_FIELDS:
-        header_value(metadata, f"topics.{topic}")
-    for name in fields:
-        present, value = header_value(metadata, name)
-        if not present:
-            continue
-        path = _canonical_path(name, metadata)
-        if name in ("priority", *ROLE_FIELDS["plan"]) and len(path) == 1:
-            continue
-        if name == "atom_id" and path == ("identity", "id"):
-            result["identity"].pop("atom_id", None)
-            result.pop("atom_id", None)
-        for candidate in header_field_paths(name, metadata):
-            if len(candidate) == 1:
-                result.pop(candidate[0], None)
-        parent = result
-        for part in path[:-1]:
-            parent = parent.setdefault(part, {})
-            if not isinstance(parent, dict):
-                raise ValueError("Header Property parent must be a mapping.")
-        parent[path[-1]] = deepcopy(value)
-    return _ordered(result)

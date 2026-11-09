@@ -22,7 +22,6 @@ from local_release import run_local_release, _launcher_image  # noqa: E402
 from project_selection import resolve_project  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from release_registry_test_fixture import (  # noqa: E402
-    write_registry_generator,
     write_relation_registry_generator,
     write_workbench_schema_generator,
 )
@@ -78,6 +77,12 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         )
         (tools / "project_mcp_bootstrap.py").write_bytes(bootstrap_helper.read_bytes())
         (tools / "project_mcp_bootstrap.py").chmod(0o644)
+        subject_builder = tools / "GENERATE_ENTITY_GRAPH/render_entity_tree.py"
+        subject_builder.parent.mkdir()
+        subject_builder.write_text("# retained subject builder\n", encoding="utf-8")
+        prompt = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS/retired.py"
+        prompt.parent.mkdir(parents=True)
+        prompt.write_text("# source-only prompt\n", encoding="utf-8")
         self.engine_bootstrap = (
             self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/"
             "APP_WORKFLOW_ORCHESTRATOR/docker/start_mcp.py"
@@ -86,12 +91,6 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.engine_bootstrap.write_bytes(b"#!/usr/bin/env python3\n# package bootstrap fixture\n")
         self.engine_bootstrap.chmod(0o755)
         (self.engine_bootstrap.parent / "runtime.py").write_text("# runtime entrypoint fixture\n", encoding="utf-8")
-        catalog_generator = (
-            self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py"
-        )
-        catalog_generator.parent.mkdir(parents=True)
-        catalog_generator.write_text("# catalog generator fixture\n", encoding="utf-8")
-        write_registry_generator(catalog_generator.parent)
         workbench_backend = (
             self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/"
             "APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND"
@@ -252,7 +251,11 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(0o755, stat.S_IMODE(bootstrap.stat().st_mode))
         for package in (self.runtime / "simple_local_release/package",):
             self.assertEqual("ca skill", (package / "SKILLS/ca/SKILL.md").read_text())
-            self.assertTrue((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md").is_file())
+            self.assertTrue((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/"
+                             "FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/render_entity_tree.py").is_file())
+            self.assertTrue((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/"
+                             "APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/generate_workbench_schema.py").is_file())
+            self.assertFalse((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS").exists())
         self.assertEqual("ca skill", (self.root / ".agents/skills/ca/SKILL.md").read_text())
         self.assertIn('version = "0.4.1.1"', (self.root / "version.toml").read_text())
         self.assertIn('version = "0.4.1.1"', (self.runtime / "simple_local_release/package/version.toml").read_text())
@@ -270,31 +273,6 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(1, sum(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
         for target in (self.product, self.installed):
             self.assertEqual(source.read_bytes(), (target / "SUPERLAYER_1_METHODOLOGY_SOURCES" / source.parent.name / "active.md").read_bytes())
-
-    def test_catalog_generation_runs_after_mcp_start_and_failure_keeps_endpoint(self):
-        runner, calls = self._runner()
-
-        def catalog_failure(argv, cwd):
-            result = runner(argv, cwd)
-            if any(str(item).endswith("generate_tools_catalog.py") for item in argv):
-                return subprocess.CompletedProcess(argv, 1, "", "catalog unavailable")
-            return result
-
-        with self._compiler():
-            result = run_local_release(self.root, run_id="catalog-failed", runner=catalog_failure)
-
-        self.assertEqual(("failed", "generate_tools_catalog"), (result["outcome"], result["failed_step"]))
-        self.assertEqual("http://localhost:12345/mcp", result["endpoint"])
-        start = next(index for index, argv in enumerate(calls) if self._is_mcp_bootstrap(argv))
-        generator = next(
-            (index, argv) for index, argv in enumerate(calls)
-            if any(str(item).endswith("generate_tools_catalog.py") for item in argv)
-        )
-        self.assertLess(start, generator[0])
-        self.assertEqual("http://localhost:12345/mcp", generator[1][generator[1].index("--mcp-url") + 1])
-        report = (self.root / result["report_path"]).read_text(encoding="utf-8")
-        self.assertIn("Stopped at: `generate_tools_catalog`", report)
-        self.assertIn("MCP started at: `http://localhost:12345/mcp`", report)
 
     def test_focused_modules_are_forwarded_and_reported(self):
         modules = (
@@ -629,8 +607,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                     for path in target.rglob("*") if path.is_file()}
         before = {target: inventory(target) for target in (self.installed, runtime_package, skill)}
         for relative in ("uv.lock", "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md",
-                         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py",
-                         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py"):
+                         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py"):
             with self.subTest(relative=relative):
                 missing = self.root / relative
                 payload = missing.read_bytes()

@@ -278,29 +278,13 @@ def _verify_package(package: Path, expected: Mapping[str, tuple[str, int]]) -> N
         raise LocalReleaseError("local-release-package-verification-failed")
 
 
-def _generate_tool_registry(package: Path) -> Path:
-    script = package / (
-        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py"
-    )
-    output = script.with_name("tool_registry.json")
-    if not script.is_file() or script.is_symlink():
-        raise LocalReleaseError("local-release-tool-registry-unavailable")
-    try:
-        output.unlink(missing_ok=True)
-        result = subprocess.run(
-            (sys.executable, "-B", str(script), "--package-root", str(package)),
-            cwd=package, text=True, capture_output=True, check=False,
-        )
-    except OSError as error:
-        raise LocalReleaseError("local-release-tool-registry-unavailable") from error
-    if result.returncode != 0 or not output.is_file() or output.is_symlink():
-        raise LocalReleaseError("local-release-tool-registry-generation-failed")
-    return output
-
 def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tuple[str, int]]:
     excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", "node_modules"})
     trees = (
-        (root / "LAYER_2_FRAMEWORK_ENGINE", Path("LAYER_2_FRAMEWORK_ENGINE")),
+        (
+            root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC",
+            Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"),
+        ),
         (product / "SUPERLAYER_1_METHODOLOGY_SOURCES", Path("METHODOLOGY/sources")),
         (product / "applicable_methodology", Path("METHODOLOGY/compiled")),
         (root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca", Path("SKILLS/ca")),
@@ -333,8 +317,6 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
     for source, relative in sources:
         if _file_identity(source) != expected[relative.as_posix()]:
             raise LocalReleaseError("local-release-package-source-changed")
-    registry = _generate_tool_registry(package)
-    expected[registry.relative_to(package).as_posix()] = _file_identity(registry)
     relation_registry = generate_relation_registry(package, root)
     expected[relation_registry.relative_to(package).as_posix()] = _file_identity(relation_registry)
     workbench_schema = generate_workbench_schema(package, root)
@@ -344,8 +326,6 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/project_mcp_bootstrap.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/start_mcp.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/runtime.py",
-        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py",
-        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
         "FEATURE_WORKBENCH_BACKEND/generate_relation_registry.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
@@ -355,22 +335,6 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
             raise LocalReleaseError("local-release-package-source-unavailable")
     _verify_package(package, expected)
     return expected
-
-
-def _generate_tools_catalog(root: Path, runtime: Path, endpoint: str | None, runner: Any) -> None:
-    script = runtime / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tools_catalog.py"
-    launcher_python = root / ".caprmedio_runtime/launcher-venv/bin/python"
-    if not script.is_file() or script.is_symlink() or not launcher_python.is_file():
-        raise LocalReleaseError("local-release-tools-catalog-unavailable")
-    try:
-        result = runner((
-            str(launcher_python), str(script),
-            "--project-root", str(root), "--mcp-url", endpoint or "",
-        ), root)
-    except OSError as error:
-        raise LocalReleaseError("local-release-tools-catalog-unavailable") from error
-    if getattr(result, "returncode", 0) != 0:
-        raise LocalReleaseError("local-release-tools-catalog-failed")
 
 
 def _cleanup_staging(root: Path, staging: Path | None) -> str:

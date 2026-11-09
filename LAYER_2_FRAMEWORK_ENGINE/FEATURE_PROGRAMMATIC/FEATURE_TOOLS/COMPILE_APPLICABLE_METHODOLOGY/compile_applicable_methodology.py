@@ -1,16 +1,10 @@
 #!/usr/bin/env python3
-"""Compile a current, non-authoritative Applicable Methodology projection.
-
-The module is deliberately an Action adapter, not a workflow executor.  The
-source graph invokes its six exported adapters; shared run support owns run and
-Journal lifecycle evidence.
-"""
+"""Compile an Applicable Methodology projection for local release."""
 
 from __future__ import annotations
 
 
 
-import argparse
 import hashlib
 import json
 import os
@@ -21,15 +15,12 @@ import tempfile
 import tomllib
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any, Iterable, Literal, Mapping
-
-from pydantic import BaseModel, ConfigDict, JsonValue, RootModel
+from typing import Iterable, Mapping
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from artifact_metadata import SETTINGS_PATH, atom_identifier
 from header_yaml import header_scalar
 from project_selection import ProjectSelectionError, active_selection
-from tool_description import binding_matches, make_tool_description
 
 
 DEFAULT_CONTROL_ROOT = SETTINGS_PATH.parent
@@ -55,101 +46,8 @@ RELATION_KINDS = {
     "replacement": {"replacement_of", "replaces"},
     "incompatible": {"incompatible_with", "incompatibility_with"},
 }
-SCHEMA = "caprmedio.compile_applicable_methodology.v2"
-TOOL_NAME = "COMPILE_APPLICABLE_METHODOLOGY"
-DELIVERY_ID = "CA-D-541"
-ENTRYPOINT = "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology.py"
-WORKFLOW_ID = "CA-O-011"
-ACTION_IDS = ("CA-O-004", "CA-O-005", "CA-O-006", "CA-O-007", "CA-O-008", "CA-O-009")
-OPERATIONS = frozenset({"dry_run", "apply", "recover_publication"})
-REQUEST_FIELDS = frozenset({
-    "operation", "project_root", "governed_bindings", "expected_source_frontier_digest",
-    "decision_refs", "failed_publication_ref", "run_receipt_refs",
-})
-FORBIDDEN_REQUEST_FIELDS = frozenset({
-    "source_root", "output_path", "edit_source", "source_patch", "selected_candidate",
-    "approval_text", "approval", "journal_event", "run_event", "journal_payload",
-})
 DEFAULT_SETTINGS_NAME = "caprmedio_framework_default_settings.toml"
-APPROVAL_NAME = "applicable_methodology_conflict_approvals.toml"
 INSTANCE_SETTINGS_RELATIVE = Path("000_CAPRMEDIO_framework/caprmedio_framework_settings.toml")
-
-
-class _CompileApplicableMethodologyRequestBody(BaseModel):
-    """Transport-neutral envelope; ``validate_request`` retains semantic authority."""
-
-    model_config = ConfigDict(extra="forbid", strict=True)
-
-    operation: Literal["dry_run", "apply", "recover_publication"]
-    project_root: str
-    governed_bindings: dict[str, str]
-    expected_source_frontier_digest: str | None = None
-    decision_refs: list[dict[str, JsonValue]] | None = None
-    failed_publication_ref: str | None = None
-    run_receipt_refs: list[dict[str, JsonValue]] | None = None
-
-
-class CompileApplicableMethodologyRequest(RootModel[_CompileApplicableMethodologyRequestBody]):
-    """Canonical request for the existing D541 compiler boundary."""
-
-
-class CompileApplicableMethodologyResult(RootModel[dict[str, JsonValue]]):
-    """The compiler keeps its established open structured result contract."""
-
-
-class CompileApplicableMethodologyAdapter:
-    """Root-bound descriptor adapter that cannot redirect the compiler Project."""
-
-    def __init__(self, root: str | Path) -> None:
-        self.root = Path(root).resolve()
-
-    def invoke(self, request: CompileApplicableMethodologyRequest) -> dict[str, object]:
-        if not isinstance(request, CompileApplicableMethodologyRequest):
-            raise CompileError("descriptor-request-invalid", "Descriptor invocation requires the canonical compiler request model")
-        payload = request.root.model_dump(mode="json", exclude_unset=True)
-        requested_root = Path(request.root.project_root).resolve()
-        if requested_root != self.root:
-            raise CompileError(
-                "descriptor-root-mismatch",
-                "Descriptor invocation cannot override its bound Project root",
-                project_root=request.root.project_root,
-            )
-        return run_request(payload)
-
-
-def create_adapter(root: str | Path) -> CompileApplicableMethodologyAdapter:
-    """Create the one root-bound descriptor adapter for the existing compiler."""
-
-    return CompileApplicableMethodologyAdapter(root)
-
-
-def describe_tool() -> dict[str, Any]:
-    """Describe D541 without resolving sources, compiling, or publishing output."""
-
-    return make_tool_description(
-        entrypoint=ENTRYPOINT,
-        name=TOOL_NAME,
-        delivery_atom_id=DELIVERY_ID,
-        action_ids=ACTION_IDS,
-        input_symbol="CompileApplicableMethodologyRequest",
-        output_symbol="CompileApplicableMethodologyResult",
-        title="Compile Applicable Methodology",
-        description="Compile the source-bound Applicable Methodology projection through its existing governed Action boundary.",
-        purpose="Assess or publish Applicable Methodology only with the compiler's current source, preview, and admission gates.",
-        read_only=False,
-    )
-
-
-def binding_is_admitted(binding: Mapping[str, object] | None) -> bool:
-    """Accept only the exact D541 source binding; no MCP name is inferred."""
-
-    return binding_matches(
-        binding,
-        entrypoint=ENTRYPOINT,
-        name=TOOL_NAME,
-        delivery_atom_id=DELIVERY_ID,
-        action_ids=ACTION_IDS,
-    )
 
 
 @dataclass(frozen=True)
@@ -300,11 +198,6 @@ def source_layer_paths(root: Path, places: MethodologyPaths) -> dict[str, Path]:
     return paths
 
 
-def approval_carrier_path(root: Path, places: MethodologyPaths) -> Path:
-    """Return the declared Project Configuration approval carrier path."""
-    return source_layer_paths(root, places)["PROJECT_CONFIGURATION"] / APPROVAL_NAME
-
-
 class CompileError(Exception):
     """A stable compilation validation failure."""
 
@@ -367,15 +260,6 @@ class Candidate:
             record["definition_term"] = self.definition_term
             record["definition_subject_path"] = self.definition_subject_path
         return record
-
-
-@dataclass(frozen=True)
-class Approval:
-    conflict_id: str
-    source_frontier_digest: str
-    selected_source_carrier_path: str
-    operator: str
-    carrier_path: str
 
 
 def relations_digest(frontmatter: str) -> str:
@@ -489,31 +373,6 @@ def source_state_snapshot(root: Path, places: MethodologyPaths | None = None) ->
         if safe_framework_settings_carrier(root, settings_carrier):
             snapshot[repo_relative(root, settings_carrier)] = sha256_bytes(settings_carrier.read_bytes())
     return snapshot
-
-
-def source_snapshot_is_current(root: Path, snapshot: dict[str, str], places: MethodologyPaths | None = None) -> bool:
-    try:
-        return source_state_snapshot(root, places) == snapshot
-    except CompileError:
-        return False
-
-
-def governed_bindings(root: Path, places: MethodologyPaths | None = None) -> dict[str, str]:
-    places = places or methodology_paths(root)
-    declaration_source_pins(root, places)
-    _, settings_bindings = framework_settings(root, places)
-    configuration_root = root / source_layer_paths(root, places)["PROJECT_CONFIGURATION"]
-    configuration_records = {
-        repo_relative(root, path): sha256_bytes(path.read_bytes())
-        for path in sorted(configuration_root.rglob("*"))
-        if path.name != ".DS_Store" and path.is_file() and not path.is_symlink()
-    }
-    return {
-        "declaration_digest": str(places.declaration_digest),
-        "framework_settings_sha256": sha256_bytes(canonical_json(settings_bindings)),
-        "project_configuration_sha256": sha256_bytes(canonical_json(configuration_records)),
-        "projection_target": places.output.as_posix(),
-    }
 
 
 def canonical_json(value: object) -> bytes:
@@ -912,101 +771,6 @@ def detect_conflicts(candidates: list[Candidate]) -> list[dict[str, object]]:
     return conflicts
 
 
-def discover_approvals(root: Path, candidates: list[Candidate], places: MethodologyPaths | None = None) -> list[Approval]:
-    del candidates
-    approval_relative = approval_carrier_path(root, places or methodology_paths(root)).as_posix()
-    path = root / approval_relative
-    if not path.exists():
-        return []
-    if not path.is_file() or path.is_symlink():
-        raise CompileError("approval-carrier-invalid", "Project Configuration approval Carrier must be a regular TOML file", path=approval_relative)
-    try:
-        document = tomllib.loads(path.read_text(encoding="utf-8"))
-    except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
-        raise CompileError("approval-carrier-invalid", "Project Configuration approval Carrier is not valid UTF-8 TOML", path=approval_relative) from error
-    if document.get("schema") != "caprmedio.applicable_methodology_conflict_approvals.v1":
-        raise CompileError("approval-schema-invalid", "Project Configuration approval Carrier schema is invalid", path=approval_relative)
-    records = document.get("approvals", [])
-    if not isinstance(records, list) or any(not isinstance(record, dict) for record in records):
-        raise CompileError("approval-record-invalid", "Project Configuration approvals must be an array of tables", path=approval_relative)
-    required = {"conflict_id", "source_frontier_digest", "selected_source_carrier_path", "operator"}
-    approvals: list[Approval] = []
-    for record in records:
-        missing = sorted(required.difference(record))
-        if missing:
-            raise CompileError(
-                "approval-record-incomplete",
-                "Project Configuration approval record is incomplete",
-                carrier_path=approval_relative,
-                missing=missing,
-            )
-        if any(not isinstance(record[key], str) for key in required):
-            raise CompileError(
-                "approval-record-invalid",
-                "Project Configuration approval fields must be strings",
-                carrier_path=approval_relative,
-            )
-        approvals.append(
-            Approval(
-                conflict_id=record["conflict_id"],
-                source_frontier_digest=record["source_frontier_digest"],
-                selected_source_carrier_path=record["selected_source_carrier_path"],
-                operator=record["operator"],
-                carrier_path=approval_relative,
-            )
-        )
-    return approvals
-
-
-def resolve_conflicts(
-    candidates: list[Candidate], conflicts: list[dict[str, object]], approvals: list[Approval], digest: str
-) -> tuple[list[Candidate], list[dict[str, object]], list[dict[str, object]]]:
-    approval_results: list[dict[str, object]] = []
-    selected_paths = {candidate.source_path for candidate in candidates}
-    rejected_paths: set[str] = set()
-    unresolved: list[dict[str, object]] = []
-    for conflict in conflicts:
-        conflict_id = str(conflict["conflict_id"])
-        candidate_paths = set(str(path) for path in conflict["candidate_source_carrier_paths"])
-        matches = [approval for approval in approvals if approval.conflict_id == conflict_id]
-        status = "missing"
-        selected: str | None = None
-        carrier: str | None = None
-        if len(matches) > 1:
-            status = "ambiguous"
-        elif len(matches) == 1:
-            approval = matches[0]
-            carrier = approval.carrier_path
-            selected = approval.selected_source_carrier_path
-            if not approval.operator:
-                status = "operator_missing"
-            elif approval.source_frontier_digest != digest:
-                status = "stale_source_frontier_digest"
-            elif selected not in candidate_paths:
-                status = "selected_candidate_mismatch"
-            else:
-                status = "approved"
-                rejected = candidate_paths.difference({selected})
-                if selected in rejected_paths or selected not in selected_paths:
-                    status = "approval_resolution_conflict"
-                else:
-                    rejected_paths.update(rejected)
-                    selected_paths.difference_update(rejected)
-        approval_results.append(
-            {
-                "conflict_id": conflict_id,
-                "status": status,
-                "approval_carrier_path": carrier,
-                "selected_source_carrier_path": selected,
-            }
-        )
-        if status != "approved":
-            unresolved.append(conflict)
-    selected_candidates = [candidate for candidate in candidates if candidate.source_path in selected_paths]
-    selected_candidates.sort(key=selected_sort_key)
-    return selected_candidates, approval_results, unresolved
-
-
 def output_plan(candidates: list[Candidate]) -> list[dict[str, object]]:
     return [candidate.report_record() for candidate in sorted(candidates, key=selected_sort_key)]
 
@@ -1053,25 +817,6 @@ def validate_projection_source_preservation(
             "Projected Carrier must preserve source bytes except for canonical projection metadata",
             path=path,
         )
-
-
-def validate_existing_output_ownership(output_root: Path) -> None:
-    for _, role_directory in ROLES:
-        target = output_root / role_directory
-        if not target.exists():
-            continue
-        if not target.is_dir() or target.is_symlink():
-            raise CompileError("output-role-not-owned", "Generated output role path is not a replaceable directory", path=target.as_posix())
-        for path in target.rglob("*"):
-            if path.name == ".DS_Store" and path.is_file() and not path.is_symlink():
-                continue
-            if path.is_dir() and not path.is_symlink():
-                continue
-            if not path.is_file() or path.is_symlink() or path.suffix != ".md":
-                raise CompileError("output-role-not-owned", "Generated output contains a non-projected Carrier", path=path.as_posix())
-            frontmatter, _ = split_frontmatter(path.read_bytes(), path.as_posix())
-            if not re.search(r"(?m)^projection:\s*$", frontmatter):
-                raise CompileError("output-role-not-owned", "Generated output Carrier lacks projection ownership metadata", path=path.as_posix())
 
 
 def stage_outputs(root: Path, candidates: list[Candidate], source_snapshot: dict[str, str], places: MethodologyPaths | None = None) -> Path:
@@ -1151,453 +896,26 @@ def replace_outputs_atomically(root: Path, staging: Path, places: MethodologyPat
         shutil.rmtree(staging, ignore_errors=True)
 
 
-def generated_tree_digest(root: Path, places: MethodologyPaths | None = None) -> str:
-    output_root = root / (places or methodology_paths(root)).output
-    records: list[dict[str, str]] = []
-    for _, role_directory in ROLES:
-        role_root = output_root / role_directory
-        if not role_root.is_dir():
-            raise CompileError("generated-role-missing", "Generated RMEDO role directory is missing", role_directory=role_directory)
-        for path in sorted(role_root.rglob("*")):
-            if path.name == ".DS_Store" and path.is_file() and not path.is_symlink():
-                continue
-            if path.is_file():
-                records.append(
-                    {
-                        "path": repo_relative(root, path),
-                        "sha256": sha256_bytes(path.read_bytes()),
-                    }
-                )
-    return sha256_bytes(canonical_json(records))
-
-
 def compile_report(root: Path, places: MethodologyPaths | None = None) -> tuple[dict[str, object], list[Candidate], dict[str, str]]:
     places = places or methodology_paths(root)
     candidates, diagnostics, source_snapshot = discover_candidates(root, places)
     digest = frontier_digest(candidates)
     conflicts = detect_conflicts(candidates)
-    # A Project Configuration TOML carrier is only a non-authoritative index.
-    # The public request path resolves decisions against canonical Journal
-    # references below; this compatibility report intentionally leaves every
-    # conflict unresolved.
-    selected, approval_results, unresolved = resolve_conflicts(candidates, conflicts, [], digest)
+    selected = sorted(candidates, key=selected_sort_key)
     report: dict[str, object] = {
-        "schema": SCHEMA,
-        "authority": "non_authoritative_dry_run",
         "structural_source_layers": [name for name, _, _ in LAYERS],
         "contributing_source_layers": ["CORE_META_MODEL", "INSTALLED_EXTENSIONS", "PROJECT_CONFIGURATION"],
         "source_frontier_digest": digest,
         "eligible_candidate_count": len(candidates),
         "conflict_count": len(conflicts),
-        "unresolved_conflict_count": len(unresolved),
+        "unresolved_conflict_count": len(conflicts),
         "conflicts": conflicts,
-        "approval_results": approval_results,
         "diagnostics": diagnostics,
         "excluded_candidates": [item for item in diagnostics if item.get("code") == "source-excluded"],
         "selected_candidate_count": len(selected),
         "output_plan": output_plan(selected),
-        "persistent_subject_indexes": False,
         "can_apply": not any(
             item.get("code") not in {"source-excluded"} for item in diagnostics
-        ) and not unresolved,
+        ) and not conflicts,
     }
     return report, selected, source_snapshot
-
-
-def find_project_root(start: Path) -> Path:
-    resolved = start.resolve()
-    for candidate in (resolved, *resolved.parents):
-        if (candidate / methodology_paths(candidate).source).is_dir():
-            return candidate
-    raise CompileError("project-root-not-found", "Cannot find CAPRMEDIO Project root", start=resolved.as_posix())
-
-
-def request_error(code: str, message: str, **details: object) -> CompileError:
-    return CompileError(code, message, **details)
-
-
-def validate_request(request: Mapping[str, object]) -> tuple[Path, MethodologyPaths, str]:
-    fields = set(request)
-    prohibited = sorted(fields.intersection(FORBIDDEN_REQUEST_FIELDS))
-    if prohibited:
-        raise request_error("request-field-forbidden", "Request contains a caller-controlled authority field", fields=prohibited)
-    unknown = sorted(fields.difference(REQUEST_FIELDS))
-    if unknown:
-        raise request_error("request-field-unknown", "Request contains an unknown field", fields=unknown)
-    operation = request.get("operation")
-    if operation not in OPERATIONS:
-        raise request_error("request-operation-invalid", "Request operation must be exactly one supported operation")
-    root_value = request.get("project_root")
-    if not isinstance(root_value, str) or not root_value:
-        raise request_error("request-project-root-invalid", "Request requires a Project root reference")
-    root = Path(root_value).resolve()
-    if not root.is_dir():
-        raise request_error("request-project-root-invalid", "Request Project root is unavailable", project_root=root_value)
-    places = methodology_paths(root)
-    expected = request.get("governed_bindings")
-    if not isinstance(expected, Mapping) or any(not isinstance(key, str) or not isinstance(value, str) for key, value in expected.items()):
-        raise request_error("request-governed-bindings-invalid", "Request requires exact governed digest bindings")
-    actual = governed_bindings(root, places)
-    if dict(expected) != actual:
-        raise request_error("request-governed-bindings-stale", "Request bindings do not match current governed inputs", expected=actual)
-    if operation in {"apply", "recover_publication"}:
-        expected_frontier = request.get("expected_source_frontier_digest")
-        if not isinstance(expected_frontier, str) or not expected_frontier:
-            raise request_error("request-frontier-binding-missing", "Publication requires an expected assessed frontier digest")
-    if operation == "recover_publication":
-        failed = request.get("failed_publication_ref")
-        if not isinstance(failed, str) or not failed:
-            raise request_error("request-recovery-evidence-missing", "Recovery requires an existing failed-publication reference")
-    receipt_refs = request.get("run_receipt_refs", [])
-    if not isinstance(receipt_refs, list) or any(not isinstance(reference, Mapping) for reference in receipt_refs):
-        raise request_error("request-run-receipt-references-invalid", "Shared Run receipt references must be a list of reference objects")
-    return root, places, str(operation)
-
-
-def journal_record(root: Path, reference: str, digest: str | None, places: MethodologyPaths | None = None) -> dict[str, object]:
-    """Resolve a canonical immutable Journal record by path#event-id reference."""
-    path_text, marker, event_id = reference.partition("#")
-    if not marker or not event_id:
-        raise request_error("decision-journal-reference-invalid", "Decision requires path#event-id canonical Journal reference")
-    path = Path(path_text)
-    journal_root = root / (places or methodology_paths(root)).control_root / "_journal"
-    if path.is_absolute() or ".." in path.parts:
-        raise request_error("decision-journal-reference-invalid", "Journal reference must be repository-relative")
-    absolute = root / path
-    if not absolute.is_file() or absolute.is_symlink() or not absolute.resolve().is_relative_to(journal_root.resolve()):
-        raise request_error("decision-journal-reference-invalid", "Journal reference is outside the configured canonical _journal", reference=reference)
-    for line in absolute.read_text(encoding="utf-8").splitlines():
-        try:
-            record = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        if isinstance(record, dict) and record.get("event_id") == event_id:
-            if digest is not None and record.get("event_digest") != digest:
-                raise request_error("decision-journal-digest-mismatch", "Canonical Journal record digest differs from decision reference", reference=reference)
-            return record
-    raise request_error("decision-journal-record-missing", "Canonical Journal record is not present", reference=reference)
-
-
-def failed_publication_evidence(root: Path, reference: str, digest: str, places: MethodologyPaths) -> dict[str, object]:
-    """Require an existing canonical failed-publication event before retrying.
-
-    The compiler only reads the shared Journal reference.  It does not create a
-    replacement event, receipt, or Run when an earlier publication failed.
-    """
-    record = journal_record(root, reference, None, places)
-    details = record.get("details")
-    if not isinstance(details, Mapping):
-        raise request_error("recovery-journal-incomplete", "Failed-publication evidence lacks bound details", reference=reference)
-    if details.get("source_frontier_digest") != digest:
-        raise request_error("recovery-source-frontier-stale", "Failed-publication evidence names a different source frontier", reference=reference)
-    event = record.get("event")
-    outcome = record.get("outcome")
-    if event not in {"failed", "interrupted"} and outcome not in {"failed", "partial", "uncertain", "interrupted_pending"}:
-        raise request_error("recovery-publication-not-failed", "Recovery evidence is not a failed or uncertain publication", reference=reference)
-    return {
-        "failed_publication_ref": reference,
-        "event_id": record.get("event_id"),
-        "event_digest": record.get("event_digest"),
-        "source_frontier_digest": digest,
-    }
-
-
-def journal_decisions(root: Path, decision_refs: object, conflicts: list[dict[str, object]], digest: str, places: MethodologyPaths | None = None) -> tuple[list[Approval], list[dict[str, object]]]:
-    if decision_refs is None:
-        return [], []
-    if not isinstance(decision_refs, list):
-        raise request_error("decision-reference-invalid", "Decision references must be a list")
-    allowed = {"conflict_id", "journal_record_ref", "journal_record_digest"}
-    approvals: list[Approval] = []
-    evidence: list[dict[str, object]] = []
-    conflict_ids = {str(item["conflict_id"]) for item in conflicts}
-    for reference in decision_refs:
-        if not isinstance(reference, Mapping) or set(reference).difference(allowed) or set(reference) != allowed:
-            raise request_error("decision-reference-invalid", "Decision reference contains unsupported or missing fields")
-        conflict_id = reference["conflict_id"]
-        path = reference["journal_record_ref"]
-        record_digest = reference["journal_record_digest"]
-        if not all(isinstance(value, str) and value for value in (conflict_id, path, record_digest)):
-            raise request_error("decision-reference-invalid", "Decision reference fields must be non-empty strings")
-        if conflict_id not in conflict_ids:
-            raise request_error("decision-conflict-mismatch", "Decision reference does not name an assessed conflict", conflict_id=conflict_id)
-        record = journal_record(root, path, record_digest, places)
-        details = record.get("details")
-        if not isinstance(details, Mapping):
-            raise request_error("decision-journal-incomplete", "Canonical Journal decision lacks bound details", reference=path)
-        selected = details.get("selected_source_carrier_path")
-        recorded_digest = details.get("source_frontier_digest")
-        operator = record.get("operator", record.get("author"))
-        if record.get("outcome") not in {"approved", "selected"}:
-            raise request_error("decision-journal-not-approved", "Canonical Journal decision is not approved", reference=path)
-        if recorded_digest != digest:
-            raise request_error("decision-source-frontier-stale", "Canonical Journal decision names a stale source frontier", reference=path)
-        if details.get("conflict_id") != conflict_id or not isinstance(selected, str) or not isinstance(operator, str) or not operator:
-            raise request_error("decision-journal-incomplete", "Canonical Journal decision is not exactly bound to the assessed frontier", reference=path)
-        approvals.append(Approval(conflict_id, digest, selected, operator, path))
-        evidence.append({
-            "conflict_id": conflict_id,
-            "operator": operator,
-            "selected_source_carrier_path": selected,
-            "journal_record_ref": path,
-            "journal_record_digest": record_digest,
-            "source_frontier_digest": digest,
-        })
-    return approvals, evidence
-
-
-def publication_state(root: Path, places: MethodologyPaths) -> str:
-    return "preserved" if (root / places.output).exists() else "not_started"
-
-
-def run_request(request: Mapping[str, object]) -> dict[str, object]:
-    """Execute one compiler operation at the strict governed boundary.
-
-    Caller input contains only references and expected digests.  It cannot
-    provide source/output locations, source edits, selection results, or event
-    payloads.  Shared run support supplies any receipt references unchanged.
-    """
-    prior = "not_started"
-    try:
-        root, places, operation = validate_request(request)
-        prior = publication_state(root, places)
-        report, candidates, snapshot = compile_report(root, places)
-        digest = str(report["source_frontier_digest"])
-        approvals, decision_evidence = journal_decisions(root, request.get("decision_refs"), list(report["conflicts"]), digest, places)
-        recovery_evidence = (
-            failed_publication_evidence(root, str(request["failed_publication_ref"]), digest, places)
-            if operation == "recover_publication" else None
-        )
-        selected, decision_statuses, unresolved = resolve_conflicts(candidates, list(report["conflicts"]), approvals, digest)
-        blocking = [item for item in report["diagnostics"] if item.get("code") != "source-excluded"]
-        if unresolved:
-            blocking.extend({"code": "conflict-unresolved", "conflict_id": item["conflict_id"]} for item in unresolved)
-        result: dict[str, object] = {
-            "schema": SCHEMA,
-            "operation": operation,
-            "source_frontier_digest": digest,
-            "source_frontier": [candidate.frontier_record() for candidate in candidates],
-            "excluded_candidates": report["excluded_candidates"],
-            "conflicts": report["conflicts"],
-            "proposals": [item["proposed_resolution"] for item in report["conflicts"]],
-            "decision_provenance": decision_evidence,
-            "decision_statuses": decision_statuses,
-            "evidence_refs": {
-                "governed_bindings": governed_bindings(root, places),
-                **({"failed_publication": recovery_evidence} if recovery_evidence is not None else {}),
-            },
-            "run_receipt_refs": list(request.get("run_receipt_refs", [])),
-            "publication": {"prior_output_state": prior},
-            # Compatibility observables retained for callers of the original CLI.
-            "authority": "non_authoritative_dry_run",
-            "eligible_candidate_count": len(candidates),
-            "conflict_count": len(report["conflicts"]),
-            "unresolved_conflict_count": len(unresolved),
-            "selected_candidate_count": len(selected),
-            "output_plan": output_plan(selected),
-            "diagnostics": report["diagnostics"],
-            "can_apply": not blocking,
-        }
-        if operation == "dry_run":
-            result["outcome"] = "assessed" if not blocking else "blocked"
-            result["publishable"] = not blocking
-            if blocking:
-                result["blocking_findings"] = blocking
-            return result
-        if request["expected_source_frontier_digest"] != digest:
-            result.update(outcome="blocked", apply_status="BLOCKED", blocking_findings=[{"code": "assessment-frontier-stale"}], publishable=False, can_apply=False)
-            return result
-        if blocking:
-            result.update(outcome="blocked", apply_status="BLOCKED", blocking_findings=blocking, publishable=False, can_apply=False)
-            return result
-        validate_existing_output_ownership(root / places.output)
-        staging = stage_outputs(root, selected, snapshot, places)
-        # Stage validation is not a publication lock.  Recheck immediately at
-        # the effect boundary so a source change detected before replacement
-        # preserves the prior output.  A separate check below reports the
-        # residual race with external writers truthfully after an effect.
-        if not source_snapshot_is_current(root, snapshot, places):
-            shutil.rmtree(staging, ignore_errors=True)
-            raise CompileError(
-                "source-frontier-changed",
-                "Source frontier changed after staging and before output replacement",
-                phase="before-publication",
-                effect_state="none",
-            )
-        replace_outputs_atomically(root, staging, places)
-        if not source_snapshot_is_current(root, snapshot, places):
-            publication = {
-                "prior_output_state": prior,
-                "transaction_id": sha256_bytes(canonical_json({"source_frontier_digest": digest, "output": places.output.as_posix()})),
-                "output_plan": output_plan(selected),
-                # ``replace_outputs_atomically`` completed, but source
-                # freshness was lost after the boundary check.  This is not a
-                # completed publication: an external writer can still race a
-                # process-local check, so recovery must reassess the observed
-                # output rather than assuming an all-or-nothing transaction.
-                "effect_state": "output_replacement_completed",
-                "freshness_state": "source_frontier_changed_after_prepublication_check",
-            }
-            try:
-                publication["output_digest"] = generated_tree_digest(root, places)
-            except CompileError as observation_error:
-                publication["output_observation_error"] = observation_error.record()
-            result.update(
-                outcome="publication_recovery_required",
-                apply_status="EFFECT_APPLIED_STALE",
-                publishable=False,
-                can_apply=False,
-                blocking_findings=[
-                    CompileError(
-                        "source-frontier-changed-after-output-replacement",
-                        "Source frontier changed after output replacement; publication recovery is required",
-                        phase="after-publication-boundary-check",
-                        effect_state="output_replacement_completed",
-                    ).record()
-                ],
-                publication=publication,
-            )
-            return result
-        result["publication"] = {
-            "prior_output_state": prior,
-            "transaction_id": sha256_bytes(canonical_json({"source_frontier_digest": digest, "output": places.output.as_posix()})),
-            "output_digest": generated_tree_digest(root, places),
-            "output_plan": output_plan(selected),
-        }
-        # Run support owns the canonical action/publication receipt.  Retain
-        # supplied shared references as context, but never turn a caller's
-        # reference-shaped data into a completed Journal publication here.
-        result.update(outcome="pending_recording", apply_status="APPLIED", generated_tree_digest=result["publication"]["output_digest"], publishable=True)
-        return result
-    except CompileError as error:
-        if error.code == "atomic-replacement-uncertain":
-            prior = "uncertain"
-        return {
-            "schema": SCHEMA, "outcome": "blocked", "publishable": False,
-            "blocking_findings": [error.record()], "publication": {"prior_output_state": prior},
-            "source_frontier": None, "conflicts": [], "decision_provenance": [], "run_receipt_refs": [],
-            "apply_status": "BLOCKED", "can_apply": False, "diagnostics": [error.record()],
-        }
-
-
-def select_sources_action(request: Mapping[str, object]) -> dict[str, object]:
-    return run_request({**request, "operation": "dry_run"})
-
-
-def assess_sources_action(request: Mapping[str, object]) -> dict[str, object]:
-    return run_request({**request, "operation": "dry_run"})
-
-
-def propose_corrections_action(request: Mapping[str, object]) -> dict[str, object]:
-    result = run_request({**request, "operation": "dry_run"})
-    return {**result, "outcome": "reassess_required" if result.get("conflicts") else result["outcome"], "source_edit_supported": False}
-
-
-def obtain_decision_action(request: Mapping[str, object]) -> dict[str, object]:
-    return run_request({**request, "operation": "dry_run"})
-
-
-def apply_corrections_action(request: Mapping[str, object]) -> dict[str, object]:
-    result = run_request({**request, "operation": "dry_run"})
-    handoff = {
-        "kind": "source_owner_correction_request",
-        "source_edit_supported": False,
-        "required_follow_up_actions": ["CA-O-004", "CA-O-005"],
-    }
-    if result.get("outcome") == "blocked":
-        return {**result, "source_edit_supported": False, "correction_request_or_receipt": handoff}
-    return {
-        **result,
-        "outcome": "reassess_required",
-        "source_edit_supported": False,
-        "correction_request_or_receipt": handoff,
-        "reselection_required": True,
-        "reassessment_required": True,
-    }
-
-
-def publish_action(request: Mapping[str, object]) -> dict[str, object]:
-    result = run_request({**request, "operation": "apply"})
-    return {
-        **result,
-        "action_handoff": {
-            "workflow_id": WORKFLOW_ID,
-            "action_id": "CA-O-009",
-            "operation": "apply",
-            "run_receipt_behavior": "shared_passthrough_pending_canonical_recording",
-        },
-    }
-
-
-ACTION_ADAPTERS = {
-    "CA-O-004": select_sources_action,
-    "CA-O-005": assess_sources_action,
-    "CA-O-006": propose_corrections_action,
-    "CA-O-007": obtain_decision_action,
-    "CA-O-008": apply_corrections_action,
-    "CA-O-009": publish_action,
-}
-
-
-def run(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--root", type=Path, help="CAPRMEDIO Project root")
-    parser.add_argument("--apply", action="store_true", help="replace generated RMEDO output directories")
-    parser.add_argument("--recover-publication-ref", help="canonical failed-publication reference for recovery")
-    parser.add_argument("--request", type=Path, help="strict JSON request Carrier")
-    args = parser.parse_args(argv)
-    try:
-        if args.request:
-            if args.root or args.apply or args.recover_publication_ref:
-                raise request_error("request-mixed-cli-modes", "--request cannot be mixed with compatibility flags")
-            raw = json.loads(args.request.read_text(encoding="utf-8"))
-            if not isinstance(raw, dict):
-                raise request_error("request-invalid", "Strict request Carrier must contain one object")
-            result = run_request(raw)
-        else:
-            root = args.root.resolve() if args.root else find_project_root(Path.cwd())
-            places = methodology_paths(root)
-            operation = "recover_publication" if args.recover_publication_ref else ("apply" if args.apply else "dry_run")
-            request: dict[str, object] = {
-                "operation": operation,
-                "project_root": root.as_posix(),
-                "governed_bindings": governed_bindings(root, places),
-            }
-            if operation != "dry_run":
-                report, _, _ = compile_report(root, places)
-                request["expected_source_frontier_digest"] = report["source_frontier_digest"]
-            if args.recover_publication_ref:
-                request["failed_publication_ref"] = args.recover_publication_ref
-            result = run_request(request)
-        print(json.dumps(result, ensure_ascii=False, sort_keys=True, indent=2))
-        return 0 if result.get("outcome") in {"assessed", "pending_recording", "published"} else 2
-    except CompileError as error:
-        print(
-            json.dumps(
-                {
-                    "schema": SCHEMA,
-                    "authority": "non_authoritative_dry_run",
-                    "can_apply": False,
-                    "diagnostics": [error.record()],
-                },
-                ensure_ascii=False,
-                sort_keys=True,
-                indent=2,
-            )
-        )
-        return 2
-
-
-def _image_main():
-    return run()
-
-
-if __name__ == "__main__":
-    # Direct script execution needs the shared process boundary available from the tools root.
-    import sys
-    from pathlib import Path
-    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"FEATURE_TOOLS", "TOOLS"})
-    if str(_TOOLS_ROOT) not in sys.path:
-        sys.path.insert(0, str(_TOOLS_ROOT))
-    from runtime_process_boundary import run_process
-    raise SystemExit(run_process(_image_main, operation="COMPILE_APPLICABLE_METHODOLOGY/compile_applicable_methodology"))

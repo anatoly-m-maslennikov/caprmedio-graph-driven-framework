@@ -1,223 +1,92 @@
-# CA-E-798@1
+"""Project exclusions filter the native Workbench gateway without discovery."""
 
-"""One Project blacklist filters selected, registry and gateway MCP boundaries."""
-
-import json
 from pathlib import Path
 import sys
 import tempfile
-from types import SimpleNamespace
 import unittest
-from unittest.mock import AsyncMock, patch
+from unittest.mock import AsyncMock
 
-MCP = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(MCP))
-import implementation_server  # noqa: E402
-from capability_discovery.service import Service  # noqa: E402
-from TOOL_DISCOVER_TOOLS import discover_tools as provider  # noqa: E402
-from hot_reload import CONTROL, STATUS, Gateway  # noqa: E402
-from workbench_tools import NATIVE_TOOLS  # noqa: E402
-from mcp.server.mcpserver.exceptions import ToolError  # noqa: E402
-from mcp import Client  # noqa: E402
+from mcp.client._memory import InMemoryTransport
+from mcp.client.session import ClientSession
+
+MCP_ROOT = Path(__file__).resolve().parents[1]
+sys.path[:0] = [str(MCP_ROOT), str(MCP_ROOT.parent / "FEATURE_TOOLS")]
+from direct_gateway import DirectGateway  # noqa: E402
+from project_tool_blacklist import project_tool_blacklist  # noqa: E402
 from project_selection import ProjectSelection, bind_selection  # noqa: E402
-import test_hot_reload as hot_fixture  # noqa: E402
+from workbench_tools import NATIVE_TOOLS  # noqa: E402
 
 
 class MCPToolBlacklistTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
-        parent = MCP.parents[2] / ".caprmedio_tmp/tests/mcp-tool-blacklist"
-        parent.mkdir(parents=True, exist_ok=True)
-        temporary = tempfile.TemporaryDirectory(dir=parent)
+        temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
-        self.root = Path(temporary.name)
+        self.root = Path(temporary.name).resolve()
         self.control = self.root / ".caprmedio_fixture"
         self.control.mkdir()
         self.settings = self.control / "caprmedio_project_settings.toml"
-        self.write_settings('["release_version", "public.release"]')
 
     def write_settings(self, blacklist):
         self.settings.write_text(
             '[paths]\ncontrol_root = ".caprmedio_fixture"\n'
-            f"[project_mcp]\ntool_blacklist = {blacklist}\n"
+            f'[project_mcp]\ntool_blacklist = {blacklist}\n', encoding="utf-8",
         )
 
-    def create_server(self):
-        binding = {
-            "name": provider.TOOL_NAME,
-            "mcp_name": provider.MCP_NAME,
-            "entrypoint": provider.ENTRYPOINT,
-            "source_atom": provider.DELIVERY_ID,
-            "action_ids": [provider.ACTION_ID],
-            "source_path": "binding.md",
-            "sha256": "a" * 64,
-        }
-        manifest = {"routes": [{"route": "create_atom"}]}
-        self.frontiers = []
-        original = Service.bind_server_frontier
+    def test_no_settings_disables_no_tools(self):
+        self.assertEqual(frozenset(), project_tool_blacklist(self.root))
 
-        def bind(service, **frontier):
-            original(service, **frontier)
-            self.frontiers.append(service.exposed)
+    def test_local_settings_and_invalid_blacklist(self):
+        self.write_settings('["query_run"]')
+        self.assertEqual(frozenset({"query_run"}), project_tool_blacklist(self.root))
+        self.write_settings('"query_run"')
+        with self.assertRaises(ValueError):
+            project_tool_blacklist(self.root)
 
-        with (
-            patch("selected_routes.load_selected_manifest", return_value=manifest),
-            patch.object(Service, "catalog", return_value=({}, [binding], [])),
-            patch.object(Service, "bind_server_frontier", bind),
-        ):
-            return implementation_server.create_server(self.root)
+    def test_ambiguous_and_symlink_settings_are_rejected(self):
+        self.write_settings('[]')
+        second = self.root / ".caprmedio_second"
+        second.mkdir()
+        (second / self.settings.name).write_text("[paths]\n", encoding="utf-8")
+        with self.assertRaises(ValueError):
+            project_tool_blacklist(self.root)
+        (second / self.settings.name).unlink()
+        self.settings.rename(self.control / "actual.toml")
+        self.settings.symlink_to(self.control / "actual.toml")
+        with self.assertRaises(ValueError):
+            project_tool_blacklist(self.root)
 
-    async def test_release_exclusions_preserve_other_routes_and_discovery(self):
-        server = self.create_server()
-        names = {tool.name for tool in await server.list_tools()}
-        self.assertTrue(
-            {
-                "workflow_orchestrator",
-                "create_atom",
-                "get_selected_workflow_run",
-                "get_selected_action_run",
-                "discover_tools",
-            }
-            <= names
-        )
-        self.assertFalse({"release_version", "public.release"} & names)
-        self.assertIn(
-            names - {"get_selected_workflow_run", "get_selected_action_run"}, self.frontiers
-        )
-        for name in ("release_version", "public.release"):
-            with self.subTest(name=name), self.assertRaises(ToolError):
-                await server.call_tool(name, {"request": {}})
-        service = Service(self.root, exposed=names)
-        with patch("selected_routes.load_selected_manifest", side_effect=ValueError("fixture")):
-            self.assertEqual([], service._admitted_selected_route_tools([]))
+    async def test_gateway_lists_and_refuses_blacklisted_workbench_names(self):
+        self.write_settings('["workbench_ui_ping", "query_run"]')
+        gateway = DirectGateway(self.root)
+        await gateway.initialize()
+        try:
+            async with InMemoryTransport(gateway.build_server(), raise_exceptions=True) as streams:
+                async with ClientSession(*streams) as client:
+                    await client.initialize()
+                    names = {tool.name for tool in (await client.list_tools()).tools}
+                    self.assertEqual(set(NATIVE_TOOLS) - {"workbench_ui_ping", "query_run"}, names)
+                    response = await client.call_tool("workbench_ui_ping", {})
+                    self.assertTrue(response.is_error)
+                    self.assertEqual(["Unknown Tool"], response.structured_content["diagnostics"])
+        finally:
+            await gateway.close()
 
-    async def test_any_registered_name_can_be_excluded_without_constructing_provider(self):
-        self.write_settings(
-            '["workflow_orchestrator", "create_atom", "get_selected_action_run", "discover_tools"]'
-        )
-        with patch.object(provider, "create_adapter", side_effect=AssertionError("constructed")):
-            server = self.create_server()
-        names = {tool.name for tool in await server.list_tools()}
-        self.assertFalse(
-            {"workflow_orchestrator", "create_atom", "get_selected_action_run", "discover_tools"}
-            & names
-        )
-        self.assertTrue({"release_version", "public.release", "get_selected_workflow_run"} <= names)
-        for name in (
-            "workflow_orchestrator",
-            "create_atom",
-            "get_selected_action_run",
-            "discover_tools",
-        ):
-            with self.subTest(name=name), self.assertRaises(ToolError):
-                await server.call_tool(name, {"request": {}})
-
-    async def test_absent_list_and_unknown_exact_names_do_not_disable_tools(self):
-        self.write_settings('["Release_Version", "unknown_tool"]')
-        names = {tool.name for tool in await self.create_server().list_tools()}
-        self.assertIn("release_version", names)
-        self.settings.write_text('[paths]\ncontrol_root = ".caprmedio_fixture"\n')
-        self.assertEqual(frozenset(), Service(self.root).tool_blacklist())
-        self.assertEqual(names, {tool.name for tool in await self.create_server().list_tools()})
-
-    async def test_invalid_blacklist_refuses_startup(self):
-        for value in ('"release_version"', "[true]", '[""]'):
-            self.write_settings(value)
-            with self.subTest(value=value), self.assertRaises(ValueError):
-                self.create_server()
-
-    async def test_bound_settings_override_unselected_carrier_values(self):
+    async def test_startup_bound_settings_override_disk_and_block_forwarding(self):
+        self.write_settings('[]')
         selection = ProjectSelection(
-            self.root,
-            self.control,
-            Path(self.control.name),
-            "a" * 64,
-            {"project_mcp": {"tool_blacklist": ["create_atom"]}},
-            {},
-            (),
-            {},
-            "",
+            self.root, self.control, Path(self.control.name), "a" * 64,
+            {"project_mcp": {"tool_blacklist": ["echo"]}}, {}, (), {}, "",
         )
         with bind_selection(selection):
-            self.assertEqual(frozenset({"create_atom"}), Service(self.root).tool_blacklist())
-
-
-class GatewayBlacklistTests(unittest.IsolatedAsyncioTestCase):
-    setUp = hot_fixture.HotReload.setUp
-    write = hot_fixture.HotReload.write
-    params = hot_fixture.HotReload.params
-
-    async def test_gateway_blocks_builtin_and_child_advertised_tools(self):
-        control = self.root / ".caprmedio_fixture"
-        control.mkdir()
-        blocked = ["echo", CONTROL.name, STATUS.name, *NATIVE_TOOLS]
-        (control / "caprmedio_project_settings.toml").write_text(
-            '[paths]\ncontrol_root = ".caprmedio_fixture"\n'
-            f"[project_mcp]\ntool_blacklist = {json.dumps(blocked)}\n"
-        )
-        async with Client(self.params(), cache=None) as client:
-            self.assertEqual([], (await client.list_tools()).tools)
-            arguments = {
-                "workbench_ui_probe": {},
-                "workbench_ui_ping": {},
-                "query_run": {"sql": "SELECT 1"},
-                "query_check": {"sql": "SELECT 1"},
-                "query_page": {"query_id": "query", "offset": 0},
-                "query_schema": {},
-                "view_save": {"sql": "SELECT 1"},
-                "query_load": {"reference": "q_" + "0" * 32},
-                "query_saved_list": {},
-                "workspace_open": {"session_id": "session"},
-                "workspace_list": {},
-                "workspace_get": {"workspace_id": "workspace"},
-                "view_create": {"workspace_id": "workspace"},
-                "view_duplicate": {"workspace_id": "workspace", "view_id": "view"},
-                "view_list": {"workspace_id": "workspace"},
-                "view_get": {"workspace_id": "workspace", "view_id": "view"},
-                "view_update": {"workspace_id": "workspace", "view_id": "view", "sql": "SELECT 1", "expected_revision": 0},
-                "view_run": {"workspace_id": "workspace", "view_id": "view"},
-                "view_check": {"workspace_id": "workspace", "view_id": "view"},
-                "view_fetch": {"workspace_id": "workspace", "view_id": "view"},
-                "view_focus": {"workspace_id": "workspace", "view_id": "view"},
-                "view_rename": {"workspace_id": "workspace", "view_id": "view", "name": "View"},
-                "view_remove": {"workspace_id": "workspace", "view_id": "view"},
-                "query_log_list": {},
-                "query_log_get": {"log_id": "log"},
-                "workbench_restart": {},
-                "workbench_reread": {},
-                "workbench_status": {},
-            }
-            for name in blocked:
-                arguments_for_name = (
-                    {"request": {}}
-                    if name in {"echo", CONTROL.name, STATUS.name}
-                    else arguments[name]
-                )
-                response = await client.call_tool(name, arguments_for_name)
-                self.assertTrue(response.is_error)
-                self.assertEqual(["Unknown Tool"], response.structured_content["diagnostics"])
-
-    async def test_gateway_does_not_forward_blacklisted_name_to_old_child(self):
-        selection = ProjectSelection(
-            self.root,
-            self.root / ".caprmedio_fixture",
-            Path(".caprmedio_fixture"),
-            "a" * 64,
-            {"project_mcp": {"tool_blacklist": ["echo"]}},
-            {},
-            (),
-            {},
-            "",
-        )
-        gateway = Gateway(self.root, self.source, selection=selection)
-        client = SimpleNamespace(call_tool=AsyncMock())
-        gateway.active = SimpleNamespace(
-            client=client,
-            tools=[SimpleNamespace(name="echo")],
-            in_flight=0,
-        )
-        response = await gateway.call(None, SimpleNamespace(name="echo", arguments={}))
+            self.assertEqual(frozenset({"echo"}), project_tool_blacklist(self.root))
+        gateway = DirectGateway(self.root, selection=selection)
+        await gateway.initialize()
+        gateway.workbench.call = AsyncMock()
+        from mcp import types
+        response = await gateway.call(None, types.CallToolRequestParams(name="echo", arguments={}))
         self.assertTrue(response.is_error)
-        client.call_tool.assert_not_awaited()
+        gateway.workbench.call.assert_not_awaited()
+        await gateway.close()
 
 
 if __name__ == "__main__":

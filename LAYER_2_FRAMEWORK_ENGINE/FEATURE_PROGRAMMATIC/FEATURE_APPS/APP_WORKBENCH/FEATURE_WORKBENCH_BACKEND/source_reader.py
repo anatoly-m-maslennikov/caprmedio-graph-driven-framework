@@ -23,7 +23,7 @@ from .source_roles import HEADER_MARKER as _HEADER_MARKER, ROLE_MARKERS as _ROLE
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
-from atom_operations import control_root as configured_control_root, project_identity_prefix  # noqa: E402
+from project_settings_values import control_root as configured_control_root, project_identity_prefix  # noqa: E402
 from carrier_aliases import carrier_read_view  # noqa: E402
 from scope_unit_declarations import (  # noqa: E402
     ScopeDeclarationError,

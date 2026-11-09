@@ -38,7 +38,7 @@ class FakeGateway:
         self.status_error = None
         self.fail_initialize = False
         self.snapshot = {"initialized": False, "advertised_tools": [],
-                         "calls": [], "workflows": []}
+                         "calls": []}
         self.__class__.instances.append(self)
 
     def build_server(self):

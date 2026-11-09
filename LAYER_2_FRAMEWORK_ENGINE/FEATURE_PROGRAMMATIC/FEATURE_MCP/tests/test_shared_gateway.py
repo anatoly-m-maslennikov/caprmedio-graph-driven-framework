@@ -7,7 +7,6 @@ import json
 from pathlib import Path
 import sys
 import tempfile
-from types import SimpleNamespace
 import unittest
 
 MCP = Path(__file__).resolve().parents[1]
@@ -41,7 +40,8 @@ class _Gateway:
     def __init__(self, root, *, selection):
         self.root, self.selection = Path(root), selection
         self.tool_blacklist = self.blacklist_by_root.get(str(root), frozenset())
-        self.active = SimpleNamespace(tools=self.tools_by_root[str(root)])
+        self.ready = True
+        self.tools = self.tools_by_root[str(root)]
         self.closed = False
 
     async def initialize(self):
@@ -151,7 +151,7 @@ class SharedGatewayTests(unittest.IsolatedAsyncioTestCase):
         conflict = self._gateway()
         await conflict.initialize()
         self.addAsyncCleanup(conflict.close)
-        self.assertNotIn("echo", {tool.name for tool in conflict.active.tools})
+        self.assertNotIn("echo", {tool.name for tool in conflict.tools})
         self.assertIn(
             "PROJECT_TOOL_CONTRACT_CONFLICT", [row["code"] for row in conflict.status()["warnings"]]
         )

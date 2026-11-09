@@ -33,7 +33,7 @@ for location in (MCP, TOOLS, APP.parent, APP / "tests"):
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from http_paths import HEALTH_PATH, MCP_PATH  # noqa: E402
 from http_server import create_app  # noqa: E402
-from hot_reload import startup_selection  # noqa: E402
+from direct_gateway import startup_selection  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from workbench_tools import WorkbenchTools  # noqa: E402
 from smalltest_support import write_atom, write_settings  # noqa: E402
@@ -101,21 +101,7 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
         self.declaration_bytes = self.declaration.read_bytes()
         authority = Path(self.declarations["ENGINE"]["authority_path"])
         write_atom(authority / "04_requirement" / "source.md", "CA-R-501")
-        self.provider = self.root / "provider.py"
-        self.provider.write_text(
-            "from mcp.server import MCPServer\n"
-            "server = MCPServer('restart-fixture')\n"
-            "@server.tool(structured_output=True)\n"
-            "def echo() -> dict[str, str]: return {'value': 'ok'}\n"
-            "server.run(transport='stdio')\n",
-            encoding="utf-8",
-        )
-        self.app = create_app(
-            self.root,
-            implementation=self.provider,
-            selection=startup_selection(self.root),
-            hot_reload=True,
-        )
+        self.app = create_app(self.root, selection=startup_selection(self.root))
         extension_directory = REPOSITORY / ".caprmedio_tmp" / "workbench" / "extensions"
         self.app.gateway.workbench = _ConfiguredWorkbenchTools(self.root, extension_directory)
 
@@ -221,9 +207,9 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
             )
             self.assertEqual(200, restart_form.status_code)
             self.assertIn("Workbench is ready.", restart_form.text)
-            echo = await session.call_tool("echo", {})
-            self.assertFalse(echo.is_error, echo.structured_content)
-            self.assertEqual("ok", echo.structured_content["value"])
+            ping = await session.call_tool("workbench_ui_ping", {})
+            self.assertFalse(ping.is_error, ping.structured_content)
+            self.assertEqual({"message": "Tool bridge passed"}, ping.structured_content)
 
             invalid = self.declaration.with_suffix(".invalid")
             invalid.write_bytes(
@@ -261,9 +247,9 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
             fresh = await session.call_tool("query_run", {"sql": "SELECT 42"})
             self.assertFalse(fresh.is_error, fresh.structured_content)
             self.assertEqual([[42]], fresh.structured_content["rows"])
-            echo = await session.call_tool("echo", {})
-            self.assertFalse(echo.is_error, echo.structured_content)
-            self.assertEqual("ok", echo.structured_content["value"])
+            ping = await session.call_tool("workbench_ui_ping", {})
+            self.assertFalse(ping.is_error, ping.structured_content)
+            self.assertEqual({"message": "Tool bridge passed"}, ping.structured_content)
 
     async def test_restart_waits_for_a_cancelled_inflight_call(self) -> None:
         old = _BlockingService()

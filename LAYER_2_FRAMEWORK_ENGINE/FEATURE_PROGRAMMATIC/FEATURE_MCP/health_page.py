@@ -69,21 +69,12 @@ def _availability(value: object) -> str:
 
 
 def _gateway_availability(gateway: object) -> str:
-    generation = getattr(gateway, "active", None)
-    if generation is None:
-        return UNKNOWN
-    task = getattr(generation, "task", None)
-    if task is None or not callable(getattr(task, "done", None)):
-        return UNKNOWN
-    try:
-        return "unavailable" if task.done() else "available"
-    except Exception:
-        return UNKNOWN
+    ready = getattr(gateway, "ready", None)
+    return "available" if ready is True else "unavailable" if ready is False else UNKNOWN
 
 
 def _registry_availability(gateway: object) -> tuple[str, str]:
-    generation = getattr(gateway, "active", None)
-    tools = getattr(generation, "tools", None) if generation is not None else None
+    tools = getattr(gateway, "tools", None)
     if not isinstance(tools, Sequence) or isinstance(tools, (str, bytes, bytearray)):
         return UNKNOWN, UNKNOWN
     return "available", str(len(tools))
@@ -105,28 +96,6 @@ def _call_rows(calls: Sequence[Mapping[str, object]]) -> str:
             f"<td>{_cell(_field(call, 'returned_outcome', 'returned'))}</td>"
             f"<td>{_cell(_error(call))}</td>"
             f"<td>{_cell(_project(call))}</td>"
-            "</tr>"
-        )
-    return "".join(rows)
-
-
-def _workflow_rows(workflows: Sequence[Mapping[str, object]]) -> str:
-    if not workflows:
-        return (
-            '<tr><td colspan="7">No Workflow observations since gateway start; '
-            "outcome is unknown.</td></tr>"
-        )
-    rows = []
-    for workflow in workflows:
-        rows.append(
-            "<tr>"
-            f"<td>{_cell(_field(workflow, 'observed_at', 'timestamp', 'at'))}</td>"
-            f"<td>{_cell(_field(workflow, 'workflow_run_id', 'run_id', 'workflow'))}</td>"
-            f"<td>{_cell(workflow.get('scheduler_status'))}</td>"
-            f"<td>{_cell(workflow.get('outcome'))}</td>"
-            f"<td>{_cell(workflow.get('disposition'))}</td>"
-            f"<td>{_cell(_error(workflow))}</td>"
-            f"<td>{_cell(_project(workflow))}</td>"
             "</tr>"
         )
     return "".join(rows)
@@ -165,7 +134,6 @@ def render_health_page(
     gateway_status = _gateway_availability(gateway)
     registry_status, tool_count = _registry_availability(gateway)
     calls = _recent(snapshot.get("calls"))
-    workflows = _recent(snapshot.get("workflows"))
     contexts = _recent(snapshot.get("known_project_contexts"))
     readiness = "ready" if ready else "not ready"
     return f"""<!doctype html>
@@ -181,14 +149,14 @@ th{{background:#8882}}code{{overflow-wrap:anywhere}}.note{{color:#666}}
 </style></head><body>
 <h1>MCP health and history</h1>
 <section aria-labelledby="availability"><h2 id="availability">Availability</h2>
-<dl><dt>Active gateway generation readiness</dt><dd>{_cell(readiness)}</dd>
-<dt>Gateway task availability</dt><dd>{_cell(_availability(gateway_status))}</dd>
+<dl><dt>Gateway readiness</dt><dd>{_cell(readiness)}</dd>
+<dt>Gateway availability</dt><dd>{_cell(_availability(gateway_status))}</dd>
 <dt>Advertised registry availability</dt><dd>{_cell(_availability(registry_status))}
 ({_cell(tool_count)} tools advertised)</dd></dl></section>
 <p class="note">Process-local history since gateway start: {_cell(snapshot.get("started_at"))}.
-At most {MAX_HISTORY} Tool and {MAX_HISTORY} Workflow observations are retained;
+At most {MAX_HISTORY} Tool observations are retained;
 history resets when the gateway restarts. Missing or unobserved state remains unknown.</p>
-<p class="note">Provider and worker health are not probed; observations are historical and missing state is unknown.</p>
+<p class="note">Workbench health is not probed; observations are historical and missing state is unknown.</p>
 <p class="note">Safe error categories: timeout (deadline exceeded); connection (transport failure); returned-error (the Tool returned an error); uncertain (the call result could not be established).</p>
 <section aria-labelledby="workbench-actions"><h2 id="workbench-actions">Workbench</h2>
 {_workbench_control(shared=shared, action=restart_action, endpoint="workbench-restart", label="Restart Workbench")}
@@ -198,10 +166,6 @@ history resets when the gateway restarts. Missing or unobserved state remains un
 <section aria-labelledby="calls"><h2 id="calls">Recent Tool calls</h2><table>
 <thead><tr><th>Observed</th><th>Tool</th><th>Outcome</th><th>Returned outcome</th>
 <th>Safe error category</th><th>Project</th></tr></thead><tbody>{_call_rows(calls)}</tbody></table></section>
-<section aria-labelledby="workflows"><h2 id="workflows">Recent Workflow observations</h2><table>
-<thead><tr><th>Observed</th><th>Run</th><th>Scheduler status</th><th>Actual outcome</th>
-<th>Disposition</th><th>Safe error category</th><th>Project</th></tr></thead>
-<tbody>{_workflow_rows(workflows)}</tbody></table></section>
 </body></html>"""
 
 

@@ -1,20 +1,18 @@
 # CA-M-322@13
 # CA-R-1820@9
 
-"""MCP entry point with an optional implementation-reload mode."""
+"""MCP entry point for the native Workbench gateway."""
 import argparse
 import asyncio
 from pathlib import Path
 
-from direct_gateway import DirectGateway
-from hot_reload import Gateway, bind_selection, hot_reload_enabled, startup_selection
+from direct_gateway import DirectGateway, bind_selection, startup_selection
 from runtime_process_boundary import run_process
 
 def _serve_stdio(args):
     selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
     with bind_selection(selection):
-        gateway = Gateway if hot_reload_enabled() else DirectGateway
-        asyncio.run(gateway(args.project_root, selection=selection).serve())
+        asyncio.run(DirectGateway(args.project_root, selection=selection).serve())
 
 
 def main(argv=None):

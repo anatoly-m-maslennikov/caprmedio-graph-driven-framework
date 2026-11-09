@@ -1,4 +1,5 @@
-"""Canonical disposable provider and ASGI fixture for MCP health tests."""
+"""Native Workbench ASGI fixture with controlled backend outcomes."""
+import asyncio
 from pathlib import Path
 import sys
 import tempfile
@@ -26,49 +27,24 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
         self.temp = tempfile.TemporaryDirectory(dir=directory, ignore_cleanup_errors=True)
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        self.source = self.root / "provider.py"
-        self.marker = self.root / "provider.calls"
-        self._write_provider()
-        self.app = create_app(self.root, implementation=self.source, hot_reload=True)
+        self.marker = self.root / "backend.calls"
+        self.app = self.new_app()
 
-    def _write_provider(self):
-        self.source.write_text(
-            "import asyncio\n"
-            "from pathlib import Path\n"
-            "from mcp.server import MCPServer\n"
-            f"MARKER = Path({str(self.marker)!r})\n"
-            "server = MCPServer('health-fixture')\n"
-            "def mark(value):\n"
-            "    with MARKER.open('a', encoding='utf-8') as stream:\n"
-            "        stream.write(value + '\\n')\n"
-            "@server.tool(name='success', structured_output=True)\n"
-            "def success(secret: str = '') -> dict[str, str]:\n"
-            "    mark('success')\n"
-            "    return {'outcome': 'completed', 'secret': secret, 'result': 'fixture-result'}\n"
-            "@server.tool(name='partial', structured_output=True)\n"
-            "def partial() -> dict[str, str]:\n"
-            "    return {'outcome': 'partial', 'result': 'partial-result'}\n"
-            "@server.tool(name='unsafe', structured_output=True)\n"
-            f"def unsafe() -> dict[str, str]:\n    return {{'outcome': {SECRET!r}, 'disposition': {PROVIDER_DIAGNOSTIC!r}, 'error': {SECRET!r}}}\n"
-            "@server.tool(name='raise_error', structured_output=True)\n"
-            "def raise_error() -> dict[str, str]:\n"
-            f"    raise RuntimeError({PROVIDER_DIAGNOSTIC!r})\n"
-            "@server.tool(name='alpha', structured_output=True)\n"
-            "async def alpha(delay: float = 0.02) -> dict[str, str]:\n"
-            "    await asyncio.sleep(delay)\n"
-            "    return {'outcome': 'completed', 'worker': 'alpha'}\n"
-            "@server.tool(name='beta', structured_output=True)\n"
-            "async def beta(delay: float = 0.02) -> dict[str, str]:\n"
-            "    await asyncio.sleep(delay)\n"
-            "    return {'outcome': 'completed', 'worker': 'beta'}\n"
-            "@server.tool(name='slow', structured_output=True)\n"
-            "async def slow(delay: float = 30.0) -> dict[str, str]:\n"
-            "    mark('slow-started')\n"
-            "    await asyncio.sleep(delay)\n"
-            "    return {'outcome': 'completed', 'worker': 'slow'}\n"
-            "server.run(transport='stdio')\n",
-            encoding="utf-8",
-        )
+    async def backend_call(self, name, arguments):
+        if name == "query_schema":
+            return {"outcome": "completed", "secret": arguments.get("secret"), "result": "fixture-result"}
+        if name == "query_page":
+            return {"outcome": "partial", "result": "partial-result"}
+        if name == "query_load":
+            return {"outcome": SECRET, "disposition": PROVIDER_DIAGNOSTIC, "error": SECRET}
+        if name == "query_check":
+            raise RuntimeError(PROVIDER_DIAGNOSTIC)
+        if name == "query_run":
+            self.marker.write_text("slow-started")
+            await asyncio.sleep(arguments.get("delay", 0))
+        if name in {"workspace_list", "query_saved_list"}:
+            await asyncio.sleep(arguments.get("delay", 0))
+        return {"outcome": "completed", "worker": name}
 
     def headers(self, **extra):
         return {"host": "127.0.0.1:18092", **extra}
@@ -77,7 +53,9 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
         return self.app.starlette_app.router.lifespan_context(self.app.starlette_app)
 
     def new_app(self):
-        return create_app(self.root, implementation=self.source, hot_reload=True)
+        app = create_app(self.root)
+        app.gateway.workbench.call = self.backend_call
+        return app
 
     def raw_client(self):
         return httpx2.AsyncClient(
@@ -108,9 +86,6 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
     def outcome(row):
         return row.get("outcome", row.get("actual_outcome"))
 
-    @staticmethod
-    def run_id(row):
-        return row.get("run_id", row.get("workflow_run_id", row.get("actual_run_id")))
 
 
 if __name__ == "__main__":

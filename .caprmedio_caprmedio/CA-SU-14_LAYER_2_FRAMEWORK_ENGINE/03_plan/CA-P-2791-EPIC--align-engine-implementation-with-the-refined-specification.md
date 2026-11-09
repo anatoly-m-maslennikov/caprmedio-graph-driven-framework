@@ -13,8 +13,8 @@ context:
   label: Epic
 state:
   status: Backlog
-  version: 11
-  updated_at: 2026-11-09 22:36:42 +0400
+  version: 12
+  updated_at: 2026-11-09 23:01:48 +0400
 destination:
   file:
     name: CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification.md
@@ -96,3 +96,9 @@ Reconcile query extraction with the latest model-declared named Header values be
 ## Reopened source-evidence review
 
 P2767 is Active again for P2845, reviewing recently created I7/I8/I9. The final Summary-merge baseline remains adopted. Keep P2811 Backlog until this bounded evidence review is integrated; do not infer that old Synopsis/module pins have already been reconciled with Current contracts.
+
+## Code Synopsis review checkpoint
+
+P2845 reviewed all three recent Synopses. Use Current I7/I8 at Version 2 as source evidence. P2812 must implement Current M468 and verify the two reproduced completion failures; passing workspace/helper tests are insufficient acceptance. P2813 retains the C712 mixed update/delete reproduction and exact pin reconciliation; static code-path presence does not resolve that Concern. Existing M500/D672 already cover the schema-asset distinction, so do not invent a relocation from missing package-local evidence.
+
+MCP I9 adoption is held under C714/P2847 because concurrent code changes removed its selected-route registration file and changed dispatch code during review. Source I9 remains at Version 1. P2814 must use the freshly reviewed source state after that follow-up; do not restore removed code solely to match the old Synopsis. P2767 stays Active and this implementation Epic stays Backlog. No implementation or runtime acceptance was performed by the source review.

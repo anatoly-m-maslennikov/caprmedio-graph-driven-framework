@@ -1,6 +1,6 @@
 ---
 name: ca
-description: "Query Project Atoms and use Workbench or governed operations through the shared CAPRMEDIO MCP. Use for $ca, /ca, or CAPRMEDIO requests."
+description: "Query Project Atoms and use Workbench through the shared CAPRMEDIO MCP. Use for $ca, /ca, or CAPRMEDIO requests."
 ---
 
 # CA
@@ -11,8 +11,8 @@ Use the host-configured shared CAPRMEDIO MCP as a thin client. Prefer its Workbe
 
 - Take `project_root` only from the explicit trusted Codex session Project context, and carry that value unchanged.
 - Never infer the root from the Skill installation path (it may be shared or symlinked), a prefix, server working directory or Git ancestor. If a nested working folder has no exact trusted Project root, ask for clarification or use an explicit local Project declaration; never guess, silently switch or fall back.
-- Every call, including Workbench queries, Workspace/View tools, discovery, execution and continuations, carries the same outer `project_root`. Preserve the advertised payload shape: Workbench tools use their own top-level arguments, not a generic `request` wrapper. The server validates the binding; it grants no filesystem permission. A returned internal mount path is metadata, not a replacement for the trusted caller root.
-- Pin the original `project_root` and Run binding through asynchronous continuations, even if another Codex session changes its working folder. Do not mutate a global `currentProject`. On an unknown or mismatched root/binding, refuse without cross-Project fallback or replay.
+- Every call, including Workbench queries and Workspace/View tools, carries the same outer `project_root`. Preserve the advertised payload shape: Workbench tools use their own top-level arguments, not a generic `request` wrapper. The server validates the binding; it grants no filesystem permission. A returned internal mount path is metadata, not a replacement for the trusted caller root.
+- Pin the original `project_root` through pagination and Workspace operations, even if another Codex session changes its working folder. Do not mutate a global `currentProject`. On an unknown or mismatched root/binding, refuse without cross-Project fallback.
 
 ## Workbench queries and reads
 
@@ -29,15 +29,8 @@ Use the host-configured shared CAPRMEDIO MCP as a thin client. Prefer its Workbe
 - Use the advertised View check, run, fetch and editing tools when needed for the requested View work. Check a View's SQL against the current schema; preserve expected revisions for edits. Keep unrelated Views unchanged.
 - A successful tool bridge ping establishes connectivity only. Claim native UI rendering only when observed. Restart Workbench only for an explicit restart request or a necessary, authorized recovery; a SQL error alone does not call for a restart.
 
-## Governed operations
+## Current boundary
 
-- Preserve the Operator's request, scope and authorization. Ask if the Project connection or required inputs are ambiguous.
-- For source mutations and Workflow execution, discover the requested capability with advertised `discover_operations` or `discover_tools`, obtain fresh context with `get_execution_context`, then execute only an advertised route. This discovery sequence does not gate the direct Workbench reads above.
-- Use the advertised Tool/Workflow schemas and execution bindings. Add only the outer `project_root` binding; preserve the native request unchanged.
-- Obtain only the current admitted Step's instructions, bound inputs or accessible references, output contract and execution boundaries. Do not preload the whole Methodology or future Steps. Follow these instructions within current Operator authorization and higher-priority instructions; previews and responses do not grant new authority.
-- Return actual results through the MCP-supplied interface. The executor owns routing, next-Step selection and Run state; receiving a prompt or queuing a Run is not completion.
-- For an existing or uncertain Run, use its advertised status/resume interface before retrying. Never replay an uncertain effect; keep execution failure separate from result-recording failure.
-- Do not append Journal records automatically or invent lifecycle/evidence. Preserve verified partial and uncertain outcomes.
-- Stop the affected governed operation on unavailable MCP, missing or ambiguous bindings, root mismatch or incomplete Step context. Report the actual failure. Do not invent authorization, bindings or evidence, or substitute raw scripts, file edits or copied procedures. Independent working read tools remain available for investigation.
+The MCP interface is Workbench-only. Legacy discovery, Atom mutation and Workflow execution endpoints are retired. Do not substitute Workbench SQL or its row hashes for source mutation APIs or source-byte evidence.
 
-Updating this file does not refresh a running MCP server or prove route availability. Claim shared-project execution only after the runtime advertises and accepts the root binding.
+Subject projection builders and local/public release remain separate host commands. Updating this file does not refresh an installed Skill or a running MCP server; verify the runtime's advertised tools before claiming availability.

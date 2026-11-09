@@ -9,7 +9,6 @@ import os
 from pathlib import Path
 import re
 import subprocess
-import tempfile
 
 try:
     from .image_reference import IMMUTABLE_IMAGE, image_reference
@@ -125,49 +124,6 @@ class Runtime:
             if path.is_symlink():
                 raise ValueError("Runtime mounts must not be symlinks")
             path.mkdir(exist_ok=True)
-        directory = self.root / ".caprmedio_install"
-        for name in ("workflow_orchestrator", "docker"):
-            directory /= name
-            if directory.is_symlink():
-                raise ValueError("Runtime routing directories must not be symlinks")
-            directory.mkdir(exist_ok=True)
-        marker = directory / "transport.json"
-        if marker.is_symlink() or (marker.exists() and not marker.is_file()):
-            raise ValueError("Unsafe runtime routing marker")
-
-    def start(self):
-        self.prepare()
-        self._ensure_launch_image()
-        self.call(
-            "up",
-            "-d",
-            "--wait",
-            "--wait-timeout",
-            "60",
-            "--force-recreate",
-            "worker",
-            timeout=90,
-        )
-        marker = self.root / ".caprmedio_install/workflow_orchestrator/docker/transport.json"
-        descriptor, name = tempfile.mkstemp(prefix="transport-", suffix=".json", dir=marker.parent)
-        temporary = Path(name)
-        try:
-            with os.fdopen(descriptor, "w") as handle:
-                json.dump({"transport": "docker", "project_name": self.project}, handle)
-                handle.flush()
-                os.fsync(handle.fileno())
-            temporary.replace(marker)
-        finally:
-            temporary.unlink(missing_ok=True)
-        return {
-            "runtime": "docker",
-            "project_name": self.project,
-            "outcome": "ready",
-        }
-
-    def stop(self):
-        self.call("stop", "worker", timeout=60)
-        return {"runtime": "docker", "outcome": "stopped", "persistent_state": "retained"}
 
     def status(self):
         raw = self.call("ps", "--all", "--format", "json")
@@ -259,7 +215,7 @@ def main():
                         help="Assert the Project Settings HTTP port for project-mcp (1..65535)")
     parser.add_argument("--output", choices=["json", "url"], default="json", help="Project MCP result format")
     parser.add_argument(
-        "operation", choices=["build", "start", "stop", "restart", "status", "logs", "mcp",
+        "operation", choices=["build", "status", "logs", "mcp",
                               "mcp-http-start", "mcp-http-stop", "mcp-http-status", "project-mcp"]
     )
     args = parser.parse_args()
@@ -274,12 +230,6 @@ def main():
     runtime = Runtime(args.project_root, image=args.image)
     if args.operation == "build":
         print(runtime.build())
-    elif args.operation in ("start", "restart"):
-        if args.operation == "restart":
-            runtime.stop()
-        print(json.dumps(runtime.start()))
-    elif args.operation == "stop":
-        print(json.dumps(runtime.stop()))
     elif args.operation == "status":
         print(json.dumps(runtime.status()))
     elif args.operation == "logs":

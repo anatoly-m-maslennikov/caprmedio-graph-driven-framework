@@ -18,8 +18,7 @@ from starlette.routing import Route
 
 from health_page import render_health_page
 from health_actions import restart_workbench, reread_workbench
-from direct_gateway import DirectGateway
-from hot_reload import Gateway, bind_selection, hot_reload_enabled, startup_selection
+from direct_gateway import DirectGateway, bind_selection, startup_selection
 from http_paths import HEALTH_PATH, MCP_PATH
 from mcp.server.transport_security import TransportSecuritySettings
 from operation_error_boundary import FailureRecord
@@ -115,8 +114,7 @@ def _accepts_html(value):
 
 
 def _gateway_ready(gateway):
-    generation = gateway.active
-    return generation is not None and not generation.task.done()
+    return gateway.ready
 
 
 async def health(request, gateway, restart_action=None, reread_action=None):
@@ -154,9 +152,8 @@ async def health(request, gateway, restart_action=None, reread_action=None):
     return HTMLResponse(page, status_code=status_code, headers=headers)
 
 
-def create_app(root, implementation=None, *, selection=None, hot_reload=False):
-    gateway_type = Gateway if hot_reload else DirectGateway
-    gateway = gateway_type(root, implementation=implementation, selection=selection)
+def create_app(root, *, selection=None):
+    gateway = DirectGateway(root, selection=selection)
     server = gateway.build_server()
     async def readiness(request):
         return await health(request, gateway)
@@ -209,7 +206,7 @@ def _serve(args):
     import uvicorn
     selection = startup_selection(args.project_root, args.control_root, args.instance_id, args.host_project_root)
     uvicorn.run(
-        create_app(args.project_root, selection=selection, hot_reload=hot_reload_enabled()),
+        create_app(args.project_root, selection=selection),
         host=args.host, port=args.port, log_level="warning",
     )
 

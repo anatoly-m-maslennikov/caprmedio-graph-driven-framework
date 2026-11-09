@@ -16,7 +16,6 @@ from project_selection import resolve_project
 from scope_declaration_parse import ScopeDeclarationError, parse_scope_unit_declaration
 from scope_declaration_render import PROJECT, render_scope_declaration
 from scope_unit_declarations import _selects_structural_form, read_scope_unit_declarations
-from header_groups import nested_header
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
@@ -348,7 +347,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         _, parent_source, child_source = self.complete_tree()
         raw = parent_source.read_text(encoding="utf-8")
         _, frontmatter, body = raw.split("---", 2)
-        header = nested_header(yaml.safe_load(frontmatter))
+        header = yaml.safe_load(frontmatter)
         header["context"]["form"] = "Scope Delegation"
         parent_source.write_text(
             "---\n" + yaml.safe_dump(header, sort_keys=False) + "---" + body,
@@ -368,7 +367,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
             with self.subTest(serializer=serializer):
                 _, parent_source, _ = self.complete_tree()
                 _, frontmatter, body = parent_source.read_text(encoding="utf-8").split("---", 2)
-                header = nested_header(yaml.safe_load(frontmatter))
+                header = yaml.safe_load(frontmatter)
                 header["context"]["form"] = "Scope Delegation"
                 parent_source.write_text("---\n" + serializer(header) + "---" + body, encoding="utf-8")
 

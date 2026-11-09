@@ -12,11 +12,6 @@ from health_observations import HealthObservations  # noqa: E402
 
 
 SAFE_ERROR_CATEGORIES = {"timeout", "connection", "returned-error", "uncertain"}
-SAFE_OUTCOMES = {
-    "completed", "no_op", "failed", "partial", "cancelled", "interrupted_pending",
-    "uncertain", "rejected", "returned", "success", "unknown",
-}
-SAFE_DISPOSITIONS = {"terminal", "started", "queued", "recording_pending", "uncertain", "unknown"}
 FORBIDDEN_FIELDS = {"args", "arguments", "response", "result", "path", "provider_error"}
 
 
@@ -24,8 +19,6 @@ def _row_error(row):
     return row.get("error_category", row.get("error"))
 
 
-def _run_id(row):
-    return row.get("run_id", row.get("workflow_run_id", row.get("actual_run_id")))
 
 
 class HealthObservationsTests(unittest.TestCase):
@@ -43,12 +36,12 @@ class HealthObservationsTests(unittest.TestCase):
             )
 
         snapshot = self.observations.snapshot()
-        self.assertEqual({"started_at", "calls", "workflows"}, set(snapshot))
+        self.assertEqual({"started_at", "calls"}, set(snapshot))
         self.assertEqual(started_at, snapshot["started_at"])
         self.assertEqual(32, len(snapshot["calls"]))
         self.assertEqual([f"tool-{index}" for index in range(8, 40)],
                          [row["name"] for row in snapshot["calls"]])
-        self.assertEqual([], snapshot["workflows"])
+        self.assertNotIn("workflows", snapshot)
 
         encoded = json.dumps(snapshot, sort_keys=True)
         for secret in ("SECRET_ARGUMENT", "SECRET_RESULT", "/private/argument/path",
@@ -77,41 +70,6 @@ class HealthObservationsTests(unittest.TestCase):
         self.assertNotIn("/srv/project/secret", encoded)
         self.assertNotIn("SECRET_PROVIDER_TEXT", encoded)
 
-    def test_workflow_observations_keep_scheduler_and_actual_state_separate(self):
-        self.observations.record(
-            "workflow_orchestrator",
-            {"request": {"run_id": "requested-pending", "secret": "SECRET_ARGUMENT"}},
-            {
-                "workflow_run_id": "actual-pending",
-                "scheduler_status": "SUCCESS",
-                "outcome": "interrupted_pending",
-                "disposition": "started",
-            },
-        )
-        self.observations.record(
-            "workflow_orchestrator",
-            {"request": {"run_id": "requested-unknown", "secret": "SECRET_ARGUMENT"}},
-            {"workflow_run_id": "actual-unknown", "scheduler_status": "SUCCESS"},
-        )
-
-        snapshot = self.observations.snapshot()
-        self.assertEqual(2, len(snapshot["calls"]))
-        self.assertEqual({"workflow_orchestrator"}, {row["name"] for row in snapshot["calls"]})
-        self.assertEqual(2, len(snapshot["workflows"]))
-        pending, unknown = snapshot["workflows"]
-        self.assertEqual("actual-pending", _run_id(pending))
-        self.assertNotEqual("requested-pending", _run_id(pending))
-        self.assertEqual("SUCCESS", pending["scheduler_status"])
-        self.assertEqual("interrupted_pending", pending["outcome"])
-        self.assertEqual("started", pending["disposition"])
-        self.assertEqual("SUCCESS", unknown["scheduler_status"])
-        self.assertEqual("unknown", unknown["outcome"])
-        self.assertEqual("actual-unknown", _run_id(unknown))
-        for row in snapshot["workflows"]:
-            self.assertIn(row["outcome"], SAFE_OUTCOMES)
-            self.assertIn(row["disposition"], SAFE_DISPOSITIONS)
-        encoded = json.dumps(snapshot, sort_keys=True)
-        self.assertNotIn("SECRET_ARGUMENT", encoded)
 
     def test_invalid_tool_names_do_not_become_truncated_paths(self):
         self.observations.record("../../private/provider-secret", {}, {"outcome": "completed"})
@@ -143,7 +101,7 @@ class HealthObservationsTests(unittest.TestCase):
         restarted = HealthObservations()
         snapshot = restarted.snapshot()
         self.assertEqual([], snapshot["calls"])
-        self.assertEqual([], snapshot["workflows"])
+        self.assertNotIn("workflows", snapshot)
         self.assertIsInstance(snapshot["started_at"], str)
 
 

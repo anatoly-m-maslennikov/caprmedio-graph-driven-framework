@@ -14,7 +14,6 @@ TOOLS = MCP.parent / "FEATURE_TOOLS"
 sys.path[:0] = [str(MCP), str(TOOLS)]
 
 from health_observations import HealthObservations  # noqa: E402
-from hot_reload import Gateway  # noqa: E402
 from mcp import types  # noqa: E402
 from project_selection import ProjectSelection  # noqa: E402
 from shared_gateway import SharedGateway  # noqa: E402
@@ -28,14 +27,6 @@ def _params() -> types.CallToolRequestParams:
 
 
 class MetaForwardingTests(unittest.IsolatedAsyncioTestCase):
-    async def test_single_gateway_forwards_meta_to_implementation_client(self) -> None:
-        with tempfile.TemporaryDirectory() as directory:
-            client = AsyncMock(return_value=types.CallToolResult(content=[]))
-            gateway = Gateway(Path(directory))
-            params = _params().model_copy(update={"arguments": {"request": "value"}})
-            await gateway._implementation_call(None, params, SimpleNamespace(client=client))
-            self.assertEqual(params.meta, client.call_tool.await_args.kwargs["meta"])
-
     async def test_shared_gateway_preserves_meta_when_stripping_project_root(self) -> None:
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

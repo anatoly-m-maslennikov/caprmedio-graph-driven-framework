@@ -37,7 +37,6 @@ from runtime_process_boundary import run_process
 from workbench_web import routes as workbench_routes
 
 from shared_gateway import SharedGateway
-from hot_reload import Gateway, hot_reload_enabled
 
 
 def _snapshot_failure() -> None:
@@ -161,11 +160,7 @@ def _serve(args: argparse.Namespace) -> Any:
     config = load_host_runtime_config(args.host_settings)
     import uvicorn
 
-    gateway_factory = Gateway if hot_reload_enabled() else None
-    if gateway_factory is None:
-        app = create_app(config)
-    else:
-        app = create_app(config, gateway_factory=lambda runtime: SharedGateway(runtime, gateway_factory=Gateway))
+    app = create_app(config)
     uvicorn.run(app, host="0.0.0.0", port=PORT, log_level="warning")
 
 

@@ -8,7 +8,6 @@ from __future__ import annotations
 
 import asyncio
 from collections.abc import Awaitable
-from types import SimpleNamespace
 from typing import Any, Callable
 
 from mcp import types
@@ -57,30 +56,28 @@ class SharedGateway:
         self.gateway_factory = gateway_factory
         self.pool = SharedProjectPool(config.max_loaded_projects, gateway_factory)
         self.frontier = None
-        self.active = None
+        self.ready = False
+        self.tools = []
         self.server = None
         self._known_projects: dict[str, dict[str, str]] = {}
         self.health_observations = HealthObservations()
 
     async def initialize(self) -> None:
-        if self.active is not None:
+        if self.ready:
             return
         self.frontier = await discover_frontier(self.config, self.gateway_factory)
-        self.active = SimpleNamespace(
-            task=asyncio.get_running_loop().create_future(),
-            tools=[contract.tool for contract in self.frontier.tools.values()],
-        )
+        self.tools = [contract.tool for contract in self.frontier.tools.values()]
+        self.ready = True
 
     async def close(self) -> None:
+        self.ready = False
         await self.pool.close()
-        if self.active is not None and not self.active.task.done():
-            self.active.task.set_result(None)
 
     def status(self) -> dict[str, object]:
         frontier = self.frontier
         return {
             "shared_runtime_id": self.config.shared_runtime_id,
-            "initialized": self.active is not None and not self.active.task.done(),
+            "initialized": self.ready,
             "advertised_tools": sorted(frontier.tools) if frontier is not None else [],
             "warnings": list(frontier.warnings) if frontier is not None else [],
             "known_project_contexts": list(self._known_projects.values()),

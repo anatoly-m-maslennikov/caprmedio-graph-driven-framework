@@ -3,7 +3,7 @@ import asyncio
 import json
 from pathlib import Path
 import sys
-from types import SimpleNamespace
+from mcp import types
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from health_fixture import HealthHTTPFixture, PROVIDER_DIAGNOSTIC, SECRET
@@ -22,11 +22,11 @@ class HealthGatewayCallTests(HealthHTTPFixture):
         async with self.lifespan():
             client, transport, session = await self.session()
             try:
-                returned = await session.call_tool("success", {"secret": SECRET})
+                returned = await session.call_tool("query_schema", {"secret": SECRET})
                 rejected = await session.call_tool("not_registered", {})
-                partial = await session.call_tool("partial", {})
-                unsafe = await session.call_tool("unsafe", {})
-                uncertain = await session.call_tool("raise_error", {})
+                partial = await session.call_tool("query_page", {})
+                unsafe = await session.call_tool("query_load", {})
+                uncertain = await session.call_tool("query_check", {})
                 self.assertFalse(returned.is_error)
                 self.assertTrue(rejected.is_error)
                 self.assertFalse(partial.is_error)
@@ -34,14 +34,14 @@ class HealthGatewayCallTests(HealthHTTPFixture):
                 self.assertTrue(uncertain.is_error)
 
                 snapshot = self.app.gateway.health_observations.snapshot()
-                self.assertEqual([], snapshot["workflows"])
+                self.assertNotIn("workflows", snapshot)
                 rows = {row["name"]: row for row in snapshot["calls"]}
-                self.assertTrue({"success", "not_registered", "partial", "unsafe", "raise_error"} <= set(rows))
-                self.assertIn(self.outcome(rows["success"]), {"completed", "returned", "success", "no_op"})
+                self.assertTrue({"query_schema", "not_registered", "query_page", "query_load", "query_check"} <= set(rows))
+                self.assertIn(self.outcome(rows["query_schema"]), {"completed", "returned", "success", "no_op"})
                 self.assertEqual("rejected", self.outcome(rows["not_registered"]))
-                self.assertIn(self.outcome(rows["partial"]), {"partial", "failed", "returned"})
-                self.assertIn(self.outcome(rows["unsafe"]), SAFE_OUTCOMES)
-                self.assertIn(self.outcome(rows["raise_error"]), {"returned", "uncertain"})
+                self.assertIn(self.outcome(rows["query_page"]), {"partial", "failed", "returned"})
+                self.assertIn(self.outcome(rows["query_load"]), SAFE_OUTCOMES)
+                self.assertIn(self.outcome(rows["query_check"]), {"returned", "uncertain", "failed"})
                 for row in rows.values():
                     error = row.get("error_category", row.get("error"))
                     if error is not None:
@@ -64,11 +64,11 @@ class HealthGatewayCallTests(HealthHTTPFixture):
             client, transport, session = await self.session()
             try:
                 await asyncio.gather(
-                    *(session.call_tool(name, {"delay": 0.02}) for name in ("alpha", "beta") * 4)
+                    *(session.call_tool(name, {"delay": 0.02}) for name in ("workspace_list", "query_saved_list") * 4)
                 )
                 rows = self.app.gateway.health_observations.snapshot()["calls"]
                 self.assertEqual(8, len(rows))
-                self.assertEqual({"alpha", "beta"}, {row["name"] for row in rows})
+                self.assertEqual({"workspace_list", "query_saved_list"}, {row["name"] for row in rows})
                 self.assertNotIn("worker", json.dumps(rows))
             finally:
                 await self.close_session(client, transport, session)
@@ -76,7 +76,7 @@ class HealthGatewayCallTests(HealthHTTPFixture):
     async def test_cancelled_real_gateway_call_propagates_and_is_not_returned(self):
         async with self.lifespan():
             pending = asyncio.create_task(self.app.gateway.call(
-                None, SimpleNamespace(name="slow", arguments={"delay": 30.0})))
+                None, types.CallToolRequestParams(name="query_run", arguments={"delay": 30.0})))
             try:
                 marker = ""
                 for _ in range(50):
@@ -89,7 +89,7 @@ class HealthGatewayCallTests(HealthHTTPFixture):
                 with self.assertRaises(asyncio.CancelledError):
                     await pending
                 rows = [row for row in self.app.gateway.health_observations.snapshot()["calls"]
-                        if row["name"] == "slow"]
+                        if row["name"] == "query_run"]
                 self.assertEqual(1, len(rows))
                 self.assertIn(self.outcome(rows[0]), {"uncertain", "interrupted_pending"})
                 self.assertNotEqual("returned", self.outcome(rows[0]))
@@ -111,4 +111,4 @@ class HealthGatewayCallTests(HealthHTTPFixture):
 
         second = self.new_app()
         self.assertEqual([], second.gateway.health_observations.snapshot()["calls"])
-        self.assertEqual([], second.gateway.health_observations.snapshot()["workflows"])
+        self.assertNotIn("workflows", second.gateway.health_observations.snapshot())

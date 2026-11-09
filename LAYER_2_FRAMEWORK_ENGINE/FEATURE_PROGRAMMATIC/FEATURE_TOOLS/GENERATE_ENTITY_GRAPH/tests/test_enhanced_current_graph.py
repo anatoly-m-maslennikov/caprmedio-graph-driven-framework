@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
 import sys
 import tempfile
@@ -17,9 +16,7 @@ from current_entity_sources import (  # noqa: E402
     build_current_model_graph,
 )
 from current_subject_graph import compose_current_graph, compose_enhanced_current_graph, subject_facts  # noqa: E402
-from generate_entity_graph import AtomCarrier, EntityGraphError, discover_atoms, parse_subject_relations  # noqa: E402
 from readable_entity_tree import render_model  # noqa: E402
-import subject_notation  # noqa: E402
 
 
 def source(atom_id: str) -> dict[str, object]:
@@ -268,51 +265,8 @@ Independence |< Node == Primary Node
         self.assertEqual(("Node", "Independence", "Primary Node"),
                          (classification["subject_selector"], classification["axis"], classification["value"]))
 
-    def test_role_form_and_subject_aliases_are_read_without_changing_carrier_evidence(self) -> None:
-        atom = AtomCarrier(
-            atom_id="CA-R-1001", version=1, cce_form="", content_role="Requirement",
-            atom_type="Declaration", status="Active", carrier_path="sources/CA-R-1001.md",
-            sha256="a" * 64,
-            frontmatter="subjects:\n  active: Node\n  passive: []\n",
-            body="",
-        )
-        relations, diagnostics = parse_subject_relations(atom, subject_profile="approved")
-        self.assertEqual([], diagnostics)
-        self.assertEqual([("GOVERNS", "active")], [(row.kind, row.source_schema_key) for row in relations])
-        parsed = subject_notation.parse_subject_expression("Atom/(.Role:= Method)")
-        self.assertEqual("Atom/(.Role:=Method)", subject_notation.render_subject(parsed))
 
-    def test_conflicting_mixed_aliases_are_rejected_by_canonical_reader(self) -> None:
-        atom = AtomCarrier(
-            atom_id="CA-R-1001", version=1, cce_form="", content_role="Requirement",
-            atom_type="Declaration", status="Active", carrier_path="sources/CA-R-1001.md",
-            sha256="a" * 64,
-            frontmatter="subjects:\n  active: Node\n  governs: Other\n",
-            body="",
-        )
-        with self.assertRaises(EntityGraphError) as error:
-            parse_subject_relations(atom, subject_profile="approved")
-        self.assertEqual("subject-schema-conflict", error.exception.code)
 
-    def test_canonical_discovery_reads_role_form_and_rejects_a_conflict(self) -> None:
-        with tempfile.TemporaryDirectory() as temporary:
-            root = Path(temporary)
-            source_root = root / "SUPERLAYER_1_METHODOLOGY_SOURCES"
-            source_root.mkdir()
-            path = source_root / "CA-R-1001.md"
-            path.write_text(
-                "---\natom_id: CA-R-1001\nversion: 1\nstatus: Active\n"
-                "role: Requirement\nform: Declaration\nsubjects:\n  active: Node\n  passive: []\n"
-                "---\n# Source\n",
-                encoding="utf-8",
-            )
-            carriers, diagnostics = discover_atoms(root, source_root)
-            self.assertEqual([], diagnostics)
-            self.assertEqual(("Requirement", "Declaration"), (carriers[0].content_role, carriers[0].atom_type))
-            path.write_text(path.read_text(encoding="utf-8").replace("role: Requirement", "role: Method\ncontent_role: Requirement"), encoding="utf-8")
-            with self.assertRaises(EntityGraphError) as error:
-                discover_atoms(root, source_root)
-            self.assertEqual("atom-metadata-conflict", error.exception.code)
 
     def test_model_renderer_keeps_constraints_and_unsupported_cfel_visible(self) -> None:
         graph, provenance = compose_enhanced_current_graph([
@@ -539,26 +493,6 @@ Workflow {:2}<((IS_CONTAINED_BY)){:1} Step;
         )
         self.assertNotIn("CA-R-9006", [row["source"]["atom_id"] for row in graph["model"]["selected_subject_expressions"]])
 
-    def test_promoted_draft_register_preserves_the_historical_90_declaration_target(self) -> None:
-        repository = Path(__file__).resolve().parents[5]
-        register = repository / (
-            ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/"
-            "CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/node-declaration-20261031/"
-            "migration-20261101/promoted-draft-register.json"
-        )
-        snapshot = json.loads(register.read_text(encoding="utf-8"))
-        declarations = [row for row in snapshot["drafts"] if row.get("classification")]
-
-        self.assertEqual(
-            "139 identified Drafts; 90 Node Declarations including retained Continuant and Occurrent",
-            snapshot["status"],
-        )
-        self.assertEqual(90, len(declarations))
-        self.assertEqual(30, sum(row["classification"] == "Primary Node" for row in declarations))
-        self.assertEqual(60, sum(row["classification"] == "Property" for row in declarations))
-        self.assertTrue(all(row["id"].endswith("@1-draft") for row in declarations))
-        self.assertTrue(all("@1-draft" in row["path"] for row in declarations))
-        self.assertTrue(all(len(row["sha256"]) == 64 for row in declarations))
 
 
 if __name__ == "__main__":

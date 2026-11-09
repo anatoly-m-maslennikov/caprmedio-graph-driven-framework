@@ -29,13 +29,7 @@ class HttpRequestBodyLimitTests(unittest.TestCase):
         self.temporary = tempfile.TemporaryDirectory(ignore_cleanup_errors=True)
         self.addCleanup(self.temporary.cleanup)
         self.root = Path(self.temporary.name).resolve()
-        implementation = self.root / "transport_fixture.py"
-        implementation.write_text(
-            'from mcp.server import MCPServer\n'
-            'MCPServer("transport fixture").run(transport="stdio")\n', encoding="utf-8",
-        )
-        self.client = TestClient(create_app(self.root, implementation=implementation, hot_reload=True),
-                                 base_url="http://127.0.0.1:8092")
+        self.client = TestClient(create_app(self.root), base_url="http://127.0.0.1:8092")
         self.client.__enter__()
         self.addCleanup(self.client.__exit__, None, None, None)
         self.headers = {"host": "127.0.0.1:8092", "content-type": "application/json",

@@ -42,7 +42,7 @@ repository root, using the selected Python 3.14 environment:
 ```sh
 UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
 uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
-  --group workflow-orchestrator python \
+  --group rmed-workflow-mcp python \
   LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/shared_mcp_launcher.py \
   --host-settings "${XDG_CONFIG_HOME:-$HOME/.config}/caprmedio/runtime.toml" \
   --image sha256:<admitted-image-digest>

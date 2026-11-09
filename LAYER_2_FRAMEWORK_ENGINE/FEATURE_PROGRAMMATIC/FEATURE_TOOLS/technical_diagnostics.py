@@ -79,7 +79,7 @@ class TechnicalDiagnosticLogger:
     version: str
     stream: TextIO
     environment: str
-    component: str = "ATOM_SEARCH"
+    component: str = "RUNTIME"
 
     def _record(
         self,
@@ -89,8 +89,8 @@ class TechnicalDiagnosticLogger:
         reason: str,
         correlation_id: str | None,
         severity: str = "WARNING",
-        event: str = "atom_schema_invalid",
-        operation: str = "atom_search",
+        event: str = "diagnostic",
+        operation: str = "request",
         outcome: str = "skipped",
         exception_class: str | None = None,
     ) -> dict[str, str]:
@@ -127,8 +127,8 @@ class TechnicalDiagnosticLogger:
         reason: str,
         correlation_id: str | None = None,
         severity: str = "WARNING",
-        event: str = "atom_schema_invalid",
-        operation: str = "atom_search",
+        event: str = "diagnostic",
+        operation: str = "request",
         outcome: str = "skipped",
         exception_class: str | None = None,
     ) -> str | None:

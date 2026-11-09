@@ -22,13 +22,13 @@ RUN python -m pip install --no-cache-dir uv==0.12.18
 WORKDIR /workspace
 COPY pyproject.toml uv.lock ./
 ENV UV_PROJECT_ENVIRONMENT=/opt/venv UV_CACHE_DIR=/tmp/uv-cache
-RUN --mount=type=cache,id=caprmedio-uv,target=/tmp/uv-cache uv sync --locked --no-dev --group rmed-workflow-mcp --group workflow-orchestrator \
-    --group validate-atoms --group validate-atoms-dev --group workbench
+RUN --mount=type=cache,id=caprmedio-uv,target=/tmp/uv-cache uv sync --locked --no-dev --group rmed-workflow-mcp --group workbench
 RUN /opt/venv/bin/python -c "import duckdb; c=duckdb.connect(':memory:',config={'extension_directory':'/home/caprmedio/.duckdb/extensions'}); c.execute('INSTALL duckpgq FROM community'); c.close()" \
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio/.duckdb
 COPY version.toml ./
-COPY LAYER_2_FRAMEWORK_ENGINE ./LAYER_2_FRAMEWORK_ENGINE
-RUN /opt/venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py --package-root /workspace
+COPY LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC
+COPY LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca \
+     ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca
 COPY --from=workbench_frontend /frontend/dist \
      ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND/dist
 RUN mkdir -p /workspace/.caprmedio_install \

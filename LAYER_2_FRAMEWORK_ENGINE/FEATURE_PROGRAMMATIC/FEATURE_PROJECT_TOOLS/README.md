@@ -136,14 +136,14 @@ suite. Focused tests do not establish an actual release or runtime installation.
 
 ## Kept small
 
-These repository commands are separate from MCP and the Workflow worker.
+These repository commands are separate from MCP.
 Automatic recovery/resume and legacy-layout compatibility are deferred.
 Failures stop and report the actual failed step for manual handling.
 
 ## Focused tests
 
 ```sh
-UV_PROJECT_ENVIRONMENT=.caprmedio_runtime/launcher-venv uv run --locked --no-sync --no-env-file --group rmed-workflow-mcp --group workflow-orchestrator python -B -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests
+UV_PROJECT_ENVIRONMENT=.caprmedio_runtime/launcher-venv uv run --locked --no-sync --no-env-file --group rmed-workflow-mcp python -B -m unittest discover -s LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests
 ```
 
 These tests use temporary fixtures, real scoped Git checkpoints and mocked

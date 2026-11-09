@@ -16,13 +16,12 @@ import re
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from artifact_metadata import SETTINGS_PATH, current_timestamp, repository_root  # noqa: E402
+from artifact_metadata import SETTINGS_PATH, atomic_write, current_timestamp, repository_root  # noqa: E402
 from carrier_aliases import carrier_read_view  # noqa: E402
 from current_entity_sources import current_model_carriers, read_current_carriers  # noqa: E402
 from current_subject_graph import compose_current_graph, compose_enhanced_current_graph  # noqa: E402
 from declaration_sources import compose_declaration_catalog  # noqa: E402
 from declaration_view import render_declarations  # noqa: E402
-from generate_entity_graph import atomic_write  # noqa: E402
 from readable_entity_tree import named_selection_reference, render_inherency, render_model  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS  # noqa: E402

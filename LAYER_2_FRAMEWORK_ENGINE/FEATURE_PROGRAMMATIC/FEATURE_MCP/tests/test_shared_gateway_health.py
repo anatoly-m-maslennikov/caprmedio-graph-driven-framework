@@ -7,7 +7,6 @@ from concurrent.futures import CancelledError as FutureCancelledError
 from pathlib import Path
 import sys
 import tempfile
-from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -34,7 +33,8 @@ class _Gateway:
 
     def __init__(self, _root, *, selection):
         self.selection = selection
-        self.active = SimpleNamespace(tools=[_tool()])
+        self.ready = True
+        self.tools = [_tool()]
         self.tool_blacklist = frozenset()
 
     async def initialize(self):
@@ -49,8 +49,6 @@ class _Gateway:
         return types.CallToolResult(
             content=[],
             structuredContent={
-                "kind": "workflow",
-                "actual_run_id": "run-1",
                 "outcome": "completed",
             },
         )
@@ -103,7 +101,7 @@ class SharedGatewayHealthTests(unittest.IsolatedAsyncioTestCase):
         await gateway.call(None, self._params())
         status = gateway.status()
         self.assertEqual(1, len(status["calls"]))
-        self.assertEqual(1, len(status["workflows"]))
+        self.assertNotIn("workflows", status)
         self.assertEqual("ALPHA", status["calls"][0]["project_prefix"])
         self.assertEqual(1, len(status["known_project_contexts"]))
         html = render_health_page(status, ready=True, gateway=gateway)

@@ -156,18 +156,6 @@ class ImageOutputSafetyTests(unittest.TestCase):
             absent = ProjectMcpBackend._docker_client_environment()
         self.assertEqual({"PATH": "/synthetic-bin"}, absent)
 
-    def test_backend_forwards_hot_reload_only_to_compose_service_environment(self):
-        selection = SimpleNamespace(root=APP.parents[3], control_relative=Path(".caprmedio_fixture"),
-                                    instance_id="c" * 64)
-        with patch.dict(os.environ, {"PATH": "/synthetic-bin", "CAPRMEDIO_HOT_RELOAD": "1"}, clear=True):
-            service = ProjectMcpBackend._environment(selection, IMAGE_ID, "b" * 64, 56317)
-            client = ProjectMcpBackend._docker_client_environment()
-        self.assertEqual("1", service["CAPRMEDIO_HOT_RELOAD"])
-        self.assertNotIn("CAPRMEDIO_HOT_RELOAD", client)
-        with patch.dict(os.environ, {"PATH": "/synthetic-bin", "CAPRMEDIO_HOT_RELOAD": "0"}, clear=True):
-            disabled = ProjectMcpBackend._environment(selection, IMAGE_ID, "b" * 64, 56317)
-        self.assertNotIn("CAPRMEDIO_HOT_RELOAD", disabled)
-
     def test_mock_oversize_and_timeout_report_only_safe_conditions(self):
         def noisy(argv, **_kwargs):
             return subprocess.CompletedProcess(argv, 0, PRIVATE_MARKER * 300000, PRIVATE_MARKER)

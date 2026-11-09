@@ -9,23 +9,15 @@ from health_page import render_health_page
 from http_paths import HEALTH_PATH
 
 
-SAFE_OUTCOMES = {
-    "completed", "no_op", "failed", "partial", "cancelled", "interrupted_pending",
-    "uncertain", "rejected", "returned", "success", "unknown",
-}
-SAFE_DISPOSITIONS = {"terminal", "started", "queued", "recording_pending", "uncertain", "unknown"}
-
-
 class HTTPHealthPageTests(HealthHTTPFixture):
     def test_renderer_escapes_dynamic_snapshot_fields(self):
         gateway = SimpleNamespace(
-            active=SimpleNamespace(task=SimpleNamespace(done=lambda: False), tools=[])
+            ready=True, tools=[]
         )
         html = render_health_page(
             {
                 "started_at": "<script>bad</script>",
                 "calls": [{"observed_at": "<b>", "name": "<script>", "outcome": "returned"}],
-                "workflows": [],
             },
             ready=True,
             gateway=gateway,
@@ -50,6 +42,8 @@ class HTTPHealthPageTests(HealthHTTPFixture):
                 self.assertEqual(200, response.status_code)
                 self.assertTrue(response.headers["content-type"].startswith("text/html"))
                 self.assertIn("<html", response.text.lower())
+                self.assertNotIn("Workflow", response.text)
+                self.assertIn("Workbench health is not probed", response.text)
 
                 response = await client.get(
                     HEALTH_PATH, headers=self.headers(accept="text/html;q=0,application/json;q=1")
@@ -64,7 +58,7 @@ class HTTPHealthPageTests(HealthHTTPFixture):
                 self.assertEqual(200, response.status_code)
                 self.assertTrue(response.headers["content-type"].startswith("text/html"))
 
-                self.app.gateway.active = None
+                self.app.gateway.ready = False
                 response = await client.get(HEALTH_PATH, headers=self.headers())
                 self.assertEqual(503, response.status_code)
                 self.assertEqual({"ready": False}, response.json())
@@ -72,44 +66,6 @@ class HTTPHealthPageTests(HealthHTTPFixture):
                 self.assertEqual(503, response.status_code)
                 self.assertTrue(response.headers["content-type"].startswith("text/html"))
 
-    async def test_workflow_scheduler_success_does_not_promote_unknown_or_pending(self):
-        async with self.lifespan():
-            observations = self.app.gateway.health_observations
-            observations.record(
-                "workflow_orchestrator",
-                {"request": {"run_id": "requested-pending", "token": SECRET}},
-                {"workflow_run_id": "actual-pending", "scheduler_status": "SUCCESS",
-                 "outcome": "interrupted_pending", "disposition": "started"},
-            )
-            observations.record(
-                "workflow_orchestrator",
-                {"request": {"run_id": "requested-unknown", "token": SECRET}},
-                {"workflow_run_id": "actual-unknown", "scheduler_status": "SUCCESS"},
-            )
-            snapshot = observations.snapshot()
-            self.assertEqual(2, len(snapshot["calls"]))
-            self.assertEqual({"workflow_orchestrator"}, {row["name"] for row in snapshot["calls"]})
-            self.assertEqual(2, len(snapshot["workflows"]))
-            self.assertEqual("actual-pending", self.run_id(snapshot["workflows"][0]))
-            self.assertNotEqual("requested-pending", self.run_id(snapshot["workflows"][0]))
-            self.assertEqual("SUCCESS", snapshot["workflows"][0]["scheduler_status"])
-            self.assertEqual("interrupted_pending", snapshot["workflows"][0]["outcome"])
-            self.assertEqual("unknown", snapshot["workflows"][1]["outcome"])
-            self.assertEqual("actual-unknown", self.run_id(snapshot["workflows"][1]))
-            for row in snapshot["workflows"]:
-                self.assertIn(row["outcome"], SAFE_OUTCOMES)
-                self.assertIn(row["disposition"], SAFE_DISPOSITIONS)
-
-            async with self.raw_client() as client:
-                response = await client.get(HEALTH_PATH, headers=self.headers(accept="text/html;q=1"))
-            self.assertEqual(200, response.status_code)
-            rendered = response.text.lower()
-            self.assertIn("active gateway generation readiness", rendered)
-            self.assertIn("provider and worker health are not probed", rendered)
-            self.assertIn("observations are historical", rendered)
-            for text in ("scheduler", "interrupted_pending", "unknown"):
-                self.assertIn(text, rendered)
-            self.assertNotIn(SECRET, response.text)
 
     async def test_html_escapes_dynamic_fields_and_get_has_no_execution_effect(self):
         async with self.lifespan():

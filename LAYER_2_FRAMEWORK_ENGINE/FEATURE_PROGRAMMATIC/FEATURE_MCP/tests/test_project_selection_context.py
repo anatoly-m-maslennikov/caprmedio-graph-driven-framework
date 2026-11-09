@@ -1,7 +1,6 @@
 """Selected Project readers and the admitted gateway subprocess boundary."""
-import asyncio
+# ruff: noqa: E402
 import hashlib
-import json
 import os
 from pathlib import Path
 import sys
@@ -17,14 +16,9 @@ WORKFLOW_TESTS = MCP.parent / "FEATURE_APPS" / "APP_WORKFLOW_ORCHESTRATOR" / "te
 sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS"), str(WORKFLOW_TESTS)]
 
 from project_selection import bind_selection, resolve_project
-from atom_operations import control_root, project_identity_prefix, resolve_repository
 from artifact_metadata import configured_timezone, project_identity
 from authoritative_status_models import _configured_control_root
-from capability_discovery.service import Service
-from hot_reload import Gateway, _singleton_lock_path, _open_singleton_lock, _close_singleton_lock
-import selected_routes
 from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
-from frozen_selected_workflows import frozen_source_bytes, frozen_source_paths
 from scope_declaration_test_support import write_scope_unit_declarations
 
 
@@ -49,131 +43,28 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
     def test_named_readers_use_the_bound_project_without_git(self):
         for selection in self.selections:
             with bind_selection(selection):
-                self.assertEqual(selection.root, resolve_repository(selection.root))
-                self.assertEqual(selection.control_root, control_root(selection.root))
-                self.assertEqual(selection.control_root, Service(selection.root)._control_root())
                 self.assertEqual(selection.control_root, _configured_control_root(selection.root))
                 self.assertEqual(selection.settings["project"]["name"], project_identity(selection.root)["project"]["name"])
-                self.assertEqual(selection.settings["artifacts"]["identity"]["project_prefix"], project_identity_prefix(selection.root))
                 self.assertEqual("UTC", str(configured_timezone(selection.root)))
-                self.assertEqual(selection.control_relative.as_posix() + "/_projection/selected_workflow_bindings.json",
-                                 selected_routes.selected_manifest_ref(selection.root))
 
     def test_runtime_namespace_properties_are_selected_and_read_only(self):
         for selection in self.selections:
             runtime = selection.root / ".caprmedio_runtime/runtime"
             self.assertEqual(runtime / "project_mcp" / selection.instance_id, selection.launcher_state)
-            self.assertEqual(runtime / "mcp_hot_reload" / selection.instance_id, selection.reload_state)
             self.assertFalse(runtime.exists())
             self.assertFalse((selection.root / ".caprmedio_install").exists())
 
-    def test_gateway_fence_is_inside_exact_runtime_instance_and_retains_old_bytes(self):
-        selection = self.selections[0]
-        legacy = selection.root / ".caprmedio_install/runtime_locks/mcp_hot_reload" / (selection.instance_id + ".lock")
-        legacy.parent.mkdir(parents=True)
-        legacy.write_bytes(b"retained legacy observation")
-        expected = selection.reload_state / "gateway.lock"
-        self.assertEqual(expected, _singleton_lock_path(selection.root, selection.instance_id))
-        held = _open_singleton_lock(selection.root, selection.instance_id)
-        try:
-            with self.assertRaisesRegex(RuntimeError, "busy"):
-                _open_singleton_lock(selection.root, selection.instance_id)
-            other = _open_singleton_lock(self.selections[1].root, self.selections[1].instance_id)
-            _close_singleton_lock(other)
-        finally:
-            _close_singleton_lock(held)
-        self.assertEqual(b"retained legacy observation", legacy.read_bytes())
 
     def test_foreign_root_and_outside_project_source_refuse(self):
         alpha, beta = self.selections
         with bind_selection(alpha):
-            for reader in (control_root, _configured_control_root, selected_routes.selected_manifest_ref):
-                with self.assertRaises(ValueError):
-                    reader(beta.root)
             with self.assertRaises(ValueError):
-                Service(beta.root)._control_root()
-            with self.assertRaises(selected_routes.SelectedRouteError):
-                selected_routes._safe_path(alpha.root, "../beta/.caprmedio_beta/caprmedio_project_settings.toml")
-
-    def test_wrong_project_binding_and_registry_refuse_even_with_valid_digest(self):
-        selection = self.selections[0]
-        with bind_selection(selection):
-            registry_ref = selected_routes._selected_authority_ref(selection.root,
-                selected_routes._ORIGINAL_SELECTED_SOURCE_REGISTRY_REF)
-            registry = selection.root / registry_ref
-            registry.parent.mkdir(parents=True)
-            registry.write_bytes(b"valid registry fixture")
-            freshness = {"selected_source_registry_ref": registry_ref,
-                "selected_source_registry_version": 2,
-                "selected_source_registry_digest": hashlib.sha256(registry.read_bytes()).hexdigest(),
-                "selected_binding_ref": ".caprmedio_beta/_projection/selected_workflow_bindings.json#/routes",
-                "selected_binding_digest": selected_routes.canonical_digest([])}
-            manifest = {"schema_version": 1, "source_freshness": freshness,
-                        "query_source_admissions": [], "routes": []}
-            for field, value, message in (
-                ("selected_binding_ref", freshness["selected_binding_ref"], "binding reference"),
-                ("selected_source_registry_ref", selected_routes._ORIGINAL_SELECTED_SOURCE_REGISTRY_REF, "registry authority")):
-                candidate = json.loads(json.dumps(manifest))
-                candidate["source_freshness"][field] = value
-                candidate["canonical_manifest_sha256"] = selected_routes.canonical_digest(candidate)
-                with self.assertRaisesRegex(selected_routes.SelectedRouteError, message):
-                    selected_routes.validate_selected_manifest_document(selection.root, candidate)
-
-    def test_query_frontier_keeps_exact_pins_but_refuses_another_control(self):
-        selection = self.selections[0]
-        foreign_selection = self.selections[1]
-        frozen_paths = frozenset(frozen_source_paths())
-
-        def frozen_bytes(pin):
-            path = Path(pin["source_path"])
-            if path.as_posix() not in frozen_paths:
-                candidates = [candidate for candidate in frozen_paths
-                              if Path(candidate).name.startswith(f'{pin["atom_id"]}-')]
-                if len(candidates) != 1:
-                    raise AssertionError(f"frozen source for {pin['atom_id']} is unavailable or ambiguous")
-                path = Path(candidates[0])
-            return frozen_source_bytes(path)
-
-        def frozen_admissions(project):
-            with bind_selection(project):
-                for original in selected_routes._QUERY_SOURCE_ADMISSION_SPECS:
-                    sources = [original['acceptance_frontier'], original['workflow'],
-                               *original['ordered_actions'],
-                               *[pin for step in original['ordered_steps'] for pin in step.values()]]
-                    for source in sources:
-                        reference = selected_routes._selected_authority_ref(
-                            project.root, source['source_path']
-                        )
-                        destination = project.root / reference
-                        destination.parent.mkdir(parents=True, exist_ok=True)
-                        destination.write_bytes(frozen_bytes(source))
-                return selected_routes._query_admission_specs(project.root)
-
-        foreign = frozen_admissions(foreign_selection)
-        with bind_selection(selection):
-            admitted = frozen_admissions(selection)
-            for original, bound in zip(selected_routes._QUERY_SOURCE_ADMISSION_SPECS, admitted, strict=True):
-                original_pins = [original["acceptance_frontier"], original["workflow"],
-                                 *original["ordered_actions"],
-                                 *[pin for step in original["ordered_steps"] for pin in step.values()]]
-                bound_pins = [bound["acceptance_frontier"], bound["workflow"],
-                              *bound["ordered_actions"],
-                              *[pin for step in bound["ordered_steps"] for pin in step.values()]]
-                for source, target in zip(original_pins, bound_pins, strict=True):
-                    self.assertEqual(source['atom_id'], target['atom_id'])
-                    destination = selection.root / target["source_path"]
-                    self.assertEqual(hashlib.sha256(destination.read_bytes()).hexdigest(), target['digest'])
-            routes = [{**row, "mutation_capable": False} for row in admitted]
-            self.assertEqual(list(admitted), selected_routes._validate_query_source_admissions(
-                selection.root, list(admitted), routes))
-            with self.assertRaisesRegex(selected_routes.SelectedRouteError, "another Project authority"):
-                selected_routes._validate_query_source_admissions(
-                    selection.root, list(foreign), routes)
+                _configured_control_root(beta.root)
 
     def test_typed_source_admission_uses_selected_carriers_and_keeps_byte_pin(self):
         selection = self.selections[0]
         (selection.control_root / "operators_registry.toml").write_text("schema_version=1\n")
-        with bind_selection(selection), patch.object(proposed_carrier, "_source", return_value={}), patch.object(proposed_carrier, "resolve_context", return_value=SimpleNamespace()), patch.object(proposed_carrier, "load_operators_registry", return_value={}):
+        with bind_selection(selection), patch.object(proposed_carrier, "_source", return_value={"binding": {"atom_id": "CA-D-1"}}), patch.object(proposed_carrier, "resolve_context", return_value=SimpleNamespace()), patch.object(proposed_carrier, "load_operators_registry", return_value={}):
             context = proposed_carrier.source_context_from_project(selection.root)
             self.assertEqual(selection.control_relative.as_posix(), context.inputs["control_relative"])
             self.assertEqual(selection.root.name, context.inputs["structure"]["scope_units"][0]["scope_unit_name"])
@@ -215,30 +106,6 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(selection.instance_id, arguments[arguments.index("--instance-id") + 1])
         self.assertNotIn("private", arguments)
 
-    async def test_gateway_child_retains_explicit_binding_and_filters_credentials(self):
-        selection = self.selections[0]
-        observed = {}
-        class FakeGeneration:
-            def __init__(self, params, fingerprint):
-                observed["params"] = params
-                self.ready = asyncio.get_running_loop().create_future()
-                self.ready.set_result(None)
-                self.tools = []
-            async def close(self):
-                pass
-        gateway = Gateway(selection.root, selection=selection)
-        self.assertEqual(selection.reload_state, gateway.storage)
-        self.assertNotEqual(gateway.storage, Gateway(self.selections[1].root, selection=self.selections[1]).storage)
-        with patch("hot_reload.Generation", FakeGeneration), patch.object(gateway, "fingerprint", return_value="fixed"), patch.dict(os.environ, {"CAPRMEDIO_MCP_HTTP_SECRET_TOKEN": "private"}):
-            await gateway.prepare("fixed")
-        args = observed["params"].args
-        for flag, value in (("--project-root", str(selection.root)), ("--control-root", selection.control_relative.as_posix()),
-                            ("--instance-id", selection.instance_id), ("--host-project-root", str(selection.host_root))):
-            self.assertEqual(value, args[args.index(flag) + 1])
-        self.assertNotIn("CAPRMEDIO_MCP_HTTP_SECRET_TOKEN", observed["params"].env)
-        self.assertIn(f'pycache_prefix={selection.root / ".caprmedio_tmp/mcp_hot_reload" / selection.instance_id / "fixed"}', args)
-        self.assertFalse((selection.reload_state / "bytecode").exists())
-        gateway._release_singleton_fence()
 
 
 if __name__ == "__main__":

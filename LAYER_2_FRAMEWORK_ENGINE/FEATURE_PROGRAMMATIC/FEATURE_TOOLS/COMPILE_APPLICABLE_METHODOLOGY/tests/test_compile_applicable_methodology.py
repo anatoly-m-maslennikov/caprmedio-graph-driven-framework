@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-import contextlib
 import importlib.util
-import io
 import json
 import os
 import shutil
@@ -133,10 +131,18 @@ class CompilerTest(unittest.TestCase):
         return path
 
     def invoke(self, *arguments: str) -> tuple[int, dict[str, object]]:
-        stream = io.StringIO()
-        with contextlib.redirect_stdout(stream):
-            code = module.run(["--root", str(self.temp), *arguments])
-        return code, json.loads(stream.getvalue())
+        self.assertIn(arguments, {(), ("--apply",)})
+        report, candidates, snapshot = module.compile_report(self.temp)
+        if report["can_apply"] and arguments == ("--apply",):
+            module.replace_outputs_atomically(self.temp, module.stage_outputs(self.temp, candidates, snapshot))
+        return (0 if report["can_apply"] else 2), report
+
+    def output_digest(self) -> dict[str, bytes]:
+        output = self.temp / self.output
+        return {
+            path.relative_to(output).as_posix(): path.read_bytes()
+            for path in sorted(output.rglob("*.md"))
+        }
 
     def test_dry_run_apply_rerun_and_regeneration_are_deterministic(self) -> None:
         source = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-REQUIREMENT--one.md", carrier("CA-R-001"))
@@ -150,7 +156,7 @@ class CompilerTest(unittest.TestCase):
 
         apply_code, applied = self.invoke("--apply")
         self.assertEqual(apply_code, 0)
-        first_tree = applied["generated_tree_digest"]
+        first_tree = self.output_digest()
         self.assertEqual(before, {source: source.read_bytes(), local: local.read_bytes()})
         projected = self.temp / self.output / "04_requirement" / source.name
         projected_text = projected.read_text()
@@ -162,14 +168,14 @@ class CompilerTest(unittest.TestCase):
 
         rerun_code, rerun = self.invoke("--apply")
         self.assertEqual(rerun_code, 0)
-        self.assertEqual(first_tree, rerun["generated_tree_digest"])
+        self.assertEqual(first_tree, self.output_digest())
 
         for _, role in module.ROLES:
             for path in (self.temp / self.output / role).glob("*"):
                 path.unlink()
         regenerate_code, regenerated = self.invoke("--apply")
         self.assertEqual(regenerate_code, 0)
-        self.assertEqual(first_tree, regenerated["generated_tree_digest"])
+        self.assertEqual(first_tree, self.output_digest())
         self.assertEqual(before, {source: source.read_bytes(), local: local.read_bytes()})
 
     def test_nested_header_compiles_alongside_flat_source_without_rewriting_either(self) -> None:
@@ -204,35 +210,16 @@ class CompilerTest(unittest.TestCase):
         self.assertIn("source-frontmatter-invalid", {row["code"] for row in diagnostics})
         self.assertEqual(raw, source.read_bytes())
 
-    def test_ignores_ds_store_in_source_snapshot_and_governed_bindings(self) -> None:
+    def test_ignores_ds_store_in_source_snapshot(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--one.md", carrier("CA-R-001"))
         places = module.methodology_paths(self.temp)
         snapshot = module.source_state_snapshot(self.temp, places)
-        bindings = module.governed_bindings(self.temp, places)
 
         (self.layers["CORE_META_MODEL"] / ".DS_Store").write_bytes(b"finder metadata")
         (self.layers["PROJECT_CONFIGURATION"] / ".DS_Store").write_bytes(b"finder metadata")
 
         self.assertEqual(snapshot, module.source_state_snapshot(self.temp, places))
-        self.assertTrue(module.source_snapshot_is_current(self.temp, snapshot, places))
-        self.assertEqual(bindings, module.governed_bindings(self.temp, places))
-
-    def test_ignores_ds_store_in_generated_output_but_rejects_real_extra(self) -> None:
-        self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--one.md", carrier("CA-R-001"))
-        apply_code, applied = self.invoke("--apply")
-        self.assertEqual(0, apply_code)
-        output = self.temp / self.output / "04_requirement"
-        output_digest = applied["generated_tree_digest"]
-
-        (output / ".DS_Store").write_bytes(b"finder metadata")
-
-        module.validate_existing_output_ownership(self.temp / self.output)
-        self.assertEqual(output_digest, module.generated_tree_digest(self.temp))
-
-        (output / "unowned.txt").write_bytes(b"real extra")
-        with self.assertRaises(module.CompileError) as raised:
-            module.validate_existing_output_ownership(self.temp / self.output)
-        self.assertEqual("output-role-not-owned", raised.exception.code)
+        self.assertEqual(snapshot, module.source_state_snapshot(self.temp, places))
 
     def test_source_unit_role_directories_do_not_count_as_source_layers(self) -> None:
         (self.source / "04_requirement").mkdir(exist_ok=True)
@@ -312,7 +299,7 @@ class CompilerTest(unittest.TestCase):
         self.assertIn("duplicate_selected_atom_identity", {item["type"] for item in report["conflicts"]})
         apply_code, applied = self.invoke("--apply")
         self.assertEqual(apply_code, 2)
-        self.assertEqual(applied["apply_status"], "BLOCKED")
+        self.assertFalse(applied["can_apply"])
         for _, role in module.ROLES:
             self.assertFalse((self.temp / self.output / role).exists())
 
@@ -339,48 +326,7 @@ class CompilerTest(unittest.TestCase):
         self.assertEqual("Shared Term", conflict["details"]["term"])
         apply_code, applied = self.invoke("--apply")
         self.assertEqual(2, apply_code)
-        self.assertEqual("BLOCKED", applied["apply_status"])
-
-    def test_project_configuration_toml_index_cannot_resolve_one_conflict(self) -> None:
-        first = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-A--one.md", carrier("CA-R-001"))
-        second = self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
-        _, initial = self.invoke()
-        conflict = next(item for item in initial["conflicts"] if item["type"] == "duplicate_selected_atom_identity")
-        approval_path = self.temp / module.approval_carrier_path(self.temp, module.methodology_paths(self.temp))
-        approval = (
-            'schema = "caprmedio.applicable_methodology_conflict_approvals.v1"\n\n'
-            "[[approvals]]\n"
-            f'conflict_id = "{conflict["conflict_id"]}"\n'
-            f'source_frontier_digest = "{initial["source_frontier_digest"]}"\n'
-            f'selected_source_carrier_path = "{second.relative_to(self.temp).as_posix()}"\n'
-            'operator = "TEST_OPERATOR"\n'
-        )
-        approval_path.write_text(approval)
-
-        code, report = self.invoke("--apply")
-        self.assertEqual(code, 2)
-        self.assertGreater(report["unresolved_conflict_count"], 0)
-        output = self.temp / self.output / "04_requirement"
-        self.assertFalse((output / first.name).exists())
-        self.assertFalse((output / second.name).exists())
-
-    def test_stale_approval_does_not_replace_output(self) -> None:
-        self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001-A--one.md", carrier("CA-R-001"))
-        selected = self.write("003_PROJECT_CONFIGURATION", "04_requirement", "CA-R-001-B--two.md", carrier("CA-R-001", version=2))
-        _, initial = self.invoke()
-        conflict = initial["conflicts"][0]
-        approval = (
-            'schema = "caprmedio.applicable_methodology_conflict_approvals.v1"\n\n'
-            "[[approvals]]\n"
-            f'conflict_id = "{conflict["conflict_id"]}"\n'
-            'source_frontier_digest = "deadbeef"\n'
-            f'selected_source_carrier_path = "{selected.relative_to(self.temp).as_posix()}"\n'
-            'operator = "TEST_OPERATOR"\n'
-        )
-        (self.temp / module.approval_carrier_path(self.temp, module.methodology_paths(self.temp))).write_text(approval)
-        code, report = self.invoke("--apply")
-        self.assertEqual(code, 2)
-        self.assertEqual(report["apply_status"], "BLOCKED")
+        self.assertFalse(applied["can_apply"])
 
     def test_output_collision_is_reported(self) -> None:
         self.write("001_CORE_META_MODEL", "04_requirement", "SHARED--claim.md", carrier("CA-R-001"))

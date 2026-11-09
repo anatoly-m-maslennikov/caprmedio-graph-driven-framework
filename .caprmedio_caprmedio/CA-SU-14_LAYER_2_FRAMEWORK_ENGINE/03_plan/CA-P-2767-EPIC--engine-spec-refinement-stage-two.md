@@ -13,8 +13,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 17
-  updated_at: 2026-11-09 22:36:42 +0400
+  version: 19
+  updated_at: 2026-11-09 23:46:00 +0400
 destination:
   file:
     name: CA-P-2767-EPIC--engine-spec-refinement-stage-two.md
@@ -175,4 +175,12 @@ P2791 is the next implementation Epic. Its input confirmation follows Current re
 
 The Operator reopened this Epic to review the recently created I / Code Synopsis sources. P2845 reviews I7, I8 and I9 against the Code Synopsis definition, actual code and the final adopted RMED baseline. P2840 remains Done; its Summary merges and explicit holds are not replayed. Source review is active again. Implementation work remains in P2791.
 
-- [ ] [CA-P-2845 — Review recent Code Synopses](CA-P-2767-EPIC--engine-spec-refinement-stage-two/CA-P-2845-TASK--review-recent-code-synopses.md)
+- [x] [CA-P-2845 — Review recent Code Synopses](CA-P-2767-EPIC--engine-spec-refinement-stage-two/CA-P-2845-TASK--review-recent-code-synopses.md)
+
+## Code Synopsis review result
+
+P2845 is Done with an explicit MCP source hold. I7/I8 at Version 2 now expose their code evidence through Prose Claim and preserve their Summaries and ownership. Frontend completion defects are confirmed for P2812; no code change was made. C712 still requires runtime reproduction/acceptance under P2813. I9 remains Current Version 1: concurrent MCP code changes removed its registration location and prevented a stable adoption check. Its owned Draft is held under C714. This Epic remains Active for the follow-up source review.
+
+- [ ] [CA-P-2847 — Refresh the MCP Code Synopsis after refactoring](CA-P-2767-EPIC--engine-spec-refinement-stage-two/CA-P-2847-TASK--refresh-the-mcp-code-synopsis-after-refactoring.md)
+
+The Operator’s Code Synopsis closure decision is recorded in R3010 Version 3 Semantics, including the qualified Resolved allowed value. This was a bounded explicit declaration update; code and existing I statuses were unchanged.

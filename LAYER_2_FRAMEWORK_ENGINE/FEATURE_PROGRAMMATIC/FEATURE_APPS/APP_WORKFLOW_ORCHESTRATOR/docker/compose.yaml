@@ -33,19 +33,6 @@ x-project-mounts: &project-mounts
     bind: {create_host_path: false}
 
 services:
-  worker:
-    <<: *runtime
-    command: [worker]
-    environment:
-      CAPRMEDIO_RUNTIME_NAMESPACE: docker
-    volumes: *project-mounts
-    networks: [runtime]
-    healthcheck:
-      test: [CMD, python, LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py, health]
-      interval: 2s
-      timeout: 5s
-      retries: 20
-    stop_grace_period: 30s
   mcp:
     <<: *runtime
     command: [mcp]
@@ -53,7 +40,6 @@ services:
     profiles: [stdio]
     environment:
       CAPRMEDIO_RUNTIME_NAMESPACE: docker
-      CAPRMEDIO_HOT_RELOAD: ${CAPRMEDIO_HOT_RELOAD:-0}
     volumes: *project-mounts
     networks: [runtime]
 

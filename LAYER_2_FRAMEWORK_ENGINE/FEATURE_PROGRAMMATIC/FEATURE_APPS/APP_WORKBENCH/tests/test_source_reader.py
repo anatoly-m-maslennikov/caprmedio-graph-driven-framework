@@ -747,11 +747,12 @@ Atom.Header.Tier:: [int]{::1};
         self.assertEqual("fixture", scopes[0]["name"])
 
     def test_project_scope_id_requires_configured_prefix(self) -> None:
-        from atom_operations import ToolError
+        from project_settings_values import ProjectSettingsValueError
 
         (self.control / "caprmedio_project_settings.toml").unlink()
-        with self.assertRaisesRegex(ToolError, "Project Settings identity"):
+        with self.assertRaisesRegex(ProjectSettingsValueError, "current Project Settings") as raised:
             SourceReader(self.root, self.control).capture()
+        self.assertEqual("project-settings-unavailable", raised.exception.code)
 
     def test_move_remove_and_capture_do_not_write_sources(self) -> None:
         source = self._write_atom("MAIN", "07_delivery", "moving.md", atom_id="CA-R-430")

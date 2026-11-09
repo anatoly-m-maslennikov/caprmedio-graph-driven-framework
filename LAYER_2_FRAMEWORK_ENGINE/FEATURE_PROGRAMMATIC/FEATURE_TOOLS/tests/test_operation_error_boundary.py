@@ -15,7 +15,6 @@ TOOLS = Path(__file__).resolve().parents[1]
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-from atom_operations import ToolError  # noqa: E402
 from operation_error_boundary import (  # noqa: E402
     ExplicitBlockingRuntimeFailure,
     FailureRecord,
@@ -24,6 +23,10 @@ from operation_error_boundary import (  # noqa: E402
     operation_error_boundary,
 )
 from technical_diagnostics import TechnicalDiagnosticLogger  # noqa: E402
+
+
+class _DomainFailure(Exception):
+    pass
 
 
 class _FailingStream:
@@ -53,7 +56,7 @@ class OperationErrorBoundaryTests(unittest.TestCase):
         @operation_error_boundary(on_error=on_error)
         def lookup(value: str) -> dict[str, object]:
             """Preserved function documentation."""
-            raise ToolError("bad-atom", value)
+            raise _DomainFailure(value)
 
         result = lookup("bad")
         self.assertEqual("lookup", lookup.__name__)
@@ -96,7 +99,7 @@ class OperationErrorBoundaryTests(unittest.TestCase):
 
     def test_explicit_classifier_can_classify_domain_failure(self) -> None:
         failure = classify_failure(
-            ToolError("project-invalid", "invalid project"),
+            _DomainFailure("invalid project"),
             classifier=lambda _error: FailureRecord("WARNING", "project_invalid", "project artifact"),
         )
         self.assertEqual("project_invalid", failure.code)

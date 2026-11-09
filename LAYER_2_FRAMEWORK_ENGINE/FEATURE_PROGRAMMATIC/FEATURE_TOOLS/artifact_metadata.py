@@ -1,22 +1,9 @@
-#!/usr/bin/env python3
-"""Update CAPRMEDIO Atom or Projection revision metadata.
-
-Parameters:
-    path: Markdown carrier to update.
-    --kind: atom or projection.
-    --new: initialize a newly created Atom instead of revising an existing one.
-    --apply: persist the change; omission is dry-run mode.
-
-The tool reads the current project's timestamp timezone from
-`.caprmedio_caprmedio/caprmedio_project_settings.toml`, fails closed on malformed or duplicate
-metadata, preserves YAML or TOML frontmatter syntax, and writes atomically.
-"""
+"""Shared metadata reads and atomic artifact writes."""
 
 from __future__ import annotations
 
 
 
-import argparse
 import datetime as dt
 import os
 import re
@@ -27,14 +14,10 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
 from collections.abc import Mapping
-from header_groups import header_path
-from header_yaml import header_scalar, parse_header, replace_header_scalar
 
 
 SETTINGS_PATH = Path(".caprmedio_caprmedio/caprmedio_project_settings.toml")
 TIMESTAMP_FORMAT = "%Y-%m-%d %H:%M:%S %z"
-YAML_DELIMITER = "---"
-TOML_DELIMITER = "+++"
 
 
 def project_identity(root: Path) -> dict[str, dict[str, object]]:
@@ -79,15 +62,6 @@ def atom_identifier(filename: str, explicit: str | None = None) -> str:
     return name.removesuffix(".md").split("--", 1)[0]
 
 
-def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("path", type=Path, help="Markdown carrier")
-    parser.add_argument("--kind", choices=("atom", "projection"), required=True)
-    parser.add_argument("--new", action="store_true", help="initialize a new Atom")
-    parser.add_argument("--apply", action="store_true", help="persist the update")
-    return parser.parse_args()
-
-
 def repository_root(path: Path) -> Path:
     selection = bound_selection()
     if selection is not None:
@@ -123,102 +97,19 @@ def _timestamp(timezone: dt.tzinfo | None) -> str:
     return moment.strftime(TIMESTAMP_FORMAT)
 
 
-def timestamp_for_timezone(value: str) -> str:
-    """Format a current instant from an already selected timezone setting."""
-    return _timestamp(_timezone_value(value))
-
-
 def current_timestamp(root: Path) -> str:
     return _timestamp(configured_timezone(root))
 
 
 def split_frontmatter(text: str, path: Path) -> tuple[str, str, str]:
     first_line, separator, remainder = text.partition("\n")
-    if not separator or first_line not in {YAML_DELIMITER, TOML_DELIMITER}:
+    if not separator or first_line not in {"---", "+++"}:
         raise RuntimeError(f"{path}: missing supported frontmatter")
     marker = f"\n{first_line}\n"
     boundary = remainder.find(marker)
     if boundary < 0:
         raise RuntimeError(f"{path}: unterminated frontmatter")
     return first_line, remainder[:boundary], remainder[boundary + len(marker) :]
-
-
-def property_pattern(delimiter: str, name: str) -> re.Pattern[str]:
-    separator = r"\s*:\s*" if delimiter == YAML_DELIMITER else r"\s*=\s*"
-    return re.compile(rf"(?m)^{re.escape(name)}{separator}(.+)$")
-
-
-def property_line(delimiter: str, name: str, value: str | int) -> str:
-    if delimiter == YAML_DELIMITER:
-        if name == "updated_at":
-            return f'{name}: "{value}"'
-        return f"{name}: {value}"
-    rendered = str(value) if isinstance(value, int) else f'"{value}"'
-    return f"{name} = {rendered}"
-
-
-def _root_value(frontmatter: str, delimiter: str, name: str) -> str | None:
-    matches = property_pattern(delimiter, name).findall(frontmatter)
-    if len(matches) > 1:
-        raise RuntimeError(f"duplicate {name} property")
-    return matches[0].strip().strip('"') if matches else None
-
-
-def one_value(frontmatter: str, delimiter: str, name: str) -> str | None:
-    value = _root_value(frontmatter, delimiter, name)
-    if delimiter == YAML_DELIMITER:
-        try:
-            return header_scalar(frontmatter, name)
-        except ValueError as error:
-            raise RuntimeError(str(error)) from error
-    return value
-
-
-def insert_properties(frontmatter: str, lines: list[str]) -> str:
-    anchor = re.search(r"(?m)^llm_session_ids(?:\s*:|\s*=)", frontmatter)
-    if anchor is None:
-        return frontmatter.rstrip() + "\n" + "\n".join(lines)
-    return frontmatter[: anchor.start()] + "\n".join(lines) + "\n" + frontmatter[anchor.start() :]
-
-
-def replace_property(frontmatter: str, delimiter: str, name: str, value: str | int) -> str:
-    if delimiter == YAML_DELIMITER:
-        if one_value(frontmatter, delimiter, name) is None:
-            raise RuntimeError(f"expected exactly one {name} property")
-        return replace_header_scalar(frontmatter, name, value)
-    pattern = property_pattern(delimiter, name)
-    if len(pattern.findall(frontmatter)) != 1:
-        raise RuntimeError(f"expected exactly one {name} property")
-    return pattern.sub(property_line(delimiter, name, value), frontmatter, count=1)
-
-
-def update_atom(frontmatter: str, delimiter: str, timestamp: str, new: bool) -> str:
-    version = one_value(frontmatter, delimiter, "version")
-    updated_at = one_value(frontmatter, delimiter, "updated_at")
-    if new:
-        if version is not None or updated_at is not None:
-            raise RuntimeError("new Atom already has revision metadata")
-        if delimiter == YAML_DELIMITER and len(header_path("version", parse_header(frontmatter))) > 1:
-            revised = replace_header_scalar(frontmatter, "version", 1)
-            return replace_header_scalar(revised, "updated_at", timestamp)
-        lines = [property_line(delimiter, "version", 1), property_line(delimiter, "updated_at", timestamp)]
-        return insert_properties(frontmatter, lines)
-    if version is None or updated_at is None:
-        raise RuntimeError("existing Atom requires version and updated_at")
-    if not version.isdigit() or int(version) < 1:
-        raise RuntimeError(f"invalid Atom version: {version}")
-    revised = replace_property(frontmatter, delimiter, "version", int(version) + 1)
-    return replace_property(revised, delimiter, "updated_at", timestamp)
-
-
-def update_projection(frontmatter: str, delimiter: str, timestamp: str) -> str:
-    if _root_value(frontmatter, delimiter, "version") is not None:
-        raise RuntimeError("Projection frontmatter must not carry version")
-    if _root_value(frontmatter, delimiter, "updated_at") is None:
-        return insert_properties(frontmatter, [property_line(delimiter, "updated_at", timestamp)])
-    return property_pattern(delimiter, "updated_at").sub(
-        property_line(delimiter, "updated_at", timestamp), frontmatter, count=1,
-    )
 
 
 def atomic_write(path: Path, text: str) -> None:
@@ -235,37 +126,3 @@ def atomic_write(path: Path, text: str) -> None:
         except FileNotFoundError:
             pass
         raise
-
-
-def main() -> int:
-    args = parse_args()
-    path = args.path.resolve()
-    root = repository_root(path)
-    delimiter, frontmatter, body = split_frontmatter(path.read_text(encoding="utf-8"), path)
-    timestamp = current_timestamp(root)
-    if args.kind == "atom":
-        revised_frontmatter = update_atom(frontmatter, delimiter, timestamp, args.new)
-    else:
-        if args.new:
-            raise RuntimeError("--new applies only to Atoms")
-        revised_frontmatter = update_projection(frontmatter, delimiter, timestamp)
-    revised = f"{delimiter}\n{revised_frontmatter}\n{delimiter}\n{body}"
-    print(f"path={path.relative_to(root)} kind={args.kind} updated_at={timestamp} apply={args.apply}")
-    if args.apply:
-        atomic_write(path, revised)
-    return 0
-
-
-def _image_main():
-    return main()
-
-
-if __name__ == "__main__":
-    # Direct script execution needs the shared process boundary available from the tools root.
-    import sys
-    from pathlib import Path
-    _TOOLS_ROOT = next(p for p in Path(__file__).resolve().parents if p.name in {"FEATURE_TOOLS", "TOOLS"})
-    if str(_TOOLS_ROOT) not in sys.path:
-        sys.path.insert(0, str(_TOOLS_ROOT))
-    from runtime_process_boundary import run_process
-    raise SystemExit(run_process(_image_main, operation="artifact_metadata"))

@@ -16,13 +16,11 @@ from typing import Any, Callable
 
 from mcp import types
 
-from hot_reload import CONTROL, STATUS
 from host_runtime_config import HostRuntimeConfig, resolve_host_project
 from operation_error_boundary import FailureRecord
 from project_selection import ProjectSelection
 from runtime_failure_diagnostics import report_failure
 from shared_tool_contract import ToolContract, contract_digest, public_tool
-from workbench_tools import native_tools as workbench_native_tools
 
 MAX_PROJECT_CANDIDATES = 256
 
@@ -58,11 +56,10 @@ class SharedToolFrontier:
 
 def native_tools(gateway: Any) -> list[types.Tool]:
     """Read the native, initialized frontier without reconstructing a Tool."""
-    active = getattr(gateway, "active", None)
-    if active is None:
-        raise RuntimeError("Project Gateway has no active generation")
+    if not gateway.ready:
+        raise RuntimeError("Project Gateway is unavailable")
     blocked = getattr(gateway, "tool_blacklist", frozenset())
-    return [tool for tool in (CONTROL, STATUS, *workbench_native_tools(), *active.tools) if tool.name not in blocked]
+    return [tool for tool in gateway.tools if tool.name not in blocked]
 
 
 def _has_marker(root: Path, frontier: SharedToolFrontier) -> bool:

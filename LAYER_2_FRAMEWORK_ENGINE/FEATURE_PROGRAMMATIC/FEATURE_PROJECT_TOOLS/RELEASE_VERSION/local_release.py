@@ -31,7 +31,6 @@ from release_support import (  # noqa: E402
     _copy_tree,
     _deploy_bootstrap,
     _file_identity,
-    _generate_tools_catalog,
     _image_manager,
     _launcher_image,
     _prepare_package,
@@ -390,8 +389,6 @@ def run_local_release(
                 cleanup_obsolete_images(root, candidate_image, candidate_fingerprint, cleanup, cleanup_runner)
                 cleanup_pending |= cleanup.pending
                 cleanup_note = "\n".join([cleanup_note, *cleanup.notes])
-                failed_step = "generate_tools_catalog"
-                _generate_tools_catalog(root, runtime, endpoint, runner)
                 receipt = _project_path(
                     root, Path(".caprmedio_runtime/simple_local_release/reports") / f"{run_id}.md",
                     label="simple-receipt",

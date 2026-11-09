@@ -48,7 +48,7 @@ class DockerLoggingTests(unittest.TestCase):
 
     def test_base_runtime_has_no_agent_service_or_credential_volume(self):
         config = _compose("compose.yaml")
-        self.assertEqual({"worker", "mcp"}, set(config["services"]))
+        self.assertEqual({"mcp"}, set(config["services"]))
         self.assertNotIn("volumes", config)
 
     def test_entrypoint_uses_built_python_without_retained_uv_supervisor(self):

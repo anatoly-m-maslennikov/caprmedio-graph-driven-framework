@@ -34,7 +34,7 @@ from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader  # noqa: E402
 from http_paths import MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from http_server import create_app  # noqa: E402
-from hot_reload import startup_selection  # noqa: E402
+from direct_gateway import startup_selection  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from smalltest_support import extension_directory, source_path, write_atom, write_settings  # noqa: E402
 from workbench_tools import WorkbenchTools  # noqa: E402
@@ -64,15 +64,7 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             control_root=control,
         )
         write_atom(source_path(declarations, "ENGINE", "04_requirement", "fixture.md"), "CA-R-684")
-        self.provider = Path(self.temporary.name) / "provider.py"
-        self.provider.write_text(
-            "from mcp.server import MCPServer\nMCPServer('workspace-e2e-fixture').run(transport='stdio')\n",
-            encoding="utf-8",
-        )
-        self.app = create_app(
-            self.root, implementation=self.provider, selection=startup_selection(self.root),
-            hot_reload=True,
-        )
+        self.app = create_app(self.root, selection=startup_selection(self.root))
         self.app.gateway.workbench = _ConfiguredWorkbenchTools(
             self.root, extension_directory(REPOSITORY),
         )

@@ -4,7 +4,6 @@
 
 import json
 import os
-from concurrent.futures import CancelledError as FutureCancelledError
 from pathlib import Path
 import sys
 
@@ -22,20 +21,7 @@ from operation_error_boundary import (  # noqa: E402
 from runtime_failure_diagnostics import report_failure  # noqa: E402
 
 
-RUNTIME_MODES = frozenset({"health", "worker", "mcp", "mcp-http", "shared-mcp"})
-
-
-def worker_health():
-    from engine import runtime_fingerprint
-
-    directory = PROJECT_ROOT / ".caprmedio_install/workflow_orchestrator/docker"
-    ready = json.loads((directory / "worker.ready").read_text())
-    state = json.loads((directory / "worker.json").read_text())
-    if ready["pid"] != state["pid"] or state["state"] != "starting":
-        raise ExplicitBlockingRuntimeFailure("worker_unavailable", "worker is not ready")
-    os.kill(ready["pid"], 0)
-    if ready["runtime_fingerprint"] != runtime_fingerprint(PROJECT_ROOT):
-        raise ExplicitBlockingRuntimeFailure("worker_unavailable", "worker is not ready")
+RUNTIME_MODES = frozenset({"mcp", "mcp-http", "shared-mcp"})
 
 
 def _process_failure(mode, error):
@@ -54,17 +40,6 @@ def _process_failure(mode, error):
         payload["diagnostic_error"] = secondary
     print(json.dumps(payload, separators=(",", ":")), file=sys.stderr)
     return 1
-
-
-def _run_worker_health():
-    try:
-        worker_health()
-    except FutureCancelledError:
-        raise
-    except ExplicitBlockingRuntimeFailure:
-        raise
-    except Exception as error:
-        raise ExplicitBlockingRuntimeFailure("worker_unavailable", "worker is not ready") from error
 
 
 def _shared_mcp_command():
@@ -86,7 +61,6 @@ def _exec_service(mode):
         command = _shared_mcp_command()
     else:
         paths = {
-            "worker": APP / "orchestrator.py",
             "mcp": APP.parents[1] / "FEATURE_MCP/server.py",
             "mcp-http": APP.parents[1] / "FEATURE_MCP/server.py",
         }
@@ -103,12 +77,8 @@ def _exec_service(mode):
             ):
                 if key in os.environ:
                     command += [flag, os.environ[key]]
-        if mode == "worker":
-            command.append("worker")
     try:
         os.execv(sys.executable, command)
-    except FutureCancelledError:
-        raise
     except OSError as error:
         raise ExplicitBlockingRuntimeFailure(
             "service_start_failed", "runtime service could not start"
@@ -116,10 +86,7 @@ def _exec_service(mode):
 
 
 def _dispatch(mode):
-    if mode == "health":
-        _run_worker_health()
-    else:
-        _exec_service(mode)
+    _exec_service(mode)
 
 
 def main():

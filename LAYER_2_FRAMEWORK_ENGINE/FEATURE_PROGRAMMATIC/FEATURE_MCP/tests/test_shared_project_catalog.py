@@ -7,7 +7,6 @@ from dataclasses import replace
 from pathlib import Path
 import sys
 import tempfile
-from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
@@ -52,7 +51,8 @@ class _Gateway:
     def __init__(self, root, *, selection):
         self.root = Path(root)
         self.selection = selection
-        self.active = SimpleNamespace(tools=list(self.tools))
+        self.ready = True
+        self.tools = list(self.tools)
         self.tool_blacklist = frozenset()
         self.closed = False
         self.instances.append(self)
