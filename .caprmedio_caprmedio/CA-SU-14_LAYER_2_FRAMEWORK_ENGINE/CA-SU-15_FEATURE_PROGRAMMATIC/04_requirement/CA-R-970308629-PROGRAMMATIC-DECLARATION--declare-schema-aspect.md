@@ -8,13 +8,13 @@ context:
   role: Requirement
   form: Declaration
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ Schema
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Schema
   tier: 1
 state:
   status: Active
-  version: 1
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 2
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-970308629-PROGRAMMATIC-DECLARATION--declare-schema-aspect.md
@@ -35,8 +35,8 @@ Schema is an Engineering Aspect within Data Handling.
 ### Formal Claim
 
 ```CFEL
-# model
-CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema;
+# project_structure
+PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Schema;
 ```
 
 ## Semantics

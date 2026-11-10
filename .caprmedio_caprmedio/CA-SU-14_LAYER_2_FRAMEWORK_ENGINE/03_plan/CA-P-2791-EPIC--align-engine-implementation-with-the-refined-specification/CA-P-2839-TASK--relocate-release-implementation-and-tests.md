@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Backlog
-  version: 1
-  updated_at: 2026-11-09 15:49:38 +0400
+  status: Done
+  version: 2
+  updated_at: 2026-11-11 00:44:41 +0400
 destination:
   file:
     name: CA-P-2839-TASK--relocate-release-implementation-and-tests.md

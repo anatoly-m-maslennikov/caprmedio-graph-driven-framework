@@ -23,6 +23,11 @@ relations:
   - CA-D-446
   - CA-D-568
   - CA-D-570
+ref_id: CA-C-522
+carrier_destination:
+  file:
+    name: CA-C-522-QUESTION--which-identity-should-a-demoted-draft-receive-on-promotion.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

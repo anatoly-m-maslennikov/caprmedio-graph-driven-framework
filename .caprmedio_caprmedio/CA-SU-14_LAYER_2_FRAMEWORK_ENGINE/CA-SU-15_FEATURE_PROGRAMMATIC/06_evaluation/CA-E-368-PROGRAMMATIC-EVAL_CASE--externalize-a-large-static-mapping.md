@@ -6,17 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Static Analysis <+ Python Code
 tier: 6
 relations:
   evaluation_for:
   - CA-M-419
   - CA-E-539
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 23
-updated_at: 2026-11-02 19:44:26 +0400
+version: 24
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -24,31 +25,17 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-368-PROGRAMMATIC-EVAL_CASE--externalize-a-large-static-mapping.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Externalize a large static mapping
+## Summary
 
-## Claim checked
+Externalize a large static mapping
 
-one large reusable static mapping is stored outside a hand-authored Python
-module while its loader retains a typed, validated boundary.
+## Claim
 
-## Test case
+### Prose Claim
 
-evaluate one changed Python module containing a static mapping above 20 entries
-**or** 25 source lines.
-
-## Acceptance criteria
-
-pass **only** **when** the mapping is moved **to** TOML by default, JSON for a schema **or**
-machine-interchange need, **or** YAML for one declared distinct feature; its loader
-**must** validate the expected structure **without** changing the mapping's meaning.
-
-## Failure disposition
-
-reject the source-size claim **until** data **and** executable behavior are separated.
-
-## Sources
-
-- [CA-M-419 — Ratchet hand-authored Python source boundaries](../05_method/CA-M-419-PROGRAMMATIC-ENG_POLICY--ratchet-hand-authored-python-source-boundaries.md)
-- [Python documentation: `tomllib`](https://docs.python.org/3.14/library/tomllib.html)
-- [Python documentation: `json`](https://docs.python.org/3.14/library/json.html)
+A changed Python module with a reusable static mapping over 20 entries or 25 lines must externalize it: TOML by default, JSON for schema/interchange, YAML only for a declared distinct feature. Its typed loader validates without changing meaning.

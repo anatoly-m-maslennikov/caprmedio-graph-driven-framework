@@ -6,19 +6,19 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data
-    Validation
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Data Handling <+ Data Validation
 tier: 3
 relations:
   evaluation_for:
   - CA-R-1110
-  derived_from:
-  - CA-A-057
   IS_REPLACEMENT_FOR:
   - CA-E-278
+  DERIVED_FROM:
+  - CA-A-057
 status: Active
-version: 2
-updated_at: 2026-11-09 21:15:45 +0400
+version: 3
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

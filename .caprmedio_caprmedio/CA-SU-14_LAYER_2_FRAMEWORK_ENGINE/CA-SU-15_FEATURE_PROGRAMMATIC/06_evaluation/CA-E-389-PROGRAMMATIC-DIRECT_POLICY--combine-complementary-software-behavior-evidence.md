@@ -8,23 +8,23 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test
-      Design
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Test Design
     dependencies:
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
   tier: 5
 relations:
   evaluation_for:
   - CA-M-424
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 state:
   status: Active
-  version: 29
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 30
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-389-PROGRAMMATIC-DIRECT_POLICY--combine-complementary-software-behavior-evidence.md

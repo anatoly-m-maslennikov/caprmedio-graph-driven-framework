@@ -13,9 +13,16 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2498, CA-P-2495]
+  concern_about:
+  - CA-P-2498
+  - CA-P-2495
 version: 3
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-553
+carrier_destination:
+  file:
+    name: CA-C-553-PROGRAMMATIC-PROBLEM--freeze-container-test-authority-without-live-atom-dependencies.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

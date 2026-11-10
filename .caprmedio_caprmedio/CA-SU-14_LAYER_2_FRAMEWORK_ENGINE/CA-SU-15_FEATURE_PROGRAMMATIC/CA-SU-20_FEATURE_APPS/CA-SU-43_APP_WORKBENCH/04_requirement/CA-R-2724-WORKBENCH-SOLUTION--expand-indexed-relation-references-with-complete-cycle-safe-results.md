@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 3
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2724-WORKBENCH-SOLUTION--expand-indexed-relation-references-with-complete-cycle-safe-results.md

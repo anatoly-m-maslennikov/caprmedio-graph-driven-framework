@@ -291,7 +291,7 @@ been reconciled or that an installed runtime has been replaced.
 
 Two Project-owned release commands run directly from the repository on the host:
 
-- **Local release (`LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py local`):** first commit all tracked
+- **Local release (`LAYER_5_FRAMEWORK_DELIVERY/release.py local`):** first commit all tracked
   and untracked nonignored changes and verify a clean worktree; run the complete suite; copy active
   Methodology Sources into `LAYER_1_FRAMEWORK_METHODOLOGY`; compile Applicable
   Methodology; replace the installed Methodology; build and install the Engine
@@ -299,7 +299,7 @@ Two Project-owned release commands run directly from the repository on the host:
   containers before Docker MCP startup; after successful smoke, repeat cleanup
   and remove unused obsolete images, preserving
   verified current-code resources and unrelated or unproven targets.
-- **Public release (`LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py public`):** run the complete suite; use one content
+- **Public release (`LAYER_5_FRAMEWORK_DELIVERY/release.py public`):** run the complete suite; use one content
   prompt for the full PR description and its concise Version History bullets;
   update the version and README; push `amm/dev`; create or update the PR to
   `main` as a Draft; insert its actual link into Version History. It does not merge the PR.
@@ -320,7 +320,7 @@ with an Operator-selected run ID and a JSON content draft for Public release.
 They use the host's Git, GitHub and Docker tools independently of MCP. Legacy
 release MCP bindings are retired; the two host commands remain. Regular
 Project MCP runs in Docker on localhost without a password; the
-[launcher documentation](LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/README.md)
+[launcher documentation](LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/docker/README.md)
 describes Project selection and endpoint startup.
 
 Local numbering adds or increments the fourth component (`0.4.2.1` →

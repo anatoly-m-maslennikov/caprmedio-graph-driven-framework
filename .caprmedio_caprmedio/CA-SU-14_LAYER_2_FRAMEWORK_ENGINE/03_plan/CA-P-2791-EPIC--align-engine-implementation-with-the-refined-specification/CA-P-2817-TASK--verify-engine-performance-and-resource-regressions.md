@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Backlog
-  version: 1
-  updated_at: 2026-11-09 07:55:38 +0400
+  version: 3
+  updated_at: 2026-11-11 00:29:06 +0400
 destination:
   file:
     name: CA-P-2817-TASK--verify-engine-performance-and-resource-regressions.md
@@ -26,6 +26,16 @@ relations:
   - CA-P-2813
   - CA-P-2814
   - CA-P-2815
+  - CA-P-2816
+  - CA-P-2839
+  - CA-P-2842
+  - CA-P-2843
+  - CA-P-2844
+  - CA-P-2852
+  - CA-P-2859
+  - CA-P-2861
+  - CA-P-2866
+  - CA-P-2910
 ---
 
 ## Summary
@@ -34,7 +44,7 @@ Verify Engine performance and resource regressions
 
 ## Objective
 
-Run the existing latency, 500-Atom throughput, cold rebuild and resource/soak acceptance against the resulting code. Preserve current acceptance limits and report CPU peak caveats separately. Do not substitute profiling runs for acceptance.
+Run the existing latency, 500-Atom throughput, cold rebuild and resource/soak acceptance against the final combined code revision after all performance-affecting changes. Record that revision and rerun affected acceptance if it changes before delivery. Preserve current acceptance limits and report CPU peak caveats separately. Do not substitute profiling runs for acceptance.
 
 ## Subtasks
 

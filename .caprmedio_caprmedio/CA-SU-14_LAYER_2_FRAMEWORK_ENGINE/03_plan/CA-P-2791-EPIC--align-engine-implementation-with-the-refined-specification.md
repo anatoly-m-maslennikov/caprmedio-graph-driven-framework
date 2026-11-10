@@ -12,9 +12,9 @@ context:
   tier: 3
   label: Epic
 state:
-  status: Backlog
-  version: 12
-  updated_at: 2026-11-09 23:01:48 +0400
+  status: Active
+  version: 24
+  updated_at: 2026-11-11 00:58:52 +0400
 destination:
   file:
     name: CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification.md
@@ -31,74 +31,65 @@ Align Engine implementation with the refined specification
 
 ## Objective
 
-Implement and verify the accepted code corrections identified by the Stage 2 specification review.
+Implement and verify the accepted code work from the completed Stage 2 source review.
 
 ## Scope
 
-ENGINE and its eligible descendants, including Workbench capabilities. Old non-Workbench Tools, the 500-Atom benchmark sources, the remaining prior Content migration hold (69 MED after the approved six-Atom C707 review), existing Archives/Drafts, standalone chat and actual native Codex rendering remain outside this active queue. C707–C710 source handoffs are resolved. The approved FRAMEWORK_DELIVERY local/public release implementation and test relocation is included only through P2839; other excluded legacy Tools and deferred sources remain excluded.
+All eligible Engine implementation, including Workbench and generic plugin-free hook/session capabilities. Older non-Workbench Tools are fully retired and are not queued for rebuilding. Migration of the preserved benchmark source corpus, standalone chat and actual native Codex rendering remain excluded or deferred under their existing boundaries. The former 69-MED hold is lifted. C725 is deferred to the version 0.6 Project Objective; its four proposal Drafts remain unadopted. C726 is Resolved and its three permission-update Drafts are withdrawn. Preserve existing Archives and unrelated work.
+
+The previously approved FRAMEWORK_DELIVERY code/test relocation remains in P2839. No other release-scope work is added.
 
 ## Working procedure
 
-Review and fix the next task before starting. RMED → review/fix → applicable M Policy prompt → RED plus non-Policy M → implementation → E2E → review/fix. Use Terra/Luna where efficient, one Scope Unit per agent, exclusive edit ownership and small Work Reports. Check the model, principles and latest Operator input when unsure; record remaining uncertainty as a C / Question and continue independent work. Specifications stay in RMED, not Tasks.
+Review and fix the next task before starting. Current RMEDO → review/fix → applicable Direct/Approach M Policy prompt → RED plus non-Policy M → implementation → E2E → independent review/fix. Give each worker one Scope Unit and exclusive edit paths. Split subtasks before 20 minutes; use small Work Reports. Tasks track work; RMEDO holds specification.
 
-## Inputs
+## Inputs and entry gate
 
-Stage 2 Current adoption, I7–I9, C711, C712 and the thin implementation map in CA-P-2767. Existing catalog and shared-server wiring is present; do not recreate it from an incomplete package-local search.
+P2767 source refinement, actual Current graph and source reports are the entry baseline. Select Current IDs/Versions through replacement lineage; retained historical module comments and old Synopses are not proof of Current behavior. P2811 must confirm inputs before any implementation. P2767 is Done. Enter implementation through P2811: confirm Current inputs and exclusive ownership for each scoped batch. Hold a batch whose source contract is being revised; continue independent accepted work. Preserved benchmark sources are not migrated; latency, throughput and resource tests remain mandatory.
 
 ## Tasks
 
-- [ ] [Confirm the adopted implementation inputs](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2811-TASK--confirm-the-adopted-implementation-inputs.md)
+- [x] [Confirm the adopted implementation inputs](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2811-TASK--confirm-the-adopted-implementation-inputs.md)
 - [ ] [Fix Workbench editor completion](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2812-TASK--fix-workbench-editor-completion.md)
 - [ ] [Reconcile Backend implementation and evaluator pins](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2813-TASK--reconcile-backend-implementation-and-evaluator-pins.md)
-- [ ] [Verify MCP registration and discovery contracts](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2814-TASK--verify-mcp-registration-and-discovery-contracts.md)
+- [x] [Verify MCP registration and discovery contracts](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2814-TASK--verify-mcp-registration-and-discovery-contracts.md)
 - [ ] [Verify shared Workbench View and transport behavior](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2815-TASK--verify-shared-workbench-view-and-transport-behavior.md)
-- [ ] [Review remaining Engine implementation evidence](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2816-TASK--review-remaining-engine-implementation-evidence.md)
+- [x] [Review remaining Engine implementation evidence](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2816-TASK--review-remaining-engine-implementation-evidence.md)
 - [ ] [Verify Engine performance and resource regressions](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2817-TASK--verify-engine-performance-and-resource-regressions.md)
 - [ ] [Review and deliver the accepted Engine changes](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2818-TASK--review-and-deliver-the-accepted-engine-changes.md)
-- [ ] [Relocate release implementation and tests](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2839-TASK--relocate-release-implementation-and-tests.md)
+- [x] [Relocate release implementation and tests](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2839-TASK--relocate-release-implementation-and-tests.md)
 
 - [ ] [Add the query-inaccessible Atom audit table](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2842-TASK--add-the-query-inaccessible-atom-audit-table.md)
 - [ ] [Add the declared carrier consistency audit table](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2843-TASK--add-the-declared-carrier-consistency-audit-table.md)
 - [ ] [Add the physical carrier consistency audit table](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2844-TASK--add-the-physical-carrier-consistency-audit-table.md)
 
+- [ ] [Implement query result files and Bookmarks](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2852-TASK--implement-query-result-files-and-bookmarks.md)
+
+- [ ] [Fix newly found reader eligibility gaps](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2859-TASK--fix-newly-found-reader-eligibility-gaps.md)
+
+
+- [ ] [Deliver and verify the standalone Codex hook](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2861-TASK--deliver-and-verify-the-standalone-codex-hook.md)
+
+- [ ] [Verify content extraction for admitted Engine carriers](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2866-TASK--verify-content-extraction-for-admitted-engine-carriers.md)
+
+- [x] [Implement generic runtime session context](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-2910-TASK--implement-generic-runtime-session-context.md)
+
 ## Definition of Done
 
-Accepted code corrections match Current RMED and pass their actual acceptance. Latency, throughput, resource use and scope boundaries do not regress. Current module pins describe implemented contracts only. Delivery is independently reported; skipped or deferred native acceptance is never called passed.
+Implemented behavior matches the accepted Current specification with actual acceptance evidence. Preserve latency, throughput and resource guards. Reconcile module IDs/Versions only for directly implemented contracts after verification; never mass-bump pins. Report skipped native acceptance and unrun tests explicitly. Delivery is a separate checked result.
 
-## Additional confirmed issue
+## Handoff
 
-C712: reproduce and fix stale deleted-Atom rows after a mixed source update/delete batch, with acceptance under E677. Include this in the Backend implementation task before combined regression verification. A full reread is verified recovery, not the incremental-path fix.
+Use the refreshed implementation-map.tsv and P2902/P2903 reports in P2767. The map preserves historical pins and provides Current lineage separately. No Current Code Synopsis remains; do not reopen I7–I9 automatically.
 
-## Release implementation ownership
+P2812 retains C711 editor completion; P2813 retains C712 incremental delete and Backend pin reconciliation; P2814 retains C714 removed MCP locator and actual registry/discovery verification. P2859/P2866 retain reader eligibility and C716 declared-content extraction. P2815 covers shared View/grid/HTTP/MCP behavior; P2816 handles remaining orchestration and prompt evidence without restoring removed Agent execution.
 
-- CA-P-2839 — Relocate release implementation and tests. Backlog; blocked by the reviewed specification move CA-P-2837 and adopted-input confirmation CA-P-2811. The Operator chose specification now, implementation in this Epic.
+Verify the new shared Workspace Project-name case E819 under existing Workbench acceptance. Preserve P2852 query-result file/Bookmark work, P2842–P2844 audits, deferred P2860 session reads and active P2910/P2861 context and hook delivery. Old Graph UI/Graph Server contracts and retired pin-refresh gates must not be restored merely to satisfy historical comments. Existing tasks are reused; no duplicate implementation Epic is created.
 
-## Current release source baseline
+## Deferred work
 
-P2837 is Done. FRAMEWORK_DELIVERY / CA-SU-27 now owns the 80 local/public release specification Atoms. R3012@1 replaces the old RELEASES declaration without changing the Scope Unit ID or order. P2839 must use this Current source baseline. Review the retained pre-existing O184/O186 and archive-only D572 references before choosing any implementation repair; do not restore retired gates or invent replacements. Legacy unreadable D021 remains outside this adopted source frontier.
+The Operator deferred [P2860 Run/history reads](backlog/CA-P-2860-TASK--implement-session-bound-workflow-run-reads.md). P2910 implements generic runtime session context and P2861 delivers the plugin-free hook; no missing executor or history service is introduced here.
 
-## Source prerequisite
+## Adopted-source scope update
 
-The earlier Decision reviews in CA-P-2767 are complete. CA-P-2767 and the broader Summary merge pass P2840 are now Done; their reviewed adoption is query-verified and the source prerequisite is satisfied. The 89-Decision frontier was reviewed; 16 Forms were promoted, 73 Decisions retained, seven receiving delegations updated and one Evaluation carrier link repaired. The 24 adopted sources were queried back; no new Atom merge or implementation behavior was introduced. P2811 must select the Current source Versions, including the new shared Engine Method Policies M327/M328, before compiling implementation guidance. Keep the 69 held MED outside this queue. Existing Code Synopses remain factual code observations; reconcile old pins during the already-planned implementation review.
-
-## First Summary merge source baseline
-
-The first P2840 checkpoint adopted five groups; the final baseline below supersedes that partial checkpoint. P2811 must follow Current replacement lineage from R1522 to R1605, M169 to R1107, M178 to R1116, D705 to M509, and D676/D677 to R2782, and include the new M513 Method Decision where applicable. Historical module pins stay factual; reconcile them during the existing implementation map review. Do not restore the six retired contracts as separate Current sources. C712 was reproduced again during this adoption; full reread cleared five stale deleted-source rows, so the incremental-path fix and its E2E acceptance remain required.
-
-## Final adopted source baseline
-
-P2767 and P2840 are Done. Use the 33 applied groups in P2767/summary-merges.tsv: 48 retired contracts now resolve to their Current survivors. Include M513 and the new R3013 registry Requirement, plus the approved D366/D512/E525 reference-only repairs. Do not restore retired Methods/Deliveries as separate Current contracts. Before compiling guidance or reconciling I7–I9 and module pins, select actual Current Versions through the replacement lineage; retained historical pins remain factual evidence, not current implementation claims.
-
-The six unadopted groups and all 69 deferred MED remain held. The 500 benchmark sources stay excluded. C712 still needs its incremental delete-path fix and E2E acceptance; a source reread is recovery only. Preserve the P2839 release relocation and P2842–P2844 audit work already in this queue.
-
-Reconcile query extraction with the latest model-declared named Header values before policy compilation. A concurrent source lane adopted M514@2/M515@2 with lowercase role/form/status; live query exposes their Headers and Summaries but not their Claims. Check this under adopted-input confirmation, Backend extraction and the query-inaccessible audit work. Their source Atoms were not changed by this pass.
-
-## Reopened source-evidence review
-
-P2767 is Active again for P2845, reviewing recently created I7/I8/I9. The final Summary-merge baseline remains adopted. Keep P2811 Backlog until this bounded evidence review is integrated; do not infer that old Synopsis/module pins have already been reconciled with Current contracts.
-
-## Code Synopsis review checkpoint
-
-P2845 reviewed all three recent Synopses. Use Current I7/I8 at Version 2 as source evidence. P2812 must implement Current M468 and verify the two reproduced completion failures; passing workspace/helper tests are insufficient acceptance. P2813 retains the C712 mixed update/delete reproduction and exact pin reconciliation; static code-path presence does not resolve that Concern. Existing M500/D672 already cover the schema-asset distinction, so do not invent a relocation from missing package-local evidence.
-
-MCP I9 adoption is held under C714/P2847 because concurrent code changes removed its selected-route registration file and changed dispatch code during review. Source I9 remains at Version 1. P2814 must use the freshly reviewed source state after that follow-up; do not restore removed code solely to match the old Synopsis. P2767 stays Active and this implementation Epic stays Backlog. No implementation or runtime acceptance was performed by the source review.
+The concurrent source handoff is adopted. The Operator assigned new SQL scripts, source-backed UPDATE/Draft state and associated Tab/help capability integration to [P2912](CA-P-2912-EPIC--implement-workbench-sql-scripts-and-source-updates.md). P2791 implements the applicable pre-existing result-file, audit, completion, registry, context, hook and release-refinement subset only; it does not claim full implementation of the newly expanded Claims.

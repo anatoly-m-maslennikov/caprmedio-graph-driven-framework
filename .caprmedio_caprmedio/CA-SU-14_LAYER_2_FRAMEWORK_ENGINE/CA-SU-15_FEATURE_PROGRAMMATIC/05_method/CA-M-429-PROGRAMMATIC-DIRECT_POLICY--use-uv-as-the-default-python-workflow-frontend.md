@@ -8,22 +8,22 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
-      Authoring/Python Code
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Authoring <+ Code Authoring <+ Python Code
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+    - MODEL//CAPRMEDIO <+ Asset
+    - MODEL//CAPRMEDIO <+ Event Record
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 16
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -51,7 +51,6 @@ Implementation materialize it, Delivery governs its carriers, Operations defines
 
 ## Details
 
-Candidate source: [CA-M-221@15](archive/CA-M-221-PROGRAMMATIC-CORE-METHOD--use-uv-as-the-default-python-workflow-frontend@15.md)
 
 ### Applicable when
 

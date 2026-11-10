@@ -6,17 +6,18 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt
-    Authoring
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Serialization
+  - MODEL//CAPRMEDIO <+ Carrier
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
 tier: 3
 status: Active
-version: 15
-updated_at: 2026-11-09 21:15:45 +0400
+version: 16
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-545-PROMPTS-DECISION--deliver-the-implementation-prompt-input-packet.md
@@ -55,7 +56,7 @@ binding before a prompt can verify its governed sources or call an Agent:
 | `selected_project.source_root` | `.caprmedio_caprmedio` | the only authority root for prompt-source resolution |
 | `selected_project.source_references` | the exact current `source_bindings` rows, each with Atom ID, Version, project-relative `path`, and SHA-256 | every path is nonempty, relative, has no `..` segment, begins under `source_root`, and resolves only beneath the frozen selected Project |
 | `requirements`, `methods`, `evaluations`, `delivery` | complete applicable direct source rows: `atom_id`, `version`, Project-relative `path`, `sha256`, and full `content` | independently verify the authorized initial selection, its declared universe and applicable governing parents against current Project authority; preserve R/D implementation targets separately from governing context |
-| `method_projection` (optional) | a legacy source-bound derived view | it neither replaces direct source rows nor blocks a Run when absent; no compiled paragraph or projection file is required |
+| `method_projection` | one verified complete active-M projection file with its binding | compile or verify it before delegated work, retain the same file binding downstream, and block if missing, stale, conflicting, unauthorized, or incomplete; it is derived guidance and does not replace direct source rows or establish applicability |
 | `workspace` | the existing absolute, non-symlink disposable workspace supplied to the Agent | no source binding infers or substitutes this path |
 | `permissions.implementation_workspace` | the existing exact `{kind: disposable_workspace, path: workspace, allow_write: true}` capability | it must match `workspace`; this Delivery adds no write grant |
 

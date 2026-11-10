@@ -6,19 +6,19 @@ container:
 role: Method
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source
-    Selection
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Data Handling <+ Source Selection
 tier: 2
 relations:
   method_for:
   - CA-R-1115
-  derived_from:
-  - CA-A-057
   IS_REPLACEMENT_FOR:
   - CA-M-177
+  DERIVED_FROM:
+  - CA-A-057
 status: Active
-version: 1
-updated_at: 2026-11-09 07:45:15 +0400
+version: 2
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

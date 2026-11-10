@@ -6,8 +6,8 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source
-    Selection
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Data Handling <+ Source Selection
 tier: 1
 relations:
   IS_REPLACEMENT_FOR:
@@ -15,8 +15,8 @@ relations:
   - CA-M-510
   - CA-M-168
 status: Active
-version: 1
-updated_at: 2026-11-09 21:15:45 +0400
+version: 2
+updated_at: 2026-11-10 20:47:54 +0400
 author: Anatoly Maslennikov
 current_scope_unit: MCP
 destination:
@@ -33,6 +33,8 @@ MCP exposes the active Tool registry
 
 ### Prose Claim
 
-MCP must read the generated registration asset carried by the installed package, resolve only its code-owned provider and selected-route entries, and apply the bound Project's configured exclusions. It must expose the resulting enabled installed code/configuration surface through existing backend adapters. Atom status, Subjects, Scope Unit graphs, Tool-folder discovery, and unlisted implementation helpers do not determine runtime exposure. Missing or malformed registration configuration is reported explicitly; MCP must not fall back to Atom discovery.
+MCP must read the generated registration asset carried by the installed package, resolve only its code-owned provider entries, and apply the bound Project's configured exclusions. It must expose the resulting enabled installed code/configuration surface through existing backend adapters. Atom status, Subjects, Scope Unit graphs, Tool-folder discovery, and unlisted implementation helpers do not determine runtime exposure. Missing or malformed registration configuration is reported explicitly; MCP must not fall back to Atom discovery.
 
 Load the installed registration asset when MCP starts or explicitly loads a rebuilt installed implementation.
+
+The installed registration configuration must carry an explicit `mcp_blacklist` of exact public Tool names. Blacklisted Tools must not be exposed through MCP or admitted by direct MCP invocation. Bound Project exclusions may further restrict exposure; they cannot re-enable a globally blacklisted Tool. An internal or CLI implementation may remain installed without MCP exposure.

@@ -6,19 +6,21 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Effect Authorization
 tier: 5
 relations:
   evaluation_for:
   - CA-M-404
   - CA-M-409
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 24
-updated_at: 2026-10-27 19:59:31 +0400
+version: 25
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -26,31 +28,42 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-262-PROGRAMMATIC-EVAL_CASE--reject-file-mutation-with-unmet-precondition.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reject file mutation with unmet precondition
+## Summary
 
-## Claim checked
+Reject file mutation with unmet precondition
+
+## Claim
+
+
+
+### Prose Claim
+#### Claim checked
 
 one PROGRAMMATIC file mutation stops **before** writing, replacing, **or** removing a
 file **when** its declared target **or** precondition is invalid.
 
-## Applicable conditions
+#### Applicable conditions
 
 apply **when** a component writes, replaces, **or** removes a file.
 
-## Test case
+#### Test case
 
 request one file mutation with a declared precondition that does **not** hold.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 pass **only** **when** the operation returns the precondition failure **and** leaves the
 target bytes unchanged.
 
-## Failure disposition
+#### Failure disposition
 
 reject the mutation **and** preserve the existing target for diagnosis.
 
-## Sources
+#### Sources
 
 - [CA-M-409 — Bound file and subprocess effects](../05_method/CA-M-409-PROGRAMMATIC-ENG_POLICY--bound-file-and-subprocess-effects.md)

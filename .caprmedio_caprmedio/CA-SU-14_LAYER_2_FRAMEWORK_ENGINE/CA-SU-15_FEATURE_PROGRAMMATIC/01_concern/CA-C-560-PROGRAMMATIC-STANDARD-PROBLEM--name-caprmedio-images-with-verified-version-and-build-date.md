@@ -8,16 +8,23 @@ form: Problem
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
-  concern_about: [CA-P-2518, CA-P-2520, CA-R-1901]
+  concern_about:
+  - CA-P-2518
+  - CA-P-2520
+  - CA-R-1901
 status: Resolved
 version: 2
-updated_at: "2026-10-21T09:42:22Z"
+updated_at: '2026-10-21T09:42:22Z'
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 priority: high
+carrier_destination:
+  file:
+    name: CA-C-560-PROGRAMMATIC-STANDARD-PROBLEM--name-caprmedio-images-with-verified-version-and-build-date.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

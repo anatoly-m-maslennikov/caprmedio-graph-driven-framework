@@ -17,7 +17,13 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1427]
+  concern_about:
+  - CA-P-1427
+ref_id: CA-C-408
+carrier_destination:
+  file:
+    name: CA-C-408-PROBLEM--repair-the-layout-check-summary-anchor.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

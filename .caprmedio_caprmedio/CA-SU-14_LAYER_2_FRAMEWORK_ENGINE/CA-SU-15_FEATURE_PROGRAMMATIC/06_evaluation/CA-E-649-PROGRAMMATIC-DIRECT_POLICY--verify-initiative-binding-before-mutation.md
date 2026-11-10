@@ -8,16 +8,16 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control/Effect Authorization
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control <+ Effect Authorization
   tier: 5
 relations:
   evaluation_for:
   - CA-M-191
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 16
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-649-PROGRAMMATIC-DIRECT_POLICY--verify-initiative-binding-before-mutation.md

@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
 tier: 0
 status: Active
-version: 24
-updated_at: 2026-11-02 19:44:26 +0400
+version: 25
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1189-SKILLS-SCOPE_CONTRACT-RULE--own-agent-facing-methodology-and-capability-procedures.md
@@ -29,4 +30,6 @@ Own Agent-Facing Methodology and Capability Procedures
 
 ## Claim
 
+
+### Prose Claim
 SKILLS **must** own agent-facing procedures that select **and** invoke exact FRAMEWORK_METHODOLOGY authority **and** applicable programmatic capabilities **without** duplicating their meaning **or** mechanics.

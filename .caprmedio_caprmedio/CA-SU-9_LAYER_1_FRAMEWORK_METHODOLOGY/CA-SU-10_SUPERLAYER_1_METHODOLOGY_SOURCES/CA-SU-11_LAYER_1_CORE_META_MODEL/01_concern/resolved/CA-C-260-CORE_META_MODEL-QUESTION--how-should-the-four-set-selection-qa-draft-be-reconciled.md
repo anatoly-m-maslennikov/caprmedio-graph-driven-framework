@@ -43,6 +43,11 @@ relations:
   - CA-R-918
   - CAPRMEDIO-META-REQU-097
   - CAPRMEDIO-META-REQU-657
+ref_id: CA-C-260
+carrier_destination:
+  file:
+    name: CA-C-260-CORE_META_MODEL-QUESTION--how-should-the-four-set-selection-qa-draft-be-reconciled.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

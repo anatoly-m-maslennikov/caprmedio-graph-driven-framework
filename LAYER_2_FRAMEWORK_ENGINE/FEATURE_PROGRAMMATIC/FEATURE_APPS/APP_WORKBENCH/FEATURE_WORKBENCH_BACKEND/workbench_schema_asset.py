@@ -169,3 +169,10 @@ def _selector(value: object) -> frozenset[str] | None:
     if not isinstance(value, list) or not all(isinstance(item, str) and item for item in value):
         raise ValueError("invalid delivered Header declaration selector")
     return frozenset(value)
+
+
+def header_schema(atoms, content, declared_header, mode):
+    """Prefer the build asset when it matches the source declarations."""
+    compilation = compile_schema(atoms, content, declared_header)
+    delivered = load_schema_asset(DEFAULT_SCHEMA_PATH, atoms, compilation)
+    return (delivered or compilation).header(mode)

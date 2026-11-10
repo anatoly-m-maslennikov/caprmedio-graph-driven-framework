@@ -1,6 +1,6 @@
 # CA-R-2726@6
 # CA-M-500@3
-# CA-D-672@14
+# CA-D-672@19
 
 """Project transient parser records into the two public SQL tables."""
 
@@ -17,7 +17,7 @@ from .header_columns import HeaderSchema
 from .relations import canonical
 
 
-ATOM_METADATA_FIELDS = ("relative path", "filename", "status_group", "reference")
+ATOM_METADATA_FIELDS = ("relative_path", "filename", "status_group", "reference")
 ATOM_TRAILER_FIELDS = ("header.relations", "hash")
 SCOPE_FIELDS = (
     "name", "scope_unit_id", "parent_name", "declared_label", "ordered",
@@ -35,7 +35,7 @@ def _atom(row: Row, outgoing: Outgoing, header_schema: HeaderSchema, content_sch
     path = PurePosixPath(row["source_path"])
     reference = row.get("ref")
     public: Row = {
-        "relative path": path.parent.as_posix(),
+        "relative_path": path.parent.as_posix(),
         "filename": path.name,
         "status_group": row["status_group"],
         "reference": reference,
@@ -110,9 +110,9 @@ def insert_rows(
     header_ddl = [f"{quote_identifier(column.name)} {column.format}" for column in header_schema.columns]
     content_ddl = [f"{quote_identifier(name)} VARCHAR" for name in content_schema.names]
     columns = [
-        '"relative path" VARCHAR NOT NULL', "filename VARCHAR NOT NULL", "status_group VARCHAR NOT NULL",
+        '"relative_path" VARCHAR NOT NULL', "filename VARCHAR NOT NULL", "status_group VARCHAR NOT NULL",
         "reference VARCHAR UNIQUE", *header_ddl, *content_ddl, '"header.relations" JSON NOT NULL',
-        "hash VARCHAR NOT NULL", 'PRIMARY KEY("relative path", filename)',
+        "hash VARCHAR NOT NULL", 'PRIMARY KEY("relative_path", filename)',
     ]
     connection.execute(f"CREATE TABLE main.atoms({', '.join(columns)})")
     connection.execute("""CREATE TABLE main.scope_units(

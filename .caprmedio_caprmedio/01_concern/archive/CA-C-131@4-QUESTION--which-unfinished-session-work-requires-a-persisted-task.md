@@ -1,0 +1,44 @@
+---
+atom_id: CA-C-131
+ref_id: CA-C-131@4
+topics:
+  main_subject: 'Atom/Content Role: Plan/Type: Task'
+  dependencies:
+  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  - 'Subject/Domain/Node/Continuant/Actor/Type: AI Agent'
+  - Subject/Domain/Node/Continuant/Actor
+  - Subject/Domain/Node/Continuant/Atom
+  - Artifact
+  - Atom/Claim
+status: Archived
+version: 4
+updated_at: 2026-10-23 03:18:40 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+carrier_destination:
+  file:
+    name: CA-C-131@4-QUESTION--which-unfinished-session-work-requires-a-persisted-task.md
+    path: .caprmedio_caprmedio/01_concern/archive
+---
+# Which unfinished session work requires a persisted Task?
+
+which accepted persistence condition distinguishes session-only work from work that requires a persisted Task, **without** treating deferral, compaction, **or** session end as new mutation permission?
+
+## Evidence
+
+- the Operator explicitly permits ephemeral Tasks executed through proper Actions **and** Processes.
+- CAPRMEDIO-META-REQU-145 distinguishes ephemeral session control from a persisted Plan Artifact.
+- CAPRMEDIO-META-REQU-101 nevertheless requires a persisted Task Atom **before** a backlog candidate becomes active work.
+- CAPRMEDIO-META-REQU-147 requires unfinished operative work **to** be reconciled into a governed Plan at deferral, blocking, topic change, compaction, session end, **or** partial completion.
+- the active authority inspected does **not** supply the exact boundary that preserves these still-useful planning commitments **and** the accepted session-only case together.
+
+## Principle check
+
+CA-M-002 rejects duplicate plans; CA-M-005 rejects unnecessary compulsory artifacts; CA-R-1490 requires valuable information **to** remain recoverable; CA-R-1552 keeps mutation within active Operator delegation. none makes a session boundary itself permission **to** create a Task **or** permits losing valuable unfinished work.
+
+## Disposition
+
+preserve these source Claims **and** record the unresolved boundary rather than invent a mandatory Task, a new session Property, **or** an automatic persistence exception. obtain the missing policy decision **before** coordinated replacement; P Carriers remain outside this RMEDO repair frontier.

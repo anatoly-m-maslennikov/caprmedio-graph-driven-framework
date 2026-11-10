@@ -8,12 +8,13 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Component Structure
   tier: 0
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-1603-WORKBENCH-SCOPE_CONTRACT-SOLUTION--serve-the-derived-graph-headlessly.md
@@ -32,4 +33,6 @@ Serve the Derived Graph Headlessly
 
 ## Claim
 
-WORKBENCH **must** own the rebuildable non-authoritative graph read model **and** read-only service used by Tools, MCP, **and** optional interfaces without requiring GRAPH_UI.
+
+### Prose Claim
+WORKBENCH **must** own the rebuildable non-authoritative graph read model **and** read-only service used by Tools, MCP, **and** optional interfaces without requiring any optional interface.

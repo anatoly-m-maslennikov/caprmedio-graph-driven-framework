@@ -34,28 +34,32 @@ graph TD;
     click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom/CA-O-draft-PROJECT_CONFIGURATION-STEP--archive-the-selected-current-atom.md" "Open Step";
 ```
 
+### Prose Claim
+
 This Workflow's Purpose is Runtime; its scheme follows [CA-R-1570](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md).
 
-### Input
+#### Input
 
-One exact Atom selector and, for nested Update, the internal `expectedSource` binding defined by [CA-R-1432](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md).
+One exact Atom selector.
 
 The `projectContext` input port binds the Project, applicable model, and authorization.
 
-### Output
+#### Output
 
 The `savedArchivedAtom`, warnings, and failure result.
 
-### Step handoffs
+#### Step handoffs
 
 | Step | Receives | Produces |
 | --- | --- | --- |
-| [Archive the selected Current Atom](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom/CA-O-draft-PROJECT_CONFIGURATION-STEP--archive-the-selected-current-atom.md) | selected Atom, `projectContext`, and any nested internal `expectedSource` | `savedArchivedAtom`, warnings or a failure result |
+| [Archive the selected Current Atom](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-archive-atom/CA-O-draft-PROJECT_CONFIGURATION-STEP--archive-the-selected-current-atom.md) | selected Atom, `projectContext`,  | `savedArchivedAtom`, warnings or a failure result |
 
-### Logical switches
+#### Logical switches
 
 | Condition | Behavior |
 | --- | --- |
 | Entry | Run Archive the selected Current Atom. |
 | `savedArchivedAtom` is returned | Complete successfully. |
-| A failure result is returned | Terminate under [CA-R-1432](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md). |
+| A failure result is returned | Stop and report the explicit failure. |
+
+If an Action requests additional input, return its short explanation and requested input dictionary and keep the Workflow pending. Resume with the supplied dictionary; cancellation is allowed while waiting and does not interrupt an Action.

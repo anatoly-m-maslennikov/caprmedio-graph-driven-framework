@@ -6,17 +6,25 @@ container:
 role: Requirement
 form: Goal
 topics:
-  {"main_subject": "Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction/Decision", "dependencies": ["Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring", "CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator"]}
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Interaction <+ Decision
+  dependencies:
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
+    <+ Prompt Authoring
+  - MODEL//CAPRMEDIO <+ Actor/Operator
 tier: 1
 status: Active
-version: 14
-updated_at: 2026-10-27 19:59:58 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: obligation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROMPTS
+destination:
+  file:
+    name: CA-R-1602-PROMPTS-GOAL--request-operator-decisions-and-input.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/04_requirement
 ---
 ## Summary
 

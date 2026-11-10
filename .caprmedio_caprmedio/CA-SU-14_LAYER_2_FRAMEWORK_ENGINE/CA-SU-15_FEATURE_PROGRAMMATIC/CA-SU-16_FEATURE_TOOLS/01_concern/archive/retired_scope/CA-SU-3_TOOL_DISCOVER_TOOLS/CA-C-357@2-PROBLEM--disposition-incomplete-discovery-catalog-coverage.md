@@ -1,0 +1,43 @@
+---
+atom_id: CA-C-357
+ref_id: CA-C-357
+container:
+  scope_unit: CA-SU-16
+role: Concern
+form: Problem
+topics:
+  main_subject: Subject/Engineering/Tool Discovery Binding/Catalog Coverage Diagnostics
+  dependencies:
+  - Subject/Domain/Node/Continuant/Atom
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations'
+  - Subject/Engineering/Tool Discovery Binding
+relations:
+  concern_about:
+  - CA-R-1804
+  - CA-P-1123
+status: Archived
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
+current_scope_unit: TOOLS
+local_tier: Standard
+global_tier: 14
+author: Anatoly Maslennikov
+---
+# Summary
+
+Disposition incomplete discovery catalog coverage
+
+## Concern
+
+The current discovery result cannot establish complete runtime capability coverage while its catalog diagnostics remain undispositioned. This is a coverage limitation, not a proved implementation defect or permission to repair unrelated historical files.
+
+## Evidences
+
+- Read-only MCP DISCOVER_TOOLS query `reconcil`, limit 20: zero matches and 50 coverage diagnostics.
+- Read-only Operations discovery query `completed work`, limit 20: 21 total matches, next offset 20, and the same 50 diagnostics. Its broad text matches do not establish an exact completed-work Action.
+- Representative diagnostics: `ambiguous Atom ID: CA-D-388`; legacy execution-evidence Markdown and a programmatic Method Projection reported as `CarrierError`.
+- The actual schema distinguishes coverage diagnostics from success; a zero-match result with these diagnostics is not proof that a capability is absent. No Action or Workflow was dispatched.
+
+## Blast radius
+
+Nonblocking for current saved-evidence reconciliation and source authoring. The later PROGRAMMATIC/runtime inventory must classify the diagnostics against registered authoritative inputs, distinguish harmless non-Atom evidence from real identity/reader failures, and prove the complete implemented capability inventory independently where needed. Repair only a confirmed governed implementation gap; do not broaden this Epic into a legacy-document cleanup. Keep CA-P-1123's full image-based runtime coverage gate intact.

@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Selected Atom; requested changes; `projectContext`; and any existing expected-source binding.
+Selected Atom; requested changes; `projectContext`.
 
 ### Fixed parameters
 

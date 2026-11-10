@@ -17,7 +17,13 @@ subjects:
   - Implementation
   - Permission
 relations:
-  concern_about: [CA-P-1778]
+  concern_about:
+  - CA-P-1778
+ref_id: CA-C-494
+carrier_destination:
+  file:
+    name: CA-C-494-TOOLS-QUESTION--choose-semantic-update-assessment-evidence.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

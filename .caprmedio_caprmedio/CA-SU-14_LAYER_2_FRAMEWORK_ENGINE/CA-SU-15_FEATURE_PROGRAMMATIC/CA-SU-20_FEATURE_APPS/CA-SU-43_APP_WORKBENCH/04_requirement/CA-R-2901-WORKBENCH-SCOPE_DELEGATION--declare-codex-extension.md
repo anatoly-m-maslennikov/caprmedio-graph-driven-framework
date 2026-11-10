@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Scope Delegation
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//CODEX_EXTENSION
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//CODEX_EXTENSION
   tier: 3
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-09 17:00:18 +0400
+  version: 6
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2901-WORKBENCH-SCOPE_DELEGATION--declare-codex-extension.md
@@ -39,9 +39,9 @@ The receiving Scope Unit is CODEX_EXTENSION. Existing default Role and Form admi
 
 The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
 
-- `CAPRMEDIO_MODEL <+ View`;
-- `CAPRMEDIO_MODEL <+ Workspace`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`;
+- `MODEL//CAPRMEDIO <+ View`;
+- `MODEL//CAPRMEDIO <+ Workspace`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`;
 
 Each address selects one endpoint object, not the address string, other members of its type or descendants. An unresolved address is diagnostic and grants no admission. These permissions apply only to local Atoms whose Header.Container resolves to CODEX_EXTENSION. The Scope Unit identity, Parent, responsibility and structural tree are unchanged.
 

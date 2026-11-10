@@ -6,19 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Code Authoring <+ Python Code
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
+  - MODEL//CAPRMEDIO <+ Asset
 tier: 5
 relations:
   evaluation_for:
   - CA-M-423
   - CA-M-429
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 22
-updated_at: 2026-10-27 19:59:34 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -26,28 +27,17 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-377-PROGRAMMATIC-EVAL_CASE--reject-an-unaccepted-overlapping-python-workflow-manager.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reject an unaccepted overlapping Python workflow manager
+## Summary
 
-## Claim checked
+Reject an unaccepted overlapping Python workflow manager
 
-one Python workflow does **not** mix uv with another overlapping environment **or**
-dependency manager **unless** an accepted Method owns a bounded exception.
+## Claim
 
-## Test case
+### Prose Claim
 
-evaluate one governed path that runs both uv **and** Poetry **without** an accepted
-exception.
-
-## Acceptance criteria
-
-pass **only** **when** the path is rejected **before** environment mutation.
-
-## Failure disposition
-
-block the alternative manager **until** a required capability, bounded carriers,
-commands, cost, recovery procedure, **and** Operator acceptance are governed.
-
-## Sources
-
-- [CA-M-429 — Use uv as the default Python workflow frontend](../05_method/CA-M-429-PROGRAMMATIC-ENG_POLICY--use-uv-as-the-default-python-workflow-frontend.md)
+Reject a governed path that mixes uv and an overlapping manager such as Poetry before environment mutation, unless accepted Method authority governs capability, carriers, commands, cost, recovery and Operator acceptance.

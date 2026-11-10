@@ -8,21 +8,21 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
-      Authoring/Python Code
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Authoring <+ Code Authoring <+ Python Code
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
-      Analysis
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
+      <+ Static Analysis
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -41,8 +41,9 @@ Ratchet hand-authored Python source boundaries
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 **to** construct bounded hand-authored PROGRAMMATIC Python source, decompose code
 by responsibility under CA-M-407, CA-M-408, **and** CA-M-425; choose smaller coherent
 units **and** external data Carriers; **and** use measurements **to** guide the next
@@ -51,7 +52,6 @@ ratchet acceptance policy.
 
 ## Details
 
-Candidate source: [CA-M-162@15](archive/CA-M-162-PROGRAMMATIC-CORE-METHOD--ratchet-hand-authored-python-source-boundaries@15.md)
 
 ### Applicable when
 

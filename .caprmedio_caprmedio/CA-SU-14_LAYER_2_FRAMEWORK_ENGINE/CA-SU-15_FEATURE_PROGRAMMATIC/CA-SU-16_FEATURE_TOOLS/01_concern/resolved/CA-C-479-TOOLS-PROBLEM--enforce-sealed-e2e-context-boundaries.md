@@ -14,7 +14,14 @@ subjects:
   depends_on:
   - Subject/Engineering/Filesystem Containment/Scratch Roots
 relations:
-  concern_about: [CA-P-1751, CA-P-1745]
+  concern_about:
+  - CA-P-1751
+  - CA-P-1745
+ref_id: CA-C-479
+carrier_destination:
+  file:
+    name: CA-C-479-TOOLS-PROBLEM--enforce-sealed-e2e-context-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

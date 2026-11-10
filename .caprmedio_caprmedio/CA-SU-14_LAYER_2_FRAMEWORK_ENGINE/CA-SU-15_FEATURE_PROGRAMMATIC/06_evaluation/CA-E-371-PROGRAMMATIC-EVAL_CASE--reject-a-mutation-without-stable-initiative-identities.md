@@ -6,47 +6,36 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - MODEL//CAPRMEDIO <+ Package/Project Package
 tier: 5
 relations:
   evaluation_for:
   - CA-M-191
-  derived_from:
+  DERIVED_FROM:
   - CA-A-058
 status: Active
-version: 18
-updated_at: 2026-10-27 19:59:33 +0400
+version: 19
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-371-PROGRAMMATIC-EVAL_CASE--reject-a-mutation-without-stable-initiative-identities.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reject a mutation without stable Initiative identities
+## Summary
 
-## Claim checked
+Reject a mutation without stable Initiative identities
 
-one programmatic mutation is blocked **before** its first effect **when** its sealed
-Initiative **or** stable action identity is missing **or** replaced.
+## Claim
 
-## Test case
+### Prose Claim
 
-submit one mutation whose worker replaces the stable action identity with its
-queue-parent identity **before** applying the effect.
-
-## Acceptance criteria
-
-pass **only** **when** the mutation returns an explicit blocked outcome **and** applies no
-effect.
-
-## Failure disposition
-
-reject dispatch **until** the original Initiative **and** action identities are
-restored.
-
-## Sources
-
-- [CA-M-191 — Bind one programmatic mutation to its Initiative](../05_method/CA-M-191-PROGRAMMATIC-ENG_POLICY--bind-one-programmatic-mutation-to-its-initiative.md)
+Before its first effect, reject a mutation whose sealed Initiative or stable action identity is missing or replaced. Return an explicit blocked outcome and apply no effect.

@@ -12,7 +12,9 @@ import yaml
 
 APP_ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY_ROOT = Path(__file__).resolve().parents[5]
-sys.path[:0] = [str(APP_ROOT)]
+sys.path[:0] = [str(APP_ROOT), str(REPOSITORY_ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS")]
+
+from carrier_aliases import carrier_read_view  # noqa: E402
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_columns import content_columns  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import (  # noqa: E402
@@ -261,15 +263,26 @@ Keep this heading.""",
 
     def test_real_current_model_declarations_compile_and_record_provenance(self) -> None:
         rows = self._current_model_rows()
-
-        schema = compile_content_schema(rows)
-        self.assertEqual(
-            (
-                "content.claim.formal_claim", "content.claim.prose_claim", "content.details",
-                "content.semantics", "content.summary",
-            ),
-            schema.names,
+        plan = self.atom("CA-P-fixture", role="Plan", form="Plan", body="## Objective\n\nShip.\n")
+        requirement = self.atom(
+            "CA-R-fixture", form="Rule",
+            body="## Summary\n\nOne.\n### Presentation heading\n\nStill Summary.\n"
+                 "## Claim\n\n### Prose Claim\n\nText.\n#### Prose heading\n\nStill prose.\n"
+                 "```text\n## Fenced heading\n```\n",
         )
+        schema = compile_content_schema([*rows, plan, requirement])
+        self.assertTrue(
+            {
+                "content.claim.formal_claim", "content.claim.prose_claim", "content.details",
+                "content.semantics", "content.summary", "content.objective",
+            }.issubset(schema.names),
+        )
+        self.assertNotIn("content.summary.presentation_heading", schema.names)
+        self.assertNotIn("content.claim.prose_claim.prose_heading", schema.names)
+        self.assertNotIn("content.fenced_heading", schema.names)
+        self.assertEqual("Ship.", schema.values(plan)["content.objective"])
+        self.assertIn("### Presentation heading", schema.values(requirement)["content.summary"])
+        self.assertIn("#### Prose heading", schema.values(requirement)["content.claim.prose_claim"])
         asset = schema.asset()
         self.assertGreaterEqual(len(asset["content_declaration_sources"]), 6)
         self.assertIn("CA-R-2500", {source["reference"] for source in asset["content_declaration_sources"]})
@@ -309,7 +322,7 @@ Keep this heading.""",
     @staticmethod
     def _current_declaration(path: Path) -> dict:
         _opening, frontmatter, body = path.read_text(encoding="utf-8").split("---", 2)
-        header = yaml.safe_load(frontmatter)
+        header = carrier_read_view(yaml.safe_load(frontmatter))
         return {
             "ref": header.get("ref_id"),
             "id": header.get("atom_id"),
@@ -326,7 +339,10 @@ Keep this heading.""",
     def _current_model_rows(cls) -> list[dict]:
         return [
             cls._current_declaration(path)
-            for path in (REPOSITORY_ROOT / ".caprmedio_caprmedio").glob("**/04_requirement/*.md")
+            for path in (
+                REPOSITORY_ROOT / ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
+                "CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement"
+            ).glob("*.md")
             if not {"archive", "archived", "draft", "drafts"} & {part.casefold() for part in path.parts}
             and cls._is_current(path)
         ]
@@ -346,7 +362,7 @@ Keep this heading.""",
     @staticmethod
     def _is_current(path: Path) -> bool:
         _opening, frontmatter, _body = path.read_text(encoding="utf-8").split("---", 2)
-        header = yaml.safe_load(frontmatter) or {}
+        header = carrier_read_view(yaml.safe_load(frontmatter) or {})
         return (
             header.get("status") not in {"Draft", "Archived", "archived"}
             and not str(header.get("atom_id", "")).endswith(("-draft", "@draft"))

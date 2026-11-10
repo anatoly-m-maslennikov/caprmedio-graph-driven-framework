@@ -6,49 +6,36 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 5
 relations:
   evaluation_for:
-  - CA-M-285
-  derived_from:
+  - CA-M-424
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 21
-updated_at: 2026-10-27 19:59:34 +0400
+version: 22
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-395-PROGRAMMATIC-EVAL_CASE--fuzz-parsers-and-stateful-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Fuzz parsers and stateful boundaries
+## Summary
 
-## Claim checked
+Fuzz parsers and stateful boundaries
 
-broad input **or** transition spaces preserve accepted invariants under generated
-valid, invalid, **and** ordered cases.
+## Claim
 
-## Test case
+### Prose Claim
 
-run a bounded property **or** state-machine campaign against one parser **or**
-lifecycle **and** inject an invariant-breaking generated sequence.
-
-## Acceptance criteria
-
-pass **only** **when** the minimal failing input **or** sequence **and** seed are preserved,
-the defect is accepted **or** rejected explicitly, **and** an accepted defect gains a
-deterministic regression case.
-
-## Failure disposition
-
-reject unreplayable generated evidence **and** keep expensive campaigns outside
-synchronous Hooks.
-
-## Sources
-
-- [Hypothesis stateful testing](https://hypothesis.readthedocs.io/en/latest/stateful.html)
-- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)
+A bounded property/state-machine campaign over valid, invalid and ordered cases preserves seed and minimal failing input/sequence. Explicitly accept or reject each defect; accepted defects gain deterministic regression. Reject unreplayable evidence and keep campaigns out of synchronous Hooks.

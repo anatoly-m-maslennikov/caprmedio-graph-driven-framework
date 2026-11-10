@@ -6,20 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-    Control
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-    Structure
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Component Structure
 tier: 5
 relations:
   evaluation_for:
   - CA-M-425
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 22
-updated_at: 2026-11-09 14:19:14 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -39,8 +39,9 @@ Require an object for a persistent effect owner
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 one effect that owns identity, state, an invariant, a resource, a lifecycle, **or**
 a replaceable adapter across calls is applied through a specifically named
 object method.

@@ -12,7 +12,11 @@ topics:
   - Event
   - QUERY_FILTER
 relations:
-  relates_to: [CA-R-1861, CA-R-1865, CA-M-334, CA-E-577]
+  relates_to:
+  - CA-R-1861
+  - CA-R-1865
+  - CA-M-334
+  - CA-E-577
 status: resolved
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
@@ -21,6 +25,10 @@ claim_target_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
+carrier_destination:
+  file:
+    name: CA-C-435-TOOLS-PROBLEM--reject-raw-duplicate-keys-and-frontier-identity-collisions.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern
 ---
 # Summary
 

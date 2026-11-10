@@ -8,19 +8,19 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
-      Analysis
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Static Analysis
     dependencies: []
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-427-PROGRAMMATIC-DIRECT_POLICY--use-mypy-for-static-python-type-checking.md
@@ -39,15 +39,15 @@ Use Mypy for static Python type checking
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 use Mypy as the selected static type checker for hand-authored PROGRAMMATIC
 Python source. CA-E-540 owns strict-profile, baseline, **and** suppression
 acceptance policy.
 
 ## Details
 
-Candidate source: [CA-M-283@9](archive/CA-M-283-PROGRAMMATIC-CORE-METHOD--use-mypy-for-static-python-type-checking@9.md)
 
 ### Applicable when
 

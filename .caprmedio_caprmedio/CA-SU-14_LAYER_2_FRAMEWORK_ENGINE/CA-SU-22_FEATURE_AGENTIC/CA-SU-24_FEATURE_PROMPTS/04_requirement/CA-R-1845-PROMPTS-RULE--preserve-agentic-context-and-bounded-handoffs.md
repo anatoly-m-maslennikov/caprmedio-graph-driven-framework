@@ -6,16 +6,17 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run.Agentic Step Execution Context
+  main_subject: MODEL//CAPRMEDIO <+ Execution/Step Run
   dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Effect Authorization
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Actor/AI Agent
 tier: 3
 status: Active
-version: 14
-updated_at: 2026-10-27 20:00:04 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1845-PROMPTS-RULE--preserve-agentic-context-and-bounded-handoffs.md
@@ -24,15 +25,17 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Preserve agentic context and bounded handoffs
 
-## Scope
+## Claim scope
 
 explicit per-Step Agentic context for the declared Implementation Workflow graph, including its eight Integrated shared-context Steps; separately admitted Isolated invocations retain their own bindings.
 
 ## Claim
+
+### Prose Claim
 
 the Implementation **must** use the Step's supplied Integrated or Isolated context before actual Agentic dispatch; Isolated work uses an assigned subagent with a complete handoff, a fresh admission, and one bounded P subtask estimated below fifteen minutes.
 

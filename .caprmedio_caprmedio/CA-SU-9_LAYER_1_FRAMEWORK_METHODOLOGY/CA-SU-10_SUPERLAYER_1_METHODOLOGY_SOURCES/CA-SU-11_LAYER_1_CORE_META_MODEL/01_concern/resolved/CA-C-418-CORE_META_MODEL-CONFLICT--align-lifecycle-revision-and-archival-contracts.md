@@ -18,7 +18,17 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - Subject/Engineering/Carrier
 relations:
-  concern_about: [CA-P-1444, CA-O-030, CA-O-029, CA-R-866, CA-R-868]
+  concern_about:
+  - CA-P-1444
+  - CA-O-030
+  - CA-O-029
+  - CA-R-866
+  - CA-R-868
+ref_id: CA-C-418
+carrier_destination:
+  file:
+    name: CA-C-418-CORE_META_MODEL-CONFLICT--align-lifecycle-revision-and-archival-contracts.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

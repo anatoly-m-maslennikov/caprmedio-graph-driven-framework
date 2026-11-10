@@ -6,21 +6,22 @@ container:
 role: Method
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-    Structure
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Recovery
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Component Structure
+  - MODEL//CAPRMEDIO <+ Runtime/Session
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Recovery
 tier: 4
 relations:
   method_for:
   - CA-R-1884
 status: Active
-version: 13
-updated_at: 2026-11-09 07:45:14 +0400
+version: 14
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-M-341-MCP-DECISION--reuse-the-hot-reload-gateway-for-http.md

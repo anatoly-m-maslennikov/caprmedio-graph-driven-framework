@@ -2,50 +2,37 @@
 atom_id: CA-C-283
 ref_id: CA-C-283
 topics:
-  main_subject: Subject/Domain/Node/Continuant/Atom
-  dependencies:
-  - Atom/Claim
-  - Artifact/Revision
-  - Subject/Domain/Node/Continuant/Project
-  - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Component Structure
 relations:
-  relates_to:
-  - CA-D-046
-  - CA-D-437
-  - CA-D-489
-  - CA-D-490
-  - CA-E-349
-  - CA-E-350
-  - CA-E-351
-  - CA-E-352
-  - CA-M-153
-  - CA-M-154
-  - CA-M-222
-  - CA-M-302
-  - CA-R-1076
-  - CA-R-1077
-  - CA-R-1100
-  - CA-R-1522
-  - CA-R-1523
-  - CA-R-1524
+  concern_about:
   - CA-R-1603
-  - CA-R-2731
-  - CA-R-819
-  - CAPRMEDIO-META-REQU-158
-status: Active
-version: 8
-updated_at: 2026-11-03 23:17:14 +0400
+  - CA-R-2727
+  - CA-M-222
+status: Resolved
+version: 9
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: concern_question
 priority: medium
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
+carrier_destination:
+  file:
+    name: CA-C-283-APPS-QUESTION--how-should-the-local-app-runtime-draft-be-reconciled.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/01_concern
+container:
+  scope_unit: CA-SU-20
+role: Concern
+form: Question
+tier: 4
+author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 How should the Local App runtime draft be reconciled?
 
-## Claim
+## Concern
 
 how should the identified Draft Atom be reconciled **with** active authority **and** Project Principles **without** losing useful information **or** promoting it?
 
@@ -124,3 +111,7 @@ the combined App Draft is split according **to** CA-R-1100: GRAPH_SERVER owns se
 - `CA-R-1604@1`: `.caprmedio_caprmedio/102_LAYER_2_FRAMEWORK_ENGINE/201_FEATURE_PROGRAMMATIC/203_FEATURE_APPS/04_requirement/CA-R-1604-APPS-DEFINES_GOAL_FOR-GRAPH_UI--provide-an-optional-graph-interface.md`; SHA-256 `287e5d83fd180153bcd11cef0da0d23ad07d96531a2975c54792a6efe372bedd`.
 - `CA-R-819@12`: `.caprmedio_caprmedio/04_requirement/CA-R-819-PRINCIPLE-REQUIREMENT--build-what-you-want-without-requiring-proficiency-in-the-craft.md`; SHA-256 `b8cf36427b57922bccea59183b74b95c3dc8d40a66a64822b60b589a6ea393bc`.
 - `CAPRMEDIO-META-REQU-158@13`: `.caprmedio_caprmedio/000_CAPRMEDIO_framework/00_APPLICABLE_METHODOLOGY/000_APPLICABLE_MTHD_sources/001_CORE_META_MODEL/04_requirement/CAPRMEDIO-META-REQU-158-CORE_META_MODEL-CORE-REQUIREMENT--use-one-project-journal-for-governed-provenance.md`; SHA-256 `d9d05e7eb7c57d770f802812b365559f908a071e9d99fe7b6ccaf10b40b06d31`.
+
+### Proposed resolution after adoption
+
+Adopt the reviewed Workbench and APPS survivors: CA-R-1603 places the non-authoritative headless read model and service in WORKBENCH, CA-R-2727 preserves interface accessibility and safe rendering, and CA-M-222 binds interfaces to declared services. Archive the obsolete topology and repair incoming references under the reviewed retirement plan. This supersedes the earlier topology disposition above while preserving its review history. Resolve this Concern only after those adoption and retirement guards pass; this Draft is not evidence of runtime conformance.

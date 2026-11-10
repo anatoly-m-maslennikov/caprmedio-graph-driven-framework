@@ -6,16 +6,17 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
 tier: 5
 relations:
   evaluation_for:
   - CA-M-418
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 24
-updated_at: 2026-11-02 19:44:26 +0400
+version: 25
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -23,36 +24,47 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-272-PROGRAMMATIC-EVAL_CASE--verify-declared-interface-compatibility.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Verify declared interface compatibility
+## Summary
 
-## Claim checked
+Verify declared interface compatibility
+
+## Claim
+
+
+
+### Prose Claim
+#### Claim checked
 
 one changed declared PROGRAMMATIC public **or** host interface preserves its
 accepted compatibility behavior **or** has an accepted bounded replacement.
 
-## Applicable conditions
+#### Applicable conditions
 
 apply **when** a Tool, App backend service, **or** MCP component changes a declared
 technical interface, host integration, transport, **or** dependency-facing
 boundary. a component **without** such a declared boundary is **not** applicable.
 
-## Test case
+#### Test case
 
 invoke one changed declared boundary through the behavior accepted by its
 current Requirement, technical contract, **or** pinned external origin.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 pass **only** **when** the invocation preserves the declared behavior **or** returns the
 accepted replacement behavior, **without** implying an undeclared platform **or**
 cross-host compatibility claim.
 
-## Failure disposition
+#### Failure disposition
 
 stop release **and** compatibility claims **until** the boundary has current authority
 **or** an accepted replacement.
 
-## Sources
+#### Sources
 
 - [CA-M-418 — Preserve declared interface compatibility boundaries](../05_method/CA-M-418-PROGRAMMATIC-ENG_POLICY--preserve-declared-interface-compatibility-boundaries.md)

@@ -9,12 +9,21 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "F04 rollup checker normalization"
-  depends_on: [Analysis, Evaluation]
+  governs: F04 rollup checker normalization
+  depends_on:
+  - Analysis
+  - Evaluation
 version: 1
-updated_at: "2026-10-04 14:13:37 +0000"
+updated_at: 2026-10-04 14:13:37 +0000
 relations:
-  concern_about: [CA-P-1349, CA-A-1067]
+  concern_about:
+  - CA-P-1349
+  - CA-A-1067
+ref_id: CA-C-401
+carrier_destination:
+  file:
+    name: CA-C-401-PROBLEM--retain-the-f04-rollup-checker-recovery.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

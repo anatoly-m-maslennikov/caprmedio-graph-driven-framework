@@ -1,32 +1,36 @@
 ---
-atom_id: CA-C-443
-ref_id: CA-C-443
-container:
-  scope_unit: CA-SU-15
-role: Concern
-form: Problem
-topics:
-  main_subject: Legacy Projection and Runtime Journal Consumer Alignment
-  dependencies:
-  - Implementation
-  - Subject/Domain/Node/Continuant/Projection
-  - Journal
-  - Subject/Engineering/Carrier
-relations: {concern_about: [CA-M-153, CA-E-067, CA-M-154, CA-E-068, CA-M-104, CA-D-354, CA-R-1059, CA-R-1068]}
-status: Active
-version: 3
-updated_at: 2026-10-23 03:14:50 +0400
-carrier_destination:
+identity:
+  id: CA-C-443
+  ref_id: CA-C-443
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: Concern
+  form: Problem
+  topics:
+    main_subject: MODEL//CAPRMEDIO <+ Projection
+    dependencies:
+    - MODEL//CAPRMEDIO <+ Package/Project Package
+    - MODEL//CAPRMEDIO <+ Carrier
+    - MODEL//CAPRMEDIO <+ Journal
+  tier: 3
+state:
+  status: Resolved
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
+destination:
   file:
     name: CA-C-443-PROGRAMMATIC-PROBLEM--migrate-legacy-projection-and-runtime-log-consumer-atoms.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
-current_scope_unit: PROGRAMMATIC
-claim_target_scope_unit: PROGRAMMATIC
-local_tier: Standard
-global_tier: 8
+relations:
+  concern_about:
+  - CA-M-104
+  - CA-D-354
+  - CA-R-1059
+  - CA-R-1068
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Migrate legacy Projection and runtime-log consumer atoms
 
@@ -45,3 +49,7 @@ Current methodology sources govern the new placement and authority distinction; 
 ## Repair result on 2026-10-05
 
 Nine legacy CA-ID consumer carriers have now been explicitly migrated and aligned through sealed MCP Updates: CA-M-153@15, CA-E-067@15, CA-M-154@14, CA-E-068@15, CA-M-104@10, CA-D-354@8, CA-R-1059@15, CA-R-1068@12, and the related background-service test CA-E-223@10. Each retains its prior Atom ID and exact Summary, adds explicit current identity/classification metadata, and preserves the entire old carrier as an immutable archive revision. The eight consumer-v1 Runs stopped before effects at the container historical-proof ownership check; after a read-only project-scoped Git trust repair, their consumer-v2 Runs completed. CA-E-223 completed in consumer-v1. Persistent-view placement now uses _projection, and technical/business runtime logs remain governed Journals in configured local or remote sinks, not indiscriminately disposable runtime state. The legacy GRAPH_UI Delivery with identity CAPRMEDIO-FRAMEWORK-ENGINE-DELV-005 remains unchanged: no explicit canonical mapping was found, the Operator was asked whether to use the next unused CA-D number with an old-to-new binding, and CA-C-448 records that Question. Therefore this Problem remains Active; nine completed repairs are not full consumer closure. All successful effects and the rejected pre-effect attempts remain attributable in the shared Run Journal.
+
+## Proposed resolution
+
+The nine legacy consumers were aligned in the recorded 2026-10-05 repair. Retire the outstanding legacy GRAPH_UI Delivery carrier under the reviewed topology retirement plan. Resolve this Concern only after that carrier is actually retired and the retired CA-M-153 and CA-E-067 Current relations are removed through adoption. This source disposition does not establish runtime repair.

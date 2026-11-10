@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Selected Draft, `targetStatus`, and `projectContext`.
+Selected Draft, allowed Current `targetStatus`, optional `savedArchivedAtom`, and `projectContext`.
 
 ### Fixed parameters
 

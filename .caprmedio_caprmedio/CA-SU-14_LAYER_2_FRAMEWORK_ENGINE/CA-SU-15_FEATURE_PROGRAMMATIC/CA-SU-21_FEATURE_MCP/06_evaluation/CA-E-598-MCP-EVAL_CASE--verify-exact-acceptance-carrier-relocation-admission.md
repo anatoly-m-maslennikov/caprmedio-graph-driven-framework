@@ -6,18 +6,21 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Storage
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization
-  - Subject/CAPRMEDIO/Carrier/File
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Data Validation
+  - MODEL//CAPRMEDIO <+ Projection
+  - MODEL//CAPRMEDIO <+ Actor/Operator
+  - MODEL//CAPRMEDIO <+ Execution
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Serialization
+  - MODEL//CAPRMEDIO <+ Carrier/File
 tier: 3
 status: Active
-version: 13
-updated_at: 2026-11-09 07:45:14 +0400
+version: 14
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-598-MCP-EVAL_CASE--verify-exact-acceptance-carrier-relocation-admission.md
@@ -38,11 +41,9 @@ the exact acceptance-carrier relocation admission **must** pass its declared unc
 
 ## Details
 
-### Scope
+### Relocation admission checks
 
-the one registered relocation of three acceptance carriers under the current Epic.
-
-- exactly one candidate replaces exactly the three registered prior source paths with their registered current paths; the listed carrier bytes, identities, versions and digests remain unchanged.
-- malformed, duplicate, missing, unknown, unsafe, stale or mismatched registration fields, input hashes or path occurrences refuse before effects.
-- every route, graph edge, registry identity, source digest and fixed-path refresh behavior remains unchanged. only the three registered source-path occurrences, resulting canonical serialization and derived `canonical_manifest_sha256` may differ; the route-identical `selected_binding_digest` remains unchanged. aliases, raw-manifest edits and general relocation requests refuse.
-- publication requires the existing trusted Operator context, lock, pending intent and exact readback; its Work Journal receipt is real. an interrupted pre-effect attempt may retry the same candidate once only when the exact registered original input, sealed intent and current sources still match. after an exact candidate exists, recovery is recording-only without rewrite; ambiguous bytes refuse.
+- Exactly one candidate replaces exactly the three registered prior source paths with their registered current paths; carrier bytes, identities, versions, and digests remain unchanged.
+- Malformed, duplicate, missing, unknown, unsafe, stale, or mismatched registration fields, input hashes, or path occurrences refuse before effects.
+- Routes, graph edges, registry identity, source digests, and fixed-path refresh behavior remain unchanged. Only the three registered path occurrences, canonical serialization, and derived canonical_manifest_sha256 may differ; route-identical selected_binding_digest remains unchanged. Aliases, raw-manifest edits, and general relocation requests refuse.
+- Publication uses trusted Operator context, lock, pending intent, exact readback, and a real Work Journal receipt. An interrupted pre-effect attempt may retry the same candidate once only when exact original input, sealed intent, and current sources match; once it exists recovery is recording-only without rewrite. Ambiguous bytes refuse.

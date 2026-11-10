@@ -6,20 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt
-    Authoring
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Action'
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Data Validation
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
 tier: 3
 status: Active
-version: 14
-updated_at: 2026-11-09 07:45:14 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-564-PROMPTS-EVAL_CASE--verify-implementation-prompt-source-currentness.md

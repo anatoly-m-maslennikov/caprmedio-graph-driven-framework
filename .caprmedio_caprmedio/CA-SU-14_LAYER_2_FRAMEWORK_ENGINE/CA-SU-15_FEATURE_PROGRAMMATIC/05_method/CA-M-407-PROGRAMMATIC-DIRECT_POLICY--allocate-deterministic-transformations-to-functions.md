@@ -8,19 +8,19 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
-      Authoring
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Authoring <+ Code Authoring
     dependencies: []
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -39,8 +39,9 @@ Allocate deterministic transformations to functions
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 use a side-effect-free function as the default unit of PROGRAMMATIC behavior.
 implement one deterministic transformation as a function **when** its result
 follows **only** from its declared inputs **and** the responsibility needs no identity
@@ -48,7 +49,6 @@ across calls.
 
 ## Details
 
-Candidate source: [CA-M-157@12](archive/CA-M-157-PROGRAMMATIC-CORE-METHOD--allocate-deterministic-transformations-to-functions@12.md)
 
 ### Applicable when
 

@@ -6,7 +6,8 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
 tier: 4
 relations:
   evaluation_for:
@@ -15,8 +16,8 @@ relations:
   - CA-M-506
   - CA-D-704
 status: Active
-version: 3
-updated_at: 2026-11-09 21:15:45 +0400
+version: 4
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-798-MCP-EVAL_CASE--verify-code-owned-mcp-registration-without-atom-discovery.md
@@ -33,14 +34,10 @@ Verify code-owned MCP registration without Atom discovery
 
 ### Prose Claim
 
-Generate the MCP registration asset from installed provider code and code-owned inventory. Repeat with unchanged inputs and compare bytes. A provider addition, removal or descriptor/code change is reflected after generation; unlisted helper modules do not become exposed tools.
+Generate the MCP registration asset from installed provider code and code-owned inventory; unchanged inputs produce identical bytes, while provider add/remove/descriptor changes are reflected and unlisted helpers are not exposed.
 
-Start MCP against a Project root without a native Atom tree while making Atom catalog and selected-source manifest registration reads fail if called. Tool listing and a code-only test Tool call still work. Editing or removing an unrelated Atom does not change exposure or cause a generic registration freshness scan. Actual operation-level validation still rejects a request whose business prerequisites are missing.
+Start MCP against a Project root without a native Atom tree while making Atom-catalog and selected-source registration reads fail if called: tools/list and a code-only Tool call still work, unrelated Atom edits do not change exposure, and operation validation still rejects missing business prerequisites. Cover malformed/missing config, duplicate public names, configured exclusions, unavailable/changed provider code, source-only descriptors, typed request/result rejection, and Workbench native tools; no registration test bypasses an operation boundary.
 
-Cover missing/malformed config, duplicate public names, configured exclusions, unavailable/changed provider code, source-only descriptors, typed request/result rejection, Workbench native tools and preserved selected-route protocols. No registration test grants permission to bypass an operation boundary.
+Generate before package identity/image startup, include bytes in package verification, stop on generator failure, and regenerate in Docker rebuilds. Compare tools/list after global blacklist and Project exclusions. Compare unprofiled startup time/memory with the prior same-source image without inferring permanent RSS savings from estimates.
 
-Verify local release generates the asset before package identity/image startup, includes its bytes in package verification and stops before startup on generator failure. Verify the Dockerfile regenerates it on rebuild. Keep post-readiness discovery output separate and accurate. Compare unprofiled startup time and process memory with the prior same-source image; do not infer a permanent RSS saving from allocation estimates.
-
-Verify equivalent MCP and web requests delegate to the same existing backend operation and preserve its response/error semantics. The MCP registration wrapper may validate and translate protocol data but must not introduce a second business implementation or extra internal HTTP transport.
-
-Cover single-Project and shared-Project HTTP/MCP backend parity. Shared HTTP Workbench calls must reach the same native backend without constructing MCP request/result envelopes. Missing, foreign, stale or disabled Project/tool bindings remain rejected; cancellation releases its owner lease; normal results, partial-save outcomes, query errors and health observations retain their existing meaning.
+Equivalent MCP/web requests delegate to the same backend and preserve response/error semantics; the wrapper may translate protocol data but adds no business implementation or internal HTTP transport. Cover single/shared Project parity, binding rejection, cancellation lease release, normal/partial-save/query-error/health meanings, and shared HTTP Workbench calls reaching the native backend without constructing MCP request/result envelopes. Add/modify a code-only provider through inventory/generation without gateway edits; verify descriptors/calls, blacklist omission and direct-call refusal, Project exclusions, and absence of retired discovery/route/orchestrator adapters.

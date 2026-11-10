@@ -6,16 +6,18 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling"
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Failure Handling
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Execution/Workflow Run
+  - MODEL//CAPRMEDIO <+ Journal
 tier: 3
 status: Active
-version: 13
-updated_at: 2026-10-27 20:00:04 +0400
+version: 14
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1846-PROMPTS-RULE--retain-truthful-implementation-prompt-outcomes.md
@@ -24,15 +26,17 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Retain truthful implementation prompt outcomes
 
-## Scope
+## Claim scope
 
 result and evidence returned by a current Implementation Workflow prompt.
 
 ## Claim
+
+### Prose Claim
 
 the Implementation **must** return only a result label admitted by its current Step plus actual outputs, input/source bindings, retained state, evidence references, and blockers; absent or unperformed checks never become a passing result.
 

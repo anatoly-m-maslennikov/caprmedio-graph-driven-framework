@@ -6,16 +6,17 @@ container:
 role: Requirement
 form: Rule
 topics:
-  {"main_subject": "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts", "dependencies": ["Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Interaction"]}
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication <+ Interface Contracts
+  dependencies:
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Interaction
 tier: 1
 relations:
   child_of:
   - CA-R-881
-  realization_input:
-  - ./PROGRAMMATIC/MCP
 status: Active
-version: 17
-updated_at: 2026-10-27 20:00:08 +0400
+version: 18
+updated_at: 2026-11-10 20:47:54 +0400
 subject_scopes:
 - scope-topology
 semantic_shape: relational
@@ -32,7 +33,12 @@ relational_endpoints:
     - delivery
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
+carrier_destination:
+  file:
+    name: CA-R-2151-FRAMEWORK_ENGINE-RULE--supply-the-mcp-tool-interface-to-skills.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement
 ---
+
 ## Summary
 
 Supply the MCP Tool interface to SKILLS
@@ -41,4 +47,4 @@ Supply the MCP Tool interface to SKILLS
 
 ### Prose Claim
 
-MCP supplies SKILLS with the current generated discovery **and** invocation interface for active Tools. Skills select **and** use that interface **without** redefining Tool behavior, while MCP preserves each Tool's identity, accepted inputs, structured outputs, **and** failure meaning.
+MCP supplies SKILLS with the current generated discovery and invocation interface for active Tools. SKILLS select and use it without redefining Tool behavior. MCP preserves each Tool's identity, accepted inputs, structured outputs and failure meaning.

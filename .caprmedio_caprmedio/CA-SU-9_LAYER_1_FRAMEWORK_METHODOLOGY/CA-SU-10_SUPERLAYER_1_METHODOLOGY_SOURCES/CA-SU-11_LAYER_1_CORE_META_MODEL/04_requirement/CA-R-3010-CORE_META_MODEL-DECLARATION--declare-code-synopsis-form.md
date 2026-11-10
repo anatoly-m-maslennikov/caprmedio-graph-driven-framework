@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Code Synopsis)
 tier: 3
 status: Active
-version: 3
-updated_at: 2026-11-09 23:45:16 +0400
+version: 4
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-3010-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md
@@ -53,7 +53,7 @@ FENCED_LABELS(Atom/(.Header.Form := Code Synopsis).Content.Claim.Formal Claim)::
 );
 
 # instances
-Atom/(.Header.Form := Code Synopsis)//$synopsis.Header.Role:: [in (Implementation)]{::1}
+Atom/(.Header.Form := Code Synopsis)//$synopsis.Header.Role:: [in ("Analysis & Advisory")]{::1}
 ```
 
 ## Semantics

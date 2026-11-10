@@ -13,9 +13,16 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2401, CA-P-2478]
+  concern_about:
+  - CA-P-2401
+  - CA-P-2478
 version: 3
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-547
+carrier_destination:
+  file:
+    name: CA-C-547-PROGRAMMATIC-PROBLEM--resolve-selected-lifecycle-current-carrier-failures.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

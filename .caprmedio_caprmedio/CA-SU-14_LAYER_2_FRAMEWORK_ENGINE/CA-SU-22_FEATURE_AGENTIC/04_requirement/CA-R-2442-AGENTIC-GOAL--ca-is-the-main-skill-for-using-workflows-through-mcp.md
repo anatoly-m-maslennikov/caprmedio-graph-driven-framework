@@ -6,21 +6,26 @@ container:
 role: Requirement
 form: Goal
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Entry
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Step Run
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - MODEL//CAPRMEDIO <+ Actor/AI Agent
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Actor/Operator
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication
+  - MODEL//CAPRMEDIO <+ Execution/Step Run
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-10-30 03:11:57 +0400
+version: 2
+updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: AGENTIC
 claim_target_scope_unit: SKILLS
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-R-2442-AGENTIC-GOAL--ca-is-the-main-skill-for-using-workflows-through-mcp.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/04_requirement
 ---
 ## Summary
 
@@ -32,6 +37,8 @@ Requests from Operators and AI Agents through the CAPRMEDIO Main Skill `ca` for 
 
 ## Claim
 
+
+### Prose Claim
 FRAMEWORK_ENGINE **must** provide `ca` as the primary Skill entry point through which Operators **and** AI Agents:
 
 - request Workflows defined by the methodology; **and**

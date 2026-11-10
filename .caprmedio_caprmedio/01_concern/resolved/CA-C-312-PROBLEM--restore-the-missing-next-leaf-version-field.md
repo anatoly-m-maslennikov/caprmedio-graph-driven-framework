@@ -8,14 +8,19 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Saved first-partition harvest evidence"
+  governs: Saved first-partition harvest evidence
   depends_on:
-    - "Artifact"
+  - Artifact
 version: 2
-updated_at: "2026-10-04 12:33:37 +0400"
+updated_at: 2026-10-04 12:33:37 +0400
 relations:
   concerns:
-    - CA-P-1290
+  - CA-P-1290
+ref_id: CA-C-312
+carrier_destination:
+  file:
+    name: CA-C-312-PROBLEM--restore-the-missing-next-leaf-version-field.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

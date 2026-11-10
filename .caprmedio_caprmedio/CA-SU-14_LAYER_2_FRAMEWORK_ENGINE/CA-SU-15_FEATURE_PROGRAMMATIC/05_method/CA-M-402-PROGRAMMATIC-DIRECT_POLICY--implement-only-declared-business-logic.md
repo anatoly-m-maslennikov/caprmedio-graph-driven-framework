@@ -8,25 +8,25 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
-      Authoring
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Authoring <+ Code Authoring
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
-      Authorization
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
+    - MODEL//CAPRMEDIO <+ Package/Project Package
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+      Control <+ Effect Authorization
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
+    - MODEL//CAPRMEDIO <+ Actor/Operator
   tier: 1
 relations:
-  derived_from:
+  DERIVED_FROM:
   - CA-A-1185
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-402-PROGRAMMATIC-DIRECT_POLICY--implement-only-declared-business-logic.md
@@ -41,8 +41,9 @@ Implement only declared business logic
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 Implement business logic **only** as declared in the applicable Active RMED. **Do not** invent additional policies, restrictions, approval gates, lifecycle rules or workflows. **When** the specification has a gap or conflict affecting the behavior, ask the Operator **before** implementing that behavior.
 
 ## Details
@@ -51,7 +52,6 @@ Implement business logic **only** as declared in the applicable Active RMED. **D
 
 New or changed PROGRAMMATIC implementation, including its tests.
 
-Candidate source: [CA-M-384@1](archive/CA-M-384-PROGRAMMATIC-CORE-METHOD--implement-only-declared-business-logic@1.md)
 
 1. Read the applicable Active RMED before changing behavior. A derived prompt helps find and use the rules; it does not add authority.
 2. Choose ordinary implementation details freely within those rules. A choice of algorithm, function layout or internal data structure does not require its own policy when it preserves the declared behavior and constraints.

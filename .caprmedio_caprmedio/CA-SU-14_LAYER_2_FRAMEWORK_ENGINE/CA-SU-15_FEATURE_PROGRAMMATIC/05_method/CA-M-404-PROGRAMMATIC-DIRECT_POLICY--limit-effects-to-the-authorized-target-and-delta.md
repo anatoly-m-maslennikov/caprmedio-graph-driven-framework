@@ -8,14 +8,14 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control/Effect Authorization
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control <+ Effect Authorization
     dependencies: []
   tier: 1
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 12
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-404-PROGRAMMATIC-DIRECT_POLICY--limit-effects-to-the-authorized-target-and-delta.md
@@ -30,8 +30,9 @@ Limit effects to the authorized target and delta
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 **To** change state, bind the admitted target, explicit delta and required expected state, then apply **only** that authorized change.
 
 ## Details
@@ -40,7 +41,6 @@ Limit effects to the authorized target and delta
 
 New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
 
-Candidate source: [CA-M-388@2](archive/CA-M-388-PROGRAMMATIC-CORE--limit-effects-to-the-authorized-target-and-delta@2.md)
 
 - Do not substitute targets, broaden the affected frontier or add semantic operations.
 - Observing additional files or state does not grant permission to change them.

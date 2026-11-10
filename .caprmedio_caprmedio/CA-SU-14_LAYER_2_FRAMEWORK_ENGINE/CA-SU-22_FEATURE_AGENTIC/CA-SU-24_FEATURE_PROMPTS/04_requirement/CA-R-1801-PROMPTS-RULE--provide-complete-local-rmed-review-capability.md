@@ -6,22 +6,23 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Controlled English"
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
+  - MODEL//CAPRMEDIO <+ Atom
+  - MODEL//CAPRMEDIO <+ Term//Property
+  - MODEL//CAPRMEDIO <+ Atom.Content
+  - MODEL//CAPRMEDIO <+ Atom.Content.Details
+  - MODEL//CAPRMEDIO <+ Atom.Content.Summary
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
+    <+ Controlled English
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
 tier: 3
 status: Active
-version: 17
-updated_at: 2026-10-29 22:26:57 +0400
+version: 18
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1801-PROMPTS-RULE--provide-complete-local-rmed-review-capability.md
@@ -40,6 +41,8 @@ the prompt Implementation of RMED Atoms Base Revise delivered by PROMPTS.
 
 ## Claim
 
+
+### Prose Claim
 the prompt Implementation **must** provide complete local RMED review capability under the admitted methodology checklist **and** Action definitions, including assessment of readable content whose Carrier layout is defective.
 
 ## Details

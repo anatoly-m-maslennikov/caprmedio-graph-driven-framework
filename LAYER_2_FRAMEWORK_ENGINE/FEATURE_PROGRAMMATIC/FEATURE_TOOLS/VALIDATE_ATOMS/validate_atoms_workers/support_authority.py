@@ -12,25 +12,13 @@ from .authority import _verified
 from .check_support import Check
 
 
-MANIFESTS = (
-    "schema_authority.json", "graph_authority.json", "structure_authority.json",
-    "context_authority.json",
-)
+MANIFEST = "schema_authority.json"
 
 
 @lru_cache(maxsize=1)
 def support_sources() -> dict[str, Any]:
-    result: dict[str, Any] = {}
-    for name in MANIFESTS:
-        path = Path(__file__).with_name(name)
-        if not path.is_file():
-            continue
-        for identifier, entry in json.loads(path.read_text())["sources"].items():
-            old = result.get(identifier)
-            if old and old.get("source_path") != entry.get("source_path"):
-                raise ValueError("Conflicting installed support-source bindings.")
-            result[identifier] = entry
-    return result
+    path = Path(__file__).with_name(MANIFEST)
+    return json.loads(path.read_text())["sources"]
 
 
 def exact_source(inputs: dict[str, Any], identifier: str) -> dict[str, Any] | None:

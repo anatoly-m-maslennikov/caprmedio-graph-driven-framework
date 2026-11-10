@@ -13,13 +13,36 @@ including RMED contracts, have not yet been reconciled with this code retirement
 
 ## Registration
 
-Workbench tools are registered directly by the gateway. No provider inventory,
-selected Workflow manifest, capability-discovery service, or generated Tool
-registry is needed to start MCP.
+`tool_providers.json` is the editable installed Provider inventory. It has
+`schema_version`, `mcp_blacklist`, and `providers`; each Provider declares its
+`provider_id`, Python `module`, `factory`, and `descriptor_factory`. Generate
+the required checked-in `tool_registry.json` with:
 
-`project_mcp.tool_blacklist` removes exact tool names from the advertised and
-callable frontier. An omitted list disables no tools. Restart the gateway after
-changing settings.
+```sh
+uv run --project . --locked --no-sync --all-groups python -B \
+  LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py \
+  --package-root .
+```
+
+The generated registry pins the inventory digest and descriptor models. MCP
+refuses startup when either asset is missing, malformed, stale, or does not
+match installed Provider code. Adding a Provider or Tool requires an installed
+implementation, one inventory entry, and regeneration; gateway routing stays
+generic.
+
+`factory(project_root, gateway)` is invoked lazily to create a Provider with
+`call(name, arguments)` and `close()` methods. `descriptor_factory()` returns the corresponding
+`mcp.types.Tool` models. The generated registry records `inventory_sha256`,
+`mcp_blacklist`, Provider fields and descriptors, and `public_tools`.
+The runtime validates each registered input schema before calling its Provider
+and its output schema before returning the Provider result. A Provider may
+optionally implement `prepare_arguments(name, arguments, context)` and
+`present_result(name, value, context)` for its own transport shaping; the
+gateway never applies Workbench-specific URL behavior to other Providers.
+
+`mcp_blacklist` denies exact public Tool names globally. Project
+`project_mcp.tool_blacklist` is unioned with it, so a Project cannot re-enable
+a global denial. Both lists affect advertisement and direct invocation.
 
 ## Project context
 
@@ -44,7 +67,7 @@ The default transport is local stdio, and the host owns its process lifetime.
 This command does not register MCP with a host or refresh an installed runtime.
 For runtime installation and the isolated Docker HTTP transport, use
 [Project release tools](../FEATURE_PROJECT_TOOLS/README.md) and the
-[Docker runtime README](../FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/README.md).
+[Docker runtime README](docker/README.md).
 
 ## Health and restart
 

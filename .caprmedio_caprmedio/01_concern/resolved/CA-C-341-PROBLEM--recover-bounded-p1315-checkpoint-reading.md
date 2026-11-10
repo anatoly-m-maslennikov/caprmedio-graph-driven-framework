@@ -17,7 +17,13 @@ subjects:
 version: 3
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1315]
+  concern_about:
+  - CA-P-1315
+ref_id: CA-C-341
+carrier_destination:
+  file:
+    name: CA-C-341-PROBLEM--recover-bounded-p1315-checkpoint-reading.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

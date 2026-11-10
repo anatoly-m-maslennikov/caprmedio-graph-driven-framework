@@ -4,7 +4,10 @@ ref_id: CA-M-475@2-draft
 role: Method
 form: Eng Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Project
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication <+ Interface Contracts
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Workspace
 tier: 4
 relations:
   method_for:

@@ -6,15 +6,15 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
+  main_subject: CAPRMEDIO_MODEL <+ Package/Project Package
   dependencies:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 1
 status: Active
-version: 22
-updated_at: "2026-11-07 17:10:31 +0400"
+version: 23
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md

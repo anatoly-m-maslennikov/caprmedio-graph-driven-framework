@@ -8,15 +8,16 @@ context:
   role: Requirement
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings.Temporary
-      State
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Storage <+ Temporary State
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Storage
+      <+ Directory Layout
   tier: 1
 state:
   status: Active
-  version: 21
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 22
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-1473-PROGRAMMATIC-DIRECT_POLICY--confine-all-temporary-state-to-project-temp.md
@@ -25,13 +26,13 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Confine all temporary state to project temp
 
-## Scope
-
 ## Claim
+
+### Prose Claim
 
 **every** temporary File **or** Directory Carrier created by a CAPRMEDIO-controlled
 PROGRAMMATIC execution **must** be located below the configured Project
@@ -62,4 +63,3 @@ workspaces, **or** interrupted-cleanup remnants, but **must not** discard a gove
 Artifact, Project Journal history, an installed release, **or** resumable runtime
 progress.
 
-## Details

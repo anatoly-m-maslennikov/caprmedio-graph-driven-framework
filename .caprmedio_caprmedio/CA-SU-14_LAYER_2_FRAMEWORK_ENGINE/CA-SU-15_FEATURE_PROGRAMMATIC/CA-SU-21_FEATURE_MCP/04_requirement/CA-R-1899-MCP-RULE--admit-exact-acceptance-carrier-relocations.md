@@ -6,18 +6,21 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Storage
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization
-  - Subject/CAPRMEDIO/Carrier/File
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Data Validation
+  - MODEL//CAPRMEDIO <+ Projection
+  - MODEL//CAPRMEDIO <+ Actor/Operator
+  - MODEL//CAPRMEDIO <+ Execution
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Serialization
+  - MODEL//CAPRMEDIO <+ Carrier/File
 tier: 3
 status: Active
-version: 14
-updated_at: 2026-11-09 21:15:45 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1899-MCP-RULE--admit-exact-acceptance-carrier-relocations.md
@@ -42,45 +45,16 @@ the selected binding Projection **must** admit only the three exact registered a
 
 ## Details
 
-### Scope
+### Registered relocation admission
 
-the one registered relocation of three acceptance carriers under the current Epic.
+- The sole authority is the closed registration for exactly CA-P-1618@1, CA-P-1535@2, and CA-P-1622@4; every prior/current path, identity, version, digest, and canonical input digest must match.
+- Preserve fixed-path selected-source refresh. Replace only the three registered prior paths; create no alias, raw-manifest edit, general relocation capability, changed source pin, or caller-supplied registration. All other manifest fields, routes, graph edges, registry pins, source digests, and selected_binding_digest remain unchanged; only canonical serialization and derived canonical_manifest_sha256 may change.
+- Derive and seal one candidate under the typed Operator context, lock, pending intent, revalidation, atomic publication, strict readback, and real Work Journal receipt. Unknown, duplicate, stale, mismatched, extra, unsafe, or unregistered evidence refuses before effects.
+- A pending publication/recording remains recoverable. An interrupted pre-effect attempt may retry the same candidate once only when exact registered input, sealed intent, and current sources still match; once the candidate exists, recovery is recording-only without rewrite. Ambiguous bytes refuse; historical evidence and installed runtime remain unchanged.
 
-- the registration is authority for exactly CA-P-1618@1, CA-P-1535@2 and CA-P-1622@4; every prior and current path, digest and canonical input digest is exact.
-- preserve the existing fixed-path selected-source refresh. this admission creates no alias, raw-manifest edit, general relocation capability or changed source pin.
-- derive the candidate, seal it under the existing typed Operator publisher, retain its lock and pending intent, revalidate currentness before publication, then require strict readback and a real Work Journal receipt.
-- unknown, duplicate, stale, mismatched or extra relocation evidence refuses before effects. a pending publication or recording remains recoverable through the existing lifecycle.
+### Closed registration
 
-### Relocation admission procedure
-
-**to** admit the exact acceptance-carrier relocations, derive one candidate from the current binding and the closed registration in Details before applying the existing authorized publication lifecycle.
-
-
-#### Scope
-
-the one registered relocation of three acceptance carriers under the current Epic.
-
-1. reopen the closed registration in Details, its exact canonical input bytes and the three retained current source carriers; require each current carrier's bytes, identity, version and digest to match its registration.
-2. replace only the three registered source-path occurrences from the listed prior path to the listed current path. retain every other manifest field, route, graph, registry pin and source digest unchanged except the resulting canonical serialization and its derived `canonical_manifest_sha256`; the route-identical `selected_binding_digest` remains unchanged.
-3. validate the whole candidate against current source pins and the existing selected-route schema. reject any changed topology, alias, unregistered path or mismatched occurrence before intent.
-4. seal and publish only through the existing typed Operator context, lock, pending intent, rederivation and atomic readback lifecycle; record the actual result through the existing Work Journal.
-5. retain pending publication or recording evidence for recovery. when the exact registered original input, sealed intent and current sources still match, an interrupted pre-effect attempt may retry the same candidate once under the existing lock. once that exact candidate exists, recovery is recording-only and performs no rewrite; ambiguous bytes refuse. historical evidence and installed runtime remain unchanged.
-
-### Closed relocation registration
-
-the acceptance-carrier relocation admission **must** use the closed serialization below for its exact three-carrier authority revision.
-
-
-#### Scope
-
-the one registered relocation of three acceptance carriers under the current Epic.
-
-the **only** registration is the JSON object under `### Accepted carrier relocations`. its keys and nested relocation shapes are exact; duplicate or unknown fields are invalid. version and schema version are strict integers. paths are safe regular Project-relative carriers with no symlink ancestry.
-
-the exact canonical input bytes and all three retained current source-carrier bytes **must** match. each relocation replaces only its registered prior source path with its registered current source path; carrier identity, version and digest remain unchanged. no route, graph, registry, source digest or normal fixed-path refresh behavior is otherwise admitted for change. the resulting canonical serialization and its derived `canonical_manifest_sha256` are recomputed; the route-identical `selected_binding_digest` remains unchanged.
-
-the private reader feeds the existing typed host publisher, trusted Operator context, lock, pending intent, atomic write, strict readback and Work Journal receipt. an interrupted pre-effect attempt may retry the same candidate once only when the exact registered original input, sealed intent and current sources still match. once the exact candidate exists, recovery is recording-only without rewrite; ambiguous bytes refuse. no public MCP route, generic relocation capability, alias or caller-supplied registration is introduced.
-
+The exact JSON under Accepted carrier relocations is the only registration. Its keys/nested shapes and integer schema/version are strict; paths are safe regular Project-relative carriers without symlink ancestry. The private reader feeds the existing trusted Operator publisher, lock, pending intent, atomic write, strict readback, and Work Journal receipt. No public MCP route, generic relocation capability, or alias is introduced.
 #### Accepted carrier relocations
 
 ```json

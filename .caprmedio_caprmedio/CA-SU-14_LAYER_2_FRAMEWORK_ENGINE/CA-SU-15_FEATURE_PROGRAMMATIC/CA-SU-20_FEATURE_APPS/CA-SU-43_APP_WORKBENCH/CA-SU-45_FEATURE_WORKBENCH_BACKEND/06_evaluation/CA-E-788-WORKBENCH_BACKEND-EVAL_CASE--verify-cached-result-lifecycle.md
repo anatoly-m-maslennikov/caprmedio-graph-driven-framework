@@ -8,20 +8,24 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
-      <+ Temporary State
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Storage <+ Temporary State
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 7
 relations:
   evaluation_for:
   - CA-M-462
   - CA-M-463
   - CA-O-240
+  - CA-C-701
+  - CA-R-2729
+  IS_REPLACEMENT_FOR:
+  - CA-E-751
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-788-WORKBENCH_BACKEND-EVAL_CASE--verify-cached-result-lifecycle.md
@@ -30,7 +34,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify cached result lifecycle
@@ -39,17 +42,6 @@ Verify cached result lifecycle
 
 ### Prose Claim
 
-Through the real Workbench service and its native DuckDB result tables, verify these lifecycle outcomes:
+Use the real Workbench and native DuckDB result tables to verify whole-query admission rejects multi-statements; invalid structured Run/View preserves the last reachable result; valid failed View rerun releases the old result; and SQL editing alone preserves it. An open View pins beyond TTL, closed young results remain reachable, and old unpinned results may expire. `result_ttl_seconds = 1` takes effect only after explicit Workbench restart.
 
-| Case | Expected result |
-| --- | --- |
-| Whole-query admission | Run and Check reject a multi-statement request rather than selecting one statement at a cursor. |
-| Invalid structured arguments | A malformed Run/View request fails before execution and preserves the last reachable result ID and rows. |
-| Valid failed rerun | After validation succeeds, a View rerun releases its old result before the new native SQL fails; fetching the old result then fails. |
-| SQL editing | Updating View SQL without a valid rerun preserves the last Run result, which remains the result of the prior SQL. |
-| Age-or-open retention | An open View pins its result beyond TTL; closing it retains a young result and permits disposal of an old unpinned result. |
-| Runtime setting timing | Set `result_ttl_seconds = 1` in the runtime TOML, explicitly restart the Workbench, and verify the one-second lifecycle; changing the file without restart has no effect. |
-| Restart | Restart clears all materialized results and process-local result IDs. |
-| Result storage boundary | Native DuckDB owns result tables; the service adds no manual result/configuration staging file, setting write, second cache or restore path. |
-
-Use actual queries, View operations, expiry time and native result-table observability. Verify first-page failure removes only an unrevealed result while a known ID survives a later page-conversion failure. Do not substitute mocked clocks, Python row lists or a frontend-only state transition for owner and DuckDB evidence.
+First-page `NaN`/infinity conversion failure creates no ID/registration/table; later-page failure after a known ID preserves it for other fetches. Restart clears all result tables/IDs. Query-result files are delivery artifacts, not cache/restore/pin state; no setting write/staging/restore path is added. Use actual queries, views, expiry and table observability, not mocks/row lists/frontend state. Export failure returns known ID plus delivery error without a successful path; valid later fetch remains possible and partial files never count complete.

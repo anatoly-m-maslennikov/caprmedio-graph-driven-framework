@@ -13,9 +13,16 @@ subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
-  concern_about: [CA-P-2513, CA-P-2516]
+  concern_about:
+  - CA-P-2513
+  - CA-P-2516
 version: 2
-updated_at: "2026-10-21T01:18:09Z"
+updated_at: '2026-10-21T01:18:09Z'
+ref_id: CA-C-558
+carrier_destination:
+  file:
+    name: CA-C-558-PROGRAMMATIC-STANDARD-PROBLEM--resolve-canonical-history-after-plan-draft-demotion.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

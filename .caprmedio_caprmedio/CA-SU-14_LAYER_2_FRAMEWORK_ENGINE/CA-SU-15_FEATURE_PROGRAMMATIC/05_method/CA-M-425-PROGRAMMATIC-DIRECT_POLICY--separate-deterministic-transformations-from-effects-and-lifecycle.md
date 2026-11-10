@@ -8,24 +8,25 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-      Structure
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
+      <+ Code Authoring
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+      <+ Component Structure
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
   IS_REPLACEMENT_FOR:
   - CA-M-426
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 14:19:14 +0400
+  version: 15
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -55,7 +56,6 @@ a replaceable adapter.
 
 ## Details
 
-Candidate source: [CA-M-160@12](archive/CA-M-160-PROGRAMMATIC-CORE-METHOD--separate-deterministic-transformations-from-effects-and-lifecycle@12.md)
 
 ### Applicable when
 

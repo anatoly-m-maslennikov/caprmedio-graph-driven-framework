@@ -8,15 +8,15 @@ context:
   role: Requirement
   form: Declaration
   topics:
-    main_subject: PROJECT_STRUCTURE <+ Aspect//Visual Design
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspect//Visual Design
+    dependencies:
+    - MODEL//CAPRMEDIO <+ Aspect
   tier: 4
-relations:
-  depends_on:
-  - CA-R-2543
+relations: {}
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2775-WORKBENCH_FRONTEND-DECLARATION--declare-visual-design-aspect.md
@@ -25,7 +25,6 @@ current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Declare Visual Design Aspect for Workbench Frontend
@@ -34,15 +33,15 @@ Declare Visual Design Aspect for Workbench Frontend
 
 ### Prose Claim
 
-- WORKBENCH_FRONTEND uses Visual Design as a project-local Aspect.
+WORKBENCH_FRONTEND uses Visual Design as a project-local Aspect.
 
 ### Formal Claim
 
 ```CFEL
 # project_structure
-PROJECT_STRUCTURE <+ Aspect//Visual Design;
+PROJECT STRUCTURE//CAPRMEDIO <+ Aspect//Visual Design;
 ```
 
 ## Semantics
 
-Visual Design covers how the Workbench is presented to its Operator. It does not define query semantics, source authority or backend behavior.
+Visual Design covers Operator presentation, not query semantics, source authority or backend behavior.

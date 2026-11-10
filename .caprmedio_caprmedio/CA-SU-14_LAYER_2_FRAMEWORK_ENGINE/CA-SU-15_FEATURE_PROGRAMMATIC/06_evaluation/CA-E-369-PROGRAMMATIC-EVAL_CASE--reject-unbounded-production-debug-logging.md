@@ -6,19 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - Subject/CAPRMEDIO/Carrier
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
+  - MODEL//CAPRMEDIO <+ Carrier
 tier: 5
 relations:
   evaluation_for:
   - CA-M-414
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 22
-updated_at: 2026-10-27 19:59:33 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -26,28 +27,17 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-369-PROGRAMMATIC-EVAL_CASE--reject-unbounded-production-debug-logging.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reject unbounded production DEBUG logging
+## Summary
 
-## Claim checked
+Reject unbounded production DEBUG logging
 
-production DEBUG logging is disabled by default **and** **may** be enabled **only** through
-a bounded selector with automatic expiry **and** unchanged redaction.
+## Claim
 
-## Test case
+### Prose Claim
 
-evaluate one production component configuration that enables DEBUG globally
-**without** an expiry.
-
-## Acceptance criteria
-
-pass **only** **when** the configuration is rejected **before** deployment.
-
-## Failure disposition
-
-block production DEBUG **until** component, subject, run, entity, **or** equivalent
-scope **and** automatic expiry are present.
-
-## Sources
-
-- [CA-M-414 — Emit structured operational diagnostics](../05_method/CA-M-414-PROGRAMMATIC-ENG_POLICY--emit-structured-operational-diagnostics.md)
+Reject production DEBUG enabled globally without automatic expiry. Any enablement requires bounded component/subject/run/entity-or-equivalent scope and unchanged redaction.

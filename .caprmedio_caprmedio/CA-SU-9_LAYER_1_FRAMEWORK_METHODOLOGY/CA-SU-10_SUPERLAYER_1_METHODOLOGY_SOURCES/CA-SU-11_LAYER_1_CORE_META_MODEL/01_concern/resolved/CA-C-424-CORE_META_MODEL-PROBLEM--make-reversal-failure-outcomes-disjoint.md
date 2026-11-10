@@ -18,7 +18,14 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
 relations:
-  concern_about: [CA-O-131, CA-P-1450]
+  concern_about:
+  - CA-O-131
+  - CA-P-1450
+ref_id: CA-C-424
+carrier_destination:
+  file:
+    name: CA-C-424-CORE_META_MODEL-PROBLEM--make-reversal-failure-outcomes-disjoint.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

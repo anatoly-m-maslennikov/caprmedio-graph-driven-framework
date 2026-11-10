@@ -8,22 +8,23 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface
-      Contracts
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication <+ Interface Contracts
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-      Structure
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+      <+ Component Structure
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+      <+ Communication
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 15
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-413-PROGRAMMATIC-DIRECT_POLICY--define-typed-contracts-at-replaceable-technical-boundaries.md
@@ -52,7 +53,6 @@ When the boundary carries user-edited or externally applied mutable state, the c
 
 ## Details
 
-Candidate source: [CA-M-159@9](archive/CA-M-159-PROGRAMMATIC-CORE-METHOD--define-typed-contracts-at-replaceable-technical-boundaries@9.md)
 
 ### Applicable when
 

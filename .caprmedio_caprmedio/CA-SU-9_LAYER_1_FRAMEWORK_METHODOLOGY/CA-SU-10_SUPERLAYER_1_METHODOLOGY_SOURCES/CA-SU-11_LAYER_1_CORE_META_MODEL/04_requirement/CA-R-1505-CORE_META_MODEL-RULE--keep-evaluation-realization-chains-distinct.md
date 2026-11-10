@@ -8,15 +8,15 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   dependencies:
-  - CAPRMEDIO_MODEL <+ Package/Implementation
-  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
+  - CAPRMEDIO_MODEL <+ Package/Project Package
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 tier: 1
 status: Active
-version: 27
-updated_at: 2026-11-02 18:35:20 +0400
+version: 28
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1505-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md

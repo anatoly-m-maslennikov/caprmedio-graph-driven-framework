@@ -26,7 +26,7 @@ One accumulated Draft request under its bound Project and applicable model.
 
 ### Inputs
 
-`parameters`, and the bound Project and applicable model context. The parameters are either `newAtom` properties, or an exact existing `sourceCurrent` selector plus requested property changes.
+`parameters`, and the bound Project and applicable model context. The parameters are either `newAtom` properties, or an exact existing Atom selector plus requested property changes.
 
 ### Fixed parameters
 
@@ -34,9 +34,9 @@ None.
 
 ### Effect
 
-Apply [CA-R-1630@42-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1630@42-draft-CORE_META_MODEL-RULE--gate-atomic-admission-and-promotion.md)'s mechanical admission validation to the applicable-model candidate, without semantic review.
+Check input formats and allowed values against the applicable model without semantic review.
 
-For `sourceCurrent`, use the ordinary authorized Project reader and form a transient candidate using the source transformation in [Create one Atom Draft](CA-O-draft-PROJECT_CONFIGURATION-ACTION--create-one-atom-draft.md), without materializing an Atom.
+For an existing Atom selector, use the ordinary authorized Project reader and form a transient candidate using the source transformation in [Create one Atom Draft](CA-O-draft-PROJECT_CONFIGURATION-ACTION--create-one-atom-draft.md), without materializing an Atom.
 
 For full candidate validation, supply ID, Version, timestamps, Draft Status and placement as applicable tool-derived Draft metadata rather than caller parameters. In particular, validate the pending Draft Status, not a source Current Status such as `Active`. Do not request those fields from the caller.
 
@@ -44,4 +44,4 @@ Strip [CA-D-568](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/draft/
 
 ### Outputs
 
-Return logical `parameters`, any carrier-field warning, and `requested_input`; [Present intermediate results and request input](CA-O-draft-PROJECT_CONFIGURATION-ACTION--present-intermediate-results-and-request-input.md) supplies waiting transport and [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) supplies failure handling.
+Return logical `parameters`, any carrier-field warning, and `requested_input`; [Present intermediate results and request input](CA-O-draft-PROJECT_CONFIGURATION-ACTION--present-intermediate-results-and-request-input.md) supplies waiting transport and [CA-R-1432@28-draft](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--govern-atom-lifecycle-identity-and-version.md) supplies failure handling.

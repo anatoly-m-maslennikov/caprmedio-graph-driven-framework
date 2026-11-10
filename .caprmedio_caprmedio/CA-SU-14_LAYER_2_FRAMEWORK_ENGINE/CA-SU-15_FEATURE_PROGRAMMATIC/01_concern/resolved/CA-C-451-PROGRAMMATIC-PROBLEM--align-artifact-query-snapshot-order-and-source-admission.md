@@ -18,7 +18,16 @@ subjects:
   - Journal
   - Evaluation
 relations:
-  concern_about: [CA-O-158, CA-P-1611, CA-P-1527, CA-P-1528]
+  concern_about:
+  - CA-O-158
+  - CA-P-1611
+  - CA-P-1527
+  - CA-P-1528
+ref_id: CA-C-451
+carrier_destination:
+  file:
+    name: CA-C-451-PROGRAMMATIC-PROBLEM--align-artifact-query-snapshot-order-and-source-admission.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

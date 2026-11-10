@@ -14,8 +14,8 @@ relations:
   delivery_for:
   - CA-R-1921
 status: Active
-version: 14
-updated_at: 2026-11-09 15:54:30 +0400
+version: 15
+updated_at: 2026-11-11 00:17:19 +0400
 carrier_destination:
   file:
     name: CA-D-611-FRAMEWORK_DELIVERY-DECISION--bind-public-release-to-its-own-package-root.md
@@ -35,7 +35,7 @@ the installed-source root of the public-release Tool.
 
 ## Claim
 
-the public-release Tool **must** retain `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/PUBLIC_RELEASE/` as its own installed package-relative root and resolve sibling `RELEASE_VERSION` evidence through the selected installed Framework package.
+the public-release Tool **must** retain `LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/` as its own installed package-relative root and resolve sibling `RELEASE_VERSION` evidence through the selected installed Framework package.
 
 ## Details
 

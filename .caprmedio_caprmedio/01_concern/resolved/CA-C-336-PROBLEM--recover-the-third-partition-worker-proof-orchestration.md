@@ -17,10 +17,15 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
-    - CA-P-1320
+  - CA-P-1320
   relates_to:
-    - CA-A-1038
-    - CA-P-1328
+  - CA-A-1038
+  - CA-P-1328
+ref_id: CA-C-336
+carrier_destination:
+  file:
+    name: CA-C-336-PROBLEM--recover-the-third-partition-worker-proof-orchestration.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

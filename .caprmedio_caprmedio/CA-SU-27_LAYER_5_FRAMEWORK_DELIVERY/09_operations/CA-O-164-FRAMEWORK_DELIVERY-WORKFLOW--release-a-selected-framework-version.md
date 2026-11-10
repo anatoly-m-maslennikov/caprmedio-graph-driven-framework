@@ -23,8 +23,8 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 tier: 3
 status: Active
-version: 35
-updated_at: 2026-11-09 15:54:30 +0400
+version: 36
+updated_at: 2026-11-11 00:17:19 +0400
 carrier_destination:
   file:
     name: CA-O-164-FRAMEWORK_DELIVERY-WORKFLOW--release-a-selected-framework-version.md
@@ -67,7 +67,7 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 
 ## Details
 
-Invoke this Workflow from the repository host through `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py local --project-root <project-root> --run-id <run-id> [--test-module <repo-relative-module> ...]` in the governed uv environment; `--project-root` defaults to the repository root. The Project's MCP blacklist disables `release_version` exposure and invocation while preserving its adapter for later reuse. This entrypoint reuses the existing local runner and required validation, installation, smoke and safe cleanup behavior.
+Invoke this Workflow from the repository host through `LAYER_5_FRAMEWORK_DELIVERY/release.py local --project-root <project-root> --run-id <run-id> [--test-module <repo-relative-module> ...]` in the governed uv environment; `--project-root` defaults to the repository root. The Project's MCP blacklist disables `release_version` exposure and invocation while preserving its adapter for later reuse. This entrypoint reuses the existing local runner and required validation, installation, smoke and safe cleanup behavior.
 
 The four named Step/Action occurrences are the complete registered graph. Intended local-release tool tests are mandatory internal Workflow work after successful CA-O-170 validation and before CA-O-172 delivery; they are not another Atom Step or Action and cannot be bypassed by interpreting an edge label as execution. The admitted native Workflow runner must actually run the declared tests, retain their observed result, and stop before delivery on failure, unavailable execution, or unknown completion. CA-O-165 remains validation-only. This clarification creates no test Atom ID, restored retired Step, or second Workflow.
 

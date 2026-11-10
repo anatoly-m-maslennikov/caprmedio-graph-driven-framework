@@ -17,7 +17,16 @@ subjects:
   - Subject/Engineering/Carrier
 version: 3
 updated_at: 2026-10-23 03:14:50 +0400
-relations: {concern_about: [CA-M-276, CA-E-448, CA-D-378]}
+relations:
+  concern_about:
+  - CA-M-276
+  - CA-E-448
+  - CA-D-378
+ref_id: CA-C-445
+carrier_destination:
+  file:
+    name: CA-C-445-PROGRAMMATIC-PROBLEM--record-concurrent-atom-identity-collision.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

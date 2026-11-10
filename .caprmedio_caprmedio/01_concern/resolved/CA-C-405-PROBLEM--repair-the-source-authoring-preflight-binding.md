@@ -17,7 +17,13 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1156]
+  concern_about:
+  - CA-P-1156
+ref_id: CA-C-405
+carrier_destination:
+  file:
+    name: CA-C-405-PROBLEM--repair-the-source-authoring-preflight-binding.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

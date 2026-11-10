@@ -15,6 +15,11 @@ subjects:
   - Subject/Domain/Node/Continuant/History/Journal.Record
   - Subject/Engineering/Carrier
 relations: {}
+ref_id: CA-C-590
+carrier_destination:
+  file:
+    name: CA-C-590-QUESTION--do-existing-bearer-topics-preserve-legacy-projection-and-record-focus.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

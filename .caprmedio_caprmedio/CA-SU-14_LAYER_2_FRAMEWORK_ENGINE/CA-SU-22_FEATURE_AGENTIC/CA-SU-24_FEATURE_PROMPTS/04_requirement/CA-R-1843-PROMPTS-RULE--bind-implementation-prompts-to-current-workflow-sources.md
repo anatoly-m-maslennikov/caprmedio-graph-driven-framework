@@ -6,16 +6,18 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Retrieval"
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Source Retrieval
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
 tier: 3
 status: Active
-version: 15
-updated_at: 2026-10-27 20:00:04 +0400
+version: 16
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1843-PROMPTS-RULE--bind-implementation-prompts-to-current-workflow-sources.md
@@ -24,15 +26,17 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Bind implementation prompts to current Workflow sources
 
-## Scope
+## Claim scope
 
 the PROMPTS implementation of the admitted CA-O-016 Implementation Workflow.
 
 ## Claim
+
+### Prose Claim
 
 the Implementation **must** dispatch a Step prompt only with current, fully read Workflow, Step, and Action source bindings for its actually admitted graph. Context, required inputs, result labels, candidate/evidence freshness, and retry state must match those definitions. A staged shared-context definition is not executable route admission.
 

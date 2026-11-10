@@ -6,14 +6,15 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-    Structure
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/API
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Component Structure
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication <+ API
+  - MODEL//CAPRMEDIO <+ Runtime/Session
+  - MODEL//CAPRMEDIO <+ Runtime/Container Run
 tier: 5
 relations:
   delivery_for:
@@ -22,8 +23,8 @@ relations:
   - CA-M-341
   - CA-M-357
 status: Active
-version: 19
-updated_at: 2026-11-09 07:45:14 +0400
+version: 20
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-578-MCP-DECISION--carry-the-localhost-http-gateway-and-configuration.md
@@ -40,18 +41,16 @@ carry the localhost HTTP Gateway and configuration
 
 ### Prose Claim
 
-the additional HTTP endpoint **must** be carried by the existing MCP Gateway entrypoint and an opt-in Docker service, with explicit-or-Docker-owned-loopback publication and runtime-secret configuration.
+the additional HTTP endpoint **must** be carried by the existing MCP Gateway entrypoint and an opt-in Docker service, with explicit-or-Docker-owned-loopback publication.
 
 ## Details
 
-### Scope
+### HTTP Gateway and service
 
-the HTTP server, opt-in Docker service, configuration and connection carriers.
-
-1. deliver HTTP support beside `hot_reload.py` under `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/`; `server.py --transport stdio` remains the default. The additional transport is `streamable-http`, with path `/caprmedio/mcp` and container port `8092`.
-2. keep the existing `mcp` Compose service unchanged; add `mcp-http` with the same restricted image and Project mounts, no Docker socket, and a dedicated loopback Host/Origin-protected health check.
-3. the opt-in `docker/mcp-http.compose.yaml` overlay publishes only `mcp-http` on host loopback. A direct lifecycle request may carry an explicitly selected integer host port in `1..65535`; the bounded Project MCP launcher may instead request Docker's dynamic publication form `127.0.0.1::8092`, with no implicit fixed public-port default. Docker owns that allocation atomically; the launcher does not pre-bind, probe-reserve, or infer the port. Attach **only** `mcp-http` to a dedicated non-internal `http_publication` bridge alongside the existing internal `runtime` network, so Docker can activate the host binding. This bridge permits HTTP-service outbound traffic; it is not an ingress-only isolation guarantee. Keep worker, Agent and stdio network attachments unchanged. Loading this overlay is explicit and does not change normal worker/stdio startup.
-4. do not configure, read, inject, rotate, or persist an HTTP password, bearer Token, Authorization value, secret file, or credential environment variable for this transport.
-5. support explicit `mcp-http-start`, `mcp-http-stop` and `mcp-http-status` lifecycle operations in the existing Docker runtime adapter. Return the safe connection URL `http://127.0.0.1:<port>/caprmedio/mcp` and readiness/service state. After startup, report ready **only** when Docker reports **=1** running, healthy `mcp-http` service with **=1** TCP publisher: target port `8092`, either the caller-selected or Docker-observed dynamically assigned host port, and bind address `127.0.0.1`. Missing, ambiguous or mismatched publication is a failed startup, even when the container health check passes. A Project launcher reports a ready URL only after its separate Host/Origin-protected host-side MCP readiness exchange. HTTP startup does not require or implicitly start the Codex Agent service, worker, queue, Agent, or Workflow.
-6. permit loopback Host values and loopback HTTP Origins; no Origin is required for non-browser clients. Do not require or validate an Authorization header. Rejections expose no credential value.
-7. test delivery belongs in `204_MCP/tests/test_hot_reload_http.py` and a Docker HTTP configuration/lifecycle test module. Existing stdio tests are retained. Docker absence or denial remains a failed/incomplete real-container gate, not a successful fixture result.
+1. Deliver HTTP beside hot_reload.py; keep server.py --transport stdio default. The added transport is streamable-http, path /caprmedio/mcp, container port 8092.
+2. Keep existing mcp Compose service unchanged. Add opt-in mcp-http with the restricted image and Project mounts, no Docker socket, and a dedicated loopback Host/Origin-protected health check.
+3. Explicit docker/mcp-http.compose.yaml publishes only mcp-http on loopback. A lifecycle request may select an integer host port in 1..65535; the bounded Project launcher uses the required Project Settings `[project_mcp] http_port` on `127.0.0.1:<http_port>:8092`; a supplied `--port` must equal that value, missing or invalid settings stop before Docker effects, and an occupied port fails without an alternative. Docker allocates atomically; no pre-bind/probe-reserve/inference. Attach only mcp-http to non-internal http_publication beside runtime; it permits HTTP-service outbound traffic and is not ingress-only. Worker/Agent/stdio attachments and normal startup remain unchanged.
+4. Do not configure, read, inject, rotate, or persist HTTP password, bearer, Authorization, secret-file, or credential-environment values.
+5. Support mcp-http-start, -stop, and -status. Return the safe URL/state only after exactly one running healthy mcp-http, exactly one TCP publisher to 8092, and bind 127.0.0.1, with caller-selected or observed port. Missing/ambiguous/mismatched publication fails even if health passes; the launcher additionally requires host-side Host/Origin readiness. HTTP startup starts no Codex Agent, worker, queue, Agent, or Workflow.
+6. Permit loopback Host and loopback HTTP Origins; non-browser clients need no Origin. Do not require/validate Authorization and expose no credential value.
+7. Test in 204_MCP/tests/test_hot_reload_http.py and Docker HTTP configuration/lifecycle tests; retain stdio tests. Docker absence/denial is failed/incomplete real-container evidence, not a fixture pass.

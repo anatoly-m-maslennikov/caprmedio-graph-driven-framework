@@ -6,25 +6,25 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-    Control
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Action'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-    Structure
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
-  - Subject/CAPRMEDIO/Carrier/Docker Image
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Project
+  - MODEL//CAPRMEDIO <+ Carrier
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Component Structure
+  - MODEL//CAPRMEDIO <+ Runtime/Container Run
+  - MODEL//CAPRMEDIO <+ Carrier/Docker Image
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication
 tier: 3
 relations:
   delivery_for:
   - CA-O-235
 status: Active
-version: 18
-updated_at: 2026-11-09 07:45:14 +0400
+version: 19
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-595-MCP-DECISION--carry-project-mcp-launch-results.md
@@ -45,11 +45,9 @@ the launcher **must** carry an attributable structured result that exposes a loc
 
 ## Details
 
-### Scope
+### Safe launcher result
 
-the safe structured result Carrier returned by the bounded Project MCP launcher Action.
-
-- default result fields are the disposition (`started`, `reused`, `refused`, `failed`, or `busy`), exactly one CA-O-235 safe condition code, Project identity, safe selected-root/control-root references, immutable image digest/fingerprint, service identity/state, Docker-observed publication, and readiness disposition. A ready success additionally carries one loopback `/caprmedio/mcp` URL. `--output url` is permitted only for that ready success; a non-success stays structured and has no URL. It carries no Git-repository identity and does not require one.
-- the URL is constructed only from the one Docker-observed `127.0.0.1` publication after successful Host/Origin-protected host readiness. No result synthesizes a port, returns a URL before readiness, or redirects through a proxy.
-- result and ordinary diagnostics omit password, bearer, Authorization, secret-bearing environment values, credential-file contents, command arguments, and secret URL components. They do not identify a credential source because this transport has none.
-- refusal/failure remains a complete structured result with no claimed container replacement, queue/worker/Agent/Workflow start, Tool execution, Release effect, or cross-Project fallback. Bounded wait exhaustion is a readiness failure, not a ready result.
+- Default result carries disposition (started, reused, refused, failed, or busy), exactly one CA-O-235 safe condition code, Project identity and safe root/control-root references, immutable image digest/fingerprint, service state, Docker-observed publication, and readiness disposition. A ready success alone carries one loopback /caprmedio/mcp URL; --output url is allowed only then. No Git-repository identity is required.
+- Construct the URL only from one Docker-observed 127.0.0.1 publication after successful Host/Origin readiness. Never synthesize a port, return before readiness, or redirect through a proxy.
+- Results and ordinary diagnostics omit password, bearer, Authorization, secret environment values, credential-file contents, command arguments, and secret URL components; this transport has no credential source.
+- Refusal/failure remains complete structured output with no claimed replacement, queue/worker/Agent/Workflow start, Tool execution, Release effect, or cross-Project fallback. Bounded wait exhaustion is readiness failure, not ready.

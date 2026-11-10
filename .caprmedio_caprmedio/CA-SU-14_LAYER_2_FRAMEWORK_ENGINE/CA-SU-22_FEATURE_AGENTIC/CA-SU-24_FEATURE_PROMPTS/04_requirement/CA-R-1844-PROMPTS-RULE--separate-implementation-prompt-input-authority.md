@@ -6,17 +6,19 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Effect Authorization
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
 tier: 3
 status: Active
-version: 11
-updated_at: 2026-10-27 20:00:04 +0400
+version: 12
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1844-PROMPTS-RULE--separate-implementation-prompt-input-authority.md
@@ -25,15 +27,17 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Separate implementation prompt input authority
 
-## Scope
+## Claim scope
 
 the admitted input packet passed to one current Implementation Workflow prompt.
 
 ## Claim
+
+### Prose Claim
 
 the Implementation **must** carry selected active R/D targets as what to implement, one verified complete active-M projection as how to implement, and applicable E atoms as separate checks, each with identity, revision, path, digest, and full required content.
 

@@ -6,48 +6,36 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 4
 relations:
   evaluation_for:
-  - CA-M-192
-  derived_from:
+  - CA-R-1095
+  DERIVED_FROM:
   - CA-A-058
 status: Active
-version: 20
-updated_at: 2026-10-27 19:59:33 +0400
+version: 21
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-372-PROGRAMMATIC-EVAL_CASE--reconcile-a-journal-first-action.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reconcile a Journal-first action
+## Summary
 
-## Claim checked
+Reconcile a Journal-first action
 
-one action whose canonical Journal record is prepared **before** its real-change
-Git commit becomes reconciled **after** the exact reachable commit SHA is known.
+## Claim
 
-## Test case
+### Prose Claim
 
-prepare one canonical Journal record for a sealed action, complete one
-real-change commit, bind the record **to** that exact reachable commit, **and** commit
-the Journal carrier later.
-
-## Acceptance criteria
-
-pass **only** **when** the action advances from `journal_recorded_git_pending` **to**
-`reconciled` with **=1** record **and** one reachable real-change commit.
-
-## Failure disposition
-
-preserve the pending state **and** reject provenance reliance **until** binding is
-complete.
-
-## Sources
-
-- [CA-M-192 — Reconcile independent Git and Journal provenance](../05_method/CA-M-192-PROGRAMMATIC-METHOD--reconcile-independent-git-and-journal-provenance.md)
+A Journal-first action remains `journal_recorded_git_pending` after exactly one canonical record binds one reachable real-change commit SHA until a later separate Git commit versions the Journal carrier containing that record. Verify pending before that carrier commit and `reconciled` after it; otherwise preserve pending and prohibit provenance reliance. The record does not embed the SHA of the commit containing itself.

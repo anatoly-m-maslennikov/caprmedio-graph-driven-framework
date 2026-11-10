@@ -1,0 +1,38 @@
+---
+atom_id: CA-C-137
+ref_id: CA-C-137@3
+topics:
+  main_subject: CAPRMEDIO Framework Instance/Carrier Root
+  dependencies:
+  - Subject/Domain/Node/Continuant/Project.Framework Settings
+  - Subject/Domain/Node/Continuant/Project
+  - Subject/Engineering/Carrier/Directory Carrier
+  - Carrier/Canonical Address
+status: Archived
+version: 3
+updated_at: 2026-10-23 03:18:40 +0400
+cce_version: cce_1
+cce_form: concern_question
+priority: medium
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+carrier_destination:
+  file:
+    name: CA-C-137@3-QUESTION--is-the-framework-root-locator-a-derived-carrier-value.md
+    path: .caprmedio_caprmedio/01_concern/archive
+---
+# Is the Framework root locator a derived Carrier value?
+
+should D-370's mandatory Framework control-root locator be removed as redundant **or** retained as an explicitly derived, non-authoritative Carrier value?
+
+## Evidence
+
+D-317 fixes the Project-specific Framework root. D-370 nevertheless requires its locator **in** Framework Instance Settings **and** disallows choosing another authority root. D-361 stores explicit instance choices **and** forbids derived structural values as independently editable settings. D-267 requires a fully address-derived Artifact Property **to** have one Carrier encoding. the inspected authority does **not** establish a separate editable root choice **or** the exact exception that would make this locator a checked derived value.
+
+## Principle check
+
+CA-M-002 rejects duplicate authority; CA-M-005 rejects an unnecessary parameter; CA-M-006 requires the locator **and** placement rules **to** agree. a derived readability value is **not** automatically competing authority, but labeling it derived does **not** establish its missing Carrier responsibility **or** authorize an arbitrary new field.
+
+## Disposition
+
+preserve D-370 pending the explicit retained-field **or** retirement decision. do **not** add another root selection, infer a configurable authority root, **or** edit current Settings merely **to** satisfy the old locator rule.

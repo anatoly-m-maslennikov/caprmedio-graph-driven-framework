@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Backlog
-  version: 2
-  updated_at: 2026-11-09 19:08:55 +0400
+  version: 6
+  updated_at: 2026-11-11 00:29:06 +0400
 destination:
   file:
     name: CA-P-2818-TASK--review-and-deliver-the-accepted-engine-changes.md
@@ -27,6 +27,12 @@ relations:
   - CA-P-2842
   - CA-P-2843
   - CA-P-2844
+  - CA-P-2852
+  - CA-P-2839
+  - CA-P-2859
+  - CA-P-2861
+  - CA-P-2866
+  - CA-P-2910
 ---
 
 ## Summary
@@ -46,3 +52,9 @@ Review the combined implementation against adopted RMED, fix confirmed issues, t
 ## Definition of Done
 
 The stated work has actual source/code/test evidence. Every unresolved or unrun case is explicit; no Task text replaces RMED.
+
+## Release-test cleanup check
+
+- [ ] Recheck C567 against the retained release test runner and current Docker fixtures. The historical failing selected-Workflow fixture is no longer present.
+- [ ] Reproduce any applicable interrupted-run or failed-start cleanup defect, then prepare the smallest confirmed repair and regression coverage. Split investigation, repair and verification into batches of at most 15–20 minutes.
+- [ ] Record exact resource ownership and outcomes under the existing cleanup policies. Do not restore retired Workflow tests or treat historical evidence as proof of a current failure.

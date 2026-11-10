@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Backlog
-  version: 1
-  updated_at: 2026-11-09 07:55:38 +0400
+  status: Active
+  version: 2
+  updated_at: 2026-11-11 00:15:31 +0400
 destination:
   file:
     name: CA-P-2813-TASK--reconcile-backend-implementation-and-evaluator-pins.md

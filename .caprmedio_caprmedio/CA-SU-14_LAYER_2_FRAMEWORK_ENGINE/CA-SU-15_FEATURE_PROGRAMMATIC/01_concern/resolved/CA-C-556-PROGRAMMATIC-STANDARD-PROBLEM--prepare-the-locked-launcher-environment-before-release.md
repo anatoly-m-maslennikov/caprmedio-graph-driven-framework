@@ -13,9 +13,16 @@ subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
-  concern_about: [CA-P-2512, CA-P-2513]
+  concern_about:
+  - CA-P-2512
+  - CA-P-2513
 version: 1
-updated_at: "2026-10-21 04:36:13 +0400"
+updated_at: 2026-10-21 04:36:13 +0400
+ref_id: CA-C-556
+carrier_destination:
+  file:
+    name: CA-C-556-PROGRAMMATIC-STANDARD-PROBLEM--prepare-the-locked-launcher-environment-before-release.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

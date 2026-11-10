@@ -8,19 +8,19 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
-      Authoring/Python Code
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Authoring <+ Code Authoring <+ Python Code
     dependencies: []
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -39,8 +39,9 @@ Adopt current Python idioms only for declared benefit
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 adopt a stable idiom available **in** the selected Python boundary **only** **when** it
 improves a named project quality such as correctness, understandability,
 safety, **or** measured performance. preserve the simpler supported idiom **when** a
@@ -48,7 +49,6 @@ newer construct adds no useful distinction.
 
 ## Details
 
-Candidate source: [CA-M-280@8](archive/CA-M-280-PROGRAMMATIC-CORE-METHOD--adopt-current-python-idioms-only-for-declared-benefit@8.md)
 
 ### Applicable when
 

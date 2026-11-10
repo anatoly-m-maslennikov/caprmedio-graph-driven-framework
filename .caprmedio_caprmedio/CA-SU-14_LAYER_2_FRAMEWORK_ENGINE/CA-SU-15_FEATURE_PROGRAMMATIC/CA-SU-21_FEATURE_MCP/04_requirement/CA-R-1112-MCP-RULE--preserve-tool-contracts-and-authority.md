@@ -6,18 +6,18 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface
-    Contracts
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication <+ Interface Contracts
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
-    Authorization
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Effect Authorization
 tier: 1
 relations:
   IS_REPLACEMENT_FOR:
   - CA-M-174
 status: Active
-version: 22
-updated_at: 2026-11-09 21:15:45 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 author: Anatoly Maslennikov
 current_scope_unit: MCP
 destination:
@@ -40,4 +40,4 @@ For CAPRMEDIO Markdown Atom Doers, MCP **must** pass through the canonical Tool'
 
 ## Details
 
-Implement MCP as a replaceable protocol adapter: preserve the canonical request/result contract and pass a Markdown Atom Doer's sealed target set, expected revision or digest, Initiative action, and receipt unchanged. Stop whenever protocol adaptation would broaden authority, alter cardinality, or obscure a Tool failure.
+Use MCP as a replaceable protocol adapter: pass the canonical request/result and Markdown Atom Doer's sealed target set, expected revision/digest, Initiative action envelope, and receipt unchanged. Stop when adaptation would broaden authority, alter cardinality, or obscure a Tool failure.

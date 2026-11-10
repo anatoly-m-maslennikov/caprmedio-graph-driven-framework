@@ -10,11 +10,17 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "CA-P-1298 elapsed execution and recovery"
+  governs: CA-P-1298 elapsed execution and recovery
 relations:
-  concern_about: [CA-P-1298]
+  concern_about:
+  - CA-P-1298
 version: 1
-updated_at: "2026-10-04 13:41:16 +0400"
+updated_at: 2026-10-04 13:41:16 +0400
+ref_id: CA-C-318
+carrier_destination:
+  file:
+    name: CA-C-318-PROBLEM--p1298-original-execution-exceeded-the-leaf-estimate.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

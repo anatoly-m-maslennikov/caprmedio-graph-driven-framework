@@ -8,13 +8,13 @@ context:
   role: Method
   form: Solution
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-      Structure
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Component Structure
   tier: 1
 state:
   status: Active
-  version: 10
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 11
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-432-PROGRAMMATIC-SOLUTION--use-a-modular-monolith.md
@@ -30,8 +30,9 @@ Use a modular monolith
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 Implement the PROGRAMMATIC runtime as one modular application with shared queue and run state. Keep clear module boundaries aligned with Scope Unit responsibilities. Scope ownership does not require a one-to-one mapping to modules or deployments. Do not introduce separate services or internal network APIs merely to separate Scope Units.
 
 ## Details

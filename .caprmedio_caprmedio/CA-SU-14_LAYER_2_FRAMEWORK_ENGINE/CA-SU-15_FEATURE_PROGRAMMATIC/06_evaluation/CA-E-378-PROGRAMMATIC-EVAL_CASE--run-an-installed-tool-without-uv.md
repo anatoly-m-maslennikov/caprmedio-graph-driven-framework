@@ -6,18 +6,19 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+  - MODEL//CAPRMEDIO <+ Package/Project Package
 tier: 5
 relations:
   evaluation_for:
   - CA-M-429
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 22
-updated_at: 2026-10-27 19:59:34 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -25,30 +26,17 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-378-PROGRAMMATIC-EVAL_CASE--run-an-installed-tool-without-uv.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Run an installed Tool without uv
+## Summary
 
-## Claim checked
+Run an installed Tool without uv
 
-one installed CAPRMEDIO Tool executes from `.caprmedio_runtime/tools` **without** uv, a
-project virtual environment, **or** another dependency outside the selected
-runtime release.
+## Claim
 
-## Test case
+### Prose Claim
 
-invoke one installed Tool **in** a clean process **where** uv **and** the project virtual
-environment are unavailable.
-
-## Acceptance criteria
-
-pass **only** **when** the Tool reaches its declared entry boundary using solely its
-installed carrier **and** admitted host prerequisites.
-
-## Failure disposition
-
-reject the installed-runtime claim **until** the external workflow dependency is
-removed.
-
-## Sources
-
-- [CA-M-429 — Use uv as the default Python workflow frontend](../05_method/CA-M-429-PROGRAMMATIC-ENG_POLICY--use-uv-as-the-default-python-workflow-frontend.md)
+In a clean process without uv or project environment, an installed Tool must reach its declared entry boundary solely from `.caprmedio_runtime/tools` and admitted host prerequisites.

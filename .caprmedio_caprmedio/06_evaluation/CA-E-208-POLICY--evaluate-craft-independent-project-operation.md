@@ -10,18 +10,18 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Project
-tier: 1
+tier: 2
 relations:
   child_of:
-  - CA-R-819
+  - CA-R-3037
   evaluation_for:
-  - CA-R-819
+  - CA-R-3037
 status: Active
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+version: 27
+updated_at: "2026-11-11 00:07:48 +0400"
 carrier_destination:
   file:
-    name: CA-E-208-CAPRMEDIO-EVAL_POLICY--evaluate-craft-independent-project-operation.md
+    name: CA-E-208-POLICY--evaluate-craft-independent-project-operation.md
     path: .caprmedio_caprmedio/06_evaluation
 cce_version: cce_1
 cce_form: evaluation

@@ -8,19 +8,19 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
-      Analysis
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Static Analysis
     dependencies: []
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-428-PROGRAMMATIC-DIRECT_POLICY--use-ruff-for-python-formatting-linting-and-complexity.md
@@ -39,15 +39,15 @@ Use Ruff for Python formatting, linting, and complexity
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 use Ruff as the selected formatter **and** linter for hand-authored PROGRAMMATIC
 Python source, including cyclomatic-complexity lint for changed executable
 units.
 
 ## Details
 
-Candidate source: [CA-M-282@9](archive/CA-M-282-PROGRAMMATIC-CORE-METHOD--use-ruff-for-python-formatting-linting-and-complexity@9.md)
 
 ### Applicable when
 

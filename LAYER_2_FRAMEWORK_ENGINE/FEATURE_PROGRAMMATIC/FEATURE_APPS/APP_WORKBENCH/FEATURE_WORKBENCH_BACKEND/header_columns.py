@@ -15,6 +15,8 @@ import re
 import sys
 from typing import Any
 
+from .content_schema import _matches
+from .declared_header_rules import HeaderRule, compile_header_rules
 from .relations import canonical, json_value
 
 
@@ -23,9 +25,6 @@ if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
 from header_groups import header_field_paths, header_value  # noqa: E402
-
-from .declared_header_rules import HeaderRule, compile_header_rules
-
 
 _NAME = re.compile(r"[^a-z0-9_]")
 _SEPARATORS = re.compile(r"[\s-]+")
@@ -240,8 +239,8 @@ def _selector_metadata(rule: HeaderRule) -> dict[str, Any]:
 
 def _rule_applies(rule: HeaderRule, row: Mapping[str, Any]) -> bool:
     return (
-        (rule.roles is None or row.get("role") in rule.roles)
-        and (rule.forms is None or row.get("form") in rule.forms)
+        (rule.roles is None or _matches(row.get("role"), rule.roles))
+        and (rule.forms is None or _matches(row.get("form"), rule.forms))
     )
 
 

@@ -8,18 +8,18 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ State Synchronization
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ State Synchronization
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 5
 relations:
   evaluation_for:
   - CA-R-2952
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-781-WORKBENCH-EVAL_CASE--verify-workbench-sync-status.md
@@ -28,7 +28,6 @@ current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify the Workbench source indexing sync status
@@ -37,16 +36,4 @@ Verify the Workbench source indexing sync status
 
 ### Prose Claim
 
-Exercise the built Workbench against the real backend and its existing HTTP polling path. Verify the status text is a small top-right header element, uses browser-local time, and never confuses indexing with query execution or browser autosave.
-
-| Case | Expected result |
-| --- | --- |
-| Initial source capture or a refresh is running | A poll observes `syncing: true`; the UI shows `Syncing` while queries and autosave remain separate states. |
-| No successful capture/materialization commit has occurred | The payload has `last_synced_at: null`; the UI shows `Not synced yet`. |
-| Capture/materialization reconciliation succeeds, with a new commit or unchanged committed state confirmed | A later poll shows `syncing: false` and an updated offset-bearing `last_synced_at`, rendered in the browser's local time. |
-| Capture or materialization fails after a previous successful sync | `syncing` becomes false, the previous timestamp remains visible, and the existing failure state/error behavior remains; the UI does not claim a new sync or restart the owner. |
-| Status is polled during a long indexing operation | The status response remains observable without waiting for the long lifecycle/query lock. |
-| A query runs, completes, or the browser autosaves a View | The sync text and timestamp do not change unless source-to-DuckDB indexing successfully reconciles its sources. |
-| HTTP `POST /caprmedio/workbench/<project_name>/status` and MCP `workbench_status({})` reads are compared | Both expose exactly `syncing` and `last_synced_at` with the same semantics; no error field, new event stream or service is required. |
-
-Use the real browser flow and backend; assert visible text and response behavior rather than component internals. Verify the existing polling mechanism is reused and no automatic restart is triggered.
+Use built browser/real backend existing HTTP polling. Verify small top-right local-time text distinguishes indexing from query/autosave: initial/refresh poll sees `syncing: true`/Syncing; before success false/null shows Not synced yet; successful commit or confirmed committed state shows false/new offset timestamp; failure preserves prior timestamp/error and does not claim sync/restart. Status remains observable during long indexing. Query/autosave never changes it. Compare HTTP POST and MCP reads: exactly `syncing` and `last_synced_at`, same semantics, no error field/stream/service. Assert visible controls/responses, reuse polling and no automatic restart.

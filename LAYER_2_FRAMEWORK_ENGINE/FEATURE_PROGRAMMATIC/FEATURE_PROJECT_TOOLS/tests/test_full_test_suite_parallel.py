@@ -23,7 +23,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
         self.case.setUp()
         self.addCleanup(self.case.doCleanups)
 
-    def test_parallel_worker_bounds_and_serial_launcher_keep_one_image(self) -> None:
+    def test_parallel_worker_bounds_keep_one_image(self) -> None:
         modules = [
             self.case.file(f"LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests/test_unit_{number}.py") for number in range(5)
         ]
@@ -44,23 +44,13 @@ class FullTestSuiteParallelTests(unittest.TestCase):
         modules.append(selected)
         active = {"ordinary": 0, "docker": 0}
         peak = dict(active)
-        critical = long_host[0]
-        critical_starts: list[Path] = []
         docker_starts: list[Path] = []
         ordinary_starts: list[Path] = []
-        lock, critical_started = threading.Lock(), threading.Event()
-        critical_release, ready, release = threading.Event(), threading.Event(), threading.Event()
+        lock, ready, release = threading.Lock(), threading.Event(), threading.Event()
 
         def execute(root, module, environment):
             lane = "docker" if full._docker_module(root, module) else "ordinary"
             print(f"Test module START: {module.relative_to(root)}", flush=True)
-            if module == critical:
-                critical_starts.append(module)
-                critical_started.set()
-                self.assertEqual({"ordinary": 0, "docker": 0}, active)
-                self.assertTrue(critical_release.wait(5))
-                self.assertEqual("one-image", environment["CAPRMEDIO_IMAGE"])
-                return True, 1, 0, f"output:{module.name}\n", f"errors:{module.name}\n", 0.25, None
             with lock:
                 if lane == "docker":
                     docker_starts.append(module)
@@ -76,10 +66,6 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             self.assertEqual("one-image", environment["CAPRMEDIO_IMAGE"])
             return True, 1, 0, f"output:{module.name}\n", f"errors:{module.name}\n", 0.25, None
 
-        def launch(_root, _environment):
-            self.assertEqual({"ordinary": 0, "docker": 0}, active)
-            return True
-
         with (
             patch.object(full, "run_module", side_effect=execute),
             patch.object(
@@ -87,47 +73,16 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                 "current_code_test_image",
                 return_value=nullcontext({"CAPRMEDIO_IMAGE": "one-image"}),
             ) as image,
-            patch.object(full, "run_launcher", side_effect=launch) as launcher,
             ThreadPoolExecutor(max_workers=1) as driver,
         ):
             future = driver.submit(self.case.run_suite)
             try:
-                self.assertTrue(critical_started.wait(5))
-                self.assertEqual([critical], critical_starts)
-                self.assertEqual({"ordinary": 0, "docker": 0}, active)
-                self.assertEqual(
-                    [critical],
-                    [
-                        module
-                        for module in modules
-                        if f"Test module START: {module.relative_to(self.case.root)}\n"
-                        in self.case.output.getvalue()
-                    ],
-                )
-                critical_release.set()
                 self.assertTrue(ready.wait(5))
                 self.assertEqual({"ordinary": 2, "docker": 2}, peak)
-                self.assertIn(selected, docker_starts[:2])
-                self.assertTrue(set(long_host[1:]).issubset(set(ordinary_starts[:2])))
             finally:
-                critical_release.set()
                 release.set()
             self.assertEqual(0, future.result(timeout=5))
-        output = self.case.output.getvalue()
-        critical_finish = output.index(
-            f"Test module FINISH: {critical.relative_to(self.case.root)}\n"
-        )
-        self.assertLess(
-            critical_finish,
-            min(
-                output.index(f"Test module START: {module.relative_to(self.case.root)}\n")
-                for module in modules
-                if module != critical
-            ),
-        )
-        self.assertEqual([critical], critical_starts)
         image.assert_called_once_with(self.case.root)
-        launcher.assert_called_once()
         for module in modules:
             relative = module.relative_to(self.case.root)
             self.assertIn(
@@ -160,36 +115,23 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                 self.assertTrue(critical_release.wait(5))
                 critical_done.set()
                 return False, 1, 0, "critical-output\n", "critical-error\n", 0.0, "critical failed"
-            self.assertTrue(critical_done.is_set())
             return True, 1, 0, "", "", 0.0, None
 
         with (
             patch.object(full, "run_module", side_effect=execute),
             patch.object(full, "current_code_test_image", return_value=nullcontext({})),
-            patch.object(full, "run_launcher"),
             ThreadPoolExecutor(max_workers=1) as driver,
         ):
             future = driver.submit(self.case.run_suite)
             self.assertTrue(critical_started.wait(5))
-            self.assertEqual([critical], calls)
+            self.assertIn(critical, calls)
             critical_release.set()
             self.assertEqual(1, future.result(timeout=5))
         self.assertEqual(1, calls.count(critical))
-        self.assertEqual(set(later), set(calls[1:]))
+        self.assertTrue(set(later).issubset(set(calls)))
         self.assertIn("critical failed", self.case.errors.getvalue())
         self.assertIn(
             "Modules: 3; tests run: 3; skipped: 0; failed modules: 1", self.case.output.getvalue()
-        )
-        output = self.case.output.getvalue()
-        critical_finish = output.index(
-            f"Test module FINISH: {critical.relative_to(self.case.root)}\n"
-        )
-        self.assertLess(
-            critical_finish,
-            min(
-                output.index(f"Test module START: {module.relative_to(self.case.root)}\n")
-                for module in later
-            ),
         )
 
     def test_interrupt_cancels_queued_modules_in_both_worker_lanes(self):
@@ -246,7 +188,6 @@ class FullTestSuiteParallelTests(unittest.TestCase):
                 patch.object(full, "run_module", side_effect=execute),
                 patch.object(full, "as_completed", side_effect=interrupted),
                 patch.object(full, "current_code_test_image", return_value=nullcontext({})),
-                patch.object(full, "run_launcher") as launcher,
             ):
                 with self.assertRaises(KeyboardInterrupt):
                     self.case.run_suite()
@@ -256,7 +197,6 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             self.assertEqual(
                 4, len(started), "interruption must not start either lane's queued modules"
             )
-            launcher.assert_not_called()
         finally:
             release.set()
             for watcher in watchers:

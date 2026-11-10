@@ -156,8 +156,16 @@ def namespace_local_expression(
     if not isinstance(expression, RelationChain) or len(expression.endpoints) < 2:
         return None
     root, namespace = expression.endpoints[:2]
-    if (isinstance(root.head, Name) and root.head.value in {"CAPRMEDIO_MODEL", "CAPRMEDIO_STRUCTURE"}
-            and not root.steps and expression.links[0].operator == "<+"
+    qualified_root = (
+        isinstance(root.head, Name) and root.head.value in {"MODEL", "PROJECT STRUCTURE"}
+        and len(root.steps) == 1 and root.steps[0].operator == "//"
+        and isinstance(root.steps[0].operand, Name)
+        and root.value_format is None and root.value_cardinality is None
+    )
+    if ((qualified_root or (isinstance(root.head, Name)
+                            and root.head.value in {"CAPRMEDIO_MODEL", "CAPRMEDIO_STRUCTURE"}
+                            and not root.steps))
+            and expression.links[0].operator == "<+"
             and expression.links[0].relation_type is None):
         endpoints, links = expression.endpoints[1:], expression.links[1:]
         return endpoints[0] if len(endpoints) == 1 else replace(expression, endpoints=endpoints, links=links)

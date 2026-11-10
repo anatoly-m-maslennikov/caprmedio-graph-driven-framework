@@ -8,9 +8,9 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change
-      Readiness
-  tier: 5
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery
+      <+ Change Readiness
+  tier: 6
 relations:
   evaluation_for:
   - CA-M-395
@@ -21,8 +21,8 @@ relations:
   - CA-M-405
 state:
   status: Active
-  version: 17
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 18
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-639-PROGRAMMATIC-DIRECT_POLICY--require-complete-change-readiness-before-delivery.md

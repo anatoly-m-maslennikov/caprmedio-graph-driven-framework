@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Backlog
-  version: 1
-  updated_at: 2026-11-09 07:55:38 +0400
+  status: Active
+  version: 3
+  updated_at: 2026-11-11 00:53:28 +0400
 destination:
   file:
     name: CA-P-2815-TASK--verify-shared-workbench-view-and-transport-behavior.md
@@ -23,7 +23,6 @@ author: Anatoly Maslennikov
 relations:
   IS_BLOCKED_BY:
   - CA-P-2811
-  - CA-P-2812
 ---
 
 ## Summary
@@ -36,9 +35,12 @@ Exercise adopted View operations, result lifetime, schema naming, formatting, gr
 
 ## Subtasks
 
-- [ ] Review and fix the next scoped input batch. (ETA: up to 15 min.)
-- [ ] Complete one scoped implementation or verification batch; split before exceeding 20 min.
-- [ ] Review and fix the result; record a small P / Work Report. (ETA: up to 15 min.)
+- [ ] Confirm Current editor/display/transport acceptance and exclusive file ownership. (ETA: up to 15 min.)
+- [ ] Verify one editor or View/Tab operation batch through the actual browser interface. Split before 20 min.
+- [ ] Verify one theme, zoom or grid batch with the applicable Evaluations. Split before 20 min.
+- [ ] Measure Compact at equivalent viewport/zoom against the recovered historical baseline; report a missing baseline explicitly. (ETA: up to 20 min.)
+- [ ] Verify shared HTTP/MCP outcomes in a separate transport batch after Backend changes. Split before 20 min.
+- [ ] Independently review/fix each result and record a small Work Report. (ETA: up to 15 min.)
 
 ## Definition of Done
 

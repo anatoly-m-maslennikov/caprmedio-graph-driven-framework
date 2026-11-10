@@ -27,15 +27,9 @@ package. Shared compiler, installer and test-gate helpers remain in the Engine.
 Local checkpoints keep existing ignored-file and environment-file exclusions.
 Excluded nonignored changes stop release rather than being committed or waived.
 
-The full suite runs the expensive selected-subject publication/crash module once
-in isolation before submitting the remaining four ordinary and two Docker workers.
-Every discovered module still runs once, including after a failed module;
-result/skip accounting and the final launcher proof are unchanged.
-
-Each module has a finite 60-minute budget. Host and Docker pools are bounded
-separately; the same immutable test image is shared by disposable Project stacks.
-The W01 status matrix runs as a separate Docker module so its cases do not
-serialize behind the main route portfolio.
+The full suite discovers and runs the retained test modules. Each module has a
+finite 60-minute budget. Host and Docker pools are bounded separately, and the
+same immutable test image is shared by disposable Project stacks.
 
 Fresh Local-release image builds carry exact Project ownership, Project name and
 the full build-time owning-repository HEAD commit ID; missing or invalid name or
@@ -58,18 +52,8 @@ completed/failed Journal events; a recording failure appears as `recording_error
 without changing the release outcome. Missing content or invalid CLI/draft inputs
 record no events.
 
-The MCP bindings remain implemented for reuse. This Project disables their
-exposure through its settings:
-
-```toml
-[project_mcp]
-tool_blacklist = ["release_version", "public.release"]
-```
-
-Blacklisted names are absent from discovery and cannot be called through MCP.
-Omitting `tool_blacklist` means an empty list. Restart/recreate the MCP gateway
-after changing this setting; an implementation-only reload does not refresh it.
-The host commands below are the release entry point for this Project.
+The host commands below are the release entry point for this Project. Release
+operations are not exposed through the retained Workbench MCP surface.
 
 ## Host commands
 
@@ -78,10 +62,10 @@ From the repository root, use the project-local locked uv environment:
 ```sh
 UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
 uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
-  --all-groups python -B LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py local --run-id local-001
+  --all-groups python -B LAYER_5_FRAMEWORK_DELIVERY/release.py local --run-id local-001
 UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
 uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
-  --all-groups python -B LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py public --run-id public-001 --content-draft /absolute/path/release-draft.json
+  --all-groups python -B LAYER_5_FRAMEWORK_DELIVERY/release.py public --run-id public-001 --content-draft /absolute/path/release-draft.json
 ```
 
 Omit `--test-module` to keep the complete discovered suite as the local-release
@@ -91,8 +75,8 @@ discovered module paths:
 ```sh
 UV_PROJECT_ENVIRONMENT="$PWD/.caprmedio_runtime/launcher-venv" \
 uv run --project "$PWD" --locked --no-sync --python 3.14 --managed-python --no-env-file \
-  --all-groups python -B LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py local --run-id local-focused \
-  --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests/test_release_cli.py \
+  --all-groups python -B LAYER_5_FRAMEWORK_DELIVERY/release.py local --run-id local-focused \
+  --test-module LAYER_5_FRAMEWORK_DELIVERY/tests/test_release_cli.py \
   --test-module LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests/test_focused_release.py
 ```
 

@@ -6,49 +6,36 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Data Handling <+ Data Validation
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 5
 relations:
   evaluation_for:
-  - CA-M-286
-  derived_from:
+  - CA-M-430
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 20
-updated_at: 2026-10-27 19:59:34 +0400
+version: 21
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-394-PROGRAMMATIC-EVAL_CASE--evaluate-pydantic-boundary-contracts.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Evaluate Pydantic boundary contracts
+## Summary
 
-## Claim checked
+Evaluate Pydantic boundary contracts
 
-an admitted Pydantic boundary accepts its contract **and** rejects structural **or**
-coercion defects with stable sanitized diagnostics.
+## Claim
 
-## Test case
+### Prose Claim
 
-submit accepted input, a missing required field, an undeclared field, a wrong
-type, **and** a violated constraint **to** one strict closed boundary.
-
-## Acceptance criteria
-
-pass **only** **when** accepted input yields the typed value, **every** invalid input is
-rejected at a stable location **and** type, no secret is exposed, **and** intentional
-schema change is treated as compatibility change.
-
-## Failure disposition
-
-reject the boundary **when** coercion **or** extra fields escape its declared contract.
-
-## Sources
-
-- [Pydantic: error handling](https://docs.pydantic.dev/latest/errors/errors/)
-- [Pydantic: JSON Schema](https://docs.pydantic.dev/latest/concepts/json_schema/)
-- [CA-M-286 — Validate untrusted structured data with Pydantic](../05_method/CA-M-286-PROGRAMMATIC-CORE-METHOD--validate-untrusted-structured-data-with-pydantic.md)
+A strict closed Pydantic boundary accepts typed valid input and rejects missing, extra, wrong-type and constraint-invalid input at stable sanitized location/type. Schema change is compatibility change; reject escaped coercion or extras.

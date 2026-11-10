@@ -8,7 +8,8 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability/Provenance
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Traceability <+ Provenance
   tier: 5
 relations:
   child_of:
@@ -17,8 +18,8 @@ relations:
   - CA-M-396
 state:
   status: Active
-  version: 18
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 19
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-399-PROGRAMMATIC-DIRECT_POLICY--record-business-workflow-lifecycle-separately-from-technical-diagnostics.md
@@ -34,8 +35,9 @@ Record business Workflow lifecycle separately from technical diagnostics
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 Keep technical diagnosis on structured stdout/stderr streams and record actual business Workflow lifecycle events through the declared Journal owner, without turning a technical warning into a business event.
 
 ## Details

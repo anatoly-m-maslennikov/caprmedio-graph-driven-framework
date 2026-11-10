@@ -21,6 +21,7 @@ from operation_error_boundary import FailureRecord
 from project_selection import ProjectSelection
 from runtime_failure_diagnostics import report_failure
 from shared_tool_contract import ToolContract, contract_digest, public_tool
+from tool_registry_runtime import ToolRegistryRuntimeError
 
 MAX_PROJECT_CANDIDATES = 256
 
@@ -142,6 +143,8 @@ async def _discover_project(
         await gateway.initialize()
         _add_project(frontier, selection, native_tools(gateway))
     except asyncio.CancelledError, FutureCancelledError:
+        raise
+    except ToolRegistryRuntimeError:
         raise
     except OSError, RuntimeError, TypeError, ValueError, KeyError:
         frontier.warning("PROJECT_CANDIDATE_INVALID", selection.root if selection else None)

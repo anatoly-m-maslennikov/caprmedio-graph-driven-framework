@@ -19,7 +19,15 @@ subjects:
   - Subject/Domain/Node/Occurrent/Execution
   - Journal
 relations:
-  concern_about: [CA-P-1540, CA-P-1541, CA-P-1517]
+  concern_about:
+  - CA-P-1540
+  - CA-P-1541
+  - CA-P-1517
+ref_id: CA-C-439
+carrier_destination:
+  file:
+    name: CA-C-439-TOOLS-PROBLEM--record-repeated-step-runs-without-duplicate-definition-bindings.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

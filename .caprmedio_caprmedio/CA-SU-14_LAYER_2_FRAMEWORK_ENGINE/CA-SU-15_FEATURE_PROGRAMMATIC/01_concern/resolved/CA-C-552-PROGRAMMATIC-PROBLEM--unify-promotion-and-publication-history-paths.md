@@ -13,9 +13,17 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2491, CA-P-2493, CA-P-2496]
+  concern_about:
+  - CA-P-2491
+  - CA-P-2493
+  - CA-P-2496
 version: 4
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-552
+carrier_destination:
+  file:
+    name: CA-C-552-PROGRAMMATIC-PROBLEM--unify-promotion-and-publication-history-paths.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

@@ -18,7 +18,13 @@ subjects:
   - Evaluation
   - Subject/Domain/Node/Occurrent/Execution/Workflow Run
 relations:
-  concern_about: [CA-P-1779]
+  concern_about:
+  - CA-P-1779
+ref_id: CA-C-495
+carrier_destination:
+  file:
+    name: CA-C-495-TOOLS-PROBLEM--align-bootstrap-proof-metadata-accounting.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

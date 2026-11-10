@@ -8,10 +8,10 @@ context:
   role: Method
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ Source Retrieval
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Source Retrieval
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
@@ -23,8 +23,8 @@ relations:
   - CA-M-509
 state:
   status: Active
-  version: 10
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 12
+  updated_at: 2026-11-10 22:20:17 +0400
 destination:
   file:
     name: CA-M-464-WORKBENCH_BACKEND-SOLUTION--preserve-governed-atom-data-and-reuse-native-sql.md
@@ -33,7 +33,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Preserve governed Atom data and reuse native SQL.
@@ -46,18 +45,10 @@ Direct file reading and native query semantics for Current and Draft Atom carrie
 
 ### Prose Claim
 
-The DuckDB Projection reader must read Current and Draft Atom carriers, excluding Archived carriers, into the derived DuckDB database. Every Current status, including Done and Canceled, remains in that inventory. Parse YAML and Markdown directly using the existing safe YAML reader and CommonMark headings. Generate the Content schema from Current model Declarations. Compile declared Content paths and their applicability; do not evaluate arbitrary CFEL formulas or interpret prose as schema.
+Read Current and Draft Atom carriers, excluding Archived carriers, into the derived DuckDB database; every Current status, including Done and Canceled, remains included. Parse YAML and actual CommonMark headings with the existing safe reader. Reuse the compiled Current-Declaration Content model, including Role and Form applicability, to generate Content schema and parse queryable CAPRMEDO Content. Admit paths matched by applicable Content wildcards without a fixed Claim-heading list; more specific Prose Claim and fenced-heading rules override generic wildcard interpretation. Do not turn unrelated prose headings into Content properties or relabel non-RMEDO bodies as Claims. Do not evaluate arbitrary CFEL or prose as schema. Use the selected SQL engine’s semantics and native tokenization, without another SQL parser or evaluator.
 
-Preserve all parsed raw Header properties, the original Markdown body, and real heading paths without a fixed heading list or Form validation. Parent paths are derived from Property path segments. The reader creates no intermediate source-data files or third public source table. Its schema is a rebuildable derived asset under `.caprmedio_runtime/workbench`, with one flattened SQL column for every observed raw Header Property path and Content columns from model-declared Properties.
+Preserve raw Header properties, original Markdown and real heading paths privately without a fixed heading list or Form validation. Build flattened SQL columns for model-declared Header paths in Mode 1, observed raw Header paths in Mode 2, and model-admitted Content paths in both modes; source carriers, intermediate files and a third public source table are not created. Only Current Scope Unit Declarations establish current Scope Unit inventory; a Draft Declaration remains queryable only.
 
-Only Current Scope Unit Declarations establish the current Scope Unit inventory. A Draft Declaration remains a queryable Atom but does not establish a current Scope Unit.
+Normalize admitted authored inverse writing before materializing canonical direct facts. Each object row carries outgoing direct and declared-derived Relations; source or relevant Declaration changes refresh affected source/counterpart rows, mappings and hashes without source edits or Version changes. Use DuckDB and DuckPGQ for SQL/PGQ, pattern matching and traversal rather than a CAPRMEDIO traversal engine. Reachability resolves an unambiguous typed seed, selected relation types/directions, includes each typed reference once and terminates cycles; querying an inverse uses its materialized fact once.
 
-Source carriers remain unchanged. Normalize admitted authored inverse writing before materializing canonical direct facts. Each indexed object row carries that object's outgoing direct and declared-derived Relations. For `Task IS_CONTAINED_BY Epic`, the Task row carries `IS_CONTAINED_BY` and the Epic row carries the derived `CONTAINS`. A source or relevant Declaration change refreshes every affected outgoing-relation row, graph mapping, and row hash, including rows for unchanged target sources. This does not edit those sources or increment their Versions. Each public row hash includes its materialized Relations.
-
-Use DuckDB for SQL and the DuckPGQ community extension for SQL/PGQ graph queries. Register a property graph over the indexed objects and their materialized registered Relation facts. Reuse DuckPGQ for pattern matching and traversal instead of implementing a CAPRMEDIO traversal engine or requiring a custom `expand()` API.
-
-Reachability queries must still satisfy the Relation-expansion requirement: resolve an unambiguous typed seed, follow the selected Relation Types and directions, include the seed and each reachable typed reference once, and terminate on cycles. Use native SQL and SQL/PGQ to produce that result; joins or subqueries fetch the selected objects. Querying a declared inverse uses its materialized fact and does not synthesize it again. The Projection does not add a SQL-like parser, evaluate Formal Claims, or adopt graph algorithms beyond the selected query requirements.
-
-Use the canonical Relation registry under CA-M-509 for Relation-name resolution and direct/derived materialization. Compile applicable Current Requirement relation Declarations, including Relation Declaration, using explicit inverse aliases and literal unqualified inverse bindings. An explicit inverse alias needs no separate Relation Declaration. Normalize authored inverse writing through its unambiguous declared canonical counterpart, swapping endpoints once and preserving the same fact without editing its source. Build each inverse view once from the canonical direct fact. Direct graph facts come from authored Header Relations and declared Scope Unit/Atom ownership references. Do not evaluate arbitrary prose, general CFEL formulas or qualified Model derivation rules.
-
-Include `pytz`, required by DuckDB for fetching timezone-aware timestamps into Python. Keep those values timezone-aware until the shared result encoder returns ISO strings; do not cast source columns to work around a missing runtime dependency.
+Use CA-M-509's registry for relation names, exact inverse aliases and literal unqualified inverse bindings. Ambiguity is diagnosed and omitted, never guessed; qualified model derivations remain out of runtime facts. Keep timezone-aware values until the shared encoder returns ISO strings; retain required `pytz` rather than changing source-column casts.

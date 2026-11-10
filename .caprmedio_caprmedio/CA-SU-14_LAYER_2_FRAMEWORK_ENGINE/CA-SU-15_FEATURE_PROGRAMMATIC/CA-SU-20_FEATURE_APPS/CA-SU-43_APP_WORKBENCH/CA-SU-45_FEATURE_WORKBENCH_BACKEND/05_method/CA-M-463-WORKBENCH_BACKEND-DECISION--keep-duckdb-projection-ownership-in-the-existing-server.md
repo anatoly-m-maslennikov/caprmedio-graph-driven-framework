@@ -8,10 +8,10 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
-      <+ Temporary State
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Storage <+ Temporary State
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
@@ -19,8 +19,8 @@ relations:
   - CA-R-2729
 state:
   status: Active
-  version: 8
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 10
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-463-WORKBENCH_BACKEND-DECISION--keep-duckdb-projection-ownership-in-the-existing-server.md
@@ -29,7 +29,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Keep DuckDB Projection ownership in the existing server.
@@ -42,12 +41,10 @@ The derived DuckDB Projection and query results for one Project.
 
 ### Prose Claim
 
-Keep one serialized DuckDB owner in the existing application. Store its rebuildable database and spill data under `.caprmedio_runtime/workbench` in the selected repository. Source files remain authoritative; the database is disposable derived data.
+Keep one serialized DuckDB owner in the existing application. Use the delivered database and spill locations.
 
-Materialize each Run once. Direct query_run returns a stable query ID, original column metadata, exact total counts and its first page; View Run returns only execution metadata and a query ID, and its rows are fetched separately. Read subsequent pages from that materialized result, including after source refresh. Default to 100 rows per page and allow 1 through 1,000. Reject invalid sizes, offsets and unknown IDs explicitly. No hidden row limit changes the query result.
+Materialize each Run once. Page reads use that materialized result, including after source refresh; execution and delivery retain their separate failure boundaries.
 
-Keep a materialized Run result while its age is less than the positive `result_ttl_seconds` setting, or while its owner View is open. Read `[workbench].result_ttl_seconds` from `.caprmedio_runtime/caprmedio_runtime_settings.toml` only when the Workbench starts; its default is `3600`, it must be a positive integer, and an edit takes effect only through explicit Workbench restart. Do not hot-reload or edit this setting through MCP. Closing a View only unpins its result, so a young closed-View result remains reachable. Editing a View's SQL preserves its last Run result until a valid rerun begins. Validate structured Run/View arguments before releasing an existing result. Once valid rerun execution begins, release the old View result before native execution, even when the new SQL then fails. Rebuild the Projection and clear all old query results at startup; result IDs do not survive restart.
+Use the delivered startup TTL to keep a result while it is young or pinned by its open owner View. Measure age with a monotonic clock. Add no heartbeat, cross-process lease or crash recovery. Closing unpins but does not evict a young result. Editing View SQL preserves its last result until valid rerun starts; then release it before native execution, even if SQL fails. Startup rebuild clears old results; IDs do not survive restart. First-page conversion failure removes an unrevealed result; later conversion/export failure preserves the known ID and reports the delivery error.
 
-Query result tables are DuckDB-owned disposable runtime data. Do not add a manual result-file or configuration staging layer, write settings, create a second cache, or restore discarded result state. If first-page conversion fails before the caller receives a query ID, remove that result registration and cache table before returning the error. A later page-conversion error keeps the caller's known result ID available for other pages. Check counts without transferring all result rows to Python and discards its own materialized result.
-
-Serialize source refresh, Run, Page and Check through the same owner. Requests remain synchronous. Do not add a database server, queue, planner, scheduler, orchestrator or background query worker. Retain successful parsed-source rows and their filesystem signatures in the existing owner for incremental refresh. Remove their cached parsed state when a source is deleted, leaves the inventory or becomes invalid. Skip unchanged invalid inputs; a later actual source change is new input.
+Serialize refresh, Run, Page and Check through this owner synchronously. Do not add a database server, queue, planner, scheduler or worker. Retain parsed-source rows/signatures for incremental refresh; remove cache for deleted, excluded or invalid sources and treat a later actual change as new input. No configuration staging, second cache or discarded-state restoration is added.

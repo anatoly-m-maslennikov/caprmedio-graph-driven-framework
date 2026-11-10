@@ -6,24 +6,24 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-    Control
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Action'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Container Run
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-    Structure
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
-  - Subject/CAPRMEDIO/Carrier
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Project
+  - MODEL//CAPRMEDIO <+ Runtime/Container Run
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Component Structure
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication
+  - MODEL//CAPRMEDIO <+ Carrier
 tier: 3
 relations:
   evaluation_for:
   - CA-O-235
 status: Active
-version: 16
-updated_at: 2026-11-09 07:45:14 +0400
+version: 17
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-601-MCP-EVAL_CASE--verify-project-mcp-launch-results-and-readiness.md
@@ -44,11 +44,9 @@ the Evaluation **must** verify that every launcher disposition is structured, sa
 
 ## Details
 
-### Scope
+### Result and readiness checks
 
-the observable output and host-side MCP readiness boundary of the Project MCP launcher.
-
-- exercise each exact safe code in CA-O-235: `READY_STARTED`, `READY_REUSED`, `PROJECT_SELECTION_REFUSED`, `IMAGE_INPUT_UNAVAILABLE`, `IMAGE_REFUSED`, `PROJECT_LOCK_BUSY`, `RUNTIME_MISMATCH`, `RUNTIME_UNHEALTHY`, `BUILD_FAILED`, `DOCKER_START_FAILED`, `DOCKER_PUBLICATION_FAILED`, and `READINESS_FAILED`. Each outcome has one matching disposition; only ready `started`/`reused` outcomes contain a URL. Verify default JSON result output and `--output url`, which emits no URL for every non-success.
-- for a real-Docker gate, connect from the host to the exact Docker-reported `127.0.0.1` port and complete the Host/Origin-protected MCP initialization/readiness exchange. Prove that container health or an open socket alone cannot produce a success URL, and that Authorization values neither grant nor deny localhost readiness.
-- assert the result contains only Project identity, safe selected root/control-root references, immutable image digest/fingerprint, service/publication/readiness facts, and bounded diagnostics. Search structured output and ordinary diagnostics for password, bearer, Authorization, URL query/fragment credential, and secret-bearing environment values; none may occur.
-- verify readiness and every failure case start no worker, queue, Agent, Workflow, Tool call, proxy, or Release action. Verify a failed or refused outcome preserves a live selected runtime and does not claim replacement or completion.
+- Exercise every exact CA-O-235 safe code: READY_STARTED, READY_REUSED, PROJECT_SELECTION_REFUSED, IMAGE_INPUT_UNAVAILABLE, IMAGE_REFUSED, PROJECT_LOCK_BUSY, RUNTIME_MISMATCH, RUNTIME_UNHEALTHY, BUILD_FAILED, DOCKER_START_FAILED, DOCKER_PUBLICATION_FAILED, and READINESS_FAILED. Each maps to one disposition; only ready started/reused includes a URL. Verify default JSON and --output url, with no URL for non-success.
+- In the real-Docker gate, connect to the Docker-reported 127.0.0.1 port and complete Host/Origin-protected MCP initialization/readiness. Container health/open socket alone cannot produce a success URL; Authorization neither grants nor denies localhost readiness.
+- Assert output contains only safe Project identity/root references, immutable digest/fingerprint, service/publication/readiness facts, and bounded diagnostics. Search structured output/ordinary diagnostics for password, bearer, Authorization, credential URL query/fragment, and secret environment values; none may occur.
+- Verify readiness and failures start no worker, queue, Agent, Workflow, Tool call, proxy, or Release action. Failed/refused outcomes preserve a live selected runtime and claim no replacement/completion.

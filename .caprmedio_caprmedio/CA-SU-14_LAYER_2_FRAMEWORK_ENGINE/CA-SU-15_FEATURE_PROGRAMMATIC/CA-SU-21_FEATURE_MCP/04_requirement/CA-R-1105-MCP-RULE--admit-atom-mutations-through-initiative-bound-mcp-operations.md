@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
 tier: 1
 status: Active
-version: 23
-updated_at: 2026-11-02 19:44:26 +0400
+version: 24
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1105-MCP-RULE--admit-atom-mutations-through-initiative-bound-mcp-operations.md
@@ -22,15 +23,17 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: MCP
 ---
-# Summary
+## Summary
 
 Admit Atom mutations through Initiative-bound MCP operations
 
-## Scope
+## Claim scope
 
 Initiative-bound MCP admission and truthful transport of independently admitted Atom Actions.
 
 ## Claim
+
+### Prose Claim
 
 **every** CAPRMEDIO Markdown Atom mutation **must** enter through an authorized project-local MCP operation. MCP **must** identify the selected canonical Atom Tool, preserve the human-origin Initiative input **and** action request, **and** delegate **without** deciding the Atom operation's target set, preconditions, lifecycle meaning, mutation, recovery, **or** success state. The canonical Atom Tool owns those behaviors **and** seals one Initiative **and** stable action identity **before** its effect.
 
@@ -40,4 +43,3 @@ An Atom Action selects exactly one explicit Atom target and binds its expected R
 
 Multiple MCP service instances **and** sessions **may** operate concurrently. Every mutation of an existing Atom **must** carry its expected Atom Revision **or** carrier digest; a mismatch **must** reject that target rather than overwrite concurrent work. Promotion is an ordinary delegated Atom mutation that validates its pre-promotion input **and** seals a new action; it **must not** require the future Git **or** Journal reconciliation of that same new action. A direct **or** **otherwise** unowned Atom write outside this gateway is unadmitted **and** cannot be represented as a normal governed MCP mutation.
 
-## Details

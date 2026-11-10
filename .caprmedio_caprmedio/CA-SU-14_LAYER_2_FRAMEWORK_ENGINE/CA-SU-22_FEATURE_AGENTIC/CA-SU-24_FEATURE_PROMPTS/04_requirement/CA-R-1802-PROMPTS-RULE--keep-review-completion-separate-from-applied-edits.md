@@ -6,16 +6,18 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Documentation/Traceability
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Traceability
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage"
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
+  - MODEL//CAPRMEDIO <+ Atom
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
+    <+ Coverage
+  - MODEL//CAPRMEDIO <+ Term//Property
 tier: 3
 status: Active
-version: 16
-updated_at: 2026-10-27 20:00:03 +0400
+version: 17
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1802-PROMPTS-RULE--keep-review-completion-separate-from-applied-edits.md
@@ -24,15 +26,17 @@ current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Keep review completion separate from applied edits
 
-## Scope
+## Claim scope
 
 completion results produced by the RMED review prompt Implementation for a selected Atom **or** selection.
 
 ## Claim
+
+### Prose Claim
 
 the Implementation **must** report completion **only** from complete initial check coverage **and** resolved findings, rather than from the existence of a report **or** an applied edit.
 

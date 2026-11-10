@@ -8,10 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ Source Retrieval
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Source Retrieval
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 6
 relations:
   evaluation_for:
@@ -20,8 +20,8 @@ relations:
   - CA-R-2725
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-750-WORKBENCH_BACKEND-EVAL_CASE--verify-role-only-draft-reference-identity.md
@@ -30,7 +30,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify role-only Draft reference identity.
@@ -39,15 +38,4 @@ Verify role-only Draft reference identity.
 
 ### Prose Claim
 
-When multiple role-only Draft carriers use the same Atom ID, source capture
-preserves every carrier and keeps that Atom ID unchanged. Each carrier receives
-a unique technical `ref` formed from the role-only ID and its project-relative
-carrier path, and the derived Projection retains all of the carriers without a
-duplicate technical reference.
-
-## Details
-
-| Fixture | Expected outcome |
-| --- | --- |
-| Six lifecycle Draft carriers with `atom_id: CA-O-draft` under distinct paths | All six carriers remain in capture and materialization; each has a distinct `CA-O-draft:<relative path>` reference. |
-| Numbered Draft and Current carriers | Their existing canonical references remain unchanged. |
+When multiple role-only Draft carriers use the same Atom ID, preserve every carrier and keep that ID unchanged. Give each a unique technical reference formed from the role-only ID plus project-relative carrier path; retain all without a duplicate reference. Verify six `CA-O-draft` lifecycle carriers under distinct paths, while numbered Draft and Current canonical references remain unchanged.

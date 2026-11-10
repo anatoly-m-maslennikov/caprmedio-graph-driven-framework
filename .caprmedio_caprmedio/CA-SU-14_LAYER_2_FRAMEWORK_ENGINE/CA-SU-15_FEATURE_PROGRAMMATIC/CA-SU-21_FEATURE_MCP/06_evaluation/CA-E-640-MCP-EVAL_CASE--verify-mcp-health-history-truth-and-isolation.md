@@ -6,14 +6,15 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Result and Status
+    Presentation
 tier: 5
 relations:
   evaluation_for:
   - CA-R-2446
 status: Active
-version: 14
-updated_at: 2026-11-09 07:45:14 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-640-MCP-EVAL_CASE--verify-mcp-health-history-truth-and-isolation.md
@@ -22,7 +23,6 @@ current_scope_unit: MCP
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify MCP health history truth and isolation
@@ -39,10 +39,10 @@ Accept the health increment only when isolated functional checks demonstrate pre
 
 The changed MCP health route, bounded Gateway observer and HTML representation under CA-R-2446.
 
-- Use disposable independent Project fixtures and an isolated ASGI app or distinct nonproduction listener/state. Do not test mutations on the production MCP port or use mutable live Atoms as a golden oracle.
-- Verify default/JSON/* Accept returns the existing ready boolean shape and 200/503 semantics; explicit HTML returns the browser view with the same readiness status. Missing/dead generation is 503. Hostile Host/Origin requests retain 421/403 and cause no Tool/reload effects.
-- Exercise real Gateway call routing for returned, rejected, failed, partial and uncertain observations. Preserve actual outcomes and no-replay behavior. Unknown/unobserved state is explicit; a returned RPC is not a fabricated terminal domain result.
-- Verify known Workflow identities and separate scheduler_status from actual outcome/disposition, including scheduler SUCCESS with actual interrupted_pending or unknown. Health reads do not poll DBOS/Docker, invoke a provider, replay a call or change execution records.
-- Overflow both histories and verify at most 32 observations each, deterministic eviction, bounded field sizes, concurrent-call isolation, since-start scope and restart reset. No cross-process completeness claim is made.
-- Inject hostile names, diagnostics, credential-like arguments and path-bearing provider exception text. Verify HTML escaping and absence of raw arguments/results/secrets/paths/provider messages; only the admitted safe fields/error categories appear. Check healthy and failed representations against the same snapshot contract.
-- Retain exact candidate/fixture bindings and actual outcomes. Focused passing tests do not replace the normal full local-release gates or prove installed adoption; verify the installed page separately after the authorized release.
+- Use disposable independent Project fixtures and an isolated ASGI app or distinct nonproduction listener/state; never the production MCP port or mutable live Atoms as oracle.
+- Verify default/JSON/* Accept keeps the ready-boolean shape and 200/503 semantics; explicit HTML has the same readiness status; missing/dead generation is 503; hostile Host/Origin retains 421/403 and causes no Tool/reload effects.
+- Exercise real Gateway routing for returned, rejected, failed, partial and uncertain observations with no replay. Unknown/unobserved is explicit; a returned RPC is not a fabricated terminal result.
+- Verify known Workflow identities and separate scheduler_status from actual outcome/disposition, including scheduler SUCCESS with interrupted_pending or unknown. Health reads do not poll DBOS/Docker, invoke providers, replay calls or change records.
+- Overflow both histories: at most 32 observations each, deterministic eviction, bounded fields, concurrent-call isolation, since-start scope and restart reset; make no cross-process completeness claim.
+- Inject hostile names, diagnostics, credential-like arguments and path-bearing provider exceptions. HTML must escape them and expose only admitted safe fields/error categories, with no raw arguments/results/secrets/paths/provider messages; healthy and failed views use one snapshot contract.
+- Retain exact candidate/fixture bindings and actual outcomes. Focused passes do not replace normal local-release gates or prove installed adoption; verify the installed page after authorized release.

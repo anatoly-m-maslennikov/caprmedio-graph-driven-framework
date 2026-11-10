@@ -14,7 +14,19 @@ subjects:
   depends_on:
   - Subject/Engineering/Test Results/Retained Evidence
 relations:
-  concern_about: [CA-P-1744, CA-P-1745, CA-P-1750, CA-P-1751, CA-P-1752, CA-P-1753, CA-P-1754]
+  concern_about:
+  - CA-P-1744
+  - CA-P-1745
+  - CA-P-1750
+  - CA-P-1751
+  - CA-P-1752
+  - CA-P-1753
+  - CA-P-1754
+ref_id: CA-C-478
+carrier_destination:
+  file:
+    name: CA-C-478-TOOLS-PROBLEM--complete-candidate-e2e-contract-conformance.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

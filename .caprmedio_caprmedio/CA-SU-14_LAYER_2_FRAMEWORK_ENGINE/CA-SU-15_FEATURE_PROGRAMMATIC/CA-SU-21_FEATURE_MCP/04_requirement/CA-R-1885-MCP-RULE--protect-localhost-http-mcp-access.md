@@ -1,37 +1,44 @@
 ---
-atom_id: CA-R-1885
-ref_id: CA-R-1885
-container:
-  scope_unit: CA-SU-21
-role: Requirement
-form: Rule
-topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
-  dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/API"
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"
-tier: 3
-status: Active
-version: 14
-updated_at: 2026-10-27 20:00:05 +0400
-carrier_destination:
+identity:
+  atom_id: CA-R-1885
+  ref_id: CA-R-1885
+context:
+  container:
+    scope_unit: CA-SU-21
+  role: requirement
+  form: rule
+  topics:
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication
+    dependencies:
+    - MODEL//CAPRMEDIO <+ Actor/Operator
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+      <+ Communication <+ API
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+      Control <+ Effect Authorization
+  tier: 3
+state:
+  status: Active
+  version: 15
+  updated_at: 2026-11-10 20:47:54 +0400
+destination:
   file:
     name: CA-R-1885-MCP-RULE--protect-localhost-http-mcp-access.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 protect localhost HTTP MCP access
 
-## Scope
+## Claim scope
 
 the additional localhost HTTP transport for the existing Project MCP Gateway.
 
 ## Claim
+
+### Prose Claim
 
 the HTTP endpoint **must** admit a Request only through its loopback Host/Origin boundary, without password, bearer, or other HTTP authentication, while preserving the existing Operator authorization and Tool permission boundaries.
 

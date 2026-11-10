@@ -6,48 +6,36 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 5
 relations:
   evaluation_for:
-  - CA-M-161
-  derived_from:
+  - CA-M-409
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 19
-updated_at: 2026-10-27 19:59:34 +0400
+version: 20
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-393-PROGRAMMATIC-EVAL_CASE--evaluate-interruption-and-recovery-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Evaluate interruption and recovery boundaries
+## Summary
 
-## Claim checked
+Evaluate interruption and recovery boundaries
 
-a bounded file **or** subprocess effect preserves its declared authoritative state,
-recovery limit, **and** diagnostic evidence **after** interruption.
+## Claim
 
-## Test case
+### Prose Claim
 
-Interrupt one file replacement **after** temporary output is complete but **before**
-the final replacement boundary.
-
-## Acceptance criteria
-
-pass **only** **when** authoritative state is identified, retry behavior is explicit,
-**and** no unexplained partial carrier, lock, process, **or** background task remains.
-
-## Failure disposition
-
-reject the effect boundary **until** recovery is deterministic **or** its weaker limit
-is explicitly accepted.
-
-## Sources
-
-- [Python documentation: `tempfile`](https://docs.python.org/3.14/library/tempfile.html)
-- [CA-M-161 — Bound file and subprocess effects](../05_method/CA-M-161-PROGRAMMATIC-CORE-METHOD--bound-file-and-subprocess-effects.md)
+Interrupt file replacement after temporary output and before final replacement. Accept only explicit authoritative state, recovery limit/retry behavior and diagnostics with no unexplained partial carrier, lock, process or task; otherwise reject the effect boundary.

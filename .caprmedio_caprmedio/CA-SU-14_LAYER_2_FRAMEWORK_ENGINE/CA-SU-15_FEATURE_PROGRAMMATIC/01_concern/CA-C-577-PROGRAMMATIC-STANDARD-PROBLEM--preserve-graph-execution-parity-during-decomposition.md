@@ -8,16 +8,27 @@ form: Problem
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
-  concern_about: [CA-P-2589, CA-P-2590, CA-P-2595, CA-E-539, CA-E-540, CA-M-403, CA-M-405]
+  concern_about:
+  - CA-P-2589
+  - CA-P-2590
+  - CA-P-2595
+  - CA-E-539
+  - CA-E-540
+  - CA-M-403
+  - CA-M-405
 status: Resolved
 version: 2
-updated_at: "2026-10-22T11:38:21Z"
+updated_at: '2026-10-22T11:38:21Z'
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 priority: high
+carrier_destination:
+  file:
+    name: CA-C-577-PROGRAMMATIC-STANDARD-PROBLEM--preserve-graph-execution-parity-during-decomposition.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

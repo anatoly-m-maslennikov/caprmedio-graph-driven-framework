@@ -16,7 +16,16 @@ subjects:
   - Implementation
   - Evaluation
 relations:
-  concern_about: [CA-P-1549, CA-P-1556, CA-P-1519, CA-P-1123]
+  concern_about:
+  - CA-P-1549
+  - CA-P-1556
+  - CA-P-1519
+  - CA-P-1123
+ref_id: CA-C-447
+carrier_destination:
+  file:
+    name: CA-C-447-caprmedio-PROBLEM--record-denied-applicable-methodology-projection-relocation.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

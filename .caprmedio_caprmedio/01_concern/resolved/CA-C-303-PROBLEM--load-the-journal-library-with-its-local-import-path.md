@@ -16,7 +16,12 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
-    - CA-P-1118
+  - CA-P-1118
+ref_id: CA-C-303
+carrier_destination:
+  file:
+    name: CA-C-303-PROBLEM--load-the-journal-library-with-its-local-import-path.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

@@ -8,10 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ Source Retrieval
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Source Retrieval
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 5
 relations:
   evaluation_for:
@@ -20,8 +20,8 @@ relations:
   - CA-D-672
 state:
   status: Active
-  version: 8
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 10
+  updated_at: 2026-11-10 22:20:17 +0400
 destination:
   file:
     name: CA-E-675-WORKBENCH_BACKEND-EVAL_CASE--preserve-nested-header-and-markdown-property-distinction.md
@@ -30,7 +30,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Preserve nested Header and Markdown Property distinctions
@@ -43,19 +42,17 @@ Current-model-guided in-memory parsing of governed carriers.
 
 ### Prose Claim
 
-YAML Header and Markdown Content are parsed directly with the safe YAML reader and actual CommonMark heading tree, with Content columns generated from Current model Declarations rather than a fixed heading list. Private parsed Header and Markdown data retain their distinctions and complete body. The public `atoms` table supports Mode 1 with only model-declared Header paths and declared Markdown Content, or Mode 2, enabled by default, with every observed Header path from valid source Atoms and declared Markdown Content, including paths with null or empty values. Header paths use dots between levels and snake_case within each segment, without old short-name aliases such as `id`, `status` or `role`. Source Header nesting and values stay unchanged. It also exposes declared `content.*` columns, using full lowercase snake_case paths such as `content.claim.prose_claim` and `content.claim.formal_claim`; it does not expose raw `header_json`, `content_markdown`, `content_properties_json` or `relation_edges_json` buckets. Nested Content Properties retain path segments, heading, direct Markdown, and complete subtree Markdown; parent path derives from segments. No `source_bytes` or `header_raw` is projected.
+Parse YAML Header and actual CommonMark headings directly. Private parsed Header/Markdown retain their distinction and complete body; public Mode 1 exposes only model-declared Header/Content paths, while enabled Mode 2 exposes every observed valid Header path and declared Content columns. Names use dotted lowercase snake_case paths, never old `id`/`status`/`role` aliases; do not expose raw Header/Markdown/property/relation buckets or source bytes.
 
 ## Details
 
-| Fixture | Expected outcome |
-| --- | --- |
-| Header absence, null, empty values, scalar/list shape, false, and zero | Private parsed Header data keeps the values distinct; no raw `header_json` column is exposed publicly. |
-| LF, CRLF, or mixed frontmatter delimiter line endings | Parse the Header and preserve the Markdown body’s exact original line endings. |
-| Duplicate YAML key | The source is rejected with stderr error and no row. |
-| Declared nested Property with direct text and child | Direct and subtree Markdown remain separate; parent derives from segments. |
-| New or changed real Markdown heading | Its actual normalized path and direct/complete section values remain available to the parser; only declared Content Properties become public columns after refresh. Regenerate the Content schema from the applicable Current Declarations; arbitrary CFEL formulas and prose are not evaluated. |
-| Claim with Prose Claim, Formal Claim, and fenced heading-like text | Declared nesting and CFEL fence survive without false Properties; public values use quoted full paths such as `"content.claim.prose_claim"`. |
+Verify absence/null/empty/scalar/list/map/false/zero distinctions; LF/CRLF preservation; duplicate-key rejection; nested direct versus subtree Markdown; actual headings versus declared public Content; and Prose Claim/Formal Claim/fenced-heading handling. `Header.Context.Plan` maps to `header.context.plan` without a wrapper; ambiguous flattening fails rather than merging paths. `header.relations` matches native facts once. Mode 2 rebuilds for new/last-removed/type-changed/globally emptied Header paths, keeps observed empty paths and treats false/zero as values; same-schema edits stay incremental and unadmitted presentation headings do not become Content columns.
 
-Verify `Header.Context.Plan` maps to `header.context.plan`, and serialized nested `context.plan.work_sequence_number` maps to `header.context.plan.work_sequence_number`, without adding a YAML Header wrapper. Cover optional/missing values, null, empty string, false, zero, collections and nested direct values. An ambiguous flattening of distinct source paths fails explicitly instead of merging them or creating aliases. Atom `header.relations` still matches native direct-and-derived graph facts with no duplicate raw relation bucket. Scope Unit and technical metadata columns keep their distinct meaning.
 
-Under Mode 2, verify that a newly observed Header path, removal of its last occurrence, a format/type change, or a previously populated path becoming empty across the complete valid source inventory rebuilds the schema asset and affected source tables and rereads the inventory. A path still present with null, an empty string or an empty collection remains queryable; only a removed path loses its column. Display metadata marks wholly empty result columns for hiding without changing SQL values or counts. False and zero are values. A normal edit with the same schema updates only affected rows. Arbitrary Markdown headings still do not create Content columns.
+### Role and Form applicability after image rebuild
+
+- Build an image from Current Declarations and query valid Current and Draft fixtures for each of the eight Roles: Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery and Operations. For each applicable Form, assert that admitted sections are available under their declared Content paths. Include Concern, Objective, Operation and Analysis & Advisory report sections; retain their text and paths without converting them into Claims.
+- Add a Role or Form Declaration or change its Content applicability in the fixture source, rebuild the image, and assert that the resulting query model and columns reflect the new or changed declaration. Repeat with another applicable Role or Form to detect a fixed Role/Form list; unchanged declarations and existing query behavior remain intact.
+- Exercise Content paths admitted by an applicable wildcard, including nested headings and multiword segments. Assert dotted lowercase snake_case column names and the correct values in both modes. A heading not admitted by an applicable Content rule remains presentation text and creates no Content column. Add and remove a wildcard-admitted Content path in valid sources and verify schema/table refresh in both modes; a value-only edit with unchanged schema remains incremental.
+- Where more specific declarations govern Prose Claim or Formal Claim, verify their prescribed parsing and retain internal prose headings as text. Headings inside fenced blocks remain text, including heading-shaped lines; neither a wildcard nor a nested heading converts them into Content properties.
+- Run the existing invalid-source, duplicate-key, Header/Markdown distinction and Mode 1/Mode 2 cases alongside these fixtures. Invalid content stays excluded; declaration changes do not weaken the existing rebuild and incremental-update boundaries.

@@ -6,19 +6,19 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface
-    Contracts
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication <+ Interface Contracts
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source
-    Selection
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Source Selection
 tier: 1
 relations:
   IS_REPLACEMENT_FOR:
   - CA-M-511
   - CA-M-170
 status: Active
-version: 22
-updated_at: 2026-11-09 21:15:45 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 author: Anatoly Maslennikov
 current_scope_unit: MCP
 destination:

@@ -6,19 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code Authoring/Python Code"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Code Authoring <+ Python Code
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
+  - MODEL//CAPRMEDIO <+ Asset
 tier: 5
 relations:
   evaluation_for:
   - CA-M-423
   - CA-M-429
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 23
-updated_at: 2026-10-27 19:59:34 +0400
+version: 24
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -26,32 +27,17 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-376-PROGRAMMATIC-EVAL_CASE--reproduce-a-locked-uv-environment.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reproduce a locked uv environment
+## Summary
 
-## Claim checked
+Reproduce a locked uv environment
 
-one admitted PROGRAMMATIC Python environment **and** governed command are
-reproduced from the selected Python boundary, `pyproject.toml`, **and**
-`uv.lock` **without** implicit dependency changes.
+## Claim
 
-## Test case
+### Prose Claim
 
-from an empty project environment, run `uv sync --locked` **and** **then** one declared
-command through `uv run --locked`.
-
-## Acceptance criteria
-
-pass **only** **when** the locked sync **and** command complete **without** changing
-`pyproject.toml` **or** `uv.lock`, the observed interpreter satisfies the
-Method-selected Python boundary, **and** the command uses **only** Method-selected
-dependencies.
-
-## Failure disposition
-
-reject the reproducibility claim **when** the lock is stale, resolution changes
-implicitly, **or** a dependency lacks Method authority.
-
-## Sources
-
-- [CA-M-429 — Use uv as the default Python workflow frontend](../05_method/CA-M-429-PROGRAMMATIC-ENG_POLICY--use-uv-as-the-default-python-workflow-frontend.md)
+From an empty environment, `uv sync --locked` then declared `uv run --locked` must use the selected Python boundary and Method-selected dependencies without changing `pyproject.toml` or `uv.lock`; stale lock, implicit resolution or unauthorized dependency rejects reproducibility.

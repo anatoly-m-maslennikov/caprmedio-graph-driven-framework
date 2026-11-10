@@ -6,13 +6,13 @@ container:
 role: Requirement
 form: Goal
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
-  dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Component Structure
+  dependencies: []
 tier: 0
 status: Active
-version: 1
-updated_at: 2026-10-29 23:57:07 +0400
+version: 2
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: obligation
 llm_session_ids:
@@ -20,6 +20,10 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: FRAMEWORK_ENGINE
 claim_target_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-R-2430-FRAMEWORK_ENGINE-SCOPE_CONTRACT-GOAL--programmatic-owns-all-and-only-deterministic-behavior-of-framework-engine.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/04_requirement
 ---
 ## Summary
 
@@ -27,4 +31,6 @@ PROGRAMMATIC owns all and only deterministic behavior of FRAMEWORK_ENGINE.
 
 ## Claim
 
+
+### Prose Claim
 PROGRAMMATIC owns all and only deterministic behavior of FRAMEWORK_ENGINE.

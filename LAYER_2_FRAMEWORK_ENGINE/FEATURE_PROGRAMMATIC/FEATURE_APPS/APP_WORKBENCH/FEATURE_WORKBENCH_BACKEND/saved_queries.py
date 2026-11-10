@@ -220,7 +220,7 @@ class SavedQueryStore:
             {
                 "saved_query_id": item["saved_query_id"],
                 "kind": item["kind"],
-                "preview": " ".join(item["sql"].split()),
+                "preview": " ".join(item["sql"].split())[:150],
                 "saved_at": item["saved_at"],
             }
             | ({"name": item["name"]} if "name" in item else {})

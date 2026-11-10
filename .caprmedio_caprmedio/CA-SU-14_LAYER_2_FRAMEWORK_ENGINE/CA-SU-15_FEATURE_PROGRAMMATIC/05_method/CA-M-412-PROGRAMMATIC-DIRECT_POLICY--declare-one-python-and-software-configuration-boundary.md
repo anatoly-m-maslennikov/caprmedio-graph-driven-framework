@@ -8,19 +8,20 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Configuration
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
+    - MODEL//CAPRMEDIO <+ Asset
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 13
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-412-PROGRAMMATIC-DIRECT_POLICY--declare-one-python-and-software-configuration-boundary.md
@@ -36,8 +37,9 @@ Declare one Python and software configuration boundary
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 select the stable CPython `3.14.*` series **and** require one project-owned
 technical configuration boundary for interpreter, formatting, linting, typing,
 evaluation, **and** packaging. CA-D-250 owns the current carrier placement **and**
@@ -52,7 +54,6 @@ separate from CAPRMEDIO project settings.
 apply **when** Python source **or** a development workflow depends on an interpreter,
 dependency, formatter, linter, type checker, evaluator, **or** packager setting.
 
-Candidate source: [CA-M-281@13](archive/CA-M-281-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--declare-one-python-and-software-configuration-boundary@13.md)
 
 #### Procedure
 1. resolve the current Delivery carrier, **then** materialize the selected

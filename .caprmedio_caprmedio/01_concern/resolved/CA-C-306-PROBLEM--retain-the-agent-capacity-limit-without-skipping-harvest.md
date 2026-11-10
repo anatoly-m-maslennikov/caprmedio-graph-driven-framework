@@ -16,7 +16,12 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
-    - CA-P-1118
+  - CA-P-1118
+ref_id: CA-C-306
+carrier_destination:
+  file:
+    name: CA-C-306-PROBLEM--retain-the-agent-capacity-limit-without-skipping-harvest.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

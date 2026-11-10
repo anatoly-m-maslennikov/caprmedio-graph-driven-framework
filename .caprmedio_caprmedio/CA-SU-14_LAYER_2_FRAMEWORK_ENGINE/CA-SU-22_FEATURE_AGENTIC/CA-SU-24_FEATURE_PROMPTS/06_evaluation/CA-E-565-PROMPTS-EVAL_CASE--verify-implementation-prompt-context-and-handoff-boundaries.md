@@ -6,19 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-    Control
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
-    Authorization
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Step'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Effect Authorization
+  - MODEL//CAPRMEDIO <+ Actor/AI Agent
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Execution/Workflow Run
 tier: 5
 status: Active
-version: 13
-updated_at: 2026-11-09 07:45:14 +0400
+version: 14
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-565-PROMPTS-EVAL_CASE--verify-implementation-prompt-context-and-handoff-boundaries.md

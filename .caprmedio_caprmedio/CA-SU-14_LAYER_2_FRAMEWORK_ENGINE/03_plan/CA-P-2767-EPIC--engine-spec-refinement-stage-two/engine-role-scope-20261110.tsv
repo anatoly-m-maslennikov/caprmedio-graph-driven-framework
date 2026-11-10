@@ -1,0 +1,31 @@
+Atom ID	Correction	Candidate	Status
+CA-R-2792	CODEX_EXTENSION → CORE_META_MODEL	CA-R-2792@4-draft	Drafted; checked
+CA-R-2793	CODEX_EXTENSION → CORE_META_MODEL	CA-R-2793@4-draft	Drafted; checked
+CA-R-2902	CODEX_EXTENSION → WORKBENCH	CA-R-2902@8-draft	Drafted; checked
+CA-R-2998	Public result R; profiler mechanism M	CA-R-2998@4-draft + CA-M-525@1-draft	Drafted; checked
+CA-R-2117	Internal citation format R → M	CA-M-526@1-draft	Drafted; checked
+CA-R-517	Retain required behavior as R	CA-R-517@15-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-519	Retain required behavior as R	CA-R-519@16-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-561	Retain required behavior as R	CA-R-561@15-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-562	Retain required behavior as R	CA-R-562@15-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-564	Method owner CA-SU-15	CA-M-531@1-draft	Drafted; independent check pending
+CA-R-565	Retain required behavior as R	CA-R-565@13-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-578	Retain required behavior as R	CA-R-578@13-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+PROMPTS identity-free trial	PROMPTS local Tier-0 Scope Contract	CA-R-3018@1-draft	Drafted; independent check pending
+CA-R-1094	Retain invariant R plus distinct supporting M	CA-M-191	Both retained; METHOD_FOR replaces replacement relation
+CA-R-1473	Retain invariant R plus distinct supporting M	CA-M-422	Both retained; METHOD_FOR replaces replacement relation
+CA-R-1095	Retain required behavior as R	CA-R-1095@24-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-1105	Retain required behavior as R	CA-R-1105@24-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-1846	Retain required behavior as R	CA-R-1846@14-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-1802	Retain required behavior as R	CA-R-1802@17-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-1843	Retain required behavior as R	CA-R-1843@16-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-1844	Retain required behavior as R	CA-R-1844@12-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-1845	Retain required behavior as R	CA-R-1845@15-draft	Corrected Draft; duplicate M trial withdrawn; independent check pending
+CA-R-2654	Explicit owner or narrow local admission	CA-R-2654@4-draft	Drafted; checked
+CA-R-2730	Explicit owner or narrow local admission	CA-R-2730@4-draft	Drafted; checked
+CA-R-2662	Explicit owner or narrow local admission	CA-R-2662@2-draft	Drafted; checked
+CA-R-2663	Explicit owner or narrow local admission	CA-R-2663@3-draft	Drafted; checked
+CA-R-2661	Explicit owner or narrow local admission	CA-R-2661@2-draft	Drafted; checked
+CA-M-167	Remove obsolete method_for CA-R-1105	CA-M-167@20-draft	Drafted; checked
+CA-M-492	Add topic-definition dependency CA-R-3017	CA-M-492@6-draft	Drafted; checked
+CA-R-2791 / CA-M-475 / CA-E-682 / CA-D-680	Preserve standalone-chat Drafts under explicit deferral	existing @2-draft carriers	Deferred; no promotion or archival

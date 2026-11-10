@@ -8,20 +8,20 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test
-      Design
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Test Design
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/Actor
+    - MODEL//CAPRMEDIO <+ Actor
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 16
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-424-PROGRAMMATIC-DIRECT_POLICY--select-software-evaluation-techniques-by-failure-mode.md
@@ -49,7 +49,6 @@ Before coding or selecting a check, identify the relevant state transitions, sid
 
 selection of behavioral software Evaluation techniques for PROGRAMMATIC components.
 
-Candidate source: [CA-M-285@14](archive/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode@14.md)
 
 1. enumerate the failure predicates established by applicable authority **and** bind each predicate **to** the observable behavior that can distinguish acceptance from rejection. Include the applicable state transitions, side effects and failure boundary in that predicate description.
 2. identify applicable Evaluation Atoms across test scopes, purposes, boundary-realism choices, execution environments, **and** release stages **without** treating those labels as a universal ranking.
@@ -67,4 +66,4 @@ Candidate source: [CA-M-285@14](archive/CA-M-285-PROGRAMMATIC--select-software-e
 
 ### Public interface tests
 
-Prefer end-to-end tests through the real browser, MCP and HTTP interfaces. Assert user-visible results, not private classes, constructor arguments, call counts or internal call order. Remove unit tests that only repeat those end-to-end checks. Keep focused tests for behavior that the end-to-end tests do not cover.
+For an isolated failure predicate, select the least costly stable observable boundary supported by evidence. Prefer end-to-end tests through real browser, MCP and HTTP interfaces for critical public journeys, integration or emergent failures that narrower checks cannot expose. For applicable public-interface behavior, assert user-visible results rather than private classes, constructor arguments, call counts or internal call order. For internal behavior, observable domain state and effects are also valid outcomes when they distinguish the applicable failure predicates. Remove unit tests that merely mirror implementation or add no distinct failure evidence. Keep focused tests for behavior that the end-to-end tests do not cover.

@@ -8,14 +8,14 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
-    dependencies:
-    - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Component Structure
+    dependencies: []
   tier: 3
 state:
   status: Active
-  version: 20
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 21
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: TOOLS
 author: Anatoly Maslennikov
@@ -34,6 +34,8 @@ PROGRAMMATIC behavior governing TOOLS.
 
 ## Claim
 
+
+### Prose Claim
 TOOLS **must** own independently executable reusable framework capabilities. PROJECT_TOOLS is project-local and excluded.
 
 ## Details

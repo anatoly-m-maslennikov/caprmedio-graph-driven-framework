@@ -18,7 +18,14 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - Subject/Engineering/Carrier
 relations:
-  concern_about: [CA-P-1444, CA-P-1445]
+  concern_about:
+  - CA-P-1444
+  - CA-P-1445
+ref_id: CA-C-421
+carrier_destination:
+  file:
+    name: CA-C-421-CORE_META_MODEL-PROBLEM--retain-recovered-source-verifier-assumptions.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

@@ -8,16 +8,16 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control/Resource Limits
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control <+ Resource Limits
   tier: 4
 relations:
   evaluation_for:
   - CA-M-410
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-643-PROGRAMMATIC-DIRECT_POLICY--evaluate-workload-resource-bounds.md

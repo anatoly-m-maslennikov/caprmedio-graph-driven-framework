@@ -17,7 +17,13 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1376]
+  concern_about:
+  - CA-P-1376
+ref_id: CA-C-403
+carrier_destination:
+  file:
+    name: CA-C-403-PROBLEM--separate-committed-state-recovery-from-concurrent-edits.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

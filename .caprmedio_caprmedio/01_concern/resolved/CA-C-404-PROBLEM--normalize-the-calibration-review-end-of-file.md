@@ -16,7 +16,13 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-A-1085]
+  concern_about:
+  - CA-A-1085
+ref_id: CA-C-404
+carrier_destination:
+  file:
+    name: CA-C-404-PROBLEM--normalize-the-calibration-review-end-of-file.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

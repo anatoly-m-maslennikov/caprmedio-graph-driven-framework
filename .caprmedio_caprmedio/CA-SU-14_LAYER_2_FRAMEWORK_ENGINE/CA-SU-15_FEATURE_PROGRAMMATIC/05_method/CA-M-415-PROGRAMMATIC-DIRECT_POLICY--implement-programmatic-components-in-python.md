@@ -8,22 +8,22 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
-      Authoring/Python Code
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Authoring <+ Code Authoring <+ Python Code
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
+    - MODEL//CAPRMEDIO <+ Asset
+    - MODEL//CAPRMEDIO <+ Event Record
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)
   tier: 3
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-261
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-415-PROGRAMMATIC-DIRECT_POLICY--implement-programmatic-components-in-python.md
@@ -57,7 +57,6 @@ apply **when** a Tool, App backend service, **or** MCP component is added **or**
 changed, **or** **when** its Python realization, runtime dependency, **or** non-Python
 exception is proposed.
 
-Candidate source: [CA-M-110@21](archive/CA-M-110-PROGRAMMATIC-GENERAL-IMPLEMENTATION_METHOD--implement-programmatic-components-in-python@21.md)
 
 #### Procedure
 1. apply the Python selection established by this Method **and** read its current

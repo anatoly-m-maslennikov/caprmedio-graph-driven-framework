@@ -6,17 +6,16 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Entry
 tier: 3
 relations:
   evaluation_for:
   - CA-R-1113
-  - CA-R-1113
-  derived_from:
+  DERIVED_FROM:
   - CA-A-057
 status: Active
-version: 20
-updated_at: 2026-11-09 21:15:45 +0400
+version: 21
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-281-MCP-EVAL_CASE--operate-mcp-headlessly-without-an-app.md
@@ -43,15 +42,15 @@ The project-local provider-neutral MCP service exposes an eligible Tool without 
 
 | Test case | Acceptance criteria |
 | --- | --- |
-| Single-Project service without GRAPH_UI or an agent-host plugin | The Tool remains discoverable and callable through the fixed Project binding. |
-| Single-Project hook omits project_root | The service uses its fixed ProjectSelection and dispatches normally. |
-| Single-Project hook supplies the matching host or container project_root | The host/container mapping resolves to the same Project identity and the Tool receives only its native arguments. |
-| Single-Project hook supplies malformed, foreign or mismatched project_root | The request is rejected before native Tool, Prompt or Workflow execution, source effect or Journal effect; no Project switch occurs. |
-| Shared service omits project_root | The request is rejected before dispatch because shared mode requires an explicit Project binding. |
-| Shared service supplies a valid mapped project_root | The selected ProjectSelection is used and no process-global Project is consulted. |
-| tools/list boundary advertisement | Single-Project discovery advertises optional project_root; shared discovery advertises required project_root; native Tool descriptors and schemas are unchanged. |
-| Prompt and Workflow calls | The prompt returns its invocation envelope and the Workflow returns its next resumable state through the same bound service. |
+| Single-Project service without GRAPH_UI or an agent-host plugin | Tool remains discoverable/callable through fixed Project binding. |
+| Single-Project hook omits project_root | Use fixed ProjectSelection and dispatch normally. |
+| Single-Project hook supplies matching host/container root | Resolve one identity; native Tool receives only native arguments. |
+| Single-Project hook supplies malformed/foreign/mismatched root | Reject before native Tool, Prompt, or Workflow execution, source, or Journal effect; do not switch Project. |
+| Shared service omits project_root | Reject before dispatch because explicit binding is required. |
+| Shared service supplies valid mapped root | Use selected ProjectSelection; consult no process-global Project. |
+| tools/list boundary | Advertise optional project_root for single-Project and required for shared; native descriptors/schemas unchanged. |
+| Prompt and Workflow calls | Return prompt invocation envelope and next resumable Workflow state through the same bound service. |
 
 ## Failure disposition
 
-Reject an MCP deployment that depends on an App or transfers provider-neutral ownership to a plugin. Reject a request that can change the bound Project or pass the hook envelope through as native Tool input.
+Reject deployment that depends on an App or transfers provider-neutral ownership to a plugin. Reject any request that changes the bound Project or passes the hook envelope as native Tool input.

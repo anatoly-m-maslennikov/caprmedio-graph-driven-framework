@@ -8,10 +8,10 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ Query Processing
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Query Processing
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 8
 relations:
   evaluation_for:
@@ -20,8 +20,8 @@ relations:
   - CA-O-240
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 6
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-784-WORKBENCH_BACKEND-EVAL_CASE--verify-native-cached-query-grid-pages.md
@@ -30,7 +30,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify native cached query grid pages
@@ -39,19 +38,8 @@ Verify native cached query grid pages
 
 ### Prose Claim
 
-Against a real DuckDB materialized result and the MCP page boundary, verify the following cases for both `query_page` and a View's `view_fetch` where applicable:
+Against real DuckDB materialized results and the MCP boundary, verify `query_page` and applicable `view_fetch`. Zero-based grid indices address original positions despite duplicate/dotted aliases; public `rowid` order comes from a hidden snapshot ordinal. CTE, DuckPGQ and preview execute original SQL once through the same ordinal CTAS; original SQL is retained for execution/Bookmark but omitted from ordinary Run/Page responses.
 
-| Case | Expected result |
-| --- | --- |
-| Duplicate and dotted aliases | Zero-based grid indices select and order the intended original output positions even when aliases duplicate or contain dots. |
-| `rowid` output name | A result whose public output includes `rowid` has stable page order from the hidden snapshot ordinal, not DuckDB `rowid`. |
-| Native CTE, DuckPGQ and preview | CTE and DuckPGQ queries, including a previewed result, execute their original submitted SQL once through the same ordinal CTAS; pages address the limited snapshot and Run/save responses preserve the original submitted SQL unchanged. |
-| Multiple sorts | Ordered sort entries apply natively, use `NULLS LAST`, and stable ties retain the same row sequence across adjacent offsets. |
-| Literal contains | Case-insensitive `contains` finds literal text; a `%` or `_` filter value is not interpreted as a wildcard, and quote-like input cannot change the query. |
-| AND filtering | Several filters reduce the same cache by conjunction; `row_count` is the filtered count while `source_row_count` remains the complete cache count. |
-| Original column metadata | `columns`, including duplicate names and `has_values`, remains the original whole-cache metadata on filtered and paged responses. |
-| One group column | Ascending and descending single-column grouping uses native `NULLS LAST`. Each page emits only its represented `{value, count}` group records, and a group split across pages keeps its global filtered count. |
-| Rejected grid input | Unknown keys, invalid shapes, operators, directions, column indices and value types return an input error; a subsequent ordinary page of the same result still returns its original rows and identity. |
-| No query replay | Grid page/fetch requests use the retained native table only: they neither rerun submitted SQL nor create a second materialized result table. |
+Verify native ordered sorts with `NULLS LAST` and stable ties, literal case-insensitive `contains` where `%`/`_` are not wildcards, conjunctive filters, original whole-cache column metadata, and single-column group page records with global filtered counts across page splits. Invalid grid keys/shapes/operators/directions/indices/types return input error without damaging the result identity or a later normal page. Page/fetch uses only the retained table: no replay or second cache.
 
-Exercise the query page through the MCP interface as well as the native backend call. Use separate pages to demonstrate a group spanning a page boundary, literal `%` matching, duplicate aliases and the public `rowid` name. Inspect the executed boundary or observable cache state to establish native cached-table paging rather than a Python whole-result transform. Do not treat a frontend-only sorted array, a mock database or a successful first page alone as evidence.
+Exercise MCP plus native calls, real page boundaries, cache observability and completed exports/explicit inline pages. JSON matrix/CSV/TOON decode to the selected positional values/columns with exact counts/group metadata; export never reruns SQL.

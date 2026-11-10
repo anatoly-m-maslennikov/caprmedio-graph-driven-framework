@@ -8,17 +8,22 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Harvest report save validation"
+  governs: Harvest report save validation
   depends_on:
-    - "Analysis"
+  - Analysis
 version: 2
-updated_at: "2026-10-04 10:35:33 +0400"
+updated_at: 2026-10-04 10:35:33 +0400
 relations:
   concern_about:
-    - CA-A-940
+  - CA-A-940
   relates_to:
-    - CA-P-1118
-    - CA-A-940
+  - CA-P-1118
+  - CA-A-940
+ref_id: CA-C-300
+carrier_destination:
+  file:
+    name: CA-C-300-PROBLEM--quoted-blank-lines-fail-harvest-whitespace-check.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

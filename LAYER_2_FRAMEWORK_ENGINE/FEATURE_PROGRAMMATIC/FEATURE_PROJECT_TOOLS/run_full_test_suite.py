@@ -12,9 +12,9 @@ import subprocess
 import sys
 import time
 
-from full_suite_docker import APP, current_code_test_image, run_launcher
+from full_suite_docker import APP, current_code_test_image
 
-CODE_ROOTS = ("LAYER_2_FRAMEWORK_ENGINE",)
+CODE_ROOTS = ("LAYER_2_FRAMEWORK_ENGINE", "LAYER_5_FRAMEWORK_DELIVERY")
 MODULE_TIMEOUT_SECONDS = 3600
 RESULT_MARKER = "CAPRMEDIO_TEST_COUNTS "
 CHILD = """
@@ -222,13 +222,6 @@ def _run_modules(root: Path, modules: list[Path], environment: dict, integration
             for executor in (ordinary, docker):
                 executor.shutdown(wait=False, cancel_futures=True)
             raise
-    if integration:
-        try:
-            if not run_launcher(root, environment):
-                failed.append("project_launcher_docker_e2e CLI")
-        except (OSError, subprocess.TimeoutExpired) as error:
-            print(f"Required launcher integration failed: {error}", file=sys.stderr)
-            failed.append("project_launcher_docker_e2e CLI")
     if failed:
         print("Failed test modules: " + ", ".join(failed), file=sys.stderr)
     print(

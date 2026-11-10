@@ -43,7 +43,7 @@ a folder-backed Workflow **must** use **`=1`** Workflow Atom Markdown Carrier **
 
 ## Details
 
-- the Workflow Atom's main content carries the graph scheme; a leaf Step Atom's main content carries its Action or Workflow reference **and** parameter/input bindings, while a containing Step carries its leaf Substep structure without RUNS.
+- the Workflow Claim carries one Mermaid Scheme as a diagram-first visual summary; its text independently specifies the complete graph and may be repeated by the diagram. A Step Claim may carry at most one Mermaid Scheme with the same summary semantics. A leaf Step Atom carries its Action or Workflow reference and parameter/input bindings, while a containing Step carries its leaf Substep structure without RUNS.
 - a containing Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing its leaf Substep Markdown Carriers. this one-level Workflow-to-Step-to-Substep layout retains every folder-backed Step and Substep in its own Markdown Carrier; a Substep directory or another nested Step directory is not admitted.
 - Action Atom Carriers **must** remain separately outside the entire Workflow **and** Step directory tree. Steps reference reusable Actions **without** copying their behavior.
 - folder nesting organizes Carriers; it **must not** establish a Step/Substep Relation, execution inheritance, **or** execution order. the Workflow graph defines control flow; **every** leaf Step retains its own invocation of **`=1`** referenced Action or Workflow, and a containing Step has **`1+`** Substeps and no RUNS relation.

@@ -20,7 +20,14 @@ subjects:
 version: 3
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1637, CA-P-1664]
+  concern_about:
+  - CA-P-1637
+  - CA-P-1664
+ref_id: CA-C-453
+carrier_destination:
+  file:
+    name: CA-C-453-ATOM_LIFECYCLE-PROBLEM--complete-model-admitted-nonactive-draft-status-effects.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/WORKFLOW_OPERATIONS/ATOM_LIFECYCLE/01_concern/resolved
 ---
 # Summary
 

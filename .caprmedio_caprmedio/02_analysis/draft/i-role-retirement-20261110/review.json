@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "source_plan_sha256": "5b3298a1b481a505fbb9587569a1a5e9acfa3f03e17fb142b2c2309296d707a2",
+  "source_reviews": [
+    "model-review.json",
+    "archive-review.json"
+  ],
+  "folder_plan_sha256": "837c980fd6461f0c642a0d23fc780a41edeadd3e86ed4bc3a2939d3d803564e0",
+  "folder_summary": {
+    "coalesced_files": 0,
+    "collision_count": 0,
+    "destination_exception_count": 2,
+    "empty_source_dirs": 97,
+    "publish_files": 321,
+    "source_bytes": 6662123,
+    "source_dirs": 118,
+    "source_files": 321
+  },
+  "folder_plan_refresh_after_source_phase": true,
+  "manual_approval": "required because MCP tools unavailable; not yet applied",
+  "native_run": false,
+  "journal_append": false
+}

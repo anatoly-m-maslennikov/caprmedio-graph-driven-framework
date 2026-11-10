@@ -11,6 +11,11 @@ updated_at: 2026-10-25 17:27:47 +0400
 subjects:
   governs: Subject/Graph Node
 relations: {}
+ref_id: CA-C-603
+carrier_destination:
+  file:
+    name: CA-C-603-QUESTION--how-should-domain-and-engineering-divide-occurrents.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

@@ -14,7 +14,17 @@ subjects:
   depends_on:
   - Subject/Engineering/Release Packaging/Staging
 relations:
-  concern_about: [CA-P-1701, CA-P-1702, CA-O-174, CA-O-175, CA-E-572]
+  concern_about:
+  - CA-P-1701
+  - CA-P-1702
+  - CA-O-174
+  - CA-O-175
+  - CA-E-572
+ref_id: CA-C-467
+carrier_destination:
+  file:
+    name: CA-C-467-TOOLS-QUESTION--how-to-test-before-candidate-runtime-staging.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

@@ -12,9 +12,19 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2485, CA-P-2489, CA-D-461, CA-E-502, CA-O-029]
+  concern_about:
+  - CA-P-2485
+  - CA-P-2489
+  - CA-D-461
+  - CA-E-502
+  - CA-O-029
 version: 4
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-549
+carrier_destination:
+  file:
+    name: CA-C-549-PROGRAMMATIC-QUESTION--clarify-plan-bundle-history-relocation.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

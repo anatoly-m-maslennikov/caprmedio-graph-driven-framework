@@ -6,16 +6,15 @@ container:
 role: Method
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
 tier: 2
 relations:
-  method_for:
-  - CA-R-1105
-  derived_from:
+  DERIVED_FROM:
   - CA-A-057
 status: Active
-version: 19
-updated_at: 2026-11-09 07:45:15 +0400
+version: 20
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: method
 llm_session_ids:

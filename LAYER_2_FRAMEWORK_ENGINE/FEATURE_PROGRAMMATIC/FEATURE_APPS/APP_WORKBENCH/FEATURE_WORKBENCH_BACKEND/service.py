@@ -26,6 +26,7 @@ from typing import Any
 from .errors import QueryExecutionError, WorkbenchUnavailableError
 from .query_store import QueryStore
 from .query_log import QueryLog
+from .result_delivery import deliver, validate_delivery, result_metadata, failed_metadata
 from .incremental_relations import RelationState, materialize_delta
 from .generate_relation_registry import DEFAULT_REGISTRY_PATH
 from .relation_registry import compile_registry
@@ -36,7 +37,7 @@ from .source_reader import SourceReader
 from .source_watcher import Change, SourceWatcher
 from .statements import select_statement
 from .watcher_change_log import WatcherChangeLog
-from .workbench_schema_asset import DEFAULT_SCHEMA_PATH, compile_schema, load_schema_asset
+from .workbench_schema_asset import header_schema as compile_header_schema
 from .workspace import WorkspaceStore
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
@@ -78,6 +79,7 @@ class WorkbenchService:
         succeeded = False
         try:
             with self._refresh_lock:
+                assert self._store is not None
                 started = time.monotonic()
                 atoms, scopes = (
                     self._reader.capture()
@@ -108,10 +110,9 @@ class WorkbenchService:
                     assert schema is not None
                     declared_header = self._reader.header_schema
                     assert declared_header is not None
-                    assert self._store is not None
                     full = delta is None
                     header_schema = (
-                        self._header_schema(atoms, schema, declared_header) if full
+                        compile_header_schema(atoms, schema, declared_header, self._schema_mode) if full
                         else declared_header if self._schema_mode == 1 else None
                     )
                     writing_started = time.monotonic()
@@ -143,7 +144,7 @@ class WorkbenchService:
                         assert schema is not None
                         declared_header = self._reader.header_schema
                         assert declared_header is not None
-                        header_schema = self._header_schema(atoms, schema, declared_header)
+                        header_schema = compile_header_schema(atoms, schema, declared_header, self._schema_mode)
                         writing_started = time.monotonic()
                         self._store.replace(
                             atoms, scopes, relation_types=registered, content_schema=schema,
@@ -152,6 +153,7 @@ class WorkbenchService:
                         write_seconds += time.monotonic() - writing_started
                         changed = True
                     self._relation_state = next_state
+                self._store.sync_atom_audits(self._reader)
                 written_at = time.monotonic()
                 paths = {row["source_path"] for row in atoms}
                 removed = len(self._paths - paths)
@@ -254,15 +256,12 @@ class WorkbenchService:
                 )
                 print(self._failure, file=sys.stderr)
                 raise self._failure from error
-    def _header_schema(self, atoms: list[dict[str, Any]], content: Any, declared_header: Any) -> Any:
-        """Use a matching delivered asset, otherwise rebuild the disposable schema from source."""
-        compilation = compile_schema(atoms, content, declared_header)
-        delivered = load_schema_asset(DEFAULT_SCHEMA_PATH, atoms, compilation)
-        return (delivered or compilation).header(self._schema_mode)
     def run(
         self, sql: str, page_size: int = 100, cursor_position: int | None = None,
         *, save: bool = False, preview: int | None = None, name: str | None = None,
+        result_delivery: str = "file", result_format: str = "json_matrix",
     ) -> dict[str, Any]:
+        validate_delivery(result_delivery, result_format)
         if type(save) is not bool:
             raise ValueError("save must be a boolean")
         if name is not None and not save:
@@ -277,16 +276,17 @@ class WorkbenchService:
             if save:
                 try:
                     result |= self._saved_queries.save_query(selected, name)
-                except ValueError as error:
+                except (ValueError, OSError) as error:
                     print(f"saved query failed: {error}", file=sys.stderr)
                     result |= {"outcome": "partial", "save_error": str(error)}
-            self._log_attempt(selected, self._result_metadata(result))
-            return result
+            self._log_attempt(selected, result_metadata(result))
+            assert self._store is not None
+            return deliver(self._store, self._root, result, result_delivery, result_format, full=True)
         except ValueError as error:
-            self._log_attempt(selected, self._failed_metadata(error))
+            self._log_attempt(selected, failed_metadata(error))
             raise
         except (QueryExecutionError, WorkbenchUnavailableError) as error:
-            self._log_attempt(selected, self._failed_metadata(error))
+            self._log_attempt(selected, failed_metadata(error))
             raise
     def _run_store(
         self, selected: str, *, page_size: int = 100, preview: int | None = None,
@@ -296,15 +296,6 @@ class WorkbenchService:
         assert self._store is not None
         self._store.prune_results()
         return self._store.run(selected, page_size=page_size, preview=preview, include_rows=include_rows)
-    @staticmethod
-    def _result_metadata(result: dict[str, Any]) -> dict[str, Any]:
-        return {
-            "status": "success", "error": None, "query_id": result["query_id"],
-            "row_count": result["row_count"], "column_count": result["column_count"],
-        }
-    @staticmethod
-    def _failed_metadata(error: Exception) -> dict[str, Any]:
-        return {"status": "failed", "error": str(error), "query_id": None, "row_count": None, "column_count": None}
     def _log_attempt(self, sql: str, metadata: dict[str, Any]) -> None:
         try:
             self._query_log.append_async(sql, metadata)
@@ -413,7 +404,7 @@ class WorkbenchService:
         self._drop_result(prior)
         try:
             result = self._run_store(selected, preview=preview, include_rows=False)
-            metadata = self._result_metadata(result)
+            metadata = result_metadata(result)
             assert self._store is not None
             self._store.pin(metadata["query_id"])
             saved: dict[str, Any] = {}
@@ -426,17 +417,18 @@ class WorkbenchService:
         except WorkbenchUnavailableError:
             raise
         except QueryExecutionError as error:
-            metadata, saved = self._failed_metadata(error), {}
+            metadata, saved = failed_metadata(error), {}
         except ValueError as error:
-            metadata, saved = self._failed_metadata(error), {}
+            metadata, saved = failed_metadata(error), {}
         self._log_attempt(selected, metadata)
         self._workspaces.set_result(args["workspace_id"], args["view_id"], metadata)
         return {"workspace_id": view["workspace_id"], "view_id": view["view_id"], "revision": view["revision"]} | metadata | saved
 
     def _view_fetch(self, arguments: object) -> dict[str, Any]:
-        args = self._arguments("view_fetch", arguments, {"workspace_id", "view_id", "offset", "page_size", "preview", "grid"}, {"workspace_id", "view_id"})
+        args = self._arguments("view_fetch", arguments, {"workspace_id", "view_id", "offset", "page_size", "preview", "grid", "result_delivery", "result_format"}, {"workspace_id", "view_id"})
         if "grid" in args and not isinstance(args["grid"], dict):
             raise ValueError("grid must be an object")
+        validate_delivery(args.get("result_delivery", "file"), args.get("result_format", "json_matrix"))
         view = self._workspaces.get_view(args["workspace_id"], args["view_id"])
         result = view.get("result")
         if not isinstance(result, dict) or result.get("status") != "success" or not isinstance(result.get("query_id"), str):
@@ -451,21 +443,27 @@ class WorkbenchService:
             result["query_id"], offset, page_size=page_size,
             preview=preview, grid=args.get("grid"),
         )
+        page = deliver(self._store, self._root, page, args.get("result_delivery", "file"), args.get("result_format", "json_matrix"))
         return {"workspace_id": view["workspace_id"], "view_id": view["view_id"]} | page
 
     def page(
         self, query_id: str, offset: int, page_size: int = 100, *, grid: object = None,
+        preview: int | None = None, result_delivery: str = "file", result_format: str = "json_matrix",
     ) -> dict[str, Any]:
+        validate_delivery(result_delivery, result_format)
         self._start()
         assert self._store is not None
         self._store.prune_results()
-        return self._store.page(query_id, offset, page_size=page_size, grid=grid)
+        page = self._store.page(query_id, offset, page_size=page_size, preview=preview, grid=grid)
+        return deliver(self._store, self._root, page, result_delivery, result_format)
 
     def check(self, sql: str, cursor_position: int | None = None) -> dict[str, Any]:
         selected = select_statement(sql, cursor_position)
         self._start()
         assert self._store is not None
-        return self._store.check(selected)
+        result = self._store.check(selected)
+        result.pop("sql", None)
+        return result
 
     def save_view(self, sql: str, name: str | None = None) -> dict[str, Any]:
         return self._saved_queries.save_view(sql, name)

@@ -18,7 +18,14 @@ subjects:
   - Subject/Engineering/Discovery/Authority Source Selection
   - MCP
 relations:
-  concern_about: [CA-P-1605, CA-P-1527]
+  concern_about:
+  - CA-P-1605
+  - CA-P-1527
+ref_id: CA-C-450
+carrier_destination:
+  file:
+    name: CA-C-450-PROGRAMMATIC-PROBLEM--distinguish-source-authority-from-projected-carriers-in-discovery.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

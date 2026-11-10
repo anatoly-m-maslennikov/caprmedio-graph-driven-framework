@@ -10,12 +10,11 @@ import sys
 import tempfile
 import uuid
 
-APP = Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR")
+APP = Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP")
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / APP / "docker"))
 from runtime_images import ImageManager, _bounded_run  # noqa: E402
 
 ATTEMPT_LABEL = "org.caprmedio.full-test-suite.attempt"
-LAUNCHER_TIMEOUT_SECONDS = 1980
 
 
 def _executor(attempt: str):
@@ -91,33 +90,3 @@ def current_code_test_image(root: Path):
         yield environment
     finally:
         _remove_owned_image(root, image, attempt)
-
-
-def run_launcher(root: Path, environment: dict[str, str]) -> bool:
-    """The launcher's real two-group CLI proof is not a unittest fixture case."""
-    print("Launcher integration START: all groups", flush=True)
-    result = subprocess.run(
-        [
-            sys.executable,
-            "-B",
-            str(root / APP / "tests/test_project_launcher_docker_e2e.py"),
-            "--source-root",
-            str(root),
-            "--scratch",
-            environment["CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH"],
-            "--image",
-            environment["CAPRMEDIO_FIRST_CUT_HTTP_IMAGE"],
-            "--group",
-            "all",
-        ],
-        cwd=root,
-        env=environment,
-        timeout=LAUNCHER_TIMEOUT_SECONDS,
-        capture_output=True,
-        text=True,
-        check=False,
-    )
-    print(result.stdout, end="", flush=True)
-    print(result.stderr, end="", file=sys.stderr, flush=True)
-    print(f"Launcher integration FINISH: {'passed' if result.returncode == 0 else 'failed'}", flush=True)
-    return result.returncode == 0

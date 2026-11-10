@@ -8,21 +8,21 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
-      Authorization
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+      Control <+ Effect Authorization
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-409-PROGRAMMATIC-DIRECT_POLICY--bound-file-and-subprocess-effects.md
@@ -41,15 +41,15 @@ Bound file and subprocess effects
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 plan, validate, **and** bound **every** PROGRAMMATIC file mutation **or** subprocess
 invocation **before** applying it; make partial failure diagnosable **and** recoverable
 **without** guessing.
 
 ## Details
 
-Candidate source: [CA-M-161@11](archive/CA-M-161-PROGRAMMATIC-CORE-METHOD--bound-file-and-subprocess-effects@11.md)
 
 ### Applicable when
 

@@ -150,10 +150,12 @@ def _local_subject(active: str, path: Path) -> str:
     if not isinstance(expression, notation.RelationChain):
         return active
     root = expression.endpoints[0]
-    new_root = isinstance(root.head, notation.Name) and root.head.value.startswith("CAPRMEDIO_")
+    new_root = isinstance(root.head, notation.Name) and (
+        root.head.value.startswith("CAPRMEDIO_") or root.head.value in {"MODEL", "PROJECT STRUCTURE"}
+    )
     namespace = root if new_root else expression.endpoints[1]
-    expected = "CAPRMEDIO_STRUCTURE" if new_root else _NAMESPACE_BRANCH
-    if not isinstance(namespace.head, notation.Name) or namespace.head.value != expected:
+    expected = {"CAPRMEDIO_STRUCTURE", "PROJECT STRUCTURE"} if new_root else {_NAMESPACE_BRANCH}
+    if not isinstance(namespace.head, notation.Name) or namespace.head.value not in expected:
         raise ScopeDeclarationError(f"{path}: declaration active Subject uses an invalid namespace branch")
     if any(
         link.forward_cardinality is not None or link.reverse_cardinality is not None

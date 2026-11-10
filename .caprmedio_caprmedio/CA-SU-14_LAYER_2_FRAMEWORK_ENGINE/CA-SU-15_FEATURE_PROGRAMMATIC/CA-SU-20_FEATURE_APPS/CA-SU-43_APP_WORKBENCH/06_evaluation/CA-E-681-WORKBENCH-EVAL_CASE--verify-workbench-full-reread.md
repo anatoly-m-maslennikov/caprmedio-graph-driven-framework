@@ -8,18 +8,18 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ Indexing
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Indexing
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 6
 relations:
   evaluation_for:
   - CA-R-2786
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-681-WORKBENCH-EVAL_CASE--verify-workbench-full-reread.md
@@ -28,7 +28,6 @@ current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify Workbench full reread
@@ -37,17 +36,4 @@ Verify Workbench full reread
 
 ### Prose Claim
 
-The Workbench full reread recreates all derived state from the current governed sources, exposes the same operation through MCP and health, preserves source and saved items, and reports failure without automatic retry when a required source or startup step is invalid.
-
-## Details
-
-| Scenario | Expected outcome |
-| --- | --- |
-| Add a declared source property and run `workbench_reread({})` | The old database, WAL and temporary files are gone; the new schema contains the current columns and the source is read again. |
-| Query after reread | Current Atom and Scope Unit rows, direct and derived relations, graph data and query results come from the rebuilt state; stale rows and columns are absent. |
-| Existing saved query or View and source Journal | Both remain available; no source Journal record is deleted. |
-| Existing query-result ID before reread | The ephemeral result is no longer available after the derived result tables are recreated. |
-| MCP and health actions | Both invoke the same full-reread operation and expose the same ready or failure result; MCP remains usable. |
-| `discover_tools` | `workbench_reread` appears under `Service`. No generic service registry is required. |
-| Invalid Scope Unit Declaration | Reread fails explicitly and Workbench is not reported ready. No automatic retry or fallback to the old derived database occurs. |
-| Invalid non-Declaration source | The existing reader error behavior is used; valid source handling is not replaced by stale derived data. |
+Verify full reread recreates derived state from governed sources through the same MCP/health operation, preserving sources/saved items/Journal and failing explicitly without retry for invalid required source/startup. A declared-property change rebuilds database/WAL/temp/schema and rereads source; rebuilt rows/relations/graph/results lack stale state and old result IDs. Saved query/View remain. `workbench_reread` is Service discovery without generic registry. Invalid Declaration leaves not-ready with no fallback; invalid ordinary source uses reader behavior rather than stale state; MCP remains usable.

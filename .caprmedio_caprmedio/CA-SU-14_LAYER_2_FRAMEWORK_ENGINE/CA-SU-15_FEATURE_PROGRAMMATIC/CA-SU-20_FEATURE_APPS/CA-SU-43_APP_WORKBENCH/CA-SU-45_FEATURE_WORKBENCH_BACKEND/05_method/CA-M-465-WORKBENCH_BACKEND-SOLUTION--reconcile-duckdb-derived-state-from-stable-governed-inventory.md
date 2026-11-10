@@ -8,23 +8,24 @@ context:
   role: Method
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ Indexing
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Indexing
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2723
   - CA-R-2725
+  - CA-R-2950
   depends_on:
   - CA-M-509
   IS_REPLACEMENT_FOR:
   - CA-O-241
 state:
   status: Active
-  version: 26
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 27
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-465-WORKBENCH_BACKEND-SOLUTION--reconcile-duckdb-derived-state-from-stable-governed-inventory.md
@@ -33,7 +34,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Reconcile DuckDB derived state from a stable governed inventory.
@@ -42,54 +42,15 @@ Reconcile DuckDB derived state from a stable governed inventory.
 
 ### Prose Claim
 
-Technical background indexing must reconcile Current and Draft Atom carriers, excluding Archived carriers, into the file-backed DuckDB Projection. Every Current status remains included. Role-only unnumbered Draft IDs such as CA-O-draft are markers shared by multiple Draft carriers; use the marker plus the Project-relative carrier path as their unique technical reference. Do not change their Atom ID, invent a numbered ID or weaken Current identity uniqueness. Numbered Draft and Current references remain canonical. It does not prescribe a fingerprint algorithm or a separate event-classification process.
+Index Current and Draft Atom carriers, excluding Archived carriers, into the file-backed Projection; all Current statuses remain included. A role-only unnumbered Draft reference is technically unique only as marker plus Project-relative carrier path; do not change that ID or weaken numbered Current/Draft identity.
 
-Use a `watchdog` `Observer` in the existing server's selected-repository watcher owner, watching only that repository's `control_root`. Preserve the existing callback grouping, selected-repository boundary, initial-index build, retained-log reread at owner start and on a full reread, event-consumption loop short wait timeout for 48-hour cleanup even when idle on the same owner thread, and Observer shutdown with the owner. A larger mounted parent folder does not expand this boundary; ignore everything outside the selected repository. Do not add a separate watcher service, Workflow scheduler or retry loop.
+Use the existing server's `watchdog` Observer and selected-repository watcher owner, observing only `control_root`, with grouped native callbacks. Preserve initial build, retained-log reread at owner start/full reread, idle 48-hour cleanup on the same owner thread and Observer shutdown. Under the owner lock, persist events before refresh. Normal batches append/INSERT additions only, retain equal duplicates, and never rewrite retained rows except owner-start/full-reread reconciliation or TTL/cap cleanup. Record directory create/move/remove and refresh the index; ignore directory-modification noise and outside paths, and never infer move from add/delete. A mounted parent does not enlarge the boundary; do not add a watcher service, scheduler, retry or recovery, or failure-as-event-row.
 
-Refresh the existing file-backed database and graph directly under the shared database-owner lock and finish a successful native write transaction with COMMIT. Queries do not run during refresh. If indexing or graph refresh fails, report the error to stderr and stop serving that failed state; do not return partial success, retry the batch, swap candidate databases, restore an old state, or perform application rollback.
+Refresh database and graph under the shared owner lock in one native COMMIT transaction. Queries do not run during refresh. Failed indexing/graph refresh reports stderr and leaves the owner unavailable pending explicit restart: no partial state, candidate swap, rollback or recovery. Invalid ordinary capture is excluded with its supported rows/facts and later actual change is new input; ambiguous references, relation keys or inverse metadata warn and omit only the affected facts. An invalid Current Scope Unit Declaration stops indexing rather than being skipped. A resource-limit kill is a runtime/capacity failure, not invalid-source evidence.
 
-An invalid, unreadable, or unstable ordinary Atom source capture is excluded with its source-owned Projection rows and all Relation facts and graph mappings supported by it, including derived counterparts carried in other object rows. Refresh those affected rows and hashes, report the source to stderr, and skip it while valid sources continue. It is not treated as deletion, retained as stale data, or automatically resubmitted. A later actual source change is new input.
+Retain parsed rows, signatures and owner-local deltas. Ordinary events update only changed public rows, affected inverse neighbours, mappings and hashes in one transaction; unchanged rows preserve object identity and values. Initial indexing, explicit full reread and actual structural/relation-registry/schema changes may rebuild the affected projection, never generic recovery. Publish state only after the database update succeeds. Preserve referenced endpoint contributions until no node or edge supports them; deletion, rename, invalidation, repair and target reappearance must not duplicate facts.
 
-Ambiguous source references, Header relation keys or inverse metadata produce warnings on stderr. Do not choose a winner or repair the model. Exclude duplicate-reference source rows and omit every ambiguous relation or inverse binding from the materialized graph; retain unrelated valid rows, direct facts and unambiguous inverse bindings. Include the ambiguous names and available source paths in the warning. Do not edit authored Relation names, endpoints or directions. Registry-based normalization changes only the query representation of the same unambiguous fact.
-
-A failed indexing transaction reports its error to stderr. The failed owner requires an explicit restart rather than an automatic rollback or recovery procedure.
-
-A container memory-limit kill is a runtime failure, not proof of invalid source data. Inspect the stopped process and its resource budget, correct capacity, and restart explicitly. Do not add automatic restart, source exclusion or query truncation to hide the failure.
-
-Retain successful parsed-source rows and their filesystem signatures in the existing owner for incremental refresh; reparse an ordinary Atom only when its source changes. Remove cached state when its carrier leaves the selected source inventory or becomes invalid. A native ordinary file event batch inserts, updates or removes only changed public rows and graph facts, including affected inverse-relation neighbors and row hashes, in one committed transaction. Do not drop and reinsert every Atom or Scope Unit for an ordinary edit. Reuse the existing relation materializer; comparing its in-memory output is allowed without rebuilding unchanged SQL rows. Initial indexing, explicit full reread, and actual structural or relation-registry changes may rebuild the affected projection/schema. Do not use full rebuild as a generic recovery path for an incremental failure. Existing materialized query results remain stable while the source Projection is refreshed. Database and spill errors follow the same explicit failure boundary; do not hide them through retries or automatic restart.
-
-An invalid Current Scope Unit Declaration stops indexing and makes the owner unavailable. Report the error to stderr and require an explicit Workbench restart after correction. Do not skip the Declaration, serve partial or stale structure, or resume merely because its file changes. An explicit restart closes the old owner and constructs a fresh owner in the existing server; it does not restart MCP or the container.
-
-
-Write successful source-index database mutation metrics to stdout at INFO: operation, table, affected row count, reference when applicable, and elapsed milliseconds measured with a monotonic timer. The successful INFO refresh event includes total elapsed time and source-capture, materialization and database-write phase durations. These records are enabled by default and need no DEBUG setting. A bulk SQL write reports its measured batch timing. Log writes only after their transaction commits. These metrics do not change stderr source warnings or blocking runtime errors and do not create business Journal events.
-
-When native graph labels cannot distinguish registered Relation names that differ only by case, warn with all colliding names and source paths and omit every colliding type and its projected links. Preserve raw source facts; do not choose a winner, rename a model Relation or invent a graph alias.
-
-For a full source inventory, exclude archive and projection subtrees before expensive per-file checks. Resolve admitted role roots by ancestor membership rather than comparing every file with every Scope Unit. Preserve source and symlink boundaries.
-
-
-For an ordinary watcher batch, compare only affected raw source rows with their previous values. If no projection source changed, finish the sync without relation materialization, row hashing or database work. Explicit full reread, Scope Unit changes and Content-schema changes still use their existing full path. Equality must preserve value types, including the distinction between a Boolean and a number.
-
-Keep unchanged raw rows immutable within their SourceReader owner. “Same raw row” means the same strongly retained Python object (`is`), not `id()` or value equality. Reuse a prior materialized Atom row and hash only when the same raw row and the same outgoing relation facts are unchanged. Recompute changed rows and inverse-relation neighbours. Remove reused state for deleted, invalid or duplicate-excluded sources. This state is in memory and belongs to one Workbench owner; it is not a new source or stored cache. Publish the next reused state only after the database update succeeds.
-
-Keep the canonical Relation registry in the existing owner, using the compiler under CA-M-509. Reparse only changed registry source contributions for ordinary deltas. Regenerate the derived registry on every supported image rebuild, including local release. An actual registry, alias or inverse-binding change uses the existing full projection boundary. A full capture may compile the registry once; the service must not compile the same captured inventory twice. Preserve current source/graph hashes, inverse relations, schema rebuilding and failure handling.
-
-
-Expose the affected source paths from an ordinary capture, including removals and invalid exclusions; use an explicit full-capture marker for initial, structural and schema captures. Pass that bounded delta through materialization and database application instead of discovering changes by rebuilding the complete cached graph.
-
-For an ordinary delta, remove old direct facts of affected files and add their new direct facts. Update only changed outgoing owners and affected inverse neighbours. Reuse unrelated rows and facts. Apply only the resulting public-row, edge and reference changes to DuckDB in one transaction. Do not rebuild and compare GraphState over every cached Atom or Scope Unit to discover that delta.
-
-Retain enough owner-local node/edge contribution information to preserve a referenced endpoint when its source node disappears, and remove a reference only when no node or edge still contributes it. Handle deletion, rename, invalidation, repair and target reappearance. Duplicate-reference membership changes may use the existing conservative full boundary. Publish new materialization, schema and graph state only after the database update succeeds; an error keeps the existing explicit unavailable/restart boundary, not a retry or full-rebuild recovery path.
-
-Cached source records must retain the original Markdown and heading spans without storing a second complete section string for every heading. Reconstruct section text when needed. Preserve public parser output, compiled Content values and public row hashes, including legacy Claim handling and original line endings. This changes only the disposable Workbench cache; do not edit source Atoms or drop the caches needed for incremental speed.
-
-Cached source records must also omit duplicate direct Markdown text. Derive direct text from the original body and immediate-child heading spans when a declared Content value needs it; public parser records remain unchanged. Preserve the incremental caches and all Content values/hashes.
-
-Keep only aggregate Header schema counters between refreshes. For an incremental delta, compute contributions from its exact old and new materialized rows, subtract old contributions and add new contributions. Do not retain a second per-source Header contribution map or inspect unchanged Headers. Preserve full-inference parity, normalized-name collision checks, schema transitions and publication only after a successful transaction.
-
-Keep cached original Markdown in UTF-8 bytes rather than widened Python strings. Decode transiently when Content extraction or model-declaration compilation needs text; keep the existing public parser and public values as strings. Preserve original line endings, Content values, relation interpretation, source hashes and public row hashes. Do not retain another complete decoded body. Adopt this representation only after unprofiled correctness, ordinary-edit, bulk and rebuild gates pass; report measured process RAM separately from encoded-byte estimates.
-
-On a full rebuild, derive the public Atom and Scope Unit rows once and reuse those rows for SQL insertion and the retained projection snapshot. Do not repeat Content decoding, extraction or public-row hashing for the second consumer. This reuses the existing full-build result; it is not another retained cache. Publish the new snapshot only after the database transaction succeeds.
+Emit post-COMMIT INFO metrics (operation, table, count/reference, monotonic elapsed and refresh phases) without changing stderr diagnostics or creating Journal events. Case-colliding native relation labels warn and omit colliding projected links while raw source facts remain. Preserve UTF-8 original Markdown and reconstruct heading text transiently; do not retain duplicate decoded bodies or second per-source Header maps.
 
 ## Details
 
@@ -99,10 +60,4 @@ Technical background indexing of the selected source inventory into the file-bac
 
 ### Direct indexing inputs and publication
 
-For reconciliation, read YAML properties and real Markdown heading paths directly. Do not use a generic CFEL evaluator, prose interpreter, or intermediate per-Atom data file. Generated schema assets from declarations remain admitted.
-
-Derive the current Scope Unit inventory from Current Scope Unit Declarations only: a Draft Declaration remains queryable but does not establish a current Scope Unit. Store each indexed object's outgoing direct and declared-derived Relations in its own row while source carriers retain direct Relations only. When a source or relevant Declaration changes, rebuild affected source and counterpart rows, their hashes, and DuckPGQ vertex and edge mappings; refresh the registered property graph before making the new indexed state available to queries.
-
-For an invalid, unreadable, or unstable ordinary source, exclude its owned rows and supported direct and derived graph facts, refresh affected counterpart rows and hashes, report its path, error and available location to stderr, and continue with unrelated valid sources. Do not treat that source error as deletion, repair it, retain stale rows, return diagnostics as query rows, or automatically resubmit it. An invalid Current Scope Unit Declaration instead remains a fatal unavailable state requiring explicit restart after correction.
-
-Emit actual indexed, removed and excluded-source counts to technical stdout or stderr while reserving stdio MCP stdout for its protocol. After a successful refresh, release only disposable per-refresh parsing temporaries. Retain the owner-local parsed-source rows, signatures and incremental caches required for the existing delta algorithm and object-identity reuse. Existing materialized query results remain unchanged until the owner closes.
+Read YAML and actual Markdown headings directly, using generated declaration assets where admitted. Keep indexed source rows, `atoms`/`scope_units`, relation materialization, hashes and graph publication consistent with the successful transaction; `change_log` is technical observation data, not a source or graph fact.

@@ -9,12 +9,21 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "F13 Analysis heading conformance"
-  depends_on: [Analysis, "Atom/Carrier"]
+  governs: F13 Analysis heading conformance
+  depends_on:
+  - Analysis
+  - Atom/Carrier
 version: 1
-updated_at: "2026-10-04 14:05:41 +0000"
+updated_at: 2026-10-04 14:05:41 +0000
 relations:
-  concern_about: [CA-A-1125, CA-A-1138]
+  concern_about:
+  - CA-A-1125
+  - CA-A-1138
+ref_id: CA-C-398
+carrier_destination:
+  file:
+    name: CA-C-398-PROBLEM--normalize-the-f13-analysis-tldr-heading.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

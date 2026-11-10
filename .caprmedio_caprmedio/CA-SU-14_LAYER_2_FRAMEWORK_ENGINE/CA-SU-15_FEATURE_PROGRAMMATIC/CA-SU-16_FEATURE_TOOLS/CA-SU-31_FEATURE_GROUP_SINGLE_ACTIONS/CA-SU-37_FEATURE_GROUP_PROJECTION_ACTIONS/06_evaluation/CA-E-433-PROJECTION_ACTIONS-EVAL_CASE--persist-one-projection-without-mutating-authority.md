@@ -6,16 +6,16 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication"
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output
+    Publication
 tier: 4
 relations:
   evaluation_for:
   - CA-R-1387
   - CA-M-259
-  - CA-R-1076
 status: Active
-version: 21
-updated_at: 2026-11-04 15:23:33 +0400
+version: 22
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -23,6 +23,10 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: PROJECTION_ACTIONS
 claim_target_scope_unit: PROJECTION_ACTIONS
+carrier_destination:
+  file:
+    name: CA-E-433-PROJECTION_ACTIONS-EVAL_CASE--persist-one-projection-without-mutating-authority.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/CA-SU-31_FEATURE_GROUP_SINGLE_ACTIONS/CA-SU-37_FEATURE_GROUP_PROJECTION_ACTIONS/06_evaluation
 ---
 # Persist one Projection without mutating authority
 

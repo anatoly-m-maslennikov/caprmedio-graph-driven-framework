@@ -17,7 +17,13 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1429]
+  concern_about:
+  - CA-P-1429
+ref_id: CA-C-406
+carrier_destination:
+  file:
+    name: CA-C-406-PROBLEM--repair-the-layout-check-snapshot-transport.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

@@ -13,6 +13,11 @@ subjects:
   depends_on:
   - Subject/Graph/Relation
 relations: {}
+ref_id: CA-C-596
+carrier_destination:
+  file:
+    name: CA-C-596-QUESTION--should-typed-prerequisites-also-be-subject-topics.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

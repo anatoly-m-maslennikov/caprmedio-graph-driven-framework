@@ -18,8 +18,8 @@ from project_mcp_bootstrap import (  # noqa: E402
 
 
 RELATIVE = Path(
-    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/"
-    "APP_WORKFLOW_ORCHESTRATOR/docker/start_mcp.py"
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/"
+    "docker/start_mcp.py"
 )
 
 

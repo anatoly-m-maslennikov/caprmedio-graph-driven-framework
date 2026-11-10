@@ -8,14 +8,14 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
-    dependencies:
-    - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication
+    dependencies: []
   tier: 0
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 3
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
@@ -34,6 +34,8 @@ MCP.
 
 ## Claim
 
+
+### Prose Claim
 MCP **must** own the provider-neutral Model Context Protocol discovery, schema, **and** dispatch interface through which an agent:
 
 - invokes active CAPRMEDIO Tools;

@@ -1,7 +1,7 @@
 # CA-R-2728@6
 # CA-R-2776@6
 # CA-M-470@8
-# CA-D-673@13
+# CA-D-673@18
 # CA-R-2902@4
 # CA-R-2903@2
 # CA-D-681@8
@@ -62,13 +62,16 @@ NATIVE_TOOLS = (*mcp_app_probe.TOOL_NAMES, RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, 
 
 _CURSOR = {"type": "integer", "minimum": 0}
 _SQL = {"type": "string"}
-_RUN_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}, "cursor_position": _CURSOR, "preview": {"type": "integer", "minimum": 0}, "save": {"type": "boolean", "default": False}, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
+_DELIVERY = {"type": "string", "enum": ["file", "inline"], "default": "file"}
+_RESULT_FORMAT = {"type": "string", "enum": ["json_matrix", "csv", "toon"], "default": "json_matrix"}
+_PREVIEW = {"type": "integer", "minimum": 0}
+_RUN_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}, "cursor_position": _CURSOR, "preview": _PREVIEW, "save": {"type": "boolean", "default": False}, "name": _SQL, "result_delivery": _DELIVERY, "result_format": _RESULT_FORMAT}, "required": ["sql"], "additionalProperties": False}
 _CHECK_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "cursor_position": _CURSOR}, "required": ["sql"], "additionalProperties": False}
 _COLUMN_INDEX = {"type": "integer", "minimum": 0}
 _GRID_ORDER = {"type": "object", "properties": {"column": _COLUMN_INDEX, "direction": {"type": "string", "enum": ["asc", "desc"]}}, "required": ["column", "direction"], "additionalProperties": False}
 _GRID_FILTER = {"type": "object", "properties": {"column": _COLUMN_INDEX, "operator": {"type": "string", "enum": ["contains"]}, "value": _SQL}, "required": ["column", "operator", "value"], "additionalProperties": False}
 _GRID_SCHEMA = {"type": "object", "properties": {"sort": {"type": "array", "items": _GRID_ORDER}, "filters": {"type": "array", "items": _GRID_FILTER}, "group_by": _GRID_ORDER}, "additionalProperties": False}
-_PAGE_SCHEMA = {"type": "object", "properties": {"grid": _GRID_SCHEMA,"query_id": _SQL, "offset": {"type": "integer", "minimum": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}}, "required": ["query_id", "offset"], "additionalProperties": False}
+_PAGE_SCHEMA = {"type": "object", "properties": {"grid": _GRID_SCHEMA, "query_id": _SQL, "offset": {"type": "integer", "minimum": 0, "default": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000}, "preview": _PREVIEW, "result_delivery": _DELIVERY, "result_format": _RESULT_FORMAT}, "required": ["query_id"], "additionalProperties": False}
 _VIEW_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "name": _SQL}, "required": ["sql"], "additionalProperties": False}
 _LOAD_SCHEMA = {"type": "object", "properties": {"reference": _SQL}, "required": ["reference"], "additionalProperties": False}
 _LIST_SCHEMA = {"type": "object", "properties": {"limit": {"type": "integer", "minimum": 1, "maximum": 1000}}, "additionalProperties": False}
@@ -76,7 +79,6 @@ _EMPTY_SCHEMA = {"type": "object", "properties": {}, "additionalProperties": Fal
 _WORKSPACE_ID = {"type": "string", "minLength": 1}
 _VIEW_ID = {"type": "string", "minLength": 1}
 _POSITION = {"type": "string", "enum": ["first", "last"], "default": "last"}
-_PREVIEW = {"type": "integer", "minimum": 0}
 _WORKSPACE_OPEN_SCHEMA = {"type": "object", "properties": {"session_id": _WORKSPACE_ID}, "required": ["session_id"], "additionalProperties": False}
 _WORKSPACE_GET_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID}, "required": ["workspace_id"], "additionalProperties": False}
 _VIEW_CREATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "position": _POSITION, "name": _SQL}, "required": ["workspace_id"], "additionalProperties": False}
@@ -84,7 +86,7 @@ _VIEW_DUPLICATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORK
 _VIEW_GET_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_UPDATE_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "sql": _SQL, "cursor_position": _CURSOR, "expected_revision": {"type": "integer", "minimum": 0}}, "required": ["workspace_id", "view_id", "sql", "expected_revision"], "additionalProperties": False}
 _VIEW_RUN_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "cursor_position": _CURSOR, "preview": _PREVIEW, "save": {"type": "boolean", "default": False}, "name": _SQL}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
-_VIEW_FETCH_SCHEMA = {"type": "object", "properties": {"grid": _GRID_SCHEMA,"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "offset": {"type": "integer", "minimum": 0, "default": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000, "default": 100}, "preview": _PREVIEW}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
+_VIEW_FETCH_SCHEMA = {"type": "object", "properties": {"grid": _GRID_SCHEMA, "workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "offset": {"type": "integer", "minimum": 0, "default": 0}, "page_size": {"type": "integer", "minimum": 1, "maximum": 1000, "default": 100}, "preview": _PREVIEW, "result_delivery": _DELIVERY, "result_format": _RESULT_FORMAT}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_CHECK_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "cursor_position": _CURSOR}, "required": ["workspace_id", "view_id"], "additionalProperties": False}
 _VIEW_RENAME_SCHEMA = {"type": "object", "properties": {"workspace_id": _WORKSPACE_ID, "view_id": _VIEW_ID, "name": _SQL}, "required": ["workspace_id", "view_id", "name"], "additionalProperties": False}
 _QUERY_LOG_GET_SCHEMA = {"type": "object", "properties": {"log_id": _WORKSPACE_ID}, "required": ["log_id"], "additionalProperties": False}
@@ -108,6 +110,8 @@ def native_tools() -> tuple[types.Tool, ...]:
     writes = {RUN, SAVE_VIEW, WORKSPACE_OPEN, VIEW_CREATE, VIEW_DUPLICATE, VIEW_UPDATE, VIEW_RUN, VIEW_FOCUS,
               VIEW_RENAME, VIEW_REMOVE, RESTART, REREAD}
     descriptions = {
+        LOAD: "Load an explicitly requested Bookmark or saved View.",
+        SAVED_LIST: "List recent Bookmark and saved View metadata.",
         SYNC_STATUS: "Read source-indexing status without starting or restarting Workbench.",
         WORKSPACE_OPEN: "Initialize or resume the Workspace bound to one browser or native session.",
         WORKSPACE_LIST: "List known Workspace IDs for the selected Project.",
@@ -169,17 +173,20 @@ class WorkbenchTools:
             if name in INTERFACE_TOOLS:
                 return self._owner().interface_call(name, arguments)
             if name == RUN:
-                sql, page_size, cursor, save, preview, query_name = self._run(arguments)
+                sql, page_size, cursor, save, preview, query_name, delivery, result_format = self._run(arguments)
                 return self._owner().run(
                     sql, page_size=page_size, cursor_position=cursor,
                     save=save, preview=preview, name=query_name,
+                    result_delivery=delivery, result_format=result_format,
                 )
             if name == CHECK:
                 sql, cursor = self._sql(arguments, {"sql", "cursor_position"})
                 return self._owner().check(sql, cursor_position=cursor)
             if name == PAGE:
-                query_id, offset, page_size, grid = self._page(arguments)
-                return self._owner().page(query_id, offset, page_size=page_size, grid=grid)
+                query_id, offset, page_size, grid, preview, delivery, result_format = self._page(arguments)
+                return self._owner().page(query_id, offset, page_size=page_size, grid=grid,
+                                          preview=preview, result_delivery=delivery,
+                                          result_format=result_format)
             if name == SCHEMA:
                 self._empty(arguments)
                 return self._owner().schema()
@@ -246,32 +253,45 @@ class WorkbenchTools:
             raise ValueError("name must be a string")
         return value
 
-    def _run(self, arguments: Any) -> tuple[str, int, int | None, bool, int | None, str | None]:
-        sql, cursor = self._sql(arguments, {"sql", "page_size", "cursor_position", "save", "preview", "name"})
-        save = arguments.get("save", False)
-        if type(save) is not bool:
-            raise ValueError("save must be a boolean")
+    @staticmethod
+    def _result_options(arguments: dict[str, Any]) -> tuple[int | None, str, str]:
         preview = arguments.get("preview")
         if preview is not None and (isinstance(preview, bool) or not isinstance(preview, int) or preview < 0):
             raise ValueError("preview must be a non-negative integer")
+        delivery = arguments.get("result_delivery", "file")
+        if not isinstance(delivery, str) or delivery not in {"file", "inline"}:
+            raise ValueError("result_delivery must be file or inline")
+        result_format = arguments.get("result_format", "json_matrix")
+        if not isinstance(result_format, str) or result_format not in {"json_matrix", "csv", "toon"}:
+            raise ValueError("result_format must be json_matrix, csv or toon")
+        return preview, delivery, result_format
+
+    def _run(self, arguments: Any) -> tuple[str, int, int | None, bool, int | None, str | None, str, str]:
+        sql, cursor = self._sql(arguments, {"sql", "page_size", "cursor_position", "save", "preview", "name", "result_delivery", "result_format"})
+        save = arguments.get("save", False)
+        if type(save) is not bool:
+            raise ValueError("save must be a boolean")
+        preview, delivery, result_format = self._result_options(arguments)
         if "name" in arguments and not isinstance(arguments["name"], str):
             raise ValueError("name must be a string")
         query_name = arguments.get("name")
         if query_name is not None and not save:
             raise ValueError("name is only valid when save is true")
-        return sql, self._page_size(arguments), cursor, save, preview, query_name
+        return sql, self._page_size(arguments), cursor, save, preview, query_name, delivery, result_format
 
-    def _page(self, arguments: Any) -> tuple[str, int, int, Any]:
-        if not isinstance(arguments, dict) or set(arguments) - {"query_id", "offset", "page_size", "grid"} or {"query_id", "offset"} - set(arguments):
-            raise ValueError("Expected query_id, offset, optional page_size and grid")
+    def _page(self, arguments: Any) -> tuple[str, int, int, Any, int | None, str, str]:
+        allowed = {"query_id", "offset", "page_size", "grid", "preview", "result_delivery", "result_format"}
+        if not isinstance(arguments, dict) or set(arguments) - allowed or "query_id" not in arguments:
+            raise ValueError("Expected query_id and optional pagination, grid and result options")
         if "grid" in arguments and not isinstance(arguments["grid"], dict):
             raise ValueError("grid must be an object")
-        query_id, offset = arguments["query_id"], arguments["offset"]
+        query_id, offset = arguments["query_id"], arguments.get("offset", 0)
         if not isinstance(query_id, str):
             raise ValueError("query_id must be a string")
         if isinstance(offset, bool) or not isinstance(offset, int) or offset < 0:
             raise ValueError("offset must be a non-negative integer")
-        return query_id, offset, self._page_size(arguments), arguments.get("grid")
+        preview, delivery, result_format = self._result_options(arguments)
+        return query_id, offset, self._page_size(arguments), arguments.get("grid"), preview, delivery, result_format
 
     @staticmethod
     def _empty(arguments: Any) -> None:

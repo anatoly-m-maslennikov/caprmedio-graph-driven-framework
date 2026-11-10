@@ -1,37 +1,43 @@
 ---
-atom_id: CA-R-1816
-ref_id: CA-R-1816
-container:
-  scope_unit: CA-SU-21
-role: Requirement
-form: Rule
-topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
-  dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-tier: 3
-status: Active
-version: 12
-updated_at: 2026-10-27 20:00:03 +0400
-carrier_destination:
+identity:
+  atom_id: CA-R-1816
+  ref_id: CA-R-1816
+context:
+  container:
+    scope_unit: CA-SU-21
+  role: requirement
+  form: rule
+  topics:
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication
+    dependencies:
+    - MODEL//CAPRMEDIO <+ Actor/Operator
+    - MODEL//CAPRMEDIO <+ Project
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+    - MODEL//CAPRMEDIO <+ Atom
+  tier: 3
+state:
+  status: Active
+  version: 13
+  updated_at: 2026-11-10 20:47:54 +0400
+destination:
   file:
     name: CA-R-1816-MCP-RULE--report-server-and-client-refresh-separately.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Report server and client refresh separately
 
-## Scope
+## Claim scope
 
 server-side hot reload for the Project-local MCP gateway.
 
 ## Claim
+
+### Prose Claim
 
 the MCP gateway **must** distinguish successful server publication from confirmed client discovery of the published Tool registry.
 

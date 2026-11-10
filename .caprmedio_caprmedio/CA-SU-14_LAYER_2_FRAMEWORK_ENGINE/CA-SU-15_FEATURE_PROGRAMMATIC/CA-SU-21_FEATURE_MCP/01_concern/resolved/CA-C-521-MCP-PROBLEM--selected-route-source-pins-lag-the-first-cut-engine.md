@@ -20,7 +20,16 @@ subjects:
   - Journal
   - Subject/Engineering/Carrier/File Carrier
 relations:
-  concern_about: [CA-P-1612, CA-P-1123, CA-P-1124, CA-D-588]
+  concern_about:
+  - CA-P-1612
+  - CA-P-1123
+  - CA-P-1124
+  - CA-D-588
+ref_id: CA-C-521
+carrier_destination:
+  file:
+    name: CA-C-521-MCP-PROBLEM--selected-route-source-pins-lag-the-first-cut-engine.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/01_concern/resolved
 ---
 # Summary
 

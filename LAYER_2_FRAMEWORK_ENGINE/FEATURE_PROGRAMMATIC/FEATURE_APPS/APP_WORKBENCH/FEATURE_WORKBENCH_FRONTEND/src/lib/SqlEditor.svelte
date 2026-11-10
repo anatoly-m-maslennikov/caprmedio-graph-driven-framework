@@ -1,10 +1,10 @@
-<!-- CA-M-468@5 -->
+<!-- CA-M-468@7 -->
 <script lang="ts">
   import { autocompletion, type Completion, type CompletionContext } from '@codemirror/autocomplete';
   import { defaultKeymap, history, historyKeymap } from '@codemirror/commands';
-  import { syntaxHighlighting } from '@codemirror/language';
+  import { syntaxHighlighting, syntaxTree } from '@codemirror/language';
   import { classHighlighter } from '@lezer/highlight';
-  import { sql } from '@codemirror/lang-sql';
+  import { schemaCompletionSource, sql } from '@codemirror/lang-sql';
   import { Annotation, Compartment, EditorState, Prec } from '@codemirror/state';
   import { EditorView, keymap } from '@codemirror/view';
   import { onMount } from 'svelte';
@@ -24,20 +24,28 @@
   const externalUpdate = Annotation.define<boolean>();
 
   const quoted = (name: string) => `"${name.replaceAll('"', '""')}"`;
-  function options(currentSchema: Schema): Completion[] {
+  function options(currentSchema: Schema, qualifier?: string): Completion[] {
     return Object.entries(currentSchema.tables).flatMap(([table, columns]) => [
-      { label: table, type: 'class' },
-      ...columns.map((column) => ({ label: `${table}.${quoted(column.name)}`, apply: quoted(column.name), detail: column.type, type: 'property' })),
+      ...(!qualifier ? [{ label: table, type: 'class' }] : []),
+      ...columns.map((column) => ({ label: qualifier ? quoted(column.name) : `${table}.${quoted(column.name)}`, apply: quoted(column.name), detail: column.type, type: 'property' })),
     ]);
   }
   function source(context: CompletionContext, currentSchema = schema) {
-    const status = statusCompletion(context.state.doc.toString(), context.pos, currentSchema);
+    const token = syntaxTree(context.state).resolveInner(context.pos, -1);
+    const status = statusCompletion(context.state.doc.toString(), context.pos, currentSchema, token.name === 'String' ? token.to : undefined);
     if (status) {
-      return { from: status.from, to: status.to, filter: false, options: status.values.map((value) => ({ label: value, apply: `${value}'`, type: 'enum' })) };
+      return { from: status.from, to: status.to, filter: false, options: status.values.map((value) => ({ label: value, apply: `${value.replaceAll("'", "''")}'`, type: 'enum' })) };
     }
     const word = context.matchBefore(/[\w."]*/);
     if (!context.explicit && (!word || word.from === word.to)) return null;
-    return { from: word?.from ?? context.pos, options: options(currentSchema) };
+    const schemaSource = schemaCompletionSource({ schema: Object.fromEntries(Object.entries(currentSchema.tables).map(([table, columns]) => [table,
+      columns.map((column) => ({ label: column.name, apply: quoted(column.name), detail: column.type, type: 'property' }))])) });
+    const qualified = token.parent?.name === 'CompositeIdentifier' ? schemaSource(context) : null;
+    const tokenEnd = ['Identifier', 'QuotedIdentifier'].includes(token.name) ? token.to : context.pos;
+    if (qualified) return { ...qualified, to: Math.max(qualified.to ?? context.pos, tokenEnd) };
+    const candidate = word?.text.match(/^(?:"(?:[^"]|"")*"|[\w]+)\./)?.[0];
+    const qualifier = candidate && !Object.values(currentSchema.tables).some((columns) => columns.some((column) => column.name.startsWith(candidate))) ? candidate : undefined;
+    return { from: (word?.from ?? context.pos) + (qualifier?.length ?? 0), to: tokenEnd, options: options(currentSchema, qualifier) };
   }
   const position = () => view?.state.selection.main.head ?? cursor;
   function shortcut(event: KeyboardEvent) {

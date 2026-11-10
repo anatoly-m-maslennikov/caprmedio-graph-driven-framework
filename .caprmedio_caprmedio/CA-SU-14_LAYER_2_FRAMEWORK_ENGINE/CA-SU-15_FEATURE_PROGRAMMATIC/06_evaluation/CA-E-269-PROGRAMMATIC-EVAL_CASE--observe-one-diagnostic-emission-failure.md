@@ -6,16 +6,17 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
 tier: 5
 relations:
   evaluation_for:
   - CA-M-414
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 24
-updated_at: 2026-11-02 19:44:26 +0400
+version: 25
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -23,35 +24,46 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-269-PROGRAMMATIC-EVAL_CASE--observe-one-diagnostic-emission-failure.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Observe one diagnostic emission failure
+## Summary
 
-## Claim checked
+Observe one diagnostic emission failure
+
+## Claim
+
+
+
+### Prose Claim
+#### Claim checked
 
 one failure **to** emit a PROGRAMMATIC operational diagnostic is observable **and**
 does **not** silently break the primary work.
 
-## Applicable conditions
+#### Applicable conditions
 
 apply **when** a component has a declared operational-diagnostic path **and** a
 separate primary work outcome.
 
-## Test case
+#### Test case
 
 cause one declared diagnostic emission **to** fail while the associated primary
 work remains **otherwise** executable.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 pass **only** **when** the primary work reaches its declared outcome **or** failure
 boundary, **and** the diagnostic-emission failure is itself observable through its
 declared recovery **or** reporting path.
 
-## Failure disposition
+#### Failure disposition
 
 reject the diagnostic path **when** it hides its own failure **or** silently changes
 the primary work result.
 
-## Sources
+#### Sources
 
 - [CA-M-414 — Emit structured operational diagnostics](../05_method/CA-M-414-PROGRAMMATIC-ENG_POLICY--emit-structured-operational-diagnostics.md)

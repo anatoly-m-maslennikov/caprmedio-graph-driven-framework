@@ -31,7 +31,8 @@ Minimum runtime after legacy Tool retirement
 
 ## Details
 
-The checkpoint before retirement is commit `3491118b5b`, pushed to `amm/dev`.
+The pre-retirement checkpoint is `3491118b5b`. The main retirement checkpoint is
+`c5a2727db6`. Both were pushed to `amm/dev`.
 This change retires code first. It does not claim that source Atoms have been
 reconciled, that an installed runtime has changed, or that a release has run.
 
@@ -99,13 +100,31 @@ a whole-project typing claim.
 
 Canonical Programmatic Python files outside test directories decreased from
 345 to 140. The final AST scan found no production import of a deleted module.
-Deletion includes 54 old orchestrator runtime modules, 92 exclusive app tests
+At the main retirement checkpoint, deletion included 54 old orchestrator runtime modules, 92 exclusive app tests
 and helpers, 78 MCP files, 396 Tool files, and 3,074 obsolete tracked package-copy files. Tool
 counts include the old graph implementation and its obsolete fixtures/tests;
 these categories must not be added a second time. Retained shared helpers were
 checked against actual consumers rather than preserved as compatibility APIs.
 
 No full-suite rerun, Docker build, release or deployment was performed. The
-retirement remains local; only the pre-retirement checkpoint was pushed.
+main retirement was pushed as `c5a2727db6`; the audit cleanup below remains local.
 Methodology/source Atom reconciliation and installed-runtime replacement remain
 separate work.
+
+### Audit cleanup after the main checkpoint
+
+Removed four unreferenced config/prompt files, three unused validator authority manifests, and 161 orphan workflow-fixture files with five exclusive helpers. The retained Graph Rule loader now reads only its required schema authority manifest. Stale validator, release and shared-MCP documentation was reconciled with the current code.
+
+Runtime package and Docker inputs exclude Programmatic tests, fixtures and prose Markdown while preserving implementation Skills, schemas, frontend/build assets, methodology sources and compiled methodology. Workbench resource acceptance mounts the host test directory read-only. Two scope-declaration fixture helpers that live outside test directories are also excluded from runtime packaging while remaining available to host tests. The full-suite runner no longer invokes the deleted legacy launcher CLI.
+
+Fixed the missed retained-test imports of deleted status/admission modules and Docker bridge code. Removed the exclusively retired admission/archive/route test cases instead of restoring their implementation. A final AST scan across canonical production and test files found no import of a uniquely deleted module.
+
+Focused verification: 161 Subject-builder tests; MCP frontier 1; Project context 4; Workbench source reader 33; Graph Rule body 24 and declaration sources 12; package 29; runner 13 + 8 + 4; resource harness 1; image override 3; release CLI 13; public release 3. The live-canary module passed its fixture case with the live probe explicitly skipped. The single-root context test passed host-native after a sandbox FSEvents failure. These are focused checks, not a full-suite or built-image acceptance claim.
+
+### Report and inventory relocation
+
+The five loose reports became Analysis Report Atoms: [CA-A-1330](../../../02_analysis/CA-A-1330-ANALYSIS_REPORT--review-449-plans-semantic-adjudication.md), [CA-A-1331](../../../02_analysis/CA-A-1331-ANALYSIS_REPORT--assess-harness2-fit-for-caprmedio.md), [CA-A-1332](../../../02_analysis/CA-A-1332-ANALYSIS_REPORT--harvest-development-quality-gates.md), [CA-A-1333](../../../02_analysis/CA-A-1333-ANALYSIS_REPORT--challenge-subject-model-candidate-10.md), [CA-A-1334](../../../02_analysis/CA-A-1334-ANALYSIS_REPORT--challenge-formal-model-specification-proposal.md). Their original report bytes are preserved in Details; the original root paths were removed. Historical self-references inside the preserved report text were left as evidence.
+
+The frontend Draft-ownership inventory is preserved as [CA-PROJ-027](../../../_projection/CA-PROJ-027-FEATURE_WORKBENCH_FRONTEND--Map--Historical-P2724-Draft-Inventory.md), a historical Map pinned to its exact source bytes in `c5a2727db6`. It was not rebuilt against Current Atoms.
+
+Remaining limits: follow-up cleanup is local and has not been pushed, built, released or deployed. Production and its older installed package remain unchanged.

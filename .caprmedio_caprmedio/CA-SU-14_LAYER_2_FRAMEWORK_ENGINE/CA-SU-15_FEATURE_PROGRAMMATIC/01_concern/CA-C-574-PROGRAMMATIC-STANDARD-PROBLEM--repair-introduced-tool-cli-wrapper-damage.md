@@ -8,16 +8,24 @@ form: Problem
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
-  concern_about: [CA-P-2562, CA-P-2569, CA-M-395, CA-E-639]
+  concern_about:
+  - CA-P-2562
+  - CA-P-2569
+  - CA-M-395
+  - CA-E-639
 status: Resolved
 version: 2
-updated_at: "2026-10-21T20:45:37Z"
+updated_at: '2026-10-21T20:45:37Z'
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 priority: high
+carrier_destination:
+  file:
+    name: CA-C-574-PROGRAMMATIC-STANDARD-PROBLEM--repair-introduced-tool-cli-wrapper-damage.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

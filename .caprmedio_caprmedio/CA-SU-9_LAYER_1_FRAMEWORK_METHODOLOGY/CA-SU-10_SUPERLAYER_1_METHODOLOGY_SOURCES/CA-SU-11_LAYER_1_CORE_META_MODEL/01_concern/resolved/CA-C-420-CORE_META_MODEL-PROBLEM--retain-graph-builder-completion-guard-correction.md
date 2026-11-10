@@ -18,7 +18,17 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
   - Subject/Engineering/Carrier
 relations:
-  concern_about: [CA-P-1441, CA-O-133, CA-O-134, CA-O-136, CA-O-137]
+  concern_about:
+  - CA-P-1441
+  - CA-O-133
+  - CA-O-134
+  - CA-O-136
+  - CA-O-137
+ref_id: CA-C-420
+carrier_destination:
+  file:
+    name: CA-C-420-CORE_META_MODEL-PROBLEM--retain-graph-builder-completion-guard-correction.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

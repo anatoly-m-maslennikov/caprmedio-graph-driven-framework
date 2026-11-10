@@ -8,22 +8,52 @@ context:
   role: Requirement
   form: Scope Delegation
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//APPS
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//APPS
   tier: 3
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-08 22:18:08 +0400
+  version: 3
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2659-PROGRAMMATIC-SCOPE_DELEGATION--declare-apps.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
+author: Anatoly Maslennikov
 ---
 ## Summary
 
 Declare APPS
 
 ## Claim
+
+
+### Prose Claim
+
+The additional admitted local Role/Form pairs are:
+
+- Requirement / Solution;
+- Method / Approach Policy;
+- Requirement / Rule.
+
+Existing default admissions, including Scope Delegation, remain unchanged. These permissions apply only to local Atoms whose Header.Container-derived IS_CONTAINED_BY target is `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//APPS`.
+
+- Concern / Problem;
+- Concern / Question;
+
+Eligible HAS_ACTIVE_SUBJECT targets are exactly the declared model entities or declared instances resolved at these addresses:
+
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure`;
+
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication`
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//WORKBENCH`
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control`
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Interaction <+ Accessibility`
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization`
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Output Publication`
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Recovery`
+
+The selection contains exact objects only, not strings, type members, or descendants; an unresolved address grants no admission.
 
 ### Formal Claim
 
@@ -39,8 +69,3 @@ Scope Unit//APPS.order.ordered == false;
 
 Scope Unit//APPS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
-
-
-### Prose Claim
-
-The additional admitted local Role/Form pairs are `Requirement/Solution` and `Requirement/Scope Delegation`; existing default admissions remain unchanged. Eligible active targets are exactly the declared model entities or declared instances resolved at following existing active Subject addresses: `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication`, `CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKFLOW_ORCHESTRATOR`, `CAPRMEDIO_STRUCTURE <+ Scope Unit//GRAPH_UI`, and `CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH`. The selection contains those exact objects, not strings, type members, or descendants; an unresolved diagnostic grants none. These permissions apply only to local Atoms whose Header.Container-derived IS_CONTAINED_BY target is Scope Unit//APPS.

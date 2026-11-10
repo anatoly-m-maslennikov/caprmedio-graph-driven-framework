@@ -8,18 +8,22 @@ context:
   role: Method
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
-      Architecture <+ Component Structure
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Frontend Engineering <+ Libraries and Frameworks
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2727
+  depends_on:
+  - CA-R-3022
+  SPECIALIZES:
+  - CA-M-222
 state:
   status: Active
-  version: 8
-  updated_at: 2026-11-09 17:00:18 +0400
+  version: 9
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-466-WORKBENCH_FRONTEND-SOLUTION--use-svelte-typescript-and-vite-for-workbench.md
@@ -28,7 +32,6 @@ current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Use Svelte, TypeScript and Vite for Workbench
@@ -41,10 +44,8 @@ The Workbench frontend.
 
 ### Prose Claim
 
-Use Svelte components and TypeScript for the Workbench frontend, and Vite for its production build. Serve static assets through the existing Python application. Node is required for building, not for serving the running application.
+Bind the frontend to the shared backend query, View and saved-resource contract. Preserve supplied request/result/cancellation/stale/error states; the frontend is neither backend authority nor effect owner.
 
-Keep presentation, formatting, page navigation and UI state in the frontend. Keep SQL execution, filtering, sorting, aggregation and stable result materialization in DuckDB. The browser requests bounded pages and does not load a complete large result to reproduce database operations.
+Use Svelte components and TypeScript, built by Vite and served as static assets through the existing Python application. Node is build-only. Keep presentation, formatting, navigation and UI state in the browser; DuckDB owns SQL execution/filtering/sorting/aggregation and stable materialization. Request bounded pages rather than loading a complete large result.
 
-Use the connector's `columns[].has_values` metadata, computed across the complete result, to hide fully empty columns in non-empty results. For this metadata only, NULL, empty strings, empty arrays and empty objects are empty; false and zero are values, and a nested object with keys is non-empty even when a nested value is null. For a zero-row result, the connector sets `has_values: true` for every returned column so all headers remain visible. This display choice does not change SQL values, row counts or column counts, and it stays identical across pages.
-
-Reuse a small component palette from the start. Do not add a frontend router, state framework or separate web server for this query page.
+Use complete-result `columns[].has_values` metadata to hide fully empty columns only in non-empty results: NULL, empty string/array/object are empty; false, zero and objects with keys are values. Zero-row results set every column true so headers remain visible. This display rule never changes values/counts and is identical across pages. Reuse a small component palette; add no router, state framework or second web server.

@@ -16,7 +16,13 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1431]
+  concern_about:
+  - CA-P-1431
+ref_id: CA-C-409
+carrier_destination:
+  file:
+    name: CA-C-409-PROBLEM--repair-the-formatting-task-completion-save.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

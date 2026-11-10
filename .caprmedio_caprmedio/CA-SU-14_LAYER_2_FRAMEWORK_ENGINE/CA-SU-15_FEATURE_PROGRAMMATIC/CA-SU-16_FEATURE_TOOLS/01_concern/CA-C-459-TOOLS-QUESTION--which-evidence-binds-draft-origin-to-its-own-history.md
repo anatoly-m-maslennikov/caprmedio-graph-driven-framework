@@ -14,7 +14,11 @@ topics:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
   - Subject/Engineering/Atom Lifecycle/Dispatch Interface
 relations:
-  concern_about: [CA-P-1662, CA-P-1675, CA-D-568, CA-D-570]
+  concern_about:
+  - CA-P-1662
+  - CA-P-1675
+  - CA-D-568
+  - CA-D-570
 status: Resolved
 version: 4
 updated_at: 2026-10-23 01:47:30 +0400
@@ -22,6 +26,10 @@ current_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
+carrier_destination:
+  file:
+    name: CA-C-459-TOOLS-QUESTION--which-evidence-binds-draft-origin-to-its-own-history.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern
 ---
 # Summary
 

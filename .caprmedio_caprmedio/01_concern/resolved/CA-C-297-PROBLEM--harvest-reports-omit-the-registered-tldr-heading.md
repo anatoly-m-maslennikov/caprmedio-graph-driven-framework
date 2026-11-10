@@ -8,17 +8,22 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Session-harvest Analysis/Main Content"
+  governs: Session-harvest Analysis/Main Content
   depends_on:
-    - "Markdown Atom Carrier/Main Content"
+  - Markdown Atom Carrier/Main Content
 version: 1
-updated_at: "2026-10-04 07:41:00 +0400"
+updated_at: 2026-10-04 07:41:00 +0400
 relations:
   concern_about:
-    - CA-A-906
-    - CA-A-907
-    - CA-A-908
-    - CA-P-1118
+  - CA-A-906
+  - CA-A-907
+  - CA-A-908
+  - CA-P-1118
+ref_id: CA-C-297
+carrier_destination:
+  file:
+    name: CA-C-297-PROBLEM--harvest-reports-omit-the-registered-tldr-heading.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

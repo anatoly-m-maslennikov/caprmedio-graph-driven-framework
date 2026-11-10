@@ -8,15 +8,20 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Native evidence transport completeness"
+  governs: Native evidence transport completeness
   depends_on:
-    - "Artifact"
+  - Artifact
 version: 2
-updated_at: "2026-10-04 14:07:05 +0400"
+updated_at: 2026-10-04 14:07:05 +0400
 relations:
   concern_about:
-    - CA-P-1300
-    - CA-P-1304
+  - CA-P-1300
+  - CA-P-1304
+ref_id: CA-C-320
+carrier_destination:
+  file:
+    name: CA-C-320-PROBLEM--reject-incomplete-p1300-reading-transports.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

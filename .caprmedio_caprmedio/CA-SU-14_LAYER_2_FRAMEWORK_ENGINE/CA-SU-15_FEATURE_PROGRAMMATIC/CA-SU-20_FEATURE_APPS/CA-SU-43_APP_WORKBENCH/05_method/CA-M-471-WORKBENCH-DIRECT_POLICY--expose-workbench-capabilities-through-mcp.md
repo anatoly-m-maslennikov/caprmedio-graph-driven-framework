@@ -8,8 +8,8 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
-      Architecture <+ Communication <+ Interface Contracts
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication <+ Interface Contracts
   tier: 4
 relations:
   method_for:
@@ -19,8 +19,8 @@ relations:
   - CA-R-2727
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 7
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-471-WORKBENCH-DIRECT_POLICY--expose-workbench-capabilities-through-mcp.md
@@ -45,3 +45,5 @@ Workbench backend capabilities exposed through MCP.
 Implement each Workbench backend capability once in the shared backend. Expose it through web and MCP adapters with the same arguments, results, errors and saved URLs. Include `query_run(save=true)`, `query_page`, `query_check`, `query_schema`, `view_save`, `query_load` and `query_saved_list`. There is no separate `query_save` or `worksheet_save` capability. Browser-only preferences and local draft state are not backend capabilities and are not exposed through MCP.
 
 Workspace and View coordination is a backend capability and is exposed through MCP with the same state as the embedded interface. Native Codex chat is outside Workbench; Workbench does not duplicate its conversation control.
+
+Result-file export is a shared backend capability available through both interfaces. Use the same explicit `result_delivery` and `result_format` arguments. File delivery is the default; browser grids request inline pages. Omit automatic SQL echoes from execution, validation and result fetch. Explicit SQL reads remain available.

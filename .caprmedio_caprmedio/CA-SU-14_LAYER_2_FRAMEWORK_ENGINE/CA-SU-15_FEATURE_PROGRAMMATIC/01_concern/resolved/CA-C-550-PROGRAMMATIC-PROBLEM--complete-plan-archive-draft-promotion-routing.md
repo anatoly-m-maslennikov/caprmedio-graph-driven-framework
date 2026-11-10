@@ -13,9 +13,16 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2484, CA-P-2491]
+  concern_about:
+  - CA-P-2484
+  - CA-P-2491
 version: 4
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-550
+carrier_destination:
+  file:
+    name: CA-C-550-PROGRAMMATIC-PROBLEM--complete-plan-archive-draft-promotion-routing.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

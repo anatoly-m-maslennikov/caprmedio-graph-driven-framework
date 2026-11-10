@@ -15,7 +15,13 @@ subjects:
   - Subject/Engineering/Structural Change/Reference Coverage
   - Subject/Engineering/Source Discovery/Declared References
 relations:
-  concern_about: [CA-P-1759]
+  concern_about:
+  - CA-P-1759
+ref_id: CA-C-485
+carrier_destination:
+  file:
+    name: CA-C-485-TOOLS-PROBLEM--verify-structural-reference-coverage.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

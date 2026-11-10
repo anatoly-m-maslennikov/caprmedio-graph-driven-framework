@@ -6,48 +6,36 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 4
 relations:
   evaluation_for:
-  - CA-M-192
-  derived_from:
+  - CA-R-1095
+  DERIVED_FROM:
   - CA-A-058
 status: Active
-version: 19
-updated_at: 2026-10-27 19:59:33 +0400
+version: 20
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-374-PROGRAMMATIC-EVAL_CASE--separate-action-creation-from-provenance-reliance.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Separate action creation from provenance reliance
+## Summary
 
-## Claim checked
+Separate action creation from provenance reliance
 
-one action **may** complete its originating mutation while provenance is pending,
-but a later release **or** promotion-dependent action cannot rely on it **before**
-reconciliation.
+## Claim
 
-## Test case
+### Prose Claim
 
-complete one mutation into `git_complete_journal_pending`, **then** request a later
-release that depends on that action's provenance.
-
-## Acceptance criteria
-
-pass **only** **when** the originating mutation remains complete **and** the later release
-is blocked **until** the action becomes `reconciled`.
-
-## Failure disposition
-
-reject either behavior that blocks the originating mutation on its own pending
-state **or** permits later governed reliance **before** reconciliation.
-
-## Sources
-
-- [CA-M-192 — Reconcile independent Git and Journal provenance](../05_method/CA-M-192-PROGRAMMATIC-METHOD--reconcile-independent-git-and-journal-provenance.md)
+An action may complete with observable pending Git/Journal provenance. That pending state is not reconciled, but Journal incompleteness alone does not gate its mutation, ordinary later work, promotion or release; retain detection of missing, unreachable, duplicate, mismatch and lag evidence.

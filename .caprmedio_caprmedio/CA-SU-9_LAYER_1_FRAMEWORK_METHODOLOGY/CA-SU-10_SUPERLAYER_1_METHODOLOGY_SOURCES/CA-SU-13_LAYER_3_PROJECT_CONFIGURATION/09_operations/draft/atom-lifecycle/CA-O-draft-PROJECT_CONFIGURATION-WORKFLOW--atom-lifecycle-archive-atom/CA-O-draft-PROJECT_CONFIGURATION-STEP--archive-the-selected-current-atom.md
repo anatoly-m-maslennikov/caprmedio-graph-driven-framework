@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Selected source, `projectContext`, and any internal `expectedSource`.
+Selected source, `projectContext`.
 
 ### Fixed parameters
 

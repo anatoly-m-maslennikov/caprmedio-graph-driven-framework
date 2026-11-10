@@ -8,14 +8,19 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Scoped harvest diagnostic exclusions"
+  governs: Scoped harvest diagnostic exclusions
   depends_on:
-    - "Artifact"
+  - Artifact
 version: 1
-updated_at: "2026-10-04 12:27:44 +0400"
+updated_at: 2026-10-04 12:27:44 +0400
 relations:
   concerns:
-    - CA-P-1288
+  - CA-P-1288
+ref_id: CA-C-313
+carrier_destination:
+  file:
+    name: CA-C-313-PROBLEM--match-numbered-harvest-carriers-in-diagnostic-exclusions.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

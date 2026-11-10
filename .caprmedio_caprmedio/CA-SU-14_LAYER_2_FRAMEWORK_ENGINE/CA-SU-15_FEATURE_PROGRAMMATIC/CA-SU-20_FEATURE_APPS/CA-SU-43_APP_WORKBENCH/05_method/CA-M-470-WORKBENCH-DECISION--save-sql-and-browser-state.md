@@ -8,9 +8,10 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Storage
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
@@ -19,8 +20,8 @@ relations:
   - CA-R-2776
 state:
   status: Active
-  version: 10
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 12
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-470-WORKBENCH-DECISION--save-sql-and-browser-state.md
@@ -29,31 +30,20 @@ current_scope_unit: WORKBENCH
 claim_target_scope_unit: WORKBENCH
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Save SQL and browser state for Workbench
 
 ## Claim scope
 
-Open SQL Views, browser drafts and saved-item Journal records.
+Open SQL Tabs, browser drafts and saved-item Journal records.
 
 ## Claim
 
 ### Prose Claim
 
-Save every open View's query text, current local View name and tab state in browser local storage every 5 seconds and restore it on the next page load. Ask before closing an unsaved tab or window; a native beforeunload warning is allowed. Flush the latest draft on pagehide and beforeunload when possible. A View's open lifetime pins its current temporary query result; closing the View unpins it, while a young unpinned result remains subject to the shared backend TTL.
+Persist each open Tab query, local name and tabs in browser localStorage every five seconds and restore on load; ask before unsaved close, flush on pagehide/beforeunload when possible. Persist density with Theme/text/interface zoom/workspace settings: Compact default only explicit embedded, Comfortable standalone, saved preference wins; do not infer embedding from screen/Workspace.
 
-Run and Check do not create permanent saved items or saved-item Journal records. The temporary query log is separate. Query saving is the combined Run & Save operation: it executes the View's exact query successfully first, then writes that SQL and optional creation name to the saved-item Journal. A failed query creates no saved entry. If saving fails after the Run succeeds, keep the completed result, its query ID, the previous saved identity and the dirty state; show the save error and do not retry or roll back. Save View remains the one-query View operation and may persist its optional name. An editor caret may be persisted as metadata, but it never selects an executable statement; editing unfinished SQL is allowed, while Run and Check reject multiple whole queries.
+Neither ordinary Run nor Check creates a permanent saved item. Run & Save executes the exact submitted SQL and then synchronously writes that same SQL and an optional creation name; for a selected Run it saves only the selected SQL, while Save Tab snapshots the full Tab script; failure writes nothing, while a post-Run save failure keeps result/ID/prior saved identity/dirty state, shows an error and neither retries nor rolls back. After Run and requested synchronous Save handling, automatic Run history is submitted asynchronously under CA-M-534; Check is not logged. Save snapshots the full Tab script. Unfinished editing is allowed; Run or Check uses the whole script or explicit statement selection under CA-R-2728.
 
-When a View is rerun, drop its previous temporary result before attempting the new query. If the new query fails, the previous result is not restored or returned.
-
-Load through query_load without execution, including when the reference is a URL. Keep browser drafts separate from the Project-level saved-item Journal. Keep saved links in the current Workbench browser context; do not add cross-browser discovery or cross-app synchronization. Saved-item Journal writes use the existing date-partitioned workbench-saved-items writer and do not trigger Atom reindexing, though their observed filesystem changes may appear in the technical change log. Do not add sharing, authentication, saved-Journal deduplication, retry, repair or rollback. Permanent saved items have no expiry.
-
-Use Python 3.14 standard-library uuid.uuid7() for new saved-entry IDs. Do not add a UUID library. Store saved_query_id, kind, exact sql, optional name and saved_at in each Journal row. New View entries use kind view. Existing saved entries with kind worksheet and existing runtime q_/w_ files remain read-only compatibility sources.
-
-Persist the selected Compact or Comfortable density with the existing Theme, text Zoom and workspace settings. Compact is the default for an explicitly embedded Workbench; Comfortable is the default standalone. Saved explicit preferences win. Keep Text zoom, Interface zoom and Density independent; do not infer embedding from physical screen size or Workspace presence.
-
-Keep the saved-entry identity with the existing standalone browser View draft so a reload can recognize that already-open saved item. Reuse its open View by exact saved ID, preferring the active matching View and then the first matching View in tab order. Keep unsaved edits and results intact when focusing it; equal SQL alone does not identify a saved item. This is reuse of an open View, not deduplication of permanent saved Journal records.
-
-Duplicate through the shared backend View operation after the existing draft-sync path has acknowledged the current editor text. Copy query and cursor only. The new View is independent and has no saved-entry identity or query results. Use the current display name with the first unused `(n)` suffix. Do not rerun, save, share result-table ownership, or add a new queue or retry path.
+Browser drafts remain separate from the Project Journal; saved links stay in the current Workbench context. The existing date-partitioned writer avoids Atom reindexing. Use Python 3.14 `uuid.uuid7()` only; historical worksheet/q_/w_ sources remain read-only. Reload reuses an open Tab by exact saved ID—not equal SQL—without losing edits or results. Duplicate after sync copies query and cursor only into an independent unsaved/no-result Tab with the first unused `(n)` suffix. Automatic Run history remains asynchronous and distinct from saved items.

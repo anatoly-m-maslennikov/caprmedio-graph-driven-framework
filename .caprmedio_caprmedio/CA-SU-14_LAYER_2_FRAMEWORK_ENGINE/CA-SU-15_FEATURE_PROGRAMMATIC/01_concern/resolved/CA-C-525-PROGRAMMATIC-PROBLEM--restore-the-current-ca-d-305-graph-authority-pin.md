@@ -13,9 +13,16 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2401, CA-D-305]
+  concern_about:
+  - CA-P-2401
+  - CA-D-305
 version: 5
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-525
+carrier_destination:
+  file:
+    name: CA-C-525-PROGRAMMATIC-PROBLEM--restore-the-current-ca-d-305-graph-authority-pin.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

@@ -8,17 +8,18 @@ context:
   role: Method
   form: Solution
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication
   tier: 4
 relations:
   method_for:
   - CA-R-1096
-  derived_from:
+  DERIVED_FROM:
   - CA-A-058
 state:
   status: Active
-  version: 28
-  updated_at: 2026-11-09 17:00:18 +0400
+  version: 29
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov

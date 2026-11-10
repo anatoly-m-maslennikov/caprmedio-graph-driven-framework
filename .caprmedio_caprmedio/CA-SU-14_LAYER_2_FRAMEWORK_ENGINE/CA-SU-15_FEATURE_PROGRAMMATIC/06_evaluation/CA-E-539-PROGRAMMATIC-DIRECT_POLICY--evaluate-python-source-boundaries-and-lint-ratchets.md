@@ -8,11 +8,11 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
-      Analysis/Python Code
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Static Analysis <+ Python Code
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
-      Analysis
+    - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
+      <+ Static Analysis
   tier: 5
 relations:
   evaluation_for:
@@ -21,8 +21,8 @@ relations:
   - CA-M-428
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 16
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-539-PROGRAMMATIC-DIRECT_POLICY--evaluate-python-source-boundaries-and-lint-ratchets.md

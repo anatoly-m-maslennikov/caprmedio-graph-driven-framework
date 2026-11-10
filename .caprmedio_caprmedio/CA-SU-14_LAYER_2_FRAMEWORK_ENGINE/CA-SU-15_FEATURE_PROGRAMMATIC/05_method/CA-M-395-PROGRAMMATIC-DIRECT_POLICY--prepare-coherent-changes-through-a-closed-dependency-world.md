@@ -8,25 +8,25 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Change
-      Readiness
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery
+      <+ Change Readiness
     dependencies:
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-    - Subject/CAPRMEDIO/Carrier
-  tier: 4
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
+    - MODEL//CAPRMEDIO <+ Carrier
+  tier: 5
 relations:
   child_of:
   - CA-M-403
   depends_on:
   - CA-M-402
-  - CA-M-417
+  - CA-M-284
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-395-PROGRAMMATIC-DIRECT_POLICY--prepare-coherent-changes-through-a-closed-dependency-world.md

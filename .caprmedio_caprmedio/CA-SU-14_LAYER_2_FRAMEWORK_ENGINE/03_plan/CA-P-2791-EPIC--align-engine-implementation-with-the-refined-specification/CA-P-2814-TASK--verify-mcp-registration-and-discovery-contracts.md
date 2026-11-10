@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Backlog
-  version: 1
-  updated_at: 2026-11-09 07:55:38 +0400
+  status: Done
+  version: 3
+  updated_at: 2026-11-11 00:53:28 +0400
 destination:
   file:
     name: CA-P-2814-TASK--verify-mcp-registration-and-discovery-contracts.md
@@ -31,7 +31,7 @@ Verify MCP registration and discovery contracts
 
 ## Objective
 
-Compare generated registration and discovery behavior with M506, M510–M512 and E810–E813. Verify existing entrypoint and local-release catalog wiring; do not add duplicate wiring or resurrect old Tools. Reconcile exact direct pins after acceptance.
+Compare generated registration and discovery behavior with Current R3013/R1108, M506/M512, D704 and E810–E813; archived M510/M511 are historical only. Verify existing entrypoint and local-release catalog wiring; do not add duplicate wiring or resurrect old Tools. Reconcile exact direct pins after acceptance.
 
 ## Subtasks
 

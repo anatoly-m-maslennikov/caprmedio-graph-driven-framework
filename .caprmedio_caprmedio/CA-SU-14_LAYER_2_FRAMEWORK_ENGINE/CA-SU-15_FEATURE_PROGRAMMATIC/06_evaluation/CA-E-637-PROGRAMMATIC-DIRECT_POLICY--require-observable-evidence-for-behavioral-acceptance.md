@@ -8,13 +8,13 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test
-      Design
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Test Design
   tier: 1
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 15
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-637-PROGRAMMATIC-DIRECT_POLICY--require-observable-evidence-for-behavioral-acceptance.md

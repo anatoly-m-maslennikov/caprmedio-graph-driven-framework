@@ -22,8 +22,8 @@ relations:
   - CA-O-195
   - CA-O-197
 status: Active
-version: 20
-updated_at: 2026-11-09 15:54:30 +0400
+version: 21
+updated_at: 2026-11-11 00:17:19 +0400
 carrier_destination:
   file:
     name: CA-O-188-FRAMEWORK_DELIVERY-WORKFLOW--release-a-selected-public-version.md
@@ -65,7 +65,7 @@ One selected Version, one personal remote identity, `amm/dev`, `main`, the selec
 
 ## Details
 
-Invoke this Workflow from the repository host through `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/release.py public --project-root <project-root> --run-id <run-id> [--content-draft <json-path>]` in the governed uv environment; `--project-root` defaults to the repository root. The optional UTF-8 JSON file contains exactly `description` and `summary`. Without it, the runner returns `input_required` and its content prompt without publication. The Project's MCP blacklist disables `public.release` exposure and invocation while preserving its adapter for later reuse. Full-suite verification, Draft PR behavior, actual-link follow-up and no merge remain required.
+Invoke this Workflow from the repository host through `LAYER_5_FRAMEWORK_DELIVERY/release.py public --project-root <project-root> --run-id <run-id> [--content-draft <json-path>]` in the governed uv environment; `--project-root` defaults to the repository root. The optional UTF-8 JSON file contains exactly `description` and `summary`. Without it, the runner returns `input_required` and its content prompt without publication. The Project's MCP blacklist disables `public.release` exposure and invocation while preserving its adapter for later reuse. Full-suite verification, Draft PR behavior, actual-link follow-up and no merge remain required.
 
 This Workflow starts only on the Operator's command for the selected public-release Run. It runs Git before every listed Step and after final completion. Public release increments the third numeric Version component and drops the fourth/internal suffix, producing exactly three numeric components: `0.4.1.xxx` becomes `0.4.2`. There is no rollover: `0.4.9.x` becomes `0.4.10`. CA-O-192 is its sole content prompt; README, Version History, Git, and PR mechanics are programmatic. Adding only the actual PR URL after the PR exists requires its mechanical follow-up commit and push. It never merges.
 

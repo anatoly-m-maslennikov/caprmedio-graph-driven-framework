@@ -6,16 +6,17 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
 tier: 5
 relations:
   evaluation_for:
   - CA-M-416
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 23
-updated_at: 2026-11-02 19:44:26 +0400
+version: 24
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -23,35 +24,46 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-271-PROGRAMMATIC-EVAL_CASE--verify-measurement-backed-performance-claim.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Verify measurement-backed performance claim
+## Summary
 
-## Claim checked
+Verify measurement-backed performance claim
+
+## Claim
+
+
+
+### Prose Claim
+#### Claim checked
 
 one PROGRAMMATIC performance claim is supported by a representative workload,
 preserved baseline, observed distribution, **and** comparable observation.
 
-## Applicable conditions
+#### Applicable conditions
 
 apply **when** a component proposes **or** assesses a performance-sensitive change.
 no numerical budget is implied **where** no bounded owner has admitted one.
 
-## Test case
+#### Test case
 
 evaluate one claimed performance change against its selected surface **and**
 recorded baseline.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 pass **only** **when** the workload input, environment, baseline, observed
 distribution, **and** comparison threshold are recoverable **and** support the stated
 claim.
 
-## Failure disposition
+#### Failure disposition
 
 reject the performance claim **without** a representative baseline; do **not** invent
 a numeric budget.
 
-## Sources
+#### Sources
 
 - [CA-M-416 — Measure before optimizing PROGRAMMATIC performance](../05_method/CA-M-416-PROGRAMMATIC-STANDARD-ENG_POLICY--measure-before-optimizing-programmatic-performance.md)

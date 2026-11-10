@@ -8,7 +8,8 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication
   tier: 4
 relations:
   depends_on:
@@ -18,8 +19,8 @@ relations:
   - CA-M-401
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
@@ -60,7 +61,7 @@ explicitly bound Projects through the shared PROGRAMMATIC runtime.
   isolation claim.
 - The canonical installation boundary is one CLI at
   `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/INSTALL_TOOLS/install.py`
-  with separate `runtime` and `project` commands. `runtime` owns the
+  with separate `runtime` and `project` commands. `runtime` writes only the
   global Docker parameters `projects_root`, `http_port` and
   `max_loaded_projects` in the host TOML outside all Projects. Both
   commands are dry-runs unless `--apply` is supplied.
@@ -143,25 +144,6 @@ The default config path is
 `~/.config/caprmedio/runtime.toml`. A changed host config requires an explicit
 restart and never remaps a live Project root.
 
-The canonical installer is one CLI at
-`LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/INSTALL_TOOLS/install.py`
-with separate `runtime` and `project` commands. Both are dry-runs unless
-`--apply` is supplied. `runtime` writes only the global Docker parameters
-`projects_root`, `http_port` and `max_loaded_projects` to the host
-TOML; `--harness=codex` copies the standard-library hook and creates the
-isolated host environment under `XDG_DATA_HOME/caprmedio/runtime`, outside
-all Projects, then registers the global hook and HTTP MCP connection while
-preserving unrelated configuration and granting no trust. A conflicting
-CAPRMEDIO connection refuses before effects. An optional immutable
-`sha256:<64 lowercase hex>` image with `--apply` delegates start/readiness
-to the existing shared launcher; without an image delivery is configuration
-only and makes no running-service claim. `project` targets only the selected
-directory, requires an explicit prefix for a fresh Project, seeds minimal
-settings/control/empty structure, preserves existing Project carriers, and
-installs the canonical bundled thin Skill without Docker, global MCP/hooks,
-Git initialization or copied Tools. Unsafe, ambiguous, missing or conflicting
-inputs refuse before effects, with exact-own-write rollback preserving
-concurrent edits.
 
 #### Details
 
@@ -214,12 +196,6 @@ configuration text alone is not deployment proof.
 
 ### Retained binding procedure
 
-Obtain the caller's explicit `project_root` through the supported client
-contract, resolve it against the admitted host configuration and Project
-declarations, then freeze one validated Project identity for the complete
-operation. Carry that binding through Tool execution, asynchronous continuations,
-nested calls, receipts and result attribution while preserving the native
-request and each Project's actual state owners.
 
 #### Details
 

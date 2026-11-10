@@ -6,17 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Static Analysis
 tier: 6
 relations:
   evaluation_for:
   - CA-M-428
   - CA-E-539
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 23
-updated_at: 2026-11-02 19:44:26 +0400
+version: 24
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -24,31 +25,17 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-453-PROGRAMMATIC-EVAL_CASE--verify-changed-python-with-ruff.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Verify changed Python with Ruff
+## Summary
 
-## Claim checked
+Verify changed Python with Ruff
 
-changed Python passes the one admitted Ruff format, lint, **and** complexity
-profile **or** carries one bounded exception.
+## Claim
 
-## Test case
+### Prose Claim
 
-run the pinned Ruff profile against one changed module containing an executable
-unit above the configured `C901` maximum.
-
-## Acceptance criteria
-
-pass **only** **when** **all** of the following hold:
-
-- Ruff reports the unit that exceeds the configured maximum.
-- the change is rejected **or** an accepted bounded exception records the rule, value, reason, **and** review condition.
-
-## Failure disposition
-
-reject the changed target **until** the diagnostic is resolved **or** bounded.
-
-## Sources
-
-- [Ruff: complex-structure rule](https://docs.astral.sh/ruff/rules/complex-structure/)
-- [CA-M-428 — Use Ruff for Python formatting, linting, and complexity](../05_method/CA-M-428-PROGRAMMATIC-ENG_POLICY--use-ruff-for-python-formatting-linting-and-complexity.md)
+Pinned Ruff format, lint and complexity profile must report a changed unit above configured `C901`; reject it unless a bounded exception records rule, value, reason and review condition.

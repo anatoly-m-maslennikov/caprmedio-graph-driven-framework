@@ -6,20 +6,21 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Coverage
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+  - MODEL//CAPRMEDIO <+ Atom
+  - MODEL//CAPRMEDIO <+ Carrier
+  - MODEL//CAPRMEDIO <+ Term//Property
+  - MODEL//CAPRMEDIO <+ Atom.Content
+  - MODEL//CAPRMEDIO <+ Atom.Content.Details
+  - MODEL//CAPRMEDIO <+ Atom.Content.Summary
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Execution/Workflow Run
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
+    <+ Prompt Authoring
+  - MODEL//CAPRMEDIO <+ Journal
+  - MODEL//CAPRMEDIO <+ Event Record
 tier: 4
 relations:
   evaluation_for:
@@ -31,8 +32,8 @@ relations:
   - CA-R-1802
   - CA-R-2447
 status: Active
-version: 21
-updated_at: 2026-11-09 07:45:14 +0400
+version: 22
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-524-PROMPTS-EVAL_CASE--verify-rmed-review-prompt-coverage-and-completion.md

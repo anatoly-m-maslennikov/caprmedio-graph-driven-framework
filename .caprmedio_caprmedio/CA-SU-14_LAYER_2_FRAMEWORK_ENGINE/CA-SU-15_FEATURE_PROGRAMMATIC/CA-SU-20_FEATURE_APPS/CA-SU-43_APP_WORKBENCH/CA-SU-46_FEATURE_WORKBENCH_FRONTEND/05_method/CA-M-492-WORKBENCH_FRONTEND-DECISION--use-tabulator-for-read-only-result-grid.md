@@ -8,18 +8,20 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
-      Architecture <+ Component Structure
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Frontend Engineering <+ Libraries and Frameworks
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2727
+  depends_on:
+  - CA-R-3022
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 6
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-492-WORKBENCH_FRONTEND-DECISION--use-tabulator-for-read-only-result-grid.md
@@ -28,7 +30,6 @@ current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Use Tabulator for the Workbench read-only result grid
@@ -41,15 +42,8 @@ Workbench frontend result-grid presentation and interaction.
 
 ### Prose Claim
 
-Use Tabulator 6.7.1 directly in the Svelte frontend as the Workbench result grid. Do not add a wrapper framework or a second grid engine. Keep the grid read-only: provide no cell or row editors and do not turn grid actions into mutations.
+Use Tabulator 6.7.1 directly in Svelte; add neither wrapper nor second grid engine. Grid is read-only: no cell/row editors or mutation actions. Consume backend View/grid/page contract over the complete materialized cache: filtering, multisort, one-column grouping and exact row/group counts are global, while frontend consumes page slices and never reruns View SQL. In standalone and embedded modes, each Tab holds a script and follows CA-R-2728 for whole-script or selected-statement execution; historical View API identifiers remain compatible.
 
-Use the existing backend Workbench View/grid/page contract against the complete materialized cached result. Backend filtering, multisort, one-column grouping and exact global row/group counts apply to the whole cached result, not only to the currently loaded page; the frontend consumes page slices and does not rerun the View query for display actions. Preserve one View as one query and use the same backend View context in standalone and embedded Workbench modes.
+Expose only Cell Copy value, Cell Show full value, Row Copy row, Column Sort ascending/descending, Group by, Filter and Clear filter. Group by is one column. Preserve positional columns and duplicate/dotted labels; add no nested grouping, pivot, collaboration, persisted grid state or context-menu export. Adaptive/Fixed and Full/Limited are presentation-only; cache values remain unchanged and shared result-file delivery stays outside this menu.
 
-Expose only the approved read-only context actions: Cell Copy value, Cell Show full value, Row Copy row, Column Sort ascending, Column Sort descending, Group by, Filter and Clear filter. Group by is limited to one column in this MVP. Preserve positional columns, duplicate labels and dotted labels. Do not add nested grouping, pivoting, exports, collaboration, editors or persisted grid state. The Adaptive/Fixed row preference and Full/Limited content preference remain presentation-only; the full cached rows and values stay unchanged.
-
-Each grid instance owns its pending browser callbacks. Wait for Tabulator's public table-built event before applying data updates. Invalidate queued refreshes before destroying an instance; a deferred update may target only its current live instance. Use public lifecycle APIs, without patching Tabulator renderer internals.
-
-### Sources
-
-- [Tabulator 6.x documentation](https://www.tabulator.info/docs/6.x)
-- [Tabulator 6.x MIT license](https://www.tabulator.info/docs/6.x/license)
+Each instance owns callbacks. Wait for Tabulator public table-built before data update, invalidate queued refresh before destroy and target deferred work only to its live instance. Use public lifecycle APIs without renderer patches.

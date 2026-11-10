@@ -17,7 +17,16 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-O-010, CA-O-011, CA-O-015, CA-P-1478]
+  concern_about:
+  - CA-O-010
+  - CA-O-011
+  - CA-O-015
+  - CA-P-1478
+ref_id: CA-C-427
+carrier_destination:
+  file:
+    name: CA-C-427-CORE_META_MODEL-PROBLEM--correct-current-epic-archive-status-carriers.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

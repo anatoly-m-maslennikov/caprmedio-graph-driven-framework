@@ -9,7 +9,7 @@ import tempfile
 
 
 BOOTSTRAP_RELATIVE = Path(
-    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/start_mcp.py"
+    "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/docker/start_mcp.py"
 )
 TARGET_RELATIVE = Path(".caprmedio_runtime/start_mcp.py")
 

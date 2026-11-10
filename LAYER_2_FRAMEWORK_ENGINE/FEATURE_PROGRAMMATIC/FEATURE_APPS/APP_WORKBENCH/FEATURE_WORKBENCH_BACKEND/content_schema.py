@@ -9,9 +9,10 @@
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping, Sequence
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 import json
 from pathlib import Path
+import re
 from typing import Any
 
 from markdown_it import MarkdownIt
@@ -24,6 +25,18 @@ from .markdown_content import content_lines, direct_markdown, parse_content, sec
 
 
 _DECLARATION_FORMS = frozenset({"Declaration", "Entity Definition", "Relation Definition"})
+
+
+def _normalized_label(value: str) -> str:
+    return "_".join(re.split(r"[\s_-]+", value.strip().casefold()))
+
+
+def _matches(value: object, choices: frozenset[str]) -> bool:
+    return isinstance(value, str) and _normalized_label(value) in {
+        _normalized_label(choice) for choice in choices
+    }
+
+
 @dataclass(frozen=True)
 class DeclarationSource:
     """One Current Declaration which contributed to the compiled schema."""
@@ -49,11 +62,13 @@ class ContentRule:
     forms: frozenset[str] | None
     value_bearing: bool
     source: DeclarationSource
+    observed: bool = False
+    prohibited: bool = False
 
     def applies(self, row: Mapping[str, Any]) -> bool:
         return (
-            (self.roles is None or row.get("role") in self.roles)
-            and (self.forms is None or row.get("form") in self.forms)
+            (self.roles is None or _matches(row.get("role"), self.roles))
+            and (self.forms is None or _matches(row.get("form"), self.forms))
         )
 
 
@@ -76,6 +91,9 @@ class ContentSchema:
     columns: tuple[ContentColumn, ...]
     rules: tuple[ContentRule, ...]
     sources: tuple[DeclarationSource, ...]
+    _layouts: dict[tuple[str | None, str | None], tuple[Any, frozenset[tuple[str, ...]]]] = field(
+        default_factory=dict, compare=False, repr=False,
+    )
 
     @property
     def names(self) -> tuple[str, ...]:
@@ -87,8 +105,9 @@ class ContentSchema:
         return (
             tuple((column.path, column.name) for column in self.columns),
             tuple(sorted({
-                (rule.path, tuple(sorted(rule.roles or ())), tuple(sorted(rule.forms or ())), rule.value_bearing)
-                for rule in self.rules
+                (rule.path, tuple(sorted(rule.roles or ())), tuple(sorted(rule.forms or ())),
+                 rule.value_bearing, rule.prohibited)
+                for rule in self.rules if not rule.observed
             })),
         )
 
@@ -105,23 +124,56 @@ class ContentSchema:
         values = _records_by_path(records)
         self._validate(values, row)
         lines = content_lines(body) if isinstance(body, str) else None
+        layout, _ = self._layout(row)
         return {
             column.name: _value(
                 values,
                 column.path,
-                column.applies(row),
-                _declared_children(self.rules, column.path, row),
+                applies,
+                children,
                 lines,
             )
-            for column in self.columns
+            for column, applies, children in layout
         }
+
+    def validate(self, row: Mapping[str, Any]) -> None:
+        """Check duplicate declared paths without extracting every SQL column."""
+        records = row.get("content_properties_json")
+        if not isinstance(records, list):
+            body = source_markdown(row)
+            records = parse_content(body, tolerate_duplicate_siblings=True) if isinstance(body, str) else []
+        self._validate(_records_by_path(records), row)
 
     def _validate(
         self, values: Mapping[tuple[str, ...], list[Mapping[str, Any]]], row: Mapping[str, Any],
     ) -> None:
-        for rule in self.rules:
-            if rule.applies(row) and len(values.get(rule.path, ())) > 1:
-                raise ValueError(f"duplicate declared content property: {'.'.join(rule.path)}")
+        duplicates = {path for path, entries in values.items() if len(entries) > 1}
+        if duplicates:
+            _, declared = self._layout(row)
+            if conflict := next(iter(sorted(duplicates & declared)), None):
+                raise ValueError(f"duplicate declared content property: {'.'.join(conflict)}")
+
+    def _layout(self, row: Mapping[str, Any]) -> tuple[Any, frozenset[tuple[str, ...]]]:
+        role = row.get("role") if isinstance(row.get("role"), str) else None
+        form = row.get("form") if isinstance(row.get("form"), str) else None
+        key = (role, form)
+        cached = self._layouts.get(key)
+        if cached is not None:
+            return cached
+        applicable = tuple(
+            rule for rule in self.rules if not rule.prohibited
+            and not any(part in {"*", "**"} for part in rule.path) and rule.applies(row)
+        )
+        children: dict[tuple[str, ...], set[tuple[str, ...]]] = {}
+        for rule in applicable:
+            children.setdefault(rule.path[:-1], set()).add(rule.path)
+        layout = tuple(
+            (column, column.applies(row), frozenset(children.get(column.path, ())))
+            for column in self.columns
+        )
+        result = (layout, frozenset(rule.path for rule in applicable))
+        self._layouts[key] = result
+        return result
 
     def asset(self) -> dict[str, object]:
         return {
@@ -156,8 +208,11 @@ def content_schema_asset_path(database_path: Path | None) -> Path | None:
 
 
 def compile_content_schema(atom_rows: Sequence[Mapping[str, Any]]) -> ContentSchema:
-    """Compile Current literal Content declarations; no general CFEL evaluation occurs."""
-    return schema_from_rules(rule for row in atom_rows for rule in declaration_rules(row))
+    """Compile declared Content paths against observed carrier headings."""
+    return schema_from_rules(
+        (rule for row in atom_rows for rule in declaration_rules(row)),
+        (item for row in atom_rows for item in observed_paths(row)),
+    )
 
 
 def declaration_rules(row: Mapping[str, Any] | None) -> tuple[ContentRule, ...]:
@@ -167,26 +222,85 @@ def declaration_rules(row: Mapping[str, Any] | None) -> tuple[ContentRule, ...]:
     return tuple(_rules(source_markdown(row), _source(row)))
 
 
-def schema_from_rules(rules: Iterable[ContentRule]) -> ContentSchema:
+def schema_from_rules(
+    rules: Iterable[ContentRule],
+    observations: Iterable[tuple[str | None, str | None, tuple[str, ...]]] = (),
+) -> ContentSchema:
     """Assemble a schema from already parsed declaration rules."""
     unique_rules = tuple(sorted(set(rules), key=_rule_key))
     sources = tuple(sorted({rule.source for rule in unique_rules}, key=_source_key))
+    expanded_rules = _observed_rules(unique_rules, observations)
     grouped: dict[tuple[str, ...], list[ContentRule]] = {}
-    for rule in unique_rules:
-        if rule.value_bearing:
+    for rule in (*unique_rules, *expanded_rules):
+        if rule.value_bearing and not any(part in {"*", "**"} for part in rule.path):
             grouped.setdefault(rule.path, []).append(rule)
     columns = tuple(
         ContentColumn(path, "content." + ".".join(path), tuple(grouped[path]))
         for path in sorted(grouped, key=lambda path: "content." + ".".join(path))
     )
-    return ContentSchema(columns, unique_rules, sources)
+    return ContentSchema(columns, (*unique_rules, *expanded_rules), sources)
+
+
+def observed_paths(row: Mapping[str, Any]) -> frozenset[tuple[str | None, str | None, tuple[str, ...]]]:
+    """Extract distinct actual headings without treating fenced text as headings."""
+    records = row.get("content_properties_json")
+    if not isinstance(records, list):
+        body = source_markdown(row)
+        records = parse_content(body, tolerate_duplicate_siblings=True) if isinstance(body, str) else []
+    role = row.get("role") if isinstance(row.get("role"), str) else None
+    form = row.get("form") if isinstance(row.get("form"), str) else None
+    return frozenset((role, form, path) for path in _records_by_path(records))
+
+
+def _observed_rules(
+    rules: tuple[ContentRule, ...],
+    observations: Iterable[tuple[str | None, str | None, tuple[str, ...]]],
+) -> tuple[ContentRule, ...]:
+    literal = tuple(rule for rule in rules if not any(part in {"*", "**"} for part in rule.path))
+    wildcards = tuple(rule for rule in rules if rule.value_bearing and rule.path[-1:] in {("*",), ("**",)})
+    prohibitions = tuple(rule for rule in rules if rule.prohibited)
+    expanded: set[ContentRule] = set()
+    for role, form, path in observations:
+        row = {"role": role, "form": form}
+        specific = tuple(rule for rule in literal if rule.path == path and rule.applies(row))
+        if specific:
+            continue
+        if any(
+            path[:len(rule.path) - 1] == rule.path[:-1] and len(path) >= len(rule.path)
+            and rule.applies(row)
+            and not any(
+                allowed.value_bearing and len(allowed.path) >= len(rule.path)
+                and path[:len(allowed.path)] == allowed.path and allowed.applies(row)
+                for allowed in literal
+            )
+            for rule in prohibitions
+        ):
+            continue
+        if any(
+            rule.path[-1:] == ("prose_claim",)
+            and path[:len(rule.path) - 1] == rule.path[:-1]
+            and len(path) >= len(rule.path)
+            and rule.applies(row)
+            for rule in literal
+        ):
+            continue
+        for rule in wildcards:
+            parent, wildcard = rule.path[:-1], rule.path[-1]
+            if (path[:len(parent)] == parent and len(path) > len(parent)
+                    and (wildcard == "**" or len(path) == len(parent) + 1)
+                    and rule.applies(row)):
+                expanded.add(ContentRule(
+                    path, frozenset({role}) if role is not None else rule.roles,
+                    frozenset({form}) if form is not None else rule.forms, True, rule.source, True,
+                ))
+    return tuple(sorted(expanded, key=_rule_key))
 
 
 def _is_declaration(row: Mapping[str, Any]) -> bool:
     return (
         row.get("status_group") == "Current"
-        and row.get("role") == "Requirement"
-        and row.get("form") in _DECLARATION_FORMS
+        and _matches(row.get("role"), frozenset({"Requirement"}))
+        and _matches(row.get("form"), _DECLARATION_FORMS)
     )
 
 
@@ -237,9 +351,11 @@ def _statement_rules(statement: str, source: DeclarationSource) -> list[ContentR
     roles = _filters(prefix, "Role")
     forms = _filters(prefix, "Form")
     if segments[-1] in {"*", "**"}:
-        if segments[-1] != "*":
-            return []
+        if re.match(r"\s*\[\s*\]\s*\{\s*::\s*0\s*\}", remainder):
+            return [ContentRule(tuple(segments), roles, forms, False, source, prohibited=True)]
         choices = _allowed_children(remainder)
+        if not choices:
+            return [ContentRule(tuple(segments), roles, forms, not _container(remainder), source)]
         return [
             ContentRule((*segments[:-1], choice), roles, forms, True, source)
             for choice in choices

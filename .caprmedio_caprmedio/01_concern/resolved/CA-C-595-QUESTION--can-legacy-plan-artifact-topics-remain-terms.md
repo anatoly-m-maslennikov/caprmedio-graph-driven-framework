@@ -14,6 +14,11 @@ subjects:
   - Subject/Domain/Node/Continuant/Term//Artifact
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
 relations: {}
+ref_id: CA-C-595
+carrier_destination:
+  file:
+    name: CA-C-595-QUESTION--can-legacy-plan-artifact-topics-remain-terms.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

@@ -6,16 +6,17 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test
-    Design
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Test Design
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Carrier
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
+    <+ Prompt Authoring
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Carrier
 tier: 3
 status: Active
-version: 13
-updated_at: 2026-11-09 07:45:14 +0400
+version: 14
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-546-PROMPTS-DECISION--deliver-implementation-prompt-contract-tests.md
@@ -33,7 +34,7 @@ Deliver implementation prompt contract tests
 
 ### Prose Claim
 
-the package **must** test source freshness, seven-Step coverage, exact Action/context/result labels, R/D-M-E packet separation, golden E2E preparation, handoff boundaries, and truthful retry/repair results.
+the package **must** test source freshness, coverage of the declared shared-context prompt carrier frontier, exact Action/context/result labels, R/D-M-E packet separation, golden E2E preparation, handoff boundaries, and truthful retry/repair results.
 
 ## Details
 

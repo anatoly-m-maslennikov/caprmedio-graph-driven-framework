@@ -6,19 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-    Control
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+  - MODEL//CAPRMEDIO <+ Actor/Operator
+  - MODEL//CAPRMEDIO <+ Project
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom
 tier: 3
 status: Active
-version: 11
-updated_at: 2026-11-09 07:45:14 +0400
+version: 12
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-534-MCP-EVAL_CASE--verify-in-flight-call-isolation-during-mcp-reload.md
@@ -39,17 +38,10 @@ the MCP Evaluation **must** verify that reload preserves admitted call identity,
 
 ## Details
 
-### Scope
+These in-flight generation checks apply only with optional hot reload explicitly enabled for the Project-local MCP gateway.
 
-These in-flight generation checks apply only with optional hot reload explicitly enabled.
-
-server-side hot reload for the Project-local MCP gateway.
-
-- hold a call on A while publishing B; verify that the old call completes on A **and** a new call executes on B.
-- verify that old generations remain alive while their admitted calls are running.
-- simulate child-process failure **after** a mutating call starts; verify an explicit uncertain outcome **and** no automatic replay.
-- exercise concurrent reload requests, duplicate request IDs **and** drain limits; verify serialized publication **and** bounded explicit diagnostics.
-- verify that reload does **not** start a Workflow, Codex Agent, independent worker **or** source mutation.
-- verify that get_mcp_reload_status advertises read-only metadata **and** returns generation state without reload **or** persistence.
-- verify that reload_mcp_implementation remains state-changing, rejects operation status **and** does **not** alter client permission settings.
-- retain existing MCP request validation **and** Project-boundary regression tests.
+- Hold a call on A while publishing B; old call completes on A and a new call executes on B. Old generations remain alive while admitted calls run.
+- Fail the child process after a mutating call starts; return an explicit uncertain outcome and never replay automatically.
+- Exercise concurrent reloads, duplicate request IDs, and drain limits; verify serialized publication and bounded explicit diagnostics.
+- Verify reload starts no Workflow, Codex Agent, independent worker, or source mutation; get_mcp_reload_status is read-only generation metadata with no reload/persistence; reload_mcp_implementation remains state-changing, rejects operation status, and does not alter client permission settings.
+- Retain MCP request-validation and Project-boundary regression tests.

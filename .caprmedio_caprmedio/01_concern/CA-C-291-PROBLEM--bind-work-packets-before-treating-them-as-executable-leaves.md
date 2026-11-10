@@ -7,15 +7,19 @@ role: Concern
 form: Problem
 relations:
   concern_about:
-    - CA-P-1117
+  - CA-P-1117
 status: resolved
 version: 1
-updated_at: "2026-10-04 06:19:35 +0400"
+updated_at: 2026-10-04 06:19:35 +0400
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
 local_tier: Standard
 global_tier: 2
 author: Anatoly Maslennikov
+carrier_destination:
+  file:
+    name: CA-C-291-PROBLEM--bind-work-packets-before-treating-them-as-executable-leaves.md
+    path: .caprmedio_caprmedio/01_concern
 ---
 # Summary
 

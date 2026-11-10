@@ -15,6 +15,11 @@ subjects:
   - Subject/Domain/Node/Continuant/Projection
   - Subject/Domain/Node/Continuant/History/Journal
 relations: {}
+ref_id: CA-C-602
+carrier_destination:
+  file:
+    name: CA-C-602-QUESTION--resolve-the-governed-subject-of-the-projection-and-journal-inventory.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

@@ -16,7 +16,7 @@ from uuid import uuid4
 from scope_declaration_parse import parse_scope_unit_declaration
 from scope_declaration_render import render_scope_declaration
 from scope_unit_declarations import read_scope_unit_declarations
-from selected_route_manifest import _configured_control_root
+from project_settings_values import control_root
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 
 
@@ -86,8 +86,7 @@ def remove_owned_file(path: Path, expected_hash: str) -> None:
 
 def current_atom_id_exists(root: Path, atom_id: str) -> bool:
     ignored = {"archive", "archived", "draft", "drafts"}
-    control = _configured_control_root(root)
-    control = control if control.is_absolute() else root / control
+    control = control_root(root)
     prefix = f"{atom_id}-"
     return any(
         path.name.startswith(prefix)

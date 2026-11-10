@@ -6,14 +6,12 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Data Handling <+ Source Selection
 tier: 1
-relations:
-  child_of:
-  - CA-R-1641
 status: Active
-version: 14
-updated_at: 2026-10-27 20:00:09 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 subject_scopes:
 - routing
 llm_session_ids:
@@ -21,6 +19,10 @@ llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: SKILLS
+destination:
+  file:
+    name: CA-R-560-SKILLS-RULE--route-operator-added-skills.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-23_FEATURE_SKILLS/04_requirement
 ---
 ## Summary
 

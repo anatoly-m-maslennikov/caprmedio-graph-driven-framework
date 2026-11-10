@@ -15,7 +15,12 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
-    - CA-P-1269
+  - CA-P-1269
+ref_id: CA-C-310
+carrier_destination:
+  file:
+    name: CA-C-310-PROBLEM--retain-the-unavailable-harvest-start-clock.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

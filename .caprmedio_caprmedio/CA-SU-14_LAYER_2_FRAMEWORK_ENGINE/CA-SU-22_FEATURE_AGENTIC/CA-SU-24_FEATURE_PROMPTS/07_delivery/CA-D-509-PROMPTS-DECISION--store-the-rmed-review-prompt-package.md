@@ -6,21 +6,19 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt
-    Authoring
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Storage
+    <+ Directory Layout
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Scope Unit
 tier: 3
 status: Active
-version: 14
-updated_at: 2026-11-09 07:45:14 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-509-PROMPTS-DECISION--store-the-rmed-review-prompt-package.md

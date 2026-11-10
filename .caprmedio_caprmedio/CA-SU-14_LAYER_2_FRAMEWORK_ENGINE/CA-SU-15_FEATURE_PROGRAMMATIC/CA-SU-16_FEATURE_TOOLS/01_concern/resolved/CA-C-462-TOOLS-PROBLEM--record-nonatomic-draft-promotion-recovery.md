@@ -18,7 +18,13 @@ subjects:
   - Subject/Engineering/Runtime
   - Subject/Engineering/Atom Lifecycle/Dispatch Interface
 relations:
-  concern_about: [CA-P-1690]
+  concern_about:
+  - CA-P-1690
+ref_id: CA-C-462
+carrier_destination:
+  file:
+    name: CA-C-462-TOOLS-PROBLEM--record-nonatomic-draft-promotion-recovery.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

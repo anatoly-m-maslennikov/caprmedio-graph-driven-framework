@@ -126,35 +126,7 @@ class FullSuiteDockerTests(unittest.TestCase):
                 )
         self.assertIn("Test image cleanup", self.errors.getvalue())
 
-    def test_real_launcher_cli_receives_current_image_and_both_groups(self):
-        environment = {
-            "CAPRMEDIO_FIRST_CUT_HTTP_IMAGE": IMAGE,
-            "CAPRMEDIO_FIRST_CUT_HTTP_SCRATCH": str(self.root),
-        }
-        result = subprocess.CompletedProcess([], 1, "actual output", "actual error")
-
-        def execute(*_args, **_kwargs):
-            self.assertIn("Launcher integration START:", self.output.getvalue())
-            self.assertNotIn("Launcher integration FINISH:", self.output.getvalue())
-            return result
-
-        with (
-            patch.object(docker.subprocess, "run", side_effect=execute) as command,
-            redirect_stdout(self.output),
-            redirect_stderr(self.errors),
-        ):
-            self.assertFalse(docker.run_launcher(self.root, environment))
-            argv = command.call_args.args[0]
-            self.assertEqual(IMAGE, argv[argv.index("--image") + 1])
-            self.assertEqual("all", argv[argv.index("--group") + 1])
-            self.assertNotIn("--build-missing", argv)
-            self.assertEqual(1980, command.call_args.kwargs["timeout"])
-            self.assertNotIn("start_new_session", command.call_args.kwargs)
-            self.assertNotIn("process_group", command.call_args.kwargs)
-        self.assertIn("Launcher integration FINISH: failed", self.output.getvalue())
-        self.assertEqual("actual error", self.errors.getvalue())
-
-    def test_full_suite_uses_image_environment_and_required_cli_result(self):
+    def test_full_suite_uses_image_environment_without_retired_launcher_gate(self):
         module = self.root / docker.APP / "tests/test_docker_e2e.py"
         lifecycle = MagicMock()
         lifecycle.__enter__.return_value = {"CAPRMEDIO_FIRST_CUT_HTTP_IMAGE": IMAGE}
@@ -169,19 +141,16 @@ class FullSuiteDockerTests(unittest.TestCase):
             patch.object(full, "discover_test_modules", return_value=[module]),
             patch.object(full, "current_code_test_image", return_value=lifecycle) as build,
             patch.object(full, "run_module", return_value=(True, 2, 0, "", "", 0.0, None)) as run,
-            patch.object(full, "run_launcher", return_value=False) as launcher,
             redirect_stdout(self.output),
             redirect_stderr(self.errors),
         ):
-            self.assertEqual(1, full.run_full_suite(self.root))
+            self.assertEqual(0, full.run_full_suite(self.root))
             build.assert_called_once_with(self.root)
             self.assertEqual(IMAGE, run.call_args.args[2]["CAPRMEDIO_FIRST_CUT_HTTP_IMAGE"])
-            for environment in (run.call_args.args[2], launcher.call_args.args[1]):
-                self.assertNotIn("CAPRMEDIO_RELEASE_E2E_CONTEXT", environment)
-                self.assertNotIn("CAPRMEDIO_CANDIDATE_IMAGE_DIGEST", environment)
-            launcher.assert_called_once()
+            environment = run.call_args.args[2]
+            self.assertNotIn("CAPRMEDIO_RELEASE_E2E_CONTEXT", environment)
+            self.assertNotIn("CAPRMEDIO_CANDIDATE_IMAGE_DIGEST", environment)
             lifecycle.__exit__.assert_called_once()
-        self.assertIn("project_launcher_docker_e2e CLI", self.errors.getvalue())
 
     def test_missing_required_build_environment_fails_without_running_tests(self):
         module = self.root / docker.APP / "tests/test_docker_e2e.py"

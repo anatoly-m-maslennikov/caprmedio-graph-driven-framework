@@ -194,6 +194,18 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         with self.assertRaisesRegex(ScopeDeclarationError, "namespace branch"):
             parse_scope_unit_declaration(source.read_bytes(), source)
 
+    def test_named_structure_namespace_is_read_without_changing_the_source(self) -> None:
+        source = self.declaration(
+            "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
+        )
+        carrier = source.read_bytes().replace(
+            b"CAPRMEDIO_STRUCTURE <+ Scope Unit//UNIT",
+            b"PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//UNIT",
+        )
+        self.assertEqual("UNIT", parse_scope_unit_declaration(carrier, source).name)
+        with self.assertRaisesRegex(ScopeDeclarationError, "namespace branch"):
+            parse_scope_unit_declaration(carrier.replace(b"PROJECT STRUCTURE//", b"MODEL//"), source)
+
     def test_prefixed_active_subject_invalid_namespace_chain_refuses(self) -> None:
         source = self.declaration(
             "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
@@ -348,7 +360,8 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         raw = parent_source.read_text(encoding="utf-8")
         _, frontmatter, body = raw.split("---", 2)
         header = yaml.safe_load(frontmatter)
-        header["context"]["form"] = "Scope Delegation"
+        header.setdefault("context", {})["form"] = "Scope Delegation"
+        header.pop("form", None)
         parent_source.write_text(
             "---\n" + yaml.safe_dump(header, sort_keys=False) + "---" + body,
             encoding="utf-8",
@@ -368,7 +381,8 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
                 _, parent_source, _ = self.complete_tree()
                 _, frontmatter, body = parent_source.read_text(encoding="utf-8").split("---", 2)
                 header = yaml.safe_load(frontmatter)
-                header["context"]["form"] = "Scope Delegation"
+                header.setdefault("context", {})["form"] = "Scope Delegation"
+                header.pop("form", None)
                 parent_source.write_text("---\n" + serializer(header) + "---" + body, encoding="utf-8")
 
                 declarations = read_scope_unit_declarations(self.root, self.control.name)

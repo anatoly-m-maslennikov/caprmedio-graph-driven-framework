@@ -1,6 +1,7 @@
 # CA-R-1113@23
 # CA-M-175@19
 # CA-D-593@17
+# CA-M-517@1
 
 """Native Tool contract validation and the shared public schema adapter."""
 
@@ -52,7 +53,7 @@ def contract_digest(tool: types.Tool) -> str:
 
 
 def public_tool(tool: types.Tool, *, required: bool = True) -> types.Tool:
-    """Add only the explicit host selector to a native root-object schema."""
+    """Add the Project and caller-context envelope to a native Tool schema."""
     schema = copy.deepcopy(tool.input_schema)
     if not isinstance(schema, dict):
         raise ValueError("Native Tool input schema is invalid")
@@ -62,12 +63,18 @@ def public_tool(tool: types.Tool, *, required: bool = True) -> types.Tool:
         raise ValueError("Native Tool input schema is invalid") from error
     if _UNADAPTABLE_ROOT_KEYS.intersection(schema):
         raise ValueError("Native Tool input schema cannot safely add project_root at its root")
-    if "project_root" in schema.get("properties", {}):
-        raise ValueError("Native Tool cannot be given an unambiguous project_root")
+    if {"project_root", "caller_context"} & schema.get("properties", {}).keys():
+        raise ValueError("Native Tool cannot use a reserved MCP envelope field")
     if schema.get("type") not in (None, "object"):
         raise ValueError("Native Tool input is not a root object")
     properties = dict(schema.get("properties", {}))
     properties["project_root"] = {"type": "string", "minLength": 1}
+    properties["caller_context"] = {
+        "type": "object",
+        "properties": {"session_id": {"type": "string", "minLength": 1, "pattern": "\\S"}},
+        "required": ["session_id"],
+        "additionalProperties": False,
+    }
     required_fields = list(schema.get("required", []))
     if required and "project_root" not in required_fields:
         required_fields.append("project_root")

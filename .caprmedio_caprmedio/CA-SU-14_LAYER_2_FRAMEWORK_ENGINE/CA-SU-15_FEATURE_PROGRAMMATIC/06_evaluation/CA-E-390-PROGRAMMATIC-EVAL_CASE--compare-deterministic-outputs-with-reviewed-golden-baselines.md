@@ -6,52 +6,63 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Test Data/Golden Corpora"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 5
 relations:
   evaluation_for:
-  - CA-M-285
-  derived_from:
+  - CA-M-424
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 22
-updated_at: 2026-10-27 19:59:34 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+carrier_destination:
+  file:
+    name: CA-E-390-PROGRAMMATIC-EVAL_CASE--compare-deterministic-outputs-with-reviewed-golden-baselines.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Compare deterministic outputs with reviewed golden baselines
+## Summary
 
-## Claim checked
+Compare deterministic outputs with reviewed golden baselines
+
+## Claim
+
+### Prose Claim
+
+#### Claim checked
 
 a large deterministic output changes **only** through a reviewed semantic diff.
 
-## Test case
+#### Test case
 
 change one deterministic Markdown **or** machine-envelope output **and** invoke its
 golden comparison with **only** declared volatile fields normalized.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 pass **only** **when** the unexplained difference fails, critical invariants remain
 focused assertions, **and** a replacement baseline requires explicit diff review.
 
-## Failure disposition
+#### Failure disposition
 
 reject automatic baseline refresh **and** return the semantic difference for
 review.
 
-## Sources
+#### Sources
 
 - [Syrupy snapshot testing](https://github.com/syrupy-project/syrupy)
 - [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)
 
-### Golden-corpus cases
+##### Golden-corpus cases
 
 - require mock inputs **and** controlled external boundaries paired with reviewed expectations derived from governing RED. execute the real implementation **and** compare its actual output **and** declared effects against those expectations.
 - test good, malformed, rejected, boundary, **and** combined inputs. reject a missing expected case, a false positive on a good case, **or** an unexplained difference on a bad case.

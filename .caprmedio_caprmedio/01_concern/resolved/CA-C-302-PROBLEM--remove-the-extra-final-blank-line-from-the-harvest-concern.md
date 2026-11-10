@@ -15,9 +15,14 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
-    - CA-C-301
+  - CA-C-301
   relates_to:
-    - CA-P-1118
+  - CA-P-1118
+ref_id: CA-C-302
+carrier_destination:
+  file:
+    name: CA-C-302-PROBLEM--remove-the-extra-final-blank-line-from-the-harvest-concern.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

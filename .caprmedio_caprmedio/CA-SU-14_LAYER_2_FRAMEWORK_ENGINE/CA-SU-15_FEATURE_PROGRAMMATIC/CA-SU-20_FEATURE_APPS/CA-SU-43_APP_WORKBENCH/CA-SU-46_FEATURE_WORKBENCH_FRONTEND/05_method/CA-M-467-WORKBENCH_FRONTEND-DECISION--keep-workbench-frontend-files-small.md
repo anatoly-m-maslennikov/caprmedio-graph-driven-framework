@@ -8,18 +8,20 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+
-      Authoring <+ Code Authoring
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Frontend Engineering <+ Code Style
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
   - CA-R-2727
+  depends_on:
+  - CA-R-3022
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-467-WORKBENCH_FRONTEND-DECISION--keep-workbench-frontend-files-small.md
@@ -28,7 +30,6 @@ current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Keep Workbench frontend files small
@@ -41,8 +42,4 @@ The Workbench frontend.
 
 ### Prose Claim
 
-Structure Workbench HTML, CSS, JavaScript, TypeScript and Svelte by responsibility. Splitting a source file above 300 lines is strongly recommended; above 500 lines it is mandatory. Generated build files and dependency lockfiles are not authored source.
-
-Create a small reusable component palette from the start and use it in the page. Split UI components, stateful application behavior and styles where their responsibilities differ; do not create wrappers or arbitrary fragments just to satisfy a line count.
-
-Svelte components provide structured HTML for this frontend. A Python HTML builder is only needed if HTML cannot be structured with the selected frontend tools.
+Structure authored HTML, CSS, JavaScript, TypeScript and Svelte by responsibility. Split above 300 lines is strongly recommended and above 500 mandatory; generated build files, lockfiles, vendored sources and frozen history are excluded. Start with a small reusable component palette, separating components, stateful behavior and styles when responsibilities differ, without arbitrary wrappers/fragments for line count. Use Svelte for structured HTML; use a Python HTML builder only when selected frontend tools cannot structure it.

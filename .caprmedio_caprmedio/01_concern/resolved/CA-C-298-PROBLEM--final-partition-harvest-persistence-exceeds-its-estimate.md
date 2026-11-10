@@ -16,8 +16,13 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
-    - CA-P-1193
-    - CA-P-1207
+  - CA-P-1193
+  - CA-P-1207
+ref_id: CA-C-298
+carrier_destination:
+  file:
+    name: CA-C-298-PROBLEM--final-partition-harvest-persistence-exceeds-its-estimate.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

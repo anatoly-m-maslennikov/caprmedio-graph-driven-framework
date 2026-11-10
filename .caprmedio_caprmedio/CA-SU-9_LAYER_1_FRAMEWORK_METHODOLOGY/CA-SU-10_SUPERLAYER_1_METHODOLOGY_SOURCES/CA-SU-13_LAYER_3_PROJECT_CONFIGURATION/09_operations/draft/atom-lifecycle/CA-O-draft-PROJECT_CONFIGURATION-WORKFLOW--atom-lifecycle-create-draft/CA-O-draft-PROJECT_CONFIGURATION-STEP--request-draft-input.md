@@ -41,4 +41,4 @@ The Action [Present intermediate results and request input](../CA-O-draft-PROJEC
 
 ### Outputs
 
-The called Action's waiting response or resumed correction dictionary, with its results and warnings. Merge a resumed dictionary only into fields named in `requested_input`; preserve all other caller parameters. Tool-bound `expectedSource` and `targetStatus` cannot be replaced by corrections.
+The called Action's waiting response or resumed correction dictionary, with its results and warnings. Merge a resumed dictionary only into fields named in `requested_input`; preserve all other caller parameters. The captured `targetStatus` cannot be replaced by corrections.

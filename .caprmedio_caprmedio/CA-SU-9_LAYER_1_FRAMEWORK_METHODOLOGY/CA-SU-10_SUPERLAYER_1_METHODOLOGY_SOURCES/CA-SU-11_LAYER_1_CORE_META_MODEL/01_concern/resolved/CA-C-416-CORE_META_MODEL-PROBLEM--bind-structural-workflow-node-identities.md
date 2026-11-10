@@ -18,7 +18,14 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Engineering/Carrier
 relations:
-  concern_about: [CA-O-015, CA-P-1437]
+  concern_about:
+  - CA-O-015
+  - CA-P-1437
+ref_id: CA-C-416
+carrier_destination:
+  file:
+    name: CA-C-416-CORE_META_MODEL-PROBLEM--bind-structural-workflow-node-identities.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

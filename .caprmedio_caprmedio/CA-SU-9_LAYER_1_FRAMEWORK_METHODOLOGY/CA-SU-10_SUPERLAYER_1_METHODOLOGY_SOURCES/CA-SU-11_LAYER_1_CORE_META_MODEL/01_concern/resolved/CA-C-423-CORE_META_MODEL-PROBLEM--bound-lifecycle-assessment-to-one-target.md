@@ -18,7 +18,17 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
 relations:
-  concern_about: [CA-O-127, CA-O-128, CA-O-129, CA-O-145, CA-P-1452]
+  concern_about:
+  - CA-O-127
+  - CA-O-128
+  - CA-O-129
+  - CA-O-145
+  - CA-P-1452
+ref_id: CA-C-423
+carrier_destination:
+  file:
+    name: CA-C-423-CORE_META_MODEL-PROBLEM--bound-lifecycle-assessment-to-one-target.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

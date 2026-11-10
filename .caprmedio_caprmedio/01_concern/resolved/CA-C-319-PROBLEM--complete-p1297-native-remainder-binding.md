@@ -17,8 +17,16 @@ subjects:
 version: 4
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1297]
-  relates_to: [CA-A-1015, CA-P-1301]
+  concern_about:
+  - CA-P-1297
+  relates_to:
+  - CA-A-1015
+  - CA-P-1301
+ref_id: CA-C-319
+carrier_destination:
+  file:
+    name: CA-C-319-PROBLEM--complete-p1297-native-remainder-binding.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

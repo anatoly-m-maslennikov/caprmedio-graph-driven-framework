@@ -8,13 +8,13 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control/Failure Handling
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control <+ Failure Handling
   tier: 2
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-396-PROGRAMMATIC-DIRECT_POLICY--make-failures-observable-without-disabling-healthy-runtime.md

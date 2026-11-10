@@ -1,0 +1,63 @@
+---
+atom_id: CA-E-371
+ref_id: CA-E-371@18
+container:
+  scope_unit: CA-SU-15
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+    Control
+  dependencies:
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
+tier: 5
+relations:
+  evaluation_for:
+  - CA-M-191
+  derived_from:
+  - CA-A-058
+status: Archived
+version: 18
+updated_at: 2026-10-27 19:59:33 +0400
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+author: Anatoly Maslennikov
+current_scope_unit: PROGRAMMATIC
+carrier_destination:
+  file:
+    name: CA-E-371@18-PROGRAMMATIC-EVAL_CASE--reject-a-mutation-without-stable-initiative-identities.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive
+---
+## Summary
+
+Reject a mutation without stable Initiative identities
+
+## Claim
+
+### Prose Claim
+
+#### Claim checked
+
+one programmatic mutation is blocked **before** its first effect **when** its sealed
+Initiative **or** stable action identity is missing **or** replaced.
+
+#### Test case
+
+submit one mutation whose worker replaces the stable action identity with its
+queue-parent identity **before** applying the effect.
+
+#### Acceptance criteria
+
+pass **only** **when** the mutation returns an explicit blocked outcome **and** applies no
+effect.
+
+#### Failure disposition
+
+reject dispatch **until** the original Initiative **and** action identities are
+restored.
+
+#### Sources
+
+- [CA-M-191 — Bind one programmatic mutation to its Initiative](../05_method/CA-M-191-PROGRAMMATIC-ENG_POLICY--bind-one-programmatic-mutation-to-its-initiative.md)

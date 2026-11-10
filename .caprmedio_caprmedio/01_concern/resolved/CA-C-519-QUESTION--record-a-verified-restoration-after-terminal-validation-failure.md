@@ -19,7 +19,17 @@ subjects:
   - Docker Image
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  concern_about: [CA-P-1826, CA-R-1897, CA-M-353, CA-E-596, CA-D-591]
+  concern_about:
+  - CA-P-1826
+  - CA-R-1897
+  - CA-M-353
+  - CA-E-596
+  - CA-D-591
+ref_id: CA-C-519
+carrier_destination:
+  file:
+    name: CA-C-519-QUESTION--record-a-verified-restoration-after-terminal-validation-failure.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

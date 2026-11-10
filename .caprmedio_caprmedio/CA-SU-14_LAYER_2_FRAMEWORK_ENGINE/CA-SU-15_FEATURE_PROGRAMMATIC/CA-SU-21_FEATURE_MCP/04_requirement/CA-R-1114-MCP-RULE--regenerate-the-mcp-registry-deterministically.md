@@ -6,12 +6,12 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output
-    Publication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Data Handling <+ Output Publication
 tier: 1
 status: Active
-version: 22
-updated_at: 2026-11-09 21:15:45 +0400
+version: 23
+updated_at: 2026-11-10 20:47:54 +0400
 llm_session_ids:
 - codex:01a01cb6-4ee4-7553-b68d-0823dda35094
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
@@ -40,24 +40,10 @@ Repeated generation over an unchanged frontier **must** be idempotent, and volat
 
 ## Details
 
-### Registry generation
+### Deterministic registry generation
 
-#### Applicable when
+Every local release and image rebuild, before MCP startup, generate the runtime registration asset from the installed code-owned provider inventory and canonical descriptors. Derive typed schemas from code models, validate names/descriptors, and write deterministic output inside the package before final identity verification; the image build regenerates it from copied Engine code. Never read native Atoms or call a capability during generation.
 
-Every local release and image rebuild, before the MCP server starts.
+MCP loads the generated asset at startup. A source Atom edit does not change exposure or trigger a generic call-time source scan. Replacing a running implementation follows explicit restart or optional hot-reload boundaries; hot reload is disabled by default. The ready tools/list export is discovery output, not executable registration input.
 
-#### Procedure
-
-Generate the runtime registration asset from the installed code-owned provider inventory and canonical provider descriptors. Derive typed schemas from their code models, validate names and descriptors, and write deterministic output inside the package before its final identity verification. The image build regenerates the same asset from its copied engine code. Do not read native Atoms or call a capability during generation.
-
-MCP loads that generated asset on startup. A source Atom edit does not change exposure or require a generic call-time source catalog scan. Replacing a running implementation follows the existing explicit restart or optional hot-reload boundary; hot reload stays disabled by default.
-
-The actual tools/list export after readiness is a separate discovery output, not the executable registration input.
-
-#### Outcome
-
-Equivalent installed code and inventory produce equivalent registration bytes. Build failure stops delivery before startup; invalid individual descriptors retain the existing attributable diagnostics.
-
-#### Failure or stop
-
-Report unresolved code/configuration, duplicate identities, invalid generator output or generation failure. Do not rebuild registration from Atoms as a fallback.
+Equivalent installed code/inventory produce equivalent bytes. Quarantine capabilities with duplicate identities and other invalid individual descriptors with attributable diagnostics, and publish independently valid descriptors. Generation failure or unresolved generator integrity or common activated descriptor frontier stops delivery before startup. Never fall back to Atom discovery.

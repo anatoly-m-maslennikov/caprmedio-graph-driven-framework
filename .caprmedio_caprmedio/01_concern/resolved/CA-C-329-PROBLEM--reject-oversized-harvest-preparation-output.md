@@ -8,18 +8,23 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Harvest preparation output completeness"
+  governs: Harvest preparation output completeness
   depends_on:
-    - "Artifact"
+  - Artifact
 version: 2
-updated_at: "2026-10-04 11:44:51 +0000"
+updated_at: 2026-10-04 11:44:51 +0000
 relations:
   concern_about:
-    - CA-P-1118
-    - CA-P-1309
-    - CA-P-1310
-    - CA-P-1311
-    - CA-P-1312
+  - CA-P-1118
+  - CA-P-1309
+  - CA-P-1310
+  - CA-P-1311
+  - CA-P-1312
+ref_id: CA-C-329
+carrier_destination:
+  file:
+    name: CA-C-329-PROBLEM--reject-oversized-harvest-preparation-output.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

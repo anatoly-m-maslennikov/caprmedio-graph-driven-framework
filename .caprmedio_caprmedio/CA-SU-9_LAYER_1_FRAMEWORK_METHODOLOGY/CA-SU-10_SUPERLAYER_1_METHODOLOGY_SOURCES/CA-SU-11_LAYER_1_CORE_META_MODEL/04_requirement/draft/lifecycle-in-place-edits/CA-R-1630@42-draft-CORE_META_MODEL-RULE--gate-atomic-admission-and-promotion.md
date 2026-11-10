@@ -24,4 +24,4 @@ Gate atomic admission and promotion
 
 Admission and promotion check only required-field presence, declared property and Claim formats, and values allowed by Project rules. They have no AI semantic-quality, approval, classification, or history-proof gate. Do not fabricate lineage to admit an operation.
 
-[CA-R-1432](CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) governs write-boundary protections, semantic identity/Version outcomes, and Scope/Tier constraints; [CA-R-1788](CA-R-1788@19-draft-CORE_META_MODEL-RULE--refresh-updated-at-whenever-an-atom-changes.md) governs timestamps; [CA-R-807](CA-R-807@35-draft-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md) governs Journal observations.
+[CA-R-1432](CA-R-1432@28-draft-CORE_META_MODEL-RULE--govern-atom-lifecycle-identity-and-version.md) governs identity and Version outcomes; [CA-R-1788](CA-R-1788@19-draft-CORE_META_MODEL-RULE--initialize-version-creation-timestamp.md) governs timestamps; [CA-R-807](CA-R-807@35-draft-CORE_META_MODEL-RULE--record-replacement-transitions-in-the-journal.md) governs Journal observations.

@@ -8,13 +8,13 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control/Code Hot Reload
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control <+ Code Hot Reload
   tier: 3
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-797-PROGRAMMATIC-DIRECT_POLICY--verify-default-off-code-hot-reload.md
@@ -25,7 +25,6 @@ relations:
   evaluation_for:
   - CA-M-505
 ---
-
 ## Summary
 
 Verify default-off code hot reload
@@ -34,4 +33,4 @@ Verify default-off code hot reload
 
 ### Prose Claim
 
-For each code hot-reload mechanism, verify that ordinary startup leaves it disabled with no reload-only process/watcher, explicit opt-in enables it, and turning it off restores normal restart behavior. Verify that retained runtime capabilities and source-data synchronization still work in default mode. Test public launch/configuration behavior rather than internal implementation structure.
+For each hot-reload mechanism, ordinary startup is disabled without reload-only watcher/process; explicit opt-in enables it and disabling restores normal restart behavior. Verify retained runtime capabilities/source-data synchronization via public launch/configuration behavior.

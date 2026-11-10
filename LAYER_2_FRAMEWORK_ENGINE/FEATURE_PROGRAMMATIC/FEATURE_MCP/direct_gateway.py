@@ -1,3 +1,8 @@
+# CA-R-3013@2
+# CA-M-506@6
+# CA-M-512@2
+# CA-M-517@1
+
 """In-process MCP gateway for the Project-owned Workbench."""
 
 import asyncio
@@ -11,10 +16,12 @@ from mcp import types
 from mcp.server.lowlevel import Server
 from mcp.server.stdio import stdio_server
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "FEATURE_TOOLS"))
+from caller_context import CallerContextError, take_caller_context  # noqa: E402
 from health_observations import HealthObservations  # noqa: E402
 from operation_error_boundary import (  # noqa: E402
-    ExplicitBlockingRuntimeFailure, FailureRecord, operation_error_boundary,
+    FailureRecord, operation_error_boundary,
 )
 from project_selection import (  # noqa: E402
     ProjectSelection, bind_selection, resolve_project, rebind_selection,
@@ -22,14 +29,14 @@ from project_selection import (  # noqa: E402
 from project_tool_blacklist import project_tool_blacklist  # noqa: E402
 from project_tool_context import native_arguments  # noqa: E402
 from runtime_failure_diagnostics import report_failure  # noqa: E402
+from runtime_request_context import bind_request_context  # noqa: E402
 from shared_tool_contract import public_tool  # noqa: E402
-from workbench_links import (  # noqa: E402
-    context_project_root, public_saved, public_workspace, validate_reference,
+from tool_registry_runtime import (  # noqa: E402
+    ToolInputValidationError, ToolOutputValidationError, ToolRegistryRuntimeError,
+    ToolRegistryStaleError,
+    load_active_registry,
 )
-from workbench_tools import (  # noqa: E402
-    NATIVE_TOOLS, WORKSPACE_GET, WORKSPACE_OPEN, WorkbenchTools, mcp_app_probe,
-    native_tools,
-)
+from workbench_tools import WorkbenchTools, mcp_app_probe  # noqa: E402
 
 
 def startup_selection(root, control_root=None, instance_id=None, host_root=None):
@@ -56,6 +63,7 @@ class DirectGateway:
         self.selection = selection
         self.tool_blacklist = frozenset()
         self.tools = ()
+        self.registry = None
         self.ready = False
         self.server = None
         self.workbench = WorkbenchTools(self.root)
@@ -65,12 +73,25 @@ class DirectGateway:
         if self.ready:
             return
         with bind_selection(self.selection) if self.selection is not None else nullcontext():
-            self.tool_blacklist = project_tool_blacklist(self.root)
-        self.tools = tuple(tool for tool in native_tools() if tool.name not in self.tool_blacklist)
+            project_blacklist = project_tool_blacklist(self.root)
+        try:
+            self.registry = load_active_registry(Path(__file__).parent, self.root, self)
+        except ToolRegistryRuntimeError as error:
+            report_failure(
+                self.root,
+                FailureRecord("ERROR", "tool_registry_unavailable", "MCP tool registry is unavailable"),
+                component="MCP_GATEWAY", operation="initialize",
+            )
+            raise error
+        self.tool_blacklist = self.registry.global_blacklist | project_blacklist
+        self.tools = tuple(tool for tool in self.registry.tools if tool.name not in self.tool_blacklist)
         self.ready = True
 
     async def close(self):
         self.ready = False
+        if self.registry is not None:
+            await self.registry.close()
+            self.registry = None
         await self.workbench.close()
 
     def status(self):
@@ -86,6 +107,44 @@ class DirectGateway:
             diagnostics.append("technical diagnostic unavailable")
         return result({"outcome": "failed", "diagnostics": diagnostics}, True)
 
+    def _input_rejection(self, operation):
+        report_failure(
+            self.root,
+            FailureRecord("WARNING", "tool_input_invalid", "Tool input does not match its schema"),
+            component="MCP_GATEWAY", operation=operation,
+        )
+        return result({"outcome": "rejected", "diagnostics": ["tool_input_invalid"]}, True)
+
+    def _runtime_failure(self, code, message, operation):
+        return self._failure(FailureRecord("ERROR", code, message), operation)
+
+    def _registry_failure(self, error, operation):
+        if isinstance(error, ToolRegistryStaleError):
+            return result({"outcome": "rejected", "diagnostics": ["tool_registry_stale"]}, True)
+        return self._runtime_failure(
+            "tool_runtime_failure", "MCP tool runtime is unavailable", operation
+        )
+
+    async def _invoke_bound(self, context, params, arguments):
+        try:
+            arguments, request_context = take_caller_context(arguments)
+        except CallerContextError as error:
+            return result({"outcome": "rejected", "diagnostics": [str(error)]}, True)
+        if self.registry is None or params.name in self.tool_blacklist or not self.registry.permits(params.name):
+            return result({"outcome": "rejected", "diagnostics": ["Unknown Tool"]}, True)
+        with (bind_request_context(request_context) if request_context else nullcontext(),
+              bind_selection(self.selection) if self.selection is not None else nullcontext()):
+            try:
+                return await self._call(context, params.name, arguments)
+            except ToolInputValidationError:
+                return self._input_rejection(params.name)
+            except ToolOutputValidationError:
+                return self._runtime_failure(
+                    "tool_output_invalid", "Tool output does not match its schema", params.name,
+                )
+            except ToolRegistryRuntimeError as error:
+                return self._registry_failure(error, params.name)
+
     async def call(self, context, params):
         response = None
         error = None
@@ -98,10 +157,7 @@ class DirectGateway:
         @operation_error_boundary(on_error=on_error)
         async def guarded_call():
             arguments = native_arguments(params.arguments, self.selection, self.root)
-            if params.name in self.tool_blacklist or params.name not in NATIVE_TOOLS:
-                return result({"outcome": "rejected", "diagnostics": ["Unknown Tool"]}, True)
-            with bind_selection(self.selection) if self.selection is not None else nullcontext():
-                return await self._call(context, params.name, arguments)
+            return await self._invoke_bound(context, params, arguments)
 
         try:
             response = await guarded_call()
@@ -124,22 +180,9 @@ class DirectGateway:
                 )
 
     async def _call(self, context, name, arguments):
-        request = getattr(context, "request", None)
-        if (name == "query_load" and isinstance(arguments, dict)
-                and isinstance(arguments.get("reference"), str)):
-            try:
-                reference = validate_reference(
-                    arguments["reference"], request, self.selection, context_project_root(context),
-                )
-            except ValueError as error:
-                raise ExplicitBlockingRuntimeFailure("query_error", str(error)) from error
-            arguments = {**arguments, "reference": reference}
-        value = await self.workbench.call(name, arguments)
-        if request is not None:
-            value = public_saved(value, request, self.selection, context_project_root(context))
-            if name in {WORKSPACE_OPEN, WORKSPACE_GET}:
-                value = public_workspace(value, request, self.selection, context_project_root(context))
-        return result(value)
+        if self.registry is None:
+            raise ToolRegistryRuntimeError("tool-registry-unavailable")
+        return result(await self.registry.call(name, arguments, context=context))
 
     def build_server(self):
         async def list_tools(context, params):

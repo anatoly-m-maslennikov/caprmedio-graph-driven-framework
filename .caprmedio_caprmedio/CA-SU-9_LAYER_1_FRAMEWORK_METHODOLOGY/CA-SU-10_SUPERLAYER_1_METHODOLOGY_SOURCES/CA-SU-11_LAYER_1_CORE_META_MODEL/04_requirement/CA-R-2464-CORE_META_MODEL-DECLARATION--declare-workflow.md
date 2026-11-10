@@ -21,7 +21,7 @@ Declare Workflow
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Workflow;
+Atom/(.Header.Role := Operations)/Workflow;
 
 # instances
 Workflow//$workflow{::1+}((CONTAINS)) Step//$step;

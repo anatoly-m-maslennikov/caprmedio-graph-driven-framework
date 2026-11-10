@@ -8,12 +8,13 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Result and Status
+      Presentation
   tier: 4
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
@@ -32,7 +33,9 @@ The existing MCP HTTP Gateway **and** its process-local diagnostic view, **witho
 
 ## Claim
 
-MCP **must** expose a browser view at `/health` on the same listener. The view shows:
+
+### Prose Claim
+MCP **must** expose a browser view at `/caprmedio/health` on the same listener. The view shows:
 
 - bounded health observations;
 - recent Tool calls;

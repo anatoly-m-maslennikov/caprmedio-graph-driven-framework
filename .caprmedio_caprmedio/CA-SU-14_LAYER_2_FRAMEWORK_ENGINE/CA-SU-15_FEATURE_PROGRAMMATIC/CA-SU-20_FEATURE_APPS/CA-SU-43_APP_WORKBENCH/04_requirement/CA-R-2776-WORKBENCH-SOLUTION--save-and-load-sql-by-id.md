@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 3
 state:
   status: Active
-  version: 7
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 9
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2776-WORKBENCH-SOLUTION--save-and-load-sql-by-id.md
@@ -28,26 +28,14 @@ Save and load SQL by ID
 
 ## Claim scope
 
-Workbench SQL saved-query operations and saved-query references in the web URL.
+Workbench SQL Bookmark operations and Bookmark references in the web URL.
 
 ## Claim
 
-The Workbench **must**:
 
-- write a new saved query only after a successful query_run with save true. The entry contains the exact submitted SQL, optional name, saved_at, kind query and a canonical unprefixed UUIDv7 ID.
-- accept query_run fields sql, optional cursor_position as editor-caret metadata only, optional preview, optional save defaulting to false and optional name only when save is true. A failed query_run never creates a saved query. Editing unfinished SQL is allowed; Run and Check reject multiple whole queries, including semicolon-delimited statements, rather than executing a cursor-selected part.
-- return saved_query_id, saved_query_url, kind and optional name with a successful saved Run. If saving fails after the Run has completed, keep that Run result and query ID, return outcome partial and save_error, and do not retry or roll back.
-- keep query_run as the only query-save operation. Do not expose a separate query_save operation or a save-only web endpoint. The UI action for this operation is Run & Save.
-- expose `view_save({sql, name?})` as the one-query View save operation. It writes one View entry with kind view, exact one-query SQL and optional creation name.
-- write each saved query or View as one entry in a dedicated append-only Journal under the configured Project Journal root.
-- use the existing Journal writer's 1,000-row parts with the reserved workbench-saved-items prefix and date partition. Approximate the limit under concurrent writes rather than creating one unbounded file.
-- do not rename saved queries or saved Views after creation. Names are creation-time values.
-- expose query_load({reference}) -> {saved_query_id, saved_query_url, kind, sql, name?} and query_saved_list({limit?}) for recent query and View entries, with default limit 20 and maximum 1,000. Names are returned when present. Existing saved entries with kind worksheet remain readable as historical entries; new saves use kind view.
-- expose the same query_run, view_save, query_load and query_saved_list contracts through the web. Use `/view-save`, `/load` and `/saved-list`; do not add a `/save` endpoint or a new worksheet-save alias.
-- load a saved query or View by ID or URL and return its exact SQL without executing it. Historical saved entries with kind worksheet and existing `w_<hex>.json` runtime items remain loadable for compatibility.
-- let ?query=<saved_query_id> load either kind without automatic execution and preserve the project_root parameter.
-- keep saved-query identities separate from materialized result query IDs and distinguish them with kind.
-- keep existing q_<hex>.sql and w_<hex>.json runtime files as read-only fallback sources for load/list. Preserve their IDs and URLs; do not rewrite or migrate them.
-- exclude saved-item Journal writes from Atom reindexing; their observed filesystem changes may still appear in the technical change log.
-- omit sharing, authentication, deduplication, retry, repair, rollback, expiry and deletion workflows for permanent saved items. Temporary materialized results remain subject to the shared backend's age-or-open-View retention policy.
-- when a View is rerun, drop its previous temporary result before attempting the replacement; if the new query fails, do not return or restore the previous result.
+### Prose Claim
+The Workbench writes a permanent Bookmark only after successful `query_run(save: true)`: exact SQL, optional creation name, `saved_at`, `kind: query`, and a stable saved ID and URL. Bookmark names are immutable. A failed Run writes nothing; a post-Run save failure retains the completed result and its ID, returns partial/save_error, produces no invented saved identity, and never retries or rolls back. `query_run` is the sole query-save operation and the UI action is Run & Save; no second query-save operation is introduced.
+
+`view_save({sql, name?})` writes one complete Tab script as `kind: view` (a retained storage compatibility value). Saved Views and permanent Bookmarks are distinct from temporary query history, never rename and have no expiry. `query_load({reference})` loads exact SQL by ID or URL without execution. `query_saved_list({limit?})` lists recent query/View entries (20 default, 1,000 maximum) as metadata only: saved identity/URL, kind, optional name, preview and saved time, never full SQL. Existing worksheet entries and q_/w_ runtime files remain read-only compatibility, with IDs/URLs unchanged and no migration.
+
+`?query=<saved_query_id>` loads either saved kind into the current Project context without a Run. Saved identities differ from materialized result IDs. Exclude sharing, authorization, deduplication, retry, repair, rollback and deletion. Call permanent saved SQL a Bookmark and retain its distinction from a saved View.

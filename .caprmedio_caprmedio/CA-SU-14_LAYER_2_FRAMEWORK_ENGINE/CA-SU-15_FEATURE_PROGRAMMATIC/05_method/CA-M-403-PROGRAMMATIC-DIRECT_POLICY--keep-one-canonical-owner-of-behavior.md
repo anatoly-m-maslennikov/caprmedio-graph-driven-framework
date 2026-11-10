@@ -8,14 +8,14 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-      Structure
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Component Structure
     dependencies: []
   tier: 1
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 13
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-403-PROGRAMMATIC-DIRECT_POLICY--keep-one-canonical-owner-of-behavior.md
@@ -43,13 +43,11 @@ Keep one canonical owner of behavior
 
 New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
 
-Candidate source: [CA-M-387@2](archive/CA-M-387-PROGRAMMATIC-CORE--keep-one-canonical-owner-of-behavior@2.md)
 
 - Adapters translate supported requests and results; they do not invent domain decisions or hidden Workflow composition.
 - Keep identity, lifecycle, semantic admission and sequencing with their declared owner.
 - Replacing a transport or backend must not silently change the declared capability.
 
-Source basis: CA-M-341, CA-M-376.
 
 ### Retained Requirement and Delivery locality
 
@@ -61,7 +59,6 @@ For each implemented R or D Atom, prefer concentrating its actual claim-specific
 
 New or changed PROGRAMMATIC implementation of Requirement (R) and Delivery (D) Atoms, including descendant Scope Units.
 
-Candidate source: [CA-M-393@1](draft/archive/CA-M-393-PROGRAMMATIC-CORE--concentrate-requirement-and-delivery-implementation@1.md)
 
 - Apply the preference to actual implementation, not merely an owner label, trace link or facade over dispersed logic. Several Atoms may share one module or code unit; several code units within one module may realize one Atom.
 - Use code units, such as functions or classes, at the stated implementation granularity; do not confuse them with governed Scope Units.

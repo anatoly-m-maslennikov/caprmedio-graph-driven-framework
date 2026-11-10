@@ -6,48 +6,36 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Coverage
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 5
 relations:
   evaluation_for:
-  - CA-M-285
-  derived_from:
+  - CA-M-424
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 21
-updated_at: 2026-10-27 19:59:34 +0400
+version: 22
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-396-PROGRAMMATIC-EVAL_CASE--use-python-branch-coverage-as-navigation-evidence.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Use Python branch coverage as navigation evidence
+## Summary
 
-## Claim checked
+Use Python branch coverage as navigation evidence
 
-branch coverage locates unobserved alternatives **without** being treated as proof
-of correctness.
+## Claim
 
-## Test case
+### Prose Claim
 
-collect branch coverage for one changed decision unit with one intentionally
-unobserved failure branch.
-
-## Acceptance criteria
-
-pass **only** **when** the missing branch is reported for review, the target **and**
-omissions are stated, **and** acceptance depends on public-outcome assertions rather
-than a percentage alone.
-
-## Failure disposition
-
-reject reliance based solely on the coverage percentage.
-
-## Sources
-
-- [Coverage.py: branch coverage](https://coverage.readthedocs.io/en/latest/branch.html)
-- [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)
+Branch coverage identifies unobserved alternatives for review but never proves correctness. State target and omissions; acceptance requires public-outcome assertions, not percentage alone.

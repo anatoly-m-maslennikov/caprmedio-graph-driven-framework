@@ -17,8 +17,8 @@ relations:
   delivery_for:
   - CA-R-1920
 status: Active
-version: 14
-updated_at: 2026-11-09 15:54:30 +0400
+version: 15
+updated_at: 2026-11-11 00:17:19 +0400
 carrier_destination:
   file:
     name: CA-D-610-FRAMEWORK_DELIVERY-DECISION--place-the-public-release-native-tool-source.md
@@ -38,7 +38,7 @@ the authoritative source carrier for the native public-release Tool.
 
 ## Claim
 
-the native public-release Tool **must** be carried at `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/PUBLIC_RELEASE/public_release.py` with its package-local tests under `PUBLIC_RELEASE/tests/`.
+the native public-release Tool **must** be carried at `LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/public_release.py` with its package-local tests under `PUBLIC_RELEASE/tests/`.
 
 ## Details
 

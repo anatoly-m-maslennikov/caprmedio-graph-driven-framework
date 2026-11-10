@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Package
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md
@@ -38,7 +38,7 @@ Package//$package_2{::0..1}((IS_CONTAINED_BY)) Package//$package_3;
 
 Package//$package_4{::0+}((CONTAINS)) Package//$package_5;
 
-IF (Package//$package not in (Package/Implementation//$package_6))
+IF (Package//$package not in (Package/Project Package//$package_6))
 THEN ($package {==1}((IS_CONTAINED_BY)) Package//$package_7);
 ```
 

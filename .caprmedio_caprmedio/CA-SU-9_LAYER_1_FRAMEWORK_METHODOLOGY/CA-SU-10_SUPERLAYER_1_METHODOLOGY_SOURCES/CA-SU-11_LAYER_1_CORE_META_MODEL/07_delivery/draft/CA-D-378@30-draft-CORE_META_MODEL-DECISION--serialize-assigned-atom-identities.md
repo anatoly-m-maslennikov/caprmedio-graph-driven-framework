@@ -32,6 +32,6 @@ Every assigned Current or Archived Atom ID must begin with the registered upperc
 
 For an existing-Atom Draft, `atom_id` is exactly `<canonical-ID>@<proposed-version>-draft`. Use the numeric Header `version` as `<proposed-version>`; its filename identity segment is that same marker.
 
-For a role-only Draft, `atom_id` and its filename identity segment are the role-only `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-draft` marker. [CA-R-1432@28-draft](../../04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) governs which marker applies and, at successful publication, the fresh canonical ID and Version 1 outcome.
+For a role-only Draft, `atom_id` and its filename identity segment are the role-only `<PROJECT_PREFIX>-<CONTENT_ROLE_LETTER>-draft` marker. [CA-R-1432@28-draft](../../04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--govern-atom-lifecycle-identity-and-version.md) governs which marker applies and, at successful publication, the fresh canonical ID and Version 1 outcome.
 
 [CA-D-650@15-draft](CA-D-650@15-draft-CORE_META_MODEL-DECISION--serialize-numbered-version-qualified-draft-atom-filenames.md) assembles the marker into the filename.

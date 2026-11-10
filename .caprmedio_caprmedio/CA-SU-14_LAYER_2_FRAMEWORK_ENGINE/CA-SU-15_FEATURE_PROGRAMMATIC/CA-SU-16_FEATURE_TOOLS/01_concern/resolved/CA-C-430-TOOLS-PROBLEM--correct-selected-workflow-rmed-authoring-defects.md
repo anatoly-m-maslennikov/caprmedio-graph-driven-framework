@@ -16,7 +16,25 @@ subjects:
   - Subject/Engineering/Specification Review/Workflow Contracts
   - Subject/Engineering/Specification Review/Metadata and Sections
 relations:
-  concern_about: [CA-P-1484, CA-P-1485, CA-P-1486, CA-P-1487, CA-P-1488, CA-P-1489, CA-P-1491, CA-P-1501, CA-P-1502, CA-P-1503, CA-P-1504, CA-P-1505, CA-P-1506]
+  concern_about:
+  - CA-P-1484
+  - CA-P-1485
+  - CA-P-1486
+  - CA-P-1487
+  - CA-P-1488
+  - CA-P-1489
+  - CA-P-1491
+  - CA-P-1501
+  - CA-P-1502
+  - CA-P-1503
+  - CA-P-1504
+  - CA-P-1505
+  - CA-P-1506
+ref_id: CA-C-430
+carrier_destination:
+  file:
+    name: CA-C-430-TOOLS-PROBLEM--correct-selected-workflow-rmed-authoring-defects.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

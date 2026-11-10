@@ -21,5 +21,3 @@ Journal events record actual lifecycle business effects. An archive event names 
 Append observations independently. An append failure is a nonblocking warning and never an admission gate.
 
 Active Current Atom relations do not carry replacement history. Formal `replaced_by` and `replacement_of` remain deferred; later replacement navigation is derived from immutable Journal and archive history under separately admitted authority.
-
-[CA-R-1432](./CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md) governs operation failure and completed effects.

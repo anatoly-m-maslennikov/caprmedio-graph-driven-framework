@@ -1,0 +1,48 @@
+---
+identity:
+  atom_id: CA-M-410
+  ref_id: CA-M-410@11
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: Method
+  form: Direct Policy
+  topics:
+    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
+      Control/Resource Limits
+  tier: 3
+state:
+  status: Archived
+  version: 11
+  updated_at: 2026-11-09 07:45:14 +0400
+destination:
+  file:
+    name: CA-M-410@11-PROGRAMMATIC-DIRECT_POLICY--bound-resource-use-to-the-workload.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/05_method/archive
+current_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+---
+
+## Summary
+
+Bound resource use to the workload
+
+## Claim
+
+### Prose Claim
+
+**To** implement PROGRAMMATIC behavior, account for input size and resource growth, choose bounded or incremental processing and controlled concurrency, and apply appropriate resource budgets to prevent uncontrolled growth and resource exhaustion, including out-of-memory failures.
+
+## Details
+
+### Scope
+
+New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
+
+Candidate source: [CA-M-386@2](archive/CA-M-386-PROGRAMMATIC-CORE--bound-resource-use-to-the-workload@2.md)
+
+- Use streaming, batching, bounded buffers or bounded work admission where they satisfy the declared behavior.
+- Account for aggregate concurrent work, memory, queues, workers, subprocesses and retained state, not only the cost of one operation.
+- Concrete limits belong to configuration and implementation; resource-behavior verification and acceptance belong to Evaluation. This Method fixes no product, concurrency count or universal threshold.
+
+The Operator explicitly selected reasonable, bounded resource use to prevent OOM and similar failures on 2026-10-15.

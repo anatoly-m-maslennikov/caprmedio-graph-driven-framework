@@ -16,7 +16,12 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
-    - CA-P-1118
+  - CA-P-1118
+ref_id: CA-C-304
+carrier_destination:
+  file:
+    name: CA-C-304-PROBLEM--retain-the-first-partition-late-terminal-receipt.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

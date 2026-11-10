@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Bind `savedDraft`, captured `targetStatus`, and `projectContext` to the called Workflow. The original-source bindings remain enclosing-Workflow context.
+Bind `savedDraft`, captured `targetStatus`, `savedArchivedAtom`, and `projectContext` to the called Workflow. The called Workflow skips the target already archived by this Update.
 
 ### Fixed parameters
 

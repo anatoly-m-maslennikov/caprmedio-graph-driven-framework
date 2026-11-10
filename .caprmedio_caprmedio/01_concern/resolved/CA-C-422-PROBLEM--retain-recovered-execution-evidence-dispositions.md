@@ -18,8 +18,24 @@ subjects:
   - Plan
   - Journal
 relations:
-  concern_about: [CA-P-1438, CA-P-1441, CA-P-1442, CA-P-1452, CA-P-1466, CA-P-1467, CA-P-1469, CA-P-1471, CA-P-1473, CA-P-1480]
-  relates_to: [CA-C-421]
+  concern_about:
+  - CA-P-1438
+  - CA-P-1441
+  - CA-P-1442
+  - CA-P-1452
+  - CA-P-1466
+  - CA-P-1467
+  - CA-P-1469
+  - CA-P-1471
+  - CA-P-1473
+  - CA-P-1480
+  relates_to:
+  - CA-C-421
+ref_id: CA-C-422
+carrier_destination:
+  file:
+    name: CA-C-422-PROBLEM--retain-recovered-execution-evidence-dispositions.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

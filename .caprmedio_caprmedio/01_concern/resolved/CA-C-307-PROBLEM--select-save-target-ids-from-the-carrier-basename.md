@@ -16,7 +16,12 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
-    - CA-P-1118
+  - CA-P-1118
+ref_id: CA-C-307
+carrier_destination:
+  file:
+    name: CA-C-307-PROBLEM--select-save-target-ids-from-the-carrier-basename.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

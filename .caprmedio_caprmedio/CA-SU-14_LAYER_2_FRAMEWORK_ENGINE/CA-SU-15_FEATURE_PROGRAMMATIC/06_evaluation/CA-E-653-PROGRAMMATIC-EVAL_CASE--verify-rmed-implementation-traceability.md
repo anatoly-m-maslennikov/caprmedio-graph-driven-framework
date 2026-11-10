@@ -8,17 +8,17 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Traceability
+    dependencies: []
   tier: 5
 relations:
   evaluation_for:
-  - CA-R-2117
+  - CA-M-526
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-653-PROGRAMMATIC-EVAL_CASE--verify-rmed-implementation-traceability.md
@@ -57,7 +57,9 @@ Do not infer applicability from a projection alone. Apply this case only to the 
 
 Use an isolated fixture with a module that directly implements several Requirement, Evaluation, Delivery and non-Policy Method claims. Include an Atom that is only called by the module and a generic coding Policy that guides it without being implemented.
 
-Verify one bare versioned Atom comment per line before the first code, using the file language's comment syntax, for example `# CA-R-2117@13`. Resolve each cited ID and Version against the applicable Current authority and check that the module materially implements that claim. Accept optional narrower function or class comments; their absence alone is not failure. Do not require role-labelled blocks, a marker, narrowest-leaf selection or automatic ancestor removal.
+Verify one bare versioned Atom comment per line before the first code, using the file language's comment syntax. `# CA-R-123@1` is a syntax example only; the fixture uses actual Current IDs and Versions. Resolve each cited ID and Version against the applicable Current authority and check that the module materially implements that claim. Accept optional narrower function or class comments; their absence alone is not failure. Do not require role-labelled blocks, a marker, narrowest-leaf selection or automatic ancestor removal.
+
+Include a shared provider that materially implements a non-Policy Method and a consumer that only imports or calls that provider. The provider cites its implemented Method with a bare current ID and Version; the consumer does not cite that Method merely for calling it. Check actual delegation or decorator behavior rather than treating an import as proof that the shared behavior ran. A generic Policy that guides either module still receives no implementation citation.
 
 Include valid many-to-many ownership and false positives: malformed or unversioned IDs, stale or unresolved versions, paths or titles used as IDs, a Method Policy cited only as guidance, and an Atom that is only called. Check excluded files separately rather than changing them automatically.
 

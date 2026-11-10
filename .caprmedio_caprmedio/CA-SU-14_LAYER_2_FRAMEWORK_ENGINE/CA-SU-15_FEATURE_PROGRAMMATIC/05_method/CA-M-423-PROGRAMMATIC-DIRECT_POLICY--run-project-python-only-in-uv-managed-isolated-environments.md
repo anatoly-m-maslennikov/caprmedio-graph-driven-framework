@@ -8,14 +8,14 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
-      Authoring/Python Code
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Authoring <+ Code Authoring <+ Python Code
     dependencies: []
   tier: 3
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 12
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-423-PROGRAMMATIC-DIRECT_POLICY--run-project-python-only-in-uv-managed-isolated-environments.md
@@ -30,8 +30,9 @@ run Project Python **only** in uv-managed isolated environments
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 Project Python **must** execute **only** through a uv-managed isolated environment **and** **must not** use naked **or** system Python, **or** system-installed libraries.
 
 ## Details
@@ -40,7 +41,6 @@ Project Python **must** execute **only** through a uv-managed isolated environme
 
 the interpreter and library environment used to execute, develop, evaluate, build, package, or otherwise run Project Python source.
 
-Candidate source: [CA-M-358@2](archive/CA-M-358-PROGRAMMATIC-GENERAL--run-project-python-only-in-uv-managed-isolated-environments@2.md)
 
 1. resolve the Project interpreter through `uv python` **and** materialize its declared dependencies through the Project `pyproject.toml` **and** `uv.lock`.
 2. synchronize the isolated environment with `uv sync --locked` **before** governed execution **and** start Project Python with `uv run --locked` **or** another uv command that selects that same isolated environment. Child processes **may** reuse **only** the selected environment's interpreter.

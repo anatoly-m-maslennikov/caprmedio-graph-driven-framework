@@ -15,7 +15,17 @@ subjects:
   depends_on:
   - Subject/Engineering/Release Packaging/Derived Output Prediction
 relations:
-  concern_about: [CA-D-561, CA-D-566, CA-D-567, CA-D-571, CA-E-572]
+  concern_about:
+  - CA-D-561
+  - CA-D-566
+  - CA-D-567
+  - CA-D-571
+  - CA-E-572
+ref_id: CA-C-454
+carrier_destination:
+  file:
+    name: CA-C-454-TOOLS-QUESTION--how-should-a-release-child-manifest-avoid-digest-cycles.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

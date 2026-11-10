@@ -1,22 +1,24 @@
 ---
-atom_id: CA-E-467
-ref_id: CA-E-467
-container:
-  scope_unit: CA-SU-15
-role: Evaluation
-form: Eval Case
-topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout"
-  dependencies:
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout"
-tier: 4
+identity:
+  atom_id: CA-E-467
+  ref_id: CA-E-467
+context:
+  container:
+    scope_unit: CA-SU-15
+  role: evaluation
+  form: eval_case
+  topics:
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Storage <+ Directory Layout
+    dependencies: []
+  tier: 4
 relations:
   evaluation_for:
-  - CA-R-1473
   - CA-M-422
-status: Active
-version: 16
-updated_at: 2026-10-27 19:59:35 +0400
+state:
+  status: Active
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -24,14 +26,24 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-467-PROGRAMMATIC-EVAL_CASE--reject-temporary-state-outside-project-temp.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reject temporary state outside project temp
+## Summary
 
-## Claim checked
+Reject temporary state outside project temp
+
+## Claim
+
+### Prose Claim
+
+#### Claim checked
 
 **every** CAPRMEDIO-controlled PROGRAMMATIC execution **must** confine temporary Carriers created by its components **and** configured dependencies **to** the Project Temporary State root.
 
-## Test case
+#### Test case
 
 1. set the working directory **and** ambient host temporary location outside the configured Project Temporary State root.
 2. run representative Tool, App backend, **and** MCP fixtures, including their test runner **and** a configured dependency. exercise bytecode creation, caches, temporary workspaces, atomic staging, **and** interrupted **or** denied cleanup.
@@ -41,7 +53,7 @@ author: Anatoly Maslennikov
    path fail the same-filesystem precondition **in** an isolated fixture.
    inspect the affected effect **and** its boundary diagnostic.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 **all** of the following **must** hold:
 
@@ -54,6 +66,6 @@ author: Anatoly Maslennikov
   stops the affected effect **and** produces a stable diagnostic identifying
   the creating owner **and** violating path.
 
-## Failure disposition
+#### Failure disposition
 
 reject the changed component, test workflow, dependency configuration, **or** release **until** **every** observed **and** statically detectable temporary Carrier uses the Project Temporary State root. report **every** violating path **and** its creating owner.

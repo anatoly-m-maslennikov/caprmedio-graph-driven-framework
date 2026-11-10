@@ -8,16 +8,24 @@ form: Question
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
-  concern_about: [CA-P-2526, CA-P-2527, CA-O-169, CA-D-564]
+  concern_about:
+  - CA-P-2526
+  - CA-P-2527
+  - CA-O-169
+  - CA-D-564
 status: Resolved
 version: 2
-updated_at: "2026-10-21T10:42:00Z"
+updated_at: '2026-10-21T10:42:00Z'
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 priority: medium
+carrier_destination:
+  file:
+    name: CA-C-563-PROGRAMMATIC-STANDARD-QUESTION--choose-local-release-image-retention-scope.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

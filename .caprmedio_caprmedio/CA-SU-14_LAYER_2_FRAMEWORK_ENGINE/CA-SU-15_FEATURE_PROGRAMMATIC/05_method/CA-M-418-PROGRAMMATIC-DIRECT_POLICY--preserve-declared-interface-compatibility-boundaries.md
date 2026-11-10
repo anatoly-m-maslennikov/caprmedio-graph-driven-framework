@@ -8,18 +8,18 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface
-      Contracts
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication <+ Interface Contracts
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -38,15 +38,15 @@ Preserve declared interface compatibility boundaries
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 preserve **or** explicitly replace **every** declared PROGRAMMATIC interface **or** host
 compatibility boundary; do **not** infer a broader support claim from
 local use, stale workflow configuration, **or** one implementation.
 
 ## Details
 
-Candidate source: [CA-M-166@11](archive/CA-M-166-PROGRAMMATIC-CORE-METHOD--preserve-declared-interface-compatibility-boundaries@11.md)
 
 ### Applicable when
 

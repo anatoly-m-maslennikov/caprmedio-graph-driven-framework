@@ -16,7 +16,12 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
-    - CA-P-1118
+  - CA-P-1118
+ref_id: CA-C-305
+carrier_destination:
+  file:
+    name: CA-C-305-PROBLEM--use-the-bound-native-frontier-field-in-the-diagnostic.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

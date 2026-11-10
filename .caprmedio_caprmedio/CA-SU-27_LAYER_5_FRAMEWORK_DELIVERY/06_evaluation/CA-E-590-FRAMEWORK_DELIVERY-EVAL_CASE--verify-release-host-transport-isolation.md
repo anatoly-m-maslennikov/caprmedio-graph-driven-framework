@@ -44,21 +44,17 @@ verify Release host transport isolation
 
 ### Prose Claim
 
-the Evaluation **must** verify that the Host Executor executes **only** its exactly bound, source-admitted Release Runs without changing another executor's Queue **or** adopting its Runs.
+the Evaluation **must** verify that the direct host release entrypoint validates each Local or Public invocation and keeps its Project-local release effects separate from the Docker/MCP runtime.
 
 ## Details
 
 ### Scope
 
-admission, dispatch **and** observation of Release Runs through the isolated Host Executor.
+the direct host invocation boundary for Local and Public Release.
 
-- preserve a queued native Base Revise Run **and** an existing Docker Queue while admitting a fresh Release host Run; check that **only** the host Queue changes.
-- reject a non-Release request, foreign Run ID, changed request digest, stale Source pin, changed preview receipt **or** mismatched manifest **before** scheduler admission **or** effects.
-- reject missing **or** mismatched host worker readiness without Docker **or** native fallback.
-- verify ordinary host readiness only after a listener published under the held singleton lock answers one fresh lowercase-64-hex nonce within its two-second monotonic deadline. require an initial non-admitted `worker.json` with exactly `pid`, `start_token`, `application_version`, `runtime_fingerprint`, `state: starting`; after initialization require `worker.json` and `worker.ready` with the same five keys and `state: ready`.
-- require each request and reply to have exactly `nonce`, `deadline_monotonic`, `pid`, `start_token`, `application_version`, `runtime_fingerprint` and `state`; require finite numeric monotonic deadline no later than publication plus two seconds and exact `ready` identity equality. prove a valid fresh handshake admits despite a sandbox-denied legacy signal observation.
-- reject an absent listener, missing, expired, replayed or wrong nonce, wrong identity, changed runtime fingerprint, unknown key, payload above 4096 bytes, symlink or malformed private health carrier. verify refusal occurs before child launch, Queue change, DBOS Workflow, Journal fact or effect.
-- submit 65 simultaneous private health requests and verify the 65th fails closed; verify at most 64 pending requests. verify listener startup precedes ready publication and teardown joins it before state removal.
-- verify explicit worker startup creates no Run **and** host dispatch independently checks the frozen Release route **and** transport binding.
-- verify status **and** recovery require the retained binding; they do **not** adopt an earlier direct-host **or** Docker Run.
-- distinguish mock scheduler tests from the actual Release gates. Unit tests, image checks, host end-to-end tests **and** promotion require their own real bound evidence.
+- accept valid Local and Public operation arguments only when their Project root and Run ID pass the entrypoint validation, and verify the matching release implementation receives those same values.
+- reject an invalid root, symlink root or Run ID before Journal recording or release dispatch.
+- verify the direct host implementation places Local Release runtime/report artifacts below `.caprmedio_runtime/simple_local_release/` and transient artifacts below `.caprmedio_tmp/simple_local_release/`, without making either authoring authority.
+- verify the entrypoint does not create or call a Workflow Orchestrator Queue, worker, private IPC health exchange or DBOS Workflow.
+- make Journal recording failure visible with the result while preserving the independently observed Local or Public Release outcome.
+- distinguish focused and complete-suite local validation, Docker/MCP smoke, and Public Release checks. Each retains its own actual evidence; this Evaluation does not substitute one for another.

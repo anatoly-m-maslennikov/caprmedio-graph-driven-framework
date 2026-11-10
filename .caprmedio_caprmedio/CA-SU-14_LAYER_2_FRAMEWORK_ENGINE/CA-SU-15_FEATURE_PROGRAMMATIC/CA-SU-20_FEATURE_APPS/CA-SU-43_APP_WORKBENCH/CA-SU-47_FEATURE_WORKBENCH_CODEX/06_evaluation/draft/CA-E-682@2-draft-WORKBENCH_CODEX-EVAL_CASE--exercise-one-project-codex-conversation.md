@@ -4,7 +4,10 @@ ref_id: CA-E-682@2-draft
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Project
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication <+ Interface Contracts
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Workspace
 tier: 5
 relations:
   evaluation_for:

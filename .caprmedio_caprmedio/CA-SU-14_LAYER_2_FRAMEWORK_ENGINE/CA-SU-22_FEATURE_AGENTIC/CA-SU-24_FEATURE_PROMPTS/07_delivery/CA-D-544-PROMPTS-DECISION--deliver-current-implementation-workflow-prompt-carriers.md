@@ -6,19 +6,17 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt
-    Authoring
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery
-  - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Action'
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery
+  - MODEL//CAPRMEDIO <+ Carrier
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
 tier: 4
 status: Active
-version: 19
-updated_at: 2026-11-09 07:45:14 +0400
+version: 20
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-544-PROMPTS-DECISION--deliver-current-implementation-workflow-prompt-carriers.md
@@ -26,9 +24,6 @@ carrier_destination:
 current_scope_unit: PROMPTS
 claim_target_scope_unit: PROMPTS
 author: Anatoly Maslennikov
-relations:
-  depends_on:
-  - CA-D-545
 ---
 
 ## Summary

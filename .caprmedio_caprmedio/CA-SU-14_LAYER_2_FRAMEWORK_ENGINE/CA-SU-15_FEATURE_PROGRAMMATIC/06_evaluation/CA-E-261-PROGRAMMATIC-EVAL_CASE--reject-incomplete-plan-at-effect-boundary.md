@@ -6,18 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-    Control
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control
 tier: 5
 relations:
   evaluation_for:
   - CA-M-404
   - CA-M-425
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 26
-updated_at: 2026-11-09 14:19:14 +0400
+version: 27
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -37,8 +37,9 @@ Reject incomplete plan at effect boundary
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 one PROGRAMMATIC effect boundary refuses a plan that lacks the information
 needed **to** execute its declared effect.
 

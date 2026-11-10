@@ -6,15 +6,16 @@ container:
 role: Method
 form: Solution
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
 tier: 2
 relations:
   method_for:
   - CA-R-3013
   - CA-R-1108
 status: Active
-version: 5
-updated_at: 2026-11-09 21:15:45 +0400
+version: 6
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-M-506-MCP-SOLUTION--register-mcp-tools-from-installed-code-and-generated-configuration.md
@@ -31,14 +32,10 @@ Register MCP tools from installed code and generated configuration
 
 ### Prose Claim
 
-MCP tool exposure comes from installed code and configuration. Keep an explicit code-owned provider inventory and generate its deterministic runtime registration asset on every local release and image rebuild, before the server starts. Derive provider descriptions and typed schemas from code; do not derive eligibility from Atom content, Tool folders, or a Project graph scan.
+MCP exposure comes from installed code and configuration. Maintain an explicit code-owned provider inventory and generate a deterministic registration asset on every local release and image rebuild before startup; derive descriptions and typed schemas from provider code, never Atom content, Tool folders, Project scans, or source-Workflow manifests.
 
-At startup, read the generated registration asset and register enabled providers and code-owned route names. Do not build a full Atom catalog, load a source-Workflow manifest to select exposed names, or reread an Atom catalog before a generic Tool call. A source Atom edit alone does not add, remove or change MCP exposure. Preserve Project selection, configured exclusions, duplicate-name checks, typed request/result validation and existing public call protocols.
+At startup load that asset and register enabled providers/routes. A source Atom edit alone cannot change exposure; preserve Project selection, global/configured exclusions, duplicate-name checks, typed request/result validation, and public protocols. Each operation retains its own business validation; route exposure does not assert prerequisites. Native Workbench tools remain available through installed registrations, while retired adapters stay absent.
 
-Each operation retains its own input, source and business validation when it runs. Exposing a route does not claim that its business prerequisites are currently satisfied. Native Workbench tools and deterministic Workflow execution remain available through their existing code-owned registrations.
+A missing/invalid asset is an explicit configuration error: do not fall back to Atom discovery. tools/list describes admitted registration after exclusions and does not authorize providers. Hot reload is optional and disabled by default. MCP and Workbench are transport adapters over the same in-process backend/canonical Tool APIs; MCP translates protocol data but adds no business copy, internal HTTP hop, or second server. Use the official MCP Python SDK.
 
-A missing or invalid generated registration asset is an explicit configuration error; do not fall back to Atom discovery. Keep generated tools/list discovery output separate: it describes the actual released MCP surface after readiness and does not authorize registration. Code hot reload remains optional and disabled by default.
-
-MCP and the Workbench web interface are transport adapters to the same backend API. That backend invokes the real tools and owns shared operations. MCP translates protocol input and output; it does not implement a separate copy of business behavior. Reuse the existing in-process backend services and canonical Tool APIs in the modular monolith; do not add an internal HTTP hop or another server merely to connect these layers.
-
-Use the official MCP Python SDK for MCP transport. The code/configuration and shared-backend changes do not replace that library.
+Keep provider/factory and descriptor-factory bindings in the editable installed inventory. Generate names/schemas from installed provider code; adding or changing a provider and regenerating must not require a central gateway allowlist/dispatch branch. Apply global mcp_blacklist and bound Project exclusions at publication and on every invocation.

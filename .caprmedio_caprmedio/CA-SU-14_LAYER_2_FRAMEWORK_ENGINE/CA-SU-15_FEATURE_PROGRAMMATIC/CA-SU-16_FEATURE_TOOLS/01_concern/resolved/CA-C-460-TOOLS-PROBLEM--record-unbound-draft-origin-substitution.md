@@ -18,7 +18,16 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
   - Subject/Engineering/Atom Lifecycle/Dispatch Interface
 relations:
-  concern_about: [CA-P-1662, CA-P-1638, CA-D-568, CA-D-570]
+  concern_about:
+  - CA-P-1662
+  - CA-P-1638
+  - CA-D-568
+  - CA-D-570
+ref_id: CA-C-460
+carrier_destination:
+  file:
+    name: CA-C-460-TOOLS-PROBLEM--record-unbound-draft-origin-substitution.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

@@ -19,7 +19,14 @@ subjects:
   - Subject/Engineering/Carrier/File Carrier
   - Test Suite
 relations:
-  concern_about: [CA-P-1717, CA-P-1727]
+  concern_about:
+  - CA-P-1717
+  - CA-P-1727
+ref_id: CA-C-475
+carrier_destination:
+  file:
+    name: CA-C-475-TOOLS-QUESTION--seal-current-control-inputs-for-the-release-suite.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

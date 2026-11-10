@@ -17,8 +17,18 @@ subjects:
   - Subject/Engineering/Atom Identity/Concurrent Fresh-ID Allocation and Publication
   - 'Subject/Domain/Node/Continuant/Actor/Type: Operator'
 relations:
-  concern_about: [CA-P-2385, CA-P-2387, CA-P-2400]
-  relates_to: [CA-A-1215, CA-C-523]
+  concern_about:
+  - CA-P-2385
+  - CA-P-2387
+  - CA-P-2400
+  relates_to:
+  - CA-A-1215
+  - CA-C-523
+ref_id: CA-C-524
+carrier_destination:
+  file:
+    name: CA-C-524-PROBLEM--native-concurrent-promotions-can-duplicate-a-fresh-atom-id.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

@@ -6,16 +6,16 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)'
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Demand)
   dependencies:
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
 tier: 6
 relations:
   child_of:
   - CA-R-933
 status: Active
-version: 33
-updated_at: 2026-11-02 00:18:22 +0400
+version: 34
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-954-CORE_META_MODEL-RULE--target-one-implementation-result-with-each-demand.md

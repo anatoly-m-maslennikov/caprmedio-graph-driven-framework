@@ -18,7 +18,16 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
   - Subject/Engineering/Carrier
 relations:
-  concern_about: [CA-P-1440, CA-P-1442, CA-O-007, CA-O-008]
+  concern_about:
+  - CA-P-1440
+  - CA-P-1442
+  - CA-O-007
+  - CA-O-008
+ref_id: CA-C-415
+carrier_destination:
+  file:
+    name: CA-C-415-CORE_META_MODEL-PROBLEM--normalize-selected-operation-carrier-boundaries.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/01_concern/resolved
 ---
 # Summary
 

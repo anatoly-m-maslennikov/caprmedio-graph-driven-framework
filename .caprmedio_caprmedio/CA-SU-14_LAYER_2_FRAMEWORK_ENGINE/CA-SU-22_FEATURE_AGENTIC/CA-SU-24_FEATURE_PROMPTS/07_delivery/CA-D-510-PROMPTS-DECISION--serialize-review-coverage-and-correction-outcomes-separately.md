@@ -6,19 +6,21 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Traceability
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom
+  - MODEL//CAPRMEDIO <+ Atom.Header.ID
+  - MODEL//CAPRMEDIO <+ Atom.Header.Version
+  - MODEL//CAPRMEDIO <+ Execution/Workflow Run
+  - MODEL//CAPRMEDIO <+ Term//Property
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
+    <+ Serialization
 tier: 3
 status: Active
-version: 17
-updated_at: 2026-11-09 07:45:14 +0400
+version: 18
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-510-PROMPTS-DECISION--serialize-review-coverage-and-correction-outcomes-separately.md

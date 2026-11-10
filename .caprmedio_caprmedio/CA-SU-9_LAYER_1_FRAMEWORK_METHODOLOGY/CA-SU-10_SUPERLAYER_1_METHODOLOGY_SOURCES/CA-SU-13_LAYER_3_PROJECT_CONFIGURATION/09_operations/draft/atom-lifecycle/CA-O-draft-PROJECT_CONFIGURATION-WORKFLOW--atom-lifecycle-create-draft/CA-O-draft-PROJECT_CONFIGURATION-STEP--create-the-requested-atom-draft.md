@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Validated `parameters`, warnings, `projectContext`, and any internal `expectedSource` from the enclosing Workflow.
+Validated `parameters`, warnings, `projectContext`.
 
 ### Fixed parameters
 

@@ -8,20 +8,20 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static
-      Analysis
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Static Analysis
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+    - MODEL//CAPRMEDIO <+ Event Record
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 14
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 15
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -40,8 +40,9 @@ Ratchet typing and automation adoption
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 advance PROGRAMMATIC typing **and** automation through bounded target selection,
 explicit tool configuration, **and** deliberate expansion. Evaluation authority
 owns acceptance profiles **and** regression policy under CA-E-539, CA-E-540,
@@ -49,7 +50,6 @@ owns acceptance profiles **and** regression policy under CA-E-539, CA-E-540,
 
 ## Details
 
-Candidate source: [CA-M-164@13](archive/CA-M-164-PROGRAMMATIC-CORE-METHOD--ratchet-typing-and-automation-adoption@13.md)
 
 ### Applicable when
 

@@ -28,43 +28,36 @@ author: Anatoly Maslennikov
 
 Manage atom lifecycle
 
-## Operation
+## Claim
 
-One reusable parameterized Workflow graph binds Create Atom, Update Atom, Replace Atom, Change Atom Status, and Move Atom. Archive is only a Change Status shortcut admitted by the applicable model, not another Workflow. The Step definitions own all Action and input bindings.
+### Mermaid Scheme
 
-Each invocation admits exactly one Create target or one existing current target/predecessor, with its complete required Carrier set. Replace retains the complete accepted set of >=1 distinct successors for that one predecessor, not additional predecessors. A Move request admits exactly one existing current Atom, its exact source locator/digest, and one explicit destination mapping; it preserves identity and content meaning and does not discover descendants. A request naming multiple independent targets/predecessors ends blocked before Step dispatch or effects; bulk callers expand their requests into separate individually admitted Runs of this same Workflow, with fresh exact inputs/assessment/permission bindings for each, except the instructed Subjects-only batch admission below.
+```mermaid
+graph TD;
+    apply["Apply the requested Atom lifecycle change"];
+    click apply "./CA-O-129-PROJECT_CONFIGURATION-STEP--apply-an-admitted-atom-lifecycle-change.md" "Open Step";
+```
 
-For a containment cascade required by R1521, the calling Workflow binds the parent and each selected contained Atom's latest Revision as separate individually admitted Runs of this Workflow under each target's own model, without an optional descendant mode. For a containing Plan Atom whose requested Status is Done **or** Canceled, preserve contained latest Plans already Done **or** Canceled and request Canceled for every other contained latest Plan. After the cascade, every selected latest Plan must be Done **or** Canceled; mixed terminal statuses are allowed, and no contained Plan is forced to match the parent's requested Status merely because the parent is Done **or** Canceled. For non-Plan parents, retain R1521's existing Done exception: target Done leaves contained latest Plans already Done unchanged and requests Canceled for every other contained latest Plan; other admitted targets retain R1521's same-Status behavior. For target Archived, select all recursively contained latest Atoms, including Done descendants. Older historical Revisions and references outside the parent Carrier tree are excluded. Each Run retains the single-target boundary below; none discovers, invokes or authorizes the other targets. The caller applies D461/D467 placement, including flat Archived Plan Markdown, and completes descendant Actions before any parent relocation that would silently move an independent current child. It rebinds each later target after earlier placement effects and advances only after a verified applied or no-op result. It stops on the first failed, refused or uncertain result, retains earlier completed effects and leaves remaining targets untouched, without automatic retry or cross-Atom rollback. One completed Run proves only its bound target; the caller reports the whole cascade complete only after every selected target has a verified result.
+### Prose Claim
 
-### Nodes and entry
+#### Inputs
 
-The graph has exactly two Step nodes: CA-O-145 and CA-O-129. An ordinary admitted Update request enters CA-O-145; admitted Create, Replace, Change Status or Move requests enter CA-O-129. Unsupported request kinds end blocked without an effect.
+The requested lifecycle operation, its one selected Atom or new Atom properties, supplied changes, applicable model and Project context. A Move binds one existing Atom, its source and destination scope; the resulting path is derived from the applicable placement rules. Scope Unit operations are outside this Workflow.
 
-### Typed transitions and terminal results
+#### Step graph and bindings
 
-| Source Step result | Workflow-owned scheme |
-| --- | --- |
-| O145: identity-preserving | Conditional Step route O145→O129, subject to current authorization, compatible exact assessment and effect admission. |
-| O145: replacement-required | End this Run with an R1520 terminal handoff to the Replace entry of CA-O-127 in a separately admitted Run. Do not call/wait for replacement, perform an intermediate update or treat the handoff as replacement permission. |
-| O145: unresolved, invalid, stale, unauthorized or unavailable | End blocked with the exact evidence/decision gap; no approval inferred. |
-| O129: reassessment-required for Update | Conditional Step route O129→O145 only with an explicitly admitted fresh proposal/evidence binding and remaining applicable retry allowance. Without them end blocked. |
-| O129: applied or no-op | End complete only for the exact admitted boundary with verified effect/postcondition results; no-op reports no Artifact change. An independent Journal append failure is a recording diagnostic, not a non-complete result. |
-| O129: invalid, stale, unauthorized, unsupported, blocked, failed, partial or canceled | End with that truthful non-complete outcome, actual completed/incomplete effects and recoverable evidence; no automatic replay. |
+This Workflow has one Step, [CA-O-129](./CA-O-129-PROJECT_CONFIGURATION-STEP--apply-an-admitted-atom-lifecycle-change.md). Entry dispatches the request and bindings to that Step, which runs CA-O-128. Its result completes the Run on success, waits for an additional input dictionary on a format or allowed-value error, or terminates with an explicit error and any completed partial effects on failure. Cancellation is allowed while waiting for input and does not interrupt an Action. There is no change-class or semantic assessment gate, reassessment, retry, rollback, recovery or repair.
 
-The two Conditional Step routes have Step endpoints in this Workflow. No other route, implicit retry, continuation, graph node or Action-selected successor is admitted. A changed definition pauses dispatch for R1525 revalidation; completed effects and retry accounting remain retained.
+#### Lifecycle behavior
 
-### Instructed Subjects-only batch routing
+Create Draft accepts new Atom properties or a selected existing Atom and merges supplied properties while retaining omissions. Derive carrier filename and path; the caller does not provide them. For a Current source whose Summary and Content Role remain unchanged, create the Draft with the same ID and Version N+1 once; editing a Draft preserves its Version and Updated At. If either Summary or Content Role changes, the result is a new identity promoted at Version 1. Promotion does not increment the Draft Version again.
 
-The exact ordered Subjects packet is admitted by the actual Operator instruction and existing request Initiative/authorization, without a separate form, review/pause response, content review or confirmation receipt. One O127 Workflow Run iterates explicit members through distinct actual O129 Step/O128 Action and existing O030 effect Runs with parent lineage. This is the existing batch exception to separate O127 Runs/no-other-continuation; ordinary two-Step/singleton routing remains unchanged. Do not fabricate O145/O067 Runs or Analysis Reports.
+Direct update edits a selected Draft, Current or Archived Atom in place without changing Version or Updated At. Archive and Status changes also preserve Version and Updated At. Update a Current Atom by creating its Draft, archiving the selected Current, then promoting the Draft with the Current Status captured from the original read. Generic Promote accepts any supplied allowed Current Status.
 
-The caller composes commit-current → create-drafts → commit-drafts → archive/promote → rebuild-graph, using actual existing operation results. Each member retains normal exact source/draft/patch/layout, conditional-write, archive, N+1/time and readback checks, not an additional full-candidate validation or initial intent-metadata gate. Stop first failure/uncertainty, keep completed effects and leave remaining and held sources untouched. Preserve native failed-write handling; no automatic batch rollback/replay/retry/resume is introduced. Actual logging errors remain separate from source-effect truth.
+For promotion, resolve every distinct `IS_REPLACEMENT_FOR` target, including different IDs and many-to-one replacements. Before publishing the Current successor, archive each eligible Current target once and skip every target already Archived, including one archived by the composed Update. Then publish the Draft and remove its Draft carrier. A failure stops the operation and reports actual partial effects.
 
-## Details
+Move binds one existing Atom and its source and destination, preserves its identity and content meaning, and derives the resulting carrier path under applicable placement rules. It does not discover or move other independent Atoms or perform Scope Unit operations.
 
-Reuse O067 identity assessment through O145 and O051 accepted replacement persistence through the effect Action. The graph neither duplicates those behaviors nor owns their bindings. A Summary change always follows the replacement-required terminal route; a changed proposal or stale evidence requires reassessment before update persistence.
+When a Status change requires a containment cascade, the caller composes separate one-Atom invocations under Current CA-R-1521 and placement decisions CA-D-461 and CA-D-467. For Archive this includes all recursively contained latest Atoms. For a Plan becoming Done or Canceled, retain contained latest Plans already Done or Canceled and request Canceled for the other contained latest Plans. The caller handles descendants before parent relocation, stops at the first error, and reports completed effects and remaining targets without rollback or retry. Each invocation reports only its own result.
 
-The separately admitted successor obtains fresh definition/input/permission bindings. Required pending replacement is not reported complete. Change Status resolves the actual current Atom, then its complete Content Role and optional Type-qualified model: admit any requested value from that model under R1521/R1308, including current Operations R1874 and Analysis R1875 role bindings, without a Workflow-owned list, required intermediate Atom Status or transition matrix. A more-specific declared Role/Type model overrides its role model; otherwise the role model applies without duplicated Type value sets. Ordinary schema, identity/collision, expected-source/currentness, permission and Carrier safeguards remain. A same current status is a no-op. Archive is only a shortcut when that qualified model explicitly defines an archival status; otherwise archive ends missing-archival-model/unsupported without mapping Concern resolved or canceled to archival meaning.
-
-Every Workflow/Step/Action Run, including referenced Action executions, standalone use, nested lineage, failure/cancellation and no-op, independently attempts to append its actual exact definitions/inputs, parent references and start/terminal/result/effect observations to the one authoritative Journal under R1720/R1525 and applicable Run policy. A Journal append failure is a truthful recording diagnostic: it does not invalidate a verified effect, make success non-complete, authorize replay or create a secret or competing history store. This is a source graph, not evidence of implementation, MCP, prompt or runtime execution.
-
-For the instructed draft-backed batch, the final schema1 packet pins every CA-D-446 edit draft; a separately instructed map-only batch remains admitted. Temporary `<canonical-ID>@draft`/Status Draft denotes a derived proposal. Restore canonical ID/original Status and actual time through normal per-target Subjects-only operation checks, without a separate full-candidate review/validation round. The proposal cannot authorize unrelated bytes or a new identity/Status transition; existing new-Atom Draft policy remains.
+Journal observations describe actual business events; recording failure is nonblocking. This source definition does not establish runtime execution. Separate lifecycle Workflows remain Draft pending an adoption decision.

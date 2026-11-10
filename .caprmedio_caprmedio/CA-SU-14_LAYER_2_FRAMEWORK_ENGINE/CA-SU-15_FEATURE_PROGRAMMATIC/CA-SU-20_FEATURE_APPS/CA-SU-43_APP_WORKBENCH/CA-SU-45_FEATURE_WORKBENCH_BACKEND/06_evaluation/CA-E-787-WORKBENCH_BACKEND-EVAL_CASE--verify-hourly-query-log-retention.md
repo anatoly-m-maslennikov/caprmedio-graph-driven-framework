@@ -8,18 +8,18 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability
-      <+ Logging
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Observability <+ Logging
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 5
 relations:
   evaluation_for:
   - CA-R-2903
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 6
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-787-WORKBENCH_BACKEND-EVAL_CASE--verify-hourly-query-log-retention.md
@@ -28,7 +28,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify hourly query-log retention
@@ -37,17 +36,6 @@ Verify hourly query-log retention
 
 ### Prose Claim
 
-Using the real backend query log, verify these cases:
+Use the real backend to verify adjacent UTC hours append NDJSON to their respective `query-log-YYYY-MM-DD-HH.ndjson` files; every retained record has exactly `log_id`, `at`, `sql`, `outcome`, `error`, `row_count`, `column_count`. Records younger than 48 hours remain listable/gettable; those at or beyond 48 hours disappear during append/list/get retention.
 
-| Case | Expected result |
-| --- | --- |
-| UTC rollover | Runs on adjacent UTC hours append one NDJSON line to their respective `query-log-YYYY-MM-DD-HH.ndjson` files. |
-| Record shape | Every new/listed/fetched retained record has exactly `log_id`, `at`, `sql`, `outcome`, `error`, `row_count` and `column_count`; no result row, schema or new event field is present. |
-| Two-day boundary | A record younger than 48 hours remains listable/gettable; one at or beyond 48 hours is absent after append, list or get retention processing. |
-| Legacy compatibility | Retained records in legacy `query-log.json` are listable/gettable with hourly records, while its exact bytes remain unchanged and no new record is appended, migrated or backfilled there. |
-| Run boundary | Successful and failed Runs submit once to an ordered background writer after synchronous Save handling; Check submits none. Block the writer to prove the Run returns without waiting. Release it and verify exact SQL/outcome/counts and submission timestamps. A write failure is reported to stderr without retry or response warning, and leaves the completed result unchanged. |
-| Separate lifetimes | Expiring query-log records neither changes saved Views/Journal records nor reads, writes or reclassifies watcher change-log or result-cache data. |
-
-Exercise `query_log_list` and `query_log_get` through the real backend and MCP boundary across the UTC rollover and legacy compatibility cases. Do not accept a JSON-array rewrite, a seven-day retention result, a mocked filesystem, or a test that omits exact legacy-byte preservation as evidence.
-
-Verify orderly owner shutdown drains submitted query-log records. A process crash may lose unflushed history; it does not affect source files or explicit saved items.
+Legacy `query-log.json` remains byte-identical and listable/gettable beside hourly records; no new record is appended, migrated or backfilled there. Successful/failed Run submits once to an ordered background writer after synchronous Save; Check submits none and Run returns without waiting. Writer failure reports stderr without retry/warning and preserves completed result. Expiry does not alter saved Views/Journal, watcher log or result cache. Verify backend/MCP rollover and legacy cases; orderly shutdown drains submitted history, while crash may lose unflushed history but not sources/saved items.

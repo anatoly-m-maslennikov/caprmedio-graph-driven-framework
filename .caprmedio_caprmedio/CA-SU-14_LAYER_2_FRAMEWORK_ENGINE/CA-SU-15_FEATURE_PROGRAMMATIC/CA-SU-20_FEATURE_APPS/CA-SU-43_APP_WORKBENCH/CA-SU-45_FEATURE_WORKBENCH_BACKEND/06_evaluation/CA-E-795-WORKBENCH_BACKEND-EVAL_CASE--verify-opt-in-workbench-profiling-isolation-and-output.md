@@ -8,18 +8,19 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance
-      <+ Measurement and Profiling
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Performance <+ Measurement and Profiling
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 5
 relations:
   evaluation_for:
   - CA-R-2998
+  - CA-M-525
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-795-WORKBENCH_BACKEND-EVAL_CASE--verify-opt-in-workbench-profiling-isolation-and-output.md
@@ -28,7 +29,6 @@ current_scope_unit: WORKBENCH_BACKEND
 claim_target_scope_unit: WORKBENCH_BACKEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify Workbench profiling isolation and output
@@ -37,4 +37,4 @@ Verify Workbench profiling isolation and output
 
 ### Prose Claim
 
-Run the profiler against a small valid disposable Project using the actual DuckDB/DuckPGQ path. Verify readable cProfile statistics, nonempty allocation diagnostics, dataset/cycle counts, explicit instrumented labels, correctly labelled RSS/native memory fields, and identical source-file hashes before and after. Verify output stays within the selected Project temporary root and the disposable database is removed when bounded cleanup succeeds. If cleanup fails, report the confined retained path explicitly; do not retry or lose the original failure. The normal performance gates must run without cProfile or tracemalloc enabled; profiler durations never satisfy their latency or throughput assertions.
+Run the profiler through the actual DuckDB/DuckPGQ path on a small valid disposable Project. Verify readable cProfile statistics, nonempty allocation diagnostics, dataset/cycle counts, explicit instrumented labels, correct RSS/native-memory labels and identical source hashes before/after. Output remains beneath the selected Project temporary root; bounded cleanup removes the disposable database, or reports its confined retained path without retrying or losing the original failure. Normal performance gates run without cProfile/tracemalloc, and profiler duration never satisfies latency/throughput assertions.

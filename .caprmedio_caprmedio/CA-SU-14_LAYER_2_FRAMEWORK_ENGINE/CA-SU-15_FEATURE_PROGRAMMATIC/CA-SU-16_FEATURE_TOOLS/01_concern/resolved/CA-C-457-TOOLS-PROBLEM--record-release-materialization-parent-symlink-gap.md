@@ -14,7 +14,15 @@ subjects:
   depends_on:
   - Subject/Engineering/Release Packaging/Materialization
 relations:
-  concern_about: [CA-P-1650, CA-D-561, CA-D-571]
+  concern_about:
+  - CA-P-1650
+  - CA-D-561
+  - CA-D-571
+ref_id: CA-C-457
+carrier_destination:
+  file:
+    name: CA-C-457-TOOLS-PROBLEM--record-release-materialization-parent-symlink-gap.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

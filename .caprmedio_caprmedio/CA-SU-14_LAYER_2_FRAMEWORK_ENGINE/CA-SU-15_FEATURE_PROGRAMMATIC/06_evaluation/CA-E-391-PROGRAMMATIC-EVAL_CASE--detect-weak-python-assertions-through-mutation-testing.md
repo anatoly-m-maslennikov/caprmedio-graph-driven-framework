@@ -6,49 +6,60 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 5
 relations:
   evaluation_for:
-  - CA-M-285
-  derived_from:
+  - CA-M-424
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 21
-updated_at: 2026-10-27 19:59:34 +0400
+version: 22
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
 - codex:01a02650-eff7-7453-8c37-0699b36773c6
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
+destination:
+  file:
+    name: CA-E-391-PROGRAMMATIC-EVAL_CASE--detect-weak-python-assertions-through-mutation-testing.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Detect weak Python assertions through mutation testing
+## Summary
 
-## Claim checked
+Detect weak Python assertions through mutation testing
+
+## Claim
+
+### Prose Claim
+
+#### Claim checked
 
 decision-dense changed Python has assertions strong enough **to** distinguish its
 relevant alternative behavior.
 
-## Test case
+#### Test case
 
 run a pinned mutation profile **after** normal cases pass **and** preserve one
 surviving relevant mutant **in** a manager **or** validator.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 pass **only** **when** the mutant is classified as missing assertion, unreachable,
 equivalent, **or** intentionally uncovered, **and** the frontier **and** replay command are
 preserved.
 
-## Failure disposition
+#### Failure disposition
 
 reject unexplained survivors; keep this expensive campaign outside synchronous
 Hooks.
 
-## Sources
+#### Sources
 
 - [Mutmut documentation](https://mutmut.readthedocs.io/en/latest/)
 - [CA-M-285 — Select software Evaluation techniques by failure mode](../05_method/CA-M-285-PROGRAMMATIC--select-software-evaluation-techniques-by-failure-mode.md)

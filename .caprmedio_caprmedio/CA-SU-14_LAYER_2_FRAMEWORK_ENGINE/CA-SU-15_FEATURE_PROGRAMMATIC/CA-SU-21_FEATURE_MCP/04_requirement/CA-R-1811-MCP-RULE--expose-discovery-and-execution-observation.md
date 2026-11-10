@@ -1,40 +1,45 @@
 ---
-atom_id: CA-R-1811
-ref_id: CA-R-1811
-container:
-  scope_unit: CA-SU-21
-role: Requirement
-form: Rule
-topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation
-  dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-tier: 3
-status: Active
-version: 13
-updated_at: 2026-10-27 20:00:03 +0400
-carrier_destination:
+identity:
+  atom_id: CA-R-1811
+  ref_id: CA-R-1811
+context:
+  container:
+    scope_unit: CA-SU-21
+  role: requirement
+  form: rule
+  topics:
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Discovery and Navigation
+    dependencies:
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+    - MODEL//CAPRMEDIO <+ Atom
+    - MODEL//CAPRMEDIO <+ Scope Unit
+    - MODEL//CAPRMEDIO <+ Package/Project Package
+    - MODEL//CAPRMEDIO <+ Execution/Workflow Run
+    - MODEL//CAPRMEDIO <+ Journal
+  tier: 3
+state:
+  status: Active
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
+destination:
   file:
     name: CA-R-1811-MCP-RULE--expose-discovery-and-execution-observation.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/04_requirement
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-# Summary
+## Summary
 
 Expose discovery and execution observation
 
-## Scope
+## Claim scope
 
 the MCP capability for MCP.
 
 ## Claim
+
+### Prose Claim
 
 the MCP interface **must** expose the declared discovery, context **and** execution-observation Tools with the canonical Implementation's input schemas **and** results.
 

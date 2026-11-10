@@ -1,0 +1,53 @@
+---
+atom_id: CA-C-489
+ref_id: CA-C-489@2
+container:
+  scope_unit: CA-SU-24
+role: Concern
+form: Problem
+topics:
+  main_subject: Subject/Engineering/Prompt/Authority Drift
+  dependencies:
+  - Subject/Engineering/Tool Discovery Binding/RMED Atoms Base Revise
+  - Subject/Engineering/Specification Review/Metadata and Sections
+  - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
+  - Subject/Domain/Node/Occurrent/Execution
+  - Subject/Domain/Node/Continuant/History/Journal
+relations:
+  concern_about:
+  - CA-P-1762
+status: Archived
+version: 2
+updated_at: 2026-10-23 01:47:30 +0400
+current_scope_unit: PROMPTS
+local_tier: Standard
+global_tier: 11
+author: Anatoly Maslennikov
+carrier_destination:
+  file:
+    name: CA-C-489@2-PROMPTS-PROBLEM--repair-review-prompt-authority-drift.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/CA-SU-24_FEATURE_PROMPTS/01_concern/archive
+---
+# Summary
+
+Repair review prompt authority drift
+
+## Concern
+
+Base Revise prompt tests use stale source pins, root resolution and word-budget/layout assumptions; the current compact prompt contract is not fully validated.
+
+## Evidences
+
+`102_FRAMEWORK_ENGINE/202_AGENTIC/202_PROMPTS/ACTION_PROMPTS/RMED_ATOM_REVIEW/tests/test_prompt_specification.py`, `tests/test_contracts.py` and `source_bindings.json` establish the stale root/pin/budget cases; the active CA-D-446 is version 7 rather than the previous manifest's version 6.
+
+Source/mock results do not establish actual release completion.
+
+## Blast radius
+
+The affected selected Workflow, full release gate and CA-P-1655 final acceptance.
+
+## Disposition
+
+Refresh exact live pins and compact prompts without weakening accepted checks or raising the budget; fix confirmed stale fixtures and retain real defects.
+
+CA-P-1762 owns the bounded repair. Keep this Problem active until its regression and independent acceptance establish the repair.

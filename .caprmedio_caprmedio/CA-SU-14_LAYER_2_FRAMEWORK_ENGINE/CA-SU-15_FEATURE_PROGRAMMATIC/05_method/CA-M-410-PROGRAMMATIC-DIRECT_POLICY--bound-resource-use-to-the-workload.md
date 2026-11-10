@@ -8,13 +8,13 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control/Resource Limits
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control <+ Resource Limits
   tier: 3
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 12
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-410-PROGRAMMATIC-DIRECT_POLICY--bound-resource-use-to-the-workload.md
@@ -29,8 +29,9 @@ Bound resource use to the workload
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 **To** implement PROGRAMMATIC behavior, account for input size and resource growth, choose bounded or incremental processing and controlled concurrency, and apply appropriate resource budgets to prevent uncontrolled growth and resource exhaustion, including out-of-memory failures.
 
 ## Details
@@ -39,7 +40,6 @@ Bound resource use to the workload
 
 New or changed PROGRAMMATIC implementation, including Tools, Apps, MCP adapters and tests.
 
-Candidate source: [CA-M-386@2](archive/CA-M-386-PROGRAMMATIC-CORE--bound-resource-use-to-the-workload@2.md)
 
 - Use streaming, batching, bounded buffers or bounded work admission where they satisfy the declared behavior.
 - Account for aggregate concurrent work, memory, queues, workers, subprocesses and retained state, not only the cost of one operation.

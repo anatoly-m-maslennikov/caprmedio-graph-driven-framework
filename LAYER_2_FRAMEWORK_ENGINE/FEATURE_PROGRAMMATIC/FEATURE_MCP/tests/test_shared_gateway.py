@@ -1,3 +1,5 @@
+# CA-E-812@3
+# CA-E-813@2
 """Focused shared-MCP routing checks; native behavior remains a fixture."""
 
 from __future__ import annotations
@@ -8,6 +10,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 MCP = Path(__file__).resolve().parents[1]
 TOOLS = MCP.parent / "FEATURE_TOOLS"
@@ -15,8 +18,11 @@ sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
 
 from host_runtime_config import load_host_runtime_config  # noqa: E402
 from mcp import types  # noqa: E402
+from mcp.client._memory import InMemoryTransport  # noqa: E402
+from mcp.client.session import ClientSession  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from shared_gateway import SharedGateway  # noqa: E402
+from tool_registry_runtime import ToolRegistryStaleError  # noqa: E402
 
 
 def _tool(name="echo", field="request"):
@@ -155,6 +161,62 @@ class SharedGatewayTests(unittest.IsolatedAsyncioTestCase):
         self.assertIn(
             "PROJECT_TOOL_CONTRACT_CONFLICT", [row["code"] for row in conflict.status()["warnings"]]
         )
+
+    async def test_invalid_descriptor_is_quarantined_without_blocking_valid_tool(self):
+        invalid = types.Tool(
+            name="invalid",
+            inputSchema={"$ref": "#/$defs/Args", "$defs": {"Args": {"type": "object"}}},
+        )
+        _Gateway.tools_by_root = {
+            str(root): [_tool(), invalid] for root in (*self.roots, self.nested)
+        }
+        gateway = self._gateway()
+        await gateway.initialize()
+        self.addAsyncCleanup(gateway.close)
+
+        self.assertIn(
+            "PROJECT_TOOL_CONTRACT_INVALID", [row["code"] for row in gateway.status()["warnings"]]
+        )
+        async with InMemoryTransport(gateway.build_server(), raise_exceptions=True) as streams:
+            async with ClientSession(*streams) as client:
+                await client.initialize()
+                self.assertEqual(
+                    {"echo"}, {tool.name for tool in (await client.list_tools()).tools}
+                )
+                accepted = await client.call_tool(
+                    "echo", {"project_root": str(self.roots[0]), "request": "ok"}
+                )
+                self.assertFalse(accepted.is_error)
+                self.assertEqual({"request": "ok"}, accepted.structured_content["arguments"])
+                rejected = await client.call_tool("invalid", {"project_root": str(self.roots[0])})
+                self.assertTrue(rejected.is_error)
+
+    async def test_stale_registration_is_rejected_before_shared_transport_dispatch(self):
+        gateway = self._gateway()
+        await gateway.initialize()
+        self.addAsyncCleanup(gateway.close)
+
+        class StaleRegistry:
+            def ensure_current(self):
+                raise ToolRegistryStaleError("tool-registry-stale")
+
+        with (
+            patch.object(_Gateway, "registry", StaleRegistry(), create=True),
+            patch.object(
+                _Gateway, "call", side_effect=AssertionError("must not invoke provider")
+            ) as invoke,
+        ):
+            async with InMemoryTransport(gateway.build_server(), raise_exceptions=True) as streams:
+                async with ClientSession(*streams) as client:
+                    await client.initialize()
+                    refused = await client.call_tool(
+                        "echo", {"project_root": str(self.roots[0]), "request": "test"}
+                    )
+                    self.assertTrue(refused.is_error)
+                    self.assertEqual(
+                        ["tool_registry_stale"], refused.structured_content["diagnostics"]
+                    )
+                    invoke.assert_not_awaited()
 
     async def test_nested_project_uses_known_tool_but_new_name_and_secret_refuse(self):
         _Gateway.tools_by_root[str(self.nested)] = [_tool(), _tool(name="new_tool")]

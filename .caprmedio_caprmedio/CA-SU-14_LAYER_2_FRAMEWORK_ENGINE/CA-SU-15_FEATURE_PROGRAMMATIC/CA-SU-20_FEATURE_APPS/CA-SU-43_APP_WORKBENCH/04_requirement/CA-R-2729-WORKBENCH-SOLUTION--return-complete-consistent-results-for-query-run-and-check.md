@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 3
 state:
   status: Active
-  version: 8
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 10
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2729-WORKBENCH-SOLUTION--return-complete-consistent-results-for-query-run-and-check.md
@@ -34,20 +34,8 @@ The public Run and Check operations for a query over the query Projection.
 
 ### Prose Claim
 
-The query interface **must**:
+Provide synchronous Run, Check and result fetch through the shared backend/MCP/web. Validate the requested whole script or selected statements under CA-R-2728; cursor is editor metadata and row preview is non-negative. Materialize each successful Run once and return its ID, ordered column metadata, exact counts and a completed file descriptor by default, or an explicitly requested bounded inline page. Default responses omit result rows and full SQL; explicit inline delivery returns positional rows. A result path appears only after completion.
 
-- provide synchronous MCP Run and Check operations.
-- validate one submitted complete query through the selected engine. Optional UTF-16 cursor_position is editor-caret metadata only and does not select executable SQL. Return the submitted SQL exactly as submitted, including comments, Unicode and any existing LIMIT.
-- let Run accept optional non-negative integer preview and boolean save parameters. The default for save is false; an optional name is valid only when save is true.
-- make Run materialize the submitted query result once and return its first bounded page, query ID, column information, submitted SQL and exact row and column counts for that execution. A preview caps the result at most at N rows while preserving an existing SQL LIMIT; it does not rewrite the SQL or its text and also works for GRAPH_TABLE queries.
-- provide Page to retrieve subsequent portions of the same materialized result without re-executing the query. Pagination is stable, and its rows and counts describe the previewed execution when preview was supplied.
-- save the exact submitted SQL only after a successful Run when save is true. A successful save adds the saved query identity, URL, kind and optional name to the normal Run response.
-- keep a completed Run result and query ID when saving after that Run fails. Return outcome partial and save_error, without a saved identity unless one is actually known; do not retry or roll back the completed result.
-- create no saved entry when query execution or query validation fails. Run with save false, Check and Page do not save SQL or append a Journal record.
-- make Check return whether the query is valid and, when valid, the submitted SQL and exact row and column counts for its validation execution.
-- keep Check free of source and source-Projection modifications; temporary internal result materialization is derived cache work.
-- return query errors to the caller through both Run and Check.
-- keep the counts and rows of one Run consistent with the same materialized execution.
-- expose pagination explicitly without adding a hidden SQL limit or dropping selected rows. Pages remain stable while the materialized result is held.
+Direct Run exports the full or preview-capped materialized result. Page and View Fetch return only a bounded page from the same cache and never execute SQL. Preview preserves an existing LIMIT without rewriting SQL, including CTE and GRAPH_TABLE; inline delivery does not create a second executor or cache. Check returns validity, counts or errors only: no rows, file, SQL echo, Bookmark or log. Explicit Load, View-query and log reads may return SQL.
 
-When preview is omitted, Run applies no added preview cap.
+Later save or export failure preserves the completed result and result ID, reports a partial outcome and failed part, and fabricates neither saved identity/path nor retry/rollback. A failed statement has no completed result identity; earlier completed statements retain their results and effects. Preserve ordered and duplicate columns, exact counts, and null, empty, Unicode, newline and Formal Claim values. View Run remains metadata-only until fetch; logs, Bookmarks, Views, result files and materialized tables have separate purposes.

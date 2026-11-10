@@ -8,19 +8,19 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data
-      Validation
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Data Validation
     dependencies: []
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -39,15 +39,15 @@ Validate untrusted structured data with Pydantic
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 use Pydantic **when** untrusted structured data crosses an admitted Python
 boundary. validate once at the boundary **and** pass accepted typed values into
 the deterministic core **without** making Pydantic the universal internal model.
 
 ## Details
 
-Candidate source: [CA-M-286@8](archive/CA-M-286-PROGRAMMATIC-CORE-METHOD--validate-untrusted-structured-data-with-pydantic@8.md)
 
 ### Applicable when
 

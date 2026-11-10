@@ -6,16 +6,17 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
 tier: 3
 relations:
   evaluation_for:
   - CA-R-1112
-  derived_from:
+  DERIVED_FROM:
   - CA-A-057
 status: Active
-version: 19
-updated_at: 2026-11-09 21:15:45 +0400
+version: 20
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Direct Policy
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 3
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2725-WORKBENCH-DIRECT_POLICY--expose-only-valid-synchronized-source-state-through-query-projection.md
@@ -40,7 +40,7 @@ The query Projection **must**:
 - make valid selected sources available without exposing a partial update.
 - exclude an invalid, unreadable, or unstable ordinary Atom source and its derived data; an older state of that source **must not** remain queryable as current.
 - leave unrelated valid sources queryable when another source is excluded.
-- report a source-file error, with its path and available location information, through stderr rather than as a result row.
+- report a source-file error with its path and available location information through stderr and the queryable issue tables under CA-R-2728, without presenting an invalid Atom as a valid Atom row.
 - skip an excluded source without automatic retry; a later actual source change may be considered on a later refresh.
 - remain distinct from source deletion: a source-file error is not proof that the source was deleted.
 

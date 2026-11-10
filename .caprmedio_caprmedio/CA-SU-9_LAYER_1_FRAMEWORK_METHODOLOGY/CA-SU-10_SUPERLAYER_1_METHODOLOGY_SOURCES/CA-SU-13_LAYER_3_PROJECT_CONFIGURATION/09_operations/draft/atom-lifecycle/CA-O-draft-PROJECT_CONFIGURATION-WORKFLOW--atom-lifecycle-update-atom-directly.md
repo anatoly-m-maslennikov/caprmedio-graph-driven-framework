@@ -34,28 +34,32 @@ graph TD;
     click step1 "./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom-directly/CA-O-draft-PROJECT_CONFIGURATION-STEP--apply-the-requested-direct-atom-update.md" "Open Step";
 ```
 
+### Prose Claim
+
 This Workflow's Purpose is Runtime; its scheme follows [CA-R-1570](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md).
 
-### Input
+#### Input
 
 One exact Atom selector and the requested property changes.
 
 The `projectContext` input port binds the Project, applicable model, and authorization.
 
-### Output
+#### Output
 
 The `savedAtom`, warnings, and failure result.
 
-### Step handoffs
+#### Step handoffs
 
 | Step | Receives | Produces |
 | --- | --- | --- |
 | [Apply the requested Direct Atom Update](./CA-O-draft-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-update-atom-directly/CA-O-draft-PROJECT_CONFIGURATION-STEP--apply-the-requested-direct-atom-update.md) | selected Atom, requested changes, and `projectContext` | `savedAtom`, warnings or a failure result |
 
-### Logical switches
+#### Logical switches
 
 | Condition | Behavior |
 | --- | --- |
 | Entry | Run Apply the requested Direct Atom Update. |
 | `savedAtom` is returned | Complete successfully. |
-| A failure result is returned | Terminate under [CA-R-1432](../../../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/lifecycle-in-place-edits/CA-R-1432@28-draft-CORE_META_MODEL-RULE--classify-admitted-atom-changes-by-semantic-effect.md). |
+| A failure result is returned | Stop and report the explicit failure. |
+
+If an Action requests additional input, return its short explanation and requested input dictionary and keep the Workflow pending. Resume with the supplied dictionary; cancellation is allowed while waiting and does not interrupt an Action.

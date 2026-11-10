@@ -18,7 +18,18 @@ subjects:
   - Evaluation
   - Implementation
 relations:
-  concern_about: [CA-P-1525, CA-P-1526, CA-P-1544, CA-P-1546, CA-P-1547, CA-P-1548]
+  concern_about:
+  - CA-P-1525
+  - CA-P-1526
+  - CA-P-1544
+  - CA-P-1546
+  - CA-P-1547
+  - CA-P-1548
+ref_id: CA-C-441
+carrier_destination:
+  file:
+    name: CA-C-441-TOOLS-PROBLEM--prove-query-fixtures-and-consumption-truth.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

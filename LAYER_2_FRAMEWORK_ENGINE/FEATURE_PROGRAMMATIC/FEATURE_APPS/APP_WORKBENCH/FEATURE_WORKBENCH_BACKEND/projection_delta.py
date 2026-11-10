@@ -55,11 +55,11 @@ def snapshot(
         )
     public_atoms, public_scopes = public_rows
     atom_sources = {
-        (row["relative path"], row["filename"]): source
+        (row["relative_path"], row["filename"]): source
         for row, source in zip(public_atoms, atom_rows, strict=True)
     }
     return ProjectionSnapshot(
-        {(row["relative path"], row["filename"]): row for row in public_atoms},
+        {(row["relative_path"], row["filename"]): row for row in public_atoms},
         {row["name"]: row for row in public_scopes},
         graph_state(atom_rows, scope_rows, relation_types), header_schema, content_schema, atom_sources,
     )
@@ -102,7 +102,7 @@ def _delta_snapshot(
         list(delta.new_atoms.values()), list(delta.new_scopes.values()), header_schema, content_schema,
     )
     for public, source in zip(new_atoms, delta.new_atoms.values(), strict=True):
-        key = (public["relative path"], public["filename"])
+        key = (public["relative_path"], public["filename"])
         atoms[key] = public
         atom_sources[key] = source
     scopes = dict(previous.scopes)
@@ -130,7 +130,7 @@ def _write_public_delta(
     deleted_atoms = 0
     for path, filename in changed_atoms:
         if (path, filename) in previous.atoms:
-            connection.execute('DELETE FROM main.atoms WHERE "relative path" = ? AND filename = ?', [path, filename])
+            connection.execute('DELETE FROM main.atoms WHERE "relative_path" = ? AND filename = ?', [path, filename])
             deleted_atoms += 1
     deleted_scopes = 0
     for name in changed_scopes:

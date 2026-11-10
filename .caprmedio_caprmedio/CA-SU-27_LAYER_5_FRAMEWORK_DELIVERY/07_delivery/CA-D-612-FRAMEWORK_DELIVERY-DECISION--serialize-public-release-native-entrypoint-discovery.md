@@ -12,8 +12,8 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
 tier: 3
 status: Active
-version: 16
-updated_at: 2026-11-09 15:54:30 +0400
+version: 17
+updated_at: 2026-11-11 00:17:19 +0400
 carrier_destination:
   file:
     name: CA-D-612-FRAMEWORK_DELIVERY-DECISION--serialize-public-release-native-entrypoint-discovery.md
@@ -34,7 +34,7 @@ The native description surface of the public-release Tool.
 
 ## Claim
 
-The public-release source **must** expose its stable `PUBLIC_RELEASE` identity and `LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/PUBLIC_RELEASE/public_release.py` entrypoint. The direct `public.release` command uses this Project-bound implementation without a closed release-admission record or whole-registry validation gate.
+The public-release source **must** expose its stable `PUBLIC_RELEASE` identity and `LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/public_release.py` entrypoint. The direct `public.release` command uses this Project-bound implementation without a closed release-admission record or whole-registry validation gate.
 
 ## Details
 

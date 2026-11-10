@@ -11,6 +11,11 @@ updated_at: 2026-10-24 18:16:36 +0400
 subjects:
   governs: Subject/Domain/Node/Continuant/Atom.Subjects
 relations: {}
+ref_id: CA-C-592
+carrier_destination:
+  file:
+    name: CA-C-592-QUESTION--should-unsupported-context-only-subject-dependencies-be-removed.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

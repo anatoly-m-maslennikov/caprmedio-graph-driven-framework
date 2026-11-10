@@ -13,9 +13,17 @@ subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
-  concern_about: [CA-P-2513, CA-P-2514, CA-P-2515]
+  concern_about:
+  - CA-P-2513
+  - CA-P-2514
+  - CA-P-2515
 version: 4
-updated_at: "2026-10-21T01:15:09Z"
+updated_at: '2026-10-21T01:15:09Z'
+ref_id: CA-C-557
+carrier_destination:
+  file:
+    name: CA-C-557-PROGRAMMATIC-STANDARD-PROBLEM--align-plan-predecessor-test-expectations-with-flat-archive-placement.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

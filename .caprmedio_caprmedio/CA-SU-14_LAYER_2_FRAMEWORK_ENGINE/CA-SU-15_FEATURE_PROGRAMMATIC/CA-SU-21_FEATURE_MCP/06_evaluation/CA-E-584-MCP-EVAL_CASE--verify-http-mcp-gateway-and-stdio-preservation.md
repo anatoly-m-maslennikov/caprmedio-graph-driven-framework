@@ -6,22 +6,23 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-    Structure
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Component Structure
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
+    <+ Dynamic Testing
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+  - MODEL//CAPRMEDIO <+ Runtime/Session
 tier: 5
 relations:
   evaluation_for:
   - CA-R-1884
   - CA-M-341
 status: Active
-version: 12
-updated_at: 2026-11-09 07:45:14 +0400
+version: 13
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-584-MCP-EVAL_CASE--verify-http-mcp-gateway-and-stdio-preservation.md
@@ -29,7 +30,6 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 verify HTTP MCP Gateway and stdio preservation
@@ -46,7 +46,4 @@ the Evaluation **must** verify that real MCP HTTP initialization, discovery, cal
 
 the additional localhost HTTP transport for the existing Project MCP Gateway.
 
-1. build e2e fixtures first with a real Gateway and disposable mock implementation. Exercise handshake, Tool discovery and a Tool call through the real Streamable HTTP application.
-2. reload the mock implementation on the same HTTP connection and verify the new registry and result; preserve an in-flight old-generation call until it drains.
-3. exit the HTTP lifespan and verify Session and generation cleanup. Run the existing stdio hot-reload tests unchanged.
-4. verify the Docker service's localhost URL through an actual container when Docker is available; a mock or host-ASGI pass is not that Docker gate.
+Use real-Gateway E2E fixtures with a disposable mock implementation to exercise Streamable HTTP initialization, discovery and a Tool call. Reload the mock on the same HTTP connection, verify the new registry/result, and keep an in-flight old-generation call until it drains. On lifespan exit, verify Session and generation cleanup; run existing stdio hot-reload tests unchanged. When Docker is available, verify the Docker service’s localhost URL in a container; a mock or host-ASGI pass does not satisfy that Docker gate.

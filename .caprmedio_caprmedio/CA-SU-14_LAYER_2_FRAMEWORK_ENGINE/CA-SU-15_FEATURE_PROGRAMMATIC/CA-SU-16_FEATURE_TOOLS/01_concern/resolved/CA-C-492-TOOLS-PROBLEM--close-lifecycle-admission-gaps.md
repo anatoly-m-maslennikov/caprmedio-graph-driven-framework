@@ -18,7 +18,13 @@ subjects:
   - Status
   - Journal
 relations:
-  concern_about: [CA-P-1775]
+  concern_about:
+  - CA-P-1775
+ref_id: CA-C-492
+carrier_destination:
+  file:
+    name: CA-C-492-TOOLS-PROBLEM--close-lifecycle-admission-gaps.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

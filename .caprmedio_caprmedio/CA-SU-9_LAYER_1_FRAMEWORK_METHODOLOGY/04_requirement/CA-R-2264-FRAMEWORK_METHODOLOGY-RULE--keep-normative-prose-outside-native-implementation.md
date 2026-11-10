@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Entity/Object/Continuant/Package/Project Implementation
+  main_subject: Entity/Object/Continuant/Package/Project Package
 tier: 1
 status: Active
-version: 1
-updated_at: 2026-10-29 09:32:49 +0400
+version: 2
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-2264-FRAMEWORK_METHODOLOGY-RULE--keep-normative-prose-outside-native-implementation.md

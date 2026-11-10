@@ -8,16 +8,17 @@ context:
   role: Requirement
   form: Scope Delegation
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//MCP
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//MCP
   tier: 3
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 17:00:18 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2660-PROGRAMMATIC-SCOPE_DELEGATION--declare-mcp.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/04_requirement
+author: Anatoly Maslennikov
 ---
 
 ## Summary
@@ -25,6 +26,35 @@ destination:
 Declare MCP
 
 ## Claim
+
+
+### Prose Claim
+
+The receiving Scope Unit is MCP. The additional local Role/Form pairs are exactly:
+
+- Method / Solution;
+- Delivery / Solution;
+
+- Requirement / Rule;
+
+- Concern / Question;
+
+The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Validation`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Output Publication`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Source Selection`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Storage`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Discovery and Navigation`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Entry`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Result and Status Presentation`;
+- `MODEL//CAPRMEDIO <+ Project`;
+
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Resource Limits`;
 
 ### Formal Claim
 
@@ -40,27 +70,3 @@ Scope Unit//MCP.order.ordered == false;
 
 Scope Unit//MCP ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
 ```
-
-
-### Prose Claim
-
-The receiving Scope Unit is MCP. Existing default Role and Form admissions remain applicable. The additional local Role/Form pairs are exactly:
-
-- Method / Solution;
-- Delivery / Solution;
-
-The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
-
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Discovery and Navigation`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Result and Status Presentation`;
-- `Subject/CAPRMEDIO/Graph/Node/Project Model/Project`;
-
-Each address selects one endpoint object, not the address string, other members of its type or descendants. An unresolved address is diagnostic and grants no admission. These permissions apply only to local Atoms whose Header.Container resolves to MCP. The Scope Unit identity, Parent, responsibility and structural tree are unchanged.

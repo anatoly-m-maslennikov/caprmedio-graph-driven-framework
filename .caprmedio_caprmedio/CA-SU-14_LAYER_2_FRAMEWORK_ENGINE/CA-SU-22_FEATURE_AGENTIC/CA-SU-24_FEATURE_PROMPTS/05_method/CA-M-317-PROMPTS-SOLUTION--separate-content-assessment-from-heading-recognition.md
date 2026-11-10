@@ -6,21 +6,20 @@ container:
 role: Method
 form: Solution
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt
-    Authoring
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
-  - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Details
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
+  - MODEL//CAPRMEDIO <+ Atom
+  - MODEL//CAPRMEDIO <+ Term//Property
+  - MODEL//CAPRMEDIO <+ Carrier
+  - MODEL//CAPRMEDIO <+ Atom.Content
+  - MODEL//CAPRMEDIO <+ Atom.Content.Details
+  - MODEL//CAPRMEDIO <+ Atom.Content.Summary
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
 tier: 3
 status: Active
-version: 18
-updated_at: 2026-11-09 17:00:18 +0400
+version: 19
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-M-317-PROMPTS-SOLUTION--separate-content-assessment-from-heading-recognition.md
@@ -41,10 +40,6 @@ Separate content assessment from heading recognition
 **to** implement local content assessment, use semantic reading of the complete carried text for content judgments **and** structural parsing for Property conformance, keeping the two judgments separate.
 
 ## Details
-
-### Scope
-
-authoring the content-review instructions of the RMED review prompts.
 
 - instructions request actual quoted passages **and** an explanation of their semantic function, including applicability, contribution, supporting detail, **or** Summary.
 - a missing heading is evidence of a Carrier defect; it is **not** evidence that readable content cannot be assessed. a semantic interpretation does **not** declare a missing Property section present.

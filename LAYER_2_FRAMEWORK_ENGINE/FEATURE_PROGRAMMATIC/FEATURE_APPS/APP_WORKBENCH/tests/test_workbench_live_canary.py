@@ -31,7 +31,7 @@ for location in (TOOLS, MCP, APPS, TESTS):
 
 from http_paths import HEALTH_PATH, WORKBENCH_PATH  # noqa: E402
 from scope_unit_declarations import read_scope_unit_declarations  # noqa: E402
-from selected_route_manifest import _configured_control_root  # noqa: E402
+from project_settings_values import control_root  # noqa: E402
 
 
 CANARY_FLAG = "CAPRMEDIO_LIVE_CANARY"
@@ -254,8 +254,7 @@ class WorkbenchLiveCanary(unittest.TestCase):
     def test_offline_current_project_lifecycle_is_valid(self) -> None:
         """Exercise every canary carrier transition without a service or source mutation."""
         root = REPOSITORY.resolve()
-        control = _configured_control_root(root)
-        control = control if control.is_absolute() else root / control
+        control = control_root(root)
         declarations = read_scope_unit_declarations(root, control)
         first, second, renamed, atom_id = self._scenario(root, declarations, token="OFFLINE")
         self._offline_validate_scenario(
@@ -264,8 +263,7 @@ class WorkbenchLiveCanary(unittest.TestCase):
 
     def test_current_project_scope_unit_and_atom_lifecycle(self) -> None:  # noqa: C901 - explicit safety phases
         root, url, dry_run = self._configuration()
-        control = _configured_control_root(root)
-        control = control if control.is_absolute() else root / control
+        control = control_root(root)
         project_name = self._project_name(control)
         try:
             declarations = read_scope_unit_declarations(root, control)

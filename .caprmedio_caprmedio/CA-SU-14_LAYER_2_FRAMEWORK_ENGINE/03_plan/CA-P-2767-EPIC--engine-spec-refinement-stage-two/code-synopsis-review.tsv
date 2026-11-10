@@ -1,4 +1,5 @@
-Atom ID	Current Version	Draft ID	Status
-CA-I-7	2	—	Applied and query-verified
-CA-I-8	2	—	Applied and query-verified
-CA-I-9	1	CA-I-9@2-draft	Held: C714 / P2847; concurrent MCP changes
+Atom ID	Current disposition	Handoff
+CA-I-7	Historical; not Current authority	Backend mapping and C712 remain in P2813
+CA-I-8	Historical; not Current authority	C711 / P2812 and P2815 preserve actual frontend work
+CA-I-9	Historical; not Current authority	C714 / P2814 preserve removed-module issue
+A/Code Synopsis	No Current or Active source found	Do not manufacture a Synopsis or reopen historical evidence

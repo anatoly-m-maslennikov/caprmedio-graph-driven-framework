@@ -8,22 +8,23 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Configuration
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Configuration
     dependencies:
-    - Subject/CAPRMEDIO/Carrier
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
+    - MODEL//CAPRMEDIO <+ Carrier
+    - MODEL//CAPRMEDIO <+ Project.Settings
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
   IS_REPLACEMENT_FOR:
   - CA-M-417
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 30
-  updated_at: 2026-11-09 14:19:14 +0400
+  version: 31
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-284-PROGRAMMATIC-DIRECT_POLICY--read-engine-settings-through-one-shared-boundary.md
@@ -39,8 +40,9 @@ Read Engine settings through one shared boundary
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 use one centralized Settings Reader for **every** applicable Tool, App, **and** MCP
 component. the Reader reads the authoritative Project Settings Artifact,
 validates the complete input, **and** returns an immutable typed snapshot with

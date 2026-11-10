@@ -6,13 +6,14 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - 'Subject/caprmedio/Product: CAPRMEDIO Framework'
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Product
 tier: 0
 status: Active
-version: 21
-updated_at: 2026-10-29 22:26:56 +0400
+version: 22
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1185-AGENTIC-SCOPE_CONTRACT-RULE--own-agent-facing-methodology-application-procedures.md
@@ -31,4 +32,6 @@ Own Agent-Facing Methodology-Application Procedures
 
 ## Claim
 
+
+### Prose Claim
 AGENTIC **must** own `PROMPTS` **and** `SKILLS`: prompt implementations that guide agent execution **or** request Operator input, and agent-facing procedures that interpret Operator intent, select applicable FRAMEWORK_METHODOLOGY authority, **and** invoke programmatic capabilities **without** duplicating their mechanics.

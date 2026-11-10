@@ -8,20 +8,21 @@ context:
   role: Delivery
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Reproducibility
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery
+      <+ Reproducibility
     dependencies:
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Requirement'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Method'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Delivery'
-  tier: 5
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
+  tier: 6
 relations:
   delivery_for:
   - CA-M-395
 state:
   status: Active
-  version: 15
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 16
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-D-638-PROGRAMMATIC-DIRECT_POLICY--deliver-a-closed-reproducible-fixture-and-package-boundary.md

@@ -6,18 +6,19 @@ context:
   role: Requirement
   form: Scope Delegation
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//WORKBENCH
   tier: 3
   container:
     scope_unit: CA-SU-20
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2730-APPS-SCOPE_DELEGATION--declare-workbench.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/04_requirement
+author: Anatoly Maslennikov
 ---
 
 ## Summary
@@ -29,32 +30,38 @@ Declare WORKBENCH
 
 ### Prose Claim
 
-The receiving Scope Unit is WORKBENCH. Existing default Role and Form admissions remain applicable. The additional local Role/Form pairs are exactly:
+The receiving Scope Unit is WORKBENCH. The additional local Role/Form pairs are exactly:
 
 - Delivery / Solution;
 - Method / Direct Policy;
 - Requirement / Direct Policy;
+- Requirement / Rule;
 - Requirement / Solution;
+
+- Concern / Problem;
 
 The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
 
-- `CAPRMEDIO_MODEL <+ Project`;
-- `CAPRMEDIO_MODEL <+ Projection`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Query Authoring <+ SQL`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling`;
-- `CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Test Design`;
-- `CAPRMEDIO_STRUCTURE <+ Scope Unit//CODEX_EXTENSION`;
-- `CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH_BACKEND`;
-- `CAPRMEDIO_STRUCTURE <+ Scope Unit//WORKBENCH_FRONTEND`;
-- `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging`;
 
-Each address selects one endpoint object, not the address string, other members of its type or descendants. An unresolved address is diagnostic and grants no admission. These permissions apply only to local Atoms whose Header.Container resolves to WORKBENCH. The Scope Unit identity, Parent, responsibility and structural tree are unchanged.
+- `MODEL//CAPRMEDIO <+ Project`;
+- `MODEL//CAPRMEDIO <+ Workspace`;
+- `MODEL//CAPRMEDIO <+ View`;
+- `MODEL//CAPRMEDIO <+ Projection`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication <+ Interface Contracts`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Query Authoring <+ SQL`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Indexing`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Storage`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Storage <+ Temporary State`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Performance <+ Measurement and Profiling`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Test Design`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//CODEX_EXTENSION`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//WORKBENCH_BACKEND`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//WORKBENCH_FRONTEND`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure`;
+
 
 ### Formal Claim
 

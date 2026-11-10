@@ -17,7 +17,15 @@ subjects:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Evaluation'
   - Subject/Engineering/Atom Lifecycle/Draft History
 relations:
-  concern_about: [CA-P-1662, CA-D-569, CA-D-570]
+  concern_about:
+  - CA-P-1662
+  - CA-D-569
+  - CA-D-570
+ref_id: CA-C-455
+carrier_destination:
+  file:
+    name: CA-C-455-TOOLS-PROBLEM--record-retired-draft-identity-evidence-shape.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern/resolved
 ---
 # Summary
 

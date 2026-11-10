@@ -1,24 +1,20 @@
 """Selected Project readers and the admitted gateway subprocess boundary."""
 # ruff: noqa: E402
-import hashlib
 import os
 from pathlib import Path
 import sys
 import tempfile
 import unittest
-from types import SimpleNamespace
 from unittest.mock import patch
 
 MCP = Path(__file__).resolve().parents[1]
 ROOT = MCP.parents[2]
 TOOLS = MCP.parent / "FEATURE_TOOLS"
-WORKFLOW_TESTS = MCP.parent / "FEATURE_APPS" / "APP_WORKFLOW_ORCHESTRATOR" / "tests"
-sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS"), str(WORKFLOW_TESTS)]
+sys.path[:0] = [str(MCP), str(TOOLS)]
 
 from project_selection import bind_selection, resolve_project
 from artifact_metadata import configured_timezone, project_identity
-from authoritative_status_models import _configured_control_root
-from VALIDATE_ATOMS.validate_atoms_workers import proposed_carrier
+from project_settings_values import control_root
 from scope_declaration_test_support import write_scope_unit_declarations
 
 
@@ -43,7 +39,7 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
     def test_named_readers_use_the_bound_project_without_git(self):
         for selection in self.selections:
             with bind_selection(selection):
-                self.assertEqual(selection.control_root, _configured_control_root(selection.root))
+                self.assertEqual(selection.control_root, control_root(selection.root))
                 self.assertEqual(selection.settings["project"]["name"], project_identity(selection.root)["project"]["name"])
                 self.assertEqual("UTC", str(configured_timezone(selection.root)))
 
@@ -59,38 +55,11 @@ class ProjectContextTests(unittest.IsolatedAsyncioTestCase):
         alpha, beta = self.selections
         with bind_selection(alpha):
             with self.assertRaises(ValueError):
-                _configured_control_root(beta.root)
-
-    def test_typed_source_admission_uses_selected_carriers_and_keeps_byte_pin(self):
-        selection = self.selections[0]
-        (selection.control_root / "operators_registry.toml").write_text("schema_version=1\n")
-        with bind_selection(selection), patch.object(proposed_carrier, "_source", return_value={"binding": {"atom_id": "CA-D-1"}}), patch.object(proposed_carrier, "resolve_context", return_value=SimpleNamespace()), patch.object(proposed_carrier, "load_operators_registry", return_value={}):
-            context = proposed_carrier.source_context_from_project(selection.root)
-            self.assertEqual(selection.control_relative.as_posix(), context.inputs["control_relative"])
-            self.assertEqual(selection.root.name, context.inputs["structure"]["scope_units"][0]["scope_unit_name"])
-        pin = {"source_path": ".caprmedio_caprmedio/fixture.md", "version": 1, "sha256": "a" * 64}
-        path = selection.control_root / "fixture.md"
-        raw = b"---\natom_id: CA-D-1\ncontent_role: Delivery\nstatus: Active\nversion: 2\n---\n# Current rule\n"
-        binding = {"atom_id": "CA-D-1", "version": 2, "path": str(path),
-                   "sha256": hashlib.sha256(raw).hexdigest()}
-        row = {"binding": binding, "text": raw.decode(),
-               "metadata": proposed_carrier.parse_carrier(raw, path).metadata}
-        path.write_bytes(raw)
-        with bind_selection(selection), patch.object(proposed_carrier, "_entry", return_value=pin), patch.object(proposed_carrier, "load_source", return_value=row) as load:
-            observed = proposed_carrier._source(selection.root, "CA-D-1", object(), {})
-        self.assertEqual(path, load.call_args.args[0])
-        self.assertIsNone(load.call_args.args[1])
-        self.assertEqual(binding, observed["binding"])
-        reader = proposed_carrier.ReadContext(roots=[str(selection.root)], limits=dict(proposed_carrier.CEILINGS))
-        report = {"bindings": {}, "coverage": {"gaps": []}}
-        admitted = proposed_carrier.load_source(path, binding, reader, report)
-        self.assertEqual(binding["sha256"], admitted["binding"]["sha256"])
-        self.assertIsNone(proposed_carrier.load_source(
-            path, {**binding, "sha256": pin["sha256"]}, reader, report))
+                control_root(beta.root)
 
     def test_docker_entrypoint_forwards_only_admitted_selection_arguments(self):
         import importlib.util
-        path = MCP.parent / "FEATURE_APPS/APP_WORKFLOW_ORCHESTRATOR/docker/entrypoint.py"
+        path = MCP / "docker/entrypoint.py"
         specification = importlib.util.spec_from_file_location("project_selection_entrypoint", path)
         entrypoint = importlib.util.module_from_spec(specification)
         specification.loader.exec_module(entrypoint)

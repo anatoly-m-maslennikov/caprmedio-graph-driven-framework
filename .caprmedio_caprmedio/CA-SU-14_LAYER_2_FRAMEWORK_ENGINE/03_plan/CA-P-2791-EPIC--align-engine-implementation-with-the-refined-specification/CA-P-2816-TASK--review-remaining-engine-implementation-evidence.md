@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Backlog
-  version: 1
-  updated_at: 2026-11-09 07:55:38 +0400
+  status: Done
+  version: 4
+  updated_at: 2026-11-11 00:22:28 +0400
 destination:
   file:
     name: CA-P-2816-TASK--review-remaining-engine-implementation-evidence.md
@@ -31,7 +31,7 @@ Review remaining Engine implementation evidence
 
 ## Objective
 
-Inspect the retained orchestration and prompt contracts against actual code without restoring removed Agent execution. Identify concrete code locations and extend Code Synopses only where needed. Leave C707–C710 and the prior 78-RMEDO hold explicit; source handoffs need their own admission.
+Inspect the retained orchestration and prompt contracts against actual code without restoring removed Agent execution. Identify concrete code locations and extend Code Synopses only where needed. Use Current source dispositions: the former blanket content hold is lifted and C707–C710 source handoffs are complete. C725 model-composition work is deferred to version 0.6; C726 is Resolved. Old Tools are fully retired, not deferred for rebuilding. Preserve the native-plugin and benchmark exclusions.
 
 ## Subtasks
 

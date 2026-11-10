@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Direct Policy
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 3
 state:
   status: Active
-  version: 6
-  updated_at: 2026-11-08 23:52:13 +0400
+  version: 8
+  updated_at: 2026-11-10 22:20:17 +0400
 destination:
   file:
     name: CA-R-2726-WORKBENCH-DIRECT_POLICY--preserve-atom-header-and-markdown-content-faithfully-in-query-projection.md
@@ -34,17 +34,10 @@ The parsed Header and Markdown Content of every valid canonical Atom carrier.
 
 ### Prose Claim
 
-The query Projection **must**:
+The Projection preserves complete parsed YAML Header and Markdown body, including nested mappings/lists, lists/links/tables/fences/indentation/line breaks, actual heading paths and complete mapped Content sections. It distinguishes absent/null/empty scalar-or-collection/false/zero; display metadata treats null/empty string/list/map as empty while false/zero remain values without changing SQL values/counts.
 
-- preserve the complete parsed YAML Header, including nested mappings and lists.
-- preserve the difference between an absent key, null, an empty string, an empty list or mapping, a scalar, a one-item list, false, and zero.
-- for display metadata, treat null, an empty string, an empty list and an empty mapping as empty; treat false and zero as values. This does not change the SQL values or counts.
-- preserve the complete Markdown body unchanged, including lists, links, tables, fences, fence labels, indentation, and line breaks.
-- retain every mapped Content Property's complete path, heading, heading level, position, direct Markdown value and complete section Markdown; derive its parent path from the complete path.
-- expose Header SQL columns in either supported cold-start mode. Mode 1 exposes only model-declared Header Property paths; Mode 2, enabled for this Workbench, exposes every observed Header Property path found in valid source Atoms, including paths with null or empty values. Both modes use a full dotted Header-path SQL column with snake_case within each segment, such as `header.identity.atom_id` and `header.context.plan`; the name preserves every Header path level with dots between levels. Remove short Header convenience names such as `id`, `role` and `status` rather than retain aliases. Header remains the logical frontmatter root; no YAML wrapper or authored flat copy is added.
-- expose declared Markdown Content Properties as dot-separated SQL paths with snake_case segments, such as `content.summary`, `content.claim.prose_claim`, `content.claim.formal_claim`, and `content.details`. Preserve the complete prose and every nested heading; a parent content column keeps its direct value and each declared nested Content Property gets a separate column. Arbitrary prose presentation headings remain inside the value and never become SQL columns.
-- keep complete parsed Header and Markdown data private to the reader and graph pipeline. The public `atoms` table does not expose raw `header_json`, `content_markdown`, `content_properties_json`, or `relation_edges_json` columns.
-- keep a Property's direct value separate from its descendants. A complete section includes its heading and descendants; a direct-value count does not count descendant text.
-- parse YAML properties and the actual Markdown heading tree directly. The first heading may have any level; skipped levels create no synthetic Properties. Heading-like text inside code is Markdown value, not a section. Parsing does not establish Atom Form conformance or graph authority.
-- reject duplicate YAML mapping keys and colliding normalized declared Content Property heading paths under one parent rather than silently merging or choosing one; repeated arbitrary prose headings are allowed.
-- not interpret arbitrary CFEL or prose to establish Projection data.
+Mode 1 exposes model-declared Header paths; enabled Mode 2 exposes every observed valid Header path, including null/empty. Both use dotted full Header paths with snake_case segments and remove short `id`/`role`/`status` aliases; Header has no wrapper or flat copy. Declared Content paths use the same notation and preserve parent direct value separately from nested Properties. Content columns follow applicable declarations, including wildcard declarations and more-specific boundaries; presentation headings inside a prose value are not automatically separate Properties. Complete parser data remains private: `atoms` exposes no raw Header/Markdown/property/relation JSON buckets.
+
+All CAPRMEDO Roles and their declared Forms must be query-accessible in valid Current and Draft carriers. Expose their model-admitted Content sections, including Concern, Plan objectives, Analysis & Advisory reports and Operations, without converting them to RMED Claims or restricting exposure to a fixed Role/Form or heading list.
+
+Parse YAML and the actual CommonMark tree directly: no Form conformance or graph authority, synthetic skipped-level Properties or fenced-text headings. Reject duplicate YAML keys and colliding normalized declared child headings; allow repeated arbitrary prose headings. Never interpret arbitrary CFEL or prose as Projection data.

@@ -6,18 +6,15 @@ container:
 role: Method
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt
-    Authoring
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Step'
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Action'
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
 tier: 3
 status: Active
-version: 13
-updated_at: 2026-11-09 07:45:14 +0400
+version: 14
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-M-326-PROMPTS-DECISION--compose-short-current-implementation-step-prompts.md
@@ -38,10 +35,6 @@ Compose short current implementation Step prompts
 **to** implement one Step prompt, state its exact Step, Action, and context; name required inputs, permitted work, output artifacts, admitted result labels, and blocking conditions without restating methodology authority.
 
 ## Details
-
-### Scope
-
-one self-contained prompt per current CA-O-016 Step.
 
 Keep each prompt concise, pin-aware, and scoped to its own Step. Its named
 inputs include the `selected_project` binding, current pinned source

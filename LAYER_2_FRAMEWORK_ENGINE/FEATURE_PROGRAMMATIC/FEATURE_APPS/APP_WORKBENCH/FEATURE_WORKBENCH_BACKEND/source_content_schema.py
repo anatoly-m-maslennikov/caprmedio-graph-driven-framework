@@ -8,11 +8,14 @@
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
+from collections import Counter
 from dataclasses import dataclass, field
 from typing import Any
 
-from .content_columns import content_columns
-from .content_schema import ContentRule, ContentSchema, declaration_rules, schema_from_rules
+from .content_schema import ContentRule, ContentSchema, declaration_rules, observed_paths, schema_from_rules
+
+
+Observation = tuple[str | None, str | None, tuple[str, ...]]
 
 
 @dataclass
@@ -21,10 +24,14 @@ class SourceContentSchema:
 
     schema: ContentSchema | None = None
     _contributions: dict[str, tuple[ContentRule, ...]] = field(default_factory=dict)
+    _observations: dict[str, frozenset[Observation]] = field(default_factory=dict)
+    _counts: Counter[Observation] = field(default_factory=Counter)
 
     def reset(self) -> None:
         self.schema = None
         self._contributions.clear()
+        self._observations.clear()
+        self._counts.clear()
 
     def rebuild(self, rows: Iterable[Mapping[str, Any]]) -> dict[str, ValueError]:
         """Compile valid rows, excluding only rows with duplicate declared headings."""
@@ -32,11 +39,22 @@ class SourceContentSchema:
         errors: dict[str, ValueError] = {}
         while True:
             contributions = _contributions(remaining)
-            schema = schema_from_rules(rule for rules in contributions.values() for rule in rules)
+            observations = {
+                path: observed_paths(row)
+                for row in remaining if (path := source_path(row)) is not None
+            }
+            counts: Counter[Observation] = Counter(
+                item for items in observations.values() for item in items
+            )
+            schema = schema_from_rules(
+                (rule for rules in contributions.values() for rule in rules), counts,
+            )
             invalid = self.validation_errors(remaining, schema)
             if not invalid:
                 self.schema = schema
                 self._contributions = contributions
+                self._observations = observations
+                self._counts = counts
                 return errors
             errors.update(invalid)
             remaining = [row for row in remaining if source_path(row) not in invalid]
@@ -46,7 +64,7 @@ class SourceContentSchema:
         if self.schema is None:
             return True
         try:
-            schema, _contributions = self._candidate(rows)
+            schema, _contributions, _observations, _counts = self._candidate(rows)
         except ValueError:
             return True
         return schema.shape != self.schema.shape
@@ -56,26 +74,45 @@ class SourceContentSchema:
         if self.schema is None:
             return True
         try:
-            schema, contributions = self._candidate(rows)
+            schema, contributions, observations, counts = self._candidate(rows)
         except ValueError:
             return True
         if schema.shape != self.schema.shape:
             return True
         self.schema = schema
         self._contributions = contributions
+        for path, items in observations.items():
+            if items:
+                self._observations[path] = items
+            else:
+                self._observations.pop(path, None)
+        self._counts = counts
         return False
 
     def _candidate(
         self, rows: Mapping[str, Mapping[str, Any] | None],
-    ) -> tuple[ContentSchema, dict[str, tuple[ContentRule, ...]]]:
+    ) -> tuple[
+        ContentSchema, dict[str, tuple[ContentRule, ...]],
+        dict[str, frozenset[Observation]], Counter[Observation],
+    ]:
         contributions = dict(self._contributions)
+        counts = self._counts.copy()
+        observations: dict[str, frozenset[Observation]] = {}
         for path, row in rows.items():
+            counts.subtract(self._observations.get(path, ()))
+            items = observed_paths(row) if row is not None else frozenset()
+            observations[path] = items
+            counts.update(items)
             rules = declaration_rules(row)
             if rules:
                 contributions[path] = rules
             else:
                 contributions.pop(path, None)
-        return schema_from_rules(rule for rules in contributions.values() for rule in rules), contributions
+        counts += Counter()
+        schema = schema_from_rules(
+            (rule for rules in contributions.values() for rule in rules), counts,
+        )
+        return schema, contributions, observations, counts
 
     def validation_errors(
         self, rows: Iterable[Mapping[str, Any]], schema: ContentSchema | None = None,
@@ -89,7 +126,7 @@ class SourceContentSchema:
             if path is None:
                 continue
             try:
-                content_columns(row, active_schema)
+                active_schema.validate(row)
             except ValueError as error:
                 errors[path] = error
         return errors

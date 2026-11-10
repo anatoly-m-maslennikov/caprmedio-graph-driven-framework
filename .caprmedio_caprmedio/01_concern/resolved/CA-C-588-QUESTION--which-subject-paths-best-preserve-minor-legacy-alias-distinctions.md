@@ -14,6 +14,11 @@ subjects:
   - Subject/Domain/Node/Continuant/Atom/Content Role: Plan
   - Subject/Engineering/Carrier
 relations: {}
+ref_id: CA-C-588
+carrier_destination:
+  file:
+    name: CA-C-588-QUESTION--which-subject-paths-best-preserve-minor-legacy-alias-distinctions.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

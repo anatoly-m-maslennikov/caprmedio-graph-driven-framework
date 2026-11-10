@@ -1,0 +1,64 @@
+---
+atom_id: CA-E-377
+ref_id: CA-E-377@22
+container:
+  scope_unit: CA-SU-15
+role: Evaluation
+form: Eval Case
+topics:
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Code
+    Authoring/Python Code
+  dependencies:
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Resources/Configuration
+tier: 5
+relations:
+  evaluation_for:
+  - CA-M-423
+  - CA-M-429
+  derived_from:
+  - CA-A-053
+status: Archived
+version: 22
+updated_at: 2026-10-27 19:59:34 +0400
+cce_version: cce_1
+cce_form: evaluation
+llm_session_ids:
+- codex:01a02650-eff7-7453-8c37-0699b36773c6
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+carrier_destination:
+  file:
+    name: CA-E-377@22-PROGRAMMATIC-EVAL_CASE--reject-an-unaccepted-overlapping-python-workflow-manager.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation/archive
+---
+## Summary
+
+Reject an unaccepted overlapping Python workflow manager
+
+## Claim
+
+### Prose Claim
+
+#### Claim checked
+
+one Python workflow does **not** mix uv with another overlapping environment **or**
+dependency manager **unless** an accepted Method owns a bounded exception.
+
+#### Test case
+
+evaluate one governed path that runs both uv **and** Poetry **without** an accepted
+exception.
+
+#### Acceptance criteria
+
+pass **only** **when** the path is rejected **before** environment mutation.
+
+#### Failure disposition
+
+block the alternative manager **until** a required capability, bounded carriers,
+commands, cost, recovery procedure, **and** Operator acceptance are governed.
+
+#### Sources
+
+- [CA-M-429 — Use uv as the default Python workflow frontend](../05_method/CA-M-429-PROGRAMMATIC-ENG_POLICY--use-uv-as-the-default-python-workflow-frontend.md)

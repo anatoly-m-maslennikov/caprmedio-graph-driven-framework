@@ -8,19 +8,17 @@ context:
   role: Evaluation
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-      Control/Failure Handling
-    dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure
-      Handling
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Execution Control <+ Failure Handling
+    dependencies: []
   tier: 3
 relations:
   evaluation_for:
   - CA-M-396
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-647-PROGRAMMATIC-DIRECT_POLICY--evaluate-public-operation-error-boundaries.md

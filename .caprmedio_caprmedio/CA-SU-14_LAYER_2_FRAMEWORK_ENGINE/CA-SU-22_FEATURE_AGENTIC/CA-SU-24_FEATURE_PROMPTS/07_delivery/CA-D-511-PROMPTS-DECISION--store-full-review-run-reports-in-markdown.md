@@ -6,21 +6,21 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Traceability
   dependencies:
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type:
-    Workflow'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Carrier/File
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Execution/Workflow Run
+  - MODEL//CAPRMEDIO <+ Atom
+  - MODEL//CAPRMEDIO <+ Atom.Header.Version
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Journal
+  - MODEL//CAPRMEDIO <+ Event Record
+  - MODEL//CAPRMEDIO <+ Carrier/File
 tier: 3
 status: Active
-version: 15
-updated_at: 2026-11-09 07:45:14 +0400
+version: 16
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-D-511-PROMPTS-DECISION--store-full-review-run-reports-in-markdown.md

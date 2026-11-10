@@ -27,6 +27,7 @@ from pathlib import Path
 from typing import Any
 
 from .errors import QueryExecutionError, WorkbenchUnavailableError
+from .audit_tables import create_tables as create_audit_tables, publish as publish_atom_audits
 from .graph_store import quote_identifier
 from .header_columns import HeaderSchema, HeaderSchemaState, header_schema_for_mode, schema_asset_path
 from .content_schema import ContentSchema, compile_content_schema, content_schema_asset_path
@@ -122,6 +123,7 @@ class QueryStore:
                 "CREATE TABLE main.change_log (observed_at TIMESTAMPTZ NOT NULL, "
                 "operation VARCHAR NOT NULL, old_path VARCHAR, new_path VARCHAR)"
             )
+            create_audit_tables(self._connection)
         except Exception as exc:
             self._connection.close()
             raise WorkbenchUnavailableError("query store initialization failed") from exc
@@ -255,6 +257,13 @@ class QueryStore:
             except WorkbenchUnavailableError:
                 self._available = False
                 raise
+
+    def sync_atom_audits(self, reader: Any) -> None:
+        """Publish source-scan audit rows under the database owner's lock."""
+        with self._lock:
+            from .audit_tables import query_content_rows
+            issues = reader.audit_issues(query_content_rows(self._connection, reader.audit_delta))
+            publish_atom_audits(self._connection, issues, reader.audit_delta, available=self._available)
 
     def _admit(self, sql: str) -> None:
         if not isinstance(sql, str):

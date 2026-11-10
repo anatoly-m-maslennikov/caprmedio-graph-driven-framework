@@ -16,7 +16,12 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concerns:
-    - CA-P-1270
+  - CA-P-1270
+ref_id: CA-C-309
+carrier_destination:
+  file:
+    name: CA-C-309-PROBLEM--finish-required-evidence-and-done-placement-before-closure.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

@@ -15,9 +15,14 @@ version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
-    - CA-P-1260
+  - CA-P-1260
   relates_to:
-    - CA-A-978
+  - CA-A-978
+ref_id: CA-C-301
+carrier_destination:
+  file:
+    name: CA-C-301-PROBLEM--reject-truncated-harvest-transport-before-reading-evidence.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

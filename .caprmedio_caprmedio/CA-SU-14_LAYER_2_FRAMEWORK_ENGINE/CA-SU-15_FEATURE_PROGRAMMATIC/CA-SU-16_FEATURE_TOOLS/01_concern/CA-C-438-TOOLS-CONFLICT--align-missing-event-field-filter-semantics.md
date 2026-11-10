@@ -12,7 +12,11 @@ topics:
   - Subject/Engineering/Data Filtering/JSON Pointer
   - Subject/Domain/Node/Continuant/History/Journal.Record
 relations:
-  concern_about: [CA-R-1850, CA-R-1869, CA-E-575, CA-P-1533]
+  concern_about:
+  - CA-R-1850
+  - CA-R-1869
+  - CA-E-575
+  - CA-P-1533
 status: resolved
 version: 2
 updated_at: 2026-10-23 01:47:30 +0400
@@ -21,6 +25,10 @@ claim_target_scope_unit: TOOLS
 local_tier: Standard
 global_tier: 11
 author: Anatoly Maslennikov
+carrier_destination:
+  file:
+    name: CA-C-438-TOOLS-CONFLICT--align-missing-event-field-filter-semantics.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/01_concern
 ---
 # Summary
 

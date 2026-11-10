@@ -8,7 +8,9 @@ form: Problem
 topics:
   main_subject: Subject/Domain/Node/Continuant/Atom
 relations:
-  concern_about: [CA-P-2568, CA-P-2576]
+  concern_about:
+  - CA-P-2568
+  - CA-P-2576
 status: Resolved
 version: 2
 updated_at: 2026-10-23 03:06:32 +0400
@@ -18,6 +20,10 @@ local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 priority: high
+carrier_destination:
+  file:
+    name: CA-C-575-PROGRAMMATIC-STANDARD-PROBLEM--resolve-concurrent-shared-host-plan-identity-collision.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

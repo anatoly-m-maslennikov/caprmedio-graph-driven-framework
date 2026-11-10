@@ -6,20 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component
-    Structure
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Component Structure
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings
-  - Subject/CAPRMEDIO/Carrier
+  - MODEL//CAPRMEDIO <+ Project.Settings
+  - MODEL//CAPRMEDIO <+ Carrier
 tier: 5
 relations:
   evaluation_for:
   - CA-M-284
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 21
-updated_at: 2026-11-09 14:19:14 +0400
+version: 22
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 current_scope_unit: PROGRAMMATIC

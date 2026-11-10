@@ -8,13 +8,13 @@ context:
   role: Requirement
   form: Declaration
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data
-      Handling <+ State Synchronization
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ State Synchronization
   tier: 1
 state:
   status: Active
-  version: 1
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 2
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-970308630-PROGRAMMATIC-DECLARATION--declare-state-synchronization-aspect.md
@@ -35,8 +35,8 @@ State Synchronization is an Engineering Aspect within Data Handling.
 ### Formal Claim
 
 ```CFEL
-# model
-CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization;
+# project_structure
+PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization;
 ```
 
 ## Semantics

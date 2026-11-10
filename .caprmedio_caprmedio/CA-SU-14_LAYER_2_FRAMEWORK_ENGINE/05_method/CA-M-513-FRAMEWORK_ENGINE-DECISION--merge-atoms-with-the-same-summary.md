@@ -6,11 +6,11 @@ container:
 role: Method
 form: Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom
+  main_subject: MODEL//CAPRMEDIO <+ Atom
 tier: 1
 status: Active
-version: 1
-updated_at: 2026-11-09 19:30:15 +0400
+version: 2
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-M-513-FRAMEWORK_ENGINE-DECISION--merge-atoms-with-the-same-summary.md
@@ -29,10 +29,10 @@ Merge Atoms with the same Summary
 
 ### Prose Claim
 
-Merge Atoms when their Summaries are the same, or can be the same after adding or changing 1–3 words. Preserve useful content from their Claims and Details. Differences only in Claim or Details are not a reason to keep separate Atoms.
+Merge Atoms when their Summaries are the same, or can be the same after adding or changing 1–3 words. Preserve useful Claim and Details content. Differences only in Claim or Details are not a reason to keep separate Atoms.
 
-R owns a user-facing result. MED may support it with actual methods, Evaluation cases or delivery details, but must not duplicate that result as another contract.
+R owns required outcomes, behavior and domain or business logic, including internal outcomes. MED may support it with methods, Evaluation cases or delivery details, but must not duplicate that result as another contract.
 
 ## Details
 
-Scope: the Current RMEDO selected for Engine specification refinement. Different named entities and instances remain different things; similar title wording does not make them the same Subject.
+Scope: Engine specification refinement. Different named entities and instances remain different things; similar title wording does not make them the same Subject.

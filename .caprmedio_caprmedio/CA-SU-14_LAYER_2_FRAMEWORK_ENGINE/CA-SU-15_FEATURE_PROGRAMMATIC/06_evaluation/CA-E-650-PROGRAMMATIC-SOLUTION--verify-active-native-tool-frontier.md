@@ -8,16 +8,16 @@ context:
   role: Evaluation
   form: Solution
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/Interface
-      Contracts
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Communication <+ Interface Contracts
   tier: 5
 relations:
   evaluation_for:
   - CA-M-193
 state:
   status: Active
-  version: 17
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 18
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: MCP
 author: Anatoly Maslennikov
@@ -26,7 +26,6 @@ destination:
     name: CA-E-650-PROGRAMMATIC-SOLUTION--verify-active-native-tool-frontier.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-
 ## Summary
 
 Verify active native Tool frontier
@@ -35,8 +34,4 @@ Verify active native Tool frontier
 
 ### Prose Claim
 
-A native Tool frontier passes as a whole only when its contract, exposure, routing, isolation and replacement checks all pass for the bound Project and shared runtime.
-
-## Details
-
-The installed native Tool and Workflow frontier for a bound Project and shared runtime. Internal CONNECTORS/adapters and PROJECT_TOOLS remain outside this frontier.
+A bound Project/shared-runtime native Tool frontier passes only when contract, exposure, routing, isolation and replacement checks pass together; internal CONNECTORS/adapters and PROJECT_TOOLS are excluded.

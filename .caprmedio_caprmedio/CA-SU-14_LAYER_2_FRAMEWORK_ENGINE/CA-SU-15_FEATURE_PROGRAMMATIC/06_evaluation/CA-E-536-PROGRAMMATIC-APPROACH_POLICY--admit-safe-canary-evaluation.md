@@ -8,20 +8,20 @@ context:
   role: Evaluation
   form: Approach Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic
-      Testing/Canary Testing
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Dynamic Testing <+ Canary Testing
   tier: 5
 relations:
   evaluation_for:
   - CA-M-424
-  derived_from:
-  - CA-A-053
   IS_REPLACEMENT_FOR:
   - CA-E-638
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 19
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 20
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-536-PROGRAMMATIC-APPROACH_POLICY--admit-safe-canary-evaluation.md

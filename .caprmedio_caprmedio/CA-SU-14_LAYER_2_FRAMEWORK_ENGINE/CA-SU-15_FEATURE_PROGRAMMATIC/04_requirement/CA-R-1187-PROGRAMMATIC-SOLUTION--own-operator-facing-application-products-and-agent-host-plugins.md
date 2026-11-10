@@ -8,14 +8,14 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
-    dependencies:
-    - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure"
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+      <+ Architecture <+ Component Structure
+    dependencies: []
   tier: 3
 state:
   status: Active
-  version: 21
-  updated_at: 2026-11-09 00:09:26 +0400
+  version: 22
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: APPS
 author: Anatoly Maslennikov
@@ -34,8 +34,9 @@ PROGRAMMATIC behavior governing APPS.
 
 ## Claim
 
+
+### Prose Claim
 APPS **must** own CAPRMEDIO application services, optional Operator-facing interfaces, Workflow orchestration, **and** agent-host plugin packages. A headless application service **must not** depend on its optional UI.
 
-MCP supplies discovery and transport; Workflow orchestration owns Workflow execution and coordination. GRAPH_UI remains optional at runtime; WORKBENCH supports headless use. Structural placement remains governed by the unchanged Current Scope Declarations.
+MCP supplies discovery and transport; Workflow orchestration owns Workflow execution and coordination. WORKBENCH supports headless use.
 
-## Details

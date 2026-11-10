@@ -8,19 +8,20 @@ context:
   role: Delivery
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Storage
-      <+ Temporary State
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Storage <+ Temporary State
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   delivery_for:
   - CA-R-2723
   - CA-R-2728
+  - CA-R-2729
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 17:00:18 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-D-675-WORKBENCH-SOLUTION--place-duckdb-projection-in-rebuildable-runtime-state.md
@@ -42,11 +43,11 @@ The Project-local DuckDB runtime files, bundled dependencies and container deliv
 
 ### Prose Claim
 
-Deliver the rebuildable DuckDB database at `.caprmedio_runtime/workbench/projection.duckdb` in the selected repository. Keep internal materialized query results and owned spill data in that runtime directory. Rebuild source tables and clear old results at startup. Do not store source-byte copies, intermediate schema files or a second source of truth. Use one shared Workbench backend/result owner for MCP and the web frontend; do not add a second result cache or service.
+Deliver the rebuildable DuckDB database at `.caprmedio_runtime/workbench/projection.duckdb` in the selected repository. Keep internal materialized query results and owned spill data in that runtime directory. Rebuild source tables and clear old results at startup. Do not store source-byte copies, intermediate schema files or a second source of truth.
 
 Expose `main.atoms` and `main.scope_units` as public source tables and `main.change_log` as the technical watcher log. Internal graph mappings and generated result tables are disposable implementation state. Source files remain authoritative and unchanged by queries.
 
-Retain each transient result table while its monotonic age is below the configured TTL or its owning View remains open. Opening a View pins its result; closing it unpins the result, while a young unpinned result remains until the TTL. A Workbench restart discards all transient tables and results. Rerunning a View drops the prior result before attempting the replacement, and a failed replacement does not restore it. No heartbeat, cross-process lease, crash recovery, scheduler or new service is added.
+Transient result tables remain disposable state; the shared backend owner controls their retention and release.
 
 Read the editable `.caprmedio_runtime/caprmedio_runtime_settings.toml` at Workbench start. For example:
 
@@ -66,3 +67,5 @@ The current Project container has a `1536m` memory budget. Keep query delivery b
 Include the locked `pytz` dependency in the Workbench runtime group so native DuckDB timestamp-with-time-zone results can be fetched and encoded as ISO strings.
 
 Exclude the frontend’s local `node_modules` dependency cache from release packages. Deliver its package manifest, lockfile and source, and build production assets in the image. Dependency-cache symlinks are not authored package input.
+
+Keep delivered service implementation, retained rebuildable database/index state and disposable indexing/build scratch separate from governed sources. Retained derived state remains non-authoritative and records its source-frontier references. Apply the existing Project Temporary State boundary to disposable scratch and build intermediates; keep the database, internal results and owned spill data at their declared Workbench runtime location. These storage choices grant no source-mutation capability.

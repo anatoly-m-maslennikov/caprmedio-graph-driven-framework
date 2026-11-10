@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Solution
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 4
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-09 19:30:15 +0400
+  version: 5
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-R-2782-WORKBENCH-SOLUTION--restart-workbench-without-restarting-mcp.md
@@ -26,21 +26,14 @@ relations:
   - CA-D-676
   - CA-D-677
 ---
-
 ## Summary
 
 Workbench can restart without restarting MCP
 
 ## Claim
 
-Allow the Operator or an AI Agent to restart the selected Project's Workbench through the native MCP `workbench_restart({})` operation or an explicit health-page button, without restarting MCP, other services or the container. Restart closes the old Workbench owner, rebuilds its index from the admitted Current/Draft Atom sources and Current Scope Unit Declarations, and clears temporary query results. It preserves source files, saved queries and Views; old query-result IDs become unknown while saved-item IDs remain loadable. Return `{service: "workbench", status: "ready"}` only after the replacement Workbench is ready. If sources or startup remain invalid, return the explicit shared `workbench_unavailable` failure and leave Workbench unavailable until another explicit restart. Do not retry automatically, roll back, or write a Business Journal event.
 
-## Details
+### Prose Claim
+Allow Operator/AI Agent to restart selected Project Workbench only through native `workbench_restart({})` or explicit health-page action. Restart closes old owner, rebuilds admitted Current/Draft sources and Current Scope Unit Declaration index, clears temporary result IDs, preserves sources/saved queries/Views and leaves MCP/unrelated services/container running. Return ready only after replacement is ready; invalid startup returns shared `workbench_unavailable` and stays unavailable until explicit restart—no retry, rollback or Business Journal event.
 
-`workbench_restart({})` accepts no service name, shell command or container arguments. Serialize restart with that Project's Workbench operations, including after caller cancellation, so no in-flight request uses a closed owner. MCP and unrelated services stay running. The service operation is synchronous and creates no Workflow, queue, background restart job, generic service registry, shell execution or Docker control.
-
-The health page shows a Restart Workbench button using a native HTML POST form to `/caprmedio/health/workbench-restart`. On a Project server its body is empty. On a shared host it requires exactly one `project_root` field labelled Project folder; reject unknown or repeated fields before any effect. Route the action through the same gateway operation, Project selection, blacklist and public error boundary as MCP; do not reimplement lifecycle control in the page. Show the ready or failure outcome as escaped text. Do not automatically repeat the action or restart another service.
-
-GET health requests remain read-only and preserve existing JSON readiness and HTML snapshot behavior. Opening the health page does not restart anything. Keep the health page available when Workbench fails. The explicit action requires no separate approval form and adds no generic service picker, shell commands, container control, JavaScript dependency or Workbench query-editor button.
-
-An invalid Scope Unit Declaration continues to stop indexing and require explicit restart. Fixing its file alone does not restart Workbench. Both MCP and health expose the same restart operation and preserve the same source and saved-item data.
+`workbench_restart({})` accepts no service/shell/container arguments and serializes with Project work, including cancellation, so no request uses a closed owner. Health GET stays read-only and available on failure; POST `/caprmedio/health/workbench-restart` uses the same gateway, Project selection, blacklist and error boundary. Single Project body is empty; shared host requires exactly one `project_root` field and rejects unknown/repeated fields before effect. Render actual escaped ready/failure; add no picker, shell/Docker/JavaScript/query-editor control. Correcting an invalid Declaration alone does not restart Workbench.

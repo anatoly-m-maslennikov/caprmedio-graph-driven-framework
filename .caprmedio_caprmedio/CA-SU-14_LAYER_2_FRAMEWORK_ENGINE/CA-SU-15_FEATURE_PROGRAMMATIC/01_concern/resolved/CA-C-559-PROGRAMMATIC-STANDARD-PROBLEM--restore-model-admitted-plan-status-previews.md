@@ -13,9 +13,16 @@ subjects:
   governs: Entity/Node/Continuant/Implementation
   depends_on: []
 relations:
-  concern_about: [CA-P-2513, CA-P-2517]
+  concern_about:
+  - CA-P-2513
+  - CA-P-2517
 version: 2
-updated_at: "2026-10-21T01:30:00Z"
+updated_at: '2026-10-21T01:30:00Z'
+ref_id: CA-C-559
+carrier_destination:
+  file:
+    name: CA-C-559-PROGRAMMATIC-STANDARD-PROBLEM--restore-model-admitted-plan-status-previews.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

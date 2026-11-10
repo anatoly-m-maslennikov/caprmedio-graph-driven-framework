@@ -8,7 +8,7 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 5
 relations:
   evaluation_for:
@@ -16,8 +16,8 @@ relations:
   - CA-D-674
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-782-WORKBENCH_FRONTEND-EVAL_CASE--verify-view-rename-modal.md
@@ -26,7 +26,6 @@ current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify the shared View rename modal
@@ -35,14 +34,4 @@ Verify the shared View rename modal
 
 ### Prose Claim
 
-Exercise the built Workbench with the real Workspace backend. A double-click on the current View name opens the existing shared rename modal with the currently displayed name prefilled; the Operator can edit and confirm the name through the existing rename contract.
-
-| Case | Expected result |
-| --- | --- |
-| Double-click the current View name | The shared rename modal opens with that View's current name, not an empty value. |
-| Edit the prefilled name and confirm | The current View shows the new name and the existing Workspace persistence/local browser state retain it after refresh or reload. |
-| Cancel or press Escape | The modal closes and the View name remains unchanged. |
-| Open Rename View from the command palette | The same shared prefilled modal and confirm/cancel behavior are used. |
-| Click the View name once or use unrelated query/autosave controls | No new click-only rename button or separate rename workflow is introduced. |
-
-Prefer browser end-to-end checks with visible controls and the existing rename API; do not inspect private Svelte state.
+Use the built Workbench and real Workspace backend. Double-click current View name or choose Rename View from palette: the same shared modal opens with current displayed name prefilled. Confirm updates current View and existing persistence/local state through refresh/reload; Cancel/Escape leaves name unchanged. Single click and unrelated query/autosave controls introduce neither click-only rename nor separate workflow. Prefer visible browser E2E and existing rename API, not private Svelte state.

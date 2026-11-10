@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "mcp_blacklist": [
+    "atom_search",
+    "find_and_fetch_artifacts",
+    "find_and_fetch_journal_events",
+    "append_change_records",
+    "atom_update",
+    "rmed_atoms_base_revise",
+    "discover_tools",
+    "discover_operations",
+    "get_execution_context",
+    "get_execution_status",
+    "resume_execution_context",
+    "watch_execution",
+    "workflow_orchestrator",
+    "create_atom",
+    "update_atom",
+    "replace_atom",
+    "change_atom_status",
+    "move_atom",
+    "run_implementation_workflow",
+    "revert_changes",
+    "build_entities_graph",
+    "build_terms_graph",
+    "build_applicable_methodology",
+    "generate_entity_graph",
+    "get_selected_workflow_run",
+    "get_selected_action_run",
+    "release_version",
+    "public.release",
+    "reload_mcp_implementation",
+    "get_mcp_reload_status"
+  ],
+  "providers": [
+    {
+      "provider_id": "workbench",
+      "module": "registry_workbench_provider",
+      "factory": "create_provider",
+      "descriptor_factory": "tool_descriptors"
+    }
+  ]
+}

@@ -8,15 +8,20 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Harvest Carrier terminal newline"
+  governs: Harvest Carrier terminal newline
   depends_on:
-    - "Artifact"
+  - Artifact
 version: 1
-updated_at: "2026-10-04 14:19:05 +0400"
+updated_at: 2026-10-04 14:19:05 +0400
 relations:
   concern_about:
-    - CA-P-1305
-    - CA-P-1309
+  - CA-P-1305
+  - CA-P-1309
+ref_id: CA-C-325
+carrier_destination:
+  file:
+    name: CA-C-325-PROBLEM--enforce-one-terminal-newline-in-harvest-carriers.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

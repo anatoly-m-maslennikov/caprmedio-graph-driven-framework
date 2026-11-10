@@ -13,6 +13,11 @@ subjects:
   depends_on:
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Plan'
 relations: {}
+ref_id: CA-C-599
+carrier_destination:
+  file:
+    name: CA-C-599-QUESTION--what-replaces-the-generic-entity-topic-in-plans.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

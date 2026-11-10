@@ -6,21 +6,22 @@ container:
 role: Method
 form: Decision
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Architecture <+ Communication
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect
-    Authorization
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication/API
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime/Session
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
+    Control <+ Effect Authorization
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication <+ API
+  - MODEL//CAPRMEDIO <+ Actor/Operator
+  - MODEL//CAPRMEDIO <+ Runtime/Session
 tier: 4
 relations:
   method_for:
   - CA-R-1885
 status: Active
-version: 14
-updated_at: 2026-11-09 07:45:14 +0400
+version: 15
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-M-357-MCP-DECISION--bound-localhost-http-mcp-requests.md
@@ -41,15 +42,11 @@ the HTTP access implementation **must** validate the loopback Host/Origin bounda
 
 ## Details
 
-### Scope
+### Localhost transport boundary
 
-the additional localhost HTTP transport for the existing Project MCP Gateway.
+1. Use a narrow ASGI loopback Host/Origin guard for every HTTP Request, including Session continuations; forward lifespan unchanged.
+2. Enable MCP SDK DNS-rebinding protection explicitly; a container bind address of 0.0.0.0 does not disable validation.
+3. Do not read, require, validate, rotate, inject, or report HTTP password, bearer Token, Authorization, or credential configuration; such a header cannot alter admitted localhost access.
+4. Health checks and host-side MCP initialization use the same boundary and report readiness without starting a Workflow.
 
-1. use a narrow ASGI loopback Host/Origin guard for every HTTP Request, including Session continuations. Forward lifespan unchanged.
-2. enable the MCP SDK's DNS-rebinding protection explicitly; a container bind address of `0.0.0.0` does not disable Host/Origin validation.
-3. do not read, require, validate, rotate, inject, or report an HTTP password, bearer Token, Authorization value, or credential configuration. Such a header does not grant, deny, or otherwise alter admitted localhost access.
-4. health checks and host-side MCP initialization use the same loopback Host/Origin boundary and report readiness without starting a Workflow.
-
-### Lineage
-
-this Method replaces CA-M-342, whose fixed Summary identifies the retired bearer-authentication procedure.
+This Method replaces CA-M-342, whose fixed Summary identifies the retired bearer-authentication procedure.

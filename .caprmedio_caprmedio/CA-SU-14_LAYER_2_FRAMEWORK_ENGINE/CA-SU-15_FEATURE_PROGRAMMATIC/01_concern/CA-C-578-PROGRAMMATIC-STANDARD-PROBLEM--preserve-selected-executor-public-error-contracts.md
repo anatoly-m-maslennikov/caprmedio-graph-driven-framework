@@ -8,16 +8,22 @@ form: Problem
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
-  concern_about: [CA-P-2590, CA-P-2595]
+  concern_about:
+  - CA-P-2590
+  - CA-P-2595
 status: Resolved
 version: 1
-updated_at: "2026-10-22T12:01:02Z"
+updated_at: '2026-10-22T12:01:02Z'
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 priority: high
+carrier_destination:
+  file:
+    name: CA-C-578-PROGRAMMATIC-STANDARD-PROBLEM--preserve-selected-executor-public-error-contracts.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

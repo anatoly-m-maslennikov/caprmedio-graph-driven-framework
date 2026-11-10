@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Goal
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Prompt Authoring"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
+    <+ Authoring <+ Prompt Authoring
 tier: 0
 status: Active
-version: 2
-updated_at: 2026-11-02 19:44:26 +0400
+version: 3
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: obligation
 llm_session_ids:
@@ -18,6 +19,10 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: AGENTIC
 claim_target_scope_unit: PROMPTS
+destination:
+  file:
+    name: CA-R-2451-AGENTIC-SCOPE_CONTRACT-GOAL--prompts-owns-agent-and-operator-prompt-implementations.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-22_FEATURE_AGENTIC/04_requirement
 ---
 ## Summary
 
@@ -25,9 +30,6 @@ PROMPTS owns agent and Operator prompt implementations
 
 ## Claim
 
-PROMPTS **must** own prompt-based implementations used by an AI Agent **or** presented to the Operator. The following remain with their existing owners:
 
-- The implemented methodology Action;
-- The Workflow;
-- decision authority; **and**
-- programmatic mechanics.
+### Prose Claim
+PROMPTS **must** own prompt-based implementations used by an AI Agent **or** presented to the Operator. The implemented methodology Action, Workflow, decision authority, **and** programmatic mechanics remain with their existing owners.

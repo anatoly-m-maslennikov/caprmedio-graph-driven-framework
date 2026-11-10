@@ -6,18 +6,19 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Dynamic Testing
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation
-tier: 1
+  - MODEL//CAPRMEDIO <+ Package/Project Package
+tier: 5
 relations:
   evaluation_for:
-  - CA-M-166
-  derived_from:
+  - CA-M-418
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 20
-updated_at: 2026-11-05 23:05:59 +0400
+version: 21
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-397-PROGRAMMATIC-EVAL_CASE--verify-machine-contract-compatibility.md
@@ -29,14 +30,20 @@ llm_session_ids:
 author: Anatoly Maslennikov
 current_scope_unit: PROGRAMMATIC
 ---
-# Verify machine-contract compatibility
+## Summary
 
-## Claim checked
+Verify machine-contract compatibility
+
+## Claim
+
+### Prose Claim
+
+#### Claim checked
 
 one public machine boundary preserves structural, semantic, version, **and**
 adjacent producer-consumer compatibility.
 
-## Test case
+#### Test case
 
 pass valid, missing-field, forbidden-field, wrong-type, **and** unsupported-version
 fixtures from one producer **to** its supported adjacent consumer. Include
@@ -48,7 +55,7 @@ code or state. When both restart-required and unavailable categories are
 declared, include ordinary “restart required” text versus true unavailable
 state.
 
-## Acceptance criteria
+#### Acceptance criteria
 
 pass **only** **when** valid meaning survives, structural **and** semantic failures remain
 distinct, unsupported versions are rejected, **and** the declared compatibility
@@ -58,11 +65,11 @@ arguments have no effect before rejection. A shared page boundary keeps rows,
 global counts and all value forms on one snapshot, and delayed or reordered
 acknowledgements from two clients cannot mix or overwrite it.
 
-## Failure disposition
+#### Failure disposition
 
 reject release **or** the compatibility claim **until** the boundary is restored.
 
-## Sources
+#### Sources
 
 - [JSON Schema Draft 2020-12](https://json-schema.org/draft/2020-12)
 - [CA-M-166 — Preserve declared interface compatibility boundaries](../05_method/CA-M-166-PROGRAMMATIC-CORE-METHOD--preserve-declared-interface-compatibility-boundaries.md)

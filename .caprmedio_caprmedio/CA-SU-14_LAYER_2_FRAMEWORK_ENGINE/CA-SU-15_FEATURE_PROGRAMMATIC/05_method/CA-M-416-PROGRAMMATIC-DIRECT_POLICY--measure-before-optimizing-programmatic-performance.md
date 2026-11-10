@@ -8,18 +8,18 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Performance/Measurement
-      and Profiling
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Performance <+ Measurement and Profiling
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 13
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 14
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -38,15 +38,15 @@ Measure before optimizing PROGRAMMATIC performance
 
 ## Claim
 
-### Prose Claim
 
+
+### Prose Claim
 measure a PROGRAMMATIC performance concern **before** accepting an optimization;
 use a representative workload for its Hook, interactive, batch, MCP, App, **or**
 background surface rather than treating one surface as universal.
 
 ## Details
 
-Candidate source: [CA-M-165@9](archive/CA-M-165-PROGRAMMATIC-CORE-METHOD--measure-before-optimizing-programmatic-performance@9.md)
 
 ### Applicable when
 

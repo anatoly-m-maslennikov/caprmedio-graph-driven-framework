@@ -43,6 +43,11 @@ relations:
   - CA-R-918
   - CAPRMEDIO-META-REQU-097
   - CAPRMEDIO-META-REQU-657
+ref_id: CA-C-266
+carrier_destination:
+  file:
+    name: CA-C-266-PROJECT_CONFIGURATION-QUESTION--how-should-the-register-realization-graph-draft-be-reconciled.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/01_concern/resolved
 ---
 # Summary
 

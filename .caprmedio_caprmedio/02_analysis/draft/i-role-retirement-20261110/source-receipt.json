@@ -1,0 +1,311 @@
+{
+  "status": "SOURCE_MODEL_AND_ARCHIVAL_APPLIED_VERIFIED",
+  "source_plan_sha256": "5b3298a1b481a505fbb9587569a1a5e9acfa3f03e17fb142b2c2309296d707a2",
+  "effective_plan_sha256": "7a94467c6a3281af62a80822c9db77c21003e50108328871db9c542a613c0b68",
+  "publication_time": "2026-11-10 14:38:45 +0400",
+  "effects": 75,
+  "model_outputs": [
+    {
+      "kind": "amendment",
+      "id": "CA-R-3010",
+      "version": 4,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3010-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-3010@3-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-3006",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3006-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-3006@6-CORE_META_MODEL-DECLARATION--declare-scope-delegation.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-3008",
+      "version": 7,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3008-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-3008@6-CORE_META_MODEL-REQUIREMENT--establish-project-and-non-project-scope-unit-declarations-and-delegations.md"
+    },
+    {
+      "kind": "retired_role",
+      "id": "CA-R-3009",
+      "source": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-3009-CORE_META_MODEL-DECLARATION--declare-implementation-role.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-3009@2-CORE_META_MODEL-DECLARATION--declare-implementation-role.md"
+    },
+    {
+      "kind": "replacement",
+      "old_id": "CA-R-2553",
+      "new_id": "CA-R-970308631",
+      "new_path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970308631-CORE_META_MODEL-DECLARATION--declare-project-package.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2553@2-CORE_META_MODEL-DECLARATION--declare-implementation.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-2173",
+      "version": 10,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2173-CORE_META_MODEL-RULE--define-implementation.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2173@9-CORE_META_MODEL-RULE--define-implementation.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-2264",
+      "version": 2,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/CA-R-2264-FRAMEWORK_METHODOLOGY-RULE--keep-normative-prose-outside-native-implementation.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/04_requirement/archive/CA-R-2264@1-FRAMEWORK_METHODOLOGY-RULE--keep-normative-prose-outside-native-implementation.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-D-324",
+      "version": 30,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-324-PROJECT_CONFIGURATION-ENG_DECISION--register-project-current-scope-content-role-directories.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/archive/CA-D-324@29-PROJECT_CONFIGURATION-ENG_DECISION--register-project-current-scope-content-role-directories.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1504",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1504-CORE_META_MODEL-RULE--keep-evaluation-implementation-coverage-explicit.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1504@25-CORE_META_MODEL-RULE--keep-evaluation-implementation-coverage-explicit.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1505",
+      "version": 28,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1505-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1505@27-CORE_META_MODEL-RULE--keep-evaluation-realization-chains-distinct.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1548",
+      "version": 25,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-DEFINITION--define-specification-content-roles.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1548@24-CORE_META_MODEL-DEFINITION--define-specification-content-roles.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1550",
+      "version": 29,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1550-CORE_META_MODEL-RULE--keep-specification-in-rmed-regardless-of-its-subject.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1550@28-CORE_META_MODEL-RULE--keep-specification-in-rmed-regardless-of-its-subject.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1567",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1567-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1567@25-CORE_META_MODEL-RULE--keep-change-and-implementation-collections-at-standard.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1568",
+      "version": 27,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1568-CORE_META_MODEL--permit-projections-as-implementation-outputs.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1568@26-CORE_META_MODEL--permit-projections-as-implementation-outputs.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1610",
+      "version": 26,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1610-CORE_META_MODEL-RULE--keep-reverse-engineered-rmed-provisional.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1610@25-CORE_META_MODEL-RULE--keep-reverse-engineered-rmed-provisional.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1682",
+      "version": 42,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1682-CORE_META_MODEL--normative-atoms-are-the-caprmedio-specification.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1682@41-CORE_META_MODEL--normative-atoms-are-the-caprmedio-specification.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1683",
+      "version": 46,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1683-CORE_META_MODEL--authority-evaluation-and-operations-remain-distinct.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1683@45-CORE_META_MODEL--authority-evaluation-and-operations-remain-distinct.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1694",
+      "version": 42,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1694@41-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1702",
+      "version": 50,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1702@49-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1703",
+      "version": 41,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1703-CORE_META_MODEL-RULE--use-implementation-overview-as-a-projection.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1703@40-CORE_META_MODEL-RULE--use-implementation-overview-as-a-projection.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1720",
+      "version": 39,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1720@38-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1772",
+      "version": 38,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1772-CORE_META_MODEL-RULE--minimal-default-project-model.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1772@37-CORE_META_MODEL-RULE--minimal-default-project-model.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-1873",
+      "version": 23,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1873-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-1873@22-CORE_META_MODEL-RULE--derive-implementation-and-use-its-actual-state-as-source.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-2525",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2525-CORE_META_MODEL-DECLARATION--declare-package.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2525@2-CORE_META_MODEL-DECLARATION--declare-package.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-2555",
+      "version": 3,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-2555@2-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-R-954",
+      "version": 34,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-954-CORE_META_MODEL-RULE--target-one-implementation-result-with-each-demand.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archive/CA-R-954@33-CORE_META_MODEL-RULE--target-one-implementation-result-with-each-demand.md"
+    },
+    {
+      "kind": "amendment",
+      "id": "CA-E-661",
+      "version": 8,
+      "path": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md",
+      "archive": ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/archive/CA-E-661@7-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md"
+    }
+  ],
+  "I_archive_outputs": [
+    {
+      "kind": "archived_I_record",
+      "original_id": "CA-I-002",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/DERIVE_CCE_CANONICAL_SIGNATURES/08_implementation/CA-I-002-DERIVE_CCE_CANONICAL_SIGNATURES-CORE-IMPLEMENTATION--implement-cce-canonical-signature-derivation.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/DERIVE_CCE_CANONICAL_SIGNATURES/02_analysis/archive/CA-I-002@1-DERIVE_CCE_CANONICAL_SIGNATURES-CORE-IMPLEMENTATION--implement-cce-canonical-signature-derivation.md",
+      "body_sha256": "2c30e331426961fe66cc942e8c91d4968a9af64d26a49916b4dcd064b46c407c",
+      "before_sha256": "ecb1719b3297883993c5b37c65a59ce30ec4543450310b9b17467eef20e30769",
+      "after_sha256": "c2a16863b3b041a104968f4f0e431e6d68709b88e973be9e1c0acd390217bdfb",
+      "version": 1,
+      "original_status": null
+    },
+    {
+      "kind": "archived_I_record",
+      "original_id": "CA-I-003",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/DERIVE_SCOPE_CANONICAL_SIGNATURES/08_implementation/CA-I-003-DERIVE_SCOPE_CANONICAL_SIGNATURES-CORE-IMPLEMENTATION--implement-scope-canonical-signature-derivation.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/DERIVE_SCOPE_CANONICAL_SIGNATURES/02_analysis/archive/CA-I-003@1-DERIVE_SCOPE_CANONICAL_SIGNATURES-CORE-IMPLEMENTATION--implement-scope-canonical-signature-derivation.md",
+      "body_sha256": "3160e2ec1f3c34fb3ca3818d93da9c5a02454cbfb21313830d8fabce46329490",
+      "before_sha256": "7cbc89cf9863bfc3b916de43f2cd9bf18267b4bd4e9e54d1a17b40dc922df675",
+      "after_sha256": "17b614b4f8c7d737a5bf4cbc4ba375b04c89051a97a8b293649caa42013b6b0f",
+      "version": 1,
+      "original_status": null
+    },
+    {
+      "kind": "archived_I_record",
+      "original_id": "CA-I-001",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/DETECT_CLAIM_VALUE_SET_CANDIDATES/08_implementation/CA-I-001-DETECT_CLAIM_VALUE_SET_CANDIDATES-CORE-IMPLEMENTATION--implement-report-only-candidate-detection.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-16_FEATURE_TOOLS/DETECT_CLAIM_VALUE_SET_CANDIDATES/02_analysis/archive/CA-I-001@2-DETECT_CLAIM_VALUE_SET_CANDIDATES-CORE-IMPLEMENTATION--implement-report-only-candidate-detection.md",
+      "body_sha256": "6b49d35ff3b33cff98aaca2ca87b42ff7a4bae2dfde7c3c2604469dca5a7fdf3",
+      "before_sha256": "3845df8ce7ddcd8cd8fa4f363dfd85d9f1fdd9f42bfa0ceee187cb600e04460a",
+      "after_sha256": "16cbf79e5969fadbf6786abd62ad417076555094c1231e85c4f584f8fe2838ac",
+      "version": 2,
+      "original_status": null
+    },
+    {
+      "kind": "archived_I_record",
+      "original_id": "CA-I-7",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/08_implementation/CA-I-7-CODE_SYNOPSIS--workbench-backend-implements-indexed-queries-and-paged-results.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/02_analysis/archive/CA-I-7@3-CODE_SYNOPSIS--workbench-backend-implements-indexed-queries-and-paged-results.md",
+      "body_sha256": "b0d74f4f1fcce6c26a483ce674ae21483a1e3c3c19c00fb23982c5d03f8fdb60",
+      "before_sha256": "0ad77e0983f6832032d2d6c17967656d1751d25743c7eb875662a41187194c27",
+      "after_sha256": "686d45970c4c7371185c0949de6e11b011107211d2823b88402e25f45e069a30",
+      "version": 3,
+      "original_status": "Resolved"
+    },
+    {
+      "kind": "archived_I_record",
+      "original_id": "CA-I-8",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/08_implementation/CA-I-8-CODE_SYNOPSIS--workbench-frontend-has-a-sql-completion-defect.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-46_FEATURE_WORKBENCH_FRONTEND/02_analysis/archive/CA-I-8@3-CODE_SYNOPSIS--workbench-frontend-has-a-sql-completion-defect.md",
+      "body_sha256": "19aaed96b3f25348200656f7f759d2460feda3c4a37f8a5847d9f4ca298cc468",
+      "before_sha256": "ab7a559263049ec2390b9e1dce7e847b42f64c1acde236d880db9a7bf511b253",
+      "after_sha256": "9ae7808b07931b55b0739fad3f8f29bcb0694ff678a99afbd1bdf4ff439fbd68",
+      "version": 3,
+      "original_status": "Resolved"
+    },
+    {
+      "kind": "archived_I_record",
+      "original_id": "CA-I-9",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/08_implementation/CA-I-9-CODE_SYNOPSIS--mcp-uses-shared-project-binding-and-code-owned-registration.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/02_analysis/archive/CA-I-9@2-CODE_SYNOPSIS--mcp-uses-shared-project-binding-and-code-owned-registration.md",
+      "body_sha256": "6433c3452cb8d5a0b56b1a196a9126759b0ba39505a388295d2181370c267a1d",
+      "before_sha256": "57802056bcc1743872373d4e6395f6804b340896d528bff8e6507c2252404fce",
+      "after_sha256": "23a1fb322f82e5a6ae61d5f6bc989b1d6e7fb83b43d27fc5e76e1f5f9e0eb7c4",
+      "version": 2,
+      "original_status": "Resolved"
+    },
+    {
+      "kind": "withdrawn_draft_snapshot",
+      "original_id": "CA-I-6",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/08_implementation/draft/engine-refinement-20261108/CA-I-6@1-draft-PROGRAMMATIC-CODE_SYNOPSIS--the-declared-installer-has-no-implementation.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/02_analysis/archive/withdrawn_drafts/engine-refinement-20261108/CA-I-6@1-draft-PROGRAMMATIC-CODE_SYNOPSIS--the-declared-installer-has-no-implementation.md",
+      "body_sha256": "ec67d75015eeb4a269c4286d2f8f39f2a84e4d0ad5d40bedede3e49fad4035bb",
+      "before_sha256": "e360641ca85afc672ec7e494fe63a36e19a1f87ff7e227548bb98b6f7083141a",
+      "after_sha256": "e360641ca85afc672ec7e494fe63a36e19a1f87ff7e227548bb98b6f7083141a",
+      "version": 1,
+      "original_status": "Draft"
+    },
+    {
+      "kind": "withdrawn_draft_snapshot",
+      "original_id": "CA-I-4",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/08_implementation/draft/engine-refinement-20261108/CA-I-4@1-draft-WORKBENCH_BACKEND-CODE_SYNOPSIS--relation-metadata-is-compiled-at-runtime-not-during-image-build.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/02_analysis/archive/withdrawn_drafts/engine-refinement-20261108/CA-I-4@1-draft-WORKBENCH_BACKEND-CODE_SYNOPSIS--relation-metadata-is-compiled-at-runtime-not-during-image-build.md",
+      "body_sha256": "2f46885a00cea2fa036404a606cb875671719db03b82434ffa8a6aa7b508eaa1",
+      "before_sha256": "06ad7d1b269939a09ff8c24bd3833c76fc63a8778b07458ab9c7f855b5a1938c",
+      "after_sha256": "06ad7d1b269939a09ff8c24bd3833c76fc63a8778b07458ab9c7f855b5a1938c",
+      "version": 1,
+      "original_status": "Draft"
+    },
+    {
+      "kind": "withdrawn_draft_snapshot",
+      "original_id": "CA-I-5",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/08_implementation/draft/engine-refinement-20261108/CA-I-5@1-draft-WORKBENCH_BACKEND-CODE_SYNOPSIS--workbench-has-observed-header-schemas-with-underscore-names.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/02_analysis/archive/withdrawn_drafts/engine-refinement-20261108/CA-I-5@1-draft-WORKBENCH_BACKEND-CODE_SYNOPSIS--workbench-has-observed-header-schemas-with-underscore-names.md",
+      "body_sha256": "abe8255eaf3680388348ec3214d50e7489e8ca10b4c2633a6d4eb002b1acc79c",
+      "before_sha256": "e9ba6784459affaa51d51b46487e5f2fa9b1d37c13eed42f9c4a4addab664b14",
+      "after_sha256": "e9ba6784459affaa51d51b46487e5f2fa9b1d37c13eed42f9c4a4addab664b14",
+      "version": 1,
+      "original_status": "Draft"
+    },
+    {
+      "kind": "withdrawn_draft_snapshot",
+      "original_id": "CA-I-9@2-draft",
+      "source": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/08_implementation/draft/CA-I-9@2-draft-CODE_SYNOPSIS--mcp-uses-shared-project-binding-and-code-owned-registration.md",
+      "destination": ".caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/02_analysis/archive/withdrawn_drafts/CA-I-9@2-draft-CODE_SYNOPSIS--mcp-uses-shared-project-binding-and-code-owned-registration.md",
+      "body_sha256": "50b79ea1510eaf8b69d553391aa34b3d91065e3df4ab24b409625893782a1ef9",
+      "before_sha256": "a41983d2d425684f22da2986d7933399d181ea4d773c3655ecc1e5e36f8460a7",
+      "after_sha256": "a41983d2d425684f22da2986d7933399d181ea4d773c3655ecc1e5e36f8460a7",
+      "version": 2,
+      "original_status": "Draft"
+    }
+  ],
+  "native_run": false,
+  "journal_append": false
+}

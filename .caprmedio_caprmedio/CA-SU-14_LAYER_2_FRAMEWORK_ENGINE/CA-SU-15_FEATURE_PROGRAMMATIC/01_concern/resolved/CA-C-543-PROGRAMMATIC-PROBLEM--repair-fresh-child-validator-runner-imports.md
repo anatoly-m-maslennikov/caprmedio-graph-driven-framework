@@ -13,9 +13,15 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2455]
+  concern_about:
+  - CA-P-2455
 version: 3
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-543
+carrier_destination:
+  file:
+    name: CA-C-543-PROGRAMMATIC-PROBLEM--repair-fresh-child-validator-runner-imports.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

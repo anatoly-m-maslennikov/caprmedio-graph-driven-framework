@@ -8,7 +8,7 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Projection
+    main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 5
 relations:
   evaluation_for:
@@ -16,8 +16,8 @@ relations:
   - CA-D-674
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-09 07:45:14 +0400
+  version: 6
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-E-783-WORKBENCH_FRONTEND-EVAL_CASE--verify-result-display-preferences.md
@@ -26,7 +26,6 @@ current_scope_unit: WORKBENCH_FRONTEND
 claim_target_scope_unit: WORKBENCH_FRONTEND
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Verify Workbench result-display preferences
@@ -39,16 +38,6 @@ The Workbench frontend's result sizing and content presentation remain user-cont
 
 ### Prose Claim
 
-A real-browser evaluation must:
+In a real browser, start with a paged result and value over 150 Unicode characters. Defaults are Adaptive rows and Limited N=150; Fixed retains 100 and reveals its numeric field only when selected. Fixed accepts persisted positive 1..1000 page size; invalid values preserve prior choice, and Adaptive hides the field/fits available area through resize and all zoom/Density changes without losing result. Display-only changes and later pages reuse query ID/page flow without rerunning SQL.
 
-- begin with a query result large enough to exercise paging and a value longer than 150 Unicode characters. With no saved preference, Results use Adaptive row sizing and Limited content up to N=150; the retained Fixed value is 100 and its numeric field is not shown until Fixed is selected.
-- switch Settings to Fixed, confirm that the retained 100-row value is shown, enter a positive integer page size within 1..1000, reload, and confirm that the selected mode and page size persist. Values outside the existing 1..1000 boundary are rejected without changing the previous valid choice. Returning to Adaptive hides the Fixed numeric field.
-- switch to Adaptive and confirm that visible Results fit the available area. Resize the browser and change Interface text zoom, Content text zoom, whole-Interface zoom and Density; the displayed page size adapts without losing the current query result.
-- navigate to another page after a display-only change and confirm that the existing query_id/page flow is reused and SQL is not run again.
-- use the inline ResultsTable header control to switch between Limited and Full, reload, and confirm the preference persists. Limited accepts any positive integer N, with N=150 as the default, and displays exactly the first N Unicode characters. The N field is hidden when Full is selected, while the complete returned value remains unchanged for the query/MCP result.
-- exercise the same result-display actions from Settings, the ResultsTable header and the command palette, confirming one consistent persisted preference and one canonical handler rather than divergent controls.
-- switch to Dark theme and confirm result names remain prominent, SQL types/formats remain smaller and pale, and Tabulator headers, cells, borders and hover/focus/selected states remain readable.
-- confirm Content cells and full-value views render every source newline as a visible line break with pre-wrap presentation, without requiring a blank line or collapsing a single newline into a space.
-- open a View with an already-cached result, let Adaptive sizing fetch its page, then resize, change the grid and leave or rebuild the result. Capture uncaught browser errors throughout these actions; no delayed grid callback may update a destroyed instance.
-
-The exact read-only result-grid action matrix, editor prohibition, one-column grouping and global cached-result filter/sort/group behavior are evaluated by CA-E-786 and are not repeated here. The evaluation passes only when every display-preference case above is browser-visible, presentation changes do not cause a new SQL execution, preference persistence is truthful, and no uncaught browser exception occurs.
+Limited/Full is one persisted canonical preference available from Settings, ResultsTable header and palette. Limited displays exactly first positive-N Unicode characters; Full hides N while returned value remains whole. Verify Dark readable names/muted types and Tabulator states, pre-wrap every source newline, and cached-result resize/grid leave/rebuild without uncaught delayed callback. CA-E-786 owns exact action matrix/one-column grouping/global cache semantics. Pass only with browser-visible preference persistence, query stability and no uncaught error.

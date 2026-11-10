@@ -13,6 +13,11 @@ subjects:
   depends_on:
   - Subject/Domain/Node/Continuant/Project
 relations: {}
+ref_id: CA-C-589
+carrier_destination:
+  file:
+    name: CA-C-589-QUESTION--should-project-wide-results-use-project-rather-than-invented-properties.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

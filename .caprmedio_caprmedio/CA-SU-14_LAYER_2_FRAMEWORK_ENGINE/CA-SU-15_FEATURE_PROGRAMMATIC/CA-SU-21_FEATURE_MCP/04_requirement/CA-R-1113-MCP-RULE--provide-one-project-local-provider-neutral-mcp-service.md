@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/UX/Entry
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Entry
 tier: 1
 status: Active
-version: 24
-updated_at: 2026-11-09 21:15:45 +0400
+version: 25
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-R-1113-MCP-RULE--provide-one-project-local-provider-neutral-mcp-service.md
@@ -43,13 +43,11 @@ Scope check: one project-local binds each service operation to one resolved Proj
 
 ### Server lifecycle
 
-Apply **when** a Project exposes its generated Tool surface through MCP.
+For a Project exposing its generated Tool surface through MCP:
 
-1. Bind one provider-neutral project-local service to one immutable ProjectSelection for each invocation; a shared service may serve multiple explicit Project bindings.
-2. At the MCP Tool-call boundary, read the Codex hook's top-level project_root only as a Project-selection assertion. In single-Project mode, allow it to be omitted and use the fixed bound selection; when supplied, validate its canonical host path, container mapping and identity against that selection. In shared mode, require it and validate the selected admitted binding. Do not wrap initialize or tools/list in this Tool-call envelope; Prompt and Workflow wrappers retain their normal native dispatch.
-3. Reject malformed, escaping, symlink-substituted, foreign or mismatched project_root values before native Tool dispatch, source effects or Journal effects. Remove the hook envelope field before passing the remaining native arguments to a Tool.
-4. Expose each eligible Tool through that service without requiring a user interface or agent-host plugin. Do not let a request select a different Project after the service has been bound.
+1. Bind one provider-neutral project-local service to one immutable ProjectSelection; a shared service may serve multiple explicit bindings.
+2. Treat the Codex hook's top-level project_root only as a selection assertion. Omit it in single-Project mode to use the fixed selection; when supplied, validate canonical host path, container mapping, and identity. Require and validate it in shared mode. Do not wrap initialize/tools/list in this Tool-call envelope; Prompt and Workflow wrappers retain native dispatch.
+3. Reject malformed, escaping, symlink-substituted, foreign, or mismatched assertions before native Tool dispatch, source or Journal effects, then remove the hook field from native Tool arguments.
+4. Expose every eligible Tool without requiring GRAPH_UI or an agent-host plugin; no request may select another Project after binding. The complete callable surface remains headless, project-local, and provider-neutral.
 
-The complete MCP Tool surface remains headless, project-local and provider-neutral for each bound Project invocation.
-
-Stop **when** an additional service becomes a competing authority, a project_root assertion does not match its bound ProjectSelection, or a capability depends on App presentation. Do not introduce a process-global Project selector.
+Stop if an additional service becomes a competing authority, an assertion mismatches the bound selection, or a capability depends on App presentation. Do not introduce a process-global Project selector.

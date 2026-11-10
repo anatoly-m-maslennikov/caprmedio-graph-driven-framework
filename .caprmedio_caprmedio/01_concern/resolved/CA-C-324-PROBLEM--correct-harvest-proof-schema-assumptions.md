@@ -8,21 +8,26 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 subjects:
-  governs: "Harvest proof schema assumptions"
+  governs: Harvest proof schema assumptions
   depends_on:
-    - "Artifact"
+  - Artifact
 version: 2
-updated_at: "2026-10-04 11:48:37 +0000"
+updated_at: 2026-10-04 11:48:37 +0000
 relations:
   concern_about:
-    - CA-P-1118
-    - CA-A-1036
-    - CA-P-1305
-    - CA-A-1023
-    - CA-P-1306
-    - CA-A-1024
-    - CA-P-1308
-    - CA-A-1026
+  - CA-P-1118
+  - CA-A-1036
+  - CA-P-1305
+  - CA-A-1023
+  - CA-P-1306
+  - CA-A-1024
+  - CA-P-1308
+  - CA-A-1026
+ref_id: CA-C-324
+carrier_destination:
+  file:
+    name: CA-C-324-PROBLEM--correct-harvest-proof-schema-assumptions.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

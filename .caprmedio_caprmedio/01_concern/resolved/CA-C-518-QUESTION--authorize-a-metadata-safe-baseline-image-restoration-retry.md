@@ -19,7 +19,17 @@ subjects:
   - Subject/Domain/Node/Continuant/History/Journal
   - 'Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Action'
 relations:
-  concern_about: [CA-P-1820, CA-R-1897, CA-M-353, CA-E-596, CA-D-591]
+  concern_about:
+  - CA-P-1820
+  - CA-R-1897
+  - CA-M-353
+  - CA-E-596
+  - CA-D-591
+ref_id: CA-C-518
+carrier_destination:
+  file:
+    name: CA-C-518-QUESTION--authorize-a-metadata-safe-baseline-image-restoration-retry.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

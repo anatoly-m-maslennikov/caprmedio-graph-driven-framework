@@ -6,18 +6,16 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution
-    Control/Failure Handling
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+    <+ Execution Control <+ Failure Handling
   dependencies:
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure
-    Handling
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Retry
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/History
+  - MODEL//CAPRMEDIO <+ Execution/Workflow Run
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Journal
 tier: 3
 status: Active
-version: 11
-updated_at: 2026-11-09 07:45:14 +0400
+version: 12
+updated_at: 2026-11-10 20:47:54 +0400
 carrier_destination:
   file:
     name: CA-E-566-PROMPTS-EVAL_CASE--verify-implementation-prompt-truthful-retry-and-repair-results.md

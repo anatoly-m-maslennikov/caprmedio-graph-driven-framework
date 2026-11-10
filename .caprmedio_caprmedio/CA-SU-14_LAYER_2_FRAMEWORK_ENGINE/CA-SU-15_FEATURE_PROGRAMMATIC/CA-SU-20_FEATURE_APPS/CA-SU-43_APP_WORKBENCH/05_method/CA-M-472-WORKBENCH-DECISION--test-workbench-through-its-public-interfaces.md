@@ -8,10 +8,10 @@ context:
   role: Method
   form: Decision
   topics:
-    main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification
-      <+ Test Design
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+      <+ Verification <+ Test Design
     dependencies:
-    - CAPRMEDIO_MODEL <+ Projection
+    - MODEL//CAPRMEDIO <+ Projection
   tier: 4
 relations:
   method_for:
@@ -22,8 +22,8 @@ relations:
   - CA-M-424
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-09 07:45:15 +0400
+  version: 4
+  updated_at: 2026-11-10 20:47:54 +0400
 destination:
   file:
     name: CA-M-472-WORKBENCH-DECISION--test-workbench-through-its-public-interfaces.md

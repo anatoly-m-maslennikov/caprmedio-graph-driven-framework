@@ -17,9 +17,14 @@ version: 3
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
   concern_about:
-    - CA-P-1323
+  - CA-P-1323
   relates_to:
-    - CA-A-1041
+  - CA-A-1041
+ref_id: CA-C-339
+carrier_destination:
+  file:
+    name: CA-C-339-PROBLEM--recover-bounded-p1323-preparation-output.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

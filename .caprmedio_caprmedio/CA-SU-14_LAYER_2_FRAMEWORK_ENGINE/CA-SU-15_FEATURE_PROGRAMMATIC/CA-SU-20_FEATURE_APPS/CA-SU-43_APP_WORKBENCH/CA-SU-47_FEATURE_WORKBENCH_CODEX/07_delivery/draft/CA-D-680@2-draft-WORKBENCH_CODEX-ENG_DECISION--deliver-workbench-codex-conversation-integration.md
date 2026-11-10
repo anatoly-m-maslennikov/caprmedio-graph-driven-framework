@@ -4,7 +4,10 @@ ref_id: CA-D-680@2-draft
 role: Delivery
 form: Eng Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Project
+  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture
+    <+ Communication <+ Interface Contracts
+  dependencies:
+  - CAPRMEDIO_MODEL <+ Workspace
 tier: 4
 relations:
   delivery_for:

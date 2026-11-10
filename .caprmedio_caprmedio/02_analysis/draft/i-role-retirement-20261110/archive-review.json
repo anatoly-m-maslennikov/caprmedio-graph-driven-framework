@@ -1,0 +1,25 @@
+{
+  "result": "PASS",
+  "scope": "Archive/data phase of /tmp/i-retirement-plan/source-plan.json only; model_operations are excluded.",
+  "findings": [],
+  "evidence": {
+    "archive_operations": 20,
+    "archived_current_i_records": 6,
+    "withdrawn_draft_snapshots": 4,
+    "planned_live_i_removals": 10,
+    "source_hashes": "All 10 live source SHA-256 values equal the corresponding I_archive_outputs.before_sha256 values.",
+    "output_hashes": "All 10 planned output bodies hash to their archive_operations.after_sha256 values.",
+    "archived_current_i_headers": "All six retain CA-I identity, version and updated_at, carry Archived status, a versioned CA-I ref_id, and a 02_analysis/archive destination.",
+    "draft_snapshots": "All four have after_sha256 equal to the source hash and retain their authored CA-I draft identity/ref_id; their historical destination strings remain unnormalised as required for byte-exact snapshots.",
+    "collision_check": "All 10 planned output paths are absent from the working tree.",
+    "live_inventory_check": "The 10 non-archive CA-I Current/Draft carriers discovered under .caprmedio_caprmedio exactly equal the 10 remove_live_I paths.",
+    "conversion_check": "No archive operation creates CA-A or rewrites a CA-I identity to another role.",
+    "operation_boundary": {
+      "native_run": false,
+      "journal_append": false,
+      "preserve_existing_archives": true
+    }
+  },
+  "deferred_boundary": "The six pre-existing archived I carriers are not archive operations in this phase. Their later byte-preserving folder move, and final physical 08_implementation-folder cleanup, require separate verification after execution.",
+  "verification": "Read-only inspection of the plan and live source carriers; no plan operation or repository file was applied."
+}

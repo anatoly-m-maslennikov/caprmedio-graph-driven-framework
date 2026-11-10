@@ -1,4 +1,6 @@
 # CA-R-1115@24
+# CA-M-512@2
+# CA-M-517@1
 from __future__ import annotations
 
 # CA-M-322@13
@@ -8,6 +10,7 @@ from __future__ import annotations
 
 import asyncio
 from collections.abc import Awaitable
+from contextlib import nullcontext
 from typing import Any, Callable
 
 from mcp import types
@@ -15,6 +18,7 @@ from mcp.server.lowlevel import Server
 
 from health_observations import MAX_OBSERVATIONS, HealthObservations
 from direct_gateway import DirectGateway
+from caller_context import CallerContextError, take_caller_context
 from workbench_tools import mcp_app_probe
 from host_runtime_config import (
     HostRuntimeConfig,
@@ -26,6 +30,8 @@ from project_selection import ProjectSelection, ProjectSelectionError, bind_sele
 from shared_project_catalog import contract_digest, discover_frontier, native_tools
 from shared_project_pool import ProjectCapacityError, SharedProjectPool
 from shared_gateway_support import record_observation, refusal
+from runtime_request_context import bind_request_context
+from tool_registry_runtime import ToolRegistryStaleError
 
 
 class SharedGatewayRefusal(ValueError):
@@ -104,9 +110,6 @@ class SharedGateway:
         except ProjectSelectionError as error:
             raise SharedGatewayRefusal("invalid_project_root") from error
 
-    def _arguments(self, params: Any) -> tuple[ProjectSelection, dict[str, Any]]:
-        return self._project_arguments(getattr(params, "arguments", None))
-
     def _project_arguments(self, arguments: Any) -> tuple[ProjectSelection, dict[str, Any]]:
         if not isinstance(arguments, dict) or "project_root" not in arguments:
             raise SharedGatewayRefusal("missing_project_root")
@@ -119,6 +122,12 @@ class SharedGateway:
             or entry.selection.instance_id != selection.instance_id
         ):
             raise SharedGatewayRefusal("project_declarations_stale")
+        registry = getattr(entry.gateway, "registry", None)
+        if registry is not None:
+            try:
+                registry.ensure_current()
+            except ToolRegistryStaleError as error:
+                raise SharedGatewayRefusal("tool_registry_stale") from error
         advertised = self.frontier.tools.get(name)
         if advertised is None:
             raise SharedGatewayRefusal("tool_unavailable")
@@ -211,14 +220,19 @@ class SharedGateway:
         return response
 
     async def call(self, context: Any, params: Any) -> types.CallToolResult:
-        response, code, selection = await self._backend_call(
-            params.name,
-            getattr(params, "arguments", None),
-            lambda: self._arguments(params),
-            lambda gateway, native_arguments: gateway.call(
-                context, params.model_copy(update={"arguments": native_arguments})
-            ),
-        )
+        try:
+            arguments, request_context = take_caller_context(getattr(params, "arguments", None))
+        except CallerContextError as error:
+            return refusal(str(error), None)
+        with bind_request_context(request_context) if request_context else nullcontext():
+            response, code, selection = await self._backend_call(
+                params.name,
+                arguments,
+                lambda: self._project_arguments(arguments),
+                lambda gateway, native_arguments: gateway.call(
+                    context, params.model_copy(update={"arguments": native_arguments})
+                ),
+            )
         if code is not None:
             return refusal(code, selection.root if selection is not None else None)
         return response

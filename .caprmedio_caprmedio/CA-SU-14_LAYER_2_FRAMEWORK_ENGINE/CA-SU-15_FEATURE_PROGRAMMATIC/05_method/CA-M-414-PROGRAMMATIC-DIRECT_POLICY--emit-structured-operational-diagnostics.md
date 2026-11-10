@@ -8,22 +8,23 @@ context:
   role: Method
   form: Direct Policy
   topics:
-    main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Observability/Logging
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Observability <+ Logging
     dependencies:
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/History
-    - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations'
-    - Subject/CAPRMEDIO/Carrier
-    - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
+    - MODEL//CAPRMEDIO <+ Journal
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)
+    - MODEL//CAPRMEDIO <+ Carrier
+    - MODEL//CAPRMEDIO <+ Event Record
   tier: 4
 relations:
-  derived_from:
-  - CA-A-053
   child_of:
   - CA-M-415
+  DERIVED_FROM:
+  - CA-A-053
 state:
   status: Active
-  version: 16
-  updated_at: 2026-11-09 21:15:45 +0400
+  version: 17
+  updated_at: 2026-11-10 20:47:54 +0400
 current_scope_unit: PROGRAMMATIC
 cce_version: cce_1
 cce_form: method
@@ -52,7 +53,6 @@ meaning.
 
 ## Details
 
-Candidate source: [CA-M-163@15](archive/CA-M-163-PROGRAMMATIC-CORE-METHOD--emit-structured-operational-diagnostics@15.md)
 
 ### Applicable when
 
@@ -94,17 +94,12 @@ operation, degraded operation, failure, recovery, **or** diagnostic detail.
    materialization **and** operational boundaries.
 6. make logging failure observable **without** silently breaking primary work.
 
-#### Technical warnings are not business Journal records
+#### Bounded-scan warnings
 
 When a bounded scan isolates a schema-invalid Atom and continues with a warning,
-emit the warning through the selected Docker `stderr` diagnostic stream with the
+emit a structured warning through the diagnostic stream configured above with the
 validated Project prefix, repository-relative path, and reason, and preserve the
-incomplete result (`complete: false`) in the operation response. Do not append that
-technical warning as a business Journal event, fabricate a Run to carry it, or
-rewrite historical Journal records. Docker local rotation is bounded to
-`max-size=10m` and `max-file=3`; non-blocking buffering is bounded to 1 MiB and
-may drop new technical messages when full; a logging failure remains observable
-without breaking the primary scan.
+incomplete result (`complete: false`) in the operation response.
 
 ### Outcome
 

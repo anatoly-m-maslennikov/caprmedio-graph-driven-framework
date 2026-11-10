@@ -13,9 +13,16 @@ subjects:
   governs: Subject/Domain/Node/Continuant/Atom
   depends_on: []
 relations:
-  concern_about: [CA-P-2439, CA-P-2437]
+  concern_about:
+  - CA-P-2439
+  - CA-P-2437
 version: 6
 updated_at: 2026-10-23 03:06:32 +0400
+ref_id: CA-C-540
+carrier_destination:
+  file:
+    name: CA-C-540-PROGRAMMATIC-PROBLEM--close-the-isolated-concern-and-subject-regression-failures.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern/resolved
 ---
 # Summary
 

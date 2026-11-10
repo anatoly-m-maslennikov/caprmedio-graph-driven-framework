@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Backlog
-  version: 1
-  updated_at: 2026-11-09 19:08:55 +0400
+  status: Active
+  version: 2
+  updated_at: 2026-11-11 00:53:28 +0400
 destination:
   file:
     name: CA-P-2844-TASK--add-the-physical-carrier-consistency-audit-table.md
@@ -42,3 +42,7 @@ Create and review RMED for a table listing Atoms whose actual filename or locati
 ## Definition of Done
 
 The accepted RMED defines the table and its checks. Query-visible results identify the actual affected sources; E2E evidence covers both positive and negative cases. This Task does not replace the specification or authorize automatic source repair.
+
+## Adopted inputs
+
+The reviewed audit contracts R970308648–R970308650, M549, D715 and E821 are Current at version 1. Use the exact source paths and hashes in `audits/adoption.json` under this Epic's implementation packet. Their Claims hold table semantics; this Task only tracks implementation and acceptance.

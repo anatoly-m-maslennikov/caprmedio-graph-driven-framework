@@ -51,6 +51,8 @@ class FullTestSuiteTests(unittest.TestCase):
             self.file("LAYER_2_FRAMEWORK_ENGINE/component/tests/test_engine.py"),
             self.file("LAYER_2_FRAMEWORK_ENGINE/capability/test_service.py"),
             self.file("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests/test_project.py"),
+            self.file("LAYER_5_FRAMEWORK_DELIVERY/tests/test_release.py"),
+            self.file("LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/tests/test_public.py"),
         ]
         for relative in (
             "LAYER_2_FRAMEWORK_ENGINE/.caprmedio_tmp/test_generated.py",

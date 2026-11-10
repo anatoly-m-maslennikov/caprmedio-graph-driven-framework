@@ -8,16 +8,24 @@ form: Problem
 topics:
   main_subject: Entity/Node/Continuant/Implementation
 relations:
-  concern_about: [CA-P-2401, CA-P-2536, CA-P-2537, CA-O-164]
+  concern_about:
+  - CA-P-2401
+  - CA-P-2536
+  - CA-P-2537
+  - CA-O-164
 status: Resolved
 version: 3
-updated_at: "2026-10-21T12:09:01Z"
+updated_at: '2026-10-21T12:09:01Z'
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 local_tier: Standard
 global_tier: 8
 author: Anatoly Maslennikov
 priority: high
+carrier_destination:
+  file:
+    name: CA-C-566-PROGRAMMATIC-STANDARD-PROBLEM--prevent-docker-test-network-address-pool-exhaustion.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/01_concern
 ---
 # Summary
 

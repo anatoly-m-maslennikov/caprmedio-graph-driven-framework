@@ -6,17 +6,18 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis/Python Code"
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
+    <+ Verification <+ Static Analysis <+ Python Code
 tier: 6
 relations:
   evaluation_for:
   - CA-M-419
   - CA-E-539
-  derived_from:
+  DERIVED_FROM:
   - CA-A-053
 status: Active
-version: 23
-updated_at: 2026-11-02 19:44:26 +0400
+version: 24
+updated_at: 2026-11-10 20:47:54 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -24,26 +25,17 @@ llm_session_ids:
 current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
+destination:
+  file:
+    name: CA-E-364-PROGRAMMATIC-EVAL_CASE--reject-a-medium-unit-with-multiple-jobs.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/06_evaluation
 ---
-# Reject a medium unit with multiple jobs
+## Summary
 
-## Claim checked
+Reject a medium unit with multiple jobs
 
-one changed executable unit between 26 **and** 40 logical lines performs **=1** coherent job.
+## Claim
 
-## Test case
+### Prose Claim
 
-evaluate one 30-line changed function whose accurate name **and** branches reveal
-two independently reusable responsibilities.
-
-## Acceptance criteria
-
-pass **only** **when** the unit is rejected **until** the two responsibilities are split.
-
-## Failure disposition
-
-block the unit from claiming the 26-to-40-line allowance.
-
-## Sources
-
-- [CA-M-419 — Ratchet hand-authored Python source boundaries](../05_method/CA-M-419-PROGRAMMATIC-ENG_POLICY--ratchet-hand-authored-python-source-boundaries.md)
+Reject a 26–40 logical-line changed executable unit when its name and branches show more than one independently reusable responsibility.

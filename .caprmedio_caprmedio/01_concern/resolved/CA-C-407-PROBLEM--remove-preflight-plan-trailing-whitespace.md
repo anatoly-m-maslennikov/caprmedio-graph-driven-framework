@@ -17,7 +17,21 @@ subjects:
 version: 2
 updated_at: 2026-10-23 03:14:50 +0400
 relations:
-  concern_about: [CA-P-1156, CA-P-1426, CA-P-1427, CA-P-1428, CA-P-1429, CA-P-1431, CA-P-1432, CA-P-1433, CA-P-1434]
+  concern_about:
+  - CA-P-1156
+  - CA-P-1426
+  - CA-P-1427
+  - CA-P-1428
+  - CA-P-1429
+  - CA-P-1431
+  - CA-P-1432
+  - CA-P-1433
+  - CA-P-1434
+ref_id: CA-C-407
+carrier_destination:
+  file:
+    name: CA-C-407-PROBLEM--remove-preflight-plan-trailing-whitespace.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 

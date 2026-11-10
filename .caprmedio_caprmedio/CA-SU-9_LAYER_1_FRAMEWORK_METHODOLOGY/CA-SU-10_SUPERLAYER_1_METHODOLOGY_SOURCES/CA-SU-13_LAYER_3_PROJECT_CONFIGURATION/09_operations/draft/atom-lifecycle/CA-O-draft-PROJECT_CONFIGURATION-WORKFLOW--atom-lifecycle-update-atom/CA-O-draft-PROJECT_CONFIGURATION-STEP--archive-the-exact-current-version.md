@@ -29,7 +29,7 @@ Execution.
 
 ### Inputs
 
-Bind the original `sourceCurrent`, internal `expectedSource`, and `projectContext` to the called Workflow. `targetStatus` remains enclosing-Workflow context.
+Bind the original `sourceCurrent`, `projectContext` to the called Workflow. `targetStatus` remains enclosing-Workflow context.
 
 ### Fixed parameters
 

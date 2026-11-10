@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "model_amendments": 25,
+  "retired_role_id": "CA-R-3009",
+  "project_package_declaration": "CA-R-970308631",
+  "current_I_archived": 6,
+  "draft_proposals_withdrawn_byte_exact": 4,
+  "I_to_A_reclassifications": 0,
+  "physical_folders_removed": 118,
+  "files_relocated_byte_exact_after_archival": 311,
+  "preserved_binary_collision_variants": 2,
+  "remaining_08_implementation_folders": [],
+  "remaining_live_I_sources": [],
+  "source_effects_verified": 75,
+  "native_run": false,
+  "journal_append": false,
+  "not_performed": [
+    "Workbench/runtime/Workflow code changes",
+    "Projection rebuild",
+    "Commit/push"
+  ]
+}

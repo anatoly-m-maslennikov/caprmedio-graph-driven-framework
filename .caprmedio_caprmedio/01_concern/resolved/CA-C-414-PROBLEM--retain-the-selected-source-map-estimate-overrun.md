@@ -9,12 +9,20 @@ global_tier: 2
 author: Anatoly Maslennikov
 status: resolved
 version: 1
-updated_at: "2026-10-04 16:38:53 +0000"
+updated_at: 2026-10-04 16:38:53 +0000
 subjects:
-  governs: "Plan execution estimate"
-  depends_on: [Plan, Analysis]
+  governs: Plan execution estimate
+  depends_on:
+  - Plan
+  - Analysis
 relations:
-  concern_about: [CA-P-1435]
+  concern_about:
+  - CA-P-1435
+ref_id: CA-C-414
+carrier_destination:
+  file:
+    name: CA-C-414-PROBLEM--retain-the-selected-source-map-estimate-overrun.md
+    path: .caprmedio_caprmedio/01_concern/resolved
 ---
 # Summary
 
