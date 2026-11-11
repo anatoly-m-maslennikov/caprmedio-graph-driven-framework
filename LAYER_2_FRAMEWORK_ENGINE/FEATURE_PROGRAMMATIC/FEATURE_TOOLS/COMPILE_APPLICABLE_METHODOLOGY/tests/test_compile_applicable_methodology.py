@@ -202,6 +202,18 @@ class CompilerTest(unittest.TestCase):
         module.validate_projection_source_preservation(nested, projected.read_bytes(), relative, candidate)
         self.assertEqual(before, {path: path.read_bytes() for path in before})
 
+    def test_flat_active_status_encodings_are_selected(self) -> None:
+        for number, status in enumerate(("Active", "active", "Draft", "ACTIVE"), start=1):
+            atom_id = f"CA-R-{number:03d}"
+            raw = carrier(atom_id).replace(b"status: Active\n", f"status: {status}\n".encode())
+            self.write("001_CORE_META_MODEL", "04_requirement", f"{atom_id}--status.md", raw)
+
+        candidates, diagnostics, _ = module.discover_candidates(self.temp)
+
+        self.assertEqual({"CA-R-001", "CA-R-002"}, {row.atom_id for row in candidates})
+        self.assertEqual({"Draft", "ACTIVE"}, {row["status"] for row in diagnostics})
+        self.assertTrue(all(row["reason"] == "inactive" for row in diagnostics))
+
     def test_conflicting_flat_and_nested_state_is_a_source_diagnostic(self) -> None:
         raw = carrier("CA-R-001").replace(b"status: Active\n", b"status: Active\nstate:\n  status: Draft\n")
         source = self.write("001_CORE_META_MODEL", "04_requirement", "CA-R-001--conflict.md", raw)

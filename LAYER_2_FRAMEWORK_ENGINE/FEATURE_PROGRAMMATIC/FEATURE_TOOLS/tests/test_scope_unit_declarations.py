@@ -355,6 +355,65 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         self.assertEqual("Scope Unit Declaration", declarations.by_name["CHILD"].form)
         self.assertEqual({root_source, parent_source, child_source}, set(declarations.paths))
 
+    def test_encoded_scope_delegation_carrier_and_fail_closed_negatives(self) -> None:
+        self.declaration("caprmedio", "CA-R-1", source=self.control / "CA-R-1-root.md", project=True, project_name="caprmedio")
+        source = self.control / "04_requirement" / "CA-R-3034.md"
+        source.parent.mkdir(parents=True, exist_ok=True)
+        carrier = '''---
+atom_id: CA-R-3034
+ref_id: CA-R-3034
+container:
+  scope_unit: CA-SU-00
+role: requirement
+form: scope_delegation
+subjects:
+  active: "scope_unit//FRAMEWORK_METHODOLOGY"
+tier: 3
+status: active
+version: 1
+updated_at: "2026-11-10 22:57:48 +0400"
+destination:
+  file:
+    name: CA-R-3034.md
+    path: .caprmedio_demo/04_requirement
+---
+
+## Summary
+
+Delegate FRAMEWORK_METHODOLOGY
+
+## Claim
+
+### Prose Claim
+
+Delegation permissions.
+
+### Formal Claim
+
+```CFEL
+# instances
+Scope Unit//FRAMEWORK_METHODOLOGY.ID == "CA-SU-9";
+Scope Unit//FRAMEWORK_METHODOLOGY.Name == "FRAMEWORK_METHODOLOGY";
+Scope Unit//FRAMEWORK_METHODOLOGY.Label == "LAYER";
+Scope Unit//FRAMEWORK_METHODOLOGY.order.ordered == true;
+Scope Unit//FRAMEWORK_METHODOLOGY.order.number == 1;
+Scope Unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY)) Project//caprmedio
+```
+'''
+        source.write_text(carrier, encoding="utf-8")
+        declaration = read_scope_unit_declarations(self.root, self.control.name).by_name["FRAMEWORK_METHODOLOGY"]
+        self.assertEqual((declaration.scope_unit_id, declaration.parent, declaration.form),
+                         ("CA-SU-9", "caprmedio", "Scope Delegation"))
+        for invalid in (
+            carrier.replace("scope_unit//FRAMEWORK_METHODOLOGY", "scope_unit//framework_methodology"),
+            carrier.replace("Scope Unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY))", "scope_unit//FRAMEWORK_METHODOLOGY ((IS_CONTAINED_BY))"),
+            carrier.replace("status: active", "status: inactive"),
+            carrier.replace("atom_id: CA-R-3034", "atom_id: CA-R-3034\natom_id: CA-R-3034"),
+        ):
+            with self.subTest(invalid=invalid), self.assertRaises(ScopeDeclarationError):
+                source.write_text(invalid, encoding="utf-8")
+                read_scope_unit_declarations(self.root, self.control.name)
+
     def test_nested_non_root_scope_delegation_is_read_during_cutover(self) -> None:
         _, parent_source, child_source = self.complete_tree()
         raw = parent_source.read_text(encoding="utf-8")

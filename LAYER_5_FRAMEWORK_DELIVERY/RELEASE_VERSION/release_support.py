@@ -21,6 +21,8 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path, PurePosixPath
 from typing import Any
 
+from carrier_aliases import carrier_read_view
+from header_yaml import parse_header
 from project_selection import active_selection
 from release_assets import (
     LocalReleaseError,
@@ -44,7 +46,6 @@ _PRESERVED_NAMES = frozenset(
     }
 )
 _RUN_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]*\Z")
-_ACTIVE_STATUS = re.compile(r"^status:\s*[\"']?Active[\"']?\s*$", re.MULTILINE)
 _NON_SOURCE_DIRECTORIES = frozenset({"archive", "archived", "draft", "drafts", "journal", "projection", "_journal", "_projection", ".caprmedio_tmp", "__pycache__"})
 
 
@@ -152,7 +153,13 @@ def _active_atom(path: Path) -> bool:
     if not payload.startswith("---\n"):
         return False
     closing = payload.find("\n---\n", len("---\n"))
-    return bool(closing >= 0 and _ACTIVE_STATUS.search(payload[len("---\n"):closing]))
+    if closing < 0:
+        return False
+    try:
+        status = carrier_read_view(parse_header(payload[len("---\n"):closing])).get("status")
+    except ValueError:
+        return False
+    return status in ("Active", "active")
 
 
 def _release_sources(root: Path) -> list[tuple[str, Path, list[Path]]]:

@@ -582,7 +582,7 @@ def discover_candidates(root: Path, places: MethodologyPaths | None = None) -> t
                 if re.search(r"(?m)^projection:\s*(?:$|\{)", frontmatter):
                     raise CompileError("source-projection-metadata-present", "Authoritative Source Carrier cannot contain projection metadata", path=relative)
                 status = top_scalar(frontmatter, "status")
-                if status != "Active":
+                if status not in {"Active", "active"}:
                     exclude(path, "inactive" if status else "status-missing", status=status)
                     continue
                 version_raw = top_scalar(frontmatter, "version")

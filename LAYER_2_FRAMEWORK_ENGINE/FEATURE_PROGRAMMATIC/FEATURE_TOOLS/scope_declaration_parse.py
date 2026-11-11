@@ -118,9 +118,15 @@ def _safe_component(value: object, field: str) -> str:
 
 def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str, str]:
     role = value.get("role", value.get("content_role"))
-    form = value.get("form", value.get("type"))
+    if role == "requirement":
+        role = "Requirement"
+    raw_form = value.get("form", value.get("type"))
+    form = ({"scope_unit_declaration": "Scope Unit Declaration", "scope_delegation": "Scope Delegation"}.get(raw_form, raw_form)
+            if isinstance(raw_form, str) else raw_form)
     atom_id, version, status = value.get("atom_id"), value.get("version"), value.get("status")
-    if role != "Requirement" or form not in {"Scope Unit Declaration", "Scope Delegation"} or status != "Active":
+    if status == "active":
+        status = "Active"
+    if role != "Requirement" or form not in ("Scope Unit Declaration", "Scope Delegation") or status != "Active":
         raise ScopeDeclarationError(f"{path}: not an active Requirement Scope Unit Declaration or Scope Delegation")
     if not isinstance(atom_id, str) or _ATOM_ID.fullmatch(atom_id) is None:
         raise ScopeDeclarationError(f"{path}: declaration requires an assigned CA-R identity")
@@ -135,7 +141,12 @@ def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str, str]
     active = topics["main_subject"] if has_main_subject else subjects.get("active") if has_legacy_active else None
     if not isinstance(active, str):
         raise ScopeDeclarationError(f"{path}: declaration requires one main Subject")
-    return atom_id, version, _local_subject(active, path), form
+    active = _local_subject(active, path)
+    for encoded, canonical in (("scope_unit//", "Scope Unit//"), ("project//", "Project//")):
+        if active.startswith(encoded):
+            active = canonical + active[len(encoded):]
+            break
+    return atom_id, version, active, form
 
 
 def _local_subject(active: str, path: Path) -> str:

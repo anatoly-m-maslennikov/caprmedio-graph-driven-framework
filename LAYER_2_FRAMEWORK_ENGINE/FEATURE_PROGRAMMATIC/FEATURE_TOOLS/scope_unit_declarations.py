@@ -19,7 +19,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regu
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 
-_STRUCTURAL_FORM_VALUE = r"(?:Scope Unit Declaration|Scope Delegation|\"Scope Unit Declaration\"|\"Scope Delegation\"|'Scope Unit Declaration'|'Scope Delegation')"
+_STRUCTURAL_FORM_VALUE = r'''(?:Scope Unit Declaration|Scope Delegation|scope_unit_declaration|scope_delegation|"Scope Unit Declaration"|"Scope Delegation"|"scope_unit_declaration"|"scope_delegation"|'Scope Unit Declaration'|'Scope Delegation'|'scope_unit_declaration'|'scope_delegation')'''
 _STRUCTURAL_FORM_HINT = re.compile(
     rf"^(?:form|type):[ \t]*{_STRUCTURAL_FORM_VALUE}[ \t]*(?:#.*)?$"
 )
@@ -84,7 +84,7 @@ def _selects_structural_form(raw: bytes, source: Path | None = None) -> bool:
         header, _ = _carrier(raw, source or Path("<structural carrier>"))
     except ScopeDeclarationError:
         return _structural_form_hint(frontmatter)
-    return header.get("form") in {"Scope Unit Declaration", "Scope Delegation"}
+    return header.get("form") in ("Scope Unit Declaration", "Scope Delegation", "scope_unit_declaration", "scope_delegation")
 
 
 def _structural_form_hint(frontmatter: str) -> bool:

@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Active
-  version: 10
-  updated_at: 2026-11-11 08:17:35 +0400
+  version: 11
+  updated_at: 2026-11-11 08:25:34 +0400
 destination:
   file:
     name: CA-P-2818-TASK--review-and-deliver-the-accepted-engine-changes.md
@@ -75,3 +75,9 @@ P2929 records the retained runner/fixture review, four real-process tests and se
 Run ID `engine-refinement-20261111-v2`. Use the 59 exact test modules in `.caprmedio_tmp/CA-P-2791/CA-P-2818/focused-final-modules.json` (SHA-256 `d80615e634e449492dff193f1f4826949d7f0cbc6e70d1720c013d397a189d14`). This is the Operator's Workbench and query_run verification scope. The release receipt must report focused validation.
 
 The checkout starts from `ef8e959d1ee030955dabb880381eca2ea803eb64` with the current working changes. P2957 records the asset comparison against the tested image. P2959 records the added service evaluation, and P2960 records the Docker and soak gates. The release runs the selected modules again after its local checkpoint. Check the installed Workbench and query_run before closing C729.
+
+## Local Release retry
+
+The v2 run stopped at source validation after checkpoint `126d529a16`. P2961 records the reader, copy and compiler fixes. The corrected preflight selected 1,061 Methodology Atoms with no conflicts and declaration digest `194e1969e32f5dbd6d45d985e2e2627521710e6f5944d7b98d7be96c688a4ae8`.
+
+Run ID `engine-refinement-20261111-v3`. Repeat focused validation using the 61 exact modules in `.caprmedio_tmp/CA-P-2791/CA-P-2818/focused-retry-modules.json` (SHA-256 `4efeedc517fdb860dfd1121a72e5a56057414b73aee0a17652d8e844dfe1c8b5`). The two added modules cover the corrected Scope Unit reader and retained compiler. Verify the installed Workbench and query_run before closing C729.

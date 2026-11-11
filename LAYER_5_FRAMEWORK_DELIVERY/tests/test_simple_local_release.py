@@ -20,6 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "LAYER_2_FRAMEWORK_
 import local_release  # noqa: E402
 from local_release import run_local_release, _launcher_image  # noqa: E402
 from project_selection import resolve_project  # noqa: E402
+from release_support import _release_sources  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from release_registry_test_fixture import (  # noqa: E402
     write_relation_registry_generator,
@@ -296,6 +297,31 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(1, sum(self._is_mcp_bootstrap(argv) for argv in calls))
         self.assertFalse((self.root / ".caprmedio_install").exists())
         self.assertEqual([], list((self.root / ".caprmedio_tmp/simple_local_release").iterdir()))
+
+    def test_release_sources_accept_nested_and_lowercase_active_status(self):
+        core = self.source_units["CORE_META_MODEL"]
+        samples = {
+            "nested.md": "state:\n  status: Active",
+            "lowercase.md": "status: active",
+            "nested_lowercase.md": "state:\n  status: active",
+            "inactive_nested.md": "state:\n  status: Draft",
+            "unknown_case.md": "status: ACTIVE",
+            "conflict.md": "status: Active\nstate:\n  status: Draft",
+            "invalid.md": "status: Active\nstatus: Archived",
+            "missing.md": "atom_id: CA-R-9",
+        }
+        for name, header in samples.items():
+            (core / name).write_text(f"---\n{header}\n---\nbody\n", encoding="utf-8")
+        (core / "archive" / "nested.md").write_text("---\nstate:\n  status: Active\n---\nold\n", encoding="utf-8")
+        (core / "_projection" / "lowercase.md").write_text("---\nstatus: active\n---\nprojection\n", encoding="utf-8")
+
+        selected = dict((name, files) for name, _, files in _release_sources(self.root))
+        self.assertEqual(
+            {core / name for name in ("active.md", "nested.md", "lowercase.md", "nested_lowercase.md")},
+            set(selected["CORE_META_MODEL"]),
+        )
+        for name in ("INSTALLED_EXTENSIONS", "PROJECT_CONFIGURATION"):
+            self.assertEqual([self.source_units[name] / "active.md"], selected[name])
 
     def test_active_delivery_does_not_require_atom_metadata_or_relations(self):
         source = self.source_units["CORE_META_MODEL"] / "active.md"
