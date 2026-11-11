@@ -270,12 +270,20 @@ class ImageManager:
                 selected.add(path)
         return tuple(sorted(selected, key=lambda path: path.relative_to(root).as_posix()))
 
-    def identity(self) -> ImageIdentity:
-        """Observe only admitted source paths; Project/Git state is not an input."""
+    def identity(self, *, use_packaged_assets: bool = False) -> ImageIdentity:
+        """Fingerprint the source closure with fresh or packaged generated assets."""
         root = self._root()
         try:
             version = read_framework_version(self._file(root, "version.toml"))
-            registry, schema, tools = self._generated_assets(root)
+            if use_packaged_assets:
+                registry, schema, tools = (
+                    self._file(root, path).read_bytes()
+                    for path in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY)
+                )
+                if not all((registry, schema, tools)):
+                    raise self._input_error()
+            else:
+                registry, schema, tools = self._generated_assets(root)
             rows = [BuildInput(path.relative_to(root).as_posix(),
                                hashlib.sha256(path.read_bytes()).hexdigest(),
                                path.stat().st_mode & 0o777)
@@ -363,8 +371,8 @@ class ImageManager:
             lambda message: ImageError("IMAGE_REFUSED", message),
         )
 
-    def _current(self, identity: ImageIdentity):
-        if self.identity() != identity:
+    def _current(self, identity: ImageIdentity, *, use_packaged_assets: bool = False):
+        if self.identity(use_packaged_assets=use_packaged_assets) != identity:
             raise self._input_error()
 
     def resolve(self, explicit_id: str | None = None, build_if_missing: bool = True) -> str:
@@ -373,7 +381,8 @@ class ImageManager:
             raise ImageError("IMAGE_REFUSED", "An explicit image must be one lowercase immutable sha256 ID")
         if type(build_if_missing) is not bool:
             raise ImageError("IMAGE_REFUSED", "Image build selection must be a boolean")
-        identity = self.identity()
+        use_packaged_assets = not build_if_missing
+        identity = self.identity(use_packaged_assets=use_packaged_assets)
         if explicit_id is not None:
             image = explicit_id
             created = self._inspect_details(explicit_id, identity)
@@ -392,7 +401,7 @@ class ImageManager:
                 return self._build(identity)
             else:
                 raise ImageError("IMAGE_REFUSED", "No matching local runtime image is present; build is disabled")
-        self._current(identity)
+        self._current(identity, use_packaged_assets=use_packaged_assets)
         self.ensure_display_tag(image, identity.version, created)
         return image
 

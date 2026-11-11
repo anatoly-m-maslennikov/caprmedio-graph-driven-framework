@@ -16,7 +16,7 @@ APP = Path(__file__).resolve().parents[1]
 DOCKER = APP / "docker"
 sys.path.insert(0, str(DOCKER))
 
-from runtime_images import ImageError, ImageManager  # noqa: E402
+from runtime_images import ImageError, ImageManager, RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY  # noqa: E402
 
 
 GOLDENS = Path(__file__).parent / "launcher_golden" / "image_cases.json"
@@ -26,7 +26,7 @@ FRAMEWORK_VERSION = "0.4.4.9"
 
 class ImageGoldenTests(unittest.TestCase):
     def setUp(self) -> None:
-        parent = APP.parents[2] / ".caprmedio_tmp" / "launcher-epic-1829" / "images"
+        parent = APP.parents[2] / ".caprmedio_tmp/CA-P-2791/CA-P-2818/images"
         parent.mkdir(parents=True, exist_ok=True)
         self.fixture_root = Path(tempfile.mkdtemp(dir=parent))
         self.registry = patch("runtime_images._compile_relation_registry", return_value=b'{"schema_version":1}\n')
@@ -80,6 +80,10 @@ class ImageGoldenTests(unittest.TestCase):
         (docker / "Dockerfile").write_text("FROM scratch\n", encoding="utf-8")
         (docker / "Dockerfile.dockerignore").write_text(".git\n", encoding="utf-8")
         (docker.parent / "server.py").write_text("SERVER = 'one'\n", encoding="utf-8")
+        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY):
+            path = root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'{"schema_version":1}\n')
         return root
 
     def test_golden_corpus_covers_identity_and_exact_image_refusal_codes(self) -> None:
@@ -167,7 +171,7 @@ class ImageGoldenTests(unittest.TestCase):
         self.assertEqual([], list(target.iterdir()))
 
     def test_matching_image_requires_the_exact_schema_and_source_fingerprint_labels(self) -> None:
-        source = APP.parents[2]
+        source = self.source_fixture()
         expected = self.manager(source, lambda *_a, **_k: None).identity()
         calls = []
 
@@ -243,7 +247,7 @@ class ImageGoldenTests(unittest.TestCase):
         def empty_lookup(argv, **_kwargs):
             return subprocess.CompletedProcess(argv, 0, "", "")
 
-        manager = self.manager(APP.parents[2], empty_lookup)
+        manager = self.manager(self.source_fixture(), empty_lookup)
         with self.assertRaises(ImageError) as refused:
             manager.resolve(build_if_missing=False)
         self.assertEqual("IMAGE_REFUSED", refused.exception.code)

@@ -277,6 +277,8 @@ def run_local_release(
                 if (not isinstance(candidate_image, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", candidate_image)
                         or not isinstance(candidate_fingerprint, str) or not re.fullmatch(r"[0-9a-f]{64}", candidate_fingerprint)):
                     raise LocalReleaseError("local-release-candidate-image-invalid")
+                if manager.identity(use_packaged_assets=True).fingerprint != candidate_fingerprint:
+                    raise LocalReleaseError("local-release-packaged-image-mismatch")
                 _verify_package(package, package_identity)
             elif phase == "install project runtime":
                 failed_step = "install_project_runtime"
@@ -286,7 +288,7 @@ def run_local_release(
                 _verify_package(runtime, package_identity)
                 manager = _image_manager(runtime, project_root=root)
                 if (manager.resolve(explicit_id=candidate_image, build_if_missing=False) != candidate_image
-                        or manager.identity().fingerprint != candidate_fingerprint):
+                        or manager.identity(use_packaged_assets=True).fingerprint != candidate_fingerprint):
                     raise LocalReleaseError("local-release-installed-image-mismatch")
                 ca = _target(root, Path(".agents/skills/ca"), label="project-ca")
                 _clear_target(ca, root=root, preserve=frozenset(), label="project-ca")

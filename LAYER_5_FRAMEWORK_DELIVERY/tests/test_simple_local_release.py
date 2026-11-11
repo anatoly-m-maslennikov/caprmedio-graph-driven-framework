@@ -123,7 +123,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         write_workbench_schema_generator(workbench_backend)
         self.image_id = "sha256:" + "a" * 64
         self.image = SimpleNamespace(resolve=Mock(return_value=self.image_id),
-                                     identity=lambda: SimpleNamespace(fingerprint="b" * 64))
+                                     identity=Mock(return_value=SimpleNamespace(fingerprint="b" * 64)))
         original_launcher_image = local_release._launcher_image
 
         def scoped_launcher_image(selection):
@@ -784,6 +784,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             result = run_local_release(self.root, run_id="image-order", runner=record)
         self.assertEqual("completed", result["outcome"])
         self.assertEqual(2, self.image_factory.call_count)
+        self.assertEqual([unittest.mock.call(), unittest.mock.call(use_packaged_assets=True),
+                          unittest.mock.call(use_packaged_assets=True)], self.image.identity.call_args_list)
         source, temporary = self.image_factory.call_args_list[0].args
         self.assertTrue(source.is_relative_to(self.root / ".caprmedio_tmp/simple_local_release"))
         self.assertEqual(source.parent / "image_builds", temporary)
@@ -819,6 +821,21 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
         self.assertEqual(b"previous payload", (runtime_package / "old.txt").read_bytes())
         self.assertEqual(b"previous payload", (skill / "old.txt").read_bytes())
+        self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
+
+    def test_packaged_fingerprint_mismatch_preserves_previous_installation(self):
+        runtime_package = self.runtime / "simple_local_release/package"
+        runtime_package.mkdir(parents=True)
+        (runtime_package / "old.txt").write_bytes(b"previous payload")
+        self.image.identity.side_effect = [SimpleNamespace(fingerprint="b" * 64),
+                                           SimpleNamespace(fingerprint="c" * 64)]
+        runner, calls = self._runner()
+        with self._compiler():
+            result = run_local_release(self.root, run_id="package-mismatch", runner=runner)
+        self.assertEqual("failed", result["outcome"])
+        self.assertEqual("prepare_candidate_image", result["failed_step"])
+        self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
+        self.assertEqual(b"previous payload", (runtime_package / "old.txt").read_bytes())
         self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
 
 

@@ -20,8 +20,10 @@ from runtime_images import (  # noqa: E402
     ImageError,
     ImageManager,
     OCI_VERSION_LABEL,
+    RELATION_REGISTRY,
     SCHEMA_LABEL,
     TOOL_REGISTRY,
+    WORKBENCH_SCHEMA,
 )
 import runtime_images  # noqa: E402
 import runtime  # noqa: E402
@@ -87,7 +89,7 @@ class DockerProbe:
 
 class ImageMetadataTests(unittest.TestCase):
     def setUp(self) -> None:
-        parent = APP.parents[2] / ".caprmedio_tmp/tests/image-metadata"
+        parent = APP.parents[2] / ".caprmedio_tmp/CA-P-2791/CA-P-2818/image-metadata"
         parent.mkdir(parents=True, exist_ok=True)
         self.temporary = tempfile.TemporaryDirectory(dir=parent)
         self.addCleanup(self.temporary.cleanup)
@@ -118,6 +120,10 @@ class ImageMetadataTests(unittest.TestCase):
             path = self.root / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(content, encoding="utf-8")
+        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY):
+            path = self.root / relative
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(b'{"schema_version":1}\n')
 
     def _manager(self, probe: DockerProbe) -> ImageManager:
         manager = ImageManager(self.root, executor=probe, timeout=5, uid=1000, gid=1000,
@@ -162,6 +168,43 @@ class ImageMetadataTests(unittest.TestCase):
         self.assertEqual([("docker", "image", "tag", IMAGE, EXPECTED_TAG)],
                          probe.commands("docker", "image", "tag"))
         self.assertEqual([], probe.commands("docker", "build"))
+
+    def test_no_build_uses_packaged_assets_without_project_or_compilers(self) -> None:
+        probe = DockerProbe(tags=(EXPECTED_TAG,))
+        manager = self._manager(probe)
+        manager.project_root = self.root / "absent-project"
+        with (patch.object(runtime_images, "_compile_relation_registry", side_effect=AssertionError),
+              patch.object(runtime_images, "_compile_workbench_schema", side_effect=AssertionError),
+              patch.object(runtime_images, "_compile_tool_registry", side_effect=AssertionError)):
+            self.assertEqual(IMAGE, manager.resolve(explicit_id=IMAGE, build_if_missing=False))
+
+    def test_no_build_rejects_missing_symlinked_or_changed_packaged_assets(self) -> None:
+        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY):
+            with self.subTest(relative=relative):
+                path = self.root / relative
+                original = path.read_bytes()
+                path.unlink()
+                with self.assertRaises(ImageError) as missing:
+                    ImageManager(self.root, project_root=self.root).identity(use_packaged_assets=True)
+                self.assertEqual("IMAGE_INPUT_UNAVAILABLE", missing.exception.code)
+                path.symlink_to(self.root / "version.toml")
+                with self.assertRaises(ImageError) as unsafe:
+                    ImageManager(self.root, project_root=self.root).identity(use_packaged_assets=True)
+                self.assertEqual("IMAGE_INPUT_UNAVAILABLE", unsafe.exception.code)
+                path.unlink()
+                path.write_bytes(original)
+
+        probe = DockerProbe(tags=(EXPECTED_TAG,))
+        manager = self._manager(probe)
+        def tampering_executor(argv, **kwargs):
+            result = probe(argv, **kwargs)
+            if argv[:3] == ["docker", "image", "inspect"]:
+                (self.root / WORKBENCH_SCHEMA).write_bytes(b"tampered")
+            return result
+        manager.executor = tampering_executor
+        with self.assertRaises(ImageError) as changed:
+            manager.resolve(explicit_id=IMAGE, build_if_missing=False)
+        self.assertEqual("IMAGE_INPUT_UNAVAILABLE", changed.exception.code)
 
     def test_explicit_sha_reuses_existing_display_tag_without_build_or_alias_move(self) -> None:
         probe = DockerProbe(tags=(EXPECTED_TAG,), listed=())

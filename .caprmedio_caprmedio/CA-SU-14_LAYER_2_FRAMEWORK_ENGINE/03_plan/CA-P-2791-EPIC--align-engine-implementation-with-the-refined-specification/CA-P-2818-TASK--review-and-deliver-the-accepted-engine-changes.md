@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Active
-  version: 12
-  updated_at: 2026-11-11 08:35:07 +0400
+  version: 13
+  updated_at: 2026-11-11 08:43:36 +0400
 destination:
   file:
     name: CA-P-2818-TASK--review-and-deliver-the-accepted-engine-changes.md
@@ -87,3 +87,9 @@ Run ID `engine-refinement-20261111-v3`. Repeat focused validation using the 61 e
 The v3 run passed focused validation and compiled the product. Its candidate build stopped at the ca Skill COPY. P2962 records the corrected package and a successful isolated build.
 
 Run ID `engine-refinement-20261111-v4`. Reuse the 61 exact modules in `.caprmedio_tmp/CA-P-2791/CA-P-2818/focused-retry-modules.json` (SHA-256 `4efeedc517fdb860dfd1121a72e5a56057414b73aee0a17652d8e844dfe1c8b5`). Verify the actual installed Workbench and query_run before closing C729.
+
+## Local Release installed-image retry
+
+The v4 candidate built and matched its packaged assets. The install check stopped after regenerating different assets from the changed derived Framework tree. P2963 records the fix and exact immutable-image verification.
+
+Run ID `engine-refinement-20261111-v5`. Use the 64 modules in `.caprmedio_tmp/CA-P-2791/CA-P-2818/focused-install-modules.json` (SHA-256 `e3132e52719eb9d5e76a1423b6efd831d08d77b65e25bf39cb84a8482dbdea18`). Three additional modules cover the image identity and MCP startup checks. Verify Workbench and query_run against the installed image before closing C729.

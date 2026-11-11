@@ -25,12 +25,27 @@ from project_mcp_launcher import (  # noqa: E402
     Launcher,
     ProjectSelectionError,
 )
+from project_mcp_backend import ProjectMcpBackend  # noqa: E402
 
 
 GOLDENS = Path(__file__).parent / "launcher_golden" / "startup_output_cases.json"
 IMAGE_ID = "sha256:" + "a" * 64
 FINGERPRINT = "b" * 64
 INSTANCE_ID = "c" * 64
+
+
+class BackendImageModeTests(unittest.TestCase):
+    def test_identity_uses_same_asset_mode_as_resolution(self):
+        for build in (True, False):
+            with self.subTest(build_if_missing=build), patch("project_mcp_backend.ImageManager") as factory:
+                manager = factory.return_value
+                manager.resolve.return_value = IMAGE_ID
+                manager.identity.return_value.fingerprint = FINGERPRINT
+                result = ProjectMcpBackend(build_if_missing=build).resolve_image(
+                    "source", None, project_root="project")
+                self.assertEqual((IMAGE_ID, FINGERPRINT), result)
+                manager.resolve.assert_called_once_with(explicit_id=None, build_if_missing=build)
+                manager.identity.assert_called_once_with(use_packaged_assets=not build)
 
 
 class Backend:
