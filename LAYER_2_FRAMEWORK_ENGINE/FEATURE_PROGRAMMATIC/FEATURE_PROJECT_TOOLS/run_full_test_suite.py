@@ -138,7 +138,7 @@ def run_module(
 
 
 def _docker_module(root: Path, module: Path) -> bool:
-    app_tests = root / APP.parent / "APP_WORKBENCH/tests"
+    app_tests = root / APP.parent / "FEATURE_APPS/APP_WORKBENCH/tests"
     return module.parent in (root / APP / "tests", app_tests) and (
         module.stem.endswith("_docker_e2e") or module.stem == "test_selected_query_mcp_e2e"
     )
