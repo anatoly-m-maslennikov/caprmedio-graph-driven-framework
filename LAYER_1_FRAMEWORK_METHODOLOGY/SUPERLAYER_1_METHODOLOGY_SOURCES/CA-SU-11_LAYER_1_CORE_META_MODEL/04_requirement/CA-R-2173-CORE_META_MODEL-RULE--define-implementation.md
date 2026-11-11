@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
+  main_subject: CAPRMEDIO_MODEL <+ Package/Project Package
 tier: 1
 status: Active
-version: 9
-updated_at: 2026-11-02 19:44:26 +0400
+version: 10
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-2173-CORE_META_MODEL-RULE--define-implementation.md

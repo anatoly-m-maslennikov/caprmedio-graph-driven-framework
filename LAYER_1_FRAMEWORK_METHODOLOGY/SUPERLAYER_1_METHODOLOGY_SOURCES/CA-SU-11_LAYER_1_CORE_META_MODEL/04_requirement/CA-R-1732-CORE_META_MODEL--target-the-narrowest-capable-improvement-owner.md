@@ -10,13 +10,13 @@ topics:
 tier: 2
 relations:
   child_of:
-  - CA-R-1423
+  - CA-R-3043
 status: Active
-version: 25
-updated_at: 2026-11-02 00:18:22 +0400
+version: 26
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-1732-CORE_META_MODEL-RULE--target-the-narrowest-capable-improvement-owner.md
+    name: CA-R-1732-CORE_META_MODEL--target-the-narrowest-capable-improvement-owner.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

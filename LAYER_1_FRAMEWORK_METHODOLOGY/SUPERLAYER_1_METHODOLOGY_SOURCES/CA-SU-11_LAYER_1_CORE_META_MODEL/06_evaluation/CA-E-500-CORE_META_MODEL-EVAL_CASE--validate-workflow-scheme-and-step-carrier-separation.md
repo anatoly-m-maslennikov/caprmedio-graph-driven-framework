@@ -45,6 +45,10 @@ the Workflow representation Evaluation **must** reject a Carrier arrangement tha
 
 ## Details
 
+- require exactly one Step Kind from Input, Execution and Decision, independently of Agentic Step Execution Context. Accept omitted Inputs and fixed parameters; check declared outputs and passed bindings, including logical switches, against their contracts.
+
+- require exactly one Workflow Claim Mermaid Scheme and at most one Step Claim Mermaid Scheme. Accept a diagram that repeats the complete self-sufficient Claim text; reject a Claim whose text depends on the diagram for its specification. Accept a Workflow without a flow table when its text already supplies the complete graph information.
+
 - a graph references separate Step Atoms; **every** leaf Step RUNS **`=1`** Action **or** Workflow. A referenced Action is carried outside the entire Workflow **and** Step directory tree; a called Workflow retains its separate identity and reference. A containing Step contains **`1+`** leaf Substeps and RUNS neither an Action nor a Workflow. A leaf Step's bindings use only previous Step outputs, enclosing Workflow Run input, or values fixed by that Step. Two leaf Steps may reuse the same Action with different inputs **without** copying its behavior: accept.
 - place the Workflow Markdown Carrier beside an optional same-stem Directory Carrier containing its separate Step Markdown Carriers, **or** leave the Workflow **and** Steps separately addressable: retain the same graph meaning.
 - place a Step Markdown Carrier beside its optional same-stem Directory Carrier containing its leaf Substep Markdown Carriers: accept. require the matching sibling Markdown Carrier for **every** Step directory; reject a missing **or** mismatched sibling. A Substep directory or another nested Step directory is not admitted by this layout.

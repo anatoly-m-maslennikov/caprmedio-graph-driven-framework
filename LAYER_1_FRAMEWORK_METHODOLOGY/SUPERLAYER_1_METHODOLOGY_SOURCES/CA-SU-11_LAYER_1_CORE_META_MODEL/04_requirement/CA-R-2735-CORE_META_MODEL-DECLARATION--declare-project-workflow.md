@@ -20,7 +20,7 @@ Declare Project Workflow
 ### Formal Claim
 
 ```CFEL
-Atom/(.Header.Role: Operations)/Workflow/(.Purpose := Project)
+Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)
 ```
 
 ## Semantics

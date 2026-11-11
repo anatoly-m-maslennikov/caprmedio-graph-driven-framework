@@ -12,7 +12,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
   - CAPRMEDIO_MODEL <+ Event Record
@@ -24,8 +24,8 @@ relations:
   child_of:
   - CA-R-007
 status: Active
-version: 38
-updated_at: 2026-11-02 00:18:22 +0400
+version: 39
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md

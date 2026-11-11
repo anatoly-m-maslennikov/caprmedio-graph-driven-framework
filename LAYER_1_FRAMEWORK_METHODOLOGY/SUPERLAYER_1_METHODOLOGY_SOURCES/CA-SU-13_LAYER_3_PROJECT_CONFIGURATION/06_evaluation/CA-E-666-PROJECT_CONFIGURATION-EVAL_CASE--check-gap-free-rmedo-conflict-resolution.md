@@ -16,7 +16,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label: Scope Contract'
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
   - CAPRMEDIO_MODEL <+ Event Record
 tier: 4
 relations:

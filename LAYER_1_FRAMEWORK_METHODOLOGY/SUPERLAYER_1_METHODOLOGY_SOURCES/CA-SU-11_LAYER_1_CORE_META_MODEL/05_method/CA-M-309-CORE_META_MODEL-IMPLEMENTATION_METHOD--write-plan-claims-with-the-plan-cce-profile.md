@@ -11,7 +11,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 6
 relations:
   child_of:

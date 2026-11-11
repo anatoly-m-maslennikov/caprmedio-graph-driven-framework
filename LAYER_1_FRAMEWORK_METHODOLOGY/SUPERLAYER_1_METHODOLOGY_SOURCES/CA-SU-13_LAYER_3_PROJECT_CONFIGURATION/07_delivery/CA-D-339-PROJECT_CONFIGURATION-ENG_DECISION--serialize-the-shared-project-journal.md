@@ -8,7 +8,7 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/File
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Serialization
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Serialization"
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Journal

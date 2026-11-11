@@ -12,12 +12,12 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 tier: 1
 status: Active
-version: 41
-updated_at: 2026-11-02 00:18:22 +0400
+version: 42
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md

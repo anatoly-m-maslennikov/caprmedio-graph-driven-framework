@@ -16,12 +16,13 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role :=
+    Operations)/(.Header.Form := Step)
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 2
 relations:
@@ -35,8 +36,8 @@ relations:
   - CA-R-2463
   - CA-R-1018
 status: Active
-version: 7
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 8
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md

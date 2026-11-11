@@ -11,9 +11,9 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
-  - CAPRMEDIO_MODEL <+ Package/Implementation
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)'
+  - CAPRMEDIO_MODEL <+ Package/Project Package
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
@@ -22,11 +22,11 @@ relations:
   child_of:
   - CA-M-447
 status: Active
-version: 45
-updated_at: 2026-11-02 00:18:22 +0400
+version: 46
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
-    name: CA-R-1683-CORE_META_MODEL-RULE--authority-evaluation-and-operations-remain-distinct.md
+    name: CA-R-1683-CORE_META_MODEL--authority-evaluation-and-operations-remain-distinct.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

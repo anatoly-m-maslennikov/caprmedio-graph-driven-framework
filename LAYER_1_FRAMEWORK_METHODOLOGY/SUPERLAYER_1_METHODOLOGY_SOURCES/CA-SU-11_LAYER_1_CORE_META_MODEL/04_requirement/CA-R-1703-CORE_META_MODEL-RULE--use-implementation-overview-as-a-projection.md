@@ -11,15 +11,15 @@ topics:
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability
   - CAPRMEDIO_MODEL <+ Journal
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
 tier: 1
 status: Active
-version: 40
-updated_at: 2026-11-02 18:35:20 +0400
+version: 41
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1703-CORE_META_MODEL-RULE--use-implementation-overview-as-a-projection.md

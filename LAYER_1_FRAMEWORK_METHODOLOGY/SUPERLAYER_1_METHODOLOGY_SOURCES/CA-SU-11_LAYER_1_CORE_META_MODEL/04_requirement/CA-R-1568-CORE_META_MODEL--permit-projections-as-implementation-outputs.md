@@ -8,17 +8,17 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
   dependencies:
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Atom
 tier: 2
 status: Active
-version: 26
-updated_at: 2026-11-02 00:18:22 +0400
+version: 27
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
-    name: CA-R-1568-CORE_META_MODEL-RULE--permit-projections-as-implementation-outputs.md
+    name: CA-R-1568-CORE_META_MODEL--permit-projections-as-implementation-outputs.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

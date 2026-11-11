@@ -8,7 +8,7 @@ form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Term
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Carrier/File
