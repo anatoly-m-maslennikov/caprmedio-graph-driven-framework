@@ -1,0 +1,34 @@
+---
+atom_id: CA-R-970308643
+ref_id: CA-R-970308643
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ Step.Kind
+tier: 3
+status: Active
+version: 1
+updated_at: 2026-11-11 00:16:05 +0400
+carrier_destination:
+  file:
+    name: CA-R-970308643-CORE_META_MODEL-DECLARATION--declare-step-kind.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+projection:
+  source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-970308643-CORE_META_MODEL-DECLARATION--declare-step-kind.md
+  source_atom_id: CA-R-970308643
+  source_atom_revision: 1
+  source_sha256: c76235bf8b9a03981242faa2312df58cc0ed6681f49e38e86f9b1146e4be624e
+  original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+---
+
+## Summary
+
+Declare Step.Kind
+
+## Claim
+
+### Prose Claim
+
+A Step has exactly one Kind: Input, Execution, or Decision. Kind classifies the Step in the Workflow and is independent of its Agentic Step Execution Context.
