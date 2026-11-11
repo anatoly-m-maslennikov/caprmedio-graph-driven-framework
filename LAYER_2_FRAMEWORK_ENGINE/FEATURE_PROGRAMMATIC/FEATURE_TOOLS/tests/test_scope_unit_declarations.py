@@ -274,10 +274,10 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         reader = ReadContext(roots=[str(self.root)], limits=dict(CEILINGS))
         original_read = reader.read
 
-        def vanish(path: Path, *, remember: bool = True) -> bytes:
+        def vanish(path: Path, **kwargs) -> bytes:
             if path == ordinary:
                 ordinary.unlink()
-            return original_read(path, remember=remember)
+            return original_read(path, **kwargs)
 
         reader.read = vanish  # type: ignore[method-assign]
 
@@ -319,9 +319,9 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         reader = ReadContext(roots=[str(self.root)], limits=dict(CEILINGS))
         original_read, read_paths = reader.read, []
 
-        def record(path: Path, *, remember: bool = True) -> bytes:
+        def record(path: Path, **kwargs) -> bytes:
             read_paths.append(path)
-            return original_read(path, remember=remember)
+            return original_read(path, **kwargs)
 
         reader.read = record  # type: ignore[method-assign]
         result = read_scope_unit_declarations(self.root, self.control.name, reader=reader)
@@ -604,6 +604,11 @@ parameters:
 """
 
         self.assertFalse(_selects_structural_form(raw))
+
+    def test_structural_prefilter_accepts_folded_and_escaped_yaml_values(self) -> None:
+        for value in ('>-\n  Scope Unit\n  Declaration', r'"\x53cope Delegation"'):
+            with self.subTest(value=value):
+                self.assertTrue(_selects_structural_form(f"---\nform: {value}\n---\n".encode()))
 
     def test_malformed_canonical_flow_form_fails_closed(self) -> None:
         for context in (

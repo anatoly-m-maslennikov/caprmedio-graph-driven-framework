@@ -1,5 +1,6 @@
 """Private lifecycle provider: corrections, session isolation, and effects."""
 import asyncio
+import hashlib
 import json
 import os
 import shutil
@@ -15,13 +16,16 @@ MCP = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(MCP), str(MCP.parent / 'FEATURE_TOOLS')]
 from mcp.server.session import ServerSession  # noqa: E402
 from mcp.server.connection import Connection  # noqa: E402
-from registry_lifecycle_provider import LifecycleProvider, tool_descriptors  # noqa: E402
+from registry_lifecycle_provider import LifecycleProvider, _refresh_selection as refresh_real, tool_descriptors  # noqa: E402
 
 
 class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
-        self.selection = SimpleNamespace(root=Path('/project'), instance_id='project-1')
+        self.selection = SimpleNamespace(root=Path('/project'), instance_id='project-1', declaration_digest='initial')
         self.provider = LifecycleProvider(SimpleNamespace(selection=self.selection), object())
+        refresh = patch('registry_lifecycle_provider._refresh_selection', side_effect=lambda selection: selection)
+        refresh.start()
+        self.addCleanup(refresh.stop)
         self.a = ServerSession.__new__(ServerSession)
         self.b = ServerSession.__new__(ServerSession)
         self.a._connection = Connection.__new__(Connection)
@@ -65,7 +69,7 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual({'body': {'error': 'required'}}, value['requested_input'])
             await self.provider.close()
             self.provider = LifecycleProvider(SimpleNamespace(selection=self.selection), object())
-            other = LifecycleProvider(SimpleNamespace(selection=SimpleNamespace(root=Path('/other'), instance_id='project-2')), object())
+            other = LifecycleProvider(SimpleNamespace(selection=SimpleNamespace(root=Path('/other'), instance_id='project-2', declaration_digest='initial')), object())
             args = other.prepare_arguments(name, {'body': 'other'}, SimpleNamespace(session=self.a))
             await other.call(name, args)
             self.assertNotIn('target', calls[-1][1])
@@ -100,6 +104,91 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual('needs_input', first['status'])
                 self.assertEqual({'status': 'completed'}, await self.invoke(self.a, name, correction))
                 self.assertEqual((expected_params, expected_kwargs), calls[-1])
+
+    async def test_changed_declarations_reject_pending_input_and_keep_effects(self):
+        newer = SimpleNamespace(root=self.selection.root, instance_id=self.selection.instance_id,
+                                declaration_digest='new')
+        effects = [{'operation': 'archive'}]
+        for promotion in (False, True):
+            calls = []
+            def execute(*_args, **_kwargs):
+                calls.append(1)
+                result = {'outcome': 'needs_input', 'requested_input': {'targetStatus': {'error': 'required'}},
+                          'effects': effects if promotion else []}
+                if promotion:
+                    result['pending_promotion'] = object()
+                return result
+            name = 'atom_lifecycle_update' if promotion else 'atom_lifecycle_change_status'
+            with self.subTest(promotion=promotion), \
+                    patch('registry_lifecycle_provider._refresh_selection', side_effect=[self.selection, newer]), \
+                    patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
+                self.assertEqual('needs_input', (await self.invoke(self.a, name, {}))['status'])
+                result = await self.invoke(self.a, name, {'targetStatus': 'Active'})
+                self.assertEqual('failed', result['status'])
+                self.assertEqual('source_changed', result['errors'][0]['code'])
+                self.assertEqual(effects if promotion else [], result['effects'])
+                self.assertEqual(1, len(calls))
+
+    async def test_new_scope_is_read_for_each_write_without_restart(self):
+        from ATOM_LIFECYCLE import common
+        from project_selection import rebind_selection, resolve_project
+        from scope_declaration_test_support import write_scope_unit_declarations
+        sys.path.insert(0, str(MCP.parent / 'FEATURE_TOOLS' / 'tests'))
+        from lifecycle_placement_test_support import fixture_rules
+
+        class Model:
+            candidate_schema = SimpleNamespace(placement=fixture_rules(), role_form=SimpleNamespace(
+                encode=lambda field, value: value, decode=lambda field, value: value))
+
+            def allowed(self, role, form):
+                return {'Draft'}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            control = root / '.caprmedio_test'
+            control.mkdir()
+            (control / 'caprmedio_project_settings.toml').write_text(
+                '[project]\nname="TEST"\n[artifacts.identity]\nproject_prefix="CA"\n'
+                '[paths]\ncontrol_root=".caprmedio_test"\n')
+            write_scope_unit_declarations(root, control_root=control)
+            selection = resolve_project(root)
+            host = Path('/unmounted/caprmedio-test')
+            host_id = hashlib.sha256(f'{host}\0{selection.control_relative.as_posix()}'.encode()).hexdigest()
+            transported = rebind_selection(selection, host_id, host_root=host)
+            refreshed = refresh_real(transported)
+            self.assertEqual((host_id, host), (refreshed.instance_id, refreshed.host_root))
+            self.provider = LifecycleProvider(SimpleNamespace(selection=selection), Model())
+            units = write_scope_unit_declarations(root, control_root=control, rows=[
+                {'scope_unit_name': 'NEW', 'scope_unit_label': 'FEATURE'},
+            ])
+            new_atom = {'role': 'Requirement', 'form': 'Declaration', 'scope_unit': 'NEW',
+                        'summary': 'New', 'body': '## Summary\n\nNew\n'}
+            with patch('registry_lifecycle_provider._refresh_selection', side_effect=refresh_real), \
+                    patch.object(common, 'allocate_id', side_effect=['CA-R-9', 'CA-R-10']), \
+                    patch('ATOM_LIFECYCLE.validation._validate_declared_schema'):
+                self.assertEqual({'status': 'completed'}, await self.invoke(self.a, self.name, {'newAtom': new_atom}))
+                self.assertEqual(1, len(list(units['NEW']['authority_path'].rglob('*draft*.md'))))
+
+                # Existing pending inputs cannot silently target a renamed declaration.
+                self.assertEqual('needs_input', (await self.invoke(self.a, self.name, {'newAtom': {'role': 'Requirement'}}))['status'])
+                units['NEW']['declaration_path'].unlink()
+                result = await self.invoke(self.a, self.name, {'form': 'Declaration'})
+                self.assertEqual('failed', result['status'])
+                self.assertEqual('source_changed', result['errors'][0]['code'])
+
+                renamed = write_scope_unit_declarations(root, control_root=control, rows=[
+                    {'scope_unit_name': 'NEWER', 'scope_unit_label': 'FEATURE'},
+                ])
+                renamed_atom = {**new_atom, 'scope_unit': 'NEWER'}
+                self.assertEqual({'status': 'completed'}, await self.invoke(self.a, self.name, {'newAtom': renamed_atom}))
+                self.assertEqual(1, len(list(renamed['NEWER']['authority_path'].rglob('*draft*.md'))))
+
+                # Project settings remain bound to the original Project.
+                with (control / 'caprmedio_project_settings.toml').open('a') as settings:
+                    settings.write('\n[changed]\nvalue=true\n')
+                result = await self.invoke(self.a, self.name, {'newAtom': new_atom})
+                self.assertEqual('failed', result['status'])
+                self.assertEqual('source_selection_failed', result['errors'][0]['code'])
 
     async def test_pending_promotion_is_scoped_and_resumes_with_only_correction(self):
         token = object()
@@ -427,7 +516,8 @@ class LifecycleHTTPTests(unittest.TestCase):
         from mcp import types
         from starlette.testclient import TestClient
 
-        provider = LifecycleProvider(SimpleNamespace(selection=SimpleNamespace(root=Path('/project'), instance_id='project-1')), object())
+        provider = LifecycleProvider(SimpleNamespace(selection=SimpleNamespace(
+            root=Path('/project'), instance_id='project-1', declaration_digest='initial')), object())
         seen = []
         def execute(_selection, _model, _name, params):
             seen.append(params)
@@ -440,7 +530,8 @@ class LifecycleHTTPTests(unittest.TestCase):
             return types.CallToolResult(content=[], structured_content=value)
         server = Server('test', on_call_tool=call)
         app = server.streamable_http_app(streamable_http_path='/mcp', json_response=True)
-        with patch('registry_lifecycle_provider.backend.execute', side_effect=execute), TestClient(app, base_url="http://localhost:8000") as client:
+        with patch('registry_lifecycle_provider._refresh_selection', side_effect=lambda selection: selection), \
+                patch('registry_lifecycle_provider.backend.execute', side_effect=execute), TestClient(app, base_url="http://localhost:8000") as client:
             def send(method, params, session=None, ident=1):
                 headers = {'accept': 'application/json, text/event-stream'}
                 if session:

@@ -188,7 +188,9 @@ def _promote_draft(selection, model, params, *, staged=None, expected_draft=None
         for predecessor in pins.values():
             if predecessor.status.casefold() != 'archived':
                 _ensure_leaf(selection, model, predecessor, 'target')
-            current = source.select_source(selection, predecessor.ref_id, expected_version=predecessor.version)
+        selected = source.select_sources(selection, [predecessor.ref_id for predecessor in pins.values()])
+        for predecessor in pins.values():
+            current = selected[predecessor.ref_id]
             if current.sha256 != predecessor.sha256:
                 raise SourceChanged('Replacement target changed after resolution.')
         destination = _destination(selection, pin, status, model)
@@ -258,9 +260,10 @@ def _resume_promotion(selection, model, params, pending):
     try:
         if selection.root != pending.root:
             raise SourceChanged('Pending promotion belongs to a different Project.')
-        for pin in (pending.draft, pending.predecessor, *(item for _, item in pending.targets)):
-            selected = source.select_source(selection, pin.ref_id, expected_version=pin.version)
-            if not _same_pin(selected, pin):
+        pins = (pending.draft, pending.predecessor, *(item for _, item in pending.targets))
+        selected = source.select_sources(selection, [pin.ref_id for pin in pins])
+        for pin in pins:
+            if not _same_pin(selected[pin.ref_id], pin):
                 raise SourceChanged('A pending promotion source changed.')
         promoted = _promote_draft(selection, model, {'target': selector, 'targetStatus': pending.status},
                                   staged=dict(pending.targets), expected_draft=pending.draft)
@@ -348,10 +351,12 @@ def update_atom(selection, model, params, *, pending_source=None, pending_promot
         if archived['errors']:
             return result(effects=all_effects, errors=archived['errors'], warnings=warnings)
         draft = created['savedDraft']
-        archived_pin = source.select_source(selection, f'{old.atom_id}@{old.version}', expected_version=old.version)
+        archived_ref = f'{old.atom_id}@{old.version}'
+        selected = source.select_sources(selection, [archived_ref, draft['ref_id']])
+        archived_pin = selected[archived_ref]
         if old.atom_id in targets or draft['atom_id'] == old.atom_id:
             targets[old.atom_id] = archived_pin
-        draft_pin = source.select_source(selection, draft['ref_id'], expected_version=draft['version'])
+        draft_pin = selected[draft['ref_id']]
         if not _same_pin(draft_pin, proposed):
             raise SourceChanged('Draft changed after creation.')
         promoted = _promote_draft(selection, model, {'target': {'ref_id': draft['ref_id'],

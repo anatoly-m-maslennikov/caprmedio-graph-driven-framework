@@ -57,6 +57,8 @@ def run_case(*, changed=False, fail_second=False, destination=ROOT / 'current.md
           patch.object(publish, '_current_collision', return_value=False),
           patch.object(publish, 'validate_candidate'),
           patch.object(publish.source, 'select_source', side_effect=select),
+          patch.object(publish.source, 'select_sources', side_effect=lambda selection, refs: {
+              ref: select(selection, ref, expected_version=None) for ref in refs}),
           patch('ATOM_LIFECYCLE.state_actions.archive_atom', side_effect=archive),
           patch.object(publish, 'write_destination', return_value=effects.Result(effects=[{'operation': 'create'}])) as write,
           patch.object(publish.effects, 'remove', return_value=effects.Result(effects=[{'operation': 'remove'}])) as remove):
@@ -150,6 +152,8 @@ def test_same_identity_promotion_requires_predecessor_summary_and_role():
                   patch.object(publish, '_destination', return_value=ROOT / 'current.md'),
                   patch.object(publish, 'validate_candidate'),
                   patch.object(publish.source, 'select_source', side_effect=select),
+                  patch.object(publish.source, 'select_sources', side_effect=lambda selection, refs: {
+                      ref: select(selection, ref, expected_version=None) for ref in refs}),
                   patch('ATOM_LIFECYCLE.state_actions.archive_atom', return_value={
                       'effects': [{'operation': 'archive'}], 'warnings': [], 'errors': []}) as archive,
                   patch.object(publish, 'write_destination', return_value=effects.Result(effects=[{'operation': 'create'}])) as write,

@@ -70,9 +70,17 @@ class ReadContext:
             raise ReadFailure("Symlink paths are not admitted.")
         return normalized
 
-    def read(self, path: Path, *, remember: bool = True) -> bytes:
-        path = self.allowed(path)
-        with os.fdopen(open_regular(path), "rb") as stream:
+    def read(self, path: Path, *, remember: bool = True, directory_fd: int | None = None) -> bytes:
+        if directory_fd is None:
+            path = self.allowed(path)
+            descriptor = open_regular(path)
+        else:
+            # The caller opened path.parent with open_regular before listing this child.
+            self.checkpoint()
+            if protected(path) or not any(path.is_relative_to(root) for root in self.roots):
+                raise ReadFailure("Path is outside the admitted read boundary.")
+            descriptor = os.open(path.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=directory_fd)
+        with os.fdopen(descriptor, "rb") as stream:
             info = os.fstat(stream.fileno())
             if not stat.S_ISREG(info.st_mode):
                 raise ReadFailure("Input is not a regular file.")

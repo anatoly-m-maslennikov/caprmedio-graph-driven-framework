@@ -167,9 +167,6 @@ def select_source(selection: ProjectSelection, ref_id: str, *, expected_version:
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
     try:
         selection._revalidate_boundary(reader=reader)
-        declarations = read_scope_unit_declarations(selection.root, selection.control_relative, reader=reader)
-        if declarations.digest != selection.declaration_digest:
-            raise SourceSelectionError("Retained Project declarations are stale")
         # The retained declaration tree is the source authority, not delivery paths,
         # applicable-methodology projections, arbitrary Project files or caller paths.
         candidates = _candidate_paths(reader, selection, atom_id)
@@ -189,7 +186,13 @@ def select_current_sources(selection: ProjectSelection, ref_ids: list[str]) -> d
     selectors = [_selector(selection, ref_id, None) for ref_id in ref_ids]
     if any(qualified is not None for _, qualified, _ in selectors):
         raise SourceSelectionError("Invalid Atom reference or expected Version")
-    ids = {atom_id for atom_id, _, _ in selectors}
+    return select_sources(selection, ref_ids)
+
+
+def select_sources(selection: ProjectSelection, ref_ids: list[str]) -> dict[str, SourcePin]:
+    """Bind several exact revisions with one source inventory and recheck."""
+    selectors = [(ref_id, *_selector(selection, ref_id, None)) for ref_id in ref_ids]
+    ids = {atom_id for _, atom_id, _, _ in selectors}
     if not ids:
         return {}
     prefix = selection.settings["artifacts"]["identity"]["project_prefix"]
@@ -202,12 +205,9 @@ def select_current_sources(selection: ProjectSelection, ref_ids: list[str]) -> d
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
     try:
         selection._revalidate_boundary(reader=reader)
-        declarations = read_scope_unit_declarations(selection.root, selection.control_relative, reader=reader)
-        if declarations.digest != selection.declaration_digest:
-            raise SourceSelectionError("Retained Project declarations are stale")
         candidates = _inventory_paths(reader, selection, classify)
-        selected = {atom_id: _unique_candidate(reader, candidates.get(atom_id, ()), atom_id, atom_id, None, None)
-                    for atom_id, _, _ in selectors}
+        selected = {ref_id: _unique_candidate(reader, candidates.get(atom_id, ()), ref_id, atom_id, qualified, draft)
+                    for ref_id, atom_id, qualified, draft in selectors}
         if _inventory_paths(reader, selection, classify) != candidates:
             raise SourceSelectionError("Atom source candidates changed during selection")
         if reader.currentness()["state"] != "unchanged":

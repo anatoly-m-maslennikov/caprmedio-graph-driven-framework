@@ -19,6 +19,7 @@ from mcp.server.connection import Connection
 from mcp.shared.exceptions import NoBackChannelError
 
 from ATOM_LIFECYCLE import backend, status_model
+from project_selection import rebind_selection, resolve_project
 
 
 _FIELDS = {'role', 'form', 'scope_unit', 'container', 'summary', 'body', 'label', 'tier',
@@ -199,6 +200,12 @@ def _result(value):
     return failure
 
 
+def _refresh_selection(selection):
+    selection._revalidate_boundary()
+    current = resolve_project(selection.root, selection.control_relative)
+    return rebind_selection(current, selection.instance_id, host_root=selection.host_root)
+
+
 class LifecycleProvider:
     def __init__(self, gateway, model):
         self.selection = gateway.selection
@@ -226,6 +233,22 @@ class LifecycleProvider:
         tools = projects.setdefault(self.project, {})
         state = tools.setdefault(name, {'lock': asyncio.Lock(), 'pending': None, 'source': None, 'promotion': None})
         async with state['lock']:
+            try:
+                selection = await anyio.to_thread.run_sync(_refresh_selection, self.selection)
+            except (OSError, RuntimeError, ValueError):
+                promotion = state.get('promotion') or {}
+                return {'status': 'failed', 'effects': promotion.get('effects', []),
+                        'warnings': promotion.get('warnings', []),
+                        'errors': [{'code': 'source_selection_failed',
+                                    'message': 'Current Project declarations are unavailable or invalid.'}]}
+            if (state.get('pending') is not None or state.get('promotion') is not None) and (
+                    state.get('declaration_digest') != selection.declaration_digest):
+                promotion = state.get('promotion') or {}
+                state.update(pending=None, source=None, promotion=None, declaration_digest=None)
+                return {'status': 'failed', 'effects': promotion.get('effects', []),
+                        'warnings': promotion.get('warnings', []),
+                        'errors': [{'code': 'source_changed',
+                                    'message': 'Project declarations changed while input was pending.'}]}
             promotion, state['promotion'] = state.get('promotion'), None
             if promotion:
                 params, source = arguments, None
@@ -235,7 +258,7 @@ class LifecycleProvider:
                 execute = _execution(source, promotion)
                 # The Action owns its lifetime once dispatched; cancellation cannot interrupt effects.
                 with anyio.CancelScope(shield=True):
-                    value = await anyio.to_thread.run_sync(execute, self.selection, self.model, name, params)
+                    value = await anyio.to_thread.run_sync(execute, selection, self.model, name, params)
                 outcome = value.get('outcome')
                 token = value.get('pending_promotion')
                 if promotion and outcome == 'needs_input' and token is None:
@@ -248,11 +271,14 @@ class LifecycleProvider:
                     if response is not None:
                         if response['status'] == 'needs_input':
                             state['promotion'] = promotion
+                            state['declaration_digest'] = selection.declaration_digest
                         return response
                 else:
                     params, source, response = await _input_correction(
                         name, value, params, source, session, request_id, state)
                     if response is not None:
+                        if response['status'] == 'needs_input':
+                            state['declaration_digest'] = selection.declaration_digest
                         return response
             return _result(value)
 

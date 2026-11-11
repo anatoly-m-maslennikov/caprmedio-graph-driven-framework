@@ -30,6 +30,7 @@ _FLOW_STRUCTURAL_FORM_HINT = re.compile(
     rf"(?:^|[{{,][ \t]*)(?:form|type):[ \t]*{_STRUCTURAL_FORM_VALUE}(?=[ \t]*(?:,|}}|$))"
 )
 _PROJECTION = re.compile(r"(?m)^projection:\s*(?:$|\{)")
+_STRUCTURAL_FORM_TEXT = re.compile(r"Scope\s+(?:Unit\s+Declaration|Delegation)|scope_(?:unit_declaration|delegation)")
 DELEGATION_ROLE_FOLDERS = ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations")
 
 
@@ -43,25 +44,6 @@ def _control(root: Path, control_root: Path | str) -> Path:
             or control.name == ".caprmedio_"):
         raise ScopeDeclarationError("control root must be one direct Project control directory")
     return control
-
-
-def _direct_markdown_paths(reader: ReadContext, directory: Path) -> tuple[Path, ...]:
-    """List one Current role directory without recursively touching its descendants."""
-    try:
-        reader.allowed(directory)
-        descriptor = open_regular(directory, directory=True)
-    except FileNotFoundError:
-        return ()
-    try:
-        with os.scandir(descriptor) as entries:
-            return tuple(sorted(
-                (directory / entry.name for entry in entries
-                 if entry.name != ".DS_Store" and entry.name.endswith(".md")
-                 and entry.is_file(follow_symlinks=False)),
-                key=lambda path: path.as_posix(),
-            ))
-    finally:
-        os.close(descriptor)
 
 
 def _digest(pins: dict[str, dict[str, Any]]) -> str:
@@ -84,6 +66,9 @@ def _selects_structural_form(raw: bytes, source: Path | None = None) -> bool:
     if closing < 0:
         return False
     frontmatter = text[4:closing]
+    # Folded values can span lines, and double-quoted YAML can spell a value with escapes.
+    if "\\" not in frontmatter and _STRUCTURAL_FORM_TEXT.search(frontmatter) is None:
+        return False
     try:
         header, _ = _carrier(raw, source or Path("<structural carrier>"))
     except ScopeDeclarationError:
@@ -145,15 +130,26 @@ def _declaration_candidates(
 ) -> tuple[tuple[Path, bytes], ...]:
     """Read only direct Current candidates in a declared authority location."""
     candidates = []
-    for path in _direct_markdown_paths(reader, directory):
-        if root and not path.name.startswith("CA-R-"):
-            continue
-        try:
-            raw = reader.read(path, remember=False)
-        except FileNotFoundError:
-            continue
-        if not _is_projection(raw) and _selects_structural_form(raw, path):
-            candidates.append((path, raw))
+    try:
+        directory = reader.allowed(directory)
+        descriptor = open_regular(directory, directory=True)
+    except FileNotFoundError:
+        return ()
+    try:
+        with os.scandir(descriptor) as entries:
+            names = sorted(entry.name for entry in entries
+                           if entry.name.endswith(".md") and (not root or entry.name.startswith("CA-R-"))
+                           and entry.is_file(follow_symlinks=False))
+        for name in names:
+            path = directory / name
+            try:
+                raw = reader.read(path, remember=False, directory_fd=descriptor)
+            except FileNotFoundError:
+                continue
+            if _selects_structural_form(raw, path) and not _is_projection(raw):
+                candidates.append((path, raw))
+    finally:
+        os.close(descriptor)
     return tuple(candidates)
 
 
