@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
   dependencies:
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//INSTALLED_EXTENSIONS
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1206-CORE_META_MODEL-RULE--separate-extension-installation-from-activation.md
   source_atom_id: CA-R-1206
   source_atom_revision: 28
-  source_sha256: 67c073b095aeb86385e7fc682da82647391e0981081c07b2f3cb2d01a7f03d8d
+  source_sha256: 260fd33037fc0e1b407070d2ce0c628365c7cb02724adc7e5c11e9b07aa833a8
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

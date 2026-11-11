@@ -8,7 +8,7 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Realization Graph)
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   - CAPRMEDIO_MODEL <+ Entity
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Realization Graph'
   - CAPRMEDIO_MODEL <+ Journal
@@ -33,7 +33,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1616-PROJECT_CONFIGURATION-RULE--define-realization-graph.md
   source_atom_id: CA-R-1616
   source_atom_revision: 25
-  source_sha256: 51825cff3bcd30dc528fa31bb0f2b32b1b263ed56179629c181d09fb31f0daec
+  source_sha256: ba9e2d107a41e077f45072b15c9c4aebfe2b11b72761681d894178eb8520b78f
   original_relations_sha256: 36b983a251288c7a82a8b58fc531b8512945c90ac25c124f675a82cc4c0b0732
 ---
 ## Summary

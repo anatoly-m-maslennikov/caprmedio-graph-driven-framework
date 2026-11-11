@@ -8,13 +8,13 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Canonical Signature)
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Output Publication
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Output Publication"
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom.Header.ID
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Carrier/File
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 3
 relations:
   child_of:
@@ -32,7 +32,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-346-CORE_META_MODEL-DECISION--deliver-cce-canonical-signatures-as-external-report-projections.md
   source_atom_id: CA-D-346
   source_atom_revision: 36
-  source_sha256: 6025934f7d9b4b7fb97ea2c2aa84339286a2baed24b224ff979d0241590a03f7
+  source_sha256: 4792f25761c58ac54a434c73128d1d068a9bd946777c2dc49fca41ed3b958231
   original_relations_sha256: 05d305e1056e99459d521dea634c2a5bc7d31356258feae4f6c9491320e90591
 ---
 ## Summary

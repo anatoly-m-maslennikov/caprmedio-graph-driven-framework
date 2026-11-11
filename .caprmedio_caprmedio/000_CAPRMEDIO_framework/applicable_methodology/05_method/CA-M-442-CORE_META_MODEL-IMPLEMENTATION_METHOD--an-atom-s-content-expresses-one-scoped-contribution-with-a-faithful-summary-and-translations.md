@@ -6,10 +6,10 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring"
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
 tier: 3
 relations:
@@ -29,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-442-CORE_META_MODEL-IMPLEMENTATION_METHOD--an-atom-s-content-expresses-one-scoped-contribution-with-a-faithful-summary-and-translations.md
   source_atom_id: CA-M-442
   source_atom_revision: 5
-  source_sha256: 387ecbd0ff775b926865cc09ede7df8a25cb38a578b380f19f4b9c83c4c746ea
+  source_sha256: 36d25a45aaa41efadbcce0d6604409c2016efb4faf26d61f20975a0ef1322e1e
   original_relations_sha256: f8518842cf0b787cef6f48ca5728c442c11d261fb493f3cfdd569ac28b834129
 ---
 ## Summary

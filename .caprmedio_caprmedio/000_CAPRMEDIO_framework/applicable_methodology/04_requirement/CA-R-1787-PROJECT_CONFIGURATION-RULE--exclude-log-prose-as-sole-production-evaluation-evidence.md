@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
 tier: 3
 status: Active
 version: 14
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1787-PROJECT_CONFIGURATION-RULE--exclude-log-prose-as-sole-production-evaluation-evidence.md
   source_atom_id: CA-R-1787
   source_atom_revision: 14
-  source_sha256: 301a5fdf7e930af13a1f8f80cb3ecaacd7997c0c722fd29b46fd444871cbe05d
+  source_sha256: 50f706f82de3ebe786ed3edf8f1055700cafff227979d4acea2f2b11f8161d56
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

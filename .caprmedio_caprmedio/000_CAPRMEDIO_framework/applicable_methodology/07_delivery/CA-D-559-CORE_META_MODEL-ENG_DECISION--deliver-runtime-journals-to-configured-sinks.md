@@ -8,7 +8,7 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Journal
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Output Publication
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Output Publication"
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Carrier
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-559-CORE_META_MODEL-ENG_DECISION--deliver-runtime-journals-to-configured-sinks.md
   source_atom_id: CA-D-559
   source_atom_revision: 19
-  source_sha256: fced47eaf5d8c1cccc2fa6b36c65cff1b1371bcb4e5b53f360cb277049e6aa85
+  source_sha256: efabd2ff050d839af2071c2d8f12bf336c98156f8af2643e19bf09d30cbedba1
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

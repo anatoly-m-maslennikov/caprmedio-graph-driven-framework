@@ -11,12 +11,12 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom.Header.Topics
 tier: 1
 status: Active
-version: 28
-updated_at: 2026-11-02 08:06:47 +0400
+version: 29
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1550-CORE_META_MODEL-RULE--keep-specification-in-rmed-regardless-of-its-subject.md

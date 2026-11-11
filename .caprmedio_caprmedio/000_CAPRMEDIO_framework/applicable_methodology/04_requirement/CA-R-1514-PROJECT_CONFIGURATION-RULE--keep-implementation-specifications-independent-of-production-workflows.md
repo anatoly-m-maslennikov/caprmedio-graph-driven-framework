@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure"
   dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
@@ -34,7 +34,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1514-PROJECT_CONFIGURATION-RULE--keep-implementation-specifications-independent-of-production-workflows.md
   source_atom_id: CA-R-1514
   source_atom_revision: 27
-  source_sha256: f88d90ea88b3b2a9b57ad54c0f3795ebd7f6358ff1957ae66845a4faa24ad0d8
+  source_sha256: e7f2b31bd73cfa9424ce538a8cf8f7af658c7a651c6d3d0741c312ad48b0fcc6
   original_relations_sha256: 445b79cc5d5c1583b960c0e86c52c0d7693990df1711ccc5f5c5e6aa3a0dd35e
 ---
 ## Summary

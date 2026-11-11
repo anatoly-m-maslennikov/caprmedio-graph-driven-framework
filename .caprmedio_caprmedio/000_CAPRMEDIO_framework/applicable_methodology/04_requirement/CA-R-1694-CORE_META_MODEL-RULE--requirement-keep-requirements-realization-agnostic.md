@@ -12,12 +12,12 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
 tier: 1
 status: Active
-version: 41
-updated_at: 2026-11-02 00:18:22 +0400
+version: 42
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md
@@ -27,8 +27,8 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1694-CORE_META_MODEL-RULE--requirement-keep-requirements-realization-agnostic.md
   source_atom_id: CA-R-1694
-  source_atom_revision: 41
-  source_sha256: 6e438248200a7e3fb390d7126cca871bec0c142b54bc411820b599ddd666056a
+  source_atom_revision: 42
+  source_sha256: 11fea950657d56db452f5f4d0caf866dca9b226d0fac4f1a3c11d73184d0e90e
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

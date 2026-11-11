@@ -11,8 +11,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
 tier: 1
 relations:
   child_of:
@@ -30,7 +30,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2425-CORE_META_MODEL-RULE--reserve-project-wide-invariant-conflict-resolution-to-the-operator.md
   source_atom_id: CA-R-2425
   source_atom_revision: 4
-  source_sha256: 65c010e65ce37ca8c2b147a18c98825776395853e8e855352595267d8ea9f876
+  source_sha256: 2bdae32e06fe10f9dabba603d97cc3df1055093c29ac1d34a17863abd13353d5
   original_relations_sha256: f9577d5716dcc9ccd23bd52379396798c3999355ced857a5e1cb469ad88f2b5d
 ---
 ## Summary

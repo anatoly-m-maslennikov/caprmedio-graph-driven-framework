@@ -12,7 +12,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 6
 relations:
   child_of:
@@ -32,7 +32,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-314-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-operations-claims-with-type-specific-cce-profiles.md
   source_atom_id: CA-M-314
   source_atom_revision: 26
-  source_sha256: de979f7174136e608cedc6c19c54c0e1138584e674e2a13f1685aabe60f88f02
+  source_sha256: cf1cf80fa9b9f9be9829c0cbb0eec6bb61bf406fca1689a001ac5b18513ae8dd
   original_relations_sha256: 3703d8616da3d4b04ccc64fcf5cc23e91071167e8b7cafaa350c16356709907d
 ---
 

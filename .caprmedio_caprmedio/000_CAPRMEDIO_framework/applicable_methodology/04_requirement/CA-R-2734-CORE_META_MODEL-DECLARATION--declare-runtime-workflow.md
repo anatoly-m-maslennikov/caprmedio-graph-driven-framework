@@ -13,7 +13,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2734-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md
   source_atom_id: CA-R-2734
   source_atom_revision: 1
-  source_sha256: 78f53a7b0f7aaa1fa8c497eeb01c0e05634442abcda1ba8aba7ea292e258d362
+  source_sha256: 542bb5d57c52558df43d10e2b4b949db5e43df56525f6024f5c3caac4972c086
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -26,7 +26,7 @@ Declare Runtime Workflow
 ### Formal Claim
 
 ```CFEL
-Atom/(.Header.Role: Operations)/Workflow/(.Purpose := Runtime)
+Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)
 ```
 
 ## Semantics

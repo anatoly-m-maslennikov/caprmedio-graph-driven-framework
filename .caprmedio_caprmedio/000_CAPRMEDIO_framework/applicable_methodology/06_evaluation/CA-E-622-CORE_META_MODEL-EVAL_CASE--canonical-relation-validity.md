@@ -18,7 +18,7 @@ context:
     - CAPRMEDIO_MODEL <+ Entity
     - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
     - CAPRMEDIO_MODEL <+ Projection
-    - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+    - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   tier: 4
 relations:
   evaluation_for:
@@ -48,7 +48,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-622-CORE_META_MODEL-EVAL_CASE--canonical-relation-validity.md
   source_atom_id: CA-E-622
   source_atom_revision: 55
-  source_sha256: db9476cd67f92e2ff3f9754bba9b126a85635aa6a2be5ac45701ae039d73e778
+  source_sha256: 8e61965c18827e7bb09e911aff44d596d41e35d8955a0f84604c5919ac76862d
   original_relations_sha256: 357e7479e6ae13967f90b616d81d1e027f95992fe72c504d878c5095c9e39d9f
 ---
 ## Summary

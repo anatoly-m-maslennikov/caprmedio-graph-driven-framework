@@ -6,10 +6,10 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Transformation"
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Parsing
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Parsing"
   - CAPRMEDIO_MODEL <+ Entity
 tier: 3
 relations:
@@ -28,7 +28,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1360-CORE_META_MODEL-DEFINITION--define-restricted-cce-canonical-signature.md
   source_atom_id: CA-R-1360
   source_atom_revision: 28
-  source_sha256: d652834d1ac1b66312df129092eba20cb5fc489b93a25c16d4ab7c966c2145b0
+  source_sha256: 89fe5b953a22e83b874d1563e80e372959e992f0ff3f48a007291260f2bcaf28
   original_relations_sha256: 7d43ce9d2b05a49959ad5ed2f3146bfc7d86fbb84ab03a1c36f7042098dc0a67
 ---
 ## Summary

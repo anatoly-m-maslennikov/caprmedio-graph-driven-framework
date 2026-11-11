@@ -6,7 +6,7 @@ container:
 role: Operations
 form: Action
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection"
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -29,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-125-PROJECT_CONFIGURATION-ACTION--assess-scoped-operator-choice-applicability.md
   source_atom_id: CA-O-125
   source_atom_revision: 14
-  source_sha256: 6e158857995fb2bd9bdaaff83a952657789203e6728574f3e9281acb74779e06
+  source_sha256: 0eff6d710499c3ac9e4dbb8e52c54b5a85ef9f7b0d0e4b33d6555f8bcd175c75
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

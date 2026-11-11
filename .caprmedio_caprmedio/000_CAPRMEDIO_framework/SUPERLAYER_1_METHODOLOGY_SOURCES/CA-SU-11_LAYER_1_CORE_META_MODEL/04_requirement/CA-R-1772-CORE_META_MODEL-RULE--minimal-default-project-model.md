@@ -10,7 +10,7 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
 tier: 1
@@ -18,8 +18,8 @@ relations:
   child_of:
   - CA-M-005
 status: Active
-version: 37
-updated_at: 2026-11-02 18:35:20 +0400
+version: 38
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1772-CORE_META_MODEL-RULE--minimal-default-project-model.md

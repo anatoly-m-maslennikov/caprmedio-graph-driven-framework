@@ -6,9 +6,9 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Transformation"
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
   - CAPRMEDIO_MODEL <+ Carrier/File
 tier: 4
@@ -28,7 +28,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-241-CORE_META_MODEL-IMPLEMENTATION_METHOD--derive-canonical-scope-signatures-without-source-rewrite.md
   source_atom_id: CA-M-241
   source_atom_revision: 28
-  source_sha256: d0c7e9c1fa0e324fde9fdd4d3beca723de97af3b0fa438fe7d9b42c6defd1cce
+  source_sha256: 463809c6f73f0cfa256e74f1e4bb2f57562f54d7aa8b3be270611463e54052a1
   original_relations_sha256: 9c81d0cc7e058ef7249e0c55c89cc1a2f604371b94ce1e61069d033c3e36982f
 ---
 ## Summary

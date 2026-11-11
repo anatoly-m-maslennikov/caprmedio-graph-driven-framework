@@ -6,15 +6,15 @@ container:
 role: Operations
 form: Action
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Data Transformation
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Transformation"
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Authoring/Controlled English
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Decision Confidence
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Authoring/Controlled English"
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Decision Confidence"
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
 tier: 3
@@ -36,7 +36,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-053-PROJECT_CONFIGURATION-ACTION--migrate-atoms-to-a-current-cce-version.md
   source_atom_id: CA-O-053
   source_atom_revision: 21
-  source_sha256: 576d6fa623ff80b97aca8d9702cd577469eb5c2e75ccc0cb1ecfebf8c3453d08
+  source_sha256: df39f2ba20b1d62e5e2bf1baf4a50e4c3f61761528f4034c58e60edb2c5bf497
   original_relations_sha256: e6f49019e8e73920ff560e36d53d124d605d60ba73f55c4bd9de725847b0b85b
 ---
 # Summary

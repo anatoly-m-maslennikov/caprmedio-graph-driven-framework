@@ -8,7 +8,7 @@ form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 3
 relations:
   child_of:
@@ -22,7 +22,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-112-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-english-as-the-project-language.md
   source_atom_id: CA-M-112
   source_atom_revision: 29
-  source_sha256: 2ac1d2b89eb2a7d17d4ae200c1a088d23ad9ed0ec3aebe7515fdadc3cc6c1eee
+  source_sha256: 8e8a056cbdefe8310f44fd146dc165bb14dceb1af6f6324b1315763b73d4246b
   original_relations_sha256: 909b774c184e37cf1e31372f49dab4276a30bd643b4d0c25e061b4865bb09e1e
 ---
 ## Summary

@@ -8,7 +8,7 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit.Name
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 3
 status: Active
 version: 28
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1297-CORE_META_MODEL-RULE--prohibit-cce-operator-scope-unit-names.md
   source_atom_id: CA-R-1297
   source_atom_revision: 28
-  source_sha256: 656650dbf2e0503b334daceb5375551f2eebbaca603f53143b133bcfdf6c2226
+  source_sha256: 6ecbd8cb7c7fbcd6443ff9c443a9798a951ea9c40c3de3e4c8b21c943355494c
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

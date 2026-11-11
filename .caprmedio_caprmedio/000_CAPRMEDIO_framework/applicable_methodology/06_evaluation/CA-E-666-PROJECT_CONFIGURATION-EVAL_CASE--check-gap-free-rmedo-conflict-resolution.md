@@ -16,7 +16,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label: Scope Contract'
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
   - CAPRMEDIO_MODEL <+ Event Record
 tier: 4
 relations:
@@ -38,7 +38,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-666-PROJECT_CONFIGURATION-EVAL_CASE--check-gap-free-rmedo-conflict-resolution.md
   source_atom_id: CA-E-666
   source_atom_revision: 4
-  source_sha256: 8887afad1cdd74bfca5e95d6c49e8d2388db44a43ee631e3c1e0393a93ed8de1
+  source_sha256: 592abf9eb3133eee5c67dfb69d129810a1e3e00c8d14e18cdb041f766a1b9716
   original_relations_sha256: 0cecd19a21d5691fcd7dd41da7255a71b2ca140c377c5f048aacd3758388e8eb
 ---
 ## Summary

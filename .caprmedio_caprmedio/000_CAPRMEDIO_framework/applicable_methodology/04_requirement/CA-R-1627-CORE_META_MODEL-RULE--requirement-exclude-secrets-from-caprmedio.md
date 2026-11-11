@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling"
 tier: 3
 status: Active
 version: 31
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1627-CORE_META_MODEL-RULE--requirement-exclude-secrets-from-caprmedio.md
   source_atom_id: CA-R-1627
   source_atom_revision: 31
-  source_sha256: 24e35a78b034828b5449c0d3dcdc20751a373b6d6738795253b32eb3f3cf92ba
+  source_sha256: 8b6b00c7001af762b11dcce464b7a2d6dc704a35f49826e00435d18850990211
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

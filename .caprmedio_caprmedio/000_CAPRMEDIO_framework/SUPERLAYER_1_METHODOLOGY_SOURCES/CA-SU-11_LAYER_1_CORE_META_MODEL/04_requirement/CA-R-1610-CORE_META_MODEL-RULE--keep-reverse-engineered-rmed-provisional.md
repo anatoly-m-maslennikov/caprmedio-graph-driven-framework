@@ -9,13 +9,13 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
 tier: 3
 status: Active
-version: 25
-updated_at: 2026-11-02 00:18:22 +0400
+version: 26
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1610-CORE_META_MODEL-RULE--keep-reverse-engineered-rmed-provisional.md

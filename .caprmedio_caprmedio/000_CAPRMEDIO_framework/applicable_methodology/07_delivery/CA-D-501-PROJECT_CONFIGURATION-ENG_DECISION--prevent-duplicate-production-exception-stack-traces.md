@@ -8,7 +8,7 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging"
 tier: 3
 status: Active
 version: 15
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/07_delivery/CA-D-501-PROJECT_CONFIGURATION-ENG_DECISION--prevent-duplicate-production-exception-stack-traces.md
   source_atom_id: CA-D-501
   source_atom_revision: 15
-  source_sha256: e3ce75a066fe40f540593711bceae9b05fc6232c97829acc76a1d22855341924
+  source_sha256: bb151359ac82965de893c752e343b36d63bce01b02c5e8fa00f4e1334ae8456d
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

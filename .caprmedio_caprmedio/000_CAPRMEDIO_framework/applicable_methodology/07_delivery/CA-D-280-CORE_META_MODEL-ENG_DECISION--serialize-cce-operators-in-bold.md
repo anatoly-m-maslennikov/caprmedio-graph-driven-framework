@@ -8,7 +8,7 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/File
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 3
 status: Active
 version: 28
@@ -23,7 +23,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-280-CORE_META_MODEL-ENG_DECISION--serialize-cce-operators-in-bold.md
   source_atom_id: CA-D-280
   source_atom_revision: 28
-  source_sha256: d07af5cdd7edb9aecc333e362aeeea049fd5bab91908eeabd3cd32bbda34cf1e
+  source_sha256: 84648fa2c02ddf435d16c0e8eff900b6de19cfcafbfc9f130aebd7092b8e11fd
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -9,7 +9,7 @@ topics:
   main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Content.Claim'
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Atom.Header.Tier
 tier: 6
 relations:
@@ -30,7 +30,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-312-CORE_META_MODEL-ENG_DECISION--write-evaluation-claims-with-the-evaluation-cce-profile.md
   source_atom_id: CA-M-312
   source_atom_revision: 24
-  source_sha256: 9a915844aae3c9af0ead6a0dea01534bc502f80870ca4fb3c397f678b01ee15e
+  source_sha256: 4e07fa0de3152f674d2f1641aa5fd6e758695b16c209e601a3595dce0676953b
   original_relations_sha256: 6847aea819e74b6cfadff0dcb15833b9e403b09229fe445c6c3c564304447634
 ---
 ## Summary

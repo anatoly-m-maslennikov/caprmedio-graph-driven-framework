@@ -30,7 +30,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery/CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
   source_atom_id: CA-D-467
   source_atom_revision: 28
-  source_sha256: 7a44b47cfebab0b829994a53d9ea5c43dc2fe58fa666a6ca813f12d01f9fd82e
+  source_sha256: e1f44c61c444ab9c7ca1b48d7a7b3d22649c9cd55f19a365a4c0b344e1087179
   original_relations_sha256: d0044d401c04912541104905ec20e3fe8aa446a6e50f04a28e8754696dfdaf01
 ---
 ## Summary
@@ -49,7 +49,7 @@ a folder-backed Workflow **must** use **`=1`** Workflow Atom Markdown Carrier **
 
 ## Details
 
-- the Workflow Atom's main content carries the graph scheme; a leaf Step Atom's main content carries its Action or Workflow reference **and** parameter/input bindings, while a containing Step carries its leaf Substep structure without RUNS.
+- the Workflow Claim carries one Mermaid Scheme as a diagram-first visual summary; its text independently specifies the complete graph and may be repeated by the diagram. A Step Claim may carry at most one Mermaid Scheme with the same summary semantics. A leaf Step Atom carries its Action or Workflow reference and parameter/input bindings, while a containing Step carries its leaf Substep structure without RUNS.
 - a containing Step Markdown Carrier **may** have **`<=1`** optional sibling Directory Carrier with the same filename stem containing its leaf Substep Markdown Carriers. this one-level Workflow-to-Step-to-Substep layout retains every folder-backed Step and Substep in its own Markdown Carrier; a Substep directory or another nested Step directory is not admitted.
 - Action Atom Carriers **must** remain separately outside the entire Workflow **and** Step directory tree. Steps reference reusable Actions **without** copying their behavior.
 - folder nesting organizes Carriers; it **must not** establish a Step/Substep Relation, execution inheritance, **or** execution order. the Workflow graph defines control flow; **every** leaf Step retains its own invocation of **`=1`** referenced Action or Workflow, and a containing Step has **`1+`** Substeps and no RUNS relation.

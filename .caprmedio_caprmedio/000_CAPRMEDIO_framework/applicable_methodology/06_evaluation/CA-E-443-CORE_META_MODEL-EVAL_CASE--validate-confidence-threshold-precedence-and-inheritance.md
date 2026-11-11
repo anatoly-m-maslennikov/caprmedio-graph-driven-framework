@@ -6,7 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
   dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
@@ -40,7 +40,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-443-CORE_META_MODEL-EVAL_CASE--validate-confidence-threshold-precedence-and-inheritance.md
   source_atom_id: CA-E-443
   source_atom_revision: 34
-  source_sha256: 01a6db86bd20e89d9ebba45abc983ec7cc120409d776385aad580b7f50dae36b
+  source_sha256: 46635910f345c3baec1029cc1e355395f54905d7040e9b4425936a31f8b14b56
   original_relations_sha256: 4e594913288aae00ff2d31dc5ab5e3127ae4729ea3688f3d2d108e9e7e942fe4
 ---
 ## Summary

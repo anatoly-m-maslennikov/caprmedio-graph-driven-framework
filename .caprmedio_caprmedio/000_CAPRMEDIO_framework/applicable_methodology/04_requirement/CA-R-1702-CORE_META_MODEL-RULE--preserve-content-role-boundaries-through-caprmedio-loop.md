@@ -9,10 +9,11 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role :=
+    Operations)/(.Header.Form := Step)
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Event Record
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
@@ -21,8 +22,8 @@ relations:
   child_of:
   - CA-M-447
 status: Active
-version: 49
-updated_at: 2026-11-02 15:49:28 +0400
+version: 50
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md
@@ -32,8 +33,8 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1702-CORE_META_MODEL-RULE--preserve-content-role-boundaries-through-caprmedio-loop.md
   source_atom_id: CA-R-1702
-  source_atom_revision: 49
-  source_sha256: 6fef59ce796bc34ce8767c5f7369934fe156277272e646dd211cbd431f2b5097
+  source_atom_revision: 50
+  source_sha256: 867a4cc6df7b1a25185bac3a13190e48d860c4114662454aa027a43d9fc16a8f
   original_relations_sha256: cda81380ab057c4da428dab72b93f65bb72092983ee69756870fff6e5dc9bea9
 ---
 ## Summary

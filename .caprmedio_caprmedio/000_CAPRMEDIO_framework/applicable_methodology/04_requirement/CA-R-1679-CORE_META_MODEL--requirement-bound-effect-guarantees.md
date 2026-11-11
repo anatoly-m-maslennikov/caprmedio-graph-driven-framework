@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
 tier: 1
 status: Active
 version: 31
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1679-CORE_META_MODEL--requirement-bound-effect-guarantees.md
   source_atom_id: CA-R-1679
   source_atom_revision: 31
-  source_sha256: e497e810568174d67aeb0dfe487fad645221473c92cf8d946aabf1db2f73964f
+  source_sha256: c59c0a7005861d2727e710e2664410f9e5c407e2a9030fe71ec0f7b921ba16ba
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

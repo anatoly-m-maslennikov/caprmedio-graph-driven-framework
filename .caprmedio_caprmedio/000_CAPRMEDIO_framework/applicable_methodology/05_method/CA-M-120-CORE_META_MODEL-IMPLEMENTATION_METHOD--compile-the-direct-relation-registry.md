@@ -14,7 +14,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Package
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
 tier: 3
 relations:
   method_for:
@@ -35,7 +35,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-120-CORE_META_MODEL-IMPLEMENTATION_METHOD--compile-the-direct-relation-registry.md
   source_atom_id: CA-M-120
   source_atom_revision: 43
-  source_sha256: 165aa24b7d4d857c97279395ea328dbeb26e5e24e6f2b4f5fe8a29b3f26bf4b0
+  source_sha256: d06c37738cc1ce1fc387fe4c5eb17282e5ae9222b341d5cd236ad49e59599581
   original_relations_sha256: 68a2c39318c77d63e9da6b3745d4ed6a600564f503add663a28df99ecce4edd3
 ---
 ## Summary

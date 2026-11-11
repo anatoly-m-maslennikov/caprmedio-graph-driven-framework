@@ -8,7 +8,7 @@ form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")/(.Header.Form := FPF Analysis Report)
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
 relations:
@@ -27,7 +27,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-588-PROJECT_CONFIGURATION-EVAL_CASE--check-fpf-analysis-report-imports.md
   source_atom_id: CA-E-588
   source_atom_revision: 20
-  source_sha256: f65d3cb3a0fa25b8d91635b2bce5452f321cfd8dee4e0b427fde6ad890b853bc
+  source_sha256: 5f61b253c9bec144726fef945fcbe5b356f03c996f8392cf692d52aa1877322d
   original_relations_sha256: 319b8af55fb6c03567c36c1203a52816016c2fd2da2bac1e8db6878e5893c0ba
 ---
 ## Summary

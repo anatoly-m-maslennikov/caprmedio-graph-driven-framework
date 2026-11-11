@@ -6,7 +6,7 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring"
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-298-CORE_META_MODEL-IMPLEMENTATION_METHOD--describe-methodology-expansion-mappings.md
   source_atom_id: CA-M-298
   source_atom_revision: 26
-  source_sha256: 0e63f24408baa99ff384b366b9658dd27a98e899980f9817963b4f7cc808cb8b
+  source_sha256: bf0e58e39fb924f8d0cf5fcca47a64224967ea7656704fd39bcf976408056c12
   original_relations_sha256: 7e5e58e1c9bed41c0ded2593d8cbcc64b300c073a390fbc4f30a646c8fc641fa
 ---
 ## Summary

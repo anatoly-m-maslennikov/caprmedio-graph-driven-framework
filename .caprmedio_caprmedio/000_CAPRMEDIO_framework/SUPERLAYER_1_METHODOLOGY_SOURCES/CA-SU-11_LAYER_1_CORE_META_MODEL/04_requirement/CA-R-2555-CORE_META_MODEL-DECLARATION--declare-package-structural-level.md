@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Package.structural_level
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md
@@ -36,7 +36,7 @@ Package.structural_level.*[]{::0};
 Package.structural_level >= 0;
 
 # instances
-Package/Implementation//$implementation.structural_level = 0;
+Package/Project Package//$implementation.structural_level = 0;
 
 IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)
 THEN ($contained.structural_level = $container.structural_level + 1)

@@ -17,7 +17,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
   - CAPRMEDIO_MODEL <+ Journal
 tier: 4
 relations:
@@ -36,7 +36,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-276-CORE_META_MODEL-IMPLEMENTATION_METHOD--repair-accidental-atom-id-reuse.md
   source_atom_id: CA-M-276
   source_atom_revision: 32
-  source_sha256: ef55d985697730a952300c37744dd70a8faf567be2fd92cf005cd5bd08cb4131
+  source_sha256: fdd6e20dfb379d4f86cd0c11c08758a90bf89657167108160ceb5ae530f11fda
   original_relations_sha256: c97e8b2b86ca5e437ab55e65bbfcc5e303f2caa3defea58e72e703e497de98a3
 ---
 ## Summary

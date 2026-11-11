@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
 tier: 2
 relations:
   depends_on:
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1635-PROJECT_CONFIGURATION-RULE--require-production-evaluation-checklists.md
   source_atom_id: CA-R-1635
   source_atom_revision: 42
-  source_sha256: 342dfae964706b3f77feb7a167735f52d7a070177c8daf638434326ac76db44a
+  source_sha256: c7b01121cd563bf88602973dc6d1c5f3bc7597da08329b342e7cacf765af9977
   original_relations_sha256: 6c50a8bd5dcb74eec5e6c55456dfc8dbae9842ad53ff8b9e24e70a74798e8908
 ---
 ## Summary

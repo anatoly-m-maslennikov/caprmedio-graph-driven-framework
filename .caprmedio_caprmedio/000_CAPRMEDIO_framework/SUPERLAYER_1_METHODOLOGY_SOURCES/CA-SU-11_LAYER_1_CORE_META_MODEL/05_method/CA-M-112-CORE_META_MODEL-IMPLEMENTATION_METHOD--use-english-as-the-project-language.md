@@ -8,7 +8,7 @@ form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 3
 relations:
   child_of:

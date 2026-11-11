@@ -13,7 +13,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Methodology Sources
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Component Structure
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure"
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering
 tier: 3
 relations:
@@ -32,7 +32,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1800-PROJECT_CONFIGURATION-RULE--bind-every-tool-to-one-methodology-action.md
   source_atom_id: CA-R-1800
   source_atom_revision: 19
-  source_sha256: 6fefabd4be6f66a3e0e66d49995138507de58780bff9a3f340308dfe49ff3e1c
+  source_sha256: d328fb8e3c5ab8ea50ba889c030583a3bf98105d0938d26c74cb43c379189eeb
   original_relations_sha256: 95a170d690ef47b6d4b2bfc3b07de342c82190a4797a6703732198276c9572d0
 ---
 ## Summary

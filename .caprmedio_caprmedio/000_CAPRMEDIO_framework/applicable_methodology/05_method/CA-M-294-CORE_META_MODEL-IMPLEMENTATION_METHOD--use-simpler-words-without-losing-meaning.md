@@ -10,7 +10,7 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Term
 tier: 3
 relations:
@@ -35,7 +35,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-294-CORE_META_MODEL-IMPLEMENTATION_METHOD--use-simpler-words-without-losing-meaning.md
   source_atom_id: CA-M-294
   source_atom_revision: 27
-  source_sha256: af5ca3813e8653e2c78e98c48f2fec3ee950875f2201873a4a2d2590e1433701
+  source_sha256: 28b9b87fb44cc3df874222c7659c70eec2fba95712eaa78572bca55023c34034
   original_relations_sha256: 6746b4a0115b5db0b9c42517faa8335a9996da63970cc352369cb14deac5244e
 ---
 ## Summary

@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Package.structural_level
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md
@@ -20,8 +20,8 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2555-CORE_META_MODEL-DECLARATION--declare-package-structural-level.md
   source_atom_id: CA-R-2555
-  source_atom_revision: 2
-  source_sha256: bceffcf11605f9ff4b194ed788be6d331f623c96b75f52ea03b2ecd6a83ba5a8
+  source_atom_revision: 3
+  source_sha256: fe224486264a6703447cedbc5929cc84dafa90fe614a851ac73fb66a064b3584
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -42,7 +42,7 @@ Package.structural_level.*[]{::0};
 Package.structural_level >= 0;
 
 # instances
-Package/Implementation//$implementation.structural_level = 0;
+Package/Project Package//$implementation.structural_level = 0;
 
 IF (Package//$contained ((IS_CONTAINED_BY)) Package//$container)
 THEN ($contained.structural_level = $container.structural_level + 1)

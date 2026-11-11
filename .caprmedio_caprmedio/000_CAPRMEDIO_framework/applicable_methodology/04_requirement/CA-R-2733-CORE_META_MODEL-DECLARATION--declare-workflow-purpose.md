@@ -13,7 +13,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2733-CORE_META_MODEL-DECLARATION--declare-workflow-purpose.md
   source_atom_id: CA-R-2733
   source_atom_revision: 1
-  source_sha256: abe81ac5ac303ca5fd3ec6457fb808f7a5ccc7d3ffa7c93e672d4b85f20e36aa
+  source_sha256: 0091c85c6d8f86723ad7348474eb335464c75182f1b511e667219b08997e82f2
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -26,5 +26,5 @@ Declare Workflow.Purpose
 ### Formal Claim
 
 ```CFEL
-Workflow//$workflow.Purpose:: [string]{::1}
+Workflow//$workflow.Purpose: [string]{:1}
 ```

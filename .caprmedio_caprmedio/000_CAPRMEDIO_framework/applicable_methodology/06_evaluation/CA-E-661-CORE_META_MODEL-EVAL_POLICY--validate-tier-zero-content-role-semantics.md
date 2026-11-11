@@ -16,12 +16,13 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role :=
+    Operations)/(.Header.Form := Step)
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 2
 relations:
@@ -35,8 +36,8 @@ relations:
   - CA-R-2463
   - CA-R-1018
 status: Active
-version: 7
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 8
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md
@@ -46,8 +47,8 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-661-CORE_META_MODEL-EVAL_POLICY--validate-tier-zero-content-role-semantics.md
   source_atom_id: CA-E-661
-  source_atom_revision: 7
-  source_sha256: 2c53e0699291442c55c411247eed60ec1dcbce030cb730002032b7acd43073f6
+  source_atom_revision: 8
+  source_sha256: ad909ba4ffb9c65b628f127826ac3bc2bc98f8cb1fa3f0096270008082e45c8c
   original_relations_sha256: 7eef9f5f282a619ccb53a135385f48bb199e24ae1368e6fdc99d1159cc5d18a5
 ---
 

@@ -20,7 +20,7 @@ Declare Runtime Workflow
 ### Formal Claim
 
 ```CFEL
-Atom/(.Header.Role: Operations)/Workflow/(.Purpose := Runtime)
+Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)
 ```
 
 ## Semantics

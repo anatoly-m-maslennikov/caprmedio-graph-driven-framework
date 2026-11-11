@@ -6,7 +6,7 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   dependencies:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom.Content
@@ -29,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-113-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-claims-in-caprmedio-controlled-english.md
   source_atom_id: CA-M-113
   source_atom_revision: 42
-  source_sha256: 8ecd64dd919f0bc3a713e53a7a4d2da582bfa10c4e94712565205ffbf96db45a
+  source_sha256: 6a982d42d604f55cf66576bb8812da19114509165a6fdcdc1ed1bb13f5db9e8f
   original_relations_sha256: 2701bc866cb6ded663ce6728ada8d5991d372b20fe3d8b0d795cc53ee044986b
 ---
 ## Summary

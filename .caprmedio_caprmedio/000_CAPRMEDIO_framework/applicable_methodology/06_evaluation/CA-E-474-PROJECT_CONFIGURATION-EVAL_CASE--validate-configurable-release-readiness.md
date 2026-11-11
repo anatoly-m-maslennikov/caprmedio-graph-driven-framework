@@ -6,16 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Release Readiness'
+  main_subject: CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form
+    := Workflow)//Release Readiness
   dependencies:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
+    >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
-  - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess Release Readiness'
-  - 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Implementation Workflow'
+  - CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)//Assess
+    Release Readiness
+  - CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Implementation
+    Workflow
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Projection
   - CAPRMEDIO_MODEL <+ Event Record
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History/Release.ID
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
@@ -23,14 +27,10 @@ topics:
 tier: 4
 relations:
   evaluation_for:
-  - CA-O-025
-  - CA-O-026
-  - CA-O-027
-  - CA-R-1692
   - CA-R-1646
 status: Active
-version: 27
-updated_at: 2026-11-02 18:35:20 +0400
+version: 28
+updated_at: 2026-11-09 15:54:30 +0400
 carrier_destination:
   file:
     name: CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md
@@ -40,10 +40,11 @@ claim_target_scope_unit: PROJECT_CONFIGURATION
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-474-PROJECT_CONFIGURATION-EVAL_CASE--validate-configurable-release-readiness.md
   source_atom_id: CA-E-474
-  source_atom_revision: 27
-  source_sha256: 5602ef681ce8e3488e94996b2dbc53e442a115286a6fc7873e71c54e4518da36
-  original_relations_sha256: 474cd0531e323968dc05f230d1a267f336a12a8d9140c140d3ccf9f98fa8ed3e
+  source_atom_revision: 28
+  source_sha256: 6de729d973af622e5179ab9c3b57c996c7ef9d9b0abb98d2bdf69e7d3d794136
+  original_relations_sha256: 27660d904d23e62acb0856accf8a30f7dd11a24df5a9c75d25b4e4fc38cd8508
 ---
+
 ## Summary
 
 Validate configurable release readiness

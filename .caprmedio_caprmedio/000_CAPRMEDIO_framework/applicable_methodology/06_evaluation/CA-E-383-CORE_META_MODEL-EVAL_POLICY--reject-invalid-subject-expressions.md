@@ -15,7 +15,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Validation
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Validation"
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
 tier: 4
@@ -43,7 +43,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-383-CORE_META_MODEL-EVAL_POLICY--reject-invalid-subject-expressions.md
   source_atom_id: CA-E-383
   source_atom_revision: 46
-  source_sha256: caa037082fb01bc2c7ba0a3751192592fb20f9636474ae43a05d6d976be05acb
+  source_sha256: c3b57db91e16d9da1265f3ab799a65417c94f89c2df7a313f77e763372f39101
   original_relations_sha256: e964838ad77fcc9f2c5e1f13c715d2971a5afa5c978ceda21f93cec4578ce090
 ---
 ## Summary

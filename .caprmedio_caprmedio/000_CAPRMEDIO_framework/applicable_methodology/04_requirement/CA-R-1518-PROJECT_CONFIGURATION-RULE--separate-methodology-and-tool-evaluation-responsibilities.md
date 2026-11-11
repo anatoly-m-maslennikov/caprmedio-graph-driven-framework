@@ -15,7 +15,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow) >{1+} Atom/(.Header.Role := Operations)/(.Header.Form := Step)'
   - CAPRMEDIO_MODEL <+ Package
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Verification
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
 tier: 2
 relations:
@@ -35,7 +35,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1518-PROJECT_CONFIGURATION-RULE--separate-methodology-and-tool-evaluation-responsibilities.md
   source_atom_id: CA-R-1518
   source_atom_revision: 25
-  source_sha256: 7d34b91826dbc3f39e3865ae1d465878f6b422beb47361fbcd358523fa640f14
+  source_sha256: 249b8bcea6ea825985690a501d835812708b7d84075a92bdacc9772f7cd4a84a
   original_relations_sha256: a160656a5227133f915358025dba2043d381de3a00738d92f5015d7253981f14
 ---
 ## Summary

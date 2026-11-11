@@ -9,10 +9,10 @@ topics:
   main_subject: Subject/caprmedio/Action//Legacy Evidence and Provisional RMED Preparation
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Retrieval
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Retrieval"
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Traceability
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Traceability"
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: AI Agent'
@@ -31,7 +31,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-124-PROJECT_CONFIGURATION-ACTION--prepare-legacy-evidence-and-provisional-rmed.md
   source_atom_id: CA-O-124
   source_atom_revision: 15
-  source_sha256: 26db691474ef8b74676a755e82a7e8c577d473e4d2143ec937ff8a7068b9374d
+  source_sha256: f84c46156eb0483db9f210882768102e9dfebe8d704e3884f8c794958d7dc37a
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 # Summary

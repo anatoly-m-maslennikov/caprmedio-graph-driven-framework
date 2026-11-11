@@ -15,7 +15,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
 tier: 4
 relations:
   evaluation_for:
@@ -36,7 +36,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/06_evaluation/CA-E-488-PROJECT_CONFIGURATION-EVAL_CASE--validate-tool-action-bindings-and-evaluation-ownership.md
   source_atom_id: CA-E-488
   source_atom_revision: 25
-  source_sha256: 64bd56b37eb58979a02eba58bcd8e76130efa27d263080b9c1e23e0a1887ec81
+  source_sha256: 8bb89671dc879480974e99549079878baf09ebde68379fe572e540932a095ef6
   original_relations_sha256: e06ebb6b9927438ff6a5af45051efe79945ea1a9a4585f67c5bf0d4ba08e6062
 ---
 ## Summary

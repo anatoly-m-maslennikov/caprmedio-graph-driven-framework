@@ -30,14 +30,22 @@ Assess update identity for Atom lifecycle
 
 ## Operation
 
-This Step invokes exactly existing CA-O-067, assess Atom update identity, as one Agentic invocation in Integrated context under R1527. It is read-only and supplies no effect permission.
+### Kind
 
-### Input and parameter binding
+Decision.
 
-Bind exactly one existing target Revision, its complete Carrier/proposed Claim/properties/Summary, applicable change authority and assessment evidence from the admitted Update request. An ambiguous or multi-target Update request returns invalid before invoking O067; never reuse one target's result for another target. On an authorized O129 reassessment route use the explicitly admitted fresh proposal/current target/evidence retained in that result and its revalidation decision, not silently substituted values. Bind O067's exact current definition and this Step/Workflow Run references before dispatch; changed definitions pause for R1525 revalidation.
+### Inputs
 
-Return O067's identity-preserving, replacement-required or unresolved assessment with its exact target/proposal/source binding unchanged. The Workflow, not O067 or this Step, maps it to update effects, terminal Replace handoff or blocked evidence/Operator decision.
+One existing Atom and proposed properties.
 
-## Details
+### Fixed parameters
 
-This direct O067 binding satisfies M303 without a nested classifier or multi-Action Step. Stale results are not approval. Retain the actual Step/Action Run and parent identity, current context and canonical Journal evidence, including read-only/no-op/failure outcomes; no mutation or successor invocation occurs here.
+None.
+
+### Runs
+
+CA-O-067, Assess Atom update identity, when explicitly requested as a read-only observation. This Step is not a gate or route in lifecycle Update.
+
+### Outputs
+
+The Action's observation; it does not authorize or block a lifecycle effect.

@@ -12,7 +12,7 @@ topics:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow) {:1+}<+ Atom/(.Header.Role: Operations)/(.Header.Form: Step)'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Actor
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
 tier: 5
@@ -59,13 +59,13 @@ Atom Claims.
 - **when** several points share a subject **or** predicate, state that shared lead-in once **and** put the points **in** a list. preserve conjunctions, alternatives, conditions, **and** negation.
 - use bullets for unordered points, conditions, **or** alternatives.
 - use a numbered list for sequential steps **only** **when** the content establishes that sequence. numbering **must not** invent execution order **or** priority.
-- use a flow table for a Workflow with Conditional Step definitions. identify **every** Step, its leaf **`=1`** Action reference **or** Workflow call where permitted, **or** its containing substep structure, its parameter/input bindings **when** applicable, **and** the declared routing condition, selected next Step **or** terminal outcome under the Workflow definition.
+- make each Workflow Claim text self-sufficient: identify its Steps, calls or containing structure, applicable bindings, and routing conditions, next Steps or terminal outcomes. A flow table may carry this information, but is not mandatory when the text already supplies it. A Mermaid Scheme is a diagram-first visual summary and may repeat the text.
 
 ### Preservation
 
 - preserve the complete Claim **and** its qualifications; easier wording **or** layout **must not** change its meaning.
 - retain the Atom boundary under the composite-Claim boundary rule. one Claim does **not** require one sentence; paragraphs, bullets, **and** table rows do **not** determine the number of independently governed Claims.
-- express authoritative content once rather than repeating the same Claim **in** prose **and** a list **or** table.
+- avoid redundant authoritative restatements in prose, lists and tables. A Mermaid Scheme may repeat its self-sufficient Claim text as a visual summary.
 - apply the Term **and** CCE Operator rendering Method under the Term and operator rendering Method throughout.
 
 readable layout alone is insufficient **when** the Claim still requires the reader **to** reconstruct missing context **or** logical connections.

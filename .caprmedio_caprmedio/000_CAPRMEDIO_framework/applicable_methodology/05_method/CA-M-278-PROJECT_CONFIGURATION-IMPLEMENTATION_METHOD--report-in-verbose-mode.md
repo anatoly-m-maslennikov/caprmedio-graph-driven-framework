@@ -11,7 +11,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
   - CAPRMEDIO_MODEL <+ Project.Settings.Interaction
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Architecture <+ Communication
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication"
 tier: 3
 status: Active
 version: 31
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/05_method/CA-M-278-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--report-in-verbose-mode.md
   source_atom_id: CA-M-278
   source_atom_revision: 31
-  source_sha256: d0c8484aa1e5d29f1d991e906a7978929bcd01233da7a208d431926245be631a
+  source_sha256: 3cdd3c310459431cea6dfd508737e74a705b1ddbdcdb326610c894cb5353b166
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

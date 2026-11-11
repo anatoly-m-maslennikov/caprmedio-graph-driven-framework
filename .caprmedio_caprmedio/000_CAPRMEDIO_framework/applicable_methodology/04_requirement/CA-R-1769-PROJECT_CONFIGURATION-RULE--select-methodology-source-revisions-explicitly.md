@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Source Selection
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Source Selection"
 tier: 2
 relations:
   child_of:
@@ -27,7 +27,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1769-PROJECT_CONFIGURATION-RULE--select-methodology-source-revisions-explicitly.md
   source_atom_id: CA-R-1769
   source_atom_revision: 36
-  source_sha256: c441f814f210e5d2c902d9fb95cb364999d9d832f245d56d3a7e04b3a4970d3b
+  source_sha256: ba501a62c730f41b8b6d58075ddf2da2fb2caeabe48abdedd9616014a0f2378c
   original_relations_sha256: 6d15f06a371e9113520f9fa24f3577cace32d5c97810504c769063d5d5b83f24
 ---
 ## Summary

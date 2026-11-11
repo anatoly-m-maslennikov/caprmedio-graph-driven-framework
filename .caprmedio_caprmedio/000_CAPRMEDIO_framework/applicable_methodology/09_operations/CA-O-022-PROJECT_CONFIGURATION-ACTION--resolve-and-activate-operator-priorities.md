@@ -6,7 +6,7 @@ container:
 role: Operations
 form: Action
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
@@ -31,7 +31,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-022-PROJECT_CONFIGURATION-ACTION--resolve-and-activate-operator-priorities.md
   source_atom_id: CA-O-022
   source_atom_revision: 21
-  source_sha256: 94198da1f0dab3cc177da9e97923ff58f81e13d3cb2fea0a906d2972d2acd29b
+  source_sha256: 2fca5f9d6640a4d9b1e5f9dfe441520fc75deb2772e65dd8940bb2caa798725c
   original_relations_sha256: 2cccfab5f9eb53e0f786c8f141ca6d892cd6285d32a2aceff4e7a46010d8ba97
 ---
 # Summary

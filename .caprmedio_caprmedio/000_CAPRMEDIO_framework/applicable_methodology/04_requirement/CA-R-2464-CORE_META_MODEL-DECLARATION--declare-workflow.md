@@ -7,13 +7,13 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
 tier: 3
 status: Active
-version: 5
-updated_at: '2026-11-04 00:31:19 +0400'
+version: 7
+updated_at: '2026-11-11 05:13:50 +0400'
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2464-CORE_META_MODEL-DECLARATION--declare-workflow.md
   source_atom_id: CA-R-2464
-  source_atom_revision: 5
-  source_sha256: 748178ea09c2f97821a9a03d3f056f44dd47c1665eb5ffb3d78f3f326b1acbba
+  source_atom_revision: 7
+  source_sha256: d4a9dece3e2f1b8dbfc0db8a0090d128b1a400eb6c6c08d259caea53f270b26f
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -27,7 +27,9 @@ Declare Workflow
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Workflow;
+Atom/(.Header.Role := Operations)/Workflow;
+
+Workflow.Header.Form:: [in (Workflow)]{::1};
 
 # instances
 Workflow//$workflow{::1+}((CONTAINS)) Step//$step;

@@ -11,7 +11,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 6
 relations:
   child_of:
@@ -31,7 +31,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-309-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-plan-claims-with-the-plan-cce-profile.md
   source_atom_id: CA-M-309
   source_atom_revision: 25
-  source_sha256: 40a6445e5aa17c8024a7719f59cdb9fd08b7c2efd6e8dde3fa245cd2de7df766
+  source_sha256: e90698df7d8d80cba4f0c62ff056e19248a6481941a7946acb2bb7f8f461cf44
   original_relations_sha256: a1630976c55baee2df66eec1a8564dbfdda162656cba6354e2f480b01eac7d0d
 ---
 

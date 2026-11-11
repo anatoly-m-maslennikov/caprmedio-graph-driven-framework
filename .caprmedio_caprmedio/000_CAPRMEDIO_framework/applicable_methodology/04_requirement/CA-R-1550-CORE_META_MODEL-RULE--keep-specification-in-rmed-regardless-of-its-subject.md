@@ -11,12 +11,12 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Atom.Header.Topics
 tier: 1
 status: Active
-version: 28
-updated_at: 2026-11-02 08:06:47 +0400
+version: 29
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1550-CORE_META_MODEL-RULE--keep-specification-in-rmed-regardless-of-its-subject.md
@@ -26,8 +26,8 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1550-CORE_META_MODEL-RULE--keep-specification-in-rmed-regardless-of-its-subject.md
   source_atom_id: CA-R-1550
-  source_atom_revision: 28
-  source_sha256: d86bc8568bcc65e6e94357dc5024cc4f821cb856cf4bb20be4ba23243c4ae47e
+  source_atom_revision: 29
+  source_sha256: 7024996a1a479c9f1343fd4983190f1c98375fcb3a4ac3390a458ecaa7349618
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

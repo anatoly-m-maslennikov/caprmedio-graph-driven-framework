@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Failure Handling
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Failure Handling"
 tier: 3
 status: Active
 version: 14
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1784-PROJECT_CONFIGURATION-RULE--protect-primary-operations-from-logging-failure.md
   source_atom_id: CA-R-1784
   source_atom_revision: 14
-  source_sha256: 5fc9f6d59d00e3a375a9db8921c960199f93493893d61dbf4b04af750be67495
+  source_sha256: d40054135f6bee27247e1db2328e162cace8c55475c3f80c9996386bc08f9223
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

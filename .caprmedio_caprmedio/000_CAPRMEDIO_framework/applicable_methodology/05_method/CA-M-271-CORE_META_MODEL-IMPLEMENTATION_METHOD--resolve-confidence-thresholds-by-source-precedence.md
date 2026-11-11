@@ -6,7 +6,7 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
   dependencies:
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
@@ -30,7 +30,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-271-CORE_META_MODEL-IMPLEMENTATION_METHOD--resolve-confidence-thresholds-by-source-precedence.md
   source_atom_id: CA-M-271
   source_atom_revision: 29
-  source_sha256: 196bff8b2b4e8c219eab69fbb06b786e139135b9e58f3449b00c7f826e098bac
+  source_sha256: 1c8263970965f9e53db0359134f6ad2ba4401bee1690fcc810f900641452a706
   original_relations_sha256: 57a2d15d1c076f7de9a5434f2b010760681bcef356d85d254dae9d1bb3d233dd
 ---
 ## Summary

@@ -10,7 +10,7 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
   - CAPRMEDIO_MODEL <+ Carrier/File
   - CAPRMEDIO_MODEL <+ Scope Unit.Name
@@ -33,7 +33,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-512-CORE_META_MODEL-EVAL_CASE--validate-cce-lexical-case.md
   source_atom_id: CA-E-512
   source_atom_revision: 28
-  source_sha256: 94084cd025da6c90d2f9afe2bb4bd103ff158b3bb1fe938bba6a00405f04496e
+  source_sha256: 6cfa0999b709c32b257a67d07a1150e2121dd817280c2f0506e9c4060d386a30
   original_relations_sha256: 143f71e7ff7db540b42f007e3cf765db4eb060cd493e3ff603ec74d9d6184078
 ---
 ## Summary

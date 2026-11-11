@@ -8,7 +8,7 @@ form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 6
 relations:
   child_of:
@@ -29,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-123-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-definitions-of-done.md
   source_atom_id: CA-M-123
   source_atom_revision: 31
-  source_sha256: 7b14c2a2520bb301343c224cd3d0cb52af4b4b4c5eef8ffbbe83ce577c54df54
+  source_sha256: 1577b17c45888edbad92816eb2cb0d2003ed9c8c86e5b369cd7e27af40d8dd1f
   original_relations_sha256: f4e336e4d641a310c7347debd28bda8e85f49bc1e4112b1b7f49fd05272a6d97
 ---
 ## Summary

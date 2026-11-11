@@ -13,23 +13,23 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 1
 status: Active
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+version: 25
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
-    name: CA-R-1548-CORE_META_MODEL-RULE--define-specification-content-roles.md
+    name: CA-R-1548-CORE_META_MODEL-DEFINITION--define-specification-content-roles.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1548-CORE_META_MODEL-DEFINITION--define-specification-content-roles.md
   source_atom_id: CA-R-1548
-  source_atom_revision: 24
-  source_sha256: 29f1e29f4134151e21591e189c0d902c5df447b67c14ada75811d5467296d40f
+  source_atom_revision: 25
+  source_sha256: a136716ddc32fa611750bd0963454902fa7480ea4946cf563cd8b2f6b9ec65f4
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Traceability
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
   - CAPRMEDIO_MODEL <+ Atom.Content
@@ -26,7 +26,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1611-CORE_META_MODEL-RULE--separate-legacy-observations-from-refactoring-decisions.md
   source_atom_id: CA-R-1611
   source_atom_revision: 28
-  source_sha256: b07aaed6062587ecd8e02829ffb2cc84af0b9349a8c202755bda7d70dd7d4aaf
+  source_sha256: 705880e269abcc94d2fcf9c51b787077dd15b082308f354a06069a17ca7a56ef
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

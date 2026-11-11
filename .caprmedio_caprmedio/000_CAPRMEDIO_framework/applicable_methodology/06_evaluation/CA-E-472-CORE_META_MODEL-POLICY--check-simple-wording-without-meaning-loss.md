@@ -19,7 +19,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
   - CAPRMEDIO_MODEL <+ Term
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 4
 relations:
   evaluation_for:
@@ -35,7 +35,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-472-CORE_META_MODEL-POLICY--check-simple-wording-without-meaning-loss.md
   source_atom_id: CA-E-472
   source_atom_revision: 31
-  source_sha256: 33fe72db58d37d79cc9fa6fa55cde60fc9ec0d7d126cf96208c0140da5eef8df
+  source_sha256: 75e047012d95c4a7ac8a290c41d68f335e0245e73b0fdda293dd1a10529577e9
   original_relations_sha256: 8b9c3063afc923eb63345ee7aeb90194560f91eb0438e1f2c7351bbae8d424cd
 ---
 ## Summary

@@ -20,5 +20,5 @@ Declare Workflow.Purpose
 ### Formal Claim
 
 ```CFEL
-Workflow//$workflow.Purpose:: [string]{::1}
+Workflow//$workflow.Purpose: [string]{:1}
 ```

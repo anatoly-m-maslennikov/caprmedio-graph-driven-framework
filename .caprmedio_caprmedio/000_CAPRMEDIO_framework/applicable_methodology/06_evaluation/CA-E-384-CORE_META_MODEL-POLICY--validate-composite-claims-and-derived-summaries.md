@@ -12,7 +12,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Scope Unit
 tier: 3
 relations:
@@ -36,7 +36,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-384-CORE_META_MODEL-POLICY--validate-composite-claims-and-derived-summaries.md
   source_atom_id: CA-E-384
   source_atom_revision: 42
-  source_sha256: ecfe3f2e813c08014ba87bfa97d73658742fab6342c735f7becbebd7ccac1688
+  source_sha256: d35d2a27d7e56d1c630e1df898c7398b03351896bc2ab122731237e7b6375f84
   original_relations_sha256: 683edb070640fcebfd5b6aafbc8687ede3548fd2b5d1cd90dcd386920c548780
 ---
 ## Summary

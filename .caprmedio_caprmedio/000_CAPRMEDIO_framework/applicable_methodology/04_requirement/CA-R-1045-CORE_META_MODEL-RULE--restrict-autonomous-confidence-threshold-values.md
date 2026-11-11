@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
 tier: 2
 relations:
   child_of:
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1045-CORE_META_MODEL-RULE--restrict-autonomous-confidence-threshold-values.md
   source_atom_id: CA-R-1045
   source_atom_revision: 27
-  source_sha256: b3020a095ca76dddac3a276e0bde937804caccba97370be4fd5b2867fd600bb4
+  source_sha256: 3406a8e2de633a55983aa318b8e313d2b50d04a23c2861c2d67d0e9c8a345eeb
   original_relations_sha256: 6f0d7042bafec03f41aba93d9d29bcd1833719ec8a8174a03378838fd5da89fd
 ---
 ## Summary

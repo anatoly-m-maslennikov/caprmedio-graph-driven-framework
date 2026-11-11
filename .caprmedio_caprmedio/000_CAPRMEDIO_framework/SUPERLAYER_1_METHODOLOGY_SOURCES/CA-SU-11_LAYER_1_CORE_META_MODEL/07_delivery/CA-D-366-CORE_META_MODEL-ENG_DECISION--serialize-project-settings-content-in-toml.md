@@ -18,15 +18,16 @@ relations:
   child_of:
   - CA-D-364
 status: Active
-version: 31
-updated_at: 2026-11-04 09:30:21 +0400
+version: 32
+updated_at: 2026-11-09 21:15:45 +0400
 carrier_destination:
   file:
-    name: CA-D-366-CORE_META_MODEL-DECISION--serialize-project-settings-content-in-toml.md
+    name: CA-D-366-CORE_META_MODEL-ENG_DECISION--serialize-project-settings-content-in-toml.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/07_delivery
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Serialize Project Settings Content in TOML
@@ -48,7 +49,7 @@ the Project Settings TOML Carrier **must** encode Operator-editable Project init
 - **if** present, `project.obsolete_names` **must** be a TOML array of nonempty strings containing the exact registered prior names. an empty array is permitted; absence **and** an empty array **must** remain distinct. preserve their exact values **and** order; do **not** trim, normalize, deduplicate, exclude the canonical name, **or** invent missing prior names. CA-D-392 continues to govern their Projection exposure, **not** this input signature.
 - `artifacts` **must** be a table containing **only** the required `identity` table; `artifacts.identity` **must** contain **only** required `project_prefix`. `artifacts.identity.project_prefix` **must** be a nonempty TOML string containing the exact uppercase Operator-selected Project Prefix under the pending [Project Prefix Decision](CA-D-draft-CORE_META_MODEL-DECISION--serialize-project-prefix.md) **and** CA-D-378.
 - `paths` **must** be a table containing **only** required `control_root`. `paths.control_root` **must** be the TOML string `.caprmedio_<project.name>`, identifying that selected Project's direct-child control root under CA-D-364 **and** CA-D-520; it **must not** override the selected Project **or** declare independently editable Structure.
-- **if** present, `project_mcp` **must** be a table containing **only** required `http_port` **and** optional `tool_blacklist`. the selected Project's fixed MCP HTTP port remains governed by CA-D-594. `project_mcp.http_port` **must** be an exact TOML integer, **not** a boolean, **in** `1..65535`. absence of `project_mcp` is permitted for ordinary Settings Read; MCP launch **or** reuse still requires its configured port under CA-D-594.
+- **if** present, `project_mcp` **must** be a table containing **only** required `http_port` **and** optional `tool_blacklist`. the selected Project's fixed MCP HTTP port remains governed by CA-R-1901. `project_mcp.http_port` **must** be an exact TOML integer, **not** a boolean, **in** `1..65535`. absence of `project_mcp` is permitted for ordinary Settings Read; MCP launch **or** reuse still requires its configured port under CA-R-1901.
 - **if** present, `project_mcp.tool_blacklist` **must** be a TOML array of nonempty strings naming exact MCP tools whose exposure is disabled for this Project. preserve exact values **and** order without trimming, normalization, deduplication, wildcard matching **or** implicit names. an empty array is permitted; absence **and** an empty array **must** remain distinct when reading **and** serializing, while both mean no blocked tools. a listed tool **must** be absent from discovery **and** refused on invocation before its handler runs; retain its implementation **and** binding for later reuse. this setting controls MCP exposure only **and** does not remove host invocation **or** grant execution authority. no release-specific default is part of this schema.
 - validation **must** cover the complete document **and** reject missing required keys, unknown keys **or** sections at **any** level, wrong TOML value types, duplicate TOML keys, unsupported markers, **or** values violating the requirements above. no legacy compatibility section, open extension field, coercion, default, fallback, automatic case conversion, repair, **or** migration is admitted. rejection **must not** authorize changing **or** deleting the existing Carrier.
 

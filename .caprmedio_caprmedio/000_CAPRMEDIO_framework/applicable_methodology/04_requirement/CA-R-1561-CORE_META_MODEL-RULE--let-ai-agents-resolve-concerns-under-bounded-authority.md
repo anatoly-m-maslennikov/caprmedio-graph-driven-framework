@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Effect Authorization
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
 tier: 2
 relations:
   child_of:
@@ -33,7 +33,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1561-CORE_META_MODEL-RULE--let-ai-agents-resolve-concerns-under-bounded-authority.md
   source_atom_id: CA-R-1561
   source_atom_revision: 28
-  source_sha256: d6ee5598b9ae4cfd365013a08829a3e89452bf352186aad3ec565a96df4eb37d
+  source_sha256: 2aa5199e025480664335fe5f31d65643496af07486c582ae0b68fd893f667a6a
   original_relations_sha256: af574ef6cc9f70a0e3208d8edf3eb5d463694adc224f444c2c998dbbf30fa88a
 ---
 ## Summary

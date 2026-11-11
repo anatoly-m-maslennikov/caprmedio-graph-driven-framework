@@ -42,4 +42,4 @@ Each bound value comes from one of:
 - The input of the enclosing Workflow Run.
 - A fixed value declared by the Step.
 
-A Step binding references the selected Action or Workflow contract. It does not copy or redefine that contract.
+A Step binding references the selected Action or Workflow contract. It does not copy or redefine that contract. Passed bindings may serve as logical switches: their values select declared behavior or routing without redefining the called contract.

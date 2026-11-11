@@ -10,7 +10,7 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control <+ Decision Confidence
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)'
   - CAPRMEDIO_MODEL <+ Atom
@@ -39,7 +39,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-241-CORE_META_MODEL-EVAL_CASE--validate-cce-claims-and-derived-projections.md
   source_atom_id: CA-E-241
   source_atom_revision: 47
-  source_sha256: 684396b1d9c1239cb61497344aef7edf24ef38e67323cadeb088713035d92108
+  source_sha256: 303cc7315119e3b6dc099938605cd9d55b8eb1201ab5641fae0e1c2f776d00ff
   original_relations_sha256: 6e854c8b5f996ef6552aca32f5649917ae0b69992ba47acf244e231d558e116d
 ---
 ## Summary

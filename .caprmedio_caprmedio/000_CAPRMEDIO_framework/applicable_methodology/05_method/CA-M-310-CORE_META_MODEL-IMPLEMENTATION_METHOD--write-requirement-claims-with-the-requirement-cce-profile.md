@@ -9,7 +9,7 @@ topics:
   main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement).Content.Claim'
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Atom.Content
 tier: 6
 relations:
@@ -28,7 +28,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/05_method/CA-M-310-CORE_META_MODEL-IMPLEMENTATION_METHOD--write-requirement-claims-with-the-requirement-cce-profile.md
   source_atom_id: CA-M-310
   source_atom_revision: 25
-  source_sha256: fd9c6f9931ec111c85c96a89eb21dce3508e66a39beb917a1a364b1df4e0993e
+  source_sha256: 242abdc59b3c9aca322792174a61f0fbbcb18327ac631f7a28ae1935e774ab76
   original_relations_sha256: 1037ec3e9bee824bbe0013d533c233bc31238f593358d3400af78e5150b7d7f4
 ---
 ## Summary

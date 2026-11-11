@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Observability <+ Logging
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging"
 tier: 3
 status: Active
 version: 14
@@ -21,7 +21,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/04_requirement/CA-R-1780-PROJECT_CONFIGURATION-RULE--define-production-log-severity-meanings.md
   source_atom_id: CA-R-1780
   source_atom_revision: 14
-  source_sha256: 67c6d54881cff84c9425f8f4cf9244e373dee6c7514400635dfa992258b87bb0
+  source_sha256: f10ba2a8ee6cbff742bd79f02a4508a272a516026a07b24e328ece4f5bf0ef78
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 ## Summary

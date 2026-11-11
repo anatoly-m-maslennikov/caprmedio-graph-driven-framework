@@ -12,7 +12,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - CAPRMEDIO_MODEL <+ Package/Implementation
+  - CAPRMEDIO_MODEL <+ Package/Project Package
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
   - CAPRMEDIO_MODEL <+ Event Record
@@ -24,8 +24,8 @@ relations:
   child_of:
   - CA-R-007
 status: Active
-version: 38
-updated_at: 2026-11-02 00:18:22 +0400
+version: 39
+updated_at: 2026-11-10 14:38:45 +0400
 carrier_destination:
   file:
     name: CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md
@@ -35,8 +35,8 @@ claim_target_scope_unit: CORE_META_MODEL
 projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1720-CORE_META_MODEL-RULE--use-one-project-journal-for-governed-provenance.md
   source_atom_id: CA-R-1720
-  source_atom_revision: 38
-  source_sha256: 7e385e07729366b1f39f02ed783efc7d4d197f5e7b0c776d067890b05d2d7e15
+  source_atom_revision: 39
+  source_sha256: add7c23f81e1bf8ce2dc828f9721e91976717466c9f28495f4145c9ebc025e39
   original_relations_sha256: edef9085fddd1e905afd02423e8d88f5300a99b1f0a711703db5055e0c42a859
 ---
 ## Summary

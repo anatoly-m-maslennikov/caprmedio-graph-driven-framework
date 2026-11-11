@@ -10,7 +10,7 @@ topics:
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
-  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization
+  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization"
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_PRIORITY_MODEL
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//PROJECT_LEXICOGRAPHIC
 tier: 3
@@ -33,7 +33,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-13_LAYER_3_PROJECT_CONFIGURATION/09_operations/CA-O-023-PROJECT_CONFIGURATION-ACTION--select-an-alternative-under-active-priorities.md
   source_atom_id: CA-O-023
   source_atom_revision: 20
-  source_sha256: 3f1379116111b01997422fd2cf101ab02312245e658fb1d3f8e4ada6e1161eab
+  source_sha256: 71b9759c4569803568f74adf90f3a3307d4ba1f539a6e6b9da4cf55996816e3b
   original_relations_sha256: 8df28fafc59a8839acbe18a6aef8b5f090b211118455b922c1125a08b40bc003
 ---
 # Summary

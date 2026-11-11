@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Execution Control
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control"
 tier: 2
 relations:
   child_of:
@@ -24,7 +24,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1678-CORE_META_MODEL-RULE--requirement-scale-operational-mechanisms-to-risk.md
   source_atom_id: CA-R-1678
   source_atom_revision: 31
-  source_sha256: 31efb6097c4117265cc392279b63ad913f6c5ba7eb67e2ceb2df8646592b1a24
+  source_sha256: 3ad060e7f3c481b83a946b8698a68431eb47ec45cb036ec9aaea31350494c4c9
   original_relations_sha256: fc2ad1fc55a2c9bd63342f94105e555c5fdbc118c4d5bd544cd3237af537a789
 ---
 ## Summary

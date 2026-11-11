@@ -16,7 +16,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
@@ -48,7 +48,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-520-CORE_META_MODEL-EVAL-POLICY--check-rmed-atom-coherence.md
   source_atom_id: CA-E-520
   source_atom_revision: 32
-  source_sha256: ed2c71708173ee1290d79160cfc34ee827db292215d479746371b0ed08b82654
+  source_sha256: 19d749aaddf4e3460fd805cad26919911b4efdab57227232e859c4f65b6aef6c
   original_relations_sha256: 216745b2d9615d7395b419d7b8e1843d9163e6bafeaaf74fdf1adfb6a455cf32
 ---
 ## Summary

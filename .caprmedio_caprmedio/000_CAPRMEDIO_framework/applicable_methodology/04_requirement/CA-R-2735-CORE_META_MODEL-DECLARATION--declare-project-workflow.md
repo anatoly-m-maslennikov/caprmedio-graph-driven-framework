@@ -13,7 +13,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2735-CORE_META_MODEL-DECLARATION--declare-project-workflow.md
   source_atom_id: CA-R-2735
   source_atom_revision: 1
-  source_sha256: 23d7e46555f531b62a9d847f8234920b9a20dafe7b69cef6373d06bad3b942eb
+  source_sha256: 0992f8e6799ce59a439f7e33657cd6e4f5d374ab7c67859a3442a26e993d2514
   original_relations_sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
 ---
 
@@ -26,7 +26,7 @@ Declare Project Workflow
 ### Formal Claim
 
 ```CFEL
-Atom/(.Header.Role: Operations)/Workflow/(.Purpose := Project)
+Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Project)
 ```
 
 ## Semantics

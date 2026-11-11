@@ -6,9 +6,9 @@ container:
 role: Evaluation
 form: Eval Policy
 topics:
-  main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Data Handling <+ Data Transformation
+  main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Transformation"
   dependencies:
-  - CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Authoring <+ Controlled English
+  - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Canonical Scope Signature'
   - CAPRMEDIO_MODEL <+ Carrier/File
 tier: 5
@@ -29,7 +29,7 @@ projection:
   source_carrier_path: ../../../.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/06_evaluation/CA-E-407-CORE_META_MODEL-POLICY--validate-canonical-scope-signature-boundary.md
   source_atom_id: CA-E-407
   source_atom_revision: 30
-  source_sha256: 7c3ccd0530c46d48bd3c4160ab6f962d75894cb9b93b5aabf588a5fa9ea9bfaa
+  source_sha256: 70d83bf45512ba7e13872ea2acb529c7ac5897d7d62f6c8f1faceb0380c75708
   original_relations_sha256: f67267d21eee2d6d0e9a34f7ed789a9d381444ce717666ef4ca06dbd9f78c50e
 ---
 ## Summary
