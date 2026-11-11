@@ -5,12 +5,12 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Scope Unit Declaration)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Form := Scope Unit Declaration)
 tier: 3
 ref_id: CA-R-3007
 status: Active
-version: 2
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 3
+updated_at: '2026-11-11 14:06:22 +0400'
 carrier_destination:
   file:
     name: CA-R-3007-CORE_META_MODEL-DECLARATION--declare-project-scope-unit-declaration-form.md
@@ -30,8 +30,13 @@ Scope Unit Declaration is the Requirement Form for the Project-root Scope Unit D
 ### Formal Claim
 
 ```CFEL
+# model
+Atom.Header.Context.Form :: Scope Unit Declaration;
+
 # instances
-Atom/(.Header.Form := Scope Unit Declaration)//$root_scope_declaration;
-$root_scope_declaration.Header.Role:: [in (Requirement)]{::1};
-$root_scope_declaration ((HAS_ACTIVE_SUBJECT)) Scope Unit/Project//$project;
+FOR EACH $a[<Atom>, (.Header.Context.Form = Scope Unit Declaration)]:
+(
+    $a.Header.Context.Role:: [in (Requirement)]{::1};
+    $a ((HAS_ACTIVE_SUBJECT)) Scope Unit/Project//$project;
+)
 ```

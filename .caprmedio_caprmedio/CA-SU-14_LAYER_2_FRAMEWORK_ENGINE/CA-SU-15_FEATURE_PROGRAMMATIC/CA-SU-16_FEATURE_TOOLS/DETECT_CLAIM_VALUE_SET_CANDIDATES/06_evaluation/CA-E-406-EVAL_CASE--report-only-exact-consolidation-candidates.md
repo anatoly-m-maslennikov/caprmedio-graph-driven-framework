@@ -7,7 +7,7 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool//DETECT_CLAIM_VALUE_SET_CANDIDATES
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Local Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Context.Topics
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content.Scope
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Property
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph'

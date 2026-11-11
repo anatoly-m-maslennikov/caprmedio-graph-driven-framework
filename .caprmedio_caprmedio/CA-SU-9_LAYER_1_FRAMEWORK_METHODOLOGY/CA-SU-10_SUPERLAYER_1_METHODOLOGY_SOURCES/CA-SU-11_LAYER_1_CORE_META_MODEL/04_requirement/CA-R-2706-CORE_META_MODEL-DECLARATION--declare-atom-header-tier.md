@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
 tier: 3
 status: Active
 version: 2
@@ -32,9 +32,9 @@ Atom.Header.Tier stores one integer value and an optional Tier Label; the Formal
 
 ```CFEL
 # model
-Atom.Header.Tier{::1}:: [int]{::1};
+Atom.Header.Context.Tier{::1}:: [int]{::1};
 
-Atom.Header.Tier.*[in(Label)]{::0..1};
+Atom.Header.Context.Tier.*[in(Label)]{::0..1};
 
-Atom.Header.Tier >= -1
+Atom.Header.Context.Tier >= -1
 ```

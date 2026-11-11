@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Status
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-03 20:00:05 +0400
+version: 3
+updated_at: '2026-11-11T19:34:00+04:00'
 carrier_destination:
   file:
     name: CA-R-2696-CORE_META_MODEL-DECLARATION--declare-atom-header-status.md
@@ -24,17 +24,25 @@ Declare Atom.Header.Status
 
 ## Claim
 
+### Prose Claim
+
+A Status with a dedicated folder has one integer Status Order Number from 0 through 999. Order numbers are distinct across Status values. Declare each number once, including for a Status admitted by several Roles. Active uses its Container's base directory.
+
 ### Formal Claim
 
 ```CFEL
 # model
-Atom.Header.Status{::1}:: [string]{::1};
+Atom.Header.State.Status{::1}:: [string]{::1};
 
-Atom.Header.Status.*[]{::0};
+Atom.Header.State.Status.*[]{::0};
 
-Atom.Header.Status: Draft;
+Atom.Header.State.Status :: Draft;
 
-Atom.Header.Status: Active;
+Atom.Header.State.Status :: Active;
 
-Atom.Header.Status: Archived
+Atom.Header.State.Status :: Archived;
+
+Atom/(.Header.State.Status := Draft).Header.State.Status >| (Status Order Number == 0);
+
+Atom/(.Header.State.Status := Archived).Header.State.Status >| (Status Order Number == 99);
 ```

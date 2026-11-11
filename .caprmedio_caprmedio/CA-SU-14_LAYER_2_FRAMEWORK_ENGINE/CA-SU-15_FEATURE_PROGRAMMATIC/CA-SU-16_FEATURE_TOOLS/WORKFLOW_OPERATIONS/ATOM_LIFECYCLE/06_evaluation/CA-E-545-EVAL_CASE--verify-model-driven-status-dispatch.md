@@ -10,7 +10,7 @@ subjects:
   governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   depends_on:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
   - Subject/CAPRMEDIO/Carrier
 version: 15
 updated_at: 2026-10-27 19:59:37 +0400

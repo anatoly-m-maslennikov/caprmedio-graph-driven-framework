@@ -12,7 +12,7 @@ topics:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
     Control <+ Effect Authorization
   - MODEL//CAPRMEDIO <+ Actor/AI Agent
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
   - MODEL//CAPRMEDIO <+ Execution/Workflow Run
 tier: 5
 status: Active

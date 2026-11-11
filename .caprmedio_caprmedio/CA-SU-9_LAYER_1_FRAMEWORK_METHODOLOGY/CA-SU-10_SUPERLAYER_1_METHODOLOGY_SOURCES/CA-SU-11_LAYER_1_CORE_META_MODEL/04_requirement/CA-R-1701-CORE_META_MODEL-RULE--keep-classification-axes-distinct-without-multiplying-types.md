@@ -9,14 +9,14 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 1
 relations:
   child_of:
-  - CA-M-447
+  - CA-M-539
 status: Active
-version: 34
-updated_at: 2026-11-02 00:18:22 +0400
+version: 35
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1701-CORE_META_MODEL-RULE--keep-classification-axes-distinct-without-multiplying-types.md

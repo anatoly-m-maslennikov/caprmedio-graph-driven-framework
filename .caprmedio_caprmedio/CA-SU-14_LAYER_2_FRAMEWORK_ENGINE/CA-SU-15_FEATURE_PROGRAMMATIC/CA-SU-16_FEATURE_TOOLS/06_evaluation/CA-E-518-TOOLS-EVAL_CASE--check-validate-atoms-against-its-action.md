@@ -12,7 +12,7 @@ topics:
   - Subject/caprmedio/Action//Check Atoms
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Context.Tier
 tier: 6
 relations:
   evaluation_for:

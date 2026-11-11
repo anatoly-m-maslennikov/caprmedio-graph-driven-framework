@@ -43,6 +43,6 @@ method_for relates Method Atom to served Requirement Atom.
 Relation//method_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Atom/(.Header.Role: Method)//$atom ((method_for)) Atom/(.Header.Role: Requirement)//$atom_2
+Atom/(.Header.Context.Role: Method)//$atom ((method_for)) Atom/(.Header.Context.Role: Requirement)//$atom_2
 ```
 

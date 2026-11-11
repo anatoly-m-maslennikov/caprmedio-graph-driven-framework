@@ -32,7 +32,7 @@ Prose Claim is a child Property of Claim. Its value is ordinary Markdown; headin
 
 ```CFEL
 # model
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::0..1};
+Atom/(.Header.Context.Role in RMED).Content.Claim.Prose Claim:: {::0..1};
 
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim.*[]{::0}
+Atom/(.Header.Context.Role in RMED).Content.Claim.Prose Claim.*[]{::0}
 ```

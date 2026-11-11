@@ -8,12 +8,12 @@ form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
   - CAPRMEDIO_MODEL <+ Project
 tier: 4
 relations:

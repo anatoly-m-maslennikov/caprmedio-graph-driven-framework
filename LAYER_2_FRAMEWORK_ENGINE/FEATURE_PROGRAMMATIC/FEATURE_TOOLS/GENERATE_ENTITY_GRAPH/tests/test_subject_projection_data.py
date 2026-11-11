@@ -25,6 +25,14 @@ def claim(*lines):
 
 
 class SubjectProjectionDataTests(unittest.TestCase):
+    def test_encoded_roles_and_forms_keep_declaration_evidence(self):
+        body = claim("```CFEL", "Node.Name: [string]{:1};", "```")
+        canonical = [carrier("CA-R-1", "Node", claim("Node.")),
+                     carrier("CA-R-2", "Node.Name", body)]
+        encoded = [carrier("CA-R-1", "Node", claim("Node."), role="requirement", form="declaration"),
+                   carrier("CA-R-2", "Node.Name", body, role="requirement", form="declaration")]
+        self.assertEqual(build_subject_projection_data(canonical), build_subject_projection_data(encoded))
+
     def test_inherited_model_format_and_instance_constraints_stay_separate(self):
         data = build_subject_projection_data([
             carrier("CA-R-1", "Node", claim("Node declaration.")),

@@ -14,15 +14,15 @@ topics:
 tier: 3
 relations:
   child_of:
-  - CA-M-005
+  - CA-M-1000
   method_for:
   - CA-R-1057
 status: Active
-version: 30
-updated_at: 2026-11-05 00:48:56 +0400
+version: 31
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
-    name: CA-M-139-CAPRMEDIO-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md
+    name: CA-M-139-IMPLEMENTATION_METHOD--translate-framework-language-for-the-operator.md
     path: .caprmedio_caprmedio/05_method
 cce_version: cce_1
 cce_form: method

@@ -1,0 +1,45 @@
+---
+identity:
+  id: CA-R-970308623
+  ref_id: CA-R-970308623@1
+context:
+  container:
+    scope_unit: CA-SU-11
+  role: Requirement
+  form: Declaration
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Content.Operation
+  tier: 4
+state:
+  status: Archived
+  version: 1
+  updated_at: 2026-11-08 18:59:53 +0400
+destination:
+  file:
+    name: CA-R-970308623@1-CORE_META_MODEL-DECLARATION--declare-legacy-operation-content.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/archived
+author: Anatoly Maslennikov
+---
+
+## Summary
+
+Declare legacy Operation content
+
+## Claim
+
+### Prose Claim
+
+An Operations Atom may retain its legacy Operation section during migration. Operation is a Markdown Content Property. Its presentation subheadings, lists and code blocks remain part of its value.
+
+### Formal Claim
+
+```CFEL
+# model
+Atom/(.Header.Role := Operations).Content.Operation:: [markdown]{::0..1};
+
+Atom/(.Header.Role := Operations).Content.Operation.*[]{::0}
+```
+
+## Semantics
+
+Operation is the operation text carried by the legacy Operations Atom. This declaration describes that existing section; it does not decide whether a later Form must use Operation or Claim.

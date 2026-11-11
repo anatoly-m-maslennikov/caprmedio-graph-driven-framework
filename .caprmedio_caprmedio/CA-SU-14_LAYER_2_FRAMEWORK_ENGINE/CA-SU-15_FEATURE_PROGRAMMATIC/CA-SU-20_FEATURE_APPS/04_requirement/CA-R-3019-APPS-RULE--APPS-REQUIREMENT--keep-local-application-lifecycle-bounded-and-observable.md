@@ -11,7 +11,7 @@ context:
     main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
       <+ Execution Control
     dependencies:
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
     - MODEL//CAPRMEDIO <+ Package
     - MODEL//CAPRMEDIO <+ Actor/Operator
     - MODEL//CAPRMEDIO <+ Project

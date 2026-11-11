@@ -8,7 +8,7 @@ form: Requirement
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Goal)
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Project
 tier: 6

@@ -141,27 +141,27 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 - The model batch applied 61 checked operations with 33 outputs and 20 exact predecessor snapshots. The ordering pass applied 4,624 stable sources and reconciled 12 concurrent successors; ten Drafts consumed by the other source lane were not restored. An independent fresh census verified all 4,669 live sources have the selected Header order and no empty/null Header Properties.
 - Ref ID is base ID for Current, ID@Version for Archived and ID@Version-draft for Draft. The final census has 4,463 formula-matching values and zero mismatches. 206 records remain held for missing or unallocated identity/state: 177 lack explicit ID or Status and 29 have unallocated or invalid IDs. No missing data was invented. Fifty-five legacy Relation-list strings need separate domain review; they were preserved.
 - Actual Workflow schema work and anonymous Mermaid Drafts from the other owner were preserved; this ordering change does not promote those schemas. Parser, lifecycle maintenance, projection regeneration and runtime/test gates remain CA #3 dependencies. The full Epic remains Active.
-- Evidence: [model/data/ordering packet](../02_analysis/draft/epic-completion-20261104/application/property-order-20261105/README.md), [independent readback](../02_analysis/draft/epic-completion-20261104/permissions/property-order-final-readback-20261105.json), [final Header check](../02_analysis/draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/final-header-check.json).
+- Evidence: [model/data/ordering packet](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/property-order-20261105/README.md), [independent readback](../02_analysis_and_advisory/000_draft/epic-completion-20261104/permissions/property-order-final-readback-20261105.json), [final Header check](../02_analysis_and_advisory/000_draft/epic-completion-20261104/coverage/ordered-source-migration-20261105/property-audit/final-header-check.json).
 
 ## Ref ID repair — 2026-11-05
 
 - Of the original 206 identity/Status holds, 41 now have formula-valid Ref IDs. Forty existing v1 Drafts received numeric IDs; Workflow Mermaid Draft R2962@1 recovered its recorded identity. Their bodies, Versions and Draft state were preserved; withdrawn proposals remain withdrawn.
 - D409 recovered its explicit archived ID. Its Status and Ref ID remain held. Exact filename references and related Markdown targets were repaired without changing frozen evidence.
 - The remaining 165 holds comprise 159 missing Status values and six unnumbered Version 2/3 Drafts. Eight of the Status holds also lack independently established IDs. Status defaults and unresolved identity choices await the Operator; no state was guessed.
-- Evidence: [repair packet](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json). No promotion or implementation gate is claimed. The Epic remains Active.
+- Evidence: [repair packet](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json). No promotion or implementation gate is claimed. The Epic remains Active.
 
 ## Folder-based Status repair — 2026-11-06
 
 - The Operator confirmed Done, Resolved, Canceled and other non-Active lifecycle states use separate folders. All 159 Status holds are directly in ordinary Role folders. Restored Status Active and added 151 Ref IDs from established base IDs, preserving body, Version and Updated At.
 - The original 206-record set now has 192 formula-valid Ref IDs and 14 identity holds: eight Current IDs lacking sufficient identity evidence and six unnumbered Drafts already at Version 2 or 3. No Status holds remain. Identity/version decisions remain open; no Draft was promoted.
-- Evidence: [folder Status receipt](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/folder-status-application-20261106/adoption-receipt.json), [updated readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json). The Epic remains Active; implementation gates remain external dependencies.
+- Evidence: [folder Status receipt](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/ref-id-repair-20261105/folder-status-application-20261106/adoption-receipt.json), [updated readback](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json). The Epic remains Active; implementation gates remain external dependencies.
 
 ## Identity and Status repair complete — 2026-11-06
 
 - All 206 original identity/Status holds now have formula-valid Ref IDs, with zero remaining missing Status values, missing IDs or unallocated Draft-lineage identities in this set.
 - The Operator approved fresh IDs for six existing Drafts while preserving their Versions: R2994@2, M498@2, M499@2, E792@2, E793@2 and A1327@3. Their known archived predecessors remain unchanged. Exact filename references and Markdown targets were repaired.
 - The Operator approved recovering the final eight Current IDs from filenames after collision checks: C268–C272, D019, D021 and D022. Their body, Version and Updated At were preserved; matching base Ref IDs were added.
-- Evidence: [completed repair packet](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json), [independent final check](../02_analysis/draft/epic-completion-20261104/application/ref-id-repair-20261105/verification/final-206-readback-20261106.json). This bounded repair does not imply full schema conformance or a completed Epic. The Epic remains Active; existing implementation gates remain external dependencies.
+- Evidence: [completed repair packet](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/ref-id-repair-20261105/README.md), [original-set readback](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/ref-id-repair-20261105/progress-readback.json), [independent final check](../02_analysis_and_advisory/000_draft/epic-completion-20261104/application/ref-id-repair-20261105/verification/final-206-readback-20261106.json). This bounded repair does not imply full schema conformance or a completed Epic. The Epic remains Active; existing implementation gates remain external dependencies.
 
 ## Nested Header groups — 2026-11-06
 
@@ -170,7 +170,7 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 - Model review is cleared. All data transforms pass inverse value/body checks; the full guarded source rehearsal passes with temporary IDs and no native application. Existing timestamp quote rules and reversible legacy spellings are preserved. Old unadmitted residue and omissions remain explicit compatibility cases, not new model admission.
 - Shared adapters are implemented with focused evidence in the implementation readiness report. Workbench has a concrete nested reader, relation extraction and query-schema readiness dependency. Keep live Header layout unchanged until that dependency is satisfied. The source lane performs no implementation tests, image build or deployment.
 - Apply the reviewed source batch, verify postimages and exact predecessor history, refresh affected source projections when their admitted route is available, and retain all existing Epic integration gates. A prepared packet or rehearsal does not close this work.
-- Evidence: [Header groups packet](../02_analysis/draft/header-groups-20261106/README.md), [adapter handoff](../02_analysis/draft/header-groups-20261106/adapter-handoff.md), [source rehearsal](../02_analysis/draft/header-groups-20261106/integration/rehearsal.json), [shared implementation](../02_analysis/draft/header-groups-20261106/implementation/READINESS.md), [Workbench status](../02_analysis/draft/header-groups-20261106/workbench-readiness.md).
+- Evidence: [Header groups packet](../02_analysis_and_advisory/000_draft/header-groups-20261106/README.md), [adapter handoff](../02_analysis_and_advisory/000_draft/header-groups-20261106/adapter-handoff.md), [source rehearsal](../02_analysis_and_advisory/000_draft/header-groups-20261106/integration/rehearsal.json), [shared implementation](../02_analysis_and_advisory/000_draft/header-groups-20261106/implementation/READINESS.md), [Workbench status](../02_analysis_and_advisory/000_draft/header-groups-20261106/workbench-readiness.md).
 
 ## Remaining work
 
@@ -201,10 +201,10 @@ Five path-notation Drafts are created: R2780@1, R2781@1, R2475@6, R2476@7 and R2
 
 ## Evidence
 
-- [Full acceptance matrix](../02_analysis/draft/epic-completion-20261104/acceptance/matrix.json).
-- [Completion lanes and current findings](../02_analysis/draft/epic-completion-20261104/README.md).
+- [Full acceptance matrix](../02_analysis_and_advisory/000_draft/epic-completion-20261104/acceptance/matrix.json).
+- [Completion lanes and current findings](../02_analysis_and_advisory/000_draft/epic-completion-20261104/README.md).
 - [P2707 verification task](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/12-CA-P-2707-TASK--verify-declaration-source-cutover.md).
-- [Adopted Property and inherited-format batch](../02_analysis/draft/property-instances-20261104/REPORT.md).
+- [Adopted Property and inherited-format batch](../02_analysis_and_advisory/000_draft/property-instances-20261104/REPORT.md).
 - [Earlier Header/Claim/alias stages](CA-P-2694-EPIC--entity-graph-refactor-stage-4-polishing/model-content-alias-followup-20261103.md).
 
 ## Status

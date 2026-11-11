@@ -17,16 +17,16 @@ topics:
   - CAPRMEDIO_MODEL <+ CFEL<+Operator//AllowedValue
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics
   - CAPRMEDIO_MODEL <+ Term//Artifact
   - CAPRMEDIO_MODEL <+ Projection
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Action)'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role: Operations)/(.Header.Context.Form: Action)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role: Operations)/(.Header.Context.Form: Workflow)'
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
 tier: 4
 relations:
   evaluation_for:
@@ -144,4 +144,4 @@ Use controlled runtime inputs to check the full structural view and the separate
 
 These are generator tests with controlled inputs, not a whole-project Atom-health gate. They add no rule evaluator, source admission policy or construction/CONTAINS implementation.
 
-Construction/CONTAINS projection is deferred to the adjacent `draft/` RMED. It is not required by this active readable-view specification.
+Construction/CONTAINS projection is deferred to the adjacent `000_draft/` RMED. It is not required by this active readable-view specification.

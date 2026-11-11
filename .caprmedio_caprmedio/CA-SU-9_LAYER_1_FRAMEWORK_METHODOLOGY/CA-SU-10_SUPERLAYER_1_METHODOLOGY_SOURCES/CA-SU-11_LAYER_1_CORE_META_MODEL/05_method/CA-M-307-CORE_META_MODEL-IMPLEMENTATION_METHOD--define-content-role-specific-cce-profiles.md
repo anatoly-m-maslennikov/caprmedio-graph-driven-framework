@@ -6,12 +6,12 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
   dependencies:
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Atom.Header.Form
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Form
 tier: 5
 relations:
   child_of:

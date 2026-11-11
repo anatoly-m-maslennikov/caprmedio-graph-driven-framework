@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Enabled Relations.Contains'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Enabled Relations.Contains'
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Enabled Relations.Contains
 tier: 3

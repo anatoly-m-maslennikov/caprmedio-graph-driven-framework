@@ -9,21 +9,21 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/History
   - CAPRMEDIO_MODEL <+ Package/Project Package
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Action)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Action)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow)
   - CAPRMEDIO_MODEL <+ Actor
   - CAPRMEDIO_MODEL <+ Event Record
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
 tier: 1
 relations:
   child_of:
-  - CA-M-447
+  - CA-M-539
 status: Active
-version: 46
-updated_at: 2026-11-10 14:38:45 +0400
+version: 47
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1683-CORE_META_MODEL--authority-evaluation-and-operations-remain-distinct.md

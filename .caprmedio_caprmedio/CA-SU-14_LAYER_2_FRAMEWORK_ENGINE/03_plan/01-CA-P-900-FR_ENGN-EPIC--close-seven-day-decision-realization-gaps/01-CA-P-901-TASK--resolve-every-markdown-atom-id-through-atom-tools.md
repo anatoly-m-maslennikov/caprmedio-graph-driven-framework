@@ -7,7 +7,7 @@ label: Task
 topics:
   main_subject: Markdown Atom ID Resolution
   dependencies:
-  - Subject/Graph Node/Domain/Continuant/Atom.ID
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.Identity.ID
   - Tool Authority
   - Realization
 tier: 3

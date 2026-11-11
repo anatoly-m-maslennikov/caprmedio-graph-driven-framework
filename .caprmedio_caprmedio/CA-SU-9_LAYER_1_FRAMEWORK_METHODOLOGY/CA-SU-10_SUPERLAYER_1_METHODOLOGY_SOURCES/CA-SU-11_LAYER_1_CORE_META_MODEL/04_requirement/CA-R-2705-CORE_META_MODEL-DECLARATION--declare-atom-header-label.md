@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Label
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Label
 tier: 3
 status: Active
 version: 4
@@ -26,12 +26,12 @@ Declare Atom.Header.Label
 
 ```CFEL
 # model
-Atom.Header.Label:: [string]{::0..1};
+Atom.Header.Context.Label:: [string]{::0..1};
 
-Atom.Header.Label.*[]{::0};
+Atom.Header.Context.Label.*[]{::0};
 
 # instances
 Atom//$atom;
 
-$atom.Header.Label ?== $atom.Header.Form
+$atom.Header.Context.Label ?== $atom.Header.Context.Form
 ```

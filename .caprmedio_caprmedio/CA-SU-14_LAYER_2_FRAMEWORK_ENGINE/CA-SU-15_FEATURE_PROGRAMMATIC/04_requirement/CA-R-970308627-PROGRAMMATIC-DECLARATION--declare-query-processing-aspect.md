@@ -13,8 +13,8 @@ context:
   tier: 1
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 3
+  updated_at: '2026-11-11T16:56:16+04:00'
 destination:
   file:
     name: CA-R-970308627-PROGRAMMATIC-DECLARATION--declare-query-processing-aspect.md
@@ -37,6 +37,8 @@ Query Processing is an Engineering Aspect within Data Handling.
 ```CFEL
 # project_structure
 PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing;
+
+(PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Query Processing) ((INSTANCE_OF)) Aspect;
 ```
 
 ## Semantics

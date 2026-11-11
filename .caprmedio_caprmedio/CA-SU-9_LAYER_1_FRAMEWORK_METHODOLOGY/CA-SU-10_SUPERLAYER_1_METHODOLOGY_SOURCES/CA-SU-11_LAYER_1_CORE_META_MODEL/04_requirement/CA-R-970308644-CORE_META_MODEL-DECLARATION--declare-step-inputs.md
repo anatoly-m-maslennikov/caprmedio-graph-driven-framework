@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Step.Inputs
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-11 00:16:05 +0400
+version: 2
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-970308644-CORE_META_MODEL-DECLARATION--declare-step-inputs.md
@@ -26,3 +26,10 @@ Declare Step.Inputs
 ### Prose Claim
 
 Step Inputs are optional. They identify the input values used by the Step; bindings supply values.
+
+### Formal Claim
+
+```CFEL
+# model
+Step.Inputs ((IS_PROPERTY_OF)) Step;
+```

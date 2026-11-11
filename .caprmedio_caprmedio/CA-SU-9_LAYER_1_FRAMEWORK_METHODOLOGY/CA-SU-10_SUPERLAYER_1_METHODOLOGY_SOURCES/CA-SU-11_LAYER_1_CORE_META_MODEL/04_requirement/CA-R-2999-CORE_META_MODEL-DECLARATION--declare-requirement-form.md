@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Requirement)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Form := Requirement)
 tier: 3
 status: Active
-version: 2
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 3
+updated_at: '2026-11-11 14:06:22 +0400'
 carrier_destination:
   file:
     name: CA-R-2999-CORE_META_MODEL-DECLARATION--declare-requirement-form.md
@@ -27,10 +27,13 @@ Declare Requirement Form
 
 ```CFEL
 # model
-Atom/(.Header.Form := Requirement);
+Atom.Header.Context.Form :: Requirement;
 
 # instances
-Atom/(.Header.Form := Requirement)//$requirement.Header.Role:: [in (Requirement)]{::1}
+FOR EACH $a[<Atom>, (.Header.Context.Form = Requirement)]:
+(
+    $a.Header.Context.Role:: [in (Requirement)]{::1}
+)
 ```
 
 ## Semantics

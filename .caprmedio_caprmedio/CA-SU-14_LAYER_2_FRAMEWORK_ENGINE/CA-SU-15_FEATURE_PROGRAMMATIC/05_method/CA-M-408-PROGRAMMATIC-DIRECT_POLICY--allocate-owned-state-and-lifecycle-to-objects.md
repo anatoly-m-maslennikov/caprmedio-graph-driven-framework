@@ -92,4 +92,4 @@ one-shot effect wrapper, **or** uses an ambiguous generic name **or** inheritanc
 - [Python Functional Programming HOWTO](https://docs.python.org/3.14/howto/functional.html)
 - [Python documentation: data classes](https://docs.python.org/3.14/library/dataclasses.html)
 - [PEP 544 — Protocols](https://peps.python.org/pep-0544/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

@@ -2,7 +2,7 @@
 
 Operator authorized: model Drafts -> review -> promote -> check for Epic CA-P-2711. No instance migration, implementation, Workbench, runtime, actual Workflow-instance edits or release. Other chats have dirty Engine/Workbench work; preserve it. You are not alone.
 
-Latest human decisions and A1328 govern; read the live proposal body `.caprmedio_caprmedio/02_analysis/draft/scope-forms-proposal-20261106/proposal-body.md` and Role Draft manifest `.../role-semantics-20261107/manifest.json`.
+Latest human decisions and A1328 govern; read the live proposal body `.caprmedio_caprmedio/02_analysis_and_advisory/000_draft/scope-forms-proposal-20261106/proposal-body.md` and Role Draft manifest `.../role-semantics-20261107/manifest.json`.
 
 Settled:
 - Outside: one Scope Delegation per non-Project Scope Unit, single RMEDO Role; merges external structural declaration with delegated responsibility. Main Subject receiving unit; Container external. Identity Name/ID/order plus formal subject-branch, Role and Form whitelists. Delegator retains full scope/accountability.

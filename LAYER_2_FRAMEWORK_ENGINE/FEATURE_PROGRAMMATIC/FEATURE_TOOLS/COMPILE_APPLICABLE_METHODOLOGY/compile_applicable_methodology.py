@@ -19,6 +19,7 @@ from typing import Iterable, Mapping
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from artifact_metadata import SETTINGS_PATH, atom_identifier
+from carrier_aliases import carrier_status_folder
 from header_yaml import header_scalar
 from project_selection import ProjectSelectionError, active_selection
 
@@ -570,7 +571,9 @@ def discover_candidates(root: Path, places: MethodologyPaths | None = None) -> t
         for path in sorted(role_root.rglob("*.md")):
             relative_within_role = path.relative_to(role_root)
             relative = repo_relative(root, path)
-            if {"archive", "archived", "draft", "drafts", "done", "canceled"}.intersection(part.casefold() for part in relative_within_role.parts):
+            if {"archived", "draft", "done", "canceled"}.intersection(
+                carrier_status_folder(part) for part in relative_within_role.parts[:-1]
+            ):
                 exclude(path, "inactive-location")
                 continue
             if not path.is_file() or path.is_symlink():

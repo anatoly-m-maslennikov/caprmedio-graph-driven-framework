@@ -10,13 +10,13 @@ topics:
 tier: 2
 relations:
   child_of:
-  - CA-R-686
+  - CA-M-538
   depends_on:
   - CA-R-1502
   - CA-R-1698
 status: Active
-version: 36
-updated_at: 2026-11-02 19:44:26 +0400
+version: 37
+updated_at: 2026-11-11 16:09:46 +0400
 carrier_destination:
   file:
     name: CA-R-1769-PROJECT_CONFIGURATION-RULE--select-methodology-source-revisions-explicitly.md

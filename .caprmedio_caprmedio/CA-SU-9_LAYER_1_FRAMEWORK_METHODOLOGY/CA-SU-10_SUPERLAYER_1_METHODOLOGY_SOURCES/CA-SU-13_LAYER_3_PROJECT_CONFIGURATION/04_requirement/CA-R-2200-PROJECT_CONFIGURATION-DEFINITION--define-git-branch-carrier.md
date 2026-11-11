@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/Git Branch
 tier: 1
 status: Active
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
+version: 7
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2200-PROJECT_CONFIGURATION-DECLARATION--define-git-branch-carrier.md
@@ -32,7 +32,7 @@ A Git Branch is a repository-owned Carrier identifying a branch head.
 
 ```CFEL
 # model
-Carrier/Git Branch
+Carrier/Git Branch ((NARROWER_THAN)) Carrier;
 ```
 
 ## Semantics

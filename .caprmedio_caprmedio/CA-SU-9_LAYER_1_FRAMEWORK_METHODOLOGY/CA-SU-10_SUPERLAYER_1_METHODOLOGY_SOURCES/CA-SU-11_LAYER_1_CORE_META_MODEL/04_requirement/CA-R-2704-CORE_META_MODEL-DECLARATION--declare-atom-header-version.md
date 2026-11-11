@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Version
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Version
 tier: 3
 status: Active
 version: 1
@@ -28,9 +28,9 @@ Declare Atom.Header.Version
 
 ```CFEL
 # model
-Atom.Header.Version{::1}:: [int]{::1};
+Atom.Header.State.Version{::1}:: [int]{::1};
 
-Atom.Header.Version.*[]{::0};
+Atom.Header.State.Version.*[]{::0};
 
-Atom.Header.Version >= 1
+Atom.Header.State.Version >= 1
 ```

@@ -21,6 +21,10 @@ view_create view_duplicate view_list view_get view_update view_run view_check
 view_fetch view_focus view_rename view_remove query_log_list query_log_get
 workbench_restart workbench_reread workbench_status
 """.split())
+LIFECYCLE_NAMES = frozenset("""
+atom_lifecycle_create_draft atom_lifecycle_archive atom_lifecycle_change_status
+atom_lifecycle_direct_update atom_lifecycle_promote_draft atom_lifecycle_update
+""".split())
 RETIRED_NAMES = """
 atom_search find_and_fetch_artifacts find_and_fetch_journal_events
 append_change_records atom_update rmed_atoms_base_revise discover_tools
@@ -34,18 +38,18 @@ release_version public.release reload_mcp_implementation get_mcp_reload_status
 
 
 class RetainedFrontierTests(unittest.IsolatedAsyncioTestCase):
-    async def test_workbench_only_listing_healthy_bridge_and_retired_call_refusals(self):
+    async def test_listing_healthy_bridge_and_retired_call_refusals(self):
         with tempfile.TemporaryDirectory() as directory:
             gateway = DirectGateway(Path(directory))
             await gateway.initialize()
-            self.assertEqual(WORKBENCH_NAMES, {tool.name for tool in shared_native_tools(gateway)})
+            self.assertEqual(WORKBENCH_NAMES | LIFECYCLE_NAMES, {tool.name for tool in shared_native_tools(gateway)})
             try:
                 async with InMemoryTransport(gateway.build_server(), raise_exceptions=True) as streams:
                     async with ClientSession(*streams) as client:
                         await client.initialize()
                         names = {tool.name for tool in (await client.list_tools()).tools}
                         self.assertEqual(28, len(WORKBENCH_NAMES))
-                        self.assertEqual(WORKBENCH_NAMES, names)
+                        self.assertEqual(WORKBENCH_NAMES | LIFECYCLE_NAMES, names)
                         response = await client.call_tool("workbench_ui_ping", {})
                         self.assertFalse(response.is_error)
                         self.assertEqual({"message": "Tool bridge passed"}, response.structured_content)

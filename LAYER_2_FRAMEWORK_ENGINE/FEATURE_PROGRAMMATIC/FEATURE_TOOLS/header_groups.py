@@ -42,7 +42,7 @@ def _role(metadata: dict[str, Any]) -> str | None:
     for path in (("context", "role"), ("role",), ("content_role",)):
         present, value = path_value(metadata, path)
         if present and isinstance(value, str):
-            return value
+            return {'concern': 'Concern', 'plan': 'Plan'}.get(value, value)
     present, identity = header_value(metadata, "atom_id")
     if isinstance(identity, str):
         return {"C": "Concern", "P": "Plan"}.get(identity.split("-")[1] if "-" in identity else "")
@@ -90,7 +90,8 @@ def header_field_paths(name: str, metadata: dict[str, Any]) -> tuple[tuple[str, 
         paths.append(("carrier_destination",) + canonical[1:])
     elif len(canonical) > 1 and canonical[0] in GROUP_FIELDS:
         historical = canonical[1:] if canonical[0] != "context" or canonical[1] not in ROLE_FIELDS else canonical[2:]
-        paths.append(historical)
+        if historical:
+            paths.append(historical)
         if len(historical) == 1:
             paths.extend((key,) for key in alias_names)
     elif "." not in name:

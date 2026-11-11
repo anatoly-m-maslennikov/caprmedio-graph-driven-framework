@@ -6,9 +6,9 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Assignee'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Assignee'
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
 tier: 2
 status: Active

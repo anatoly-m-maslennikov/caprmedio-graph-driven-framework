@@ -7,7 +7,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier/Directory
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
 tier: 3
 status: Active
 version: 3

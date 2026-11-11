@@ -6,11 +6,11 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Content
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Content.Definition of Done
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Content.Definition of Done
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
 tier: 6
 relations:

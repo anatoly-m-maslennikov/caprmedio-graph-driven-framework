@@ -51,7 +51,7 @@ Own work at most15minutes; split any longer image/harness attempt into a separat
 
 ### Prepared admission and bounded smoke continuation
 
-A fresh audit-only immutable image and fixture admission were prepared under the isolated attempt, with protected pre/post equality. No server or MCP smoke has run. The initial review required no-write interpreter, exact loopback-port projection and immediate source/Compose rechecks; these guards are under independent re-review. [CA-P-2419](01-CA-P-2410-TASK--prepare-a-fresh-isolated-mcp-audit-image-and-harness/01-CA-P-2419-TASK--launch-the-isolated-mcp-fixture-and-verify-context-smoke.md) owns any later bounded fixture launch/smoke only after unconditional guard acceptance. This parent remains Active until those results and production non-interference are verified.
+A fresh audit-only immutable image and fixture admission were prepared under the isolated attempt, with protected pre/post equality. No server or MCP smoke has run. The initial review required no-write interpreter, exact loopback-port projection and immediate source/Compose rechecks; these guards are under independent re-review. [CA-P-2419](01-CA-P-2410-TASK--prepare-a-fresh-isolated-mcp-audit-image-and-harness/020_done/01-CA-P-2419-TASK--launch-the-isolated-mcp-fixture-and-verify-context-smoke.md) owns any later bounded fixture launch/smoke only after unconditional guard acceptance. This parent remains Active until those results and production non-interference are verified.
 
 ### Definition of Done
 

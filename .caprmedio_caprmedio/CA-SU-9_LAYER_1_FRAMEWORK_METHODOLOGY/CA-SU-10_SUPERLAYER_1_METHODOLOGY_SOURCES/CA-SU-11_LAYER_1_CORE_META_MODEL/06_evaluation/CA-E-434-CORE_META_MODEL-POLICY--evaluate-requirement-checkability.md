@@ -6,10 +6,10 @@ container:
 role: Evaluation
 form: Eval Policy
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Atom
 tier: 3
 relations:

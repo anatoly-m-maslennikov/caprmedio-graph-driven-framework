@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Container
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Container
 tier: 3
 status: Active
 version: 1
@@ -34,12 +34,12 @@ Header.Container is the sole stored Atom-containment value.
 
 ```CFEL
 # model
-Atom.Header.Container{::1} :: []{::0};
+Atom.Header.Context.Container{::1} :: []{::0};
 
-Atom.Header.Container.*[in(atom,scope_unit)]{::1};
+Atom.Header.Context.Container.*[in(atom,scope_unit)]{::1};
 
 # instances
 Atom//$atom;
-$atom.Header.Container{::1}
+$atom.Header.Context.Container{::1}
 ```
 

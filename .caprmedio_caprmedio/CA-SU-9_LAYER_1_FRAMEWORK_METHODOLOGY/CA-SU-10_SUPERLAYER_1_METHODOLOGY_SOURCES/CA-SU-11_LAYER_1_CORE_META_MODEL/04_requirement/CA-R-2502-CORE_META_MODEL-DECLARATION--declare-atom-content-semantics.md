@@ -28,8 +28,8 @@ Declare Atom.Content.Semantics
 
 ```CFEL
 # model
-Atom/(.Header.Role in RMED).Content.Semantics:: {::0..1};
+Atom/(.Header.Context.Role in RMED).Content.Semantics:: {::0..1};
 
-Atom/(.Header.Role in RMED).Content.Semantics.*[]{::0}
+Atom/(.Header.Context.Role in RMED).Content.Semantics.*[]{::0}
 ```
 

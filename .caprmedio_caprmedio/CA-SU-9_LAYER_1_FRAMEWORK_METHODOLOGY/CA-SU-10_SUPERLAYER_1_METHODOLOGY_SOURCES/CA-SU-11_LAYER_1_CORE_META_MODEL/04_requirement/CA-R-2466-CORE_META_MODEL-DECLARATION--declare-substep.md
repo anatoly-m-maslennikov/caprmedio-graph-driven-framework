@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Substep
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Substep
 tier: 3
 status: Active
-version: 4
-updated_at: 2026-11-02 17:54:42 +0400
+version: 5
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2466-CORE_META_MODEL-DECLARATION--declare-substep.md
@@ -29,7 +29,9 @@ Declare Substep
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Substep;
+Atom/(.Header.Context.Role in (Operations))/Substep;
+
+Substep ((NARROWER_THAN)) Atom/(.Header.Context.Role in (Operations));
 
 # instances
 Substep//$substep{::1}((IS_CONTAINED_BY)) Step//$step;

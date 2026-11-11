@@ -6,7 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Identity.ID
 tier: 2
 relations:
   evaluation_for:

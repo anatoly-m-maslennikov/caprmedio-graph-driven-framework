@@ -10,7 +10,7 @@ topics:
   dependencies:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.ID
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Identity.ID
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
 tier: 3
 status: Active

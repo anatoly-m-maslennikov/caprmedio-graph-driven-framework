@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content.Summary
 tier: 3
 status: Active
-version: 5
-updated_at: 2026-11-04 05:21:15 +0400
+version: 6
+updated_at: '2026-11-11T18:31:44+04:00'
 carrier_destination:
   file:
     name: CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md
@@ -35,9 +35,9 @@ Atom.Content.Summary.*[]{::0};
 # instances
 DETERMINES(
   Atom//$atom,
-  (.ID),
+  (.Header.Identity.ID),
   (.Content.Summary),
-  (Atom.Header.Status >| Status Group = Current) OR (Atom.Header.Status >| Status Group = Archived)
+  (Atom.Header.State.Status >| Status Group = Current) OR (Atom.Header.State.Status >| Status Group = Backlog) OR (Atom.Header.State.Status >| Status Group = Archived)
 )
 ```
 

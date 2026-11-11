@@ -20,12 +20,14 @@ _WORKBENCH_BACKEND = Path(
     "FEATURE_WORKBENCH_BACKEND"
 )
 _MCP = Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP")
+_ATOM_LIFECYCLE = _MCP.parent / "FEATURE_TOOLS/ATOM_LIFECYCLE"
 
 
 def _generate_asset(
-    package: Path, project_root: Path, script_name: str, output_name: str, error_name: str,
+    package: Path, source_root: Path, script_path: Path, output_name: str, error_name: str,
+    *, source_option: str = "--project-root",
 ) -> Path:
-    script = package / _WORKBENCH_BACKEND / script_name
+    script = package / script_path
     output = script.with_name(output_name)
     unavailable = f"local-release-{error_name}-unavailable"
     if not script.is_file() or script.is_symlink():
@@ -34,7 +36,7 @@ def _generate_asset(
         output.unlink(missing_ok=True)
         result = subprocess.run(
             (
-                sys.executable, "-B", str(script), "--project-root", str(project_root),
+                sys.executable, "-B", str(script), source_option, str(source_root),
                 "--output", str(output),
             ),
             cwd=package, text=True, capture_output=True, check=False,
@@ -48,15 +50,29 @@ def _generate_asset(
 
 def generate_relation_registry(package: Path, project_root: Path) -> Path:
     return _generate_asset(
-        package, project_root, "generate_relation_registry.py", "canonical_relation_registry.json",
+        package, project_root, _WORKBENCH_BACKEND / "generate_relation_registry.py", "canonical_relation_registry.json",
         "relation-registry",
     )
 
 
 def generate_workbench_schema(package: Path, project_root: Path) -> Path:
     return _generate_asset(
-        package, project_root, "generate_workbench_schema.py", "workbench_schema.json",
+        package, project_root, _WORKBENCH_BACKEND / "generate_workbench_schema.py", "workbench_schema.json",
         "workbench-schema",
+    )
+
+
+def generate_lifecycle_status_model(package: Path) -> Path:
+    return _generate_asset(
+        package, package / "METHODOLOGY/sources", _ATOM_LIFECYCLE / "status_model.py",
+        "status_model.json", "lifecycle-status-model", source_option="--model-root",
+    )
+
+
+def generate_lifecycle_candidate_schema(package: Path) -> Path:
+    return _generate_asset(
+        package, package / "METHODOLOGY/sources", _ATOM_LIFECYCLE / "candidate_schema.py",
+        "candidate_schema.json", "lifecycle-candidate-schema", source_option="--model-root",
     )
 
 

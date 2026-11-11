@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Work Sequence Number
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan.Work Sequence Number
 tier: 3
 status: Active
-version: 4
-updated_at: 2026-11-05 22:47:24 +0400
+version: 5
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2712-CORE_META_MODEL-DECLARATION--declare-atom-header-role-plan-header-work-sequence-number.md
@@ -28,25 +28,25 @@ Declare Atom/(.Header.Role := Plan).Header.Work Sequence Number
 
 ```CFEL
 # model
-Atom/(.Header.Role: Plan).Header.Work Sequence Number:: [int]{::0..1};
+Atom/(.Header.Context.Role in (Plan)).Header.Context.Plan.Work Sequence Number:: [int]{::0..1};
 
-Atom/(.Header.Role: Plan).Header.Work Sequence Number.*[]{::0};
+Atom/(.Header.Context.Role in (Plan)).Header.Context.Plan.Work Sequence Number.*[]{::0};
 
 # instances
-Atom/(.Header.Role: Plan)//$atom;
+Atom/(.Header.Context.Role in (Plan))//$atom;
 
-IF ($atom.Header.Work Sequence Number{=1})
-THEN ($atom.Header.Work Sequence Number > 0);
+IF ($atom.Header.Context.Plan.Work Sequence Number{=1})
+THEN ($atom.Header.Context.Plan.Work Sequence Number > 0);
 
 UNIQUE(
-  Atom/(.Header.Role: Plan)//$atom_2,
-  (.Header.Container.atom, .Header.Work Sequence Number),
-  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container.atom{=1})
+  Atom/(.Header.Context.Role in (Plan))//$atom_2,
+  (.Header.Context.Container.atom, .Header.Context.Plan.Work Sequence Number),
+  (.Header.State.Status = Active) AND (.Header.Context.Plan.Work Sequence Number{=1}) AND (.Header.Context.Container.atom{=1})
 );
 
 UNIQUE(
-  Atom/(.Header.Role: Plan)//$atom_3,
-  (.Header.Container.scope_unit, .Header.Work Sequence Number),
-  (.Header.Status = Active) AND (.Header.Work Sequence Number{=1}) AND (.Header.Container.scope_unit{=1})
+  Atom/(.Header.Context.Role in (Plan))//$atom_3,
+  (.Header.Context.Container.scope_unit, .Header.Context.Plan.Work Sequence Number),
+  (.Header.State.Status = Active) AND (.Header.Context.Plan.Work Sequence Number{=1}) AND (.Header.Context.Container.scope_unit{=1})
 )
 ```

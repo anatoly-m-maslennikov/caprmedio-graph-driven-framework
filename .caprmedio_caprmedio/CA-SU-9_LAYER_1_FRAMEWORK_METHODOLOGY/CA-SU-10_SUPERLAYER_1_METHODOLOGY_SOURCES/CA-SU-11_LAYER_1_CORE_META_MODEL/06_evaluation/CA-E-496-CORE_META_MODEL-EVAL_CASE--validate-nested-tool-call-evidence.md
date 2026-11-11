@@ -12,9 +12,9 @@ topics:
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Step Run
   - CAPRMEDIO_MODEL <+ Workflow Run
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Action
   - CAPRMEDIO_MODEL <+ Projection
 tier: 3
 relations:

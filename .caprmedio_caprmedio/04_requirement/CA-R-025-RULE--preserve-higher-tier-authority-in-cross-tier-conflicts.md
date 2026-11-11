@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
 tier: 3
 relations:
   child_of:

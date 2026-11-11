@@ -12,8 +12,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 3
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 4
+  updated_at: 2026-11-11 15:29:41 +0400
 destination:
   file:
     name: CA-R-2659-PROGRAMMATIC-SCOPE_DELEGATION--declare-apps.md
@@ -29,16 +29,7 @@ Declare APPS
 
 ### Prose Claim
 
-The additional admitted local Role/Form pairs are:
-
-- Requirement / Solution;
-- Method / Approach Policy;
-- Requirement / Rule.
-
 Existing default admissions, including Scope Delegation, remain unchanged. These permissions apply only to local Atoms whose Header.Container-derived IS_CONTAINED_BY target is `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//APPS`.
-
-- Concern / Problem;
-- Concern / Question;
 
 Eligible HAS_ACTIVE_SUBJECT targets are exactly the declared model entities or declared instances resolved at these addresses:
 
@@ -67,5 +58,11 @@ Scope Unit//APPS.Label == "FEATURE";
 
 Scope Unit//APPS.order.ordered == false;
 
-Scope Unit//APPS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
+Scope Unit//APPS ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC;
+
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-20"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-20"))/(.Header.Context.Role in (Method)).Header.Context.Form :: Approach Policy;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-20"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Rule;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-20"))/(.Header.Context.Role in (Concern)).Header.Context.Form :: Problem;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-20"))/(.Header.Context.Role in (Concern)).Header.Context.Form :: Question;
 ```

@@ -9,22 +9,22 @@ topics:
   main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
-tier: 2
+tier: 3
 relations:
   child_of:
   - CA-M-261
 status: Active
-version: 25
-updated_at: 2026-11-02 18:35:20 +0400
+version: 26
+updated_at: 2026-11-11 14:15:11 +0400
 carrier_destination:
   file:
-    name: CA-M-266-CAPRMEDIO-IMPLEMENTATION_METHOD--follow-the-operator-selected-implementation-mode.md
+    name: CA-M-266-IMPLEMENTATION_METHOD--follow-the-operator-selected-implementation-mode.md
     path: .caprmedio_caprmedio/05_method
 cce_version: cce_1
 cce_form: method

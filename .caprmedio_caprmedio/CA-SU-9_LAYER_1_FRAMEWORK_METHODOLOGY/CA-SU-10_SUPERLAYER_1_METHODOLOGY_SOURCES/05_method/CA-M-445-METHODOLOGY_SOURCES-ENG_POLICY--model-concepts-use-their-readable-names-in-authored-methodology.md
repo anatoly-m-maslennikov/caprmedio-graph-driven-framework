@@ -8,9 +8,9 @@ form: Eng Policy
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Text Writing Style
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
-  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Updated At
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
 status: Active

@@ -14,15 +14,13 @@ topics:
 tier: 3
 relations:
   child_of:
-  - CA-M-006
   - CA-E-001
   evaluation_for:
   - CA-R-2426
-  - CA-R-706
   - CA-R-2425
 status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 4
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-E-668-CORE_META_MODEL-EVAL_POLICY--check-the-selected-scope-against-active-project-wide-invariants.md

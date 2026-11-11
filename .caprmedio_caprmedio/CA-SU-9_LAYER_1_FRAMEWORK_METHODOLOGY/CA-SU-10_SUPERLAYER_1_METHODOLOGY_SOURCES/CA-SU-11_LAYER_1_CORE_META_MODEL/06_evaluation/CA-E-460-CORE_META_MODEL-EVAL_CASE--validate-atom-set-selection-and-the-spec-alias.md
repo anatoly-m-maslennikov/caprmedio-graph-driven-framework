@@ -10,13 +10,13 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
 tier: 4
 relations:
   evaluation_for:

@@ -10,13 +10,13 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-007
+  - CA-M-544
 status: Active
-version: 29
-updated_at: 2026-11-03 23:17:14 +0400
+version: 30
+updated_at: 2026-11-11 15:00:27 +0400
 carrier_destination:
   file:
-    name: CA-R-1728-CORE_META_MODEL-RULE--record-every-projection-rebuild-in-a-journal.md
+    name: CA-R-1728-CORE_META_MODEL--record-every-projection-rebuild-in-a-journal.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

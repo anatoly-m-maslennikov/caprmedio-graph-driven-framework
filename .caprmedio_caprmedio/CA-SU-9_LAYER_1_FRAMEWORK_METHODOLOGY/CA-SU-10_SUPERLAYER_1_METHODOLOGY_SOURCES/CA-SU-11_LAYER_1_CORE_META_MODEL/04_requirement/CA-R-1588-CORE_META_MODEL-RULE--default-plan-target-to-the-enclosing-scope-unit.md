@@ -6,12 +6,12 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Subjects.Active'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Topics.Main Subject'
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics.Main Subject
   - CAPRMEDIO_MODEL <+ Scope Unit
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Label'
 tier: 1
 status: Active
 version: 26

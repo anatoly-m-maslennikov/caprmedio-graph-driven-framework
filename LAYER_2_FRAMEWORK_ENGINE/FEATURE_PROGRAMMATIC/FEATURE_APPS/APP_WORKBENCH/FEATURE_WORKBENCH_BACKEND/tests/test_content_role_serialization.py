@@ -16,7 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "FEATURE_TOOLS"))
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import ContentSchema, DeclarationSource, compile_content_schema
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.declared_header_rules import HeaderRule
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.header_columns import HeaderColumn
-from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import carrier_read_view, compile_relation_registry
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import carrier_read_view, compile_relation_registry, registry_contribution
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_content_schema import SourceContentSchema
@@ -36,6 +36,16 @@ def atom(role, form, body):
 
 
 class CarrierSerializationTests(unittest.TestCase):
+    def test_encoded_relation_declaration_is_admitted_without_changing_header(self):
+        header = {"context": {"role": "requirement", "form": "relation_definition"}}
+        row = atom("requirement", "relation_definition", "## Claim\n\n### Formal Claim\n\n```CFEL\nRelation//RELATES_TO;\n```\n") | {
+            "source_path": "model.md", "id": "CA-R-1", "version": 1, "header_json": header,
+        }
+        self.assertIn("RELATES_TO", registry_contribution(row).names)
+        self.assertEqual(header, {"context": {"role": "requirement", "form": "relation_definition"}})
+        row["form"] = "Relation_Definition"
+        self.assertFalse(registry_contribution(row).names)
+
     def test_current_model_presentation_headings_do_not_create_columns(self):
         model = Path.cwd() / (
             ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"

@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Step.Fixed Parameters
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-11 00:16:05 +0400
+version: 2
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-970308645-CORE_META_MODEL-DECLARATION--declare-step-fixed-parameters.md
@@ -26,3 +26,10 @@ Declare Step.Fixed Parameters
 ### Prose Claim
 
 A Step may declare fixed parameter values for its invocation. A fixed value is one permitted source of a binding.
+
+### Formal Claim
+
+```CFEL
+# model
+Step.Fixed Parameters ((IS_PROPERTY_OF)) Step;
+```

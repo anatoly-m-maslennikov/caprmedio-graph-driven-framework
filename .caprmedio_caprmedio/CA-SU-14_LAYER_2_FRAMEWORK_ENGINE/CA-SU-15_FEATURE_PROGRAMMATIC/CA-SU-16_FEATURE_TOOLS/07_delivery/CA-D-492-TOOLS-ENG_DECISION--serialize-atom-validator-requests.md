@@ -12,9 +12,9 @@ topics:
     Action'
   - Scope Unit
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Operator Registry
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Tier
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Context.Tier
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Version Number
 tier: 5
 relations:
   delivery_for:

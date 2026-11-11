@@ -58,8 +58,14 @@ test('formats a result-bearing current View from the button and palette without 
   await palette.getByRole('textbox').fill('Format');
   await palette.getByRole('textbox').press('Enter');
   await expect.poll(() => editorSource(page)).toBe(formatted);
-  const autosave = page.waitForRequest((request) => request.method() === 'POST'
-    && request.postDataJSON()?.operation === 'view_update' && request.postDataJSON()?.arguments?.sql === formatted);
+  const autosave = page.waitForResponse((response) => {
+    const request = response.request();
+    if (request.method() !== 'POST' || !new URL(request.url()).pathname.endsWith('/interface')) return false;
+    const payload = request.postDataJSON();
+    return response.ok() && payload?.operation === 'view_update'
+      && payload.arguments?.workspace_id === seed.workspaceId && payload.arguments?.view_id === seed.viewId
+      && payload.arguments?.sql === formatted;
+  });
   await page.evaluate(() => window.dispatchEvent(new Event('focus')));
   await autosave;
   const state = await seed.call('workspace_get', { workspace_id: seed.workspaceId });

@@ -12,10 +12,10 @@ context:
       <+ Authoring <+ Code Authoring
     dependencies:
     - MODEL//CAPRMEDIO <+ Atom
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Requirement)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Method)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Delivery)
   tier: 2
 state:
   status: Active

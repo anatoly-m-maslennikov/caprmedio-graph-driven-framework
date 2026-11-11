@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
 tier: 3
 status: Active
-version: 9
-updated_at: 2026-11-08 19:06:46 +0400
+version: 13
+updated_at: '2026-11-11T18:56:17+04:00'
 carrier_destination:
   file:
     name: CA-R-2511-CORE_META_MODEL-DECLARATION--declare-plan.md
@@ -27,21 +27,35 @@ Declare Atom/(.Role := Plan)
 
 ```CFEL
 # model
-Atom/(.Header.Role: Plan) >| (Container == yes);
+Atom.Header.Context.Role :: Plan;
 
-Atom/(.Header.Role: Plan);
+Atom/(.Header.Context.Role := Plan) >| (Role Order Number == 3);
+
+Atom/(.Header.Context.Role in (Plan)) >| (Container == yes);
+
+Atom/(.Header.Context.Role in (Plan));
 
 # instances
-Atom/(.Header.Role: Plan)//$plan {::0+}((CONTAINS)) Atom/(.Header.Role: Plan)//$contained_plan;
+Atom/(.Header.Context.Role in (Plan))//$plan {::0+}((CONTAINS)) Atom/(.Header.Context.Role in (Plan))//$contained_plan;
 
-Atom/(.Header.Role: Plan)//$dependent {::0+}((IS_BLOCKED_BY)) Atom/(.Header.Role: Plan)//$prerequisite;
+Atom/(.Header.Context.Role in (Plan))//$dependent {::0+}((IS_BLOCKED_BY)) Atom/(.Header.Context.Role in (Plan))//$prerequisite;
 
-Atom/(.Header.Role: Plan)//$prerequisite_2 {::0+}((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent_2;
+Atom/(.Header.Context.Role in (Plan))//$prerequisite_2 {::0+}((BLOCKS)) Atom/(.Header.Context.Role in (Plan))//$dependent_2;
 
-Atom/(.Header.Role: Plan)//$atom;
+FOR EACH $atom[<Atom>, (.Header.Context.Role = Plan)]:
+(
+    IF (($atom.Header.State.Status = Active) AND ($atom.Header.Context.Plan.Work Sequence Number{=1}))
+    THEN ($atom.Header.Context.Container{==1})
+);
 
-IF (($atom.Header.Status = Active) AND ($atom.Header.Work Sequence Number{=1}))
-THEN ($atom.Header.Container{==1})
+FOR EACH $parent[<Atom>, ((.Header.Context.Role = Plan) AND (.Header.State.Status in (Done, Canceled)))]:
+(
+    FOR EACH $descendant[<Atom>, ((.Header.Context.Role = Plan) AND ((.Header.State.Status >| Status Group = Current) OR (.Header.State.Status >| Status Group = Backlog)))]:
+    (
+        IF ($parent ((RECURSIVELY_CONTAINS)) $descendant)
+        THEN ($descendant.Header.State.Status :: [in (Done, Canceled)]{::1})
+    )
+)
 ```
 
 ## Semantics

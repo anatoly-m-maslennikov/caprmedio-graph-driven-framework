@@ -14,10 +14,10 @@ context:
     - MODEL//CAPRMEDIO <+ Package/Project Package
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
       Control <+ Effect Authorization
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Requirement)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Method)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Delivery)
     - MODEL//CAPRMEDIO <+ Actor/Operator
   tier: 1
 relations:

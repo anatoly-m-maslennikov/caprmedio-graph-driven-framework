@@ -22,7 +22,7 @@ TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
 
-from carrier_aliases import carrier_read_view  # noqa: E402, F401
+from carrier_aliases import carrier_read_view, matches_named_value  # noqa: E402, F401
 
 
 _NAME = r"[A-Za-z_][A-Za-z_0-9]*"
@@ -118,17 +118,21 @@ def _declaration_identity(row: Mapping[str, Any]) -> tuple[str, str, int] | None
     return None
 
 
-def registry_contribution(row: Mapping[str, Any]) -> RegistryContribution:
-    """Return one valid source's literal registry input without evaluating CFEL."""
-    if row.get("status_group") != "Current" or row.get("role") != "Requirement":
-        return RegistryContribution(frozenset(), (), ())
-    if row.get("form") not in {
+def is_registry_declaration(row: Mapping[str, Any]) -> bool:
+    return (row.get("status_group") == "Current"
+        and matches_named_value(row.get("role"), "Requirement")
+        and any(matches_named_value(row.get("form"), form) for form in {
         "Declaration",
         "Definition",
         "Entity Definition",
         "Relation Declaration",
         "Relation Definition",
-    }:
+    }))
+
+
+def registry_contribution(row: Mapping[str, Any]) -> RegistryContribution:
+    """Return one valid source's literal registry input without evaluating CFEL."""
+    if not is_registry_declaration(row):
         return RegistryContribution(frozenset(), (), ())
     identity = _declaration_identity(row)
     if identity is None:

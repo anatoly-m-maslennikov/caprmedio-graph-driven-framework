@@ -12,8 +12,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Projection.Form
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Selection
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
-  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Version
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
 relations:

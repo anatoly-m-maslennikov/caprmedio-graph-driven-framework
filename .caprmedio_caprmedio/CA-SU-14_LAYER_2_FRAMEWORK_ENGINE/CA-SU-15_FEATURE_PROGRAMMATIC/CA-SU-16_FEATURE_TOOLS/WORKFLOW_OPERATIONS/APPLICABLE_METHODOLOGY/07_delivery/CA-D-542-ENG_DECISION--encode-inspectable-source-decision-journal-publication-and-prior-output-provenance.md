@@ -13,7 +13,7 @@ subjects:
   depends_on:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Version Number
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Actor/Type: Operator'
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal

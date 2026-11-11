@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"

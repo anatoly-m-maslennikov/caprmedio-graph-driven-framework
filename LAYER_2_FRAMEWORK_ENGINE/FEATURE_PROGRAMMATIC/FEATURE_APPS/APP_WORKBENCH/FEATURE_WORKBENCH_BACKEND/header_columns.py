@@ -195,7 +195,7 @@ def declared_header_schema(rules: Sequence[HeaderRule]) -> HeaderSchema:
     """Bind only literal model Header declarations to the shared carrier adapter."""
     grouped: dict[tuple[tuple[str, ...], str, str, str], list[HeaderRule]] = {}
     names: dict[str, tuple[tuple[str, ...], str, str]] = {}
-    for rule in rules:
+    for rule in sorted(rules, key=_rule_key):
         if rule.format is None:
             continue
         reader = _reader_name(rule)
@@ -204,11 +204,11 @@ def declared_header_schema(rules: Sequence[HeaderRule]) -> HeaderSchema:
         path = header_field_paths(reader, _selector_metadata(rule))[0]
         name = _column_name(path)
         previous = names.setdefault(name, (path, rule.format, reader))
-        if previous != (path, rule.format, reader):
+        if previous[:2] != (path, rule.format):
             raise ValueError(
                 f"Header SQL declaration collision: {name} has incompatible model declarations"
             )
-        grouped.setdefault((path, name, rule.format, reader), []).append(rule)
+        grouped.setdefault((path, name, rule.format, previous[2]), []).append(rule)
     return HeaderSchema(tuple(
         HeaderColumn(path, name, format_name, False, reader, tuple(sorted(set(column_rules), key=_rule_key)))
         for (path, name, format_name, reader), column_rules in sorted(grouped.items(), key=lambda item: item[0][1])

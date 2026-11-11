@@ -4,11 +4,11 @@ ref_id: CA-R-2464
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Workflow
 tier: 3
 status: Active
-version: 7
-updated_at: '2026-11-11 05:13:50 +0400'
+version: 8
+updated_at: '2026-11-11 16:04:42 +0400'
 ---
 
 ## Summary
@@ -21,9 +21,11 @@ Declare Workflow
 
 ```CFEL
 # model
-Atom/(.Header.Role := Operations)/Workflow;
+Atom/(.Header.Context.Role in (Operations))/Workflow;
 
-Workflow.Header.Form:: [in (Workflow)]{::1};
+Workflow ((NARROWER_THAN)) Atom/(.Header.Context.Role in (Operations));
+
+Workflow.Header.Context.Form:: [in (Workflow)]{::1};
 
 # instances
 Workflow//$workflow{::1+}((CONTAINS)) Step//$step;

@@ -16,7 +16,7 @@ APP = Path(__file__).resolve().parents[1]
 DOCKER = APP / "docker"
 sys.path.insert(0, str(DOCKER))
 
-from runtime_images import ImageError, ImageManager, RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY  # noqa: E402
+from runtime_images import ImageError, ImageManager, RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, STATUS_MODEL, CANDIDATE_SCHEMA  # noqa: E402
 
 
 GOLDENS = Path(__file__).parent / "launcher_golden" / "image_cases.json"
@@ -38,6 +38,9 @@ class ImageGoldenTests(unittest.TestCase):
         self.tools = patch("runtime_images._compile_tool_registry", return_value=b'{"schema_version":1}\n')
         self.tools.start()
         self.addCleanup(self.tools.stop)
+        lifecycle = patch("runtime_images._compile_lifecycle_assets", return_value=(b'{"schema_version":1}\n', b'{"schema_version":1}\n'))
+        lifecycle.start()
+        self.addCleanup(lifecycle.stop)
 
     def manager(self, source_root: Path, executor) -> ImageManager:
         tagged, sources, inspections = set(), {}, {}
@@ -80,7 +83,7 @@ class ImageGoldenTests(unittest.TestCase):
         (docker / "Dockerfile").write_text("FROM scratch\n", encoding="utf-8")
         (docker / "Dockerfile.dockerignore").write_text(".git\n", encoding="utf-8")
         (docker.parent / "server.py").write_text("SERVER = 'one'\n", encoding="utf-8")
-        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY):
+        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, STATUS_MODEL, CANDIDATE_SCHEMA):
             path = root / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(b'{"schema_version":1}\n')
@@ -108,6 +111,21 @@ class ImageGoldenTests(unittest.TestCase):
         self.assertEqual(before.fingerprint, after.fingerprint)
         self.assertEqual("linux/amd64", before.platform)
         self.assertTrue(before.manifest)
+
+    def test_lifecycle_assets_enter_context_and_fingerprint(self) -> None:
+        source = self.source_fixture()
+        manager = self.manager(source, lambda *_a, **_k: self.fail("Docker is not needed"))
+        before = manager.identity()
+        context = self.fixture_root / "context"
+        context.mkdir()
+        manager._assemble(context, before)
+        self.assertEqual(before.status_model, (context / STATUS_MODEL).read_bytes())
+        self.assertEqual(before.candidate_schema, (context / CANDIDATE_SCHEMA).read_bytes())
+        for index in (0, 1):
+            assets = [before.status_model, before.candidate_schema]
+            assets[index] += b"changed"
+            with patch("runtime_images._compile_lifecycle_assets", return_value=tuple(assets)):
+                self.assertNotEqual(before.fingerprint, manager.identity().fingerprint)
 
     def test_admitted_source_change_changes_fingerprint(self) -> None:
         source = self.source_fixture()

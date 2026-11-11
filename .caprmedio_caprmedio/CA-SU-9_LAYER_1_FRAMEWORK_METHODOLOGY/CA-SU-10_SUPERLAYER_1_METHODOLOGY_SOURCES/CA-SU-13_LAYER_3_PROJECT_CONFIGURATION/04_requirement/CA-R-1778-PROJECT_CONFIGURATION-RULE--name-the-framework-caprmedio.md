@@ -10,10 +10,10 @@ topics:
 tier: 3
 relations:
   child_of:
-  - CA-M-446
+  - CA-M-538
 status: Active
-version: 30
-updated_at: 2026-11-02 19:44:26 +0400
+version: 31
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1778-PROJECT_CONFIGURATION-RULE--name-the-framework-caprmedio.md

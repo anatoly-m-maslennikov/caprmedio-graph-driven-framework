@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Carrier
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 tier: 3
 status: Active

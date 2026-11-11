@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Updated At
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom
 tier: 2

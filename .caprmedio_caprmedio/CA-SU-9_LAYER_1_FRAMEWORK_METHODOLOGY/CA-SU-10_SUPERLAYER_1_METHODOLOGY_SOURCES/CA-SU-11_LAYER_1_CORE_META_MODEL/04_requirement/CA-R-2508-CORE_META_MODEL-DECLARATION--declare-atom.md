@@ -55,7 +55,7 @@ Atom//$atom {::0+}((CONTRIBUTES_TO));
 
 Atom//$atom {::0+}((IS_REPLACEMENT_FOR));
 
-UNIQUE(Atom//$atom, (.Header.ID, .Header.Version));
+UNIQUE(Atom//$atom, (.Header.Identity.ID, .Header.State.Version));
 ```
 
 ## Semantics

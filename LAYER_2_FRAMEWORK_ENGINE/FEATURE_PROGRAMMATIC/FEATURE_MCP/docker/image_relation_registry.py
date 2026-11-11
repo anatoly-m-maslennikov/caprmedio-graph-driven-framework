@@ -109,3 +109,55 @@ def compile_tool_registry(source_root: Path, *, timeout: float, max_output: int)
         except (UnicodeDecodeError, json.JSONDecodeError) as error:
             raise ValueError("tool registry output is invalid") from error
         return payload
+
+
+def compile_lifecycle_assets(source_root: Path, project_root: Path, *, timeout: float,
+                             max_output: int) -> tuple[bytes, bytes]:
+    """Compile from the same admitted active source layers as local release."""
+    script = source_root / "LAYER_5_FRAMEWORK_DELIVERY/RELEASE_VERSION/release_support.py"
+    if script.is_symlink() or not script.is_file():
+        raise ValueError("lifecycle source selector is unavailable")
+    temporary = project_root / ".caprmedio_tmp"
+    if temporary.is_symlink() or not temporary.is_dir():
+        raise ValueError("lifecycle staging root is unavailable")
+    with tempfile.TemporaryDirectory(prefix="caprmedio-lifecycle-", dir=temporary) as stage:
+        stage = Path(stage)
+        # Run the selector from the selected Framework in a clean interpreter.
+        selector = """
+import shutil
+import sys
+from pathlib import Path
+
+framework, output = map(Path, sys.argv[1:])
+sys.path[:0] = [str(framework / 'LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS'),
+                str(framework / 'LAYER_5_FRAMEWORK_DELIVERY/RELEASE_VERSION')]
+from release_support import _release_sources
+
+for _, source, files in _release_sources(framework):
+    for path in files:
+        target = output / source.name / path.relative_to(source)
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(path, target)
+"""
+        model = stage / "model"
+        result = subprocess.run([sys.executable, "-B", "-c", selector, str(source_root),
+                                 str(model)], cwd=source_root, env={},
+                                stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                                stderr=subprocess.DEVNULL, timeout=timeout, check=False)
+        if result.returncode != 0:
+            raise ValueError("lifecycle source selection failed")
+        assets = []
+        base = "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_LIFECYCLE/"
+        for name in ("status_model", "candidate_schema"):
+            compiler = source_root / (base + name + ".py")
+            output = stage / (name + ".json")
+            if compiler.is_symlink() or not compiler.is_file():
+                raise ValueError("lifecycle compiler is unavailable")
+            result = subprocess.run([sys.executable, "-B", str(compiler), "--model-root",
+                                     str(model), "--output", str(output)], cwd=source_root, env={},
+                                    stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
+                                    stderr=subprocess.DEVNULL, timeout=timeout, check=False)
+            if result.returncode != 0 or output.is_symlink() or not output.is_file() or output.stat().st_size > max_output:
+                raise ValueError("lifecycle asset compilation failed")
+            assets.append(output.read_bytes())
+        return tuple(assets)

@@ -8,21 +8,21 @@ form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
-tier: 2
+tier: 3
 relations:
   child_of:
   - CA-M-261
 status: Active
-version: 27
-updated_at: 2026-11-02 08:06:47 +0400
+version: 28
+updated_at: 2026-11-11 14:15:11 +0400
 carrier_destination:
   file:
-    name: CA-M-262-CAPRMEDIO-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md
+    name: CA-M-262-IMPLEMENTATION_METHOD--preserve-sufficient-authority-for-reconstruction.md
     path: .caprmedio_caprmedio/05_method
 cce_version: cce_1
 cce_form: method

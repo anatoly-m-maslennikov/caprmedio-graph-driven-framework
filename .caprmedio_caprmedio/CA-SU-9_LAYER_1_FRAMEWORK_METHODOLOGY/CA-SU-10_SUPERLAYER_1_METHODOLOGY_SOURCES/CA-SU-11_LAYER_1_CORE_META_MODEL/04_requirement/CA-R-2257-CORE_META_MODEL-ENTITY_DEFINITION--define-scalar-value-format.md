@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Format/scalar
 tier: 1
 status: Active
-version: 5
-updated_at: 2026-11-03 23:25:51 +0400
+version: 6
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2257-CORE_META_MODEL-DECLARATION--define-scalar-value-format.md
@@ -39,6 +39,8 @@ Specific Formats can restrict this broad domain.
 
 ```CFEL
 # model
-CFEL <+ Format/scalar
+CFEL <+ Format/scalar;
+
+Format/scalar ((NARROWER_THAN)) Format;
 ```
 

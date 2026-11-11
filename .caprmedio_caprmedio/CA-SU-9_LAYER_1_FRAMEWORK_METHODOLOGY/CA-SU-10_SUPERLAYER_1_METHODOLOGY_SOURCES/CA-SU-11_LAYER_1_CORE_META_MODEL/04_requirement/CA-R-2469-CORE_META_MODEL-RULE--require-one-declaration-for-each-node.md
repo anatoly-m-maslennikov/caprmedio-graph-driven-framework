@@ -38,6 +38,6 @@ The count uses only the effective Current Declaration-to-Node links in that MODE
 
 ```CFEL
 # instances
-Atom/(.Header.Role: Requirement)/(.Header.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){::1} (Node, Node.**)
+Atom/(.Header.Context.Role: Requirement)/(.Header.Context.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){::1} (Node, Node.**)
 ```
 

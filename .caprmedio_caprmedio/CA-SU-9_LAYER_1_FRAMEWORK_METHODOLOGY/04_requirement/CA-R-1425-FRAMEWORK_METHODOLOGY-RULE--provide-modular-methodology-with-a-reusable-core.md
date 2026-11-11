@@ -13,10 +13,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-1486
+  - CA-R-3034
 status: Active
-version: 14
-updated_at: 2026-10-29 07:45:26 +0400
+version: 15
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1425-FRAMEWORK_METHODOLOGY-RULE--provide-modular-methodology-with-a-reusable-core.md

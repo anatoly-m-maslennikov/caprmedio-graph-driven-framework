@@ -60,10 +60,10 @@ Estimated own work: at most 15 minutes. Before further work that would exceed th
 
 Release-v1 lifecycle input has93 embedded-name candidate records. Review is split into four actual child Tasks, each at most15minutes, before execution:
 
-- [CA-P-2411 — Review observed MCP Atom creation calls](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/01-CA-P-2411-TASK--review-observed-mcp-atom-creation-calls.md)
-- [CA-P-2412 — Review the first observed MCP Atom update partition](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/02-CA-P-2412-TASK--review-the-first-observed-mcp-atom-update-partition.md)
-- [CA-P-2413 — Review the second observed MCP Atom update partition](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/03-CA-P-2413-TASK--review-the-second-observed-mcp-atom-update-partition.md)
-- [CA-P-2414 — Review MCP Subject preparation and status calls](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/04-CA-P-2414-TASK--review-mcp-subject-preparation-and-status-calls.md)
+- [CA-P-2411 — Review observed MCP Atom creation calls](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/020_done/01-CA-P-2411-TASK--review-observed-mcp-atom-creation-calls.md)
+- [CA-P-2412 — Review the first observed MCP Atom update partition](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/020_done/02-CA-P-2412-TASK--review-the-first-observed-mcp-atom-update-partition.md)
+- [CA-P-2413 — Review the second observed MCP Atom update partition](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/020_done/03-CA-P-2413-TASK--review-the-second-observed-mcp-atom-update-partition.md)
+- [CA-P-2414 — Review MCP Subject preparation and status calls](04-CA-P-2405-TASK--audit-atom-lifecycle-and-container-action-calls/020_done/04-CA-P-2414-TASK--review-mcp-subject-preparation-and-status-calls.md)
 
 Own each candidate by source file/line and embedded record; multi-name/loop output ambiguity is not independent execution proof. Do not infer complete coverage of unobserved promotion/archive/move calls while CA-P-2415 wrapper attribution is open.
 

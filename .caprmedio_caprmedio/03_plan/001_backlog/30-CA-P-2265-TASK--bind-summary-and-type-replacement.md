@@ -1,5 +1,7 @@
 ---
 atom_id: CA-P-2265
+container:
+  atom: CA-P-2167
 content_role: Plan
 type: Plan
 label: Task
@@ -24,12 +26,14 @@ subjects:
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of:
-  - CA-P-2167
   blocks:
   - CA-P-2269
   - CA-P-2276
 tier: 3
+carrier_destination:
+  file:
+    name: 30-CA-P-2265-TASK--bind-summary-and-type-replacement.md
+    path: .caprmedio_caprmedio/03_plan/001_backlog
 ---
 # Summary
 

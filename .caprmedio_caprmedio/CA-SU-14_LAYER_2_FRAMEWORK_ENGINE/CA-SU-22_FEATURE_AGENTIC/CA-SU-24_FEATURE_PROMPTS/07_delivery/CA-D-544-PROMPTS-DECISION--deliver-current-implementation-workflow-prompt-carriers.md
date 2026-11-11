@@ -11,8 +11,8 @@ topics:
   dependencies:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery
   - MODEL//CAPRMEDIO <+ Carrier
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
 tier: 4
 status: Active
 version: 20

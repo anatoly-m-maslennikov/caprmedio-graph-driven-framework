@@ -13,8 +13,8 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Workflow
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Updated At
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'

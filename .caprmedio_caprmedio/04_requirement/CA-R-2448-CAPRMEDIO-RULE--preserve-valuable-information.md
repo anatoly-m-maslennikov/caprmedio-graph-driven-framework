@@ -16,8 +16,8 @@ relations:
   child_of:
   - CA-M-448
 status: Active
-version: 6
-updated_at: "2026-11-11 04:44:46 +0400"
+version: 8
+updated_at: "2026-11-11 14:56:01 +0400"
 cce_version: cce_1
 cce_form: obligation
 llm_session_ids:
@@ -33,4 +33,4 @@ Preserve valuable information
 
 ### Prose Claim
 
-Keep valuable Project information recoverable across sessions, handoffs, context loss, and implementation changes.
+Keep valuable Project information in durable, reliable storage so it remains recoverable across sessions, handoffs, context loss, and implementation changes.

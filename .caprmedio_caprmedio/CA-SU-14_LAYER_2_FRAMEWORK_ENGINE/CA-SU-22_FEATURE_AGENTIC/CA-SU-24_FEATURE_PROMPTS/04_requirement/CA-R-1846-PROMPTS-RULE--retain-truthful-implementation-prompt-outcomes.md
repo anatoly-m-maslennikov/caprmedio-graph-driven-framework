@@ -11,7 +11,7 @@ topics:
   dependencies:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
     Control <+ Failure Handling
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
   - MODEL//CAPRMEDIO <+ Execution/Workflow Run
   - MODEL//CAPRMEDIO <+ Journal
 tier: 3

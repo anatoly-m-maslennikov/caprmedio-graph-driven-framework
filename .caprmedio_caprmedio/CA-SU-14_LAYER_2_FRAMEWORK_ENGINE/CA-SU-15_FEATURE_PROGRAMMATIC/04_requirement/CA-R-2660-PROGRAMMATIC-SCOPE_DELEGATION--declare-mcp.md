@@ -12,8 +12,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 6
+  updated_at: 2026-11-11 15:29:41 +0400
 destination:
   file:
     name: CA-R-2660-PROGRAMMATIC-SCOPE_DELEGATION--declare-mcp.md
@@ -30,16 +30,7 @@ Declare MCP
 
 ### Prose Claim
 
-The receiving Scope Unit is MCP. The additional local Role/Form pairs are exactly:
-
-- Method / Solution;
-- Delivery / Solution;
-
-- Requirement / Rule;
-
-- Concern / Question;
-
-The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+The receiving Scope Unit is MCP. The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
 
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication`;
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Validation`;
@@ -68,5 +59,10 @@ Scope Unit//MCP.Label == "FEATURE";
 
 Scope Unit//MCP.order.ordered == false;
 
-Scope Unit//MCP ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC
+Scope Unit//MCP ((IS_CONTAINED_BY)) Scope Unit//PROGRAMMATIC;
+
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-21"))/(.Header.Context.Role in (Method)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-21"))/(.Header.Context.Role in (Delivery)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-21"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Rule;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-21"))/(.Header.Context.Role in (Concern)).Header.Context.Form :: Question;
 ```

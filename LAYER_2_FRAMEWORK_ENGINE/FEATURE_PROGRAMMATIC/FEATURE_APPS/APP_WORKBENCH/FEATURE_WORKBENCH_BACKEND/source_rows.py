@@ -31,7 +31,7 @@ def atom(
         raise TypeError("Markdown body must be UTF-8 text or bytes")
     markdown = cached_body.decode("utf-8")
     atom_id, version = view.get("atom_id"), view.get("version")
-    if group == "Current" and isinstance(atom_id, str):
+    if group in {"Current", "Backlog"} and isinstance(atom_id, str):
         ref = atom_id
     elif group == "Draft" and isinstance(atom_id, str) and type(version) is int:
         if _NUMBERED_DRAFT_REFERENCE.search(atom_id):

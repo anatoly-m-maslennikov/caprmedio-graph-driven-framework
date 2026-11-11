@@ -11,7 +11,7 @@ topics:
   dependencies:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
     <+ Prompt Authoring
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
     <+ Test Design
 tier: 3

@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Priority
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern).Header.Context.Concern.Priority
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-03 20:00:05 +0400
+version: 2
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2710-CORE_META_MODEL-DECLARATION--declare-atom-header-role-concern-header-priority.md
@@ -28,13 +28,13 @@ Declare Atom/(.Header.Role := Concern).Header.Priority
 
 ```CFEL
 # model
-Atom/(.Header.Role: Concern).Header.Priority{::1}:: [string]{::1};
+Atom/(.Header.Context.Role in (Concern)).Header.Context.Concern.Priority{::1}:: [string]{::1};
 
-Atom/(.Header.Role: Concern).Header.Priority.*[]{::0};
+Atom/(.Header.Context.Role in (Concern)).Header.Context.Concern.Priority.*[]{::0};
 
-Atom/(.Header.Role: Concern).Header.Priority: High;
+Atom/(.Header.Context.Role in (Concern)).Header.Context.Concern.Priority :: High;
 
-Atom/(.Header.Role: Concern).Header.Priority: Medium;
+Atom/(.Header.Context.Role in (Concern)).Header.Context.Concern.Priority :: Medium;
 
-Atom/(.Header.Role: Concern).Header.Priority: Low
+Atom/(.Header.Context.Role in (Concern)).Header.Context.Concern.Priority :: Low
 ```

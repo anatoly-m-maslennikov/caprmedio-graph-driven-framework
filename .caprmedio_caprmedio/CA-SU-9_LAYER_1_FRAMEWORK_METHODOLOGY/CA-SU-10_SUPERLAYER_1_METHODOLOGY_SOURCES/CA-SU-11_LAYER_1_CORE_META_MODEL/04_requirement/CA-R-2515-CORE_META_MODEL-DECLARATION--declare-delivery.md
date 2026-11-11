@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
 tier: 3
 status: Active
-version: 4
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 6
+updated_at: '2026-11-11T18:56:17+04:00'
 carrier_destination:
   file:
     name: CA-R-2515-CORE_META_MODEL-DECLARATION--declare-delivery.md
@@ -29,7 +29,9 @@ Declare Atom/(.Role := Delivery)
 
 ```CFEL
 # model
-Atom/(.Header.Role := Delivery)
+Atom.Header.Context.Role :: Delivery;
+
+Atom/(.Header.Context.Role := Delivery) >| (Role Order Number == 7);
 ```
 
 ## Semantics

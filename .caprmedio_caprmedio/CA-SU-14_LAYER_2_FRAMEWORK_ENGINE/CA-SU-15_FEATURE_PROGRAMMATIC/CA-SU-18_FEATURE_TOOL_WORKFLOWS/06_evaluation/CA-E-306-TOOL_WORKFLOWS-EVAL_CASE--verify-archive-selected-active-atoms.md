@@ -9,12 +9,12 @@ topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Version Number
   - Subject/CAPRMEDIO/Carrier
   - Subject/caprmedio/Action//Archive Selected Active Atoms
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Updated At
 tier: 4
 relations:
   evaluation_for:

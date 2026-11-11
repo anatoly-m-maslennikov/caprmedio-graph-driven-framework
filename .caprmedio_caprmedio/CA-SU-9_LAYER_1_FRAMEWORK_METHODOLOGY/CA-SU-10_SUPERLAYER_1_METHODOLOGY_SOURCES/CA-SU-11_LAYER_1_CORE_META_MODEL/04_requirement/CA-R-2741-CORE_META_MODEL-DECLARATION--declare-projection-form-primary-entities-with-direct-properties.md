@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Direct Properties)
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-04 07:51:19 +0400
+version: 2
+updated_at: '2026-11-11 14:06:22 +0400'
 carrier_destination:
   file:
     name: CA-R-2741-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-direct-properties.md
@@ -28,7 +28,7 @@ Declare Projection/(.Form := Primary Entities with Direct Properties)
 
 ```CFEL
 # model
-Projection.Form: Primary Entities with Direct Properties;
+Projection.Form :: Primary Entities with Direct Properties;
 
-Projection/(.Form: Primary Entities with Direct Properties)
+Projection/(.Form in (Primary Entities with Direct Properties))
 ```

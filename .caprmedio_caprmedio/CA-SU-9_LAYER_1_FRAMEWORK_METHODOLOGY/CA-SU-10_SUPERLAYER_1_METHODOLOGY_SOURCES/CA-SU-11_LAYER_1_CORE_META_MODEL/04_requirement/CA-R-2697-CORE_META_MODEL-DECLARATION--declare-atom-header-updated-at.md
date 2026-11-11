@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Updated At
 tier: 3
 status: Active
 version: 1
@@ -28,10 +28,10 @@ Declare Atom.Header.Updated At
 
 ```CFEL
 # model
-Atom.Header.Updated At{::1}:: [datetime]{::1};
+Atom.Header.State.Updated At{::1}:: [datetime]{::1};
 
-Atom.Header.Updated At.*[]{::0};
+Atom.Header.State.Updated At.*[]{::0};
 
 # instances
-Atom//$atom.Header.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.Header.ID, .object_output.version = $atom.Header.Version, (.action = create OR .action = update)).happened_at)
+Atom//$atom.Header.State.Updated At == MAX(Event Record//$event_record(.object_output{=1}, .object_output.version{=1}, .object_output.id = $atom.Header.Identity.ID, .object_output.version = $atom.Header.State.Version, (.action = create OR .action = update)).happened_at)
 ```

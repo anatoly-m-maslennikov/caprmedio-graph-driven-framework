@@ -8,8 +8,8 @@ form: Eval Case
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
-  - CAPRMEDIO_MODEL <+ Atom.Header.Container
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Container
   - CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim
   - CAPRMEDIO_MODEL <+ Scope Unit
 tier: 7

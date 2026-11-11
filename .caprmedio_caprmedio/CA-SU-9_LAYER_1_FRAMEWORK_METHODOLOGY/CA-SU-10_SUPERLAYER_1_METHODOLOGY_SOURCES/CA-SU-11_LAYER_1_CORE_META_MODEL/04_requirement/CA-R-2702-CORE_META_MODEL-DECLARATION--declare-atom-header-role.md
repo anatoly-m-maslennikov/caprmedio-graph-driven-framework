@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-03 20:00:05 +0400
+version: 2
+updated_at: '2026-11-11T18:56:17+04:00'
 carrier_destination:
   file:
     name: CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md
@@ -24,11 +24,16 @@ Declare Atom.Header.Role
 
 ## Claim
 
+
+### Prose Claim
+
+Role Order Number classifies the Role-qualified Atom kind in the Model. Each Role Declaration assigns exactly one positive integer. Order numbers are distinct across Roles. Gaps are allowed.
+
 ### Formal Claim
 
 ```CFEL
 # model
-Atom.Header.Role{::1}:: [string]{::1};
+Atom.Header.Context.Role{::1}:: [string]{::1};
 
-Atom.Header.Role.*[]{::0}
+Atom.Header.Context.Role.*[]{::0}
 ```

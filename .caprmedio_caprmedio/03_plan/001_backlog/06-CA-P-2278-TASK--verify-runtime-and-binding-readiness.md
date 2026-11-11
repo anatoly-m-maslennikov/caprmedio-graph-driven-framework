@@ -1,5 +1,7 @@
 ---
 atom_id: CA-P-2278
+container:
+  atom: CA-P-2174
 content_role: Plan
 type: Plan
 label: Task
@@ -23,10 +25,11 @@ subjects:
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
-relations:
-  is_decomposition_of:
-  - CA-P-2174
 tier: 3
+carrier_destination:
+  file:
+    name: 06-CA-P-2278-TASK--verify-runtime-and-binding-readiness.md
+    path: .caprmedio_caprmedio/03_plan/001_backlog
 ---
 # Summary
 

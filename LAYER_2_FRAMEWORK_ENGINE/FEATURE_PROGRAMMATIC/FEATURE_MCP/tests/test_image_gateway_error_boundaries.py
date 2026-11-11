@@ -27,8 +27,13 @@ WARNING = FailureRecord("WARNING", "internal_failure", "operation failure")
 
 
 class GatewayErrorBoundaryTests(unittest.IsolatedAsyncioTestCase):
-    async def test_public_call_boundary_returns_safe_failure(self):
+    def _gateway(self):
         gateway = direct_gateway.DirectGateway(Path(self.tempdir.name))
+        gateway.registry = SimpleNamespace(permits=lambda name: name == 'query_check')
+        return gateway
+
+    async def test_public_call_boundary_returns_safe_failure(self):
+        gateway = self._gateway()
         params = types.CallToolRequestParams(name="query_check", arguments={})
         with (
             patch.object(gateway, "_call", new=AsyncMock(side_effect=ValueError("secret=private"))),
@@ -41,7 +46,7 @@ class GatewayErrorBoundaryTests(unittest.IsolatedAsyncioTestCase):
         reported.assert_called_once()
 
     async def test_health_observer_record_failure_warns_without_replacing_result(self):
-        gateway = direct_gateway.DirectGateway(Path(self.tempdir.name))
+        gateway = self._gateway()
         response = direct_gateway.result({"outcome": "success"})
         with patch.object(gateway, "_call", new=AsyncMock(return_value=response)), patch.object(
             gateway.health_observations, "record", side_effect=ValueError("private")), patch.object(

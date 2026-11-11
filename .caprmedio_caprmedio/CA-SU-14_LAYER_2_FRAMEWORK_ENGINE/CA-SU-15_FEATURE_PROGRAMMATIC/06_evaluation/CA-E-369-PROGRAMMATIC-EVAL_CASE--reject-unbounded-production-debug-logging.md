@@ -9,7 +9,7 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
     <+ Execution Control
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Requirement)
   - MODEL//CAPRMEDIO <+ Carrier
 tier: 5
 relations:

@@ -82,4 +82,4 @@ fields escape a closed contract, **or** the dependency has no bounded benefit.
 - [Pydantic: models](https://docs.pydantic.dev/latest/concepts/models/)
 - [Pydantic: strict mode](https://docs.pydantic.dev/latest/concepts/strict_mode/)
 - [Pydantic: model configuration](https://docs.pydantic.dev/latest/concepts/config/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

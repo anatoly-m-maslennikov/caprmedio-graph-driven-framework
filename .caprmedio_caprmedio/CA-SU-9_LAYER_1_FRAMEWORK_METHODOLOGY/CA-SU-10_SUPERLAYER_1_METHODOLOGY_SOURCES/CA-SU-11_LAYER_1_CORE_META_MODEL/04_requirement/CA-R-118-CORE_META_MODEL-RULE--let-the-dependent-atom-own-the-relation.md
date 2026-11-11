@@ -12,10 +12,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-1407
+  - CA-M-540
 status: Active
-version: 35
-updated_at: 2026-11-02 08:06:47 +0400
+version: 36
+updated_at: "2026-11-11 18:13:56 +0400"
 carrier_destination:
   file:
     name: CA-R-118-CORE_META_MODEL-RULE--let-the-dependent-atom-own-the-relation.md

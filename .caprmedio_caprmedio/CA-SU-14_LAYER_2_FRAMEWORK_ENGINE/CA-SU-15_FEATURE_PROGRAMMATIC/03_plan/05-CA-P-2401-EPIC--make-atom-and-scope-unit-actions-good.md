@@ -383,12 +383,12 @@ Implement the smallest bounded read-only observation path: preserve the existing
 
 Update active MCP R/E/D before implementation, using the PROGRAMMATIC M/E/D projections as supplemental guidance and the current originals as authority. Independently test positive and negative behavior using synthetic isolated fixtures, not the live port or mutable Atom corpus. Record real blockers as C/Problems and semantic uncertainty as C/Questions. Existing C545/C551/C554 and C533 are not resolved by a dashboard or a source edit. Each Task below owns at most15 minutes and must be reviewed/split before extending. After each completion, review/update its dependent successor before execution. Root owns governed records, Git/index and release; Luna workers own disjoint code/test lanes.
 
-- [x] [CA-P-2508 — Diagnose MCP failures and admit the health contract](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/68-CA-P-2508-TASK--diagnose-mcp-failures-and-admit-the-health-contract.md)
-- [x] [CA-P-2509 — Observe bounded MCP Tool and Workflow outcomes](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/69-CA-P-2509-TASK--observe-bounded-mcp-tool-and-workflow-outcomes.md)
-- [x] [CA-P-2510 — Render the same-port MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/70-CA-P-2510-TASK--render-the-same-port-mcp-health-page.md)
-- [x] [CA-P-2511 — Verify MCP health and history in isolated fixtures](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/71-CA-P-2511-TASK--verify-mcp-health-and-history-in-isolated-fixtures.md)
-- [x] [CA-P-2512 — Prepare the authorized local release gate](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/72-CA-P-2512-TASK--prepare-the-authorized-local-release-gate.md)
-- [x] [CA-P-2513 — Run local release and verify the installed MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/73-CA-P-2513-TASK--run-local-release-and-verify-the-installed-mcp-health-page.md)
+- [x] [CA-P-2508 — Diagnose MCP failures and admit the health contract](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/68-CA-P-2508-TASK--diagnose-mcp-failures-and-admit-the-health-contract.md)
+- [x] [CA-P-2509 — Observe bounded MCP Tool and Workflow outcomes](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/69-CA-P-2509-TASK--observe-bounded-mcp-tool-and-workflow-outcomes.md)
+- [x] [CA-P-2510 — Render the same-port MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/70-CA-P-2510-TASK--render-the-same-port-mcp-health-page.md)
+- [x] [CA-P-2511 — Verify MCP health and history in isolated fixtures](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/71-CA-P-2511-TASK--verify-mcp-health-and-history-in-isolated-fixtures.md)
+- [x] [CA-P-2512 — Prepare the authorized local release gate](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/72-CA-P-2512-TASK--prepare-the-authorized-local-release-gate.md)
+- [x] [CA-P-2513 — Run local release and verify the installed MCP health page](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/73-CA-P-2513-TASK--run-local-release-and-verify-the-installed-mcp-health-page.md)
 
 ### Health contract admitted and implementation lanes opened
 
@@ -427,7 +427,7 @@ The fresh environment-verified release remains in its complete test phase, colle
 
 Active Problem C557 and Backlog Task P2514 record this bounded test-only repair. No production or test source edits occur until the current suite finishes; then review the complete failure set, activate/split P2514 as needed and preserve all assertions except the obsolete expected destination. P2513 stays Active and cannot claim acceptance from this failing run; a fresh normal full release is required after focused tests and independent review. The production MCP remains unchanged; no gate waiver, live mutation testing or held/uncertain replay.
 
-- [x] [CA-P-2514 — Repair stale Plan predecessor expectations](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/74-CA-P-2514-TASK--repair-stale-plan-predecessor-expectations.md)
+- [x] [CA-P-2514 — Repair stale Plan predecessor expectations](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/74-CA-P-2514-TASK--repair-stale-plan-predecessor-expectations.md)
 
 ### Full-suite repair lanes expanded without changing production
 
@@ -435,9 +435,9 @@ The complete environment-verified suite is still collecting results. Six failing
 
 C557@2 records the additional evidence. Backlog P2514 owns only intent/portfolio expected paths. Backlog P2515 owns the two status-bundle fixtures: exact synthetic ownership and flat owning-scope Plan history, preserving Operations/Step local history, recovery assertions and all injected faults. Backlog P2516 owns W04 fixture path/fresh-binding diagnosis, preserving29/8/8 matrix totals and production currentness guards. Two independent reviews found no production recovery regression in the bundle failures. No source edits start until the current full suite finishes; review the complete failure set before activation, then independently accept each repair and review P2513 before a fresh complete normal local release. Each Task owns at most15minutes; split before extending. Production remains the original MCP, with no held/uncertain replay or live mutation tests.
 
-- [x] [CA-P-2515 — Repair Plan bundle ownership and flat history fixtures](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/75-CA-P-2515-TASK--repair-plan-bundle-ownership-and-flat-history-fixtures.md)
+- [x] [CA-P-2515 — Repair Plan bundle ownership and flat history fixtures](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/75-CA-P-2515-TASK--repair-plan-bundle-ownership-and-flat-history-fixtures.md)
 
-- [x] [CA-P-2516 — Repair the canonical Draft predecessor lookup](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/76-CA-P-2516-TASK--repair-the-canonical-draft-predecessor-lookup.md)
+- [x] [CA-P-2516 — Repair the canonical Draft predecessor lookup](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/76-CA-P-2516-TASK--repair-the-canonical-draft-predecessor-lookup.md)
 
 ### Complete failed gate reviewed; bounded repairs activated
 
@@ -453,7 +453,7 @@ C558 and C559 are now canonically admitted Active Problems; Active P2517 is admi
 
 Four disjoint lanes are running: intent/portfolio expected paths, bundle fixture ownership/flat fault targets, canonical Draft predecessor caller plus regression, and masked Plan preview diagnosis only. The complete failed gate424/3796/zero skips/six failed modules and successful launcher integration are retained, not waived. P2513 remains dependent Active; no next release has started. Source fixes are not deployed evidence and production remains unchanged.
 
-- [x] [CA-P-2517 — Diagnose and restore Plan status preview compatibility](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/77-CA-P-2517-TASK--diagnose-and-restore-plan-status-preview-compatibility.md)
+- [x] [CA-P-2517 — Diagnose and restore Plan status preview compatibility](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/77-CA-P-2517-TASK--diagnose-and-restore-plan-status-preview-compatibility.md)
 
 ### Fixture-only release repairs accepted
 
@@ -481,10 +481,10 @@ The same explicit instruction authorizes adding these display tags to existing p
 
 The earlier local release `local-20261021-mcp-health-reviewed` completed as version0.4.4.9:425modules/3797tests/zero skips/zero failed modules and launcher integration passed; one installed healthy MCP container and same-port JSON/HTML plus fresh SDK/connected discovery were observed. Its receipt and Journal event dd73c633-b340-4af4-b0d7-cf122710b91e close P2513's execution; this checkpoint reconciles its stale Active carrier rather than rerunning release. C555 original cause remains unknown and discovery coverage diagnostics remain separate. After the naming increment, review the unfinished P2499/P2501/P2503/P2506/P2495 container implementation/functional acceptance frontier before continuing. Stage2 Scope Unit operations and held/uncertain replay remain excluded.
 
-- [x] [CA-P-2518 — Implement versioned and dated CAPRMEDIO image names](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/78-CA-P-2518-TASK--implement-versioned-and-dated-caprmedio-image-names.md)
-- [x] [CA-P-2519 — Verify CAPRMEDIO image name and build metadata](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/79-CA-P-2519-TASK--verify-caprmedio-image-name-and-build-metadata.md)
-- [x] [CA-P-2520 — Name existing verified CAPRMEDIO images](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/80-CA-P-2520-TASK--name-existing-verified-caprmedio-images.md)
-- [x] [CA-P-2521 — Accept image naming and resume container queue](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/81-CA-P-2521-TASK--accept-image-naming-and-resume-container-queue.md)
+- [x] [CA-P-2518 — Implement versioned and dated CAPRMEDIO image names](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/78-CA-P-2518-TASK--implement-versioned-and-dated-caprmedio-image-names.md)
+- [x] [CA-P-2519 — Verify CAPRMEDIO image name and build metadata](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/79-CA-P-2519-TASK--verify-caprmedio-image-name-and-build-metadata.md)
+- [x] [CA-P-2520 — Name existing verified CAPRMEDIO images](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/80-CA-P-2520-TASK--name-existing-verified-caprmedio-images.md)
+- [x] [CA-P-2521 — Accept image naming and resume container queue](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/81-CA-P-2521-TASK--accept-image-naming-and-resume-container-queue.md)
 
 ### Image contract aligned; exclusive source and test lanes activated
 
@@ -500,7 +500,7 @@ C560 records the image naming defect. Its one native create attempt stopped befo
 
 The latest direct answer is just remove them. This supersedes the earlier unknown-version display question and no-deletion bound only for the exact18version-null image IDs in the retained inventory. New Active P2523 owns fresh positive identification, non-force image-only removal and exact readback. No age/name glob, prune, force, container/volume/cache removal, known-version image removal or current-runtime restart is included. Container-referenced images are preserved/reported pending separate authority, not forcibly deleted. P2520 continues additive naming for the11verified historical/current images and the new builder result. No version is guessed and no unknown-tag label will be added. Root remains the sole Docker/Git/record owner; source/tests are frozen after review, with final broader fixtures and isolated build readback pending.
 
-- [x] [CA-P-2523 — Remove the explicitly selected version-unknown images](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/done/82-CA-P-2523-TASK--remove-the-explicitly-selected-version-unknown-images.md)
+- [x] [CA-P-2523 — Remove the explicitly selected version-unknown images](05-CA-P-2401-EPIC--make-atom-and-scope-unit-actions-good/020_done/82-CA-P-2523-TASK--remove-the-explicitly-selected-version-unknown-images.md)
 
 ### Final naming acceptance and exact stopped-container cleanup authorization
 

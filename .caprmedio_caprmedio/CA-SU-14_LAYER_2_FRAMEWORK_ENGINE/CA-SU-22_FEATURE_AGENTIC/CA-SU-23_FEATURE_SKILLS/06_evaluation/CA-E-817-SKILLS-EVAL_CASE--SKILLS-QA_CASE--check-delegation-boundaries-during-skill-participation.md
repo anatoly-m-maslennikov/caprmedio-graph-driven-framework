@@ -11,7 +11,7 @@ context:
     main_subject: MODEL//CAPRMEDIO <+ Actor/AI Agent
     dependencies:
     - MODEL//CAPRMEDIO <+ Actor/AI Agent
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
     - MODEL//CAPRMEDIO <+ Actor/Operator
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Interaction
     - MODEL//CAPRMEDIO <+ Execution/Step Run

@@ -1,5 +1,7 @@
 ---
 atom_id: CA-P-2259
+container:
+  atom: CA-P-2167
 content_role: Plan
 type: Plan
 label: Task
@@ -22,8 +24,6 @@ subjects:
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of:
-  - CA-P-2167
   blocks:
   - CA-P-2260
   - CA-P-2263
@@ -32,6 +32,10 @@ relations:
   - CA-P-2269
   - CA-P-2277
 tier: 3
+carrier_destination:
+  file:
+    name: 24-CA-P-2259-TASK--bind-independent-find-and-modify-workflows.md
+    path: .caprmedio_caprmedio/03_plan/001_backlog
 ---
 # Summary
 

@@ -42,9 +42,9 @@ $atom.Header >> $carrier.frontmatter;
 
 $atom.Content >> $carrier.markdown;
 
-$carrier.filename == $atom.Header.Carrier Destination.File.Name;
+$carrier.filename == $atom.Header.Destination.File.Name;
 
-$carrier.location == $atom.Header.Carrier Destination.File.Path
+$carrier.location == $atom.Header.Destination.File.Path
 ```
 
 ## Details

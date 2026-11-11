@@ -8,8 +8,8 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/File
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
-  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Version
 tier: 3
 status: active
 version: 16

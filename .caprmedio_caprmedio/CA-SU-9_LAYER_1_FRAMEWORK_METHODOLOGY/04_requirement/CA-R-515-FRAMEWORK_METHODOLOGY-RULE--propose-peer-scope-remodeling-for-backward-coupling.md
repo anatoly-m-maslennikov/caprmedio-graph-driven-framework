@@ -10,10 +10,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-040
+  - CA-M-540
 status: Active
-version: 14
-updated_at: 2026-10-29 09:30:11 +0400
+version: 15
+updated_at: 2026-11-11 17:36:24 +0400
 carrier_destination:
   file:
     name: CA-R-515-FRAMEWORK_METHODOLOGY-RULE--propose-peer-scope-remodeling-for-backward-coupling.md

@@ -1,0 +1,54 @@
+---
+atom_id: CA-P-1561
+ref_id: CA-P-1561
+container:
+  atom: CA-P-1137
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Evaluation Implementation
+  dependencies:
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation Implementation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1137
+  blocks:
+  - CA-P-1519
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 25-CA-P-1561-TASK--prepare-native-implementation-and-revert-golden-inputs.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done/05-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/01-CA-P-1137-TASK--implement-one-programmatic-capability-slice/020_done
+work_sequence_number: 25
+current_scope_unit: caprmedio
+claim_target_scope_unit: WORKFLOW_ORCHESTRATOR
+author: Anatoly Maslennikov
+assignee: AI Agent
+---
+# Summary
+
+Prepare native Implementation and Revert golden inputs
+
+## Objective
+
+Within <=15 minutes, replace W09/W10 marker evidence with native executable golden inputs.
+
+## Details
+
+Saved result: W09/W10 supply native executable input helpers. Two functional tests prove source-full Implementation packets and mock-not-live-LLM code changes from failing to passing, plus exact approved native lifecycle Revert with history preservation and stale/unsupported rejection. W01-W08 and W11-W13 were preserved. No actual queue/MCP/Run/Journal/image acceptance is claimed by this input packet.
+
+Own only W09/W10 and narrowly necessary helpers in selected_workflows_docker_fixture.py plus test_selected_implementation_revert_golden_inputs.py. Preserve W01-W08 and W11-W13. Bind current source-full Implementation Step packets, complete active Method projection and RED inputs, explicit disposable write capability, executable mock Agent that actually creates code and runs evaluations. Distinguish mock transport proof from a live Agent call. Bind Revert complete approved effects to P1553's actual native lifecycle or structural recovery provider with current hashes and permission/history evidence. Prove real temporary native effects, preserved authority/history, refused unsupported/stale input, and no fabricated Run receipts. Actual shared dispatch/queue/MCP/image remain separate. No backend, Tool, selected execution, manifest, source, Plan or Journal edits.
+
+Inherit CA-P-1117's 90% threshold and mechanical Git exception. You are not alone; preserve others and use apply_patch. Root saves Plans/commits. No FPF, harvesting, live authenticated model call or permission bypass.
+
+## Definition of Done
+
+W09/W10 have executable native input/effect proof with accurately bounded mock and runtime claims.

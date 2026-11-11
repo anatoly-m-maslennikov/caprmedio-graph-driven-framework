@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern)
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 4
+updated_at: '2026-11-11T18:56:17+04:00'
 carrier_destination:
   file:
     name: CA-R-2509-CORE_META_MODEL-DECLARATION--declare-atom-role-concern.md
@@ -28,7 +28,9 @@ Declare Atom/(.Role := Concern)
 
 ```CFEL
 # model
-Atom/(.Header.Role: Concern)
+Atom.Header.Context.Role :: Concern;
+
+Atom/(.Header.Context.Role := Concern) >| (Role Order Number == 1);
 ```
 
 ## Semantics

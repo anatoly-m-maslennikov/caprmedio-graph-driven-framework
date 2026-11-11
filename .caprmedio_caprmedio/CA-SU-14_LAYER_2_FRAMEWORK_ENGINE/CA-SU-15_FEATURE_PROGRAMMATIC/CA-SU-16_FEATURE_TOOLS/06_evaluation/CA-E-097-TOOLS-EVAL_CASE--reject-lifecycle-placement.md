@@ -6,7 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
 tier: 2
 relations:
   evaluation_for:

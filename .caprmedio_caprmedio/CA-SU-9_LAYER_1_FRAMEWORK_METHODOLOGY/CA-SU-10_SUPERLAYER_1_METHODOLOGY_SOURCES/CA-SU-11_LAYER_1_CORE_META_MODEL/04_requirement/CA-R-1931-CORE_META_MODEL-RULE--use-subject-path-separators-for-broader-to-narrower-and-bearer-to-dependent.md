@@ -16,8 +16,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Package <+ Module <+ Code Unit
 tier: 3
 status: Active
-version: 18
-updated_at: 2026-11-02 00:18:22 +0400
+version: 20
+updated_at: '2026-11-11T18:31:44+04:00'
 carrier_destination:
   file:
     name: CA-R-1931-CORE_META_MODEL-RULE--use-subject-path-separators-for-broader-to-narrower-and-bearer-to-dependent.md
@@ -85,9 +85,9 @@ Entity/Object/Continuant/Package <+ Module <+ Code Unit
 Atom/(.Header.Role: Operations)/(.Header.Form: Step) {:1}+>{:1+} Atom/(.Header.Role: Operations)/(.Header.Form: Workflow)
 Atom/(.Header.Role: Operations)/(.Header.Form: Sub-step) {:1}+>{:0+} Atom/(.Header.Role: Operations)/(.Header.Form: Step)
 Atom/(.Header.Role: Method)
-Atom.Header.Status >| Status Group: Draft <+ Draft
-Atom.Header.Status >| Status Group: Archived <+ Archived
-Atom.Header.Status >| Status Group: Current <+ * not in (Draft, Archived)
+Atom.Header.State.Status >| Status Group := Draft
+Atom.Header.State.Status >| Status Group := Archived
+Atom.Header.State.Status >| Status Group := Current
 Source ((RELATION_TYPE)) Target
 ```
 
@@ -107,13 +107,7 @@ not admit Method as a Form value; the existing Role use is written
 admitted Property and allowed value. Existing Carrier keys and encodings
 remain governed separately by Delivery; the notation adds no nested object.
 
-Status Group classifies Atom Statuses through
-`Atom.Header.Status >| Status Group`. The following `<+` expressions describe each
-group's Status parts. In this
-mapping, `* not in (Draft, Archived)` selects admitted Atom Status values
-other than Draft and Archived. It does not admit new Status values, missing
-values or a general expression language. Containment does not imply
-inheritance; the Property-qualified Atom kind inherits through `/`.
+Status Group classifies an Atom's admitted Status in its Role. Draft and Archived each form their own group. Plan Status Backlog forms the Backlog group under CA-R-1539. All other admitted Statuses belong to Current. Each admitted Status belongs to exactly one group.
 
 ## Details
 

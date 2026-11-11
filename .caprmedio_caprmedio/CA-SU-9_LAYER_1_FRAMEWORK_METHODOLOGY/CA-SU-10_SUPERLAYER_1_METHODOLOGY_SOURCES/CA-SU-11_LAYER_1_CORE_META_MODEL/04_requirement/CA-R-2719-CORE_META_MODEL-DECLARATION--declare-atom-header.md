@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header
 tier: 3
 status: Active
-version: 3
-updated_at: 2026-11-05 22:47:24 +0400
+version: 4
+updated_at: '2026-11-11 16:27:40 +0400'
 carrier_destination:
   file:
     name: CA-R-2719-CORE_META_MODEL-DECLARATION--declare-atom-header.md
@@ -32,32 +32,16 @@ Atom.Header groups the Atom Properties carried in YAML frontmatter, including fo
 
 ```CFEL
 # model
-Atom.Header{::1}:: []{::0};
+Atom.Header{::1} :: []{::0};
 
-Atom.Header.*[string,in(ID, Ref ID, Role, Form, Version, Status, Updated At, Label, Tier, Topics, Container, Relations, Carrier Destination, Priority, AI Agent Confidence Threshold, Work Sequence Number)]{::0+};
+Atom.Header.*[string, in (Identity, Context, Relations, State, Destination)]{::0+};
 
-Atom.Header.ID ;> Atom.Header.Ref ID;
+Atom.Header.Identity ;> Atom.Header.Context;
 
-Atom.Header.Ref ID ;> Atom.Header.Container;
+Atom.Header.Context ;> Atom.Header.Relations;
 
-Atom.Header.Container ;> Atom.Header.Role;
+Atom.Header.Relations ;> Atom.Header.State;
 
-Atom.Header.Role ;> Atom.Header.Form;
-
-Atom.Header.Form ;> Atom.Header.Label;
-
-Atom.Header.Label ;> Atom.Header.Topics;
-
-Atom.Header.Topics ;> Atom.Header.Tier;
-
-Atom.Header.Tier ;> Atom.Header.Relations;
-
-Atom.Header.Relations ;> Atom.Header.Status;
-
-Atom.Header.Status ;> Atom.Header.Version;
-
-Atom.Header.Version ;> Atom.Header.Updated At;
-
-Atom.Header.Updated At ;> Atom.Header.Carrier Destination
+Atom.Header.State ;> Atom.Header.Destination
 ```
 

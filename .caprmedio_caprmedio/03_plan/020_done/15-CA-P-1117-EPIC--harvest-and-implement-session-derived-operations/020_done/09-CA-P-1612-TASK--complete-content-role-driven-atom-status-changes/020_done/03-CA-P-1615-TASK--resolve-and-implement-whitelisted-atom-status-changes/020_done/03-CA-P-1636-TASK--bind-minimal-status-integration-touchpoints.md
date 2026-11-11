@@ -1,0 +1,58 @@
+---
+atom_id: CA-P-1636
+ref_id: CA-P-1636
+container:
+  atom: CA-P-1615
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Atom.Header.State.Status
+  dependencies:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Atom/Content Role
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Status
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1615
+  blocks:
+  - CA-P-1637
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 3-CA-P-1636-TASK--bind-minimal-status-integration-touchpoints.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done/09-CA-P-1612-TASK--complete-content-role-driven-atom-status-changes/020_done/03-CA-P-1615-TASK--resolve-and-implement-whitelisted-atom-status-changes/020_done
+work_sequence_number: 3
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+---
+# Summary
+
+Bind minimal status integration touchpoints
+
+## Objective
+
+Within <=15 minutes, bind minimal status integration touchpoints.
+
+## Details
+
+Read-only existing dirty lifecycle_intents.py/atom_operations.py, selected Action/Tool/MCP integration and shared Run support. Identify exact minimum touchpoints for source-derived model and D-defined destination integration, preserving existing edits; no code or broad audit.
+
+Inputs: accepted CA-P-1633 source packet and current saved lifecycle inputs; current default role domains, R1825@3/E545@2 and D565@1. Host/image gates C449 and relocation gate C447 remain unchanged. The existing development worker can run focused development tests, not immutable-image proof.
+
+## Definition of Done
+
+Saved bounded integration map covers model derivation, status destinations/archive suffix, Draft, no-op, history/references and shared recording, without a runtime claim.
+
+## Result
+
+Read-only /root/integrate_selected_native_providers preflight identified exact integration touchpoints: lifecycle_intents.py model/no-op/native refusal; atom_operations.py non-Active/Draft locators and D-defined destinations; selected_execution.py freeze/dispatch admission; MCP shared preview preflight and structured diagnostics. Plan Backlog uses D461 local container/001_backlog; new Archived uses D565/@version, preserving legacy archive history. W01–04 source pins remain old and must refresh separately. An identity-less Draft requires a real locator and an explicit accepted identity mapping for promotion; never fabricate ID. Parent P1615 remains incomplete until native effects/recording integration.

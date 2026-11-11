@@ -1,0 +1,47 @@
+---
+atom_id: CA-P-2583
+container:
+  atom: CA-P-2577
+content_role: Plan
+type: Plan
+label: Task
+work_sequence_number: 6
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+status: Backlog
+version: 6
+updated_at: 2026-10-30 03:11:57 +0400
+subjects:
+  governs: Subject/Graph Node/Engineering/MCP.selected Workflow capability routes
+  depends_on: []
+relations:
+  depends_on:
+  - CA-P-2580
+  - CA-P-2581
+  - CA-P-2582
+  relates_to:
+  - CA-O-016
+  - CA-O-239
+  - CA-E-652
+tier: 3
+carrier_destination:
+  file:
+    name: 06-CA-P-2583-TASK--verify-the-current-shared-workflow-through-isolated-mcp.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/001_backlog
+---
+# Summary
+
+Verify the current shared Workflow through isolated MCP
+
+## Objective
+
+Prepare functional cases before implementation, then verify happy path, review/test repairs, stale bindings, coverage gaps, retry exhaustion, interrupted continuation and no duplicate effects through disposable native/MCP boundaries. Never use the production port.
+
+## Details
+
+One Task per file; at most 15 minutes of own work per leaf. Split before expanding. Review and update dependent Tasks after observed predecessor results, before execution. Initiative is CA-P-2577; preserve one stable action identity for each actual mutation. Use current PROGRAMMATIC M/E/D guidance and the selected locked uv environment. Preserve unrelated dirty work, exact predecessors, canonical ownership, partial results, failure visibility, retry/permission bounds and business-only Journal semantics. Create C/Problem or C/Question for actual blockers or unresolved decisions. No release, deployment, production MCP traffic, full-suite run, uncertain replay or Git publication is authorized by this Task.
+
+### Definition of Done
+
+Retain the bounded changed paths, current source bindings, focused commands/results and unresolved limits for this responsibility; review and update the next dependent Task before it executes.

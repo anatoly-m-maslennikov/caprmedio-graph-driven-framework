@@ -11,8 +11,8 @@ topics:
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Authoring <+ Controlled English"
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ Data Validation"
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Atom.Header.Form
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Form
 tier: 7
 relations:
   child_of:

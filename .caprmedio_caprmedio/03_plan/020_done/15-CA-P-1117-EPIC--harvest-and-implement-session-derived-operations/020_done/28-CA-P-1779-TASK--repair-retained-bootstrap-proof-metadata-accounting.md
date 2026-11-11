@@ -1,0 +1,55 @@
+---
+atom_id: CA-P-1779
+ref_id: CA-P-1779
+container:
+  atom: CA-P-1117
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Validation
+  dependencies:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Engineering/Continuant/Carrier
+  - Subject/Graph Node/Engineering/Manifest
+  - Subject/Graph Node/Domain/Occurrent/Execution/Workflow Run
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1717
+  - CA-P-1721
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 28-CA-P-1779-TASK--repair-retained-bootstrap-proof-metadata-accounting.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done
+work_sequence_number: 28
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+---
+# Summary
+
+Repair retained bootstrap proof metadata accounting
+
+## Objective
+
+Restore exact persistent-inventory verification of the retained bootstrap image proof while preserving installed N and all proof bytes.
+
+## Details
+
+Use the existing inventory-defined ephemeral exclusion only after unsafe-carrier and secret-path refusal. Preserve exact persistent contents, modes and extra-file rejection in both context digest and package-context readers. Do not alter N, rewrite its evidence or replay N7. This bounded repair reuses current inventory authority and the Operator's instruction to ignore Finder metadata; it adds no Workflow or independent registry.
+
+## Definition of Done
+
+Metadata-only retained proof reopening succeeds without mutation; secret-shaped ephemeral files and arbitrary extra persistent files still refuse; focused regressions pass. Fresh actual Release gates remain separate.
+
+## Results
+
+N7 stopped before the Unit suite because five Finder files changed its raw retained proof-context digest. Excluding those files recovers the exact already-recorded digest. Both readers now share unsafe → secret refusal → ephemeral exclusion ordering. Thirteen bootstrap-image tests pass, including preserved metadata, `.env.pyc` refusal and arbitrary extra-file refusal. The actual retained N proof reopens as verified with the unchanged N manifest and immutable image. No N or proof files were modified.

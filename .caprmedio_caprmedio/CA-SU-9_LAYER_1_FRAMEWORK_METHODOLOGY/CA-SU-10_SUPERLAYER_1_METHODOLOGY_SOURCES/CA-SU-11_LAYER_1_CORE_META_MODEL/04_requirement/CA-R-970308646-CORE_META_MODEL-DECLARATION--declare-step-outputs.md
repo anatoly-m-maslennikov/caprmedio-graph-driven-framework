@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Step.Outputs
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-11 00:16:05 +0400
+version: 2
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-970308646-CORE_META_MODEL-DECLARATION--declare-step-outputs.md
@@ -26,3 +26,10 @@ Declare Step.Outputs
 ### Prose Claim
 
 A Step declares its outputs when it produces values for subsequent Steps or the enclosing Workflow. A previous Step output is one permitted source of a binding.
+
+### Formal Claim
+
+```CFEL
+# model
+Step.Outputs ((IS_PROPERTY_OF)) Step;
+```

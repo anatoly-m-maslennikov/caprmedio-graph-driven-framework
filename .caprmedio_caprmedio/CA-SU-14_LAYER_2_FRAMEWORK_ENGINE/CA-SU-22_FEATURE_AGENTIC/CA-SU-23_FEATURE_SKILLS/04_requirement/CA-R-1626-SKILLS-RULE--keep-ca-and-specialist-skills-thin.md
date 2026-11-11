@@ -10,14 +10,14 @@ topics:
   dependencies:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution
     Control <+ Effect Authorization
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)
   - MODEL//CAPRMEDIO <+ Actor/Operator
   - MODEL//CAPRMEDIO <+ Project
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
   - MODEL//CAPRMEDIO <+ Execution
   - MODEL//CAPRMEDIO <+ Execution/Step Run
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
 tier: 3
 status: Active
 version: 22

@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics
   - CAPRMEDIO_MODEL <+ Atom.Content
   - CAPRMEDIO_MODEL <+ Atom.Content.Summary
 tier: 1

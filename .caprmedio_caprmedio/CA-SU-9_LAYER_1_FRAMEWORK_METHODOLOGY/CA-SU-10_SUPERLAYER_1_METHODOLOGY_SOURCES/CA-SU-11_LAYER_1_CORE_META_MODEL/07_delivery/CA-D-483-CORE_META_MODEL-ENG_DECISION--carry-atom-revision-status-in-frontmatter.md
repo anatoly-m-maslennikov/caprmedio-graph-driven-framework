@@ -6,10 +6,10 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Status
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Atom.Header.Form
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Form
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
 status: active

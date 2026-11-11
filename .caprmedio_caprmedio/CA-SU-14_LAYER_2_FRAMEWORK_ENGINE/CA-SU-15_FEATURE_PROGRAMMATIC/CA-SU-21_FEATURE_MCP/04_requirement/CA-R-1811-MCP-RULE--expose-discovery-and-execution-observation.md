@@ -10,8 +10,8 @@ context:
   topics:
     main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Discovery and Navigation
     dependencies:
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
     - MODEL//CAPRMEDIO <+ Atom
     - MODEL//CAPRMEDIO <+ Scope Unit
     - MODEL//CAPRMEDIO <+ Package/Project Package

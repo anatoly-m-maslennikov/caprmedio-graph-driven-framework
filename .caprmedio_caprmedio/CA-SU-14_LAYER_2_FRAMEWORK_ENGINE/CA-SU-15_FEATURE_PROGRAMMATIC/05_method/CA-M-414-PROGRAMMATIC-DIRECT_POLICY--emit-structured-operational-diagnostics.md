@@ -12,7 +12,7 @@ context:
       <+ Observability <+ Logging
     dependencies:
     - MODEL//CAPRMEDIO <+ Journal
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)
     - MODEL//CAPRMEDIO <+ Carrier
     - MODEL//CAPRMEDIO <+ Event Record
   tier: 4
@@ -118,4 +118,4 @@ the Journal as a substitute logging sink.
 - [Python Logging HOWTO](https://docs.python.org/3.14/howto/logging.html)
 - [Python Logging Cookbook](https://docs.python.org/3.14/howto/logging-cookbook.html)
 - [OpenTelemetry: logs](https://opentelemetry.io/docs/concepts/signals/logs/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

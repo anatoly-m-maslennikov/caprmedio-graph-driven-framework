@@ -18,7 +18,7 @@ subjects:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Methodology Sources
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Selection//Extension Sources
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Version Number
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Projection
 relations: {}
 tier: 3

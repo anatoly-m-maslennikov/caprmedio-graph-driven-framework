@@ -13,7 +13,7 @@ context:
     dependencies:
     - MODEL//CAPRMEDIO <+ Asset
     - MODEL//CAPRMEDIO <+ Event Record
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)
   tier: 4
 relations:
   child_of:
@@ -103,4 +103,4 @@ fallback.
 - [uv: Locking and syncing](https://docs.astral.sh/uv/concepts/projects/sync/)
 - [uv: Tools](https://docs.astral.sh/uv/concepts/tools/)
 - [uv: Configuring projects](https://docs.astral.sh/uv/concepts/projects/config/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

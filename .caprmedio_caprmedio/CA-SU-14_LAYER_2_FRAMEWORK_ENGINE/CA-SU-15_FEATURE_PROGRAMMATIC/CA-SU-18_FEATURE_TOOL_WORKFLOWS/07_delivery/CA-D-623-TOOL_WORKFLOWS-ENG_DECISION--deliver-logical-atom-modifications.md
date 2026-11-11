@@ -17,8 +17,8 @@ relations:
   - CA-R-1934
   - CA-R-866
 status: Active
-version: 12
-updated_at: 2026-10-27 19:59:27 +0400
+version: 13
+updated_at: 2026-11-11 09:03:52 +0400
 carrier_destination:
   file:
     name: CA-D-623-TOOL_WORKFLOWS-ENG_DECISION--deliver-logical-atom-modifications.md
@@ -38,6 +38,8 @@ Workflow admission owns identity, Version/time, lifecycle and complete schema de
 Required serialization for explicit section, Property and list edits on one logical Atom, inside the existing service and currentness/permission envelope.
 
 ## Claim
+
+For the Project Configuration Atom Lifecycle Workflows, identity, Version, Updated At and history follow those Workflows and CA-R-1432 and CA-R-1788. CA-E-521 checks those effects. Differing statements in this Atom on those matters apply only to other operations.
 
 The workflow supplies an explicit edit operation, exact logical target/value and admitted metadata delta to CA-D-625's modify connector. Atom ID, Version and source-state evidence bind the surrounding Atom; they are not a list-position selector. Workflow admission completely validates every proposed final Atom before an authorized connector effect.
 

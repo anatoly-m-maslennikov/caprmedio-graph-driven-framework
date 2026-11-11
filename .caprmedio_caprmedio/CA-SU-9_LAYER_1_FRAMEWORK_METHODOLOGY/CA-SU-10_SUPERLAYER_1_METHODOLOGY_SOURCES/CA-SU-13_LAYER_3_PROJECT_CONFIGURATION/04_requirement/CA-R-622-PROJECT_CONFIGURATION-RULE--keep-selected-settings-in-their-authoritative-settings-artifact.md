@@ -20,11 +20,10 @@ relations:
   - CA-R-2532
   - CA-R-1402@27
   child_of:
-  - CA-M-446
-  - CA-R-1421
+  - CA-R-3033
 status: Active
-version: 35
-updated_at: 2026-11-04 09:30:21 +0400
+version: 37
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-622-PROJECT_CONFIGURATION-RULE--keep-selected-settings-in-their-authoritative-settings-artifact.md

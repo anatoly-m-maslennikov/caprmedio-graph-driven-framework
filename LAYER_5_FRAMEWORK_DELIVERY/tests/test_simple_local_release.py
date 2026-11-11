@@ -6,6 +6,7 @@ import subprocess
 from contextlib import AbstractContextManager
 import io
 import json
+import shutil
 import stat
 import sys
 import tempfile
@@ -121,6 +122,19 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         workbench_backend.mkdir(parents=True)
         write_relation_registry_generator(workbench_backend)
         write_workbench_schema_generator(workbench_backend)
+        lifecycle = mcp.parent / "FEATURE_TOOLS/ATOM_LIFECYCLE"
+        lifecycle.mkdir()
+        (lifecycle / "status_model.py").write_text(
+            "from pathlib import Path\n"
+            "import sys\n"
+            "sources = Path(sys.argv[sys.argv.index('--model-root') + 1])\n"
+            "assert sources == Path.cwd() / 'METHODOLOGY/sources'\n"
+            f"assert (sources / {self.source_units['CORE_META_MODEL'].name!r} / 'active.md').is_file()\n"
+            "output = Path(sys.argv[sys.argv.index('--output') + 1])\n"
+            "output.write_text('{\"schema\":1}\\n', encoding='utf-8')\n",
+            encoding="utf-8",
+        )
+        shutil.copy2(lifecycle / "status_model.py", lifecycle / "candidate_schema.py")
         self.image_id = "sha256:" + "a" * 64
         self.image = SimpleNamespace(resolve=Mock(return_value=self.image_id),
                                      identity=Mock(return_value=SimpleNamespace(fingerprint="b" * 64)))
@@ -254,6 +268,15 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         archived = core / "archived/active@1.md"
         archived.parent.mkdir()
         archived.write_bytes((archived.parent.parent / "active.md").read_bytes())
+        for directory in ("000_draft", "099_archived"):
+            folder = core / "04_requirement" / directory
+            folder.mkdir(parents=True)
+            (folder / "active.md").write_bytes((core / "active.md").read_bytes())
+            (folder / "data.json").write_text("{}\n", encoding="utf-8")
+        terminal = core / "04_requirement" / "020_done"
+        terminal.mkdir()
+        (terminal / "active.md").write_bytes((core / "active.md").read_bytes())
+        (terminal / "data.json").write_text("{}\n", encoding="utf-8")
         runner, calls = self._runner()
         with self._compiler():
             result = run_local_release(self.root, run_id="happy", runner=runner)
@@ -267,7 +290,11 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             self.assertEqual(0o640, stat.S_IMODE((target / "SUPERLAYER_1_METHODOLOGY_SOURCES" / core.name / "active.md").stat().st_mode))
             for unit in self.source_units.values():
                 released = target / "SUPERLAYER_1_METHODOLOGY_SOURCES" / unit.name
-                self.assertEqual(["active.md"], sorted(path.name for path in released.rglob("*.md")))
+                expected = ["active.md", "active.md"] if unit == core else ["active.md"]
+                self.assertEqual(expected, sorted(path.name for path in released.rglob("*.md")))
+            self.assertTrue((target / "SUPERLAYER_1_METHODOLOGY_SOURCES" / core.name / "04_requirement/020_done/data.json").is_file())
+            for directory in ("000_draft", "099_archived"):
+                self.assertFalse((target / "SUPERLAYER_1_METHODOLOGY_SOURCES" / core.name / "04_requirement" / directory).exists())
         self.assertEqual("keep = true\n", (self.runtime / "config.toml").read_text())
         bootstrap = self.runtime / "start_mcp.py"
         self.assertEqual(self.engine_bootstrap.read_bytes(), bootstrap.read_bytes())
@@ -292,6 +319,10 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             )
             self.assertFalse((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS").exists())
             packaged_tools = package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS"
+            self.assertEqual(
+                '{"schema":1}\n', (packaged_tools / "ATOM_LIFECYCLE/status_model.json").read_text(encoding="utf-8")
+            )
+            self.assertTrue((packaged_tools / "ATOM_LIFECYCLE/candidate_schema.json").is_file())
             self.assertFalse((packaged_tools / "tests").exists())
             self.assertFalse((packaged_tools / "fixtures").exists())
             self.assertFalse((packaged_tools / "README.md").exists())

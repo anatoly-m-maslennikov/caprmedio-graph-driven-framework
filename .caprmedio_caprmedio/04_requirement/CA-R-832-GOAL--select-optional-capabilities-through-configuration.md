@@ -16,12 +16,11 @@ topics:
 tier: 5
 relations:
   child_of:
-  - CA-R-1421
+  - CA-R-3033
   - CA-R-815
-  - CA-M-006
 status: Active
-version: 35
-updated_at: 2026-11-02 18:35:20 +0400
+version: 37
+updated_at: "2026-11-11 18:46:16 +0400"
 cce_version: cce_1
 cce_form: obligation
 llm_session_ids:

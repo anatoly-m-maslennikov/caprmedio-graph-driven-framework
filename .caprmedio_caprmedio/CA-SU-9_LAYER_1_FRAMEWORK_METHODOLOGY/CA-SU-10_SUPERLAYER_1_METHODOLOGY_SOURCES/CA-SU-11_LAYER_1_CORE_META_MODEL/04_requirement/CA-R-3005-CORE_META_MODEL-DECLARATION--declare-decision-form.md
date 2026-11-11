@@ -5,12 +5,12 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Decision)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Form := Decision)
 tier: 3
 ref_id: CA-R-3005
 status: Active
-version: 2
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 3
+updated_at: '2026-11-11 14:06:22 +0400'
 carrier_destination:
   file:
     name: CA-R-3005-CORE_META_MODEL-DECLARATION--declare-decision-form.md
@@ -27,10 +27,13 @@ Declare Decision Form
 
 ```CFEL
 # model
-Atom/(.Header.Form := Decision);
+Atom.Header.Context.Form :: Decision;
 
 # instances
-Atom/(.Header.Form := Decision)//$decision.Header.Role:: [in (Method, Evaluation, Delivery, Operations)]{::1}
+FOR EACH $a[<Atom>, (.Header.Context.Form = Decision)]:
+(
+    $a.Header.Context.Role:: [in (Method, Evaluation, Delivery, Operations)]{::1}
+)
 ```
 
 ## Semantics

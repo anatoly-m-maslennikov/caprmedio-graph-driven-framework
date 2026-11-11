@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Format//markdown
 tier: 3
 status: Active
-version: 3
-updated_at: 2026-11-03 23:25:51 +0400
+version: 4
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2547-CORE_META_MODEL-DECLARATION--define-markdown-value-format.md
@@ -28,3 +28,10 @@ Define markdown value Format
 
 
 The markdown Format admits Markdown source. A section value preserves its markup. Its retrieved value includes its heading and descendant sections.
+
+### Formal Claim
+
+```CFEL
+# model
+Format//markdown ((INSTANCE_OF)) Format;
+```

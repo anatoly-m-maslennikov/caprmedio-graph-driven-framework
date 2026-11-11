@@ -64,6 +64,8 @@ class WorkbenchService:
             raise WorkbenchUnavailableError(f"Workbench image assets unavailable: {error}") from error
         self._reader = SourceReader(
             self._root, schema_mode=self._schema_mode, compiled_schema=(compiled.content, compiled.mode_one),
+            status_groups=compiled.status_groups,
+            role_folders=compiled.role_folders,
         )
         self._content_schema = compiled.content
         self._header_schema: HeaderSchema | None = compiled.mode_one if self._schema_mode == 1 else None

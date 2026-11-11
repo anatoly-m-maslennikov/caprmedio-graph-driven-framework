@@ -8,9 +8,9 @@ form: Rule
 topics:
   main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Traceability"
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory")
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := "Analysis and Advisory")
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
   - CAPRMEDIO_MODEL <+ Projection
 tier: 3
 status: Active

@@ -13,13 +13,12 @@ tier: 2
 relations:
   child_of:
   - CA-M-448
-  - CA-M-005
 status: Active
-version: 27
-updated_at: 2026-11-02 00:18:22 +0400
+version: 29
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
-    name: CA-M-091-CAPRMEDIO-IMPLEMENTATION_METHOD--keep-only-necessary-and-sufficient-reusable-project-information.md
+    name: CA-M-091-IMPLEMENTATION_METHOD--keep-only-necessary-and-sufficient-reusable-project-information.md
     path: .caprmedio_caprmedio/05_method
 cce_version: cce_1
 cce_form: method
@@ -35,13 +34,4 @@ Keep only necessary and sufficient reusable project information
 
 ### Prose Claim
 
-
-reusable Project information, including its methodology.
-
-
-**to** maintain reusable Project information, keep **only** the smallest information set sufficient **to** understand, govern, operate, **and** change the Project.
-
-## Details
-
-- for normative Project information, state applicable conditions **and** required behavior positively.
-- an explicit prohibition is necessary **only** **when** it prevents a real ambiguity **or** protects an important boundary.
+Keep only the reusable information needed to understand, govern, operate, and change the Project.

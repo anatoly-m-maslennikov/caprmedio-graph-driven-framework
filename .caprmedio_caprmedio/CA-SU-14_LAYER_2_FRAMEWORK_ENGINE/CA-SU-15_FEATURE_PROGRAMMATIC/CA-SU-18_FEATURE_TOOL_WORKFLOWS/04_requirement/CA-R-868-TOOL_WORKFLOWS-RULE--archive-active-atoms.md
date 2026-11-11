@@ -9,10 +9,10 @@ topics:
   main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Version Number
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Version Number
   - Subject/CAPRMEDIO/Carrier
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Updated At
 tier: 3
 status: Active
 version: 29

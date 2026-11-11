@@ -5,12 +5,12 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Approach Policy)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Form := Approach Policy)
 tier: 3
 ref_id: CA-R-3004
 status: Active
-version: 2
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 3
+updated_at: '2026-11-11 14:06:22 +0400'
 carrier_destination:
   file:
     name: CA-R-3004-CORE_META_MODEL-DECLARATION--declare-approach-policy-form.md
@@ -27,10 +27,13 @@ Declare Approach Policy Form
 
 ```CFEL
 # model
-Atom/(.Header.Form := Approach Policy);
+Atom.Header.Context.Form :: Approach Policy;
 
 # instances
-Atom/(.Header.Form := Approach Policy)//$approach_policy.Header.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}
+FOR EACH $a[<Atom>, (.Header.Context.Form = Approach Policy)]:
+(
+    $a.Header.Context.Role:: [in (Requirement, Method, Evaluation, Delivery, Operations)]{::1}
+)
 ```
 
 ## Semantics

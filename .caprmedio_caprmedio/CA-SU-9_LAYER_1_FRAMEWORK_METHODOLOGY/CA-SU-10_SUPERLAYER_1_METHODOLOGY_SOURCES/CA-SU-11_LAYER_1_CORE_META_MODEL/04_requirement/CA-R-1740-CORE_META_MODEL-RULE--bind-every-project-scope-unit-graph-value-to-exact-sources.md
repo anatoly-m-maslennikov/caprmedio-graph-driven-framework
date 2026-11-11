@@ -16,10 +16,10 @@ tier: 3
 relations:
   child_of:
   - CA-R-1052
-  - CA-R-007
+  - CA-M-544
 status: Active
-version: 41
-updated_at: 2026-11-02 19:44:26 +0400
+version: 42
+updated_at: 2026-11-11 15:00:27 +0400
 carrier_destination:
   file:
     name: CA-R-1740-CORE_META_MODEL-RULE--bind-every-project-scope-unit-graph-value-to-exact-sources.md

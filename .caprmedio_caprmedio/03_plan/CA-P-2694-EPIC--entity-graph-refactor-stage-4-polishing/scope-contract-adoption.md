@@ -1,6 +1,6 @@
 # Goals outside; Scope Contracts inside — adoption result
 
-[A1313](../../02_analysis/done/CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md) records the accepted decision. [P2701](done/07-CA-P-2701-TASK--adopt-goals-outside-and-tier-zero-scope-contracts.md) and A1313 are Done. The reviewed Scope Contract model is adopted in Current methodology; remaining legacy and held work is explicitly deferred below.
+[A1313](../../02_analysis_and_advisory/020_done/CA-A-1313-SPEC_PROPOSAL--goals-outside-and-scope-contracts-at-tier-zero.md) records the accepted decision. [P2701](020_done/07-CA-P-2701-TASK--adopt-goals-outside-and-tier-zero-scope-contracts.md) and A1313 are Done. The reviewed Scope Contract model is adopted in Current methodology; remaining legacy and held work is explicitly deferred below.
 
 ## Final model
 
@@ -49,7 +49,7 @@ The final verification and graph report are saved with the Task. Stable projecti
 
 ## Explicit remaining work
 
-- Four technical Engine Goal cases are deferred to [CA-P-2702](../CA-P-2637-EPIC--migrate-engine-rmed-atoms/backlog/CA-P-2702-TASK--reconcile-deferred-engine-scope-goals.md). They are not silently dropped or assigned invented targets.
+- Four technical Engine Goal cases are deferred to [CA-P-2702](../001_backlog/CA-P-2702-TASK--reconcile-deferred-engine-scope-goals.md). They are not silently dropped or assigned invented targets.
 - GIT/FPF Goals R1469, R1474 and R1482 stay deferred under the prior Operator decision.
 - The three unsupported additional Core promotions and nine earlier text-style/classification Drafts are recorded in [CA-P-2703](backlog/CA-P-2703-TASK--review-deferred-foundation-and-notation-drafts.md).
 - The legacy CAPRMEDIO-R-800 documentation carrier and pre-existing Engine/reference issues remain outside this source adoption; no claim of whole-repository conformance is made.

@@ -6,9 +6,9 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation).Header.Status'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation).Header.State.Status'
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
 tier: 2
 status: Active
 version: 24

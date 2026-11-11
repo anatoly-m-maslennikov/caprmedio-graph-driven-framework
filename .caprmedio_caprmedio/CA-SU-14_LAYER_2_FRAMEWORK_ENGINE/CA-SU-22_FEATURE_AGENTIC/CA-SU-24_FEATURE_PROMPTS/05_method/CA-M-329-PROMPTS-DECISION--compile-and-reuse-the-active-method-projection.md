@@ -9,7 +9,7 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
     <+ Data Handling <+ Output Publication
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Method)
 tier: 3
 status: Active
 version: 16

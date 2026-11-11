@@ -20,6 +20,7 @@ sys.path[:0] = [str(APP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
 
 from host_runtime_config import load_host_runtime_config  # noqa: E402
 from direct_gateway import DirectGateway  # noqa: E402
+from project_selection import bind_selection  # noqa: E402
 from test_workspace_end_to_end import _ConfiguredWorkbenchTools  # noqa: E402
 from smalltest_support import extension_directory  # noqa: E402
 from http_paths import MCP_PATH  # noqa: E402
@@ -66,7 +67,8 @@ class SharedNativeRoutingTests(unittest.IsolatedAsyncioTestCase):
     def _native_factory(self):
         def factory(root, *, selection):
             gateway = DirectGateway(root, selection=selection)
-            gateway.workbench = _ConfiguredWorkbenchTools(root, extension_directory(ROOT))
+            with bind_selection(selection):
+                gateway.workbench = _ConfiguredWorkbenchTools(root, extension_directory(ROOT))
             return gateway
         return factory
 
@@ -98,7 +100,7 @@ class SharedNativeRoutingTests(unittest.IsolatedAsyncioTestCase):
     async def test_frontdoor_routes_same_workspace_id_to_isolated_native_owners(self):
         async with self._session() as session:
             tools = {tool.name: tool for tool in (await session.list_tools()).tools}
-            self.assertEqual(28, len(tools))
+            self.assertEqual(34, len(tools))
             self.assertIn("project_root", tools["workbench_ui_probe"].input_schema["required"])
             uri = tools["workbench_ui_probe"].meta["ui"]["resourceUri"]
             resource = (await session.read_resource(uri)).contents[0]

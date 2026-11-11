@@ -8,8 +8,8 @@ form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
-  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
   - CAPRMEDIO_MODEL <+ Actor
 tier: 3
 status: Active

@@ -11,7 +11,7 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Updated At
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Updated At
   - Subject/CAPRMEDIO/Carrier
 tier: 4
 relations:

@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content.Summary
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
   - CAPRMEDIO_MODEL <+ Atom.Content
 tier: 3
 status: Active

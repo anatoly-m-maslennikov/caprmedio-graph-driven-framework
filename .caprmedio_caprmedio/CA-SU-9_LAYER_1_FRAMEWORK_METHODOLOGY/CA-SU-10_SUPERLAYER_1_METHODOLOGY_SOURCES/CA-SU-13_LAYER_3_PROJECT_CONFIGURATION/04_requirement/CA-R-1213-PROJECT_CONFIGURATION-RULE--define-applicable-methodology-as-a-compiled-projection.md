@@ -13,9 +13,9 @@ topics:
   - CAPRMEDIO_MODEL <+ Projection
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Reconciled Projection'
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Goal)'
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
 tier: 1
 status: Active
 version: 40

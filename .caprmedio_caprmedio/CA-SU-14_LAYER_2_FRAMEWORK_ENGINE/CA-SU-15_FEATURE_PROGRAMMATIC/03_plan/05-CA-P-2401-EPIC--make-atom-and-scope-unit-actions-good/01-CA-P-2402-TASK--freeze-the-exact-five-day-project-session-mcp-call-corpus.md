@@ -58,7 +58,7 @@ Estimated own work: at most 15 minutes. Before further work that would exceed th
 
 ### Frozen subset and remaining attribution work
 
-Release-v1 at .caprmedio_tmp/mcp-audit-20261020/corpus/release-v1 is frozen and SHA-verified:710 session input files,414 embedded MCP-name records from348 outer calls,93 lifecycle records and321 auxiliary records. The other three direct-call families have no observed records; that is not success or failure.48 shell/script wrappers lack directly observable nested MCP calls. This Task remains Active until attribution/coverage limitations are reconciled through [CA-P-2415](01-CA-P-2402-TASK--freeze-the-exact-five-day-project-session-mcp-call-corpus/01-CA-P-2415-TASK--resolve-hidden-mcp-transport-wrapper-attribution.md). Downstream Luna lanes may review their immutable known-call partitions, but may not claim full MCP-transport completeness.
+Release-v1 at .caprmedio_tmp/mcp-audit-20261020/corpus/release-v1 is frozen and SHA-verified:710 session input files,414 embedded MCP-name records from348 outer calls,93 lifecycle records and321 auxiliary records. The other three direct-call families have no observed records; that is not success or failure.48 shell/script wrappers lack directly observable nested MCP calls. This Task remains Active until attribution/coverage limitations are reconciled through [CA-P-2415](01-CA-P-2402-TASK--freeze-the-exact-five-day-project-session-mcp-call-corpus/020_done/01-CA-P-2415-TASK--resolve-hidden-mcp-transport-wrapper-attribution.md). Downstream Luna lanes may review their immutable known-call partitions, but may not claim full MCP-transport completeness.
 
 ### Definition of Done
 

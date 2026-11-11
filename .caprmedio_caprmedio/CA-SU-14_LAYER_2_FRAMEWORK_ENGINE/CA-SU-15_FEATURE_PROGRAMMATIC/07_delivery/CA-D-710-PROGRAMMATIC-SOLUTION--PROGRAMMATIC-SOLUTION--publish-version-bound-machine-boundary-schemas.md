@@ -13,7 +13,7 @@ context:
     dependencies:
     - MODEL//CAPRMEDIO <+ Package
     - MODEL//CAPRMEDIO <+ Carrier
-    - MODEL//CAPRMEDIO <+ Atom.Header.Version
+    - MODEL//CAPRMEDIO <+ Atom.Header.State.Version
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
       <+ Communication <+ API
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture

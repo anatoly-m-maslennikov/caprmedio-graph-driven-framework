@@ -1,5 +1,7 @@
 ---
 atom_id: CA-P-2480
+container:
+  scope_unit: CA-SU-15
 content_role: Plan
 type: Plan
 label: Epic
@@ -19,6 +21,10 @@ relations:
 version: 7
 updated_at: 2026-10-25 17:32:27 +0400
 tier: 3
+carrier_destination:
+  file:
+    name: 06-CA-P-2480-EPIC--make-atom-and-scope-unit-actions-good-stage-2.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/001_backlog
 ---
 # Summary
 

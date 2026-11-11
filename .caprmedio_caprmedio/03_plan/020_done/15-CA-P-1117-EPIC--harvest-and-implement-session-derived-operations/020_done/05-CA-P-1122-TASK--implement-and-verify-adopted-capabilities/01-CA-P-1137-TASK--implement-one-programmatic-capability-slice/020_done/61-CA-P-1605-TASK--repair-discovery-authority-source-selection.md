@@ -1,0 +1,57 @@
+---
+atom_id: CA-P-1605
+ref_id: CA-P-1605
+container:
+  atom: CA-P-1137
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Continuant/Tool
+  dependencies:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Projection
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/MCP
+  - Subject/Graph Node/Engineering/Evaluation
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1137
+  blocks:
+  - CA-P-1527
+  - CA-P-1528
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 61-CA-P-1605-TASK--repair-discovery-authority-source-selection.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done/05-CA-P-1122-TASK--implement-and-verify-adopted-capabilities/01-CA-P-1137-TASK--implement-one-programmatic-capability-slice/020_done
+work_sequence_number: 61
+current_scope_unit: caprmedio
+claim_target_scope_unit: MCP
+author: Anatoly Maslennikov
+assignee: AI Agent
+---
+# Summary
+
+Repair discovery authority source selection
+
+## Objective
+
+Within <=15 minutes, Diagnose and repair the existing capability catalog when non-authoritative projected Atom copies cause genuine source declarations to become ambiguous. Own only the relevant catalog or discovery implementation and focused tests after identifying exact paths; preserve diagnostics for actual conflicting primary declarations.
+
+## Details
+
+One independently owned Task. No FPF, harvest, permission bypass, Source Atom or Journal changes, image proof claim or unrelated work. Preserve concurrent edits and ask below the selected 90% confidence threshold. Root records the result and commits validated owned changes.
+
+## Definition of Done
+
+Focused tests prove projected carriers do not create independent authority, genuine source duplicates remain diagnosed, and current query Tool declarations can be discovered or a precise contract blocker is retained.
+
+## Result
+
+Done: bounded diagnosis, no catalog repair needed. Current source excludes every _projection path segment from authority discovery. The direct development-worker catalog resolves CA-O-159 and CA-O-162 once, preserves the genuine CA-D-388 collision, and reports 1561 valid Atoms, 11 Tool bindings and 49 diagnostics. The 9 focused catalog tests pass. No source or implementation file was changed.
+
+Query Tools have no explicit [tool_binding] in CA-D-551 or CA-D-557. Live MCP's 1054 diagnostics therefore differ from current source behavior. P1607 owns source bindings; live generation acceptance remains separate from client cache confirmation and image proof.

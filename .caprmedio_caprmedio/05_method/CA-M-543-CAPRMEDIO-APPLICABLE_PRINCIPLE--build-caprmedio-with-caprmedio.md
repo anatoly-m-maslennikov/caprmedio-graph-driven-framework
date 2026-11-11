@@ -14,8 +14,8 @@ relations:
   - CA-R-3025
   - CA-R-3026
 status: active
-version: 1
-updated_at: "2026-11-10 20:15:27 +0400"
+version: 2
+updated_at: "2026-11-11 18:11:33 +0400"
 destination:
   file:
     name: CA-M-543-CAPRMEDIO-APPLICABLE_PRINCIPLE--build-caprmedio-with-caprmedio.md
@@ -32,4 +32,4 @@ Build CAPRMEDIO with CAPRMEDIO
 
 ### Prose Claim
 
-Use CAPRMEDIO’s own specification, graphs, tools, and workflows to build, maintain, and change the framework. Handle framework changes through the same process as other Project work.
+Use CAPRMEDIO to build, maintain, and change the framework. Handle framework changes the same way as other Project work.

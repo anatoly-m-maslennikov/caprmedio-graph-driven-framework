@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
 tier: 3
 status: Active
-version: 4
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 6
+updated_at: '2026-11-11T18:56:17+04:00'
 carrier_destination:
   file:
     name: CA-R-2514-CORE_META_MODEL-DECLARATION--declare-evaluation.md
@@ -29,7 +29,9 @@ Declare Atom/(.Role := Evaluation)
 
 ```CFEL
 # model
-Atom/(.Header.Role := Evaluation)
+Atom.Header.Context.Role :: Evaluation;
+
+Atom/(.Header.Context.Role := Evaluation) >| (Role Order Number == 6);
 ```
 
 ## Semantics

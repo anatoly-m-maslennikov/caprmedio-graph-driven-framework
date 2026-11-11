@@ -6,11 +6,11 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Delivery).Content.Claim'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role: Delivery).Content.Claim'
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 tier: 6

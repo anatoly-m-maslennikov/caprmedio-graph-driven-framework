@@ -14,11 +14,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-M-447
-  - CA-R-1407
+  - CA-M-540
 status: Active
-version: 40
-updated_at: 2026-11-02 18:35:20 +0400
+version: 42
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1776-CORE_META_MODEL-RULE--separate-graph-dimensions.md

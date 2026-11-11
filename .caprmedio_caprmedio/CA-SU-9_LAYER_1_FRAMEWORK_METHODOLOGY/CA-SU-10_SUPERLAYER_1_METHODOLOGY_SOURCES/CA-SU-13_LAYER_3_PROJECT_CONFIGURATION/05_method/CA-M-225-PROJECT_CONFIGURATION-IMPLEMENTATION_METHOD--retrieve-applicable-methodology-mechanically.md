@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
   dependencies:
   - CAPRMEDIO_MODEL <+ Projection/(.Form:=Applicable Methodology)
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics
 tier: 3
 status: Active
 version: 33

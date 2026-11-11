@@ -9,8 +9,8 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
     <+ Authoring <+ Prompt Authoring
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
 tier: 3
 status: Active
 version: 14

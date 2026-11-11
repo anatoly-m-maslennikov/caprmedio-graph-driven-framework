@@ -14,10 +14,10 @@ topics:
 tier: 3
 relations:
   child_of:
-  - CA-M-005
+  - CA-M-1000
 status: Active
-version: 15
-updated_at: 2026-10-27 19:59:45 +0400
+version: 16
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-O-065-PROJECT_CONFIGURATION-ACTION--screen-short-names-for-unintended-readings.md

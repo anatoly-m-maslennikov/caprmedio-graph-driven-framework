@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Step.Kind
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-11 00:16:05 +0400
+version: 2
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-970308643-CORE_META_MODEL-DECLARATION--declare-step-kind.md
@@ -26,3 +26,10 @@ Declare Step.Kind
 ### Prose Claim
 
 A Step has exactly one Kind: Input, Execution, or Decision. Kind classifies the Step in the Workflow and is independent of its Agentic Step Execution Context.
+
+### Formal Claim
+
+```CFEL
+# model
+Step.Kind ((IS_PROPERTY_OF)) Step;
+```

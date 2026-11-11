@@ -12,8 +12,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-11 06:54:38 +0400
+  version: 21
+  updated_at: 2026-11-11 21:03:04 +0400
 destination:
   file:
     name: CA-C-730-QUESTION--admit-the-atom-lifecycle-tool-contract.md
@@ -21,15 +21,19 @@ destination:
 author: Anatoly Maslennikov
 relations:
   concern_about:
-  - CA-O-127
   - CA-P-2934
-  - CA-O-128
   - CA-R-1093
   - CA-M-374
   - CA-D-623
   - CA-R-1432
   - CA-R-1788
   - CA-E-521
+  - CA-O-10009
+  - CA-O-10011
+  - CA-O-10016
+  - CA-O-10018
+  - CA-O-10023
+  - CA-O-10024
 ---
 
 ## Summary
@@ -38,12 +42,18 @@ Admit the Atom Lifecycle Tool contract
 
 ## Concern
 
-Which operations and invalid-input behavior should the new MCP Tools expose under P2934? Current O127 admits seven operations in one Workflow, including Move. It waits for an additional input dictionary on a format or allowed-value error and allows cancellation while waiting. The six separate Workflow drafts remain unadopted and omit Move.
+What remains to admit and publish the six Atom Lifecycle Tools selected for CA-P-2934?
 
 ## Details
 
-Select the Current combined operation contract or review and adopt the split contracts with a disposition for Move. Decide how a new Tool obtains corrected input when no generic Workflow engine is in scope. The retained MCP provider has transport cancellation but no lifecycle input continuation. An immediate invalid-input result would change the Current waiting behavior.
+The six Workflows and supporting Atoms are Current. The Operator chose direct calls to the Project runtime over MCP. Success returns only operation Status. Git integration is deferred. For missing input, return the requested fields. A later call in the same Project, client session and Tool can supply only those fields and optionally correct others.
 
-The retirement removed the old lifecycle effect adapters. Retained metadata, Header, scope and Journal primitives can support new effects. Direct Update of an exactly selected carrier has Current requirements for persisted readback, unchanged ID, Version and Updated At, and preservation of omitted properties. Current R1093, M374 and D623 require every changed same-ID edit to advance Version and Updated At and retain history. O128, R1432, R1788 and E521 require Direct Update to preserve those values. Before implementing a persisted Direct Update, decide which rule governs and reconcile the affected sources. The exact old/new scalar patch shape is already available in R1934 and D623. Prepare disposable fixtures while this decision is open.
+A disposable Project passed all six paths through MCP HTTP, including a correction-only call and an Update that preserved Current Status across a Scope Unit change. Local release and direct image builds compile model assets at build time. See CA-P-2977.
 
-The installed MCP SDK supports same-call form elicitation. Native Codex's support is unverified. Check the actual client and decide the unsupported-client response. Cancellation must remain possible while waiting for correction and must preserve the Action boundary.
+The candidate checks now include declared Header presence, Concern Priority values, required Content headings and direct Markdown values. CA-P-2978 records the live declaration compile and disposable checks. The compiler now follows named Workflow inheritance and checks the declared child keys of Header groups. Lifecycle Status writes use the required lowercase YAML spelling, and reads accept both declared canonical names and their unambiguous Carrier spelling. Scope-owned Archived leaves can be renamed or relocated by Direct Update without changing Version or Updated At. The staged gateway passed all six Tools. See CA-P-2979.
+
+Concrete Scope Delegations now carry formal Role/Form pairs keyed by receiving Scope Unit ID. The earlier audit identified 84 formal pairs. The partial local pair check was removed after the Operator deferred formal admission. Analysis and Advisory writes as `analysis_and_advisory`. The Operator deferred formal Scope Delegation admission for allowed Roles, Forms, and Subjects to version 0.7. CA-P-3000 tracks the redesign. The existing Role/Form pair audit and CA-A-1336 Draft are inputs for that work.
+
+The Operator decided to reopen a Done or Canceled Plan tree parent first, then each contained Plan before its children. The public Engine image passed the reopening case. CA-P-3001 records the verification. The accepted ordering was handed to the Methodology owner for CA-O-10011.
+
+Composed Update invokes Archive, which archives every contained latest Atom. Promote operates on a non-container Draft and does not restore or reparent those descendants. Is a folder-backed Update meant to preserve the Current subtree, and which operations should carry or reparent it? Leaf Update is supported. See CA-P-2982 for the staged verification.

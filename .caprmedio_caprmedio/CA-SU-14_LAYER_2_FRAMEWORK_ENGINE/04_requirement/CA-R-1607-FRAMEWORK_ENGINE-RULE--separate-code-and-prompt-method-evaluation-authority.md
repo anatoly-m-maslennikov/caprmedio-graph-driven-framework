@@ -9,14 +9,14 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
     <+ Architecture <+ Component Structure
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Method)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
   - MODEL//CAPRMEDIO <+ Scope Unit
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
     <+ Prompt Authoring
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
     <+ Code Authoring
-  - MODEL//CAPRMEDIO <+ Atom.Header.Container
+  - MODEL//CAPRMEDIO <+ Atom.Header.Context.Container
 tier: 1
 status: Active
 version: 13

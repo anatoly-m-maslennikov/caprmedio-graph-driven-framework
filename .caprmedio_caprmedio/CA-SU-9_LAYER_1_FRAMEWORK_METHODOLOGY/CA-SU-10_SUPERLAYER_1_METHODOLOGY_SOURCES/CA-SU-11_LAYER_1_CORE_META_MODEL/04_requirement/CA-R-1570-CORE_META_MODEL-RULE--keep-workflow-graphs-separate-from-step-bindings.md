@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role:=Operations)/Workflow
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Action
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role:=Operations)/Action
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role:=Operations)/Workflow
 tier: 2
 status: Active
 version: 26

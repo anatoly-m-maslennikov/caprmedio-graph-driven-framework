@@ -13,7 +13,7 @@ context:
     dependencies:
     - MODEL//CAPRMEDIO <+ Carrier
     - MODEL//CAPRMEDIO <+ Atom.Content.Claim
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
     - MODEL//CAPRMEDIO <+ Event Record
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
     - MODEL//CAPRMEDIO <+ Journal

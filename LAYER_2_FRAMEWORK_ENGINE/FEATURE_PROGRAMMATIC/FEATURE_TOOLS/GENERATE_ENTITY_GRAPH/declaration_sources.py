@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from current_entity_sources import _raw_body
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, matches_named_value
 import subject_notation as notation
 from subject_notation import SubjectNotationError, parse_subject_expression
 from VALIDATE_ATOMS.validate_atoms_workers.authority import AuthorityContext, Obligation
@@ -175,7 +175,7 @@ def resolve_relation_authorities(carriers: list[dict], names: list[str]) -> dict
     candidates: dict[str, list[Record]] = {name: [] for name in names}
     for carrier in carriers:
         metadata = _view(carrier)
-        if metadata.get("type") != "Relation Definition":
+        if not matches_named_value(metadata.get("type"), "Relation Definition"):
             continue
         subject = _single_valid_governed_subject(carrier)
         if subject is None:
@@ -330,7 +330,7 @@ def _graph_rule_candidate(
     carrier: dict, carriers: list[dict], source: Record | None
 ) -> tuple[Record | None, Record | None, bool]:
     metadata = _view(carrier)
-    if metadata.get("content_role") != "Requirement" or metadata.get("type") != "Graph Rule":
+    if not matches_named_value(metadata.get("content_role"), "Requirement") or not matches_named_value(metadata.get("type"), "Graph Rule"):
         return None, None, False
 
     body = carrier.get("raw_body")

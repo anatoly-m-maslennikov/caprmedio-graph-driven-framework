@@ -18,8 +18,8 @@ relations:
   evaluation_for:
   - CA-M-290
 status: Active
-version: 20
-updated_at: 2026-11-02 15:49:28 +0400
+version: 21
+updated_at: '2026-11-11T18:56:17+04:00'
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -43,7 +43,7 @@ Materialize the same pinned upstream revision **and** ordered overlay twice; ins
 
 ## Acceptance criteria
 
-Both builds have identical manifests, inventories, **and** digests. Installation changes no applicable methodology **and** mutates neither upstream nor user-global FPF sources. Activation selects exactly the installed revision. Direct `$fpf` needs no `ca` wrapper. The Analysis Report is a valid `CA-A` Carrier **in** the correct narrowest `02_analysis/`; the explicit Concern is a valid one-Claim `CA-C` Carrier **in** the correct `01_concern/`; the ordinary question persists nothing. Hook acknowledgement returns within its declared bound **without** waiting for worker work. Manual recovery controls remain bounded **and** responsive while the Hook, Tool, MCP request, manager, **or** worker is hung; the automatic supervisor performs no domain effect; accepted work survives stop, reload, **and** restart **without** duplicate effects; **and** exhausted automatic recovery opens a visible circuit. Rollback restores the exact prior selection **and** installed state.
+Both builds have identical manifests, inventories, **and** digests. Installation changes no applicable methodology **and** mutates neither upstream nor user-global FPF sources. Activation selects exactly the installed revision. Direct `$fpf` needs no `ca` wrapper. The Analysis Report is a valid `CA-A` Carrier **in** the Analysis and Advisory Role folder derived under CA-D-296 in the narrowest resolved Scope Unit; the explicit Concern is a valid one-Claim `CA-C` Carrier **in** the correct `01_concern/`; the ordinary question persists nothing. Hook acknowledgement returns within its declared bound **without** waiting for worker work. Manual recovery controls remain bounded **and** responsive while the Hook, Tool, MCP request, manager, **or** worker is hung; the automatic supervisor performs no domain effect; accepted work survives stop, reload, **and** restart **without** duplicate effects; **and** exhausted automatic recovery opens a visible circuit. Rollback restores the exact prior selection **and** installed state.
 
 ## Failure disposition
 

@@ -10,15 +10,15 @@ context:
   topics:
     main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Interaction
     dependencies:
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Entry
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role in RMED)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role in RMED)
     - MODEL//CAPRMEDIO <+ Actor/Operator
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
     - MODEL//CAPRMEDIO <+ Execution/Step Run
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
       <+ Communication <+ API
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
   tier: 4
 state:
   status: Active

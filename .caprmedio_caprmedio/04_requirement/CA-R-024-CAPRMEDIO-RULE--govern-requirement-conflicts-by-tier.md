@@ -6,9 +6,9 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern)
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   - CAPRMEDIO_MODEL <+ Atom
 tier: 2

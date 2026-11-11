@@ -13,10 +13,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-1056
+  - CA-M-448
 status: Active
-version: 14
-updated_at: 2026-11-10 20:47:54 +0400
+version: 15
+updated_at: 2026-11-11 16:35:08 +0400
 subject_scopes:
 - guidance
 llm_session_ids:

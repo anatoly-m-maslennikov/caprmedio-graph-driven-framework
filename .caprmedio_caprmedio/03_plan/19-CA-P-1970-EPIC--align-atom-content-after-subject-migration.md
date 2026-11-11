@@ -14,7 +14,7 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Term
   - Subject/Graph Node/Domain/Continuant/Term//Property
   - Subject/Graph Node/Engineering/Continuant/Carrier
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Version Number
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Domain/Continuant/Projection
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'

@@ -37,6 +37,9 @@ _RELATION = re.compile(
     rf"(?:\{{:(?P<reverse_minimum>0|[1-9][0-9]*)(?P<reverse_tail>\+|\.\.(?P<reverse_maximum>0|[1-9][0-9]*))?\}}\s*)?"
     rf"(?P<target>.+)$"
 )
+_GROUPED_INSTANCE_RELATION = re.compile(
+    r"^\((?P<source>[^()]+)\)\s*\(\(INSTANCE_OF\)\)\s*(?P<target>[^()]+)$"
+)
 _RELATION_WITHOUT_TARGET = re.compile(
     rf"^(?P<source>.+?)\s*\{{:(?P<forward_minimum>0|[1-9][0-9]*)(?P<forward_tail>\+|\.\.(?P<forward_maximum>0|[1-9][0-9]*))?\}}\s*"
     rf"(?:\(\((?P<relation>[^()]+)\)\)|(?P<relation_notation>\+>|<\+)|(?P<bare_relation>[A-Z][A-Z0-9_]*))$"
@@ -449,8 +452,35 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                     "source": dict(source),
                 })
                 continue
+            grouped_instance = _GROUPED_INSTANCE_RELATION.fullmatch(expression)
+            if grouped_instance is not None:
+                try:
+                    grouped = notation.parse_subject_expression(grouped_instance.group("source"), subject_profile="approved").expression
+                    target = notation.parse_subject_expression(grouped_instance.group("target").strip(), subject_profile="approved").expression
+                except notation.SubjectNotationError:
+                    grouped = target = None
+                if (isinstance(grouped, notation.RelationChain) and grouped.links
+                        and all(link.operator == "<+" and link.relation_type is None
+                                and link.forward_cardinality is None and link.reverse_cardinality is None
+                                for link in grouped.links)
+                        and all(isinstance(endpoint.head, notation.Name) and not endpoint.value_format
+                                and not endpoint.value_cardinality and all(
+                                    step.operator in {"/", "//"} and isinstance(step.operand, notation.Name)
+                                    for step in endpoint.steps) for endpoint in grouped.endpoints)
+                        and isinstance(target, notation.Path) and isinstance(target.head, notation.Name)
+                        and not target.steps and target.value_format is None and target.value_cardinality is None):
+                    written_source = "(" + grouped_instance.group("source").strip() + ")"
+                    written_target = grouped_instance.group("target").strip()
+                    records.append(_record(
+                        source, expression, "relation_cardinality", source_selector=written_source,
+                        relation="INSTANCE_OF", relation_notation=None, target_selector=written_target,
+                        source_cardinality=None, target_cardinality=None, written_direction="forward",
+                        written_source_selector=written_source, written_target_selector=written_target,
+                        written_source_cardinality=None, written_target_cardinality=None,
+                    ))
+                    continue
             relation = _RELATION.fullmatch(expression)
-            if relation is not None and not (relation.group("source").rstrip().endswith(":")
+            if relation is not None and _balanced_parentheses(relation.group("source")) and _balanced_parentheses(relation.group("target")) and not (relation.group("source").rstrip().endswith(":")
                                              or relation.group("target").lstrip().startswith(":")):
                 reverse_named = relation.group("reverse_relation") is not None
                 written_source = relation.group("source").strip()

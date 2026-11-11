@@ -8,10 +8,10 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  - CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics
 tier: 3
 relations:
   delivery_for:

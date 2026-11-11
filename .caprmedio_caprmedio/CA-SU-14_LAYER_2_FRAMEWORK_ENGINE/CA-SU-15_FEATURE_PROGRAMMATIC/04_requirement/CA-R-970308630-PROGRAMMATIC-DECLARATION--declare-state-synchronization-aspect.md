@@ -13,8 +13,8 @@ context:
   tier: 1
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 3
+  updated_at: '2026-11-11T16:56:16+04:00'
 destination:
   file:
     name: CA-R-970308630-PROGRAMMATIC-DECLARATION--declare-state-synchronization-aspect.md
@@ -37,6 +37,8 @@ State Synchronization is an Engineering Aspect within Data Handling.
 ```CFEL
 # project_structure
 PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization;
+
+(PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling <+ State Synchronization) ((INSTANCE_OF)) Aspect;
 ```
 
 ## Semantics

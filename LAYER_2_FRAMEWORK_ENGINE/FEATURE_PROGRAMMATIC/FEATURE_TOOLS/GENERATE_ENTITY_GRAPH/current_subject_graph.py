@@ -7,7 +7,7 @@ from typing import Any
 from dataclasses import replace
 
 import subject_notation as notation
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, matches_named_value
 
 def namespace_local_expression(expression: notation.Path | notation.RelationChain | None) -> notation.Path | notation.RelationChain | None:
     local = notation.namespace_local_expression(expression) if expression is not None else None
@@ -281,12 +281,12 @@ def _view(carrier: Record) -> Record:
 
 def _is_declaration(carrier: Record) -> bool:
     view = _view(carrier)
-    return view.get("content_role") == "Requirement" and view.get("type") == "Declaration"
+    return matches_named_value(view.get("content_role"), "Requirement") and matches_named_value(view.get("type"), "Declaration")
 
 
 def _is_relation_definition(carrier: Record) -> bool:
     view = _view(carrier)
-    return view.get("content_role") == "Requirement" and view.get("type") == "Relation Definition"
+    return matches_named_value(view.get("content_role"), "Requirement") and matches_named_value(view.get("type"), "Relation Definition")
 
 
 def _target_kind(expression: notation.Path | notation.RelationChain) -> str | None:
@@ -442,15 +442,15 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
     declaration_targets: list[tuple[Record, str]] = []
     for carrier in carriers:
         view = _view(carrier)
-        if view.get("content_role") != "Requirement":
+        if not matches_named_value(view.get("content_role"), "Requirement"):
             continue
         form = view.get("type")
-        if form not in {"Declaration", "Entity Definition"}:
+        if not any(matches_named_value(form, name) for name in {"Declaration", "Entity Definition"}):
             continue
         subject = active(carrier)
         if subject is None:
             continue
-        if form == "Declaration":
+        if matches_named_value(form, "Declaration"):
             try:
                 expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
             except notation.SubjectNotationError:
@@ -469,7 +469,7 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
                 except notation.SubjectNotationError:
                     pass
             continue
-        if form != "Entity Definition":
+        if not matches_named_value(form, "Entity Definition"):
             continue
         try:
             expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
@@ -709,10 +709,49 @@ def compose_enhanced_current_graph(carriers: list[Record]) -> tuple[Record, Reco
         return (row.get("kind") in {"property_constraint", "allowed_literal"}
                 and key in identified_sources and not declared(row))
     model_constraints = [row for row in constraints if row.get("group") != "instances" and not non_declaration_property(row)]
+    model = _enhanced_categories(carriers, provenance, graph["diagnostics"])
+    nodes = {row["id"]: row for row in graph["nodes"]}
+    edges = {row["id"]: row for row in graph["edges"]}
+    formal_relations: dict[str, Record] = {}
+    for index, clause in enumerate(constraints):
+        selector = clause.get("source_selector")
+        if (not declared(clause) or clause.get("kind") != "relation_cardinality"
+                or clause.get("relation") != "INSTANCE_OF"
+                or not isinstance(selector, str) or not selector.startswith("(") or not selector.endswith(")")
+                or clause.get("source_cardinality") is not None or clause.get("target_cardinality") is not None):
+            continue
+        try:
+            parsed = notation.parse_subject_expression(selector[1:-1], subject_profile="approved").expression
+            target = notation.parse_subject_expression(clause["target_selector"], subject_profile="approved").expression
+        except (notation.SubjectNotationError, TypeError):
+            continue
+        if not isinstance(parsed, notation.RelationChain) or not isinstance(target, notation.Path):
+            continue
+        source_identity, target_identity = notation.render_subject(parsed), notation.render_subject(target)
+        occurrence_id = f"{clause['source'].get('path', '')}#formal_claim[{index}]"
+        provenance["occurrences"].append({"id": occurrence_id, "subject": clause["expression"],
+                                          "source": clause["source"], "role": "formal_claim"})
+        for identity in (source_identity, target_identity):
+            node_id = _identifier("subject:", identity)
+            node = nodes.setdefault(node_id, {"identity": identity, "id": node_id,
+                                               "occurrence_ids": [], "is_full_target": False})
+            node["occurrence_ids"] = sorted(set(node["occurrence_ids"]) | {occurrence_id})
+        source_id, target_id = (_identifier("subject:", identity) for identity in (source_identity, target_identity))
+        metadata = {"kind": "INSTANCE_OF", "forward_cardinality": None, "reverse_cardinality": None}
+        edge_id = _identifier("subject-edge:", [metadata, source_id, target_id])
+        edge = edges.setdefault(edge_id, {**metadata, "id": edge_id, "relation_source": source_id,
+                                          "relation_target": target_id, "occurrence_ids": []})
+        edge["occurrence_ids"] = sorted(set(edge["occurrence_ids"]) | {occurrence_id})
+        relation = formal_relations.setdefault(edge_id, {"kind": "INSTANCE_OF", "source": source_identity,
+                                                          "target": target_identity, "occurrence_ids": []})
+        relation["occurrence_ids"] = sorted(set(relation["occurrence_ids"]) | {occurrence_id})
+    model["relations"].extend(sorted(formal_relations.values(), key=lambda row: (row["source"], row["target"])))
+    graph["nodes"] = sorted(nodes.values(), key=lambda row: (row["identity"], row["id"]))
+    graph["edges"] = sorted(edges.values(), key=lambda row: row["id"])
     enhanced = {
         **graph,
         "kind": "current_atom_model_graph",
-        "model": _enhanced_categories(carriers, provenance, graph["diagnostics"]),
+        "model": model,
         "constraints": model_constraints,
         "model_contracts": [row for row in model_constraints
                             if row.get("kind") in {"property_constraint", "allowed_literal"} and declared(row)],

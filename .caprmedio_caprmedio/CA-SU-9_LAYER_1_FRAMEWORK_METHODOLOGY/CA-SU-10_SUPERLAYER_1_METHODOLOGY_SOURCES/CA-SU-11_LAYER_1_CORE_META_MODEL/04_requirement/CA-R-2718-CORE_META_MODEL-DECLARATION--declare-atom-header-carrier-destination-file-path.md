@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination.File.Path
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Destination.File.Path
 tier: 3
 status: Active
 version: 3
@@ -34,8 +34,8 @@ Calculated path of the containing directory, relative to the repository root.
 
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Path:: {::1};
+Atom.Header.Destination.File.Path:: {::1};
 
-Atom.Header.Carrier Destination.File.Path.*[]{::0}
+Atom.Header.Destination.File.Path.*[]{::0}
 ```
 

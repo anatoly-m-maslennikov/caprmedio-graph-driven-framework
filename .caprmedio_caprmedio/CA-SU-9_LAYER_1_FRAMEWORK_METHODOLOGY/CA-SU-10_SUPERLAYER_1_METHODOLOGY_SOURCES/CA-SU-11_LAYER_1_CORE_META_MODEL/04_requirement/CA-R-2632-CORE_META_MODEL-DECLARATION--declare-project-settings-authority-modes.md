@@ -7,8 +7,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Authority Modes
 tier: 3
 status: Active
-version: 3
-updated_at: 2026-11-04 05:21:15 +0400
+version: 4
+updated_at: '2026-11-11 16:04:42 +0400'
 ---
 ## Summary
 
@@ -16,7 +16,11 @@ Declare Project.Settings.Authority Modes
 
 ## Claim
 
+### Prose Claim
+
 When authored, Project Authority Mode and Default Scope Unit Authority Mode are both required. Each value is `strict` or `casual`.
+
+### Formal Claim
 
 ```CFEL
 # model

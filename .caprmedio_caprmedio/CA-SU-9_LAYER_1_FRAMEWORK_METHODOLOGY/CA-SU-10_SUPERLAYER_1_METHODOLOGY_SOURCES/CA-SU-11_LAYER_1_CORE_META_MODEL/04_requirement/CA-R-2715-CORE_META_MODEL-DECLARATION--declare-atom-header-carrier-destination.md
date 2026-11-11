@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Destination
 tier: 3
 status: Active
 version: 1
@@ -28,7 +28,7 @@ Declare Atom.Header.Carrier Destination
 
 ```CFEL
 # model
-Atom.Header.Carrier Destination{::1}:: []{::0};
+Atom.Header.Destination{::1}:: []{::0};
 
-Atom.Header.Carrier Destination.*[in (File)]{::1}
+Atom.Header.Destination.*[in (File)]{::1}
 ```

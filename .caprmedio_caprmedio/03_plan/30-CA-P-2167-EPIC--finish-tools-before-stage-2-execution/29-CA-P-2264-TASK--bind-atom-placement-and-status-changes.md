@@ -13,8 +13,8 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Workflow
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Updated At
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
@@ -57,9 +57,9 @@ P2336/P2337 and P2344/P2345 are Done: real single-Atom publication, exact histor
 The Operator requested continued implementation. Execute through these children; source alignment, discovery, mutation and independent acceptance remain ordered.
 
 - [CA-P-2316 — Align contained Status receiving contracts](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/01-CA-P-2316-TASK--align-contained-status-receiving-contracts.md)
-- [CA-P-2317 — Discover current contained Atom targets](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/done/02-CA-P-2317-TASK--discover-current-contained-atom-targets.md)
+- [CA-P-2317 — Discover current contained Atom targets](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/020_done/02-CA-P-2317-TASK--discover-current-contained-atom-targets.md)
 - [CA-P-2318 — Compose contained Status actions](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/03-CA-P-2318-TASK--compose-contained-status-actions.md)
-- [CA-P-2319 — Verify contained Status cascades](29-CA-P-2264-TASK--bind-atom-placement-and-status-changes/001_backlog/04-CA-P-2319-TASK--verify-contained-status-cascades.md)
+- [CA-P-2319 — Verify contained Status cascades](../001_backlog/04-CA-P-2319-TASK--verify-contained-status-cascades.md)
 
 ### Contained P/O Status cascade
 

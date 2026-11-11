@@ -1,0 +1,50 @@
+---
+atom_id: CA-P-2571
+ref_id: CA-P-2571
+container:
+  atom: CA-P-2576
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Control Adapter
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-2576
+  depends_on:
+  - CA-P-2570
+  relates_to:
+  - CA-P-2562
+  - CA-M-396
+  - CA-M-397
+  - CA-M-398
+  - CA-M-399
+  - CA-M-400
+status: Backlog
+version: 5
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 03-CA-P-2571-TASK--implement-host-settings-and-shared-docker-launch.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/03_plan/001_backlog
+work_sequence_number: 3
+current_scope_unit: PROGRAMMATIC
+claim_target_scope_unit: PROGRAMMATIC
+author: Anatoly Maslennikov
+---
+# Summary
+
+Implement host settings and shared Docker launch
+
+## Objective
+
+Implement the shared host settings reader and Docker launch material with a configurable My_Repos mount outside any Project. Keep machine-local settings out of repository authority and preserve existing settings rather than overwriting them.
+
+## Details
+
+One Task per file; each leaf has at most 15 minutes own work and must be decomposed before extending it. Review and update dependent Tasks after observed predecessor outcomes. Use the selected Project virtual environment, configured Project Temporary State and only broken/related checks. Do not replay uncertain effects, replace production or run the full suite.
+
+### Definition of Done
+
+Focused temporary-config and Compose/launch checks prove explicit validated roots, correct bind mount and endpoint parameters without touching production.

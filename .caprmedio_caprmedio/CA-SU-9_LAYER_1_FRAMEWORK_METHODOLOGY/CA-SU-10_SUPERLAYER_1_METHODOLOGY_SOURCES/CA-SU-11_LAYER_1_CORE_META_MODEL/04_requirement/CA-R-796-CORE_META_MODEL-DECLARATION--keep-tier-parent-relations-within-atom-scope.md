@@ -8,7 +8,7 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//child_of
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
   - CAPRMEDIO_MODEL <+ Atom.Local Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Target Scope Unit
   - CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim

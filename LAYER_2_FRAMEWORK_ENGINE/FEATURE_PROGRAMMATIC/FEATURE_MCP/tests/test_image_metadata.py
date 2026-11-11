@@ -106,6 +106,9 @@ class ImageMetadataTests(unittest.TestCase):
         tools = patch.object(runtime_images, "_compile_tool_registry", return_value=b'{"schema_version":1}\n')
         tools.start()
         self.addCleanup(tools.stop)
+        lifecycle = patch("runtime_images._compile_lifecycle_assets", return_value=(b'{"schema_version":1}\n', b'{"schema_version":1}\n'))
+        lifecycle.start()
+        self.addCleanup(lifecycle.stop)
         self._write_fixture(VERSION)
 
     def _write_fixture(self, version: str) -> None:
@@ -120,7 +123,7 @@ class ImageMetadataTests(unittest.TestCase):
             path = self.root / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(content, encoding="utf-8")
-        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY):
+        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, runtime_images.STATUS_MODEL, runtime_images.CANDIDATE_SCHEMA):
             path = self.root / relative
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(b'{"schema_version":1}\n')
@@ -179,7 +182,7 @@ class ImageMetadataTests(unittest.TestCase):
             self.assertEqual(IMAGE, manager.resolve(explicit_id=IMAGE, build_if_missing=False))
 
     def test_no_build_rejects_missing_symlinked_or_changed_packaged_assets(self) -> None:
-        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY):
+        for relative in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, runtime_images.STATUS_MODEL, runtime_images.CANDIDATE_SCHEMA):
             with self.subTest(relative=relative):
                 path = self.root / relative
                 original = path.read_bytes()

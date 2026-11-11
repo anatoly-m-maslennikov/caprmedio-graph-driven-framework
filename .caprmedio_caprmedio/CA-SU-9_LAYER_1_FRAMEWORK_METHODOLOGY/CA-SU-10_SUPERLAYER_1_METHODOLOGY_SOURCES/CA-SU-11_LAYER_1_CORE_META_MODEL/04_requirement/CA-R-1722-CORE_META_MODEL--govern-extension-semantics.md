@@ -14,14 +14,13 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-831
-  - CA-R-686
+  - CA-R-3048
 status: Active
-version: 31
-updated_at: 2026-11-02 00:18:22 +0400
+version: 33
+updated_at: 2026-11-11 16:16:08 +0400
 carrier_destination:
   file:
-    name: CA-R-1722-CORE_META_MODEL-RULE--govern-extension-semantics.md
+    name: CA-R-1722-CORE_META_MODEL--govern-extension-semantics.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL

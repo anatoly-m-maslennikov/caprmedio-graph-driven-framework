@@ -9,12 +9,12 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Entry
   dependencies:
   - MODEL//CAPRMEDIO <+ Actor/AI Agent
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
   - MODEL//CAPRMEDIO <+ Actor/Operator
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
     <+ Communication
   - MODEL//CAPRMEDIO <+ Execution/Step Run
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
 tier: 3
 status: Active
 version: 2

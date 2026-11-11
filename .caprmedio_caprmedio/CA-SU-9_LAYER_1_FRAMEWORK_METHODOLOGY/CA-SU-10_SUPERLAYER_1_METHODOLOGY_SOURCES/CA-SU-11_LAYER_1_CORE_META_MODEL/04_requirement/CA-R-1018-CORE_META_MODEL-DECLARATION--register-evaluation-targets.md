@@ -8,12 +8,12 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//evaluation_for
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
 tier: 1
 status: Active
 version: 38
@@ -48,6 +48,6 @@ evaluation_for relates Evaluation Atom to Atom whose authority is evaluated.
 Relation//evaluation_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Atom/(.Header.Role: Evaluation)//$atom ((evaluation_for)) Atom//$atom_2
+Atom/(.Header.Context.Role: Evaluation)//$atom ((evaluation_for)) Atom//$atom_2
 ```
 

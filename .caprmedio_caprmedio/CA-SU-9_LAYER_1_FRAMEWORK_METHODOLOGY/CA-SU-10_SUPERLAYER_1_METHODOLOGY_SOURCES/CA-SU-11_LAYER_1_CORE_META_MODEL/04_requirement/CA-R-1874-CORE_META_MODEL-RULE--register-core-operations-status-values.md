@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Status'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations).Header.State.Status'
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Header.Form'
-  - CAPRMEDIO_MODEL <+ Atom.Header.Status
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations).Header.Context.Form'
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 tier: 2

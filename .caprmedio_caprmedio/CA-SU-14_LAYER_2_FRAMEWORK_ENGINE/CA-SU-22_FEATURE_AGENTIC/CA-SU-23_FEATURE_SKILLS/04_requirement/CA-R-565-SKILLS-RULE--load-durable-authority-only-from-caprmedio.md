@@ -9,10 +9,12 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
     <+ Data Handling <+ Source Retrieval
 tier: 2
-relations: {}
+relations:
+  child_of:
+  - CA-M-296
 status: Active
-version: 13
-updated_at: 2026-11-10 20:47:54 +0400
+version: 14
+updated_at: 2026-11-11 14:53:33 +0400
 subject_scopes:
 - skill-boundary
 llm_session_ids:

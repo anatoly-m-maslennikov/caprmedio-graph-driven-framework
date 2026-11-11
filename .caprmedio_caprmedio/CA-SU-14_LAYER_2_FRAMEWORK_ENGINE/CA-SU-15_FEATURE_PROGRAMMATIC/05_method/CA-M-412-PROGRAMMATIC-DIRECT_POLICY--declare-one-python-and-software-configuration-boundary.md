@@ -83,4 +83,4 @@ CAPRMEDIO project settings are mixed.
 
 - [Python 3.14 release notes](https://docs.python.org/3.14/whatsnew/3.14.html)
 - [PyPA: `pyproject.toml` specification](https://packaging.python.org/en/latest/specifications/pyproject-toml/)
-- [CA-A-054 — Validate the Python 3.14 contract upgrade](../02_analysis/CA-A-054-PROGRAMMATIC-ANALYSIS_RPRT--validate-the-python-3-14-contract-upgrade.md)
+- [CA-A-054 — Validate the Python 3.14 contract upgrade](../02_analysis_and_advisory/CA-A-054-PROGRAMMATIC-ANALYSIS_RPRT--validate-the-python-3-14-contract-upgrade.md)

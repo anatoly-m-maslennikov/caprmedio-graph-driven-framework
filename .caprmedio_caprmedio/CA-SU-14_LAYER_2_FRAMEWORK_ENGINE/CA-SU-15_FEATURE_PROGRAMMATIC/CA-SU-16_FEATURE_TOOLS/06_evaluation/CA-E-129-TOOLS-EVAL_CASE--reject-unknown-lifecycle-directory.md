@@ -6,11 +6,11 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  main_subject: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
   - Subject/CAPRMEDIO/Carrier
 tier: 2
 relations:

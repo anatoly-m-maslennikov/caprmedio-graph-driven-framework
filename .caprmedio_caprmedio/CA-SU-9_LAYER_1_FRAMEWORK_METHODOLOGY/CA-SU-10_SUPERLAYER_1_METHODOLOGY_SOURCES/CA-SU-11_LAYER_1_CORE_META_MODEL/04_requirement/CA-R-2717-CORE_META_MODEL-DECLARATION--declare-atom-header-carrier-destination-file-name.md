@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Carrier Destination.File.Name
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Destination.File.Name
 tier: 3
 status: Active
 version: 3
@@ -34,8 +34,8 @@ Calculated full filename, including its extension.
 
 ```CFEL
 # model
-Atom.Header.Carrier Destination.File.Name:: {::1};
+Atom.Header.Destination.File.Name:: {::1};
 
-Atom.Header.Carrier Destination.File.Name.*[]{::0}
+Atom.Header.Destination.File.Name.*[]{::0}
 ```
 

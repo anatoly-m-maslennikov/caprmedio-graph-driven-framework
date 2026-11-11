@@ -9,7 +9,7 @@ topics:
   main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Observability <+ Logging"
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
   - 'CAPRMEDIO_MODEL <+ Projection/(.Form:=Catalog)'
 tier: 3
 status: Active

@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)
 tier: 1
 status: Active
 version: 27

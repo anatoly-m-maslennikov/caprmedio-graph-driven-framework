@@ -28,7 +28,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         self.control = self.root / ".caprmedio_demo"
         self.control.mkdir()
         (self.control / "caprmedio_project_settings.toml").write_text(
-            '[project]\nname = "demo"\n[paths]\ncontrol_root = ".caprmedio_demo"\n', encoding="utf-8",
+            '[project]\nname = "demo"\n[paths]\ncontrol_root = ".caprmedio_demo"\n[artifacts.identity]\nproject_prefix = "ca"\n', encoding="utf-8",
         )
 
     def declaration(
@@ -101,6 +101,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         self.assertEqual(rows["demo"], {
             "scope_unit_name": "demo", "parent": "PROJECT", "scope_unit_id": None,
             "scope_unit_label": None, "scope_unit_type": "Unordered",
+            "admitted_role_forms": (),
             "authority_path": ".caprmedio_demo", "delivery_path": ".",
         })
         self.assertEqual(rows["PARENT"]["authority_path"], ".caprmedio_demo/CA-SU-1_LAYER_1_PARENT")
@@ -155,7 +156,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
 
         self.assertEqual(parse_scope_unit_declaration(source.read_bytes(), source).name, "UNIT")
 
-    def test_missing_or_ambiguous_main_subject_refuses(self) -> None:
+    def test_formal_identity_allows_missing_but_not_ambiguous_main_subject(self) -> None:
         source = self.declaration(
             "UNIT", "CA-R-2", scope_id="CA-SU-2", parent=PROJECT, project_name="caprmedio",
         )
@@ -174,8 +175,7 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
             "subjects:\n", "topics:\n  main_subject: 1\nsubjects:\n",
         )
 
-        with self.assertRaisesRegex(ScopeDeclarationError, "requires one main Subject"):
-            parse_scope_unit_declaration(missing.encode(), source)
+        self.assertEqual("UNIT", parse_scope_unit_declaration(missing.encode(), source).name)
         self.assertEqual("UNIT", parse_scope_unit_declaration(equal_aliases.encode(), source).name)
         with self.assertRaisesRegex(ScopeDeclarationError, "invalid declaration carrier"):
             parse_scope_unit_declaration(ambiguous.encode(), source)
@@ -354,6 +354,151 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         self.assertEqual("Scope Delegation", declarations.by_name["PARENT"].form)
         self.assertEqual("Scope Unit Declaration", declarations.by_name["CHILD"].form)
         self.assertEqual({root_source, parent_source, child_source}, set(declarations.paths))
+
+    def test_scope_delegation_reads_exact_admitted_pairs(self) -> None:
+        _, source, _ = self.complete_tree()
+        text = source.read_text(encoding="utf-8").replace(
+            "form: Scope Unit Declaration", "form: Scope Delegation",
+        )
+        pair = 'Atom/(.Header.Container.scope_unit in (Scope Unit//PARENT))/(.Header.Role in (Concern)).Header.Form :: Problem'
+        second = 'Atom/(.Header.Context.Container.scope_unit in ("CA-SU-1"))/(.Header.Context.Role in ("Requirement")).Header.Context.Form :: "Scope Delegation"'
+        text = text.replace("\n```\n", f";\n{pair}\n{second};\n```\n", 1)
+        source.write_text(text, encoding="utf-8")
+        result = read_scope_unit_declarations(self.root, self.control.name)
+        expected = (("Concern", "Problem"), ("Requirement", "Scope Delegation"))
+        self.assertEqual(expected, result.by_name["PARENT"].admitted_role_forms)
+        rows = {row["scope_unit_name"]: row for row in result.as_structure()["scope_units"]}
+        self.assertEqual(expected, rows["PARENT"]["admitted_role_forms"])
+        self.assertEqual((), rows["CHILD"]["admitted_role_forms"])
+        for invalid in (
+            text.replace("Scope Unit//PARENT))/(.Header.Role", "Scope Unit//CHILD))/(.Header.Role"),
+            text.replace('in ("CA-SU-1")', 'in ("CA-SU-2")'),
+            text.replace(second, pair),
+            text.replace("form: Scope Delegation", "form: Scope Unit Declaration"),
+            text.replace("(Concern)", '("")'),
+        ):
+            with self.subTest(invalid=invalid), self.assertRaises(ScopeDeclarationError):
+                parse_scope_unit_declaration(invalid.encode(), source)
+
+    def test_split_delegations_preserve_sources_and_join_exact_receiver(self) -> None:
+        _, _, child = self.complete_tree()
+        raw = child.read_text(encoding="utf-8").replace("form: Scope Unit Declaration", "form: Scope Delegation")
+        start = raw.index("```CFEL\n")
+        end = raw.index("\n```", start)
+        pair = 'Atom/(.Header.Context.Container.scope_unit in ("CA-SU-2"))/(.Header.Context.Role in (Concern)).Header.Context.Form :: Problem;'
+        raw = (raw[:start] + "```CFEL\n" + pair + raw[end:]).replace(
+            "---\n", "---\ncontainer:\n  scope_unit: CA-SU-1\n", 1)
+        first = child.parent / "delegation1.md"
+        second = child.parent / "delegation2.md"
+        first.write_text(raw.replace("CA-R-3", "CA-R-4"), encoding="utf-8")
+        second.write_text(raw.replace("CA-R-3", "CA-R-5"), encoding="utf-8")
+        result = read_scope_unit_declarations(self.root, self.control.name)
+        unit = result.by_name["CHILD"]
+        self.assertEqual((("Concern", "Problem"),), unit.admitted_role_forms)
+        self.assertEqual({first, second}, {item.source for item in unit.delegations})
+        self.assertTrue({first, second}.issubset(result.paths))
+        self.assertTrue(all(p.relative_to(self.root).as_posix() in result.source_pins for p in (first, second)))
+        old_digest = result.digest
+        second.write_text(second.read_text().replace("Problem", "Question"), encoding="utf-8")
+        self.assertNotEqual(old_digest, read_scope_unit_declarations(self.root, self.control.name).digest)
+        first.write_text(raw.replace("CA-R-3", "CA-R-4").replace('"CA-SU-2"', '"CA-SU-9"'), encoding="utf-8")
+        with self.assertRaises(ScopeDeclarationError):
+            read_scope_unit_declarations(self.root, self.control.name)
+        first.write_text(raw.replace("CA-R-3", "CA-R-4").replace("scope_unit: CA-SU-1", "scope_unit: CA-SU-9"), encoding="utf-8")
+        with self.assertRaises(ScopeDeclarationError):
+            read_scope_unit_declarations(self.root, self.control.name)
+        first.write_text(raw.replace("CA-R-3", "CA-R-4").replace("container:\n  scope_unit: CA-SU-1\n", ""), encoding="utf-8")
+        with self.assertRaises(ScopeDeclarationError):
+            read_scope_unit_declarations(self.root, self.control.name)
+        first.unlink()
+        child.unlink()
+        with self.assertRaises(ScopeDeclarationError):
+            read_scope_unit_declarations(self.root, self.control.name)
+
+    def test_explicit_delegation_receiver_without_main_subject(self) -> None:
+        _, _, child = self.complete_tree()
+        raw = child.read_text(encoding="utf-8").replace("form: Scope Unit Declaration", "form: Scope Delegation")
+        raw = raw.replace('subjects:\n  active: "Scope Unit//CHILD"\n  passive: []\n', "")
+        raw = raw.replace("---\n", "---\ncontainer:\n  scope_unit: CA-SU-1\n", 1)
+        start = raw.index("```CFEL\n")
+        end = raw.index("\n```", start)
+        receiver = 'Atom//"CA-R-4" ((HAS_ACTIVE_SUBJECT)) Scope Unit//CHILD;'
+        pair = 'Atom/(.Header.Context.Container.scope_unit in ("CA-SU-2"))/(.Header.Context.Role in (Concern)).Header.Context.Form :: Problem;'
+        raw = (raw[:start] + "```CFEL\n" + receiver + "\n" + pair + raw[end:]).replace("CA-R-3", "CA-R-4")
+        source = child.parent / "CA-R-4.md"
+        source.write_text(raw, encoding="utf-8")
+
+        result = read_scope_unit_declarations(self.root, self.control.name)
+        self.assertEqual((("Concern", "Problem"),), result.by_name["CHILD"].admitted_role_forms)
+        self.assertEqual((source,), tuple(item.source for item in result.by_name["CHILD"].delegations))
+        self.assertIn(source.relative_to(self.root).as_posix(), result.source_pins)
+        for invalid in (
+            raw.replace('Atom//"CA-R-4"', 'Atom//"CA-R-9"'),
+            raw.replace("---\n", '---\ntopics:\n  main_subject: "Scope Unit//OTHER"\n', 1),
+        ):
+            with self.subTest(invalid=invalid):
+                source.write_text(invalid, encoding="utf-8")
+                with self.assertRaises(ScopeDeclarationError):
+                    read_scope_unit_declarations(self.root, self.control.name)
+
+    def test_legacy_and_explicit_topology_must_match(self) -> None:
+        _, source, _ = self.complete_tree()
+        legacy = source.parent / "legacy.md"
+        raw = source.read_text(encoding="utf-8").replace("CA-R-2", "CA-R-9").replace(
+            "form: Scope Unit Declaration", "form: Scope Delegation")
+        legacy.write_text(raw, encoding="utf-8")
+        result = read_scope_unit_declarations(self.root, self.control.name)
+        self.assertEqual(source, result.by_name["PARENT"].source)
+        self.assertEqual((legacy,), tuple(item.source for item in result.by_name["PARENT"].delegations))
+        legacy.write_text(raw.replace('"CA-SU-1"', '"CA-SU-9"'), encoding="utf-8")
+        with self.assertRaises(ScopeDeclarationError):
+            read_scope_unit_declarations(self.root, self.control.name)
+
+    def test_non_requirement_delegations_use_matching_role_and_parent(self) -> None:
+        _, _, child = self.complete_tree()
+        raw = child.read_text(encoding="utf-8").replace("form: Scope Unit Declaration", "form: Scope Delegation")
+        start = raw.index("### Formal Claim")
+        raw = (raw[:start] + "### Prose Claim\n\nDelegated responsibility.\n").replace(
+            "---\n", "---\ncontainer:\n  scope_unit: CA-SU-1\n", 1)
+        for directory, role, letter in (("05_method", "Method", "M"), ("06_evaluation", "Evaluation", "E"),
+                                        ("07_delivery", "Delivery", "D"), ("09_operations", "Operations", "O")):
+            with self.subTest(role=role):
+                path = child.parent.parent / directory / f"CA-{letter}-4.md"
+                path.parent.mkdir()
+                carrier = raw.replace("CA-R-3", f"CA-{letter}-4").replace("role: Requirement", f"role: {role}")
+                path.write_text(carrier, encoding="utf-8")
+                result = read_scope_unit_declarations(self.root, self.control.name)
+                self.assertEqual(role, result.by_name["CHILD"].delegations[0].role)
+                self.assertIn(path.relative_to(self.root).as_posix(), result.source_pins)
+                for invalid in (carrier.replace(f"CA-{letter}-4", "CA-R-4"),
+                                carrier.replace("scope_unit: CA-SU-1", "scope_unit: CA-SU-9"),
+                                carrier.replace(f"role: {role}", "role: Requirement")):
+                    path.write_text(invalid, encoding="utf-8")
+                    with self.assertRaises(ScopeDeclarationError):
+                        read_scope_unit_declarations(self.root, self.control.name)
+                structural = child.read_text(encoding="utf-8").replace("CA-R-3", f"CA-{letter}-4").replace(
+                    "role: Requirement", f"role: {role}")
+                path.write_text(structural, encoding="utf-8")
+                with self.assertRaises(ScopeDeclarationError):
+                    read_scope_unit_declarations(self.root, self.control.name)
+                path.write_text(structural.replace("form: Scope Unit Declaration", "form: Scope Delegation"), encoding="utf-8")
+                with self.assertRaises(ScopeDeclarationError):
+                    read_scope_unit_declarations(self.root, self.control.name)
+                path.unlink()
+
+    def test_prose_only_delegation_has_no_inferred_pairs(self) -> None:
+        _, source, _ = self.complete_tree()
+        raw = source.read_text(encoding="utf-8").replace("form: Scope Unit Declaration", "form: Scope Delegation")
+        start = raw.index("### Formal Claim")
+        raw = (raw[:start] + "### Prose Claim\n\nRequirement / Rule is described here.\n").replace(
+            "---\n", "---\ncontainer:\n  scope_unit: CA-SU-00\n", 1)
+        delegation = source.parent / "prose.md"
+        delegation.write_text(raw.replace("CA-R-2", "CA-R-8"), encoding="utf-8")
+        result = read_scope_unit_declarations(self.root, self.control.name)
+        self.assertEqual((), result.by_name["PARENT"].delegations[0].admitted_role_forms)
+        delegation.write_text(delegation.read_text().replace("CA-SU-00", "CA-SU-99"), encoding="utf-8")
+        with self.assertRaises(ScopeDeclarationError):
+            read_scope_unit_declarations(self.root, self.control.name)
 
     def test_encoded_scope_delegation_carrier_and_fail_closed_negatives(self) -> None:
         self.declaration("caprmedio", "CA-R-1", source=self.control / "CA-R-1-root.md", project=True, project_name="caprmedio")

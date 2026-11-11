@@ -99,6 +99,28 @@ class SourceDiscoveryTests(unittest.TestCase):
         self.assertNotIn("OTHER-R-800", {row["id"] for row in atoms})
         self.assertIn(str(broken), diagnostics)
 
+    def test_new_method_delegation_refreshes_the_structural_source_pins(self):
+        self.fixture._capture()
+        parent = self.reader._declarations.by_name["MAIN"]
+        source = self.fixture._write_atom(
+            "MAIN", "05_method", "CA-M-803-delegation.md", atom_id="CA-M-803", form="Scope Delegation",
+            body="## Claim\n\n### Prose Claim\n\nDeliver the child capability.\n",
+        )
+        raw = source.read_text().replace('role: "Requirement"', 'role: "Method"')
+        raw = raw.replace("subjects: {}", f"container:\n  scope_unit: {parent.scope_unit_id}\n"
+                          "topics:\n  main_subject: Scope Unit//CHILD")
+        source.write_text(raw)
+        atoms, scopes = self.reader.capture([{
+            "operation": "create", "old_path": None, "new_path": source.relative_to(self.root).as_posix(),
+        }])
+        self.assertIn("CA-M-803", {row["id"] for row in atoms})
+        self.assertEqual({"fixture", "MAIN", "CHILD"}, {row["name"] for row in scopes})
+        self.assertEqual(
+            [source.resolve()],
+            [item.source for item in self.reader._declarations.by_name["CHILD"].delegations],
+        )
+        self.assertIn(source.relative_to(self.root).as_posix(), self.reader._declarations.source_pins)
+
     def test_duplicate_loads_one_carrier_reports_the_other_and_promotes_after_delete(self):
         copies = [self.source(f"{directory}/copy.md", "CA-R-802") for directory in ("a", "z")]
         atoms, _, _ = self.fixture._capture()
@@ -157,6 +179,76 @@ Relation//INVERSE <((HAS_INVERSE)) Relation//DIRECT;
         self.assertEqual(["DIRECT", "INVERSE"], registry["registered_names"])
         self.assertEqual([{"direct": "DIRECT", "inverse": "INVERSE"}], registry["inverse_bindings"])
         self.assertEqual({"CA-R-796", "CA-R-797"}, {item["atom_id"] for item in registry["sources"]})
+
+    def test_registry_prefers_current_declared_scope_source_over_earlier_copy(self):
+        copied = self.source("000_copy/record.md", "CA-R-810", form="Relation Declaration", body="""## Claim
+
+### Formal Claim
+
+```CFEL
+Relation//STALE;
+```
+""")
+        native = self.fixture._write_atom(
+            "MAIN", "04_requirement", "native.md", atom_id="CA-R-810", version=2,
+            form="Relation Declaration", body="""## Claim
+
+### Formal Claim
+
+```CFEL
+Relation//CURRENT;
+```
+""",
+        )
+        atoms, _, _ = self.fixture._capture()
+        self.assertEqual(str(copied.relative_to(self.root)), next(row["source_path"] for row in atoms if row["id"] == "CA-R-810"))
+        registry = json.loads(compile_project_registry(self.root))
+        self.assertIn("CURRENT", registry["registered_names"])
+        self.assertNotIn("STALE", registry["registered_names"])
+        pin = next(row for row in registry["sources"] if row["atom_id"] == "CA-R-810")
+        self.assertEqual((2, native.relative_to(self.root).as_posix()), (pin["version"], pin["path"]))
+
+    def test_schema_prefers_current_declared_scope_source_over_earlier_copy(self):
+        template = "## Claim\n\n### Formal Claim\n\n```CFEL\nAtom.Content.{}{{::1}}:: {{::1}};\n```\n"
+        self.source("000_copy/record.md", "CA-R-809", body=template.format("Old Field"))
+        native = self.fixture._write_atom(
+            "MAIN", "04_requirement", "native.md", atom_id="CA-R-809", version=2,
+            form="Declaration", body=template.format("Current Field"),
+        )
+        schema = json.loads(compile_project_schema(self.root))
+        for mode in ("1", "2"):
+            columns = schema["modes"][mode]["content"]["content_columns"]
+            self.assertEqual(["content.current_field"], [column["name"] for column in columns])
+        pins = {(row["version"], row["path"]) for row in schema["sources"] if row["atom_id"] == "CA-R-809"}
+        self.assertIn((2, native.relative_to(self.root).as_posix()), pins)
+
+    def test_registry_skips_invalid_duplicate_scope_data(self):
+        self.source("000_copy/record.md", "CA-R-811", form="Rule")
+        invalid = self.fixture._write_atom(
+            "MAIN", "04_requirement", "invalid.md", atom_id="CA-R-811", form="Rule",
+            body="## Summary\n\nInvalid ordinary data.\n",
+        )
+        self.source("loose/relation.md", "CA-R-812", form="Relation Declaration", body="""## Claim
+
+### Formal Claim
+
+```CFEL
+Relation//VALID;
+```
+""")
+        schema = fixtures.source_reader_module.SourceContentSchema
+        original = schema.validation_errors
+        invalid_path = invalid.relative_to(self.root).as_posix()
+
+        def validation_errors(instance, rows, *args, **kwargs):
+            rows = list(rows)
+            if any(row.get("source_path") == invalid_path for row in rows):
+                raise AssertionError("ordinary duplicate passed to registry validation")
+            return original(instance, rows, *args, **kwargs)
+
+        with patch.object(schema, "validation_errors", validation_errors):
+            registry = json.loads(compile_project_registry(self.root))
+        self.assertIn("VALID", registry["registered_names"])
 
 
 if __name__ == "__main__":

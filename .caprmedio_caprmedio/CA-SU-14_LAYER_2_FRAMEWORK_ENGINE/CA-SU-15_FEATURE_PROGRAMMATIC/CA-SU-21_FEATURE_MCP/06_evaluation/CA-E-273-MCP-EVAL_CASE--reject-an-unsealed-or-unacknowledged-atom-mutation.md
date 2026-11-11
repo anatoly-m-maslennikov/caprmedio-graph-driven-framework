@@ -15,8 +15,8 @@ relations:
   DERIVED_FROM:
   - CA-A-057
 status: Active
-version: 19
-updated_at: 2026-11-10 20:47:54 +0400
+version: 20
+updated_at: 2026-11-11 17:36:58 +0400
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -33,11 +33,15 @@ destination:
 
 Reject an unsealed or unacknowledged Atom mutation
 
+## Claim scope
+
+Initiative-bound Atom Tools. The six direct Project Atom Lifecycle Tools use the lifecycle contract in CA-R-1105.
+
 ## Claim
 
 ### Prose Claim
 
-MCP delegates an Atom mutation **only** with one authorized Initiative **and** returns success **only** from the canonical Tool's acknowledged outcome.
+For an Initiative-bound Atom Tool, MCP delegates the mutation with one authorized Initiative and returns success only from the canonical Tool's acknowledged outcome.
 
 ## Details
 

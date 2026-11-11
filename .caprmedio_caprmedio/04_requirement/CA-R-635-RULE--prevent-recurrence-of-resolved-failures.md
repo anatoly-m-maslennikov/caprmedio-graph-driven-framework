@@ -6,16 +6,16 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern)
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom
-tier: 3
+tier: 2
 relations:
   child_of:
-  - CA-R-3043
+  - CA-M-1004
 status: Active
-version: 25
-updated_at: "2026-11-11 03:47:42 +0400"
+version: 26
+updated_at: "2026-11-11 15:43:05 +0400"
 carrier_destination:
   file:
     name: CA-R-635-RULE--prevent-recurrence-of-resolved-failures.md

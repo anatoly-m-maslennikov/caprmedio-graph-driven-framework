@@ -9,15 +9,15 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 1
 relations:
   child_of:
-  - CA-M-447
+  - CA-R-3029
 status: Active
-version: 3
-updated_at: 2026-11-02 00:18:22 +0400
+version: 4
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-2426-CORE_META_MODEL-RULE--preserve-project-wide-foundational-invariants.md

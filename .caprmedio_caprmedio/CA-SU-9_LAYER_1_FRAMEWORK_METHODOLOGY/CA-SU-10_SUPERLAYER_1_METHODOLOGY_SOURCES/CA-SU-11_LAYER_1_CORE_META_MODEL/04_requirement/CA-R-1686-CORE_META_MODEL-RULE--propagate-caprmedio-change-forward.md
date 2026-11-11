@@ -10,10 +10,10 @@ topics:
 tier: 3
 relations:
   child_of:
-  - CA-M-447
+  - CA-M-540
 status: Active
-version: 33
-updated_at: 2026-11-02 00:18:22 +0400
+version: 34
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1686-CORE_META_MODEL-RULE--propagate-caprmedio-change-forward.md

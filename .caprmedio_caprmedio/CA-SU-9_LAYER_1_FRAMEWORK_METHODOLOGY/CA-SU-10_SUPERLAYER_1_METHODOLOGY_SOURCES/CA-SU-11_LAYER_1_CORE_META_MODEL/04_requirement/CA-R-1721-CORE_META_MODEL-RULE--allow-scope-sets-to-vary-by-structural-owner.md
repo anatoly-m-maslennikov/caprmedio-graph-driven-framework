@@ -10,10 +10,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-M-447
+  - CA-R-3029
 status: Active
-version: 32
-updated_at: 2026-11-02 00:18:22 +0400
+version: 33
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1721-CORE_META_MODEL-RULE--allow-scope-sets-to-vary-by-structural-owner.md

@@ -6,15 +6,14 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 1
 relations:
   child_of:
-  - CA-M-447
-  - CA-M-446
+  - CA-M-539
 status: Active
-version: 39
-updated_at: 2026-11-02 19:44:26 +0400
+version: 40
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-740-CORE_META_MODEL-RULE--give-every-atom-one-content-role.md

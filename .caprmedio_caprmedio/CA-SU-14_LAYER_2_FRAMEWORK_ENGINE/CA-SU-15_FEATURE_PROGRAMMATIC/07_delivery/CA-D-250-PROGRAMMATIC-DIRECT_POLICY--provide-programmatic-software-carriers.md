@@ -8,7 +8,7 @@ form: Direct Policy
 topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Method)
   - MODEL//CAPRMEDIO <+ Carrier
 tier: 5
 relations:

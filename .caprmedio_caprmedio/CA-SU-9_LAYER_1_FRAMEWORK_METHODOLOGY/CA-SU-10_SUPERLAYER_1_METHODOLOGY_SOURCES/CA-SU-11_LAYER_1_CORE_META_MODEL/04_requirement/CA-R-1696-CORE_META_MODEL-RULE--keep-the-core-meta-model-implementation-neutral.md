@@ -10,11 +10,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-M-447
   - CA-M-261
 status: Active
-version: 37
-updated_at: 2026-11-02 19:44:26 +0400
+version: 38
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1696-CORE_META_MODEL-RULE--keep-the-core-meta-model-implementation-neutral.md

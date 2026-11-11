@@ -4,6 +4,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.declaration_ancestry import compile_ancestry
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import DeclarationSource, content_schema_from_statements
 
 class AncestryTests(unittest.TestCase):
     def project(self, *statements):
@@ -77,6 +78,40 @@ class AncestryTests(unittest.TestCase):
         prop = next(p for p in result if p.statement.endswith('.Content.One.Two[string]'))
         self.assertEqual(frozenset({'Special'}), prop.forms)
         self.assertEqual({'0', '1', '2', '3', '4'}, set(prop.provenance))
+
+    def test_named_edge_with_qualified_parent_projects_and_inherits(self):
+        result = self.project(
+            'Workflow ((NARROWER_THAN)) Atom/(.Header.Context.Role in (Operations))',
+            'Workflow.Header.Context.Form:: [in (Workflow)]',
+            'Workflow.Content.Steps[string]',
+            'Step ((INSTANCE_OF)) Workflow',
+            'Step.Header.Context.Form:: [in (Workflow)]',
+            'Step.Content.Detail[string]',
+        )
+        workflow = next(p for p in result if p.statement.endswith('.Content.Steps[string]'))
+        step = next(p for p in result if p.statement.endswith('.Content.Detail[string]'))
+        self.assertEqual((frozenset({'Operations'}), frozenset({'Workflow'})), (workflow.roles, workflow.forms))
+        self.assertEqual((frozenset({'Operations'}), frozenset({'Workflow'})), (step.roles, step.forms))
+        self.assertIn('0', step.provenance)
+
+    def test_named_edge_rejects_variable_and_unsupported_parent(self):
+        for parent in ('Atom//$variable', 'Atom/*/Workflow', 'Atom/(.Header.Role != Operations)'):
+            with self.subTest(parent=parent):
+                result = self.project(f'Workflow ((NARROWER_THAN)) {parent}',
+                                      'Workflow.Header.Form:: [in (Workflow)]',
+                                      'Workflow.Content.Steps[string]')
+                self.assertFalse(any(p.roles not in (None, frozenset()) and p.statement.endswith('.Content.Steps[string]')
+                                     for p in result))
+
+    def test_named_edge_projects_workflow_content_schema(self):
+        source = DeclarationSource('CA-R-1', 1, 'workflow.md')
+        schema = content_schema_from_statements((statement, source) for statement in (
+            'Workflow ((NARROWER_THAN)) Atom/(.Header.Context.Role in (Operations))',
+            'Workflow.Header.Context.Form:: [in (Workflow)]',
+            'Workflow.Content.Steps:: {::1}',
+        ))
+        rule = next(rule for rule in schema.rules if rule.path == ('steps',))
+        self.assertEqual((frozenset({'Operations'}), frozenset({'Workflow'})), (rule.roles, rule.forms))
 
     def test_unrelated_and_lists_do_not_create_names(self):
         result = self.project('Atom.Header.Form:: [in (Workflow)]', 'Workflow.Content.X[string]',

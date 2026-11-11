@@ -15,7 +15,7 @@ topics:
   - MODEL//CAPRMEDIO <+ Atom.Content
   - MODEL//CAPRMEDIO <+ Atom.Content.Details
   - MODEL//CAPRMEDIO <+ Atom.Content.Summary
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
 tier: 3
 status: Active
 version: 19

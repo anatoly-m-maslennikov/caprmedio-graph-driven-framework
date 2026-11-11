@@ -13,7 +13,7 @@ import sys
 from typing import Any
 
 if __package__:
-    from .relation_registry import RegistryCompilation, compile_registry
+    from .relation_registry import RegistryCompilation, compile_registry, is_registry_declaration
     from .relations import canonical
     from .source_reader import SourceReader
 else:  # pragma: no cover - direct build-hook invocation
@@ -21,6 +21,7 @@ else:  # pragma: no cover - direct build-hook invocation
     from FEATURE_WORKBENCH_BACKEND.relation_registry import (
         RegistryCompilation,
         compile_registry,
+        is_registry_declaration,
     )
     from FEATURE_WORKBENCH_BACKEND.relations import canonical
     from FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader
@@ -88,8 +89,9 @@ def registry_asset(
 
 def compile_project_registry(project_root: Path) -> bytes:
     """Capture one Project and compile its current relation registry as JSON bytes."""
-    atoms, _scopes = SourceReader(Path(project_root)).capture()
-    return registry_asset(atoms)
+    reader = SourceReader(Path(project_root))
+    atoms, _scopes = reader.capture()
+    return registry_asset(reader.model_rows(atoms, is_registry_declaration))
 
 
 def write_registry(output: Path, data: bytes) -> None:

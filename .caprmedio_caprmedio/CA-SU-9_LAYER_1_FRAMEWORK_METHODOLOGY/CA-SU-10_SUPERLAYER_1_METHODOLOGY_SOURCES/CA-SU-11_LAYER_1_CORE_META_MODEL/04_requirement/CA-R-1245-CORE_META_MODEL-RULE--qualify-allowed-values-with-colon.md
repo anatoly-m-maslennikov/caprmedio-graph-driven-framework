@@ -12,8 +12,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Term//Property
 tier: 3
 status: Active
-version: 28
-updated_at: 2026-11-02 08:06:47 +0400
+version: 29
+updated_at: '2026-11-11 14:06:22 +0400'
 carrier_destination:
   file:
     name: CA-R-1245-CORE_META_MODEL-RULE--qualify-allowed-values-with-colon.md
@@ -29,8 +29,4 @@ Qualify Allowed Values with Colon
 
 ### Prose Claim
 
-
-allowed-value qualification in a Subject Expression.
-
-
-**in** a Subject Expression, `X:Y` **must** admit Y as one possible value of X in X's qualified context, irrespective of X's kind or path. This qualification is a CFEL operator, not a graph Relation. It does not assign Y to an occurrence or determine direct-value cardinality.
+A declaration with an allowed-value Main Subject `X := Y` states `X :: Y;` in its Formal Claim. For the qualified Subject `B/(.p := V)`, write `B.p :: V;`. Preserve parent qualifiers as conditions on B. The Formal Claim supplies its complete scope. Put instance constraints in a separate `FOR EACH ... : (...)` expression.

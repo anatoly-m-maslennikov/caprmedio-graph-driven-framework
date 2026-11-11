@@ -8,22 +8,22 @@ form: Implementation Method
 topics:
   main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Test Design"
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Test Design"
   - CAPRMEDIO_MODEL <+ Project
-tier: 2
+tier: 3
 relations:
   child_of:
   - CA-M-261
 status: Active
-version: 29
-updated_at: 2026-11-02 18:35:20 +0400
+version: 30
+updated_at: 2026-11-11 14:15:11 +0400
 carrier_destination:
   file:
-    name: CA-M-270-CAPRMEDIO-IMPLEMENTATION_METHOD--prepare-verification-before-refactoring.md
+    name: CA-M-270-IMPLEMENTATION_METHOD--prepare-verification-before-refactoring.md
     path: .caprmedio_caprmedio/05_method
 cce_version: cce_1
 cce_form: method

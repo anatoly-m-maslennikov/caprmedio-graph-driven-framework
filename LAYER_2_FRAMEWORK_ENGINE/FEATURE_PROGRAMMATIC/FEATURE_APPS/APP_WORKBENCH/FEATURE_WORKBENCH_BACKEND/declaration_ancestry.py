@@ -14,7 +14,7 @@ from .declaration_cfel import filters
 
 S = TypeVar('S')
 _NAME = r'[A-Za-z_][A-Za-z_0-9 -]*?'
-_REL = re.compile(rf'^\s*({_NAME})\s*\(\((NARROWER_THAN|INSTANCE_OF)\)\)\s*({_NAME})\s*$')
+_REL = re.compile(rf'^\s*({_NAME})\s*\(\((NARROWER_THAN|INSTANCE_OF)\)\)\s*(.+?)\s*$')
 _BINDING = re.compile(rf'^\s*({_NAME})\.Header\.(?:Context\.)?(Role|Form)\s*::\s*\[\s*in\s*\(([^()]*)\)\s*\]')
 _PROPERTY = re.compile(r'\.(?:Content|Header)(?=\.|\s|\[|\{|::|$)')
 
@@ -119,8 +119,23 @@ def compile_ancestry(statements: Iterable[tuple[str, S]]) -> tuple[ProjectedStat
     form_roles = _form_role_constraints(items)
     aliases = defaultdict(set)
     parsed_items = []
+    relations = []
     direct_statements = []
     for statement, source in items:
+        relation = _REL.fullmatch(statement)
+        if relation:
+            child_name, _, parent_path = relation.groups()
+            parent = _path(parent_path) if '$' not in parent_path else None
+            if parent:
+                nodes, trailing = parent
+                aliases[child_name.strip()].add((child_name.strip(),))
+                address = (nodes[0][0],)
+                aliases[nodes[0][0]].add(address)
+                for name, op, _ in nodes[1:]:
+                    address += (op, name)
+                    aliases[name].add(address)
+                relations.append((child_name.strip(), nodes, trailing, source))
+            continue
         prop = next((m for m in _PROPERTY.finditer(statement) if statement[:m.start()].count('(') == statement[:m.start()].count(')')), None)
         parsed = _path(statement[:prop.start()] if prop else statement)
         if not parsed:
@@ -163,13 +178,15 @@ def compile_ancestry(statements: Iterable[tuple[str, S]]) -> tuple[ProjectedStat
                 vals = frozenset(v.strip().strip("\"'") for v in raw.split(',') if v.strip())
                 if vals:
                     bindings[address].append((field, vals, source))
-    for statement, source in items:
-        relation = _REL.fullmatch(statement)
-        if relation:
-            child_name, _, parent_name = relation.groups()
-            c, p = resolve(child_name.strip()), resolve(parent_name.strip())
-            if c is not None and p is not None:
-                edges[c].append((p, '', source))
+    for child_name, nodes, trailing, source in relations:
+        address = resolve(nodes[0][0]) or (nodes[0][0],)
+        for name, op, selector in nodes[1:]:
+            child = address + (op, name)
+            edges[child].append((address, selector, source))
+            address = child
+        child = resolve(child_name)
+        if child is not None:
+            edges[child].append((address, trailing, source))
     for statement, source in direct_statements:
         roles = None
         prop = next((m for m in _PROPERTY.finditer(statement) if statement[:m.start()].count('(') == statement[:m.start()].count(')')), None)

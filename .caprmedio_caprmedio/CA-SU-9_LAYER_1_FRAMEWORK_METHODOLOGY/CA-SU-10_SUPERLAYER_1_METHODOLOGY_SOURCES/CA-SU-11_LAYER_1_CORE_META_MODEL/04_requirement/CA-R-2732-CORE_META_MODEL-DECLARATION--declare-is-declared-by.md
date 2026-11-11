@@ -40,6 +40,6 @@ Relation//IS_DECLARED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
 Relation//IS_DECLARED_BY ((IS_DERIVED_RELATION_OF)) Relation//GOVERNS;
 
 # instances
-$declared_subject ((IS_DECLARED_BY)) Atom/(.Header.Role: Requirement)/(.Header.Form in (Declaration, Relation Declaration))//$atom
+$declared_subject ((IS_DECLARED_BY)) Atom/(.Header.Context.Role: Requirement)/(.Header.Context.Form in (Declaration, Relation Declaration))//$atom
 ```
 

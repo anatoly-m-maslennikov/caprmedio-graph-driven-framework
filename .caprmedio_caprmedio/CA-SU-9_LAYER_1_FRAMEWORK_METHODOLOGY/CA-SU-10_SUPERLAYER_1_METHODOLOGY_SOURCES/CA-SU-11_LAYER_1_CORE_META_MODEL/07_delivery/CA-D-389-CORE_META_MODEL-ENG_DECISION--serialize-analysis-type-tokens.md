@@ -6,7 +6,7 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := "Analysis & Advisory").Header.Form
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := "Analysis and Advisory").Header.Context.Form
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
@@ -29,10 +29,10 @@ Serialize Analysis Type Tokens
 ### Prose Claim
 
 
-the serialization of Analysis & Advisory Form tokens in an Analysis & Advisory Atom File Carrier filename.
+the serialization of Analysis and Advisory Form tokens in an Analysis and Advisory Atom File Carrier filename.
 
 
-an Analysis & Advisory Atom File Carrier **must** serialize the following Form components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
+an Analysis and Advisory Atom File Carrier **must** serialize the following Form components within the Atom filename grammar governed by CA-D-283 **and** CA-D-284:
 
 - Rationale: `RATIONALE`.
 - External Analysis Report: `EXTERNAL_ANALYSIS_REPORT`.

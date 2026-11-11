@@ -37,7 +37,7 @@ The Host is a Plan / Work Report. The Target is the reported work Plan with Form
 Relation//IS_WORK_REPORT_FOR ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-$report[<Atom>, (.Header.Role = Plan) AND (.Header.Form = Work Report)] ((IS_WORK_REPORT_FOR)) $task[<Atom>, (.Header.Role = Plan) AND (.Header.Form = Plan)]
+$report[<Atom>, (.Header.Context.Role = Plan) AND (.Header.Context.Form = Work Report)] ((IS_WORK_REPORT_FOR)) $task[<Atom>, (.Header.Context.Role = Plan) AND (.Header.Context.Form = Plan)]
 ```
 
 ## Semantics

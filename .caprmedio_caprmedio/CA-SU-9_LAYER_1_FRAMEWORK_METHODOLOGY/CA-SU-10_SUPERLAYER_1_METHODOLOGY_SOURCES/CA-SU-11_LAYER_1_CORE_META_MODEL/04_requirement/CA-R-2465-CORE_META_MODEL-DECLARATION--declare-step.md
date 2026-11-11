@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Step
 tier: 3
 status: Active
-version: 4
-updated_at: 2026-11-02 17:54:42 +0400
+version: 6
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2465-CORE_META_MODEL-DECLARATION--declare-step.md
@@ -29,7 +29,9 @@ Declare Step
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Step;
+Atom/(.Header.Context.Role in (Operations))/Step;
+
+Step ((NARROWER_THAN)) Atom/(.Header.Context.Role in (Operations));
 
 # instances
 Step//$step;

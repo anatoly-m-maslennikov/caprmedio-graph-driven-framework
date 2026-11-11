@@ -11,7 +11,7 @@ topics:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Term//Artifact
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role: Plan)/(.Header.Context.Form: Plan)'
 tier: 4
 relations:
   child_of:

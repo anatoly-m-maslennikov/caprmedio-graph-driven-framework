@@ -83,4 +83,4 @@ timeout, **and** exit status cannot be observed.
 
 - [Python documentation: `tempfile`](https://docs.python.org/3.14/library/tempfile.html)
 - [Python documentation: `subprocess`](https://docs.python.org/3.14/library/subprocess.html)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

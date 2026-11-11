@@ -11,8 +11,8 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation
     dependencies:
     - CAPRMEDIO_MODEL <+ Atom
-    - CAPRMEDIO_MODEL <+ Atom.Header.Role
-    - CAPRMEDIO_MODEL <+ Atom.Header.Status
+    - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
+    - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
     - CAPRMEDIO_MODEL <+ Journal
     - CAPRMEDIO_MODEL <+ CFEL <+ Relation
     - CAPRMEDIO_MODEL <+ Entity

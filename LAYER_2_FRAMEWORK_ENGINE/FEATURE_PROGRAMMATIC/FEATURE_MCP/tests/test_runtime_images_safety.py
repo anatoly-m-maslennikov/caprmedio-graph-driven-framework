@@ -189,6 +189,9 @@ class ImageCredentialContextTests(unittest.TestCase):
         tools = patch.object(images, "_compile_tool_registry", return_value=b'{"schema_version":1}\n')
         tools.start()
         self.addCleanup(tools.stop)
+        lifecycle = patch("runtime_images._compile_lifecycle_assets", return_value=(b'{"schema_version":1}\n', b'{"schema_version":1}\n'))
+        lifecycle.start()
+        self.addCleanup(lifecycle.stop)
         parent = APP.parents[2] / ".caprmedio_tmp/launcher-epic-1829/images"
         parent.mkdir(parents=True, exist_ok=True)
         source = Path(tempfile.mkdtemp(prefix="image-credentials-", dir=parent))

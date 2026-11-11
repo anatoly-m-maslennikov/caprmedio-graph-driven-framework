@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics.Dependencies
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics.Dependencies
 tier: 3
 status: Active
 version: 1
@@ -32,12 +32,12 @@ Dependencies identify direct contextual dependencies.
 
 ```CFEL
 # model
-Atom.Header.Topics.Dependencies{::0..1}:: [string]{::0+};
+Atom.Header.Context.Topics.Dependencies{::0..1}:: [string]{::0+};
 
-Atom.Header.Topics.Dependencies.*[]{::0};
+Atom.Header.Context.Topics.Dependencies.*[]{::0};
 
 # instances
 $atom[<Atom>];
 
-COUNT(VALUES($atom.Header.Topics.Dependencies)) = COUNT(DISTINCT VALUES($atom.Header.Topics.Dependencies))
+COUNT(VALUES($atom.Header.Context.Topics.Dependencies)) = COUNT(DISTINCT VALUES($atom.Header.Context.Topics.Dependencies))
 ```

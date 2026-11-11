@@ -11,8 +11,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Carrier/File
 tier: 1
 status: Active
-version: 4
-updated_at: 2026-11-03 23:25:51 +0400
+version: 5
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2456-CORE_META_MODEL-DECLARATION--define-markdown-file-carrier.md
@@ -33,6 +33,6 @@ A Markdown File Carrier is a File Carrier represented using Markdown.
 
 ```CFEL
 # model
-Carrier/File/Markdown
+Carrier/File/Markdown ((NARROWER_THAN)) Carrier/File;
 ```
 

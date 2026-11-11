@@ -11,9 +11,9 @@ topics:
   dependencies:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
     <+ Data Validation
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
 tier: 3
 status: Active
 version: 15

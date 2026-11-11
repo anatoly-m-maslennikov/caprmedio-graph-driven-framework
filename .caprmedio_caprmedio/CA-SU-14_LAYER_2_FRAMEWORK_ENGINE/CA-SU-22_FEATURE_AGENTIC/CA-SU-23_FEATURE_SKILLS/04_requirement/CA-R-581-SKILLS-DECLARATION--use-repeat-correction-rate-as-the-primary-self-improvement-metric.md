@@ -12,10 +12,9 @@ tier: 1
 relations:
   child_of:
   - CA-R-3043
-  - CA-R-053
 status: Active
-version: 21
-updated_at: "2026-11-11 03:47:42 +0400"
+version: 22
+updated_at: 2026-11-11 15:14:16 +0400
 subject_scopes:
 - continuous-improvement
 llm_session_ids:

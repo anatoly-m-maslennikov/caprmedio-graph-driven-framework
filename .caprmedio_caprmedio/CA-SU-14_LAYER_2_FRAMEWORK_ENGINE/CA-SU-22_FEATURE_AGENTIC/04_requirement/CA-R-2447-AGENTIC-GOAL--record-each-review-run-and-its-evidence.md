@@ -8,7 +8,7 @@ form: Goal
 topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Documentation <+ Traceability
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
   - MODEL//CAPRMEDIO <+ Atom
   - MODEL//CAPRMEDIO <+ Journal
   - MODEL//CAPRMEDIO <+ Event Record

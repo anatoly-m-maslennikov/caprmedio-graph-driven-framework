@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Declaration
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Work Report)
+    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Form := Work Report)
   tier: 3
 state:
   status: Active
-  version: 2
-  updated_at: 2026-11-08 19:06:46 +0400
+  version: 3
+  updated_at: '2026-11-11 14:06:22 +0400'
 destination:
   file:
     name: CA-R-970308624-CORE_META_MODEL-DECLARATION--declare-work-report-form.md
@@ -43,26 +43,27 @@ The report is updated throughout execution. Its Status describes the reporting w
 
 ```CFEL
 # model
-Atom/(.Header.Form := Work Report);
+Atom.Header.Context.Form :: Work Report;
 
-Atom/(.Header.Form := Work Report).Content.Details:: {::1};
+Atom/(.Header.Context.Role in (Plan))/(.Header.Context.Form in (Work Report)).Content.Details:: {::1};
 
-Atom/(.Header.Form := Work Report).Content.Details.*[]{::0};
+Atom/(.Header.Context.Role in (Plan))/(.Header.Context.Form in (Work Report)).Content.Details.*[]{::0};
 
-Atom/(.Header.Form := Work Report).Content.Summary ;> Atom/(.Header.Form := Work Report).Content.Details;
+Atom/(.Header.Context.Role in (Plan))/(.Header.Context.Form in (Work Report)).Content.Summary ;> Atom/(.Header.Context.Role in (Plan))/(.Header.Context.Form in (Work Report)).Content.Details;
 
 # instances
-$report[<Atom>, (.Header.Form = Work Report)];
+FOR EACH $report[<Atom>, (.Header.Context.Form = Work Report)]:
+(
+    $report.Header.Context.Role == Plan;
 
-$report.Header.Role == Plan;
+    $report {::1}((IS_WORK_REPORT_FOR)) $task[<Atom>, (.Header.Context.Role = Plan) AND (.Header.Context.Form = Plan)];
 
-$report {::1}((IS_WORK_REPORT_FOR)) $task[<Atom>, (.Header.Role = Plan) AND (.Header.Form = Plan)];
+    $report.Header.Identity.ID != $task.Header.Identity.ID;
 
-$report.Header.ID != $task.Header.ID;
+    $report.Content.Summary == $task.Content.Summary;
 
-$report.Content.Summary == $task.Content.Summary;
-
-$report.Header.Container == $task.Header.Container
+    $report.Header.Context.Container == $task.Header.Context.Container
+)
 ```
 
 ## Semantics

@@ -21,11 +21,13 @@ from collections.abc import Mapping, Sequence
 from pathlib import Path, PurePosixPath
 from typing import Any
 
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, carrier_status_folder
 from header_yaml import parse_header
 from project_selection import active_selection
 from release_assets import (
     LocalReleaseError,
+    generate_lifecycle_candidate_schema,
+    generate_lifecycle_status_model,
     generate_relation_registry,
     generate_tool_registry,
     generate_workbench_schema,
@@ -117,14 +119,17 @@ def _read_structure(root: Path, config: Mapping[str, Any]) -> tuple[tuple[str, P
     return tuple(selected)
 
 
-def _walk_regular_files(root: Path, *, excluded_directories: frozenset[str] = frozenset()) -> list[Path]:
+def _walk_regular_files(root: Path, *, excluded_directories: frozenset[str] = frozenset(),
+                        exclude_history: bool = False) -> list[Path]:
     def fail(error: OSError) -> None:
         raise LocalReleaseError("local-release-source-read-failed") from error
 
     collected: list[Path] = []
     for directory, directories, names in os.walk(root, followlinks=False, onerror=fail):
         base = Path(directory)
-        directories[:] = [name for name in directories if not _ignored(name) and name.casefold() not in excluded_directories]
+        directories[:] = [name for name in directories if not _ignored(name)
+                          and name.casefold() not in excluded_directories
+                          and not (exclude_history and carrier_status_folder(name) in {"draft", "archived"})]
         for name in directories:
             child = base / name
             if child.is_symlink():
@@ -165,7 +170,8 @@ def _active_atom(path: Path) -> bool:
 def _release_sources(root: Path) -> list[tuple[str, Path, list[Path]]]:
     selected = []
     for name, source in _read_structure(root, {}):
-        files = [entry for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES)
+        files = [entry for entry in _walk_regular_files(source, excluded_directories=_NON_SOURCE_DIRECTORIES,
+                                                        exclude_history=True)
                  if entry.suffix != ".md" or _active_atom(entry)]
         if name == "CORE_META_MODEL" and not files:
             raise LocalReleaseError("local-release-source-empty:CORE_META_MODEL")
@@ -351,6 +357,10 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
     expected[relation_registry.relative_to(package).as_posix()] = _file_identity(relation_registry)
     workbench_schema = generate_workbench_schema(package, root)
     expected[workbench_schema.relative_to(package).as_posix()] = _file_identity(workbench_schema)
+    status_model = generate_lifecycle_status_model(package)
+    expected[status_model.relative_to(package).as_posix()] = _file_identity(status_model)
+    candidate_schema = generate_lifecycle_candidate_schema(package)
+    expected[candidate_schema.relative_to(package).as_posix()] = _file_identity(candidate_schema)
     tool_registry = generate_tool_registry(package)
     expected[tool_registry.relative_to(package).as_posix()] = _file_identity(tool_registry)
     for relative in (

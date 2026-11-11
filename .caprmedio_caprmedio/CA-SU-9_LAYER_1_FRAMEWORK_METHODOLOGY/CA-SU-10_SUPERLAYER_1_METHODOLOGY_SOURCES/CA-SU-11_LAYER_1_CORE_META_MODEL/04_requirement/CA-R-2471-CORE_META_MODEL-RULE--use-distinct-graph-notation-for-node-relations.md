@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL
 tier: 3
 status: Active
-version: 7
-updated_at: 2026-11-04 05:21:15 +0400
+version: 10
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md
@@ -26,15 +26,17 @@ Use distinct graph notation for Node relations
 
 ### Prose Claim
 
-In Subject addresses and Formal Claims, `X/Y` selects a narrower declared kind and `X//Name` an instance of a declared kind. A Property cannot narrow; it can have instances borne by corresponding data bearers. `X.p` addresses a Property borne by X; an unchanged inherited Property is resolved to its existing declaration rather than redeclared or given another bearer. In Subject addresses and filtered Node expressions in Formal Claims, `X/(.p := V)` admits V as a Property value and selects the whole Primary Node X where p equals V. The case does not exclude other allowed values from X.p. `(Node, Node.**)` selects Node and its recursive dependent Properties; it is not a narrowing assertion. Shared Node rules are declared once and inherited by applicable narrower Nodes.
+In Subject addresses and Formal Claims, `X/Y` selects a narrower declared kind and `X//Name` an instance of a declared kind. A Property cannot narrow; it can have instances borne by corresponding data bearers. `X.p` addresses a Property borne by X; an unchanged inherited Property is resolved to its existing declaration rather than redeclared or given another bearer. The Subject `X/(.p := V)` identifies the selected Primary Node X. Inside a Formal Claim, use `X/(.p in (V))` for the corresponding selection condition. A declaration of the value states `X.p :: V;` separately. `(Node, Node.**)` selects Node and its recursive dependent Properties; it is not a narrowing assertion. Shared Node rules are declared once and inherited by applicable narrower Nodes.
 
-`Part +> Whole` and `Whole <+ Part` are opposite written views of one composition fact, not narrowing. `X >| Axis` and `Axis |< X` are opposite views of one classification fact. `:` marks an allowed value. `=` tests a condition; `==` sets a value. Parentheses group expressions; `in (a, b)` expresses membership. A bare Entity name refers to the existing target without copying or reparenting it.
+`Part +> Whole` and `Whole <+ Part` are opposite written views of one composition fact, not narrowing. `X >| Axis` and `Axis |< X` are opposite views of one classification fact. `::` admits a literal or states a Format or cardinality constraint, according to its right operand. `=` tests a condition; `==` sets a value. Parentheses group expressions; `in (a, b)` expresses membership. A bare Entity name refers to the existing target without copying or reparenting it.
 
-For `Source {:left}((NAME)){:right} Target`, each optional bound constrains Relation instances at its written endpoint. Reversing the written view swaps the bounds. A Node-specific Claim addresses its active Node and its own bound; a Relation Declaration can state both intrinsic endpoint bounds. The opposite view requires its own applicable permission; a reverse written view does not grant permission. `{:n}` states an allowed cardinality. The same notation can constrain Properties, instances and Relations. Repeated references in a rule, including its conditions and conclusions, bind the same selected member. An omitted named Property occurrence cardinality does not require presence; applicable value constraints determine presence. Other omitted cardinalities are undefined, not implicit zero or permission.
+For `Source {::left}((NAME)){::right} Target`, each optional bound constrains Relation instances at its written endpoint. Reversing the written view swaps the bounds. A Node-specific Claim addresses its active Node and its own bound; a Relation Declaration can state both intrinsic endpoint bounds. The opposite view requires its own applicable permission; a reverse written view does not grant permission. `{::n}` states an allowed cardinality. The same notation can constrain Properties, instances and Relations. Repeated references in a rule, including its conditions and conclusions, bind the same selected member. An omitted named Property occurrence cardinality does not require presence; applicable value constraints determine presence. Other omitted cardinalities are undefined, not implicit zero or permission.
 
 `(Node, Node.**)` selects model Entities in the Node branch; it does not limit other declared Entities. `(Node//, (Node//).**)` is the instance-layer selector. `Node//` selects Node instances including instances of narrower kinds. `(Node//).**` selects recursive Property instances borne by a Node instance. Each is an instance of its corresponding model Property and has no independent Carrier. The two layers have separate permissions. Repeated instance matches count once by identity.
 
-Subjects remain addresses and do not contain complete Formal Claims. In Subjects and filtered Node expressions in Formal Claims, `:=` combines allowed value and condition, including `Atom/(.Header.Role := Method)` and `Workflow/(.Purpose := Runtime)`; it does not write an instance value. Outside these selections, `:` and `=` retain their separate allowed-value and condition meanings. The withdrawn `..` form is not adopted; `::` has no assigned meaning here.
+A Declaration states its Model identity and applicable placement in the Formal Claim. Use a named Relation for narrowing or containment. A complete Property path identifies its bearer, and a typed instance address identifies its kind. State a Property’s applicable format and cardinality at that path. State any required qualification in the expression. Subjects identify the Atom’s topic.
+
+An allowed-value declaration states its complete qualified literal admission in the Formal Claim. When the declaration constrains instances, a separate `FOR EACH` expression binds its participants and supplies the instance scope.
 
 ## Dependent selection
 

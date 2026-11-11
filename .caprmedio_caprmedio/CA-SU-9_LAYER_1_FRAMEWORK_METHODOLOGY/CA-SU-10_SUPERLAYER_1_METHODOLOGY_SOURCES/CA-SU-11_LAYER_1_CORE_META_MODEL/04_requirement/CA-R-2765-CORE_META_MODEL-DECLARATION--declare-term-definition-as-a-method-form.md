@@ -6,13 +6,13 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)/(.Header.Context.Form := Term Definition)
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
 tier: 3
 status: Active
-version: 5
-updated_at: 2026-11-04 23:07:00 +0400
+version: 6
+updated_at: '2026-11-11 14:06:22 +0400'
 carrier_destination:
   file:
     name: CA-R-2765-DECLARATION--declare-term-definition-as-a-method-form.md
@@ -28,6 +28,5 @@ Declare Term Definition as a Method Form
 
 ```CFEL
 # model
-Atom/(.Header.Role := Method).Header.Form: Term Definition;
-Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+Atom/(.Header.Context.Role in (Method)).Header.Context.Form :: Term Definition;
 ```

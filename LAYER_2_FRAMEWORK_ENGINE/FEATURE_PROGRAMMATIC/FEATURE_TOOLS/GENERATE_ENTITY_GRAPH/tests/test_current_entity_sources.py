@@ -11,10 +11,9 @@ from unittest.mock import patch
 TOOL = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOL.parent), str(TOOL)]
 import current_entity_sources  # noqa: E402
-from current_entity_sources import build_current_graph, read_current_carriers  # noqa: E402
+from current_entity_sources import build_current_graph, read_current_carriers, read_current_model_carriers  # noqa: E402
 from current_subject_graph import compose_current_graph  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import CarrierError  # noqa: E402
-from readable_entity_tree import render_inherency  # noqa: E402
 
 TEST_TEMP_ROOT = Path.cwd() / ".caprmedio_tmp/tests/test_current_entity_sources"
 
@@ -44,9 +43,10 @@ class CurrentEntitySourcesTests(unittest.TestCase):
         return build_current_graph(self.selected if selected is None else selected, self.repository)
 
     def test_folder_selection_excludes_draft_archived_paths_but_not_status(self):
-        self.write("CA-R-9001", "Done Entity", status="Done")
-        self.write("CA-R-9002", "Backlog Entity", status="Backlog", folder="backlog")
-        for index, folder in enumerate(("draft", "drafts", "archive", "archived"), 3):
+        self.write("CA-R-9001", "Done Entity", status="Done", folder="020_done")
+        self.write("CA-R-9002", "Backlog Entity", status="Backlog", folder="001_backlog")
+        excluded = ("draft", "drafts", "archive", "archived", "000_draft", "099_archived")
+        for index, folder in enumerate(excluded, 3):
             self.write(f"CA-R-900{index}", "Excluded", folder=f"nested/{folder}/deep")
         graph, provenance = self.build()
         self.assertEqual(
@@ -55,7 +55,7 @@ class CurrentEntitySourcesTests(unittest.TestCase):
         self.assertEqual(
             {"CA-R-9001", "CA-R-9002"}, {row["source"]["atom_id"] for row in provenance["owners"]}
         )
-        for folder in ("draft", "drafts", "archive", "archived"):
+        for folder in excluded:
             with self.subTest(selected=folder):
                 selected = self.selected / "nested" / folder / "deep"
                 self.assertEqual([], self.build(selected)[0]["nodes"])
@@ -127,6 +127,22 @@ class CurrentEntitySourcesTests(unittest.TestCase):
 
         with self.assertRaises(CarrierError):
             read_current_carriers(self.selected, self.repository)
+
+    def test_model_reads_requirements_without_parsing_known_other_roles(self):
+        declaration = self.write("CA-R-9001", "Declared Entity")
+        declaration.write_text(declaration.read_text().replace("content_role: Requirement\n",
+                                                               "content_role: Requirement\nform: Declaration\n"))
+        (self.selected / "CA-D-9002.md").write_text(
+            "---\natom_id: CA-D-9002\nrole: Delivery\nsubjects:\n  active: Old\n"
+            "topics:\n  main_subject: New\n---\n## Summary\n\nDelivery\n"
+        )
+        carriers = read_current_model_carriers(self.selected, self.repository)
+        self.assertEqual(["CA-R-9001"], [row["source"]["atom_id"] for row in carriers])
+        with self.assertRaises(CarrierError):
+            read_current_carriers(self.selected, self.repository)
+        (self.selected / "CA-R-9003.md").write_text("---\natom_id: [broken\n---\n")
+        with self.assertRaises(CarrierError):
+            read_current_model_carriers(self.selected, self.repository)
 
     def test_reader_checks_existing_file_size_ceiling_before_parsing(self):
         self.write("CA-R-9001", "Too Large")

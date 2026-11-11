@@ -9,6 +9,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 import hashlib
 import json
+import re
 from pathlib import Path
 from typing import Any
 
@@ -28,6 +29,8 @@ class SchemaCompilation:
     mode_one: HeaderSchema
     mode_two: HeaderSchema
     content: ContentSchema
+    status_groups: tuple[tuple[str, str, str], ...] = ()
+    role_folders: tuple[tuple[str, str], ...] | None = None
 
     def header(self, mode: int) -> HeaderSchema:
         if mode == 1:
@@ -39,12 +42,33 @@ class SchemaCompilation:
 
 def compile_schema(
     atoms: list[dict[str, Any]], content: ContentSchema, declared_header: HeaderSchema | None = None,
+    status_groups: tuple[tuple[str, str, str], ...] = (),
+    role_folders: tuple[tuple[str, str], ...] | None = None,
 ) -> SchemaCompilation:
     """Build both projections from the one accepted source capture."""
     return SchemaCompilation(
         declared_header or declared_header_schema(compile_header_rules(atoms)),
-        infer_header_schema(atoms), content,
+        infer_header_schema(atoms), content, status_groups, role_folders,
     )
+
+
+_STATUS_GROUP = re.compile(
+    r'Atom/\(\.Header\.(?:Context\.)?Role\s*:=\s*([A-Za-z][A-Za-z0-9 _-]*)\)'
+    r'/\(\.Header\.(?:State\.)?Status\s*:=\s*([A-Za-z][A-Za-z0-9 _-]*)\)'
+    r'\.Header\.(?:State\.)?Status\s*>\|\s*Status Group\s*==\s*([A-Za-z][A-Za-z0-9 _-]*)\s*'
+)
+
+
+def compile_status_groups(statements) -> tuple[tuple[str, str, str], ...]:
+    groups = {}
+    for statement, _source in statements:
+        match = _STATUS_GROUP.fullmatch(statement)
+        if match:
+            role, status, group = (part.strip() for part in match.groups())
+            previous = groups.setdefault((role, status), group)
+            if previous != group:
+                raise ValueError(f"conflicting Status Groups for {role}/{status}")
+    return tuple(sorted((role, status, group) for (role, status), group in groups.items()))
 
 
 def schema_asset(
@@ -59,6 +83,13 @@ def schema_asset(
         },
         "sources": sorted((_source_pin(row) for row in atoms), key=lambda source: source["path"]),
     }
+    if compilation.status_groups:
+        payload["schema_version"] = 3
+        payload["status_groups"] = [list(row) for row in compilation.status_groups]
+    if compilation.role_folders is not None:
+        payload["schema_version"] = 4
+        payload["status_groups"] = [list(row) for row in compilation.status_groups]
+        payload["role_folders"] = [list(row) for row in compilation.role_folders]
     payload["input_digest"] = hashlib.sha256(canonical(payload).encode("utf-8")).hexdigest()
     return json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8") + b"\n"
 
@@ -90,13 +121,26 @@ def load_image_schema(path: Path = DEFAULT_SCHEMA_PATH) -> SchemaCompilation:
         if path.is_symlink() or not path.is_file():
             raise ValueError("schema asset is missing or is a symlink")
         payload = json.loads(path.read_bytes())
-        if not isinstance(payload, dict) or set(payload) != {"schema_version", "modes", "sources", "input_digest"}:
+        if not isinstance(payload, dict) or set(payload) not in ({"schema_version", "modes", "sources", "input_digest"}, {"schema_version", "modes", "sources", "input_digest", "status_groups"}, {"schema_version", "modes", "sources", "input_digest", "status_groups", "role_folders"}):
             raise ValueError("invalid schema asset shape")
         digest = payload.pop("input_digest")
         if not isinstance(digest, str) or digest != hashlib.sha256(canonical(payload).encode("utf-8")).hexdigest():
             raise ValueError("schema asset digest mismatch")
-        if type(payload["schema_version"]) is not int or payload["schema_version"] != 2:
+        if (type(payload["schema_version"]) is not int or payload["schema_version"] not in (2, 3, 4)
+                or (payload["schema_version"] >= 3) != ("status_groups" in payload)
+                or (payload["schema_version"] == 4) != ("role_folders" in payload)):
             raise ValueError("unsupported schema asset version")
+        groups = payload.get("status_groups", [])
+        if (not isinstance(groups, list) or any(not isinstance(row, list) or len(row) != 3
+                or any(not isinstance(value, str) or not value for value in row) for row in groups)
+                or groups != sorted(groups) or len({tuple(row[:2]) for row in groups}) != len(groups)):
+            raise ValueError("invalid Status Groups")
+        folders = payload.get("role_folders")
+        if folders is not None and (not isinstance(folders, list) or any(
+                not isinstance(row, list) or len(row) != 2 or any(not isinstance(value, str) or not value for value in row)
+                for row in folders) or folders != sorted(folders)
+                or len({row[0] for row in folders}) != len(folders) or len({row[1] for row in folders}) != len(folders)):
+            raise ValueError("invalid Role folders")
         _validate_source_pins(payload["sources"])
         modes = payload["modes"]
         if not isinstance(modes, dict) or set(modes) != {"1", "2"}:
@@ -109,7 +153,8 @@ def load_image_schema(path: Path = DEFAULT_SCHEMA_PATH) -> SchemaCompilation:
         headers = [_header_schema(modes[mode]["header"]) for mode in ("1", "2")]
         if any(headers[index].asset() != modes[mode]["header"] for index, mode in enumerate(("1", "2"))):
             raise ValueError("invalid header schema shape")
-        return SchemaCompilation(headers[0], headers[1], content)
+        return SchemaCompilation(headers[0], headers[1], content, tuple(map(tuple, groups)),
+                                 None if folders is None else tuple(map(tuple, folders)))
     except (OSError, KeyError, TypeError, UnicodeError, ValueError) as exc:
         raise ValueError(f"invalid delivered Workbench schema: {exc}") from exc
 

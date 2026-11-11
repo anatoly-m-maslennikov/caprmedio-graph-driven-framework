@@ -8,7 +8,7 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 4
 relations:
   child_of:

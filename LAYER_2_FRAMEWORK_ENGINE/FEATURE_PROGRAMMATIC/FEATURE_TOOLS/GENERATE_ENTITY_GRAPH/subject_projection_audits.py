@@ -9,7 +9,7 @@ import re
 from typing import Any
 
 import subject_notation as notation
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, matches_named_value
 from contract_graph import _conditional_target, _has_selection, _target as _contract_target
 from current_subject_graph import _model_target, _target_kind, namespace_local_expression
 from subject_projection_data import build_subject_projection_data
@@ -232,7 +232,7 @@ def _entity_definitions(carriers: list[Record]) -> dict[str, list[Record]]:
     rows: dict[str, list[Record]] = defaultdict(list)
     for carrier in carriers:
         view = _view(carrier)
-        if view.get("content_role") != "Requirement" or view.get("type") != "Entity Definition":
+        if not matches_named_value(view.get("content_role"), "Requirement") or not matches_named_value(view.get("type"), "Entity Definition"):
             continue
         subjects = _authored_subjects(carrier)
         if subjects is None:
@@ -262,7 +262,7 @@ def _term_definitions(carriers: list[Record]) -> dict[str, list[Record]]:
     rows: dict[str, list[Record]] = defaultdict(list)
     for carrier in carriers:
         view = _view(carrier)
-        if (view.get("content_role") != "Method" or view.get("type") != "Term Definition"
+        if (not matches_named_value(view.get("content_role"), "Method") or not matches_named_value(view.get("type"), "Term Definition")
                 or not str(_source(carrier).get("atom_id", "")).startswith("CA-M-")):
             continue
         subjects = _authored_subjects(carrier)
@@ -377,8 +377,8 @@ def _is_defining(carrier: Mapping[str, Any], target: tuple[str, str]) -> bool:
     form = str(_view(carrier).get("type", ""))
     if atom_id.startswith("CA-R-") and (form.endswith("Declaration") or form.endswith("Definition")):
         return True
-    return (atom_id.startswith("CA-M-") and _view(carrier).get("content_role") == "Method"
-            and form == "Term Definition" and target[0] == "component"
+    return (atom_id.startswith("CA-M-") and matches_named_value(_view(carrier).get("content_role"), "Method")
+            and matches_named_value(form, "Term Definition") and target[0] == "component"
             and _term_identity(target[1]) is not None)
 
 

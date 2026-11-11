@@ -9,10 +9,10 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/AI Agent
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern)
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Effect Authorization"
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Operation <+ Execution Control <+ Decision Confidence"
 tier: 2

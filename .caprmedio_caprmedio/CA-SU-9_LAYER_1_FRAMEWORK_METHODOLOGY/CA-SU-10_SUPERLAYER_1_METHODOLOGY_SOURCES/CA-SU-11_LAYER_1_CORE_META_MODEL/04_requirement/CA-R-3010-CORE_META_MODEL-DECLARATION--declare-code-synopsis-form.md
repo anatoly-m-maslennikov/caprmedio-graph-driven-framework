@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Code Synopsis)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Form := Code Synopsis)
 tier: 3
 status: Active
-version: 4
-updated_at: 2026-11-10 14:38:45 +0400
+version: 7
+updated_at: '2026-11-11 15:25:07 +0400'
 carrier_destination:
   file:
     name: CA-R-3010-CORE_META_MODEL-DECLARATION--declare-code-synopsis-form.md
@@ -31,29 +31,32 @@ A Code Synopsis identifies one or more unambiguous code locations in its Project
 
 ```CFEL
 # model
-Atom/(.Header.Form := Code Synopsis);
+Atom.Header.Context.Form :: Code Synopsis;
 
-Atom/(.Header.Form := Code Synopsis).Header.Status: Resolved;
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Header.State.Status :: Resolved;
 
-Atom/(.Header.Form := Code Synopsis).Content.Summary ;> Atom/(.Header.Form := Code Synopsis).Content.Claim;
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Summary ;> Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim;
 
-Atom/(.Header.Form := Code Synopsis).Content.Claim{::1}:: []{::0};
-Atom/(.Header.Form := Code Synopsis).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim{::1}:: []{::0};
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};
 
-Atom/(.Header.Form := Code Synopsis).Content.Claim.Prose Claim{::0..1}:: {::1};
-Atom/(.Header.Form := Code Synopsis).Content.Claim.Prose Claim.*[]{::0};
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Prose Claim{::0..1}:: {::1};
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Prose Claim.*[]{::0};
 
-Atom/(.Header.Form := Code Synopsis).Content.Claim.Formal Claim{::0..1}:: {::1};
-Atom/(.Header.Form := Code Synopsis).Content.Claim.Formal Claim.*[]{::0};
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Formal Claim{::0..1}:: {::1};
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Formal Claim.*[]{::0};
 
-Atom/(.Header.Form := Code Synopsis).Content.Claim.Prose Claim ;> Atom/(.Header.Form := Code Synopsis).Content.Claim.Formal Claim;
+Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Prose Claim ;> Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Formal Claim;
 
-IF (Atom/(.Header.Form := Code Synopsis).Content.Claim.Formal Claim {=1}) THEN (
-FENCED_LABELS(Atom/(.Header.Form := Code Synopsis).Content.Claim.Formal Claim):: [in (CFEL)]{::1}
+IF (Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Code Synopsis)).Content.Claim.Formal Claim):: [in (CFEL)]{::1}
 );
 
 # instances
-Atom/(.Header.Form := Code Synopsis)//$synopsis.Header.Role:: [in ("Analysis & Advisory")]{::1}
+FOR EACH $a[<Atom>, (.Header.Context.Form = Code Synopsis)]:
+(
+    $a.Header.Context.Role:: [in ("Analysis and Advisory")]{::1}
+)
 ```
 
 ## Semantics

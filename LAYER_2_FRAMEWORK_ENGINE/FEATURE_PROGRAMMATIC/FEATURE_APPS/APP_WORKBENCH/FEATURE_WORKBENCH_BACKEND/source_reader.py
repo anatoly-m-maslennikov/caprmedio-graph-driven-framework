@@ -8,7 +8,7 @@
 from __future__ import annotations
 import sys
 import re
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 from pathlib import Path
 from typing import Any
 from .content_schema import ContentSchema, _is_declaration
@@ -29,6 +29,7 @@ if str(TOOLS) not in sys.path:
 from project_settings_values import control_root as configured_control_root, project_identity_prefix  # noqa: E402
 from carrier_aliases import carrier_read_view  # noqa: E402
 from scope_unit_declarations import (  # noqa: E402
+    DELEGATION_ROLE_FOLDERS,
     ScopeDeclarationError,
     _is_projection,
     _selects_declaration_form,
@@ -44,11 +45,15 @@ class SourceReader:
     def __init__(
         self, root: Path, control_root: Path | None = None, *, schema_mode: int = 2,
         compiled_schema: tuple[ContentSchema, HeaderSchema] | None = None,
+        status_groups: tuple[tuple[str, str, str], ...] = (),
+        role_folders: tuple[tuple[str, str], ...] | None = None,
     ) -> None:
         if type(schema_mode) is not int or schema_mode not in {1, 2}:
             raise ValueError("workbench.schema_mode must be 1 or 2")
         self.root = Path(root).resolve()
         self._schema_mode = schema_mode
+        self._status_groups = status_groups
+        self._role_folders = role_folders
         if control_root is None:
             self.control_root = configured_control_root(self.root)
         else:
@@ -208,7 +213,7 @@ class SourceReader:
         self._declaration_directories = {self.control_root}
         for row in declarations.as_structure()["scope_units"]:
             authority = self.root / row["authority_path"]
-            self._declaration_directories.add(authority / "04_requirement")
+            self._declaration_directories.update(authority / role for role in DELEGATION_ROLE_FOLDERS)
         self._source_paths = set(self._inventory_paths())
         self._inventory_ready = True
         if revalidate_content:
@@ -404,6 +409,24 @@ class SourceReader:
             for path in sorted(self._source_paths)
             if path in self._cached and path in self._references.accepted
         ]
+    def model_rows(self, observed, predicate: Callable[[dict[str, Any]], bool]) -> list[dict[str, Any]]:
+        """Prefer Current Scope Unit sources over copies when building model assets."""
+        assert self._declarations is not None
+        authority = [
+            self.root / row["authority_path"]
+            for row in self._declarations.as_structure()["scope_units"]
+            if self.root / row["authority_path"] != self.control_root
+        ]
+        rows = [
+            row for path, (_, row) in sorted(self._cached.items())
+            if row.get("status_group") == "Current"
+            and any(path.is_relative_to(directory) for directory in authority)
+        ]
+        # Other Current rows suppress obsolete copies even when their form changed.
+        errors = self._content_schema.validation_errors(row for row in rows if predicate(row))
+        references = {row.get("ref") for row in rows if row.get("ref") is not None}
+        return ([row for row in rows if row.get("source_path") not in errors]
+                + [row for row in observed if row.get("ref") not in references])
     def _cached_rows(
         self, cached: dict[Path, tuple[tuple[int, ...], dict[str, Any]]] | None = None,
     ) -> dict[Path, dict[str, Any]]:
@@ -432,7 +455,7 @@ class SourceReader:
         try:
             parsed = parse_carrier(raw, path)
             view = carrier_read_view(parsed.metadata)
-            group = _group(path.relative_to(self.root), view)
+            group = _group(path.relative_to(self.root), view, self._status_groups)
             if group is None:
                 self._cached.pop(path, None)
                 self._failed.pop(path, None)
@@ -469,7 +492,7 @@ class SourceReader:
             self.root, self.control_root, self._source_paths, self.audit_delta, self._cached,
             self._diagnostics, self._references.accepted,
             self._declarations.as_structure()["scope_units"], self._project_scope_id,
-            self.content_schema, public_atoms,
+            self.content_schema, public_atoms, self._role_folders,
         )
 
     def _error(self, path: Path, error: BaseException) -> None:

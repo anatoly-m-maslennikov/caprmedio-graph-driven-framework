@@ -10,11 +10,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-M-006
-  - CA-R-686
+  - CA-M-538
 status: Active
-version: 17
-updated_at: 2026-10-29 09:30:11 +0400
+version: 19
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-690-FRAMEWORK_METHODOLOGY-RULE--govern-discipline-extension-and-project-adaptation-applicability.md

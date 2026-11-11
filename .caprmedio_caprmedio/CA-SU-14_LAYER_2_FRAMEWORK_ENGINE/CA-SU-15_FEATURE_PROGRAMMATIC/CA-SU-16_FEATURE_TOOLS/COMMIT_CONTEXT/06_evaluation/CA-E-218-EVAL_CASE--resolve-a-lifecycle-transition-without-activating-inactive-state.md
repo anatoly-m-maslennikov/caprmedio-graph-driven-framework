@@ -1,6 +1,6 @@
 ---
 subjects:
-  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  governs: Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
 version: 23
 updated_at: 2026-11-02 19:44:26 +0400
 relations:

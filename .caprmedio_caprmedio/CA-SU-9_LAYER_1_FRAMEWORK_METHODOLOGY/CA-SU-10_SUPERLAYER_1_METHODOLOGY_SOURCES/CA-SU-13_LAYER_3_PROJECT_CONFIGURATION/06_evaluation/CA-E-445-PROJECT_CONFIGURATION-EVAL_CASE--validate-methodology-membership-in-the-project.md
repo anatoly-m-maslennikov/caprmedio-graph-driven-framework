@@ -11,16 +11,17 @@ topics:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Atom
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Goal)
 tier: 4
 relations:
   evaluation_for:
-  - CA-R-706
+  - CA-R-3034
+  - CA-R-2650
   - CA-R-718
   - CA-D-325
 status: Active
-version: 30
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 31
+updated_at: "2026-11-11 18:11:33 +0400"
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:

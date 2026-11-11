@@ -9,7 +9,7 @@ topics:
   main_subject: "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
   dependencies:
   - Subject/CAPRMEDIO/Carrier
-  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status: Draft'
+  - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status: Draft'
 tier: 3
 status: Active
 version: 18

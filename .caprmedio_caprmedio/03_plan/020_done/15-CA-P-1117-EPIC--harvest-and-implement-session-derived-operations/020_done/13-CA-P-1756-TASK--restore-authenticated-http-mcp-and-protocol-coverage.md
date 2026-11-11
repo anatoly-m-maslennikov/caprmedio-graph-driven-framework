@@ -1,0 +1,61 @@
+---
+atom_id: CA-P-1756
+ref_id: CA-P-1756
+container:
+  atom: CA-P-1117
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/MCP.HTTP Transport
+  dependencies:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1757
+  - CA-P-1655
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 13-CA-P-1756-TASK--restore-authenticated-http-mcp-and-protocol-coverage.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done
+work_sequence_number: 13
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+---
+# Summary
+
+Restore authenticated HTTP MCP and protocol coverage
+
+## Objective
+
+Implement the accepted optional Streamable HTTP transport beside unchanged stdio and prove its real SDK session behavior.
+
+## Details
+
+204_MCP HTTP adapter/gateway, Docker lifecycle overlay and their tests; http_mcp_restore plus read-only http_security_review. R1884/1885 M341/342 E584/585 D578. Tokens stay ephemeral and never enter committed files or logs.
+
+This is a restored-delivery composite. Independently bounded <=15-minute assignments separate adapter/lifecycle implementation, host SDK protocol tests, and read-only security review. http_mcp_restore exclusively owns 204_MCP/http_server.py, server.py, hot_reload.py, test_hot_reload_http.py, Docker runtime.py/entrypoint.py/mcp-http.compose.yaml and test_mcp_http_runtime.py. http_security_review is read-only and owns no mutations. Corrections receive a separate bounded producer slice and independent re-review. Root owns integration and Git; P1757 remains the distinct actual Docker proof.
+
+## Definition of Done
+
+Independent security review accepts; host SDK tests prove discovery/calls/reload/drain/auth/shutdown. Actual Docker proof is P1757.
+
+## Pre-execution review
+
+Root accepts this bounded repair/restoration against Operator authority, DRY, preservation of valuable information and the latest continuation. Keep installed N intact and distinguish local tests from required actual runtime gates.
+
+## Recorded verification
+
+Independent HTTP security acceptance and root's complete 18-case HTTP/stdio/runtime command pass are retained in e63cb5457. SDK session/reload/drain/auth/health/cancellation boundaries are accepted. P1757 remains Active for actual candidate Docker execution.

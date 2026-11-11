@@ -36,10 +36,10 @@ Atom.Content.**[string]{::0+};
 
 Atom.Content.**:: [markdown];
 
-Atom/(.Header.Role in RMED).Content.Summary ;> Atom/(.Header.Role in RMED).Content.Claim;
+Atom/(.Header.Context.Role in RMED).Content.Summary ;> Atom/(.Header.Context.Role in RMED).Content.Claim;
 
-Atom/(.Header.Role in RMED).Content.Claim ;> Atom/(.Header.Role in RMED).Content.Semantics;
+Atom/(.Header.Context.Role in RMED).Content.Claim ;> Atom/(.Header.Context.Role in RMED).Content.Semantics;
 
-Atom/(.Header.Role in RMED).Content.Semantics ;> Atom/(.Header.Role in RMED).Content.Details
+Atom/(.Header.Context.Role in RMED).Content.Semantics ;> Atom/(.Header.Context.Role in RMED).Content.Details
 ```
 

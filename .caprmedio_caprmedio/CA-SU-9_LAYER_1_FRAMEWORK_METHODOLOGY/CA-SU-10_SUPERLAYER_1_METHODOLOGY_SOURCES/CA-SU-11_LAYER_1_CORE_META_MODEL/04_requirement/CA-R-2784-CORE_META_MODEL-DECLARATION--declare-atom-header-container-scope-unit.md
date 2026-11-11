@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Container.scope_unit
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Container.scope_unit
 tier: 3
 status: Active
 version: 1
@@ -30,8 +30,8 @@ The value is the stable ID of the containing Scope Unit.
 
 ```CFEL
 # model
-Atom.Header.Container.scope_unit :: [string]{::0..1};
+Atom.Header.Context.Container.scope_unit :: [string]{::0..1};
 
-Atom.Header.Container.scope_unit.*[]{::0}
+Atom.Header.Context.Container.scope_unit.*[]{::0}
 ```
 

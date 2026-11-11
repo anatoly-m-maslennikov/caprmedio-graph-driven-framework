@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/Docker Image
 tier: 1
 status: Active
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
+version: 7
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2198-PROJECT_CONFIGURATION-DECLARATION--define-docker-image-carrier.md
@@ -31,6 +31,6 @@ A Docker Image is an immutable, addressable Carrier of packaged Implementation.
 
 ```CFEL
 # model
-Carrier/Docker Image
+Carrier/Docker Image ((NARROWER_THAN)) Carrier;
 ```
 

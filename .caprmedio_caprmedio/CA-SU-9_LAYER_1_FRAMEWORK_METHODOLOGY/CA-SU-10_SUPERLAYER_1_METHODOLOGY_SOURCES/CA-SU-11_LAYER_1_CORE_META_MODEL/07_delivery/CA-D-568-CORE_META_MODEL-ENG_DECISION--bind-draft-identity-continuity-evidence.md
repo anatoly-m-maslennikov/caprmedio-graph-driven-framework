@@ -6,10 +6,10 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
   dependencies:
-  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Draft'
-  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - 'CAPRMEDIO_MODEL <+ Atom.Header.State.Status: Draft'
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Version
   - CAPRMEDIO_MODEL <+ Atom
 tier: 4
 relations:

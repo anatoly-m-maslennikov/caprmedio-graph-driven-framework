@@ -10,10 +10,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-007
+  - CA-M-544
 status: Active
-version: 36
-updated_at: 2026-11-02 19:44:26 +0400
+version: 37
+updated_at: 2026-11-11 15:00:27 +0400
 carrier_destination:
   file:
     name: CA-R-1697-CORE_META_MODEL-RULE--bind-traceability-to-exact-claims-and-revisions.md

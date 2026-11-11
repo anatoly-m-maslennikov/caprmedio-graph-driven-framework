@@ -1,0 +1,38 @@
+---
+identity:
+  id: CA-R-970308653
+  ref_id: CA-R-970308653
+context:
+  container:
+    scope_unit: CA-SU-11
+  role: requirement
+  form: declaration
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Identity
+  tier: 3
+state:
+  status: active
+  version: 1
+  updated_at: 2026-11-11 16:27:40 +0400
+destination:
+  file:
+    name: CA-R-970308653-CORE_META_MODEL-DECLARATION--declare-atom-header-identity.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
+---
+
+## Summary
+
+Declare Atom.Header.Identity
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# model
+Atom.Header.Identity{::1} :: []{::0};
+
+Atom.Header.Identity.*[in (ID, Ref ID)]{::2};
+
+Atom.Header.Identity.ID ;> Atom.Header.Identity.Ref ID
+```

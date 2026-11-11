@@ -416,9 +416,7 @@ Atom.Header.Carrier Destination.File.Name:: {::1};
 
     def test_project_generator_uses_one_reader_capture_and_writes_exact_bytes(self) -> None:
         row = atom(header={"atom_id": "CA-R-1"})
-        content = compile_content_schema([])
-        header = declared_header_schema(())
-        reader = Mock(capture=Mock(return_value=([row], [])), content_schema=content, header_schema=header)
+        reader = Mock(capture=Mock(return_value=([row], [])), model_rows=Mock(return_value=[row]))
         with patch(
             "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.generate_workbench_schema.SourceReader",
             return_value=reader,

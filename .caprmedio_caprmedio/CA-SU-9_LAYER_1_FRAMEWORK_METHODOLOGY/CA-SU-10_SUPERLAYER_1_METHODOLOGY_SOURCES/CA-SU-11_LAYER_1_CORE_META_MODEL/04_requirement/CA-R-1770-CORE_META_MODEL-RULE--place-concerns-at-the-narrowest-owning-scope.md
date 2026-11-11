@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Local Scope Unit'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern).Local Scope Unit'
 tier: 2
 status: Active
 version: 32

@@ -11,7 +11,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Term//Entity
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)/(.Header.Form := Term Definition)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)/(.Header.Context.Form := Term Definition)
 tier: 1
 status: Active
 version: 6

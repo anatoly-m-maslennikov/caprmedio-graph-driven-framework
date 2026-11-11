@@ -12,10 +12,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-1407
+  - CA-M-540
 status: Active
-version: 29
-updated_at: 2026-11-02 00:18:22 +0400
+version: 30
+updated_at: "2026-11-11 18:13:56 +0400"
 carrier_destination:
   file:
     name: CA-R-833-CORE_META_MODEL-RULE--organize-normative-authority-as-an-acyclic-hierarchy.md

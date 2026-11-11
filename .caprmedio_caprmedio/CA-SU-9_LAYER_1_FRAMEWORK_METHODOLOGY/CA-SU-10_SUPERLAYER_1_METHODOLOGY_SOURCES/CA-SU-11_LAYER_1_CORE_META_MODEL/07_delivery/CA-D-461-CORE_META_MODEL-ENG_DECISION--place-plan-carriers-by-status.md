@@ -6,14 +6,14 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status'
   dependencies:
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status'
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
 tier: 1
 status: Active
-version: 29
-updated_at: 2026-11-02 00:18:22 +0400
+version: 33
+updated_at: '2026-11-11T19:06:04+04:00'
 carrier_destination:
   file:
     name: CA-D-461-CORE_META_MODEL-DECISION--place-plan-carriers-by-status.md
@@ -30,23 +30,15 @@ Place Plan Carriers by Status
 ### Prose Claim
 
 
-Plan Carrier Bundle placement by carried Status.
+Current Plan Carrier Bundle placement by carried Status.
 
 
-**every** Plan Carrier Bundle **must** represent its carried Status **in** the following locations:
+Apply CA-D-466 for Current Plan placement.
 
-- Draft: **in** the owning Scope Unit's shared `03_plan/draft` area.
-- Active: directly **in** its local container.
-- Backlog: **in** its `001_backlog` subdirectory.
-- Done: **in** its `done` subdirectory.
-- Canceled: **in** its `canceled` subdirectory.
-- Archived: **in** the owning Scope Unit's shared `03_plan/archived` area.
+Status folders are Carrier directories. Validate folder nesting against the child's direct `IS_CONTAINED_BY` declaration.
 
-For a contained Current Plan, the local container for its current-Status placement is the matching Directory Carrier of its declared immediate containing Plan. Draft and Archived areas are shared across the owning Scope Unit, rather than replicated under each Plan container. This rule does **not** decide terminal-Status placement for a Plan without an `IS_CONTAINED_BY` connection. reserved Status directories are **not** Plan nodes. validate folder nesting against the child's direct `IS_CONTAINED_BY` declaration; placement does **not** declare containment.
-
-read Status from the Plan's own Markdown file under CA-D-483 **and** check its local placement; a parent **or** folder name **must not** supply a descendant's Status at read time. **every** admitted parent Status change requires the containment cascade under CA-R-1521: separate single-Atom Actions write the Status prescribed by CA-R-1521 to each selected latest descendant under its own model, without an optional descendant mode. For a containing Plan Atom whose requested Status is Done **or** Canceled, preserve every selected latest contained Plan already Done **or** Canceled and request Canceled for every other selected latest contained Plan. After the cascade, every selected latest contained Plan must be Done **or** Canceled; mixed terminal statuses are allowed, and no contained Plan is forced to match the parent's requested Status merely because the parent is Done **or** Canceled. For other admitted parent Statuses, preserve the applicable cascade. Archive selects all contained latest Atoms; references outside the Carrier tree **and** older archived Revisions are excluded. retain Current descendants inside the parent Carrier tree. Archived Plan Markdown Carriers are placed flat in the owning Scope Unit's shared `03_plan/archived` area, not inside an archived parent's directory.
+read Status from the Plan's own Markdown file under CA-D-483 **and** check its local placement; a parent **or** folder name **must not** supply a descendant's Status at read time. **every** admitted parent Status change requires the containment cascade under CA-R-1521: separate single-Atom Actions write the Status prescribed by CA-R-1521 to each selected latest descendant under its own model, without an optional descendant mode. For a containing Plan Atom whose requested Status is Done **or** Canceled, preserve every selected latest contained Plan already Done **or** Canceled and request Canceled for every other selected latest contained Plan. After the cascade, every selected latest contained Plan must be Done **or** Canceled; mixed terminal statuses are allowed, and no contained Plan is forced to match the parent's requested Status merely because the parent is Done **or** Canceled. For other admitted parent Statuses, preserve the applicable cascade. Archive selects the latest Atoms in the logical Container chain. Other references and older archived Revisions are excluded. Apply the Current layout to Current descendants. Apply CA-D-475 to Backlog descendants. Resolve descendants through logical Container, including Backlog Plans placed in the shared Backlog folder.
 
 ## Details
 
-- for a contained Plan, apply its current-Status placement relative to its immediate containing Plan's Directory Carrier; for example, a Done child is in `<parent-directory>/done/<child>.md`, using its canonical matching stem. This does **not** specify the parent's own root-level terminal-Status location.
-- Place each Archived Plan Markdown Carrier directly in the owning Scope Unit's shared `03_plan/archived` area, without a parent/child Plan directory hierarchy. Apply CA-D-289's Version suffixes **to** Archive Carrier basenames. Preserve exact older version bytes **without** rewriting their Version **or** Status. Retained-history subtrees and non-Atom assets may move byte-for-byte with an authorized matching Directory Carrier move; they are not independent Status targets. This does **not** authorize independent legacy-tree migration.
+- Preserve exact older version bytes **without** rewriting their Version **or** Status. Retained-history subtrees and non-Atom assets may move byte-for-byte with an authorized matching Directory Carrier move; they are not independent Status targets. This does **not** authorize independent legacy-tree migration.

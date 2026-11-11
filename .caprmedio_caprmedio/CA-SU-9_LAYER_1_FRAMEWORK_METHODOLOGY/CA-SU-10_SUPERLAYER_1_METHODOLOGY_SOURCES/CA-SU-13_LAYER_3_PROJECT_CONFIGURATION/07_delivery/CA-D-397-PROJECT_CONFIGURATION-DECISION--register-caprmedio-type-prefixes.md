@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection.Form
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Term//Artifact
-  - CAPRMEDIO_MODEL <+ Atom.Header.ID
+  - CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
 tier: 3
 relations:
   depends_on:

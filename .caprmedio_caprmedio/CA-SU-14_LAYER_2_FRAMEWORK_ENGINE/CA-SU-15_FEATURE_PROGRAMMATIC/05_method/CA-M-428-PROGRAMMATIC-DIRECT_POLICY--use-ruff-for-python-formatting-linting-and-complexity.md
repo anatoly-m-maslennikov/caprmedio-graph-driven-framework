@@ -78,4 +78,4 @@ is absent. changed-source acceptance **and** exception admission follow CA-E-539
 - [Ruff documentation](https://docs.astral.sh/ruff/)
 - [Ruff: configuration](https://docs.astral.sh/ruff/configuration/)
 - [Ruff: complex-structure rule](https://docs.astral.sh/ruff/rules/complex-structure/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

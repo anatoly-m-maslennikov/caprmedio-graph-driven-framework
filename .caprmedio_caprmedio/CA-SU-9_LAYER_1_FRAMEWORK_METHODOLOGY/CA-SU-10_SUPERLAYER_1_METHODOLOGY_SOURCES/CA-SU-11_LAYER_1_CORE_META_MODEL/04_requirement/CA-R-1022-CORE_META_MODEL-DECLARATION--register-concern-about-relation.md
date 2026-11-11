@@ -48,6 +48,6 @@ metadata.
 Relation//concern_about ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Atom/(.Header.Role: Concern)//$atom ((concern_about)) $governed
+Atom/(.Header.Context.Role: Concern)//$atom ((concern_about)) $governed
 ```
 

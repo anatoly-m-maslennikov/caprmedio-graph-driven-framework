@@ -10,8 +10,8 @@ topics:
   main_subject: Subject/Graph Node/Domain/Continuant/Atom
   dependencies:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Updated At
   - Subject/Graph Node/Engineering/Continuant/Carrier
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
 tier: 3

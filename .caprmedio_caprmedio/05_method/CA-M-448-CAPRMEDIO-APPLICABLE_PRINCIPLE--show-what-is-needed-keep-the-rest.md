@@ -14,9 +14,10 @@ tier: 1
 relations:
   child_of:
   - CA-R-3035
+  - CA-R-3046
 status: Active
-version: 5
-updated_at: "2026-11-11 02:06:34 +0400"
+version: 6
+updated_at: "2026-11-11 15:27:21 +0400"
 carrier_destination:
   file:
     name: CA-M-448-CAPRMEDIO-APPLICABLE_PRINCIPLE--show-what-is-needed-keep-the-rest.md

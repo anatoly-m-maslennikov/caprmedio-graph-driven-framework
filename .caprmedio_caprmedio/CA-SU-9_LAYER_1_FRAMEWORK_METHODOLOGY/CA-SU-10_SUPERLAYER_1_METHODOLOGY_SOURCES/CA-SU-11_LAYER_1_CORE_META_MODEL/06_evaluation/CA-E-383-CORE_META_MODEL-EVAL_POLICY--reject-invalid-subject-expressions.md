@@ -8,9 +8,9 @@ form: Eval Policy
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Entity
   dependencies:
-  - 'CAPRMEDIO_MODEL <+ Atom.Header.Status: Active'
+  - 'CAPRMEDIO_MODEL <+ Atom.Header.State.Status: Active'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
   - CAPRMEDIO_MODEL <+ Term
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF

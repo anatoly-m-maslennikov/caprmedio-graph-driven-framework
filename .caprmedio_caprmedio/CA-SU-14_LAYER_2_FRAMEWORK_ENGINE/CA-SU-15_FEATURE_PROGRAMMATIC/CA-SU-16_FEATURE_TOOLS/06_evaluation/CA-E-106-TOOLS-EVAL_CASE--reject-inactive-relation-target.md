@@ -9,7 +9,7 @@ topics:
   main_subject: Subject/CAPRMEDIO/Graph/Relation.Target Reference
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Status
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status
   - Subject/CAPRMEDIO/Graph/Relation
 tier: 2
 relations:

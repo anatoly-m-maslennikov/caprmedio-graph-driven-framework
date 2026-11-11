@@ -8,12 +8,15 @@ form: Implementation Method
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Package/Implementation
 tier: 1
+relations:
+  child_of:
+  - CA-R-3026
 status: Active
-version: 19
-updated_at: 2026-11-02 19:44:26 +0400
+version: 21
+updated_at: 2026-11-11 14:17:07 +0400
 carrier_destination:
   file:
-    name: CA-M-261-CAPRMEDIO-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md
+    name: CA-M-261-IMPLEMENTATION_METHOD--rebuild-implementation-from-its-governing-specification.md
     path: .caprmedio_caprmedio/05_method
 current_scope_unit: caprmedio
 claim_target_scope_unit: caprmedio
@@ -34,11 +37,4 @@ The creation or evolution of this Project's Implementation.
 
 ### Prose Claim
 
-
-**to** create **or** evolve the Implementation, keep it rebuildable from the current governing RMED **without** relying on the existing Implementation **or** first preparing missing authority.
-
-## Details
-
-Carrier-format migration only: the Atom ID and Claim are unchanged.
-Legacy Subject classifications remain in predecessor CA-M-261@5; no guessed
-Subject remapping is introduced by this migration.
+Keep CAPRMEDIO’s specification complete enough to rebuild the framework without relying on its current implementation.

@@ -1,0 +1,62 @@
+---
+atom_id: CA-P-1763
+ref_id: CA-P-1763
+container:
+  atom: CA-P-1117
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Release
+  dependencies:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1713
+  - CA-P-1716
+  - CA-P-1655
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 20-CA-P-1763-TASK--verify-release-recovery-across-cold-processes.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done
+work_sequence_number: 20
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+---
+# Summary
+
+Verify Release recovery across cold processes
+
+## Objective
+
+Prove persisted checkpoint and pending-event recovery after a fresh interpreter starts without repeating effects.
+
+## Details
+
+WORKFLOW_ORCHESTRATOR/test_release_recovery_host_restart_e2e.py; restart_recovery_finish. Existing checkpoint/Journal protocol governs. Live N5 and installed N are untouched.
+
+Estimated bounded slice: <=15 minutes. Workers share the checkout, preserve other edits and do not stage or commit. Root owns integration and Git. Preparation does not prove runtime execution.
+
+## Definition of Done
+
+Cold synthetic pre-effect/post-effect/completed/N5-shaped cases pass using actual codecs/recorder. Synthetic evidence is not reported as live Docker release acceptance.
+
+## Pre-execution review
+
+Root accepts this bounded repair/restoration against Operator authority, DRY, preservation of valuable information and the latest continuation. Keep installed N intact and distinguish local tests from required actual runtime gates.
+
+## Recorded verification
+
+75c90cd56 retains four cold-process tests using actual codecs and pending Journal recovery; the combined recovery slice passed 41 cases. Typed synthetic evidence is not actual Release/Docker proof. N5 was untouched and is not a recording-only recovery candidate.

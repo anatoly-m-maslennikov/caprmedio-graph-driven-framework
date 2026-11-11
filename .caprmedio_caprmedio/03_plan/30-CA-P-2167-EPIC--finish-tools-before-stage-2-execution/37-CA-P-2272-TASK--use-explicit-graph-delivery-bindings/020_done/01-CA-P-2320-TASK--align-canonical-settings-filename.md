@@ -1,0 +1,54 @@
+---
+atom_id: CA-P-2320
+ref_id: CA-P-2320
+container:
+  atom: CA-P-2272
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Domain/Continuant/Project.Settings
+  dependencies:
+  - Subject/Graph Node/Domain/Continuant/Atom
+  - Subject/Graph Node/Domain/Continuant/Scope Unit
+  - Subject/Graph Node/Domain/Continuant/Project.Settings
+  - Subject/Graph Node/Engineering/Workflow
+  - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-2272
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 1-CA-P-2320-TASK--align-canonical-settings-filename.md
+    path: .caprmedio_caprmedio/03_plan/30-CA-P-2167-EPIC--finish-tools-before-stage-2-execution/37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/020_done
+work_sequence_number: 1
+current_scope_unit: caprmedio
+claim_target_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+---
+# Summary
+
+Align canonical Settings filename
+
+## Objective
+
+The Settings carrier rules consistently name caprmedio_project_settings.toml.
+
+## Details
+
+Estimated own work: up to 15 minutes. Split further work before exceeding this bound. Inherit the parent's accepted source, independent review and execution gates. Root owns Plans and Git; assigned file ownership stays disjoint.
+
+The Operator explicitly chose the existing caprmedio_project_settings.toml name. Align only D363/D364 conflicting filename clauses; preserve the selected owning Project control-root boundary, source identity and Summary. Exact predecessor archives and Version +1 are required. Independently verify unaffected dependent rules. No Settings file rename, fallback, projection rewrite or legacy Atom migration.
+
+### Definition of Done
+
+The Plan is **not** Done if its stated outcome lacks exact source/code/test evidence and independent verification; required checks fail; a deferred policy is inferred; existing safety checks are bypassed; or source-only/isolated evidence is represented as live runtime or migration acceptance.
+
+### Accepted outcome
+
+D363 v11 and D364 v10, with exact predecessor archives, passed independent source review. The affected FPF review completed under plan-c410a7a2-3cf9-4d12-9f25-24f0835e491b. The current receiving-rule-alignment-source-acceptance receipt records their exact hashes. No Settings carrier was renamed and no logical Settings revision evidence was fabricated. Boundary helper work can proceed independently of runtime admission.

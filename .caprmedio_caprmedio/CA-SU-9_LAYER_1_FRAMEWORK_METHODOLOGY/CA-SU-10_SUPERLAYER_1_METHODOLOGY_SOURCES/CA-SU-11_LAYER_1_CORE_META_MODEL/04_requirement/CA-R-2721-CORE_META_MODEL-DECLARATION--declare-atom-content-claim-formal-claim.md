@@ -32,11 +32,11 @@ Formal Claim is a child Property of Claim. Its value is Markdown and contains a 
 
 ```CFEL
 # model
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim:: {::0..1};
+Atom/(.Header.Context.Role in RMED).Content.Claim.Formal Claim:: {::0..1};
 
-Atom/(.Header.Role in RMED).Content.Claim.Formal Claim.*[]{::0};
+Atom/(.Header.Context.Role in RMED).Content.Claim.Formal Claim.*[]{::0};
 
-IF (Atom/(.Header.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
-FENCED_LABELS(Atom/(.Header.Role in RMED).Content.Claim.Formal Claim):: [in (CFEL)]{::1}
+IF (Atom/(.Header.Context.Role in RMED).Content.Claim.Formal Claim {=1}) THEN (
+FENCED_LABELS(Atom/(.Header.Context.Role in RMED).Content.Claim.Formal Claim):: [in (CFEL)]{::1}
 )
 ```

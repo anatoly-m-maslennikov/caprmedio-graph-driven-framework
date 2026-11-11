@@ -11,9 +11,9 @@ topics:
   dependencies:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Storage
     <+ Directory Layout
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
   - MODEL//CAPRMEDIO <+ Scope Unit
 tier: 3
 status: Active

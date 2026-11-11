@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Node/Continuant
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2589-CORE_META_MODEL-DECLARATION--declare-continuant.md
@@ -29,7 +29,9 @@ Declare Continuant
 
 ```CFEL
 # model
-Node/Continuant
+Node/Continuant;
+
+Continuant ((NARROWER_THAN)) Node;
 ```
 
 ## Semantics

@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/Git Repository
 tier: 1
 status: Active
-version: 7
-updated_at: 2026-11-03 23:25:51 +0400
+version: 8
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2203-PROJECT_CONFIGURATION-DECLARATION--define-git-repository-carrier.md
@@ -32,7 +32,7 @@ A Git Repository is a Carrier of versioned content and Git references.
 
 ```CFEL
 # model
-Carrier/Git Repository
+Carrier/Git Repository ((NARROWER_THAN)) Carrier;
 ```
 
 ## Semantics

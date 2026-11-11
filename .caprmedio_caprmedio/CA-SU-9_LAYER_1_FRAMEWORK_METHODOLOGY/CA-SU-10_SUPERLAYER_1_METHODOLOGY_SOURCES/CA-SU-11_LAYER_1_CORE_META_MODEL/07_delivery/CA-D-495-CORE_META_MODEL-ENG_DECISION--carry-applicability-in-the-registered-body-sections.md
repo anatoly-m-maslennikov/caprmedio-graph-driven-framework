@@ -9,9 +9,9 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics.Main Subject
   - CAPRMEDIO_MODEL <+ Carrier/File
-  - CAPRMEDIO_MODEL <+ Atom.Header.Role
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 1
 status: Active
 version: 27

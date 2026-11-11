@@ -6,13 +6,13 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - CAPRMEDIO_MODEL <+ Project
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Form := Goal)
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
-  - CAPRMEDIO_MODEL <+ Atom.Header.Tier
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Form := Goal)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
 tier: 2
 status: Active
 version: 11

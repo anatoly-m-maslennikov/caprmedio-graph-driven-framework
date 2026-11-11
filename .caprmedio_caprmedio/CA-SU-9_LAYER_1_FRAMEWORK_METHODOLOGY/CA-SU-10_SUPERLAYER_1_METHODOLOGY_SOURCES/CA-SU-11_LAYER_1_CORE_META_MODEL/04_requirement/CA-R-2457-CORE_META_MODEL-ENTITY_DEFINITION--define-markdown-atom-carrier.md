@@ -13,8 +13,8 @@ topics:
   - CAPRMEDIO_MODEL <+ Carrier/File
 tier: 1
 status: Active
-version: 4
-updated_at: 2026-11-03 23:25:51 +0400
+version: 5
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2457-CORE_META_MODEL-DECLARATION--define-markdown-atom-carrier.md
@@ -35,6 +35,6 @@ A Markdown Atom Carrier is a Markdown File Carrier that represents an Atom.
 
 ```CFEL
 # model
-Carrier/File/Markdown/Markdown Atom Carrier
+Carrier/File/Markdown/Markdown Atom Carrier ((NARROWER_THAN)) Carrier/File/Markdown;
 ```
 

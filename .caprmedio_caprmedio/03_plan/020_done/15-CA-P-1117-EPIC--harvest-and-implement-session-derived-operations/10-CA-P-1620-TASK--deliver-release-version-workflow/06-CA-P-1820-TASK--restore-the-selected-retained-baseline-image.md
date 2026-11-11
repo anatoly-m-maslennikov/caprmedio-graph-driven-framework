@@ -1,0 +1,54 @@
+---
+atom_id: CA-P-1820
+ref_id: CA-P-1820
+container:
+  atom: CA-P-1620
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Image
+  dependencies:
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Continuant/Tool
+  - Subject/Graph Node/Engineering/Framework Package
+  - Subject/Graph Node/Engineering/Image
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+  - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1620
+  blocks:
+  - CA-P-1623
+status: Active
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 6-CA-P-1820-TASK--restore-the-selected-retained-baseline-image.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/10-CA-P-1620-TASK--deliver-release-version-workflow
+work_sequence_number: 6
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+---
+# Summary
+
+Restore the selected retained baseline image
+
+## Objective
+
+Deliver and execute the narrowly authorized same-package image restoration so the full required Release chain can continue. Required children CA-P-1821 through CA-P-1826 cover source authority, test-first fixtures, retained producer, closed direct Journal/publication integration, coordinator and actual restoration.
+
+## Details
+
+The Operator explicitly approved rebuilding the missing selected image from verified retained N and registering its verified image digest. Preserve N's package, Version, public ca Skill, original proof and historical Journal. N21 remains unknown and is not replayed. No release gate is waived. Root owns Git, source admission and serialized runtime effects; independent workers own their assigned source scopes.
+
+Work estimate: composite; execute its bounded children. Source RMED is reviewed before implementation. Test-first acceptance uses honest local doubles separately from actual Docker proof.
+
+## Definition of Done
+
+All required children are Done with independently accepted source/code, actual verified image and canonical direct-Action receipts. The selected binding is accepted by the unchanged retained reader and installed-N image admission. This composite does not close the Release or Epic; subsequent fresh Release, runtime coverage, final audit and closure remain required.
+

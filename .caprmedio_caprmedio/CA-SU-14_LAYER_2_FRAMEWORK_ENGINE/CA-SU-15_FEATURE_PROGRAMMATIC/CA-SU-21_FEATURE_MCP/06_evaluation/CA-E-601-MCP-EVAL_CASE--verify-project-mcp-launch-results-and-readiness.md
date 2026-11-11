@@ -9,7 +9,7 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
     <+ Execution Control
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
   - MODEL//CAPRMEDIO <+ Project
   - MODEL//CAPRMEDIO <+ Runtime/Container Run
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture

@@ -10,11 +10,10 @@ topics:
 tier: 3
 relations:
   child_of:
-  - CA-M-447
   - CA-R-1776
 status: Active
-version: 39
-updated_at: 2026-11-02 19:44:26 +0400
+version: 40
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1688-CORE_META_MODEL-RULE--scope-path-does-not-change-semantic-coordinates.md

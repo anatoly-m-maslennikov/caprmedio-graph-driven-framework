@@ -12,8 +12,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 6
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 7
+  updated_at: 2026-11-11 15:29:41 +0400
 destination:
   file:
     name: CA-R-2901-WORKBENCH-SCOPE_DELEGATION--declare-codex-extension.md
@@ -31,13 +31,7 @@ Declare CODEX_EXTENSION
 
 ### Prose Claim
 
-The receiving Scope Unit is CODEX_EXTENSION. Existing default Role and Form admissions remain applicable. The additional local Role/Form pairs are exactly:
-
-- Delivery / Solution;
-- Method / Solution;
-- Requirement / Rule;
-
-The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+The receiving Scope Unit is CODEX_EXTENSION. Existing default Role and Form admissions remain applicable. The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
 
 - `MODEL//CAPRMEDIO <+ View`;
 - `MODEL//CAPRMEDIO <+ Workspace`;
@@ -53,5 +47,9 @@ Scope Unit//CODEX_EXTENSION.ID == "CA-SU-48";
 Scope Unit//CODEX_EXTENSION.Name == "CODEX_EXTENSION";
 Scope Unit//CODEX_EXTENSION.Label == "FEATURE";
 Scope Unit//CODEX_EXTENSION.order.ordered == false;
-Scope Unit//CODEX_EXTENSION ((IS_CONTAINED_BY)) Scope Unit//WORKBENCH
+Scope Unit//CODEX_EXTENSION ((IS_CONTAINED_BY)) Scope Unit//WORKBENCH;
+
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-48"))/(.Header.Context.Role in (Delivery)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-48"))/(.Header.Context.Role in (Method)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-48"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Rule;
 ```

@@ -8,7 +8,7 @@ from dataclasses import replace
 from typing import Any
 
 import subject_notation as notation
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, matches_named_value
 from contract_graph import compose_contract_graph
 from current_subject_graph import compose_narrowing_graph
 
@@ -29,7 +29,7 @@ def _detail_declarations(carriers: list[Record]) -> list[Record]:
 
     return [
         carrier for carrier in carriers
-        if _view(carrier).get("content_role") == "Requirement" and _view(carrier).get("type") == "Declaration"
+        if matches_named_value(_view(carrier).get("content_role"), "Requirement") and matches_named_value(_view(carrier).get("type"), "Declaration")
     ]
 
 

@@ -11,10 +11,10 @@ context:
     main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery
       <+ Change Readiness
     dependencies:
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Requirement)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Delivery)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Requirement)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Method)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Delivery)
     - MODEL//CAPRMEDIO <+ Carrier
   tier: 5
 relations:

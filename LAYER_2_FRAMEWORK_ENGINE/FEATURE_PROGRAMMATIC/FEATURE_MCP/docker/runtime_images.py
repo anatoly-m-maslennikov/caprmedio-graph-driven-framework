@@ -28,6 +28,7 @@ try:
     )
     from .image_display_tags import ensure_display_tag
     from .image_provenance import ImageBuildProvenance, label_arguments
+    from .image_relation_registry import compile_lifecycle_assets as _compile_lifecycle_assets
     from .image_relation_registry import RELATION_REGISTRY_COMPILER
     from .image_relation_registry import compile_relation_registry as _compile_relation_registry
     from .image_relation_registry import WORKBENCH_SCHEMA_COMPILER
@@ -42,6 +43,7 @@ except ImportError:  # direct execution/import with docker/ on sys.path
     from image_metadata import OCI_VERSION_LABEL, docker_created_utc, read_framework_version
     from image_display_tags import ensure_display_tag
     from image_provenance import ImageBuildProvenance, label_arguments
+    from image_relation_registry import compile_lifecycle_assets as _compile_lifecycle_assets
     from image_relation_registry import RELATION_REGISTRY_COMPILER
     from image_relation_registry import compile_relation_registry as _compile_relation_registry
     from image_relation_registry import WORKBENCH_SCHEMA_COMPILER
@@ -63,7 +65,10 @@ RELATION_REGISTRY = (ENGINE_ROOT
 WORKBENCH_SCHEMA = (ENGINE_ROOT
                     + "/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_BACKEND/"
                     + "workbench_schema.json")
-_GENERATED_ASSETS = frozenset({RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY})
+LIFECYCLE_ROOT = ENGINE_ROOT + "/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_LIFECYCLE/"
+STATUS_MODEL = LIFECYCLE_ROOT + "status_model.json"
+CANDIDATE_SCHEMA = LIFECYCLE_ROOT + "candidate_schema.json"
+_GENERATED_ASSETS = frozenset({RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, STATUS_MODEL, CANDIDATE_SCHEMA})
 SCHEMA_LABEL = "org.caprmedio.runtime.schema"
 FINGERPRINT_LABEL = "org.caprmedio.runtime.fingerprint"
 SCHEMA = "1"
@@ -115,6 +120,8 @@ class ImageIdentity:
     relation_registry: bytes
     workbench_schema: bytes
     tool_registry: bytes
+    status_model: bytes
+    candidate_schema: bytes
 
 
 def _canonical(value: object) -> bytes:
@@ -193,7 +200,7 @@ class ImageManager:
         except (OSError, ValueError) as error:
             raise self._input_error() from error
 
-    def _generated_assets(self, root: Path) -> tuple[bytes, bytes, bytes]:
+    def _generated_assets(self, root: Path) -> tuple[bytes, bytes, bytes, bytes, bytes]:
         try:
             project = self._project_root()
             registry = _compile_relation_registry(
@@ -203,11 +210,12 @@ class ImageManager:
                 root, project, timeout=self.timeout, max_output=_MAX_OUTPUT,
             )
             tools = _compile_tool_registry(root, timeout=self.timeout, max_output=_MAX_OUTPUT)
+            status, candidate = _compile_lifecycle_assets(root, project, timeout=self.timeout, max_output=_MAX_OUTPUT)
         except Exception as error:
             raise self._input_error() from error
-        if not all(isinstance(asset, bytes) and asset for asset in (registry, schema, tools)):
+        if not all(isinstance(asset, bytes) and asset for asset in (registry, schema, tools, status, candidate)):
             raise self._input_error()
-        return registry, schema, tools
+        return registry, schema, tools, status, candidate
 
     def _build_parent(self) -> Path:
         temporary = self._project_root() / ".caprmedio_tmp"
@@ -276,14 +284,14 @@ class ImageManager:
         try:
             version = read_framework_version(self._file(root, "version.toml"))
             if use_packaged_assets:
-                registry, schema, tools = (
+                registry, schema, tools, status, candidate = (
                     self._file(root, path).read_bytes()
-                    for path in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY)
+                    for path in (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, STATUS_MODEL, CANDIDATE_SCHEMA)
                 )
-                if not all((registry, schema, tools)):
+                if not all((registry, schema, tools, status, candidate)):
                     raise self._input_error()
             else:
-                registry, schema, tools = self._generated_assets(root)
+                registry, schema, tools, status, candidate = self._generated_assets(root)
             rows = [BuildInput(path.relative_to(root).as_posix(),
                                hashlib.sha256(path.read_bytes()).hexdigest(),
                                path.stat().st_mode & 0o777)
@@ -291,6 +299,8 @@ class ImageManager:
             rows.append(BuildInput(RELATION_REGISTRY, hashlib.sha256(registry).hexdigest(), 0o644))
             rows.append(BuildInput(WORKBENCH_SCHEMA, hashlib.sha256(schema).hexdigest(), 0o644))
             rows.append(BuildInput(TOOL_REGISTRY, hashlib.sha256(tools).hexdigest(), 0o644))
+            rows.append(BuildInput(STATUS_MODEL, hashlib.sha256(status).hexdigest(), 0o644))
+            rows.append(BuildInput(CANDIDATE_SCHEMA, hashlib.sha256(candidate).hexdigest(), 0o644))
             rows = tuple(sorted(rows, key=lambda row: row.path))
         except (OSError, ValueError, UnicodeError) as error:
             raise self._input_error() from error
@@ -299,7 +309,7 @@ class ImageManager:
                    "files": [[row.path, row.sha256, row.mode] for row in rows]}
         fingerprint = hashlib.sha256(_canonical(payload)).hexdigest()
         return ImageIdentity(fingerprint, "caprmedio-runtime:inputs-" + fingerprint, version,
-                             self.platform, rows, self.uid, self.gid, registry, schema, tools)
+                             self.platform, rows, self.uid, self.gid, registry, schema, tools, status, candidate)
 
     def _run(self, argv, *, code="IMAGE_REFUSED", cwd=None, buildx_config=None,
              allow_failure=False):
@@ -461,6 +471,10 @@ class ImageManager:
                     payload = identity.workbench_schema
                 elif row.path == TOOL_REGISTRY:
                     payload = identity.tool_registry
+                elif row.path == STATUS_MODEL:
+                    payload = identity.status_model
+                elif row.path == CANDIDATE_SCHEMA:
+                    payload = identity.candidate_schema
                 else:
                     source = self._file(root, row.path)
                     payload = source.read_bytes()

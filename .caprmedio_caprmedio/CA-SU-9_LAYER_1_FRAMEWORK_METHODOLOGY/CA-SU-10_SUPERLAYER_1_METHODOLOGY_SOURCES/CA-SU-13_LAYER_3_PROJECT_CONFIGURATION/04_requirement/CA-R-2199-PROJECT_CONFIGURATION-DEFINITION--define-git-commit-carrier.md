@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/Git Commit
 tier: 1
 status: Active
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
+version: 7
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2199-PROJECT_CONFIGURATION-DECLARATION--define-git-commit-carrier.md
@@ -32,7 +32,7 @@ A Git Commit is an immutable Carrier representing a committed repository snapsho
 
 ```CFEL
 # model
-Carrier/Git Commit
+Carrier/Git Commit ((NARROWER_THAN)) Carrier;
 ```
 
 ## Semantics

@@ -15,7 +15,7 @@ topics:
   - MODEL//CAPRMEDIO <+ Atom.Content
   - MODEL//CAPRMEDIO <+ Atom.Content.Details
   - MODEL//CAPRMEDIO <+ Atom.Content.Summary
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
   - MODEL//CAPRMEDIO <+ Execution/Workflow Run
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Authoring
     <+ Prompt Authoring

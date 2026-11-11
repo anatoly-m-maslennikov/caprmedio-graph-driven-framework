@@ -12,8 +12,8 @@ relations:
   child_of:
   - CA-R-1174
 status: Active
-version: 12
-updated_at: 2026-11-03 23:25:51 +0400
+version: 13
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-1955-CORE_META_MODEL-DECLARATION--define-entity-carrier-database-carrier.md
@@ -34,6 +34,6 @@ A Database Carrier represents content in a database.
 
 ```CFEL
 # model
-Carrier/Database
+Carrier/Database ((NARROWER_THAN)) Carrier;
 ```
 

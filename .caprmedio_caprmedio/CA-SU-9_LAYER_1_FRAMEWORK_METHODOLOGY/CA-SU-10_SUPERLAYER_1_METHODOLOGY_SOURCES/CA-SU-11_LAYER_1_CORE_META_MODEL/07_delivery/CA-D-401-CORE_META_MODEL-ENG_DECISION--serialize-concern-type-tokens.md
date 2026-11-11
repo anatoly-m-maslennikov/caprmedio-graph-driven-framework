@@ -6,7 +6,7 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern).Header.Form'
+  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern).Header.Context.Form'
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3

@@ -6,20 +6,20 @@ container:
 role: Delivery
 form: Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role:=Operations)/Workflow
   dependencies:
   - CAPRMEDIO_MODEL <+ Carrier/Directory
   - CAPRMEDIO_MODEL <+ Carrier
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role:=Operations)/Workflow
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Step
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role:=Operations)/Workflow
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Step
 tier: 3
 relations:
   delivery_for:
   - CA-R-1570
   - CA-R-2465
 status: Active
-version: 28
-updated_at: 2026-11-02 17:54:42 +0400
+version: 30
+updated_at: '2026-11-11T17:45:31+04:00'
 carrier_destination:
   file:
     name: CA-D-467-CORE_META_MODEL-DECISION--store-workflow-graphs-and-steps-in-separate-carriers.md
@@ -50,5 +50,4 @@ a folder-backed Workflow **must** use **`=1`** Workflow Atom Markdown Carrier **
 - the Atom files retain the existing Atom filename, frontmatter, **and** main-content rules; the folder is a grouping Carrier, **not** another Workflow definition **or** owning Scope Unit.
 - grouping is optional: separately placed Workflow **and** Step Carriers remain permitted **when** their references resolve unambiguously. a carrier-only move does **not** redefine the graph **or** change carried Status.
 - **every** admitted Workflow **or** containing Step parent Status change requires the containment cascade under CA-R-1521: compose independent single-Atom Actions for the latest Revision of the Workflow's direct Steps and their direct leaf Substeps, or the Step's direct leaf Substeps, requesting the same Status under each Atom's own model. separately placed referenced Steps **and** Actions outside the Carrier tree are **not** cascade targets; older archived Revisions retain their exact bytes, Version **and** Status.
-- apply CA-D-466's Status placement inside each local Workflow **or** Step container. Workflow-to-Step-to-Substep descendants remain inside the parent Carrier tree for **every** Status, including Archived; apply CA-D-289's Version suffixes **to** Archive Carrier basenames. this rule does **not** migrate noncanonical legacy `archive/` trees.
 - read each Step and Substep's Status from its own Markdown Carrier under CA-D-483; containing Status directories **or** parents **must not** override it. the cascade writes the changed latest Revisions; it **does not** infer execution order **or** execution inheritance.

@@ -6,16 +6,16 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Role := Operations)/(.Header.Form := Workflow)//Applicable Methodology Compilation'
+  main_subject: 'CAPRMEDIO_STRUCTURE <+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow)//Applicable Methodology Compilation'
   dependencies:
   - CAPRMEDIO_MODEL <+ Project
 tier: 1
 relations:
   child_of:
-  - CA-M-446
+  - CA-M-538
 status: Active
-version: 23
-updated_at: 2026-11-02 00:18:22 +0400
+version: 24
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-M-260-PROJECT_CONFIGURATION-IMPLEMENTATION_METHOD--one-statement-one-source.md

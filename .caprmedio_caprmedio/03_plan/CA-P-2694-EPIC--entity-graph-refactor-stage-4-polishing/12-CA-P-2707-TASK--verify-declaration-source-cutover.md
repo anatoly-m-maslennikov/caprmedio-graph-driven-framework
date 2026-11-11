@@ -87,7 +87,7 @@ Active. Focused tests and source adoption receipts do not close this gate. No re
 
 ## Evidence
 
-- [Current Scope Declaration source census](../../02_analysis/draft/epic-completion-20261104/coverage/scope-declaration-check-20261105/REPORT.md).
-- [Integration packet](../../02_analysis/draft/epic-completion-20261104/integration/REPORT.md).
-- [Full acceptance matrix](../../02_analysis/draft/epic-completion-20261104/acceptance/matrix.json).
+- [Current Scope Declaration source census](../../02_analysis_and_advisory/000_draft/epic-completion-20261104/coverage/scope-declaration-check-20261105/REPORT.md).
+- [Integration packet](../../02_analysis_and_advisory/000_draft/epic-completion-20261104/integration/REPORT.md).
+- [Full acceptance matrix](../../02_analysis_and_advisory/000_draft/epic-completion-20261104/acceptance/matrix.json).
 - [Earlier cutover verification](scope-unit-governance-20261031/verification/final-cutover-verification.json).

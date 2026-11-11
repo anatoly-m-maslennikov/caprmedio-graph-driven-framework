@@ -9,10 +9,10 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
     <+ Traceability
   dependencies:
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
   - MODEL//CAPRMEDIO <+ Atom
-  - MODEL//CAPRMEDIO <+ Atom.Header.ID
-  - MODEL//CAPRMEDIO <+ Atom.Header.Version
+  - MODEL//CAPRMEDIO <+ Atom.Header.Identity.ID
+  - MODEL//CAPRMEDIO <+ Atom.Header.State.Version
   - MODEL//CAPRMEDIO <+ Execution/Workflow Run
   - MODEL//CAPRMEDIO <+ Term//Property
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling

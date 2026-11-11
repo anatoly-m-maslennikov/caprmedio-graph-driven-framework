@@ -38,20 +38,20 @@ The Requirement Semantics Draft is a prerequisite: required outcomes and constra
 
 ## Inputs
 
-- [Specification proposal CA-A-1328@1-draft](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis/draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md).
+- [Specification proposal CA-A-1328@1-draft](../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/02_analysis_and_advisory/000_draft/CA-A-1328@1-draft-CORE_META_MODEL-SPECIFICATION_PROPOSAL--introduce-scope-delegation-and-policy-forms.md).
 - [Model adoption record](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/model-adoption-20261107/README.md).
 
 The selected MODEL sources have been reviewed and promoted manually. This establishes source adoption; instance migration and consumer verification remain separate stages.
 
-[I / Code Synopsis model adoption](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/README.md) is complete. [P / Work Report model adoption](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/01-CA-P-2712-TASK--define-work-report-atoms/work-report-model-20261108/README.md) is also complete. Consumer implementation remains open.
+[I / Code Synopsis model adoption](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/020_done/02-CA-P-2713-TASK--define-implementation-atoms/implementation-model-20261107/README.md) is complete. [P / Work Report model adoption](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/020_done/01-CA-P-2712-TASK--define-work-report-atoms/work-report-model-20261108/README.md) is also complete. Consumer implementation remains open.
 
 ## Work
 
 - [x] Review the proposal and Role Drafts against Current authorities; settle the adoption choices listed in the proposal.
 - [x] Complete the required Declarations and RMED for Forms, Scope Delegation, Tier rules and CONTRIBUTES_TO; review and repair the packet.
 - [x] Adopt the reviewed packet with valid identities, Versions and preserved history.
-- [x] [CA-P-2712 — Define Work Report Atoms](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/01-CA-P-2712-TASK--define-work-report-atoms.md).
-- [x] [CA-P-2713 — Define Implementation Atoms](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/done/02-CA-P-2713-TASK--define-implementation-atoms.md).
+- [x] [CA-P-2712 — Define Work Report Atoms](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/020_done/01-CA-P-2712-TASK--define-work-report-atoms.md).
+- [x] [CA-P-2713 — Define Implementation Atoms](CA-P-2711-EPIC--adopt-the-medo-role-and-form-model/020_done/02-CA-P-2713-TASK--define-implementation-atoms.md).
 - [ ] Map affected Current and Draft MEDO Atoms by Claim and scope; report ambiguous cases for resolution.
 - [ ] Preview and review the migration, then apply the accepted mapping.
 - [ ] Identify affected validators, authoring operations and projections; hand off required implementation work to their owners and verify compatibility.

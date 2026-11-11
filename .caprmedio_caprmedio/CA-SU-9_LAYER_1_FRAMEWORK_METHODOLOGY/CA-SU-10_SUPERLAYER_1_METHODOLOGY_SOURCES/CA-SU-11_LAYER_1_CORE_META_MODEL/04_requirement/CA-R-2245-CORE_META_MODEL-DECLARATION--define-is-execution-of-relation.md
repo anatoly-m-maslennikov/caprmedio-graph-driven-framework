@@ -9,7 +9,7 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTION_OF
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity/Object/Occurrent/Execution/Workflow Run
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Workflow'
 tier: 1
 status: Active
 version: 8

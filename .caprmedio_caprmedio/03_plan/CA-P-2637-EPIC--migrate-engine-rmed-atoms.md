@@ -75,7 +75,7 @@ Node and Graph Node.Type, not to Domain-specific properties.
 
 ### First task — reshape the Subject graph roots
 
-Execute [CA-P-2638](CA-P-2637-EPIC--migrate-engine-rmed-atoms/done/01-CA-P-2638-TASK--reshape-subject-graph-roots.md)
+Execute [CA-P-2638](CA-P-2637-EPIC--migrate-engine-rmed-atoms/020_done/01-CA-P-2638-TASK--reshape-subject-graph-roots.md)
 before the remaining Engine migration stages. The Operator approved this structure:
 
 ```text
@@ -158,7 +158,7 @@ Atoms in the specified Scope Unit.
 
 ### Deferred Scope Goal follow-up
 
-[CA-P-2702](CA-P-2637-EPIC--migrate-engine-rmed-atoms/backlog/CA-P-2702-TASK--reconcile-deferred-engine-scope-goals.md) records the four legacy Engine Scope Goals not changed by P2701. Resolve them with this Epic’s Subject/Scope Unit revision; no new Scope Units, code or runtime change is implied.
+[CA-P-2702](001_backlog/CA-P-2702-TASK--reconcile-deferred-engine-scope-goals.md) records the four legacy Engine Scope Goals not changed by P2701. Resolve them with this Epic’s Subject/Scope Unit revision; no new Scope Units, code or runtime change is implied.
 
 
 ### Published sample/authoring-method handoff — 30 October 2026
@@ -380,4 +380,4 @@ P2702's separate deferred Goal review remain unchanged.
 
 ## Deferred Workflow repair
 
-[CA-P-2708](CA-P-2637-EPIC--migrate-engine-rmed-atoms/backlog/CA-P-2708-TASK--align-implementation-workflow-with-current-steps.md) records the Operator-deferred alignment of implementation prompts/runtime with Current CA-O-016 Steps. This specific repair is separate from the Scope Unit cutover and does not authorize a general Engine code rewrite.
+[CA-P-2708](001_backlog/CA-P-2708-TASK--align-implementation-workflow-with-current-steps.md) records the Operator-deferred alignment of implementation prompts/runtime with Current CA-O-016 Steps. This specific repair is separate from the Scope Unit cutover and does not authorize a general Engine code rewrite.

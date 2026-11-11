@@ -28,8 +28,8 @@ Declare Atom.Content.Details
 
 ```CFEL
 # model
-Atom/(.Header.Role in RMED).Content.Details:: {::0..1};
+Atom/(.Header.Context.Role in RMED).Content.Details:: {::0..1};
 
-Atom/(.Header.Role in RMED).Content.Details.*[string]{::0+}
+Atom/(.Header.Context.Role in RMED).Content.Details.*[string]{::0+}
 ```
 

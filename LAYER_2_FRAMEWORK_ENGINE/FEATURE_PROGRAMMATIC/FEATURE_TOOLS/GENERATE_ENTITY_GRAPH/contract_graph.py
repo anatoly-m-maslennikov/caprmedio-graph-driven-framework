@@ -9,7 +9,7 @@ from dataclasses import replace
 from typing import Any
 
 import subject_notation as notation
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, matches_named_value
 from cfel_claim_constraints import (
     _grouped_expressions,
     claim_cfel_blocks,
@@ -341,8 +341,8 @@ def _scope_unit_declaration_contexts(
 
     contexts: dict[str, list[Record]] = defaultdict(list)
     for carrier, view, _, expression in candidates:
-        if (view.get("content_role") != "Requirement"
-                or view.get("type") != _SCOPE_UNIT_DECLARATION_FORM):
+        if (not matches_named_value(view.get("content_role"), "Requirement")
+                or not matches_named_value(view.get("type"), _SCOPE_UNIT_DECLARATION_FORM)):
             continue
         kind = _declared_instance_kind(expression)
         if kind is not None:
@@ -412,7 +412,7 @@ def _lexical_term_binding(
 
 
 def _is_declaration(view: Mapping[str, Any]) -> bool:
-    return view.get("content_role") == "Requirement" and view.get("type") in _DECLARATION_FORMS
+    return matches_named_value(view.get("content_role"), "Requirement") and any(matches_named_value(view.get("type"), name) for name in _DECLARATION_FORMS)
 
 
 def _metadata(entries: list[Record], relation: str) -> list[Record]:
@@ -618,7 +618,7 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
         except ValueError as error:
             gaps.append(_gap(carrier, f"Carrier aliases conflict: {error}"))
             continue
-        if view.get("content_role") not in _RMED:
+        if not any(matches_named_value(view.get("content_role"), name) for name in _RMED):
             continue
         if subject is None:
             gaps.append(_gap(carrier, "Expected exactly one active Subject."))
@@ -644,7 +644,7 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
         # only Node/retained-component Declaration carriers so CFEL, Carrier
         # and Term Definitions remain roots in the full Subject tree. Relation
         # Definitions belong to the relation catalog, never to a tree.
-        if view.get("type") in {"Declaration", "Entity Definition"}:
+        if any(matches_named_value(view.get("type"), name) for name in {"Declaration", "Entity Definition"}):
             declaration_carriers.append(carrier)
 
     roots = _catalog_roots(catalog)

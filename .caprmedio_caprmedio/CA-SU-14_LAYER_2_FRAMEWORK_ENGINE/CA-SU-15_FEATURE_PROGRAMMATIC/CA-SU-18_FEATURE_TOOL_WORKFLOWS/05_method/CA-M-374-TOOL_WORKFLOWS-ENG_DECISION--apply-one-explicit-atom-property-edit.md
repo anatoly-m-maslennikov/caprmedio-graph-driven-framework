@@ -12,8 +12,8 @@ topics:
   - 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Action'
 tier: 3
 status: Active
-version: 11
-updated_at: 2026-10-27 19:59:42 +0400
+version: 12
+updated_at: 2026-11-11 09:03:52 +0400
 carrier_destination:
   file:
     name: CA-M-374-TOOL_WORKFLOWS-ENG_DECISION--apply-one-explicit-atom-property-edit.md
@@ -31,6 +31,8 @@ Apply one explicit Atom Property edit
 Explicit Property and list-entry edits within one Atom Action.
 
 ## Claim
+
+For the Project Configuration Atom Lifecycle Workflows, identity, Version, Updated At and history follow those Workflows and CA-R-1432 and CA-R-1788. CA-E-521 checks those effects. Differing statements in this Atom on those matters apply only to other operations.
 
 **To** edit Atom Properties, the Action **must**:
 

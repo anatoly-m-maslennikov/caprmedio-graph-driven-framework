@@ -18,7 +18,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from artifact_metadata import SETTINGS_PATH, atomic_write, current_timestamp, repository_root  # noqa: E402
 from carrier_aliases import carrier_read_view  # noqa: E402
-from current_entity_sources import current_model_carriers, read_current_carriers  # noqa: E402
+from current_entity_sources import read_current_carriers, read_current_model_carriers  # noqa: E402
 from current_subject_graph import compose_current_graph, compose_enhanced_current_graph  # noqa: E402
 from declaration_sources import compose_declaration_catalog  # noqa: E402
 from declaration_view import render_declarations  # noqa: E402
@@ -101,9 +101,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         source_folder = args.source_folder.absolute()
         root = repository_root(source_folder)
-        carriers = read_current_carriers(source_folder, root)
-        if args.view == "model":
-            carriers = current_model_carriers(carriers)
+        carriers = (read_current_model_carriers(source_folder, root) if args.view == "model"
+                    else read_current_carriers(source_folder, root))
         graph, provenance = (
             compose_enhanced_current_graph(carriers)
             if args.view == "model" else compose_current_graph(carriers)

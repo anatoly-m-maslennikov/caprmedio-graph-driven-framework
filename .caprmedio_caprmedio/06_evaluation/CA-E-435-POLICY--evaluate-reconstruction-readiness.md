@@ -8,12 +8,12 @@ form: Eval Policy
 topics:
   main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Static Analysis"
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Method)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Delivery)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Method)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Evaluation)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
   - CAPRMEDIO_MODEL <+ Project
-tier: 3
+tier: 4
 relations:
   child_of:
   - CA-E-001
@@ -21,11 +21,11 @@ relations:
   - CA-M-261
   - CA-M-262
 status: Active
-version: 26
-updated_at: 2026-11-02 18:35:20 +0400
+version: 27
+updated_at: 2026-11-11 14:15:11 +0400
 carrier_destination:
   file:
-    name: CA-E-435-CAPRMEDIO-EVAL_POLICY--evaluate-reconstruction-readiness.md
+    name: CA-E-435-POLICY--evaluate-reconstruction-readiness.md
     path: .caprmedio_caprmedio/06_evaluation
 cce_version: cce_1
 cce_form: evaluation

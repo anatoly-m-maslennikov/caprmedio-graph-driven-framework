@@ -14,12 +14,12 @@ topics:
 tier: 2
 relations:
   child_of:
-  - CA-M-006
+  - CA-R-1375
   method_for:
   - CA-R-1375
 status: Active
-version: 26
-updated_at: 2026-11-02 18:35:20 +0400
+version: 27
+updated_at: "2026-11-11 18:46:16 +0400"
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: PROJECT_CONFIGURATION
 ---

@@ -11,8 +11,8 @@ topics:
   - CAPRMEDIO_MODEL <+ CFEL <+ Format
 tier: 1
 status: Active
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
+version: 7
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2253-CORE_META_MODEL-DECLARATION--define-string-value-format.md
@@ -39,7 +39,9 @@ representation.
 
 ```CFEL
 # model
-CFEL <+ Format/string
+CFEL <+ Format/string;
+
+Format/string ((NARROWER_THAN)) Format;
 ```
 
 ## Semantics

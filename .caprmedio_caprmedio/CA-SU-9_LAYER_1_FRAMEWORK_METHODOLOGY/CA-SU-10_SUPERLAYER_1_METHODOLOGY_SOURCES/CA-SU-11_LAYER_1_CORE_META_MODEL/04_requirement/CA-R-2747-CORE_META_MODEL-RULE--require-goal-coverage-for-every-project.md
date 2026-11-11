@@ -8,8 +8,8 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Goal)
-  - CAPRMEDIO_MODEL <+ Atom.Header.Topics.Main Subject
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Goal)
+  - CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics.Main Subject
 tier: 5
 relations:
   child_of:

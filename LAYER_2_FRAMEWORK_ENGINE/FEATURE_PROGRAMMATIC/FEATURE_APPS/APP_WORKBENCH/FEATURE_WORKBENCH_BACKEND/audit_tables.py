@@ -76,6 +76,7 @@ def collect_issues(
     cached: Mapping[Path, tuple[Any, dict[str, Any]]], diagnostics: Mapping[Path, str],
     accepted: set[Path], scopes: Iterable[dict[str, Any]], project_scope_id: str,
     schema: ContentSchema | None, public_atoms: Mapping[tuple[str, str], Mapping[str, Any]],
+    role_folders=None,
 ) -> dict[str, list[tuple[str | None, ...]]]:
     scope_paths = {
         key: item["authority_path"] for item in scopes
@@ -90,7 +91,7 @@ def collect_issues(
         relative = path.relative_to(root)
         public = public_atoms.get((relative.parent.as_posix(), path.name))
         issues = issues_for_source(path.relative_to(root).as_posix(), row, diagnostics.get(path),
-                                   accepted=path in accepted, scope_paths=scope_paths)
+                                   accepted=path in accepted, scope_paths=scope_paths, role_folders=role_folders)
         if row is not None and path in accepted and not diagnostics.get(path):
             issues[TABLES[0]].extend(_content_issues(relative, row, schema, public, layouts))
         for table, records in issues.items():
@@ -147,7 +148,7 @@ def _content_issues(
 
 def issues_for_source(
     path: str, row: Mapping[str, Any] | None, diagnostic: str | None,
-    *, accepted: bool, scope_paths: Mapping[str, str],
+    *, accepted: bool, scope_paths: Mapping[str, str], role_folders=None,
 ) -> dict[str, list[tuple[str | None, ...]]]:
     result: dict[str, list[tuple[str | None, ...]]] = {table: [] for table in TABLES}
     file = Path(path)
@@ -179,7 +180,7 @@ def issues_for_source(
                 f"Actual carrier {key} differs from its declaration.")
 
     declared_path = declared.get("path")
-    if issue := _declared_filename_issue(declared.get("name"), declared_path, row):
+    if issue := _declared_filename_issue(declared.get("name"), declared_path, row, role_folders):
         add(TABLES[1], "declared_carrier_inconsistency", *issue)
     _, container = header_value(header, "container")
     owner = container.get("scope_unit") if isinstance(container, dict) else None
@@ -191,10 +192,10 @@ def issues_for_source(
 
 
 def _declared_filename_issue(
-    name: object, declared_path: object, row: Mapping[str, Any],
+    name: object, declared_path: object, row: Mapping[str, Any], role_folders=None,
 ) -> tuple[str, object, object, str] | None:
     declared = Path(declared_path) / name if isinstance(declared_path, str) and isinstance(name, str) else None
-    if declared is not None and filename_candidate(declared) and not filename_role_matches(declared):
+    if declared is not None and filename_candidate(declared) and not filename_role_matches(declared, role_folders):
         return ("file.name", name, declared_path,
                 "The declared filename role conflicts with its declared role directory.")
     if not isinstance(name, str):

@@ -6,7 +6,7 @@ container:
 role: Delivery
 form: Eng Decision
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)/(.Header.Form := Declaration)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Declaration)
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom
 tier: 3
@@ -36,7 +36,7 @@ The declared Main Subject identifies the canonical HAS_ACTIVE_SUBJECT target. Di
 
 ```CFEL
 # instances
-$declaration[<Atom>, (.Header.Role = Requirement) AND (.Header.Form = Declaration)] >> $carrier[<Carrier>];
+$declaration[<Atom>, (.Header.Context.Role = Requirement) AND (.Header.Context.Form = Declaration)] >> $carrier[<Carrier>];
 
 $declaration.Header >> $carrier.frontmatter
 ```

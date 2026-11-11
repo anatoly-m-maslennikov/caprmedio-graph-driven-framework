@@ -28,6 +28,8 @@ _DECLARATION_FORMS = frozenset({"Declaration", "Entity Definition", "Relation De
 
 
 def _normalized_label(value: str) -> str:
+    if value in ('Analysis & Advisory', 'analysis_and_advisory'):
+        value = 'Analysis and Advisory'
     return "_".join(re.split(r"[\s_-]+", value.strip().casefold()))
 
 

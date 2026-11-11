@@ -38,6 +38,12 @@
       "module": "registry_workbench_provider",
       "factory": "create_provider",
       "descriptor_factory": "tool_descriptors"
+    },
+    {
+      "provider_id": "lifecycle",
+      "module": "registry_lifecycle_provider",
+      "factory": "create_provider",
+      "descriptor_factory": "tool_descriptors"
     }
   ]
 }

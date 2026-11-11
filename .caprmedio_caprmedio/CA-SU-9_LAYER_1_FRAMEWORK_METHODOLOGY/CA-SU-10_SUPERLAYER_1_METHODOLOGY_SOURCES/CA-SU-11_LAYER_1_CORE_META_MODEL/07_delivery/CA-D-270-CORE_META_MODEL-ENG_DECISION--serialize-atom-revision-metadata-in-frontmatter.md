@@ -8,8 +8,8 @@ form: Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Version
-  - CAPRMEDIO_MODEL <+ Atom.Header.Updated At
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Updated At
 tier: 3
 status: Active
 version: 27

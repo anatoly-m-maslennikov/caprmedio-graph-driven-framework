@@ -12,8 +12,8 @@ context:
     scope_unit: CA-SU-14
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 5
+  updated_at: 2026-11-11 15:29:41 +0400
 destination:
   file:
     name: CA-R-2654-FRAMEWORK_ENGINE-SCOPE_DELEGATION--declare-programmatic.md
@@ -29,26 +29,7 @@ Declare PROGRAMMATIC
 
 ### Prose Claim
 
-The receiving Scope Unit is PROGRAMMATIC. The additional local Role/Form pairs are exactly:
-
-- Delivery / Direct Policy;
-- Evaluation / Approach Policy;
-- Evaluation / Direct Policy;
-- Evaluation / Solution;
-- Method / Direct Policy;
-- Method / Solution;
-- Requirement / Direct Policy;
-- Requirement / Goal;
-- Requirement / Solution;
-
-- Delivery / Solution;
-
-- Concern / Question;
-- Requirement / Rule;
-
-- Concern / Problem;
-
-The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
+The receiving Scope Unit is PROGRAMMATIC. The admitted HAS_ACTIVE_SUBJECT targets are exactly the declared entities or instances at these addresses:
 
 - `MODEL//CAPRMEDIO <+ Scope Unit`;
 
@@ -121,5 +102,19 @@ Scope Unit//PROGRAMMATIC.Label == "FEATURE";
 
 Scope Unit//PROGRAMMATIC.order.ordered == false;
 
-Scope Unit//PROGRAMMATIC ((IS_CONTAINED_BY)) Scope Unit//FRAMEWORK_ENGINE
+Scope Unit//PROGRAMMATIC ((IS_CONTAINED_BY)) Scope Unit//FRAMEWORK_ENGINE;
+
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Delivery)).Header.Context.Form :: Direct Policy;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Evaluation)).Header.Context.Form :: Approach Policy;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Evaluation)).Header.Context.Form :: Direct Policy;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Evaluation)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Method)).Header.Context.Form :: Direct Policy;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Method)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Direct Policy;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Goal;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Delivery)).Header.Context.Form :: Solution;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Concern)).Header.Context.Form :: Question;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Rule;
+Atom/(.Header.Context.Container.scope_unit in ("CA-SU-15"))/(.Header.Context.Role in (Concern)).Header.Context.Form :: Problem;
 ```

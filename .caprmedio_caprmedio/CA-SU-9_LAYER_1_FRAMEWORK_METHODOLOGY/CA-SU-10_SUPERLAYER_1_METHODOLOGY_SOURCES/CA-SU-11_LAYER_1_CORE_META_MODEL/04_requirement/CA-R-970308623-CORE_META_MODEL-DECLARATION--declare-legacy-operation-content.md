@@ -8,12 +8,12 @@ context:
   role: Requirement
   form: Declaration
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations).Content.Operation
+    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations).Content.Operation
   tier: 4
 state:
   status: Active
-  version: 1
-  updated_at: 2026-11-08 18:59:53 +0400
+  version: 2
+  updated_at: '2026-11-11 16:04:42 +0400'
 destination:
   file:
     name: CA-R-970308623-CORE_META_MODEL-DECLARATION--declare-legacy-operation-content.md
@@ -35,9 +35,9 @@ An Operations Atom may retain its legacy Operation section during migration. Ope
 
 ```CFEL
 # model
-Atom/(.Header.Role := Operations).Content.Operation:: [markdown]{::0..1};
+Atom/(.Header.Context.Role in (Operations)).Content.Operation:: [markdown]{::0..1};
 
-Atom/(.Header.Role := Operations).Content.Operation.*[]{::0}
+Atom/(.Header.Context.Role in (Operations)).Content.Operation.*[]{::0}
 ```
 
 ## Semantics

@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Action.Execution Kind
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Action.Execution Kind
 tier: 3
 status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+version: 3
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2521-CORE_META_MODEL-DECLARATION--declare-atom-role-operations-action-execution-kind.md
@@ -28,12 +28,12 @@ Declare Atom/(.Role := Operations)/Action.Execution Kind
 
 ```CFEL
 # model
-Atom/(.Header.Role: Operations)/Action.Execution Kind{::1}:: [string]{::1};
+Atom/(.Header.Context.Role in (Operations))/Action.Execution Kind{::1}:: [string]{::1};
 
-Atom/(.Header.Role: Operations)/Action.Execution Kind.*[]{::0};
+Atom/(.Header.Context.Role in (Operations))/Action.Execution Kind.*[]{::0};
 
-Atom/(.Header.Role: Operations)/Action.Execution Kind: Programmatic;
+Atom/(.Header.Context.Role in (Operations))/Action.Execution Kind :: Programmatic;
 
-Atom/(.Header.Role: Operations)/Action.Execution Kind: Agentic
+Atom/(.Header.Context.Role in (Operations))/Action.Execution Kind :: Agentic
 ```
 

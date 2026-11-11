@@ -1,5 +1,7 @@
 ---
 atom_id: CA-P-2275
+container:
+  atom: CA-P-2174
 content_role: Plan
 type: Plan
 label: Task
@@ -23,11 +25,13 @@ subjects:
 version: 9
 updated_at: 2026-10-25 17:32:27 +0400
 relations:
-  is_decomposition_of:
-  - CA-P-2174
   blocks:
   - CA-P-2278
 tier: 3
+carrier_destination:
+  file:
+    name: 03-CA-P-2275-TASK--verify-toml-and-config-workflow-fixtures.md
+    path: .caprmedio_caprmedio/03_plan/001_backlog
 ---
 # Summary
 

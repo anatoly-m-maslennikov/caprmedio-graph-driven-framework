@@ -13,10 +13,10 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-881
+  - CA-R-2653
 status: Active
-version: 18
-updated_at: 2026-11-10 20:47:54 +0400
+version: 19
+updated_at: 2026-11-11 16:25:55 +0400
 subject_scopes:
 - scope-topology
 semantic_shape: relational

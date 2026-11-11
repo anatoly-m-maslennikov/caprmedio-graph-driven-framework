@@ -13,7 +13,7 @@ context:
     dependencies:
     - MODEL//CAPRMEDIO <+ Asset
     - MODEL//CAPRMEDIO <+ Event Record
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)
   tier: 3
 relations:
   child_of:
@@ -87,4 +87,4 @@ is absent. do **not** infer a platform-support claim from local execution.
 
 - [Python 3.14 documentation](https://docs.python.org/3.14/)
 - [Python Packaging User Guide: `pyproject.toml`](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

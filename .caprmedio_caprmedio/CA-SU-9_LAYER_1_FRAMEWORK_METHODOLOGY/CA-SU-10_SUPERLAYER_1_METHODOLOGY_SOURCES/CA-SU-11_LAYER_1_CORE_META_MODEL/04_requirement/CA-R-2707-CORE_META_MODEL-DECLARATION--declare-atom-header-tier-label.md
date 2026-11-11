@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Tier.Label
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier.Label
 tier: 3
 status: Active
 version: 4
@@ -29,24 +29,24 @@ Declare Atom.Header.Tier.Label
 
 ```CFEL
 # model
-Atom.Header.Tier.Label:: [string]{::0..1};
+Atom.Header.Context.Tier.Label:: [string]{::0..1};
 
-Atom.Header.Tier.Label.*[]{::0};
+Atom.Header.Context.Tier.Label.*[]{::0};
 
 # instances
 Atom//$atom_2;
 
-IF (($atom_2.Header.Tier.Label{=1}) AND ($atom_2.Header.Tier = 1)) THEN ($atom_2.Header.Tier.Label == Core);
+IF (($atom_2.Header.Context.Tier.Label{=1}) AND ($atom_2.Header.Context.Tier = 1)) THEN ($atom_2.Header.Context.Tier.Label == Core);
 
 Atom//$atom_3;
 
-IF (($atom_3.Header.Tier.Label{=1}) AND ($atom_3.Header.Tier = 2)) THEN ($atom_3.Header.Tier.Label == General);
+IF (($atom_3.Header.Context.Tier.Label{=1}) AND ($atom_3.Header.Context.Tier = 2)) THEN ($atom_3.Header.Context.Tier.Label == General);
 
 Atom//$atom_4;
 
-IF (($atom_4.Header.Tier.Label{=1}) AND ($atom_4.Header.Tier = 3)) THEN ($atom_4.Header.Tier.Label == Standard);
+IF (($atom_4.Header.Context.Tier.Label{=1}) AND ($atom_4.Header.Context.Tier = 3)) THEN ($atom_4.Header.Context.Tier.Label == Standard);
 
 Atom//$atom_5;
 
-IF (($atom_5.Header.Tier.Label{=1}) AND ($atom_5.Header.Tier = 4)) THEN ($atom_5.Header.Tier.Label == Detail)
+IF (($atom_5.Header.Context.Tier.Label{=1}) AND ($atom_5.Header.Context.Tier = 4)) THEN ($atom_5.Header.Context.Tier.Label == Detail)
 ```

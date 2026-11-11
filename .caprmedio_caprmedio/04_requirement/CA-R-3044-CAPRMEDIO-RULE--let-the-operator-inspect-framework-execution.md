@@ -13,8 +13,8 @@ relations:
   - CA-M-545
   - CA-R-3042
 status: active
-version: 1
-updated_at: "2026-11-11 04:10:37 +0400"
+version: 2
+updated_at: "2026-11-11 18:11:33 +0400"
 destination:
   file:
     name: CA-R-3044-CAPRMEDIO-RULE--let-the-operator-inspect-framework-execution.md
@@ -29,4 +29,4 @@ Let the Operator inspect framework execution
 
 ### Prose Claim
 
-Give the Operator access to relevant FRAMEWORK_ENGINE execution evidence and known limitations.
+Give the Operator access to relevant framework execution evidence and known limitations.

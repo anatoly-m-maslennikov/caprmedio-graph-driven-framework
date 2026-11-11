@@ -10,7 +10,7 @@ topics:
     <+ Traceability
   dependencies:
   - MODEL//CAPRMEDIO <+ Atom
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
     <+ Coverage
   - MODEL//CAPRMEDIO <+ Term//Property

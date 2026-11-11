@@ -9,8 +9,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Carrier/Pull Request
 tier: 1
 status: Active
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
+version: 7
+updated_at: '2026-11-11 16:04:42 +0400'
 carrier_destination:
   file:
     name: CA-R-2201-PROJECT_CONFIGURATION-DECLARATION--define-pull-request-carrier.md
@@ -31,6 +31,6 @@ A Pull Request is a repository-hosted Carrier of a proposed change and its revie
 
 ```CFEL
 # model
-Carrier/Pull Request
+Carrier/Pull Request ((NARROWER_THAN)) Carrier;
 ```
 

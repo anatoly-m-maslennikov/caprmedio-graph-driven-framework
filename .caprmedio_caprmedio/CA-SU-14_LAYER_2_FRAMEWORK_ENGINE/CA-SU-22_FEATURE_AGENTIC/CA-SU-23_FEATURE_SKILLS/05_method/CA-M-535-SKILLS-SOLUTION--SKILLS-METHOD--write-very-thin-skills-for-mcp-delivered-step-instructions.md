@@ -12,15 +12,15 @@ context:
       <+ Authoring <+ Prompt Authoring
     dependencies:
     - MODEL//CAPRMEDIO <+ Actor/AI Agent
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Action
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Action
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Entry
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role in RMED)
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role in RMED)
     - MODEL//CAPRMEDIO <+ Actor/Operator
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ UX <+ Interaction
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Step
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Step
     - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
       <+ Communication <+ API
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
   tier: 4
 state:
   status: Active

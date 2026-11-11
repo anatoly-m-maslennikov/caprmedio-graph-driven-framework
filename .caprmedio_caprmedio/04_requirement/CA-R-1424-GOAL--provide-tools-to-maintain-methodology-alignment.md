@@ -17,11 +17,10 @@ topics:
 tier: 4
 relations:
   child_of:
-  - CA-M-006
   - CA-R-2157
 status: Active
-version: 28
-updated_at: 2026-11-02 18:35:20 +0400
+version: 29
+updated_at: "2026-11-11 18:46:16 +0400"
 cce_version: cce_1
 cce_form: obligation
 llm_session_ids:

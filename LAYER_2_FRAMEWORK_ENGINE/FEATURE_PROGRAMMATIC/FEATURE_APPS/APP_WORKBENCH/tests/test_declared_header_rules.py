@@ -15,6 +15,7 @@ from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.declared_header_rules import (  # n
     header_declaration_rules,
     resolve_header_rules,
 )
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.header_columns import declared_header_schema  # noqa: E402
 
 
 class DeclaredHeaderRulesTests(unittest.TestCase):
@@ -56,6 +57,17 @@ class DeclaredHeaderRulesTests(unittest.TestCase):
         self.assertEqual(1, len(rules))
         self.assertEqual(frozenset({"Requirement", "Method", "Evaluation", "Delivery"}), rules[0].roles)
         self.assertEqual(frozenset({"Policy"}), rules[0].forms)
+
+    def test_grouped_and_flat_alias_declarations_share_one_sql_column(self) -> None:
+        rules = compile_header_rules([self.declaration(
+            "CA-R-8",
+            "Atom.Header.Role:: [string]{::1};\nAtom.Header.Context.Role:: [string]{::1};",
+        )])
+        schema = declared_header_schema(rules)
+        self.assertEqual(("header.context.role",), schema.names)
+        column = schema.columns[0]
+        for header in ({"role": "method"}, {"context": {"role": "method"}}):
+            self.assertEqual("method", schema.value({"header_json": header}, column))
 
     def test_scalar_collection_grouping_and_updated_at_formats(self) -> None:
         rules = compile_header_rules([self.declaration(

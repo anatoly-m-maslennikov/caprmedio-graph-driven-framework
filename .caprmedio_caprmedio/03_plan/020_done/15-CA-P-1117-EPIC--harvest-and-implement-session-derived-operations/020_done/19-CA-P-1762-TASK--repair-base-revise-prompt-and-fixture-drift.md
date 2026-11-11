@@ -1,0 +1,60 @@
+---
+atom_id: CA-P-1762
+ref_id: CA-P-1762
+container:
+  atom: CA-P-1117
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Prompt
+  dependencies:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Evaluation Implementation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1655
+status: Done
+version: 9
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 19-CA-P-1762-TASK--repair-base-revise-prompt-and-fixture-drift.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done
+work_sequence_number: 19
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+---
+# Summary
+
+Repair Base Revise prompt and fixture drift
+
+## Objective
+
+Align the current compact Base Revise prompts, source pins and test fixtures with accepted local checks.
+
+## Details
+
+RMED_ATOM_REVIEW prompt tree and tests; rmed_prompt_drift_repair. Preserve gather/check/fix, no workflow recheck, replacement authorization and the current word budget.
+
+Estimated bounded slice: <=15 minutes. Workers share the checkout, preserve other edits and do not stage or commit. Root owns integration and Git. Preparation does not prove runtime execution.
+
+## Definition of Done
+
+Current source pins and prompt budgets validate; stale root/layout fixtures are corrected; genuine defects remain explicit rather than skipped.
+
+## Pre-execution review
+
+Root accepts this bounded repair/restoration against Operator authority, DRY, preservation of valuable information and the latest continuation. Keep installed N intact and distinguish local tests from required actual runtime gates.
+
+## Recorded verification
+
+31c46bba5 retains compact current prompts, source pins and fixture corrections. The complete prompt suite passed 372 tests and repair suite 117; layout exception is API-owned, not a self-asserted report marker. No new runtime Run was dispatched.

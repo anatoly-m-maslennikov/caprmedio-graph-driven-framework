@@ -90,4 +90,4 @@ acceptance **and** rejection follow CA-E-539.
 - [Ruff: complex-structure rule](https://docs.astral.sh/ruff/rules/complex-structure/)
 - [Python documentation: `tomllib`](https://docs.python.org/3.14/library/tomllib.html)
 - [Python documentation: `json`](https://docs.python.org/3.14/library/json.html)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

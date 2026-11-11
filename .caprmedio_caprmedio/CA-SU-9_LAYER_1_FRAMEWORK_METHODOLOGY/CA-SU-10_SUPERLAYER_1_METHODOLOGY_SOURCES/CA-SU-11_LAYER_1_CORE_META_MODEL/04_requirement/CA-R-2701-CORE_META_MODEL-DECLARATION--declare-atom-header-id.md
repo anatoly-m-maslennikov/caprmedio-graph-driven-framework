@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.ID
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Identity.ID
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-03 20:00:05 +0400
+version: 2
+updated_at: '2026-11-11T18:31:44+04:00'
 carrier_destination:
   file:
     name: CA-R-2701-CORE_META_MODEL-DECLARATION--declare-atom-header-id.md
@@ -28,13 +28,13 @@ Declare Atom.Header.ID
 
 ```CFEL
 # model
-Atom.Header.ID{::1}:: [string]{::1};
+Atom.Header.Identity.ID{::1}:: [string]{::1};
 
-Atom.Header.ID.*[]{::0};
+Atom.Header.Identity.ID.*[]{::0};
 
 # instances
 Atom//$atom;
 
-IF (($atom.Header.Status >| Status Group = Current) OR ($atom.Header.Status >| Status Group = Archived))
-THEN (IMMUTABLE($atom.Header.ID))
+IF (($atom.Header.State.Status >| Status Group = Current) OR ($atom.Header.State.Status >| Status Group = Backlog) OR ($atom.Header.State.Status >| Status Group = Archived))
+THEN (IMMUTABLE($atom.Header.Identity.ID))
 ```

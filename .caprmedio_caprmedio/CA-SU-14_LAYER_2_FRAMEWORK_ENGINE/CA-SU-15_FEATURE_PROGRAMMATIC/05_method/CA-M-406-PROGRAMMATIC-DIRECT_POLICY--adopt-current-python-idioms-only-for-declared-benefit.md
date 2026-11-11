@@ -82,4 +82,4 @@ stop adoption **when** the benefit is unnamed, the simpler idiom is equally clea
 - [PEP 750 — Template Strings](https://peps.python.org/pep-0750/)
 - [Python documentation: task groups](https://docs.python.org/3.14/library/asyncio-task.html#task-groups)
 - [PEP 8 — Style Guide for Python Code](https://peps.python.org/pep-0008/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

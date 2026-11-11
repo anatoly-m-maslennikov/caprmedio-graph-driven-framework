@@ -1,12 +1,36 @@
 """Read compatibility for carrier field names; never mutate the source mapping."""
 
 from typing import Any
+import re
 
 from header_groups import (GROUP_FIELDS, ROLE_FIELDS, TOPIC_SUBJECT_FIELDS, equal_values,
                            header_value, validate_header_groups)
 
 
 _equal = equal_values
+
+
+def carrier_status_folder(name: str) -> str:
+    """Read the semantic label of an ordinary or three-digit Status folder."""
+    label = re.sub(r'^[0-9]{3}_', '', name.casefold())
+    return {'drafts': 'draft', 'archive': 'archived'}.get(label, label)
+
+
+def named_value_token(canonical: str) -> str | None:
+    if not isinstance(canonical, str) or not re.fullmatch(r'[A-Za-z0-9]+(?:[ _-]+[A-Za-z0-9]+)*', canonical):
+        return None
+    return re.sub(r'[ _-]+', '_', canonical).lower()
+
+
+def matches_named_value(carried: Any, canonical: str) -> bool:
+    token = named_value_token(canonical)
+    return carried == canonical or (token is not None and carried == token)
+
+
+def canonical_role_name(value: Any) -> Any:
+    if value in ('Analysis & Advisory', 'analysis_and_advisory'):
+        return 'Analysis and Advisory'
+    return value
 
 
 def _read_aliases(mapping: dict[str, Any], pairs: tuple[tuple[str, str], ...]) -> dict[str, Any]:

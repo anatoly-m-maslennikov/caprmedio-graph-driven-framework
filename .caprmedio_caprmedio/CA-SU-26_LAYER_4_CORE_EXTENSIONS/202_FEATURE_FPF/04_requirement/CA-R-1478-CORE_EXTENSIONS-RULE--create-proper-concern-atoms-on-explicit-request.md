@@ -9,7 +9,7 @@ topics:
   main_subject: 'Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern'
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content
-  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Subjects
+  - Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Context.Topics
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit
   - Subject/CAPRMEDIO/Carrier
 tier: 1

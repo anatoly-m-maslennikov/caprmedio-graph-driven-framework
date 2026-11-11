@@ -85,4 +85,4 @@ would bypass **or** mutate the shared snapshot.
 
 - [Python documentation: `tomllib`](https://docs.python.org/3.14/library/tomllib.html)
 - [Pydantic: strict mode](https://docs.pydantic.dev/latest/concepts/strict_mode/)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)

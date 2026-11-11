@@ -10,7 +10,7 @@ topics:
     <+ Execution Control <+ Failure Handling
   dependencies:
   - MODEL//CAPRMEDIO <+ Execution/Workflow Run
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
   - MODEL//CAPRMEDIO <+ Journal
 tier: 3
 status: Active

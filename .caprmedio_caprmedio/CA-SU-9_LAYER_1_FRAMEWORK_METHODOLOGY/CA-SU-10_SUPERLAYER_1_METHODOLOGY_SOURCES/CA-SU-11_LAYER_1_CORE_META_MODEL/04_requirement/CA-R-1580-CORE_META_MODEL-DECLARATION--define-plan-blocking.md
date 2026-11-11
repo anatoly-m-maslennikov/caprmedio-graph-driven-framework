@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//BLOCKS
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form := Plan)
   - CAPRMEDIO_MODEL <+ Projection
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan).Header.Status: Done'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status: Done'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
 tier: 1
@@ -37,7 +37,7 @@ Relation//BLOCKS <((HAS_INVERSE)) Relation//IS_BLOCKED_BY;
 Relation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Derived;
 
 # instances
-Atom/(.Header.Role: Plan)//$prerequisite ((BLOCKS)) Atom/(.Header.Role: Plan)//$dependent
+Atom/(.Header.Context.Role: Plan)//$prerequisite ((BLOCKS)) Atom/(.Header.Context.Role: Plan)//$dependent
 ```
 
 ## Semantics

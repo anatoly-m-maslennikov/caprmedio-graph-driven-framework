@@ -4,11 +4,11 @@ ref_id: CA-R-2734
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Workflow/(.Purpose := Runtime)
 tier: 3
 status: Active
-version: 1
-updated_at: '2026-11-04 00:31:19 +0400'
+version: 3
+updated_at: '2026-11-11 14:06:22 +0400'
 ---
 
 ## Summary
@@ -20,7 +20,8 @@ Declare Runtime Workflow
 ### Formal Claim
 
 ```CFEL
-Atom/(.Header.Role := Operations)/Workflow/(.Purpose := Runtime)
+# model
+Atom/(.Header.Context.Role in (Operations))/Workflow.Purpose :: Runtime;
 ```
 
 ## Semantics

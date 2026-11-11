@@ -10,9 +10,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit.Label
   - CAPRMEDIO_MODEL <+ Scope Unit.order.ordered
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan).Header.Label'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role: Plan)/(.Header.Context.Form: Plan).Header.Context.Label'
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//BLOCKS
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Role: Plan)/(.Header.Form: Plan)'
+  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role: Plan)/(.Header.Context.Form: Plan)'
   - CAPRMEDIO_MODEL <+ Term//Property
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
 tier: 3

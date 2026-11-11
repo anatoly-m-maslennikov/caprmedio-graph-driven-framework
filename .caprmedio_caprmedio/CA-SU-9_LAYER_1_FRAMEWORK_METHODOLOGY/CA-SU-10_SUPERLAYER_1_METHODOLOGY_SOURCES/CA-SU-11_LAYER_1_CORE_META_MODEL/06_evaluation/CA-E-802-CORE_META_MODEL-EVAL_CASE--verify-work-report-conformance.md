@@ -8,7 +8,7 @@ context:
   role: Evaluation
   form: Eval Case
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Plan)/(.Header.Form := Work Report)
+    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form := Work Report)
   tier: 4
 state:
   status: Active

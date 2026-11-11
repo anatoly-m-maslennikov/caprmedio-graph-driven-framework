@@ -6,14 +6,14 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Role
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 1
 relations:
   child_of:
-  - CA-R-047
+  - CA-R-3043
 status: Active
-version: 29
-updated_at: 2026-11-02 19:44:26 +0400
+version: 30
+updated_at: 2026-11-11 15:06:14 +0400
 carrier_destination:
   file:
     name: CA-R-1734-CORE_META_MODEL-RULE--preserve-self-improvement-stage-meanings.md

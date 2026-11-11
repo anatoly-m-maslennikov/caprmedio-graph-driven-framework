@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Container.atom
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Container.atom
 tier: 3
 status: Active
 version: 1
@@ -27,7 +27,7 @@ Declare Atom.Header.Container.atom
 
 ```CFEL
 # model
-Atom.Header.Container.atom :: [atom id]{::0..1};
+Atom.Header.Context.Container.atom :: [atom id]{::0..1};
 
-Atom.Header.Container.atom.*[]{::0}
+Atom.Header.Context.Container.atom.*[]{::0}
 ```

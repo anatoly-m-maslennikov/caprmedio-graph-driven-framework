@@ -11,8 +11,8 @@ topics:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 tier: 1
 status: Active
-version: 32
-updated_at: 2026-11-03 20:00:05 +0400
+version: 33
+updated_at: '2026-11-11 15:25:35 +0400'
 carrier_destination:
   file:
     name: CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md
@@ -31,11 +31,11 @@ Register rationale_for relation
 #### Applicability
 Rationale For Relation.
 
-`rationale_for` **means** the direct relation from a Rationale Analysis & Advisory Atom
+`rationale_for` **means** the direct relation from a Rationale Analysis and Advisory Atom
 to the Atom that it explains.
 
 Forward `Host ((rationale_for)) Target` and reverse `Target <((rationale_for)) Host` are views of the same Relation fact.
-rationale_for relates Rationale Analysis & Advisory Atom to explained Atom.
+rationale_for relates Rationale Analysis and Advisory Atom to explained Atom.
 ### Formal Claim
 
 ```CFEL
@@ -43,6 +43,6 @@ rationale_for relates Rationale Analysis & Advisory Atom to explained Atom.
 Relation//rationale_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Atom/(.Header.Role: "Analysis & Advisory")/(.Header.Form: Rationale)//$atom ((rationale_for)) Atom//$atom_2
+Atom/(.Header.Context.Role in (Analysis and Advisory))/(.Header.Context.Form in (Rationale))//$atom ((rationale_for)) Atom//$atom_2
 ```
 

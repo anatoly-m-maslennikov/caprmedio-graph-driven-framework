@@ -66,10 +66,10 @@ The [bounded independent graph receipt](../../_projection/core-entity-review/sta
 
 The Operator chose caprmedio_project_settings.toml as the canonical Settings filename; align the conflicting rules without renaming current Settings. Separate foreign-boundary refusal from graph Settings revision evidence. No synthetic receipts, broad legacy migration or installed activation.
 
-- [CA-P-2320 — Align canonical Settings filename](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/01-CA-P-2320-TASK--align-canonical-settings-filename.md)
-- [CA-P-2321 — Verify declaration path Project boundaries](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/02-CA-P-2321-TASK--verify-declaration-path-project-boundaries.md)
-- [CA-P-2322 — Bind declaration boundary consumers](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/03-CA-P-2322-TASK--bind-declaration-boundary-consumers.md)
-- [CA-P-2323 — Verify Project boundary refusal](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/done/04-CA-P-2323-TASK--verify-project-boundary-refusal.md)
+- [CA-P-2320 — Align canonical Settings filename](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/020_done/01-CA-P-2320-TASK--align-canonical-settings-filename.md)
+- [CA-P-2321 — Verify declaration path Project boundaries](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/020_done/02-CA-P-2321-TASK--verify-declaration-path-project-boundaries.md)
+- [CA-P-2322 — Bind declaration boundary consumers](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/020_done/03-CA-P-2322-TASK--bind-declaration-boundary-consumers.md)
+- [CA-P-2323 — Verify Project boundary refusal](37-CA-P-2272-TASK--use-explicit-graph-delivery-bindings/020_done/04-CA-P-2323-TASK--verify-project-boundary-refusal.md)
 
 ### Private boundary implementation checkpoint
 

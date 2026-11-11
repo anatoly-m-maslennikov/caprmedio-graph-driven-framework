@@ -12,8 +12,8 @@ topics:
   - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Data Handling
     <+ Serialization
   - MODEL//CAPRMEDIO <+ Carrier
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Method)
-  - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Evaluation)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Method)
+  - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Evaluation)
 tier: 3
 status: Active
 version: 16

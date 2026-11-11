@@ -93,7 +93,7 @@ incomplete and foreign resources, including image
 retained. The cleanup disposition remains pending. The separate selected-workflow
 cleanup Run was officially cancelled after ENQUEUED observation, with no child
 cascade or observed effect. P2550 is now Done at
-`89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/done/10-CA-P-2550-TASK--execute-focused-local-release-and-adopt-candidate.md`;
+`89-CA-P-2536-TASK--run-fresh-local-release-after-isolated-suite-repair/020_done/10-CA-P-2550-TASK--execute-focused-local-release-and-adopt-candidate.md`;
 P2551 is Backlog at sequence 11 for the ownership cleanup follow-up. P2536
 remains Active until that boundary and other unresolved conformance work are
 closed; this is not a full-suite/public-release or whole-Epic completion claim.

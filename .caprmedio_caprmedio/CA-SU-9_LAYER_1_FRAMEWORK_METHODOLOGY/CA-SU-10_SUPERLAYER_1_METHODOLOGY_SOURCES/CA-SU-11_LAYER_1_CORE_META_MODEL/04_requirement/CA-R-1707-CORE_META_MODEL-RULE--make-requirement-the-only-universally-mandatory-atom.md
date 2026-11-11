@@ -6,15 +6,14 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
 tier: 2
 relations:
   child_of:
   - CA-R-1772
-  - CA-M-447
 status: Active
-version: 32
-updated_at: 2026-11-02 19:44:26 +0400
+version: 33
+updated_at: "2026-11-11 18:46:16 +0400"
 carrier_destination:
   file:
     name: CA-R-1707-CORE_META_MODEL-RULE--make-requirement-the-only-universally-mandatory-atom.md

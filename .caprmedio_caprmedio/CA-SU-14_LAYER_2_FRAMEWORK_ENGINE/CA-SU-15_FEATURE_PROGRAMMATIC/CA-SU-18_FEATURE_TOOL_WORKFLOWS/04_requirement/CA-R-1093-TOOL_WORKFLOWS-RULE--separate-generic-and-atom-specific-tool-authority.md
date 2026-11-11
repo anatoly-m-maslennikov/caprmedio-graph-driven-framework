@@ -9,11 +9,11 @@ topics:
   main_subject: Subject/CAPRMEDIO/Graph/Rule
   dependencies:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool
-  - "Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication"
+  - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication
 tier: 1
 status: Active
-version: 24
-updated_at: 2026-10-27 19:59:50 +0400
+version: 25
+updated_at: 2026-11-11 09:03:52 +0400
 carrier_destination:
   file:
     name: CA-R-1093-TOOL_WORKFLOWS-RULE--separate-generic-and-atom-specific-tool-authority.md
@@ -35,6 +35,8 @@ Separate generic and Atom-specific Tool authority
 Semantic operation ownership and logical operation/storage connector boundaries for Atom and Scope Unit Workflows.
 
 ## Claim
+
+For the Project Configuration Atom Lifecycle Workflows, identity, Version, Updated At and history follow those Workflows and CA-R-1432 and CA-R-1788. CA-E-521 checks those effects. Differing statements in this Atom on those matters apply only to other operations.
 
 **every** public logical Tool operation **must** have **=1** Workflow semantic behavior owner. This is policy ownership, not a requirement for a new wrapper or a mandatory enclosing Workflow around standalone connector Query or Read. Admitted Find, Read and Modify remain independently callable with their required explicit caller/context, source, schema and authorization bindings. The Workflow owns target-selection policy, admitted domain schemas, identity, Version, lifecycle, authority and operation sequencing; a connector **must not** choose them. Generic Artifact Workflows own their admitted artifact-form-agnostic revision, naming and reference policies but **must not** define CAPRMEDIO Atom admission or lifecycle semantics. Atom Workflows own those semantics for their named operations and **may** reuse admitted generic helpers. Simple connectors own only explicit query, read, create or modify storage mechanics under CA-R-1936-CONNECTOR_TOOLS-RULE--use-one-coherent-connector-interface; mixed semantic Artifact procedures are Workflows, not connectors.
 

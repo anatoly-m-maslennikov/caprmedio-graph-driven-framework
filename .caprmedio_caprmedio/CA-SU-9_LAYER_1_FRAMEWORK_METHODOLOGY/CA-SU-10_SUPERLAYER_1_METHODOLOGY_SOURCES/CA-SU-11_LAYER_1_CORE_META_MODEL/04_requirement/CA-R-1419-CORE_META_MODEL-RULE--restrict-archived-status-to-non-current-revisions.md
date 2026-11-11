@@ -6,10 +6,10 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Status:Archived
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Status:Archived
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom.Header.Status
-  - CAPRMEDIO_MODEL <+ Atom.Header.Version
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
+  - CAPRMEDIO_MODEL <+ Atom.Header.State.Version
 tier: 1
 status: Active
 version: 23

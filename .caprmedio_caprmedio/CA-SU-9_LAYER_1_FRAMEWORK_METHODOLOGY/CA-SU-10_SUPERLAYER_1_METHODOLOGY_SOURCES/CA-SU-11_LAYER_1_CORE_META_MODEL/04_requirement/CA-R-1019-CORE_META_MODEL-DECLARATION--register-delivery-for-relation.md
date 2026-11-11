@@ -43,6 +43,6 @@ delivery_for relates Delivery Atom to realized Atom.
 Relation//delivery_for ((HAS_CLASSIFICATION)) Derivation == Direct;
 
 # instances
-Atom/(.Header.Role: Delivery)//$atom ((delivery_for)) Atom//$atom_2
+Atom/(.Header.Context.Role: Delivery)//$atom ((delivery_for)) Atom//$atom_2
 ```
 

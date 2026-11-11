@@ -32,9 +32,9 @@ A complete ordinary RMED Claim has at least one of Formal Claim and Prose Claim.
 
 ```CFEL
 # model
-Atom/(.Header.Role in RMED).Content.Claim{::1}:: []{::0};
+Atom/(.Header.Context.Role in RMED).Content.Claim{::1}:: []{::0};
 
-Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};
+Atom/(.Header.Context.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};
 
-Atom/(.Header.Role in RMED).Content.Claim.Prose Claim ;> Atom/(.Header.Role in RMED).Content.Claim.Formal Claim
+Atom/(.Header.Context.Role in RMED).Content.Claim.Prose Claim ;> Atom/(.Header.Context.Role in RMED).Content.Claim.Formal Claim
 ```

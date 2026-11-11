@@ -93,7 +93,7 @@ boundary cannot report a typed result.
 
 - [Python Functional Programming HOWTO](https://docs.python.org/3.14/howto/functional.html)
 - [Python documentation: data classes](https://docs.python.org/3.14/library/dataclasses.html)
-- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
+- [CA-A-053 — Reconcile shared PROGRAMMATIC policy decisions](../02_analysis_and_advisory/CA-A-053-PROGRAMMATIC-ANALYSIS_RPRT--reconcile-shared-programmatic-policy-decisions.md)
 
 ### Pure computation and execution recording
 

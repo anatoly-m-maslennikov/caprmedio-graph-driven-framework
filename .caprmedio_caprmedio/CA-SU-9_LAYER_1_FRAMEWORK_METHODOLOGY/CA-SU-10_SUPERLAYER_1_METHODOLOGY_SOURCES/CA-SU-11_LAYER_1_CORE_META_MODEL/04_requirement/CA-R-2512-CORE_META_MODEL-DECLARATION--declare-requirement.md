@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Requirement)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
 tier: 3
 status: Active
-version: 4
-updated_at: "2026-11-07 15:18:44 +0400"
+version: 6
+updated_at: '2026-11-11T18:56:17+04:00'
 carrier_destination:
   file:
     name: CA-R-2512-CORE_META_MODEL-DECLARATION--declare-requirement.md
@@ -29,7 +29,9 @@ Declare Atom/(.Role := Requirement)
 
 ```CFEL
 # model
-Atom/(.Header.Role := Requirement)
+Atom.Header.Context.Role :: Requirement;
+
+Atom/(.Header.Context.Role := Requirement) >| (Role Order Number == 4);
 ```
 
 ## Semantics

@@ -13,7 +13,7 @@ context:
     dependencies:
     - MODEL//CAPRMEDIO <+ Actor/Operator
     - MODEL//CAPRMEDIO <+ Project
-    - MODEL//CAPRMEDIO <+ Atom/(.Header.Role := Operations)/Workflow
+    - MODEL//CAPRMEDIO <+ Atom/(.Header.Context.Role := Operations)/Workflow
     - MODEL//CAPRMEDIO <+ Atom
   tier: 3
 state:

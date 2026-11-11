@@ -6,11 +6,11 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Ref ID
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Identity.Ref ID
 tier: 3
 status: Active
-version: 1
-updated_at: 2026-11-05 22:47:24 +0400
+version: 2
+updated_at: '2026-11-11T18:31:44+04:00'
 carrier_destination:
   file:
     name: CA-R-2966-CORE_META_MODEL-DECLARATION--declare-atom-header-ref-id.md
@@ -24,13 +24,13 @@ Declare Atom.Header.Ref ID
 
 ### Prose Claim
 
-For a Current Atom, Ref ID is its base Atom ID. For an Archived Atom, Ref ID is `<ID>@<Version>`. For a Draft Atom, Ref ID is `<ID>@<Version>-draft`.
+For an Atom in the Current or Backlog Status Group, Ref ID is its base Atom ID. For an Archived Atom, Ref ID is `<ID>@<Version>`. For a Draft Atom, Ref ID is `<ID>@<Version>-draft`.
 
 ### Formal Claim
 
 ```CFEL
 # model
-Atom.Header.Ref ID{::1} :: [string]{::1};
+Atom.Header.Identity.Ref ID{::1} :: [string]{::1};
 
-Atom.Header.Ref ID.*[]{::0}
+Atom.Header.Identity.Ref ID.*[]{::0}
 ```

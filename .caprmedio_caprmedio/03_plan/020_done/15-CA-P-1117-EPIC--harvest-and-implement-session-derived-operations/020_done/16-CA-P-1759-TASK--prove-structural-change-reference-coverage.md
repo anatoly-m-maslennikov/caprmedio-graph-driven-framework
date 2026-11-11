@@ -1,0 +1,60 @@
+---
+atom_id: CA-P-1759
+ref_id: CA-P-1759
+container:
+  atom: CA-P-1117
+role: Plan
+form: Plan
+label: Task
+topics:
+  main_subject: Subject/Graph Node/Engineering/Project Structure
+  dependencies:
+  - Subject/Graph Node/Engineering/Implementation
+  - Subject/Graph Node/Engineering/Workflow
+  - Subject/Graph Node/Engineering/Action
+  - Subject/Graph Node/Engineering/Evaluation
+  - Subject/Graph Node/Domain/Continuant/History/Journal
+tier: 3
+relations:
+  is_decomposition_of:
+  - CA-P-1117
+  blocks:
+  - CA-P-1655
+status: Done
+version: 8
+updated_at: 2026-10-25 17:32:27 +0400
+carrier_destination:
+  file:
+    name: 16-CA-P-1759-TASK--prove-structural-change-reference-coverage.md
+    path: .caprmedio_caprmedio/03_plan/020_done/15-CA-P-1117-EPIC--harvest-and-implement-session-derived-operations/020_done
+work_sequence_number: 16
+current_scope_unit: caprmedio
+author: Anatoly Maslennikov
+assignee: AI Agent
+autonomous_confidence_threshold: 90
+---
+# Summary
+
+Prove structural change reference coverage
+
+## Objective
+
+Derive authoritative affected-reference coverage before Scope Unit changes rather than trusting empty caller frontiers or asserted Goal state.
+
+## Details
+
+WORKFLOW_OPERATIONS/PROJECT_STRUCTURE implementation/tests; structural_admission_repair. O012/O014 govern; units may legitimately have no active Goal; project_structure.toml remains authoritative.
+
+Estimated bounded slice: <=15 minutes. Workers share the checkout, preserve other edits and do not stage or commit. Root owns integration and Git. Preparation does not prove runtime execution.
+
+## Definition of Done
+
+An unlisted affected declared reference blocks mutation; complete covered proposals succeed; actual Goals/descendants/carriers are accounted without forcing a Goal.
+
+## Pre-execution review
+
+Root accepts this bounded repair/restoration against Operator authority, DRY, preservation of valuable information and the latest continuation. Keep installed N intact and distinguish local tests from required actual runtime gates.
+
+## Recorded verification
+
+06396a228 retains authoritative scope-field coverage, exact frontmatter-only rename repair, lowercase active selection and Remove refusal with active references. Fifteen tests pass; the independent review's Remove blocker was repaired. No semantic body rewriting or inferred rehome is allowed.

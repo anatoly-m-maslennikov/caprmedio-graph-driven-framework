@@ -4,12 +4,15 @@ from __future__ import annotations
 
 import hashlib
 import os
+from dataclasses import replace
 from pathlib import Path
 import re
+import tomllib
 from typing import Any
 
 from scope_declaration_parse import (
     ScopeDeclarationError,
+    ScopeDelegation,
     ScopeUnitDeclarations,
     _carrier,
     assemble_scope_unit_declarations,
@@ -27,6 +30,7 @@ _FLOW_STRUCTURAL_FORM_HINT = re.compile(
     rf"(?:^|[{{,][ \t]*)(?:form|type):[ \t]*{_STRUCTURAL_FORM_VALUE}(?=[ \t]*(?:,|}}|$))"
 )
 _PROJECTION = re.compile(r"(?m)^projection:\s*(?:$|\{)")
+DELEGATION_ROLE_FOLDERS = ("04_requirement", "05_method", "06_evaluation", "07_delivery", "09_operations")
 
 
 def _control(root: Path, control_root: Path | str) -> Path:
@@ -186,7 +190,7 @@ def read_scope_unit_declarations(
             frontier[key] = expected
             return candidates
 
-        def admit(path: Path, raw: bytes, *, parent: Any | None) -> Any:
+        def admit(path: Path, raw: bytes) -> Any:
             try:
                 declaration = parse_scope_unit_declaration(raw, path)
             except ScopeDeclarationError as error:
@@ -194,18 +198,7 @@ def read_scope_unit_declarations(
                 if "not an active Requirement Scope Unit Declaration" in str(error):
                     raise ScopeDeclarationError(f"{path}: declaration Form contradicts its required carrier fields") from error
                 raise
-            if parent is None and declaration.form != "Scope Unit Declaration":
-                raise ScopeDeclarationError("Project Scope Unit must use Scope Unit Declaration")
-            if parent is not None and declaration.form not in {"Scope Unit Declaration", "Scope Delegation"}:
-                raise ScopeDeclarationError("non-Project Scope Unit must use Scope Unit Declaration or Scope Delegation")
-            if declaration.is_root != (parent is None):
-                raise ScopeDeclarationError(
-                    "Project Scope Unit Declaration must be at the control root; nonroot declarations must use 04_requirement"
-                )
-            if parent is not None and declaration.parent != parent.name:
-                raise ScopeDeclarationError("Scope Unit Declaration is not in its declared parent authority")
             relative = path.relative_to(root).as_posix()
-            rows.append(declaration)
             pins[relative] = {
                 "sha256": hashlib.sha256(raw).hexdigest(),
                 "atom_id": declaration.atom_id,
@@ -213,22 +206,78 @@ def read_scope_unit_declarations(
             }
             return declaration
 
-        roots = [admit(path, raw, parent=None) for path, raw in read_candidates(control, root=True)]
+        roots = [admit(path, raw) for path, raw in read_candidates(control, root=True)]
+        if any(isinstance(row, ScopeDelegation) or not row.is_root or row.form != "Scope Unit Declaration" for row in roots):
+            raise ScopeDeclarationError("Project Scope Unit Declaration must be at the control root")
+        rows.extend(roots)
         if len(roots) == 1:
             pending = [(roots[0], control)]
             while pending:
                 parent, authority = pending.pop()
-                for path, raw in read_candidates(authority / "04_requirement", root=False):
-                    declaration = admit(path, raw, parent=parent)
+                candidates = []
+                for directory, role in zip(DELEGATION_ROLE_FOLDERS,
+                                           ("Requirement", "Method", "Evaluation", "Delivery", "Operations")):
+                    for path, raw in read_candidates(authority / directory, root=False):
+                        candidate = admit(path, raw)
+                        if ((isinstance(candidate, ScopeDelegation) and candidate.role != role)
+                                or (not isinstance(candidate, ScopeDelegation) and role != "Requirement")):
+                            raise ScopeDeclarationError(f"{path}: Scope carrier Role does not match its authority directory")
+                        candidates.append(candidate)
+                structural: dict[str, list[Any]] = {}
+                delegated: dict[str, list[ScopeDelegation]] = {}
+                for candidate in candidates:
+                    if isinstance(candidate, ScopeDelegation):
+                        parent_id = parent.scope_unit_id
+                        if parent_id is None:
+                            settings = tomllib.loads(reader.read(control / "caprmedio_project_settings.toml").decode("utf-8"))
+                            artifacts = settings.get("artifacts")
+                            identity = artifacts.get("identity") if isinstance(artifacts, dict) else None
+                            prefix = identity.get("project_prefix") if isinstance(identity, dict) else None
+                            if not isinstance(prefix, str) or re.fullmatch(r"[A-Za-z0-9]+", prefix) is None:
+                                raise ScopeDeclarationError("Project identity prefix is invalid")
+                            parent_id = f"{prefix.upper()}-SU-00"
+                        if not isinstance(candidate.parent_id, str) or not candidate.parent_id or candidate.parent_id != parent_id:
+                            raise ScopeDeclarationError("Scope Delegation is not in its declared parent authority")
+                        delegated.setdefault(candidate.name, []).append(candidate)
+                    else:
+                        if candidate.is_root or candidate.parent != parent.name:
+                            raise ScopeDeclarationError("Scope Unit Declaration is not in its declared parent authority")
+                        structural.setdefault(candidate.name, []).append(candidate)
+                if set(delegated) - set(structural):
+                    raise ScopeDeclarationError("Scope Delegation has no structural declaration in its direct parent authority")
+                for name, choices in structural.items():
+                    explicit = [row for row in choices if row.form == "Scope Unit Declaration"]
+                    legacy = [row for row in choices if row.form == "Scope Delegation"]
+                    if len(explicit) > 1 or len(legacy) > 1:
+                        raise ScopeDeclarationError("Scope Unit names and IDs require unique structural declarations")
+                    declaration = explicit[0] if explicit else legacy[0]
+                    if legacy:
+                        if explicit:
+                            fields = ("scope_unit_id", "label", "ordered", "local_order", "parent")
+                            if any(getattr(explicit[0], field) != getattr(legacy[0], field) for field in fields):
+                                raise ScopeDeclarationError("legacy and explicit Scope Unit topology disagree")
+                        old = legacy[0]
+                        delegated.setdefault(name, []).append(ScopeDelegation(
+                            name=old.name, atom_id=old.atom_id, version=old.version, source=old.source,
+                            admitted_role_forms=old.admitted_role_forms, pair_receivers=(),
+                        ))
+                    sources = tuple(delegated.get(name, ()))
+                    for delegation in sources:
+                        if any(receiver != (declaration.scope_unit_id if field == "ID" else declaration.name)
+                               for field, receiver in delegation.pair_receivers):
+                            raise ScopeDeclarationError("Scope Delegation pair names another Scope Unit")
+                    pairs = tuple(dict.fromkeys((*declaration.admitted_role_forms,
+                                               *(pair for item in sources for pair in item.admitted_role_forms))))
+                    declaration = replace(declaration, admitted_role_forms=pairs, delegations=sources)
+                    rows.append(declaration)
                     pending.append((declaration, _child_authority(authority, declaration)))
         if not rows:
             raise ScopeDeclarationError("no current Scope Unit Declarations found")
         for (directory, is_root), expected in frontier.items():
             if tuple(path for path, _ in _declaration_candidates(reader, directory, root=is_root)) != expected:
                 raise ScopeDeclarationError("Scope Unit Declaration source frontier changed during discovery")
-        for declaration in rows:
-            expected = pins[declaration.source.relative_to(root).as_posix()]["sha256"]
-            if hashlib.sha256(reader.read(declaration.source, remember=False)).hexdigest() != expected:
+        for relative, pin in pins.items():
+            if hashlib.sha256(reader.read(root / relative, remember=False)).hexdigest() != pin["sha256"]:
                 raise ScopeDeclarationError("Scope Unit Declaration sources changed during discovery")
         return assemble_scope_unit_declarations(
             rows, project_root=root, control_root=control, source_pins=pins, digest=_digest(pins),
@@ -239,4 +288,4 @@ def read_scope_unit_declarations(
         raise ScopeDeclarationError("Scope Unit Declaration source discovery is unavailable or unsafe") from error
 
 
-__all__ = ["ScopeDeclarationError", "ScopeUnitDeclarations", "read_scope_unit_declarations"]
+__all__ = ["DELEGATION_ROLE_FOLDERS", "ScopeDeclarationError", "ScopeUnitDeclarations", "read_scope_unit_declarations"]

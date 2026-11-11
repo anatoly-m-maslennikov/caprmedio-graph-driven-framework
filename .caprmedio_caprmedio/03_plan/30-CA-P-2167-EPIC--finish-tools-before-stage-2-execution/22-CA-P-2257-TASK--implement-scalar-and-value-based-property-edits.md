@@ -13,8 +13,8 @@ topics:
   - Subject/Graph Node/Domain/Continuant/Scope Unit
   - Subject/Graph Node/Engineering/Action
   - Subject/Graph Node/Engineering/Workflow
-  - Subject/Graph Node/Domain/Continuant/Atom.Version Number
-  - Subject/Graph Node/Domain/Continuant/Atom.Updated At
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Version Number
+  - Subject/Graph Node/Domain/Continuant/Atom.Header.State.Updated At
   - Subject/Graph Node/Domain/Continuant/History/Journal
   - 'Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan'
   - 'Subject/Graph Node/Domain/Continuant/Actor/Type: Operator'
@@ -61,7 +61,7 @@ Deliver the exact changed or reviewed manifest and focused check results to the 
 
 ### Bounded continuation
 
-The initial private mechanics are implemented or in progress; this is not accepted receiving/runtime capability. Continue through [CA-P-2298 — Preserve carrier bytes during property edits](22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits/done/01-CA-P-2298-TASK--preserve-carrier-bytes-during-property-edits.md). This child is limited to 15 minutes and must be split again before larger work. Remaining publication, receiving Workflow and independent portfolio gates are unchanged.
+The initial private mechanics are implemented or in progress; this is not accepted receiving/runtime capability. Continue through [CA-P-2298 — Preserve carrier bytes during property edits](22-CA-P-2257-TASK--implement-scalar-and-value-based-property-edits/020_done/01-CA-P-2298-TASK--preserve-carrier-bytes-during-property-edits.md). This child is limited to 15 minutes and must be split again before larger work. Remaining publication, receiving Workflow and independent portfolio gates are unchanged.
 
 ### Pure-transform completion checkpoint
 

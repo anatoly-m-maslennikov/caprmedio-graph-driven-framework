@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 
 from artifact_metadata import atom_identifier
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, carrier_status_folder, matches_named_value
 from current_subject_graph import compose_current_graph
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import (
     CarrierError,
@@ -19,13 +19,12 @@ from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 _EXCLUDED = {
     "draft",
-    "drafts",
-    "archive",
     "archived",
     "_projection",
     "_journal",
 }
 _ATOM_FILENAME = re.compile(r"(?:[0-9]+-)?CA-[A-Z]-[0-9]+(?:[-.@]|$)")
+_CANONICAL_ROLE = re.compile(r"(?:[0-9]+-)?[A-Z][A-Z0-9]*-(?P<role>[CAPRMEDO])-[1-9][0-9]*(?:[-.@]|$)")
 _ATOM_FIELD = re.compile(rb"(?m)^[ \t]*(?:atom_id|'atom_id'|\"atom_id\")[ \t]*:")
 _FRONTMATTER_OPEN = re.compile(r"\A---\r?\n")
 _FRONTMATTER_CLOSE = re.compile(r"(?m)^---\r?\n")
@@ -33,7 +32,7 @@ _FRONTMATTER_CLOSE = re.compile(r"(?m)^---\r?\n")
 
 def _source_paths(source_root: Path, repository: Path) -> Iterator[Path]:
     relative = source_root.relative_to(repository)
-    if any(part.lower() in _EXCLUDED for part in relative.parts):
+    if any(carrier_status_folder(part) in _EXCLUDED for part in relative.parts):
         return
     if source_root.is_symlink() or any(parent.is_symlink() for parent in source_root.parents):
         raise ValueError("Source folder must not traverse a symlink")
@@ -44,7 +43,7 @@ def _source_paths(source_root: Path, repository: Path) -> Iterator[Path]:
         directories[:] = sorted(
             name
             for name in directories
-            if name.lower() not in _EXCLUDED and not (base / name).is_symlink()
+            if carrier_status_folder(name) not in _EXCLUDED and not (base / name).is_symlink()
         )
         for name in sorted(files):
             path = base / name
@@ -140,9 +139,9 @@ def current_model_carriers(carriers: list[dict[str, Any]]) -> list[dict[str, Any
     selected = []
     for carrier in carriers:
         view = carrier.get("read_view")
-        if not isinstance(view, dict) or view.get("content_role") != "Requirement":
+        if not isinstance(view, dict) or not matches_named_value(view.get("content_role"), "Requirement"):
             continue
-        if view.get("type") in {"Declaration", "Relation Definition"}:
+        if any(matches_named_value(view.get("type"), name) for name in {"Declaration", "Relation Definition"}):
             selected.append(carrier)
     return selected
 
@@ -150,7 +149,16 @@ def current_model_carriers(carriers: list[dict[str, Any]]) -> list[dict[str, Any
 def read_current_model_carriers(source_root: Path, repository: Path) -> list[dict[str, Any]]:
     """Read the Current model frontier without treating Rules as model targets."""
 
-    return current_model_carriers(read_current_carriers(source_root, repository))
+    source_root, repository = source_root.absolute(), repository.absolute()
+    carriers = []
+    for path in _source_paths(source_root, repository):
+        match = _CANONICAL_ROLE.match(path.name)
+        if match is not None and match.group("role") != "R":
+            continue
+        carrier = _read_atom(path, repository)
+        if carrier is not None:
+            carriers.append(carrier)
+    return current_model_carriers(carriers)
 
 
 def build_current_graph(

@@ -1,6 +1,6 @@
 # Workflow responsibility Draft
 
-[Place and Reuse Workflow Definitions](../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/draft/workflow-responsibilities/CA-R-draft-CORE_META_MODEL-RULE--place-and-reuse-workflow-definitions.md) records the responsibility split and cross-scope Step composition.
+[Place and Reuse Workflow Definitions](../../CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft/workflow-responsibilities/CA-R-draft-CORE_META_MODEL-RULE--place-and-reuse-workflow-definitions.md) records the responsibility split and cross-scope Step composition.
 
 The [Current Workflow model Declarations](../../../.caprmedio_tmp/workflow-kinds-20261103/README.md) declare `Workflow/(.Purpose := Runtime)` (CA-R-2734) and `Workflow/(.Purpose := Project)` (CA-R-2735), with the supporting `Workflow.Purpose` Declaration (CA-R-2733) and Workflow parent CA-R-2464 Version 5. Both selections use the same Steps, Substeps and Actions. Purpose does not determine the definition's owning Scope Unit.
 

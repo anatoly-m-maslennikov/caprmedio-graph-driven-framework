@@ -6,7 +6,7 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Topics
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics
 tier: 3
 status: Active
 version: 2
@@ -28,7 +28,7 @@ Declare Atom.Header.Subjects
 
 ```CFEL
 # model
-Atom.Header.Topics{::1}:: []{::0};
+Atom.Header.Context.Topics{::1}:: []{::0};
 
-Atom.Header.Topics.*[in(Main Subject, Dependencies)]{::1..2}
+Atom.Header.Context.Topics.*[in(Main Subject, Dependencies)]{::1..2}
 ```
