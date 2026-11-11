@@ -73,6 +73,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         skill = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca"
         skill.mkdir(parents=True)
         (skill / "SKILL.md").write_text("ca skill", encoding="utf-8")
+        (skill / "references").mkdir()
+        (skill / "references/details.md").write_text("skill reference", encoding="utf-8")
         (self.root / "pyproject.toml").write_text("[project]\nname = 'fixture'\n", encoding="utf-8")
         (self.root / "uv.lock").write_text("version = 1\n", encoding="utf-8")
         (self.root / "version.toml").write_text('[framework]\nversion = "0.4.1"\n', encoding="utf-8")
@@ -271,7 +273,12 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(self.engine_bootstrap.read_bytes(), bootstrap.read_bytes())
         self.assertEqual(0o755, stat.S_IMODE(bootstrap.stat().st_mode))
         for package in (self.runtime / "simple_local_release/package",):
-            self.assertEqual("ca skill", (package / "SKILLS/ca/SKILL.md").read_text())
+            source_skill = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca"
+            expected_skill = {p.relative_to(source_skill): p.read_bytes() for p in source_skill.rglob("*") if p.is_file()}
+            for relative in ("SKILLS/ca", "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca"):
+                packaged_skill = package / relative
+                self.assertEqual(expected_skill, {p.relative_to(packaged_skill): p.read_bytes()
+                                                  for p in packaged_skill.rglob("*") if p.is_file()})
             self.assertEqual("# release source\n", (package / "LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/public_release.py").read_text())
             self.assertFalse((package / "LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/tests").exists())
             self.assertTrue((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/"

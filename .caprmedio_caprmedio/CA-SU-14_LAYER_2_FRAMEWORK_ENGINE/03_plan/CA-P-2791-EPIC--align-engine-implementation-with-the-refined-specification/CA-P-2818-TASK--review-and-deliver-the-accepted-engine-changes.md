@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Active
-  version: 11
-  updated_at: 2026-11-11 08:25:34 +0400
+  version: 12
+  updated_at: 2026-11-11 08:35:07 +0400
 destination:
   file:
     name: CA-P-2818-TASK--review-and-deliver-the-accepted-engine-changes.md
@@ -81,3 +81,9 @@ The checkout starts from `ef8e959d1ee030955dabb880381eca2ea803eb64` with the cur
 The v2 run stopped at source validation after checkpoint `126d529a16`. P2961 records the reader, copy and compiler fixes. The corrected preflight selected 1,061 Methodology Atoms with no conflicts and declaration digest `194e1969e32f5dbd6d45d985e2e2627521710e6f5944d7b98d7be96c688a4ae8`.
 
 Run ID `engine-refinement-20261111-v3`. Repeat focused validation using the 61 exact modules in `.caprmedio_tmp/CA-P-2791/CA-P-2818/focused-retry-modules.json` (SHA-256 `4efeedc517fdb860dfd1121a72e5a56057414b73aee0a17652d8e844dfe1c8b5`). The two added modules cover the corrected Scope Unit reader and retained compiler. Verify the installed Workbench and query_run before closing C729.
+
+## Local Release package retry
+
+The v3 run passed focused validation and compiled the product. Its candidate build stopped at the ca Skill COPY. P2962 records the corrected package and a successful isolated build.
+
+Run ID `engine-refinement-20261111-v4`. Reuse the 61 exact modules in `.caprmedio_tmp/CA-P-2791/CA-P-2818/focused-retry-modules.json` (SHA-256 `4efeedc517fdb860dfd1121a72e5a56057414b73aee0a17652d8e844dfe1c8b5`). Verify the actual installed Workbench and query_run before closing C729.

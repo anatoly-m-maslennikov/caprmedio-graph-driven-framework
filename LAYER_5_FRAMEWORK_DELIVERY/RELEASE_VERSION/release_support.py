@@ -299,6 +299,8 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
         (product / "SUPERLAYER_1_METHODOLOGY_SOURCES", Path("METHODOLOGY/sources")),
         (product / "applicable_methodology", Path("METHODOLOGY/compiled")),
         (root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca", Path("SKILLS/ca")),
+        (root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca",
+         Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca")),
     )
     sources: list[tuple[Path, Path]] = []
     inventories: list[tuple[Path, list[Path]]] = []
@@ -353,6 +355,7 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
     expected[tool_registry.relative_to(package).as_posix()] = _file_identity(tool_registry)
     for relative in (
         "SKILLS/ca/SKILL.md",
+        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/project_mcp_bootstrap.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/docker/start_mcp.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/docker/runtime.py",
