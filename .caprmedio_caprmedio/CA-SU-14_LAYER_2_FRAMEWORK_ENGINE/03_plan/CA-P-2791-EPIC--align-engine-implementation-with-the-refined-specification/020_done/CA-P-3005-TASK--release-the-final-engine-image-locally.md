@@ -12,13 +12,13 @@ context:
   tier: 4
   label: Task
 state:
-  status: active
+  status: done
   version: 1
   updated_at: '2026-11-11T22:18:41.347311+04:00'
 destination:
   file:
     name: CA-P-3005-TASK--release-the-final-engine-image-locally.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done
 relations:
   IS_BLOCKED_BY:
   - CA-P-3003

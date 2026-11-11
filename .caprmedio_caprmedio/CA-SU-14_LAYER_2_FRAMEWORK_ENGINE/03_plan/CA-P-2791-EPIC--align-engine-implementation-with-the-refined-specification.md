@@ -13,8 +13,8 @@ context:
   label: Epic
 state:
   status: active
-  version: 41
-  updated_at: '2026-11-11T23:40:04.931365+04:00'
+  version: 42
+  updated_at: '2026-11-12T00:01:59.664109+04:00'
 destination:
   file:
     name: CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification.md
@@ -77,10 +77,10 @@ P2767 source refinement, actual Current graph and source reports are the entry b
 - [x] [Implement the new Atom Lifecycle Tools](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done/CA-P-2934-TASK--implement-the-new-atom-lifecycle-tools.md)
 
 - [x] [Verify the six lifecycle tools in the final image](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done/CA-P-3003-TASK--verify-the-six-lifecycle-tools-in-the-final-image.md)
-- [ ] [Verify lifecycle input handling against CA-E-824](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-3004-TASK--verify-lifecycle-input-handling-against-ca-e-824.md)
-- [ ] [Release the final Engine image locally](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-3005-TASK--release-the-final-engine-image-locally.md)
+- [x] [Verify lifecycle input handling against CA-E-824](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done/CA-P-3004-TASK--verify-lifecycle-input-handling-against-ca-e-824.md)
+- [x] [Release the final Engine image locally](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done/CA-P-3005-TASK--release-the-final-engine-image-locally.md)
 
-- [ ] [Fix live Atom lifecycle latency and Scope Unit refresh](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/CA-P-3006-TASK--fix-live-atom-lifecycle-latency-and-scope-refresh.md)
+- [x] [Fix live Atom lifecycle latency and Scope Unit refresh](CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done/CA-P-3006-TASK--fix-live-atom-lifecycle-latency-and-scope-unit-refresh.md)
 
 ## Definition of Done
 

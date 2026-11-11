@@ -12,13 +12,13 @@ context:
   tier: 4
   label: Task
 state:
-  status: active
+  status: done
   version: 1
   updated_at: '2026-11-11T23:40:04.931365+04:00'
 destination:
   file:
-    name: CA-P-3006-TASK--fix-live-atom-lifecycle-latency-and-scope-refresh.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification
+    name: CA-P-3006-TASK--fix-live-atom-lifecycle-latency-and-scope-unit-refresh.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done
 relations:
   IS_BLOCKED_BY:
   - CA-P-2934

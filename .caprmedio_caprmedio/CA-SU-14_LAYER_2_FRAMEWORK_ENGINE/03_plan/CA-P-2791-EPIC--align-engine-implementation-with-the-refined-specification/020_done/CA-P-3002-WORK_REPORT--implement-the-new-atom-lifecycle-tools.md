@@ -16,12 +16,12 @@ relations:
   - CA-P-2934
 state:
   version: 1
-  status: active
+  status: done
   updated_at: '2026-11-11T17:42:54.920323+00:00'
 destination:
   file:
     name: CA-P-3002-WORK_REPORT--implement-the-new-atom-lifecycle-tools.md
-    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done
 ---
 ## Summary
 
