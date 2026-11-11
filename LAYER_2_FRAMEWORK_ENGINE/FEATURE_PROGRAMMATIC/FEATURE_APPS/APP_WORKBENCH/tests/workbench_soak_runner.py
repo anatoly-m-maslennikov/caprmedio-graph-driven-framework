@@ -114,7 +114,11 @@ def run(seconds: int, *, calibrate: bool, output: Path | None) -> dict[str, Any]
                     samples[-1].memory_current > CURRENT_MEMORY_LIMIT_BYTES
                     or samples[-1].memory_peak > PEAK_MEMORY_LIMIT_BYTES
                 ):
-                    raise AssertionError("resource workload exceeded frozen current/peak memory budgets")
+                    raise AssertionError(
+                        f"resource workload exceeded frozen memory budgets at cycle {cycles}: "
+                        f"current={samples[-1].memory_current}/{CURRENT_MEMORY_LIMIT_BYTES}, "
+                        f"peak={samples[-1].memory_peak}/{PEAK_MEMORY_LIMIT_BYTES}"
+                    )
                 if time.monotonic() >= next_report + 60:
                     record({"status": "progress", "cycles": cycles,
                             "continuous_seconds": time.monotonic() - continuous_start,

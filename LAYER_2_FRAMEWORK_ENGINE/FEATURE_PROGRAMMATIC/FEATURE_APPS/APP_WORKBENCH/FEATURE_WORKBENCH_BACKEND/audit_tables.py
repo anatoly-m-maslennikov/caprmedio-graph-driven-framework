@@ -178,23 +178,9 @@ def issues_for_source(
             add(TABLES[2], "physical_carrier_mismatch", f"file.{key}", actual, expected,
                 f"Actual carrier {key} differs from its declaration.")
 
-    name = declared.get("name")
     declared_path = declared.get("path")
-    declared_carrier = Path(declared_path) / name if isinstance(declared_path, str) and isinstance(name, str) else None
-    if declared_carrier is not None and filename_candidate(declared_carrier) and not filename_role_matches(declared_carrier):
-        add(TABLES[1], "declared_carrier_inconsistency", "file.name", name, declared_path,
-            "The declared filename role conflicts with its declared role directory.")
-    if isinstance(name, str):
-        identity = row.get("id")
-        if not result[TABLES[1]] and isinstance(identity, str) and atom_identifier(identity) == identity and identity.startswith("CA-"):
-            if atom_identifier(name) != identity:
-                add(TABLES[1], "declared_carrier_inconsistency", "file.name", name, identity,
-                    "Declared filename identifies a different Atom.")
-        role = row.get("role")
-        marker = filename_marker(Path(name))
-        if not result[TABLES[1]] and marker and isinstance(role, str) and role and marker != role[0].upper():
-            add(TABLES[1], "declared_carrier_inconsistency", "file.name", name, role,
-                "Declared filename role conflicts with Header Role.")
+    if issue := _declared_filename_issue(declared.get("name"), declared_path, row):
+        add(TABLES[1], "declared_carrier_inconsistency", *issue)
     _, container = header_value(header, "container")
     owner = container.get("scope_unit") if isinstance(container, dict) else None
     owner_path = scope_paths.get(owner) if isinstance(owner, str) else None
@@ -202,6 +188,26 @@ def issues_for_source(
         add(TABLES[1], "declared_carrier_inconsistency", "file.path", declared_path, owner_path,
             "Declared carrier path is outside its owning Scope Unit.")
     return result
+
+
+def _declared_filename_issue(
+    name: object, declared_path: object, row: Mapping[str, Any],
+) -> tuple[str, object, object, str] | None:
+    declared = Path(declared_path) / name if isinstance(declared_path, str) and isinstance(name, str) else None
+    if declared is not None and filename_candidate(declared) and not filename_role_matches(declared):
+        return ("file.name", name, declared_path,
+                "The declared filename role conflicts with its declared role directory.")
+    if not isinstance(name, str):
+        return None
+    identity = row.get("id")
+    if isinstance(identity, str) and atom_identifier(identity) == identity and identity.startswith("CA-"):
+        if atom_identifier(name) != identity:
+            return "file.name", name, identity, "Declared filename identifies a different Atom."
+    role = row.get("role")
+    marker = filename_marker(Path(name))
+    if marker and isinstance(role, str) and role and marker != role[0].upper():
+        return "file.name", name, role, "Declared filename role conflicts with Header Role."
+    return None
 
 
 def _text(value: object) -> str | None:

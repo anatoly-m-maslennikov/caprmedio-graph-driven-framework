@@ -13,8 +13,7 @@ from .graph_store import GraphState, apply_graph_delta, graph_state, update_grap
 from .content_schema import ContentSchema
 from .header_columns import HeaderSchema
 from .index_delta import MaterializationDelta
-from .public_rows import SCOPE_FIELDS, atom_fields, atom_key, projected_rows
-from .relations import canonical
+from .public_rows import SCOPE_FIELDS, atom_fields, atom_key, insert_public_rows, projected_rows
 
 
 @dataclass(frozen=True)
@@ -63,20 +62,6 @@ def snapshot(
         {row["name"]: row for row in public_scopes},
         graph_state(atom_rows, scope_rows, relation_types), header_schema, content_schema, atom_sources,
     )
-
-
-def _insert_rows(
-    connection: Any, name: str, fields: tuple[str, ...], rows: list[dict[str, Any]], *, json_fields: frozenset[str],
-) -> None:
-    if rows:
-        connection.executemany(
-            f"INSERT INTO main.{name} VALUES ({','.join('?' for _ in fields)})",
-            [
-                tuple(canonical(row[field]) if field in json_fields and row[field] is not None else row[field]
-                      for field in fields)
-                for row in rows
-            ],
-        )
 
 
 def _same_header_layout(left: HeaderSchema, right: HeaderSchema) -> bool:
@@ -137,12 +122,12 @@ def _write_public_delta(
         if name in previous.scopes:
             connection.execute("DELETE FROM main.scope_units WHERE name = ?", [name])
             deleted_scopes += 1
-    _insert_rows(
+    insert_public_rows(
         connection, "atoms", atom_fields(current.header_schema, current.content_schema),
         [current.atoms[key] for key in changed_atoms if key in current.atoms],
         json_fields=current.header_schema.json_names | {"header.relations"},
     )
-    _insert_rows(
+    insert_public_rows(
         connection, "scope_units", SCOPE_FIELDS,
         [current.scopes[key] for key in changed_scopes if key in current.scopes],
         json_fields=frozenset({"relations"}),

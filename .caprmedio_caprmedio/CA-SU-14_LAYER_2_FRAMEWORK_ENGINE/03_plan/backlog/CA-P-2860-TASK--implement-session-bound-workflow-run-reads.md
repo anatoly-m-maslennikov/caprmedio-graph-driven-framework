@@ -13,8 +13,8 @@ context:
   tier: 4
 state:
   status: Backlog
-  version: 2
-  updated_at: 2026-11-11 00:29:06 +0400
+  version: 3
+  updated_at: 2026-11-11 02:04:04 +0400
 destination:
   file:
     name: CA-P-2860-TASK--implement-session-bound-workflow-run-reads.md
@@ -44,5 +44,7 @@ Implement the adopted session envelope and per-session active Run/history RMEDO.
 The scoped deliverable is reviewed and its actual checks and remaining holds are recorded. Tasks do not replace RMEDO.
 
 ## Deferral
+
+Run/history reads remain explicitly deferred; Backlog is not authorization to start. The broader Workflow-engine deferral in P2791 applies.
 
 The Operator deferred Run/history reads on 11 November 2026. Generic session context and the plugin-free hook proceed in P2910/P2861. Do not add a parallel Run store or return empty success for an absent state owner.

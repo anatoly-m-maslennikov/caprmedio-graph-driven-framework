@@ -15,7 +15,7 @@ topics:
   - CAPRMEDIO_MODEL <+ Scope Unit
   - "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure"
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Evaluation)
-tier: 2
+tier: 3
 relations:
   child_of:
   - CA-E-001
@@ -23,11 +23,11 @@ relations:
   - CA-R-1407
   - CA-R-007
 status: Active
-version: 30
-updated_at: 2026-11-02 18:35:20 +0400
+version: 31
+updated_at: 2026-11-11 05:09:29 +0400
 carrier_destination:
   file:
-    name: CA-E-436-CAPRMEDIO-EVAL_POLICY--evaluate-graph-of-graphs-connectivity.md
+    name: CA-E-436-EVAL_POLICY--evaluate-graph-of-graphs-connectivity.md
     path: .caprmedio_caprmedio/06_evaluation
 cce_version: cce_1
 cce_form: evaluation

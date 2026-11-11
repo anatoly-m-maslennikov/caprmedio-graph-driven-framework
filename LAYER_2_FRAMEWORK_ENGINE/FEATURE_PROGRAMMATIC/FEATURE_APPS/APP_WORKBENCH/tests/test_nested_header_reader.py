@@ -38,6 +38,7 @@ class NestedHeaderReaderTests(unittest.TestCase):
         self.reader = SourceReader(self.root)
 
     def _path(self, name: str) -> Path:
+        name = "CA-R-" + name
         path = Path(self.declarations["MAIN"]["authority_path"]) / "04_requirement" / name
         path.parent.mkdir(parents=True, exist_ok=True)
         return path
@@ -72,7 +73,7 @@ class NestedHeaderReaderTests(unittest.TestCase):
             name,
             atom_id,
             form="Declaration",
-            body=f"# Claim\n\n```CFEL\n# model\n{statement}\n```\n",
+            body=f"## Claim\n\n### Formal Claim\n\n```CFEL\n{statement}\n```\n",
         )
 
     def test_nested_and_flat_headers_keep_typed_values_and_raw_properties(self) -> None:
@@ -120,7 +121,7 @@ class NestedHeaderReaderTests(unittest.TestCase):
         self._nested(
             "contained-by.md", "CA-R-201", form="Relation Definition",
             topic="Subject/Graph/Relation//IS_CONTAINED_BY",
-            body="```CFEL\nRelation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n```\n",
+            body="## Claim\n\n### Formal Claim\n\n```CFEL\nRelation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n```\n",
         )
         self._nested(
             "contains.md", "CA-R-202", form="Relation Definition",
@@ -305,7 +306,7 @@ class NestedHeaderReaderTests(unittest.TestCase):
 
         self.assertIsNone(self.reader.capture_delta[source.relative_to(self.root).as_posix()])
 
-    def test_duplicate_model_definition_does_not_contribute_until_repaired(self) -> None:
+    def test_duplicate_model_definition_keeps_first_and_admits_repaired_copy(self) -> None:
         first = self._model_declaration(
             "first-model.md", "CA-R-411", "Atom.Content.Summary{::1}:: {::1};",
         )
@@ -313,7 +314,8 @@ class NestedHeaderReaderTests(unittest.TestCase):
             "duplicate-model.md", "CA-R-411", "Atom.Content.Summary{::1}:: {::1};",
         )
         self.reader.capture()
-        self.assertEqual((), self.reader.content_schema.names)
+        self.assertEqual(("content.summary",), self.reader.content_schema.names)
+        self.assertEqual(1, len(self.reader.content_schema.sources))
         duplicate.write_text(
             duplicate.read_text(encoding="utf-8").replace("CA-R-411", "CA-R-412"), encoding="utf-8",
         )
@@ -324,8 +326,9 @@ class NestedHeaderReaderTests(unittest.TestCase):
                 "new_path": duplicate.relative_to(self.root).as_posix(),
             }])
 
-        self.assertEqual(1, full.call_count)
+        self.assertEqual(0, full.call_count)
         self.assertEqual(("content.summary",), self.reader.content_schema.names)
+        self.assertEqual(2, len(self.reader.content_schema.sources))
         self.assertTrue(first.is_file())
 
 

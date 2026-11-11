@@ -7,16 +7,16 @@ role: Requirement
 form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
-tier: 2
+tier: 4
 relations:
   child_of:
   - CA-R-635
 status: Active
-version: 13
-updated_at: 2026-11-02 00:18:22 +0400
+version: 14
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-636-CAPRMEDIO-RULE--repair-the-earliest-inadequate-authority.md
+    name: CA-R-636-RULE--repair-the-earliest-inadequate-authority.md
     path: .caprmedio_caprmedio/04_requirement
 subject_scopes:
 - continuous-improvement

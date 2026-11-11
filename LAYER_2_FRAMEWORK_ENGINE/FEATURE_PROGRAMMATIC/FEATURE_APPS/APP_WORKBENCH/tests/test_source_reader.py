@@ -72,6 +72,8 @@ class SourceReaderTests(unittest.TestCase):
         self.reader = SourceReader(self.root)
 
     def _path(self, scope: str, role: str, filename: str, *parts: str) -> Path:
+        if not filename.startswith(("CA-", "CAPRMEDIO-")) and filename not in {"README.md", "REPORT.md"}:
+            filename = "CA-R-" + filename
         path = Path(self.declarations[scope]["authority_path"]) / role
         if parts:
             path = path.joinpath(*parts)
@@ -237,7 +239,7 @@ class SourceReaderTests(unittest.TestCase):
             {path.relative_to(self.root).as_posix() for path in drafts},
         )
 
-    def test_generic_and_legacy_filename_markers_are_candidates(self) -> None:
+    def test_other_project_and_legacy_role_markers_are_not_current_atom_filenames(self) -> None:
         legacy_concern = self._path("fixture", "01_concern", "CAPRMEDIO-CONC-004--legacy.md")
         legacy_concern.write_text(
             "---\natom_id: CAPRMEDIO-CONC-004\nversion: 1\n---\n# Legacy concern\n",
@@ -255,9 +257,9 @@ class SourceReaderTests(unittest.TestCase):
         paths = {row["source_path"] for row in atoms}
 
         self.assertEqual(stderr, "")
-        self.assertIn(legacy_concern.relative_to(self.root).as_posix(), paths)
-        self.assertIn(legacy_analysis.relative_to(self.root).as_posix(), paths)
-        self.assertIn(draft.relative_to(self.root).as_posix(), paths)
+        self.assertNotIn(legacy_concern.relative_to(self.root).as_posix(), paths)
+        self.assertNotIn(legacy_analysis.relative_to(self.root).as_posix(), paths)
+        self.assertNotIn(draft.relative_to(self.root).as_posix(), paths)
 
     def test_unrepresentable_convenience_integer_keeps_the_full_header_value(self) -> None:
         value = 2**100
@@ -276,8 +278,9 @@ class SourceReaderTests(unittest.TestCase):
             "MAIN", "04_requirement", "CA-R-701-MAIN-DECLARATION--header.md",
             atom_id="CA-R-701", form="Declaration", body="""## Claim
 
+### Formal Claim
+
 ~~~CFEL
-# model
 Atom.Header.Tier:: [int]{::1};
 ~~~
 """,
@@ -315,8 +318,9 @@ Atom.Header.Tier:: [int]{::1};
             "MAIN", "04_requirement", "CA-R-702-MAIN-DECLARATION--header.md",
             atom_id="CA-R-702", form="Declaration", body="""## Claim
 
+### Formal Claim
+
 ~~~CFEL
-# model
 Atom.Header.Tier:: [int]{::1};
 ~~~
 """,
@@ -345,8 +349,9 @@ Atom.Header.Tier:: [int]{::1};
             "MAIN", "04_requirement", "CA-R-703-MAIN-DECLARATION--header.md",
             atom_id="CA-R-703", form="Declaration", body="""## Claim
 
+### Formal Claim
+
 ~~~CFEL
-# model
 Atom.Header.Tier:: [int]{::1};
 ~~~
 """,
@@ -382,8 +387,9 @@ Atom.Header.Tier:: [int]{::1};
             "MAIN", "04_requirement", "CA-R-704-MAIN-DECLARATION--header.md",
             atom_id="CA-R-704", form="Declaration", body="""## Claim
 
+### Formal Claim
+
 ~~~CFEL
-# model
 Atom.Header.Tier:: [int]{::1};
 ~~~
 """,
@@ -475,7 +481,7 @@ Atom.Header.Tier:: [int]{::1};
         self._write_atom(
             "MAIN", "04_requirement", "CA-R-490-content-model.md", atom_id="CA-R-490",
             form="Declaration",
-            body="## Claim\n\n```CFEL\n# model\nAtom.Content.Summary{::1}:: {::1};\n```\n",
+            body="## Claim\n\n### Formal Claim\n\n```CFEL\nAtom.Content.Summary{::1}:: {::1};\n```\n",
         )
         path = self._write_atom(
             "MAIN",
@@ -628,7 +634,7 @@ Atom.Header.Tier:: [int]{::1};
         self.assertEqual(stderr, "")
         self.assertNotIn("README.md", {row["source_path"] for row in atoms})
         self.assertNotIn("REPORT.md", {row["source_path"] for row in atoms})
-        self.assertNotIn(copied_atom.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms})
+        self.assertIn(copied_atom.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms})
         self.assertEqual(self.reader.excluded_count, 0)
 
     def test_unterminated_plain_review_markdown_is_ignored_without_a_diagnostic(self) -> None:
@@ -662,7 +668,7 @@ Atom.Header.Tier:: [int]{::1};
                 },),
                 control_root=control,
             )
-            source = Path(declarations["MAIN"]["authority_path"]) / "04_requirement" / "current.md"
+            source = Path(declarations["MAIN"]["authority_path"]) / "04_requirement" / "CA-R-701-current.md"
             source.parent.mkdir(parents=True, exist_ok=True)
             source.write_text(
                 "---\natom_id: CA-R-701\nrole: Requirement\nform: Definition\n"
@@ -697,14 +703,14 @@ Atom.Header.Tier:: [int]{::1};
         self.assertEqual(row["_content_bytes"], body)
         self.assertEqual(source_markdown(row), body.decode("utf-8"))
 
-    def test_unreadable_role_mismatched_filename_is_ignored(self) -> None:
+    def test_unreadable_matching_atom_is_reported_even_in_another_role_folder(self) -> None:
         proof_copy = self._write_atom(
             "MAIN", "02_analysis", "CA-R-703-proof-copy.md", atom_id="CA-R-703"
         )
         original_read = source_reader_module.ReadContext.read
 
         def fail_proof_copy(context, path, **kwargs):
-            if Path(path) == proof_copy:
+            if Path(path).resolve() == proof_copy.resolve():
                 raise OSError("proof copy unavailable")
             return original_read(context, path, **kwargs)
 
@@ -712,9 +718,9 @@ Atom.Header.Tier:: [int]{::1};
         with patch.object(source_reader_module.ReadContext, "read", new=fail_proof_copy), redirect_stderr(stderr):
             atoms, _scopes = self.reader.capture()
 
-        self.assertEqual(stderr.getvalue(), "")
+        self.assertIn("proof copy unavailable", stderr.getvalue())
         self.assertNotIn(proof_copy.relative_to(self.root).as_posix(), {row["source_path"] for row in atoms})
-        self.assertEqual(self.reader.excluded_count, 0)
+        self.assertEqual(self.reader.excluded_count, 1)
 
     def test_broken_scope_declaration_reports_and_raises(self) -> None:
         declaration = Path(self.declarations["MAIN"]["declaration_path"])
@@ -737,6 +743,7 @@ Atom.Header.Tier:: [int]{::1};
         source = self._write_atom("MAIN", "04_requirement", "explicit.md", atom_id="CA-R-501")
         settings = self.control / "caprmedio_project_settings.toml"
         settings.write_text(settings.read_text().replace('project_prefix = "CA"', 'project_prefix = "demo"'))
+        source = source.rename(source.with_name("demo-R-explicit.md"))
 
         reader = SourceReader(self.root, self.control)
         atoms, scopes = reader.capture()

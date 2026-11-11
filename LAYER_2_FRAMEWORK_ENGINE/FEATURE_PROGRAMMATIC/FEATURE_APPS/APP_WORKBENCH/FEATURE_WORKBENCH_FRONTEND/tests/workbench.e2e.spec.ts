@@ -174,7 +174,7 @@ test('keeps dirty SQL through Run and Check under the Project Workbench header',
   await expect(header.getByText('Workbench', { exact: true })).toBeVisible();
   await expect(header.getByText(`Project: ${projectName}`, { exact: true })).toBeVisible();
   await expect(header.getByRole('tab', { name: 'Settings', exact: true })).toBeVisible();
-  await expect(header.getByRole('tab', { name: 'Saved Queries and Views' })).toBeVisible();
+  await expect(header.getByRole('tab', { name: 'Bookmarks and saved Views' })).toBeVisible();
   await expect(page.getByText('Query editor', { exact: true })).toBeVisible();
   await replaceSql(page, 'SELECT reference FROM atoms ORDER BY reference LIMIT 1');
   await runSql(page);
@@ -185,7 +185,7 @@ test('keeps dirty SQL through Run and Check under the Project Workbench header',
   await expect(page.getByText('Valid: 1 rows, 1 columns.')).toBeVisible();
   await expect(page.getByRole('tab', { name: /^View 1 \*/ })).toBeVisible();
   await page.getByRole('button', { name: 'Run & Save', exact: true }).click();
-  const queryName = page.getByRole('dialog', { name: 'Query name' }).getByRole('textbox');
+  const queryName = page.getByRole('dialog', { name: 'Bookmark name' }).getByRole('textbox');
   await queryName.fill('E2E query');
   await queryName.press('Enter');
   await expect(page.locator('.panel-heading').getByText(/^Saved:/)).toBeVisible();
@@ -240,7 +240,7 @@ test('restores local View state and opens a saved View without running it', asyn
   await page.keyboard.press('Meta+P');
   await page.getByRole('dialog', { name: 'Command palette' }).getByRole('textbox').fill('Open Saved');
   await page.keyboard.press('Enter');
-  const referenceInput = page.getByRole('dialog', { name: 'Open saved query or View' }).getByRole('textbox');
+  const referenceInput = page.getByRole('dialog', { name: 'Open Bookmark or saved View' }).getByRole('textbox');
   await expect(referenceInput).toBeFocused();
   await referenceInput.fill(id!);
   await page.keyboard.press('Enter');
@@ -457,7 +457,7 @@ test('uses palette navigation, quoted status completion, and focus after hiding 
   await page.keyboard.press('Control+N');
   await page.keyboard.press('Enter');
   await expect(palette).toBeHidden();
-  await expect(page.getByRole('region', { name: 'Saved Queries and Views' })).toBeVisible();
+  await expect(page.getByRole('region', { name: 'Bookmarks and saved Views' })).toBeVisible();
   await page.keyboard.press('Meta+P');
   await expect(palette).toBeVisible();
   await expect(palette.getByRole('textbox')).toBeFocused();

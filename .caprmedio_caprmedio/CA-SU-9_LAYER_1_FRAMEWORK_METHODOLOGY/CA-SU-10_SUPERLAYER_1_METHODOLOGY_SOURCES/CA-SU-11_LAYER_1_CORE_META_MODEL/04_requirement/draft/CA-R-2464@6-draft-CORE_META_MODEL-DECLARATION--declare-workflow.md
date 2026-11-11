@@ -10,7 +10,7 @@ topics:
 tier: 3
 status: Draft
 version: 6
-updated_at: 2026-11-05 02:11:07 +0400
+updated_at: '2026-11-11 05:13:50 +0400'
 carrier_destination:
   file:
     name: CA-R-2464@6-draft-DECLARATION--declare-workflow.md
@@ -28,6 +28,8 @@ Declare Workflow
 ```CFEL
 # model
 Atom/(.Header.Role := Operations)/Workflow;
+
+Workflow.Header.Form:: [in (Workflow)]{::1};
 
 Atom/(.Header.Role := Operations)/Workflow >| (Container == yes);
 

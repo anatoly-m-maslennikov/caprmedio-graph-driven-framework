@@ -10,17 +10,17 @@ topics:
   dependencies:
   - CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   - CAPRMEDIO_MODEL <+ Project
-tier: 1
+tier: 3
 relations:
   child_of:
   - CA-E-001
-  - CA-R-1423
+  - CA-R-3043
 status: Active
-version: 28
-updated_at: 2026-11-02 18:35:20 +0400
+version: 29
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-053-CAPRMEDIO-RULE--bound-improvement-claims-to-a-comparison-frame.md
+    name: CA-R-053-RULE--bound-improvement-claims-to-a-comparison-frame.md
     path: .caprmedio_caprmedio/04_requirement
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

@@ -12,8 +12,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 1
-  updated_at: 2026-11-11 00:22:27 +0400
+  version: 2
+  updated_at: 2026-11-11 02:04:04 +0400
 destination:
   file:
     name: CA-C-727-PROBLEM--implementation-prompt-frontier-has-no-current-workflow-sources.md
@@ -37,3 +37,7 @@ Implementation prompt frontier has no Current Workflow sources
 P2816 found that 18 of 21 staged shared-context source bindings have no identifiable Current source or explicit replacement, including Workflow O016 and its old Steps. Current D544 names O239, but O239 and the staged O230 are not Current. Six native and ten staged static tests pass while checking the obsolete frontier. R1843 requires affected prompts to remain unadmitted until the Current source graph is independently reviewed.
 
 R1844/M329/D545 also require an all-active-Method projection, while the current implementation procedure selects applicable M Policy guidance and gathers non-Policy Methods separately. Reconcile those source contracts before changing prompt admission. Preserve frozen/native bindings; do not restore retired orchestration or refresh source pins just to pass tests.
+
+## Deferral
+
+The Operator deferred Workflow-engine and associated stale prompt-frontier work on 11 November 2026. Preserve this unresolved finding and existing bindings. Its repair is excluded from current image acceptance and does not block Workbench or query_run. Resume only on explicit Operator instruction.

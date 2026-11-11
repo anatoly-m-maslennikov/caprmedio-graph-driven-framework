@@ -31,8 +31,13 @@ class DeclaredHeaderRulesTests(unittest.TestCase):
             "status_group": status_group,
             "role": role,
             "form": form,
-            "content_markdown": f"```CFEL\n# model\n{statement}\n```\n",
+            "content_markdown": f"## Claim\n\n### Formal Claim\n\n```CFEL\n{statement}\n```\n",
         }
+
+    def test_cfel_outside_formal_claim_does_not_contribute(self) -> None:
+        declaration = self.declaration("CA-R-1", "Atom.Header.Priority:: [string]{::1};")
+        declaration["content_markdown"] = "## Claim\n\n```CFEL\nAtom.Header.Priority:: [string]{::1};\n```\n"
+        self.assertEqual((), compile_header_rules([declaration]))
 
     def test_declared_paths_replace_the_handwritten_property_list(self) -> None:
         rules = compile_header_rules([
@@ -114,6 +119,24 @@ class DeclaredHeaderRulesTests(unittest.TestCase):
             compile_header_rules([wildcard, name, path]),
             resolve_header_rules((*header_declaration_rules(wildcard), *raw_name, *header_declaration_rules(path))),
         )
+
+    def test_explicit_format_does_not_replace_an_inherited_wildcard_constraint(self) -> None:
+        rules = compile_header_rules([
+            self.declaration("CA-R-1", "Atom.Header.Details.*:: [string];"),
+            self.declaration("CA-R-2", "Atom.Header.Details.Note:: [string];"),
+        ])
+        self.assertEqual(
+            {
+                ("CA-R-2", None, ("details", "note"), "VARCHAR"),
+                ("CA-R-2", "CA-R-1", ("details", "note"), "VARCHAR"),
+            },
+            {
+                (rule.source.reference, rule.format_source.reference if rule.format_source else None,
+                 rule.path, rule.format)
+                for rule in rules
+            },
+        )
+        self.assertEqual(2, len(rules))
 
     def test_ignores_non_model_prose_formula_relations_and_noncurrent_sources(self) -> None:
         row = self.declaration(

@@ -199,7 +199,7 @@ class GraphDeltaTest(unittest.TestCase):
         self.assertEqual(
             [("new", "A.md", "A")],
             self.store._connection.execute(
-                'SELECT "relative path", filename, reference FROM atoms'
+                'SELECT "relative_path", filename, reference FROM atoms'
             ).fetchall(),
         )
         self.assertEqual(

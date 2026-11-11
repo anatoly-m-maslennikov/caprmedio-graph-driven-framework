@@ -1,4 +1,4 @@
-# CA-E-794@2
+# CA-E-794@3
 """Pure support for the opt-in Workbench live canary."""
 
 from __future__ import annotations
@@ -52,7 +52,7 @@ def request(url: str, *, method: str = "GET", payload: dict | None = None) -> tu
     except HTTPError as error:
         with error:
             raw = error.read().decode("utf-8")
-        return error.code, json.loads(raw) if raw else {}
+        return error.code, (json.loads(raw) if error.headers.get_content_type() == "application/json" and raw else raw)
     except URLError as error:
         raise LiveCanaryError(f"live Workbench is unavailable: {error.reason}") from error
 
@@ -148,10 +148,10 @@ def atom_carrier(
         "  container:\n"
         f"    scope_unit: {scope.scope_unit_id}\n"
         "  role: Requirement\n"
-        "  form: Definition\n"
-        f"  scope_unit_name: {scope.name}\n"
+        "  form: Declaration\n"
+        "  tier: 1\n"
         "  topics:\n"
-        "    main_subject: Subject/Graph/Node/Project Model/Atom\n"
+        "    main_subject: MODEL//CAPRMEDIO <+ Atom\n"
         "    dependencies: []\n"
         "relations: {}\n"
         "state:\n"

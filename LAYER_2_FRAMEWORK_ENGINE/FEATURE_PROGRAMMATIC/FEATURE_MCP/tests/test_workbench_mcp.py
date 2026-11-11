@@ -29,8 +29,8 @@ class FakeService:
         self.calls = []
         self.closed = False
 
-    def run(self, sql, page_size=100, cursor_position=None, *, save=False, preview=None, name=None):
-        self.calls.append((RUN, sql, page_size, cursor_position, save, preview, name))
+    def run(self, sql, page_size=100, cursor_position=None, *, save=False, preview=None, name=None, result_delivery="file", result_format="json_matrix"):
+        self.calls.append((RUN, sql, page_size, cursor_position, save, preview, name, result_delivery, result_format))
         result = {
             "query_id": "q-1", "columns": [{"name": "sql", "type": "VARCHAR"}],
             "rows": [[sql]], "row_count": 1, "column_count": 1,
@@ -44,8 +44,8 @@ class FakeService:
         self.calls.append((CHECK, sql, cursor_position))
         return {"valid": True, "row_count": 1, "column_count": 1}
 
-    def page(self, query_id, offset, page_size=100, *, grid=None):
-        self.calls.append((PAGE, query_id, offset, page_size, grid))
+    def page(self, query_id, offset, page_size=100, *, grid=None, preview=None, result_delivery="file", result_format="json_matrix"):
+        self.calls.append((PAGE, query_id, offset, page_size, grid, result_delivery, result_format))
         return {
             "query_id": query_id, "columns": [{"name": "sql", "type": "VARCHAR"}],
             "rows": [[query_id]], "row_count": 1, "column_count": 1,
@@ -135,9 +135,9 @@ class WorkbenchToolsTests(unittest.TestCase):
 
         asyncio.run(exercise())
         self.assertEqual(
-            [(RUN, "SELECT 1", 100, None, False, None, None), (PAGE, "q-1", 0, 1, None), (CHECK, "SELECT 1", None),
-             (RUN, "SELECT 2", 100, 2, True, None, "saved"), (SAVE_VIEW, "SELECT 3", "view"),
-             (RUN, "SELECT 4", 100, None, True, None, "   "), (LOAD, "q_2"),
+            [(RUN, "SELECT 1", 100, None, False, None, None, "file", "json_matrix"), (PAGE, "q-1", 0, 1, None, "file", "json_matrix"), (CHECK, "SELECT 1", None),
+             (RUN, "SELECT 2", 100, 2, True, None, "saved", "file", "json_matrix"), (SAVE_VIEW, "SELECT 3", "view"),
+             (RUN, "SELECT 4", 100, None, True, None, "   ", "file", "json_matrix"), (LOAD, "q_2"),
              (SCHEMA,), (SAVED_LIST, 3), (WORKSPACE_OPEN, {"session_id": "session-1"}),
              (VIEW_CREATE, {"workspace_id": "session-1"}),
              (VIEW_DUPLICATE, {"workspace_id": "session-1", "view_id": "source-view"}),
@@ -161,7 +161,7 @@ class WorkbenchToolsTests(unittest.TestCase):
             (PAGE, {"query_id": "q", "offset": True}, "offset must be a non-negative integer"),
             (PAGE, {"query_id": "q", "offset": -1}, "offset must be a non-negative integer"),
             (PAGE, {"query_id": "q", "offset": 0, "page_size": True}, "page_size must be an integer"),
-            (PAGE, {"query_id": "q", "offset": 0, "unknown": 1}, "Expected query_id, offset, optional page_size and grid"),
+            (PAGE, {"query_id": "q", "offset": 0, "unknown": 1}, "Expected query_id and optional pagination, grid and result options"),
             (RUN, {"sql": "SELECT 1", "page_size": True}, "page_size must be an integer"),
             (RUN, {"sql": "SELECT 1", "name": "forbidden"}, "name is only valid when save is true"),
             (RUN, {"sql": "SELECT 1", "save": "yes"}, "save must be a boolean"),

@@ -2,6 +2,7 @@
 # CA-D-681@9
 # CA-E-781@1
 # CA-D-696@1
+# CA-E-819@1
 
 """Real MCP and HTTP boundary proof for Workspace Views."""
 
@@ -20,6 +21,7 @@ from unittest.mock import patch
 import httpx2
 from mcp.client.session import ClientSession
 from mcp.client.streamable_http import streamable_http_client
+from watchdog.observers.polling import PollingObserver
 
 
 REPOSITORY = Path(__file__).resolve().parents[4]
@@ -36,7 +38,7 @@ from http_paths import MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from http_server import create_app  # noqa: E402
 from direct_gateway import startup_selection  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
-from smalltest_support import extension_directory, source_path, write_atom, write_settings  # noqa: E402
+from smalltest_support import built_assets, extension_directory, source_path, write_atom, write_settings  # noqa: E402
 from workbench_tools import WorkbenchTools  # noqa: E402
 
 
@@ -44,15 +46,20 @@ class _ConfiguredWorkbenchTools(WorkbenchTools):
     def __init__(self, root: Path, extensions: Path) -> None:
         super().__init__(root)
         self.extensions = extensions
+        self.assets = built_assets(root)
 
     def _owner(self):
         if self._service is None:
-            self._service = WorkbenchService(self.root, extension_directory=self.extensions)
+            self._service = WorkbenchService(self.root, extension_directory=self.extensions, **self.assets)
         return self._service
 
 
 class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self) -> None:
+        # This suite exercises transports; native watcher coverage runs in Docker.
+        observer = patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_watcher.NativeObserver", PollingObserver)
+        observer.start()
+        self.addCleanup(observer.stop)
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)
         self.root = (Path(self.temporary.name) / "project").resolve()
@@ -194,6 +201,7 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual("success", run["status"])
             fetched = await self.tool(session, "view_fetch", {
                 "workspace_id": opened["workspace_id"], "view_id": view, "offset": 0, "page_size": 1,
+                "result_delivery": "inline",
             })
             self.assertEqual([["CA-R-684"]], fetched["rows"])
             focused = await self.tool(session, "view_focus", {
@@ -325,7 +333,7 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
                 self.assertNotIn("rows", item)
                 self.assertEqual(item, await self.tool(session, "query_log_get", {"log_id": item["log_id"]}))
             preview = await self.tool(session, "query_run", {
-                "sql": "SELECT 1", "preview": 0, "save": False,
+                "sql": "SELECT 1", "preview": 0, "save": False, "result_delivery": "inline",
             })
             self.assertEqual([], preview["rows"])
             self.assertEqual(0, preview["row_count"])
@@ -360,7 +368,8 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             grid = {"sort": [{"column": 1, "direction": "desc"}],
                     "filters": [{"column": 2, "operator": "contains", "value": "draft%"}],
                     "group_by": {"column": 0, "direction": "asc"}}
-            args = {"query_id": run["query_id"], "offset": 0, "page_size": 2, "grid": grid}
+            args = {"query_id": run["query_id"], "offset": 0, "page_size": 2, "grid": grid,
+                    "result_delivery": "inline"}
             native = await self.tool(session, "query_page", args)
             response = await client.post(f"{WORKBENCH_PATH}/fixture/page", json=args)
             self.assertEqual(200, response.status_code, response.text)
@@ -370,7 +379,7 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             self.assertEqual(12, native["row_count"])
             self.assertEqual([{"value": 0, "count": 4}], native["groups"])
             fetched = await self.tool(session, "view_fetch", identity | {
-                "offset": 0, "page_size": 2, "grid": grid,
+                "offset": 0, "page_size": 2, "grid": grid, "result_delivery": "inline",
             })
             self.assertEqual(native["rows"], fetched["rows"])
             self.assertEqual(native["groups"], fetched["groups"])

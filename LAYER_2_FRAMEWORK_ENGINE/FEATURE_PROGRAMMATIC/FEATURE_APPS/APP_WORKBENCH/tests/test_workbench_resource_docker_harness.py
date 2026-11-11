@@ -1,6 +1,5 @@
 """The resource guard mounts its test-only runner instead of baking it into the image."""
 
-from pathlib import Path
 import subprocess
 import unittest
 from unittest.mock import patch
@@ -14,8 +13,9 @@ class WorkbenchResourceDockerHarnessTests(unittest.TestCase):
                 patch.object(harness.subprocess, "run", return_value=subprocess.CompletedProcess([], 0, "WORKBENCH_RESOURCE {}\n", "")) as run:
             harness.run_resource_case(self, 0)
         command = run.call_args_list[0].args[0]
-        mount = f"type=bind,src={harness.ROOT / harness.TESTS},dst=/workspace/{harness.TESTS},readonly"
-        self.assertIn(mount, command)
+        for path in (harness.TESTS, *harness.SCOPE_FIXTURES):
+            self.assertTrue((harness.ROOT / path).exists())
+            self.assertIn(f"type=bind,src={harness.ROOT / path},dst=/workspace/{path},readonly", command)
         self.assertEqual(str(harness.RUNNER), command[-3])
 
 

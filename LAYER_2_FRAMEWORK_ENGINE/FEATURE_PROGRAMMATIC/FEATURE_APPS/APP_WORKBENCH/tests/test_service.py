@@ -21,12 +21,12 @@ import threading
 import unittest
 from unittest.mock import patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+sys.path[:0] = [str(Path(__file__).resolve().parents[2]), str(Path(__file__).parent)]
+from smalltest_support import empty_assets
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import WorkbenchUnavailableError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import (  # noqa: E402
     RelationRegistry,
-    compile_registry,
 )
 
 
@@ -40,19 +40,16 @@ class ServiceTests(unittest.TestCase):
             content_schema=object(),
             excluded_count=0,
         )
-        compiled = compile_registry([])
         delivered = RelationRegistry(frozenset(), {}, {}, frozenset())
         with (
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
-            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.compile_registry", return_value=compiled),
-            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.load_registry_asset", return_value=delivered),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.materialize_delta", return_value=([], [], set(), {}, object(), None)) as materialize,
         ):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), compiled_schema=empty_assets()["compiled_schema"], relation_registry=delivered)
             service._store = unittest.mock.Mock()
             service._refresh()
 
-        self.assertIs(delivered, materialize.call_args.kwargs["initial_compilation"].registry)
+        self.assertIs(delivered, materialize.call_args.kwargs["registry"])
 
     def test_failed_startup_is_reported_once_and_not_retried(self):
         with (
@@ -61,7 +58,7 @@ class ServiceTests(unittest.TestCase):
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore", side_effect=RuntimeError("extension unavailable")) as connect,
             redirect_stderr(StringIO()) as errors,
         ):
-            service = WorkbenchService(Path(directory))
+            service = WorkbenchService(Path(directory), **empty_assets())
             for _ in range(2):
                 with self.assertRaisesRegex(WorkbenchUnavailableError, "restart required"):
                     service.run("SELECT 1")
@@ -71,7 +68,7 @@ class ServiceTests(unittest.TestCase):
 
     def test_journal_changes_are_not_source_refreshes(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
 
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.configured_journal_root", return_value=Path(".caprmedio_caprmedio/_journal")):
             self.assertTrue(service._journal_only([
@@ -97,7 +94,7 @@ class ServiceTests(unittest.TestCase):
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
             redirect_stderr(StringIO()) as errors,
         ):
-            service = WorkbenchService(reader.root)
+            service = WorkbenchService(reader.root, **empty_assets())
             service._index()
             self.assertTrue(service._watch_ready.is_set())
             self.assertIn("inside the selected repository", str(service._failure))
@@ -117,7 +114,7 @@ class ServiceTests(unittest.TestCase):
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceWatcher", return_value=watcher),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.configured_journal_root", return_value=Path(".caprmedio_project/_journal")),
         ):
-            service = WorkbenchService(reader.root)
+            service = WorkbenchService(reader.root, **empty_assets())
             service._store = unittest.mock.Mock()
             service._watcher_change_log = change_log
             service._refresh = unittest.mock.Mock()
@@ -134,7 +131,7 @@ class ServiceTests(unittest.TestCase):
 
     def test_start_rehydrates_the_log_before_serving(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
         service._store = unittest.mock.Mock()
         service._watcher_change_log = unittest.mock.Mock()
 
@@ -157,7 +154,7 @@ class ServiceTests(unittest.TestCase):
 
         reader.capture.side_effect = capture
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
         service._store = unittest.mock.Mock()
         self.assertEqual({"syncing": False, "last_synced_at": None}, service.sync_status())
         reader.capture.assert_not_called()
@@ -176,7 +173,7 @@ class ServiceTests(unittest.TestCase):
     def test_sync_status_keeps_the_last_success_after_capture_failure(self):
         reader = unittest.mock.Mock(capture=unittest.mock.Mock(return_value=([], [])), excluded_count=0, capture_delta=None)
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
         service._store = unittest.mock.Mock()
         service._refresh()
         successful = service.sync_status()
@@ -190,18 +187,18 @@ class ServiceTests(unittest.TestCase):
 
     def test_run_keeps_completed_result_when_late_save_fails(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
         service._saved_queries = unittest.mock.Mock(save_query=unittest.mock.Mock(side_effect=ValueError("disk full")))
         service._start = unittest.mock.Mock()
         service._store = unittest.mock.Mock(run=unittest.mock.Mock(return_value={
-            "query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1,
+            "query_id": "done", "columns": [{"name": "1", "type": "INTEGER"}], "rows": [[1]], "row_count": 1, "column_count": 1,
         }))
         service._query_log = unittest.mock.Mock()
 
         with redirect_stderr(StringIO()) as errors:
-            result = service.run("SELECT 1", save=True, name="important")
+            result = service.run("SELECT 1", save=True, name="important", result_delivery="inline")
 
-        self.assertEqual({"query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1, "outcome": "partial", "save_error": "disk full"}, result)
+        self.assertEqual({"query_id": "done", "columns": [{"name": "1", "type": "INTEGER"}], "rows": [[1]], "row_count": 1, "column_count": 1, "outcome": "partial", "save_error": "disk full"}, result)
         service._start.assert_called_once()
         service._store.run.assert_called_once_with("SELECT 1", page_size=100, preview=None, include_rows=True)
         service._saved_queries.save_query.assert_called_once_with("SELECT 1", "important")
@@ -210,20 +207,20 @@ class ServiceTests(unittest.TestCase):
 
     def test_run_saves_only_after_a_completed_result(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
         service._start = unittest.mock.Mock()
         service._store = unittest.mock.Mock(run=unittest.mock.Mock(return_value={
-            "query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1,
+            "query_id": "done", "columns": [{"name": "1", "type": "INTEGER"}], "rows": [[1]], "row_count": 1, "column_count": 1,
         }))
         service._query_log = unittest.mock.Mock()
         service._saved_queries = unittest.mock.Mock(
             save_query=unittest.mock.Mock(return_value={"saved_query_id": "saved", "kind": "query"}),
         )
 
-        result = service.run("SELECT 1", save=True, name="important")
+        result = service.run("SELECT 1", save=True, name="important", result_delivery="inline")
 
         self.assertEqual(
-            {"query_id": "done", "rows": [[1]], "row_count": 1, "column_count": 1, "saved_query_id": "saved", "kind": "query"},
+            {"query_id": "done", "columns": [{"name": "1", "type": "INTEGER"}], "rows": [[1]], "row_count": 1, "column_count": 1, "saved_query_id": "saved", "kind": "query"},
             result,
         )
         service._store.run.assert_called_once_with("SELECT 1", page_size=100, preview=None, include_rows=True)
@@ -232,7 +229,7 @@ class ServiceTests(unittest.TestCase):
 
     def test_invalid_preview_does_not_start_the_service(self):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader"):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
         service._start = unittest.mock.Mock()
 
         with self.assertRaisesRegex(ValueError, "preview"):
@@ -251,7 +248,7 @@ class ServiceTests(unittest.TestCase):
                 patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.QueryStore") as store,
                 redirect_stderr(StringIO()) as errors,
             ):
-                service = WorkbenchService(root)
+                service = WorkbenchService(root, **empty_assets())
                 with self.assertRaisesRegex(WorkbenchUnavailableError, "positive integer"):
                     service.run("SELECT 1")
                 service.close()

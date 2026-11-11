@@ -16,6 +16,7 @@ import sys
 from typing import Any
 
 from .markdown_content import source_markdown
+from .source_selection import first_reference_rows as _unique_references
 from .relation_registry import (
     RelationRegistry, _warn_colliding_uses, carrier_read_view, compile_relation_registry,
 )
@@ -157,19 +158,6 @@ def _timestamp(value: Any) -> str | None:
     except (TypeError, ValueError):
         return None
     return timestamp.astimezone(dt.timezone.utc).isoformat() if timestamp.tzinfo else None
-
-
-def _unique_references(atoms: list[dict]) -> list[dict]:
-    references: dict[str, list[dict]] = defaultdict(list)
-    for row in atoms:
-        if row["ref"] is not None:
-            references[row["ref"]].append(row)
-    duplicates = {ref for ref, rows in references.items() if len(rows) > 1}
-    for ref in sorted(duplicates):
-        for row in references[ref]:
-            print(f"Workbench: {row['source_path']}: ambiguous duplicate reference {ref}",
-                  file=sys.stderr)
-    return [row for row in atoms if row["ref"] not in duplicates]
 
 
 def _materialized_row(kind: str, source: dict, facts: tuple[tuple, ...]) -> dict | None:

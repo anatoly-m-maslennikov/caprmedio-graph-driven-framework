@@ -84,17 +84,30 @@ def projected_rows(
     return public_atoms, [_scope(row, outgoing) for row in scopes]
 
 
-def _insert(
+def insert_public_rows(
     connection: Any, name: str, fields: tuple[str, ...], rows: list[Row], *, json_fields: frozenset[str],
 ) -> None:
+    """Keep small edits row-oriented; bind larger batches column-wise."""
     if rows:
-        connection.executemany(
-            f"INSERT INTO main.{name} VALUES ({','.join('?' for _ in fields)})",
-            [
-                tuple(canonical(row[field]) if field in json_fields and row[field] is not None else row[field]
-                      for field in fields)
-                for row in rows
-            ],
+        placeholders = ','.join('?' for _ in fields)
+        if len(rows) <= 8:
+            connection.executemany(
+                f"INSERT INTO main.{name} VALUES ({placeholders})",
+                [
+                    tuple(canonical(row[field]) if field in json_fields and row[field] is not None else row[field]
+                          for field in fields)
+                    for row in rows
+                ],
+            )
+            return
+        columns = [
+            [canonical(row[field]) if field in json_fields and row[field] is not None else row[field]
+             for row in rows]
+            for field in fields
+        ]
+        connection.execute(
+            f"INSERT INTO main.{name} SELECT {','.join('unnest(?)' for _ in fields)}",
+            columns,
         )
 
 
@@ -121,6 +134,8 @@ def insert_rows(
         declaration_source_path VARCHAR NOT NULL UNIQUE, declaration_version BIGINT NOT NULL,
         relations JSON NOT NULL, hash VARCHAR NOT NULL
     )""")
-    _insert(connection, "atoms", fields, atom_rows, json_fields=header_schema.json_names | {"header.relations"})
-    _insert(connection, "scope_units", SCOPE_FIELDS, scope_rows, json_fields=frozenset({"relations"}))
+    insert_public_rows(
+        connection, "atoms", fields, atom_rows, json_fields=header_schema.json_names | {"header.relations"},
+    )
+    insert_public_rows(connection, "scope_units", SCOPE_FIELDS, scope_rows, json_fields=frozenset({"relations"}))
     return atom_rows, scope_rows

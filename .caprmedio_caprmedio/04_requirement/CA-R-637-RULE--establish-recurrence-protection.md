@@ -7,16 +7,16 @@ role: Requirement
 form: Rule
 topics:
   main_subject: "CAPRMEDIO_STRUCTURE <+ Aspects <+ Engineering <+ Quality <+ Verification"
-tier: 2
+tier: 4
 relations:
   child_of:
   - CA-R-635
 status: Active
-version: 15
-updated_at: 2026-11-02 18:35:20 +0400
+version: 16
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-637-CAPRMEDIO-RULE--establish-recurrence-protection.md
+    name: CA-R-637-RULE--establish-recurrence-protection.md
     path: .caprmedio_caprmedio/04_requirement
 subject_scopes:
 - continuous-improvement

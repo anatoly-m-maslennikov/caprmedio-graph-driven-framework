@@ -1,5 +1,6 @@
 # CA-R-2726@6
-# CA-M-500@3
+# CA-M-500@8
+# CA-M-509@5
 # CA-D-672@14
 
 """Narrow literal-CFEL primitives shared by declared Content and Header schemas."""
@@ -9,27 +10,48 @@ from __future__ import annotations
 from collections.abc import Sequence
 import re
 
+from markdown_it import MarkdownIt
+
 from .markdown_content import content_key
 
 
 ROLE_SETS = {"RMED": frozenset({"Requirement", "Method", "Evaluation", "Delivery"})}
+_QUOTED = r""""(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'"""
+_COMMENTS = re.compile(rf"({_QUOTED})|#[^\r\n]*")
+_DELIMITERS = re.compile(rf"({_QUOTED})|;(?!>)")
+
+
+def formal_claim_blocks(body: str) -> tuple[str, ...]:
+    """Read only CFEL fences at Claim/Formal Claim, ignoring unquoted comments."""
+    tokens = MarkdownIt("commonmark").parse(body)
+    headings: list[tuple[int, str]] = []
+    blocks: list[str] = []
+    for index, token in enumerate(tokens):
+        if token.type == "heading_open":
+            level = int(token.tag[1:])
+            while headings and headings[-1][0] >= level:
+                headings.pop()
+            headings.append((level, content_key(tokens[index + 1].content)))
+        elif (
+            token.type == "fence" and token.info.strip().casefold() == "cfel"
+            and tuple(name for _, name in headings) == ("claim", "formal_claim")
+        ):
+            blocks.append(_COMMENTS.sub(lambda match: match.group(1) or "", token.content))
+    return tuple(blocks)
 
 
 def model_statements(body: str) -> list[str]:
-    lines = body.splitlines()
-    model_start = next((index for index, line in enumerate(lines) if line.strip().casefold() == "# model"), None)
-    if model_start is None:
-        return []
-    model_lines = []
-    for line in lines[model_start + 1 :]:
-        if line.strip().startswith("#"):
-            break
-        model_lines.append(line)
-    return [
-        statement.strip()
-        for statement in re.split(r";(?!>)", "\n".join(model_lines))
-        if statement.strip()
-    ]
+    """Split expressions without assigning meaning to comment markers."""
+    statements: list[str] = []
+    start = 0
+    for match in _DELIMITERS.finditer(body):
+        if match.group(1) is None:
+            if statement := body[start:match.start()].strip():
+                statements.append(statement)
+            start = match.end()
+    if statement := body[start:].strip():
+        statements.append(statement)
+    return statements
 
 
 def segments(tail: str) -> tuple[list[str], str]:
@@ -58,15 +80,23 @@ def filters(prefix: str, field: str) -> frozenset[str] | None:
     return values[0]
 
 
-def allowed_children(remainder: str) -> tuple[str, ...]:
-    match = re.search(r"\bin\s*\(([^)]*)\)", remainder)
-    if match is None:
-        return ()
-    return tuple(_key(item.strip()) for item in match.group(1).split(",") if item.strip())
-
-
 def container(remainder: str) -> bool:
     return bool(re.search(r"::\s*\[\s*\]", remainder))
+
+
+def selector_key(values: frozenset[str] | None) -> tuple[bool, tuple[str, ...]]:
+    """Distinguish unrestricted from a rule that applies to no rows."""
+    return values is None, tuple(sorted(values or ()))
+
+
+def intersect_selectors(
+    first: frozenset[str] | None, second: frozenset[str] | None,
+) -> frozenset[str] | None:
+    if first is None:
+        return second
+    if second is None:
+        return first
+    return first & second
 
 
 def _segment_end(value: str, start: int) -> int:

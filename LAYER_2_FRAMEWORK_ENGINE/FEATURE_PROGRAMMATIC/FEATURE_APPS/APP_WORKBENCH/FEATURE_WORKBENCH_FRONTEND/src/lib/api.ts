@@ -6,7 +6,7 @@ export class WorkbenchApi {
   constructor(private readonly caller: OperationCaller) {}
 
   run(sql: string, cursorPosition: number, options: { save?: boolean; name?: string } = {}): Promise<QueryResult> {
-    return this.caller.call('query_run', { sql, cursor_position: cursorPosition, page_size: 100, ...options });
+    return this.caller.call('query_run', { result_delivery: 'inline', sql, cursor_position: cursorPosition, page_size: 100, ...options });
   }
 
   check(sql: string, cursorPosition: number): Promise<CheckResult> {
@@ -18,7 +18,7 @@ export class WorkbenchApi {
   }
 
   page(queryId: string, offset: number, pageSize: number, grid?: GridState): Promise<QueryResult> {
-    return this.caller.call('query_page', { query_id: queryId, offset, page_size: pageSize, ...(grid ? { grid } : {}) });
+    return this.caller.call('query_page', { result_delivery: 'inline', query_id: queryId, offset, page_size: pageSize, ...(grid ? { grid } : {}) });
   }
 
   schema(): Promise<Schema> { return this.caller.call('query_schema', {}); }
@@ -48,7 +48,7 @@ export class WorkspaceApi {
     return this.caller.call('view_check', { workspace_id: this.workspaceId, view_id: viewId, cursor_position: cursorPosition });
   }
   fetch(viewId: string, offset = 0, pageSize = 100, grid?: GridState): Promise<QueryResult> {
-    return this.caller.call('view_fetch', { workspace_id: this.workspaceId, view_id: viewId, offset, page_size: pageSize, ...(grid ? { grid } : {}) });
+    return this.caller.call('view_fetch', { result_delivery: 'inline', workspace_id: this.workspaceId, view_id: viewId, offset, page_size: pageSize, ...(grid ? { grid } : {}) });
   }
   focus(viewId: string): Promise<{ workspace_id: string; active_view_id: string }> { return this.caller.call('view_focus', { workspace_id: this.workspaceId, view_id: viewId }); }
   rename(viewId: string, name: string): Promise<WorkspaceView> { return this.caller.call('view_rename', { workspace_id: this.workspaceId, view_id: viewId, name }); }

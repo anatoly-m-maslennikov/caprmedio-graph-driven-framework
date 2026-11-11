@@ -117,12 +117,17 @@ class QueryStoreTest(unittest.TestCase):
         )["rows"]
         atom_fields = tuple(column for table, column in schema if table == "atoms")
         self.assertTrue({
-            "relative path", "filename", "status_group", "reference", "header.atom_id",
+            "relative_path", "filename", "status_group", "reference", "header.atom_id",
             "header.version", "header.status", "header.relations", "hash",
         } <= set(atom_fields))
         self.assertFalse(any(field.startswith("content.") for field in atom_fields))
         self.assertEqual(
-            [["atoms", field] for field in atom_fields]
+            [[table, field] for table in (
+                "atom_content_issues", "atom_declared_carrier_issues", "atom_physical_carrier_issues",
+            ) for field in (
+                "reference", "relative_path", "filename", "issue_category", "property", "observed", "expected", "diagnostic",
+            )]
+            + [["atoms", field] for field in atom_fields]
             + [["change_log", field] for field in ("observed_at", "operation", "old_path", "new_path")]
             + [["scope_units", field] for field in SCOPE_FIELDS],
             schema,
@@ -138,12 +143,40 @@ class QueryStoreTest(unittest.TestCase):
         self.assertEqual(
             {
                 "valid": True,
+                "columns": [{"name": column["name"], "type": column["type"], "has_values": True}
+                            for column in empty_atom_fields],
                 "row_count": 0,
                 "column_count": len(empty_atom_fields),
                 "sql": "SELECT * FROM atoms",
             },
             self.store.check("SELECT * FROM atoms"),
         )
+
+    def test_check_preserves_duplicate_columns_without_retaining_result(self) -> None:
+        before_results = dict(self.store._results)
+        before_tables = self.store._connection.sql(
+            "SELECT table_name FROM information_schema.tables WHERE table_schema = 'workbench_results'"
+        ).fetchall()
+        checked = self.store.check(
+            "SELECT 1::INTEGER AS duplicate, 'x'::VARCHAR AS duplicate WHERE false"
+        )
+        self.assertEqual(
+            {
+                "valid": True,
+                "columns": [
+                    {"name": "duplicate", "type": "INTEGER", "has_values": True},
+                    {"name": "duplicate", "type": "VARCHAR", "has_values": True},
+                ],
+                "row_count": 0,
+                "column_count": 2,
+                "sql": "SELECT 1::INTEGER AS duplicate, 'x'::VARCHAR AS duplicate WHERE false",
+            },
+            checked,
+        )
+        self.assertEqual(before_results, self.store._results)
+        self.assertEqual(before_tables, self.store._connection.sql(
+            "SELECT table_name FROM information_schema.tables WHERE table_schema = 'workbench_results'"
+        ).fetchall())
 
     def test_schema_exposes_actual_status_literals_without_running_a_query(self) -> None:
         done = self.atom("B")
@@ -201,7 +234,7 @@ class QueryStoreTest(unittest.TestCase):
                 for name, value in zip(atom_fields, values, strict=True)
             }
             for values in self.store._connection.execute(
-                'SELECT * FROM atoms ORDER BY "relative path", filename'
+                'SELECT * FROM atoms ORDER BY "relative_path", filename'
             ).fetchall()
         ]
         sql_scopes = [
@@ -212,7 +245,7 @@ class QueryStoreTest(unittest.TestCase):
             for values in self.store._connection.execute("SELECT * FROM scope_units ORDER BY name").fetchall()
         ]
         snapshot_atoms = sorted(
-            snapshot.atoms.values(), key=lambda row: (row["relative path"], row["filename"]),
+            snapshot.atoms.values(), key=lambda row: (row["relative_path"], row["filename"]),
         )
         snapshot_scopes = sorted(snapshot.scopes.values(), key=lambda row: row["name"])
         self.assertEqual(snapshot_atoms, sql_atoms)
@@ -309,6 +342,7 @@ class QueryStoreTest(unittest.TestCase):
                 self.assertEqual(
                     {
                         "valid": True,
+                        "columns": [{"name": "value", "type": "INTEGER", "has_values": True}],
                         "row_count": 3,
                         "column_count": 1,
                         "sql": "SELECT value FROM (VALUES (1), (2), (3)) AS source(value)",
@@ -379,7 +413,7 @@ class QueryStoreTest(unittest.TestCase):
             direct,
         )
         public_rows = self.store.run(
-            'SELECT "relative path", filename, reference, "header.relations" FROM atoms '
+            'SELECT "relative_path", filename, reference, "header.relations" FROM atoms '
             "WHERE reference IN ('A', 'B') ORDER BY reference"
         )["rows"]
         self.assertEqual(

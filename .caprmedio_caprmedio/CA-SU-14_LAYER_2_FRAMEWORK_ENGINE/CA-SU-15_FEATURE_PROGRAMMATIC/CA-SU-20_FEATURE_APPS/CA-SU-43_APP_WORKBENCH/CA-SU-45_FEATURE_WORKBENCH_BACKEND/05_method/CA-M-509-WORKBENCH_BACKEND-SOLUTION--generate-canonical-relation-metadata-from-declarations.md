@@ -15,8 +15,8 @@ context:
   tier: 3
 state:
   status: Active
-  version: 4
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 6
+  updated_at: 2026-11-11 05:53:07 +0400
 destination:
   file:
     name: CA-M-509-WORKBENCH_BACKEND-SOLUTION--generate-canonical-relation-metadata-from-declarations.md
@@ -40,4 +40,7 @@ Generate one rebuildable relation registry from Current Requirement relation Dec
 
 Normalize an explicit inverse by swapping endpoints once; preserve an unambiguous legacy named inverse through its declared counterpart without source edits or invented bindings. Derive container facts from effective Header.Container, including Context carrier layout, and resolve the Project root as `uppercase(Project prefix)-SU-00`. Build each inverse view once and refresh only affected rows/hashes on source change. Preserve exact model addresses: ambiguous/unsupported metadata is diagnosed and omitted, never guessed; prose, general CFEL and qualified derivation rules are not runtime facts.
 
-Regenerate deterministic JSON metadata on every supported image rebuild, including local release, before image fingerprint/context assembly. Its fingerprint excludes a changing timestamp. A missing or failed asset prevents image/package acceptance rather than using handwritten/stale metadata. Relevant Current Declaration changes use the same compiler under existing owner synchronization; MCP tool discovery remains separate.
+Regenerate deterministic JSON metadata on every supported image rebuild, including local release, before image fingerprint/context assembly. Its fingerprint excludes a changing timestamp. A missing or failed asset prevents image/package acceptance rather than using handwritten/stale metadata. Load the delivered registry at startup. Source changes refresh relation facts under that registry. Apply relation declaration changes by rebuilding the image. MCP tool discovery remains separate.
+
+
+Generate declaration-derived model facts only from CFEL-labelled code blocks in `Content.Claim.Formal Claim`. Ignore `#` comments outside quoted strings, including section markers such as `# model`; comments are not declarations or parsing gates. Prose Claim, Semantics, Details, examples and Header Topics do not supply model facts. Source identity, lifecycle and provenance metadata may select and bind inputs. Register Relation names, inverse bindings and aliases from their formal declarations, not from Header Topics.

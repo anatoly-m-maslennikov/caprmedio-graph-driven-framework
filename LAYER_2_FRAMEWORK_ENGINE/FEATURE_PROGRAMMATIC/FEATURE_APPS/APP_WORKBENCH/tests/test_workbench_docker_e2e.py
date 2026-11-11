@@ -78,6 +78,9 @@ class WorkbenchDockerE2E(
         cls.runtime_root = Path(cls.runtime.name) / "runtime"
         cls.runtime_root.mkdir()
         cls.runtime_root.chmod(0o777)
+        cls.result_root = Path(cls.runtime.name) / "results"
+        cls.result_root.mkdir()
+        cls.result_root.chmod(0o777)
         cls.workbench_state = cls.runtime_root / "workbench"
         cls.workbench_state.mkdir()
         cls.workbench_state.chmod(0o777)
@@ -110,6 +113,7 @@ class WorkbenchDockerE2E(
                 "--tmpfs", "/tmp:rw,nosuid,nodev,size=256m",
                 "-p", f"127.0.0.1:{cls.port}:8092", "-v", f"{REPOSITORY}:/project:ro",
                 "-v", f"{cls.runtime_root}:/project/.caprmedio_runtime:rw",
+                "-v", f"{cls.result_root}:/project/.caprmedio_tmp:rw",
                 "-v", f"{cls.journal_state}:{cls.journal_mount}:rw",
                 image, "mcp-http",
             ],
@@ -187,7 +191,7 @@ class WorkbenchDockerE2E(
                     } <= tools)
                     self.assertNotIn("query_save", tools)
                     previewed = await client.call_tool("query_run", {
-                        "sql": "SELECT 1", "preview": 0, "save": False,
+                        "sql": "SELECT 1", "preview": 0, "save": False, "result_delivery": "inline",
                     })
                     self.assertFalse(previewed.is_error, previewed.structured_content)
                     self.assertEqual([], previewed.structured_content["rows"])
@@ -198,11 +202,11 @@ class WorkbenchDockerE2E(
                     schema = await client.call_tool("query_schema", {})
                     self.assertFalse(schema.is_error)
                     ran = await client.call_tool("query_run", {
-                        "sql": run_sql, "cursor_position": cursor_position,
+                        "sql": run_sql, "cursor_position": cursor_position, "result_delivery": "inline",
                     })
                     self.assertFalse(ran.is_error)
                     page = await client.call_tool("query_page", {
-                        "query_id": ran.structured_content["query_id"], "offset": 0,
+                        "query_id": ran.structured_content["query_id"], "offset": 0, "result_delivery": "inline",
                     })
                     self.assertFalse(page.is_error, page.structured_content or page.content)
                     checked = await client.call_tool("query_check", {
@@ -214,7 +218,7 @@ class WorkbenchDockerE2E(
                     assert_journal_unchanged(self, self.journal_state, journal_before)
                     saved = await client.call_tool("query_run", {
                         "sql": run_sql, "cursor_position": cursor_position,
-                        "save": True, "name": "MCP query",
+                        "save": True, "name": "MCP query", "result_delivery": "inline",
                     })
                     worksheet = await client.call_tool("view_save", {
                         "sql": worksheet_sql, "name": "MCP worksheet",
@@ -242,25 +246,26 @@ class WorkbenchDockerE2E(
 
         (schema, ran, page, checked, saved, worksheet, loaded_by_id, loaded_by_url, recent,
          legacy_query, legacy_worksheet, invalid, invalid_is_error) = asyncio.run(exercise())
-        self.assertEqual({"atoms", "scope_units", "change_log"}, set(schema["tables"]))
+        self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_content_issues"}, set(schema["tables"]))
         status_column = next(
             column for column in schema["tables"]["atoms"] if column["name"] == "header.status"
         )
         self.assertTrue(all(isinstance(value, str) for value in status_column.get("values", [])))
         self.assertEqual([["λ"]], ran["rows"])
         self.assertIsInstance(ran.get("query_id"), str)
-        self.assertEqual(run_sql, ran["sql"])
+        self.assertNotIn("sql", ran)
         assert_not_saved(self, ran)
         self.assertEqual(ran["query_id"], page["query_id"])
-        self.assertEqual(run_sql, page["sql"])
+        self.assertNotIn("sql", page)
         assert_not_saved(self, page)
         self.assertTrue(checked["valid"])
-        self.assertEqual(run_sql, checked["sql"])
+        self.assertNotIn("sql", checked)
         assert_not_saved(self, checked)
         self.assertIsInstance(saved.get("query_id"), str)
         self.assertNotEqual(saved["query_id"], saved["saved_query_id"])
         self.assertEqual([["λ"]], saved["rows"])
-        assert_saved(self, saved, url=self.url, workbench_path=self.workbench_path, kind="query", sql=run_sql)
+        self.assertNotIn("sql", saved)
+        self.assertEqual("query", saved["kind"])
         self.assertEqual("MCP query", saved["name"])
         self.assertNotIn("query_id", worksheet)
         assert_saved(self, worksheet, url=self.url, workbench_path=self.workbench_path, kind="view", sql=worksheet_sql)
@@ -286,7 +291,7 @@ class WorkbenchDockerE2E(
         self.assertEqual("MCP worksheet", recent_by_id[worksheet["saved_query_id"]].get("name"))
         self.assertTrue(invalid_is_error)
         assert_not_saved(self, invalid)
-        assert_saved_journal(self, self.journal_state, saved, worksheet)
+        assert_saved_journal(self, self.journal_state, loaded_by_id, worksheet)
         assert_legacy_files_unchanged(self, self.workbench_state, self.legacy_hashes)
         self.assertTrue((self.workbench_state / "projection.duckdb").is_file())
         events_path, events, peak = container_memory_metrics(self.name)
@@ -328,18 +333,33 @@ class WorkbenchDockerE2E(
         journal_before = journal_snapshot(self.journal_state)
         status, schema = request(self.url + f"{self.workbench_path}/schema", method="POST", payload={})
         self.assertEqual(200, status, schema)
-        self.assertEqual({"atoms", "scope_units", "change_log"}, set(schema["tables"]))
+        status, default_file = request(
+            self.url + f"{self.workbench_path}/run", method="POST",
+            payload={"sql": "SELECT 123 AS value"},
+        )
+        self.assertEqual(200, status, default_file)
+        self.assertNotIn("rows", default_file)
+        self.assertNotIn("sql", default_file)
+        artifact = default_file["result_file"]
+        self.assertEqual("json_matrix", artifact["format"])
+        self.assertEqual(1, artifact["row_count"])
+        result_path = Path(artifact["path"])
+        self.assertEqual((".caprmedio_tmp", "workbench", "query_results"), result_path.parts[:3])
+        self.assertEqual({"columns": ["value"], "rows": [[123]]}, json.loads(
+            (self.result_root / Path(*result_path.parts[1:])).read_text(encoding="utf-8")
+        ))
+        self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_content_issues"}, set(schema["tables"]))
         status_column = next(
             column for column in schema["tables"]["atoms"] if column["name"] == "header.status"
         )
         self.assertTrue(all(isinstance(value, str) for value in status_column.get("values", [])))
         status, ran = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": run_sql, "cursor_position": cursor_position},
+            payload={"sql": run_sql, "cursor_position": cursor_position, "result_delivery": "inline"},
         )
         self.assertEqual(200, status, ran)
         self.assertEqual([["λ"]], ran["rows"])
-        self.assertEqual(run_sql, ran["sql"])
+        self.assertNotIn("sql", ran)
         self.assertIsInstance(ran.get("query_id"), str)
         assert_not_saved(self, ran)
         status, checked = request(
@@ -348,7 +368,7 @@ class WorkbenchDockerE2E(
         )
         self.assertEqual(200, status, checked)
         self.assertTrue(checked["valid"])
-        self.assertEqual(run_sql, checked["sql"])
+        self.assertNotIn("sql", checked)
         assert_not_saved(self, checked)
         assert_journal_unchanged(self, self.journal_state, journal_before)
         status, saved = request(
@@ -357,7 +377,8 @@ class WorkbenchDockerE2E(
         )
         self.assertEqual(200, status, saved)
         self.assertIsInstance(saved.get("query_id"), str)
-        assert_saved(self, saved, url=self.url, workbench_path=self.workbench_path, kind="query", sql=run_sql)
+        self.assertNotIn("sql", saved)
+        self.assertEqual("query", saved["kind"])
         self.assertEqual("HTTP query", saved["name"])
         status, worksheet = request(
             self.url + f"{self.workbench_path}/view-save", method="POST",
@@ -411,21 +432,21 @@ class WorkbenchDockerE2E(
         )
         journal_before_page = journal_snapshot(self.journal_state)
         status, full = request(
-            self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT * FROM atoms"},
+            self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT * FROM atoms", "result_delivery": "inline"},
         )
         self.assertEqual(200, status, full)
         self.assertEqual(100, len(full["rows"]))
         self.assertGreater(full["row_count"], len(full["rows"]))
         self.assertTrue(full["has_more"])
-        self.assertEqual("SELECT * FROM atoms", full["sql"])
+        self.assertNotIn("sql", full)
         assert_not_saved(self, full)
         status, next_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": full["query_id"], "offset": len(full["rows"])},
+            payload={"query_id": full["query_id"], "offset": len(full["rows"]), "result_delivery": "inline"},
         )
         self.assertEqual(200, status, next_page)
         self.assertEqual(full["query_id"], next_page["query_id"])
-        self.assertEqual("SELECT * FROM atoms", next_page["sql"])
+        self.assertNotIn("sql", next_page)
         assert_not_saved(self, next_page)
         status, failure = request(
             self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": "SELECT FROM"},
@@ -433,7 +454,7 @@ class WorkbenchDockerE2E(
         self.assertEqual(400, status)
         self.assertIsInstance(failure.get("error"), str)
         assert_not_saved(self, failure)
-        assert_saved_journal(self, self.journal_state, saved, worksheet)
+        assert_saved_journal(self, self.journal_state, loaded_by_id, worksheet)
         assert_legacy_files_unchanged(self, self.workbench_state, self.legacy_hashes)
         for sql in ("SELECT 1; SELECT 2", "CREATE TABLE forbidden(x INTEGER)"):
             status, failure = request(self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql})

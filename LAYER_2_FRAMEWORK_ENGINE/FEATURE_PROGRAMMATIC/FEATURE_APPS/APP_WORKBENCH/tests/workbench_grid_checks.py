@@ -23,7 +23,7 @@ GRID_SQL = (
     "random() AS marker FROM range(0, 240) AS t(i) ORDER BY i"
 )
 PAGE_METADATA = (
-    "query_id", "sql", "columns", "row_count", "source_row_count", "column_count",
+    "query_id", "columns", "row_count", "source_row_count", "column_count",
     "offset", "page_size", "has_more",
 )
 
@@ -58,7 +58,7 @@ class WorkbenchGridDockerMixin:
     def test_workbench_grid_is_cached_and_identical_over_http_and_mcp(self) -> None:
         status, run = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": GRID_SQL, "page_size": 5},
+            payload={"result_delivery": "inline", "sql": GRID_SQL, "page_size": 5},
         )
         self.assertEqual(200, status, run)
         self.assertEqual(240, run["row_count"])
@@ -71,7 +71,7 @@ class WorkbenchGridDockerMixin:
         sort_grid = {"sort": [{"column": 1, "direction": "desc"}, {"column": 2, "direction": "asc"}]}
         status, sorted_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": query_id, "offset": 0, "page_size": 8, "grid": sort_grid},
+            payload={"result_delivery": "inline", "query_id": query_id, "offset": 0, "page_size": 8, "grid": sort_grid},
         )
         self.assertEqual(200, status, sorted_page)
         self.assertEqual(240, sorted_page["source_row_count"])
@@ -86,7 +86,7 @@ class WorkbenchGridDockerMixin:
         ]}
         status, literal_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": query_id, "offset": 0, "page_size": 100, "grid": literal_grid},
+            payload={"result_delivery": "inline", "query_id": query_id, "offset": 0, "page_size": 100, "grid": literal_grid},
         )
         self.assertEqual(200, status, literal_page)
         self.assertEqual(60, literal_page["row_count"])
@@ -100,14 +100,14 @@ class WorkbenchGridDockerMixin:
         }
         status, group_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": query_id, "offset": 0, "page_size": 5, "grid": group_grid},
+            payload={"result_delivery": "inline", "query_id": query_id, "offset": 0, "page_size": 5, "grid": group_grid},
         )
         self.assertEqual(200, status, group_page)
         self.assertEqual([0, 3, 6, 9, 12], [row[2] for row in group_page["rows"]])
         self.assertEqual([{"value": 0, "count": 80}], group_page["groups"])
         status, boundary_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": query_id, "offset": 79, "page_size": 2, "grid": group_grid},
+            payload={"result_delivery": "inline", "query_id": query_id, "offset": 79, "page_size": 2, "grid": group_grid},
         )
         self.assertEqual(200, status, boundary_page)
         self.assertEqual([237, 1], [row[2] for row in boundary_page["rows"]])
@@ -117,15 +117,15 @@ class WorkbenchGridDockerMixin:
 
         status, repeated_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": query_id, "offset": 0, "page_size": 8, "grid": sort_grid},
+            payload={"result_delivery": "inline", "query_id": query_id, "offset": 0, "page_size": 8, "grid": sort_grid},
         )
         self.assertEqual(200, status, repeated_page)
         self.assertEqual(sorted_page["rows"], repeated_page["rows"])
 
         mcp_sorted, mcp_group, mcp_bad = self._mcp(
-            ("query_page", {"query_id": query_id, "offset": 0, "page_size": 8, "grid": sort_grid}),
-            ("query_page", {"query_id": query_id, "offset": 79, "page_size": 2, "grid": group_grid}),
-            ("query_page", {"query_id": query_id, "offset": 0, "grid": {"sort": [{"column": 99, "direction": "asc"}]}}),
+            ("query_page", {"result_delivery": "inline", "query_id": query_id, "offset": 0, "page_size": 8, "grid": sort_grid}),
+            ("query_page", {"result_delivery": "inline", "query_id": query_id, "offset": 79, "page_size": 2, "grid": group_grid}),
+            ("query_page", {"result_delivery": "inline", "query_id": query_id, "offset": 0, "grid": {"sort": [{"column": 99, "direction": "asc"}]}}),
         )
         self.assertFalse(mcp_sorted.is_error, mcp_sorted.structured_content or mcp_sorted.content)
         self.assertFalse(mcp_group.is_error, mcp_group.structured_content or mcp_group.content)
@@ -146,17 +146,18 @@ class WorkbenchGridDockerMixin:
         self.assertEqual(400, status, malformed)
         status, ordinary = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": query_id, "offset": 0, "page_size": 5},
+            payload={"result_delivery": "inline", "query_id": query_id, "offset": 0, "page_size": 5},
         )
         self.assertEqual(200, status, ordinary)
         self.assertEqual(query_id, ordinary["query_id"])
         self.assertEqual(run["rows"], ordinary["rows"])
-        self.assertEqual(run["sql"], ordinary["sql"])
+        self.assertNotIn("sql", run)
+        self.assertNotIn("sql", ordinary)
 
     def test_workbench_rejects_whole_query_at_http_and_mcp_without_mutating_cache(self) -> None:
         sql = "SELECT 1701 AS value"
         status, run = request(
-            self.url + f"{self.workbench_path}/run", method="POST", payload={"sql": sql, "page_size": 1},
+            self.url + f"{self.workbench_path}/run", method="POST", payload={"result_delivery": "inline", "sql": sql, "page_size": 1},
         )
         self.assertEqual(200, status, run)
         cursor = len("SELECT 1; ".encode("utf-16-le")) // 2
@@ -168,7 +169,7 @@ class WorkbenchGridDockerMixin:
         self.assertTrue(mcp_failed.is_error)
         status, page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": run["query_id"], "offset": 0, "page_size": 1},
+            payload={"result_delivery": "inline", "query_id": run["query_id"], "offset": 0, "page_size": 1},
         )
         self.assertEqual(200, status, page)
         self.assertEqual([[1701]], page["rows"])
@@ -201,7 +202,7 @@ class WorkbenchGridDockerMixin:
 
         status, default_result = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": "SELECT random() AS default_marker", "page_size": 1},
+            payload={"result_delivery": "inline", "sql": "SELECT random() AS default_marker", "page_size": 1},
         )
         self.assertEqual(200, status, default_result)
         default_query_id = default_result["query_id"]
@@ -209,7 +210,7 @@ class WorkbenchGridDockerMixin:
         time.sleep(1.2)
         status, before_restart = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": default_query_id, "offset": 0, "page_size": 1},
+            payload={"result_delivery": "inline", "query_id": default_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(200, status, before_restart)
         self.assertEqual(default_result["rows"], before_restart["rows"])
@@ -221,7 +222,7 @@ class WorkbenchGridDockerMixin:
         self.assertFalse(restart.is_error, restart.structured_content or restart.content)
         status, after_restart = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": default_query_id, "offset": 0, "page_size": 1},
+            payload={"result_delivery": "inline", "query_id": default_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(400, status, after_restart)
         watcher_after_restart = watcher_events()
@@ -230,20 +231,20 @@ class WorkbenchGridDockerMixin:
 
         status, young = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": "SELECT 7 AS young_value", "page_size": 1},
+            payload={"result_delivery": "inline", "sql": "SELECT 7 AS young_value", "page_size": 1},
         )
         self.assertEqual(200, status, young)
         young_query_id = young["query_id"]
         time.sleep(0.3)
         status, young_page = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": young_query_id, "offset": 0, "page_size": 1},
+            payload={"result_delivery": "inline", "query_id": young_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(200, status, young_page)
         time.sleep(1.0)
         status, expired = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": young_query_id, "offset": 0, "page_size": 1},
+            payload={"result_delivery": "inline", "query_id": young_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(400, status, expired)
 
@@ -284,18 +285,18 @@ class WorkbenchGridDockerMixin:
         time.sleep(0.3)
         status, young_after_close = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": young_view_query_id, "offset": 0, "page_size": 1},
+            payload={"result_delivery": "inline", "query_id": young_view_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(200, status, young_after_close)
         time.sleep(1.0)
         status, young_after_ttl = request(
             self.url + f"{self.workbench_path}/page", method="POST",
-            payload={"query_id": young_view_query_id, "offset": 0, "page_size": 1},
+            payload={"result_delivery": "inline", "query_id": young_view_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(400, status, young_after_ttl)
         (removed_pinned,) = self._mcp(("view_remove", {"workspace_id": workspace_id, "view_id": pinned_view_id}),)
         self.assertFalse(removed_pinned.is_error, removed_pinned.structured_content or removed_pinned.content)
-        (old_after_close,) = self._mcp(("query_page", {"query_id": pinned_query_id, "offset": 0, "page_size": 1}),)
+        (old_after_close,) = self._mcp(("query_page", {"result_delivery": "inline", "query_id": pinned_query_id, "offset": 0, "page_size": 1}),)
         self.assertTrue(old_after_close.is_error)
 
         (base_update,) = self._mcp(("view_update", {
@@ -311,12 +312,12 @@ class WorkbenchGridDockerMixin:
             "sql": "SELECT CAST('not-an-integer' AS INTEGER) AS bad_value", "expected_revision": 1,
         }),)
         self.assertFalse(bad_update.is_error, bad_update.structured_content or bad_update.content)
-        (before_failed_run,) = self._mcp(("query_page", {"query_id": old_query_id, "offset": 0, "page_size": 1}),)
+        (before_failed_run,) = self._mcp(("query_page", {"result_delivery": "inline", "query_id": old_query_id, "offset": 0, "page_size": 1}),)
         self.assertFalse(before_failed_run.is_error, before_failed_run.structured_content or before_failed_run.content)
         (failed_run,) = self._mcp(("view_run", {"workspace_id": workspace_id, "view_id": base_view_id}),)
         self.assertFalse(failed_run.is_error, failed_run.structured_content or failed_run.content)
         self.assertEqual("failed", failed_run.structured_content["status"])
-        (after_failed_run,) = self._mcp(("query_page", {"query_id": old_query_id, "offset": 0, "page_size": 1}),)
+        (after_failed_run,) = self._mcp(("query_page", {"result_delivery": "inline", "query_id": old_query_id, "offset": 0, "page_size": 1}),)
         self.assertTrue(after_failed_run.is_error)
 
         (saved,) = self._mcp(("view_save", {"sql": "SELECT 11 AS permanent_value", "name": "retention permanent"}),)
@@ -326,12 +327,12 @@ class WorkbenchGridDockerMixin:
         failure_sql = "SELECT CAST('bad' AS INTEGER) AS hourly_failure"
         status, success = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": success_sql, "page_size": 1},
+            payload={"result_delivery": "inline", "sql": success_sql, "page_size": 1},
         )
         self.assertEqual(200, status, success)
         status, failure = request(
             self.url + f"{self.workbench_path}/run", method="POST",
-            payload={"sql": failure_sql, "page_size": 1},
+            payload={"result_delivery": "inline", "sql": failure_sql, "page_size": 1},
         )
         self.assertEqual(400, status, failure)
 

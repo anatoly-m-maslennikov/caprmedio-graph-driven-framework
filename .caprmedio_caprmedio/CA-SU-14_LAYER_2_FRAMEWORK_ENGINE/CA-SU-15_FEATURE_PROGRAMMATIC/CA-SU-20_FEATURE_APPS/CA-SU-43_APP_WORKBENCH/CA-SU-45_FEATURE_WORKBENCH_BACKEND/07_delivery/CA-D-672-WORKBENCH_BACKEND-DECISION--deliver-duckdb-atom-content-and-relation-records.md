@@ -23,8 +23,8 @@ relations:
   - CA-D-715
 state:
   status: Active
-  version: 19
-  updated_at: 2026-11-11 01:07:01 +0400
+  version: 20
+  updated_at: 2026-11-11 05:53:07 +0400
 destination:
   file:
     name: CA-D-672-WORKBENCH_BACKEND-DECISION--deliver-duckdb-atom-content-and-relation-records.md
@@ -49,6 +49,6 @@ Read governed sources directly through the Current-model parser into a file-back
 
 Parse complete YAML and actual Markdown heading paths, preserving missing/null/empty/scalar/list/map/false/zero distinctions and complete mapped content. Current structural Declarations/Delegations establish `scope_units`; Draft structural carriers remain atoms. Mode 1 exposes current-model declared Header/Content through the grouped adapter and accepted read aliases only; enabled Mode 2 exposes every observed raw Header path plus declared Content. Names use dotted lowercase snake_case paths. Header relations are one native `header.relations` JSON projection; `header.context.container` is the Mode-2 grouping-node exception. Do not expose whole Header/Markdown/property buckets, short aliases, second source tables or arbitrary CFEL/prose evaluation.
 
-Both modes retain their schema triggers: Mode 2 complete-inventory new/last-removed/type-changed/globally emptied path; Mode 1 changed declaration schema or new/last-removed wildcard-admitted Content path. Same-schema edits remain incremental. Generate and validate `workbench_schema.json` on every image rebuild with the query model generated from Current Declarations, including Role and Form applicability; runtime schema state stays derived.
+Generate and validate `workbench_schema.json` from Current Declarations on each image rebuild. Load it at startup in both modes. Keep its Content schema and Mode 1 Header schema fixed; Mode 2 selects observed Header paths at cold start. Ordinary Atom edits and explicit rereads refresh data under the selected schema. The running service does not compile model declarations.
 
 `atoms` identifies carrier path/filename, Current-or-Draft lifecycle, exact reference, typed `header.*`/`content.*`, native `header.relations` and deterministic row hash excluding `hash`. `scope_units` identifies declared name/ID/parent/label/order, Current structural source path/version, native relations and the same hash rule. Relations use the CA-M-509 registry: exact canonical/declared inverse aliases or unique case-folded carrier spelling normalize once without source edits; ambiguity/case collision warns and omits affected projected links. References remain typed references, and direct/derived counterparts refresh with their supporting source while source bytes/Versions do not change. DuckPGQ uses typed Atom/Scope Unit identities and declared labels only; it is derived implementation state, not another table or authority.

@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Backlog
-  version: 6
-  updated_at: 2026-11-11 00:29:06 +0400
+  status: Active
+  version: 10
+  updated_at: 2026-11-11 08:17:35 +0400
 destination:
   file:
     name: CA-P-2818-TASK--review-and-deliver-the-accepted-engine-changes.md
@@ -45,7 +45,7 @@ Review the combined implementation against adopted RMED, fix confirmed issues, t
 
 ## Subtasks
 
-- [ ] Review and fix the next scoped input batch. (ETA: up to 15 min.)
+- [x] Review and fix the next scoped input batch. (ETA: up to 15 min.)
 - [ ] Complete one scoped implementation or verification batch; split before exceeding 20 min.
 - [ ] Review and fix the result; record a small P / Work Report. (ETA: up to 15 min.)
 
@@ -53,8 +53,25 @@ Review the combined implementation against adopted RMED, fix confirmed issues, t
 
 The stated work has actual source/code/test evidence. Every unresolved or unrun case is explicit; no Task text replaces RMED.
 
+## Image-build acceptance
+
+- [ ] Verify model/schema and canonical relation generation from selected Current Declaration formal Claims on every image build, including builds used by local and public release. Check generated inputs/provenance and live query results after build. M500 is the existing schema authority; C729 records the missing declaration-input inventory.
+
 ## Release-test cleanup check
 
-- [ ] Recheck C567 against the retained release test runner and current Docker fixtures. The historical failing selected-Workflow fixture is no longer present.
+Verify the working MCP/Workbench image and query_run. Exclude Workflow-engine execution, routing, Run-state/history, recovery and C727 prompt-frontier repair from this gate; retain the direct release-runner cleanup checks below.
+
+- [x] Recheck C567 against the retained release test runner and current Docker fixtures. The historical failing selected-Workflow fixture is no longer present.
 - [ ] Reproduce any applicable interrupted-run or failed-start cleanup defect, then prepare the smallest confirmed repair and regression coverage. Split investigation, repair and verification into batches of at most 15–20 minutes.
 - [ ] Record exact resource ownership and outcomes under the existing cleanup policies. Do not restore retired Workflow tests or treat historical evidence as proof of a current failure.
+
+
+## Cleanup review result
+
+P2929 records the retained runner/fixture review, four real-process tests and seventeen controlled cleanup tests. C567 exists only in Archive and was not modified. No retained-path container/network leak was reproduced; general forced-Docker-termination cleanup is not proven by the process and controlled-fixture tests. Keep actual final delivery checks separate.
+
+## Local Release run
+
+Run ID `engine-refinement-20261111-v2`. Use the 59 exact test modules in `.caprmedio_tmp/CA-P-2791/CA-P-2818/focused-final-modules.json` (SHA-256 `d80615e634e449492dff193f1f4826949d7f0cbc6e70d1720c013d397a189d14`). This is the Operator's Workbench and query_run verification scope. The release receipt must report focused validation.
+
+The checkout starts from `ef8e959d1ee030955dabb880381eca2ea803eb64` with the current working changes. P2957 records the asset comparison against the tested image. P2959 records the added service evaluation, and P2960 records the Docker and soak gates. The release runs the selected modules again after its local checkpoint. Check the installed Workbench and query_run before closing C729.

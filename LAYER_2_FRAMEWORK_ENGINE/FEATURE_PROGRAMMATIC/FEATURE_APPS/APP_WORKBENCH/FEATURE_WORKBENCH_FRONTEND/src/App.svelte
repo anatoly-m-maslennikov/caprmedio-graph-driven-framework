@@ -1,3 +1,4 @@
+<!-- CA-R-2776@9 -->
 <!-- CA-D-674@23 -->
 <!-- CA-M-466@6 -->
 <!-- CA-M-468@5 -->
@@ -297,7 +298,7 @@
   function buildCommands(): Command[] {
     const busy = !workspaceReady || !active || active.busy || savedBusy; const result = active?.result;
     return [
-      { id: 'settings', label: 'Settings', enabled: true, run: () => showUtility('settings') }, { id: 'saved', label: 'Saved Queries and Views', enabled: true, run: () => showUtility('saved') },
+      { id: 'settings', label: 'Settings', enabled: true, run: () => showUtility('settings') }, { id: 'saved', label: 'Bookmarks and saved Views', enabled: true, run: () => showUtility('saved') },
       { id: 'open', label: 'Open Saved', enabled: !savedBusy, run: () => openSavedDialog = true }, { id: 'focus-sql', label: 'Focus Query editor', enabled: !!active, run: focusSql }, { id: 'focus-results', label: 'Focus Results', enabled: !!result, run: focusResults },
       ...tabs.map((tab) => ({ id: `view-${tab.id}`, label: `View: ${tabName(tab)}`, enabled: workspaceReady, run: () => showView(tab.id) })), { id: 'new-first', label: 'New View first', enabled: workspaceReady, run: () => addView('first') }, { id: 'new-last', label: 'New View last', enabled: workspaceReady, run: () => addView('last') },
       { id: 'rename', label: 'Rename View', enabled: workspaceReady && !!active, run: renameActiveView }, { id: 'duplicate', label: 'Duplicate View', enabled: workspaceReady && !!active && !active.busy && !savedBusy, run: () => active && duplicateView(active.id) }, { id: 'close', label: 'Close View', enabled: workspaceReady && !!active, run: () => active && closeView(active.id) },
@@ -337,7 +338,7 @@
   });
 </script>
 
-<main class="workbench"><header class="app-header"><span class="brand-mark">CA</span><span class="app-name">Workbench</span><span class="project-label">Project: {projectName}</span><div class="header-right"><SyncStatus status={syncStatus} /><div class="header-utilities" role="tablist" aria-label="Workbench views"><button class:active={view === 'settings'} type="button" role="tab" aria-selected={view === 'settings'} onclick={() => showUtility('settings')}>Settings</button><button class:active={view === 'saved'} type="button" role="tab" aria-label="Saved Queries and Views" title="Saved Queries and Views" aria-selected={view === 'saved'} onclick={() => showUtility('saved')}>Saved</button></div></div></header><section class="workspace"><div class="work-main">
+<main class="workbench"><header class="app-header"><span class="brand-mark">CA</span><span class="app-name">Workbench</span><span class="project-label">Project: {projectName}</span><div class="header-right"><SyncStatus status={syncStatus} /><div class="header-utilities" role="tablist" aria-label="Workbench views"><button class:active={view === 'settings'} type="button" role="tab" aria-selected={view === 'settings'} onclick={() => showUtility('settings')}>Settings</button><button class:active={view === 'saved'} type="button" role="tab" aria-label="Bookmarks and saved Views" title="Bookmarks and saved Views" aria-selected={view === 'saved'} onclick={() => showUtility('saved')}>Saved</button></div></div></header><section class="workspace"><div class="work-main">
   <div class="workspace-toolbar"><div class="toolbar-main"><ViewTabs {tabs} {activeId} utility={view} ready={workspaceReady} onselect={showView} onclose={closeView} onadd={addView} onrenamerequest={requestRename} onduplicate={duplicateView} /></div><div class="toolbar-actions"><Button disabled={!workspaceReady} onclick={() => commandOpen = true}>Commands <span class="shortcut">Cmd+P</span></Button></div></div>
   <Preferences storageKey={namespace} {embedded} visible={view === 'settings'} {resultDisplay} onresultdisplaychange={setResultDisplay} onlayoutchange={() => gridLayoutVersion += 1} oncommands={(items) => preferenceCommands = items} />
   {#if view === 'saved'}<SavedPanel items={savedItems} logs={logItems} busy={savedBusy} onopen={openSaved} onopenlog={openLog} />{/if}
@@ -346,5 +347,5 @@
   {#if storageError}<p class="error" role="alert">{storageError}</p>{/if}
 </div></section></main>
 <OpenSavedDialog open={openSavedDialog} busy={savedBusy} onopen={openSaved} onclose={() => openSavedDialog = false} />
-<NameDialog open={nameDialog !== null} title={nameDialog?.kind === 'rename' ? 'View name' : 'Query name'} initialValue={nameDialog?.initialValue ?? ''} onsubmit={submitName} onclose={() => nameDialog = null} />
+<NameDialog open={nameDialog !== null} title={nameDialog?.kind === 'rename' ? 'View name' : 'Bookmark name'} initialValue={nameDialog?.initialValue ?? ''} onsubmit={submitName} onclose={() => nameDialog = null} />
 <CommandPalette open={commandOpen} {commands} onclose={() => commandOpen = false} />

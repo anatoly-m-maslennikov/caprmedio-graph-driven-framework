@@ -42,7 +42,9 @@ def declaration(reference: str, name: str, body: str) -> dict:
         "tier": 1,
         "updated_at": None,
         "header_json": {"subjects": {"active": f"CFEL <+ Relation//{name}"}, "relations": {}},
-        "_content_bytes": body.encode("utf-8"),
+        "_content_bytes": ("## Claim\n### Formal Claim\n```CFEL\n"
+            f"Relation//{name} ((HAS_CLASSIFICATION)) Derivation == Direct;\n"
+            + body.replace("```CFEL", "").replace("```", "") + "\n```\n").encode("utf-8"),
         "content_properties_json": [],
         "relation_edges_json": [],
         "hash": None,
@@ -50,6 +52,49 @@ def declaration(reference: str, name: str, body: str) -> dict:
 
 
 class GeneratedRelationRegistryTests(unittest.TestCase):
+    def test_only_literal_formal_claim_input_registers(self) -> None:
+        row = declaration("CA-R-1", "HEADER_ONLY", "")
+        row["_content_bytes"] = b"""## Claim
+### Prose Claim
+Relation//PROSE ((HAS_CLASSIFICATION)) Derivation == Direct;
+```CFEL
+Relation//EXAMPLE ((HAS_CLASSIFICATION)) Derivation == Direct;
+```
+### Formal Claim
+```CFEL
+# Relation//COMMENT ((HAS_CLASSIFICATION)) Derivation == Direct;
+Relation//REAL # an intervening comment
+ ((HAS_CLASSIFICATION)) Derivation == Direct;
+Relation//ALIAS ((IS_INVERSE_ALIAS_FOR)) Relation//CANONICAL;
+Relation//QUOTED ((HAS_DESCRIPTION)) "text # Relation//FAKE; still text";
+```
+## Details
+```CFEL
+Relation//DETAIL ((HAS_CLASSIFICATION)) Derivation == Direct;
+```
+"""
+        registry = compile_relation_registry([row])
+        self.assertEqual({"REAL", "CANONICAL", "QUOTED"}, set(registry.names))
+        self.assertEqual({"ALIAS": "CANONICAL"}, registry.aliases)
+
+    def test_duplicate_reference_uses_first_formal_claim(self) -> None:
+        first = declaration("CA-R-1", "FIRST", "")
+        second = declaration("CA-R-1", "SECOND", "")
+        second["source_path"] = "other.md"
+        self.assertEqual({"FIRST"}, set(compile_relation_registry([first, second]).names))
+
+    def test_conditional_inverse_is_warned_and_skipped(self) -> None:
+        from contextlib import redirect_stderr
+        from io import StringIO
+
+        row = declaration("CA-R-1", "DIRECT", "IF (condition) THEN (\nRelation//DIRECT ((HAS_INVERSE)) Relation//INVERSE;\n);\n")
+        errors = StringIO()
+        with redirect_stderr(errors):
+            registry = compile_relation_registry([row])
+        self.assertEqual({"DIRECT"}, set(registry.names))
+        self.assertEqual({}, registry.inverse)
+        self.assertIn("conditional/grouped", errors.getvalue())
+
     def test_asset_is_deterministic_and_pins_literal_declaration_inputs(self) -> None:
         direct = declaration(
             "CA-R-1",
@@ -97,19 +142,20 @@ class GeneratedRelationRegistryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "positive integer Version"):
             _source_pin(dict(valid, version=True))
 
-    def test_delivered_asset_is_consumed_only_when_its_source_pins_match(self) -> None:
+    def test_delivered_asset_loads_without_source_comparison(self) -> None:
         direct = declaration("CA-R-1", "DIRECT", "```CFEL\n```\n")
         compiled = compile_registry([direct])
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / "canonical_relation_registry.json"
             path.write_bytes(registry_asset([direct], compiled))
-            delivered = load_registry_asset(path, [direct], compiled)
+            delivered = load_registry_asset(path)
             self.assertIsNotNone(delivered)
             self.assertIsNot(delivered, compiled.registry)
             self.assertEqual(compiled.registry.names, delivered.names)
 
-            changed = dict(direct, _content_bytes=b"```CFEL\n\n```\n")
-            self.assertIsNone(load_registry_asset(path, [changed], compile_registry([changed])))
+            path.write_text(path.read_text().replace("DIRECT", "TAMPERED"))
+            with self.assertRaisesRegex(ValueError, "digest mismatch"):
+                load_registry_asset(path)
 
     def test_asset_source_pins_reuse_the_existing_compilation(self) -> None:
         rows = [

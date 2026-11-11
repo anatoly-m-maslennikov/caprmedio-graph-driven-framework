@@ -11,16 +11,16 @@ topics:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Atom.Header.Role
   - CAPRMEDIO_MODEL <+ Package/Implementation
-tier: 2
+tier: 4
 relations:
   child_of:
   - CA-R-632
 status: Active
-version: 22
-updated_at: 2026-11-02 18:35:20 +0400
+version: 23
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-634-CAPRMEDIO-RULE--target-project-improvement-at-the-system-being-developed.md
+    name: CA-R-634-RULE--target-project-improvement-at-the-system-being-developed.md
     path: .caprmedio_caprmedio/04_requirement
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

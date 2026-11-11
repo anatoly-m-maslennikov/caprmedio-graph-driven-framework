@@ -222,7 +222,7 @@ class HeaderSqlColumnsTests(unittest.TestCase):
         )
 
     def test_declaration_provenance_delta_keeps_the_table_and_updates_the_schema_asset(self) -> None:
-        declaration_body = "## Claim\n\n```CFEL\n# model\nAtom.Content.Summary{::1}:: {::1};\n```\n"
+        declaration_body = "## Claim\n\n### Formal Claim\n\n```CFEL\nAtom.Content.Summary{::1}:: {::1};\n```\n"
         first = self.atom(
             "CA-R-DECL", {"atom_id": "CA-R-DECL", "version": 1},
             body=declaration_body, form="Declaration", version=1,

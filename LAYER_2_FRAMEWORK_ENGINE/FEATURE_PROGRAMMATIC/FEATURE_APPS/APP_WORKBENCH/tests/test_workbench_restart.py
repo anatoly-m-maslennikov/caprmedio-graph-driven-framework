@@ -31,12 +31,12 @@ for location in (MCP, TOOLS, APP.parent, APP / "tests"):
         sys.path.insert(0, str(location))
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
-from http_paths import HEALTH_PATH, MCP_PATH  # noqa: E402
+from http_paths import HEALTH_PATH, MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from http_server import create_app  # noqa: E402
 from direct_gateway import startup_selection  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from workbench_tools import WorkbenchTools  # noqa: E402
-from smalltest_support import write_atom, write_settings  # noqa: E402
+from smalltest_support import built_assets, write_atom, write_settings  # noqa: E402
 
 
 class _ConfiguredWorkbenchTools(WorkbenchTools):
@@ -45,10 +45,11 @@ class _ConfiguredWorkbenchTools(WorkbenchTools):
     def __init__(self, root: Path, extension_directory: Path) -> None:
         super().__init__(root)
         self.extension_directory = extension_directory
+        self.assets = built_assets(root)
 
     def _owner(self):
         if self._service is None:
-            self._service = WorkbenchService(self.root, extension_directory=self.extension_directory)
+            self._service = WorkbenchService(self.root, extension_directory=self.extension_directory, **self.assets)
         return self._service
 
 
@@ -100,7 +101,7 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
         self.declaration = Path(self.declarations["ENGINE"]["declaration_path"])
         self.declaration_bytes = self.declaration.read_bytes()
         authority = Path(self.declarations["ENGINE"]["authority_path"])
-        write_atom(authority / "04_requirement" / "source.md", "CA-R-501")
+        write_atom(authority / "04_requirement" / "CA-R-501-source.md", "CA-R-501")
         self.app = create_app(self.root, selection=startup_selection(self.root))
         extension_directory = REPOSITORY / ".caprmedio_tmp" / "workbench" / "extensions"
         self.app.gateway.workbench = _ConfiguredWorkbenchTools(self.root, extension_directory)
@@ -125,6 +126,24 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
                 finally:
                     await session.__aexit__(None, None, None)
                     await transport.__aexit__(None, None, None)
+
+    async def test_check_preserves_ordered_duplicate_column_metadata_on_both_adapters(self) -> None:
+        sql = "SELECT 1::INTEGER AS same, 'text'::VARCHAR AS same WHERE FALSE"
+        async with self.session() as (session, client):
+            checked = await session.call_tool("query_check", {"sql": sql})
+            self.assertFalse(checked.is_error, checked.structured_content)
+            metadata = checked.structured_content
+            self.assertEqual({"valid", "columns", "row_count", "column_count"}, set(metadata))
+            self.assertEqual((True, 0, 2), (metadata["valid"], metadata["row_count"], metadata["column_count"]))
+            self.assertEqual(
+                [("same", "INTEGER"), ("same", "VARCHAR")],
+                [(column["name"], column["type"]) for column in metadata["columns"]],
+            )
+            response = await client.post(f"{WORKBENCH_PATH}/fixture/check", json={"sql": sql})
+            self.assertEqual(200, response.status_code)
+            self.assertEqual(metadata, response.json())
+            self.assertEqual({"items": []}, (await session.call_tool("query_log_list", {})).structured_content)
+            self.assertEqual({"items": []}, (await session.call_tool("query_saved_list", {})).structured_content)
 
     async def _wait_unavailable(self, session: ClientSession) -> None:
         deadline = time.monotonic() + 10
@@ -154,14 +173,17 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
 
             ran = await session.call_tool("query_run", {"sql": "SELECT 41"})
             self.assertFalse(ran.is_error, ran.structured_content)
+            self.assertIn("result_file", ran.structured_content)
+            self.assertNotIn("rows", ran.structured_content)
+            self.assertNotIn("sql", ran.structured_content)
             query_id = ran.structured_content["query_id"]
             saved_sql = "WITH source AS (SELECT range AS value FROM range(10)) SELECT value FROM source LIMIT 7"
             saved = await session.call_tool("query_run", {
-                "sql": saved_sql, "save": True, "preview": 5, "name": "restart",
+                "sql": saved_sql, "save": True, "preview": 5, "name": "restart", "result_delivery": "inline",
             })
             self.assertFalse(saved.is_error, saved.structured_content)
             saved_id = saved.structured_content["saved_query_id"]
-            self.assertEqual(saved_sql, saved.structured_content["sql"])
+            self.assertNotIn("sql", saved.structured_content)
             self.assertEqual([[0], [1], [2], [3], [4]], saved.structured_content["rows"])
             self.assertEqual(5, saved.structured_content["row_count"])
             saved_url = saved.structured_content["saved_query_url"]
@@ -170,7 +192,7 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
                 "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.saved_queries.append_sealed_events",
                 side_effect=OSError("disk full"),
             ):
-                partial = await session.call_tool("query_run", {"sql": "SELECT 43", "save": True})
+                partial = await session.call_tool("query_run", {"sql": "SELECT 43", "save": True, "result_delivery": "inline"})
             self.assertFalse(partial.is_error, partial.structured_content)
             self.assertEqual([[43]], partial.structured_content["rows"])
             self.assertEqual("partial", partial.structured_content["outcome"])
@@ -185,7 +207,7 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
             ):
                 partial_http = await client.post(
                     "/caprmedio/workbench/fixture/run",
-                    json={"sql": "SELECT 44", "save": True},
+                    json={"sql": "SELECT 44", "save": True, "result_delivery": "inline"},
                 )
             self.assertEqual(200, partial_http.status_code)
             self.assertEqual([[44]], partial_http.json()["rows"])
@@ -244,7 +266,7 @@ class WorkbenchRestartTests(unittest.IsolatedAsyncioTestCase):
             self.assertFalse(restored.is_error, restored.structured_content)
             self.assertEqual(saved_id, restored.structured_content["saved_query_id"])
             self.assertEqual(saved_sql, restored.structured_content["sql"])
-            fresh = await session.call_tool("query_run", {"sql": "SELECT 42"})
+            fresh = await session.call_tool("query_run", {"sql": "SELECT 42", "result_delivery": "inline"})
             self.assertFalse(fresh.is_error, fresh.structured_content)
             self.assertEqual([[42]], fresh.structured_content["rows"])
             ping = await session.call_tool("workbench_ui_ping", {})

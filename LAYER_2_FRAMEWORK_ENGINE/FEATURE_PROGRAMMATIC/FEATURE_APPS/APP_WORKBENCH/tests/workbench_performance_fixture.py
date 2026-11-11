@@ -332,7 +332,7 @@ def prepare_fixture(temporary_root: Path) -> PerformanceFixture:
     relation_path.parent.mkdir(parents=True, exist_ok=True)
     relation_path.write_text(
         _relation_header(fixture.relative(relation_path))
-        + "# Summary\n\nDefine representative Relations.\n\n## Claim\n\n```CFEL\n"
+        + "## Summary\n\nDefine representative Relations.\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n"
         "Relation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n"
         "Relation//IS_BLOCKED_BY ((HAS_INVERSE)) Relation//BLOCKS;\n```\n",
         encoding="utf-8",
@@ -348,10 +348,12 @@ def prepare_fixture(temporary_root: Path) -> PerformanceFixture:
             relation_target=None,
             form="Declaration",
         )
-        + "# Summary\n\nDefine representative Content.\n\n## Claim\n\n```CFEL\n# model\n"
+        + "## Summary\n\nDefine representative Content.\n\n## Claim\n\n### Formal Claim\n\n```CFEL\n"
         "Atom.Content.Summary{::1}:: {::1};\n"
         "Atom/(.Header.Role in RMED).Content.Claim{::1}:: []{::0};\n"
         "Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};\n"
+        "Atom/(.Header.Role in RMED).Content.Claim.Formal Claim:: {::1};\n"
+        "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::1};\n"
         "Atom/(.Header.Role in RMED).Content.Details{::0..1}:: [string]{::0..1};\n```\n",
         encoding="utf-8",
     )

@@ -6,10 +6,11 @@ from io import StringIO
 from pathlib import Path
 import sys
 import unittest
-from unittest.mock import ANY, Mock, call, patch
+from unittest.mock import Mock, patch
 
 APP_ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(APP_ROOT))
+sys.path[:0] = [str(APP_ROOT), str(Path(__file__).parent)]
+from smalltest_support import empty_assets
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import compile_content_schema  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.index_delta import MaterializationDelta  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
@@ -27,7 +28,7 @@ class SchemaRefreshServiceTests(unittest.TestCase):
         if captures is not None:
             reader.capture.side_effect = captures
         with patch(PREFIX + "SourceReader", return_value=reader):
-            service = WorkbenchService(Path("/project"))
+            service = WorkbenchService(Path("/project"), **empty_assets())
         service._store = Mock(apply=Mock(return_value=True), schema_changed=False)
         service._relation_state = Mock()
         return service, reader, rows, scopes
@@ -39,27 +40,9 @@ class SchemaRefreshServiceTests(unittest.TestCase):
         with patch(PREFIX + "materialize_delta", return_value=(rows, scopes, set(), {}, next_state, delta)) as materialize, redirect_stdout(StringIO()):
             service._refresh([EVENT])
         reader.capture.assert_called_once_with([EVENT])
-        materialize.assert_called_once_with(rows, scopes, old_state, changes=reader.capture_delta)
-        service._store.apply.assert_called_once_with(rows, scopes, relation_types=set(), content_schema=reader.content_schema, delta=delta)
+        materialize.assert_called_once_with(rows, scopes, old_state, changes=reader.capture_delta, registry=service._registry)
+        service._store.apply.assert_called_once_with(rows, scopes, relation_types=set(), content_schema=service._content_schema, delta=delta, header_schema=service._header_schema)
         service._store.replace.assert_not_called()
-        self.assertIs(next_state, service._relation_state)
-
-    def test_schema_change_recaptures_then_replaces_without_touching_results(self):
-        final = [{"source_path": "source/after.md"}]
-        service, reader, rows, scopes = self.service()
-        reader.capture.side_effect = [(rows, scopes), (final, scopes)]
-        service._store.schema_changed = True
-        old_state, next_state = service._relation_state, Mock()
-        delta = MaterializationDelta({}, {EVENT["new_path"]: rows[0]}, {}, {})
-        with patch(PREFIX + "materialize_delta", side_effect=[(rows, scopes, set(), {}, Mock(), delta), (final, scopes, set(), {}, next_state, None)]) as materialize, redirect_stdout(StringIO()):
-            service._refresh([EVENT])
-        reader.capture.assert_has_calls([call([EVENT]), call()])
-        materialize.assert_has_calls([call(rows, scopes, old_state, changes=reader.capture_delta), call(final, scopes, old_state)])
-        service._store.replace.assert_called_once_with(
-            final, scopes, relation_types=set(), content_schema=reader.content_schema, header_schema=ANY,
-        )
-        service._store.drop.assert_not_called()
-        service._store.unpin.assert_not_called()
         self.assertIs(next_state, service._relation_state)
 
     def test_no_source_change_skips_materialization_and_database(self):

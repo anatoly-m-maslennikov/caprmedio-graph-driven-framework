@@ -7,8 +7,8 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Operations)/Workflow
 tier: 3
 status: Active
-version: 5
-updated_at: '2026-11-04 00:31:19 +0400'
+version: 7
+updated_at: '2026-11-11 05:13:50 +0400'
 ---
 
 ## Summary
@@ -22,6 +22,8 @@ Declare Workflow
 ```CFEL
 # model
 Atom/(.Header.Role := Operations)/Workflow;
+
+Workflow.Header.Form:: [in (Workflow)]{::1};
 
 # instances
 Workflow//$workflow{::1+}((CONTAINS)) Step//$step;

@@ -9,16 +9,16 @@ topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Role := Concern)
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom
-tier: 1
+tier: 3
 relations:
   child_of:
-  - CA-R-1423
+  - CA-R-3043
 status: Active
-version: 24
-updated_at: 2026-11-02 00:18:22 +0400
+version: 25
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-635-CAPRMEDIO-RULE--prevent-recurrence-of-resolved-failures.md
+    name: CA-R-635-RULE--prevent-recurrence-of-resolved-failures.md
     path: .caprmedio_caprmedio/04_requirement
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

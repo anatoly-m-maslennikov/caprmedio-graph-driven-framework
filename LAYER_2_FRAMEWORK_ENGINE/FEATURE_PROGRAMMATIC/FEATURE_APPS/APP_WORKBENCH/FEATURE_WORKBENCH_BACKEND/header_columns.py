@@ -16,6 +16,7 @@ import sys
 from typing import Any
 
 from .content_schema import _matches
+from .declaration_cfel import selector_key
 from .declared_header_rules import HeaderRule, compile_header_rules
 from .relations import canonical, json_value
 
@@ -57,7 +58,7 @@ class HeaderSchema:
         return tuple(
             (
                 column.path, column.name, column.format, column.populated, column.reader,
-                tuple(sorted(_rule_shape(rule) for rule in column.rules)),
+                tuple(sorted({_rule_shape(rule) for rule in column.rules})),
             )
             for column in self.columns
         )
@@ -84,15 +85,15 @@ class HeaderSchema:
         if column.reader is not None:
             if not isinstance(header, dict):
                 return None
-            present, value = header_value(header, column.reader)
+            present, resolved = header_value(header, column.reader)
             if not present:
                 return None
             if column.format == "TIMESTAMPTZ":
-                timestamp = dt.datetime.fromisoformat(value.replace("Z", "+00:00")) if isinstance(value, str) else value
+                timestamp = dt.datetime.fromisoformat(resolved.replace("Z", "+00:00")) if isinstance(resolved, str) else resolved
                 if isinstance(timestamp, dt.datetime) and (timestamp.tzinfo is None or timestamp.utcoffset() is None):
                     raise ValueError(f"Header {column.reader} requires an offset-bearing timestamp")
                 return timestamp
-            return value
+            return resolved
         value: Any = header
         for key in column.path:
             if not isinstance(value, Mapping) or key not in value:
@@ -245,11 +246,18 @@ def _rule_applies(rule: HeaderRule, row: Mapping[str, Any]) -> bool:
 
 
 def _rule_shape(rule: HeaderRule) -> tuple[object, ...]:
-    return rule.path, rule.format, tuple(sorted(rule.roles or ())), tuple(sorted(rule.forms or ()))
+    return rule.path, rule.format, selector_key(rule.roles), selector_key(rule.forms)
 
 
 def _rule_key(rule: HeaderRule) -> tuple[object, ...]:
-    return *_rule_shape(rule), rule.source.reference or "", rule.source.version or -1, rule.source.source_path or ""
+    format_source = rule.format_source
+    return (
+        *_rule_shape(rule), rule.source.reference or "", rule.source.version or -1, rule.source.source_path or "",
+        format_source.reference or "" if format_source else "",
+        format_source.version or -1 if format_source else -1,
+        format_source.source_path or "" if format_source else "",
+        tuple((s.reference or "", s.version or -1, s.source_path or "") for s in rule.provenance),
+    )
 
 
 def _rule_asset(rule: HeaderRule) -> dict[str, object]:
@@ -258,6 +266,8 @@ def _rule_asset(rule: HeaderRule) -> dict[str, object]:
         "roles": sorted(rule.roles) if rule.roles is not None else None,
         "forms": sorted(rule.forms) if rule.forms is not None else None,
         "source": rule.source.asset(),
+        "provenance": [source.asset() for source in rule.provenance],
+        **({"format_source": rule.format_source.asset()} if rule.format_source is not None else {}),
     }
 
 

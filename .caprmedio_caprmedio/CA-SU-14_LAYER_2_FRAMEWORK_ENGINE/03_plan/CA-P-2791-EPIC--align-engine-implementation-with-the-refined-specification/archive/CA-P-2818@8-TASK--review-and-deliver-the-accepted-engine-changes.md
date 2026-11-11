@@ -1,0 +1,66 @@
+---
+identity:
+  id: CA-P-2818
+  ref_id: CA-P-2818@8
+context:
+  container:
+    atom: CA-P-2791
+  role: Plan
+  form: Plan
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Atom
+  tier: 4
+  label: Task
+state:
+  status: Archived
+  version: 8
+  updated_at: 2026-11-11 03:05:37 +0400
+destination:
+  file:
+    name: CA-P-2818@8-TASK--review-and-deliver-the-accepted-engine-changes.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/archive
+author: Anatoly Maslennikov
+relations:
+  IS_BLOCKED_BY:
+  - CA-P-2816
+  - CA-P-2817
+  - CA-P-2842
+  - CA-P-2843
+  - CA-P-2844
+  - CA-P-2852
+  - CA-P-2839
+  - CA-P-2859
+  - CA-P-2861
+  - CA-P-2866
+  - CA-P-2910
+---
+
+## Summary
+
+Review and deliver the accepted Engine changes
+
+## Objective
+
+Review the combined implementation against adopted RMED, fix confirmed issues, then perform the authorized local delivery with its actual checks. Record Current spec versions, tests, deployment and remaining deferrals separately.
+
+## Subtasks
+
+- [ ] Review and fix the next scoped input batch. (ETA: up to 15 min.)
+- [ ] Complete one scoped implementation or verification batch; split before exceeding 20 min.
+- [ ] Review and fix the result; record a small P / Work Report. (ETA: up to 15 min.)
+
+## Definition of Done
+
+The stated work has actual source/code/test evidence. Every unresolved or unrun case is explicit; no Task text replaces RMED.
+
+## Image-build acceptance
+
+- [ ] Verify model/schema and canonical relation generation from selected Current Declaration formal Claims on every image build, including builds used by local and public release. Check generated inputs/provenance and live query results after build. M500 is the existing schema authority; C729 records the missing declaration-input inventory.
+
+## Release-test cleanup check
+
+Verify the working MCP/Workbench image and query_run. Exclude Workflow-engine execution, routing, Run-state/history, recovery and C727 prompt-frontier repair from this gate; retain the direct release-runner cleanup checks below.
+
+- [ ] Recheck C567 against the retained release test runner and current Docker fixtures. The historical failing selected-Workflow fixture is no longer present.
+- [ ] Reproduce any applicable interrupted-run or failed-start cleanup defect, then prepare the smallest confirmed repair and regression coverage. Split investigation, repair and verification into batches of at most 15–20 minutes.
+- [ ] Record exact resource ownership and outcomes under the existing cleanup policies. Do not restore retired Workflow tests or treat historical evidence as proof of a current failure.

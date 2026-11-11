@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Active
-  version: 3
-  updated_at: 2026-11-11 00:58:52 +0400
+  status: Done
+  version: 6
+  updated_at: 2026-11-11 06:17:58 +0400
 destination:
   file:
     name: CA-P-2861-TASK--deliver-and-verify-the-standalone-codex-hook.md
@@ -34,10 +34,25 @@ Implement and test the adopted generic hook delivery independently of plugins. V
 
 ## Subtasks
 
-- [ ] Review the next scoped inputs and fix gaps. (ETA: up to 15 min.)
-- [ ] Complete one scoped batch; split before 20 minutes.
-- [ ] Review the result and write a small Work Report. (ETA: up to 15 min.)
+- [x] Review the next scoped inputs and fix gaps. (ETA: up to 15 min.)
+- [x] Complete one scoped batch; split before 20 minutes.
+- [x] Review the result and write a small Work Report. (ETA: up to 15 min.)
 
 ## Definition of Done
 
 The scoped deliverable is reviewed and its actual checks and remaining holds are recorded. Tasks do not replace RMEDO.
+
+
+## Verified context; host installation pending
+
+P2927 records passing launcher-subprocess and live-MCP context checks. The exact host installation candidate is prepared and reviewed. Automatic approval review rejected the ~/.codex/hooks.json write because persistent host PreToolUse configuration requires explicit approval of the concrete change. The host file and trust state remain unchanged. Installation and actual Codex host activation remain unverified; no Workflow Run/history work is resumed.
+
+
+## Approved host installation
+
+The Operator approved the exact reviewed host change. P2930 and installation.json prove installation; all unrelated hooks and trust state remain unchanged. The prior approval block is cleared. Actual Codex host invocation/trust activation still needs evidence before this Task is Done.
+
+
+## Actual host activation
+
+P2936 records actual Codex hook enforcement and a successful bound query. P2927 verified the injected session at the receiving gateway.

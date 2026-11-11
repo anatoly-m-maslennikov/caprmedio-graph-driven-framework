@@ -1,11 +1,11 @@
 # CA-R-2725@4
-# CA-R-2728@7
-# CA-R-2729@8
-# CA-R-2953@2
+# CA-R-2728@8
+# CA-R-2729@10
+# CA-R-2953@5
 # CA-M-462@11
 # CA-M-463@7
 # CA-M-493@2
-# CA-D-673@15
+# CA-D-673@18
 # CA-D-697@2
 # CA-R-2950@2
 # CA-R-2724@4
@@ -137,8 +137,13 @@ class QueryStore:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             try:
-                header_state = HeaderSchemaState.from_atoms(atom_rows) if self._schema_mode == 2 else self._header_state
-                header_schema = header_schema or header_schema_for_mode(self._schema_mode, atom_rows)
+                header_state = self._header_state
+                if header_schema is None:
+                    if self._schema_mode == 2:
+                        header_state = HeaderSchemaState.from_atoms(atom_rows)
+                        header_schema = header_state.schema
+                    else:
+                        header_schema = header_schema_for_mode(self._schema_mode, atom_rows)
                 if content_schema is None:
                     content_schema = compile_content_schema(atom_rows)
                 self._connection.execute("BEGIN TRANSACTION")
@@ -194,10 +199,13 @@ class QueryStore:
             if not self._available:
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
             if self._projection is None:
-                self.replace(atom_rows, scope_rows, relation_types=relation_types, content_schema=content_schema)
+                self.replace(
+                    atom_rows, scope_rows, relation_types=relation_types,
+                    content_schema=content_schema, header_schema=header_schema,
+                )
                 return True
             try:
-                if self._schema_mode == 1:
+                if header_schema is not None or self._schema_mode == 1:
                     header_state = self._header_state
                 elif delta is None:
                     header_state = HeaderSchemaState.from_atoms(atom_rows)
@@ -341,7 +349,7 @@ class QueryStore:
             self._connection.execute(
                 f"CREATE TABLE workbench_results.{table} AS "
                 f"SELECT row_number() OVER () AS {quote_identifier(private_ordinal)}, * "
-                f"FROM ({materialized_sql}) AS source"
+                f"FROM ({materialized_sql}\n) AS source"
             )
             stored_columns = tuple(self._connection.sql(f"SELECT * FROM workbench_results.{table}").columns)
             columns, row_count = result_columns(self._connection, table, columns, private_ordinal=True)
@@ -487,7 +495,8 @@ class QueryStore:
                 self._available = False
                 print(f"query store unavailable: {exc}", file=sys.stderr)
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
-        return {"valid": True, "row_count": result.row_count, "column_count": len(result.columns), "sql": sql}
+        return {"valid": True, "columns": result.columns, "row_count": result.row_count,
+                "column_count": len(result.columns), "sql": sql}
 
     def schema(self) -> dict[str, dict[str, list[dict[str, Any]]]]:
         with self._lock:

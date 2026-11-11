@@ -58,7 +58,7 @@ def assert_performance_batch(
     case.assertEqual(expected_total, counts["distinct_references"], counts)
     batch = rows(
         'SELECT reference, "header.state.version", "header.context.container.scope_unit"\n'
-        '  ,"header.context.scope_unit_name", "relative path"\n'
+        '  ,"header.context.scope_unit_name", "relative_path"\n'
         '  ,"header.destination.file.name", "header.destination.file.path", "header.relations"\n'
         '  ,"content.summary" AS content_summary\n'
         '  ,"content.claim.prose_claim" AS content_claim\n'
@@ -79,7 +79,7 @@ def assert_performance_batch(
         case.assertEqual(version, row["header.state.version"], row)
         case.assertEqual(scope_id, row["header.context.container.scope_unit"], row)
         case.assertEqual(scope_name, row["header.context.scope_unit_name"], row)
-        case.assertEqual(expected_directory, row["relative path"], row)
+        case.assertEqual(expected_directory, row["relative_path"], row)
         case.assertEqual(path.name, row["header.destination.file.name"], row)
         case.assertEqual(fixture.relative(path.parent), row["header.destination.file.path"], row)
         case.assertEqual(f"Index representative Atom {atom_id}.", row["content_summary"])

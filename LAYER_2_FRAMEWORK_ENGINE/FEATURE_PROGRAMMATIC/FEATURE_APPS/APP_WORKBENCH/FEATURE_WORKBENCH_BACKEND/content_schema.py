@@ -15,11 +15,11 @@ from pathlib import Path
 import re
 from typing import Any
 
-from markdown_it import MarkdownIt
-
+from .declaration_ancestry import compile_ancestry
 from .declaration_cfel import (
-    allowed_children as _allowed_children, container as _container, filters as _filters,
-    model_statements as _model_statements, segments as _segments,
+    container as _container, filters as _filters,
+    formal_claim_blocks, intersect_selectors,
+    model_statements as _model_statements, segments as _segments, selector_key,
 )
 from .markdown_content import content_lines, direct_markdown, parse_content, section_markdown, source_markdown
 
@@ -53,6 +53,9 @@ class DeclarationSource:
         }
 
 
+FormalStatement = tuple[str, DeclarationSource]
+
+
 @dataclass(frozen=True)
 class ContentRule:
     """A literal declared Content path and its narrow applicability."""
@@ -62,8 +65,8 @@ class ContentRule:
     forms: frozenset[str] | None
     value_bearing: bool
     source: DeclarationSource
-    observed: bool = False
     prohibited: bool = False
+    provenance: tuple[DeclarationSource, ...] = ()
 
     def applies(self, row: Mapping[str, Any]) -> bool:
         return (
@@ -105,9 +108,9 @@ class ContentSchema:
         return (
             tuple((column.path, column.name) for column in self.columns),
             tuple(sorted({
-                (rule.path, tuple(sorted(rule.roles or ())), tuple(sorted(rule.forms or ())),
+                (rule.path, selector_key(rule.roles), selector_key(rule.forms),
                  rule.value_bearing, rule.prohibited)
-                for rule in self.rules if not rule.observed
+                for rule in self.rules
             })),
         )
 
@@ -188,6 +191,7 @@ class ContentSchema:
                             "roles": sorted(rule.roles) if rule.roles is not None else None,
                             "forms": sorted(rule.forms) if rule.forms is not None else None,
                             "source": rule.source.asset(),
+                            "provenance": [source.asset() for source in rule.provenance],
                         }
                         for rule in column.rules
                     ],
@@ -208,92 +212,53 @@ def content_schema_asset_path(database_path: Path | None) -> Path | None:
 
 
 def compile_content_schema(atom_rows: Sequence[Mapping[str, Any]]) -> ContentSchema:
-    """Compile declared Content paths against observed carrier headings."""
-    return schema_from_rules(
-        (rule for row in atom_rows for rule in declaration_rules(row)),
-        (item for row in atom_rows for item in observed_paths(row)),
+    """Compile only named declarations; headings and constraints do not create paths."""
+    return content_schema_from_statements(
+        statement for row in atom_rows for statement in declaration_statements(row)
     )
 
 
-def declaration_rules(row: Mapping[str, Any] | None) -> tuple[ContentRule, ...]:
-    """Compile one source's literal Content declarations."""
+def content_schema_from_statements(statements: Iterable[FormalStatement]) -> ContentSchema:
+    return _schema_from_rules(
+        rule for projected in compile_ancestry(statements)
+        for rule in _statement_rules(
+            projected.statement, projected.source, projected.roles, projected.forms,
+            tuple(dict.fromkeys(projected.provenance[:-1])),
+        )
+    )
+
+
+def declaration_statements(row: Mapping[str, Any] | None) -> tuple[FormalStatement, ...]:
+    """Capture formal statements, including declarations with no properties."""
     if row is None or not _is_declaration(row):
         return ()
-    return tuple(_rules(source_markdown(row), _source(row)))
+    body = source_markdown(row)
+    if not isinstance(body, str):
+        return ()
+    source = _source(row)
+    return tuple(
+        (statement, source)
+        for block in formal_claim_blocks(body)
+        for statement in _model_statements(block)
+    )
 
 
-def schema_from_rules(
-    rules: Iterable[ContentRule],
-    observations: Iterable[tuple[str | None, str | None, tuple[str, ...]]] = (),
-) -> ContentSchema:
+def _schema_from_rules(rules: Iterable[ContentRule]) -> ContentSchema:
     """Assemble a schema from already parsed declaration rules."""
     unique_rules = tuple(sorted(set(rules), key=_rule_key))
-    sources = tuple(sorted({rule.source for rule in unique_rules}, key=_source_key))
-    expanded_rules = _observed_rules(unique_rules, observations)
+    sources = tuple(sorted(
+        {source for rule in unique_rules for source in (rule.source, *rule.provenance)},
+        key=_source_key,
+    ))
     grouped: dict[tuple[str, ...], list[ContentRule]] = {}
-    for rule in (*unique_rules, *expanded_rules):
+    for rule in unique_rules:
         if rule.value_bearing and not any(part in {"*", "**"} for part in rule.path):
             grouped.setdefault(rule.path, []).append(rule)
     columns = tuple(
         ContentColumn(path, "content." + ".".join(path), tuple(grouped[path]))
         for path in sorted(grouped, key=lambda path: "content." + ".".join(path))
     )
-    return ContentSchema(columns, (*unique_rules, *expanded_rules), sources)
-
-
-def observed_paths(row: Mapping[str, Any]) -> frozenset[tuple[str | None, str | None, tuple[str, ...]]]:
-    """Extract distinct actual headings without treating fenced text as headings."""
-    records = row.get("content_properties_json")
-    if not isinstance(records, list):
-        body = source_markdown(row)
-        records = parse_content(body, tolerate_duplicate_siblings=True) if isinstance(body, str) else []
-    role = row.get("role") if isinstance(row.get("role"), str) else None
-    form = row.get("form") if isinstance(row.get("form"), str) else None
-    return frozenset((role, form, path) for path in _records_by_path(records))
-
-
-def _observed_rules(
-    rules: tuple[ContentRule, ...],
-    observations: Iterable[tuple[str | None, str | None, tuple[str, ...]]],
-) -> tuple[ContentRule, ...]:
-    literal = tuple(rule for rule in rules if not any(part in {"*", "**"} for part in rule.path))
-    wildcards = tuple(rule for rule in rules if rule.value_bearing and rule.path[-1:] in {("*",), ("**",)})
-    prohibitions = tuple(rule for rule in rules if rule.prohibited)
-    expanded: set[ContentRule] = set()
-    for role, form, path in observations:
-        row = {"role": role, "form": form}
-        specific = tuple(rule for rule in literal if rule.path == path and rule.applies(row))
-        if specific:
-            continue
-        if any(
-            path[:len(rule.path) - 1] == rule.path[:-1] and len(path) >= len(rule.path)
-            and rule.applies(row)
-            and not any(
-                allowed.value_bearing and len(allowed.path) >= len(rule.path)
-                and path[:len(allowed.path)] == allowed.path and allowed.applies(row)
-                for allowed in literal
-            )
-            for rule in prohibitions
-        ):
-            continue
-        if any(
-            rule.path[-1:] == ("prose_claim",)
-            and path[:len(rule.path) - 1] == rule.path[:-1]
-            and len(path) >= len(rule.path)
-            and rule.applies(row)
-            for rule in literal
-        ):
-            continue
-        for rule in wildcards:
-            parent, wildcard = rule.path[:-1], rule.path[-1]
-            if (path[:len(parent)] == parent and len(path) > len(parent)
-                    and (wildcard == "**" or len(path) == len(parent) + 1)
-                    and rule.applies(row)):
-                expanded.add(ContentRule(
-                    path, frozenset({role}) if role is not None else rule.roles,
-                    frozenset({form}) if form is not None else rule.forms, True, rule.source, True,
-                ))
-    return tuple(sorted(expanded, key=_rule_key))
+    return ContentSchema(columns, unique_rules, sources)
 
 
 def _is_declaration(row: Mapping[str, Any]) -> bool:
@@ -316,18 +281,6 @@ def _source(row: Mapping[str, Any]) -> DeclarationSource:
     )
 
 
-def _rules(body: object, source: DeclarationSource) -> list[ContentRule]:
-    if not isinstance(body, str):
-        return []
-    result: list[ContentRule] = []
-    for token in MarkdownIt("commonmark").parse(body):
-        if token.type != "fence" or token.info.strip().casefold() != "cfel":
-            continue
-        for statement in _model_statements(token.content):
-            result.extend(_statement_rules(statement, source))
-    return result
-
-
 def _declared_children(
     rules: Sequence[ContentRule], parent_path: tuple[str, ...], row: Mapping[str, Any],
 ) -> frozenset[tuple[str, ...]]:
@@ -338,7 +291,11 @@ def _declared_children(
     )
 
 
-def _statement_rules(statement: str, source: DeclarationSource) -> list[ContentRule]:
+def _statement_rules(
+    statement: str, source: DeclarationSource,
+    inherited_roles: frozenset[str] | None, inherited_forms: frozenset[str] | None,
+    provenance: tuple[DeclarationSource, ...],
+) -> list[ContentRule]:
     if not statement.startswith("Atom") or ";>" in statement or "((" in statement:
         return []
     content = statement.find(".Content")
@@ -348,19 +305,13 @@ def _statement_rules(statement: str, source: DeclarationSource) -> list[ContentR
     segments, remainder = _segments(tail)
     if not segments:
         return []
-    roles = _filters(prefix, "Role")
-    forms = _filters(prefix, "Form")
+    roles = intersect_selectors(_filters(prefix, "Role"), inherited_roles)
+    forms = intersect_selectors(_filters(prefix, "Form"), inherited_forms)
     if segments[-1] in {"*", "**"}:
         if re.match(r"\s*\[\s*\]\s*\{\s*::\s*0\s*\}", remainder):
-            return [ContentRule(tuple(segments), roles, forms, False, source, prohibited=True)]
-        choices = _allowed_children(remainder)
-        if not choices:
-            return [ContentRule(tuple(segments), roles, forms, not _container(remainder), source)]
-        return [
-            ContentRule((*segments[:-1], choice), roles, forms, True, source)
-            for choice in choices
-        ]
-    return [ContentRule(tuple(segments), roles, forms, not _container(remainder), source)]
+            return [ContentRule(tuple(segments), roles, forms, False, source, prohibited=True, provenance=provenance)]
+        return [ContentRule(tuple(segments), roles, forms, not _container(remainder), source, provenance=provenance)]
+    return [ContentRule(tuple(segments), roles, forms, not _container(remainder), source, provenance=provenance)]
 
 
 def _records_by_path(records: object) -> dict[tuple[str, ...], list[Mapping[str, Any]]]:
@@ -454,7 +405,7 @@ def _span(record: Mapping[str, Any]) -> tuple[int, int, int] | None:
     start = record.get("_start_line")
     body_start = record.get("_body_start_line")
     end = record.get("_end_line")
-    if all(type(value) is int for value in (start, body_start, end)):
+    if type(start) is int and type(body_start) is int and type(end) is int:
         return start, body_start, end
     return None
 
@@ -483,11 +434,13 @@ def _source_key(source: DeclarationSource) -> tuple[str, int, str]:
     return (source.reference or "", source.version or -1, source.source_path or "")
 
 
-def _rule_key(rule: ContentRule) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...], bool, tuple[str, int, str]]:
+def _rule_key(rule: ContentRule) -> tuple[object, ...]:
     return (
         rule.path,
-        tuple(sorted(rule.roles or ())),
-        tuple(sorted(rule.forms or ())),
+        selector_key(rule.roles),
+        selector_key(rule.forms),
         rule.value_bearing,
+        rule.prohibited,
         _source_key(rule.source),
+        tuple(_source_key(source) for source in rule.provenance),
     )

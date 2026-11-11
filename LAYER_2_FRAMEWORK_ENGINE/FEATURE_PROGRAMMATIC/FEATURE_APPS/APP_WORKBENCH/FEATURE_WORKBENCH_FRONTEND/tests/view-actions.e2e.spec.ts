@@ -51,7 +51,7 @@ async function flushDraft(page: Page, sql: string) {
 
 async function saveCurrentView(page: Page, name: string) {
   await page.getByRole('button', { name: 'Run & Save', exact: true }).click();
-  const dialog = page.getByRole('dialog', { name: 'Query name' });
+  const dialog = page.getByRole('dialog', { name: 'Bookmark name' });
   await dialog.getByRole('textbox').fill(name);
   await dialog.getByRole('button', { name: 'Save', exact: true }).click();
   const link = page.locator('.saved-reference a');
@@ -69,7 +69,7 @@ async function paletteAction(page: Page, label: string) {
 
 async function openSaved(page: Page, reference: string) {
   await paletteAction(page, 'Open Saved');
-  const dialog = page.getByRole('dialog', { name: 'Open saved query or View' });
+  const dialog = page.getByRole('dialog', { name: 'Open Bookmark or saved View' });
   await expect(dialog).toBeVisible();
   const input = dialog.getByRole('textbox');
   await input.fill(reference); await input.press('Enter');
@@ -105,7 +105,12 @@ test('reuses exact saved View identity without navigation or equal-SQL merging',
 
   await page.goto(fixture.workspaceUrl.toString());
   await replaceSql(page, sql);
-  const first = await saveCurrentView(page, 'First saved');
+  const firstName = `First saved ${fixture.workspace}`;
+  const first = await saveCurrentView(page, firstName);
+  await page.getByRole('tab', { name: 'Bookmarks and saved Views', exact: true }).click();
+  const savedItem = page.locator('.saved-item').filter({ has: page.locator('.saved-preview', { hasText: firstName }) });
+  await expect(savedItem.locator('.saved-kind')).toHaveText('Bookmark');
+  await tab(page, 'View 1').click();
   await page.getByRole('button', { name: 'New View', exact: true }).click();
   await expect(tab(page, 'View 2')).toHaveAttribute('aria-selected', 'true');
   await replaceSql(page, sql);

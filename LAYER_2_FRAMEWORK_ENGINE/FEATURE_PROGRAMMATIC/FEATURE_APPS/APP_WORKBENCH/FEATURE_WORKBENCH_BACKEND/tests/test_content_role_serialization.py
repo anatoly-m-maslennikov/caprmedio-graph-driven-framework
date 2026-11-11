@@ -16,10 +16,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[4] / "FEATURE_TOOLS"))
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import ContentSchema, DeclarationSource, compile_content_schema
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.declared_header_rules import HeaderRule
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.header_columns import HeaderColumn
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import carrier_read_view, compile_relation_registry
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_content_schema import SourceContentSchema
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.workbench_schema_asset import compile_schema
 from scope_declaration_test_support import write_scope_unit_declarations
 from smalltest_support import extension_directory, source_path, write_atom, write_settings
 
@@ -34,7 +36,7 @@ def atom(role, form, body):
 
 
 class CarrierSerializationTests(unittest.TestCase):
-    def test_current_model_zero_children_overrides_general_wildcards(self):
+    def test_current_model_presentation_headings_do_not_create_columns(self):
         model = Path.cwd() / (
             ".caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/"
             "CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement"
@@ -43,16 +45,16 @@ class CarrierSerializationTests(unittest.TestCase):
         for identifier in ("2498", "2499"):
             path = next(model.glob(f"CA-R-{identifier}-*.md"))
             _, head, body = path.read_text().split("---", 2)
-            header = yaml.safe_load(head)
+            header = carrier_read_view(yaml.safe_load(head))
             declarations.append(atom(header["role"], header["form"], body))
         source = atom("Method", "Decision", "## Summary\n\nTop.\n\n### Note\n\nKeep.\n")
         schema = compile_content_schema([*declarations, source])
         self.assertNotIn("content.summary.note", schema.names)
         self.assertIn("### Note", schema.values(source)["content.summary"])
 
-    def test_specific_child_permission_overrides_zero_child_rule(self):
+    def test_literal_child_declaration_does_not_invent_siblings(self):
         declaration = atom(
-            "Requirement", "Declaration", "## Claim\n\n```CFEL\n# model\n"
+            "Requirement", "Declaration", "## Claim\n\n### Formal Claim\n\n```CFEL\n"
             "Atom.Content.**[string]{::0+};\n"
             "Atom.Content.Summary.*[]{::0};\n"
             "Atom.Content.Summary.Allowed:: {::1};\n```\n",
@@ -64,8 +66,8 @@ class CarrierSerializationTests(unittest.TestCase):
 
     def test_validation_does_not_extract_all_content_columns(self):
         declaration = atom(
-            "Requirement", "Declaration", "## Claim\n\n```CFEL\n# model\n"
-            "Atom.Content.*[string]{::0+};\n```\n",
+            "Requirement", "Declaration", "## Claim\n\n### Formal Claim\n\n```CFEL\n"
+            "Atom.Content.*[string]{::0+};\nAtom.Content.Objective:: {::1};\n```\n",
         ) | {"source_path": "model.md"}
         source = atom("Plan", "Plan", "## Objective\n\nOne.\n\n## Objective\n\nTwo.\n") | {
             "source_path": "plan.md"
@@ -87,7 +89,7 @@ class CarrierSerializationTests(unittest.TestCase):
     def test_serialized_role_and_form_match_business_spelling(self):
         declaration = atom(
             "requirement", "entity_definition",
-            "## Claim\n\n```CFEL\n# model\n"
+            "## Claim\n\n### Formal Claim\n\n```CFEL\n"
             "Atom/(.Header.Role := Method)/(.Header.Form := Direct Policy)"
             ".Content.Claim.Prose Claim:: {::1};\n```\n",
         )
@@ -101,24 +103,23 @@ class CarrierSerializationTests(unittest.TestCase):
             {"content.claim.prose_claim": None}, schema.values(atom("Method", "Solution", body)),
         )
 
-    def test_specific_container_overrides_wildcard_for_its_role(self):
+    def test_wildcard_constraints_do_not_declare_secret(self):
         declaration = atom(
             "Requirement", "Declaration",
-            "## Claim\n\n```CFEL\n# model\n"
+            "## Claim\n\n### Formal Claim\n\n```CFEL\n"
             "Atom.Content.*[string]{::0+};\n"
             "Atom/(.Header.Role := Method).Content.Secret:: []{::0};\n```\n",
         )
         method = atom("Method", "Solution", "## Secret\n\nHidden.\n")
         plan = atom("Plan", "Plan", "## Secret\n\nVisible.\n")
-        schema = compile_content_schema([declaration, method, plan])
-        self.assertEqual(None, schema.values(method)["content.secret"])
-        self.assertEqual("Visible.", schema.values(plan)["content.secret"])
+        self.assertNotIn("content.secret", compile_content_schema([declaration, method, plan]).names)
 
     def test_filtered_wildcard_preserves_fences_and_role_boundaries(self):
         declaration = atom(
             "Requirement", "Declaration",
-            "## Claim\n\n```CFEL\n# model\n"
-            "Atom/(.Header.Role in (Plan, Concern)).Content.**[string]{::0+};\n```\n",
+            "## Claim\n\n### Formal Claim\n\n```CFEL\n"
+            "Atom/(.Header.Role in (Plan, Concern)).Content.**[string]{::0+};\n"
+            "Atom/(.Header.Role in (Plan, Concern)).Content.Project Objective.Nested Scope:: {::1};\n```\n",
         )
         plan = atom(
             "plan", "Plan", "## Project Objective\n\nText.\n\n"
@@ -134,7 +135,10 @@ class CarrierSerializationTests(unittest.TestCase):
     def test_generic_declaration_exposes_content_for_every_role_and_new_role(self):
         declaration = atom(
             "Requirement", "Declaration",
-            "## Claim\n\n```CFEL\n# model\nAtom.Content.*[string]{::0+};\n```\n",
+            "## Claim\n\n### Formal Claim\n\n```CFEL\nAtom.Content.*[string]{::0+};\n"
+            + "".join(f"Atom.Content.{name}:: {{::1}};\n" for name in (
+                "Concern", "Report", "Objective", "Summary", "Method", "Evaluation", "Delivery", "Operation", "New Section"
+            )) + "```\n",
         )
         examples = [
             ("Concern", "Problem", "Concern"),
@@ -153,10 +157,10 @@ class CarrierSerializationTests(unittest.TestCase):
             name = "content." + heading.casefold().replace(" ", "_")
             self.assertEqual("Value.", schema.values(row)[name])
 
-    def test_wildcards_expose_admitted_paths_without_splitting_prose_headings(self):
+    def test_wildcards_do_not_expose_observed_paths_or_split_prose(self):
         declaration = atom(
             "Requirement", "Declaration",
-            "## Claim\n\n```CFEL\n# model\n"
+            "## Claim\n\n### Formal Claim\n\n```CFEL\n"
             "Atom.Content.*[string]{::0+};\n"
             "Atom.Content.**[string]{::0+};\n"
             "Atom.Content.Claim:: []{::0};\n"
@@ -171,19 +175,18 @@ class CarrierSerializationTests(unittest.TestCase):
         )
         plan = atom("Plan", "Plan", "## Objective\n\nShip.\n\n### Scope\n\nInside.\n")
         schema = compile_content_schema([declaration, prose, legacy, plan])
-        self.assertIn("content.objective", schema.names)
-        self.assertIn("content.objective.scope", schema.names)
+        self.assertNotIn("content.objective", schema.names)
+        self.assertNotIn("content.objective.scope", schema.names)
         self.assertNotIn("content.claim", schema.names)
         self.assertNotIn("content.claim.prose_claim.note", schema.names)
         self.assertNotIn("content.claim.note", schema.names)
         self.assertIn("#### Note", schema.values(prose)["content.claim.prose_claim"])
         self.assertIn("### Note", schema.values(legacy)["content.claim.prose_claim"])
-        self.assertEqual("Inside.", schema.values(plan)["content.objective.scope"])
 
-    def test_wildcard_schema_changes_only_when_a_path_is_added_or_removed(self):
+    def test_observed_headings_do_not_change_wildcard_schema(self):
         declaration = atom(
             "Requirement", "Declaration",
-            "## Claim\n\n```CFEL\n# model\nAtom.Content.*[string]{::0+};\n```\n",
+            "## Claim\n\n### Formal Claim\n\n```CFEL\nAtom.Content.*[string]{::0+};\n```\n",
         ) | {"source_path": "model.md"}
         first = atom("Plan", "Plan", "## Objective\n\nShip.\n") | {"source_path": "plan.md"}
         changed = atom("Plan", "Plan", "## Objective\n\nShip later.\n") | {"source_path": "plan.md"}
@@ -193,9 +196,9 @@ class CarrierSerializationTests(unittest.TestCase):
         state = SourceContentSchema()
         state.rebuild([declaration, first])
         self.assertFalse(state.update({"plan.md": changed}))
-        self.assertTrue(state.update({"plan.md": added}))
+        self.assertFalse(state.update({"plan.md": added}))
         state.rebuild([declaration, added])
-        self.assertTrue(state.update({"plan.md": first}))
+        self.assertFalse(state.update({"plan.md": first}))
 
     def test_current_and_draft_in_both_schema_modes(self):
         temporary_root = Path.cwd() / ".caprmedio_tmp" / "tests"
@@ -210,7 +213,7 @@ class CarrierSerializationTests(unittest.TestCase):
             model = source_path(declarations, "ENGINE", "04_requirement", "CA-R-900.md")
             write_atom(
                 model, "CA-R-900",
-                body="## Claim\n\n```CFEL\n# model\n"
+                body="## Claim\n\n### Formal Claim\n\n```CFEL\n"
                 "Atom/(.Header.Role := Method)/(.Header.Form := Direct Policy)"
                 ".Content.Claim.Prose Claim:: {::1};\n```\n",
             )
@@ -237,7 +240,7 @@ class CarrierSerializationTests(unittest.TestCase):
                     {reader.content_schema.values(row)["content.claim.prose_claim"] for row in candidates},
                 )
 
-    def test_wildcard_schema_refresh_is_visible_in_sql_for_both_modes(self):
+    def test_declared_schema_refresh_is_visible_in_sql_for_both_modes(self):
         temporary_root = Path.cwd() / ".caprmedio_tmp" / "tests"
         temporary_root.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=temporary_root) as directory:
@@ -249,8 +252,9 @@ class CarrierSerializationTests(unittest.TestCase):
             )
             model = source_path(declarations, "ENGINE", "04_requirement", "CA-R-900.md")
             write_atom(
-                model, "CA-R-900", body="## Claim\n\n```CFEL\n# model\n"
-                "Atom.Content.*[string]{::0+};\nAtom.Content.**[string]{::0+};\n```\n",
+                model, "CA-R-900", body="## Claim\n\n### Formal Claim\n\n```CFEL\n"
+                "Atom.Content.*[string]{::0+};\nAtom.Content.**[string]{::0+};\n"
+                "Atom.Content.Objective:: {::1};\nAtom.Content.Objective.Scope:: {::0..1};\n```\n",
             )
             model.write_text(model.read_text().replace('form: "Definition"', 'form: "Declaration"'))
             plan = source_path(declarations, "ENGINE", "03_plan", "CA-P-900.md")
@@ -264,9 +268,18 @@ class CarrierSerializationTests(unittest.TestCase):
 
             for mode in (1, 2):
                 write_plan("## Objective\n\nBefore.\n")
-                service = WorkbenchService(root)
+                builder = SourceReader(root, control)
+                rows, _ = builder.capture()
+                assert builder.content_schema is not None
+                compiled = compile_schema(rows, builder.content_schema, builder.header_schema)
+                service = WorkbenchService(
+                    root, compiled_schema=compiled, relation_registry=compile_relation_registry(rows),
+                )
                 service._schema_mode = mode
-                service._reader = SourceReader(root, control, schema_mode=mode)
+                service._header_schema = compiled.mode_one if mode == 1 else None
+                service._reader = SourceReader(
+                    root, control, schema_mode=mode, compiled_schema=(compiled.content, compiled.mode_one),
+                )
                 service._store = QueryStore(
                     schema_mode=mode, extension_directory=extension_directory(Path.cwd()),
                 )
@@ -291,7 +304,10 @@ class CarrierSerializationTests(unittest.TestCase):
                     write_plan("## Objective\n\nAfter.\n")
                     service._refresh([event()])
                     columns = service._store.schema()["tables"]["atoms"]
-                    self.assertNotIn("content.objective.scope", {column["name"] for column in columns})
+                    self.assertIn("content.objective.scope", {column["name"] for column in columns})
+                    self.assertEqual([[None]], service._store.run(
+                        'SELECT "content.objective.scope" FROM atoms WHERE filename = \'CA-P-900.md\''
+                    )["rows"])
                 finally:
                     service.close()
 

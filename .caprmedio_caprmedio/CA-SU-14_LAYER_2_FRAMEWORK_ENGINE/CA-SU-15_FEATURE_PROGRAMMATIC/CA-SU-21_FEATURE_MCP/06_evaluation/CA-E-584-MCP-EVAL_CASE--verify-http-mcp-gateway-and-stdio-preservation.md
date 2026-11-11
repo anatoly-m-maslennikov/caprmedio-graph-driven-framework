@@ -21,8 +21,8 @@ relations:
   - CA-R-1884
   - CA-M-341
 status: Active
-version: 13
-updated_at: 2026-11-10 20:47:54 +0400
+version: 14
+updated_at: 2026-11-11 06:09:13 +0400
 carrier_destination:
   file:
     name: CA-E-584-MCP-EVAL_CASE--verify-http-mcp-gateway-and-stdio-preservation.md
@@ -38,7 +38,7 @@ verify HTTP MCP Gateway and stdio preservation
 
 ### Prose Claim
 
-the Evaluation **must** verify that real MCP HTTP initialization, discovery, calls and reload use the existing Gateway without breaking stdio behavior.
+the Evaluation **must** verify that real MCP HTTP initialization, discovery and calls use the existing Gateway without breaking stdio behavior.
 
 ## Details
 
@@ -46,4 +46,4 @@ the Evaluation **must** verify that real MCP HTTP initialization, discovery, cal
 
 the additional localhost HTTP transport for the existing Project MCP Gateway.
 
-Use real-Gateway E2E fixtures with a disposable mock implementation to exercise Streamable HTTP initialization, discovery and a Tool call. Reload the mock on the same HTTP connection, verify the new registry/result, and keep an in-flight old-generation call until it drains. On lifespan exit, verify Session and generation cleanup; run existing stdio hot-reload tests unchanged. When Docker is available, verify the Docker service’s localhost URL in a container; a mock or host-ASGI pass does not satisfy that Docker gate.
+Use real-Gateway E2E fixtures with a disposable mock implementation to exercise Streamable HTTP initialization, discovery and a Tool call. On lifespan exit, verify Session cleanup; run existing stdio transport tests. When Docker is available, verify the Docker service’s localhost URL in a container; a mock or host-ASGI pass does not satisfy that Docker gate.

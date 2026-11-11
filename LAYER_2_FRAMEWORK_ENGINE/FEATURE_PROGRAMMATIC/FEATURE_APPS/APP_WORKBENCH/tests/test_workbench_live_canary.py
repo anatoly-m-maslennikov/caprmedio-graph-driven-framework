@@ -80,13 +80,15 @@ class WorkbenchLiveCanary(unittest.TestCase):
         return name
 
     @staticmethod
-    def _wait_for_rows(url: str, query: str, expected: list[list[object]], *, present: bool) -> float:
+    def _wait_for_rows(
+        url: str, query: str, expected: list[list[object]], *, present: bool, started_at: float | None = None,
+    ) -> float:
         """Measure visibility only; the deadline protects the canary process, not a product SLA."""
-        started = time.monotonic()
+        started = time.monotonic() if started_at is None else started_at
         deadline = started + 90
         last: object = None
         while time.monotonic() < deadline:
-            status, payload = _request(url, method="POST", payload={"sql": query, "page_size": 10})
+            status, payload = _request(url, method="POST", payload={"sql": query, "page_size": 10, "result_delivery": "inline"})
             last = payload
             if status == 200 and isinstance(payload, dict) and payload.get("rows") == expected:
                 return round(time.monotonic() - started, 3)
@@ -197,10 +199,12 @@ class WorkbenchLiveCanary(unittest.TestCase):
     @staticmethod
     def _atom_query(atom_id: str) -> str:
         return (
-            'SELECT reference, "relative path", "header.state.version" '
-            ', "header.context.container.scope_unit", "header.context.scope_unit_name" '
-            ', "header.destination.file.name", "header.destination.file.path" '
-            f"FROM atoms WHERE reference = '{atom_id}'"
+            'SELECT a.reference, a.relative_path, a."header.state.version" '
+            ', a."header.context.container.scope_unit", s.name '
+            ', a."header.destination.file.name", a."header.destination.file.path" '
+            'FROM atoms AS a LEFT JOIN scope_units AS s '
+            'ON s.scope_unit_id = a."header.context.container.scope_unit" '
+            f"WHERE a.reference = '{atom_id}'"
         )
 
     @staticmethod
@@ -230,12 +234,12 @@ class WorkbenchLiveCanary(unittest.TestCase):
 
     def _record_visibility(
         self, report: dict[str, object], phase: str, url: str, query: str,
-        expected: list[list[object]], *, present: bool,
+        expected: list[list[object]], *, present: bool, started_at: float,
     ) -> None:
         latencies = report.setdefault("visibility_seconds", {})
         if not isinstance(latencies, dict):
             raise LiveCanaryError("canary report lost its visibility metrics")
-        latencies[phase] = self._wait_for_rows(url, query, expected, present=present)
+        latencies[phase] = self._wait_for_rows(url, query, expected, present=present, started_at=started_at)
 
     @staticmethod
     def _scenario(root: Path, declarations: object, *, token: str) -> tuple[CanaryScope, CanaryScope, CanaryScope, str]:
@@ -324,12 +328,14 @@ class WorkbenchLiveCanary(unittest.TestCase):
                 owned[path] = _atomic_replace(candidate, path)
                 staged.discard(candidate)
 
+            started = time.monotonic()
             first_authority.mkdir()
             publish(first, first_target)
-            self._record_visibility(report, "scope_create_first", query_url, self._scope_query(first.scope_unit_id), [[first.name, first.scope_unit_id, PARENT_SCOPE, 1]], present=True)
+            self._record_visibility(report, "scope_create_first", query_url, self._scope_query(first.scope_unit_id), [[first.name, first.scope_unit_id, PARENT_SCOPE, 1]], present=True, started_at=started)
+            started = time.monotonic()
             second_authority.mkdir()
             publish(second, second_target)
-            self._record_visibility(report, "scope_create_second", query_url, self._scope_query(second.scope_unit_id), [[second.name, second.scope_unit_id, PARENT_SCOPE, 1]], present=True)
+            self._record_visibility(report, "scope_create_second", query_url, self._scope_query(second.scope_unit_id), [[second.name, second.scope_unit_id, PARENT_SCOPE, 1]], present=True, started_at=started)
 
             atom = first_authority / "04_requirement" / f"{atom_id}-canary-source.md"
             atom.parent.mkdir(parents=True, exist_ok=True)
@@ -339,16 +345,18 @@ class WorkbenchLiveCanary(unittest.TestCase):
             )
             staged.add(atom_stage)
             validate_atom_carrier(atom_stage)
+            started = time.monotonic()
             owned[atom] = _atomic_publish(atom_stage, atom)
             staged.discard(atom_stage)
             self._record_visibility(
                 report, "atom_create", query_url, self._atom_query(atom_id),
-                self._atom_expected(root, atom_id, atom, first, 1), present=True,
+                self._atom_expected(root, atom_id, atom, first, 1), present=True, started_at=started,
             )
+            started = time.monotonic()
             replace_atom(atom, first, 2)
             self._record_visibility(
                 report, "atom_update", query_url, self._atom_query(atom_id),
-                self._atom_expected(root, atom_id, atom, first, 2), present=True,
+                self._atom_expected(root, atom_id, atom, first, 2), present=True, started_at=started,
             )
             renamed_atom = atom.with_name(f"{atom_id}-canary-renamed.md")
             atom_stage = _stage_carrier(
@@ -357,35 +365,40 @@ class WorkbenchLiveCanary(unittest.TestCase):
             )
             staged.add(atom_stage)
             validate_atom_carrier(atom_stage)
+            started = time.monotonic()
             owned[atom] = _atomic_replace(atom_stage, atom)
             staged.discard(atom_stage)
             atom.rename(renamed_atom)
             owned[renamed_atom] = owned.pop(atom)
             self._record_visibility(
                 report, "atom_rename", query_url, self._atom_query(atom_id),
-                self._atom_expected(root, atom_id, renamed_atom, first, 2), present=True,
+                self._atom_expected(root, atom_id, renamed_atom, first, 2), present=True, started_at=started,
             )
             moved_atom = second_authority / "04_requirement" / renamed_atom.name
             moved_atom.parent.mkdir(parents=True, exist_ok=True)
+            started = time.monotonic()
             renamed_atom.rename(moved_atom)
             owned[moved_atom] = owned.pop(renamed_atom)
             replace_atom(moved_atom, second, 2)
             self._record_visibility(
                 report, "atom_move", query_url, self._atom_query(atom_id),
-                self._atom_expected(root, atom_id, moved_atom, second, 2), present=True,
+                self._atom_expected(root, atom_id, moved_atom, second, 2), present=True, started_at=started,
             )
 
             first_updated = first.with_changes(version=2)
             first_stage = _stage_carrier(REPORT_DIRECTORY, first.atom_id, _scope_carrier(first_updated, project_name, "2026-11-06 00:00:00 +0000"))
             staged.add(first_stage)
             _write_scope_declaration(first_stage, first_updated, project_name)
+            started = time.monotonic()
             owned[first_target] = _atomic_replace(first_stage, first_target)
             staged.discard(first_stage)
-            self._record_visibility(report, "scope_update", query_url, self._scope_query(first.scope_unit_id), [[first.name, first.scope_unit_id, PARENT_SCOPE, 2]], present=True)
+            self._record_visibility(report, "scope_update", query_url, self._scope_query(first.scope_unit_id), [[first.name, first.scope_unit_id, PARENT_SCOPE, 2]], present=True, started_at=started)
 
+            started = time.monotonic()
             _remove_owned_file(second_target, owned.pop(second_target))
-            self._record_visibility(report, "scope_move_remove_declaration", query_url, self._scope_query(second.scope_unit_id), [], present=False)
+            self._record_visibility(report, "scope_move_remove_declaration", query_url, self._scope_query(second.scope_unit_id), [], present=False, started_at=started)
             moved_second_authority = _scope_authority(first_authority, second)
+            started = time.monotonic()
             second_authority.rename(moved_second_authority)
             moved_atom = moved_second_authority / "04_requirement" / moved_atom.name
             owned[moved_atom] = owned.pop(second_authority / "04_requirement" / moved_atom.name)
@@ -393,34 +406,39 @@ class WorkbenchLiveCanary(unittest.TestCase):
             moved_second = second.with_changes(parent=first.name, version=2)
             moved_second_target = _declaration_target(first_authority, moved_second)
             publish(moved_second, moved_second_target)
-            self._record_visibility(report, "scope_move_publish_declaration", query_url, self._scope_query(second.scope_unit_id), [[second.name, second.scope_unit_id, first.name, 2]], present=True)
+            self._record_visibility(report, "scope_move_publish_declaration", query_url, self._scope_query(second.scope_unit_id), [[second.name, second.scope_unit_id, first.name, 2]], present=True, started_at=started)
             self._record_visibility(
                 report, "atom_scope_move", query_url, self._atom_query(atom_id),
-                self._atom_expected(root, atom_id, moved_atom, second, 2), present=True,
+                self._atom_expected(root, atom_id, moved_atom, second, 2), present=True, started_at=started,
             )
 
+            started = time.monotonic()
             _remove_owned_file(moved_second_target, owned.pop(moved_second_target))
-            self._record_visibility(report, "scope_rename_remove_declaration", query_url, self._scope_query(second.scope_unit_id), [], present=False)
+            self._record_visibility(report, "scope_rename_remove_declaration", query_url, self._scope_query(second.scope_unit_id), [], present=False, started_at=started)
             renamed_authority = _scope_authority(first_authority, renamed)
+            started = time.monotonic()
             moved_second_authority.rename(renamed_authority)
             moved_atom = renamed_authority / "04_requirement" / moved_atom.name
             owned[moved_atom] = owned.pop(moved_second_authority / "04_requirement" / moved_atom.name)
             replace_atom(moved_atom, renamed, 2)
             renamed_target = _declaration_target(first_authority, renamed)
             publish(renamed, renamed_target)
-            self._record_visibility(report, "scope_rename_publish_declaration", query_url, self._scope_query(second.scope_unit_id), [[renamed.name, renamed.scope_unit_id, first.name, 3]], present=True)
+            self._record_visibility(report, "scope_rename_publish_declaration", query_url, self._scope_query(second.scope_unit_id), [[renamed.name, renamed.scope_unit_id, first.name, 3]], present=True, started_at=started)
             self._record_visibility(
                 report, "atom_scope_rename", query_url, self._atom_query(atom_id),
-                self._atom_expected(root, atom_id, moved_atom, renamed, 2), present=True,
+                self._atom_expected(root, atom_id, moved_atom, renamed, 2), present=True, started_at=started,
             )
 
+            started = time.monotonic()
             _remove_owned_file(moved_atom, owned.pop(moved_atom))
-            self._record_visibility(report, "atom_delete", query_url, self._atom_reference_query(atom_id), [], present=False)
+            self._record_visibility(report, "atom_delete", query_url, self._atom_reference_query(atom_id), [], present=False, started_at=started)
+            started = time.monotonic()
             _remove_owned_file(renamed_target, owned.pop(renamed_target))
-            self._record_visibility(report, "scope_delete_second", query_url, self._scope_query(second.scope_unit_id), [], present=False)
+            self._record_visibility(report, "scope_delete_second", query_url, self._scope_query(second.scope_unit_id), [], present=False, started_at=started)
             _remove_owned_authority(renamed_authority)
+            started = time.monotonic()
             _remove_owned_file(first_target, owned.pop(first_target))
-            self._record_visibility(report, "scope_delete_first", query_url, self._scope_query(first.scope_unit_id), [], present=False)
+            self._record_visibility(report, "scope_delete_first", query_url, self._scope_query(first.scope_unit_id), [], present=False, started_at=started)
             _remove_owned_authority(first_authority)
             report["outcome"] = "passed"
         except Exception as error:

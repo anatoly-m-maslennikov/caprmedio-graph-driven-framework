@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Backlog
-  version: 1
-  updated_at: 2026-11-11 00:51:59 +0400
+  version: 2
+  updated_at: 2026-11-11 01:59:27 +0400
 destination:
   file:
     name: CA-P-2913-TASK--confirm-the-adopted-sql-implementation-inputs.md
@@ -31,7 +31,7 @@ Confirm the adopted SQL implementation inputs
 
 ## Objective
 
-Review the adopted source handoff and select Current REDO, non-Policy Methods and applicable Method Policy guidance. Confirm missing lifecycle dependencies and exclusive per-Scope ownership before implementation.
+Review and refine the seven SQL proposal Drafts indexed in P2912. Obtain adoption before selecting Current REDO, non-Policy Methods and applicable Method Policy guidance; the earlier source handoff does not establish adoption of these proposals. Confirm missing lifecycle dependencies and exclusive per-Scope ownership before implementation.
 
 ## Subtasks
 

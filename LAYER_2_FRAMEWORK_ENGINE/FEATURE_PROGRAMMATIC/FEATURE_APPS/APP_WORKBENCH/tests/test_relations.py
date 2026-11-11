@@ -24,7 +24,10 @@ def atom(ref, *, relation=None, form="Rule", body="## Claim\nOne claim.\n"):
 
 
 def relation_declaration(ref, name, binding=""):
-    body = f"```CFEL\n{binding}\n```\n" if binding else "## Claim\n"
+    formal = f"Relation//{name} ((HAS_CLASSIFICATION)) Derivation == Direct;"
+    if binding:
+        formal += f"\n{binding}"
+    body = f"## Claim\n\n### Formal Claim\n\n```CFEL\n{formal}\n```\n"
     row = atom(ref, form="Declaration", body=body)
     row["header_json"]["subjects"] = {
         "active": "CAPRMEDIO_MODEL <+ CFEL <+ Relation//" + name,
@@ -36,8 +39,7 @@ def declarations():
     return [
         relation_declaration("CA-R-1", "IS_CONTAINED_BY",
                              "Relation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;"),
-        relation_declaration("CA-R-2", "CONTAINS",
-                             "Relation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;"),
+        relation_declaration("CA-R-2", "CONTAINS"),
     ]
 
 
@@ -287,15 +289,15 @@ class RelationTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(canonical(data).encode()).hexdigest(), rows[0]["hash"])
         self.assertEqual(rows, materialize([atom("CA-R-5")], [])[0])
 
-    def test_duplicate_references_are_excluded_with_their_supported_inverses(self):
+    def test_duplicate_references_keep_first_carrier_and_its_supported_inverses(self):
         task = atom("CA-P-2", relation={"is_contained_by": ["CA-P-1"]})
         other = dict(task, source_path="another-draft.md")
         errors = StringIO()
         with redirect_stderr(errors):
             rows, _ = materialize(declarations() + [atom("CA-P-1"), task, other], [])
-        self.assertEqual([], next(row for row in rows if row["ref"] == "CA-P-1")["relation_edges_json"])
-        self.assertNotIn("CA-P-2", [row["ref"] for row in rows])
-        self.assertIn("ambiguous duplicate reference CA-P-2", errors.getvalue())
+        self.assertEqual(1, len(next(row for row in rows if row["ref"] == "CA-P-1")["relation_edges_json"]))
+        self.assertEqual([task["source_path"]], [row["source_path"] for row in rows if row["ref"] == "CA-P-2"])
+        self.assertIn("duplicate reference CA-P-2", errors.getvalue())
 
     def test_unassigned_draft_references_are_not_duplicates(self):
         first = dict(atom("draft-1"), id=None, ref=None, status_group="Draft")
@@ -331,7 +333,7 @@ class RelationTests(unittest.TestCase):
         _rows, _scopes, _registered, _inverse, next_cache = materialize_with_registry(
             [first, second, duplicate], [], cache,
         )
-        self.assertEqual({"CA-P-1.md"}, set(next_cache))
+        self.assertEqual({"CA-P-1.md", "CA-P-2.md"}, set(next_cache))
 
     def test_registry_is_calculated_once_per_materialization(self):
         import APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations as relations

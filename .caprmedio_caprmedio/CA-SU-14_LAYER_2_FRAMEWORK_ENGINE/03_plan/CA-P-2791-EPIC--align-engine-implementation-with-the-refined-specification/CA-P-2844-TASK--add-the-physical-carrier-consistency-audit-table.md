@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Active
-  version: 2
-  updated_at: 2026-11-11 00:53:28 +0400
+  status: Done
+  version: 3
+  updated_at: 2026-11-11 06:40:07 +0400
 destination:
   file:
     name: CA-P-2844-TASK--add-the-physical-carrier-consistency-audit-table.md
@@ -35,9 +35,9 @@ Create and review RMED for a table listing Atoms whose actual filename or locati
 
 ## Subtasks
 
-- [ ] Create or update the related RMED; review and fix it. (ETA: up to 20 min per batch.)
-- [ ] Gather applicable Method Policies and implement the accepted RMED. (ETA: up to 20 min per batch.)
-- [ ] Add E2E coverage, review and fix the result, and record a small Work Report. (ETA: up to 20 min per batch.)
+- [x] Create or update the related RMED; review and fix it. (ETA: up to 20 min per batch.)
+- [x] Gather applicable Method Policies and implement the accepted RMED. (ETA: up to 20 min per batch.)
+- [x] Add E2E coverage, review and fix the result, and record a small Work Report. (ETA: up to 20 min per batch.)
 
 ## Definition of Done
 

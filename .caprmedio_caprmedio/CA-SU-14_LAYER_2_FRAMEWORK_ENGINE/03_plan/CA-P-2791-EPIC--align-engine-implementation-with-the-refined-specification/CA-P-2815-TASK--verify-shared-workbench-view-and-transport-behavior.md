@@ -12,9 +12,9 @@ context:
   tier: 4
   label: Task
 state:
-  status: Active
-  version: 3
-  updated_at: 2026-11-11 00:53:28 +0400
+  status: Done
+  version: 5
+  updated_at: 2026-11-11 07:44:19 +0400
 destination:
   file:
     name: CA-P-2815-TASK--verify-shared-workbench-view-and-transport-behavior.md
@@ -35,13 +35,22 @@ Exercise adopted View operations, result lifetime, schema naming, formatting, gr
 
 ## Subtasks
 
-- [ ] Confirm Current editor/display/transport acceptance and exclusive file ownership. (ETA: up to 15 min.)
-- [ ] Verify one editor or View/Tab operation batch through the actual browser interface. Split before 20 min.
-- [ ] Verify one theme, zoom or grid batch with the applicable Evaluations. Split before 20 min.
-- [ ] Measure Compact at equivalent viewport/zoom against the recovered historical baseline; report a missing baseline explicitly. (ETA: up to 20 min.)
-- [ ] Verify shared HTTP/MCP outcomes in a separate transport batch after Backend changes. Split before 20 min.
-- [ ] Independently review/fix each result and record a small Work Report. (ETA: up to 15 min.)
+- [x] Confirm Current editor/display/transport acceptance and exclusive file ownership. (ETA: up to 15 min.)
+- [x] Verify one editor or View/Tab operation batch through the actual browser interface. Split before 20 min.
+- [x] Verify one theme, zoom or grid batch with the applicable Evaluations. Split before 20 min.
+- [x] Measure Compact at equivalent viewport/zoom against the recovered historical baseline; report a missing baseline explicitly. (ETA: up to 20 min.)
+- [x] Verify shared HTTP/MCP outcomes in a separate transport batch after Backend changes. Split before 20 min.
+- [x] Independently review/fix each result and record a small Work Report. (ETA: up to 15 min.)
 
 ## Definition of Done
 
 The stated work has actual source/code/test evidence. Every unresolved or unrun case is explicit; no Task text replaces RMED.
+
+
+## Verified batches
+
+P2926 records nine passing real-image View/grid browser tests and eight shared HTTP/MCP Workspace E2E tests, including E819. P2924 records completion acceptance; P2925 records real native-watcher canaries. The Task remains Active until the complete adopted View/result-lifetime/display checklist is reconciled. The recovered Compact comparison meets the half-height target against its historical proxy; the exact screenshot build/zoom is unverified. No native Codex rendering or standalone-chat acceptance is added.
+
+## Verified acceptance
+
+P2943, P2947 and P2954 record the browser and adapter checks. The rebuilt image passed browser, shared grid and result-lifetime tests. The Compact proxy is recorded with its historical baseline limitation. Native Codex rendering and standalone chat remain deferred.

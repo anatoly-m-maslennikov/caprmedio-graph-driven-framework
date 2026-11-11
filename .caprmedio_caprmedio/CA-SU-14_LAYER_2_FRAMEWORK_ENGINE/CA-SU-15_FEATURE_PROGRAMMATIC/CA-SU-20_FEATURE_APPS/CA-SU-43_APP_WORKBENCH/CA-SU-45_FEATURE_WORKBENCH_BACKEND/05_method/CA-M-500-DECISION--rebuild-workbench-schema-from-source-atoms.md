@@ -18,8 +18,8 @@ relations:
   - CA-R-2726
 state:
   status: Active
-  version: 7
-  updated_at: 2026-11-10 22:20:17 +0400
+  version: 10
+  updated_at: 2026-11-11 05:53:07 +0400
 destination:
   file:
     name: CA-M-500-DECISION--rebuild-workbench-schema-from-source-atoms.md
@@ -42,6 +42,9 @@ Keep the Workbench schema a rebuildable asset, not a handwritten Python property
 
 Mode 1 derives canonical Header names and formats from the existing grouped Header carrier adapter and Current declarations, using accepted aliases only for reads and rejecting conflicts. `Header.ID` binds to `identity.atom_id`; timestamps retain existing offset-bearing `TIMESTAMPTZ` rules. Mode 2, enabled now, retains every observed raw Header path from valid sources—distinct source spellings stay distinct—while Content remains Current-model-declared. It retains empty paths, uses `header.context.container` JSON as the sole grouping-node exception, and exposes `header.relations` as one native direct/derived JSON projection. Neither mode adds a full Form validator or rewrites source Headers.
 
-Generate `workbench_schema.json` at image build and keep selected projection/Content schema state under `.caprmedio_runtime/workbench`; both are derived and validated/rebuilt from valid inputs when stale or missing. Mode 2 rebuilds schema/tables and rereads the complete valid inventory for a new/last-removed Header or model-admitted Content path, format/type change, or previously populated path becoming globally empty; zero and false are values. Mode 1 does so for changed Current-model declared Header/Markdown schema or a new/last-removed Content path admitted by its wildcard declarations. An ordinary value edit with unchanged schema remains incremental.
+Generate `workbench_schema.json` at image build. Load it at startup and keep the declared Header and Content schemas fixed. Apply declaration changes by rebuilding the image. Report a missing or invalid asset; do not compile from live declarations as a fallback. Mode 2 observes Header paths from valid files at cold start. In both modes, ordinary data changes update the projection under the loaded schema.
 
-On every image rebuild, regenerate the rebuildable query model and schema asset from Current Declarations, including Role and Form applicability, Content wildcards and more specific Content rules. Compile those rules as inputs permit and retain exact provenance; specific Prose Claim and fenced-heading rules take precedence over generic wildcard interpretation. This model supports queryable Content across Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery and Operations without a fixed RMEDO or Claim-heading whitelist. Do not relabel other Roles’ bodies as Claims. Candidate schema state is owner-local: preserve invalid-content exclusion, duplicate filtering, relation projection, asset regeneration and full-rebuild boundaries; do not add a second source, public query setting or background schema service.
+On every image rebuild, regenerate the rebuildable query model and schema asset from Current Declarations, including Role and Form applicability, Content wildcards and more specific Content rules. Resolve applicable explicit property declarations, including inherited declarations, and retain exact provenance. Bracketed formats and conditions and wildcard constraints do not create named properties; observed headings and finite name lists are not declaration substitutes. A declared Content column remains in the schema when its current values are empty. This model supports queryable Content across Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery and Operations without a fixed RMEDO or Claim-heading whitelist. Do not relabel other Roles’ bodies as Claims. Keep invalid-content exclusion, duplicate filtering and relation projection. Rereading data does not reload or compile the declared schema.
+
+
+Generate declaration-derived model facts only from CFEL-labelled code blocks in `Content.Claim.Formal Claim`. Ignore `#` comments outside quoted strings, including section markers such as `# model`; comments are not declarations or parsing gates. Prose Claim, Semantics, Details, examples and Header Topics do not supply model facts. Source identity, lifecycle and provenance metadata may select and bind inputs. Mode 2 still observes factual Header data as separately admitted; that is not a substitute for declaration-derived model facts.

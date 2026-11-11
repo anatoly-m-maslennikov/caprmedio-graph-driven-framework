@@ -9,16 +9,16 @@ topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Aspects <+ Product
   dependencies:
   - CAPRMEDIO_MODEL <+ Project
-tier: 2
+tier: 4
 relations:
   child_of:
   - CA-R-632
 status: Active
-version: 21
-updated_at: 2026-11-02 18:35:20 +0400
+version: 22
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-633-CAPRMEDIO-RULE--target-framework-improvement-at-the-operating-framework.md
+    name: CA-R-633-RULE--target-framework-improvement-at-the-operating-framework.md
     path: .caprmedio_caprmedio/04_requirement
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

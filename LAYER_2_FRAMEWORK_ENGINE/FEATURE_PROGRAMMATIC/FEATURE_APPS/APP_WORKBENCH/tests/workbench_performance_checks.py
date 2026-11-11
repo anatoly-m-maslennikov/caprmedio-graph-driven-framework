@@ -55,7 +55,7 @@ class WorkbenchPerformanceDockerMixin:
                 status, result = request(
                     url + f"{workbench_path}/run",
                     method="POST",
-                    payload={"sql": sql, "page_size": 1_000},
+                    payload={"sql": sql, "page_size": 1_000, "result_delivery": "inline"},
                 )
                 self.assertEqual(200, status, result)
                 self.assertIsInstance(result, dict)

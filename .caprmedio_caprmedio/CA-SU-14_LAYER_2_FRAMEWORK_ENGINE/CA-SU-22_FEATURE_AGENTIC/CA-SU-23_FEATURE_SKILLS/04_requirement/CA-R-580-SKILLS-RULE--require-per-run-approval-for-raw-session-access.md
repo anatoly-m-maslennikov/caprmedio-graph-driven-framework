@@ -12,10 +12,10 @@ tier: 1
 relations:
   child_of:
   - CA-R-1058
-  - CA-R-1423
+  - CA-R-3043
 status: Active
-version: 21
-updated_at: 2026-11-10 20:47:54 +0400
+version: 22
+updated_at: "2026-11-11 03:47:42 +0400"
 subject_scopes:
 - session-access
 llm_session_ids:

@@ -24,7 +24,8 @@ def atom(reference: str, *, subjects: str | None = None, relations: dict[str, li
     header = {"relations": relations or {}}
     if subjects is not None:
         header["subjects"] = {"active": subjects}
-    body = "# Claim\n\nOne claim.\n"
+    name = subjects.rsplit("//", 1)[-1] if subjects is not None else None
+    body = (f"## Claim\n### Formal Claim\n```CFEL\nRelation//{name} ((HAS_CLASSIFICATION)) Derivation == Direct;\n```\n" if name else "# Claim\n\nOne claim.\n")
     return {
         "source_path": f"definitions/{reference}.md",
         "status_group": "Current",
@@ -87,9 +88,9 @@ class RelationRegistryCollisionTests(unittest.TestCase):
 
     def test_native_graph_uses_one_canonical_fact_for_legacy_inverse_spelling(self) -> None:
         direct = atom("CA-R-10", subjects="Subject/Graph/Relation//IS_CONTAINED_BY")
-        direct["content_markdown"] = "```CFEL\nRelation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n```\n"
+        direct["content_markdown"] = "## Claim\n### Formal Claim\n```CFEL\nRelation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n```\n"
         inverse = atom("CA-R-11", subjects="Subject/Graph/Relation//CONTAINS")
-        inverse["content_markdown"] = "```CFEL\nRelation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;\n```\n"
+        inverse["content_markdown"] = "## Claim\n### Formal Claim\n```CFEL\nRelation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;\n```\n"
         parent = atom("CA-P-1")
         child = atom("CA-P-2", relations={"CONTAINS": ["CA-P-1"]})
 

@@ -15,7 +15,6 @@
 """One Project's direct file reader, background indexer, and SQL capability."""
 from __future__ import annotations
 import datetime as dt
-from dataclasses import replace
 from pathlib import Path
 import shutil
 import sys
@@ -29,7 +28,7 @@ from .query_log import QueryLog
 from .result_delivery import deliver, validate_delivery, result_metadata, failed_metadata
 from .incremental_relations import RelationState, materialize_delta
 from .generate_relation_registry import DEFAULT_REGISTRY_PATH
-from .relation_registry import compile_registry
+from .relation_registry import RelationRegistry
 from .relation_registry_asset import load_registry_asset
 from .runtime_settings import result_ttl_seconds, schema_mode
 from .saved_queries import SavedQueryStore
@@ -37,7 +36,8 @@ from .source_reader import SourceReader
 from .source_watcher import Change, SourceWatcher
 from .statements import select_statement
 from .watcher_change_log import WatcherChangeLog
-from .workbench_schema_asset import header_schema as compile_header_schema
+from .header_columns import HeaderSchema, infer_header_schema
+from .workbench_schema_asset import SchemaCompilation, load_image_schema
 from .workspace import WorkspaceStore
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
@@ -47,10 +47,26 @@ from work_journal import configured_journal_root  # noqa: E402
 class WorkbenchService:
     """Own only the Workbench lifecycle; QueryStore owns database serialization."""
 
-    def __init__(self, root: Path, *, extension_directory: Path | None = None) -> None:
+    def __init__(
+        self, root: Path, *, extension_directory: Path | None = None,
+        compiled_schema: SchemaCompilation | None = None,
+        relation_registry: RelationRegistry | None = None,
+    ) -> None:
         self._root = Path(root).resolve()
         self._schema_mode = schema_mode(self._root)
-        self._reader = SourceReader(self._root, schema_mode=self._schema_mode)
+        try:
+            compiled = compiled_schema if compiled_schema is not None else load_image_schema()
+            self._registry = (
+                relation_registry if relation_registry is not None else load_registry_asset(DEFAULT_REGISTRY_PATH)
+            )
+        except (OSError, ValueError) as error:
+            print(f"Workbench image assets unavailable: {error}", file=sys.stderr)
+            raise WorkbenchUnavailableError(f"Workbench image assets unavailable: {error}") from error
+        self._reader = SourceReader(
+            self._root, schema_mode=self._schema_mode, compiled_schema=(compiled.content, compiled.mode_one),
+        )
+        self._content_schema = compiled.content
+        self._header_schema: HeaderSchema | None = compiled.mode_one if self._schema_mode == 1 else None
         self._saved_queries = SavedQueryStore(self._root)
         self._workspaces = WorkspaceStore(self._root)
         self._workspaces.clear_transient_results()
@@ -91,67 +107,33 @@ class WorkbenchService:
                 full = changed = False
                 materialize_seconds = write_seconds = 0.0
                 if changes is None or self._reader.capture_changed:
-                    initial_compilation = None
-                    if self._relation_state is None:
-                        initial_compilation = compile_registry(atoms)
-                        delivered = load_registry_asset(
-                            DEFAULT_REGISTRY_PATH, atoms, initial_compilation,
-                        )
-                        if delivered is not None:
-                            initial_compilation = replace(initial_compilation, registry=delivered)
-                    materialize_args = {"changes": self._reader.capture_delta}
-                    if initial_compilation is not None:
-                        materialize_args["initial_compilation"] = initial_compilation
+                    if self._header_schema is None:
+                        self._header_schema = infer_header_schema(atoms)
+                        self._reader.set_observed_header_schema(self._header_schema)
                     atoms, scopes, registered, _inverse, next_state, delta = materialize_delta(
-                        atoms, scopes, self._relation_state, **materialize_args,
+                        atoms, scopes, self._relation_state,
+                        changes=self._reader.capture_delta, registry=self._registry,
                     )
                     materialize_seconds = time.monotonic() - captured_at
-                    schema = self._reader.content_schema
-                    assert schema is not None
-                    declared_header = self._reader.header_schema
-                    assert declared_header is not None
                     full = delta is None
-                    header_schema = (
-                        compile_header_schema(atoms, schema, declared_header, self._schema_mode) if full
-                        else declared_header if self._schema_mode == 1 else None
-                    )
                     writing_started = time.monotonic()
-                    if full:
+                    previous = self._relation_state
+                    same_registry = previous is not None and (
+                        previous.registered, previous.inverse, previous.aliases, previous.collisions
+                    ) == (next_state.registered, next_state.inverse, next_state.aliases, next_state.collisions)
+                    reuse_full = full and changes is not None and same_registry
+                    if not full or reuse_full:
+                        changed = self._store.apply(
+                            atoms, scopes, relation_types=registered, content_schema=self._content_schema,
+                            delta=delta, header_schema=self._header_schema,
+                        )
+                    if full and (not reuse_full or self._store.schema_changed):
                         self._store.replace(
-                            atoms, scopes, relation_types=registered, content_schema=schema,
-                            header_schema=header_schema,
+                            atoms, scopes, relation_types=registered, content_schema=self._content_schema,
+                            header_schema=self._header_schema,
                         )
                         changed = True
-                    else:
-                        apply_args = {
-                            "relation_types": registered, "content_schema": schema, "delta": delta,
-                        }
-                        if header_schema is not None:
-                            apply_args["header_schema"] = header_schema
-                        changed = self._store.apply(atoms, scopes, **apply_args)
                     write_seconds += time.monotonic() - writing_started
-                    if not full and self._store.schema_changed is True:
-                        full = True
-                        recapture_started = time.monotonic()
-                        atoms, scopes = self._reader.capture()
-                        recaptured_at = time.monotonic()
-                        capture_seconds += recaptured_at - recapture_started
-                        atoms, scopes, registered, _inverse, next_state, _delta = materialize_delta(
-                            atoms, scopes, self._relation_state,
-                        )
-                        materialize_seconds += time.monotonic() - recaptured_at
-                        schema = self._reader.content_schema
-                        assert schema is not None
-                        declared_header = self._reader.header_schema
-                        assert declared_header is not None
-                        header_schema = compile_header_schema(atoms, schema, declared_header, self._schema_mode)
-                        writing_started = time.monotonic()
-                        self._store.replace(
-                            atoms, scopes, relation_types=registered, content_schema=schema,
-                            header_schema=header_schema,
-                        )
-                        write_seconds += time.monotonic() - writing_started
-                        changed = True
                     self._relation_state = next_state
                 self._store.sync_atom_audits(self._reader)
                 written_at = time.monotonic()

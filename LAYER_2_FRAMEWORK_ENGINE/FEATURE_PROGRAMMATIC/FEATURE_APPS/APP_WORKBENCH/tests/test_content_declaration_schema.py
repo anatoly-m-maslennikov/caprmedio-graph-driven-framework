@@ -21,6 +21,7 @@ from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import (  # noqa: E4
     compile_content_schema,
 )
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_content_schema import SourceContentSchema  # noqa: E402
 
 
 class ContentDeclarationSchemaTests(unittest.TestCase):
@@ -44,8 +45,13 @@ class ContentDeclarationSchemaTests(unittest.TestCase):
     def declaration(self, reference: str, statement: str) -> dict:
         return self.atom(
             reference,
-            body=f"## Claim\n\n```CFEL\n# model\n{statement}\n```\n",
+            body=f"## Claim\n\n### Formal Claim\n\n```CFEL\n{statement}\n```\n",
         )
+
+    def test_cfel_outside_formal_claim_does_not_contribute(self) -> None:
+        declaration = self.declaration("CA-R-1", "Atom.Content.Summary{::1}:: {::1};")
+        declaration["content_markdown"] = "## Claim\n\n```CFEL\nAtom.Content.Summary{::1}:: {::1};\n```\n"
+        self.assertEqual((), compile_content_schema([declaration]).names)
 
     def test_declaration_changes_add_remove_and_rename_columns(self) -> None:
         summary = self.declaration("CA-R-1", "Atom.Content.Summary{::1}:: {::1};")
@@ -130,11 +136,49 @@ class ContentDeclarationSchemaTests(unittest.TestCase):
         self.assertEqual(("content.formal_claim",), schema.names)
         self.assertEqual({"content.formal_claim": "Formal content."}, content_columns(atom, schema))
 
-    def test_allowed_children_produce_rmed_claim_columns_and_keep_legacy_prose(self) -> None:
+    def test_finite_list_and_observed_headings_do_not_declare_children(self) -> None:
+        declaration = self.declaration(
+            "CA-R-3",
+            "Atom.Content.Claim{::1}:: []{::0};\n"
+            "Atom.Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};",
+        )
+        atom = self.atom("CA-R-4", body="## Claim\n### Formal Claim\nText.\n### Prose Claim\nMore.\n")
+        self.assertEqual((), compile_content_schema([declaration, atom]).names)
+
+    def test_named_kind_claim_requires_proven_form_membership(self) -> None:
+        ancestry = self.declaration("CA-R-5", "Atom/(.Header.Role := Operations)/Workflow;")
+        property_rule = self.declaration("CA-R-6", "Workflow.Content.Mermaid Scheme:: {::1};")
+        form_binding = self.declaration("CA-R-7", "Workflow.Header.Form:: [in (Workflow)]{::1};")
+        workflow = self.atom(
+            "CA-O-1", role="Operations", form="Workflow", body="## Mermaid Scheme\n\nflowchart LR\n",
+        )
+        action = {**workflow, "form": "Action"}
+        path = "content.mermaid_scheme"
+
+        unbound = compile_content_schema([ancestry, property_rule])
+        self.assertEqual((path,), unbound.names)
+        self.assertEqual({path: None}, content_columns(workflow, unbound))
+
+        bound = compile_content_schema([ancestry, property_rule, form_binding])
+        self.assertEqual({path: "flowchart LR"}, content_columns(workflow, bound))
+        self.assertEqual({path: None}, content_columns(action, bound))
+
+    def test_ancestry_only_changes_trigger_content_shape_comparison(self) -> None:
+        property_rule = self.declaration("CA-R-8", "Workflow.Content.Mermaid Scheme:: {::1};")
+        ancestry = self.declaration("CA-R-9", "Atom/(.Header.Role := Operations)/Workflow;")
+        state = SourceContentSchema()
+        state.rebuild([property_rule])
+        self.assertTrue(state.changes_schema({ancestry["source_path"]: ancestry}))
+        state.rebuild([property_rule, ancestry])
+        self.assertTrue(state.changes_schema({ancestry["source_path"]: None}))
+
+    def test_declared_children_produce_rmed_claim_columns_and_keep_legacy_prose(self) -> None:
         declaration = self.declaration(
             "CA-R-3",
             "Atom/(.Header.Role in RMED).Content.Claim{::1}:: []{::0};\n"
-            "Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};",
+            "Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};\n"
+            "Atom/(.Header.Role in RMED).Content.Claim.Formal Claim:: {::1};\n"
+            "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::1};",
         )
         schema = compile_content_schema([declaration])
         atom = self.atom(
@@ -263,24 +307,23 @@ Keep this heading.""",
 
     def test_real_current_model_declarations_compile_and_record_provenance(self) -> None:
         rows = self._current_model_rows()
-        plan = self.atom("CA-P-fixture", role="Plan", form="Plan", body="## Objective\n\nShip.\n")
         requirement = self.atom(
             "CA-R-fixture", form="Rule",
             body="## Summary\n\nOne.\n### Presentation heading\n\nStill Summary.\n"
                  "## Claim\n\n### Prose Claim\n\nText.\n#### Prose heading\n\nStill prose.\n"
                  "```text\n## Fenced heading\n```\n",
         )
-        schema = compile_content_schema([*rows, plan, requirement])
+        schema = compile_content_schema([*rows, requirement])
         self.assertTrue(
             {
                 "content.claim.formal_claim", "content.claim.prose_claim", "content.details",
-                "content.semantics", "content.summary", "content.objective",
+                "content.semantics", "content.summary",
             }.issubset(schema.names),
         )
+        self.assertEqual(compile_content_schema(rows).names, schema.names)
         self.assertNotIn("content.summary.presentation_heading", schema.names)
         self.assertNotIn("content.claim.prose_claim.prose_heading", schema.names)
         self.assertNotIn("content.fenced_heading", schema.names)
-        self.assertEqual("Ship.", schema.values(plan)["content.objective"])
         self.assertIn("### Presentation heading", schema.values(requirement)["content.summary"])
         self.assertIn("#### Prose heading", schema.values(requirement)["content.claim.prose_claim"])
         asset = schema.asset()

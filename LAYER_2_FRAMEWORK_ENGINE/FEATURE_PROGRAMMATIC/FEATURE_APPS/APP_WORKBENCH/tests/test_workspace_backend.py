@@ -1,13 +1,17 @@
 # CA-E-684@6
+# CA-E-787@6
 # CA-E-788@1
 from __future__ import annotations
 
 import datetime as dt
+from contextlib import redirect_stderr
+import io
 import json
 from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 
 APP_ROOT = Path(__file__).resolve().parents[2]
@@ -17,7 +21,7 @@ sys.path[:0] = [str(APP_ROOT), str(TOOLS_ROOT), str(TOOLS_ROOT / "VALIDATE_ATOMS
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import WorkbenchUnavailableError  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
-from smalltest_support import extension_directory, write_settings  # noqa: E402
+from smalltest_support import built_assets, extension_directory, write_settings  # noqa: E402
 
 
 class WorkspaceBackendTests(unittest.TestCase):
@@ -32,10 +36,12 @@ class WorkspaceBackendTests(unittest.TestCase):
             ({"scope_unit_name": "ENGINE", "scope_unit_type": "Ordered", "scope_unit_label": "LAYER", "local_order": 1},),
             control_root=control,
         )
-        self.service = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]))
+        self.service = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]), **built_assets(self.root))
         self.addCleanup(self.service.close)
 
     def call(self, operation: str, **arguments):
+        if operation == "view_fetch":
+            arguments.setdefault("result_delivery", "inline")
         return self.service.interface_call(operation, arguments)
 
     def test_view_duplicate_copies_only_query_and_cursor(self) -> None:
@@ -95,7 +101,7 @@ class WorkspaceBackendTests(unittest.TestCase):
         self.assertEqual(before, self.call("view_list", workspace_id="duplicate-other"))
 
         self.service.close()
-        reopened = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]))
+        reopened = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]), **built_assets(self.root))
         self.addCleanup(reopened.close)
         persisted = reopened.interface_call("view_list", {"workspace_id": "duplicate-unnamed"})
         self.assertEqual(duplicate_id, persisted["active_view_id"])
@@ -215,6 +221,23 @@ class WorkspaceBackendTests(unittest.TestCase):
 
         with self.assertRaisesRegex(WorkbenchUnavailableError, "positive integer"):
             self.call("view_run", workspace_id=opened["workspace_id"], view_id=view["id"])
+
+    def test_history_write_failure_preserves_run_result_and_explicit_save(self) -> None:
+        sql = "SELECT range AS value FROM range(3)"
+        errors = io.StringIO()
+        with redirect_stderr(errors), patch.object(
+            self.service._query_log, "_append_record", side_effect=OSError("history unavailable")
+        ) as append:
+            run = self.service.run(sql, save=True, result_delivery="inline")
+            # The writer is FIFO: this barrier observes the background failure without timing assumptions.
+            self.service._query_log._writer.submit(lambda: None).result(timeout=10)
+            self.assertEqual([[0], [1], [2]], run["rows"])
+            cached = self.service.page(run["query_id"], 0, result_delivery="inline")
+            self.assertEqual(run["rows"], cached["rows"])
+            self.assertEqual(sql, self.service.load(run["saved_query_id"])["sql"])
+            self.assertEqual([], self.call("query_log_list")["items"])
+            append.assert_called_once()
+        self.assertIn("query log failed: history unavailable", errors.getvalue())
 
 
 if __name__ == "__main__":

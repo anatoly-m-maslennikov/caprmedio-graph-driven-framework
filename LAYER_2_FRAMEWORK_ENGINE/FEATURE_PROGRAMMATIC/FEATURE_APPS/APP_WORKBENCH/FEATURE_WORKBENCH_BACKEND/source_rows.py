@@ -1,8 +1,9 @@
-# CA-R-2723@4
+# CA-R-2723@5
 # CA-R-2726@6
 # CA-D-672@14
 # CA-M-465@24
 # CA-M-500@3
+# CA-M-464@15
 
 """Map parsed Atom and Scope Unit sources to raw Workbench rows."""
 
@@ -124,7 +125,7 @@ def canonical_row(row: Mapping[str, Any]) -> str:
 
 @dataclass
 class ReferenceIndex:
-    """Track the unique-reference frontier without rescanning every source."""
+    """Track one selected carrier per reference and retain later copies for audits."""
 
     paths: dict[str, set[Path]] = field(default_factory=dict)
     accepted: set[Path] = field(default_factory=set)
@@ -136,7 +137,7 @@ class ReferenceIndex:
                 self.paths.setdefault(reference, set()).add(path)
         self.accepted = {
             path for path, row in rows.items()
-            if (reference := _reference(row)) is None or len(self.paths[reference]) == 1
+            if (reference := _reference(row)) is None or path == min(self.paths[reference])
         }
 
     def update(
@@ -162,7 +163,7 @@ class ReferenceIndex:
         for path in impacted:
             row = after.get(path)
             reference = _reference(row)
-            if row is not None and (reference is None or len(self.paths[reference]) == 1):
+            if row is not None and (reference is None or path == min(self.paths[reference])):
                 self.accepted.add(path)
             else:
                 self.accepted.discard(path)

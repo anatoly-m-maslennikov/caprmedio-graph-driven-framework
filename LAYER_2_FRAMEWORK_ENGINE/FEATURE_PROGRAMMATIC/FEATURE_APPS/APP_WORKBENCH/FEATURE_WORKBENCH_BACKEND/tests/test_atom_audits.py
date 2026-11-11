@@ -8,8 +8,8 @@ import unittest
 from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "tests"))
-from test_incremental_indexing import IncrementalIndexingTests
-from smalltest_support import source_path, write_atom
+from test_incremental_indexing import APP_ROOT, IncrementalIndexingTests, QueryStore, WorkbenchService
+from smalltest_support import built_assets, extension_directory, source_path, write_atom
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import audit_tables
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import compile_content_schema
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_content
@@ -18,7 +18,7 @@ from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import parse_conte
 class AtomAuditTests(IncrementalIndexingTests):
     def test_missing_declared_column_is_reported_from_compiled_rules(self):
         declaration = {"role": "Requirement", "form": "Declaration", "status_group": "Current",
-                       "content_markdown": "## Claim\n\n```CFEL\n# model\n"
+                       "content_markdown": "## Claim\n\n### Formal Claim\n\n```CFEL\n"
                        "Atom.Content.Summary:: {::1};\nAtom.Content.Details:: {::1};\n```\n"}
         body = "## Summary\n\nPresent.\n\n## Details\n\nMissing.\n"
         row = {"ref": "CA-R-851", "role": "Requirement", "form": "Rule",
@@ -31,7 +31,7 @@ class AtomAuditTests(IncrementalIndexingTests):
 
     def test_empty_source_and_presentation_headings_are_not_missing_content(self):
         declaration = {"role": "Requirement", "form": "Declaration", "status_group": "Current",
-                       "content_markdown": "## Claim\n\n```CFEL\n# model\n"
+                       "content_markdown": "## Claim\n\n### Formal Claim\n\n```CFEL\n"
                        "Atom.Content.Details:: {::0..1};\n```\n"}
         body = "## Details\n\n### Presentation only\n\nKeep as prose.\n"
         row = {"ref": "CA-R-851", "role": "Requirement", "form": "Rule",
@@ -50,13 +50,18 @@ class AtomAuditTests(IncrementalIndexingTests):
         model = source_path(self.declarations, "ENGINE", "04_requirement", "CA-R-850.md")
         source = source_path(self.declarations, "ENGINE", "04_requirement", "CA-R-851.md")
         draft = source_path(self.declarations, "ENGINE", "04_requirement", "draft/CA-R-852@2-draft.md")
-        write_atom(model, "CA-R-850", body="## Claim\n\n```CFEL\n# model\n"
+        write_atom(model, "CA-R-850", body="## Claim\n\n### Formal Claim\n\n```CFEL\n"
                    "Atom.Content.Summary:: {::1};\nAtom.Content.Details:: {::0..1};\n```\n")
         model.write_text(model.read_text().replace('form: "Definition"', 'form: "Declaration"'))
         write_atom(source, "CA-R-851", body="## Summary\n\nPresent.\n\n## Details\n\nMissing.\n")
         write_atom(draft, "CA-R-852", status="Draft", version=2,
                    body="## Summary\n\nPresent.\n\n## Details\n\nMissing draft.\n")
-        self.service._refresh([self.event(path, operation="create") for path in (model, source, draft)])
+        self.service.close()
+        self.service = WorkbenchService(self.root, **built_assets(self.root))
+        self.service._store = QueryStore(extension_directory=extension_directory(APP_ROOT.parents[2]))
+        self.addCleanup(lambda: self.service.close())
+        self.service._refresh()
+        self.store = self.service._store
         original = {path: path.read_bytes() for path in (source, draft)}
         self.assertEqual([["Present.", "Missing."]], self.store.run(
             'SELECT "content.summary", "content.details" FROM atoms WHERE filename = \'CA-R-851.md\''
@@ -119,10 +124,11 @@ class AtomAuditTests(IncrementalIndexingTests):
         paths = [source_path(self.declarations, "ENGINE", "04_requirement", name) for name in
                  ("CA-P-900.md", "draft/CA-P-901@2-draft.md")]
         for index, path in enumerate(paths):
-            write_atom(path, f"CA-P-{900 + index}", status="Draft" if index else "Active", version=2 if index else 1)
+            write_atom(path, f"CA-P-{900 + index}", status="Draft" if index else "Active", version=2 if index else 1,
+                       extra=f'destination:\n  file:\n    name: "{path.name}"\n    path: "{path.parent.relative_to(self.root).as_posix()}"\n')
         self.service._refresh([self.event(path, operation="create") for path in paths])
-        self.assertEqual([[2]], self.store.run("SELECT count(*) FROM atom_content_issues WHERE filename LIKE 'CA-P-90%'")["rows"])
-        self.assertEqual([[0]], self.store.run("SELECT count(*) FROM atoms WHERE filename LIKE 'CA-P-90%'")["rows"])
+        self.assertEqual([[2]], self.store.run("SELECT count(*) FROM atom_declared_carrier_issues WHERE filename LIKE 'CA-P-90%'")["rows"])
+        self.assertEqual([[2]], self.store.run("SELECT count(*) FROM atoms WHERE filename LIKE 'CA-P-90%'")["rows"])
         repaired = paths[0].with_name("CA-R-900.md")
         paths[0].unlink()
         write_atom(repaired, "CA-R-900")

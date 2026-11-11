@@ -23,8 +23,8 @@ relations:
   - CA-D-675
 state:
   status: Active
-  version: 25
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 28
+  updated_at: 2026-11-11 03:45:27 +0400
 destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-and-invalid-repair-state.md
@@ -55,4 +55,12 @@ Resource measurement compares unprofiled CPU/RAM on the same frozen inventory/bu
 
 ## Details
 
-Exercise lifecycle, schema and graph cases for Current/Draft/Archived carriers, structural Current-only admission, duplicate/invalid exclusion, exact Header path/type/empty semantics, model Content schema changes, Task `IS_CONTAINED_BY`/derived `CONTAINS`, ambiguity/case collision omission, source removal/repair, registry change and reappearance. Compare final rows, relations, traversal and hashes with a full rebuild; source bytes/Versions stay unchanged. Validate native direct/derived relation facts and no third source/graph table, source copy, retry, rollback or fabricated watcher event.
+Verify Current and Draft Atom discovery throughout the selected Project authority root, including undeclared-owner and non-role-directory locations, while excluding sources outside that root, Archives and derived Projections. Verify create/update/move/rename/removal there without a full inventory scan for ordinary same-schema edits. Select Current Declarations through the query Projection and verify their Formal Claims drive generated schema and relation metadata.
+
+Exercise lifecycle, schema and graph cases for Current/Draft/Archived carriers, structural Current-only admission, first-carrier duplicate selection with later copies in the issue table, invalid exclusion, exact Header path/type/empty semantics, model Content schema changes, Task `IS_CONTAINED_BY`/derived `CONTAINS`, ambiguity/case collision omission, source removal/repair, registry change and reappearance. Compare final rows, relations, traversal and hashes with a full rebuild; source bytes/Versions stay unchanged. Validate native direct/derived relation facts and no third source/graph table, source copy, retry, rollback or fabricated watcher event.
+
+
+Atom discovery uses `<configured Project prefix>-<one uppercase Role letter>-*.md`. Test literal prefix matching, canonical Current/Draft filenames, arbitrary Markdown with Atom-like YAML, nonmatching/legacy filenames and matching files with malformed data. Wrong role folders do not hide otherwise readable matching Atoms from the query/audit projection.
+
+
+Verify that a duplicate leaves its first selected carrier queryable, reports the later source, and does not contribute competing schema/relation declarations. Deleting the selected carrier admits the remaining source and updates query rows, schema/relations and issue rows consistently. No preferred enumeration order is required.

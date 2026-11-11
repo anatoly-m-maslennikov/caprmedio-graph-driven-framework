@@ -1,9 +1,9 @@
 // CA-M-466@6
+// CA-M-551@1
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vite';
 
-const hotReload = process.env.CAPRMEDIO_HOT_RELOAD === '1';
-const server = { hmr: hotReload, watch: hotReload ? undefined : null };
+const server = { hmr: false as const, watch: null };
 
 export default defineConfig(({ mode }) => mode === 'mcp-app' ? {
   server,

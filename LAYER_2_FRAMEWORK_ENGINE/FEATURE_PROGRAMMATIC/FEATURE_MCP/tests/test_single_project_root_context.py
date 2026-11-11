@@ -32,7 +32,7 @@ from http_server import create_app  # noqa: E402
 from direct_gateway import startup_selection  # noqa: E402
 from project_selection import resolve_project  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
-from smalltest_support import write_settings  # noqa: E402
+from smalltest_support import built_assets, write_settings  # noqa: E402
 from workbench_tools import WorkbenchTools  # noqa: E402
 
 
@@ -40,10 +40,11 @@ class _ConfiguredWorkbenchTools(WorkbenchTools):
     def __init__(self, root: Path, extension_directory: Path) -> None:
         super().__init__(root)
         self.extension_directory = extension_directory
+        self.assets = built_assets(root)
 
     def _owner(self):
         if self._service is None:
-            self._service = WorkbenchService(self.root, extension_directory=self.extension_directory)
+            self._service = WorkbenchService(self.root, extension_directory=self.extension_directory, **self.assets)
         return self._service
 
 

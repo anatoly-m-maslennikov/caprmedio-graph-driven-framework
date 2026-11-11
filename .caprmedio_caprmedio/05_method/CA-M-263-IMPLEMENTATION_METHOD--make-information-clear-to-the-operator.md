@@ -13,13 +13,13 @@ topics:
 tier: 1
 relations:
   child_of:
-  - CA-R-1420
+  - CA-R-3035
 status: Active
-version: 23
-updated_at: 2026-11-02 18:35:20 +0400
+version: 24
+updated_at: "2026-11-11 02:06:34 +0400"
 carrier_destination:
   file:
-    name: CA-M-263-CAPRMEDIO-IMPLEMENTATION_METHOD--make-information-clear-to-the-operator.md
+    name: CA-M-263-IMPLEMENTATION_METHOD--make-information-clear-to-the-operator.md
     path: .caprmedio_caprmedio/05_method
 cce_version: cce_1
 cce_form: method

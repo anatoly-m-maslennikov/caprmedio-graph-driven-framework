@@ -21,8 +21,8 @@ relations:
   evaluation_for:
   - CA-R-1901
 status: Active
-version: 24
-updated_at: 2026-11-10 20:47:54 +0400
+version: 25
+updated_at: 2026-11-11 06:09:13 +0400
 carrier_destination:
   file:
     name: CA-E-600-MCP-EVAL_CASE--verify-project-mcp-image-and-runtime-admission.md
@@ -57,4 +57,4 @@ the Evaluation **must** prove that only a matching immutable image and a healthy
 
 Use frozen synthetic fixtures and the canonical naming boundary. Require and fingerprint exact `version.toml`; version changes alter identity and unrelated Project/runtime state stays excluded. New builds carry OCI version; absent/invalid version or malformed/unavailable Docker `Created` fails truthfully. Assert `caprmedio-runtime:<framework-version>-<UTC-build-date-YYYYMMDDTHHMMSSZ>-<first12-image-sha>` from inspected timestamp, including cached/reused images. Check absent-tag addition, same-digest no-op, occupied-other-digest refusal, mutable/wrong-schema/platform/fingerprint refusal, and full immutable-SHA launch. Exercise development, release, and disposable-test callers with isolated cleanup; historical maintenance requires exact identity/version/date and defers unknown evidence. Real Docker uses isolated disposable builds/readback, never production mutation or mock-only success.
 
-Check the Dockerfile copies lock/manifest before installation, uses BuildKit uv cache, and copies Framework version after installation. Two isolated builds must demonstrate reuse of dependency-installation layer while version changes image identity. Verify `/opt/venv/bin/python` is the direct entrypoint with no retained `uv run` supervisor; the intentional active implementation-generation child remains only when hot reload is explicitly enabled. Keep locked groups, Project admission, MCP startup/health/query behavior, and report launcher memory separately from cache memory.
+Check the Dockerfile copies lock/manifest before installation, uses BuildKit uv cache, and copies Framework version after installation. Two isolated builds must demonstrate reuse of dependency-installation layer while version changes image identity. Verify `/opt/venv/bin/python` is the direct entrypoint with no retained `uv run` supervisor; MCP serves implementations in one process without an implementation-generation child. Keep locked groups, Project admission, MCP startup/health/query behavior, and report launcher memory separately from cache memory.

@@ -75,14 +75,15 @@ class SourceMoveEventTests(unittest.TestCase):
             self.assertIsNone(reader.capture_delta[source.relative_to(root).as_posix()])
             self.assertIsNotNone(reader.capture_delta[target.relative_to(root).as_posix()])
 
-            # A real second file is still ambiguous; pruning must not weaken that check.
+            # Keep one readable copy and retain the other source for diagnostics.
             write_atom(source, "CA-R-424242")
             rows, _ = reader.capture([{
                 "operation": "create", "old_path": None,
                 "new_path": source.relative_to(root).as_posix(),
             }])
             rows, _ = materialize(rows, scopes)
-            self.assertEqual([], [row for row in rows if row["ref"] == "CA-R-424242"])
+            self.assertEqual(1, len([row for row in rows if row["ref"] == "CA-R-424242"]))
+            self.assertEqual(2, len(reader._references.paths["CA-R-424242"]))
 
 
 if __name__ == "__main__":

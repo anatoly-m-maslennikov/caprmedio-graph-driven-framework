@@ -18,15 +18,19 @@ for location in (PROGRAMMATIC / "FEATURE_MCP", APP_ROOT.parent, APP_ROOT / "test
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
-from smalltest_support import extension_directory, write_atom, write_settings  # noqa: E402
+from smalltest_support import built_assets, extension_directory, write_atom, write_settings  # noqa: E402
 from workbench_tools import WorkbenchTools  # noqa: E402
 
 
 class _ConfiguredWorkbenchTools(WorkbenchTools):
+    def __init__(self, root):
+        super().__init__(root)
+        self.assets = built_assets(root)
+
     def _owner(self):
         if self._service is None:
             self._service = WorkbenchService(
-                self.root, extension_directory=extension_directory(REPOSITORY),
+                self.root, extension_directory=extension_directory(REPOSITORY), **self.assets,
             )
         return self._service
 
@@ -42,7 +46,7 @@ class WorkbenchRereadTests(unittest.TestCase):
             ({"scope_unit_name": "ENGINE", "scope_unit_type": "Ordered", "scope_unit_label": "LAYER", "local_order": 1},),
             control_root=control,
         )
-        self.source = Path(declarations["ENGINE"]["authority_path"]) / "04_requirement" / "source.md"
+        self.source = Path(declarations["ENGINE"]["authority_path"]) / "04_requirement" / "CA-R-501.md"
         write_atom(self.source, "CA-R-501")
         self.source_bytes = self.source.read_bytes()
         database = self.root / ".caprmedio_runtime" / "workbench" / "projection.duckdb"
@@ -65,9 +69,9 @@ class WorkbenchRereadTests(unittest.TestCase):
         self.assertTrue(temporary.is_dir())
         self.assertEqual(
             [[1]],
-            asyncio.run(self.tools.call("query_run", {"sql": "SELECT count(*) FROM obsolete.stale"}))["rows"],
+            asyncio.run(self.tools.call("query_run", {"sql": "SELECT count(*) FROM obsolete.stale", "result_delivery": "inline"}))["rows"],
         )
-        write_atom(self.source.with_name("fresh.md"), "CA-R-502")
+        write_atom(self.source.with_name("CA-R-502.md"), "CA-R-502")
 
         reread = asyncio.run(self.tools.call("workbench_reread", {}))
 
@@ -78,13 +82,13 @@ class WorkbenchRereadTests(unittest.TestCase):
         self.assertEqual(
             [[0]],
             asyncio.run(self.tools.call("query_run", {
-                "sql": "SELECT count(*) FROM information_schema.tables WHERE table_schema = 'obsolete'",
+                "sql": "SELECT count(*) FROM information_schema.tables WHERE table_schema = 'obsolete'", "result_delivery": "inline",
             }))["rows"],
         )
         self.assertEqual(
             [["CA-R-502"]],
             asyncio.run(self.tools.call("query_run", {
-                "sql": "SELECT header_atom_id FROM atoms WHERE header_atom_id = 'CA-R-502'",
+                "sql": 'SELECT "header.atom_id" FROM atoms WHERE "header.atom_id" = \'CA-R-502\'', "result_delivery": "inline",
             }))["rows"],
         )
         with self.assertRaisesRegex(Exception, "unknown query_id"):

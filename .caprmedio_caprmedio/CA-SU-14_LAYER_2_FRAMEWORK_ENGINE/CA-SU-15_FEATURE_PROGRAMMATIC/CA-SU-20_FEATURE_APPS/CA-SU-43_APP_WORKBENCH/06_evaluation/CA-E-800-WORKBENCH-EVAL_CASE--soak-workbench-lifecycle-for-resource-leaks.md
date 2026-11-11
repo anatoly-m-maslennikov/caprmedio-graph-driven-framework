@@ -19,8 +19,8 @@ relations:
   - CA-R-2723
 state:
   status: Active
-  version: 5
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 6
+  updated_at: 2026-11-11 06:28:22 +0400
 destination:
   file:
     name: CA-E-800-WORKBENCH-EVAL_CASE--soak-workbench-lifecycle-for-resource-leaks.md
@@ -38,7 +38,7 @@ Soak Workbench lifecycle for resource leaks
 
 ### Prose Claim
 
-When explicitly enabled, run one identified real Workbench watchdog, DuckDB owner and service continuously for at least 1,800 seconds against an owned disposable Project. Repeatedly create, update, rename, move and remove sources with valid unique numeric IDs; change declared columns; run successful and failed queries; rerun and remove Views; and wait for asynchronous work to drain. Do not restart, reread or replace the owner before the final leak assertions.
+When explicitly enabled, run one identified real Workbench watchdog, DuckDB owner and service continuously for at least 1,800 seconds against an owned disposable Project. Repeatedly create, update, rename, move and remove sources with valid unique numeric IDs; edit model Declarations and verify their data refreshes while the compiled columns stay fixed; run successful and failed queries; rerun and remove Views; and wait for asynchronous work to drain. Do not restart, reread or replace the owner before the final leak assertions.
 
 Before and after warm-up, workload and fixed quiescent phases, record cgroup CPU interval deltas, current and cumulative peak RAM, the owner PID and identity, and exact Workbench result-table, result-pin and watcher-work inventories. Do not force garbage collection. The soak passes only when source changes become visible, errors do not stop later work, each View rerun drops its prior result, closed Views unpin their results, TTL cleanup removes expired unpinned results, queues drain, no OOM occurs, the same owner remains present, and final inventories return to their expected baseline. Use exact SQL table oracles for result tables and pins. Report a stable memory plateau separately from allocator retention; report a sustained growth trend as a failure.
 

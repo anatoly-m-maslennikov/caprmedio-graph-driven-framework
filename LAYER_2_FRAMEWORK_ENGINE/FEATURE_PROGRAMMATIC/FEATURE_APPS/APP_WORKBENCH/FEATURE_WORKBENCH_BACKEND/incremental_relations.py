@@ -42,6 +42,7 @@ class RelationState:
     fact_contributors: dict[tuple, frozenset[tuple[str, str]]]
     facts_by_endpoint: dict[tuple[str, str], frozenset[tuple]]
     support: dict[tuple[str, str], frozenset[tuple]]
+    static_registry: bool
 
 
 def _scope_signature(scopes: list[dict]) -> tuple[tuple[str, str | None, str | None], ...]:
@@ -125,13 +126,16 @@ def _refresh_support(
 
 def _duplicate_membership(atoms: list[dict]) -> tuple[frozenset[str], frozenset[str]]:
     paths_by_ref: dict[str, set[str]] = {}
+    first_paths: dict[str, str] = {}
     for row in atoms:
         ref, path = row.get("ref"), row.get("source_path")
         if isinstance(ref, str) and isinstance(path, str):
             paths_by_ref.setdefault(ref, set()).add(path)
+            first_paths.setdefault(ref, path)
     duplicate_refs = frozenset(ref for ref, paths in paths_by_ref.items() if len(paths) > 1)
     return (
-        frozenset(path for ref, paths in paths_by_ref.items() if ref in duplicate_refs for path in paths),
+        frozenset(path for ref, paths in paths_by_ref.items() if ref in duplicate_refs
+                  for path in paths if path != first_paths[ref]),
         duplicate_refs,
     )
 
@@ -180,12 +184,17 @@ def _delta_edge(
 
 def _full_state(
     atoms: list[dict], scopes: list[dict], compilation: RegistryCompilation | None = None,
+    registry: RelationRegistry | None = None,
 ) -> RelationState:
     excluded_paths, duplicate_refs = _duplicate_membership(atoms)
     atoms = _unique_references(atoms)
-    compiled = compile_registry(atoms) if compilation is None else compilation
-    contributions = compiled.contributions
-    registry = compiled.registry
+    static_registry = registry is not None
+    if registry is None:
+        compiled = compile_registry(atoms) if compilation is None else compilation
+        contributions = compiled.contributions
+        registry = compiled.registry
+    else:
+        contributions = {}
     _warn_colliding_uses(atoms, registry.collisions)
     aliases = _scope_references(scopes)
     raw_by_path = {row["source_path"]: row for row in atoms if isinstance(row.get("source_path"), str)}
@@ -213,7 +222,7 @@ def _full_state(
         {key: frozenset(value) for key, value in outgoing.items()}, atom_rows, tuple(raw_by_path),
         scope_rows, tuple(scope_rows), _scope_signature(scopes), registry.names, dict(registry.inverse), dict(registry.aliases),
         excluded_paths, duplicate_refs, contributions, registry.collisions, contributors,
-        facts_by_endpoint, {key: frozenset(value) for key, value in support.items()},
+        facts_by_endpoint, {key: frozenset(value) for key, value in support.items()}, static_registry,
     )
 
 
@@ -234,10 +243,13 @@ def _requires_full(state: RelationState, scopes: list[dict], changes: Mapping[st
         return True
     for path, new in changes.items():
         old = state.raw_by_path.get(path)
-        new_ref = new.get("ref") if new is not None else None
-        if path in state.excluded_paths or (isinstance(new_ref, str) and new_ref in state.duplicate_refs):
-            return True
         old_ref = old.get("ref") if old else None
+        new_ref = new.get("ref") if new is not None else None
+        if path in state.excluded_paths or any(
+            isinstance(reference, str) and reference in state.duplicate_refs
+            for reference in (old_ref, new_ref)
+        ):
+            return True
         owner = state.refs.get(new_ref) if isinstance(new_ref, str) else None
         if old_ref != new_ref and owner is not None and owner != path and new_ref not in released_refs:
             return True
@@ -267,14 +279,21 @@ def materialize_delta(  # noqa: C901
     atoms: list[dict], scopes: list[dict], previous_state: RelationState | None = None,
     changes: Mapping[str, dict | None] | None = None,
     initial_compilation: RegistryCompilation | None = None,
+    registry: RelationRegistry | None = None,
 ) -> tuple[list[dict], list[dict], set[str], dict[str, str], RelationState, MaterializationDelta | None]:
     """Return a full build or a changed-source relation delta without source mutation."""
+    if previous_state is not None and previous_state.static_registry:
+        registry = RelationRegistry(previous_state.registered, previous_state.inverse, previous_state.aliases, previous_state.collisions)
     if previous_state is None or changes is None or _requires_full(previous_state, scopes, changes):
-        state = _full_state(atoms, scopes, initial_compilation if previous_state is None else None)
+        state = _full_state(atoms, scopes, initial_compilation if previous_state is None else None, registry)
         rows, scope_rows = _rows(state)
         return rows, scope_rows, set(state.registered), dict(state.inverse), state, None
 
-    contributions, registry = _next_registry(previous_state, changes)
+    if previous_state.static_registry:
+        contributions = previous_state.registry_contributions
+        registry = RelationRegistry(previous_state.registered, previous_state.inverse, previous_state.aliases, previous_state.collisions)
+    else:
+        contributions, registry = _next_registry(previous_state, changes)
     if (registry.names, registry.inverse, registry.aliases, registry.collisions) != (
         previous_state.registered, previous_state.inverse, previous_state.aliases, previous_state.collisions,
     ):
@@ -376,7 +395,7 @@ def materialize_delta(  # noqa: C901
         previous_state.scope_signature, registry.names, dict(registry.inverse), dict(registry.aliases),
         previous_state.excluded_paths, previous_state.duplicate_refs, contributions, registry.collisions,
         contributors, facts_by_endpoint,
-        support,
+        support, previous_state.static_registry,
     )
     rows, scope_output = _rows(state)
     return rows, scope_output, set(state.registered), dict(state.inverse), state, MaterializationDelta(old_atoms, new_atoms, old_scopes, new_scopes)

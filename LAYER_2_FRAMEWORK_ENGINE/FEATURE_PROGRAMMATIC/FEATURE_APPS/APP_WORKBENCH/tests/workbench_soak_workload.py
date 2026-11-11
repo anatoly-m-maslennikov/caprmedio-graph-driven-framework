@@ -6,10 +6,11 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 import time
 from typing import Any, Callable
 
-from workbench_performance_fixture import PerformanceFixture, SOURCE_SCOPE, TARGET_SCOPE
+from workbench_performance_fixture import CONTENT_MODEL_REFERENCE, PerformanceFixture, SOURCE_SCOPE, TARGET_SCOPE
 from workbench_soak_metrics import settle
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import QueryExecutionError
 
@@ -64,7 +65,7 @@ class Workload:
         anchor = self.call("view_get", {"workspace_id": self.workspace_id, "view_id": self.anchor_view_id})
         if anchor.get("result", {}).get("query_id") not in store._results:
             raise AssertionError("open View result expired despite its lease")
-        self.schema_change(-1)
+        self.model_declaration_cycle()
         self.declaration_refresh(1)
         self.call("view_run", {"workspace_id": self.workspace_id, "view_id": self.anchor_view_id})
         self.call("view_fetch", {
@@ -86,7 +87,7 @@ class Workload:
         assert store is not None
         with store._lock:
             rows = store._connection.execute(
-                'SELECT "header.state.version", "header.context.container.scope_unit", filename, "relative path", '
+                'SELECT "header.state.version", "header.context.container.scope_unit", filename, relative_path, '
                 '"header.destination.file.path" FROM atoms WHERE reference = ?', [reference]
             ).fetchall()
         return rows == [(version, scope_id, path.name, self.fixture.relative(path.parent), self.fixture.relative(path.parent))]
@@ -130,16 +131,24 @@ class Workload:
         target.unlink()
         wait_until(lambda: not self._has_reference(reference), operation="delete", timeout=1.5)
 
-    def schema_change(self, index: int) -> None:
-        """Add/remove one Header key; Content declarations remain unchanged."""
-        reference, path = self._write_cycle_atom(index + 100_000, version=1)
-        text = path.read_text(encoding="utf-8").replace("relations: {", "soak_probe_key: true\nrelations: {", 1)
-        path.write_text(text, encoding="utf-8")
-        wait_until(lambda: self._has_column("header.soak_probe_key") and self._has_reference(reference), operation="schema add")
-        path.write_text(text.replace("soak_probe_key: true\n", "", 1), encoding="utf-8")
-        wait_until(lambda: not self._has_column("header.soak_probe_key"), operation="schema remove")
-        path.unlink()
-        wait_until(lambda: not self._has_reference(reference), operation="schema delete")
+    def model_declaration_cycle(self) -> None:
+        """Observe declaration data changes under the same compiled schema."""
+        reference = CONTENT_MODEL_REFERENCE
+        path = self.fixture.source_directory / f"{reference}-content-model.md"
+        original = path.read_text(encoding="utf-8")
+        match = re.search(r"(?m)^  version: (\d+)$", original)
+        assert match is not None, "fixture model Declaration version not found"
+        before_fence, closing_fence = original.rsplit("```", 1)
+        modified = before_fence + "Atom.Content.Soak Probe{::0..1}:: [string]{::0..1};\n```" + closing_fence
+        for version, text in enumerate((modified, original), start=int(match[1]) + 1):
+            updated = re.sub(r"(?m)^  version: \d+$", f"  version: {version}", text, count=1)
+            path.write_text(updated, encoding="utf-8")
+            wait_until(
+                lambda: self._matches(reference, version=version, scope_id=self.fixture.source_scope_id, path=path),
+                operation="model Declaration update",
+            )
+            if self._has_column("content.soak_probe"):
+                raise AssertionError("live model Declaration changed the compiled schema")
 
     def _has_column(self, name: str) -> bool:
         store = self.owner._store
@@ -200,7 +209,6 @@ class Workload:
         """A valid declaration carrier edit observed through the real watcher."""
         declaration = Path(self.fixture.declarations[TARGET_SCOPE]["declaration_path"])
         text = declaration.read_text(encoding="utf-8")
-        import re
         updated, count = re.subn(r'(?m)^version: .*$', f'version: {revision + 1}', text, count=1)
         if count != 1:
             raise AssertionError("fixture Declaration version not found")
@@ -217,7 +225,7 @@ class Workload:
     def cycle(self, index: int, *, schema: bool = False) -> None:
         self.source_cycle(index)
         if schema:
-            self.schema_change(index)
+            self.model_declaration_cycle()
             self.declaration_refresh(index + 2)
         self.view_cycle()
         self.error_cycle()

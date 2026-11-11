@@ -1,3 +1,4 @@
+<!-- CA-R-2776@9 -->
 <!-- CA-D-674@23 -->
 <script lang="ts">
   import { tick } from 'svelte';
@@ -8,4 +9,4 @@
   function closed() { if (!dialog.open) onclose(); }
   function cancel(event: Event) { event.preventDefault(); onclose(); }
 </script>
-<dialog bind:this={dialog} onclose={closed} oncancel={cancel} aria-label="Open saved query or View"><form method="dialog" onsubmit={submit}><label>Saved ID or URL <input bind:this={input} bind:value={reference} disabled={busy} /></label><menu><button type="button" onclick={onclose}>Cancel</button><button type="submit" disabled={busy || !reference.trim()}>Open</button></menu></form></dialog>
+<dialog bind:this={dialog} onclose={closed} oncancel={cancel} aria-label="Open Bookmark or saved View"><form method="dialog" onsubmit={submit}><label>Saved ID or URL <input bind:this={input} bind:value={reference} disabled={busy} /></label><menu><button type="button" onclick={onclose}>Cancel</button><button type="submit" disabled={busy || !reference.trim()}>Open</button></menu></form></dialog>

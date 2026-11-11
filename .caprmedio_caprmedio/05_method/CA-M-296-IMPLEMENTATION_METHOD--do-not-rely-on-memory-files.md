@@ -15,16 +15,16 @@ topics:
   - CAPRMEDIO_MODEL <+ Projection
   - 'CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Projection/Type: Applicable Methodology'
   - CAPRMEDIO_MODEL <+ Entity/Object/Continuant/Actor/Operator
-tier: 1
+tier: 3
 relations:
   child_of:
   - CA-R-2448
 status: Active
-version: 21
-updated_at: 2026-11-02 00:18:22 +0400
+version: 22
+updated_at: "2026-11-11 04:44:46 +0400"
 carrier_destination:
   file:
-    name: CA-M-296-CAPRMEDIO-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md
+    name: CA-M-296-IMPLEMENTATION_METHOD--do-not-rely-on-memory-files.md
     path: .caprmedio_caprmedio/05_method
 cce_version: cce_1
 cce_form: method

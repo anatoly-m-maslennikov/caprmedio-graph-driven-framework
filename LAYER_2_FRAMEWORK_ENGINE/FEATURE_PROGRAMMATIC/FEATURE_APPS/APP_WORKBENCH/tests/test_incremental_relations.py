@@ -6,14 +6,33 @@ from pathlib import Path
 import random
 import sys
 import unittest
+from unittest.mock import patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.incremental_relations import materialize_delta  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import compile_registry  # noqa: E402
 from APP_WORKBENCH.tests.test_relations import atom, declarations  # noqa: E402
 
 
 class IncrementalRelationTests(unittest.TestCase):
+    def test_static_registry_survives_changes_and_full_rebuild_without_compilation(self):
+        metadata = declarations()
+        registry = compile_registry(metadata).registry
+        source = atom("CA-P-100")
+        changed = atom("CA-P-100", relation={"IS_CONTAINED_BY": ["CA-P-200"]})
+        module = "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.incremental_relations"
+        with patch(f"{module}.compile_registry", side_effect=AssertionError("compiled")), \
+             patch(f"{module}.registry_contribution", side_effect=AssertionError("compiled contribution")):
+            _, _, _, _, state, _ = materialize_delta(metadata + [source], [], registry=registry)
+            _, _, _, _, state, delta = materialize_delta(metadata + [changed], [], state, {source["source_path"]: changed})
+            self.assertIsNotNone(delta)
+            _, _, names, inverse, state, delta = materialize_delta(metadata + [changed], [], state, None)
+            self.assertIsNone(delta)
+            self.assertEqual(registry.names, names)
+            self.assertEqual(registry.inverse, inverse)
+            self.assertTrue(state.static_registry)
+
     def test_unique_deleted_sources_leave_no_relation_cache_keys(self):
         sources = declarations() + [atom("CA-P-100")]
         _rows, _scopes, _registered, _inverse, state, _delta = materialize_delta(sources, [])
@@ -233,21 +252,21 @@ class IncrementalRelationTests(unittest.TestCase):
         first = atom("CA-R-X")
         second = dict(atom("CA-R-X"), source_path="second.md")
         _rows, _scopes, _registered, _inverse, state, _delta = materialize_delta([first, second], [])
-        self.assertEqual(frozenset({"CA-R-X.md", "second.md"}), state.excluded_paths)
+        self.assertEqual(frozenset({"second.md"}), state.excluded_paths)
 
         still_duplicate = dict(first, content_markdown="## Claim\nChanged.\n")
         rows, _scopes, _registered, _inverse, state, delta = materialize_delta(
             [still_duplicate, second], [], state, {"CA-R-X.md": still_duplicate},
         )
         self.assertIsNone(delta)
-        self.assertEqual([], rows)
+        self.assertEqual(["CA-R-X"], [row["ref"] for row in rows])
 
         third = dict(atom("CA-R-X"), source_path="third.md")
         rows, _scopes, _registered, _inverse, state, delta = materialize_delta(
             [still_duplicate, second, third], [], state, {"third.md": third},
         )
         self.assertIsNone(delta)
-        self.assertEqual([], rows)
+        self.assertEqual(["CA-R-X"], [row["ref"] for row in rows])
 
         renamed = dict(still_duplicate, id="CA-R-Y", ref="CA-R-Y")
         rows, _scopes, _registered, _inverse, _state, delta = materialize_delta(
@@ -329,7 +348,7 @@ class IncrementalRelationTests(unittest.TestCase):
             [first, second, third], [], state, {"second.md": second, "third.md": third},
         )
         self.assertIsNone(delta)
-        self.assertEqual(["CA-P-1"], [row["ref"] for row in rows])
+        self.assertEqual(["CA-P-1", "CA-P-2"], [row["ref"] for row in rows])
 
         changed = dict(first, content_markdown="## Claim\nChanged.\n")
         rows, _scopes, _registered, _inverse, _state, delta = materialize_delta(

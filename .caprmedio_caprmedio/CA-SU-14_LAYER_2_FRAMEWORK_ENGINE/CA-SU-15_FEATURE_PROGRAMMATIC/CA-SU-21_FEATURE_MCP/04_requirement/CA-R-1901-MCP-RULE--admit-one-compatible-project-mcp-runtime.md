@@ -19,8 +19,8 @@ topics:
   - MODEL//CAPRMEDIO <+ Project.Settings
 tier: 3
 status: Active
-version: 18
-updated_at: 2026-11-10 20:47:54 +0400
+version: 19
+updated_at: 2026-11-11 06:09:13 +0400
 carrier_destination:
   file:
     name: CA-R-1901-MCP-RULE--admit-one-compatible-project-mcp-runtime.md
@@ -66,7 +66,7 @@ the launcher **must** start or reuse a Project MCP runtime only when its immutab
 
 - Reuse one canonical naming owner for normal, development, release, and disposable-test builds. Exact `version.toml` is in the admitted closure and `framework.version` is the OCI version; use `caprmedio-runtime:<framework-version>-<UTC-build-date-YYYYMMDDTHHMMSSZ>-<first12-image-sha>`, with date from inspected Docker `Created`, not tagging time. Preserve the exact tag-safe version; missing/invalid version or Created metadata stops naming/build truthfully.
 - Same-tag/same-digest is a no-op; never move occupied tags, add moving aliases, rebuild only for metadata, or change a container. Explicit maintenance may add an absent display tag only with verified original timestamp/version provenance; unknown history is deferred.
-- Use private Buildx `BUILDX_CONFIG` state outside the admitted context; keep uv downloads in a BuildKit cache. Install locked dependencies before copying version/application source so version/source-only changes do not invalidate that layer. Final runtime invokes `/opt/venv/bin/python`, not a retained `uv run` supervisor; retain optional active-generation isolation only when hot reload is explicitly enabled, while default startup is one process. Cached downloads do not replace the lockfile or admit another source.
+- Use private Buildx `BUILDX_CONFIG` state outside the admitted context; keep uv downloads in a BuildKit cache. Install locked dependencies before copying version/application source so version/source-only changes do not invalidate that layer. Final runtime invokes `/opt/venv/bin/python`, not a retained `uv run` supervisor; startup serves implementations in one MCP process. Cached downloads do not replace the lockfile or admit another source.
 
 ### Evidence boundary
 

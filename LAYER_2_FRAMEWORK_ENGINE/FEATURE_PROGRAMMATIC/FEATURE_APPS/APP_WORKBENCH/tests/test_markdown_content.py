@@ -97,11 +97,14 @@ class ContentColumnsTest(unittest.TestCase):
     def _schema():
         body = """## Claim
 
+### Formal Claim
+
 ```CFEL
-# model
 Atom.Content.Summary{::1}:: {::1};
 Atom/(.Header.Role in RMED).Content.Claim{::1}:: []{::0};
 Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};
+Atom/(.Header.Role in RMED).Content.Claim.Formal Claim:: {::1};
+Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::1};
 Atom.Content.Semantics{::0..1}:: {::0..1};
 Atom.Content.Details{::0..1}:: {::0..1};
 Atom/(.Header.Role := Plan).Content.Objective{::1}:: {::1};

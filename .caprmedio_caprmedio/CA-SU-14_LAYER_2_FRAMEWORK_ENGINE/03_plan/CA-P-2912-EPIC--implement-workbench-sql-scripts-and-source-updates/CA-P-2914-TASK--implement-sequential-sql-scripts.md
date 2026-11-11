@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Backlog
-  version: 1
-  updated_at: 2026-11-11 00:51:59 +0400
+  version: 2
+  updated_at: 2026-11-11 01:59:27 +0400
 destination:
   file:
     name: CA-P-2914-TASK--implement-sequential-sql-scripts.md
@@ -31,7 +31,7 @@ Implement sequential SQL scripts
 
 ## Objective
 
-Implement the adopted script execution and per-statement result contracts from R2728, R2729, M462, D673 and O240. Verify the accepted read-after-write and failure boundaries through their Evaluations.
+After P2913 adopts the proposal set, implement the admitted script execution and per-statement result contracts. The proposal inputs include R2728, R2729, M550, D673 and O242; refresh their Current identities before dispatch. Verify the accepted read-after-write and failure boundaries through their Evaluations.
 
 ## Subtasks
 

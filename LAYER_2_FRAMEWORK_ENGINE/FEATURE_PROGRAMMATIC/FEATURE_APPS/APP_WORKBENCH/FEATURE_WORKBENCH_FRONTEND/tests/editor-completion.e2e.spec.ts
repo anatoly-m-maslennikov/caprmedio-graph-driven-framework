@@ -31,14 +31,19 @@ test('completes qualified columns and escapes Status values without executing SQ
     status.values = [...(status.values ?? []), "O'Reilly"];
     await route.fulfill({ response, json: schema });
   });
+  const schemaReady = page.waitForResponse(response => response.url().endsWith('/schema') && response.ok());
   await page.goto(url);
+  await (await schemaReady).finished();
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => resolve())));
   await expect(editor(page)).toBeEditable();
 
   for (const qualifier of ['atoms', 'a']) {
-    await typeQuery(page, `SELECT ${qualifier}.head`);
+    const suffix = qualifier === 'a' ? ' FROM atoms AS a' : '';
+    await typeQuery(page, `SELECT ${qualifier}.head${suffix}`);
+    await moveBefore(page, suffix);
     await page.keyboard.press('Control+Space');
     await page.getByRole('option', { name: /header\.state\.status/ }).first().click();
-    await expect(editor(page)).toHaveText(`SELECT ${qualifier}."header.state.status"`);
+    await expect(editor(page)).toHaveText(`SELECT ${qualifier}."header.state.status"${suffix}`);
   }
 
   await typeQuery(page, 'SELECT atoms."header.st"');

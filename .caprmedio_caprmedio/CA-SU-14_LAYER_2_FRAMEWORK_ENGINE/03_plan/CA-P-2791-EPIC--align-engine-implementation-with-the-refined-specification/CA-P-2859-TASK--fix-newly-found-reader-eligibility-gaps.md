@@ -12,9 +12,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 4
 state:
-  status: Backlog
-  version: 1
-  updated_at: 2026-11-10 02:58:14 +0400
+  status: Done
+  version: 2
+  updated_at: 2026-11-11 06:48:55 +0400
 destination:
   file:
     name: CA-P-2859-TASK--fix-newly-found-reader-eligibility-gaps.md
@@ -31,13 +31,13 @@ Fix newly found reader eligibility gaps
 
 ## Objective
 
-Implement the admitted reader correction and real-project regressions. Distinguish the documented filename-marker false negatives from undeclared-Scope inventory. Do not admit undeclared folders by recursion or migrate source Atoms as a reader fix.
+Verify the admitted reader correction on the real Project. Check the filename-marker false negatives and native Model carriers under the authority root. Confirm Scope Unit rows still come from their Declarations.
 
 ## Subtasks
 
-- [ ] Review the next scoped inputs and fix gaps. (ETA: up to 15 min.)
-- [ ] Complete one scoped batch; split before 20 minutes.
-- [ ] Review the result and write a small Work Report. (ETA: up to 15 min.)
+- [x] Review the next scoped inputs and fix gaps. (ETA: up to 15 min.)
+- [x] Complete one scoped batch; split before 20 minutes.
+- [x] Review the result and write a small Work Report. (ETA: up to 15 min.)
 
 ## Definition of Done
 

@@ -11,6 +11,7 @@ sys.path[:0] = [str(APP_ROOT), str(Path(__file__).parent)]
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore  # noqa: E402
 from smalltest_support import extension_directory  # noqa: E402
+import test_query_store  # noqa: E402
 
 
 class QueryPreviewTests(unittest.TestCase):
@@ -29,6 +30,20 @@ class QueryPreviewTests(unittest.TestCase):
         self.assertEqual([[4], [3]], result["rows"])
         self.assertEqual(2, result["row_count"])
         self.assertEqual(sql, self.store.page(result["query_id"], 0)["sql"])
+
+    def test_terminal_line_comment_preserves_graph_query_and_preview(self) -> None:
+        fixture = test_query_store.QueryStoreTest
+        edge = fixture.edge("Atom", "A", "Atom", "B")
+        self.store.replace([fixture.atom("A", [edge]), fixture.atom("B")], [])
+        graph = ("FROM GRAPH_TABLE (caprmedio MATCH (a:Reference)-[e:CONTAINS]->(b:Reference) "
+                 "COLUMNS (a.ref AS source, b.ref AS target)) ORDER BY 2 -- terminal comment")
+        for ending, preview in (("", None), ("\n", None), ("", 2), ("\n", 2)):
+            sql = graph + ending
+            with self.subTest(ending=ending, preview=preview):
+                result = self.store.run(sql, preview=preview)
+                self.assertEqual(sql, result["sql"])
+                self.assertEqual([["A", "B"]], result["rows"])
+                self.assertEqual(sql, self.store.page(result["query_id"], 0)["sql"])
 
     def test_omitted_preview_keeps_the_complete_result(self) -> None:
         result = self.store.run("SELECT range AS value FROM range(20)")

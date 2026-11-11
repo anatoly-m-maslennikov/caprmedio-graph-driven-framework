@@ -18,7 +18,7 @@ sys.path[:0] = [str(APP_ROOT), str(TOOLS_ROOT), str(TOOLS_ROOT / "VALIDATE_ATOMS
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
-from smalltest_support import extension_directory, source_path, write_atom, write_settings  # noqa: E402
+from smalltest_support import built_assets, extension_directory, source_path, write_atom, write_settings  # noqa: E402
 
 
 class WorkbenchFunctionalTests(unittest.TestCase):
@@ -36,14 +36,16 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         self.nested_atom(
             "content-model.md", "CA-R-500", form="Declaration",
             body=(
-                "## Claim\n\n```CFEL\n# model\n"
+                "## Claim\n\n### Formal Claim\n\n```CFEL\n"
                 "Atom.Content.Summary{::1}:: {::1};\n"
                 "Atom/(.Header.Role in RMED).Content.Claim{::1}:: []{::0};\n"
                 "Atom/(.Header.Role in RMED).Content.Claim.*[string, in (Formal Claim, Prose Claim)]{::1..2};\n"
+                "Atom/(.Header.Role in RMED).Content.Claim.Formal Claim:: {::1};\n"
+                "Atom/(.Header.Role in RMED).Content.Claim.Prose Claim:: {::1};\n"
                 "```\n"
             ),
         )
-        self.service = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]))
+        self.service = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]), **built_assets(self.root))
         self.addCleanup(self.service.close)
 
     def atom(self, name: str, atom_id: str, *, status: str = "Active", role: str = "04_requirement", **kwargs) -> Path:
@@ -75,7 +77,7 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         return path
 
     def refresh(self) -> None:
-        self.service.run("SELECT 1")
+        self.service.run("SELECT 1", result_delivery="inline")
         self.service._refresh()
 
     def test_real_yaml_commonmark_schema_and_native_sql_run_check(self) -> None:
@@ -87,10 +89,11 @@ class WorkbenchFunctionalTests(unittest.TestCase):
             extra="nested:\n  level: kept\n",
         )
         result = self.service.run(
-            "SELECT header_identity_atom_id, header_state_status, header_state_version, "
-            "header_context_role, header_context_form, header_context_tier, status_group, "
+            "SELECT \"header.identity.atom_id\", \"header.state.status\", \"header.state.version\", "
+            "\"header.context.role\", \"header.context.form\", \"header.context.tier\", status_group, "
             '"content.summary", "content.claim.formal_claim", "content.claim.prose_claim" FROM atoms '
-            "WHERE header_identity_atom_id = 'CA-R-501'"
+            "WHERE \"header.identity.atom_id\" = 'CA-R-501'",
+            result_delivery="inline",
         )
         self.assertEqual(
             [[
@@ -99,33 +102,28 @@ class WorkbenchFunctionalTests(unittest.TestCase):
             ]],
             result["rows"],
         )
-        self.assertEqual(
-            "SELECT header_identity_atom_id, header_state_status, header_state_version, "
-            "header_context_role, header_context_form, header_context_tier, status_group, "
-            '"content.summary", "content.claim.formal_claim", "content.claim.prose_claim" FROM atoms '
-            "WHERE header_identity_atom_id = 'CA-R-501'",
-            result["sql"],
-        )
-        self.assertEqual(result["sql"], self.service.page(result["query_id"], 0)["sql"])
+        self.assertNotIn("sql", result)
+        self.assertNotIn("sql", self.service.page(result["query_id"], 0, result_delivery="inline"))
         checked = self.service.check(
-            "SELECT header_identity_atom_id FROM atoms WHERE header_identity_atom_id = 'CA-R-501'"
+            "SELECT \"header.identity.atom_id\" FROM atoms WHERE \"header.identity.atom_id\" = 'CA-R-501'"
         )
         self.assertEqual(
             {
                 "valid": True, "row_count": 1, "column_count": 1,
-                "sql": "SELECT header_identity_atom_id FROM atoms WHERE header_identity_atom_id = 'CA-R-501'",
+                "columns": [{"name": "header.identity.atom_id", "type": "VARCHAR", "has_values": True}],
             },
             checked,
         )
         self.assertEqual({"items": []}, self.service.saved_list())
 
     def test_background_scan_indexes_new_sources_without_a_manual_refresh(self) -> None:
-        self.service.run("SELECT 1")
+        self.service.run("SELECT 1", result_delivery="inline")
         self.atom("later.md", "CA-R-599")
         deadline = time.monotonic() + 10
         while time.monotonic() < deadline:
             rows = self.service.run(
-                "SELECT header_atom_id FROM atoms WHERE header_atom_id = 'CA-R-599'"
+                "SELECT \"header.atom_id\" FROM atoms WHERE \"header.atom_id\" = 'CA-R-599'",
+                result_delivery="inline",
             )["rows"]
             if rows:
                 self.assertEqual([["CA-R-599"]], rows)
@@ -139,7 +137,8 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         self.assertEqual(
             [["CA-R-502"]],
             self.service.run(
-                "SELECT header_atom_id FROM atoms WHERE header_atom_id = 'CA-R-502'"
+                "SELECT \"header.atom_id\" FROM atoms WHERE \"header.atom_id\" = 'CA-R-502'",
+                result_delivery="inline",
             )["rows"],
         )
         write_atom(source, "CA-R-502", version=2, body="# Summary\n\nEdited.\n")
@@ -147,39 +146,44 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         self.assertEqual(
             [[2, "Edited."]],
             self.service.run(
-                'SELECT header_version, "content.summary" FROM atoms '
-                "WHERE header_atom_id = 'CA-R-502'"
+                'SELECT \"header.version\", "content.summary" FROM atoms '
+                "WHERE \"header.atom_id\" = 'CA-R-502'",
+                result_delivery="inline",
             )["rows"],
         )
-        moved = source.with_name("moved.md")
+        moved = source.with_name("CA-R-moved.md")
         source.rename(moved)
         self.refresh()
         self.assertEqual(
-            [[moved.parent.relative_to(self.root).as_posix(), "moved.md"]],
+            [[moved.parent.relative_to(self.root).as_posix(), "CA-R-moved.md"]],
             self.service.run(
-                'SELECT "relative path", filename FROM atoms WHERE header_atom_id = \'CA-R-502\''
+                'SELECT "relative_path", filename FROM atoms WHERE \"header.atom_id\" = \'CA-R-502\'',
+                result_delivery="inline",
             )["rows"],
         )
         moved.unlink()
         self.refresh()
         self.assertEqual(
             [[0]],
-            self.service.run("SELECT count(*) FROM atoms WHERE header_atom_id = 'CA-R-502'")["rows"],
+            self.service.run("SELECT count(*) FROM atoms WHERE \"header.atom_id\" = 'CA-R-502'", result_delivery="inline")["rows"],
         )
         bad = self.atom("bad.md", "CA-R-503", extra="atom_id: CA-R-504\n")
         stderr = StringIO()
         with redirect_stderr(stderr):
             self.refresh()
         self.assertIn(bad.relative_to(self.root).as_posix(), stderr.getvalue())
-        self.assertEqual([[0]], self.service.run("SELECT count(*) FROM atoms WHERE filename = 'bad.md'")["rows"])
+        self.assertEqual([[0]], self.service.run("SELECT count(*) FROM atoms WHERE filename = 'CA-R-bad.md'", result_delivery="inline")["rows"])
 
     def test_draft_is_included_archive_is_excluded_and_inverses_change_counterpart_hash(self) -> None:
         declarations = (
-            ("inverse.md", "CA-R-510", "IS_CONTAINED_BY", "## Claim\n```CFEL\nRelation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n```\n"),
-            ("reverse.md", "CA-R-511", "CONTAINS", "## Claim\n```CFEL\nRelation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;\n```\n"),
+            ("inverse.md", "CA-R-510", "IS_CONTAINED_BY", "## Claim\n\n### Formal Claim\n\n```CFEL\nRelation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;\n```\n"),
+            ("reverse.md", "CA-R-511", "CONTAINS", "## Claim\n\n### Formal Claim\n\n```CFEL\nRelation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;\n```\n"),
         )
         for name, atom_id, relation, body in declarations:
             self.atom(name, atom_id, body=body, subjects=f"{{active: 'CAPRMEDIO_MODEL <+ CFEL <+ Relation//{relation}'}}")
+        self.service.close()
+        self.service = WorkbenchService(self.root, extension_directory=extension_directory(APP_ROOT.parents[2]), **built_assets(self.root))
+        self.addCleanup(self.service.close)
         scope_id = self.declarations["ENGINE"]["scope_id"]
         self.atom("scope-owned.md", "CA-R-518", relations=f"{{IS_CONTAINED_BY: {{scope_unit: {scope_id}}}}}")
         self.atom("parent.md", "CA-P-512")
@@ -190,31 +194,34 @@ class WorkbenchFunctionalTests(unittest.TestCase):
         self.atom("canceled.md", "CA-R-517", status="Canceled")
         self.refresh()
         self.assertEqual([["ENGINE", "CA-R-518"]], self.service.run(
-            "FROM GRAPH_TABLE (caprmedio MATCH (a:Reference)-[e:CONTAINS]->(b:Reference) "
-            "COLUMNS (a.ref AS owner, b.ref AS child)) WHERE child = 'CA-R-518'"
+            "SELECT * FROM GRAPH_TABLE (caprmedio MATCH (a:Reference)-[e:CONTAINS]->(b:Reference) "
+            "COLUMNS (a.ref AS owner, b.ref AS child)) WHERE child = 'CA-R-518'",
+            result_delivery="inline",
         )["rows"])
         self.assertEqual([["Active"], ["Canceled"], ["Done"]], self.service.run(
-            "SELECT header_status FROM atoms WHERE header_atom_id "
-            "IN ('CA-P-512', 'CA-R-516', 'CA-R-517') ORDER BY header_status"
+            "SELECT \"header.status\" FROM atoms WHERE \"header.atom_id\" "
+            "IN ('CA-P-512', 'CA-R-516', 'CA-R-517') ORDER BY \"header.status\"",
+            result_delivery="inline",
         )["rows"])
         self.assertEqual(
             [["CA-R-514@2-draft"]],
-            self.service.run("SELECT reference FROM atoms WHERE header_atom_id = 'CA-R-514'")["rows"],
+            self.service.run("SELECT reference FROM atoms WHERE \"header.atom_id\" = 'CA-R-514'", result_delivery="inline")["rows"],
         )
         self.assertEqual(
             [[0]],
-            self.service.run("SELECT count(*) FROM atoms WHERE header_atom_id = 'CA-R-515'")["rows"],
+            self.service.run("SELECT count(*) FROM atoms WHERE \"header.atom_id\" = 'CA-R-515'", result_delivery="inline")["rows"],
         )
-        before = self.service.run("SELECT hash FROM atoms WHERE header_atom_id = 'CA-P-512'")["rows"][0][0]
+        before = self.service.run("SELECT hash FROM atoms WHERE \"header.atom_id\" = 'CA-P-512'", result_delivery="inline")["rows"][0][0]
         self.assertEqual([["CA-P-512", "CA-P-513", True]], self.service.run(
-            "FROM GRAPH_TABLE (caprmedio MATCH (a:Reference)-[e:CONTAINS]->(b:Reference) "
-            "COLUMNS (a.ref AS source_ref, b.ref AS target_ref, e.derived AS derived)) WHERE source_ref = 'CA-P-512'"
+            "SELECT * FROM GRAPH_TABLE (caprmedio MATCH (a:Reference)-[e:CONTAINS]->(b:Reference) "
+            "COLUMNS (a.ref AS source_ref, b.ref AS target_ref, e.derived AS derived)) WHERE source_ref = 'CA-P-512'",
+            result_delivery="inline",
         )["rows"])
         write_atom(child, "CA-P-513")
         self.refresh()
         self.assertNotEqual(
             before,
-            self.service.run("SELECT hash FROM atoms WHERE header_atom_id = 'CA-P-512'")["rows"][0][0],
+            self.service.run("SELECT hash FROM atoms WHERE \"header.atom_id\" = 'CA-P-512'", result_delivery="inline")["rows"][0][0],
         )
 
 

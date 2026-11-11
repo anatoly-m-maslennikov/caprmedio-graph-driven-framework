@@ -13,8 +13,8 @@ context:
   label: Task
 state:
   status: Backlog
-  version: 1
-  updated_at: 2026-11-11 00:51:59 +0400
+  version: 2
+  updated_at: 2026-11-11 01:59:27 +0400
 destination:
   file:
     name: CA-P-2915-TASK--implement-source-backed-sql-updates.md
@@ -31,7 +31,7 @@ Implement source-backed SQL updates
 
 ## Objective
 
-Implement the adopted source-mutation contracts and their lifecycle dependencies from R2728, M462, E674 and O240. Do not mutate Projection facts as source authority or restore retired Tool routes.
+After P2913 adopts the proposal set, implement the admitted source-mutation contracts and their lifecycle dependencies. The proposal inputs include R2728, M550, E822 and O242; refresh their Current identities before dispatch. Do not mutate Projection facts as source authority or restore retired Tool routes.
 
 ## Subtasks
 

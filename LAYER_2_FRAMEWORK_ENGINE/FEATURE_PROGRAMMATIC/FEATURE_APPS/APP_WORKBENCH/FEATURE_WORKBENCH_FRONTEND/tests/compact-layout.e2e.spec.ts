@@ -38,11 +38,11 @@ test('keeps the compact editor scrollable and controls usable across settings', 
   await tab.click();
   await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
   await expect(editor).toBeVisible();
-  await expect(page.getByRole('button', { name: /^Run / })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Run Cmd+Enter', exact: true })).toBeVisible();
   await expect.poll(() => scroller.evaluate((element) => element.scrollHeight > element.clientHeight)).toBe(true);
 
   await page.setViewportSize({ width: 600, height: 900 });
-  await expect(page.getByRole('button', { name: /^Run / })).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Run Cmd+Enter', exact: true })).toBeVisible();
   const layout = await page.locator('.editor-panel').evaluate((panel) => {
     const editorBox = panel.querySelector('.editor-content')!.getBoundingClientRect();
     const actionsBox = panel.querySelector('.query-actions')!.getBoundingClientRect();

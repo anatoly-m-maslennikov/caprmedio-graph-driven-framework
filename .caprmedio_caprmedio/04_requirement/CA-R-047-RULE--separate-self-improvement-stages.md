@@ -20,16 +20,16 @@ topics:
   - CAPRMEDIO_MODEL <+ Project
   - CAPRMEDIO_MODEL <+ Journal
   - CAPRMEDIO_MODEL <+ Event Record
-tier: 1
+tier: 3
 relations:
   child_of:
-  - CA-R-1423
+  - CA-R-3043
 status: Active
-version: 37
-updated_at: 2026-11-02 18:35:20 +0400
+version: 38
+updated_at: "2026-11-11 03:47:42 +0400"
 carrier_destination:
   file:
-    name: CA-R-047-CAPRMEDIO-RULE--separate-self-improvement-stages.md
+    name: CA-R-047-RULE--separate-self-improvement-stages.md
     path: .caprmedio_caprmedio/04_requirement
 llm_session_ids:
 - codex:019f591f-04f6-70f2-8de7-828b7cccc69d

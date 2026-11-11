@@ -16,6 +16,10 @@ from uuid import uuid4
 ROOT = Path(__file__).resolve().parents[5]
 RUNNER = Path(__file__).with_name("workbench_soak_runner.py").relative_to(ROOT)
 TESTS = RUNNER.parent
+TOOLS = TESTS.parents[2] / "FEATURE_TOOLS"
+SCOPE_FIXTURES = tuple(TOOLS / name for name in (
+    "scope_declaration_render.py", "scope_declaration_test_support.py",
+))
 
 
 def run_resource_case(case: unittest.TestCase, seconds: int) -> None:
@@ -26,8 +30,9 @@ def run_resource_case(case: unittest.TestCase, seconds: int) -> None:
         "--label", "caprmedio.test=workbench-resource",
         "--cpus=1", "--memory=1536m", "--memory-swap=1536m",
         "--tmpfs", "/tmp:rw,nosuid,nodev,size=256m",
-        "--mount", f"type=bind,src={ROOT / TESTS},dst=/workspace/{TESTS},readonly",
     ]
+    for path in (TESTS, *SCOPE_FIXTURES):
+        command += ["--mount", f"type=bind,src={ROOT / path},dst=/workspace/{path},readonly"]
     # Test containers must never look like an installed Project service.
     for label in ("project", "service", "control_root", "host_project_root"):
         command += ["--label", f"org.caprmedio.{label}="]

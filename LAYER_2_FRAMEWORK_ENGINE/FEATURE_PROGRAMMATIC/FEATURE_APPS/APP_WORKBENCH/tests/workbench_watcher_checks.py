@@ -82,7 +82,7 @@ class WorkbenchWatcherDockerMixin:
                             "SELECT observed_at, operation, old_path, new_path FROM change_log "
                             "ORDER BY observed_at, operation, old_path NULLS FIRST, new_path NULLS FIRST"
                         ),
-                        "page_size": 1000,
+                        "page_size": 1000, "result_delivery": "inline",
                     },
                 )
                 if status != 200 or not isinstance(result, dict):
@@ -138,8 +138,8 @@ class WorkbenchWatcherDockerMixin:
                     status, result = request(
                         url + f"{workbench_path}/run", method="POST",
                         payload={
-                            "sql": (
-                                'SELECT "header.version", "relative path", filename FROM atoms '
+                            "result_delivery": "inline", "sql": (
+                                'SELECT "header.version", "relative_path", filename FROM atoms '
                                 f'WHERE "header.atom_id" = \'{atom_id}\''
                             ),
                         },
@@ -228,20 +228,20 @@ class WorkbenchWatcherDockerMixin:
                 _process, _name, url, _stdout, _stderr = handle
                 status, schema = request(url + f"{workbench_path}/schema", method="POST", payload={})
                 self.assertEqual(200, status, schema)
-                self.assertEqual({"atoms", "scope_units", "change_log"}, set(schema["tables"]))
+                self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_content_issues"}, set(schema["tables"]))
                 self.assertEqual(
                     list(CHANGE_LOG_FIELDS),
                     [column["name"] for column in schema["tables"]["change_log"]],
                 )
                 initial = request(
                     url + f"{workbench_path}/run", method="POST",
-                    payload={"sql": 'SELECT "header.version" FROM atoms WHERE "header.atom_id" = \'CA-R-901\''},
+                    payload={"result_delivery": "inline", "sql": 'SELECT "header.version" FROM atoms WHERE "header.atom_id" = \'CA-R-901\''},
                 )
                 self.assertEqual(200, initial[0], initial[1])
                 self.assertEqual([[1]], initial[1]["rows"])
                 atom_count = request(
                     url + f"{workbench_path}/run", method="POST",
-                    payload={"sql": "SELECT count(*) FROM atoms"},
+                    payload={"result_delivery": "inline", "sql": "SELECT count(*) FROM atoms"},
                 )
                 self.assertEqual(200, atom_count[0], atom_count[1])
                 self.assertEqual([[WATCHER_VOLUME_ATOM_COUNT]], atom_count[1]["rows"])
@@ -293,19 +293,19 @@ class WorkbenchWatcherDockerMixin:
                     "CA-R-902", [[2, relative(created.parent), created.name]],
                 )
                 observe("update", None, created)
-                renamed = source_directory / "renamed.md"
+                renamed = source_directory / "CA-R-902-renamed.md"
                 mutate_then_wait(
                     "host_rename", lambda: created.rename(renamed), "CA-R-902",
                     [[2, relative(renamed.parent), renamed.name]],
                 )
                 observe_host_relocation(created, renamed, "rename")
-                host_moved = moved_parent / "host-moved-name.md"
+                host_moved = moved_parent / "CA-R-902-host-moved-name.md"
                 mutate_then_wait(
                     "host_move", lambda: renamed.rename(host_moved), "CA-R-902",
                     [[2, relative(host_moved.parent), host_moved.name]],
                 )
                 observe_host_relocation(renamed, host_moved, "move")
-                native_renamed = moved_parent / "native-renamed.md"
+                native_renamed = moved_parent / "CA-R-902-native-renamed.md"
                 mutate_then_wait(
                     "container_rename",
                     lambda: move_inside_container(_name, host_moved, native_renamed),
@@ -313,7 +313,7 @@ class WorkbenchWatcherDockerMixin:
                     [[2, relative(native_renamed.parent), native_renamed.name]],
                 )
                 observe("rename", host_moved, native_renamed)
-                moved = source_directory / "moved-name.md"
+                moved = source_directory / "CA-R-902-moved-name.md"
                 mutate_then_wait(
                     "container_move",
                     lambda: move_inside_container(_name, native_renamed, moved),
@@ -353,7 +353,7 @@ class WorkbenchWatcherDockerMixin:
                 directory_target.rmdir()
                 observe("remove", directory_target, None)
 
-                entered = source_directory / "entered.md"
+                entered = source_directory / "CA-R-903-entered.md"
                 mutate_then_wait(
                     "enter_control_root", lambda: incoming.rename(entered), "CA-R-903",
                     [[1, relative(entered.parent), entered.name]],
@@ -393,7 +393,7 @@ class WorkbenchWatcherDockerMixin:
                 self.assertTrue(visibility_latencies)
                 final_count = request(
                     url + f"{workbench_path}/run", method="POST",
-                    payload={"sql": "SELECT count(*) FROM atoms"},
+                    payload={"result_delivery": "inline", "sql": "SELECT count(*) FROM atoms"},
                 )
                 self.assertEqual(200, final_count[0], final_count[1])
                 self.assertEqual([[WATCHER_VOLUME_ATOM_COUNT]], final_count[1]["rows"])
