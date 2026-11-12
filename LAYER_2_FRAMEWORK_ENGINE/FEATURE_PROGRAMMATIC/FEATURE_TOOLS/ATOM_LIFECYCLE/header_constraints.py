@@ -2,7 +2,7 @@
 
 """Compile a bounded subset of explicit Header property declarations.
 
-Compile explicit property and finite child cardinality and literal value domains.
+Compile explicit property, direct-value and child cardinality and literal value domains.
 """
 from dataclasses import dataclass
 import re
@@ -21,6 +21,11 @@ _NAME = re.compile(r'^(?:"[^"\r\n]+"|[A-Za-z][A-Za-z0-9 &_-]*)$')
 _LITERAL = re.compile(rf'^Atom{_SELECTOR}\.Header\.({_PATH})\s*::?\s*({_NAME.pattern[1:-1]})$')
 _CHILDREN = re.compile(rf'^Atom{_SELECTOR}\.Header\.({_PATH})\.\*\s*\[\s*in\s*\(([^()]*)\)\s*\]'
                        r'\s*\{::\s*(\d+)(?:\.\.(\d+))?\s*\}$')
+_VALUE_CARDINALITY = re.compile(
+    rf'^Atom{_SELECTOR}\.Header\.({_PATH}(?:\.\*)?)\s*'
+    r'(?:\{::\s*(?:0|1|0\s*\.\.\s*1)\s*\})?\s*::\s*'
+    r'\[[^\[\]]*\]\s*\{::\s*(\d+)(?:(?:\s*\.\.\s*(\d+))|(\+))?\s*\}\s*$'
+)
 
 
 def _path(value):
@@ -82,6 +87,13 @@ def compile_header_constraints(rows):  # noqa: C901
                     selector, selected, path, count = match.groups()
                     records.add(('property', _path(path), selector.lower() if selector else '',
                                  _selected(selected), count, row['id']))
+                if match := _VALUE_CARDINALITY.fullmatch(statement):
+                    selector, selected, path, lower, upper, unbounded = match.groups()
+                    lower, upper = int(lower), None if unbounded else int(upper or lower)
+                    if upper is not None and upper < lower:
+                        raise ValueError(f"{row['id']}: invalid Header value cardinality")
+                    records.add(('value', _path(path), selector.lower() if selector else '',
+                                 _selected(selected), (lower, upper), row['id']))
                 if match := _DOMAIN.match(statement):
                     selector, selected, path, values = match.groups()
                     literals = [v.strip() for v in values.split(',')]
@@ -103,7 +115,7 @@ def compile_header_constraints(rows):  # noqa: C901
                         records.add(('children', _path(path), selector.lower() if selector else '',
                                      _selected(selected), bounds, row['id']))
     keys = ('kind', 'path', 'selector', 'selected', 'value', 'source')
-    return [dict(zip(keys, item)) for item in sorted(records)]
+    return [dict(zip(keys, item)) for item in sorted(records, key=repr)]
 
 
 @dataclass(frozen=True)
@@ -111,6 +123,7 @@ class HeaderConstraints:
     properties: tuple
     domains: tuple
     children: tuple = ()
+    values: tuple = ()
 
     def validate(self, view, *, metadata=None):
         metadata = _logical_groups(view if metadata is None else metadata, view.get('role'))
@@ -131,12 +144,30 @@ class HeaderConstraints:
                 continue
             present, current = _value(metadata, path)
             named = _path(path) in {'role', 'form', 'status'}
-            if present and (not isinstance(current, str) or not any(
-                matches_named_value(current, value) if named else current == value for value in values
-            )):
+            actual = current if isinstance(current, list) else [current]
+            if present and any(not isinstance(item, str) or not any(
+                matches_named_value(item, value) if named else item == value for value in values
+            ) for item in actual):
                 errors.append((path, f'Header {path} must use a declared value ({source}).', values))
         errors.extend(self._validate_children(view, metadata))
+        errors.extend(self._validate_values(view, metadata))
         return errors
+
+    def _validate_values(self, view, metadata):
+        for path, selector, selected, (low, high), source in self.values:
+            if selector and not matches_named_value(view.get(selector), selected):
+                continue
+            wildcard = path.endswith('.*')
+            present, value = _value(metadata, path[:-2] if wildcard else path)
+            if not present:
+                continue
+            entries = value.items() if wildcard and isinstance(value, dict) else () if wildcard else ((None, value),)
+            for child, item in entries:
+                count = 0 if isinstance(item, dict) else len(item) if isinstance(item, list) else 1
+                if count < low or (high is not None and count > high):
+                    field = f'{path[:-2]}.{child}' if wildcard else path
+                    expected = f'{low}+' if high is None else str(low) if low == high else f'{low}..{high}'
+                    yield field, f'Header {field} requires value cardinality {expected} ({source}).', None
 
     def _missing_field(self, view, path):
         for group, selector, selected, bounds, _ in self.children:
@@ -161,17 +192,25 @@ class HeaderConstraints:
 def load_header_constraints(records, source_ids):  # noqa: C901
     if not isinstance(records, list):
         raise ValueError('invalid Header constraint records')
-    seen, properties, domains, children = set(), [], {}, []
+    seen, properties, domains, children, values = set(), [], {}, [], []
     for row in records:
         if not isinstance(row, dict) or set(row) != {'kind', 'path', 'selector', 'selected', 'value', 'source'}:
             raise ValueError('invalid Header constraint record')
         kind, path, selector, selected, value, source = (row[k] for k in ('kind', 'path', 'selector', 'selected', 'value', 'source'))
         if (any(not isinstance(v, str) for v in (kind, path, selector, selected, source))
-                or kind not in {'property', 'domain', 'children'} or not re.fullmatch(r'[a-z0-9_]+(?:\.[a-z0-9_]+)*', path)
+                or kind not in {'property', 'domain', 'children', 'value'}
+                or not re.fullmatch(r'[a-z0-9_]+(?:\.[a-z0-9_]+)*(?:\.\*)?' if kind == 'value'
+                                    else r'[a-z0-9_]+(?:\.[a-z0-9_]+)*', path)
                 or selector not in {'', 'role', 'form'} or bool(selector) != bool(selected)
                 or source not in source_ids):
             raise ValueError('invalid Header constraint record')
-        if kind == 'children':
+        if kind == 'value':
+            if (not isinstance(value, (list, tuple)) or len(value) != 2 or type(value[0]) is not int
+                    or value[0] < 0 or (value[1] is not None and
+                        (type(value[1]) is not int or value[1] < value[0]))):
+                raise ValueError('invalid Header value constraint')
+            value = tuple(value)
+        elif kind == 'children':
             if (not isinstance(value, (list, tuple)) or len(value) < 3
                     or any(type(bound) is not int for bound in value[:2]) or not 0 <= value[0] <= value[1]
                     or any(not isinstance(name, str) or not re.fullmatch(r'[a-z0-9_]+', name) for name in value[2:])):
@@ -187,6 +226,8 @@ def load_header_constraints(records, source_ids):  # noqa: C901
             properties.append((path, selector, selected, value, source))
         elif kind == 'children':
             children.append((path, selector, selected, value, source))
+        elif kind == 'value':
+            values.append((path, selector, selected, value, source))
         else:
             domains.setdefault((path, selector, selected, source), set()).add(value)
-    return HeaderConstraints(tuple(properties), tuple((*key[:3], frozenset(values), key[3]) for key, values in sorted(domains.items())), tuple(children))
+    return HeaderConstraints(tuple(properties), tuple((*key[:3], frozenset(items), key[3]) for key, items in sorted(domains.items())), tuple(children), tuple(values))

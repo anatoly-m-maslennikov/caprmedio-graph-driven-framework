@@ -8,7 +8,6 @@ from dataclasses import dataclass
 import hashlib
 import json
 from pathlib import Path
-import re
 import sys
 
 TOOLS = Path(__file__).resolve().parents[1]
@@ -27,13 +26,7 @@ from FEATURE_WORKBENCH_BACKEND.workbench_schema_asset import (  # noqa: E402
     compile_schema, load_image_schema, schema_asset,
 )
 
-_PLACEMENT_SUBJECT = re.compile(
-    r'^CAPRMEDIO_MODEL\s*<\+\s*(?:Carrier|Atom\.Header\.Context\.Role|'
-    r'Atom(?:/\([^)]*\))*\.Header\.State\.Status(?:\s*:\s*[^/]+)?|'
-    r'Atom/\(\.Header\.Context\.Role\s*:=\s*Plan\)\.Header\.State\.Status'
-    r'\s*>\|\s*Status Group\s*:=\s*Backlog|'
-    r'Atom\.Header\.State\.Status\s*>\|\s*Status Group\s*:=\s*(?:Draft|Archived|Current))$'
-)
+from ATOM_LIFECYCLE.placement_sources import bootstrap_rows, inventory, read_selected  # noqa: E402
 
 
 @dataclass(frozen=True)
@@ -99,7 +92,7 @@ def load_candidate_schema(path: Path):
         raise ValueError(f'invalid candidate schema: {error}') from error
 
 
-def compile_candidate_schema(root: Path) -> bytes:  # noqa: C901
+def compile_candidate_schema(root: Path, placement_selection: Path | None = None) -> bytes:  # noqa: C901
     """Compile Active Requirement/Declaration carriers from this root only."""
     root = Path(root)
     if not root.is_dir():
@@ -134,39 +127,17 @@ def compile_candidate_schema(root: Path) -> bytes:  # noqa: C901
     payload = {'schema_version': 2, 'workbench': workbench, 'role_form': compile_role_form(rows),
                'header_constraints': compile_header_constraints(rows),
                'content_constraints': compile_content_constraints(rows)}
-    delivery_rows = []
-    delivery_seen = set()
-    delivery_paths = sorted(root.rglob('CA-D-*.md'))
-    def is_core(path):
-        return any(part.upper() == 'CORE_META_MODEL' or part.upper().endswith('_CORE_META_MODEL')
-                   for part in path.relative_to(root).parts[:-1])
-    layered = any(any('LAYER_' in part.upper() for part in path.relative_to(root).parts[:-1])
-                  for path in delivery_paths)
-    if layered or any(is_core(path) for path in delivery_paths):
-        delivery_paths = [path for path in delivery_paths if is_core(path)]
-    for path in delivery_paths:
-        relative = path.relative_to(root)
-        if any(carrier_status_folder(part) in {'archived', 'draft'} for part in relative.parts):
-            continue
-        raw = path.read_bytes()
-        carrier = parse_carrier(raw, path)
-        view = carrier_read_view(carrier.metadata)
-        if view.get('status') not in ('Active', 'active') or not matches_named_value(view.get('role'), 'Delivery'):
-            continue
-        topics = view.get('topics')
-        subject = topics.get('main_subject') if isinstance(topics, dict) else None
-        if not isinstance(subject, str) or not _PLACEMENT_SUBJECT.fullmatch(subject.strip()):
-            continue
-        atom_id, version = view.get('atom_id'), view.get('version')
-        if (not isinstance(atom_id, str) or not (path.name == atom_id + '.md' or path.name.startswith(atom_id + '-'))
-                or view.get('ref_id', atom_id) != atom_id
-                or type(version) is not int or version < 1
-                or atom_id in delivery_seen):
-            raise ValueError(f'{path}: invalid or duplicate Delivery source identity')
-        delivery_seen.add(atom_id)
-        delivery_rows.append({'source_path': relative.as_posix(), 'id': atom_id, 'version': version,
-                              '_content_bytes': carrier.body.encode('utf-8'),
-                              '_sha256': hashlib.sha256(raw).hexdigest()})
+    if placement_selection is None:
+        delivery_rows = bootstrap_rows(inventory(root))
+    else:
+        selection_path = Path(placement_selection)
+        if selection_path.is_symlink() or not selection_path.is_file():
+            raise ValueError('placement selection is missing or is a symlink')
+        try:
+            selection = json.loads(selection_path.read_bytes())
+        except (UnicodeError, json.JSONDecodeError) as error:
+            raise ValueError(f'invalid placement selection: {error}') from error
+        delivery_rows = read_selected(root, selection)
     roles = load_role_form(payload['role_form'], {row['id'] for row in rows}).roles
     from ATOM_LIFECYCLE.status_model import _STATUS_TARGET, _formal_claim_blocks, _statements, compile_status_model
     status_paths = [root / row['source_path'] for row in rows
@@ -185,6 +156,8 @@ def compile_candidate_schema(root: Path) -> bytes:  # noqa: C901
     placement = compile_placement(delivery_rows, rows, roles, required_statuses)
     if placement is not None:
         payload['placement'] = placement
+    elif placement_selection is not None and required_statuses is not None:
+        raise ValueError('Placement selection has no authoritative placement rules')
     payload['digest'] = hashlib.sha256(_canonical(payload)).hexdigest()
     return _canonical(payload) + b'\n'
 
@@ -193,9 +166,10 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--model-root', required=True, type=Path)
     parser.add_argument('--output', required=True, type=Path)
+    parser.add_argument('--placement-selection', type=Path)
     args = parser.parse_args()
     try:
-        payload = compile_candidate_schema(args.model_root)
+        payload = compile_candidate_schema(args.model_root, args.placement_selection)
         args.output.parent.mkdir(parents=True, exist_ok=True)
         args.output.write_bytes(payload)
     except (OSError, ValueError) as error:

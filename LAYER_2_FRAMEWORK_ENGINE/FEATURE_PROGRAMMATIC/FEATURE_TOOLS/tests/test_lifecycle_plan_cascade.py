@@ -11,7 +11,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import test_lifecycle_state_actions as fixtures  # noqa: E402
 from ATOM_LIFECYCLE.common import InputError  # noqa: E402
 from ATOM_LIFECYCLE.plan_cascade import select_archive_cascade  # noqa: E402
-from ATOM_LIFECYCLE.source import select_source  # noqa: E402
+from ATOM_LIFECYCLE.source import bind_query_reader, select_source  # noqa: E402
+from test_lifecycle_source import IndexedReader  # noqa: E402
 
 
 class PlanCascadeTest(unittest.TestCase):
@@ -27,6 +28,17 @@ class PlanCascadeTest(unittest.TestCase):
         grandchild.write_text(child.read_text().replace('CA-P-21', 'CA-P-22').replace('CA-P-20', 'CA-P-21').replace('status: Done', 'status: Active'))
         pins = select_archive_cascade(self.selection, select_source(self.selection, 'CA-P-20'), self.model)
         self.assertEqual([pin.atom_id for pin in pins], ['CA-P-22', 'CA-P-21', 'CA-P-20'])
+
+    def test_query_backed_containment_does_not_scan_the_carrier_tree(self):
+        group, child, _ = self._contained('Plan', 'Epic', 'Task', 'Done')
+        parent = group.with_suffix('.md')
+        indexed = IndexedReader(self.selection, [('CA-P-20', parent), ('CA-P-21', child)])
+        indexed.lifecycle_descendants = lambda refs, relation: {'CA-P-20', 'CA-P-21'}
+        with bind_query_reader(indexed), \
+             patch('ATOM_LIFECYCLE.source._inventory_paths', side_effect=AssertionError('unexpected scan')), \
+             patch('ATOM_LIFECYCLE.plan_cascade.os.walk', side_effect=AssertionError('unexpected walk')):
+            pins = select_archive_cascade(self.selection, select_source(self.selection, 'CA-P-20'), self.model)
+        self.assertEqual([pin.atom_id for pin in pins], ['CA-P-21', 'CA-P-20'])
 
     def test_mismatched_containment_rejected(self):
         group, child, _ = self._contained('Plan', 'Epic', 'Task')

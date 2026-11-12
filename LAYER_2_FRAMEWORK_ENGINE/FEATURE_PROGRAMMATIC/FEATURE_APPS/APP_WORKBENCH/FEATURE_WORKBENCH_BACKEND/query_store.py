@@ -27,7 +27,10 @@ from pathlib import Path
 from typing import Any
 
 from .errors import QueryExecutionError, WorkbenchUnavailableError
-from .audit_tables import create_tables as create_audit_tables, publish as publish_atom_audits
+from .audit_tables import (
+    TABLES as ATOM_AUDIT_TABLES, create_tables as create_audit_tables,
+    publish as publish_atom_audits, revision_query,
+)
 from .graph_store import quote_identifier
 from .header_columns import HeaderSchema, HeaderSchemaState, header_schema_for_mode, schema_asset_path
 from .content_schema import ContentSchema, compile_content_schema, content_schema_asset_path
@@ -115,6 +118,7 @@ class QueryStore:
             self._connection.execute("DROP PROPERTY GRAPH IF EXISTS caprmedio")
             self._connection.execute("DROP SCHEMA IF EXISTS internal CASCADE")
             self._connection.execute("DROP SCHEMA IF EXISTS workbench_results CASCADE")
+            self._connection.execute("DROP SCHEMA IF EXISTS lifecycle_private CASCADE")
             self._connection.execute("DROP TABLE IF EXISTS main.atoms")
             self._connection.execute("DROP TABLE IF EXISTS main.scope_units")
             self._connection.execute("DROP TABLE IF EXISTS main.change_log")
@@ -127,6 +131,118 @@ class QueryStore:
         except Exception as exc:
             self._connection.close()
             raise WorkbenchUnavailableError("query store initialization failed") from exc
+
+    def lifecycle_candidates(self, atom_ids=(), references=(), prefix=None, under=None):
+        clauses = ["regexp_full_match(atom_id, '.+-[A-Z]-[0-9]+')"]
+        parameters = []
+        if atom_ids:
+            clauses.append("atom_id IN (SELECT unnest(?::VARCHAR[]))")
+            parameters.append(list(atom_ids))
+        if references:
+            clauses.append("reference IN (SELECT unnest(?::VARCHAR[]))")
+            parameters.append(list(references))
+        if prefix is not None:
+            clauses.append("starts_with(atom_id, ?)")
+            parameters.append(prefix)
+        if under is not None:
+            clauses.append("(relative_path = ? OR starts_with(relative_path, ?))")
+            parameters.extend((under, under.rstrip("/") + "/"))
+        with self._lock:
+            return self._connection.execute(
+                "SELECT reference, relative_path, filename FROM (SELECT reference, relative_path, filename, "
+                f"split_part(reference, '@', 1) AS atom_id FROM main.atoms WHERE TRUE{self._native_atom_clause()}) WHERE "
+                + " AND ".join(clauses)
+                + " ORDER BY relative_path || '/' || filename", parameters,
+            ).fetchall()
+
+    def lifecycle_archive_candidates(self, atom_id: str):
+        """Return exact archived references in descending numeric Version order."""
+        with self._lock:
+            return self._connection.execute(
+                "SELECT reference, relative_path, filename FROM main.atoms "
+                "WHERE status_group = 'Archived' AND split_part(reference, '@', 1) = ? "
+                "AND regexp_full_match(reference, '[^@]+@[1-9][0-9]*')"
+                f"{self._native_atom_clause()} "
+                "ORDER BY length(split_part(reference, '@', 2)) DESC, split_part(reference, '@', 2) DESC, "
+                "relative_path || '/' || filename", [atom_id],
+            ).fetchall()
+
+    def _native_atom_clause(self) -> str:
+        return "".join(f" AND {quote_identifier(name)} IS NULL" for name in self._header_schema.names
+                       if name == "header.projection" or name.startswith("header.projection."))
+
+    def lifecycle_contexts(self, reference: str) -> list[dict[str, Any]]:
+        candidates = (
+            "header.identity.atom_id", "header.identity.id", "header.atom_id",
+            "header.identity.ref_id", "header.ref_id", "header.state.version", "header.state.version_number",
+            "header.version", "header.version_number", "header.state.status", "header.status",
+            "header.context.role", "header.role", "header.content_role", "header.context.form", "header.form", "header.type",
+            "header.context.container", "header.container", "header.context.container.atom",
+            "header.context.container.scope_unit", "header.container.atom", "header.container.scope_unit", "content.summary",
+        )
+        with self._lock:
+            available = set(self._header_schema.names) | set(self._content_schema.names)
+            names = ["relative_path", "filename", *(name for name in candidates if name in available)]
+            columns = ", ".join(map(quote_identifier, names))
+            rows = self._connection.execute(
+                f"SELECT {columns} FROM main.atoms WHERE status_group IN ('Current', 'Backlog') "
+                f"AND reference = ?{self._native_atom_clause()} ORDER BY relative_path || '/' || filename", [reference],
+            ).fetchall()
+        return [dict(zip(names, row)) for row in rows]
+
+    def lifecycle_last_id(self, prefix: str) -> str | None:
+        with self._lock:
+            row = self._connection.execute(
+                "SELECT atom_id FROM (SELECT split_part(reference, '@', 1) AS atom_id, "
+                "ltrim(substr(split_part(reference, '@', 1), ?), '0') AS number FROM main.atoms) "
+                "WHERE starts_with(atom_id, ?) AND regexp_full_match(substr(atom_id, ?), '[0-9]+') "
+                "ORDER BY length(number) DESC, number DESC, atom_id DESC LIMIT 1",
+                [len(prefix) + 1, prefix, len(prefix) + 1],
+            ).fetchone()
+            return row[0] if row is not None else None
+
+    def lifecycle_latest_version(self, atom_id: str) -> int | None:
+        with self._lock:
+            source = revision_query(self._connection, stable_only=False)
+            return self._connection.execute(
+                f"SELECT max(version) FROM ({source}) WHERE atom_id = ?", [atom_id],
+            ).fetchone()[0]
+
+    def project_consistency(self) -> dict[str, int]:
+        with self._lock:
+            duplicates, extra = self._connection.execute(
+                "SELECT count(*), coalesce(sum(carriers - 1), 0) FROM "
+                "(SELECT count(*) AS carriers FROM main.atoms WHERE reference IS NOT NULL "
+                "GROUP BY reference HAVING count(*) > 1)"
+            ).fetchone()
+            issues = sum(self._connection.execute(f"SELECT count(*) FROM main.{table}").fetchone()[0]
+                         for table in ATOM_AUDIT_TABLES)
+            revisions = self._connection.execute(
+                "SELECT count(*) FROM (SELECT observed, expected FROM main.atom_duplicate_revision_issues GROUP BY ALL)"
+            ).fetchone()[0]
+            return {"duplicate_references": duplicates, "duplicate_carriers": extra,
+                    "duplicate_revisions": revisions, "carrier_issues": issues}
+
+    def lifecycle_descendants(self, references: tuple[str, ...], relation: str) -> set[str]:
+        with self._lock:
+            rows = self._connection.execute(
+                """
+                WITH RECURSIVE selected AS (
+                    SELECT DISTINCT ON (reference) reference, "header.relations"
+                    FROM main.atoms WHERE status_group <> 'Archived' AND reference IS NOT NULL
+                    ORDER BY reference, relative_path || '/' || filename
+                ), reached(reference) AS (
+                    SELECT reference FROM selected WHERE reference IN (SELECT unnest(?::VARCHAR[]))
+                    UNION
+                    SELECT edge.value ->> 'reference'
+                    FROM reached JOIN selected USING (reference),
+                         LATERAL json_each(selected."header.relations", ?) AS edge
+                    WHERE (edge.value ->> 'kind') = 'Atom'
+                )
+                SELECT reference FROM reached
+                """, [list(references), f"$.{relation}"],
+            ).fetchall()
+            return {row[0] for row in rows}
 
     def replace(
         self, atom_rows: list[dict[str, Any]], scope_rows: list[dict[str, Any]],
@@ -266,12 +382,23 @@ class QueryStore:
                 self._available = False
                 raise
 
-    def sync_atom_audits(self, reader: Any) -> None:
-        """Publish source-scan audit rows under the database owner's lock."""
+    def audit_content_rows(self, paths: set[str]) -> dict:
+        """Copy projected values briefly under the database lock for background audit."""
+        from .audit_tables import query_content_rows
+
         with self._lock:
-            from .audit_tables import query_content_rows
-            issues = reader.audit_issues(query_content_rows(self._connection, reader.audit_delta))
-            publish_atom_audits(self._connection, issues, reader.audit_delta, available=self._available)
+            if not self._available:
+                raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
+            return query_content_rows(self._connection, paths)
+
+    def publish_audit(self, issues: dict, paths: set[str] | None, publication: Any) -> bool:
+        """Publish only if the audit generation remains current under the lock."""
+        with self._lock:
+            with publication as current:
+                if not current:
+                    return False
+                publish_atom_audits(self._connection, issues, paths, available=self._available)
+                return True
 
     def _admit(self, sql: str) -> None:
         if not isinstance(sql, str):

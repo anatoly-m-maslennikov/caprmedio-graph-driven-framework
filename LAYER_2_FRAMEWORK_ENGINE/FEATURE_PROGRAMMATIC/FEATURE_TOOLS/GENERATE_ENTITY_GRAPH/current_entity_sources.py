@@ -24,7 +24,7 @@ _EXCLUDED = {
     "_journal",
 }
 _ATOM_FILENAME = re.compile(r"(?:[0-9]+-)?CA-[A-Z]-[0-9]+(?:[-.@]|$)")
-_CANONICAL_ROLE = re.compile(r"(?:[0-9]+-)?[A-Z][A-Z0-9]*-(?P<role>[CAPRMEDO])-[1-9][0-9]*(?:[-.@]|$)")
+_CANONICAL_ROLE = re.compile(r"(?:[0-9]+-)?[A-Z][A-Z0-9]*-(?P<role>[CAPRMEDO])-[0-9]+(?:[-.@]|$)")
 _ATOM_FIELD = re.compile(rb"(?m)^[ \t]*(?:atom_id|'atom_id'|\"atom_id\")[ \t]*:")
 _FRONTMATTER_OPEN = re.compile(r"\A---\r?\n")
 _FRONTMATTER_CLOSE = re.compile(r"(?m)^---\r?\n")

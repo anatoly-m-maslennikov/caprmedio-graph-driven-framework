@@ -8,14 +8,15 @@ from unittest.mock import patch
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(TOOLS), str(TOOLS / 'tests')]
 
-from ATOM_LIFECYCLE import common, state_actions, status_cascade  # noqa: E402
+from ATOM_LIFECYCLE import common, publish, state_actions, status_cascade  # noqa: E402
 from ATOM_LIFECYCLE.placement_model import bind_placement  # noqa: E402
 from ATOM_LIFECYCLE.plan_cascade import select_archive_cascade  # noqa: E402
-from ATOM_LIFECYCLE.source import select_source  # noqa: E402
+from ATOM_LIFECYCLE.source import bind_query_reader, select_source  # noqa: E402
 from ATOM_LIFECYCLE.status_model import StatusModel  # noqa: E402
 from carrier_aliases import carrier_read_view  # noqa: E402
 from lifecycle_placement_test_support import fixture_rules  # noqa: E402
 import test_lifecycle_state_actions as fixtures  # noqa: E402
+from test_lifecycle_source import IndexedReader  # noqa: E402
 
 
 class SharedBacklogAcceptance(unittest.TestCase):
@@ -184,6 +185,71 @@ class SharedBacklogAcceptance(unittest.TestCase):
         parent = select_source(self.selection, 'CA-P-20')
         pins = select_archive_cascade(self.selection, parent, self.model)
         self.assertEqual(['CA-P-22', 'CA-P-21', 'CA-P-20'], [pin.atom_id for pin in pins])
+
+    def test_indexed_relations_select_shared_children_without_reading_other_plans(self):
+        child, nested, sibling, _ = self.tree()
+        parent = self.role_root / '1-CA-P-20-EPIC--parent.md'
+        indexed = IndexedReader(self.selection, [('CA-P-20', parent), ('CA-P-21', child),
+                                                  ('CA-P-22', nested), ('CA-P-24', sibling)])
+        def descendants(seeds, relation):
+            self.assertEqual(('CA-P-20',), seeds)
+            self.assertEqual('CONTAINS', relation)
+            return {'CA-P-20', 'CA-P-21', 'CA-P-22'}
+        indexed.lifecycle_descendants = descendants
+        read = indexed.lifecycle_read
+        def read_relevant(path):
+            self.assertNotEqual(path, sibling)
+            return read(path)
+        indexed.lifecycle_read = read_relevant
+        with bind_query_reader(indexed), \
+             patch('ATOM_LIFECYCLE.source._inventory_paths', side_effect=AssertionError('unexpected scan')), \
+             patch('ATOM_LIFECYCLE.plan_cascade.os.walk', side_effect=AssertionError('unexpected walk')):
+            pins = select_archive_cascade(self.selection, select_source(self.selection, 'CA-P-20'), self.model)
+        self.assertEqual(['CA-P-22', 'CA-P-21', 'CA-P-20'], [pin.atom_id for pin in pins])
+
+    def test_backlog_activation_updates_direct_and_nested_current_tasks(self):
+        child, nested, sibling, original = self.tree()
+        parent = self.role_root / '1-CA-P-20-EPIC--parent.md'
+        parent.write_text(parent.read_text().replace('status: Active', 'status: Backlog'))
+        parent = parent.rename(self.role_root / self.backlog_folder / parent.name)
+        parent_group = parent.with_suffix('')
+        parent_group.mkdir()
+        child.rename(parent_group / child.name)
+        child.with_suffix('').rename(parent_group / child.with_suffix('').name)
+        output = status_cascade.change_status_workflow(self.selection, self.model,
+            {'target': {'ref_id': 'CA-P-20', 'version': 1}, 'targetStatus': 'Active'})
+        self.assertEqual('completed', output['outcome'], output)
+        for identity in ('CA-P-20', 'CA-P-21', 'CA-P-22'):
+            self.assertEqual('active', select_source(self.selection, identity).status.casefold())
+        self.assert_sibling_unchanged(sibling, original)
+
+    def test_indexed_draft_child_is_not_a_current_status_target(self):
+        child, nested, sibling, _ = self.tree()
+        parent = self.role_root / '1-CA-P-20-EPIC--parent.md'
+        draft_path = self.role_root / 'draft/CA-P-26@1-draft-TASK--draft.md'
+        draft_path.parent.mkdir(exist_ok=True)
+        draft_path.write_text(child.read_text().replace('CA-P-21', 'CA-P-26')
+                              .replace('status: Backlog', 'status: Draft'))
+        indexed = IndexedReader(self.selection, [('CA-P-20', parent), ('CA-P-21', child),
+                                                  ('CA-P-22', nested), ('CA-P-26', draft_path)])
+        indexed.lifecycle_descendants = lambda seeds, relation: {'CA-P-20', 'CA-P-21', 'CA-P-22', 'CA-P-26@1-draft'}
+        before = draft_path.read_bytes()
+        with bind_query_reader(indexed):
+            pins = select_archive_cascade(self.selection, select_source(self.selection, 'CA-P-20'), self.model)
+        self.assertEqual({'CA-P-20', 'CA-P-21', 'CA-P-22'}, {pin.atom_id for pin in pins})
+        self.assertEqual(before, draft_path.read_bytes())
+
+    def test_content_only_update_keeps_current_children(self):
+        group, child, _ = self._contained('Plan', 'Epic', 'Task')
+        parent = group.with_suffix('.md')
+        body = parent.read_text().split('---', 2)[2] + '\n## Details\n\nUpdated claim\n'
+        with patch.object(publish, 'validate_candidate'), patch.object(common, 'validate_candidate'):
+            output = publish.update_atom(self.selection, self.model,
+                {'sourceCurrent': {'ref_id': 'CA-P-20', 'version': 1}, 'changes': {'body': body}})
+        self.assertEqual('completed', output['outcome'], output)
+        self.assertIn('Updated claim', parent.read_text())
+        self.assertTrue(child.exists())
+        self.assertEqual('CA-P-20', carrier_read_view(select_source(self.selection, 'CA-P-21').metadata)['container']['atom'])
 
     def test_done_closes_logical_tree_child_first(self):
         _, _, sibling, original = self.tree()

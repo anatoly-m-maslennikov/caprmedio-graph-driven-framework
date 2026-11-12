@@ -1,0 +1,52 @@
+---
+identity:
+  id: CA-P-2852
+  ref_id: CA-P-2852
+context:
+  container:
+    atom: CA-P-2791
+  role: Plan
+  form: Plan
+  topics:
+    main_subject: CAPRMEDIO_MODEL <+ Atom
+  tier: 4
+  label: Task
+state:
+  status: Done
+  version: 3
+  updated_at: 2026-11-11 07:35:41 +0400
+destination:
+  file:
+    name: CA-P-2852-TASK--implement-query-result-files-and-bookmarks.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/03_plan/020_done/CA-P-2791-EPIC--align-engine-implementation-with-the-refined-specification/020_done
+author: Anatoly Maslennikov
+relations:
+  IS_BLOCKED_BY:
+  - CA-P-2811
+---
+
+## Summary
+
+Implement query result files and Bookmarks
+
+## Objective
+
+Implement the adopted query delivery and Bookmark RMEDO. Use CA-R-2729, CA-R-2776, CA-D-673 and CA-M-516 and their related Methods and Evaluations as the specification. Keep native UI activation and unrelated tools outside this Task.
+
+## Subtasks
+
+- [x] Review the next scoped RMEDO batch and fix any contradiction. (ETA: up to 15 min.)
+- [x] Gather applicable Method Policies, then REDO and non-Policy Methods. (ETA: up to 15 min.)
+- [x] Implement one Backend batch from the reviewed inputs. Split before exceeding 20 min.
+- [x] Implement the scoped Frontend and MCP consumer changes in separate ownership lanes. Split each batch before exceeding 20 min.
+- [x] Implement and run the related real-interface Evaluations. Split each batch before exceeding 20 min.
+- [x] Review the result and record a small Work Report. (ETA: up to 15 min.)
+
+## Definition of Done
+
+The adopted RMEDO is implemented and its related real-interface Evaluations pass. Unrun checks and unresolved issues are explicit. This Task does not replace the specification.
+
+
+## Verified batches
+
+P2923 records real MCP JSON-matrix/CSV/TOON exports. P2928 records the Bookmark terminology correction and saved-item/browser checks. P2940 and P2943 cover adapter delivery and browser partial save. P2950 verifies the complete result delivery and Bookmark acceptance against image 87f745f425bc. P2818 tracks local delivery.

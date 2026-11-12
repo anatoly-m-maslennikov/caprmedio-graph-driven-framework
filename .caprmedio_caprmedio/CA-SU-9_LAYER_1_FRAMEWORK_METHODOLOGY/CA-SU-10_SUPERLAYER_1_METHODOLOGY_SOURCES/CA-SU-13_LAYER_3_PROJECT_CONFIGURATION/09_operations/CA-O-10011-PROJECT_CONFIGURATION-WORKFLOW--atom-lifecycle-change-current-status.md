@@ -16,8 +16,8 @@ context:
   tier: 3
 state:
   status: active
-  version: 3
-  updated_at: '2026-11-11T21:49:24+04:00'
+  version: 4
+  updated_at: '2026-11-12T07:10:31+04:00'
 destination:
   file:
     name: CA-O-10011-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-change-current-status.md
@@ -39,43 +39,57 @@ The invocation domain of [Set one Current Atom Status](CA-O-10007-PROJECT_CONFIG
 ### Mermaid Scheme
 
 ```mermaid
-graph TD;
-    step1["Set the selected Current Status"];
-    click step1 "./CA-O-10011-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-change-current-status/CA-O-10010-PROJECT_CONFIGURATION-STEP--set-the-selected-current-status.md" "Open Step";
+flowchart TD;
+    plan["Select Current Atoms, target statuses and order"];
+    preflight["Validate the selected Actions before writes"];
+    step["Set the selected Current Status"];
+    remaining{"Any selected Actions left?"};
+    done["Return saved Atom and confirmed effects"];
+    failed["Return failure, effect evidence and selected Actions left unrun"];
+    plan --> preflight;
+    preflight -->|Accepted| step;
+    preflight -->|Rejected| failed;
+    step -->|Action succeeded| remaining;
+    step -->|Action failed| failed;
+    remaining -->|Yes| step;
+    remaining -->|No| done;
+    click step "./CA-O-10011-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-change-current-status/CA-O-10010-PROJECT_CONFIGURATION-STEP--set-the-selected-current-status.md" "Open Step";
 ```
 
 ### Prose Claim
 
-This Workflow's Purpose is Runtime; its scheme follows [CA-R-1570](../../CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-1570-CORE_META_MODEL-RULE--keep-workflow-graphs-separate-from-step-bindings.md).
+This Runtime Workflow accepts one exact Current Atom selector and an allowed Current `targetStatus`. The Engine binds the Project and applicable model and supplies a pinned Current tree. Attached Drafts stay outside the cascade.
 
-#### Input
+Run one Action per selected Atom. Enter shared Plan Backlog and reopen terminal Plans parent first. Moving a Backlog Plan to Active also activates every Current contained Task parent first. Otherwise, process descendants before the parent. To close a Plan to Done or Canceled, preserve terminal descendants and set the other Current descendants to Canceled. Each Action checks the model and source and derives the destination. The Workflow changes neither Version nor Updated At.
 
-One exact Current Atom selector and requested `targetStatus`. For a folder-backed parent, apply the containment cascade under CA-R-1521, CA-D-461 and CA-D-467 using separate one-Atom invocations.
+Return the saved Atom reference and confirmed effects on success. Report rejected fields before any write. At the first Action failure, return the failed Action, the reason, confirmed and uncertain effects, and any selected Actions left unrun.
 
-To reopen a Done or Canceled Plan to an admitted nonterminal Current Status or to Backlog, change the parent first. Then change the selected latest Plans from outermost to innermost, changing each Plan before its children.
+### Formal Claim
 
-To move a Plan to Done or Canceled, apply the cascade to descendants before the parent. Preserve recursively contained latest Plans already Done or Canceled and request Canceled for the other contained latest Plans.
-
-Stop at the first failure and report completed effects and remaining targets.
-
-The `projectContext` input port binds the Project and applicable model.
-
-#### Output
-
-The `savedCurrentAtom`, warnings, and failure result.
-
-#### Step handoffs
-
-| Step | Receives | Produces |
-| --- | --- | --- |
-| [Set the selected Current Status](./CA-O-10011-PROJECT_CONFIGURATION-WORKFLOW--atom-lifecycle-change-current-status/CA-O-10010-PROJECT_CONFIGURATION-STEP--set-the-selected-current-status.md) | selected Atom, `targetStatus`, and `projectContext` | `savedCurrentAtom`, warnings or a failure result |
-
-#### Logical switches
-
-| Condition | Behavior |
-| --- | --- |
-| Entry | Run Set the selected Current Status. |
-| `savedCurrentAtom` is returned | Complete successfully. |
-| A failure result is returned | Stop and report the explicit failure. |
-
-If an Action requests additional input, return its short explanation and requested input dictionary and keep the Workflow pending. Resume with the supplied dictionary; cancellation is allowed while waiting and does not interrupt an Action.
+```python
+def change_current_status(*, invocation, engine):
+    tree = engine.read_status_tree()
+    requested_status = invocation.target_status.casefold()
+    parent_status = tree.parent.status.casefold()
+    terminal = {"done", "canceled"}
+    entering_backlog = tree.is_plan and tree.shared_backlog and requested_status == "backlog"
+    reopening = tree.is_plan and (
+        (parent_status in terminal and requested_status not in terminal | {"draft", "archived"})
+        or (parent_status == "backlog" and requested_status == "active")
+    )
+    parent_first = entering_backlog or reopening
+    ordered_atoms = reversed(tree.child_first) if parent_first else tree.child_first
+    closing = tree.is_plan and requested_status in terminal
+    actions = []
+    for atom in ordered_atoms:
+        closing_child = closing and atom.atom_id != tree.parent.atom_id
+        if closing_child and atom.status.casefold() in terminal:
+            continue
+        actions.append((atom.atom_id, "Canceled" if closing_child else invocation.target_status))
+    engine.preflight(actions=actions, parent_first=parent_first,
+                     entering_backlog=entering_backlog, reopening=reopening)
+    for atom_id, selected_status in actions:
+        if not engine.invoke(step="CA-O-10010@1", action="CA-O-10007@1",
+                             atom_id=atom_id, target_status=selected_status):
+            return
+```

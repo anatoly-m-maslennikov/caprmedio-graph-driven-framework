@@ -54,7 +54,7 @@ def group(path: Path, header: dict[str, Any], status_groups=()) -> str | None:
     status = header.get("status")
     status = status.casefold() if isinstance(status, str) else status
     if "archived" in parts or status == "archived":
-        return None
+        return "Archived"
     if "draft" in parts or status == "draft":
         return "Draft"
     for role, value, status_group in status_groups:
@@ -68,17 +68,14 @@ def archived(parts: tuple[str, ...]) -> bool:
     return any(part.casefold() in ARCHIVE_PARTS or carrier_status_folder(part) == "archived" for part in parts)
 
 
-def markdown_paths(root: Path) -> Iterator[Path]:
+def markdown_paths(root: Path, *, include_archived: bool = True) -> Iterator[Path]:
     for directory, names, files in os.walk(root, topdown=True, followlinks=False):
         base = Path(directory)
+        names[:] = [name for name in names if not (base / name).is_symlink()
+                    and (include_archived or not archived((name,)))]
         for name in names:
-            path = base / name
-            if not archived((name,)) and path.suffix == ".md" and not path.is_symlink():
+            if (path := base / name).suffix == ".md":
                 yield path
-        names[:] = [
-            name for name in names
-            if not archived((name,)) and not (base / name).is_symlink()
-        ]
         for name in files:
             path = base / name
             if path.suffix == ".md" and not path.is_symlink():

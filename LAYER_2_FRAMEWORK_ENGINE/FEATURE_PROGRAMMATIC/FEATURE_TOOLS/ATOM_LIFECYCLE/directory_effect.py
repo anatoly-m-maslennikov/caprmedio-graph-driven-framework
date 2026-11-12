@@ -11,7 +11,15 @@ from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from . import effects
 
 
-def _read_asset(fd: int, name: str) -> bytes:
+def _read_asset(fd: int, name: str, root: Path | None = None, path: Path | None = None) -> bytes:
+    reader = effects._reader(path) if path is not None else None
+    if reader is not None:
+        if os.stat(name, dir_fd=fd, follow_symlinks=False).st_size > CEILINGS["max_file_bytes"]:
+            raise ValueError("directory asset exceeds max_file_bytes")
+        data = effects._query_read(reader, root, path, fd, name)
+        if len(data) > CEILINGS["max_file_bytes"]:
+            raise ValueError("directory asset exceeds max_file_bytes")
+        return data
     asset = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=fd)
     with os.fdopen(asset, "rb") as stream:
         info = os.fstat(stream.fileno())
@@ -26,7 +34,8 @@ def _read_asset(fd: int, name: str) -> bytes:
         return data
 
 
-def _snapshot(fd: int, prefix: Path = Path(), total: list[int] | None = None) -> tuple[list[Path], dict[Path, str]]:
+def _snapshot(fd: int, prefix: Path = Path(), total: list[int] | None = None, *,
+              root: Path | None = None, base: Path | None = None) -> tuple[list[Path], dict[Path, str]]:
     if total is None:
         total = [0]
     directories = []
@@ -37,14 +46,14 @@ def _snapshot(fd: int, prefix: Path = Path(), total: list[int] | None = None) ->
         if stat.S_ISDIR(mode):
             child = os.open(name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=fd)
             try:
-                nested_dirs, nested_files = _snapshot(child, path, total)
+                nested_dirs, nested_files = _snapshot(child, path, total, root=root, base=base)
             finally:
                 os.close(child)
             directories.append(path)
             directories.extend(nested_dirs)
             files.update(nested_files)
         elif stat.S_ISREG(mode):
-            data = _read_asset(fd, name)
+            data = _read_asset(fd, name, root, base / path if base is not None else None)
             total[0] += len(data)
             if total[0] > CEILINGS["max_total_read_bytes"]:
                 raise ValueError("directory assets exceed max_total_read_bytes")
@@ -59,7 +68,7 @@ def _read_tree(root: Path, path: Path) -> tuple[list[Path], dict[Path, str]]:
     try:
         fd = os.open(name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW, dir_fd=parent)
         try:
-            return _snapshot(fd)
+            return _snapshot(fd, root=root, base=path)
         finally:
             os.close(fd)
     finally:
@@ -114,10 +123,10 @@ def _copy_tree(root: Path, source: Path, destination: Path, directories: list[Pa
         parent = None
         try:
             parent, name, _ = effects._parent(root, source / path)
-            content = _read_asset(parent, name)
+            content = _read_asset(parent, name, root, source / path)
             if hashlib.sha256(content).hexdigest() != digest:
                 raise ValueError("directory asset changed")
-        except (OSError, ValueError) as exc:
+        except (OSError, ValueError, RuntimeError) as exc:
             effects._error(result, "stale_state" if isinstance(exc, ValueError) else "backend_failure", effects._message(exc))
             return
         finally:
@@ -176,7 +185,7 @@ def move_directory(root: Path, source: Path, destination: Path, *, rewrites=None
         if not isinstance(rewrites, dict):
             raise ValueError("invalid directory asset rewrites")
         targets = _rewrite_pins(files, rewrites)
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, RuntimeError) as exc:
         effects._error(result, "stale_state" if isinstance(exc, ValueError) else "backend_failure", effects._message(exc))
         return result
 
@@ -186,7 +195,7 @@ def move_directory(root: Path, source: Path, destination: Path, *, rewrites=None
     try:
         if _read_tree(root, destination) != (directories, targets) or _read_tree(root, source) != (directories, files):
             raise ValueError("directory carrier changed or readback differs")
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, RuntimeError) as exc:
         effects._error(result, "stale_state" if isinstance(exc, ValueError) else "backend_failure", effects._message(exc))
         return result
     _remove_tree(root, source, directories, files, result)

@@ -6,6 +6,7 @@ import subprocess
 from contextlib import AbstractContextManager
 import io
 import json
+import os
 import shutil
 import stat
 import sys
@@ -21,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "LAYER_2_FRAMEWORK_
 import local_release  # noqa: E402
 from local_release import run_local_release, _launcher_image  # noqa: E402
 from project_selection import resolve_project  # noqa: E402
-from release_support import _release_sources  # noqa: E402
+from release_support import _GENERATED_ASSETS, _file_identity, _publish_image_assets, _release_sources  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from release_registry_test_fixture import (  # noqa: E402
     write_relation_registry_generator,
@@ -153,6 +154,10 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         image_factory = patch("local_release._image_manager", return_value=self.image)
         self.image_factory = image_factory.start()
         self.addCleanup(image_factory.stop)
+        lifecycle_assets = patch("release_support.compile_lifecycle_assets",
+                                 return_value=(b'{"schema":1}\n', b'{"schema":1}\n'))
+        self.lifecycle_assets = lifecycle_assets.start()
+        self.addCleanup(lifecycle_assets.stop)
         provenance = patch("local_release.release_image_provenance", return_value={
             "project_id": "c" * 64, "project_root": str(self.root),
             "control_root": ".caprmedio_caprmedio", "project_name": "Fixture",
@@ -229,6 +234,85 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual(self.canonical_methodology_paths.declaration_digest, places.declaration_digest)
         self.assertEqual(self.canonical_methodology_paths.control_root, places.control_root)
         self.assertEqual(Path("LAYER_1_FRAMEWORK_METHODOLOGY/applicable_methodology"), places.output)
+
+    def test_previous_image_refreshes_checkout_assets_before_build(self):
+        runner, _ = self._runner()
+        previous = "sha256:" + "e" * 64
+        selection = resolve_project(self.root)
+        selection.launcher_state.mkdir(parents=True)
+        receipt = {"project_root": str(self.root), "control_root": str(self.control),
+                   "project_id": selection.instance_id, "image_id": previous, "readiness": True}
+        (selection.launcher_state / "ready.json").write_text(json.dumps(receipt), encoding="utf-8")
+        (selection.launcher_state / "last_launch.json").write_text(
+            json.dumps(dict(receipt, image_id="sha256:" + "f" * 64, readiness=False)), encoding="utf-8")
+        with self._compiler(), patch("local_release._launcher_image", return_value=self.image_id):
+            result = run_local_release(self.root, run_id="predecessor-query", runner=runner)
+
+        self.assertIn(result["outcome"], {"completed", "completed_with_cleanup_pending"}, result)
+        self.assertEqual("refresh", result["image_mode"])
+        self.assertEqual(previous, self.lifecycle_assets.call_args.kwargs["previous_image"])
+        self.assertEqual({"use_packaged_assets": True}, self.image.resolve.call_args_list[0].kwargs)
+        runtime_package = self.runtime / "simple_local_release/package"
+        for relative in _GENERATED_ASSETS:
+            self.assertEqual((runtime_package / relative).read_bytes(), (self.root / relative).read_bytes())
+
+    def test_existing_image_mode_preserves_checkout_assets_without_a_predecessor(self):
+        selection = resolve_project(self.root)
+        selection.launcher_state.mkdir(parents=True)
+        (selection.launcher_state / "ready.json").write_text("invalid receipt", encoding="utf-8")
+        payloads = {relative: json.dumps({"existing": relative}).encode() for relative in _GENERATED_ASSETS}
+        for relative, payload in payloads.items():
+            (self.root / relative).write_bytes(payload)
+
+        runner, calls = self._runner()
+        with self._compiler():
+            result = run_local_release(self.root, run_id="existing-assets", runner=runner, image_mode="existing")
+
+        self.assertEqual("completed", result["outcome"], result)
+        self.assertEqual("existing", result["image_mode"])
+        self.lifecycle_assets.assert_not_called()
+        test_argv = next(argv for argv in calls if any(arg.endswith("run_full_test_suite.py") for arg in argv))
+        self.assertEqual(("--image-mode", "existing"), test_argv[-2:])
+        self.assertEqual({"use_packaged_assets": True}, self.image.resolve.call_args_list[0].kwargs)
+        runtime_package = self.runtime / "simple_local_release/package"
+        for relative, payload in payloads.items():
+            self.assertEqual(payload, (self.root / relative).read_bytes())
+            self.assertEqual(payload, (runtime_package / relative).read_bytes())
+
+    def test_failed_asset_publication_restores_checkout(self):
+        first, second, *_ = sorted(_GENERATED_ASSETS)
+        package = self.root / ".caprmedio_tmp/package"
+        previous = {}
+        expected = {}
+        for relative in (first, second):
+            target = self.root / relative
+            target.write_bytes(b"known-good\n")
+            previous[relative] = _file_identity(target)
+            staged = package / relative
+            staged.parent.mkdir(parents=True, exist_ok=True)
+            staged.write_bytes(b"replacement\n")
+            expected[relative] = _file_identity(staged)
+
+        replace = os.replace
+        def replace_except_second(source, destination):
+            if destination == self.root / second:
+                raise OSError("asset cannot be replaced")
+            return replace(source, destination)
+
+        with patch("release_support.os.replace", side_effect=replace_except_second):
+            with self.assertRaisesRegex(OSError, "asset cannot be replaced"):
+                _publish_image_assets(self.root, package, previous, expected)
+        for relative in (first, second):
+            self.assertEqual(previous[relative], _file_identity(self.root / relative))
+
+    def test_existing_image_mode_refuses_missing_assets_before_tests(self):
+        runner, calls = self._runner()
+        original_version = (self.root / "version.toml").read_bytes()
+        result = run_local_release(self.root, run_id="missing-assets", runner=runner, image_mode="existing")
+        self.assertEqual(("failed", "validate_inputs"), (result["outcome"], result["failed_step"]))
+        self.assertEqual(original_version, (self.root / "version.toml").read_bytes())
+        self.assertFalse(any(any(item.endswith("run_full_test_suite.py") for item in argv) for argv in calls))
+        self.image_factory.assert_not_called()
 
     def test_launcher_image_reads_only_exact_selected_runtime_namespace(self):
         selection = resolve_project(self.root)
@@ -691,7 +775,9 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         self.assertEqual("chore(release): simple local final", git("log", "-1", "--format=%s").stdout.strip())
         receipt = ".caprmedio_runtime/simple_local_release/reports/real-git.md"
         self.assertIn("http://localhost:12345/mcp", git("show", f"HEAD:{receipt}").stdout)
-        self.assertEqual(6, int(git("rev-list", "--count", "HEAD").stdout))
+        self.assertEqual(7, int(git("rev-list", "--count", "HEAD").stdout))
+        for relative in _GENERATED_ASSETS:
+            self.assertEqual((self.root / relative).read_text(), git("show", f"HEAD:{relative}").stdout)
 
     def test_package_inputs_fail_before_any_installed_replacement(self):
         runtime_package = self.runtime / "simple_local_release/package"
@@ -728,8 +814,8 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         prepare = local_release._prepare_package
         for field in ("bytes", "mode"):
             with self.subTest(field=field):
-                def tamper(*args):
-                    expected = prepare(*args)
+                def tamper(*args, **kwargs):
+                    expected = prepare(*args, **kwargs)
                     path = args[2] / "uv.lock"
                     if field == "bytes":
                         path.write_bytes(path.read_bytes() + b"drift")
@@ -743,6 +829,20 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                 self.assertEqual("prepare_candidate_image", result["failed_step"])
                 self.image_factory.assert_not_called()
                 self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
+
+    def test_shipped_workflow_without_source_proof_stops_at_package_build(self):
+        lifecycle = self.root / (
+            "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/ATOM_LIFECYCLE"
+        )
+        asset = lifecycle / "assets/change_current_status.py"
+        asset.parent.mkdir()
+        asset.write_text("# reviewed workflow\n", encoding="utf-8")
+        runner, _ = self._runner()
+        with self._compiler():
+            result = run_local_release(self.root, run_id="unverified-workflow", runner=runner)
+        self.assertEqual(("failed", "build_package"), (result["outcome"], result["failed_step"]))
+        self.image_factory.assert_not_called()
+        self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
 
     def test_unreadable_package_subtree_refuses_before_replacement(self):
         blocked = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/blocked"
@@ -772,12 +872,12 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         import local_release
         prepare = local_release._prepare_package
         stages = []
-        def capture(root, product, package):
+        def capture(root, product, package, **kwargs):
             self.assertTrue(package.is_relative_to(root / ".caprmedio_tmp/simple_local_release"))
             self.assertTrue(package.parent.name.startswith("private-"))
             self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
             stages.append(package)
-            return prepare(root, product, package)
+            return prepare(root, product, package, **kwargs)
         runner, _ = self._runner()
         with self._compiler(), patch.object(local_release, "_prepare_package", capture):
             result = run_local_release(self.root, run_id="private", runner=runner)
@@ -790,12 +890,13 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         events = []
 
         def resolve(**kwargs):
-            events.append("candidate-resolve" if not kwargs else "installed-resolve")
-            if not kwargs:
+            if kwargs == {"use_packaged_assets": True}:
+                events.append("candidate-resolve")
                 self.assertEqual("obsolete", (self.installed / "old.txt").read_text())
                 self.assertFalse((self.runtime / "simple_local_release/package").exists())
                 self.assertFalse((self.root / ".agents/skills/ca").exists())
             else:
+                events.append("installed-resolve")
                 self.assertEqual({"explicit_id": self.image_id, "build_if_missing": False}, kwargs)
             return self.image_id
         self.image.resolve.side_effect = resolve
@@ -815,8 +916,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             result = run_local_release(self.root, run_id="image-order", runner=record)
         self.assertEqual("completed", result["outcome"])
         self.assertEqual(2, self.image_factory.call_count)
-        self.assertEqual([unittest.mock.call(), unittest.mock.call(use_packaged_assets=True),
-                          unittest.mock.call(use_packaged_assets=True)], self.image.identity.call_args_list)
+        self.assertEqual([unittest.mock.call(use_packaged_assets=True)] * 3, self.image.identity.call_args_list)
         source, temporary = self.image_factory.call_args_list[0].args
         self.assertTrue(source.is_relative_to(self.root / ".caprmedio_tmp/simple_local_release"))
         self.assertEqual(source.parent / "image_builds", temporary)

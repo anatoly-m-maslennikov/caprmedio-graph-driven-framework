@@ -228,7 +228,7 @@ class WorkbenchWatcherDockerMixin:
                 _process, _name, url, _stdout, _stderr = handle
                 status, schema = request(url + f"{workbench_path}/schema", method="POST", payload={})
                 self.assertEqual(200, status, schema)
-                self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_content_issues"}, set(schema["tables"]))
+                self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_parse_issues", "atom_schema_issues", "atom_duplicate_revision_issues"}, set(schema["tables"]))
                 self.assertEqual(
                     list(CHANGE_LOG_FIELDS),
                     [column["name"] for column in schema["tables"]["change_log"]],

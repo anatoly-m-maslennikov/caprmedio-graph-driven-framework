@@ -16,7 +16,7 @@ Atom.Header.Topics.*[in(Main Subject, Dependencies)]{::1..2};
 '''
     records = compile_header_constraints([{'id': 'CA-R-1', '_content_bytes': body.encode()}])
     schema = load_header_constraints(records, {'CA-R-1'})
-    assert {r['path'] for r in records} == {'tier', 'priority', 'mode', 'container', 'topics'}
+    assert {r['path'] for r in records} == {'tier', 'priority', 'mode', 'container', 'topics', 'optional'}
     assert {field for field, _, _ in schema.validate({'role': 'Concern', 'mode': 'Other'})} == {'tier', 'priority', 'mode'}
     assert schema.validate({'role': 'Concern', 'tier': 1, 'priority': 'Unknown'})[0][2] == {'High'}
     assert schema.validate({'role': 'Plan', 'tier': 1, 'mode': 'One'}) == []
@@ -95,3 +95,47 @@ Atom/(.Header.Context.Role in (Concern)).Header.Context.Concern.*[in (Priority)]
     assert schema.validate({'role': 'Concern'}, metadata={**grouped, 'identity': {**identity, 'extra': 'X'}})
     missing = schema.validate({key: value for key, value in flat.items() if key != 'priority'})
     assert {field for field, _, _ in missing} == {'priority'}
+
+
+def test_header_direct_value_cardinality_and_nested_keys_are_independent():
+    body = '''## Claim
+### Formal Claim
+```CFEL
+Atom.Header.Tags :: [string]{::1..2};
+Atom.Header.Modes :: [in (One, Two)]{::1..2};
+Atom.Header.Alias :: [string]{::0..1};
+Atom.Header.Options{::1} :: []{::0};
+Atom.Header.Relations.* :: [string]{::1+};
+Atom/(.Header.Role: Concern).Header.Priority :: [string]{::1};
+```
+'''
+    records = compile_header_constraints([{'id': 'CA-R-1', '_content_bytes': body.encode()}])
+    schema = load_header_constraints(records, {'CA-R-1'})
+    good = {'role': 'Concern', 'tags': ['A', 'B'], 'modes': ['One', 'Two'], 'alias': [], 'priority': 'High',
+            'options': {'first': {'nested': 'value'}, 'second': 3},
+            'relations': {'uses': ['A', 'B'], 'depends_on': 'C'}}
+    assert schema.validate(good) == []
+    bad = {**good, 'tags': [], 'alias': ['A', 'B'], 'options': 'direct',
+           'relations': {'uses': [], 'depends_on': ['C']}, 'priority': []}
+    assert {field for field, _, _ in schema.validate(bad)} == {
+        'tags', 'alias', 'options', 'relations.uses', 'priority'}
+    assert schema.validate({**good, 'options': {}, 'tags': None}) == []
+    assert schema.validate({**good, 'role': 'Method', 'priority': []}) == []
+    assert {field for field, _, _ in schema.validate({**good, 'modes': ['One', 'Other']})} == {'modes'}
+    # Missing Properties are governed by separate property-cardinality rules.
+    assert schema.validate({key: value for key, value in good.items() if key != 'tags'}) == []
+
+
+def test_header_cardinality_asset_rejects_bad_bounds_and_loads_legacy_records():
+    import pytest
+
+    row = {'kind': 'value', 'path': 'tags', 'selector': '', 'selected': '',
+           'value': [1, 2], 'source': 'CA-R-1'}
+    assert load_header_constraints([row], {'CA-R-1'}).values[0][3] == (1, 2)
+    assert load_header_constraints([], {'CA-R-1'}).values == ()
+    for bounds in ([2, 1], [-1, None], [1, True]):
+        with pytest.raises(ValueError):
+            load_header_constraints([{**row, 'value': bounds}], {'CA-R-1'})
+    with pytest.raises(ValueError):
+        compile_header_constraints([{'id': 'CA-R-1', '_content_bytes': (
+            b'## Claim\n### Formal Claim\n```CFEL\nAtom.Header.Tags :: [string]{::2..1};\n```\n')}])

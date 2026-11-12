@@ -22,7 +22,7 @@ _DELIMITERS = re.compile(rf"({_QUOTED})|;(?!>)")
 
 
 def formal_claim_blocks(body: str) -> tuple[str, ...]:
-    """Read only CFEL fences at Claim/Formal Claim, ignoring unquoted comments."""
+    """Read model fences at Claim/Formal Claim in the compiler's statement format."""
     tokens = MarkdownIt("commonmark").parse(body)
     headings: list[tuple[int, str]] = []
     blocks: list[str] = []
@@ -32,11 +32,14 @@ def formal_claim_blocks(body: str) -> tuple[str, ...]:
             while headings and headings[-1][0] >= level:
                 headings.pop()
             headings.append((level, content_key(tokens[index + 1].content)))
-        elif (
-            token.type == "fence" and token.info.strip().casefold() == "cfel"
-            and tuple(name for _, name in headings) == ("claim", "formal_claim")
-        ):
-            blocks.append(_COMMENTS.sub(lambda match: match.group(1) or "", token.content))
+        elif token.type == "fence" and tuple(name for _, name in headings) == ("claim", "formal_claim"):
+            language = token.info.strip().casefold()
+            if language == "cfel":
+                blocks.append(_COMMENTS.sub(lambda match: match.group(1) or "", token.content))
+            elif language == "python":
+                from python_model_claim import parse_python_model_claim
+
+                blocks.append(";\n".join(parse_python_model_claim(token.content)))
     return tuple(blocks)
 
 

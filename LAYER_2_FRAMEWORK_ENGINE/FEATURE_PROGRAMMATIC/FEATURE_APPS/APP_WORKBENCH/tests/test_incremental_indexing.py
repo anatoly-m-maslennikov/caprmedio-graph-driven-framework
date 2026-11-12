@@ -3,16 +3,20 @@
 from contextlib import ExitStack
 from pathlib import Path
 import re
+import shutil
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
 APP_ROOT = Path(__file__).resolve().parents[2]
-sys.path[:0] = [str(APP_ROOT), str(APP_ROOT.parent / "FEATURE_TOOLS"), str(Path(__file__).parent)]
+sys.path[:0] = [str(APP_ROOT), str(APP_ROOT.parent / "FEATURE_TOOLS"),
+                str(APP_ROOT.parent / "FEATURE_TOOLS" / "tests"), str(Path(__file__).parent)]
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.query_store import QueryStore  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
+from lifecycle_placement_test_support import fixture_rules  # noqa: E402
 from smalltest_support import built_assets, extension_directory, source_path, write_atom, write_settings  # noqa: E402
 
 BACKEND = "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND."
@@ -41,10 +45,11 @@ class IncrementalIndexingTests(unittest.TestCase):
                 "```\n"
             ),
         )
-        self.service = WorkbenchService(self.root, **built_assets(self.root))
+        self.service = WorkbenchService(self.root, archive_placement=fixture_rules(), **built_assets(self.root))
         self.service._store = QueryStore(extension_directory=extension_directory(APP_ROOT.parents[2]))
         self.addCleanup(self.service.close)
         self.service._refresh()
+        self.assertTrue(self.service.wait_for_audits(10))
         self.store = self.service._store
 
     def event(self, path, *, old=None, operation="update"):
@@ -103,6 +108,44 @@ class IncrementalIndexingTests(unittest.TestCase):
         )["rows"])
         self.assertEqual([["CA-R-A", "CA-R-B"]], self.graph())
 
+    def test_delayed_remove_after_atomic_draft_replacement_keeps_updated_draft(self):
+        draft = source_path(self.declarations, "ENGINE", "04_requirement/draft", "CA-R-100001@2-draft.md")
+        write_atom(draft, "CA-R-100001", status="Draft", version=2, body="## Summary\n\nOriginal.\n")
+        self.service._refresh([self.event(draft, operation="create")])
+        replacement = draft.with_suffix(".tmp")
+        write_atom(replacement, "CA-R-100001", status="Draft", version=2, body="## Summary\n\nUpdated.\n")
+        replacement.replace(draft)
+        raw_event = self.event(None, old=draft, operation="remove")
+
+        def deliver(event):
+            self.service._stop.clear()
+            watcher = unittest.mock.Mock()
+            watcher.changes.side_effect = lambda timeout: (self.service._stop.set() or [event])
+            with patch(BACKEND + "service.SourceWatcher", return_value=watcher), \
+                    patch(BACKEND + "service.configured_journal_root", return_value=Path(".caprmedio_caprmedio/_journal")):
+                self.service._index()
+            self.assertIsNone(self.service._failure)
+
+        deliver(raw_event)
+        self.assertEqual([["CA-R-100001@2-draft"]], self.store.run(
+            "SELECT reference FROM atoms WHERE reference = 'CA-R-100001@2-draft'"
+        )["rows"])
+        selection = SimpleNamespace(root=self.root.resolve(), control_root=self.service._reader.control_root)
+        self.assertEqual([("CA-R-100001", draft.resolve())], self.service.lifecycle_candidates(
+            selection, atom_ids=("CA-R-100001",), references=("CA-R-100001@2-draft",),
+        ))
+        self.assertIn(b"Updated.", self.service.lifecycle_read(draft.resolve()))
+        self.assertEqual([["remove", draft.relative_to(self.root).as_posix(), None]], self.store.run(
+            "SELECT operation, old_path, new_path FROM change_log"
+        )["rows"])
+
+        draft.unlink()
+        deliver(raw_event)
+        self.assertEqual([], self.store.run(
+            "SELECT reference FROM atoms WHERE reference = 'CA-R-100001@2-draft'"
+        )["rows"])
+        self.assertEqual([], self.service.lifecycle_candidates(selection, atom_ids=("CA-R-100001",)))
+
     def test_scope_declaration_full_capture_diffs_without_replacing_projection(self):
         declaration = Path(self.declarations["ENGINE"]["declaration_path"])
         saved = self.store.run("SELECT 42 AS marker")
@@ -114,6 +157,7 @@ class IncrementalIndexingTests(unittest.TestCase):
         with patch.object(self.store, "replace", side_effect=AssertionError("projection replaced")), \
              patch.object(self.store, "apply", wraps=self.store.apply) as apply:
             self.service._refresh([self.event(declaration)])
+        self.assertTrue(self.service.wait_for_audits(10))
         self.assertIsNone(apply.call_args.kwargs["delta"])
         self.assertEqual([[2]], self.store.run(
             "SELECT declaration_version FROM scope_units WHERE name = 'ENGINE'"
@@ -121,6 +165,31 @@ class IncrementalIndexingTests(unittest.TestCase):
         self.assertEqual(before_edges, self.graph())
         self.assertEqual(before_audits, self.store.run("SELECT count(*) FROM atom_physical_carrier_issues")["rows"])
         self.assertEqual([[42]], self.store.page(saved["query_id"], 0)["rows"])
+
+    def test_removed_scope_directory_refreshes_missing_declaration_event(self):
+        declaration = Path(self.declarations["ENGINE"]["declaration_path"])
+        authority = Path(self.declarations["ENGINE"]["authority_path"])
+        self.assertEqual([[1]], self.store.run(
+            "SELECT count(*) FROM scope_units WHERE name = 'ENGINE'"
+        )["rows"])
+        declaration.unlink()
+        shutil.rmtree(authority)
+        self.service._refresh([self.event(None, old=authority, operation="remove")])
+        self.assertEqual([[0]], self.store.run(
+            "SELECT count(*) FROM scope_units WHERE name = 'ENGINE'"
+        )["rows"])
+
+    def test_removed_scope_child_directory_stays_incremental(self):
+        directory = self.paths["A"].parent / "batch"
+        atom = directory / "CA-R-100001.md"
+        write_atom(atom, "CA-R-100001")
+        self.service._refresh([self.event(atom, operation="create")])
+        shutil.rmtree(directory)
+        with patch.object(self.service._reader, "_capture_full", side_effect=AssertionError("full scan")):
+            self.service._refresh([self.event(None, old=directory, operation="remove")])
+        self.assertEqual([[0]], self.store.run(
+            "SELECT count(*) FROM atoms WHERE reference = 'CA-R-100001'"
+        )["rows"])
 
     def test_declaration_changes_require_new_built_assets(self):
         declaration = self.paths["relation"].with_name("CA-R-content-model.md")

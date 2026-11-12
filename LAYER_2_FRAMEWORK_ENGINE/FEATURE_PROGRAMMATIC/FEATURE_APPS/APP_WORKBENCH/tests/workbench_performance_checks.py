@@ -46,6 +46,7 @@ class WorkbenchPerformanceDockerMixin:
             state = Path(temporary) / "workbench"
             state.mkdir()
             state.chmod(0o777)
+            cold_started = time.monotonic()
             handle = self._start_performance_container(fixture.root, state)
             _process, name, url, stdout, stderr = handle
             workbench_path = f"{WORKBENCH_PATH}/{project_name(fixture.control)}"
@@ -177,8 +178,7 @@ class WorkbenchPerformanceDockerMixin:
                 )
 
             try:
-                self.assertFalse(database.exists(), "health must not warm the Workbench index")
-                cold_started = time.monotonic()
+                self.assertTrue(database.is_file(), "startup must load the persistent projection")
                 assert_batch(
                     version=1,
                     scope_id=fixture.source_scope_id,
@@ -187,13 +187,10 @@ class WorkbenchPerformanceDockerMixin:
                     expected_total=FIXTURE_ATOM_COUNT,
                     batch_present=False,
                 )
-                self.assertTrue(
-                    database.is_file(), "first query must create the persistent projection"
-                )
                 record_performance(
                     self,
                     operation="cold_index",
-                    measurement="fresh_store_to_verified_graph",
+                    measurement="container_start_to_verified_graph",
                     started_at=cold_started,
                     budget_seconds=REBUILD_BUDGET_SECONDS,
                     fixture_atom_count=FIXTURE_ATOM_COUNT,
@@ -338,6 +335,7 @@ class WorkbenchPerformanceDockerMixin:
                 self._stop_performance_container(handle)
 
     def _start_performance_container(self, root: Path, state: Path):
+        (root / ".caprmedio_runtime" / "workbench").mkdir(parents=True, exist_ok=True)
         name = f"caprmedio-workbench-performance-{uuid4().hex}"
         port = free_port()
         url = f"http://127.0.0.1:{port}"

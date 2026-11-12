@@ -30,13 +30,12 @@ class RelationRegistryReleaseTests(unittest.TestCase):
         observed = []
 
         def resolve(**kwargs):
-            if kwargs:
+            if kwargs != {"use_packaged_assets": True}:
                 return fixture.image_id
             package = Path(fixture.image_factory.call_args.args[0])
-            self.assertEqual(
-                '{"schema_version":1,"registered_names":[]}\n',
-                (package / relative).read_text(encoding="utf-8"),
-            )
+            self.assertEqual('{"schema_version":1,"registered_names":[]}\n',
+                             (package / relative).read_text(encoding="utf-8"))
+            self.assertEqual((package / relative).read_bytes(), (fixture.root / relative).read_bytes())
             observed.append(package)
             return fixture.image_id
 
@@ -46,7 +45,7 @@ class RelationRegistryReleaseTests(unittest.TestCase):
             result = local_release.run_local_release(fixture.root, run_id="relation-registry-build", runner=runner)
         self.assertEqual("completed", result["outcome"], result)
         self.assertEqual(1, len(observed))
-        self.assertEqual("stale source asset", (fixture.root / relative).read_text())
+        self.assertEqual('{"schema_version":1,"registered_names":[]}\n', (fixture.root / relative).read_text())
 
     def test_missing_fresh_output_does_not_reuse_a_copied_registry(self):
         fixture = self.fixture
@@ -61,6 +60,7 @@ class RelationRegistryReleaseTests(unittest.TestCase):
             result = local_release.run_local_release(fixture.root, run_id="relation-registry-no-output", runner=runner)
         self.assertEqual("failed", result["outcome"])
         self.assertEqual("build_package", result["failed_step"])
+        self.assertEqual("stale asset", script.with_name("canonical_relation_registry.json").read_text())
         fixture.image_factory.assert_not_called()
         self.assertFalse(any(fixture._is_mcp_bootstrap(argv) for argv in calls))
 
@@ -123,7 +123,7 @@ class RelationRegistryReleaseTests(unittest.TestCase):
             return verify(package, expected)
 
         def resolve(**kwargs):
-            if not kwargs:
+            if kwargs == {"use_packaged_assets": True}:
                 package = Path(fixture.image_factory.call_args.args[0])
                 observed.append((package / relative).read_text(encoding="utf-8"))
             return fixture.image_id
@@ -135,7 +135,7 @@ class RelationRegistryReleaseTests(unittest.TestCase):
         self.assertEqual("completed", result["outcome"], result)
         self.assertEqual(['{"schema_version":1,"tables":[]}\n'], observed)
         self.assertTrue(any(relative.as_posix() in expected for expected in expected_maps))
-        self.assertEqual("stale source asset", (fixture.root / relative).read_text())
+        self.assertEqual(observed[0], (fixture.root / relative).read_text())
 
     def test_missing_fresh_schema_does_not_reuse_a_copied_asset(self):
         fixture = self.fixture

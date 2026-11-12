@@ -320,6 +320,48 @@ class ImageGoldenTests(unittest.TestCase):
         self.assertTrue(inspections, calls)
         self.assertTrue(any(IMAGE_ID in command for command in inspections))
 
+    def test_packaged_assets_can_build_without_resolving_a_predecessor(self) -> None:
+        source = self.source_fixture()
+        assets = (RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, STATUS_MODEL, CANDIDATE_SCHEMA)
+        payloads = {path: json.dumps({"asset": Path(path).stem}).encode() for path in assets}
+        for path, payload in payloads.items():
+            (source / path).write_bytes(payload)
+        builds = []
+
+        def executor(argv, **_kwargs):
+            if "ls" in argv:
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            if "build" in argv:
+                builds.append(argv)
+                context = Path(argv[-1])
+                self.assertEqual(payloads, {path: (context / path).read_bytes() for path in assets})
+                Path(argv[argv.index("--iidfile") + 1]).write_text(IMAGE_ID, encoding="ascii")
+                return subprocess.CompletedProcess(argv, 0, "", "")
+            self.assertEqual(["docker", "image", "inspect", IMAGE_ID], argv)
+            return subprocess.CompletedProcess(argv, 0, json.dumps([{
+                "Id": IMAGE_ID,
+                "Created": "2026-10-21T14:15:16Z",
+                "Os": "linux",
+                "Architecture": "amd64",
+                "Config": {"Labels": {
+                    "org.caprmedio.runtime.schema": "1",
+                    "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+                    "org.opencontainers.image.version": identity.version,
+                }},
+            }]), "")
+
+        manager = self.manager(source, executor)
+        manager.build_temp_root = self.fixture_root / "builds"
+        manager.build_temp_root.mkdir()
+        with patch.object(manager, "_generated_assets", side_effect=AssertionError("asset refresh invoked")):
+            identity = manager.identity(use_packaged_assets=True)
+            with self.assertRaises(ImageError) as refused:
+                manager.resolve(build_if_missing=False, use_packaged_assets=True)
+            self.assertEqual("IMAGE_REFUSED", refused.exception.code)
+            self.assertEqual([], builds)
+            self.assertEqual(IMAGE_ID, manager.resolve(use_packaged_assets=True))
+        self.assertEqual(1, len(builds))
+
     def test_build_uses_private_sibling_buildx_client_state_only_for_that_subprocess(self) -> None:
         source = self.source_fixture()
         manager = self.manager(source, lambda *_a, **_k: None)

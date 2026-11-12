@@ -6,8 +6,7 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
-    <+ Execution Control
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation <+ Execution Control
 tier: 3
 relations:
   evaluation_for:
@@ -15,8 +14,8 @@ relations:
   DERIVED_FROM:
   - CA-A-057
 status: Active
-version: 23
-updated_at: 2026-11-10 20:47:54 +0400
+version: 24
+updated_at: '2026-11-12T01:59:14.433341+00:00'
 cce_version: cce_1
 cce_form: evaluation
 llm_session_ids:
@@ -51,6 +50,10 @@ declared completion boundary, **then** deliver one late downstream completion.
 pass **only** **when** the adapter stops **or** isolates downstream work, releases bounded
 resources, emits no successful terminal result, keeps Tool **and** project state
 valid, **and** the late completion cannot revive the cancelled request.
+
+### Atom Lifecycle cancellation
+
+Exercise cancellation while input is pending, while waiting to start an effect, and after an effect starts in a single or composed lifecycle call. Before an effect starts, cancel without changing a carrier. After dispatch, verify that an in-flight Action reaches its own outcome safely, the canceled request reports no success, and effects that already completed remain observable. Check the known partial state after interruption between lifecycle effects. Run a streaming HTTP client case as well as controlled stage tests.
 
 ### Failure disposition
 

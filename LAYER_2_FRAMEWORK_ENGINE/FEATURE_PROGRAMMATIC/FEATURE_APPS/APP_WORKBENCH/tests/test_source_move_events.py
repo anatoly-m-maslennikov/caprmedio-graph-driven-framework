@@ -75,14 +75,14 @@ class SourceMoveEventTests(unittest.TestCase):
             self.assertIsNone(reader.capture_delta[source.relative_to(root).as_posix()])
             self.assertIsNotNone(reader.capture_delta[target.relative_to(root).as_posix()])
 
-            # Keep one readable copy and retain the other source for diagnostics.
+            # Both existing carriers remain queryable.
             write_atom(source, "CA-R-424242")
             rows, _ = reader.capture([{
                 "operation": "create", "old_path": None,
                 "new_path": source.relative_to(root).as_posix(),
             }])
             rows, _ = materialize(rows, scopes)
-            self.assertEqual(1, len([row for row in rows if row["ref"] == "CA-R-424242"]))
+            self.assertEqual(2, len([row for row in rows if row["ref"] == "CA-R-424242"]))
             self.assertEqual(2, len(reader._references.paths["CA-R-424242"]))
 
 

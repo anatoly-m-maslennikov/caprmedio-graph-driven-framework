@@ -144,7 +144,8 @@ def _docker_module(root: Path, module: Path) -> bool:
     )
 
 
-def run_full_suite(root: Path, test_modules: tuple[str, ...] | None = None) -> int:
+def run_full_suite(root: Path, test_modules: tuple[str, ...] | None = None, *,
+                   image_mode: str = "refresh") -> int:
     """Attempt the complete discovered suite and fail on test or import errors."""
     modules = discover_test_modules(root)
     scope = "full" if test_modules is None else "focused"
@@ -162,7 +163,8 @@ def run_full_suite(root: Path, test_modules: tuple[str, ...] | None = None) -> i
         print("No source test modules found", file=sys.stderr)
         return 1
     integration = any(_docker_module(root, module) for module in modules)
-    context = current_code_test_image(root) if integration else nullcontext({})
+    context = (current_code_test_image(root, use_packaged_assets=image_mode == "existing")
+               if integration else nullcontext({}))
     try:
         with context as additions:
             environment = {**os.environ, **additions}
@@ -234,11 +236,13 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--project-root", type=Path, default=Path.cwd())
     parser.add_argument("--test-module", action="append", dest="test_modules", metavar="PATH")
+    parser.add_argument("--image-mode", choices=("refresh", "existing"), default="refresh")
     arguments = parser.parse_args()
     root = arguments.project_root.resolve(strict=True)
-    if arguments.test_modules is None:
-        return run_full_suite(root)
-    return run_full_suite(root, test_modules=tuple(arguments.test_modules))
+    return run_full_suite(
+        root, test_modules=tuple(arguments.test_modules) if arguments.test_modules is not None else None,
+        image_mode=arguments.image_mode,
+    )
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 // CA-D-674@23
-import type { CheckResult, GridState, QueryResult, QueryLogItem, SavedIdentity, SavedItem, Schema, SourceSyncStatus, ViewRunResponse, WorkspaceState, WorkspaceView } from './types';
+import type { ArchiveScope, CheckResult, GridState, QueryResult, QueryLogItem, SavedIdentity, SavedItem, Schema, SourceSyncStatus, ViewRunResponse, WorkspaceState, WorkspaceView } from './types';
 import type { OperationCaller } from './transport';
 
 export class WorkbenchApi {
@@ -23,6 +23,9 @@ export class WorkbenchApi {
 
   schema(): Promise<Schema> { return this.caller.call('query_schema', {}); }
   status(): Promise<SourceSyncStatus> { return this.caller.call('workbench_status', {}); }
+  loadArchives(scopes: ArchiveScope[]): Promise<{ loaded_archive_scopes: ArchiveScope[] }> {
+    return this.caller.call('workbench_archive_load', { scopes });
+  }
   load(reference: string): Promise<SavedIdentity> { return this.caller.call('query_load', { reference }); }
   savedList(): Promise<{ items: SavedItem[] }> { return this.caller.call('query_saved_list', { limit: 20 }); }
 }

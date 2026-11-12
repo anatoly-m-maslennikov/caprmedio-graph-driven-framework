@@ -186,13 +186,41 @@ class SourceReaderTests(unittest.TestCase):
             "CA-R-203": "Current",
             "CA-R-204@7-draft": "Draft",
         })
-        self.assertEqual(set(rows), set(sources) | {row["ref"] for row in atoms if row["form"] == "Scope Unit Declaration"})
+        self.assertEqual(set(rows), set(sources) | {"CA-R-205@1", "CA-R-206@1", "CA-R-207@1"} |
+                         {row["ref"] for row in atoms if row["form"] == "Scope Unit Declaration"})
         self.assertEqual(
             {row["source_path"] for row in atoms} & {
                 path.relative_to(self.root).as_posix() for path in archived
             },
-            set(),
+            {path.relative_to(self.root).as_posix() for path in archived},
         )
+        self.assertTrue(all(rows[f"CA-R-{number}@1"]["status_group"] == "Archived"
+                            for number in (205, 206, 207)))
+
+    def test_archived_carrier_keeps_historical_header_and_content_shape(self) -> None:
+        self._write_atom(
+            "MAIN", "04_requirement", "CA-R-704-DECLARATION.md", atom_id="CA-R-704",
+            form="Declaration", body="""## Claim
+
+### Formal Claim
+
+```CFEL
+Atom.Header.Tier:: [int]{::1};
+Atom.Content.Summary{::1}:: {::1};
+```
+""",
+        )
+        archived = self._write_atom(
+            "MAIN", "04_requirement", "CA-R-705@2-old.md", atom_id="CA-R-705",
+            status="Archived", version=2, parts=("archive",),
+            body="## Summary\n\nFirst.\n\n## Summary\n\nSecond.\n",
+        )
+        archived.write_text(archived.read_text().replace("subjects: {}", "tier: principle\nsubjects: {}"))
+        reader = SourceReader(self.root, schema_mode=1)
+        rows, _ = reader.capture()
+        row, = [row for row in rows if row["ref"] == "CA-R-705@2"]
+        self.assertEqual("Archived", row["status_group"])
+        self.assertEqual("principle", row["header_json"]["tier"])
 
     def test_implementation_role_accepts_current_and_draft_carriers(self) -> None:
         current = self._write_atom(
@@ -401,19 +429,14 @@ Atom.Header.Tier:: [int]{::1};
             encoding="utf-8",
         )
         reader = SourceReader(self.root, schema_mode=1)
-        reader.capture()
+        with redirect_stderr(StringIO()) as stderr:
+            reader.capture()
         self.assertNotIn(survivor, reader._references.accepted)
+        self.assertIn("header.context.tier requires BIGINT", stderr.getvalue())
         first.unlink()
         event = {"operation": "delete", "old_path": first.relative_to(self.root).as_posix(), "new_path": None}
-        stderr = StringIO()
-        with patch.object(
-            reader._header_schema, "validation_errors", wraps=reader._header_schema.validation_errors,
-        ) as validation, redirect_stderr(stderr):
-            atoms, _scopes = reader.capture([event])
-        validated = validation.call_args.args[0]
-        self.assertEqual([survivor.relative_to(self.root).as_posix()], [row["source_path"] for row in validated])
+        atoms, _scopes = reader.capture([event])
         self.assertNotIn("CA-R-900", {row["ref"] for row in atoms})
-        self.assertIn("header.context.tier requires BIGINT", stderr.getvalue())
 
     def test_crlf_body_and_legacy_header_aliases_are_preserved(self) -> None:
         path = self._path("CHILD", "05_method", "aliases.md")

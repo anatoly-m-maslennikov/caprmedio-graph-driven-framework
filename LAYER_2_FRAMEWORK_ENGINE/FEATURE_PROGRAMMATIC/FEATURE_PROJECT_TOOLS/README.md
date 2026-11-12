@@ -86,6 +86,25 @@ list. Focused runs are useful for iteration but can miss regressions outside
 the selected modules; they are not evidence that the complete release suite is
 green.
 
+Local Release defaults to `--image-mode refresh`. It regenerates the image assets
+from the selected declarations and records them with the checkout. For recovery,
+restore or cherry-pick the known-good code and its generated assets together,
+then run Local Release with `--image-mode existing`. The test and release
+images both use those files. A running CAPRMEDIO service or the old Docker image
+is unnecessary.
+
+For a release that predates these Git snapshots, recover its generated files
+from the known-good image with `docker create` and `docker cp`. The files are
+under `/workspace` at their checkout-relative paths. The temporary container
+can stay stopped.
+
+To build an image without deploying it, use the same locked Python environment:
+
+```sh
+python -B LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/docker/runtime.py \
+  build --image-mode existing
+```
+
 `--project-root PATH` is optional; the default is this repository's root, derived
 from the script location. Choose a new run ID for each new release; simple IDs
 such as `local-001` and `public-001` work for both commands.

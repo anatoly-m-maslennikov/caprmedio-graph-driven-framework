@@ -49,6 +49,8 @@ def _hash(payload: Mapping[str, object]) -> str:
 def edge_records(rows: Iterable[Mapping[str, object]]) -> list[tuple[str, str, str, str, str, bool]]:
     records = []
     for row in rows:
+        if row.get("_graph_excluded"):
+            continue
         edges = row.get("relation_edges_json", [])
         if not isinstance(edges, list):
             raise ValueError("relation_edges_json must be a list")
@@ -71,6 +73,8 @@ def _contribution_counts(
     """Count node and edge contributions without collapsing duplicate source facts."""
     references: Counter[Reference] = Counter()
     for row in atoms:
+        if row.get("_graph_excluded"):
+            continue
         if isinstance(ref := row.get("ref"), str):
             references[("Atom", ref)] += 1
     for row in scopes:

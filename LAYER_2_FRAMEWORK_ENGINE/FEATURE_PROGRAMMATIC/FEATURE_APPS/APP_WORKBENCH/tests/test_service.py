@@ -22,7 +22,7 @@ import unittest
 from unittest.mock import patch
 
 sys.path[:0] = [str(Path(__file__).resolve().parents[2]), str(Path(__file__).parent)]
-from smalltest_support import empty_assets
+from smalltest_support import empty_assets  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import WorkbenchUnavailableError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import (  # noqa: E402
@@ -37,6 +37,7 @@ class ServiceTests(unittest.TestCase):
             capture=unittest.mock.Mock(return_value=([], [])),
             capture_changed=True,
             capture_delta=None,
+            audit_delta=set(),
             content_schema=object(),
             excluded_count=0,
         )
@@ -44,6 +45,7 @@ class ServiceTests(unittest.TestCase):
         with (
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
             patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.materialize_delta", return_value=([], [], set(), {}, object(), None)) as materialize,
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.affected_descendants", return_value=set()),
         ):
             service = WorkbenchService(Path("/project"), compiled_schema=empty_assets()["compiled_schema"], relation_registry=delivered)
             service._store = unittest.mock.Mock()
@@ -106,6 +108,8 @@ class ServiceTests(unittest.TestCase):
         reader.root = Path("/project")
         reader.control_root = Path("/project/.caprmedio_project")
         event = {"operation": "update", "old_path": None, "new_path": ".caprmedio_project/04_requirement/CA-R-1.md"}
+        reader._source_paths = {reader.root / event["new_path"]}
+        reader._archive_paths = set()
         watcher = unittest.mock.Mock()
         change_log = unittest.mock.Mock()
 
@@ -141,13 +145,43 @@ class ServiceTests(unittest.TestCase):
             service._watcher_change_log, initialize=True,
         )
 
+    def test_watcher_logs_unchanged_file_without_refreshing_it(self):
+        reader = unittest.mock.Mock()
+        reader.root = Path("/project")
+        reader.control_root = Path("/project/.caprmedio_project")
+        event = {"operation": "update", "old_path": None, "new_path": ".caprmedio_project/04_requirement/CA-R-1.md"}
+        path = reader.root / event["new_path"]
+        signature = (1, 2, 3, 4, 5)
+        reader._source_paths = {path}
+        reader._archive_paths = set()
+        reader._cached = {path: (signature, {})}
+        reader._failed = {}
+        watcher = unittest.mock.Mock()
+        change_log = unittest.mock.Mock()
+        with (
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceWatcher", return_value=watcher),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.file_signature", return_value=signature),
+            patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.configured_journal_root", return_value=Path(".caprmedio_project/_journal")),
+        ):
+            service = WorkbenchService(reader.root, **empty_assets())
+            service._store = unittest.mock.Mock()
+            service._watcher_change_log = change_log
+            service._refresh = unittest.mock.Mock()
+            watcher.changes.side_effect = lambda timeout: (service._stop.set() or [event])
+            service._index()
+        service._store.sync_change_log.assert_any_call(change_log, [event])
+        service._refresh.assert_not_called()
+
     def test_sync_status_is_available_while_capture_is_running(self):
         reader = unittest.mock.Mock()
         reader.excluded_count = 0
         reader.capture_delta = None
+        reader.audit_delta = set()
+        reader.capture_changed = False
         started, release = threading.Event(), threading.Event()
 
-        def capture():
+        def capture(_changes=None):
             started.set()
             self.assertTrue(release.wait(timeout=1))
             return [], []
@@ -156,12 +190,14 @@ class ServiceTests(unittest.TestCase):
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader):
             service = WorkbenchService(Path("/project"), **empty_assets())
         service._store = unittest.mock.Mock()
-        self.assertEqual({"syncing": False, "last_synced_at": None}, service.sync_status())
+        initial = {"syncing": False, "last_synced_at": None, "loaded_archive_scopes": [],
+                   "audits_pending": False, "last_audit_ms": None, "audit_error": None}
+        self.assertEqual(initial, service.sync_status())
         reader.capture.assert_not_called()
         worker = threading.Thread(target=service._refresh)
         worker.start()
         self.assertTrue(started.wait(timeout=1))
-        self.assertEqual({"syncing": True, "last_synced_at": None}, service.sync_status())
+        self.assertEqual({**initial, "syncing": True}, service.sync_status())
 
         release.set()
         worker.join(timeout=1)
@@ -171,7 +207,8 @@ class ServiceTests(unittest.TestCase):
         self.assertIsInstance(status["last_synced_at"], str)
 
     def test_sync_status_keeps_the_last_success_after_capture_failure(self):
-        reader = unittest.mock.Mock(capture=unittest.mock.Mock(return_value=([], [])), excluded_count=0, capture_delta=None)
+        reader = unittest.mock.Mock(capture=unittest.mock.Mock(return_value=([], [])), excluded_count=0,
+                                    capture_delta=None, audit_delta=set())
         with patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service.SourceReader", return_value=reader):
             service = WorkbenchService(Path("/project"), **empty_assets())
         service._store = unittest.mock.Mock()

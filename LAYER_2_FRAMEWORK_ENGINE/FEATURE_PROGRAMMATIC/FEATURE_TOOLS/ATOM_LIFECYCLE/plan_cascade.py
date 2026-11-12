@@ -16,7 +16,8 @@ from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 from .carrier import logical_view
 from .common import InputError, logical_container
-from .source import SourceSelectionError, _read_candidate, select_current_sources, select_source
+from .source import (SourceSelectionError, _read_candidate, query_candidates, query_reader,
+                     select_current_sources, select_source)
 from .placement import ContainerCarrier, _admitted_parent, _role_root, _status_directory, resolve_container
 from .placement_model import active_placement
 
@@ -31,9 +32,13 @@ def _walk_error(error):
 
 def _atom_paths(selection, directory):
     prefix = selection.settings['artifacts']['identity']['project_prefix']
-    atom_name = re.compile(r'^(?:[1-9][0-9]*-)?(' + re.escape(prefix) + r'-[A-Z]-[1-9][0-9]*)(?=[@.-])')
+    atom_name = re.compile(r'^(?:[1-9][0-9]*-)?(' + re.escape(prefix) + r'-[A-Z]-[0-9]+)(?=[@.-])')
     atom_prefix = re.compile(r'^(?:[1-9][0-9]*-)?' + re.escape(prefix) + r'-[A-Z]-')
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+    if query_reader() is not None:
+        indexed = query_candidates(selection, under=directory)
+        return sorted((path, atom_id) for atom_id, paths in indexed.items() for path in paths
+                      if path.is_relative_to(directory)), reader
     paths = []
     count = 0
     for root, dirs, files in os.walk(directory, followlinks=False, onerror=_walk_error):
@@ -136,8 +141,14 @@ def _ordered_pins(parent_pin, pins, model, role_root):
     return tuple(ordered)
 
 
-def _shared_paths(directory, prefix, reader):
-    pattern = re.compile(r'^(?:[1-9][0-9]*-)?(' + re.escape(prefix) + r'-[A-Z]-[1-9][0-9]*)(?=[@.-])')
+def _shared_paths(selection, directory, prefix, reader):
+    if query_reader() is not None:
+        for atom_id, paths in query_candidates(selection, under=directory).items():
+            for path in paths:
+                if path.parent == directory and _retained_version(path, atom_id) is None:
+                    yield path, atom_id
+        return
+    pattern = re.compile(r'^(?:[1-9][0-9]*-)?(' + re.escape(prefix) + r'-[A-Z]-[0-9]+)(?=[@.-])')
     atom_prefix = re.compile(r'^(?:[1-9][0-9]*-)?' + re.escape(prefix) + r'-[A-Z]-')
     with os.scandir(directory) as entries:
         for count, entry in enumerate(entries, 1):
@@ -172,7 +183,7 @@ def _shared_candidates(selection, directory, model):
     prefix = selection.settings['artifacts']['identity']['project_prefix']
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
     candidates = {}
-    for path, atom_id in _shared_paths(directory, prefix, reader):
+    for path, atom_id in _shared_paths(selection, directory, prefix, reader):
         pin = _read_candidate(reader, path, atom_id, atom_id, None, None)
         if pin is None:
             _fail('Shared Backlog contains a projection')
@@ -199,6 +210,29 @@ def _companion_pins(selection, pin, model):
     return _select_pins(selection, pin, model, paths, reader)
 
 
+def _indexed_plan_descendants(selection, pins, model):
+    """Use derived containment instead of reading every Plan in the shared Backlog."""
+    seeds = set(pins)
+    while seeds:
+        refs = query_reader().lifecycle_descendants(tuple(sorted(seeds)), 'CONTAINS')
+        if not seeds <= refs:
+            _fail('Plan containment is unavailable in the query index')
+        # Drafts and Archived revisions can be graph descendants but are not
+        # Current Status targets; their shared Role folders do not move.
+        missing = sorted(ref for ref in refs - pins.keys() if '@' not in ref)
+        seeds = set()
+        for selected in select_current_sources(selection, missing).values():
+            if selected.atom_id in pins:
+                continue
+            nested = _companion_pins(selection, selected, model)
+            for atom_id, pin in nested.items():
+                if atom_id in pins and pins[atom_id].path != pin.path:
+                    _fail('Carrier tree contains duplicate Current Atom')
+                pins[atom_id] = pin
+            seeds.update(nested.keys() - refs)
+    return pins
+
+
 def select_archive_cascade(selection, parent_pin, model):
     """Return verified Current pins in child-first order, including parent.
 
@@ -215,6 +249,8 @@ def select_archive_cascade(selection, parent_pin, model):
         if role == 'Plan':
             scope, _ = resolve_container(selection, parent_view, parent_pin.atom_id, model=model)
             _, role_root = _role_root(selection, role, scope)
+            if query_reader() is not None:
+                return _ordered_pins(parent_pin, _indexed_plan_descendants(selection, pins, model), model, role_root)
             base, folder = active_placement().placement(role, 'Backlog')
             shared, reader = _shared_candidates(selection, role_root / folder if base == 'role' else None, model)
             pending = list(pins)

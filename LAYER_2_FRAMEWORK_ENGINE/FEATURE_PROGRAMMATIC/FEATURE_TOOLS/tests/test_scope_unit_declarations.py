@@ -85,6 +85,32 @@ class ScopeUnitDeclarationReaderTests(unittest.TestCase):
         with self.assertRaises(ScopeDeclarationError):
             parse_scope_unit_declaration(variable.encode(), source)
 
+    def test_python_formal_claim_scope_declaration(self) -> None:
+        source = self.declaration("CHILD", "CA-R-2", scope_id="CA-SU-1", label="FEATURE", parent=PROJECT)
+        original = source.read_text(encoding="utf-8")
+        start = original.index("```CFEL\n")
+        end = original.index("\n```", start) + len("\n```")
+        claim = '''```python
+set_value(address="Scope Unit//CHILD.ID", value='"CA-SU-1"')
+set_value(address="Scope Unit//CHILD.Name", value='"CHILD"')
+set_value(address="Scope Unit//CHILD.Label", value='"FEATURE"')
+set_value(address="Scope Unit//CHILD.order.ordered", value=False)
+relation(source="Scope Unit//CHILD", name="IS_CONTAINED_BY", target="Project//demo")
+```'''
+        python = original[:start] + claim + original[end:]
+        self.assertEqual(parse_scope_unit_declaration(original.encode(), source),
+                         parse_scope_unit_declaration(python.encode(), source))
+        for invalid in (
+            python.replace("### Formal Claim\n\n", ""),
+            python.replace("### Formal Claim", "### Prose Claim"),
+            python.replace("```python", "```python\nopen('unexpected', 'w')", 1),
+            python.replace("```python", "```python\nif :", 1),
+            python.replace("```python", "```CFEL\nextra\n```\n\n```python", 1),
+            python.replace("```python", "```python\nrelation(\n```\n\n```python", 1),
+        ):
+            with self.subTest(invalid=invalid), self.assertRaises(ScopeDeclarationError):
+                parse_scope_unit_declaration(invalid.encode(), source)
+
     def test_discovers_current_sources_and_derives_all_paths(self) -> None:
         root_source, parent_source, child_source = self.complete_tree()
         result = read_scope_unit_declarations(self.root, self.control.name)

@@ -18,6 +18,7 @@ APP = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(APP / "docker"))
 import runtime_images as images  # noqa: E402
 import image_docker_client as docker_client  # noqa: E402
+from image_relation_registry import compile_lifecycle_assets  # noqa: E402
 from project_mcp_backend import ProjectMcpBackend  # noqa: E402
 
 
@@ -262,6 +263,180 @@ class ImageCredentialContextTests(unittest.TestCase):
         self.assertEqual(1, sum("build" in call for call in calls))
         self.assertEqual(1, sum("tag" in call for call in calls))
         self.assertFalse(any("run" in call for call in calls))
+
+
+class LifecycleImageAssetsTests(unittest.TestCase):
+    def test_predecessor_pins_selected_ready_receipt(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            project_id = "c" * 64
+            state = root / ".caprmedio_runtime/runtime/project_mcp" / project_id
+            state.mkdir(parents=True)
+            control = root / ".caprmedio_project"
+            selection = SimpleNamespace(root=root, control_root=control, instance_id=project_id, launcher_state=state)
+            receipt = {"project_root": str(root), "control_root": str(control), "project_id": project_id,
+                       "image_id": IMAGE_ID, "readiness": True}
+            path = state / "ready.json"
+            path.write_text(json.dumps(receipt))
+            with patch.dict(sys.modules, {"project_selection": SimpleNamespace(resolve_project=lambda _: selection)}):
+                manager = images.ImageManager(root, project_root=root)
+                self.assertEqual(IMAGE_ID, manager._build_predecessor())
+                path.write_text("{}")
+                self.assertEqual(IMAGE_ID, manager._build_predecessor())
+                with self.assertRaises(images.ImageError):
+                    images.ImageManager(root, project_root=root)._build_predecessor()
+
+    def test_unrelated_or_unsafe_receipt_is_not_accepted(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary).resolve()
+            project_id = "d" * 64
+            state = root / ".caprmedio_runtime/runtime/project_mcp" / project_id
+            state.mkdir(parents=True)
+            control = root / ".caprmedio_project"
+            selection = SimpleNamespace(root=root, control_root=control, instance_id=project_id, launcher_state=state)
+            path = state / "ready.json"
+            receipt = {"project_root": str(root), "control_root": str(control), "project_id": "e" * 64,
+                       "image_id": IMAGE_ID, "readiness": True}
+            with patch.dict(sys.modules, {"project_selection": SimpleNamespace(resolve_project=lambda _: selection)}):
+                path.write_text(json.dumps(receipt))
+                with self.assertRaises(images.ImageError):
+                    images.ImageManager(root, project_root=root)._build_predecessor()
+                path.unlink()
+                path.symlink_to(root / "missing")
+                with self.assertRaises(images.ImageError):
+                    images.ImageManager(root, project_root=root)._build_predecessor()
+
+    def test_first_build_without_state_does_not_resolve_project(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            resolver = MagicMock(side_effect=AssertionError("unexpected Project read"))
+            with patch.dict(sys.modules, {"project_selection": SimpleNamespace(resolve_project=resolver)}):
+                manager = images.ImageManager(root, project_root=root)
+                self.assertIsNone(manager._build_predecessor())
+                self.assertIsNone(manager._build_predecessor())
+                resolver.assert_not_called()
+
+    def test_image_manager_passes_explicit_predecessor(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            manager = images.ImageManager(root, project_root=root, previous_image=IMAGE_ID)
+            with patch.object(images, "_compile_relation_registry", return_value=b"{}"), \
+                 patch.object(images, "_compile_workbench_schema", return_value=b"{}"), \
+                 patch.object(images, "_compile_tool_registry", return_value=b"{}"), \
+                 patch.object(images, "_compile_lifecycle_assets", return_value=(b"{}", b"{}")) as compile_assets:
+                manager._generated_assets(root)
+            self.assertEqual(IMAGE_ID, compile_assets.call_args.kwargs["previous_image"])
+            with self.assertRaises(images.ImageError):
+                images.ImageManager(root, project_root=root, previous_image="mutable:tag")
+
+    def test_previous_image_runs_staged_read_only_selector_for_candidate_only(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / ".caprmedio_tmp").mkdir()
+            model = root / "METHODOLOGY/sources"
+            model.mkdir(parents=True)
+            (model / "source.md").write_text("source", encoding="utf-8")
+            lifecycle = root / images.LIFECYCLE_ROOT
+            lifecycle.mkdir(parents=True)
+            for name in ("placement_sources", "status_model", "candidate_schema"):
+                (lifecycle / f"{name}.py").write_text("# fixture", encoding="utf-8")
+            calls, compilers = [], []
+
+            def docker(argv, **kwargs):
+                calls.append(argv)
+                self.assertEqual(1024, kwargs["max_output"])
+                if argv[1:3] == ["image", "inspect"]:
+                    payload = [{"Id": IMAGE_ID, "Os": "linux", "Architecture": "arm64",
+                                "Config": {"Labels": {images.SCHEMA_LABEL: images.SCHEMA}}}]
+                else:
+                    self.assertTrue({"--rm", "--pull=never", "--network=none", "--read-only"} <= set(argv))
+                    self.assertEqual(IMAGE_ID, argv[-3])
+                    mounts = [argv[i + 1] for i, value in enumerate(argv) if value == "--mount"]
+                    self.assertEqual(2, len(mounts))
+                    self.assertTrue(all(value.endswith(",readonly") for value in mounts))
+                    staged = Path(mounts[0].split(",")[1].removeprefix("src="))
+                    self.assertNotEqual(model, staged)
+                    self.assertEqual("source", (staged / "source.md").read_text())
+                    payload = {"placement": []}
+                return subprocess.CompletedProcess(argv, 0, json.dumps(payload), "")
+
+            def compiler(argv, **_kwargs):
+                compilers.append(argv)
+                Path(argv[argv.index("--output") + 1]).write_text("{}", encoding="utf-8")
+                if argv[2].endswith("candidate_schema.py"):
+                    selected = Path(argv[argv.index("--placement-selection") + 1])
+                    self.assertEqual({"placement": []}, json.loads(selected.read_text()))
+                else:
+                    self.assertNotIn("--placement-selection", argv)
+                return subprocess.CompletedProcess(argv, 0)
+
+            with patch("image_relation_registry.bounded_run", side_effect=docker), \
+                 patch("image_relation_registry.verify_status_workflow_asset"), \
+                 patch("image_relation_registry.subprocess.run", side_effect=compiler):
+                self.assertEqual((b"{}", b"{}"), compile_lifecycle_assets(
+                    root, root, timeout=5, max_output=1024, previous_image=IMAGE_ID))
+            self.assertEqual(2, len(calls))
+            self.assertEqual(2, len(compilers))
+
+    def test_missing_previous_image_fails_without_native_fallback(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / ".caprmedio_tmp").mkdir()
+            (root / "METHODOLOGY/sources").mkdir(parents=True)
+            failed = subprocess.CompletedProcess([], 1, "", "")
+            with patch("image_relation_registry.bounded_run", return_value=failed), \
+                 patch("image_relation_registry.verify_status_workflow_asset"), \
+                 patch("image_relation_registry.subprocess.run") as compiler:
+                with self.assertRaisesRegex(ValueError, "previous image is unavailable"):
+                    compile_lifecycle_assets(root, root, timeout=5, max_output=1024, previous_image=IMAGE_ID)
+                compiler.assert_not_called()
+
+    def test_image_compiles_the_packaged_sources_after_workflow_verification(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / ".caprmedio_tmp").mkdir()
+            sources = root / "METHODOLOGY/sources"
+            sources.mkdir(parents=True)
+            pin = sources / "workflow.md"
+            pin.write_text("reviewed", encoding="utf-8")
+            lifecycle = root / images.LIFECYCLE_ROOT
+            (lifecycle / "assets").mkdir(parents=True)
+            (lifecycle / "assets/change_current_status.py").touch()
+            sidecar = lifecycle / "assets/change_current_status_sources.json"
+            sidecar.write_text("{}", encoding="utf-8")
+            (lifecycle / "status_workflow_definition.py").write_text(
+                "from pathlib import Path\nimport sys\n"
+                "assert (Path(sys.argv[2]) / 'workflow.md').read_text() == 'reviewed'\n",
+                encoding="utf-8",
+            )
+            for name in ("status_model", "candidate_schema"):
+                (lifecycle / f"{name}.py").write_text(
+                    "from pathlib import Path\nimport sys\n"
+                    "Path(sys.argv[4]).write_bytes((Path(sys.argv[2]) / 'workflow.md').read_bytes())\n",
+                    encoding="utf-8",
+                )
+            self.assertEqual(
+                (b"reviewed", b"reviewed"),
+                compile_lifecycle_assets(root, root, timeout=5, max_output=1024),
+            )
+            pin.write_text("changed", encoding="utf-8")
+            with self.assertRaisesRegex(ValueError, "workflow verification failed"):
+                compile_lifecycle_assets(root, root, timeout=5, max_output=1024)
+            sidecar.unlink()
+            with self.assertRaisesRegex(ValueError, "workflow files are unavailable"):
+                compile_lifecycle_assets(root, root, timeout=5, max_output=1024)
+            sidecar.symlink_to(pin)
+            with self.assertRaisesRegex(ValueError, "workflow files are unavailable"):
+                compile_lifecycle_assets(root, root, timeout=5, max_output=1024)
+            sidecar.unlink()
+            (lifecycle / "status_cascade.py").write_text(
+                "from ATOM_LIFECYCLE.assets.change_current_status import change_current_status\n",
+                encoding="utf-8",
+            )
+            (lifecycle / "assets/change_current_status.py").unlink()
+            (lifecycle / "status_workflow_definition.py").unlink()
+            with self.assertRaisesRegex(ValueError, "workflow files are missing from the routed pilot"):
+                compile_lifecycle_assets(root, root, timeout=5, max_output=1024)
 
 
 if __name__ == "__main__":

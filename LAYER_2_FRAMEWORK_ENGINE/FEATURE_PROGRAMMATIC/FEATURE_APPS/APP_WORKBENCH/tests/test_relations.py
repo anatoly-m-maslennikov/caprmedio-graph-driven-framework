@@ -289,15 +289,16 @@ class RelationTests(unittest.TestCase):
         self.assertEqual(hashlib.sha256(canonical(data).encode()).hexdigest(), rows[0]["hash"])
         self.assertEqual(rows, materialize([atom("CA-R-5")], [])[0])
 
-    def test_duplicate_references_keep_first_carrier_and_its_supported_inverses(self):
+    def test_duplicate_references_keep_both_carriers_and_first_graph_facts(self):
         task = atom("CA-P-2", relation={"is_contained_by": ["CA-P-1"]})
         other = dict(task, source_path="another-draft.md")
         errors = StringIO()
         with redirect_stderr(errors):
             rows, _ = materialize(declarations() + [atom("CA-P-1"), task, other], [])
         self.assertEqual(1, len(next(row for row in rows if row["ref"] == "CA-P-1")["relation_edges_json"]))
-        self.assertEqual([task["source_path"]], [row["source_path"] for row in rows if row["ref"] == "CA-P-2"])
-        self.assertIn("duplicate reference CA-P-2", errors.getvalue())
+        self.assertEqual([task["source_path"], other["source_path"]],
+                         [row["source_path"] for row in rows if row["ref"] == "CA-P-2"])
+        self.assertTrue(next(row for row in rows if row["source_path"] == other["source_path"])["_graph_excluded"])
 
     def test_unassigned_draft_references_are_not_duplicates(self):
         first = dict(atom("draft-1"), id=None, ref=None, status_group="Draft")
@@ -325,7 +326,7 @@ class RelationTests(unittest.TestCase):
         self.assertIn("CA-P-2.md", next_cache)
         self.assertIn("CA-P-3.md", next_cache)
 
-    def test_cache_prunes_deleted_and_duplicate_rows(self):
+    def test_cache_preserves_duplicate_rows(self):
         first = atom("CA-P-1")
         second = atom("CA-P-2")
         _rows, _scopes, _registered, _inverse, cache = materialize_with_registry([first, second], [])
@@ -333,7 +334,7 @@ class RelationTests(unittest.TestCase):
         _rows, _scopes, _registered, _inverse, next_cache = materialize_with_registry(
             [first, second, duplicate], [], cache,
         )
-        self.assertEqual({"CA-P-1.md", "CA-P-2.md"}, set(next_cache))
+        self.assertEqual({"CA-P-1.md", "CA-P-2.md", "duplicate.md"}, set(next_cache))
 
     def test_registry_is_calculated_once_per_materialization(self):
         import APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations as relations

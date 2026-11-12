@@ -9,9 +9,9 @@ topics:
   main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
     <+ Architecture <+ Communication
 tier: 1
-status: Active
-version: 27
-updated_at: 2026-11-11 17:36:58 +0400
+status: active
+version: 30
+updated_at: '2026-11-12T09:54:13.466039+00:00'
 carrier_destination:
   file:
     name: CA-R-1105-MCP-RULE--admit-atom-mutations-through-initiative-bound-mcp-operations.md
@@ -35,7 +35,11 @@ Project MCP requests for the six Atom Lifecycle Tools and separately Initiative-
 
 ### Prose Claim
 
-A local MCP call to one of the six Atom Lifecycle Tools runs that operation on the bound Project. The call itself is the request. There is no separate apply or authorization step. Create Draft creates a Draft. A successful response carries only the operation Status. Missing or invalid input returns the fields to correct. A failure reports the error and any completed effects. Git integration is deferred for these six Tools.
+A local MCP call to one of the six Atom Lifecycle Tools runs that operation on the bound Project. The call itself is the request. There is no separate apply or authorization step. Create Draft creates a Draft. A successful single-Atom response carries only the operation Status. Before any effect, return missing or invalid input to the AI Agent in the MCP response, with field errors and the fields to correct. Do not open a form for the Operator. The caller may submit just those fields, include other input fields, or cancel the pending operation. Update creates and checks the saved Draft before archiving Current, then promotes the Draft. A failed Draft check leaves Current in place. A failure reports the error and any completed effects. Once an operation has changed a carrier, a failure ends the call. It does not retry, repair, or wait for corrected input. Git integration is deferred for these Tools.
+
+Archive and Promote Draft each also accept an ordered list of exact targets. Each target uses the same one-Atom operation. Stop at the first failed target. Return the actual target results, completed effects, and remaining targets. An independent batch leaves the remaining targets untouched.
+
+Moving a Current Epic from Backlog to Active also sets all recursively contained Current Tasks to Active. A Draft child does not block the change and stays a Draft. Updating only an Epic’s content works when it contains children and preserves their content and Status.
 
 For Initiative-bound Atom Tools, **every** CAPRMEDIO Markdown Atom mutation **must** enter through an authorized project-local MCP operation. MCP **must** identify the selected canonical Atom Tool, preserve the human-origin Initiative input **and** action request, **and** delegate **without** deciding the Atom operation's target set, preconditions, lifecycle meaning, mutation, recovery, **or** success state. The canonical Atom Tool owns those behaviors **and** seals one Initiative **and** stable action identity **before** its effect.
 

@@ -3,7 +3,11 @@
 """Private, read-only exact Atom source binding for lifecycle workflows."""
 from __future__ import annotations
 
+from .timing import trace
+
 from dataclasses import dataclass
+from contextlib import contextmanager
+from contextvars import ContextVar
 import hashlib
 import os
 from pathlib import Path
@@ -23,6 +27,39 @@ class SourceSelectionError(ValueError):
     """A logical Atom source cannot be bound unambiguously and safely."""
 
 
+class ArchiveNotLoadedError(SourceSelectionError):
+    """The requested historical carrier has not been loaded into Workbench."""
+
+
+_QUERY_READER = ContextVar('lifecycle_query_reader', default=None)
+
+
+@contextmanager
+def bind_query_reader(reader):
+    token = _QUERY_READER.set(reader)
+    try:
+        yield
+    finally:
+        _QUERY_READER.reset(token)
+
+
+def query_reader():
+    return _QUERY_READER.get()
+
+
+def query_candidates(selection, **filters):
+    """Select indexed carriers without walking the Project's Atom directories."""
+    reader = query_reader()
+    rows = reader.lifecycle_candidates(selection, **filters)
+    found = {}
+    for atom_id, path in rows:
+        path = Path(path)
+        if not path.is_absolute() or '..' in path.parts or not path.is_relative_to(selection.root):
+            raise SourceSelectionError('Indexed Atom path is outside the selected Project')
+        found.setdefault(atom_id, set()).add(path)
+    return {atom_id: tuple(sorted(paths)) for atom_id, paths in found.items()}
+
+
 @dataclass(frozen=True)
 class SourcePin:
     path: Path
@@ -35,9 +72,68 @@ class SourcePin:
     metadata: dict[str, Any]
 
 
-def _candidate_paths(reader: ReadContext, selection: ProjectSelection, atom_id: str) -> tuple[Path, ...]:
+@dataclass(frozen=True)
+class SourceContext:
+    path: Path
+    atom_id: str
+    ref_id: str
+    version: int
+    status: str
+    metadata: dict[str, Any]
+    summary: str | None
+
+
+def _context_candidate(selection, ref_id, atom_id, expected_version, row):
+    if not isinstance(row, (list, tuple)) or len(row) != 3:
+        raise SourceSelectionError('Indexed Atom context is invalid')
+    path, metadata, summary = row
+    if not isinstance(path, Path) or not isinstance(metadata, dict) or not isinstance(summary, (str, type(None))):
+        raise SourceSelectionError('Indexed Atom context is invalid')
+    if (not path.is_absolute() or '..' in path.parts or not path.is_relative_to(selection.control_root)
+            or path.resolve(strict=False) != path or path.suffix != '.md'):
+        raise SourceSelectionError('Indexed Atom path is outside the selected Project')
+    if not _matches_revision(path, atom_id, None, None):
+        return None
+    view = carrier_read_view(metadata)
+    version, status = view.get('version'), view.get('status')
+    if ('projection' in view or view.get('atom_id') != atom_id or view.get('ref_id') not in (None, atom_id)
+            or type(version) is not int or version < 1
+            or not isinstance(status, str) or not status.strip()
+            or status.casefold() in {'draft', 'archived'}
+            or expected_version is not None and version != expected_version):
+        return None
+    return SourceContext(path, atom_id, ref_id, version, status, metadata, summary)
+
+
+@trace('source.context')
+def select_context(selection: ProjectSelection, ref_id: str, *, expected_version: int | None = None) -> SourceContext:
+    """Select Current Atom context from the bound Workbench index without reading its Carrier."""
+    atom_id, qualified, _ = _selector(selection, ref_id, expected_version)
+    reader = query_reader()
+    if reader is None or qualified is not None:
+        raise SourceSelectionError('Current indexed Atom context is required')
+    try:
+        rows = reader.lifecycle_contexts(selection, ref_id)
+        if not isinstance(rows, (list, tuple)):
+            raise SourceSelectionError('Indexed Atom context is invalid')
+        for row in rows:
+            candidate = _context_candidate(selection, ref_id, atom_id, expected_version, row)
+            if candidate is not None:
+                return candidate
+        raise SourceSelectionError('Atom source has no valid matching context')
+    except SourceSelectionError:
+        raise
+    except (OSError, RuntimeError, KeyError, TypeError, ValueError) as error:
+        raise SourceSelectionError('Project Atom context is unavailable or unsafe') from error
+
+
+def _candidate_paths(reader: ReadContext, selection: ProjectSelection, atom_id: str, *,
+                     references: tuple[str, ...] = ()) -> tuple[Path, ...]:
     """Discover just this identity in declared authoring roots, without following links."""
     prefix = re.compile(r"^(?:[1-9][0-9]*-)?" + re.escape(atom_id) + r"(?=@|-|\.)")
+    if query_reader() is not None:
+        return tuple(path for path in query_candidates(selection, atom_ids=(atom_id,), references=references).get(atom_id, ())
+                     if prefix.match(path.name))
     return _matching_paths(reader, selection, prefix)
 
 
@@ -45,6 +141,7 @@ def _matching_paths(reader: ReadContext, selection: ProjectSelection, prefix: re
     return _inventory_paths(reader, selection, lambda name: True if prefix.match(name) else None).get(True, ())
 
 
+@trace('source.inventory')
 def _inventory_paths(reader: ReadContext, selection: ProjectSelection, classify) -> dict[Any, tuple[Path, ...]]:
     recursive = {selection.root / unit["authority_path"] / role
                  for unit in selection.structure["scope_units"] for role in active_placement().role_folders.values()}
@@ -91,7 +188,7 @@ def _selector(selection: ProjectSelection, ref_id: str, expected_version: int | 
             raise ValueError("Invalid Project identity prefix")
     except (KeyError, TypeError, ValueError) as error:
         raise SourceSelectionError("Selected Project identity prefix is unavailable or invalid") from error
-    match = re.fullmatch(r"(" + re.escape(prefix) + r"-[A-Z]-[1-9][0-9]*)(?:@([1-9][0-9]*)(-draft)?)?", ref_id)
+    match = re.fullmatch(r"(" + re.escape(prefix) + r"-[A-Z]-[0-9]+)(?:@([1-9][0-9]*)(-draft)?)?", ref_id)
     if not match or (expected_version is not None and (type(expected_version) is not int or expected_version < 1)):
         raise SourceSelectionError("Invalid Atom reference or expected Version")
     atom_id, qualified, draft = match.groups()
@@ -116,7 +213,8 @@ def _matches_revision(path: Path, atom_id: str, qualified: str | None, draft: st
 def _read_candidate(reader: ReadContext, path: Path, ref_id: str,
                     atom_id: str, qualified: str | None, draft: str | None, *,
                     retained_history: bool = False) -> SourcePin | None:
-    raw = reader.read(path)
+    source_reader = query_reader()
+    raw = source_reader.lifecycle_read(path) if source_reader is not None else reader.read(path)
     parsed = parse_carrier(raw, path)
     view = carrier_read_view(parsed.metadata)
     if "projection" in view:
@@ -137,18 +235,42 @@ def _read_candidate(reader: ReadContext, path: Path, ref_id: str,
     return SourcePin(path, atom_id, ref_id, actual_version, status, hashlib.sha256(raw).hexdigest(), raw, parsed.metadata)
 
 
+@trace('source.currentness')
 def _check_currentness(reader: ReadContext, selection: ProjectSelection, atom_id: str,
                        candidates: tuple[Path, ...]) -> None:
+    if query_reader() is not None:
+        return
     if _candidate_paths(reader, selection, atom_id) != candidates:
         raise SourceSelectionError("Atom source candidates changed during selection")
     if reader.currentness()["state"] != "unchanged":
         raise SourceSelectionError("Atom source changed during selection")
     selection._revalidate_boundary(reader=reader)
-    if read_scope_unit_declarations(selection.root, selection.control_relative, reader=reader).digest != selection.declaration_digest:
+    _check_declarations(reader, selection)
+
+
+@trace('source.scope_declarations')
+def _check_declarations(reader, selection):
+    source_reader = query_reader()
+    declarations = (source_reader.lifecycle_declarations() if source_reader is not None else
+                    read_scope_unit_declarations(selection.root, selection.control_relative, reader=reader))
+    if declarations.digest != selection.declaration_digest:
         raise SourceSelectionError("Retained Project declarations changed")
 
 
-def _unique_candidate(reader, paths, ref_id, atom_id, qualified, draft):
+def _unique_candidate(reader, paths, ref_id, atom_id, qualified, draft, *, expected_version=None):
+    if query_reader() is not None:
+        for path in paths:
+            if not _matches_revision(path, atom_id, qualified, draft):
+                continue
+            try:
+                pin = _read_candidate(reader, path, ref_id, atom_id, qualified, draft)
+            except ArchiveNotLoadedError:
+                raise
+            except (OSError, ValueError):
+                continue
+            if pin is not None and (expected_version is None or pin.version == expected_version):
+                return pin
+        raise SourceSelectionError("Atom source has no valid matching carrier")
     found = [pin for path in paths
              if _matches_revision(path, atom_id, qualified, draft)
              if (pin := _read_candidate(reader, path, ref_id, atom_id, qualified, draft)) is not None]
@@ -157,6 +279,7 @@ def _unique_candidate(reader, paths, ref_id, atom_id, qualified, draft):
     return found[0]
 
 
+@trace('source.select')
 def select_source(selection: ProjectSelection, ref_id: str, *, expected_version: int | None = None) -> SourcePin:
     """Bind one logical ID in the retained Project authoring tree, without mutation.
 
@@ -166,11 +289,13 @@ def select_source(selection: ProjectSelection, ref_id: str, *, expected_version:
     atom_id, qualified, draft = _selector(selection, ref_id, expected_version)
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
     try:
-        selection._revalidate_boundary(reader=reader)
+        if query_reader() is None:
+            selection._revalidate_boundary(reader=reader)
         # The retained declaration tree is the source authority, not delivery paths,
         # applicable-methodology projections, arbitrary Project files or caller paths.
-        candidates = _candidate_paths(reader, selection, atom_id)
-        selected = _unique_candidate(reader, candidates, ref_id, atom_id, qualified, draft)
+        candidates = _candidate_paths(reader, selection, atom_id, references=(ref_id,))
+        selected = _unique_candidate(reader, candidates, ref_id, atom_id, qualified, draft,
+                                     expected_version=expected_version)
         if expected_version is not None and selected.version != expected_version:
             raise SourceSelectionError("Expected Version is stale")
         _check_currentness(reader, selection, atom_id, candidates)
@@ -189,6 +314,7 @@ def select_current_sources(selection: ProjectSelection, ref_ids: list[str]) -> d
     return select_sources(selection, ref_ids)
 
 
+@trace('source.select_many')
 def select_sources(selection: ProjectSelection, ref_ids: list[str]) -> dict[str, SourcePin]:
     """Bind several exact revisions with one source inventory and recheck."""
     selectors = [(ref_id, *_selector(selection, ref_id, None)) for ref_id in ref_ids]
@@ -196,7 +322,7 @@ def select_sources(selection: ProjectSelection, ref_ids: list[str]) -> dict[str,
     if not ids:
         return {}
     prefix = selection.settings["artifacts"]["identity"]["project_prefix"]
-    marker = re.compile(r"^(?:[1-9][0-9]*-)?(" + re.escape(prefix) + r"-[A-Z]-[1-9][0-9]*)(?=@|-|\.)")
+    marker = re.compile(r"^(?:[1-9][0-9]*-)?(" + re.escape(prefix) + r"-[A-Z]-[0-9]+)(?=@|-|\.)")
 
     def classify(name: str) -> str | None:
         match = marker.match(name)
@@ -204,6 +330,16 @@ def select_sources(selection: ProjectSelection, ref_ids: list[str]) -> dict[str,
 
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
     try:
+        if query_reader() is not None:
+            if len(ids) == len(selectors):
+                indexed = query_candidates(selection, atom_ids=tuple(sorted(ids)), references=tuple(ref_ids))
+                return {ref_id: _unique_candidate(reader, indexed.get(atom_id, ()), ref_id,
+                                                   atom_id, qualified, draft)
+                        for ref_id, atom_id, qualified, draft in selectors}
+            return {ref_id: _unique_candidate(
+                        reader, query_candidates(selection, atom_ids=(atom_id,), references=(ref_id,)).get(atom_id, ()),
+                        ref_id, atom_id, qualified, draft)
+                    for ref_id, atom_id, qualified, draft in selectors}
         selection._revalidate_boundary(reader=reader)
         candidates = _inventory_paths(reader, selection, classify)
         selected = {ref_id: _unique_candidate(reader, candidates.get(atom_id, ()), ref_id, atom_id, qualified, draft)
@@ -213,8 +349,7 @@ def select_sources(selection: ProjectSelection, ref_ids: list[str]) -> dict[str,
         if reader.currentness()["state"] != "unchanged":
             raise SourceSelectionError("Atom source changed during selection")
         selection._revalidate_boundary(reader=reader)
-        if read_scope_unit_declarations(selection.root, selection.control_relative, reader=reader).digest != selection.declaration_digest:
-            raise SourceSelectionError("Retained Project declarations changed")
+        _check_declarations(reader, selection)
         return selected
     except SourceSelectionError:
         raise

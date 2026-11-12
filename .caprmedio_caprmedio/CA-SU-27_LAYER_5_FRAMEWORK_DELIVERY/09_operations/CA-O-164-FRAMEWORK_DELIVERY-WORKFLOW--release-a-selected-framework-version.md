@@ -22,9 +22,9 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification
   - Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal
 tier: 3
-status: Active
-version: 36
-updated_at: 2026-11-11 00:17:19 +0400
+status: active
+version: 37
+updated_at: '2026-11-12T09:55:17.478134+00:00'
 carrier_destination:
   file:
     name: CA-O-164-FRAMEWORK_DELIVERY-WORKFLOW--release-a-selected-framework-version.md
@@ -33,20 +33,21 @@ current_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 relations: {}
 ---
-
-# Summary
+## Summary
 
 Release a selected Framework Version
 
-## Operation
+## Claim
+
+### Prose Claim
 
 Local Release **means** the one Operator-invoked local Workflow that runs intended tool tests, copies active Methodology Sources, compiles them, installs Engine `.install` into the Project runtime package, and verifies the installed Docker/MCP path. It owns the local Engine, package, runtime, `ca`, and Project-MCP work; none is another release Workflow.
 
-## Scope
+#### Scope
 
 The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOURCES` Core Meta-Model, installed extensions, and Project Configuration units. `LAYER_1_FRAMEWORK_METHODOLOGY/` is the derived product; `.caprmedio_caprmedio/000_CAPRMEDIO_framework/` is the installed copy. Settings, Scope Unit Declarations, and Project state are protected. Neither derived nor installed bytes become authoring authority.
 
-## Steps
+#### Steps
 
 | Step | Action | Bound phase |
 | --- | --- | --- |
@@ -55,7 +56,7 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 | CA-O-173 | CA-O-166 | compile applicable Methodology in that product |
 | CA-O-178 | CA-O-169 | clear the installed Framework except protected configuration, copy `LAYER_1_FRAMEWORK_METHODOLOGY` as-is, install `ca`, remove eligible stopped obsolete Project-owned containers before MCP startup, restart or reuse Project MCP for smoke, then retain the exact admitted candidate and finish eligible selected-Project container/image cleanup |
 
-## Transitions
+#### Transitions
 
 | Step result | Next step or outcome |
 | --- | --- |
@@ -65,9 +66,22 @@ The Workflow uses the current active Atoms in the Project-owned `METHODOLOGY_SOU
 | verified installed copy, `ca`, and Project-MCP smoke | complete |
 | failed or unsafe result | stop and report it for manual handling |
 
+### Mermaid Scheme
+
+```mermaid
+flowchart TD
+    validate["CA-O-170 Validate local release inputs"]
+    deliver["CA-O-172 Deliver active Methodology sources"]
+    compile["CA-O-173 Compile applicable Methodology"]
+    install["CA-O-178 Install runtime and verify Project MCP"]
+    validate --> deliver --> compile --> install
+```
+
 ## Details
 
-Invoke this Workflow from the repository host through `LAYER_5_FRAMEWORK_DELIVERY/release.py local --project-root <project-root> --run-id <run-id> [--test-module <repo-relative-module> ...]` in the governed uv environment; `--project-root` defaults to the repository root. The Project's MCP blacklist disables `release_version` exposure and invocation while preserving its adapter for later reuse. This entrypoint reuses the existing local runner and required validation, installation, smoke and safe cleanup behavior.
+Invoke this Workflow from the repository host through `LAYER_5_FRAMEWORK_DELIVERY/release.py local --project-root <project-root> --run-id <run-id> [--image-mode refresh|existing] [--test-module <repo-relative-module> ...]` in the governed uv environment; `--project-root` defaults to the repository root. The Project's MCP blacklist disables `release_version` exposure and invocation while preserving its adapter for later reuse. This entrypoint reuses the existing local runner and required validation, installation, smoke and safe cleanup behavior.
+
+Use `refresh` by default. For image assets, regenerate them from the selected declarations and retain the resulting files with the checkout. For `existing`, use the selected checkout's generated assets for the Docker test image and the release candidate. If recovering from a bad container, first restore or cherry-pick the known-good code and asset files, then run Local Release with `--image-mode existing`. Both modes run the declared tests and verify the candidate before reporting success.
 
 The four named Step/Action occurrences are the complete registered graph. Intended local-release tool tests are mandatory internal Workflow work after successful CA-O-170 validation and before CA-O-172 delivery; they are not another Atom Step or Action and cannot be bypassed by interpreting an edge label as execution. The admitted native Workflow runner must actually run the declared tests, retain their observed result, and stop before delivery on failure, unavailable execution, or unknown completion. CA-O-165 remains validation-only. This clarification creates no test Atom ID, restored retired Step, or second Workflow.
 

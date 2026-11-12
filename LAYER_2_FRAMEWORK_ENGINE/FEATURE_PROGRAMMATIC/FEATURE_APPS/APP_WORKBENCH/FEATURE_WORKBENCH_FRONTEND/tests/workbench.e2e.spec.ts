@@ -256,7 +256,7 @@ test('shows source indexing status in local time and keeps settings independent'
     const statusResponse = page.waitForResponse((response) => response.request().method() === 'POST' && new URL(response.url()).pathname.endsWith('/status') && response.status() === 200);
     await page.goto(url);
     const status = await (await statusResponse).json() as { syncing: boolean; last_synced_at: string | null };
-    expect(Object.keys(status).sort()).toEqual(['last_synced_at', 'syncing']);
+    expect(Object.keys(status)).toEqual(expect.arrayContaining(['last_synced_at', 'syncing']));
     const localTime = status.last_synced_at && await page.evaluate((timestamp) => new Date(timestamp).toLocaleString(), status.last_synced_at);
     await expect(page.getByRole('status', { name: 'Source indexing status' })).toHaveText(status.syncing ? 'Source index: Syncing' : localTime ? `Source index: ${localTime}` : 'Source index: Not synced yet');
     await expect.poll(() => page.evaluate(() => ({ theme: document.documentElement.dataset.theme, density: document.documentElement.dataset.density, interfaceText: getComputedStyle(document.documentElement).getPropertyValue('--interface-text-scale').trim(), contentText: getComputedStyle(document.documentElement).getPropertyValue('--content-text-scale').trim(), interface: getComputedStyle(document.documentElement).getPropertyValue('--interface-scale').trim() }))).toEqual({ theme: 'system', density: 'comfortable', interfaceText: '1', contentText: '1', interface: '1' });

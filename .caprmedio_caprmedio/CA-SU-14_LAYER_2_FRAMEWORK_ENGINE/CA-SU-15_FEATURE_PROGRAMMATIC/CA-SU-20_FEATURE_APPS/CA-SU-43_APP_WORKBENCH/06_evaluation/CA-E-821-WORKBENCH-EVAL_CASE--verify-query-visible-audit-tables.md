@@ -5,7 +5,7 @@ identity:
 context:
   container:
     scope_unit: CA-SU-43
-  role: Evaluation
+  role: evaluation
   form: Eval Case
   topics:
     main_subject: MODEL//CAPRMEDIO <+ Projection
@@ -18,9 +18,9 @@ relations:
   - CA-M-549
   - CA-D-715
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-11 00:34:40 +0400
+  status: active
+  version: 2
+  updated_at: '2026-11-12T01:42:37.763279+00:00'
 destination:
   file:
     name: CA-E-821-WORKBENCH-EVAL_CASE--verify-query-visible-audit-tables.md
@@ -38,11 +38,9 @@ Verify query-visible audit tables
 
 ### Prose Claim
 
-Using the real Workbench backend and both query interfaces, verify that:
+Use the real Workbench backend and its query interfaces to verify these outcomes.
 
-- each of the three audit cases has positive and negative examples for both Current and Draft sources;
-- readable Current and Draft Atoms with no issue produce no audit row;
-- each inaccessible source produces `issue_category = query_inaccessible_atom`, each declared carrier conflict produces `issue_category = declared_carrier_inconsistency`, and each physical carrier mismatch produces `issue_category = physical_carrier_mismatch`, with source identity or path, diagnostic and observed or expected values in the appropriate columns;
-- an invalid or unreadable source is reported without a normal Atom row, valid sources remain queryable, and source files remain unchanged;
-- `query_run` and `query_page` return the same audit rows through HTTP and MCP.
-
+- Cold startup makes Current, Draft and Backlog available without parsing Archive contents. Load two selected Scope Unit and Role pairs. Only their Archive folders become available, both adapters report the same coverage, and a repeat load does not duplicate physical rows.
+- An unloaded historical selector is distinguishable from an absent revision in loaded coverage. Lifecycle allocation reserves unloaded Archive IDs and known Versions, and a newly archived exact file remains accessible when the lifecycle needs it.
+- Query all five issue tables after audits finish. Check parse failure, current-schema violation, declared carrier conflict, physical carrier mismatch and duplicate Current/Archived ID and Version. Drafts and Backlog rows do not count as duplicate revisions. Check that parseable files remain queryable and source bytes stay unchanged.
+- Delay audit execution and confirm that committed source rows and lifecycle responses are available while audit work is pending. Verify audit elapsed time and that later source changes converge to the newest diagnostics. HTTP and MCP return the same audit rows.

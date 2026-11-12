@@ -38,6 +38,11 @@ class PlacementTest(unittest.TestCase):
         self.assertEqual(self.place(status='Draft', scope_unit='OTHER'), self.root / other['authority_path'] / '04_requirement/draft/CA-R-1@2-draft-OTHER-DECISION--example-text.md')
         self.assertIn('SCOPE_CONTRACT', self.place(tier=0).name)
 
+    def test_leading_zero_identity_is_preserved(self):
+        self.assertEqual('CA-R-096@2-draft-DECISION--example-text.md',
+                         self.place(atom_id='CA-R-096', status='Draft').name)
+        self.assertEqual('CA-R-000-DECISION--example-text.md', self.place(atom_id='CA-R-000').name)
+
     def test_archive_exact_predecessor_and_local_workflow_group(self):
         role = self.control / '09_operations'
         group = role / 'CA-O-9-WORKFLOW--example'

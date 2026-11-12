@@ -22,6 +22,7 @@ class LoadedProject:
     gateway: Any
     in_flight: int = 0
     touched: int = 0
+    root_identity: tuple[int, int] | None = None
 
 
 class SharedProjectPool:
@@ -128,7 +129,12 @@ class SharedProjectPool:
                 if self._closed:
                     raise ProjectCapacityError("Project gateway pool is closed")
                 else:
-                    entry = LoadedProject(selection, gateway, in_flight=1)
+                    try:
+                        info = selection.root.stat()
+                        identity = (info.st_dev, info.st_ino)
+                    except OSError:
+                        identity = None
+                    entry = LoadedProject(selection, gateway, in_flight=1, root_identity=identity)
                     self._touch(entry)
                     self._entries[key] = entry
                     return entry
@@ -146,6 +152,21 @@ class SharedProjectPool:
             async with self._lock:
                 self._pending.discard(key)
                 self._pending_tasks.pop(key, None)
+
+    async def acquire_cached(self, root: Any) -> LoadedProject | None:
+        """Lease an already selected Project without re-reading its declarations."""
+        async with self._lock:
+            if self._closed:
+                raise ProjectCapacityError("Project gateway pool is closed")
+            entry = self._entries.get(str(root))
+            if entry is None:
+                return None
+            info = root.stat()
+            if entry.root_identity != (info.st_dev, info.st_ino):
+                raise ProjectCapacityError("Selected Project root has changed")
+            entry.in_flight += 1
+            self._touch(entry)
+            return entry
 
     async def release(self, entry: LoadedProject) -> None:
         async with self._lock:

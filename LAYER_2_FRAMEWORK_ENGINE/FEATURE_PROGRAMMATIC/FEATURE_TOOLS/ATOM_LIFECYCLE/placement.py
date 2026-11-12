@@ -16,6 +16,8 @@ and Scope Unit Declaration grammars are not implemented here (CA-D-651).
 """
 from __future__ import annotations
 
+from .timing import trace
+
 from dataclasses import dataclass
 from pathlib import Path
 import re
@@ -28,7 +30,7 @@ from scope_unit_declarations import read_scope_unit_declarations
 from .common import InputError, logical_container
 from .carrier import logical_view
 from .placement_model import active_placement
-from .source import select_source
+from .source import query_reader, select_context, select_source
 
 
 class PlacementError(ValueError):
@@ -66,6 +68,7 @@ def _inside(path: Path, root: Path) -> Path:
     return path
 
 
+@trace('placement.resolve_container')
 def resolve_container(selection, view, atom_id, seen=frozenset(), *, model=None):
     if atom_id in seen or len(seen) >= 32:
         raise InputError('container', 'Containing Atom chain is cyclic or too deep.')
@@ -75,7 +78,7 @@ def resolve_container(selection, view, atom_id, seen=frozenset(), *, model=None)
     ref = container['atom']
     if '@' in ref:
         raise InputError('container', 'Containing Atom must use a Current reference.')
-    parent = select_source(selection, ref)
+    parent = select_context(selection, ref) if query_reader() is not None else select_source(selection, ref)
     parent_view = logical_view(parent.metadata, model)
     role, form = view.get('role'), view.get('form')
     if not _admitted_parent(role, form, parent_view, parent.status):
@@ -101,9 +104,13 @@ def _admitted_parent(role, form, parent, status):
     return role == 'Operations' and parent_form is not None and parent.get('form') == parent_form
 
 
+@trace('placement.scope_authority')
 def _role_root(selection, role, scope_unit):
-    selection._revalidate_boundary()
-    declarations = read_scope_unit_declarations(selection.root, selection.control_relative)
+    reader = query_reader()
+    if reader is None:
+        selection._revalidate_boundary()
+    declarations = (reader.lifecycle_declarations() if reader is not None else
+                    read_scope_unit_declarations(selection.root, selection.control_relative))
     if declarations.digest != selection.declaration_digest:
         raise PlacementError("Project declarations are stale")
     prefix = selection.settings["artifacts"]["identity"]["project_prefix"]
@@ -119,7 +126,7 @@ def _role_root(selection, role, scope_unit):
 
 def _scope_binding(selection, atom_id, version, role, scope_unit, parent):
     prefix = selection.settings['artifacts']['identity']['project_prefix']
-    if not isinstance(atom_id, str) or not re.fullmatch(re.escape(prefix) + r"-[A-Z]-[1-9][0-9]*", atom_id):
+    if not isinstance(atom_id, str) or not re.fullmatch(re.escape(prefix) + r"-[A-Z]-[0-9]+", atom_id):
         raise PlacementError("Invalid canonical Atom ID")
     if type(version) is not int or version < 1:
         raise PlacementError("Invalid Version or unsupported Role")
@@ -174,7 +181,9 @@ def archived_owner(selection, path, role):
 def _predecessor_status(source, atom_id, version):
     if not source.is_file():
         raise PlacementError("Exact predecessor Carrier is missing")
-    view = carrier_read_view(parse_carrier(source.read_bytes(), source).metadata)
+    reader = query_reader()
+    raw = reader.lifecycle_read(source) if reader is not None else source.read_bytes()
+    view = carrier_read_view(parse_carrier(raw, source).metadata)
     old_status = view.get("status")
     if (view.get("atom_id") != atom_id or type(view.get("version")) is not int or view.get("version") != version or
             not isinstance(old_status, str) or not re.fullmatch(r"[A-Za-z]+", old_status) or
@@ -228,6 +237,24 @@ def _ordinary_placement(marker, effective_label, target_scope, work_sequence, ro
     return stem
 
 
+def derive_filename(*, atom_id, version, status, role, summary, row, form=None,
+                    label=None, tier=None, target_scope=None, work_sequence=None):
+    """Serialize the supported Current/Draft filename grammar without I/O."""
+    if type(version) is not int or version < 1 or not isinstance(atom_id, str):
+        raise PlacementError("Invalid Atom identity or Version")
+    if tier is not None and (type(tier) is not int or tier < 0):
+        raise PlacementError("Invalid Tier")
+    state = status.casefold() if isinstance(status, str) else None
+    marker = atom_id + (f"@{version}-draft" if state == "draft" else "")
+    effective_label = label if label is not None else form
+    if role == "Plan":
+        stem = _plan_placement(marker, effective_label, target_scope, work_sequence)
+    else:
+        stem = _ordinary_placement(marker, effective_label, target_scope, work_sequence, row, tier)
+    return stem + "--" + _slug(summary) + ".md"
+
+
+@trace('placement.derive_destination')
 def derive_destination(selection: ProjectSelection, *, atom_id: str, version: int,
                        status: str | None, role: str, summary: str, scope_unit: str,
                        form: str | None = None, label: str | None = None,
@@ -256,15 +283,13 @@ def derive_destination(selection: ProjectSelection, *, atom_id: str, version: in
             raise PlacementError("Source path applies only to exact predecessor archival")
         if tier is not None and (type(tier) is not int or tier < 0):
             raise PlacementError("Invalid Tier")
-        marker = atom_id + (f"@{version}-draft" if state == "draft" else f"@{version}" if archived_update else "")
-        slug = _slug(summary)
-        effective_label = label if label is not None else form
-        if role == "Plan":
-            stem = _plan_placement(marker, effective_label, target_scope, work_sequence)
-        else:
-            stem = _ordinary_placement(marker, effective_label, target_scope, work_sequence, row, tier)
+        name = derive_filename(atom_id=atom_id, version=version, status=status, role=role,
+                               summary=summary, row=row, form=form, label=label, tier=tier,
+                               target_scope=target_scope, work_sequence=work_sequence)
+        if archived_update:
+            name = name.replace(atom_id, f"{atom_id}@{version}", 1)
         directory = _status_directory(role_root, role, status, parent)
-        return _inside(directory / (stem + "--" + slug + ".md"), selection.root)
+        return _inside(directory / name, selection.root)
     except PlacementError:
         raise
     except (KeyError, TypeError, ValueError, OSError) as error:

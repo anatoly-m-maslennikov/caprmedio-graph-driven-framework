@@ -16,13 +16,40 @@ import sys
 from typing import Any
 
 from .markdown_content import source_markdown
-from .source_selection import first_reference_rows as _unique_references
 from .relation_registry import (
     RelationRegistry, _warn_colliding_uses, carrier_read_view, compile_relation_registry,
 )
 
 ATOM = "Atom"
 SCOPE = "Scope Unit"
+
+
+def _graph_sources(atoms: list[dict]) -> list[dict]:
+    selected = []
+    seen = set()
+    for atom in atoms:
+        if atom.get("status_group") == "Archived":
+            continue
+        reference = atom.get("ref")
+        if reference is not None and reference in seen:
+            continue
+        selected.append(atom)
+        if reference is not None:
+            seen.add(reference)
+    return selected
+
+
+def _carrier_facts(row: dict, aliases: Mapping[str, str], registry: RelationRegistry) -> tuple[tuple, ...]:
+    outgoing = _outgoing_facts([], registry, {row["source_path"]: tuple(_atom_facts(row, aliases, registry))})
+    return tuple(sorted(outgoing.get((ATOM, row.get("ref")), ())))
+
+
+def _materialized_atom(row: dict, facts: tuple[tuple, ...], *, graph: bool) -> dict | None:
+    if not graph:
+        row = {**row, "_graph_excluded": True,
+               "_carrier_relation_edges_json": [_edge(fact[:-1], fact[-1]) for fact in facts]}
+        facts = ()
+    return _materialized_row(ATOM, row, facts)
 
 
 def json_value(value: Any) -> Any:
@@ -249,19 +276,25 @@ def _support_facts(
 def _materialize_atoms(
     atoms: list[dict], outgoing: Mapping[tuple[str, str], set[tuple]], context: tuple,
     atom_direct_facts: Mapping[str, tuple[tuple, ...]], previous_atoms: Mapping[str, dict[str, Any]],
-    support: Mapping[tuple[str, str], set[tuple]],
+    support: Mapping[tuple[str, str], set[tuple]], graph_paths: set[str],
+    aliases: Mapping[str, str], registry: RelationRegistry,
 ) -> tuple[list[dict], dict[str, dict[str, Any]]]:
     next_atoms: dict[str, dict[str, Any]] = {}
     rows = []
     for source in atoms:
-        facts = tuple(sorted((*outgoing[(ATOM, source["ref"])], *support.get((ATOM, source["ref"]), ()))))
         path = source.get("source_path")
+        graph = path in graph_paths
+        facts = (tuple(sorted((*outgoing.get((ATOM, source["ref"]), ()),
+                               *support.get((ATOM, source["ref"]), ()))))
+                 if graph else _carrier_facts(source, aliases, registry))
         cached = previous_atoms.get(path) if isinstance(path, str) else None
-        row = cached["row"] if cached is not None and cached["raw"] is source and cached["facts"] == facts else _materialized_row(ATOM, source, facts)
+        row = (cached["row"] if cached is not None and cached["raw"] is source and cached["facts"] == facts
+               and bool(cached["row"].get("_graph_excluded")) != graph
+               else _materialized_atom(source, facts, graph=graph))
         if row is not None:
             rows.append(row)
             if isinstance(path, str):
-                next_atoms[path] = {"raw": source, "context": context, "direct_facts": atom_direct_facts[path], "facts": facts, "row": row}
+                next_atoms[path] = {"raw": source, "context": context, "direct_facts": atom_direct_facts.get(path, ()), "facts": facts, "row": row}
     return rows, next_atoms
 
 
@@ -269,9 +302,9 @@ def materialize_with_registry(
     atoms: list[dict], scopes: list[dict], previous_atoms: Mapping[str, dict[str, Any]] | None = None,
 ) -> tuple[list[dict], list[dict], set[str], dict[str, str], dict[str, dict[str, Any]]]:
     """Materialize one captured inventory and reuse unchanged Atom rows by identity."""
-    atoms = _unique_references(atoms)
-    registry = compile_relation_registry(atoms)
-    _warn_colliding_uses(atoms, registry.collisions)
+    graph_atoms = _graph_sources(atoms)
+    registry = compile_relation_registry(graph_atoms)
+    _warn_colliding_uses(graph_atoms, registry.collisions)
     scope_references = _scope_references(scopes)
     context = (
         tuple(sorted(registry.names)),
@@ -280,10 +313,12 @@ def materialize_with_registry(
         tuple(sorted(scope_references.items())),
     )
     prior = previous_atoms or {}
-    atom_direct_facts = _direct_atom_facts(atoms, scope_references, registry, context, prior)
+    atom_direct_facts = _direct_atom_facts(graph_atoms, scope_references, registry, context, prior)
     outgoing = _outgoing_facts(scopes, registry, atom_direct_facts)
-    support = _support_facts(atoms, scopes, registry, atom_direct_facts)
-    atom_rows, next_atoms = _materialize_atoms(atoms, outgoing, context, atom_direct_facts, prior, support)
+    support = _support_facts(graph_atoms, scopes, registry, atom_direct_facts)
+    graph_paths = {row.get("source_path") for row in graph_atoms}
+    atom_rows, next_atoms = _materialize_atoms(atoms, outgoing, context, atom_direct_facts, prior, support,
+                                               graph_paths, scope_references, registry)
 
     scope_rows = []
     for source in scopes:

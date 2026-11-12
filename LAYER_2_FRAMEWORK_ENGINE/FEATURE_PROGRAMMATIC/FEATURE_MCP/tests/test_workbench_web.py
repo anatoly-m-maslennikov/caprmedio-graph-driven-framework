@@ -78,6 +78,8 @@ class FakeWorkbench:
             }
         if name == "query_schema":
             return {"atoms": []}
+        if name == "workbench_archive_load":
+            return {"loaded_archive_scopes": arguments["scopes"]}
         if name == "query_saved_list":
             return {"items": []}
         if name == "query_load":
@@ -170,6 +172,28 @@ class WorkbenchWebTests(unittest.TestCase):
             self.assertEqual(200, client.get(f"{WORKBENCH_PATH}/assets").status_code)
             self.assertEqual(200, client.post(f"{WORKBENCH_PATH}/assets/check", json={"sql": "SELECT 1"}).status_code)
             self.assertEqual(200, client.get(f"{WORKBENCH_PATH}/assets/app.js").status_code)
+
+    def test_archive_load_route_and_blacklist(self):
+        gateway = FakeGateway()
+        scopes = [{'scope_unit': 'PROJECT', 'role': 'Plan'}]
+        with TestClient(Starlette(routes=routes(gateway))) as client:
+            response = client.post(f'{PROJECT_PATH}/archive-load', json={'scopes': scopes})
+            self.assertEqual(200, response.status_code)
+            self.assertEqual({'loaded_archive_scopes': scopes}, response.json())
+            self.assertEqual(('workbench_archive_load', {'scopes': scopes}), gateway.workbench.calls[-1])
+            self.assertEqual(404, client.post(f'{WORKBENCH_PATH}/other/archive-load', json={'scopes': scopes}).status_code)
+            gateway.tool_blacklist = frozenset({'workbench_archive_load'})
+            self.assertEqual(400, client.post(f'{PROJECT_PATH}/archive-load', json={'scopes': scopes}).status_code)
+            self.assertEqual(1, len(gateway.workbench.calls))
+
+    def test_archive_load_route_selects_shared_project(self):
+        gateway = FakeGateway()
+        scopes = [{'scope_unit': 'PROJECT', 'role': 'Plan'}]
+        with TestClient(Starlette(routes=routes(gateway, shared=True))) as client:
+            response = client.post(f'{PROJECT_PATH}/archive-load', json={'project_root': '/project', 'scopes': scopes})
+        self.assertEqual(200, response.status_code)
+        self.assertEqual({'loaded_archive_scopes': scopes}, response.json())
+        self.assertEqual(['/project'], gateway.roots)
 
     def test_page_and_project_bound_run_check_routes(self):
         gateway = FakeGateway()

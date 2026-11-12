@@ -17,9 +17,9 @@ relations:
   - CA-R-1878
   - CA-M-332
   - CA-R-1692
-status: Active
-version: 17
-updated_at: 2026-11-09 15:54:30 +0400
+status: active
+version: 18
+updated_at: '2026-11-12T09:55:16.399728+00:00'
 carrier_destination:
   file:
     name: CA-E-573-FRAMEWORK_DELIVERY-EVAL_CASE--verify-direct-installed-delivery.md
@@ -27,8 +27,7 @@ carrier_destination:
 current_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 ---
-
-# Summary
+## Summary
 
 Verify direct installed delivery
 
@@ -38,7 +37,11 @@ The installed project runtime and `ca` Skill after a direct Local release.
 
 ## Claim
 
+### Prose Claim
+
 The QA case verifies the installed package/runtime and project-local `ca` Skill, then runs the intended Docker/MCP smoke behavior. A failed check stops the release and is reported for manual handling.
+
+Check both image modes. Existing mode must build with the selected asset bytes and no usable predecessor. Refresh mode must generate the assets from the selected declarations and retain the generated files in the checkout. Check that Docker tests use the selected mode, and that missing assets in existing mode stop the release.
 
 ## Details
 

@@ -37,7 +37,7 @@ class SourceDiscoveryTests(unittest.TestCase):
         current = self.source("retired-owner/04_requirement/current.md", "CA-R-780")
         draft = self.source("loose/draft/proposal.md", "CA-R-781", status="Draft")
         copied = self.source("installed-copy/custom/record.md", "CA-R-782")
-        excluded = [
+        additional = [
             self.source("retired-owner/archive/old.md", "CA-R-783"),
             self.source("_projection/copy.md", "CA-R-784"),
             self.source("loose/old.md", "CA-R-785", status="Archived"),
@@ -47,10 +47,9 @@ class SourceDiscoveryTests(unittest.TestCase):
         atoms, scopes, diagnostics = self.fixture._capture()
         self.assertEqual("", diagnostics)
         paths = {row["source_path"] for row in atoms}
-        for path in (current, draft, copied):
+        for path in (current, draft, copied, *additional):
             self.assertIn(path.relative_to(self.root).as_posix(), paths)
-        for path in (*excluded, outside):
-            self.assertNotIn(path.relative_to(self.root).as_posix(), paths)
+        self.assertNotIn(outside.relative_to(self.root).as_posix(), paths)
         self.assertEqual({"fixture", "MAIN", "CHILD"}, {row["name"] for row in scopes})
         self.assertEqual("Draft", next(row for row in atoms if row["id"] == "CA-R-781")["status_group"])
 
@@ -84,6 +83,33 @@ class SourceDiscoveryTests(unittest.TestCase):
             self.assertNotIn("CA-R-791", {row["id"] for row in capture("remove", old=moved)})
             capture("create", new=self.root / "outside.md")
             self.assertFalse(self.reader.capture_changed)
+
+    def test_archiving_and_duplicate_deltas_keep_each_carrier(self):
+        original = self.source("loose/current.md", "CA-R-790")
+        duplicate = self.source("copy/current.md", "CA-R-790")
+        ordered = self.source("ordered/entry.md", "CA-R-792")
+        numbered = ordered.with_name("3-" + ordered.name)
+        ordered.rename(numbered)
+        rows, _, _ = self.fixture._capture()
+        self.assertEqual(2, sum(row["ref"] == "CA-R-790" for row in rows))
+        self.assertIn(numbered.relative_to(self.root).as_posix(), {row["source_path"] for row in rows})
+
+        archive = self.control / "loose" / "099_archived" / "CA-R-790@1-old.md"
+        archive.parent.mkdir()
+        original.write_text(original.read_text().replace('status: "Active"', 'status: "Archived"'))
+        original.rename(archive)
+        rows, _ = self.reader.capture([{
+            "operation": "move", "old_path": original.relative_to(self.root).as_posix(),
+            "new_path": archive.relative_to(self.root).as_posix(),
+        }])
+        selected = {row["source_path"]: row for row in rows if row["id"] == "CA-R-790"}
+        self.assertEqual({duplicate.relative_to(self.root).as_posix(), archive.relative_to(self.root).as_posix()},
+                         set(selected))
+        self.assertEqual("CA-R-790@1", selected[archive.relative_to(self.root).as_posix()]["ref"])
+        self.assertEqual("Archived", selected[archive.relative_to(self.root).as_posix()]["status_group"])
+        self.assertIsNone(self.reader.capture_delta[original.relative_to(self.root).as_posix()])
+        self.assertEqual("CA-R-790@1",
+                         self.reader.capture_delta[archive.relative_to(self.root).as_posix()]["ref"])
 
     def test_filename_marker_defines_atoms_instead_of_yaml_or_role_folder(self):
         current = self.source("02_analysis/record.md", "CA-R-798")
@@ -121,19 +147,13 @@ class SourceDiscoveryTests(unittest.TestCase):
         )
         self.assertIn(source.relative_to(self.root).as_posix(), self.reader._declarations.source_pins)
 
-    def test_duplicate_loads_one_carrier_reports_the_other_and_promotes_after_delete(self):
+    def test_duplicate_loads_both_carriers_and_keeps_survivor_after_delete(self):
         copies = [self.source(f"{directory}/copy.md", "CA-R-802") for directory in ("a", "z")]
         atoms, _, _ = self.fixture._capture()
         selected = [row for row in atoms if row["ref"] == "CA-R-802"]
-        self.assertEqual(1, len(selected))
-        winner = self.root / selected[0]["source_path"]
-        later = next(path for path in copies if path != winner)
-        public = {(str(winner.parent.relative_to(self.root)), winner.name): selected[0]}
-        issues = self.reader.audit_issues(public)["atom_content_issues"]
-        duplicates = [row for row in issues if row[0] == "CA-R-802"]
-        self.assertEqual(1, len(duplicates))
-        self.assertEqual(later.name, duplicates[0][2])
-        self.assertIn("duplicate", duplicates[0][-1])
+        self.assertEqual(2, len(selected))
+        winner = min(copies)
+        later = max(copies)
         winner.unlink()
         with patch.object(self.reader, "_inventory_paths", side_effect=AssertionError("unexpected full scan")):
             atoms, _ = self.reader.capture([{
@@ -224,7 +244,7 @@ Relation//CURRENT;
 
     def test_registry_skips_invalid_duplicate_scope_data(self):
         self.source("000_copy/record.md", "CA-R-811", form="Rule")
-        invalid = self.fixture._write_atom(
+        self.fixture._write_atom(
             "MAIN", "04_requirement", "invalid.md", atom_id="CA-R-811", form="Rule",
             body="## Summary\n\nInvalid ordinary data.\n",
         )
@@ -236,18 +256,7 @@ Relation//CURRENT;
 Relation//VALID;
 ```
 """)
-        schema = fixtures.source_reader_module.SourceContentSchema
-        original = schema.validation_errors
-        invalid_path = invalid.relative_to(self.root).as_posix()
-
-        def validation_errors(instance, rows, *args, **kwargs):
-            rows = list(rows)
-            if any(row.get("source_path") == invalid_path for row in rows):
-                raise AssertionError("ordinary duplicate passed to registry validation")
-            return original(instance, rows, *args, **kwargs)
-
-        with patch.object(schema, "validation_errors", validation_errors):
-            registry = json.loads(compile_project_registry(self.root))
+        registry = json.loads(compile_project_registry(self.root))
         self.assertIn("VALID", registry["registered_names"])
 
 

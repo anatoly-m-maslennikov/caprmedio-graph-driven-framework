@@ -14,6 +14,9 @@ from typing import Any, Iterable, Mapping
 from markdown_it import MarkdownIt
 
 
+_MARKDOWN_HEADINGS = MarkdownIt("commonmark").disable("inline")
+
+
 def parse_content(
     body: str, *, tolerate_duplicate_siblings: bool = False, include_spans: bool | None = None,
     compact: bool = False,
@@ -27,7 +30,7 @@ def parse_content(
     if compact:
         include_spans = True
     lines = content_lines(body)
-    headings = _headings(MarkdownIt("commonmark").parse(body))
+    headings = _headings(_MARKDOWN_HEADINGS.parse(body))
     records = _records(headings, lines)
     if not tolerate_duplicate_siblings:
         _reject_duplicate_siblings(records)

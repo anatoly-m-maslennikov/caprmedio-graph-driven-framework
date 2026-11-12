@@ -102,6 +102,41 @@ class SharedGatewayTests(unittest.IsolatedAsyncioTestCase):
     def _gateway(self):
         return SharedGateway(load_host_runtime_config(self.config_path), gateway_factory=_Gateway)
 
+    async def test_lifecycle_reuses_selected_project_and_rejects_replaced_root(self):
+        from shared_gateway import resolve_host_project
+
+        name = "atom_lifecycle_archive"
+        _Gateway.tools_by_root = {
+            str(root): [_tool(name)] for root in (*self.roots, self.nested)
+        }
+        gateway = self._gateway()
+        await gateway.initialize()
+        self.addAsyncCleanup(gateway.close)
+
+        async def call(root):
+            return await gateway.call(None, types.CallToolRequestParams(
+                name=name, arguments={"project_root": str(root), "request": "x"}
+            ))
+
+        with patch("shared_gateway.resolve_host_project", wraps=resolve_host_project) as resolve:
+            first = await call(self.roots[0])
+            second = await call(self.roots[0])
+            other = await call(self.roots[1])
+            self.assertFalse(first.is_error)
+            self.assertFalse(second.is_error)
+            self.assertFalse(other.is_error)
+            self.assertEqual(2, resolve.call_count)
+            self.assertEqual(str(self.roots[1]), other.structured_content["root"])
+            outside = await call(self.base)
+            self.assertTrue(outside.is_error)
+            self.assertEqual(["outside_project_root"], outside.structured_content["diagnostics"])
+
+            original = self.roots[0].with_name("alpha-original")
+            self.roots[0].rename(original)
+            self.roots[0].mkdir()
+            replaced = await call(self.roots[0])
+            self.assertTrue(replaced.is_error)
+
     async def test_concurrent_projects_keep_identical_native_payloads_isolated(self):
         gateway = self._gateway()
         await gateway.initialize()

@@ -96,4 +96,5 @@ export type QueryLogItem = {
   column_count?: number | null;
 };
 
-export type SourceSyncStatus = { syncing: boolean; last_synced_at: string | null };
+export type ArchiveScope = { scope_unit: string; role: string };
+export type SourceSyncStatus = { syncing: boolean; last_synced_at: string | null; loaded_archive_scopes?: ArchiveScope[] };

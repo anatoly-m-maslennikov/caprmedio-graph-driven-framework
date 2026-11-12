@@ -10,7 +10,7 @@ from unittest.mock import Mock, patch
 
 APP_ROOT = Path(__file__).resolve().parents[2]
 sys.path[:0] = [str(APP_ROOT), str(Path(__file__).parent)]
-from smalltest_support import empty_assets
+from smalltest_support import empty_assets  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import compile_content_schema  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.index_delta import MaterializationDelta  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
@@ -24,7 +24,10 @@ class SchemaRefreshServiceTests(unittest.TestCase):
         rows, scopes = [{"source_path": "source/ordinary.md"}], [{"name": "project"}]
         reader = Mock(capture=Mock(return_value=(rows, scopes)), excluded_count=0,
                       capture_changed=changed, capture_delta={EVENT["new_path"]: rows[0]},
-                      content_schema=compile_content_schema([]))
+                      audit_delta=set(), content_schema=compile_content_schema([]))
+        descendants = patch(PREFIX + "affected_descendants", return_value=set())
+        descendants.start()
+        self.addCleanup(descendants.stop)
         if captures is not None:
             reader.capture.side_effect = captures
         with patch(PREFIX + "SourceReader", return_value=reader):

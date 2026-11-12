@@ -5,15 +5,15 @@ identity:
 context:
   container:
     scope_unit: CA-SU-43
-  role: Requirement
-  form: Solution
+  role: requirement
+  form: solution
   topics:
     main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 3
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-11 00:34:40 +0400
+  status: active
+  version: 2
+  updated_at: '2026-11-12T01:42:16.653120+00:00'
 destination:
   file:
     name: CA-R-970308650-WORKBENCH-SOLUTION--expose-physical-carrier-mismatches.md
@@ -31,5 +31,5 @@ Expose physical carrier mismatches
 
 ### Prose Claim
 
-For every selected Current or Draft Atom source that exists at scan time, compare its actual filename and location with the declared `file.name` and `file.path`. Expose each mismatch as one query-visible audit row with the Atom identity, the actual source path, the declared values, issue category `physical_carrier_mismatch`, and the observed and expected values. If a source disappears, remove its previous issue row on the next scan; do not claim an actual path for a file that no longer exists. Do not repair, move or rename files.
+For every selected Atom source that exists at scan time, including loaded Archives, compare its actual filename and location with the declared `file.name` and `file.path`. Expose each mismatch as one query-visible audit row with the Atom identity, the actual source path, the declared values, issue category `physical_carrier_mismatch`, and the observed and expected values. If a source disappears, remove its previous issue row on the next scan; do not claim an actual path for a file that no longer exists. Do not repair, move or rename files.
 

@@ -91,7 +91,7 @@ def load_placement(payload):  # noqa: C901
     pins = []
     for pin in sources:
         if (not isinstance(pin, dict) or set(pin) != {'atom_id', 'version', 'sha256', 'source_path'}
-                or not isinstance(pin['atom_id'], str) or not re.fullmatch(r'[A-Za-z0-9]+-[RD]-[1-9][0-9]*', pin['atom_id'])
+                or not isinstance(pin['atom_id'], str) or not re.fullmatch(r'[A-Za-z0-9]+-[RD]-[0-9]+', pin['atom_id'])
                 or type(pin['version']) is not int or pin['version'] < 1
                 or not isinstance(pin['sha256'], str) or not re.fullmatch(r'[0-9a-f]{64}', pin['sha256'])):
             raise ValueError('Invalid placement source pin')

@@ -63,7 +63,7 @@ def _runtime_environment() -> str:
     return "docker" if Path("/.dockerenv").is_file() else "host"
 
 
-def _render(record: dict[str, str]) -> str:
+def _render(record: dict[str, str | float]) -> str:
     line = json.dumps(record, ensure_ascii=False, separators=(",", ":"))
     if len((line + "\n").encode("utf-8")) > _RECORD_LIMIT:
         raise ValueError("technical diagnostic record exceeds bounded output size")
@@ -93,8 +93,9 @@ class TechnicalDiagnosticLogger:
         operation: str = "request",
         outcome: str = "skipped",
         exception_class: str | None = None,
-    ) -> dict[str, str]:
-        record: dict[str, str] = {
+        elapsed_ms: float | None = None,
+    ) -> dict[str, str | float]:
+        record: dict[str, str | float] = {
             "timestamp": datetime.now(timezone.utc)
             .isoformat(timespec="milliseconds")
             .replace("+00:00", "Z"),
@@ -117,6 +118,8 @@ class TechnicalDiagnosticLogger:
             record["correlation_id"] = _sanitize(correlation_id, limit=128)
         if exception_class is not None:
             record["exception_class"] = _sanitize(exception_class, limit=128)
+        if elapsed_ms is not None:
+            record["elapsed_ms"] = elapsed_ms
         return record
 
     def emit(
@@ -131,6 +134,7 @@ class TechnicalDiagnosticLogger:
         operation: str = "request",
         outcome: str = "skipped",
         exception_class: str | None = None,
+        elapsed_ms: float | None = None,
     ) -> str | None:
         if severity not in _SEVERITIES:
             return "invalid diagnostic severity"
@@ -145,6 +149,7 @@ class TechnicalDiagnosticLogger:
                 operation=operation,
                 outcome=outcome,
                 exception_class=exception_class,
+                elapsed_ms=elapsed_ms,
             )
             self.stream.write(_render(record) + "\n")
             self.stream.flush()
@@ -159,6 +164,7 @@ def make_technical_logger(
     *,
     stream: TextIO | None = None,
     environment: str | None = None,
+    component: str = "RUNTIME",
 ) -> tuple[TechnicalDiagnosticLogger | None, str | None]:
     """Build a logger from the already validated, bound Project Settings view."""
 
@@ -175,6 +181,7 @@ def make_technical_logger(
         version,
         stream if stream is not None else sys.stderr,
         environment or _runtime_environment(),
+        component,
     ), None
 
 

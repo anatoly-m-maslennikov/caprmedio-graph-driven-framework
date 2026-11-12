@@ -5,7 +5,7 @@ export interface OperationCaller {
 
 const HTTP_ROUTES: Record<string, string> = {
   query_run: 'run', query_check: 'check', query_page: 'page', query_schema: 'schema',
-  workbench_status: 'status', query_load: 'load', query_saved_list: 'saved-list',
+  workbench_status: 'status', workbench_archive_load: 'archive-load', query_load: 'load', query_saved_list: 'saved-list',
 };
 
 const INTERFACE_OPERATIONS = new Set([

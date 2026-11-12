@@ -109,8 +109,8 @@ class Runtime:
         self.image = self._image_manager().resolve(build_if_missing=False)
         return self.image
 
-    def build(self):
-        self.image = self._image_manager(create_temp=True).resolve()
+    def build(self, *, use_packaged_assets=False):
+        self.image = self._image_manager(create_temp=True).resolve(use_packaged_assets=use_packaged_assets)
         return self.image
 
     def prepare(self):
@@ -168,9 +168,9 @@ class Runtime:
         self.prepare()
         port = self._http_port()
         self._ensure_launch_image()
-        # Generation readiness can take 90s; keep Compose and the caller outside that budget.
-        self.call("up", "-d", "--wait", "--wait-timeout", "120", "--force-recreate", "mcp-http",
-                  http=True, timeout=150)
+        # Full Project indexing can take several minutes; leave a margin for Compose.
+        self.call("up", "-d", "--wait", "--wait-timeout", "420", "--force-recreate", "mcp-http",
+                  http=True, timeout=450)
         if not self._http_publisher_admitted(self.mcp_http_status(), port):
             raise RuntimeError("HTTP MCP published listener admission failed")
         return {"runtime": "docker", "service": "mcp-http", "outcome": "ready",
@@ -208,9 +208,11 @@ def main():
     parser.add_argument("--image", help=argparse.SUPPRESS)
     parser.add_argument("--control-root", help="Direct .caprmedio_<project> folder, when explicit selection is needed")
     parser.add_argument("--source-root", type=Path, help="Explicit Framework checkout with image build inputs; required for project-mcp")
-    parser.add_argument("--startup-timeout", type=float, default=120, help="Bound startup/readiness seconds (maximum 120)")
+    parser.add_argument("--startup-timeout", type=float, default=420, help="Bound startup/readiness seconds (maximum 420)")
     parser.add_argument("--build-timeout", type=float, default=600, help="Bound image build seconds (maximum 600)")
     parser.add_argument("--no-build", action="store_true", help="Refuse a missing compatible image instead of building")
+    parser.add_argument("--image-mode", choices=("refresh", "existing"),
+                        help="Asset selection for build (default: refresh)")
     parser.add_argument("--port", type=_project_mcp_port,
                         help="Assert the Project Settings HTTP port for project-mcp (1..65535)")
     parser.add_argument("--output", choices=["json", "url"], default="json", help="Project MCP result format")
@@ -219,6 +221,8 @@ def main():
                               "mcp-http-start", "mcp-http-stop", "mcp-http-status", "project-mcp"]
     )
     args = parser.parse_args()
+    if args.image_mode is not None and args.operation != "build":
+        parser.error("--image-mode applies to build only")
     if args.operation == "project-mcp":
         from project_mcp_launcher import Launcher
         result = Launcher().launch(args.project_root, None, control_root=args.control_root,
@@ -229,7 +233,7 @@ def main():
         return 0 if ready else 1
     runtime = Runtime(args.project_root, image=args.image)
     if args.operation == "build":
-        print(runtime.build())
+        print(runtime.build(use_packaged_assets=args.image_mode == "existing"))
     elif args.operation == "status":
         print(json.dumps(runtime.status()))
     elif args.operation == "logs":

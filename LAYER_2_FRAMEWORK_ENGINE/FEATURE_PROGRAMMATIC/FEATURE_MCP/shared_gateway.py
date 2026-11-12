@@ -1,3 +1,4 @@
+# CA-M-1008@1
 # CA-R-1115@24
 # CA-M-512@2
 # CA-M-517@1
@@ -23,6 +24,7 @@ from workbench_tools import mcp_app_probe
 from host_runtime_config import (
     HostRuntimeConfig,
     HostRuntimeConfigError,
+    _canonical_directory,
     load_host_runtime_config,
     resolve_host_project,
 )
@@ -150,6 +152,28 @@ class SharedGateway:
             return "project_gateway_busy"
         return "shared_gateway_failure"
 
+    async def _lifecycle_selection(self, arguments: Any) -> tuple[Any, ProjectSelection, dict[str, Any]]:
+        if not isinstance(arguments, dict) or "project_root" not in arguments:
+            raise SharedGatewayRefusal("missing_project_root")
+        value = arguments["project_root"]
+        if not isinstance(value, str):
+            raise SharedGatewayRefusal("invalid_project_root")
+        try:
+            root = _canonical_directory(value)
+        except HostRuntimeConfigError as caught:
+            raise SharedGatewayRefusal("invalid_project_root") from caught
+        if root == self.config.projects_root or not root.is_relative_to(self.config.projects_root):
+            raise SharedGatewayRefusal("outside_project_root")
+        self._current_config()
+        entry = await self.pool.acquire_cached(root)
+        if entry is None:
+            selection = self._selection(value)
+            entry = await self.pool.acquire(selection)
+        else:
+            selection = entry.selection
+        native = {key: item for key, item in arguments.items() if key != "project_root"}
+        return entry, selection, native
+
     async def _backend_call(
         self,
         name: str,
@@ -165,10 +189,14 @@ class SharedGateway:
         try:
             if self.frontier is None:
                 raise SharedGatewayRefusal("shared_gateway_unavailable")
-            selection, native_arguments = selection_for()
-            self._current_config()
-            entry = await self.pool.acquire(selection)
-            refreshed = self._selection(str(selection.root))
+            if name.startswith("atom_lifecycle_"):
+                entry, selection, native_arguments = await self._lifecycle_selection(arguments)
+                refreshed = selection
+            else:
+                selection, native_arguments = selection_for()
+                self._current_config()
+                entry = await self.pool.acquire(selection)
+                refreshed = self._selection(str(selection.root))
             self._current_config()
             self._current_tool(entry, refreshed, name)
             prefix, identity = _project_context(refreshed)

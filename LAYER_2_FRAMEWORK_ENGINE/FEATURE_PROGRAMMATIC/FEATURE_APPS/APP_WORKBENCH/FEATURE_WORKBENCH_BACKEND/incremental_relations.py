@@ -13,7 +13,8 @@ from typing import Mapping
 from .index_delta import MaterializationDelta
 from .relations import (
     ATOM, SCOPE, _atom_facts, _materialized_row, _scope_facts,
-    _scope_references, _support_facts, _support_for_fact, _unique_references,
+    _scope_references, _support_facts, _support_for_fact, _graph_sources,
+    _carrier_facts, _materialized_atom,
 )
 from .relation_registry import (
     RelationRegistry, RegistryCompilation, RegistryContribution, _unambiguous_aliases,
@@ -187,28 +188,33 @@ def _full_state(
     registry: RelationRegistry | None = None,
 ) -> RelationState:
     excluded_paths, duplicate_refs = _duplicate_membership(atoms)
-    atoms = _unique_references(atoms)
+    graph_atoms = _graph_sources(atoms)
     static_registry = registry is not None
     if registry is None:
-        compiled = compile_registry(atoms) if compilation is None else compilation
+        compiled = compile_registry(graph_atoms) if compilation is None else compilation
         contributions = compiled.contributions
         registry = compiled.registry
     else:
         contributions = {}
-    _warn_colliding_uses(atoms, registry.collisions)
+    _warn_colliding_uses(graph_atoms, registry.collisions)
     aliases = _scope_references(scopes)
     raw_by_path = {row["source_path"]: row for row in atoms if isinstance(row.get("source_path"), str)}
-    direct = {path: tuple(_atom_facts(row, aliases, registry)) for path, row in raw_by_path.items()}
+    graph_paths = {row.get("source_path") for row in graph_atoms}
+    direct = {path: tuple(_atom_facts(row, aliases, registry))
+              for path, row in raw_by_path.items() if path in graph_paths}
     contributors = _fact_contributors(scopes, registry, direct)
     facts_by_endpoint = _facts_by_endpoint(contributors)
     outgoing: dict[tuple[str, str], set[tuple]] = {}
     for fact in contributors:
         _add(outgoing, fact, registry.inverse)
-    support = _support_facts(atoms, scopes, registry, direct)
+    support = _support_facts(graph_atoms, scopes, registry, direct)
     atom_rows = {}
     for path, row in raw_by_path.items():
-        facts = tuple(sorted((*outgoing.get((ATOM, row["ref"]), ()), *support.get((ATOM, row["ref"]), ()))))
-        materialized = _materialized_row(ATOM, row, facts)
+        graph = path in graph_paths
+        facts = (tuple(sorted((*outgoing.get((ATOM, row["ref"]), ()),
+                               *support.get((ATOM, row["ref"]), ()))))
+                 if graph else _carrier_facts(row, aliases, registry))
+        materialized = _materialized_atom(row, facts, graph=graph)
         if materialized is not None:
             atom_rows[path] = materialized
     scope_rows = {}
@@ -218,7 +224,7 @@ def _full_state(
         if materialized is not None:
             scope_rows[row["name"]] = materialized
     return RelationState(
-        raw_by_path, {row["ref"]: path for path, row in raw_by_path.items() if row["ref"] is not None}, direct,
+        raw_by_path, {row["ref"]: row["source_path"] for row in graph_atoms if row["ref"] is not None}, direct,
         {key: frozenset(value) for key, value in outgoing.items()}, atom_rows, tuple(raw_by_path),
         scope_rows, tuple(scope_rows), _scope_signature(scopes), registry.names, dict(registry.inverse), dict(registry.aliases),
         excluded_paths, duplicate_refs, contributions, registry.collisions, contributors,
@@ -233,8 +239,8 @@ def _requires_full(state: RelationState, scopes: list[dict], changes: Mapping[st
     released_refs: set[str] = set()
     for path, new in changes.items():
         old = state.raw_by_path.get(path)
-        old_ref = old.get("ref") if old else None
-        new_ref = new.get("ref") if new else None
+        old_ref = old.get("ref") if old and old.get("status_group") != "Archived" else None
+        new_ref = new.get("ref") if new and new.get("status_group") != "Archived" else None
         if isinstance(new_ref, str):
             changed_refs.setdefault(new_ref, set()).add(path)
         if isinstance(old_ref, str) and old_ref != new_ref:
@@ -243,8 +249,8 @@ def _requires_full(state: RelationState, scopes: list[dict], changes: Mapping[st
         return True
     for path, new in changes.items():
         old = state.raw_by_path.get(path)
-        old_ref = old.get("ref") if old else None
-        new_ref = new.get("ref") if new is not None else None
+        old_ref = old.get("ref") if old and old.get("status_group") != "Archived" else None
+        new_ref = new.get("ref") if new is not None and new.get("status_group") != "Archived" else None
         if path in state.excluded_paths or any(
             isinstance(reference, str) and reference in state.duplicate_refs
             for reference in (old_ref, new_ref)
@@ -266,7 +272,10 @@ def _next_registry(
         if row is None:
             contributions.pop(path, None)
         else:
-            contributions[path] = registry_contribution(row)
+            if row.get("status_group") != "Archived":
+                contributions[path] = registry_contribution(row)
+            else:
+                contributions.pop(path, None)
     return contributions, _registry(contributions)
 
 
@@ -331,7 +340,8 @@ def materialize_delta(  # noqa: C901
     for path, new in changes.items():
         if new is not None:
             raw[path] = new
-            facts = tuple(_atom_facts(new, aliases, registry))
+            graph = new.get("status_group") != "Archived"
+            facts = tuple(_atom_facts(new, aliases, registry)) if graph else ()
             direct[path] = facts
             for fact in facts:
                 owners = set(contributors.get(fact, ()))
@@ -341,7 +351,7 @@ def materialize_delta(  # noqa: C901
                     affected.update(_delta_edge(outgoing, fact, registry.inverse, add=True))
                 owners.add(("atom", path))
                 contributors[fact] = frozenset(owners)
-            if new.get("ref") is not None:
+            if graph and new.get("ref") is not None:
                 affected.add((ATOM, new["ref"]))
                 refs[new["ref"]] = path
             _warn_colliding_uses([new], registry.collisions)
@@ -363,10 +373,12 @@ def materialize_delta(  # noqa: C901
         if path in atom_rows:
             old_atoms.setdefault(path, atom_rows[path])
         ref = raw[path].get("ref")
-        facts = (() if ref is None else tuple(sorted(
-            (*outgoing.get((ATOM, ref), ()), *support.get((ATOM, ref), ())),
-        )))
-        row = _materialized_row(ATOM, raw[path], facts)
+        graph = raw[path].get("status_group") != "Archived"
+        facts = (_carrier_facts(raw[path], aliases, registry) if not graph else
+                 (() if ref is None else tuple(sorted(
+                     (*outgoing.get((ATOM, ref), ()), *support.get((ATOM, ref), ())),
+                 ))))
+        row = _materialized_atom(raw[path], facts, graph=graph)
         if row is not None:
             atom_rows[path] = row
             new_atoms[path] = row

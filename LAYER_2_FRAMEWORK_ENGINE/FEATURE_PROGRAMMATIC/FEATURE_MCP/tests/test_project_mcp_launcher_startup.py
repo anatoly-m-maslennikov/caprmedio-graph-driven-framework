@@ -196,10 +196,10 @@ class LauncherStartupContractTests(unittest.TestCase):
         self.assertGreater(self.backend.health_calls[0][1], 0)
         self.assertLessEqual(self.backend.health_calls[0][1], 90)
 
-    def test_startup_timeout_ceiling_is_120_seconds(self):
-        result = self.launch(timeout=120)
+    def test_startup_timeout_ceiling_is_420_seconds(self):
+        result = self.launch(timeout=420)
         self.assertEqual("READY_STARTED", result["condition"])
-        too_high = self.launch(timeout=121)
+        too_high = self.launch(timeout=421)
         self.assert_public_failure(too_high, "failed", "READINESS_FAILED")
 
     def test_invalid_port_values_refuse_before_selection_or_runtime_effects(self):

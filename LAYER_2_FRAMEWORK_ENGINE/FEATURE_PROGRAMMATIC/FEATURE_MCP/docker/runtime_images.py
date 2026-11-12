@@ -7,6 +7,7 @@ are started, replaced or retired here.
 
 # CA-D-705@1
 # CA-M-500@3
+# CA-M-1011@2
 
 from __future__ import annotations
 
@@ -18,7 +19,9 @@ import os
 from pathlib import Path
 import platform as host_platform
 import re
+import stat
 import subprocess
+import sys
 import tempfile
 
 try:
@@ -150,16 +153,53 @@ def _unique_object(pairs):
     return value
 
 
+def _receipt_image(path: Path, selection: object) -> str:
+    from VALIDATE_ATOMS.validate_atoms_workers.read_io import open_regular
+
+    descriptor = open_regular(path)
+    try:
+        info = os.fstat(descriptor)
+        if not stat.S_ISREG(info.st_mode) or info.st_size > 65536:
+            raise ValueError("invalid launcher receipt")
+        with os.fdopen(descriptor, "rb") as stream:
+            descriptor = -1
+            raw = stream.read(65537)
+            if len(raw) > 65536:
+                raise ValueError("invalid launcher receipt")
+            payload = json.loads(raw, object_pairs_hook=_unique_object)
+    finally:
+        if descriptor != -1:
+            os.close(descriptor)
+    image = payload.get("image_id")
+    if (payload.get("project_root") != str(selection.root)
+            or payload.get("control_root") != str(selection.control_root)
+            or payload.get("project_id") != selection.instance_id
+            or payload.get("readiness") is not True
+            or not isinstance(image, str) or IMMUTABLE_IMAGE.fullmatch(image) is None):
+        raise ValueError("launcher receipt does not match selected Project")
+    return image
+
+
+def ready_predecessor(selection) -> str | None:
+    path = selection.launcher_state / "ready.json"
+    return _receipt_image(path, selection) if os.path.lexists(path) else None
+
+
 class ImageManager:
     def __init__(self, source_root: Path | str, executor: Callable[..., subprocess.CompletedProcess[str]] = _DEFAULT_EXECUTOR,
                  timeout: float = 600, *, uid: int | None = None, gid: int | None = None,
                  platform: str | None = None, build_temp_root: Path | str | None = None,
                  build_provenance: ImageBuildProvenance | None = None,
-                 project_root: Path | str) -> None:
+                 project_root: Path | str, previous_image: str | None = None) -> None:
         self.source_root = Path(source_root)
         if project_root is None:
             raise ImageError("IMAGE_INPUT_UNAVAILABLE", "An explicit selected Project root is required")
         self.project_root = Path(project_root)
+        if previous_image is not None and (not isinstance(previous_image, str)
+                                           or IMMUTABLE_IMAGE.fullmatch(previous_image) is None):
+            raise ImageError("IMAGE_INPUT_UNAVAILABLE", "Previous image must be an immutable sha256 ID")
+        self.previous_image = previous_image
+        self._previous_image_resolved = previous_image is not None
         self.build_temp_root = Path(build_temp_root) if build_temp_root is not None else None
         if build_provenance is not None and not isinstance(build_provenance, ImageBuildProvenance):
             raise ImageError("IMAGE_INPUT_UNAVAILABLE", "Image build provenance must be explicitly typed")
@@ -200,6 +240,39 @@ class ImageManager:
         except (OSError, ValueError) as error:
             raise self._input_error() from error
 
+    def _build_predecessor(self) -> str | None:
+        """Pin the selected Project's last ready image for this manager."""
+        if self._previous_image_resolved:
+            return self.previous_image
+        root = self._project_root()
+        state = root
+        for part in (".caprmedio_runtime", "runtime", "project_mcp"):
+            state = state / part
+            if not os.path.lexists(state):
+                self._previous_image_resolved = True
+                return None
+            if state.is_symlink() or not state.is_dir():
+                raise self._input_error()
+        tools = Path(__file__).resolve().parents[2] / "FEATURE_TOOLS"
+        if str(tools) not in sys.path:
+            sys.path.insert(0, str(tools))
+        try:
+            from project_selection import resolve_project
+            selection = resolve_project(root)
+            if (selection.root != root or not selection.control_root.is_relative_to(root)
+                    or selection.launcher_state != state / selection.instance_id):
+                raise ValueError("invalid Project launcher state")
+            if os.path.lexists(selection.launcher_state) and (
+                selection.launcher_state.is_symlink() or not selection.launcher_state.is_dir()
+            ):
+                raise ValueError("invalid Project launcher state")
+            image = ready_predecessor(selection)
+            self.previous_image = image
+            self._previous_image_resolved = True
+            return image
+        except Exception as error:
+            raise self._input_error() from error
+
     def _generated_assets(self, root: Path) -> tuple[bytes, bytes, bytes, bytes, bytes]:
         try:
             project = self._project_root()
@@ -210,7 +283,10 @@ class ImageManager:
                 root, project, timeout=self.timeout, max_output=_MAX_OUTPUT,
             )
             tools = _compile_tool_registry(root, timeout=self.timeout, max_output=_MAX_OUTPUT)
-            status, candidate = _compile_lifecycle_assets(root, project, timeout=self.timeout, max_output=_MAX_OUTPUT)
+            previous_image = self._build_predecessor()
+            options = {"previous_image": previous_image} if previous_image is not None else {}
+            status, candidate = _compile_lifecycle_assets(root, project, timeout=self.timeout,
+                                                          max_output=_MAX_OUTPUT, **options)
         except Exception as error:
             raise self._input_error() from error
         if not all(isinstance(asset, bytes) and asset for asset in (registry, schema, tools, status, candidate)):
@@ -385,13 +461,14 @@ class ImageManager:
         if self.identity(use_packaged_assets=use_packaged_assets) != identity:
             raise self._input_error()
 
-    def resolve(self, explicit_id: str | None = None, build_if_missing: bool = True) -> str:
+    def resolve(self, explicit_id: str | None = None, build_if_missing: bool = True, *,
+                use_packaged_assets: bool = False) -> str:
         if explicit_id is not None and (not isinstance(explicit_id, str)
                                        or IMMUTABLE_IMAGE.fullmatch(explicit_id) is None):
             raise ImageError("IMAGE_REFUSED", "An explicit image must be one lowercase immutable sha256 ID")
-        if type(build_if_missing) is not bool:
+        if type(build_if_missing) is not bool or type(use_packaged_assets) is not bool:
             raise ImageError("IMAGE_REFUSED", "Image build selection must be a boolean")
-        use_packaged_assets = not build_if_missing
+        use_packaged_assets = use_packaged_assets or not build_if_missing
         identity = self.identity(use_packaged_assets=use_packaged_assets)
         if explicit_id is not None:
             image = explicit_id
@@ -407,17 +484,17 @@ class ImageManager:
                 image = next(iter(ids))
                 created = self._inspect_details(image, identity)
             elif build_if_missing:
-                self._current(identity)
-                return self._build(identity)
+                self._current(identity, use_packaged_assets=use_packaged_assets)
+                return self._build(identity, use_packaged_assets=use_packaged_assets)
             else:
                 raise ImageError("IMAGE_REFUSED", "No matching local runtime image is present; build is disabled")
         self._current(identity, use_packaged_assets=use_packaged_assets)
         self.ensure_display_tag(image, identity.version, created)
         return image
 
-    def _build(self, identity: ImageIdentity) -> str:
+    def _build(self, identity: ImageIdentity, *, use_packaged_assets: bool) -> str:
         """Build one image, then add its inspect-derived display tag if safe."""
-        self._current(identity)
+        self._current(identity, use_packaged_assets=use_packaged_assets)
         try:
             # Retain one private attempt as build evidence.  Cleanup must never
             # mask a build result or retry a denied directory deletion.
@@ -433,7 +510,7 @@ class ImageManager:
             raise ImageError("BUILD_FAILED", "Private image build context is unavailable") from error
         self._assemble(context, identity)
         iidfile = attempt / "image.id"
-        self._current(identity)
+        self._current(identity, use_packaged_assets=use_packaged_assets)
         self._verify_context(context, identity)
         command = ("docker", "build", "--iidfile", str(iidfile),
                    "--label", f"{SCHEMA_LABEL}={SCHEMA}",
@@ -445,7 +522,7 @@ class ImageManager:
                    "--build-arg", f"RUNTIME_GID={identity.gid}",
                    "--file", str(context / DOCKERFILE), str(context))
         self._run(command, code="BUILD_FAILED", cwd=context, buildx_config=buildx)
-        self._current(identity)
+        self._current(identity, use_packaged_assets=use_packaged_assets)
         self._verify_context(context, identity)
         try:
             if iidfile.is_symlink() or not iidfile.is_file() or iidfile.stat().st_size > 1024:
@@ -457,7 +534,7 @@ class ImageManager:
             raise ImageError("BUILD_FAILED", "Builder did not capture one immutable sha256 image ID") from error
         created = self._inspect_details(image, identity, code="BUILD_FAILED", built=True)
         self.ensure_display_tag(image, identity.version, created)
-        self._current(identity)
+        self._current(identity, use_packaged_assets=use_packaged_assets)
         self._verify_context(context, identity)
         return image
 

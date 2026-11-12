@@ -8,8 +8,7 @@ context:
   role: method
   form: direct_policy
   topics:
-    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality
-      <+ Traceability
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Traceability
   tier: 4
 relations:
   DERIVED_FROM:
@@ -18,8 +17,8 @@ relations:
   - CA-R-1094
 state:
   status: Active
-  version: 26
-  updated_at: 2026-11-10 20:47:54 +0400
+  version: 27
+  updated_at: '2026-11-12T01:59:14.433341+00:00'
 destination:
   file:
     name: CA-M-191-DIRECT_POLICY--bind-one-programmatic-mutation-to-its-initiative.md
@@ -40,7 +39,7 @@ Bind one programmatic mutation to its Initiative
 ### Prose Claim
 ##### Applicable when
 
-apply **before** accepting **or** dispatching a programmatic mutation.
+Apply before accepting or dispatching a programmatic mutation governed by Initiative binding. The six direct Project Atom Lifecycle Tools follow CA-R-1105.
 
 ##### Procedure
 

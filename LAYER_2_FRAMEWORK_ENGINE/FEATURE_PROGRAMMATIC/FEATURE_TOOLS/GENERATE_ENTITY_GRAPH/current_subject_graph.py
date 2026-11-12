@@ -688,7 +688,7 @@ def compose_enhanced_current_graph(carriers: list[Record]) -> tuple[Record, Reco
     annotations into graph Nodes.
     """
 
-    from cfel_claim_constraints import claim_cfel_blocks, constraints_for
+    from cfel_claim_constraints import claim_cfel_blocks, claim_python_blocks, constraints_for
 
     graph, provenance = compose_current_graph(carriers, unsupported_as_diagnostics=True)
     constraints, unresolved = constraints_for(carriers)
@@ -757,7 +757,8 @@ def compose_enhanced_current_graph(carriers: list[Record]) -> tuple[Record, Reco
                             if row.get("kind") in {"property_constraint", "allowed_literal"} and declared(row)],
         "source_constraints": [row for row in constraints if row.get("group") != "instances" and non_declaration_property(row)],
         "instance_constraints": [row for row in constraints if row.get("group") == "instances"],
-        "formal_claim_blocks": [block for carrier in carriers for block in claim_cfel_blocks(carrier)],
+        "formal_claim_blocks": [block for carrier in carriers for block in
+                                [*claim_cfel_blocks(carrier), *claim_python_blocks(carrier)]],
         "cfel_diagnostics": unresolved,
     }
     return enhanced, provenance

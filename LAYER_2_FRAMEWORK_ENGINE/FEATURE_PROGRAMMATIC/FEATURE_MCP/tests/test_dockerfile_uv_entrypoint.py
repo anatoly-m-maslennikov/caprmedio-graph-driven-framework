@@ -27,7 +27,7 @@ class DockerfileUVEntrypointTests(unittest.TestCase):
         self.assertEqual(command[0], "/opt/venv/bin/python")
         self.assertEqual(command[1:], ["LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/docker/entrypoint.py"])
         self.assertNotIn("workflow-orchestrator", dockerfile.read_text())
-        self.assertIn(
+        self.assertNotIn(
             "RUN /opt/venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/"
             "FEATURE_MCP/generate_tool_registry.py --package-root /workspace",
             dockerfile.read_text(),

@@ -2,6 +2,7 @@
 
 # CA-R-2785@4
 # CA-D-678@5
+# CA-O-164@37
 from __future__ import annotations
 
 import json
@@ -23,9 +24,11 @@ from release_support import (  # noqa: E402
     LocalReleaseError,
     _DEFAULT_INSTALLED,
     _DEFAULT_PRODUCT,
+    _GENERATED_ASSETS,
     _PRESERVED_NAMES,
     _RUN_ID,
     _SOURCE_UNITS,  # noqa: F401 - retained as the module's tested release-source contract.
+    _build_predecessor,
     _cleanup_staging,
     _clear_target,
     _copy_tree,
@@ -57,11 +60,14 @@ def run_local_release(
     run_id: str,
     runner: Callable[[tuple[str, ...], Path], Any] | None = None,
     test_modules: tuple[str, ...] | None = None,
+    image_mode: str = "refresh",
 ) -> dict[str, object]:
     """Run the direct local release without candidate selection or recovery state."""
 
     if not isinstance(run_id, str) or not _RUN_ID.fullmatch(run_id):
         raise LocalReleaseError("local-release-run-id-invalid")
+    if image_mode not in ("refresh", "existing"):
+        raise LocalReleaseError("local-release-image-mode-invalid")
     if test_modules is not None and not isinstance(test_modules, tuple):
         raise LocalReleaseError("local-release-test-modules-invalid")
     if test_modules == ():
@@ -92,7 +98,8 @@ def run_local_release(
     if product == installed:
         raise LocalReleaseError("local-release-target-invalid")
 
-    prior_image = _launcher_image(selection)
+    previous_image = _build_predecessor(selection) if image_mode == "refresh" else None
+    prior_image = previous_image or _launcher_image(selection)
     prior_project = selection.instance_id if prior_image is not None else None
 
     failed_step = "validate_inputs"
@@ -152,6 +159,11 @@ def run_local_release(
                 continue
             if phase == "validate inputs":
                 failed_step = "validate_inputs"
+                if image_mode == "existing":
+                    for relative in sorted(_GENERATED_ASSETS):
+                        asset = _project_path(root, Path(relative), label="image-asset")
+                        if not asset.is_file() or asset.stat().st_size == 0:
+                            raise LocalReleaseError(f"local-release-image-asset-missing: {relative}")
                 _release_sources(root)
                 ca = _target(root, Path(".agents/skills/ca"), label="project-ca")
                 for target in (product, installed, runtime, ca):
@@ -179,6 +191,8 @@ def run_local_release(
                     "--managed-python", "--no-env-file", "--all-groups", "python", "-B", "-u",
                     str(Path(__file__).resolve().parents[2] / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/run_full_test_suite.py"), "--project-root", str(root),
                 )
+                if image_mode == "existing":
+                    argv += ("--image-mode", "existing")
                 if test_modules is not None:
                     argv += tuple(
                         argument
@@ -260,7 +274,9 @@ def run_local_release(
                 _verify_package(prepared_product, product_identity)
                 package = staging / "package"
                 package.mkdir()
-                package_identity = _prepare_package(root, prepared_product, package)
+                package_identity = _prepare_package(
+                    root, prepared_product, package, refresh_assets=image_mode == "refresh", previous_image=previous_image,
+                )
             elif phase == "prepare candidate image":
                 failed_step = "prepare_candidate_image"
                 _verify_package(package, package_identity)
@@ -272,8 +288,8 @@ def run_local_release(
                     project_root=root,
                     build_provenance=release_image_provenance(root, selection, cleanup_runner),
                 )
-                candidate_image = manager.resolve()
-                candidate_fingerprint = manager.identity().fingerprint
+                candidate_fingerprint = manager.identity(use_packaged_assets=True).fingerprint
+                candidate_image = manager.resolve(use_packaged_assets=True)
                 if (not isinstance(candidate_image, str) or not re.fullmatch(r"sha256:[0-9a-f]{64}", candidate_image)
                         or not isinstance(candidate_fingerprint, str) or not re.fullmatch(r"[0-9a-f]{64}", candidate_fingerprint)):
                     raise LocalReleaseError("local-release-candidate-image-invalid")
@@ -401,6 +417,7 @@ def run_local_release(
                 receipt.write_text(
                     "# Simple local release receipt\n\n"
                     f"Run: `{run_id}`\n\n"
+                    f"Image mode: `{image_mode}`\n\n"
                     f"Test scope: `{test_scope}`\n\n"
                     f"Selected test modules: {test_selection}\n\n"
                     f"Endpoint: `{endpoint or 'not reported'}`\n\n"
@@ -420,6 +437,7 @@ def run_local_release(
             report.write_text(
                 "# Simple local release failed\n\n"
                 f"Run: `{run_id}`\n\nStopped at: `{failed_step}`\n\n"
+                f"Image mode: `{image_mode}`\n\n"
                 f"Test scope: `{test_scope}`\n\n"
                 f"Selected test modules: {test_selection}\n\n"
                 f"Error class: `{type(error).__name__}`\n\n"
@@ -446,6 +464,7 @@ def run_local_release(
             "endpoint": endpoint,
             "test_scope": test_scope,
             "test_modules": selected_test_modules,
+            "image_mode": image_mode,
         }
 
     return {
@@ -455,4 +474,5 @@ def run_local_release(
         "endpoint": endpoint,
         "test_scope": test_scope,
         "test_modules": selected_test_modules,
+        "image_mode": image_mode,
     }

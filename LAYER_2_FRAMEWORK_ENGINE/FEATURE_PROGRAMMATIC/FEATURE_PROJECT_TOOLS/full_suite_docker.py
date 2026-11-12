@@ -64,7 +64,7 @@ def _remove_owned_image(root: Path, image: str, attempt: str) -> None:
 
 
 @contextmanager
-def current_code_test_image(root: Path):
+def current_code_test_image(root: Path, *, use_packaged_assets: bool = False):
     print("Test image START: preparing current source", flush=True)
     parent = root / ".caprmedio_tmp/tests/full-suite-integration"
     for component in (root / ".caprmedio_tmp", parent.parent, parent):
@@ -76,7 +76,8 @@ def current_code_test_image(root: Path):
     scratch = Path(tempfile.mkdtemp(prefix="attempt-", dir=parent))
     attempt = uuid.uuid4().hex
     manager = ImageManager(root, executor=_executor(attempt), build_temp_root=scratch, project_root=root)
-    image = manager._build(manager.identity())
+    identity = manager.identity(use_packaged_assets=use_packaged_assets)
+    image = manager._build(identity, use_packaged_assets=use_packaged_assets)
     print(f"Test image FINISH: {image}", flush=True)
     environment = {
         "CAPRMEDIO_IMAGE": image,

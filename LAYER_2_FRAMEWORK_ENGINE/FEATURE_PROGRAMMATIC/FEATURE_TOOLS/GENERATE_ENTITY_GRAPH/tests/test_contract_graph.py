@@ -10,6 +10,8 @@ sys.path[:0] = [str(TOOL.parent), str(TOOL)]
 
 from contract_graph import compose_contract_graph, render_contract_graph  # noqa: E402
 from cfel_claim_constraints import extract_claim_constraints  # noqa: E402
+from subject_projection_data import _formal_claims  # noqa: E402
+from subject_projection_views import _claims, _cfel  # noqa: E402
 
 
 def carrier(atom_id, active, body, *, role="Requirement", form="Declaration"):
@@ -28,6 +30,39 @@ def body(*claim_lines, semantics=None):
 
 
 class ContractGraphTests(unittest.TestCase):
+    def test_python_model_claim_matches_cfel_and_retains_authored_source(self):
+        cfel = carrier("CA-R-1", "Atom.Name", body("```CFEL", "# model", "Atom.Name:: [string]{::1};", "```"))
+        raw = '# model\nproperty_rule(address="Atom.Name", value_format="string", values="1")\n'
+        python = carrier("CA-R-2", "Atom.Name", body("```python", raw.rstrip(), "```"))
+        old, old_diagnostics = extract_claim_constraints(cfel)
+        new, diagnostics = extract_claim_constraints(python)
+        self.assertEqual([{k: v for k, v in row.items() if k != "source"} for row in old_diagnostics],
+                         [{k: v for k, v in row.items() if k != "source"} for row in diagnostics])
+        self.assertEqual([{k: v for k, v in row.items() if k != "source"} for row in old],
+                         [{k: v for k, v in row.items() if k != "source"} for row in new])
+        graph = compose_contract_graph([cfel, python])
+        entries = [entry for row in graph["entities"] for entry in row["own"]]
+        entry = next(entry for entry in entries if entry["source"]["atom_id"] == "CA-R-2")
+        self.assertEqual(raw, entry["python_blocks"][0]["block"])
+        self.assertEqual("python", entry["python_blocks"][0]["label"])
+        _, projected, label = _claims(_formal_claims([entry]))[0]
+        self.assertEqual("```python\n" + raw + "```", _cfel(projected, label))
+
+    def test_python_claim_invalid_is_diagnostic_and_prose_and_operations_are_not_executed(self):
+        bad = carrier("CA-R-1", "Atom", body("### Formal Claim", "```python", "execute()", "```"))
+        _, diagnostics = extract_claim_constraints(bad)
+        self.assertEqual("python-formal-claim-invalid", diagnostics[0]["code"])
+        prose = carrier("CA-R-2", "Atom", body("### Prose Claim", "```python", "execute()", "```"))
+        workflow = carrier("CA-O-1", "Atom", body("### Formal Claim", "```python", "execute()", "```"), role="Operations")
+        self.assertEqual(([], []), extract_claim_constraints(prose))
+        self.assertEqual(([], []), extract_claim_constraints(workflow))
+
+    def test_python_order_claim_preserves_legacy_graph_diagnostics(self):
+        cfel = carrier("CA-R-1", "Atom", body("```CFEL", "# model", "Atom.A ;> Atom.B;", "```"))
+        python = carrier("CA-R-1", "Atom", body("```python", "# model",
+                         'order_before(first="Atom.A", second="Atom.B")', "```"))
+        self.assertEqual(extract_claim_constraints(cfel), extract_claim_constraints(python))
+
     def test_unary_relation_counts_keep_source_scope_and_no_target(self):
         graph = compose_contract_graph([
             carrier("CA-R-1", "Node", body("```CFEL", "# model", "(Node, Node.**) {:1}((IS_DECLARED_BY));", "```")),

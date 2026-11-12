@@ -15,9 +15,9 @@ topics:
   - Subject/CAPRMEDIO/Graph/Node/Project Model/Term//Artifact
   - Subject/CAPRMEDIO/Carrier/Docker Image
 tier: 3
-status: Active
-version: 17
-updated_at: 2026-11-09 15:54:30 +0400
+status: active
+version: 18
+updated_at: '2026-11-12T09:55:15.146518+00:00'
 carrier_destination:
   file:
     name: CA-R-1880-FRAMEWORK_DELIVERY-RULE--preserve-the-prior-release-and-truthful-failure-recording.md
@@ -26,8 +26,7 @@ current_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 relations: {}
 ---
-
-# Summary
+## Summary
 
 Preserve the prior release and truthful failure recording
 
@@ -37,7 +36,11 @@ Local/public release failure, uncertain effects and current-Project image cleanu
 
 ## Claim
 
+### Prose Claim
+
 Release Version **must** preserve the prior runtime until its prepared replacement is ready, report actual effects and failures truthfully, and never replay an uncertain effect automatically. After successful replacement and Project-MCP readiness, it **must** retire only verified superseded release-owned images for the current Project whose exact immutable identity and ownership are known and which have no retaining container or protected reference.
+
+Local Release must support rebuilding the Engine from a known-good checkout and its generated assets even if the current service cannot start or the prior image has been removed.
 
 ## Details
 

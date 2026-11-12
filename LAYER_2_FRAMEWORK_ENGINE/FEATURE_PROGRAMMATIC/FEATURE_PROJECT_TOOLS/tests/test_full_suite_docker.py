@@ -39,7 +39,8 @@ class FullSuiteDockerTests(unittest.TestCase):
         ):
             manager = factory.return_value
 
-            def build(_identity):
+            def build(_identity, *, use_packaged_assets):
+                self.assertFalse(use_packaged_assets)
                 self.assertIn("Test image START:", self.output.getvalue())
                 self.assertNotIn("Test image FINISH:", self.output.getvalue())
                 return IMAGE
@@ -53,7 +54,7 @@ class FullSuiteDockerTests(unittest.TestCase):
                 self.assertEqual(str(scratch), environment["TMPDIR"])
                 self.assertTrue(scratch.is_relative_to(self.root / ".caprmedio_tmp"))
                 self.assertTrue(scratch.is_dir())
-            manager._build.assert_called_once_with(manager.identity.return_value)
+            manager._build.assert_called_once_with(manager.identity.return_value, use_packaged_assets=False)
             manager.resolve.assert_not_called()
             self.assertEqual(self.root, factory.call_args.args[0])
             self.assertEqual(self.root, factory.call_args.kwargs["project_root"])
@@ -144,8 +145,8 @@ class FullSuiteDockerTests(unittest.TestCase):
             redirect_stdout(self.output),
             redirect_stderr(self.errors),
         ):
-            self.assertEqual(0, full.run_full_suite(self.root))
-            build.assert_called_once_with(self.root)
+            self.assertEqual(0, full.run_full_suite(self.root, image_mode="existing"))
+            build.assert_called_once_with(self.root, use_packaged_assets=True)
             self.assertEqual(IMAGE, run.call_args.args[2]["CAPRMEDIO_FIRST_CUT_HTTP_IMAGE"])
             environment = run.call_args.args[2]
             self.assertNotIn("CAPRMEDIO_RELEASE_E2E_CONTEXT", environment)

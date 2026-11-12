@@ -123,7 +123,8 @@ class QueryStoreTest(unittest.TestCase):
         self.assertFalse(any(field.startswith("content.") for field in atom_fields))
         self.assertEqual(
             [[table, field] for table in (
-                "atom_content_issues", "atom_declared_carrier_issues", "atom_physical_carrier_issues",
+                "atom_declared_carrier_issues", "atom_duplicate_revision_issues", "atom_parse_issues",
+                "atom_physical_carrier_issues", "atom_schema_issues",
             ) for field in (
                 "reference", "relative_path", "filename", "issue_category", "property", "observed", "expected", "diagnostic",
             )]
@@ -214,11 +215,11 @@ class QueryStoreTest(unittest.TestCase):
         ]
         scopes = [self.scope("S")]
         with patch.object(
-            public_rows_module, "projected_rows", wraps=public_rows_module.projected_rows,
+            public_rows_module, "_atom", wraps=public_rows_module._atom,
         ) as project:
             self.store.replace(atoms, scopes, relation_types={"CONTAINS"})
 
-        self.assertEqual(1, project.call_count)
+        self.assertEqual(len(atoms), project.call_count)
         snapshot = self.store._projection
         assert snapshot is not None
         atom_fields = [column[0] for column in self.store._connection.execute(

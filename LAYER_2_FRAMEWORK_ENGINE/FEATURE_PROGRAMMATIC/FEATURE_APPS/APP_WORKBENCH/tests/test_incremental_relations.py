@@ -11,11 +11,56 @@ from unittest.mock import patch
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.incremental_relations import materialize_delta  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.graph_store import graph_delta_state, graph_state  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relation_registry import compile_registry  # noqa: E402
 from APP_WORKBENCH.tests.test_relations import atom, declarations  # noqa: E402
 
 
 class IncrementalRelationTests(unittest.TestCase):
+    def test_all_carriers_are_retained_without_polluting_the_current_graph(self):
+        first_parent, second_parent = atom("CA-P-1"), atom("CA-P-3")
+        current = atom("CA-P-2", relation={"IS_CONTAINED_BY": ["CA-P-1"]})
+        duplicate = dict(atom("CA-P-2", relation={"IS_CONTAINED_BY": ["CA-P-3"]}),
+                         source_path="duplicate.md")
+        archived = dict(atom("CA-P-2@1", relation={"IS_CONTAINED_BY": ["CA-P-3"]}),
+                        status_group="Archived", source_path="archived.md")
+        sources = declarations() + [first_parent, second_parent, current, duplicate, archived]
+        rows, scopes, names, _, state, _ = materialize_delta(sources, [])
+        self.assertEqual(len(sources), len(rows))
+        self.assertEqual({"duplicate.md", "archived.md"},
+                         {row["source_path"] for row in rows if row.get("_graph_excluded")})
+        for row in rows:
+            if row.get("_graph_excluded"):
+                self.assertEqual([], row["relation_edges_json"])
+                self.assertEqual(1, len(row["_carrier_relation_edges_json"]))
+        graph = graph_state(rows, scopes, names)
+        self.assertEqual({("Atom", "CA-P-2", "Atom", "CA-P-1", "IS_CONTAINED_BY", False)},
+                         set(graph.edges["IS_CONTAINED_BY"]))
+
+        sources.remove(current)
+        rows, scopes, names, _, _, delta = materialize_delta(sources, [], state, {current["source_path"]: None})
+        self.assertIsNone(delta)
+        graph = graph_state(rows, scopes, names)
+        self.assertEqual({("Atom", "CA-P-2", "Atom", "CA-P-3", "IS_CONTAINED_BY", False)},
+                         set(graph.edges["IS_CONTAINED_BY"]))
+
+    def test_archived_carrier_delta_does_not_change_graph(self):
+        source = atom("CA-P-1")
+        initial = declarations() + [source]
+        rows, scopes, names, _, state, _ = materialize_delta(initial, [])
+        previous = graph_state(rows, scopes, names)
+        archived = dict(atom("CA-P-1@1", relation={"IS_CONTAINED_BY": ["CA-P-2"]}),
+                        status_group="Archived", source_path="archived.md")
+        rows, scopes, names, _, state, delta = materialize_delta(initial + [archived], [], state,
+                                                                  {"archived.md": archived})
+        self.assertIsNotNone(delta)
+        self.assertIn("archived.md", delta.new_atoms)
+        actual, *_ = graph_delta_state(previous, delta, names)
+        self.assertEqual(previous, actual)
+        _, _, names, _, _, delta = materialize_delta(initial, [], state, {"archived.md": None})
+        self.assertIsNotNone(delta)
+        self.assertIn("archived.md", delta.old_atoms)
+
     def test_static_registry_survives_changes_and_full_rebuild_without_compilation(self):
         metadata = declarations()
         registry = compile_registry(metadata).registry
@@ -259,14 +304,14 @@ class IncrementalRelationTests(unittest.TestCase):
             [still_duplicate, second], [], state, {"CA-R-X.md": still_duplicate},
         )
         self.assertIsNone(delta)
-        self.assertEqual(["CA-R-X"], [row["ref"] for row in rows])
+        self.assertEqual(["CA-R-X", "CA-R-X"], [row["ref"] for row in rows])
 
         third = dict(atom("CA-R-X"), source_path="third.md")
         rows, _scopes, _registered, _inverse, state, delta = materialize_delta(
             [still_duplicate, second, third], [], state, {"third.md": third},
         )
         self.assertIsNone(delta)
-        self.assertEqual(["CA-R-X"], [row["ref"] for row in rows])
+        self.assertEqual(["CA-R-X", "CA-R-X", "CA-R-X"], [row["ref"] for row in rows])
 
         renamed = dict(still_duplicate, id="CA-R-Y", ref="CA-R-Y")
         rows, _scopes, _registered, _inverse, _state, delta = materialize_delta(
@@ -348,11 +393,11 @@ class IncrementalRelationTests(unittest.TestCase):
             [first, second, third], [], state, {"second.md": second, "third.md": third},
         )
         self.assertIsNone(delta)
-        self.assertEqual(["CA-P-1", "CA-P-2"], [row["ref"] for row in rows])
+        self.assertEqual(["CA-P-1", "CA-P-2", "CA-P-2"], [row["ref"] for row in rows])
 
         changed = dict(first, content_markdown="## Claim\nChanged.\n")
         rows, _scopes, _registered, _inverse, _state, delta = materialize_delta(
-            [changed], [], state, {"ignored.md": None, "CA-P-1.md": changed},
+            [changed, second, third], [], state, {"ignored.md": None, "CA-P-1.md": changed},
         )
         self.assertIsNotNone(delta)
         self.assertEqual("Changed.", rows[0]["content_markdown"].splitlines()[-1])

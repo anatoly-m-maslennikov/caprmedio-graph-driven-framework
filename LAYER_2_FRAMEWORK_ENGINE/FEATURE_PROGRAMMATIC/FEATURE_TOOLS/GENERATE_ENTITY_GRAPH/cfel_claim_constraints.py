@@ -14,7 +14,7 @@ from pathlib import Path
 from typing import Any
 
 import subject_notation as notation
-from carrier_aliases import carrier_read_view
+from carrier_aliases import carrier_read_view, matches_named_value
 
 Record = dict[str, Any]
 _FENCE_LINE = re.compile(r"^[ \t]*(?P<marker>`{3,}|~{3,})(?P<label>[^\r\n]*)\r?$")
@@ -333,6 +333,36 @@ def claim_cfel_blocks(carrier: Mapping[str, Any]) -> list[Record]:
     ]
 
 
+def claim_python_blocks(carrier: Mapping[str, Any]) -> list[Record]:
+    """Select authored Python model Claims, never Workflow or prose examples."""
+    view = carrier.get("read_view")
+    if not isinstance(view, Mapping):
+        metadata = carrier.get("metadata")
+        view = carrier_read_view(dict(metadata)) if isinstance(metadata, Mapping) else {}
+    if not any(matches_named_value(view.get("content_role"), role)
+               for role in ("Requirement", "Method", "Evaluation", "Delivery")):
+        return []
+    source, body = carrier.get("source"), carrier.get("body")
+    if not isinstance(source, Mapping) or not isinstance(body, str):
+        return []
+    parts = _claim_parts(body)
+    ranges = parts[0] if parts is not None else _claim_ranges(body)
+    return [
+        {"source": dict(source), "block": body[start:closing], "label": label}
+        for opening, start, closing, label in _fences(body)
+        if label.casefold() == "python" and closing is not None
+        and any(lo <= opening < hi for lo, hi in ranges)
+    ]
+
+
+def python_compiler_expressions(block: str) -> list[tuple[str, str | None]]:
+    """Read normalized statements without changing the legacy graph semantics."""
+    from python_model_claim import parse_grouped_python_model_claim
+    return [(part, group)
+            for expression, group in parse_grouped_python_model_claim(block)
+            for part in _split_expressions(expression)]
+
+
 def claim_fenced_blocks(carrier: Mapping[str, Any]) -> list[Record]:
     """Return every fenced Claim block with its original language label.
 
@@ -395,6 +425,11 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
     if not isinstance(source, Mapping) or not isinstance(body, str):
         return [], []
     expressions, diagnostics = _expressions(body)
+    for block in claim_python_blocks(carrier):
+        try:
+            expressions.extend(python_compiler_expressions(block["block"]))
+        except ValueError as error:
+            diagnostics.append({"code": "python-formal-claim-invalid", "message": str(error), "source": dict(source)})
     records: list[Record] = []
     for expression, group in expressions:
         record_start, diagnostic_start = len(records), len(diagnostics)

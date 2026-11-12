@@ -6,23 +6,20 @@ container:
 role: Evaluation
 form: Eval Case
 topics:
-  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development
-    <+ Architecture <+ Communication
+  main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication
   dependencies:
-  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture
-    <+ Component Structure
-  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification
-    <+ Dynamic Testing
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Component Structure
+  - PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Quality <+ Verification <+ Dynamic Testing
   - MODEL//CAPRMEDIO <+ Package/Project Package
   - MODEL//CAPRMEDIO <+ Runtime/Session
 tier: 5
 relations:
   evaluation_for:
   - CA-R-1884
-  - CA-M-341
+  - CA-M-1008
 status: Active
-version: 14
-updated_at: 2026-11-11 06:09:13 +0400
+version: 15
+updated_at: '2026-11-12T01:59:14.433341+00:00'
 carrier_destination:
   file:
     name: CA-E-584-MCP-EVAL_CASE--verify-http-mcp-gateway-and-stdio-preservation.md

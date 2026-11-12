@@ -1,3 +1,4 @@
+# CA-D-718@1
 # CA-R-2902@2
 # CA-R-2903@2
 # CA-D-681@4
@@ -30,7 +31,7 @@ from runtime_failure_diagnostics import report_failure
 from shared_gateway import SharedGatewayRefusal
 from workbench_links import public_saved, public_workspace, validate_reference
 from workbench_tools import (
-    CHECK, INTERFACE_TOOLS, LOAD, PAGE, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA, SYNC_STATUS,
+    ARCHIVE_LOAD, CHECK, INTERFACE_TOOLS, LOAD, PAGE, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA, SYNC_STATUS,
     WORKSPACE_GET, WORKSPACE_OPEN,
 )
 
@@ -88,7 +89,7 @@ def _selection(gateway: Any, request: Request, shared: bool) -> Any:
 
 async def _execute(gateway: Any, name: str, arguments: dict[str, Any], shared: bool) -> dict[str, Any]:
     if not shared:
-        if name in (*INTERFACE_TOOLS, SAVE_VIEW, SYNC_STATUS) and name in getattr(gateway, "tool_blacklist", frozenset()):
+        if name in (*INTERFACE_TOOLS, SAVE_VIEW, SYNC_STATUS, ARCHIVE_LOAD) and name in getattr(gateway, "tool_blacklist", frozenset()):
             raise ExplicitBlockingRuntimeFailure("query_error", "Unknown Tool")
         result: dict[str, Any] = await gateway.workbench.call(
             name, {key: value for key, value in arguments.items() if key != "project_root"}
@@ -147,7 +148,7 @@ def routes(gateway: Any, *, shared: bool = False) -> list[BaseRoute]:  # noqa: C
                 selection = gateway._selection(arguments["project_root"]) if shared else getattr(gateway, "selection", None)
                 if not _project_name_matches(selection, request.path_params["project_name"]):
                     return _unknown_project()
-                if name == SYNC_STATUS and not shared:
+                if name in {SYNC_STATUS, ARCHIVE_LOAD} and not shared:
                     try:
                         arguments = native_arguments(arguments, selection, gateway.root)
                     except ValueError as error:
@@ -194,6 +195,7 @@ def routes(gateway: Any, *, shared: bool = False) -> list[BaseRoute]:  # noqa: C
         Route(f"{WORKBENCH_PATH}/{{project_name}}/interface", interface, methods=["POST"]),
         *[Route(f"{WORKBENCH_PATH}/{{project_name}}/{path}", operation(name), methods=["POST"])
           for path, name in (("run", RUN), ("page", PAGE), ("check", CHECK), ("schema", SCHEMA), ("status", SYNC_STATUS),
+                             ("archive-load", ARCHIVE_LOAD),
                              ("view-save", SAVE_VIEW), ("load", LOAD),
                              ("saved-list", SAVED_LIST))],
         Mount(

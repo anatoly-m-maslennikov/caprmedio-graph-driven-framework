@@ -46,7 +46,7 @@ class DraftTest(unittest.TestCase):
         self.allocation.start()
         self.addCleanup(self.allocation.stop)
 
-    def test_same_identity_and_edit_preserves_version_body_and_timestamp(self):
+    def test_copy_from_draft_keeps_source_and_body(self):
         result = draft.create_draft(self.selection, Model(), {'sourceCurrent': self.selector, 'changes': {}})
         self.assertFalse(result['errors'])
         saved = result['savedDraft']
@@ -57,12 +57,45 @@ class DraftTest(unittest.TestCase):
         result = draft.create_draft(self.selection, Model(), {
             'sourceCurrent': {'ref_id': 'CA-R-1@3-draft', 'version': 3}, 'changes': {'label': 'Declaration'}})
         self.assertFalse(result['errors'])
-        self.assertEqual(result['savedDraft']['version'], 3)
-        from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
-        self.assertEqual(parse_carrier(first.encode(), path).metadata['state']['updated_at'],
-                         parse_carrier(path.read_bytes(), path).metadata['state']['updated_at'])
-        self.assertIn('Retain me.', path.read_text())
+        self.assertEqual(result['savedDraft']['version'], 4)
+        self.assertEqual(first, path.read_text())
+        self.assertIn('Retain me.', (self.root / result['savedDraft']['path']).read_text())
         self.assertEqual(self.source.read_text().count('status: Active'), 1)
+
+    def test_current_without_version_and_historical_version_selection(self):
+        no_version = draft.prepare_draft(self.selection, Model(), {'sourceCurrent': 'CA-R-1'})
+        self.assertEqual((no_version['pin'].version, no_version['version']), (2, 3))
+        archived = self.source.parent / 'archived' / 'CA-R-1@1-DECLARATION--example.md'
+        archived.parent.mkdir()
+        archived.write_text(self.source.read_text().replace('ref_id: CA-R-1', 'ref_id: CA-R-1@1')
+                            .replace('status: Active', 'status: Archived').replace('version: 2', 'version: 1')
+                            .replace('Retain me.', 'Historical claim.'))
+        result = draft.create_draft(self.selection, Model(),
+                                    {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 1}})
+        self.assertEqual(result['savedDraft']['version'], 3)
+        self.assertIn('Historical claim.', (self.root / result['savedDraft']['path']).read_text())
+        self.assertIn('Retain me.', self.source.read_text())
+
+    def test_historical_source_skips_existing_revision_numbers(self):
+        archived = self.source.parent / 'archived' / 'CA-R-1@1-DECLARATION--example.md'
+        archived.parent.mkdir()
+        archived.write_text(self.source.read_text().replace('ref_id: CA-R-1', 'ref_id: CA-R-1@1')
+                            .replace('status: Active', 'status: Archived').replace('version: 2', 'version: 1'))
+        other = archived.with_name('CA-R-1@8-DECLARATION--example.md')
+        other.write_text(archived.read_text().replace('CA-R-1@1', 'CA-R-1@8').replace('version: 1', 'version: 8'))
+        plan = draft.prepare_draft(self.selection, Model(), {'sourceCurrent': 'CA-R-1@1'})
+        self.assertEqual(plan['version'], 9)
+
+    def test_base_id_and_version_copy_an_existing_draft(self):
+        original = draft.create_draft(self.selection, Model(), {'sourceCurrent': 'CA-R-1'})['savedDraft']
+        source_path = self.root / original['path']
+        before = source_path.read_bytes()
+        result = draft.create_draft(self.selection, Model(), {
+            'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 3}, 'changes': {'tier': 2},
+        })
+        self.assertEqual(result['savedDraft']['version'], 4)
+        self.assertEqual(source_path.read_bytes(), before)
+        self.assertIn('Retain me.', (self.root / result['savedDraft']['path']).read_text())
 
     def test_changed_summary_allocates_new_identity(self):
         result = draft.create_draft(self.selection, Model(), {'sourceCurrent': self.selector,
@@ -76,16 +109,27 @@ class DraftTest(unittest.TestCase):
 
         text = self.source.read_text().replace('state:\n', 'relations:\n  IS_REPLACEMENT_FOR:\n  - CA-R-8\nstate:\n')
         self.source.write_text(text)
+        source_pin = draft._source(self.selection, self.selector)
         plan = draft.prepare_draft(self.selection, Model(), {'sourceCurrent': self.selector,
                                    'changes': {'summary': 'New example', 'relations': {
-                                       'is_replacement_for': ['CA-R-7']}}})
+                                       'is_replacement_for': ['CA-R-7']}}}, source_pin=source_pin)
         parsed = parse_carrier(plan['raw'], plan['destination'])
         self.assertNotIn('IS_REPLACEMENT_FOR', parsed.metadata['relations'])
         self.assertEqual(parsed.metadata['relations']['is_replacement_for'], ['CA-R-8', 'CA-R-7', 'CA-R-1'])
         with self.assertRaises(common.InputError):
             draft.prepare_draft(self.selection, Model(), {'sourceCurrent': self.selector,
                                 'changes': {'summary': 'New example', 'relations': {
-                                    'is_replacement_for': ['CA-R-7'], 'IS_REPLACEMENT_FOR': ['CA-R-8']}}})
+                                    'is_replacement_for': ['CA-R-7'], 'IS_REPLACEMENT_FOR': ['CA-R-8']}}},
+                                source_pin=source_pin)
+
+    def test_create_draft_changes_only_supplied_relations(self):
+        from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
+
+        plan = draft.prepare_draft(self.selection, Model(), {'sourceCurrent': self.selector,
+                                   'changes': {'summary': 'New example', 'relations': {
+                                       'is_replacement_for': ['CA-R-7']}}})
+        parsed = parse_carrier(plan['raw'], plan['destination'])
+        self.assertEqual({'is_replacement_for': ['CA-R-7']}, parsed.metadata['relations'])
 
     def test_empty_input_requests_new_atom(self):
         with self.assertRaises(common.InputError) as caught:
@@ -110,16 +154,16 @@ class DraftTest(unittest.TestCase):
         self.assertIsInstance(updated_at, str)
         self.assertIsNotNone(datetime.fromisoformat(updated_at).utcoffset())
 
-    def test_edit_draft_relocates_after_form_change(self):
+    def test_copy_draft_derives_destination_after_form_change(self):
         initial = draft.create_draft(self.selection, Model(), {'sourceCurrent': self.selector, 'changes': {}})
         previous = self.root / initial['savedDraft']['path']
         result = draft.create_draft(self.selection, Model(), {
             'sourceCurrent': {'ref_id': 'CA-R-1@3-draft', 'version': 3},
             'changes': {'form': 'Rule', 'filename': 'ignored.md'}})
         self.assertFalse(result['errors'])
-        self.assertFalse(previous.exists())
+        self.assertTrue(previous.exists())
         self.assertTrue((self.root / result['savedDraft']['path']).exists())
-        self.assertEqual(result['savedDraft']['version'], 3)
+        self.assertEqual(result['savedDraft']['version'], 4)
         self.assertTrue(result['warnings'])
 
     def test_prepare_has_no_effect_and_forbidden_metadata_fails(self):

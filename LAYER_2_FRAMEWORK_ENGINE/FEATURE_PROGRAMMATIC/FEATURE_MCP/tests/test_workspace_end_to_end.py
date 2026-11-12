@@ -108,6 +108,7 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
         from mcp import MCPError
 
         async with self.session() as (session, _client):
+            service = self.app.gateway.workbench._service
             descriptors = {tool.name: tool for tool in (await session.list_tools()).tools}
             uri = descriptors["workbench_ui_probe"].meta["ui"]["resourceUri"]
             self.assertEqual(
@@ -129,13 +130,15 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
                              await self.tool(session, "workbench_ui_ping", {}))
             invalid = await session.call_tool("workbench_ui_ping", {"sql": "SELECT 1"})
             self.assertTrue(invalid.is_error)
-            self.assertIsNone(self.app.gateway.workbench._service)
+            self.assertIs(service, self.app.gateway.workbench._service)
             with self.assertRaises(MCPError):
                 await session.read_resource("ui://caprmedio/not-a-resource")
 
     async def test_sync_status_is_shared_and_readable_during_initial_capture(self) -> None:
         async with self.session() as (session, client):
-            initial = {"syncing": False, "last_synced_at": None}
+            await self.app.gateway.workbench.close()
+            initial = {"syncing": False, "last_synced_at": None, "loaded_archive_scopes": [],
+                       "audits_pending": False, "last_audit_ms": None, "audit_error": None}
             self.assertEqual(initial, await self.tool(session, "workbench_status", {}))
             self.assertIsNone(self.app.gateway.workbench._service)
             endpoint = f"{WORKBENCH_PATH}/fixture/status"
@@ -147,17 +150,17 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
             entered, release = threading.Event(), threading.Event()
             capture = SourceReader.capture
 
-            def paused(reader):
+            def paused(reader, *args, **kwargs):
                 entered.set()
                 if not release.wait(10):
                     raise RuntimeError("capture release timed out")
-                return capture(reader)
+                return capture(reader, *args, **kwargs)
 
             with patch.object(SourceReader, "capture", paused):
                 query = asyncio.create_task(self.tool(session, "query_run", {"sql": "SELECT 1"}))
                 try:
                     self.assertTrue(await asyncio.to_thread(entered.wait, 5))
-                    running = {"syncing": True, "last_synced_at": None}
+                    running = {**initial, "syncing": True}
                     self.assertEqual(running, await asyncio.wait_for(self.tool(session, "workbench_status", {}), 2))
                     response = await asyncio.wait_for(client.post(endpoint, json={}), 2)
                     self.assertEqual(running, response.json())
@@ -165,9 +168,13 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
                     release.set()
                     await query
 
+            self.assertTrue(await asyncio.to_thread(self.app.gateway.workbench._service.wait_for_audits, 10))
             finished = await self.tool(session, "workbench_status", {})
-            self.assertEqual({"syncing", "last_synced_at"}, set(finished))
+            self.assertEqual(set(initial), set(finished))
             self.assertFalse(finished["syncing"])
+            self.assertFalse(finished["audits_pending"])
+            self.assertIsNone(finished["audit_error"])
+            self.assertGreaterEqual(finished["last_audit_ms"], 0)
             self.assertIsNotNone(dt.datetime.fromisoformat(finished["last_synced_at"]).tzinfo)
             self.assertEqual(finished, (await client.post(endpoint, json={})).json())
             self.assertEqual(400, (await client.post(endpoint, json={"unexpected": True})).status_code)
@@ -342,19 +349,19 @@ class WorkspaceEndToEndTests(unittest.IsolatedAsyncioTestCase):
 
 
     async def test_view_run_preserves_workbench_unavailable_boundary(self) -> None:
+        from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.errors import WorkbenchUnavailableError
+
         async with self.session() as (session, client):
             opened = await self.tool(session, "workspace_open", {"session_id": "invalid-settings"})
             identity = {"workspace_id": opened["workspace_id"], "view_id": opened["active_view_id"]}
             await self.tool(session, "view_update", identity | {"sql": "SELECT 1", "expected_revision": 0})
-            settings = self.root / ".caprmedio_runtime" / "caprmedio_runtime_settings.toml"
-            settings.parent.mkdir(parents=True, exist_ok=True)
-            settings.write_text("[workbench]\nresult_ttl_seconds = 0\n", encoding="utf-8")
-            failed = await session.call_tool("view_run", identity)
-            self.assertTrue(failed.is_error)
-            self.assertIn("workbench_unavailable", str(failed.structured_content))
-            response = await self.interface_call(client, "view_run", identity)
-            self.assertEqual(400, response.status_code)
-            self.assertIn("Workbench unavailable", response.json()["error"])
+            with patch.object(WorkbenchService, '_run_store', side_effect=WorkbenchUnavailableError('unavailable')):
+                failed = await session.call_tool("view_run", identity)
+                self.assertTrue(failed.is_error)
+                self.assertIn("workbench_unavailable", str(failed.structured_content))
+                response = await self.interface_call(client, "view_run", identity)
+                self.assertEqual(400, response.status_code)
+                self.assertIn("Workbench unavailable", response.json()["error"])
 
     async def test_grid_page_contract_matches_http_and_rejects_invalid_indices(self) -> None:
         async with self.session() as (session, client):

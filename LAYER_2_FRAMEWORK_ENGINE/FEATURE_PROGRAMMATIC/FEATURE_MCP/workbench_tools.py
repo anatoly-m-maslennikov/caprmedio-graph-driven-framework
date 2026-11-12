@@ -1,3 +1,5 @@
+# CA-D-718@1
+# CA-O-10025@1
 # CA-R-2728@6
 # CA-R-2776@6
 # CA-M-470@8
@@ -20,6 +22,7 @@
 from __future__ import annotations
 
 import asyncio
+from contextlib import contextmanager
 from pathlib import Path
 import sys
 import threading
@@ -46,6 +49,7 @@ SAVE_VIEW, LOAD, SAVED_LIST = "view_save", "query_load", "query_saved_list"
 RESTART = "workbench_restart"
 REREAD = "workbench_reread"
 SYNC_STATUS = "workbench_status"
+ARCHIVE_LOAD = "workbench_archive_load"
 WORKSPACE_OPEN, WORKSPACE_LIST, WORKSPACE_GET = "workspace_open", "workspace_list", "workspace_get"
 VIEW_CREATE, VIEW_DUPLICATE, VIEW_LIST, VIEW_GET, VIEW_UPDATE = (
     "view_create", "view_duplicate", "view_list", "view_get", "view_update"
@@ -58,7 +62,7 @@ INTERFACE_TOOLS = (
     VIEW_UPDATE, VIEW_RUN, VIEW_CHECK, VIEW_FETCH, VIEW_FOCUS, VIEW_RENAME, VIEW_REMOVE,
     QUERY_LOG_LIST, QUERY_LOG_GET,
 )
-NATIVE_TOOLS = (*mcp_app_probe.TOOL_NAMES, RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, LOAD, SAVED_LIST, *INTERFACE_TOOLS, RESTART, REREAD, SYNC_STATUS)
+NATIVE_TOOLS = (*mcp_app_probe.TOOL_NAMES, RUN, PAGE, CHECK, SCHEMA, SAVE_VIEW, LOAD, SAVED_LIST, *INTERFACE_TOOLS, RESTART, REREAD, SYNC_STATUS, ARCHIVE_LOAD)
 
 _CURSOR = {"type": "integer", "minimum": 0}
 _SQL = {"type": "string"}
@@ -76,6 +80,11 @@ _VIEW_SCHEMA = {"type": "object", "properties": {"sql": _SQL, "name": _SQL}, "re
 _LOAD_SCHEMA = {"type": "object", "properties": {"reference": _SQL}, "required": ["reference"], "additionalProperties": False}
 _LIST_SCHEMA = {"type": "object", "properties": {"limit": {"type": "integer", "minimum": 1, "maximum": 1000}}, "additionalProperties": False}
 _EMPTY_SCHEMA = {"type": "object", "properties": {}, "additionalProperties": False}
+_ARCHIVE_LOAD_SCHEMA = {"type": "object", "properties": {"scopes": {
+    "type": "array", "minItems": 1, "items": {"type": "object", "properties": {
+        "scope_unit": {"type": "string", "minLength": 1}, "role": {"type": "string", "minLength": 1}},
+        "required": ["scope_unit", "role"], "additionalProperties": False}}},
+    "required": ["scopes"], "additionalProperties": False}
 _WORKSPACE_ID = {"type": "string", "minLength": 1}
 _VIEW_ID = {"type": "string", "minLength": 1}
 _POSITION = {"type": "string", "enum": ["first", "last"], "default": "last"}
@@ -106,13 +115,14 @@ def native_tools() -> tuple[types.Tool, ...]:
                VIEW_FOCUS: _VIEW_GET_SCHEMA, VIEW_RENAME: _VIEW_RENAME_SCHEMA,
                VIEW_REMOVE: _VIEW_GET_SCHEMA, QUERY_LOG_LIST: _LIST_SCHEMA,
                QUERY_LOG_GET: _QUERY_LOG_GET_SCHEMA, RESTART: _EMPTY_SCHEMA, REREAD: _EMPTY_SCHEMA,
-               SYNC_STATUS: _EMPTY_SCHEMA}
+               SYNC_STATUS: _EMPTY_SCHEMA, ARCHIVE_LOAD: _ARCHIVE_LOAD_SCHEMA}
     writes = {RUN, SAVE_VIEW, WORKSPACE_OPEN, VIEW_CREATE, VIEW_DUPLICATE, VIEW_UPDATE, VIEW_RUN, VIEW_FOCUS,
-              VIEW_RENAME, VIEW_REMOVE, RESTART, REREAD}
+              VIEW_RENAME, VIEW_REMOVE, RESTART, REREAD, ARCHIVE_LOAD}
     descriptions = {
         LOAD: "Load an explicitly requested Bookmark or saved View.",
         SAVED_LIST: "List recent Bookmark and saved View metadata.",
         SYNC_STATUS: "Read source-indexing status without starting or restarting Workbench.",
+        ARCHIVE_LOAD: "Load Archived Atoms for selected Scope Units and Roles.",
         WORKSPACE_OPEN: "Initialize or resume the Workspace bound to one browser or native session.",
         WORKSPACE_LIST: "List known Workspace IDs for the selected Project.",
         WORKSPACE_GET: "Get Workspace Views, active View, and result metadata without result rows.",
@@ -154,6 +164,17 @@ class WorkbenchTools:
             self._service = WorkbenchService(self.root)
         return self._service
 
+    @contextmanager
+    def lifecycle_reader(self):
+        """Keep the shared query owner open while a lifecycle action uses it."""
+        with self._lifecycle_lock:
+            yield self._owner()
+
+    def project_consistency(self):
+        """Build the Project projection and report its consistency at startup."""
+        with self._lifecycle_lock:
+            return self._owner().project_consistency()
+
     async def call(self, name: str, arguments: Any) -> dict[str, Any]:
         try:
             return await asyncio.to_thread(self._call, name, arguments)
@@ -168,8 +189,13 @@ class WorkbenchTools:
         if name == SYNC_STATUS:
             self._empty(arguments)
             owner = self._service
-            return owner.sync_status() if owner is not None else {"syncing": False, "last_synced_at": None}
+            status = {"syncing": False, "last_synced_at": None, "loaded_archive_scopes": [],
+                      "audits_pending": False, "last_audit_ms": None, "audit_error": None}
+            return {**status, **owner.sync_status()} if owner is not None else status
         with self._lifecycle_lock:
+            if name == ARCHIVE_LOAD:
+                scopes = self._archive_scopes(arguments)
+                return self._owner().load_archives(scopes)
             if name in INTERFACE_TOOLS:
                 return self._owner().interface_call(name, arguments)
             if name == RUN:
@@ -297,6 +323,19 @@ class WorkbenchTools:
     def _empty(arguments: Any) -> None:
         if arguments != {}:
             raise ValueError("Expected an empty object")
+
+    @staticmethod
+    def _archive_scopes(arguments: Any) -> list[dict[str, str]]:
+        if not isinstance(arguments, dict) or set(arguments) != {"scopes"}:
+            raise ValueError("Expected scopes")
+        scopes = arguments["scopes"]
+        if not isinstance(scopes, list) or not scopes:
+            raise ValueError("scopes must be a nonempty list")
+        for scope in scopes:
+            if (not isinstance(scope, dict) or set(scope) != {"scope_unit", "role"}
+                    or any(not isinstance(scope[key], str) or not scope[key].strip() for key in ("scope_unit", "role"))):
+                raise ValueError("Each scope requires a nonempty scope_unit and role")
+        return scopes
 
     @staticmethod
     def _limit(arguments: Any) -> int:

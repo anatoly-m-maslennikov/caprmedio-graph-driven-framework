@@ -1,18 +1,20 @@
-# CA-R-2723@5
+# CA-R-2723@6
 # CA-R-2726@6
 # CA-R-3009@2
 # CA-M-464@15
-# CA-M-465@24
-# CA-D-672@19
+# CA-M-465@29
+# CA-D-672@21
 """Governed Workbench carrier reader; scheduling belongs to the service."""
 from __future__ import annotations
 import sys
 import re
+import os
+from collections import Counter
 from collections.abc import Callable, Iterable
+from itertools import groupby
 from pathlib import Path
 from typing import Any
 from .content_schema import ContentSchema, _is_declaration
-from .audit_tables import collect_issues
 from .header_columns import HeaderSchema
 from .source_content_schema import SourceContentSchema
 from .source_header_schema import SourceHeaderSchema
@@ -20,9 +22,7 @@ from .source_rows import (
     ReferenceIndex, atom as source_atom, canonical_row, file_signature, same_row as _same_row,
     scope as source_scope, source_body,
 )
-from .source_inventory import (
-    archived as _archived, group as _group, markdown_paths as _markdown_paths,
-)
+from .source_inventory import archived as _archived, group as _group, markdown_paths as _markdown_paths
 TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
 if str(TOOLS) not in sys.path:
     sys.path.insert(0, str(TOOLS))
@@ -39,7 +39,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.parsing import (  # noqa: E402
     CarrierError,
     parse_carrier,
 )
-from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regular  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS  # noqa: E402
 class SourceReader:
     def __init__(
@@ -47,6 +47,9 @@ class SourceReader:
         compiled_schema: tuple[ContentSchema, HeaderSchema] | None = None,
         status_groups: tuple[tuple[str, str, str], ...] = (),
         role_folders: tuple[tuple[str, str], ...] | None = None,
+        include_archived: bool = True,
+        archive_placement: Any | None = None,
+        audit_model: Any | None = None,
     ) -> None:
         if type(schema_mode) is not int or schema_mode not in {1, 2}:
             raise ValueError("workbench.schema_mode must be 1 or 2")
@@ -54,6 +57,11 @@ class SourceReader:
         self._schema_mode = schema_mode
         self._status_groups = status_groups
         self._role_folders = role_folders
+        self._include_archived = include_archived
+        self._archive_placement = archive_placement
+        self._declared_archive_roots: set[Path] = set()
+        self._retain_parsed = compiled_schema is not None
+        self._audit_model = audit_model
         if control_root is None:
             self.control_root = configured_control_root(self.root)
         else:
@@ -68,7 +76,17 @@ class SourceReader:
         self._atom_filename: re.Pattern[str] | None = None
         self._declaration_paths: set[Path] = set()
         self._declaration_directories: set[Path] = set()
+        self._scope_authority_boundaries: set[Path] = set()
         self._source_paths: set[Path] = set()
+        self._archive_paths: set[Path] = set()
+        self._archives_by_id: dict[str, set[Path]] = {}
+        self._identity_prefix = ""
+        self._filename_ids: dict[Path, tuple[str, str]] = {}
+        self._role_ids: dict[str, Counter[int]] = {}
+        self._role_max: dict[str, int] = {}
+        self._identity_pattern: re.Pattern[str] | None = None
+        self._loaded_archive_folders: set[Path] = set()
+        self._loaded_archive_files: set[Path] = set()
         self._references = ReferenceIndex()
         self._inventory_ready = False
         self._compiled_schema = compiled_schema
@@ -87,6 +105,127 @@ class SourceReader:
     @property
     def header_schema(self) -> HeaderSchema | None:
         return self._header_schema.schema
+    def archive_catalog(self) -> tuple[str, ...]:
+        """Return known Archive carrier paths without reading their content."""
+        return tuple(sorted(path.relative_to(self.root).as_posix() for path in self._archive_paths))
+
+    def archive_reservations(self, atom_id: str, *, unloaded_only: bool = False) -> tuple[tuple[str, int | None, str], ...]:
+        """Find known Archive candidates for one Atom using filenames only."""
+        result = []
+        marker = re.compile(r"^(?:[1-9][0-9]*-)?" + re.escape(atom_id) + r"(?:@([1-9][0-9]*))?(?=[_.-]|$)")
+        for path in self._archives_by_id.get(atom_id, ()):
+            if unloaded_only and path in self._source_paths:
+                continue
+            match = marker.match(path.name)
+            if match is None:
+                continue
+            suffix = re.search(r"@([1-9][0-9]*)\.md$", path.name)
+            version = match.group(1) or (suffix.group(1) if suffix else None)
+            result.append((atom_id, int(version) if version else None, path.relative_to(self.root).as_posix()))
+        return tuple(sorted(result, key=lambda item: item[2]))
+
+    def _remember_archive(self, path: Path) -> None:
+        self._archive_paths.add(path)
+        match = self._identity_pattern.match(path.name) if self._identity_pattern else None
+        if match:
+            atom_id = f"{self._identity_prefix}-{match.group(1)}-{match.group(2)}"
+            self._archives_by_id.setdefault(atom_id, set()).add(path)
+
+    def _forget_archive(self, path: Path) -> None:
+        self._archive_paths.discard(path)
+        identity = self._filename_ids.get(path)
+        if identity is not None:
+            atom_id = f"{self._identity_prefix}-{identity[0]}-{identity[1]}"
+            paths = self._archives_by_id.get(atom_id)
+            if paths is not None:
+                paths.discard(path)
+                if not paths:
+                    del self._archives_by_id[atom_id]
+
+    def _archive_path(self, path: Path) -> bool:
+        parts = path.relative_to(self.control_root).parts
+        return (_archived(tuple(part for part in parts if part.casefold() != "_projection"))
+                or any(parent in self._declared_archive_roots for parent in path.parents))
+
+    def max_atom_number(self, role_marker: str) -> int:
+        """Return the largest filename-derived number for a Role, including unloaded Archives."""
+        return self._role_max.get(role_marker.upper(), 0)
+
+    def _remember_filename(self, path: Path) -> None:
+        if path in self._filename_ids or self._identity_pattern is None:
+            return
+        match = self._identity_pattern.match(path.name)
+        if match is None:
+            return
+        role, digits = match.group(1), match.group(2)
+        number = int(digits)
+        self._filename_ids[path] = (role, digits)
+        self._role_ids.setdefault(role, Counter())[number] += 1
+        self._role_max[role] = max(number, self._role_max.get(role, 0))
+
+    def _forget_filename(self, path: Path) -> None:
+        identity = self._filename_ids.pop(path, None)
+        if identity is None:
+            return
+        role, digits = identity
+        number = int(digits)
+        counts = self._role_ids[role]
+        counts[number] -= 1
+        if not counts[number]:
+            del counts[number]
+        if self._role_max[role] == number and number not in counts:
+            self._role_max[role] = max(counts, default=0)
+
+    def load_archive_folder(self, relative: str) -> list[dict[str, str | None]]:
+        """Register and inventory one Archive folder."""
+        return self.load_archive_folders((relative,))
+
+    def load_archive_folders(self, relatives: Iterable[str]) -> list[dict[str, str | None]]:
+        """Validate all requested folders before registering or inventorying any of them."""
+        folders = set()
+        for relative in relatives:
+            folder = self._change_path(relative)
+            if folder is None or not folder.is_relative_to(self.control_root) or self._has_symlink_ancestor(folder):
+                raise ValueError("Archive folder must be inside the Project authority folder")
+            if folder.exists() and not folder.is_dir():
+                raise ValueError("Archive folder is not a directory")
+            folders.add(folder)
+        candidates = {path for folder in folders for path in _markdown_paths(folder) if self._is_source_path(path)}
+        self._loaded_archive_folders.update(folders)
+        for path in candidates:
+            self._remember_filename(path)
+            self._remember_archive(path)
+        return self._archive_load_changes(candidates)
+
+    def unload_archive_folder(self, relative: str) -> None:
+        """Forget an invalidated loaded root; the caller must perform a full capture."""
+        folder = self._change_path(relative)
+        if folder is None or not folder.is_relative_to(self.control_root):
+            raise ValueError("Archive folder must be inside the Project authority folder")
+        self._loaded_archive_folders = {root for root in self._loaded_archive_folders if not root.is_relative_to(folder)}
+        self._loaded_archive_files = {path for path in self._loaded_archive_files if not path.is_relative_to(folder)}
+
+    def load_archive_file(self, relative: str) -> list[dict[str, str | None]]:
+        """Register one known Archive carrier for the next incremental capture."""
+        path = self._change_path(relative)
+        if path is None or not self._is_source_path(path):
+            raise ValueError("Unknown Archive carrier")
+        if path not in self._archive_paths:
+            if not self._archive_path(path) or not path.is_file():
+                raise ValueError("Unknown Archive carrier")
+            self._remember_filename(path)
+            self._remember_archive(path)
+        self._loaded_archive_files.add(path)
+        return self._archive_load_changes((path,))
+
+    def _archive_load_changes(self, paths: Iterable[Path]) -> list[dict[str, str | None]]:
+        return [{"operation": "create", "new_path": path.relative_to(self.root).as_posix(), "old_path": None}
+                for path in sorted(paths) if path not in self._source_paths]
+
+    def _archive_selected(self, path: Path) -> bool:
+        return (self._include_archived or path in self._loaded_archive_files
+                or any(path.is_relative_to(folder) for folder in self._loaded_archive_folders))
+
     def set_observed_header_schema(self, schema: HeaderSchema) -> None:
         """Retain the Mode 2 Header shape observed during this owner's cold start."""
         self._observed_header_schema = schema
@@ -131,7 +270,10 @@ class SourceReader:
         }
         if self._compiled_schema is None and self._content_schema.update(rows):
             return self._capture_full(reader, revalidate_content=True)
-        invalid = self._exclude_invalid_content_sources(rows)
+        invalid = self._exclude_invalid_content_sources({
+            path.relative_to(self.root).as_posix(): self._cached.get(path, (None, None))[1]
+            for path in content_paths
+        })
         if invalid:
             content_paths = self._references.update(current, self._cached_rows(), invalid)
             if self._compiled_schema is None and self._content_schema.update({
@@ -152,7 +294,10 @@ class SourceReader:
         )
         if header_changed and self._schema_mode == 1:
             return self._capture_full(reader)
-        invalid = self._exclude_invalid_header_sources([row for row in header_rows.values() if row is not None])
+        invalid = self._exclude_invalid_header_sources([
+            row for path in affected | content_paths
+            if (row := self._cached.get(path, (None, None))[1]) is not None
+        ])
         if invalid:
             content_paths = self._references.update(current, self._cached_rows(), invalid)
             rows = {
@@ -164,9 +309,7 @@ class SourceReader:
             if self._compiled_schema is None and self._content_schema.update(rows):
                 return self._capture_full(reader, revalidate_content=True)
         self.capture_delta = {
-            path.relative_to(self.root).as_posix(): (
-                self._cached.get(path, (None, None))[1] if path in self._references.accepted else None
-            )
+            path.relative_to(self.root).as_posix(): self._cached.get(path, (None, None))[1]
             for path in affected | content_paths
         }
         self.audit_delta = {
@@ -208,12 +351,23 @@ class SourceReader:
         self._declarations = declarations
         prefix = project_identity_prefix(self.root)
         self._project_scope_id = f"{prefix.upper()}-SU-00"
-        self._atom_filename = re.compile(rf"{re.escape(prefix)}-[A-Z]-.*\.md")
+        self._atom_filename = re.compile(rf"(?:[1-9][0-9]*-)?{re.escape(prefix)}-[A-Z]-.*\.md")
+        self._identity_prefix = prefix
+        self._identity_pattern = re.compile(rf"^(?:[1-9][0-9]*-)?{re.escape(prefix)}-([A-Z])-([0-9]+)(?=[@_.-]|$)")
         self._declaration_paths = {Path(path).resolve() for path in declarations.paths}
         self._declaration_directories = {self.control_root}
+        self._scope_authority_boundaries = set()
+        self._declared_archive_roots = set()
+        archive_folders = self._declared_archive_folders()
         for row in declarations.as_structure()["scope_units"]:
             authority = self.root / row["authority_path"]
+            self._declared_archive_roots.update(authority / folder for folder in archive_folders)
             self._declaration_directories.update(authority / role for role in DELEGATION_ROLE_FOLDERS)
+            while authority.is_relative_to(self.control_root):
+                self._scope_authority_boundaries.add(authority)
+                if authority == self.control_root:
+                    break
+                authority = authority.parent
         self._source_paths = set(self._inventory_paths())
         self._inventory_ready = True
         if revalidate_content:
@@ -232,8 +386,7 @@ class SourceReader:
             for path, cached in self._cached.items()
             if path in self._source_paths
         }
-        for path in sorted(self._source_paths):
-            self._refresh_path(path, reader)
+        self._refresh_inventory(reader)
         self._references.rebuild(self._cached_rows())
         self._rebuild_content_schema(revalidated=revalidate_content)
         self._rebuild_header_schema()
@@ -243,12 +396,40 @@ class SourceReader:
             self._rebuild_header_schema()
         self.excluded_count = len(self._failed)
         return self._rows(), self._scopes()
+
+    def _declared_archive_folders(self) -> list[Path]:
+        if self._archive_placement is None:
+            return []
+        folders = []
+        for role in self._archive_placement.role_folders:
+            try:
+                role_folder = self._archive_placement.role_folder(role)
+                archived = self._archive_placement.archive_folders(role)
+            except ValueError:
+                continue
+            folders.extend(Path(role_folder) / name for name in archived)
+        return folders
+    def _refresh_inventory(self, reader: ReadContext) -> None:
+        ordered = sorted(self._source_paths, key=lambda path: (path.parent, path.name))
+        for directory, paths in groupby(ordered, key=lambda path: path.parent):
+            try:
+                descriptor = open_regular(directory, directory=True)
+            except OSError:
+                descriptor = None
+            try:
+                for path in paths:
+                    self._refresh_path(path, reader, directory_fd=descriptor)
+            finally:
+                if descriptor is not None:
+                    os.close(descriptor)
     def _declarations_changed(
         self, changes: list[dict[str, str | None]], reader: ReadContext,
     ) -> bool:
         for change in changes:
             old = self._change_path(change.get("old_path"))
             new = self._change_path(change.get("new_path"))
+            if change.get("operation") in {"remove", "move", "rename"} and old in self._scope_authority_boundaries:
+                return True
             if self._touches_declaration(old) or self._touches_declaration(new):
                 return True
             if new is not None and self._is_declaration_candidate(new, reader):
@@ -299,6 +480,14 @@ class SourceReader:
             removed = {
                 source for source in self._source_paths if source.is_relative_to(path)
             }
+        if path.suffix == ".md":
+            self._forget_archive(path)
+            self._forget_filename(path)
+        else:
+            for source in tuple(self._filename_ids):
+                if source.is_relative_to(path):
+                    self._forget_archive(source)
+                    self._forget_filename(source)
         for source in removed:
             self._source_paths.remove(source)
             self._cached.pop(source, None)
@@ -309,21 +498,27 @@ class SourceReader:
         return removed
     def _add_paths(self, path: Path) -> set[Path]:
         if path.suffix == ".md":
-            added = {path} if self._is_source_path(path) else set()
+            candidates = {path} if self._is_source_path(path) else set()
         elif path.is_dir():
-            added = {
-                candidate
-                for candidate in _markdown_paths(path)
-                if self._is_source_path(candidate)
-            }
+            candidates = {candidate for candidate in _markdown_paths(path) if self._is_source_path(candidate)}
         else:
-            added = set()
+            candidates = set()
+        added = set()
+        for candidate in candidates:
+            self._remember_filename(candidate)
+            is_archive = self._archive_path(candidate) or candidate in self._archive_paths or any(
+                candidate.is_relative_to(folder) for folder in self._loaded_archive_folders
+            )
+            if is_archive:
+                self._remember_archive(candidate)
+            if not is_archive or self._archive_selected(candidate):
+                added.add(candidate)
         self._source_paths.update(added)
         return added
     def _is_source_path(self, path: Path) -> bool:
         if self._atom_filename is None or not self._atom_filename.fullmatch(path.name) or not path.is_relative_to(self.control_root):
             return False
-        return not _archived(path.relative_to(self.control_root).parts) and not self._has_symlink_ancestor(path)
+        return not self._has_symlink_ancestor(path)
     def _has_symlink_ancestor(self, path: Path) -> bool:
         if not path.is_relative_to(self.control_root):
             return True
@@ -334,27 +529,43 @@ class SourceReader:
             current = current.parent
         return self.control_root.is_symlink()
     def _rebuild_content_schema(self, *, revalidated: bool = False) -> None:
+        if self._retain_parsed:
+            return
         if revalidated:
             self._content_invalid.clear()
         else:
             self._content_invalid.intersection_update(self._source_paths)
         if self._compiled_schema is not None:
             while self._exclude_content_errors(
-                self._content_schema.validation_errors(self._accepted_rows())
+                self._content_schema.validation_errors(
+                    row for row in self._cached_rows().values() if row.get("status_group") != "Archived"
+                )
             ):
                 self._references.rebuild(self._cached_rows())
             return
-        self._exclude_content_errors(self._content_schema.rebuild(self._accepted_rows()))
-        self._references.rebuild(self._cached_rows())
+        while True:
+            errors = self._content_schema.rebuild(
+                row for row in self._accepted_rows() if row.get("status_group") != "Archived"
+            )
+            errors.update(self._content_schema.validation_errors(
+                row for row in self._cached_rows().values() if row.get("status_group") != "Archived"
+            ))
+            if not self._exclude_content_errors(errors):
+                return
+            self._references.rebuild(self._cached_rows())
     def _rebuild_header_schema(self) -> None:
         if self._compiled_schema is None:
             self._header_schema.rebuild(self._accepted_rows())
     def _exclude_invalid_header_sources(self, rows: Iterable[dict[str, Any]] | None = None) -> set[Path]:
+        if self._retain_parsed:
+            return set()
         schema = self.header_schema if self._schema_mode == 1 else self._observed_header_schema
         if schema is None:
             return set()
-        candidates = self._accepted_rows() if rows is None else rows
-        errors = self._header_schema.validation_errors(candidates, schema=schema)
+        candidates = self._cached_rows().values() if rows is None else rows
+        errors = self._header_schema.validation_errors(
+            [row for row in candidates if row.get("status_group") != "Archived"], schema=schema
+        )
         removed = set()
         for relative, error in errors.items():
             path = self.root / relative
@@ -371,8 +582,10 @@ class SourceReader:
     def _exclude_invalid_content_sources(
         self, rows: dict[str, dict[str, Any] | None],
     ) -> set[Path]:
+        if self._retain_parsed:
+            return set()
         return self._exclude_content_errors(self._content_schema.validation_errors(
-            row for row in rows.values() if row is not None
+            row for row in rows.values() if row is not None and row.get("status_group") != "Archived"
         ))
     def _exclude_content_errors(self, errors: dict[str, ValueError]) -> set[Path]:
         removed = set()
@@ -385,7 +598,7 @@ class SourceReader:
                 self._content_invalid.add(path)
                 self._error(path, error)
         return removed
-    def _refresh_path(self, path: Path, reader: ReadContext) -> None:
+    def _refresh_path(self, path: Path, reader: ReadContext, *, directory_fd: int | None = None) -> None:
         signature = file_signature(path)
         if signature is None:
             self._cached.pop(path, None)
@@ -402,12 +615,12 @@ class SourceReader:
         if cached is not None and cached[0] == signature:
             return
         self._cached.pop(path, None)
-        self._read_source(path, signature, reader)
+        self._read_source(path, signature, reader, directory_fd=directory_fd)
     def _rows(self) -> list[dict[str, Any]]:
         return [
             self._cached[path][1]
             for path in sorted(self._source_paths)
-            if path in self._cached and path in self._references.accepted
+            if path in self._cached
         ]
     def model_rows(self, observed, predicate: Callable[[dict[str, Any]], bool]) -> list[dict[str, Any]]:
         """Prefer Current Scope Unit sources over copies when building model assets."""
@@ -420,6 +633,7 @@ class SourceReader:
         rows = [
             row for path, (_, row) in sorted(self._cached.items())
             if row.get("status_group") == "Current"
+            and "_projection" not in path.relative_to(self.control_root).parts
             and any(path.is_relative_to(directory) for directory in authority)
         ]
         # Other Current rows suppress obsolete copies even when their form changed.
@@ -442,21 +656,31 @@ class SourceReader:
         rows[0]["scope_unit_id"] = self._project_scope_id
         return rows
     def _read_source(
-        self, path: Path, signature: tuple[int, ...], reader: ReadContext
+        self, path: Path, signature: tuple[int, ...], reader: ReadContext, *, directory_fd: int | None = None,
     ) -> dict[str, Any] | None:
         try:
-            raw = reader.read(path)
+            raw = reader.read(path, remember=False, directory_fd=directory_fd)
         except (OSError, RuntimeError) as error:
             self._cached.pop(path, None)
             self._failed[path] = signature
             self.excluded_count += 1
             self._error(path, error)
             return None
+        parsed = None
         try:
             parsed = parse_carrier(raw, path)
             view = carrier_read_view(parsed.metadata)
             group = _group(path.relative_to(self.root), view, self._status_groups)
-            if group is None:
+            if path in self._archive_paths and (self._archive_path(path) or any(
+                path.is_relative_to(folder) for folder in self._loaded_archive_folders
+            )):
+                group = "Archived"
+            if group == "Archived":
+                self._remember_archive(path)
+            else:
+                self._forget_archive(path)
+            if group is None or (group == "Archived" and not self._archive_selected(path)):
+                self._source_paths.discard(path)
                 self._cached.pop(path, None)
                 self._failed.pop(path, None)
                 self._diagnostics.pop(path, None)
@@ -469,8 +693,18 @@ class SourceReader:
                 source_body(raw, path),
                 group,
             )
+            if self._retain_parsed:
+                row["_retain_parsed"] = True
             canonical_row(row)
         except (OSError, RuntimeError, TypeError, ValueError, CarrierError) as error:
+            if parsed is not None and self._retain_parsed:
+                group = _group(path.relative_to(self.root), {}, self._status_groups)
+                row = source_atom(path, self.root, {}, {}, b"", group)
+                row["_source_schema_error"] = str(error)
+                self._cached[path] = (signature, row)
+                self._failed.pop(path, None)
+                self._diagnostics.pop(path, None)
+                return row
             self._cached.pop(path, None)
             self._failed[path] = signature
             self._content_invalid.discard(path)
@@ -484,17 +718,34 @@ class SourceReader:
         self._cached[path] = (signature, row)
         return row
     def _inventory_paths(self) -> set[Path]:
-        return {path for path in _markdown_paths(self.control_root) if self._is_source_path(path)}
-    def audit_issues(self, public_atoms: dict[tuple[str, str], dict[str, Any]]) -> dict[str, list[tuple[str | None, ...]]]:
-        """Describe the same Current/Draft sources read during the latest capture."""
-        assert self._declarations is not None
-        return collect_issues(
-            self.root, self.control_root, self._source_paths, self.audit_delta, self._cached,
-            self._diagnostics, self._references.accepted,
-            self._declarations.as_structure()["scope_units"], self._project_scope_id,
-            self.content_schema, public_atoms, self._role_folders,
-        )
-
+        sources = set()
+        archives = set()
+        self._filename_ids.clear()
+        self._archives_by_id.clear()
+        self._role_ids.clear()
+        self._role_max.clear()
+        if self._atom_filename is None or self.control_root.is_symlink():
+            return sources
+        directory = None
+        archived_directory = False
+        for path in _markdown_paths(self.control_root):
+            # The walk already excludes symlink files and directories.
+            if not self._atom_filename.fullmatch(path.name):
+                continue
+            self._remember_filename(path)
+            if path.parent != directory:
+                directory = path.parent
+                archived_directory = self._archive_path(path) or any(
+                    directory.is_relative_to(folder) for folder in self._loaded_archive_folders
+                )
+            if archived_directory or path in self._archive_paths:
+                archives.add(path)
+                self._remember_archive(path)
+                if not self._archive_selected(path):
+                    continue
+            sources.add(path)
+        self._archive_paths = archives
+        return sources
     def _error(self, path: Path, error: BaseException) -> None:
         if path in self._source_paths:
             self._diagnostics[path] = str(error)

@@ -82,7 +82,7 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             finally:
                 release.set()
             self.assertEqual(0, future.result(timeout=5))
-        image.assert_called_once_with(self.case.root)
+        image.assert_called_once_with(self.case.root, use_packaged_assets=False)
         for module in modules:
             relative = module.relative_to(self.case.root)
             self.assertIn(

@@ -85,6 +85,17 @@ class DirectGateway:
             raise error
         self.tool_blacklist = self.registry.global_blacklist | project_blacklist
         self.tools = tuple(tool for tool in self.registry.tools if tool.name not in self.tool_blacklist)
+        if self.selection is not None:
+            try:
+                consistency = await asyncio.to_thread(self.workbench.project_consistency)
+            except Exception:
+                await self.close()
+                raise
+            print(json.dumps({"event": "project_consistency",
+                              "severity": "WARNING" if consistency.get("audit_error") or any(
+                                  type(value) is int and value for value in consistency.values()
+                              ) else "INFO",
+                              **consistency}), flush=True)
         self.ready = True
 
     async def close(self):
@@ -196,10 +207,10 @@ class DirectGateway:
         return self.server
 
     async def serve(self):
-        await self.initialize()
-        try:
-            async with stdio_server() as streams:
-                with redirect_stdout(sys.stderr):
+        with redirect_stdout(sys.stderr):
+            await self.initialize()
+            try:
+                async with stdio_server() as streams:
                     await self.build_server().run(*streams, self.server.create_initialization_options())
-        finally:
-            await self.close()
+            finally:
+                await self.close()

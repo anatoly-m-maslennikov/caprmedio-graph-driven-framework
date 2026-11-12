@@ -89,7 +89,7 @@ def registry_asset(
 
 def compile_project_registry(project_root: Path) -> bytes:
     """Capture one Project and compile its current relation registry as JSON bytes."""
-    reader = SourceReader(Path(project_root))
+    reader = SourceReader(Path(project_root), include_archived=False)
     atoms, _scopes = reader.capture()
     return registry_asset(reader.model_rows(atoms, is_registry_declaration))
 

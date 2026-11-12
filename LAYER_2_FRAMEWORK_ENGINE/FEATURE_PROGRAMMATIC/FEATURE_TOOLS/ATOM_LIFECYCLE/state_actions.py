@@ -8,6 +8,8 @@
 Effects require exclusion of concurrent writers to the selected source.
 """
 
+from .timing import trace
+
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 from ATOM_LIFECYCLE import effects
 from ATOM_LIFECYCLE.carrier import logical_view, render_carrier
@@ -89,25 +91,30 @@ def _destination_field(selection, path):
     return {'file': {'name': path.name, 'path': path.parent.relative_to(selection.root).as_posix()}}
 
 
+@trace('filesystem.publish')
 def _publish(selection, pin, path, raw, status, ref_id, *, companion=None, rewrites=None):
     if path == pin.path:
         outcome = effects.replace(selection.root, path, pin.sha256, raw)
     else:
-        outcome = write_destination(selection.root, path, raw)
-        if companion is not None and not outcome.errors:
-            from ATOM_LIFECYCLE.directory_effect import move_directory
+        with effects.publication_guard() as publication:
+            outcome = write_destination(selection.root, path, raw)
+            if companion is not None and not outcome.errors:
+                from ATOM_LIFECYCLE.directory_effect import move_directory
 
-            moved = move_directory(selection.root, companion, path.with_suffix(''), rewrites=rewrites)
-            outcome.effects.extend(moved.effects)
-            outcome.errors.extend(moved.errors)
-        if not outcome.errors:
-            removed = effects.remove(selection.root, pin.path, pin.sha256)
-            outcome.effects.extend(removed.effects)
-            outcome.errors.extend(removed.errors)
+                moved = move_directory(selection.root, companion, path.with_suffix(''), rewrites=rewrites)
+                outcome.effects.extend(moved.effects)
+                outcome.errors.extend(moved.errors)
+            if not outcome.errors:
+                removed = effects.remove(selection.root, pin.path, pin.sha256)
+                outcome.effects.extend(removed.effects)
+                outcome.errors.extend(removed.errors)
+        if isinstance(publication, dict) and publication.get('error'):
+            outcome.errors.append({'code': 'projection_refresh_failed', 'message': publication['error']})
     data = {} if outcome.errors else {'artifact': saved(selection, path, pin.atom_id, ref_id, pin.version, status)}
     return result(effects=outcome.effects, errors=outcome.errors, **data)
 
 
+@trace('archive.prepare')
 def _prepare_archive(selection, model, pin):
     _current(selection, pin)
     view, body = _view(pin.raw, pin.path, model)
@@ -124,6 +131,7 @@ def _companion(pin):
     return path if path.exists() or path.is_symlink() else None
 
 
+@trace('archive.atom')
 def archive_atom(selection, model, params):
     pin = read_target(selection, params.get('target'))
     if _companion(pin) is not None or has_shared_plan_children(selection, pin, model):
@@ -150,6 +158,7 @@ def _prepare_archive_cascade(selection, model, targets):
     return prepared
 
 
+@trace('archive.apply')
 def _archive_cascade_target(selection, model, target, path, raw, ref_id, companion):
     current = read_target(selection, _archive_target(target))
     if current.sha256 != target.sha256 or current.path != target.path or _companion(current) != companion:
@@ -160,6 +169,7 @@ def _archive_cascade_target(selection, model, target, path, raw, ref_id, compani
     return _publish(selection, current, path, raw, 'Archived', ref_id, companion=companion)
 
 
+@trace('archive')
 def archive_workflow(selection, model, params):
     """The caller composes separate single-Atom actions for the selected tree."""
     pin = read_target(selection, params.get('target'))
@@ -182,6 +192,7 @@ def archive_workflow(selection, model, params):
     return result(effects=completed, artifact=output['artifact'])
 
 
+@trace('status.prepare')
 def prepare_current_status(selection, model, pin, target, *, verify_source=True):
     _current(selection, pin)
     view, body = _view(pin.raw, pin.path, model)
@@ -203,6 +214,7 @@ def change_status(selection, model, params):
     return _publish(selection, pin, path, raw, target, pin.ref_id)
 
 
+@trace('direct_update')
 def direct_update(selection, model, params):
     pin = read_target(selection, params.get('target'))
     warnings = []

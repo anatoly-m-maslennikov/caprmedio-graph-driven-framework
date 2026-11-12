@@ -37,11 +37,11 @@ def _refs(value: object) -> list[str]:
     return [ref] if ref else []
 
 
-def _claims(value: object) -> list[tuple[str | None, str]]:
+def _claims(value: object) -> list[tuple[str | None, str, str]]:
     if not isinstance(value, Sequence) or isinstance(value, (str, bytes, bytearray)):
         return []
     return [
-        (_source_ref(row.get("source")), row["block"])
+        (_source_ref(row.get("source")), row["block"], row.get("label", "CFEL"))
         for row in value
         if isinstance(row, Mapping) and isinstance(row.get("block"), str)
     ]
@@ -53,11 +53,11 @@ def _fence(lines: Sequence[str], label: str = "text") -> list[str]:
     return [f"{marker}{label}", *lines, marker]
 
 
-def _cfel(block: str) -> str:
+def _cfel(block: str, label: str = "CFEL") -> str:
     width = max([3] + [len(match.group(0)) + 1 for match in re.finditer(r"`+", block)])
     marker = "`" * width
     content = block if block.endswith("\n") else block + "\n"
-    return f"{marker}CFEL\n{content}{marker}"
+    return f"{marker}{label}\n{content}{marker}"
 
 
 def _tree(data: Mapping[str, Any]) -> list[str]:
@@ -136,12 +136,12 @@ def _entities(data: Mapping[str, Any]) -> list[Mapping[str, Any]]:
     return [row for row in data["entities"] if isinstance(row, Mapping)]
 
 
-def _declaration_claims(data: Mapping[str, Any], identity: str) -> list[tuple[str | None, str]]:
+def _declaration_claims(data: Mapping[str, Any], identity: str) -> list[tuple[str | None, str, str]]:
     entries = data.get("declarations", {}).get("primary_nodes", {}).get(identity, [])
-    return [claim for entry in entries for claim in _claims(entry.get("cfel_blocks", []))]
+    return [claim for entry in entries for claim in _claims([*entry.get("cfel_blocks", []), *entry.get("python_blocks", [])])]
 
 
-def _entity_claims(data: Mapping[str, Any], entity: Mapping[str, Any]) -> list[tuple[str | None, str]]:
+def _entity_claims(data: Mapping[str, Any], entity: Mapping[str, Any]) -> list[tuple[str | None, str, str]]:
     return _claims(entity.get("formal_claims")) or _declaration_claims(data, str(entity["identity"]))
 
 
@@ -214,10 +214,10 @@ def _render_property(lines: list[str], property: Mapping[str, Any], level: int) 
     if level == 4:
         claims = _claims(property.get("formal_claims"))
         if claims:
-            lines.append("  - Property Declaration CFEL:")
-            for source, block in claims:
+            lines.append("  - Property Declaration " + ("Formal Claim:" if any(label.casefold() != "cfel" for _, _, label in claims) else "CFEL:"))
+            for source, block, label in claims:
                 lines.append(f"    - source: `{source or 'missing source'}`")
-                lines.extend(_cfel(block).splitlines())
+                lines.extend(_cfel(block, label).splitlines())
         else:
             lines.append("  - Property Declaration CFEL: [missing CFEL block]")
 
@@ -251,9 +251,9 @@ def _render_primary_claims(lines: list[str], data: Mapping[str, Any]) -> None:
         own = _entity_claims(data, entity)
         if own:
             lines.append("- own Declaration:")
-            for source, block in own:
+            for source, block, label in own:
                 lines.append(f"  - source: `{source or 'missing source'}`")
-                lines.extend(_cfel(block).splitlines())
+                lines.extend(_cfel(block, label).splitlines())
         else:
             lines.append("- own Declaration: [missing CFEL block]" if declaration_refs else
                          "- own Declaration: [missing Current Requirement/Form Declaration]")
@@ -264,9 +264,9 @@ def _render_primary_claims(lines: list[str], data: Mapping[str, Any]) -> None:
             refs = _refs(parent.get("declaration_refs")) if parent else []
             lines.append(f"- ancestor Declaration `{ancestor}`:")
             if claims:
-                for source, block in claims:
+                for source, block, label in claims:
                     lines.append(f"  - source: `{source or 'missing source'}`")
-                    lines.extend(_cfel(block).splitlines())
+                    lines.extend(_cfel(block, label).splitlines())
             else:
                 lines.append("  - [missing CFEL block]" if refs else "  - [missing Current Requirement/Form Declaration]")
         lines.append("")

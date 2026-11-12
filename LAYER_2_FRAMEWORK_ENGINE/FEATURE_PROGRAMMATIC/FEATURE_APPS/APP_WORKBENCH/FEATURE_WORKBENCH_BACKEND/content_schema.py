@@ -127,7 +127,8 @@ class ContentSchema:
         ):
             records = parse_content(body, tolerate_duplicate_siblings=True)
         values = _records_by_path(records)
-        self._validate(values, row)
+        if row.get("status_group") != "Archived" and not row.get("_retain_parsed"):
+            self._validate(values, row)
         lines = content_lines(body) if isinstance(body, str) else None
         layout, _ = self._layout(row)
         return {

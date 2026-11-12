@@ -14,9 +14,11 @@ from cfel_claim_constraints import (
     _grouped_expressions,
     claim_cfel_blocks,
     claim_fenced_blocks,
+    claim_python_blocks,
     claim_prose,
     extract_claim_constraints,
     has_prose_claim,
+    python_compiler_expressions,
     section_text,
 )
 from current_subject_graph import (
@@ -80,7 +82,7 @@ def _local_raw_selector(subject: str) -> str:
 def _entry(carrier: Mapping[str, Any], subject: str, target: str, kind: str) -> Record:
     clauses, diagnostics = extract_claim_constraints(carrier)
     source = dict(carrier["source"])
-    return {
+    entry = {
         "source": source, "subject": subject, "target": target, "kind": kind,
         "blocks": claim_fenced_blocks(carrier), "cfel_blocks": claim_cfel_blocks(carrier),
         "clauses": [row for row in clauses if row.get("group") != "instances"],
@@ -92,6 +94,10 @@ def _entry(carrier: Mapping[str, Any], subject: str, target: str, kind: str) -> 
         "details": section_text(carrier, "Details"),
         "diagnostics": [{**row, "source": row.get("source", source)} for row in diagnostics],
     }
+    python_blocks = claim_python_blocks(carrier)
+    if python_blocks:
+        entry["python_blocks"] = python_blocks
+    return entry
 
 
 def _gap(carrier: Mapping[str, Any], message: str, subject: str | None = None) -> Record:
@@ -421,8 +427,14 @@ def _metadata(entries: list[Record], relation: str) -> list[Record]:
         for clause in entry["clauses"]:
             if clause.get("kind") == "relation_alias" and clause.get("relation") == relation:
                 rows.append({"kind": "notation", "value": clause["glyph"], "source": clause["source"]})
-        for block in entry["cfel_blocks"]:
-            for expression, group in _grouped_expressions(block["block"]):
+        blocks = [(block, _grouped_expressions(block["block"])) for block in entry["cfel_blocks"]]
+        for block in entry.get("python_blocks", []):
+            try:
+                blocks.append((block, python_compiler_expressions(block["block"])))
+            except ValueError:
+                continue  # The source-bound diagnostic is recorded by extraction.
+        for block, expressions in blocks:
+            for expression, group in expressions:
                 if group == "instances":
                     continue
                 match = _CLASSIFICATION.fullmatch(expression)
@@ -810,6 +822,13 @@ def _clause(row: Mapping[str, Any]) -> str:
 
 
 def _fence(block: Mapping[str, Any]) -> list[str]:
+    if str(block.get("label", "")).casefold() == "python":
+        content = str(block["block"])
+        marker = "`" * max([3] + [len(value) + 1 for value in re.findall(r"`+", content)])
+        rows = content.split("\n")
+        if rows[-1] == "":
+            rows.pop()
+        return [marker + str(block["label"]), *rows, marker]
     content = str(block["block"]).rstrip()
     marker = "`" * max([3] + [len(value) + 1 for value in re.findall(r"`+", content)])
     label = str(block.get("label", ""))
@@ -838,7 +857,8 @@ def _render_entry(lines: list[str], entry: Record, label: str) -> None:
     if entry["instance_clauses"]:
         lines.extend(["  - Instance constraints:", *["    - " + _clause(row) for row in entry["instance_clauses"]]])
     for diagnostic in entry["diagnostics"]:
-        lines.append(f"  - Unresolved CFEL: `{diagnostic.get('expression', diagnostic.get('message'))}`")
+        kind = "Python Formal Claim" if diagnostic.get("code") == "python-formal-claim-invalid" else "CFEL"
+        lines.append(f"  - Unresolved {kind}: `{diagnostic.get('expression', diagnostic.get('message'))}`")
     if entry["semantics"]:
         lines.extend(["  - Semantics:", *["    " + row if row else "" for row in entry["semantics"].splitlines()]])
     if entry["details"]:

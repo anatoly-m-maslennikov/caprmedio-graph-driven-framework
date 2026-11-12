@@ -44,8 +44,9 @@ def _source_rows(entries: list[Record]) -> tuple[list[Record], list[str]]:
 
 def _formal_claims(entries: list[Record]) -> list[Record]:
     return [
-        {"source": dict(entry["source"]), "block": block["block"]}
-        for entry in entries for block in entry["cfel_blocks"]
+        {"source": dict(entry["source"]), "block": block["block"],
+         **({"label": block["label"]} if "label" in block else {})}
+        for entry in entries for block in [*entry["cfel_blocks"], *entry.get("python_blocks", [])]
     ]
 
 

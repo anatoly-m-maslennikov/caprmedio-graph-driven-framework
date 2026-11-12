@@ -44,6 +44,12 @@ def _arguments(argv: list[str] | None) -> argparse.Namespace:
             )
         else:
             command.add_argument(
+                "--image-mode",
+                choices=("refresh", "existing"),
+                default="refresh",
+                help="refresh generated image assets or use the assets already in the checkout",
+            )
+            command.add_argument(
                 "--test-module",
                 action="append",
                 dest="test_modules",
@@ -79,15 +85,9 @@ def _invoke(arguments: argparse.Namespace) -> dict[str, object]:
     if re.fullmatch(pattern, arguments.run_id) is None:
         raise ValueError("release-run-id-invalid")
     if arguments.operation == "local":
-        if arguments.test_modules is None:
-            invoke = partial(run_local_release, root, run_id=arguments.run_id)
-        else:
-            invoke = partial(
-                run_local_release,
-                root,
-                run_id=arguments.run_id,
-                test_modules=tuple(arguments.test_modules),
-            )
+        invoke = partial(run_local_release, root, run_id=arguments.run_id, image_mode=arguments.image_mode)
+        if arguments.test_modules is not None:
+            invoke = partial(invoke, test_modules=tuple(arguments.test_modules))
         operation = "release_version"
     else:
         draft = _read_draft(arguments.content_draft)

@@ -139,7 +139,7 @@ def _metadata(value: Mapping[str, Any], path: Path) -> tuple[str, int, str | Non
         status = "Active"
     if not isinstance(role, str) or role not in _ROLE_LETTERS or form not in ("Scope Unit Declaration", "Scope Delegation") or status != "Active":
         raise ScopeDeclarationError(f"{path}: not an active Requirement Scope Unit Declaration or Scope Delegation")
-    if not isinstance(atom_id, str) or re.fullmatch(rf"CA-{_ROLE_LETTERS[role]}-[1-9][0-9]*", atom_id) is None:
+    if not isinstance(atom_id, str) or re.fullmatch(rf"CA-{_ROLE_LETTERS[role]}-[0-9]+", atom_id) is None:
         raise ScopeDeclarationError(f"{path}: declaration requires an assigned identity matching its Role")
     if form == "Scope Unit Declaration" and role != "Requirement":
         raise ScopeDeclarationError(f"{path}: Scope Unit Declaration requires Requirement Role")
@@ -218,7 +218,7 @@ def _cfel(body: str, path: Path, *, allow_claim_prose: bool = False) -> list[str
             end = next((row[2] for row in headings if row[2] > prose[0][2] and row[0] <= 3), len(lines))
             if "\n".join(lines[prose[0][2] + 1:end]).strip():
                 return []
-    if fence is not None or cfel_count != 1:
+    if fence is not None or cfel_count > 1:
         raise ScopeDeclarationError(f"{path}: declaration requires one unambiguous CFEL block")
     claims = [row for row in headings if row[:2] == (2, "Claim")]
     if len(claims) != 1:
@@ -239,9 +239,23 @@ def _cfel(body: str, path: Path, *, allow_claim_prose: bool = False) -> list[str
             raise ScopeDeclarationError(f"{path}: ambiguous Claim container")
         claim = "\n".join(lines[formal_start + 1:formal_end]).strip()
     matched = re.fullmatch(r"```CFEL\n(?P<cfel>.*?)\n```", claim, re.DOTALL)
-    if matched is None:
-        raise ScopeDeclarationError(f"{path}: declaration requires one CFEL Claim")
-    statements = [line.strip() for line in matched["cfel"].splitlines() if line.strip() and not line.lstrip().startswith("#")]
+    if matched is not None and cfel_count == 1:
+        statements = [line.strip() for line in matched["cfel"].splitlines() if line.strip() and not line.lstrip().startswith("#")]
+    else:
+        python = re.fullmatch(r"```python\n(?P<python>.*?)\n```", claim, re.DOTALL)
+        if cfel_count != 0 or not children or python is None:
+            raise ScopeDeclarationError(f"{path}: declaration requires one CFEL or Python Formal Claim")
+        from python_model_claim import parse_python_model_claim
+
+        try:
+            statements = list(parse_python_model_claim(python["python"]))
+        except ValueError as error:
+            raise ScopeDeclarationError(f"{path}: invalid Python Formal Claim: {error}") from error
+        # The scope reader predates normalized statements and expects these
+        # separators on property assignments and relation expressions.
+        statements = [re.sub(r"(?<=\S)\(\(", " ((", statement) for statement in statements]
+        statements = [statement + ";" if _PROPERTY.fullmatch(statement + ";") else statement
+                      for statement in statements]
     if not statements:
         raise ScopeDeclarationError(f"{path}: declaration Claim is empty")
     return statements

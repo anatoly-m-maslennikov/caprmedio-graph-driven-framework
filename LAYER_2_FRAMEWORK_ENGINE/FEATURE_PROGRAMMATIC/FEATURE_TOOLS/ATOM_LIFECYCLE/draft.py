@@ -5,13 +5,20 @@
 """Private Create Draft workflow. Caller supplies Project and model bindings."""
 from __future__ import annotations
 
+from .timing import trace
+
 from datetime import datetime, timezone
+import re
+
+from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
+from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 
-from ATOM_LIFECYCLE import common, effects
+from ATOM_LIFECYCLE import common
 from ATOM_LIFECYCLE.carrier import logical_view, render_carrier
 from ATOM_LIFECYCLE.placement import derive_destination, resolve_container
+from ATOM_LIFECYCLE.source import ArchiveNotLoadedError, SourceSelectionError, _candidate_paths, query_reader, select_source
 
 _FIELDS = frozenset({'role', 'form', 'scope_unit', 'container', 'summary', 'body', 'label', 'tier',
                      'topics', 'relations', 'priority', 'work_sequence_number',
@@ -101,6 +108,57 @@ def _replacement_relations(original, supplied, predecessor):
     return merged
 
 
+def _source(selection, selector):
+    """Select Current by ID, or the requested Current/Archived Version."""
+    if isinstance(selector, str):
+        selector = {'ref_id': selector}
+    if (not isinstance(selector, dict) or set(selector) - {'ref_id', 'version'}
+            or not isinstance(selector.get('ref_id'), str) or not selector['ref_id']
+            or ('version' in selector and (type(selector['version']) is not int or selector['version'] < 1))):
+        raise common.InputError('sourceCurrent', 'Supply an Atom ID and optional positive Version.',
+                                format='Atom ID or object with ref_id and optional version')
+    ref, version = selector['ref_id'], selector.get('version')
+    if version is None or '@' in ref:
+        return select_source(selection, ref, expected_version=version)
+    try:
+        return select_source(selection, ref, expected_version=version)
+    except ArchiveNotLoadedError:
+        raise
+    except SourceSelectionError:
+        try:
+            return select_source(selection, f'{ref}@{version}', expected_version=version)
+        except ArchiveNotLoadedError:
+            raise
+        except SourceSelectionError:
+            return select_source(selection, f'{ref}@{version}-draft', expected_version=version)
+
+
+def _next_version(selection, pin):
+    """Avoid reusing a known Current, Draft or Archived revision number."""
+    indexed = query_reader()
+    if indexed is not None:
+        latest = indexed.lifecycle_latest_version(selection, pin.atom_id)
+        return max(pin.version, latest or 0) + 1
+    reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+    paths = _candidate_paths(reader, selection, pin.atom_id)
+    marker = re.compile(r'(?:^|-)'+re.escape(pin.atom_id)+r'@([1-9][0-9]*)')
+    suffix = re.compile(r'@([1-9][0-9]*)\.md$')
+    versions = [pin.version]
+    for path in paths:
+        match = marker.search(path.name) or suffix.search(path.name)
+        if match:
+            versions.append(int(match.group(1)))
+    if pin.status.casefold() == 'archived':
+        try:
+            versions.append(select_source(selection, pin.atom_id).version)
+        except ArchiveNotLoadedError:
+            raise
+        except SourceSelectionError:
+            pass
+    return max(versions) + 1
+
+
+@trace('draft.prepare')
 def prepare_draft(selection, model, params, *, source_pin=None):  # noqa: C901
     """Validate and prepare one Draft without effects."""
     warnings = []
@@ -118,9 +176,7 @@ def prepare_draft(selection, model, params, *, source_pin=None):  # noqa: C901
         view = {}
         old_body = ''
     else:
-        pin = source_pin or common.read_target(selection, params['sourceCurrent'], field='sourceCurrent')
-        if pin.status.casefold() == 'archived':
-            raise common.InputError('sourceCurrent', 'Archived sources are not accepted.', format='Exact Current or Draft selector')
+        pin = source_pin or _source(selection, params['sourceCurrent'])
         values = _clean(params.get('changes', {}), warnings, 'changes')
         parsed = parse_carrier(pin.raw, pin.path)
         view = logical_view(parsed.metadata, model)
@@ -137,16 +193,19 @@ def prepare_draft(selection, model, params, *, source_pin=None):  # noqa: C901
         raise common.InputError('role', 'Draft is not admitted for this Role and Form.', format='Admitted Role and Form')
     same = pin is not None and summary == old_summary and role == view.get('role')
     atom_id = pin.atom_id if same else common.allocate_id(selection, role)
-    version = (pin.version if pin.status.casefold() == 'draft' else pin.version + 1) if same else 1
-    updated = view.get('updated_at') if same and pin.status.casefold() == 'draft' else datetime.now(timezone.utc).isoformat()
+    version = _next_version(selection, pin) if same else 1
+    updated = datetime.now(timezone.utc).isoformat()
     scope, parent = resolve_container(selection, {'container': container, 'role': role, 'form': form}, atom_id, model=model)
     fields = {key: value for key, value in values.items() if key not in {'summary', 'body', 'scope_unit'}}
-    if pin and not same and pin.status.casefold() != 'draft':
+    if source_pin is not None and not same:
         original = view.get('relations', {})
         fields['relations'] = _replacement_relations(original, values.get('relations', original), pin.atom_id)
+    if pin is None:
+        fields.update(role=role, form=form, container=container)
+    elif {'scope_unit', 'container'} & values.keys():
+        fields['container'] = container
     fields.update({'atom_id': atom_id, 'ref_id': f'{atom_id}@{version}-draft', 'version': version,
-                   'status': 'draft', 'updated_at': updated, 'container': container,
-                   'role': role, 'form': form})
+                   'status': 'draft', 'updated_at': updated})
     destination = derive_destination(selection, atom_id=atom_id, version=version, status='Draft',
                                      role=role, form=form, summary=summary, scope_unit=scope, parent=parent,
                                      label=values.get('label', view.get('label')),
@@ -157,29 +216,20 @@ def prepare_draft(selection, model, params, *, source_pin=None):  # noqa: C901
     raw = render_carrier(pin.raw if pin else None, fields, model=model,
                          body=body if not pin or {'summary', 'body'} & values.keys() else None)
     common.validate_candidate(selection, model, raw, destination)
-    return {'pin': pin, 'selector': params.get('sourceCurrent'), 'destination': destination,
-            'raw': raw, 'atom_id': atom_id, 'version': version, 'same': same, 'warnings': warnings}
+    return {'pin': pin, 'selector': {'ref_id': pin.ref_id, 'version': pin.version} if pin else None, 'destination': destination,
+            'raw': raw, 'atom_id': atom_id, 'version': version, 'warnings': warnings}
 
 
+@trace('draft.save')
 def save_draft(selection, plan):
     """Save a previously prepared Draft after checking its source pin again."""
     pin, destination, raw = plan['pin'], plan['destination'], plan['raw']
-    atom_id, version, same, warnings = plan['atom_id'], plan['version'], plan['same'], plan['warnings']
+    atom_id, version, warnings = plan['atom_id'], plan['version'], plan['warnings']
     if pin:
         current = common.read_target(selection, plan['selector'], field='sourceCurrent')
-        if current.sha256 != pin.sha256:
+        if current.path != pin.path or current.sha256 != pin.sha256:
             raise common.SourceChanged('Source changed while creating the Draft.')
-    if same and pin.status.casefold() == 'draft':
-        if destination == pin.path:
-            outcome = effects.replace(selection.root, pin.path, pin.sha256, raw)
-        else:
-            outcome = common.write_destination(selection.root, destination, raw)
-            if not outcome.errors:
-                removed = effects.remove(selection.root, pin.path, pin.sha256)
-                outcome.effects.extend(removed.effects)
-                outcome.errors.extend(removed.errors)
-    else:
-        outcome = common.write_destination(selection.root, destination, raw)
+    outcome = common.write_destination(selection.root, destination, raw)
     data = {} if outcome.errors else {'savedDraft': common.saved(selection, destination, atom_id,
                                                                   f'{atom_id}@{version}-draft', version, 'Draft')}
     return common.result(effects=outcome.effects, errors=outcome.errors, warnings=warnings, **data)

@@ -41,7 +41,7 @@ class ReleaseCliTests(unittest.TestCase):
         result = {"outcome": "completed", "receipt_path": "receipt.json"}
         with patch.object(release, "run_local_release", return_value=result) as run:
             self.assertEqual(self.invoke(["local", "--run-id", "local-1"]), (0, result))
-        run.assert_called_once_with(REPOSITORY, run_id="local-1")
+        run.assert_called_once_with(REPOSITORY, run_id="local-1", image_mode="refresh")
 
     def test_local_dispatch_forwards_repeatable_focused_modules(self) -> None:
         result = {"outcome": "completed", "receipt_path": "receipt.json"}
@@ -56,6 +56,8 @@ class ReleaseCliTests(unittest.TestCase):
                         "local",
                         "--run-id",
                         "local-focused",
+                        "--image-mode",
+                        "existing",
                         "--test-module",
                         modules[0],
                         "--test-module",
@@ -67,6 +69,7 @@ class ReleaseCliTests(unittest.TestCase):
         run.assert_called_once_with(
             REPOSITORY,
             run_id="local-focused",
+            image_mode="existing",
             test_modules=modules,
         )
 
@@ -162,7 +165,7 @@ class ReleaseCliTests(unittest.TestCase):
                 result = json.loads(output.getvalue())
                 self.assertEqual(result["error_type"], "KeyboardInterrupt")
                 self.assertEqual(result["outcome"], "failed")
-                run.assert_called_once_with(REPOSITORY, run_id="interrupted")
+                run.assert_called_once_with(REPOSITORY, run_id="interrupted", image_mode="refresh")
 
     def test_main_interruption_fallback_returns_one_json_result_and_exit_130(self) -> None:
         output = io.StringIO()

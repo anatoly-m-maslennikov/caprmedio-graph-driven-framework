@@ -13,7 +13,7 @@ from .graph_store import GraphState, apply_graph_delta, graph_state, update_grap
 from .content_schema import ContentSchema
 from .header_columns import HeaderSchema
 from .index_delta import MaterializationDelta
-from .public_rows import SCOPE_FIELDS, atom_fields, atom_key, insert_public_rows, projected_rows
+from .public_rows import SCOPE_FIELDS, _snapshot_atom, atom_fields, atom_key, insert_public_rows, projected_rows
 
 
 @dataclass(frozen=True)
@@ -47,7 +47,7 @@ def snapshot(
             reuse = {
                 key: (source, previous.atoms[key])
                 for key, source in previous.atom_sources.items()
-                if key in previous.atoms
+                if key in previous.atoms and previous.atoms[key].get("status_group") != "Archived"
             }
         public_rows = projected_rows(
             atom_rows, scope_rows, header_schema, content_schema, previous_atoms=reuse,
@@ -165,7 +165,10 @@ def apply(
                                      else (_changed_keys(previous.atoms, current.atoms),
                                            _changed_keys(previous.scopes, current.scopes)))
     if delta is None and not changed_atoms and not changed_scopes and previous.graph == current.graph:
-        return current, ProjectionChange(0, 0, 0, 0, 0, None)
+        return ProjectionSnapshot(
+            {key: _snapshot_atom(row) for key, row in current.atoms.items()},
+            current.scopes, current.graph, header_schema, content_schema, current.atom_sources,
+        ), ProjectionChange(0, 0, 0, 0, 0, None)
     changed_atoms, changed_scopes, deleted_atoms, deleted_scopes = _write_public_delta(
         connection, previous, current, changed_atoms, changed_scopes,
     )
@@ -178,6 +181,9 @@ def apply(
         )
     else:
         next_graph, graph_rows = apply_graph_delta(connection, previous.graph, delta, relation_types)
+    for key in (current.atoms if delta is None else changed_atoms):
+        if key in current.atoms:
+            current.atoms[key] = _snapshot_atom(current.atoms[key])
     current = ProjectionSnapshot(
         current.atoms, current.scopes, next_graph, header_schema, content_schema, current.atom_sources,
     )

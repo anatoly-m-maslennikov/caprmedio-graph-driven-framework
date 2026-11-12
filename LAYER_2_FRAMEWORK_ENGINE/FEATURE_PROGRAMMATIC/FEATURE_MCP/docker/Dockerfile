@@ -1,6 +1,7 @@
 # CA-M-356@19
 # CA-M-504@2
 # CA-D-704@1
+# CA-D-720@1
 
 FROM node:22.20.0-bookworm-slim AS workbench_frontend
 WORKDIR /frontend
@@ -31,7 +32,6 @@ COPY LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca \
      ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca
 COPY --from=workbench_frontend /frontend/dist \
      ./LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/FEATURE_WORKBENCH_FRONTEND/dist
-RUN /opt/venv/bin/python LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py --package-root /workspace
 RUN mkdir -p /workspace/.caprmedio_install \
     /workspace/.caprmedio_tmp /workspace/tmp /workspace/.caprmedio_caprmedio \
     && chown -R ${RUNTIME_UID}:${RUNTIME_GID} /home/caprmedio

@@ -62,6 +62,11 @@ def repository_root(reference: Path | str) -> Path:
     candidate = Path(reference).expanduser().resolve()
     if not candidate.is_dir():
         candidate = candidate.parent
+    from project_selection import bound_selection
+
+    selection = bound_selection()
+    if selection is not None and candidate == selection.root:
+        return candidate
     for root in (candidate, *candidate.parents):
         if (root / ".git").exists():
             return root

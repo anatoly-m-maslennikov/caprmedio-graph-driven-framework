@@ -1,5 +1,5 @@
-# CA-R-1105@26
-# CA-M-167@22
+# CA-R-1105@30
+# CA-M-167@26
 # CA-O-10004@3
 
 """Private MCP adapter for the Project Atom Lifecycle backend."""
@@ -16,10 +16,11 @@ import anyio
 from mcp import types
 from mcp.server.session import ServerSession
 from mcp.server.connection import Connection
-from mcp.shared.exceptions import NoBackChannelError
 
-from ATOM_LIFECYCLE import backend, status_model
-from project_selection import rebind_selection, resolve_project
+from ATOM_LIFECYCLE import backend, source as lifecycle_source, status_model
+from ATOM_LIFECYCLE.timing import span
+from project_selection import bind_selection, rebind_selection, resolve_project
+from scope_unit_declarations import ScopeUnitDeclarations
 
 
 _FIELDS = {'role', 'form', 'scope_unit', 'container', 'summary', 'body', 'label', 'tier',
@@ -27,19 +28,14 @@ _FIELDS = {'role', 'form', 'scope_unit', 'container', 'summary', 'body', 'label'
            'ai_agent_confidence_threshold'}
 _INPUTS = {
     'atom_lifecycle_create_draft': {'newAtom', 'sourceCurrent', 'changes'},
-    'atom_lifecycle_archive': {'target'},
+    'atom_lifecycle_archive': {'target', 'targets'},
     'atom_lifecycle_change_status': {'target', 'targetStatus'},
     'atom_lifecycle_direct_update': {'target', 'changes'},
-    'atom_lifecycle_promote_draft': {'target', 'targetStatus'},
+    'atom_lifecycle_promote_draft': {'target', 'targetStatus', 'targets'},
     'atom_lifecycle_update': {'sourceCurrent', 'changes'},
 }
 _EDITABLE = frozenset({'atom_lifecycle_create_draft', 'atom_lifecycle_direct_update', 'atom_lifecycle_update'})
 _SESSION = object()
-_FORM_TYPES = {
-    **dict.fromkeys(('role', 'form', 'scope_unit', 'summary', 'body', 'label', 'priority', 'targetStatus'), 'string'),
-    **dict.fromkeys(('tier', 'work_sequence_number', 'ai_agent_confidence_threshold'), 'integer'),
-}
-_FORM_VALUES = {'string': str, 'integer': int}
 _PENDING = WeakKeyDictionary()
 
 
@@ -69,6 +65,12 @@ def _correctable(name, requested):
 
 def _parameters(name, retained, arguments):
     retained = deepcopy(retained)
+    if name == 'atom_lifecycle_create_draft':
+        old, new = retained.get('sourceCurrent'), arguments.get('sourceCurrent')
+        if isinstance(old, dict) and isinstance(new, dict) and 'ref_id' in new and new['ref_id'] != old.get('ref_id'):
+            retained.pop('sourceCurrent')
+        elif isinstance(old, str) and isinstance(new, dict) and 'ref_id' not in new:
+            retained['sourceCurrent'] = {'ref_id': old}
     if (name == 'atom_lifecycle_create_draft' and 'newAtom' in retained
             and ('sourceCurrent' in retained or 'changes' in retained)):
         selected = {'newAtom', 'sourceCurrent'} & arguments.keys()
@@ -97,110 +99,82 @@ def _take_pending(name, state, arguments):
     return params, source
 
 
-def _correction_schema(session, requested, correctable):
-    caps = getattr(session, 'client_capabilities', None)
-    elicitation = caps.elicitation if caps else None
-    if (elicitation is None or (elicitation.form is None and elicitation.url is not None)
-            or set(correctable) - _FORM_TYPES.keys() or len(correctable) != len(requested)):
+def _cancel_pending(arguments, state):
+    cancel = arguments.pop('cancel', False)
+    if not isinstance(cancel, bool) or (cancel and arguments):
+        return {'status': 'failed', 'errors': [{'code': 'invalid_input', 'field': 'cancel',
+                 'message': 'Use cancel=true without other fields.'}]}
+    if not cancel:
         return None
-    properties = {}
-    for field, detail in correctable.items():
-        form_type = _FORM_TYPES[field]
-        prop = {'type': form_type, 'description': detail.get('error', '')}
-        allowed = detail.get('allowed_values')
-        if form_type == 'string' and allowed and all(isinstance(item, str) for item in allowed):
-            prop['enum'] = allowed
-        properties[field] = prop
-    return {'type': 'object', 'properties': properties, 'required': list(properties)}
+    if state['pending'] is None:
+        return {'status': 'failed', 'errors': [{'code': 'no_pending_input', 'field': 'cancel',
+                 'message': 'No input is pending for this tool.'}]}
+    state.update(pending=None, source=None, declaration_digest=None)
+    return {'status': 'cancelled'}
 
 
-async def _request_correction(session, request_id, requested, correctable):
-    schema = _correction_schema(session, requested, correctable)
-    if schema is None:
-        return None
-    try:
-        return await session.elicit_form(
-            'Correct the requested fields to continue the lifecycle operation.',
-            schema, related_request_id=request_id,
-        )
-    except NoBackChannelError:
-        return None
-
-
-def _valid_correction(correction, fields):
-    return (isinstance(correction, dict) and correction.keys() == fields.keys()
-            and all(type(value) is _FORM_VALUES[_FORM_TYPES[key]] for key, value in correction.items()))
-
-
-def _promotion_requested(requested):
-    result = {('targetStatus' if field == 'status' else field): detail
-              for field, detail in requested.items() if field in {'target', 'targetStatus', 'status'}}
-    other = [f"{field}: {detail.get('error', '')}" for field, detail in requested.items()
-             if field not in {'target', 'targetStatus', 'status'}]
-    if other:
-        existing = result.get('target', {}).get('error', '')
-        result['target'] = {'error': '; '.join(filter(None, [existing, *other])),
-                            'format': 'Resolve the reported issue, then resume with the bound Draft selector'}
-    return result
-
-
-async def _promotion_correction(value, session, request_id):
-    promotion = {'token': value['pending_promotion'], 'effects': value.get('effects', []),
-                 'warnings': value.get('warnings', [])}
-    requested = _promotion_requested(value.get('requested_input', {}))
-    answer = (await _request_correction(session, request_id, requested, requested)
-              if requested and set(requested) <= {'targetStatus'} else None)
-    if answer is None:
-        return promotion, None, {'status': 'needs_input', 'requested_input': requested,
-                                 'effects': promotion['effects'], 'warnings': promotion['warnings']}
-    if answer.action != 'accept':
-        return promotion, None, {'status': 'cancelled', 'effects': promotion['effects'],
-                                 'warnings': promotion['warnings']}
-    if not _valid_correction(answer.content, requested):
-        return promotion, None, {'status': 'failed', 'effects': promotion['effects'],
-                                 'warnings': promotion['warnings'], 'errors': [{'code': 'invalid_input',
-                                 'message': 'Correction does not match the requested fields and types.'}]}
-    return promotion, answer.content, None
-
-
-async def _input_correction(name, value, params, source, session, request_id, state):
+def _input_correction(name, value, params, source, state, declaration_digest):
     requested = value.get('requested_input', {})
     correctable = _correctable(name, requested)
+    errors = [{'code': 'invalid_input', 'field': field, 'message': detail.get('error')}
+              for field, detail in requested.items()]
     if not correctable:
-        return None, None, {'status': 'failed', 'errors': [
-            {'code': 'invalid_input', 'field': field, 'message': detail.get('error')}
-            for field, detail in requested.items()
-        ]}
-    source = value.get('pending_source') or source
-    answer = await _request_correction(session, request_id, requested, correctable)
-    if answer is None:
-        state['pending'], state['source'] = params, source
-        return None, None, {'status': 'needs_input', 'requested_input': correctable}
-    if answer.action != 'accept':
-        return None, None, {'status': 'cancelled'}
-    if not _valid_correction(answer.content, correctable):
-        return None, None, {'status': 'failed', 'errors': [{'code': 'invalid_input',
-                            'message': 'Correction does not match the requested fields and types.'}]}
-    return _parameters(name, params, answer.content), source, None
+        return {'status': 'failed', 'errors': errors}
+    state.update(pending=params, source=value.get('pending_source') or source,
+                 declaration_digest=declaration_digest)
+    return {'status': 'needs_input', 'requested_input': correctable, 'errors': errors}
 
 
-def _execution(source, promotion):
-    if promotion:
-        return partial(backend.execute, pending_promotion=promotion['token'])
-    return backend.execute if source is None else partial(backend.execute, pending_source=source)
-
-
-def _result(value):
+def _result(value, *, batch=False):
+    if batch:
+        response = {'status': 'completed' if value.get('outcome') == 'completed' and not value.get('errors') else 'failed'}
+        if 'target_results' in value:
+            response['results'] = value['target_results']
+        for key in ('remaining_targets', 'effects', 'errors', 'warnings'):
+            if key in value:
+                response[key] = value[key]
+        if response['status'] == 'failed' and not response.get('errors'):
+            response['errors'] = [
+                {'code': 'invalid_input', 'field': field, 'message': detail.get('error')}
+                for field, detail in value.get('requested_input', {}).items()
+            ] or [{'code': 'backend_failure', 'message': 'Lifecycle operation failed.'}]
+        return response
+    workflow = {}
+    if 'workflow_binding' in value:
+        fields = ('workflow_binding', 'workflow_run_id', 'action_results', 'artifact', 'effects', 'warnings',
+                  'failed_action', 'unrun_actions')
+        workflow = {key: value[key] for key in fields if key in value}
     if value.get('outcome') == 'completed' and not value.get('errors'):
-        return {'status': 'completed'}
-    failure = {'status': 'failed', 'effects': value.get('effects', []),
-               'errors': value.get('errors', []), 'warnings': value.get('warnings', [])}
+        return {'status': 'completed', **workflow}
+    errors = value.get('errors') or [
+        {'code': 'invalid_input', 'field': field, 'message': detail.get('error')}
+        for field, detail in value.get('requested_input', {}).items()
+    ] or [{'code': 'backend_failure', 'message': 'Lifecycle operation failed.'}]
+    status = 'blocked' if value.get('outcome') == 'blocked' else 'failed'
+    failure = {'status': status, 'effects': value.get('effects', []),
+               'errors': errors, 'warnings': value.get('warnings', []), **workflow}
     if 'remaining_targets' in value:
         failure['remaining_targets'] = value['remaining_targets']
     return failure
 
 
-def _refresh_selection(selection):
+def _refresh_selection(selection, reader=None):
+    if reader is not None:
+        declarations = reader.lifecycle_declarations()
+        if not isinstance(declarations, ScopeUnitDeclarations):
+            raise ValueError('Project declarations are unavailable or invalid in Workbench')
+        if declarations.digest == selection.declaration_digest:
+            return selection
+        if (not declarations.paths or any(not path.is_absolute() or not path.is_relative_to(selection.control_root)
+                                          for path in declarations.paths)
+                or declarations.root.name != selection.settings['project']['name']):
+            raise ValueError('Project declarations are unavailable or invalid in Workbench')
+        provenance = {path: dict(pin) for path, pin in selection.provenance.items()
+                      if path not in selection.declaration_source_pins}
+        provenance.update({path: dict(pin) for path, pin in declarations.source_pins.items()})
+        return replace(selection, structure=declarations.as_structure(), declaration_paths=declarations.paths,
+                       declaration_source_pins=declarations.source_pins,
+                       declaration_digest=declarations.digest, provenance=provenance)
     selection._revalidate_boundary()
     current = resolve_project(selection.root, selection.control_relative)
     return rebind_selection(current, selection.instance_id, host_root=selection.host_root)
@@ -213,6 +187,22 @@ class LifecycleProvider:
             raise ValueError('Lifecycle requires an exact Project selection')
         self.model = model
         self.project = (self.selection.root, self.selection.instance_id)
+        self.workbench = getattr(gateway, 'workbench', None)
+
+    def _select_project(self):
+        if self.workbench is None:
+            return _refresh_selection(self.selection)
+        with self.workbench.lifecycle_reader() as reader:
+            self.selection = _refresh_selection(self.selection, reader)
+            return self.selection
+
+    def _execute(self, execute, selection, name, params):
+        if self.workbench is None:
+            return execute(selection, self.model, name, params)
+        with (self.workbench.lifecycle_reader() as reader,
+              reader.lifecycle_read_scope(), lifecycle_source.bind_query_reader(reader),
+              bind_selection(selection)):
+            return execute(selection, self.model, name, params)
 
     def prepare_arguments(self, name, arguments, context):
         session = getattr(context, 'session', None)
@@ -222,65 +212,49 @@ class LifecycleProvider:
         connection = getattr(session, '_connection', None)
         if not isinstance(connection, Connection):
             raise ValueError('Lifecycle requires an MCP connection')
-        return {**arguments, _SESSION: (connection, session, getattr(context, 'request_id', None))}
+        return {**arguments, _SESSION: connection}
 
     async def call(self, name, arguments):
         if name not in _INPUTS:
             raise ValueError('Unknown lifecycle Tool')
         arguments = dict(arguments)
-        connection, session, request_id = arguments.pop(_SESSION)
+        connection = arguments.pop(_SESSION)
         projects = _PENDING.setdefault(connection, {})
         tools = projects.setdefault(self.project, {})
-        state = tools.setdefault(name, {'lock': asyncio.Lock(), 'pending': None, 'source': None, 'promotion': None})
+        state = tools.setdefault(name, {'lock': asyncio.Lock(), 'pending': None, 'source': None})
         async with state['lock']:
+            cancelled = _cancel_pending(arguments, state)
+            if cancelled is not None:
+                return cancelled
             try:
-                selection = await anyio.to_thread.run_sync(_refresh_selection, self.selection)
+                with span('refresh_project', tool=name, selection=self.selection):
+                    selection = await anyio.to_thread.run_sync(self._select_project)
             except (OSError, RuntimeError, ValueError):
-                promotion = state.get('promotion') or {}
-                return {'status': 'failed', 'effects': promotion.get('effects', []),
-                        'warnings': promotion.get('warnings', []),
+                state.update(pending=None, source=None, declaration_digest=None)
+                return {'status': 'failed', 'effects': [], 'warnings': [],
                         'errors': [{'code': 'source_selection_failed',
                                     'message': 'Current Project declarations are unavailable or invalid.'}]}
-            if (state.get('pending') is not None or state.get('promotion') is not None) and (
-                    state.get('declaration_digest') != selection.declaration_digest):
-                promotion = state.get('promotion') or {}
-                state.update(pending=None, source=None, promotion=None, declaration_digest=None)
-                return {'status': 'failed', 'effects': promotion.get('effects', []),
-                        'warnings': promotion.get('warnings', []),
+            if state['pending'] is not None and state['declaration_digest'] != selection.declaration_digest:
+                state.update(pending=None, source=None, declaration_digest=None)
+                return {'status': 'failed', 'effects': [], 'warnings': [],
                         'errors': [{'code': 'source_changed',
                                     'message': 'Project declarations changed while input was pending.'}]}
-            promotion, state['promotion'] = state.get('promotion'), None
-            if promotion:
-                params, source = arguments, None
-            else:
-                params, source = _take_pending(name, state, arguments)
-            while True:
-                execute = _execution(source, promotion)
-                # The Action owns its lifetime once dispatched; cancellation cannot interrupt effects.
-                with anyio.CancelScope(shield=True):
-                    value = await anyio.to_thread.run_sync(execute, selection, self.model, name, params)
-                outcome = value.get('outcome')
-                token = value.get('pending_promotion')
-                if promotion and outcome == 'needs_input' and token is None:
-                    return {'status': 'failed', 'effects': promotion['effects'], 'warnings': promotion['warnings'],
-                            'errors': [{'code': 'invalid_state', 'message': 'Promotion continuation is unavailable.'}]}
-                if outcome != 'needs_input' or (value.get('effects') and token is None):
-                    break
-                if token is not None:
-                    promotion, params, response = await _promotion_correction(value, session, request_id)
-                    if response is not None:
-                        if response['status'] == 'needs_input':
-                            state['promotion'] = promotion
-                            state['declaration_digest'] = selection.declaration_digest
-                        return response
-                else:
-                    params, source, response = await _input_correction(
-                        name, value, params, source, session, request_id, state)
-                    if response is not None:
-                        if response['status'] == 'needs_input':
-                            state['declaration_digest'] = selection.declaration_digest
-                        return response
-            return _result(value)
+            batch = name in {'atom_lifecycle_archive', 'atom_lifecycle_promote_draft'} and 'targets' in arguments
+            if batch:
+                state.update(pending=None, source=None, declaration_digest=None)
+            params, source = _take_pending(name, state, arguments)
+            value = await self._run(selection, name, params, source)
+            if batch:
+                return _result(value, batch=True)
+            if value.get('outcome') != 'needs_input' or value.get('effects'):
+                return _result(value)
+            return _input_correction(name, value, params, source, state, selection.declaration_digest)
+
+    async def _run(self, selection, name, params, source):
+        execute = backend.execute if source is None else partial(backend.execute, pending_source=source)
+        # An Action owns its lifetime once dispatched; cancellation cannot interrupt effects.
+        with anyio.CancelScope(shield=True):
+            return await anyio.to_thread.run_sync(self._execute, execute, selection, name, params)
 
     async def close(self):
         return None
@@ -289,15 +263,36 @@ class LifecycleProvider:
 def create_provider(_root, gateway):
     from ATOM_LIFECYCLE.candidate_schema import load_candidate_schema
 
+    if getattr(gateway, 'workbench', None) is None:
+        raise ValueError('Lifecycle requires the Project Workbench query backend')
     model = status_model.load_status_model(Path(status_model.__file__).with_suffix('.json'))
     path = Path(status_model.__file__).with_name('candidate_schema.json')
     return LifecycleProvider(gateway, replace(model, candidate_schema=load_candidate_schema(path)))
 
 
 def tool_descriptors():
+    def properties(name, fields):
+        result = {key: {} for key in sorted(fields | (_FIELDS if name in _EDITABLE else set()))}
+        result['cancel'] = {'type': 'boolean', 'description': 'Cancel this tool’s pending input without executing it.'}
+        if name == 'atom_lifecycle_create_draft':
+            result['sourceCurrent'] = {'description': 'An Atom ID string or {"ref_id": "CA-R-123", '
+                                       '"version": 2}, with optional positive integer version. '
+                                       'Without a version, select Current. An exact version can select '
+                                       'Current, Archived or Draft.'}
+        if 'targets' in fields:
+            item_properties = {'target': {'type': 'object'}}
+            if name == 'atom_lifecycle_promote_draft':
+                item_properties['targetStatus'] = {'type': 'string'}
+            result['targets'] = {'type': 'array', 'minItems': 1, 'items': {
+                'type': 'object', 'properties': item_properties,
+                'required': list(item_properties), 'additionalProperties': False}}
+        return result
+
     return tuple(types.Tool(
-        name=name, description='Execute a Project Atom Lifecycle operation. Missing or invalid fields are returned for correction.',
-        input_schema={'type': 'object', 'properties': {key: {} for key in sorted(fields | (_FIELDS if name in _EDITABLE else set()) | ({'target', 'targetStatus'} if name == 'atom_lifecycle_update' else set()))},
+        name=name, description=('Execute a Project Atom Lifecycle operation. Single inputs can be corrected; batches stop on failure.'
+                                if 'targets' in fields else
+                                'Execute a Project Atom Lifecycle operation. Missing or invalid fields are returned for correction.'),
+        input_schema={'type': 'object', 'properties': properties(name, fields),
                       'additionalProperties': False},
     ) for name, fields in _INPUTS.items())
 

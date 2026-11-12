@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "sources": [
+    {
+      "atom_id": "CA-R-1539",
+      "version": 25
+    },
+    {
+      "atom_id": "CA-R-1608",
+      "version": 23
+    },
+    {
+      "atom_id": "CA-R-1875",
+      "version": 24
+    },
+    {
+      "atom_id": "CA-R-2696",
+      "version": 3
+    },
+    {
+      "atom_id": "CA-R-3010",
+      "version": 7
+    }
+  ],
+  "declarations": [
+    {
+      "source": "CA-R-1539",
+      "role": "Plan",
+      "form": null,
+      "value": "Backlog"
+    },
+    {
+      "source": "CA-R-1539",
+      "role": "Plan",
+      "form": null,
+      "value": "Canceled"
+    },
+    {
+      "source": "CA-R-1539",
+      "role": "Plan",
+      "form": null,
+      "value": "Done"
+    },
+    {
+      "source": "CA-R-1608",
+      "role": "Concern",
+      "form": null,
+      "value": "Canceled"
+    },
+    {
+      "source": "CA-R-1608",
+      "role": "Concern",
+      "form": null,
+      "value": "Resolved"
+    },
+    {
+      "source": "CA-R-1875",
+      "role": "Analysis and Advisory",
+      "form": "Analysis Report",
+      "value": "Done"
+    },
+    {
+      "source": "CA-R-1875",
+      "role": "Analysis and Advisory",
+      "form": "Rationale",
+      "value": "Done"
+    },
+    {
+      "source": "CA-R-2696",
+      "role": null,
+      "form": null,
+      "value": "Active"
+    },
+    {
+      "source": "CA-R-2696",
+      "role": null,
+      "form": null,
+      "value": "Archived"
+    },
+    {
+      "source": "CA-R-2696",
+      "role": null,
+      "form": null,
+      "value": "Draft"
+    },
+    {
+      "source": "CA-R-3010",
+      "role": "Analysis and Advisory",
+      "form": "Code Synopsis",
+      "value": "Resolved"
+    }
+  ]
+}

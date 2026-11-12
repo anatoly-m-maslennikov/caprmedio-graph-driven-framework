@@ -66,9 +66,9 @@ class MCPHTTPRuntimeTests(unittest.TestCase):
         health_start_period = int(re.search(
             r"start_period:\s*(\d+)s", (APP / "docker/mcp-http.compose.yaml").read_text()
         ).group(1))
-        self.assertGreaterEqual(compose_wait, 90)
+        self.assertEqual(compose_wait, 420)
         self.assertGreater(outer_timeout, compose_wait)
-        self.assertGreaterEqual(health_start_period, 90)
+        self.assertEqual(health_start_period, 420)
 
     def test_start_requires_exact_loopback_publisher_admission(self):
         cases = {

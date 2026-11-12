@@ -13,7 +13,8 @@ from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regu
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
 from . import effects
-from .source import _matching_paths, select_source
+from .source import _matching_paths, query_reader, select_source
+from .timing import trace
 
 
 class InputError(ValueError):
@@ -98,6 +99,7 @@ def validate_candidate(selection, model, raw, path, *, authored=True):
     validate(selection, model, raw, path, authored=authored)
 
 
+@trace('source.allocate_id')
 def allocate_id(selection, role):
     """Find a free number across Current, Draft and Archived filenames."""
     if role not in {"Concern", "Analysis and Advisory", "Plan", "Requirement", "Method",
@@ -105,11 +107,16 @@ def allocate_id(selection, role):
         raise InputError("role", "Unsupported Atom Role.", format="Declared Atom Role")
     prefix = selection.settings["artifacts"]["identity"]["project_prefix"]
     stem = f"{prefix}-{role[0]}-"
-    marker = re.compile(r"(?:[1-9][0-9]*-)?" + re.escape(stem) + r"([1-9][0-9]*)(?=[-.@])")
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+    indexed = query_reader()
+    if indexed is not None:
+        last = indexed.lifecycle_last_id(selection, stem)
+        return f"{stem}{int(last[len(stem):]) + 1 if last else 1}"
     selection._revalidate_boundary(reader=reader)
+    marker = re.compile(r"(?:[1-9][0-9]*-)?" + re.escape(stem) + r"([0-9]+)(?=[-.@])")
+    candidates = _matching_paths(reader, selection, marker)
     greatest = max(
-        (int(match[1]) for path in _matching_paths(reader, selection, marker)
+        (int(match[1]) for path in candidates
          if (match := marker.match(path.name))),
         default=0,
     )

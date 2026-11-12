@@ -40,6 +40,16 @@ def atom(
             ref = f"{atom_id}:{path.relative_to(root).as_posix()}"
         else:
             ref = f"{atom_id}@{version}-draft"
+    elif group == "Archived" and isinstance(atom_id, str):
+        explicit = view.get("ref_id")
+        if isinstance(explicit, str) and re.search(r"@[1-9][0-9]*$", explicit):
+            ref = explicit
+        elif re.search(r"@[1-9][0-9]*$", atom_id):
+            ref = atom_id
+        elif type(version) is int and version > 0:
+            ref = f"{atom_id}@{version}"
+        else:
+            ref = atom_id
     else:
         ref = None
     return {
@@ -137,7 +147,7 @@ class ReferenceIndex:
                 self.paths.setdefault(reference, set()).add(path)
         self.accepted = {
             path for path, row in rows.items()
-            if (reference := _reference(row)) is None or path == min(self.paths[reference])
+            if (reference := _reference(row)) is None or path == min(self.paths[reference], key=_path_rank)
         }
 
     def update(
@@ -163,7 +173,7 @@ class ReferenceIndex:
         for path in impacted:
             row = after.get(path)
             reference = _reference(row)
-            if row is not None and (reference is None or path == min(self.paths[reference])):
+            if row is not None and (reference is None or path == min(self.paths[reference], key=_path_rank)):
                 self.accepted.add(path)
             else:
                 self.accepted.discard(path)
@@ -173,6 +183,10 @@ class ReferenceIndex:
 def _reference(row: Mapping[str, Any] | None) -> str | None:
     value = row.get("ref") if row is not None else None
     return value if isinstance(value, str) else None
+
+
+def _path_rank(path: Path) -> tuple[bool, Path]:
+    return "_projection" in path.parts, path
 
 
 def file_signature(path: Path) -> tuple[int, ...] | None:

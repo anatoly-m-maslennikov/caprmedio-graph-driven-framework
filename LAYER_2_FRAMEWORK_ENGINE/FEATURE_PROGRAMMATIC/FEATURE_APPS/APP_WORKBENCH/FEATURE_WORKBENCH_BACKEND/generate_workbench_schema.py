@@ -1,5 +1,5 @@
-# CA-M-500@10
-# CA-D-672@20
+# CA-M-500@11
+# CA-D-672@21
 
 """Generate the deterministic Workbench schema asset from one Project capture."""
 
@@ -34,7 +34,7 @@ from role_directory_rules import compile_role_folders
 
 def compile_project_schema(project_root: Path) -> bytes:
     """Capture one Project and compile both admitted Workbench schema modes."""
-    reader = SourceReader(Path(project_root))
+    reader = SourceReader(Path(project_root), include_archived=False)
     atoms, _scopes = reader.capture()
     pins = {row["source_path"]: row for row in atoms}
     statements = []

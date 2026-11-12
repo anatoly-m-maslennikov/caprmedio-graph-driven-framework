@@ -5,15 +5,15 @@ identity:
 context:
   container:
     scope_unit: CA-SU-43
-  role: Requirement
-  form: Solution
+  role: requirement
+  form: solution
   topics:
     main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 3
 state:
-  status: Active
-  version: 1
-  updated_at: 2026-11-11 00:34:40 +0400
+  status: active
+  version: 2
+  updated_at: '2026-11-12T01:42:12.539601+00:00'
 destination:
   file:
     name: CA-R-970308649-WORKBENCH-SOLUTION--expose-declared-carrier-conflicts.md
@@ -31,5 +31,5 @@ Expose declared carrier conflicts
 
 ### Prose Claim
 
-For every readable selected Current or Draft Atom, compare its declared `file.name` and `file.path` with the other declared properties that identify its carrier. Derive expected values only from the existing canonical declared carrier rules. Expose each conflict as one query-visible audit row with the Atom identity, source path, issue category `declared_carrier_inconsistency`, observed and expected or related values, and the diagnostic location when available. If no applicable canonical rule exists, report `missing_carrier_rule` instead of guessing a filename grammar. Do not infer a replacement value, change the source file, or emit a row when no conflict exists.
+For every readable selected Atom, including loaded Archives, compare its declared `file.name` and `file.path` with the other declared properties that identify its carrier. Derive expected values only from the existing canonical declared carrier rules. Expose each conflict as one query-visible audit row with the Atom identity, source path, issue category `declared_carrier_inconsistency`, observed and expected or related values, and the diagnostic location when available. If no applicable canonical rule exists, report `missing_carrier_rule` instead of guessing a filename grammar. Do not infer a replacement value, change the source file, or emit a row when no conflict exists.
 

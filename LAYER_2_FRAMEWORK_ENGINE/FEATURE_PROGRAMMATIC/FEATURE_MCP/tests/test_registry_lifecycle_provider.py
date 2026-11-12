@@ -1,5 +1,5 @@
 """Private lifecycle provider: corrections, session isolation, and effects."""
-import asyncio
+from contextlib import contextmanager, nullcontext
 import hashlib
 import json
 import os
@@ -36,6 +36,36 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
         prepared = self.provider.prepare_arguments(name, arguments, SimpleNamespace(session=session))
         return await self.provider.call(name, prepared)
 
+    async def test_runtime_action_uses_shared_workbench_reader(self):
+        from ATOM_LIFECYCLE import source
+
+        scope = []
+
+        @contextmanager
+        def read_scope():
+            scope.append('entered')
+            try:
+                yield
+            finally:
+                scope.append('exited')
+
+        reader = SimpleNamespace(lifecycle_read_scope=read_scope)
+        self.provider.workbench = SimpleNamespace(lifecycle_reader=lambda: nullcontext(reader))
+
+        def execute(selection, model, name, params):
+            self.assertIs(selection, self.selection)
+            self.assertIs(source.query_reader(), reader)
+            self.assertEqual(scope, ['entered'])
+            return {'outcome': 'completed', 'errors': []}
+
+        with (patch('registry_lifecycle_provider._refresh_selection', return_value=self.selection) as refresh,
+              patch('registry_lifecycle_provider.backend.execute', side_effect=execute),
+              patch('registry_lifecycle_provider.bind_selection', return_value=nullcontext())):
+            result = await self.invoke(self.a, self.name, {})
+        self.assertEqual(result, {'status': 'completed'})
+        self.assertEqual(scope, ['entered', 'exited'])
+        refresh.assert_called_once_with(self.selection, reader)
+
     async def test_corrections_are_scoped_to_session_and_tool(self):
         calls = []
         def execute(selection, model, name, params):
@@ -55,6 +85,119 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
             await self.invoke(self.a, self.name, {'newAtom': {'role': 'Plan'}})
             await self.invoke(self.a, 'atom_lifecycle_archive', {'target': {'ref_id': 'CA-P-1', 'version': 1}})
             self.assertNotIn('newAtom', calls[-1][1])
+
+    async def test_pending_cancellation_is_explicit_and_scoped(self):
+        missing = {'outcome': 'needs_input', 'requested_input': {'form': {'error': 'required'}}, 'effects': []}
+        with patch('registry_lifecycle_provider.backend.execute', return_value=missing) as execute:
+            result = await self.invoke(self.a, self.name, {'newAtom': {'role': 'Method'}})
+            self.assertEqual([{'code': 'invalid_input', 'field': 'form', 'message': 'required'}], result['errors'])
+            self.assertEqual({'form': {'error': 'required'}}, result['requested_input'])
+            self.assertEqual('no_pending_input', (await self.invoke(self.b, self.name, {'cancel': True}))['errors'][0]['code'])
+            other_tool = await self.invoke(self.a, 'atom_lifecycle_archive', {'cancel': True})
+            self.assertEqual('no_pending_input', other_tool['errors'][0]['code'])
+            other_project = LifecycleProvider(SimpleNamespace(selection=SimpleNamespace(
+                root=self.selection.root, instance_id='another-project', declaration_digest='initial')), object())
+            args = other_project.prepare_arguments(self.name, {'cancel': True}, SimpleNamespace(session=self.a))
+            self.assertEqual('no_pending_input', (await other_project.call(self.name, args))['errors'][0]['code'])
+            self.assertEqual(1, execute.call_count)
+            mixed = await self.invoke(self.a, self.name, {'cancel': True, 'form': 'Declaration'})
+            self.assertEqual('invalid_input', mixed['errors'][0]['code'])
+            self.assertEqual({'status': 'cancelled'}, await self.invoke(self.a, self.name, {'cancel': True}))
+            self.assertEqual('no_pending_input', (await self.invoke(self.a, self.name, {'cancel': True}))['errors'][0]['code'])
+            self.assertEqual(1, execute.call_count)
+            await self.invoke(self.a, self.name, {'form': 'Declaration'})
+            self.assertNotIn('role', execute.call_args.args[3].get('newAtom', {}))
+
+    async def test_all_six_tools_cancel_pending_without_dispatch(self):
+        for descriptor in tool_descriptors():
+            with self.subTest(tool=descriptor.name):
+                self.assertEqual('boolean', descriptor.input_schema['properties']['cancel']['type'])
+                missing = {'outcome': 'needs_input', 'requested_input': {
+                    next(key for key in descriptor.input_schema['properties'] if key != 'cancel'): {'error': 'required'}},
+                    'effects': []}
+                with patch('registry_lifecycle_provider.backend.execute', return_value=missing) as execute:
+                    self.assertEqual('needs_input', (await self.invoke(self.a, descriptor.name, {}))['status'])
+                    self.assertEqual({'status': 'cancelled'}, await self.invoke(self.a, descriptor.name, {'cancel': True}))
+                    self.assertEqual(1, execute.call_count)
+
+    async def test_corrected_and_additional_fields_are_retained(self):
+        calls = []
+        def execute(_selection, _model, _name, params):
+            calls.append(params)
+            if len(calls) == 1:
+                return {'outcome': 'needs_input', 'requested_input': {'form': {'error': 'required'}}, 'effects': []}
+            return {'outcome': 'completed', 'errors': []}
+        with patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
+            await self.invoke(self.a, self.name, {'newAtom': {'role': 'Requirement'}})
+            response = await self.invoke(self.a, self.name, {'form': 'Definition', 'summary': 'An extra field'})
+        self.assertEqual({'status': 'completed'}, response)
+        self.assertEqual({'role': 'Requirement', 'form': 'Definition', 'summary': 'An extra field'}, calls[1]['newAtom'])
+
+    async def test_archive_and_promote_batches_preserve_backend_ledger(self):
+        target1 = {'target': {'ref_id': 'CA-R-1', 'version': 1}}
+        target2 = {'target': {'ref_id': 'CA-R-2', 'version': 2}}
+        for name in ('atom_lifecycle_archive', 'atom_lifecycle_promote_draft'):
+            items = [target1, target2] if name.endswith('archive') else [
+                {**target1, 'targetStatus': 'Active'}, {**target2, 'targetStatus': 'Done'}]
+            cases = [
+                {'outcome': 'completed', 'target_results': [{'target': items[0]}, {'target': items[1]}],
+                 'remaining_targets': [], 'effects': [{'operation': 'archive'}], 'errors': [], 'warnings': []},
+                {'outcome': 'failed', 'target_results': [{'target': items[0]}], 'remaining_targets': [items[1]],
+                 'effects': [{'operation': 'archive', 'state': 'known'}, {'operation': 'create', 'state': 'unknown'}],
+                 'errors': [{'code': 'failure', 'message': 'Stopped.'}], 'warnings': ['warning']},
+            ]
+            for value in cases:
+                with self.subTest(name=name, outcome=value['outcome']), \
+                     patch('registry_lifecycle_provider.backend.execute', return_value=value) as execute:
+                    result = await self.invoke(self.a, name, {'targets': items})
+                self.assertEqual({'status': value['outcome'], 'results': value['target_results'],
+                                  **{key: value[key] for key in ('remaining_targets', 'effects', 'errors', 'warnings')}}, result)
+                self.assertEqual({'targets': items}, execute.call_args.args[3])
+
+    async def test_batch_never_resumes_pending_single_or_requests_correction(self):
+        name = 'atom_lifecycle_archive'
+        target = {'target': {'ref_id': 'CA-R-1', 'version': 1}}
+        missing = {'outcome': 'needs_input', 'effects': [], 'requested_input': {'target': {'error': 'required'}}}
+        with patch('registry_lifecycle_provider.backend.execute', side_effect=[missing, missing]) as execute:
+            self.assertEqual('needs_input', (await self.invoke(self.a, name, {}))['status'])
+            response = await self.invoke(self.a, name, {'targets': [target]})
+            cancel = await self.invoke(self.a, name, {'cancel': True})
+        self.assertEqual('failed', response['status'])
+        self.assertEqual('required', response['errors'][0]['message'])
+        self.assertEqual({'targets': [target]}, execute.call_args.args[3])
+        self.assertEqual('no_pending_input', cancel['errors'][0]['code'])
+        self.assertEqual(2, execute.call_count)
+
+    async def test_batch_with_backend_stops_at_first_failure(self):
+        from ATOM_LIFECYCLE import backend
+
+        name = 'atom_lifecycle_archive'
+        targets = [{'target': {'ref_id': f'CA-R-{number}', 'version': 1}} for number in (1, 2, 3)]
+        self.provider.model = SimpleNamespace(candidate_schema=SimpleNamespace(placement=object()))
+        def archive(_selection, _model, entry):
+            if entry == targets[1]:
+                return {'outcome': 'failed', 'effects': [], 'errors': [{'code': 'failure'}], 'warnings': []}
+            return {'outcome': 'completed', 'effects': [{'operation': 'archive'}], 'errors': [], 'warnings': []}
+        with patch.dict(backend.ROUTES, {name: archive}), \
+             patch.object(backend, '_selector', side_effect=lambda _, ref, __: (ref, None, None)), \
+             patch.object(backend, 'bind_placement', return_value=nullcontext()), \
+             patch.object(backend, '_project_write_lock', return_value=nullcontext()):
+            response = await self.invoke(self.a, name, {'targets': targets})
+        self.assertEqual('failed', response['status'])
+        self.assertEqual([item['target'] for item in targets[:2]],
+                         [item['target'] for item in response['results']])
+        self.assertEqual([targets[2]], response['remaining_targets'])
+        self.assertEqual([{'operation': 'archive'}], response['effects'])
+
+    def test_batch_descriptors_define_archive_and_promotion_entries(self):
+        descriptors = {item.name: item.input_schema['properties'] for item in tool_descriptors()}
+        archive = descriptors['atom_lifecycle_archive']['targets']
+        promote = descriptors['atom_lifecycle_promote_draft']['targets']
+        self.assertEqual('array', archive['type'])
+        self.assertEqual(['target'], archive['items']['required'])
+        self.assertEqual(['target', 'targetStatus'], promote['items']['required'])
+        self.assertIn('target', descriptors['atom_lifecycle_archive'])
+        self.assertIn('targetStatus', descriptors['atom_lifecycle_promote_draft'])
 
     async def test_corrections_survive_provider_replacement_but_not_project_change(self):
         calls = []
@@ -105,33 +248,65 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual({'status': 'completed'}, await self.invoke(self.a, name, correction))
                 self.assertEqual((expected_params, expected_kwargs), calls[-1])
 
-    async def test_changed_declarations_reject_pending_input_and_keep_effects(self):
+    async def test_create_draft_forwards_source_id_with_optional_version_and_changes(self):
+        cases = [
+            {'sourceCurrent': 'CA-R-1'},
+            {'sourceCurrent': {'ref_id': 'CA-R-1'}},
+            {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2}},
+            {'sourceCurrent': {'ref_id': 'CA-R-1'}, 'changes': {'summary': 'New summary'}},
+        ]
+        with patch('registry_lifecycle_provider.backend.execute', return_value={
+                'outcome': 'completed', 'errors': []}) as execute:
+            for arguments in cases:
+                with self.subTest(arguments=arguments):
+                    self.assertEqual({'status': 'completed'}, await self.invoke(self.a, self.name, arguments))
+                    self.assertEqual(arguments, execute.call_args.args[3])
+
+    async def test_create_draft_source_change_does_not_inherit_old_version(self):
+        missing = {'outcome': 'needs_input', 'effects': [],
+                   'requested_input': {'sourceCurrent': {'error': 'Select a source'}}}
+        with patch('registry_lifecycle_provider.backend.execute', side_effect=[missing, {
+                'outcome': 'completed', 'errors': []}]) as execute:
+            await self.invoke(self.a, self.name, {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2}})
+            result = await self.invoke(self.a, self.name, {'sourceCurrent': {'ref_id': 'CA-R-2'}})
+        self.assertEqual({'status': 'completed'}, result)
+        self.assertEqual({'sourceCurrent': {'ref_id': 'CA-R-2'}}, execute.call_args.args[3])
+
+    async def test_create_draft_source_version_correction_keeps_string_id(self):
+        missing = {'outcome': 'needs_input', 'effects': [],
+                   'requested_input': {'sourceCurrent': {'error': 'Select a source version'}}}
+        with patch('registry_lifecycle_provider.backend.execute', side_effect=[missing, {
+                'outcome': 'completed', 'errors': []}]) as execute:
+            await self.invoke(self.a, self.name, {'sourceCurrent': 'CA-R-1'})
+            result = await self.invoke(self.a, self.name, {'sourceCurrent': {'version': 2}})
+        self.assertEqual({'status': 'completed'}, result)
+        self.assertEqual({'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2}}, execute.call_args.args[3])
+
+    def test_create_draft_descriptor_documents_optional_source_version(self):
+        descriptor = next(item for item in tool_descriptors() if item.name == self.name)
+        description = descriptor.input_schema['properties']['sourceCurrent']['description']
+        self.assertIn('ref_id', description)
+        self.assertIn('optional', description)
+        self.assertIn('version', description)
+
+    async def test_changed_declarations_reject_pending_input(self):
         newer = SimpleNamespace(root=self.selection.root, instance_id=self.selection.instance_id,
                                 declaration_digest='new')
-        effects = [{'operation': 'archive'}]
-        for promotion in (False, True):
-            calls = []
-            def execute(*_args, **_kwargs):
-                calls.append(1)
-                result = {'outcome': 'needs_input', 'requested_input': {'targetStatus': {'error': 'required'}},
-                          'effects': effects if promotion else []}
-                if promotion:
-                    result['pending_promotion'] = object()
-                return result
-            name = 'atom_lifecycle_update' if promotion else 'atom_lifecycle_change_status'
-            with self.subTest(promotion=promotion), \
-                    patch('registry_lifecycle_provider._refresh_selection', side_effect=[self.selection, newer]), \
-                    patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
-                self.assertEqual('needs_input', (await self.invoke(self.a, name, {}))['status'])
-                result = await self.invoke(self.a, name, {'targetStatus': 'Active'})
-                self.assertEqual('failed', result['status'])
-                self.assertEqual('source_changed', result['errors'][0]['code'])
-                self.assertEqual(effects if promotion else [], result['effects'])
-                self.assertEqual(1, len(calls))
+        name = 'atom_lifecycle_change_status'
+        pending = {'outcome': 'needs_input', 'requested_input': {'targetStatus': {'error': 'required'}}}
+        with (patch('registry_lifecycle_provider._refresh_selection', side_effect=[self.selection, newer]),
+              patch('registry_lifecycle_provider.backend.execute', return_value=pending) as execute):
+            self.assertEqual('needs_input', (await self.invoke(self.a, name, {}))['status'])
+            result = await self.invoke(self.a, name, {'targetStatus': 'Active'})
+        self.assertEqual('failed', result['status'])
+        self.assertEqual('source_changed', result['errors'][0]['code'])
+        self.assertEqual([], result['effects'])
+        execute.assert_called_once()
 
     async def test_new_scope_is_read_for_each_write_without_restart(self):
         from ATOM_LIFECYCLE import common
-        from project_selection import rebind_selection, resolve_project
+        from project_selection import ProjectSelection, rebind_selection, resolve_project
+        from scope_unit_declarations import read_scope_unit_declarations
         from scope_declaration_test_support import write_scope_unit_declarations
         sys.path.insert(0, str(MCP.parent / 'FEATURE_TOOLS' / 'tests'))
         from lifecycle_placement_test_support import fixture_rules
@@ -161,6 +336,15 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
             units = write_scope_unit_declarations(root, control_root=control, rows=[
                 {'scope_unit_name': 'NEW', 'scope_unit_label': 'FEATURE'},
             ])
+            declarations = read_scope_unit_declarations(root, control)
+            indexed = SimpleNamespace(lifecycle_declarations=lambda: declarations)
+            with (patch.object(ProjectSelection, '_revalidate_boundary', side_effect=AssertionError('boundary scan')),
+                  patch('registry_lifecycle_provider.resolve_project', side_effect=AssertionError('Project scan'))):
+                indexed_selection = refresh_real(selection, indexed)
+                self.assertEqual(declarations.digest, indexed_selection.declaration_digest)
+                self.assertIn('NEW', [item['scope_unit_name'] for item in indexed_selection.structure['scope_units']])
+                self.assertIs(indexed_selection, refresh_real(indexed_selection, indexed))
+                self.assertEqual(selection.instance_id, indexed_selection.instance_id)
             new_atom = {'role': 'Requirement', 'form': 'Declaration', 'scope_unit': 'NEW',
                         'summary': 'New', 'body': '## Summary\n\nNew\n'}
             with patch('registry_lifecycle_provider._refresh_selection', side_effect=refresh_real), \
@@ -190,123 +374,21 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
                 self.assertEqual('failed', result['status'])
                 self.assertEqual('source_selection_failed', result['errors'][0]['code'])
 
-    async def test_pending_promotion_is_scoped_and_resumes_with_only_correction(self):
-        token = object()
-        effects = [{'operation': 'create', 'target': 'draft'}]
-        warnings = ['prior warning']
-        calls = []
-        def execute(_selection, _model, _name, params, **kwargs):
-            calls.append((params, kwargs))
-            if kwargs.get('pending_promotion') is token:
-                if params == {'targetStatus': 'Wrong'}:
-                    return {'outcome': 'needs_input', 'pending_promotion': token, 'effects': effects,
-                            'warnings': warnings, 'requested_input': {'target': {'error': 'external repair'}}}
-                return {'outcome': 'completed', 'errors': []}
-            return {'outcome': 'needs_input', 'pending_promotion': token, 'effects': effects,
-                    'warnings': warnings, 'requested_input': {'target': {'error': 'external repair'}}}
-        name = 'atom_lifecycle_update'
-        with patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
-            first = await self.invoke(self.a, name, {'sourceCurrent': {'ref_id': 'CA-P-10', 'version': 1}})
-            self.assertEqual({'status': 'needs_input', 'requested_input': {'target': {'error': 'external repair'}},
-                              'effects': effects, 'warnings': warnings}, first)
-            await self.invoke(self.b, name, {})
-            self.assertEqual(({}, {}), calls[-1])
-            second = await self.invoke(self.a, name, {'targetStatus': 'Wrong'})
-            self.assertEqual('needs_input', second['status'])
-            self.assertEqual(({'targetStatus': 'Wrong'}, {'pending_promotion': token}), calls[-1])
-            self.assertEqual({'status': 'completed'}, await self.invoke(self.a, name, {}))
-            self.assertEqual(({}, {'pending_promotion': token}), calls[-1])
-
-    async def test_cancelled_promotion_form_does_not_leak_token_to_next_call(self):
-        token, calls, waiting = object(), [], asyncio.Event()
-        def execute(_selection, _model, _name, params, **kwargs):
-            calls.append((params, kwargs))
-            if len(calls) == 1:
-                return {'outcome': 'needs_input', 'pending_promotion': token,
-                        'effects': [{'operation': 'archive'}],
-                        'requested_input': {'targetStatus': {'error': 'select status'}}}
-            return {'outcome': 'completed', 'errors': []}
-        async def wait_for_form(*_args):
-            waiting.set()
-            await asyncio.Event().wait()
-        name = 'atom_lifecycle_update'
-        with patch('registry_lifecycle_provider.backend.execute', side_effect=execute), \
-                patch('registry_lifecycle_provider._request_correction', side_effect=wait_for_form):
-            task = asyncio.create_task(self.invoke(self.a, name, {'sourceCurrent': {'ref_id': 'CA-P-1', 'version': 1}}))
-            await asyncio.wait_for(waiting.wait(), 5)
-            task.cancel()
-            with self.assertRaises(asyncio.CancelledError):
-                await task
-            other = {'sourceCurrent': {'ref_id': 'CA-P-2', 'version': 1}}
-            self.assertEqual({'status': 'completed'}, await self.invoke(self.a, name, other))
-            self.assertEqual((other, {}), calls[-1])
-
-    async def test_promotion_unbound_fields_are_reported_as_target(self):
-        token = object()
-        value = {'outcome': 'needs_input', 'pending_promotion': token, 'effects': [{'operation': 'archive'}],
-                 'requested_input': {'relations.is_replacement_for': {'error': 'predecessor missing'},
-                                     'target': {'error': 'draft needs repair'}}}
-        with patch('registry_lifecycle_provider.backend.execute', return_value=value):
-            result = await self.invoke(self.a, 'atom_lifecycle_update', {})
-        self.assertEqual({'target'}, set(result['requested_input']))
-        message = result['requested_input']['target']['error']
-        self.assertIn('predecessor missing', message)
-        self.assertIn('draft needs repair', message)
-
-    async def test_failed_promotion_reports_prior_effects_and_does_not_retry(self):
-        token = object()
+    async def test_post_effect_failure_preserves_effects_and_starts_no_correction(self):
         effects = [{'operation': 'archive'}]
-        calls = []
-        def execute(_selection, _model, _name, params, **kwargs):
-            calls.append((params, kwargs))
-            if len(calls) == 1:
-                return {'outcome': 'needs_input', 'pending_promotion': token, 'effects': effects,
-                        'requested_input': {'target': {'error': 'repair'}}}
-            return {'outcome': 'failed', 'effects': effects, 'warnings': ['prior'],
-                    'errors': [{'code': 'source_changed'}]}
-        with patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
-            await self.invoke(self.a, 'atom_lifecycle_update', {'sourceCurrent': {'ref_id': 'CA-P-1', 'version': 1}})
-            result = await self.invoke(self.a, 'atom_lifecycle_update', {})
-            self.assertEqual('failed', result['status'])
-            self.assertEqual(effects, result['effects'])
-            self.assertEqual(['prior'], result['warnings'])
-            self.assertEqual(({}, {'pending_promotion': token}), calls[-1])
-            self.assertEqual(2, len(calls))
-
-    async def test_pending_promotion_form_accept_and_cancel_preserve_effects(self):
-        from mcp import types
-        from mcp.client._memory import InMemoryTransport
-        from mcp.client.session import ClientSession
-        from mcp.server import Server
-
-        for action in ('accept', 'cancel'):
-            token, calls = object(), []
-            effects, warnings = [{'operation': 'archive'}], ['warning']
-            def execute(_selection, _model, _name, params, **kwargs):
-                calls.append((params, kwargs))
-                if len(calls) == 1:
-                    return {'outcome': 'needs_input', 'pending_promotion': token, 'effects': effects,
-                            'warnings': warnings, 'requested_input': {'targetStatus': {'error': 'select status'}}}
-                return {'outcome': 'completed', 'errors': []}
-            async def call(context, request):
-                args = self.provider.prepare_arguments(request.name, request.arguments or {}, context)
-                return types.CallToolResult(content=[], structured_content=await self.provider.call(request.name, args))
-            async def elicit(_context, _request):
-                return types.ElicitResult(action=action, content={'targetStatus': 'Active'} if action == 'accept' else None)
-            async def list_tools(_context, _request):
-                return types.ListToolsResult(tools=list(tool_descriptors()))
-            server = Server('promotion-form-test', on_call_tool=call, on_list_tools=list_tools)
-            async with InMemoryTransport(server, raise_exceptions=True) as streams:
-                async with ClientSession(*streams, elicitation_callback=elicit) as client:
-                    await client.initialize()
-                    with patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
-                        result = (await client.call_tool('atom_lifecycle_update', {'sourceCurrent': {}})).structured_content
-                        if action == 'accept':
-                            self.assertEqual({'status': 'completed'}, result)
-                            self.assertEqual(({'targetStatus': 'Active'}, {'pending_promotion': token}), calls[-1])
-                        else:
-                            self.assertEqual({'status': 'cancelled', 'effects': effects, 'warnings': warnings}, result)
-                            self.assertEqual(1, len(calls))
+        value = {'outcome': 'needs_input', 'effects': effects, 'warnings': ['prior'],
+                 'requested_input': {'target': {'error': 'Draft could not be promoted'}}}
+        name = 'atom_lifecycle_update'
+        with patch('registry_lifecycle_provider.backend.execute',
+                   side_effect=[value, {'outcome': 'completed'}]) as execute:
+            result = await self.invoke(self.a, name, {'sourceCurrent': {'ref_id': 'CA-P-1', 'version': 1}})
+            self.assertEqual({'status': 'failed', 'effects': effects, 'warnings': ['prior'],
+                              'errors': [{'code': 'invalid_input', 'field': 'target',
+                                          'message': 'Draft could not be promoted'}]}, result)
+            execute.assert_called_once()
+            self.assertEqual({'status': 'completed'}, await self.invoke(self.a, name, {}))
+            self.assertEqual({}, execute.call_args.args[3])
+            self.assertEqual({}, execute.call_args.kwargs)
 
     async def test_create_draft_corrections_run_real_backend(self):
         from ATOM_LIFECYCLE import common
@@ -387,89 +469,45 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
             await self.invoke(self.a, name, {})
             self.assertEqual({}, calls[-1])
 
-    async def test_native_form_accept_cancel_and_fallback(self):
+    async def test_mcp_client_with_elicitation_receives_structured_correction(self):
         from mcp import types
         from mcp.client._memory import InMemoryTransport
         from mcp.client.session import ClientSession
         from mcp.server import Server
 
-        for case in ('accept', 'integer', 'cancel', 'unsupported', 'object'):
-            calls, forms = [], []
-            name = 'atom_lifecycle_update'
-            def execute(_selection, _model, _name, params, **kwargs):
-                calls.append((params, kwargs))
-                if len(calls) == 1:
-                    field = {'object': 'sourceCurrent', 'integer': 'tier'}.get(case, 'priority')
-                    return {'outcome': 'needs_input', 'requested_input': {
-                        field: {'error': 'invalid'}}, 'pending_source': 'original', 'effects': []}
-                return {'outcome': 'completed', 'errors': []}
-            async def call(context, request):
-                args = self.provider.prepare_arguments(request.name, request.arguments or {}, context)
-                return types.CallToolResult(content=[], structured_content=await self.provider.call(request.name, args))
-            async def elicit(_context, request):
-                forms.append(request.requested_schema)
-                self.assertEqual(1, len(calls))
-                correction = {'accept': {'priority': 'High'}, 'integer': {'tier': 3}}.get(case)
-                return types.ElicitResult(action='accept' if correction else 'cancel', content=correction)
-            async def list_tools(_context, _request):
-                return types.ListToolsResult(tools=list(tool_descriptors()))
-            server = Server('lifecycle-form-test', on_call_tool=call, on_list_tools=list_tools)
-            async with InMemoryTransport(server, raise_exceptions=True) as streams:
-                callback = None if case == 'unsupported' else elicit
-                async with ClientSession(*streams, elicitation_callback=callback) as client:
-                    await client.initialize()
-                    with patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
-                        result = await client.call_tool(name, {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 1}})
-                        self.assertEqual({'accept': 'completed', 'integer': 'completed', 'cancel': 'cancelled',
-                                          'unsupported': 'needs_input', 'object': 'needs_input'}[case],
-                                         result.structured_content['status'])
-                        self.assertEqual(1 if case in ('accept', 'integer', 'cancel') else 0, len(forms))
-                        if case in ('accept', 'integer'):
-                            expected = {'tier': 3} if case == 'integer' else {'priority': 'High'}
-                            self.assertEqual(expected, calls[1][0]['changes'])
-                            self.assertEqual({'pending_source': 'original'}, calls[1][1])
-                        else:
-                            self.assertEqual(1, len(calls))
+        name = 'atom_lifecycle_update'
+        target = {'ref_id': 'CA-R-1', 'version': 1}
+        requested = {'priority': {'error': 'invalid', 'allowed_values': ['High']}}
+        missing = {'outcome': 'needs_input', 'requested_input': requested,
+                   'pending_source': 'original', 'effects': []}
 
-    async def test_transport_cancellation_interrupts_form_wait(self):
-        from mcp import types
-        from mcp.client._memory import InMemoryTransport
-        from mcp.client.session import ClientSession
-        from mcp.server import Server
-
-        waiting, interrupted = asyncio.Event(), asyncio.Event()
-        seen = []
-        def execute(*args, **kwargs):
-            seen.append(1)
-            return {'outcome': 'needs_input', 'requested_input': {'form': {'error': 'required'}}, 'effects': []}
         async def call(context, request):
-            seen.append(context.request_id)
-            try:
-                args = self.provider.prepare_arguments(request.name, request.arguments or {}, context)
-                value = await self.provider.call(request.name, args)
-                return types.CallToolResult(content=[], structured_content=value)
-            except asyncio.CancelledError:
-                interrupted.set()
-                raise
+            args = self.provider.prepare_arguments(request.name, request.arguments or {}, context)
+            value = await self.provider.call(request.name, args)
+            return types.CallToolResult(content=[], structured_content=value)
+
         async def elicit(_context, _request):
-            waiting.set()
-            await asyncio.Event().wait()
-        server = Server('lifecycle-cancel-test', on_call_tool=call)
+            self.fail('Lifecycle should return input errors to the caller')
+
+        async def list_tools(_context, _request):
+            return types.ListToolsResult(tools=list(tool_descriptors()))
+
+        server = Server('lifecycle-input-test', on_call_tool=call, on_list_tools=list_tools)
         async with InMemoryTransport(server, raise_exceptions=True) as streams:
             async with ClientSession(*streams, elicitation_callback=elicit) as client:
                 await client.initialize()
-                with patch('registry_lifecycle_provider.backend.execute', side_effect=execute):
-                    task = asyncio.create_task(client.call_tool(self.name, {}))
-                    await asyncio.wait_for(waiting.wait(), 5)
-                    await client.send_notification(types.CancelledNotification(
-                        params=types.CancelledNotificationParams(requestId=seen[0], reason='cancel')))
-                    await asyncio.wait_for(interrupted.wait(), 5)
-                    self.assertEqual(2, len(seen))
-                    task.cancel()
-                    try:
-                        await task
-                    except asyncio.CancelledError:
-                        pass
+                with patch('registry_lifecycle_provider.backend.execute',
+                           side_effect=[missing, {'outcome': 'completed'}]) as execute:
+                    result = await client.call_tool(name, {'sourceCurrent': target})
+                    self.assertEqual({'status': 'needs_input', 'requested_input': requested,
+                                      'errors': [{'code': 'invalid_input', 'field': 'priority',
+                                                  'message': 'invalid'}]}, result.structured_content)
+                    execute.assert_called_once()
+                    result = await client.call_tool(name, {'priority': 'High', 'tier': 3})
+                    self.assertEqual({'status': 'completed'}, result.structured_content)
+                    self.assertEqual({'sourceCurrent': target, 'changes': {'priority': 'High', 'tier': 3}},
+                                     execute.call_args.args[3])
+                    self.assertEqual({'pending_source': 'original'}, execute.call_args.kwargs)
 
     async def test_requires_real_session_and_optional_corrections(self):
         with self.assertRaises(ValueError):

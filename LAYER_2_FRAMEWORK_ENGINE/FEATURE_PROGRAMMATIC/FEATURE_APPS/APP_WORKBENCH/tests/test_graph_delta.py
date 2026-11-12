@@ -75,6 +75,25 @@ class GraphDeltaTest(unittest.TestCase):
         self.store._projection = current
         return current, change
 
+    def test_archived_snapshot_is_lean_but_changed_rows_are_reinserted(self) -> None:
+        archived = self.atom("CA-R-123@1", path="archive/CA-R-123@1.md")
+        archived.update(status_group="Archived", header_json={"atom_id": "CA-R-123", "version": 1},
+                        _graph_excluded=True, _carrier_relation_edges_json=[])
+        self.replace([archived])
+        previous = self.store._projection
+        assert previous is not None
+        key = ("archive", "CA-R-123@1.md")
+        self.assertEqual(set(previous.atoms[key]), {"relative_path", "filename", "status_group", "reference", "hash"})
+        self.assertEqual(self.store._connection.execute('SELECT "header.atom_id" FROM atoms').fetchone(), ("CA-R-123",))
+        changed = dict(archived, header_json={"atom_id": "CA-R-123", "version": 2})
+        self.apply_delta([changed], MaterializationDelta({archived["source_path"]: archived},
+                                                         {changed["source_path"]: changed}, {}, {}))
+        self.assertEqual(self.store._connection.execute('SELECT "header.version" FROM atoms').fetchone(), (2,))
+        self.assertEqual(set(self.store._projection.atoms[key]),
+                         {"relative_path", "filename", "status_group", "reference", "hash"})
+        self.apply_delta([], MaterializationDelta({changed["source_path"]: changed}, {}, {}, {}))
+        self.assertEqual(self.store._connection.execute('SELECT count(*) FROM atoms').fetchone(), (0,))
+
     def test_delta_has_full_projection_parity_without_graph_state_scan(self) -> None:
         old_a = self.atom("A", edges=[self.edge("A", "CONTAINS", "B")])
         old_b = self.atom("B", edges=[self.edge("B", "IS_CONTAINED_BY", "A", derived=True)])

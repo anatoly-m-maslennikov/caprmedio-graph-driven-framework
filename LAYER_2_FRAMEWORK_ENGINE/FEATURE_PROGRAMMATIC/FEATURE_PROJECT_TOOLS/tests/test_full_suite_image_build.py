@@ -77,6 +77,8 @@ class CurrentSourceImageBuildTests(unittest.TestCase):
             patch.object(runtime_images, "_compile_relation_registry", return_value=b'{"schema_version":1}\n'),
             patch.object(runtime_images, "_compile_workbench_schema", return_value=b'{"schema_version":1}\n'),
             patch.object(runtime_images, "_compile_tool_registry", return_value=b'{"schema_version":1}\n'),
+            patch.object(runtime_images, "_compile_lifecycle_assets",
+                         return_value=(b'{"schema":1}\n', b'{"schema":1}\n')),
         ):
             with docker.current_code_test_image(self.root) as environment:
                 self.assertEqual(IMAGE, environment["CAPRMEDIO_FIRST_CUT_HTTP_IMAGE"])

@@ -9,17 +9,20 @@ Validation uses finite declaration constraints from the build-time assets.
 """
 from __future__ import annotations
 
+from .timing import trace
+
 from datetime import datetime
 from pathlib import Path
 import re
 
 from ATOM_LIFECYCLE.carrier import logical_view
-from ATOM_LIFECYCLE.source import select_source
+from ATOM_LIFECYCLE.source import query_reader, select_context, select_source
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 from ATOM_LIFECYCLE.status_model import canonical_status, StatusModelError
 from carrier_aliases import matches_named_value
 
 
+@trace('validation.candidate')
 def validate_candidate(selection, model, raw: bytes, path: Path, *, authored: bool = True) -> None:
     """Reject malformed prepared identity, required fields and Status values."""
     from ATOM_LIFECYCLE.common import InputError
@@ -41,7 +44,7 @@ def validate_candidate(selection, model, raw: bytes, path: Path, *, authored: bo
     except (KeyError, TypeError, ValueError) as error:
         raise InputError('atom_id', 'Project identity prefix is unavailable.', format='Project Atom ID') from error
     atom_id = view['atom_id']
-    if not re.fullmatch(re.escape(prefix) + r'-[A-Z]-[1-9][0-9]*', atom_id):
+    if not re.fullmatch(re.escape(prefix) + r'-[A-Z]-[0-9]+', atom_id):
         raise InputError('atom_id', 'Atom ID is invalid for this Project.', format='Project Atom ID')
     if atom_id[len(prefix) + 1] != view['role'][0].upper():
         raise InputError('atom_id', 'Atom ID Role letter does not match Role.', format='Role-prefixed Atom ID')
@@ -75,19 +78,21 @@ def _validate_work_report(selection, model, parsed, view, prefix):
         raise InputError('relations', 'Supply one unambiguous Work Report target.')
     targets = relations[aliases[0]]
     if (not isinstance(targets, list) or len(targets) != 1 or not isinstance(targets[0], str)
-            or re.fullmatch(re.escape(prefix) + r'-P-[1-9][0-9]*', targets[0]) is None
+            or re.fullmatch(re.escape(prefix) + r'-P-[0-9]+', targets[0]) is None
             or targets[0] == view['atom_id']):
         raise InputError('relations', 'Supply one distinct Plan base Atom ID.')
     try:
-        target = select_source(selection, targets[0])
+        indexed = query_reader() is not None
+        target = select_context(selection, targets[0]) if indexed else select_source(selection, targets[0])
         target_view = logical_view(target.metadata, model)
-        target_body = parse_carrier(target.raw, target.path).body
         if (target.status.casefold() in {'draft', 'archived'}
                 or not matches_named_value(target_view.get('role'), 'Plan')
                 or not matches_named_value(target_view.get('form'), 'Plan')):
             raise ValueError('Not a Current Plan')
         if logical_container({}, view) != logical_container({}, target_view):
             raise InputError('container', 'Work Report and reported Plan must have the same Container.')
+        target_body = (f'## Summary\n\n{target.summary}\n' if indexed and target.summary is not None else
+                       '' if indexed else parse_carrier(target.raw, target.path).body)
         if atom_summary(parsed.body).group(1).strip() != atom_summary(target_body).group(1).strip():
             raise InputError('summary', 'Work Report and reported Plan must have the same Summary.')
     except InputError:
@@ -113,7 +118,7 @@ def _validate_plan_ancestors(selection, model, view):
         if parent_id in seen or len(seen) >= 32:
             raise InputError('container', 'Containing Atom chain is cyclic or too deep.')
         seen.add(parent_id)
-        parent = select_source(selection, parent_id)
+        parent = select_context(selection, parent_id) if query_reader() is not None else select_source(selection, parent_id)
         if parent.status.casefold() in {'done', 'canceled'}:
             raise InputError('status', 'A Plan inside a Done or Canceled Plan must also be Done or Canceled.',
                              allowed_values=sorted(_TERMINAL_PLANS & model.allowed(view['role'], view['form'])))

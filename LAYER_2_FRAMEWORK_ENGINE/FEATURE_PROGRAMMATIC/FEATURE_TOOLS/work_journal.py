@@ -161,8 +161,8 @@ def canonical_json_bytes(value: object) -> bytes:
     ).encode("utf-8")
 
 
-def configured_journal_root(root: Path) -> Path:
-    _, settings = _read_project_settings(root)
+def configured_journal_root(root: Path, *, control_root: str | Path | None = None) -> Path:
+    _, settings = _read_project_settings(root, control_root)
     paths = settings.get("paths", {})
     control_value = paths.get("control_root")
     if not isinstance(control_value, str) or not control_value:
@@ -225,12 +225,11 @@ def append_record(root: Path, record: dict[str, object]) -> Path:
     return root / location["carrier"]
 
 
-def _part_path(root: Path, author: str, local_date: str, part: int) -> Path:
-    return root / configured_journal_root(root) / f"{quote(author, safe='')}-{quote(local_date, safe='')}-part-{part}.ndjson"
+def _part_path(directory: Path, author: str, local_date: str, part: int) -> Path:
+    return directory / f"{quote(author, safe='')}-{quote(local_date, safe='')}-part-{part}.ndjson"
 
 
-def _part_paths(root: Path, author: str, local_date: str) -> list[tuple[int, Path]]:
-    directory = root / configured_journal_root(root)
+def _part_paths(directory: Path, author: str, local_date: str) -> list[tuple[int, Path]]:
     if not directory.exists():
         return []
     pattern = re.compile(rf"^{re.escape(quote(author, safe=''))}-{re.escape(quote(local_date, safe=''))}-part-([1-9][0-9]*)\.ndjson$")
@@ -247,21 +246,23 @@ def _read_part_bytes(path: Path) -> bytes:
         return stream.read()
 
 
-def _open_part(root: Path, author: str, local_date: str) -> tuple[Path, bytes, int]:
-    paths = _part_paths(root, author, local_date)
+def _open_part(directory: Path, author: str, local_date: str) -> tuple[Path, bytes, int]:
+    paths = _part_paths(directory, author, local_date)
     if not paths:
-        return _part_path(root, author, local_date, 1), b"", 0
+        return _part_path(directory, author, local_date, 1), b"", 0
     part, path = paths[-1]
     data = _read_part_bytes(path)
     count = len(data.splitlines())
     if count < MAX_EVENTS_PER_PART:
         return path, data, count
-    return _part_path(root, author, local_date, part + 1), b"", 0
+    return _part_path(directory, author, local_date, part + 1), b"", 0
 
 
-def _append_event(root: Path, event: Any, author: str, local_date: str) -> dict[str, Any]:
+def _append_event(root: Path, event: Any, author: str, local_date: str,
+                  *, control_root: str | Path | None = None) -> dict[str, Any]:
     # shortcut: concurrent appends may exceed 1000 rows; serialize only if a strict limit is required.
-    path, _, count = _open_part(root, author, local_date)
+    directory = root / configured_journal_root(root, control_root=control_root)
+    path, _, count = _open_part(directory, author, local_date)
     path.parent.mkdir(parents=True, exist_ok=True)
     parent = open_regular(path.parent.absolute(), directory=True)
     try:
@@ -290,6 +291,7 @@ def append_sealed_events(
     local_date: object,
     timezone: object,
     append_context: Mapping[str, Any] | None = None,
+    control_root: str | Path | None = None,
 ) -> list[dict[str, Any]]:
     """Append caller-supplied rows in order, including repeated rows.
 
@@ -299,7 +301,7 @@ def append_sealed_events(
     receipts: list[dict[str, Any]] = []
     for index, event in enumerate(events):
         try:
-            receipts.append(_append_event(root, event, str(author), str(local_date)))
+            receipts.append(_append_event(root, event, str(author), str(local_date), control_root=control_root))
         except FutureCancelledError:
             raise
         except Exception as error:

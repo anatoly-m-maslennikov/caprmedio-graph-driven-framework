@@ -5,8 +5,8 @@ identity:
 context:
   container:
     scope_unit: CA-SU-43
-  role: Delivery
-  form: Solution
+  role: delivery
+  form: solution
   topics:
     main_subject: MODEL//CAPRMEDIO <+ Projection
   tier: 5
@@ -17,9 +17,9 @@ relations:
   - CA-R-970308650
   - CA-M-549
 state:
-  status: Active
-  version: 2
-  updated_at: 2026-11-11 00:57:22 +0400
+  status: active
+  version: 3
+  updated_at: '2026-11-12T01:42:31.971586+00:00'
 destination:
   file:
     name: CA-D-715-WORKBENCH-SOLUTION--deliver-query-visible-audit-tables.md
@@ -39,9 +39,11 @@ Deliver query-visible audit tables
 
 Deliver these stable SQL tables through the shared Workbench backend and the existing `query_run` and `query_page` interfaces:
 
-- `atom_content_issues`
+- `atom_parse_issues`
+- `atom_schema_issues`
 - `atom_declared_carrier_issues`
 - `atom_physical_carrier_issues`
+- `atom_duplicate_revision_issues`
 
-Each table has only these columns: `reference` (nullable), `relative_path`, `filename`, `issue_category`, `property` (nullable), `observed` (nullable), `expected` (nullable), and `diagnostic`. HTTP and MCP must use the same backend and these exact names. Expose these table and column names through query_schema. Existing model-driven Atom Header/Content schema generation and invalid-Declaration handling remain in force. Do not call undeclared columns, add an Action, add background repair, add a second storage authority or change a source automatically.
+Each table has only these columns: `reference` (nullable), `relative_path`, `filename`, `issue_category`, `property` (nullable), `observed` (nullable), `expected` (nullable), and `diagnostic`. HTTP and MCP must use the same backend and these exact names. Expose these table and column names through query_schema. Existing model-driven Atom Header/Content schema generation and invalid-Declaration handling remain in force. Publish audit rows after source rows commit, and report `audits_pending` and `last_audit_ms` through `workbench_status` and its web equivalent. A pending audit does not prevent queries or lifecycle responses. Audits leave source files unchanged.
 

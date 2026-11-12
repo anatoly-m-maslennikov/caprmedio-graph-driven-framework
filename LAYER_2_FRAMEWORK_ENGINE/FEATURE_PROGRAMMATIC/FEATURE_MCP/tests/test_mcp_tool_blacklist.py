@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import AsyncMock
+from unittest.mock import AsyncMock, patch
 
 from mcp.client._memory import InMemoryTransport
 from mcp.client.session import ClientSession
@@ -80,7 +80,9 @@ class MCPToolBlacklistTests(unittest.IsolatedAsyncioTestCase):
         with bind_selection(selection):
             self.assertEqual(frozenset({"echo"}), project_tool_blacklist(self.root))
         gateway = DirectGateway(self.root, selection=selection)
-        await gateway.initialize()
+        with patch.object(gateway.workbench, 'project_consistency', return_value={
+                'duplicate_references': 0, 'duplicate_carriers': 0, 'carrier_issues': 0}):
+            await gateway.initialize()
         gateway.workbench.call = AsyncMock()
         from mcp import types
         response = await gateway.call(None, types.CallToolRequestParams(name="echo", arguments={}))

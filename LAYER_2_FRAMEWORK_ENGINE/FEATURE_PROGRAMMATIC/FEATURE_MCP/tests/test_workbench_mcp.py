@@ -14,7 +14,7 @@ MCP_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(MCP_ROOT))
 
 from workbench_tools import (  # noqa: E402
-    CHECK, LOAD, NATIVE_TOOLS, PAGE, QUERY_LOG_LIST, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA,
+    ARCHIVE_LOAD, CHECK, LOAD, NATIVE_TOOLS, PAGE, QUERY_LOG_LIST, RUN, SAVED_LIST, SAVE_VIEW, SCHEMA, SYNC_STATUS,
     VIEW_CREATE, VIEW_DUPLICATE, WORKSPACE_OPEN, mcp_app_probe,
     WorkbenchTools, native_tools,
 )
@@ -68,6 +68,14 @@ class FakeService:
         self.calls.append((SAVED_LIST, limit))
         return {"items": []}
 
+    def load_archives(self, scopes):
+        self.calls.append((ARCHIVE_LOAD, scopes))
+        return {"loaded_archive_scopes": scopes}
+
+    def sync_status(self):
+        return {"syncing": False, "last_synced_at": "2026-01-01", "loaded_archive_scopes": [
+            {"scope_unit": "PROJECT", "role": "Plan"}]}
+
     def interface_call(self, name, arguments):
         self.calls.append((name, arguments))
         return {"operation": name, **arguments}
@@ -77,6 +85,33 @@ class FakeService:
 
 
 class WorkbenchToolsTests(unittest.TestCase):
+    def test_archive_load_and_status(self):
+        owner = WorkbenchTools(Path('/project'))
+        scopes = [{'scope_unit': 'PROJECT', 'role': 'Plan'}]
+        self.assertEqual({'syncing': False, 'last_synced_at': None, 'loaded_archive_scopes': [],
+                          'audits_pending': False, 'last_audit_ms': None, 'audit_error': None},
+                         asyncio.run(owner.call(SYNC_STATUS, {})))
+        self.assertIsNone(owner._service)
+        fake = FakeService()
+        owner._service = fake
+        self.assertEqual({'loaded_archive_scopes': scopes}, asyncio.run(owner.call(ARCHIVE_LOAD, {'scopes': scopes})))
+        self.assertEqual(scopes, asyncio.run(owner.call(SYNC_STATUS, {}))['loaded_archive_scopes'])
+        descriptor = next(tool for tool in native_tools() if tool.name == ARCHIVE_LOAD)
+        self.assertEqual(['scopes'], descriptor.input_schema['required'])
+        self.assertEqual(['scope_unit', 'role'], descriptor.input_schema['properties']['scopes']['items']['required'])
+        self.assertFalse(descriptor.annotations.read_only_hint)
+
+    def test_archive_load_rejects_invalid_arguments_before_starting_service(self):
+        invalid = ({}, {'scopes': []}, {'scopes': 'all'}, {'scopes': [{}]},
+                   {'scopes': [{'scope_unit': 'PROJECT', 'role': ''}]},
+                   {'scopes': [{'scope_unit': 'PROJECT', 'role': 'Plan', 'extra': 1}]},
+                   {'scopes': [{'scope_unit': 'PROJECT', 'role': 'Plan'}], 'extra': 1})
+        for arguments in invalid:
+            owner = WorkbenchTools(Path('/project'))
+            with self.subTest(arguments=arguments), self.assertRaises(ExplicitBlockingRuntimeFailure):
+                asyncio.run(owner.call(ARCHIVE_LOAD, arguments))
+            self.assertIsNone(owner._service)
+
     def test_native_descriptors_and_one_owner_handle_all_calls_and_close(self):
         self.assertEqual(list(NATIVE_TOOLS), [tool.name for tool in native_tools()])
         tools = {tool.name: tool for tool in native_tools()}

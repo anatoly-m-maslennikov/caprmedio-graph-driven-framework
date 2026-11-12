@@ -23,7 +23,7 @@ from typing import Any
 
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regular, protected
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
-from scope_unit_declarations import ScopeDeclarationError, read_scope_unit_declarations
+from scope_unit_declarations import ScopeDeclarationError, ScopeUnitDeclarations, read_scope_unit_declarations
 
 
 SETTINGS_FILENAME = "caprmedio_project_settings.toml"
@@ -260,7 +260,8 @@ def _declaration_boundary_proof(
         raise ProjectSelectionError("Project declaration boundary evidence is unavailable or unsafe") from error
 
 
-def resolve_project(project_root: str | Path, control_root: str | Path | None = None) -> ProjectSelection:
+def resolve_project(project_root: str | Path, control_root: str | Path | None = None, *,
+                    indexed_declarations: ScopeUnitDeclarations | None = None) -> ProjectSelection:
     """Read exactly one local Project selection before any runtime effects."""
     root = _project_root(project_root)
     try:
@@ -286,7 +287,12 @@ def resolve_project(project_root: str | Path, control_root: str | Path | None = 
         project = settings.get("project")
         if not isinstance(project, dict) or not isinstance(project.get("name"), str) or not project["name"].strip():
             raise ProjectSelectionError("Project Settings must contain a non-empty Project name")
-        declarations = read_scope_unit_declarations(root, relative, reader=reader)
+        declarations = indexed_declarations
+        if declarations is None:
+            declarations = read_scope_unit_declarations(root, relative, reader=reader)
+        elif (not isinstance(declarations, ScopeUnitDeclarations) or not declarations.paths
+              or any(not path.is_absolute() or not path.is_relative_to(control) for path in declarations.paths)):
+            raise ProjectSelectionError("Indexed declarations belong to another Project")
         if declarations.root.name != project["name"]:
             raise ProjectSelectionError("Project root declaration contradicts Project Settings name")
         structure = declarations.as_structure()

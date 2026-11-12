@@ -3,6 +3,7 @@
 # CA-R-2785@4
 # CA-D-678@5
 # CA-D-704@1
+# CA-D-720@1
 
 from __future__ import annotations
 
@@ -18,11 +19,19 @@ import sys
 import tempfile
 import tomllib
 from collections.abc import Mapping, Sequence
+from contextlib import ExitStack
 from pathlib import Path, PurePosixPath
 from typing import Any
 
 from carrier_aliases import carrier_read_view, carrier_status_folder
 from header_yaml import parse_header
+from LAYER_2_FRAMEWORK_ENGINE.FEATURE_PROGRAMMATIC.FEATURE_MCP.docker.image_relation_registry import (
+    compile_lifecycle_assets, verify_status_workflow_asset,
+)
+from LAYER_2_FRAMEWORK_ENGINE.FEATURE_PROGRAMMATIC.FEATURE_MCP.docker.image_docker_client import MAX_OUTPUT
+from LAYER_2_FRAMEWORK_ENGINE.FEATURE_PROGRAMMATIC.FEATURE_MCP.docker.runtime_images import (
+    _GENERATED_ASSETS, ready_predecessor,
+)
 from project_selection import active_selection
 from release_assets import (
     LocalReleaseError,
@@ -292,7 +301,48 @@ def _verify_package(package: Path, expected: Mapping[str, tuple[str, int]]) -> N
         raise LocalReleaseError("local-release-package-verification-failed")
 
 
-def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tuple[str, int]]:
+def _verify_packaged_workflow(package: Path) -> None:
+    try:
+        verify_status_workflow_asset(package, package / "METHODOLOGY/sources", timeout=60)
+    except (OSError, subprocess.SubprocessError, ValueError) as error:
+        raise LocalReleaseError("local-release-lifecycle-workflow-verification-failed") from error
+
+
+def _publish_image_assets(root: Path, package: Path, previous: Mapping[str, tuple[str, int] | None],
+                          expected: Mapping[str, tuple[str, int]]) -> None:
+    """Keep one validated image asset set in the checkout for recovery."""
+    with tempfile.TemporaryDirectory(dir=package.parent) as directory, ExitStack() as rollback:
+        staging = Path(directory)
+        writes = []
+        for index, (relative, original) in enumerate(previous.items()):
+            target = _project_path(root, Path(relative), label="image-asset")
+            if (_file_identity(target) if target.exists() else None) != original:
+                raise LocalReleaseError("local-release-package-source-changed")
+            source = package / relative
+            if expected[relative] == original:
+                continue
+            replacement = staging / f"{index}.new"
+            shutil.copy2(source, replacement)
+            if _file_identity(replacement) != expected[relative]:
+                raise LocalReleaseError("local-release-package-verification-failed")
+            backup = staging / f"{index}.old"
+            if original is not None:
+                shutil.copy2(target, backup)
+            writes.append((target, replacement, backup, original))
+        for target, replacement, backup, original in writes:
+            _project_path(root, target.relative_to(root), label="image-asset")
+            if (_file_identity(target) if target.exists() else None) != original:
+                raise LocalReleaseError("local-release-package-source-changed")
+            os.replace(replacement, target)
+            if original is None:
+                rollback.callback(target.unlink)
+            else:
+                rollback.callback(os.replace, backup, target)
+        rollback.pop_all()
+
+
+def _prepare_package(root: Path, product: Path, package: Path, *,
+                     refresh_assets: bool = True, previous_image: str | None = None) -> dict[str, tuple[str, int]]:
     excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", "node_modules"})
     programmatic = root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"
     delivery = root / "LAYER_5_FRAMEWORK_DELIVERY"
@@ -353,16 +403,26 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
     for source, relative in sources:
         if _file_identity(source) != expected[relative.as_posix()]:
             raise LocalReleaseError("local-release-package-source-changed")
-    relation_registry = generate_relation_registry(package, root)
-    expected[relation_registry.relative_to(package).as_posix()] = _file_identity(relation_registry)
-    workbench_schema = generate_workbench_schema(package, root)
-    expected[workbench_schema.relative_to(package).as_posix()] = _file_identity(workbench_schema)
-    status_model = generate_lifecycle_status_model(package)
-    expected[status_model.relative_to(package).as_posix()] = _file_identity(status_model)
-    candidate_schema = generate_lifecycle_candidate_schema(package)
-    expected[candidate_schema.relative_to(package).as_posix()] = _file_identity(candidate_schema)
-    tool_registry = generate_tool_registry(package)
-    expected[tool_registry.relative_to(package).as_posix()] = _file_identity(tool_registry)
+    _verify_packaged_workflow(package)
+    if refresh_assets:
+        previous_assets = {relative: expected.get(relative) for relative in sorted(_GENERATED_ASSETS)}
+        relation_registry = generate_relation_registry(package, root)
+        workbench_schema = generate_workbench_schema(package, root)
+        if previous_image is None:
+            lifecycle_assets = (generate_lifecycle_status_model(package), generate_lifecycle_candidate_schema(package))
+        else:
+            try:
+                assets = compile_lifecycle_assets(package, root, timeout=60, max_output=MAX_OUTPUT,
+                                                  previous_image=previous_image)
+            except (OSError, RuntimeError, subprocess.SubprocessError, ValueError) as error:
+                raise LocalReleaseError("local-release-lifecycle-predecessor-query-failed") from error
+            lifecycle = package / programmatic.relative_to(root) / "FEATURE_TOOLS/ATOM_LIFECYCLE"
+            lifecycle_assets = (lifecycle / "status_model.json", lifecycle / "candidate_schema.json")
+            for output, data in zip(lifecycle_assets, assets, strict=True):
+                output.write_bytes(data)
+        tool_registry = generate_tool_registry(package)
+        for asset in (relation_registry, workbench_schema, *lifecycle_assets, tool_registry):
+            expected[asset.relative_to(package).as_posix()] = _file_identity(asset)
     for relative in (
         "SKILLS/ca/SKILL.md",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md",
@@ -371,15 +431,17 @@ def _prepare_package(root: Path, product: Path, package: Path) -> dict[str, tupl
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/docker/runtime.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/generate_tool_registry.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tool_providers.json",
-        "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/tool_registry.json",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
         "FEATURE_WORKBENCH_BACKEND/generate_relation_registry.py",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/APP_WORKBENCH/"
         "FEATURE_WORKBENCH_BACKEND/generate_workbench_schema.py",
+        *_GENERATED_ASSETS,
     ):
         if relative not in expected:
             raise LocalReleaseError("local-release-package-source-unavailable")
     _verify_package(package, expected)
+    if refresh_assets:
+        _publish_image_assets(root, package, previous_assets, expected)
     return expected
 
 
@@ -401,9 +463,7 @@ def _image_manager(source: Path, temporary: Path | None = None, *, project_root:
     from runtime_images import ImageManager
     from image_provenance import ImageBuildProvenance
     provenance = ImageBuildProvenance(**build_provenance) if build_provenance is not None else None
-    return ImageManager(
-        source, project_root=project_root, build_temp_root=temporary, build_provenance=provenance,
-    )
+    return ImageManager(source, project_root=project_root, build_temp_root=temporary, build_provenance=provenance)
 
 
 def _launcher_image(selection) -> str | None:
@@ -423,6 +483,15 @@ def _launcher_image(selection) -> str | None:
     except (LocalReleaseError, OSError, UnicodeDecodeError, json.JSONDecodeError):
         pass
     return None
+
+
+def _build_predecessor(selection) -> str | None:
+    try:
+        _project_path(selection.root, selection.launcher_state.relative_to(selection.root) / "ready.json",
+                      label="project-launch-state")
+        return ready_predecessor(selection)
+    except (OSError, ValueError, AttributeError) as error:
+        raise LocalReleaseError("local-release-predecessor-receipt-invalid") from error
 
 
 def _read_version(root: Path) -> tuple[Path, str]:

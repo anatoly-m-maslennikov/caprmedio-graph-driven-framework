@@ -9,9 +9,13 @@ caller; this module accepts explicit, project-contained paths and bytes only.
 """
 from __future__ import annotations
 
+from .timing import trace
+
 import hashlib
 import os
+import re
 import stat
+from contextlib import nullcontext
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -73,8 +77,93 @@ def _pinned(parent: int, name: str, digest: str) -> bytes:
     return data
 
 
+def _reader(path: Path):
+    from project_selection import bound_selection
+    from . import source
+    get_reader = getattr(source, "query_reader", None)
+    reader = get_reader() if get_reader is not None else None
+    if reader is None:
+        return None
+    selection = bound_selection()
+    prefix = re.escape(selection.settings["artifacts"]["identity"]["project_prefix"]) if selection else ".+"
+    return reader if re.fullmatch(rf"(?:[0-9]+-)?{prefix}-[A-Z]-.*\.md", path.name) else None
+
+
+
+def publication_guard():
+    """Keep paired lifecycle effects invisible to the Workbench watcher until complete."""
+    from .source import query_reader
+    reader = query_reader()
+    publication = getattr(reader, 'lifecycle_publication', None)
+    if callable(publication):
+        return publication()
+    lock = getattr(reader, 'lifecycle_file_effect', None)
+    return lock() if callable(lock) else nullcontext()
+
+
+def _query_read(reader, root: Path, path: Path, parent: int, name: str) -> bytes:
+    """Keep the descriptor-pinned carrier stable across the Workbench read."""
+    checked_parent, checked_name, _ = _parent(root, path)
+    try:
+        actual = os.fstat(checked_parent)
+        expected = os.fstat(parent)
+        if checked_name != name or (actual.st_dev, actual.st_ino) != (expected.st_dev, expected.st_ino):
+            raise ValueError("carrier parent changed")
+    finally:
+        os.close(checked_parent)
+    descriptor = os.open(name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=parent)
+    try:
+        before = os.fstat(descriptor)
+        if not stat.S_ISREG(before.st_mode):
+            raise ValueError("carrier is not a regular file")
+        try:
+            data = reader.lifecycle_read(Path(root).absolute() / path, descriptor=descriptor)
+        except Exception as exc:
+            raise RuntimeError("Workbench carrier read failed") from exc
+        actual = os.fstat(descriptor)
+        after = os.stat(name, dir_fd=parent, follow_symlinks=False)
+        if ((after.st_dev, after.st_ino) != (actual.st_dev, actual.st_ino)
+                or (before.st_size, before.st_mtime_ns) != (actual.st_size, actual.st_mtime_ns)):
+            raise ValueError("carrier changed during Workbench read")
+    finally:
+        os.close(descriptor)
+    if not isinstance(data, bytes):
+        raise RuntimeError("Workbench carrier read returned invalid bytes")
+    checked_parent, _, _ = _parent(root, path)
+    try:
+        actual = os.fstat(checked_parent)
+        expected = os.fstat(parent)
+        if (actual.st_dev, actual.st_ino) != (expected.st_dev, expected.st_ino):
+            raise ValueError("carrier parent changed")
+    finally:
+        os.close(checked_parent)
+    return data
+
+
+def _read_pinned(reader, root: Path, path: Path, parent: int, name: str, digest: str) -> bytes:
+    if reader is None:
+        return _pinned(parent, name, digest)
+    data = _query_read(reader, root, path, parent, name)
+    if hashlib.sha256(data).hexdigest() != digest:
+        raise ValueError("stale source")
+    return data
+
+
+def _changed(reader, old: Path | None, new: Path | None) -> None:
+    if reader is not None:
+        try:
+            reader.lifecycle_changed(old, new)
+        except Exception as exc:
+            raise RuntimeError("Workbench synchronization failed") from exc
+
+
 def _message(exc: Exception) -> str:
     # Do not disclose host paths carried by filesystem exceptions.
+    if isinstance(exc, RuntimeError) and str(exc) in {
+        "Workbench carrier read failed", "Workbench carrier read returned invalid bytes",
+        "Workbench synchronization failed",
+    }:
+        return str(exc)
     return str(exc) if isinstance(exc, ValueError) else f"filesystem operation failed ({type(exc).__name__})"
 
 
@@ -102,29 +191,39 @@ def _write(root: Path, path: Path, data: bytes, expected: str | None, result: Re
     target = None
     try:
         parent, name, target = _parent(root, path)
+        destination = Path(root).absolute() / target
+        reader = _reader(destination)
         if expected is not None:
-            old = _pinned(parent, name, expected)
+            old = _read_pinned(reader, root, destination, parent, name, expected)
             if old == data:
                 return
-        destination = Path(root).absolute() / target
         fd, temp = atomic_tempfile(destination, "atom_lifecycle", repository=root)
         with os.fdopen(fd, "wb") as stream:
             stream.write(data)
             stream.flush()
             os.fsync(stream.fileno())
         if expected is None:
-            os.link(temp, name, dst_dir_fd=parent, follow_symlinks=False)
+            lock = getattr(reader, 'lifecycle_file_effect', None)
+            with lock() if callable(lock) else nullcontext():
+                os.link(temp, name, dst_dir_fd=parent, follow_symlinks=False)
+                committed = True
+                # Removing the staging link changes the published inode's ctime.
+                # Keep watcher reads out until the inode is stable.
+                staging, temp = temp, None
+                os.unlink(staging)
         else:
-            _pinned(parent, name, expected)
+            _read_pinned(reader, root, destination, parent, name, expected)
             os.replace(temp, name, dst_dir_fd=parent)
             temp = None
-        committed = True
-        if _read(parent, name) != data:
+            committed = True
+        _changed(reader, destination if expected is not None else None, destination)
+        readback = _query_read(reader, root, destination, parent, name) if reader is not None else _read(parent, name)
+        if readback != data:
             raise OSError("readback differs")
         _effect(result, operation, target, "known", hashlib.sha256(data).hexdigest())
     except (OSError, ValueError, RuntimeError) as exc:
         if committed:
-            _effect(result, operation, target, "unknown", "publication occurred but readback failed")
+            _effect(result, operation, target, "unknown", "publication occurred but synchronization or readback failed")
             _error(result, "effect_uncertain", _message(exc))
         else:
             _error(result, "stale_state" if isinstance(exc, (ValueError, FileExistsError)) else "backend_failure", _message(exc))
@@ -134,18 +233,21 @@ def _write(root: Path, path: Path, data: bytes, expected: str | None, result: Re
         _cleanup_temp(root, temp, result)
 
 
+@trace('filesystem.create')
 def create(root: Path, path: Path, content: bytes) -> Result:
     result = Result()
     _write(Path(root), Path(path), content, None, result)
     return result
 
 
+@trace('filesystem.replace')
 def replace(root: Path, path: Path, expected_sha256: str, content: bytes) -> Result:
     result = Result()
     _write(Path(root), Path(path), content, expected_sha256, result)
     return result
 
 
+@trace('filesystem.remove')
 def remove(root: Path, path: Path, expected_sha256: str) -> Result:
     result = Result()
     parent = None
@@ -153,9 +255,12 @@ def remove(root: Path, path: Path, expected_sha256: str) -> Result:
     target = None
     try:
         parent, name, target = _parent(Path(root), Path(path))
-        _pinned(parent, name, expected_sha256)
+        destination = Path(root).absolute() / target
+        reader = _reader(destination)
+        _read_pinned(reader, Path(root), destination, parent, name, expected_sha256)
         os.unlink(name, dir_fd=parent)
         committed = True
+        _changed(reader, destination, None)
         try:
             os.stat(name, dir_fd=parent, follow_symlinks=False)
         except FileNotFoundError:
@@ -163,9 +268,9 @@ def remove(root: Path, path: Path, expected_sha256: str) -> Result:
         else:
             raise OSError("source remains after removal")
         _effect(result, "remove", target, "known", f"absent after removal; prior sha256 {expected_sha256}")
-    except (OSError, ValueError) as exc:
+    except (OSError, ValueError, RuntimeError) as exc:
         if committed:
-            _effect(result, "remove", target, "unknown", "removal occurred but readback failed")
+            _effect(result, "remove", target, "unknown", "removal occurred but synchronization or readback failed")
             _error(result, "effect_uncertain", _message(exc))
         else:
             _error(result, "stale_state" if isinstance(exc, ValueError) else "backend_failure", _message(exc))
@@ -179,9 +284,10 @@ def relocate(root: Path, source: Path, expected_sha256: str, destination: Path) 
     result = Result()
     parent = None
     try:
-        parent, name, _ = _parent(Path(root), Path(source))
-        content = _pinned(parent, name, expected_sha256)
-    except (OSError, ValueError) as exc:
+        parent, name, target = _parent(Path(root), Path(source))
+        source_path = Path(root).absolute() / target
+        content = _read_pinned(_reader(source_path), Path(root), source_path, parent, name, expected_sha256)
+    except (OSError, ValueError, RuntimeError) as exc:
         _error(result, "stale_state" if isinstance(exc, ValueError) else "backend_failure", _message(exc))
         return result
     finally:

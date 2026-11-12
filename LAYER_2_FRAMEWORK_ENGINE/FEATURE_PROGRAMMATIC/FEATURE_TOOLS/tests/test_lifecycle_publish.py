@@ -101,30 +101,6 @@ def test_archive_failure_reports_partial_effects_and_stops():
     assert len(result['effects']) == 1 and (writes, removes) == (0, 0)
 
 
-def test_pending_promotion_backend_failures_keep_prior_effects():
-    from contextlib import contextmanager
-    from ATOM_LIFECYCLE import backend
-    from lifecycle_placement_test_support import fixture_rules
-
-    pending = publish.PromotionPending(ROOT, None, None, (), 'Active', ({'operation': 'archive'},), ('warning',))
-    missing = backend.execute(SimpleNamespace(root=ROOT), SimpleNamespace(), 'atom_lifecycle_update', {},
-                              pending_promotion=pending)
-    assert missing['outcome'] == 'failed' and missing['effects'] == list(pending.effects)
-    assert missing['warnings'] == list(pending.warnings)
-
-    @contextmanager
-    def busy(_root):
-        raise BlockingIOError()
-        yield
-
-    model = SimpleNamespace(candidate_schema=SimpleNamespace(placement=fixture_rules()))
-    with patch.object(backend, '_project_write_lock', busy):
-        result = backend.execute(SimpleNamespace(root=ROOT), model, 'atom_lifecycle_update', {},
-                                 pending_promotion=pending)
-    assert result['outcome'] == 'failed' and result['errors'][0]['code'] == 'project_busy'
-    assert result['effects'] == list(pending.effects) and result['warnings'] == list(pending.warnings)
-
-
 @with_fixture_placement
 def test_same_identity_promotion_requires_predecessor_summary_and_role():
     base = DRAFT.replace(b'CA-R-9@1-draft', b'CA-R-9@2-draft').replace(
@@ -193,6 +169,28 @@ def test_composed_update_preserves_status_and_version():
                         '  form: Rule\nstate:\n  status: Active\n  version: 2\n'
                         '  updated_at: 2026-01-01T00:00:00+00:00\n---\n## Summary\n\nExample\n')
         model = SimpleNamespace(allowed=lambda role, form: {'Draft', 'Active', 'Archived'})
+        from dataclasses import replace
+        original_select = publish.source.select_source
+        for failure in ('missing', 'changed', 'invalid'):
+            def check_draft(selection, ref, *, expected_version=None):
+                if ref.endswith('-draft'):
+                    if failure == 'missing':
+                        raise publish.source.SourceSelectionError('Draft is missing')
+                    selected = original_select(selection, ref, expected_version=expected_version)
+                    if failure == 'changed':
+                        return replace(selected, sha256='changed')
+                    return replace(selected, status='Active')
+                return original_select(selection, ref, expected_version=expected_version)
+
+            with patch.object(publish.source, 'select_source', side_effect=check_draft):
+                failed = publish.update_atom(selection, model, {
+                    'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2},
+                    'changes': {'body': '## Summary\n\nExample\n\nUpdated.\n'}})
+            assert failed['errors'] and failed['effects'], (failure, failed)
+            assert path.exists() and 'version: 2' in path.read_text()
+            assert not list(control.rglob('CA-R-1@2-*.md'))
+            for saved_draft in control.rglob('CA-R-1@3-draft*.md'):
+                saved_draft.unlink()
         outcome = publish.update_atom(selection, model, {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2},
                                                           'changes': {'body': '## Summary\n\nExample\n\nUpdated.\n'}})
         assert not outcome['errors'], outcome
@@ -208,37 +206,20 @@ def test_composed_update_preserves_status_and_version():
         assert next_outcome['artifact']['status'] == 'Active'
         assert next_outcome['artifact']['version'] == 4
         request = {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 4},
-                   'changes': {'body': '## Summary\n\nExample\n\nPending promotion.\n'}}
+                   'changes': {'body': '## Summary\n\nExample\n\nPromotion failure.\n'}}
+        uncertain = {'operation': 'write', 'target': 'example', 'state': 'unknown'}
         with patch.object(publish, '_promote_draft', return_value={
-                'outcome': 'needs_input', 'effects': [], 'errors': [], 'warnings': [],
-                'requested_input': {'target': {'error': 'Destination is occupied.'}}}):
-            pending = publish.update_atom(selection, model, request)
-        assert pending['outcome'] == 'needs_input' and pending['pending_promotion']
-        token = pending['pending_promotion']
-        assert token.draft.path.exists() and token.predecessor.path.exists()
-        assert token.predecessor.status == 'archived' and not path.exists()
-        before = (token.draft.path.read_bytes(), token.predecessor.path.read_bytes())
-        refused = publish.update_atom(selection, model, {'changes': {'summary': 'Other'}}, pending_promotion=token)
-        assert refused['outcome'] == 'needs_input' and refused['pending_promotion'] is token
-        assert refused['effects'] == pending['effects']
-        assert before == (token.draft.path.read_bytes(), token.predecessor.path.read_bytes())
-        resumed = publish.update_atom(selection, model, {}, pending_promotion=token)
-        assert resumed['outcome'] == 'completed' and not resumed['errors'], resumed
-        assert resumed['effects'][:len(pending['effects'])] == pending['effects']
-        assert resumed['artifact']['version'] == 5 and not token.draft.path.exists()
-        assert token.predecessor.path.read_bytes() == before[1]
-
-        stale_request = {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 5},
-                         'changes': {'body': '## Summary\n\nExample\n\nStale promotion.\n'}}
-        with patch.object(publish, '_promote_draft', return_value={
-                'outcome': 'needs_input', 'effects': [], 'errors': [], 'warnings': [],
-                'requested_input': {'target': {'error': 'Destination is occupied.'}}}):
-            stale = publish.update_atom(selection, model, stale_request)
-        stale_token = stale['pending_promotion']
-        stale_token.draft.path.write_bytes(stale_token.draft.path.read_bytes() + b'changed\n')
-        failed = publish.update_atom(selection, model, {}, pending_promotion=stale_token)
-        assert failed['outcome'] == 'failed' and failed['effects'] == stale['effects']
-        assert stale_token.predecessor.path.exists() and stale_token.draft.path.exists()
+                'outcome': 'needs_input', 'effects': [uncertain], 'errors': [], 'warnings': ['warning'],
+                'requested_input': {'target': {'error': 'Destination is occupied.'}}}) as promote:
+            failed = publish.update_atom(selection, model, request)
+        assert failed['outcome'] == 'failed' and promote.call_count == 1
+        assert failed['errors'] == [{'code': 'invalid_input', 'field': 'target',
+                                    'message': 'Destination is occupied.'}]
+        assert failed['effects'] and failed['effects'][-1] == uncertain
+        assert failed['warnings'] == ['warning']
+        assert 'pending_promotion' not in failed and 'requested_input' not in failed
+        assert list(control.rglob('CA-R-1@5-draft*.md'))
+        assert list(control.rglob('CA-R-1@4-*.md')) and not path.exists()
 
 
 @with_fixture_placement

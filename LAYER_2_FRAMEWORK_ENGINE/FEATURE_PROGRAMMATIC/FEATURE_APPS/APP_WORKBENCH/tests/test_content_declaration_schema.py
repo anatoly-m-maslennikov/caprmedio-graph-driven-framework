@@ -304,6 +304,7 @@ Keep this heading.""",
         self.assertEqual({"content.summary": "One"}, content_columns(ordinary, schema))
         with self.assertRaisesRegex(ValueError, "duplicate declared content property: summary"):
             content_columns(duplicate, schema)
+        self.assertEqual({"content.summary": "One"}, content_columns({**duplicate, "status_group": "Archived"}, schema))
 
     def test_real_current_model_declarations_compile_and_record_provenance(self) -> None:
         rows = self._current_model_rows()
@@ -393,7 +394,7 @@ Keep this heading.""",
     @staticmethod
     def _prepared_reference_transform():
         path = (
-            REPOSITORY_ROOT / ".caprmedio_caprmedio/02_analysis/draft/"
+            REPOSITORY_ROOT / ".caprmedio_caprmedio/02_analysis_and_advisory/000_draft/"
             "header-groups-20261106/references/prepare_reference_impact.py"
         )
         spec = spec_from_file_location("prepared_header_impact", path)
