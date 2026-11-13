@@ -1,4 +1,4 @@
-# CA-D-719
+# CA-D-719@1
 
 """Verify the packaged Change Current Status entry point against admitted Atoms."""
 

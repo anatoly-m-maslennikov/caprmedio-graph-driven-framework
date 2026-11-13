@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities Tree)
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+status: active
+version: 3
+updated_at: '2026-11-12T18:49:23.370786+00:00'
 carrier_destination:
   file:
     name: CA-R-2740-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-tree.md
@@ -26,9 +26,12 @@ Declare Projection/(.Form := Primary Entities Tree)
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection.Form :: Primary Entities Tree;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Projection
 
-Projection/(.Form in (Primary Entities Tree))
+class PrimaryEntitiesTree(Projection):
+    pass
+
+declare_entity(entity_class=PrimaryEntitiesTree, entity_name='Primary Entities Tree', qualification_property_path="Projection.Form")
 ```

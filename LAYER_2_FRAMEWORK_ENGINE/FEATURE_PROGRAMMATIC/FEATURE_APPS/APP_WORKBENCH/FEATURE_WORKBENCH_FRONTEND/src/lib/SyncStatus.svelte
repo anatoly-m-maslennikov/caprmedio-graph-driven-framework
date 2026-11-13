@@ -1,4 +1,4 @@
-<!-- CA-D-674@23 -->
+<!-- CA-D-674@26 -->
 <script lang="ts">
   import type { SourceSyncStatus } from './types';
   let { status }: { status: SourceSyncStatus } = $props();

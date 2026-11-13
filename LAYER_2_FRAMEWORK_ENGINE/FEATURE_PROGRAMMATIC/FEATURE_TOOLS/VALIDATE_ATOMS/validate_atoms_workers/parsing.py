@@ -1,6 +1,8 @@
+# CA-D-657@11
+
 """Reuse Carrier splitting and PyYAML's safe parser without constructing tags."""
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 import sys
@@ -45,6 +47,7 @@ class ParsedCarrier:
     frontmatter: str
     body: str
     metadata: dict[str, Any]
+    _view: dict[str, Any] | None = field(default=None, compare=False, repr=False)
 
 
 def check_yaml_resources(frontmatter: str) -> None:
@@ -72,10 +75,10 @@ def parse_carrier(raw: bytes, path: Path) -> ParsedCarrier:
         if not isinstance(metadata, dict):
             raise CarrierError("YAML_INVALID", "Frontmatter must contain one mapping.")
         try:
-            carrier_read_view(metadata)
+            view = carrier_read_view(metadata)
         except ValueError as error:
             raise CarrierError("CARRIER_ALIAS_CONFLICT", str(error)) from error
-        return ParsedCarrier(text, frontmatter, body, metadata)
+        return ParsedCarrier(text, frontmatter, body, metadata, view)
     except CarrierError:
         raise
     except (UnicodeError, yaml.YAMLError, RuntimeError, ValueError) as error:

@@ -13,7 +13,7 @@ version: 3
 updated_at: 2026-11-05 02:11:07 +0400
 carrier_destination:
   file:
-    name: CA-R-2467@3-draft-DECLARATION--declare-action.md
+    name: CA-R-2467@3-draft-CORE_META_MODEL-DECLARATION--declare-action.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 
@@ -25,16 +25,13 @@ Declare Action
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom/(.Header.Context.Role in (Operations))/Action;
-
-Action ((NARROWER_THAN)) Atom/(.Header.Context.Role in (Operations));
-
+subject_path(address='Atom/(.Header.Context.Role in (Operations))/Action')
+relation(source='Action', name='NARROWER_THAN', target='Atom/(.Header.Context.Role in (Operations))')
 # instances
-Action//$action{::0+}((IS_RUN_BY)) Step//$step;
-
-Action//$definition {::0+}((HAS_EXECUTION)) Action Run//$run
+relation(source='Action//$action', name='IS_RUN_BY', target='Step//$step', source_count='0+')
+relation(source='Action//$definition', name='HAS_EXECUTION', target='Action Run//$run', source_count='0+')
 ```
 
 ## Semantics

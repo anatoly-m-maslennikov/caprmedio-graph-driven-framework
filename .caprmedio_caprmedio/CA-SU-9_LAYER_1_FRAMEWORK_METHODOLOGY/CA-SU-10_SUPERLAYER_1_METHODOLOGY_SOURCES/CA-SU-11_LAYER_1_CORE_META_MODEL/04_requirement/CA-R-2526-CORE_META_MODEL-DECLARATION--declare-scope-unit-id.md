@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit.ID
 tier: 3
-status: Active
-version: 6
-updated_at: "2026-11-07 15:18:44 +0400"
+status: active
+version: 7
+updated_at: '2026-11-12T22:08:11.294473+00:00'
 carrier_destination:
   file:
     name: CA-R-2526-CORE_META_MODEL-DECLARATION--declare-scope-unit-id.md
@@ -25,16 +25,18 @@ Declare Scope Unit ID
 
 ### Formal Claim
 
-```CFEL
-# model
-Scope Unit.ID:: [string]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Scope Unit.ID.*[]{::0};
-
-# instances
-Scope Unit//$unit;
-
-$unit.ID{::1}
+declare_entity(
+    entity_name="ID",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Scope Unit",
+    property_occurrence_cardinality=1,
+    value_format=str,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+)
 ```
 
 ## Semantics

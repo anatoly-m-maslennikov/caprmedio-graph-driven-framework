@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTRIBUTES_TO
 tier: 3
-status: Active
-version: 2
-updated_at: "2026-11-07 15:18:44 +0400"
+status: active
+version: 3
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-3001-CORE_META_MODEL-DECLARATION--declare-contributes-to.md
@@ -25,12 +25,14 @@ Declare CONTRIBUTES_TO
 
 ### Formal Claim
 
-```CFEL
-# model
-Relation//CONTRIBUTES_TO ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom//$contributor ((CONTRIBUTES_TO)) Atom//$contribution
+declare_relation(
+    relation_name='CONTRIBUTES_TO',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+    target_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+)
 ```
 
 ## Semantics

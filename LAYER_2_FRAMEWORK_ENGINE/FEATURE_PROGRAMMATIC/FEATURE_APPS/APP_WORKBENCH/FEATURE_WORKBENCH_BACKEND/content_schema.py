@@ -1,8 +1,8 @@
-# CA-R-2726@6
+# CA-R-2726@9
 # CA-M-464@9
 # CA-M-465@24
-# CA-M-500@3
-# CA-D-672@14
+# CA-M-500@12
+# CA-D-672@22
 
 """Compile declared Markdown Content properties into a Workbench SQL schema."""
 
@@ -241,7 +241,7 @@ def declaration_statements(row: Mapping[str, Any] | None) -> tuple[FormalStateme
     source = _source(row)
     return tuple(
         (statement, source)
-        for block in formal_claim_blocks(body)
+        for block in formal_claim_blocks(body, model_class_bindings=row.get("_model_class_bindings"))
         for statement in _model_statements(block)
     )
 

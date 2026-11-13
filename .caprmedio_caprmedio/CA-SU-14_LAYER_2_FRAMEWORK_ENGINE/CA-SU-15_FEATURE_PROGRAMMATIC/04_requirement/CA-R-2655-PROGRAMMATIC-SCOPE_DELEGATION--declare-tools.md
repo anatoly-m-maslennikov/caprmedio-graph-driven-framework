@@ -11,9 +11,9 @@ context:
     main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//TOOLS
   tier: 3
 state:
-  status: Active
-  version: 3
-  updated_at: 2026-11-11 15:29:41 +0400
+  status: active
+  version: 4
+  updated_at: '2026-11-13T08:23:10.333805+00:00'
 destination:
   file:
     name: CA-R-2655-PROGRAMMATIC-SCOPE_DELEGATION--declare-tools.md
@@ -55,7 +55,7 @@ Atom/(.Header.Context.Container.scope_unit in ("CA-SU-16"))/(.Header.Context.Rol
 
 ### Prose Claim
 
-Existing global default admissions, including existing Declaration families, remain unchanged; no additional pairs are granted. No exact Current Solution, Direct Policy, or Approach Policy Role/Form pair is selected. Analysis and Advisory / Code Synopsis remains admitted by the global default, and Plan / Work Report remains admitted only for an already admitted Task with the same Container and within the selected target boundary.
+Existing global default admissions, including existing Declaration families, remain unchanged; no additional pairs are granted. No exact Current Solution, Direct Policy, or Approach Policy Role/Form pair is selected. Plan / Work Report remains admitted only for an already admitted Task with the same Container and within the selected target boundary.
 
 For every admitted local Atom, the Header.Container-derived IS_CONTAINED_BY target must be exactly `Scope Unit//TOOLS` (`CA-SU-16`). Its HAS_ACTIVE_SUBJECT target is closed to exactly the declared model entities or declared instances resolved at these Current local main Subject addresses:
 - `Scope Unit`
@@ -108,7 +108,7 @@ For every admitted local Atom, the Header.Container-derived IS_CONTAINED_BY targ
 - `Subject/CAPRMEDIO/Graph/Node/Project Model/Projection`
 - `Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog`
 - `Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit`
-- `Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path`
+- `CAPRMEDIO_MODEL <+ Scope Unit.Paths`
 - `Subject/CAPRMEDIO/Graph/Node/Project Model/Selection`
 - `Subject/CAPRMEDIO/Graph/Relation`
 - `Subject/CAPRMEDIO/Graph/Relation.Target Reference`

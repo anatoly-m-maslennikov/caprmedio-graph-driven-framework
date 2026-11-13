@@ -10,12 +10,12 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 tier: 1
-status: Active
-version: 33
-updated_at: 2026-11-04 22:00:28 +0400
+status: active
+version: 34
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
-    name: CA-R-1020-DECLARATION--register-implementation-of-relation.md
+    name: CA-R-1020-CORE_META_MODEL-DECLARATION--register-implementation-of-relation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
@@ -30,11 +30,13 @@ implementation_of is the direct Relation owned by a governed Implementation Carr
 
 ### Formal Claim
 
-```CFEL
-# model
-Relation//implementation_of ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Carrier//$implementation_carrier ((implementation_of)) Atom//$specification_atom
+declare_relation(
+    relation_name='implementation_of',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Carrier',)},
+    target_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+)
 ```
 

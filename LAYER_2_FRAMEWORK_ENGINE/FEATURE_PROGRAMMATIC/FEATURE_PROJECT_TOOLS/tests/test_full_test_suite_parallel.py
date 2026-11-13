@@ -94,6 +94,40 @@ class FullTestSuiteParallelTests(unittest.TestCase):
             "Modules: 12; tests run: 12; skipped: 0; failed modules: 0", self.case.output.getvalue()
         )
 
+    def test_workbench_performance_suites_do_not_overlap_other_docker_tests(self):
+        workbench = full.APP.parent / "FEATURE_APPS/APP_WORKBENCH/tests"
+        isolated = [self.case.file(str(workbench / name)) for name in (
+            "test_workbench_docker_e2e.py", "test_workbench_resource_docker_e2e.py",
+        )]
+        generic = [self.case.file(str(full.APP / f"tests/test_{i}_docker_e2e.py")) for i in range(2)]
+        lock, generic_ready = threading.Lock(), threading.Event()
+        active, overlaps, started = set(), [], []
+
+        def execute(_root, module, _environment):
+            with lock:
+                active.add(module)
+                started.append(module)
+                if module in isolated and len(active) > 1 or module in generic and active.intersection(isolated):
+                    overlaps.append(set(active))
+                if set(generic) <= active:
+                    generic_ready.set()
+            if module in generic:
+                self.assertTrue(generic_ready.wait(5))
+            else:
+                time.sleep(0.05)
+            with lock:
+                active.remove(module)
+            return True, 1, 0, "", "", 0.0, None
+
+        with (
+            patch.object(full, "run_module", side_effect=execute),
+            patch.object(full, "current_code_test_image", return_value=nullcontext({})),
+        ):
+            self.assertEqual(0, self.case.run_suite())
+        self.assertTrue(generic_ready.is_set())
+        self.assertFalse(overlaps)
+        self.assertEqual(set(generic + isolated), set(started))
+
     def test_critical_failure_still_runs_later_modules_and_counts_failure(self):
         critical = self.case.file(str(full.APP / "tests/test_selected_subject_apply.py"))
         later = [

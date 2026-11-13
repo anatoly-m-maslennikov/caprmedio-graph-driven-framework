@@ -8,18 +8,19 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//BLOCKS
   dependencies:
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form :=
+    Plan)
   - CAPRMEDIO_MODEL <+ Projection
   - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status: Done'
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//DEPENDS_ON
 tier: 1
-status: Active
-version: 29
-updated_at: 2026-11-04 16:52:59 +0400
+status: active
+version: 30
+updated_at: '2026-11-13T06:26:07.833706+00:00'
 carrier_destination:
   file:
-    name: CA-R-1580-DECLARATION--define-plan-blocking.md
+    name: CA-R-1580-CORE_META_MODEL-DECLARATION--define-plan-blocking.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
@@ -30,14 +31,12 @@ Define Plan blocking
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//BLOCKS <((HAS_INVERSE)) Relation//IS_BLOCKED_BY;
-
-Relation//BLOCKS ((HAS_CLASSIFICATION)) Derivation == Derived;
-
+relation(source='Relation//BLOCKS', name='HAS_INVERSE', target='Relation//IS_BLOCKED_BY', reverse=True)
+classify(address='Relation//BLOCKS', axis='Derivation', value='Derived', notation='relation')
 # instances
-Atom/(.Header.Context.Role: Plan)//$prerequisite ((BLOCKS)) Atom/(.Header.Context.Role: Plan)//$dependent
+relation(source='Atom/(.Header.Context.Role: Plan)//$prerequisite', name='BLOCKS', target='Atom/(.Header.Context.Role: Plan)//$dependent')
 ```
 
 ## Semantics

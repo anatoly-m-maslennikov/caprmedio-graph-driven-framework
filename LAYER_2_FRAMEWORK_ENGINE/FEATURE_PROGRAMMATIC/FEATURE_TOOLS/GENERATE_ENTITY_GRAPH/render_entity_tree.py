@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# CA-D-634@23
+# CA-D-635@17
+
 """Build readable Markdown directly from current Atom Subjects in a folder.
 
 Usage: render_entity_tree.py source-folder --projection-id ID --named-selection NAME
-       --scope-name SCOPE [--view inherency|declarations|model] [--output projection.md]
-Draft and archived folders are excluded. Output defaults to stdout.
+       --scope-name SCOPE [--view inherency|declarations|model] [--output projection.md | --stdout]
+Draft and archived folders are excluded. Output defaults to the Project _projection folder.
 """
 
 from __future__ import annotations
@@ -92,7 +95,9 @@ def _check_existing(destination: Path, identity: dict, view: str) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source_folder", type=Path)
-    parser.add_argument("--output", type=Path)
+    output = parser.add_mutually_exclusive_group()
+    output.add_argument("--output", type=Path)
+    output.add_argument("--stdout", action="store_true")
     parser.add_argument("--projection-id", required=True)
     parser.add_argument("--named-selection", required=True)
     parser.add_argument("--scope-name", required=True)
@@ -114,7 +119,9 @@ def main(argv: list[str] | None = None) -> int:
             "source_of_truth": [source_folder.relative_to(root).as_posix()],
         }
         filename = _filename(identity, args.scope_name, args.view)
-        destination = None if args.output is None else output_path(args.output, root)
+        destination = None if args.stdout else output_path(
+            args.output or root / SETTINGS_PATH.parent / "_projection" / filename, root
+        )
         if destination is not None:
             if destination.name != filename:
                 raise ValueError(f"Projection filename must be {filename}")

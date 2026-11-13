@@ -1,6 +1,6 @@
-# CA-R-2726@6
+# CA-R-2726@9
 # CA-M-500@3
-# CA-D-672@14
+# CA-D-672@22
 
 """Expose compiled Markdown Content properties as SQL row values."""
 

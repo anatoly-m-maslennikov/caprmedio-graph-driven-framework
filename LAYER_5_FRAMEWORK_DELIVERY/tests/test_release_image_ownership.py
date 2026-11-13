@@ -1,5 +1,7 @@
 """Owned orphan discovery never upgrades missing or foreign ownership claims."""
 
+# CA-E-573@19
+
 from __future__ import annotations
 
 import json
@@ -27,6 +29,20 @@ class OwnedDocker(fixtures.DockerFixture):
 
 
 class ReleaseImageOwnershipTests(unittest.TestCase):
+    def test_ready_predecessor_is_kept_and_older_owned_image_removed(self) -> None:
+        docker = OwnedDocker()
+        prior, older = ("sha256:" + char * 64 for char in ("1", "2"))
+        owner = owner_labels(fixtures.ROOT, "c" * 64, ".caprmedio_caprmedio")
+        for image in (prior, older):
+            docker.images[image] = fixtures.FINGER
+            docker.metadata_overrides[image] = owner
+        cleanup = Cleanup(owner=owner)
+        cleanup_obsolete_images(fixtures.ROOT, fixtures.CURRENT, fixtures.FINGER, cleanup,
+                                docker.run, previous_image=prior)
+        self.assertNotIn(("docker", "image", "rm", prior), docker.calls)
+        self.assertIn(("docker", "image", "rm", older), docker.calls)
+        self.assertFalse(cleanup.pending)
+
     def test_owned_orphan_removed_without_container_link_or_commit_gate(self) -> None:
         docker = OwnedDocker()
         image = "sha256:" + "1" * 64

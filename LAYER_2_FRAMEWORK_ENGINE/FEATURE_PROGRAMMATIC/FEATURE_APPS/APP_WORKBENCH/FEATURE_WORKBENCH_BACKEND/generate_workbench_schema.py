@@ -1,5 +1,5 @@
-# CA-M-500@11
-# CA-D-672@21
+# CA-M-500@12
+# CA-D-672@22
 
 """Generate the deterministic Workbench schema asset from one Project capture."""
 
@@ -32,13 +32,18 @@ else:  # pragma: no cover - direct image-build invocation
 from role_directory_rules import compile_role_folders
 
 
-def compile_project_schema(project_root: Path) -> bytes:
+def compile_project_schema(project_root: Path, *, model_class_bindings=None) -> bytes:
     """Capture one Project and compile both admitted Workbench schema modes."""
     reader = SourceReader(Path(project_root), include_archived=False)
     atoms, _scopes = reader.capture()
-    pins = {row["source_path"]: row for row in atoms}
+    selected = list(first_reference_rows(reader.model_rows(atoms, _is_declaration)))
+    if model_class_bindings is None:
+        from FEATURE_FORMAL_MODEL_ENGINE.model_catalog import bindings_from_workbench_rows
+        model_class_bindings = bindings_from_workbench_rows(selected)
+    pins = {}
     statements = []
-    for row in first_reference_rows(reader.model_rows(atoms, _is_declaration)):
+    for row in selected:
+        row = {**row, "_model_class_bindings": model_class_bindings}
         claim = declaration_statements(row)
         if claim:
             statements.extend(claim)

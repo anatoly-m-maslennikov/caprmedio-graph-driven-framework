@@ -1,6 +1,6 @@
-# CA-E-784@1
-# CA-E-785@1
-# CA-E-787@1
+# CA-E-784@6
+# CA-E-785@5
+# CA-E-787@6
 """Real HTTP/MCP acceptance checks for cached Workbench grids and retention."""
 
 from __future__ import annotations
@@ -206,8 +206,9 @@ class WorkbenchGridDockerMixin:
         )
         self.assertEqual(200, status, default_result)
         default_query_id = default_result["query_id"]
-        settings.write_text("[workbench]\nresult_ttl_seconds = 1\n", encoding="utf-8")
-        time.sleep(1.2)
+        ttl_seconds = 5
+        settings.write_text(f"[workbench]\nresult_ttl_seconds = {ttl_seconds}\n", encoding="utf-8")
+        time.sleep(ttl_seconds + 0.2)
         status, before_restart = request(
             self.url + f"{self.workbench_path}/page", method="POST",
             payload={"result_delivery": "inline", "query_id": default_query_id, "offset": 0, "page_size": 1},
@@ -241,7 +242,7 @@ class WorkbenchGridDockerMixin:
             payload={"result_delivery": "inline", "query_id": young_query_id, "offset": 0, "page_size": 1},
         )
         self.assertEqual(200, status, young_page)
-        time.sleep(1.0)
+        time.sleep(ttl_seconds)
         status, expired = request(
             self.url + f"{self.workbench_path}/page", method="POST",
             payload={"result_delivery": "inline", "query_id": young_query_id, "offset": 0, "page_size": 1},
@@ -265,7 +266,7 @@ class WorkbenchGridDockerMixin:
         (pinned_run,) = self._mcp(("view_run", {"workspace_id": workspace_id, "view_id": pinned_view_id}),)
         self.assertFalse(pinned_run.is_error, pinned_run.structured_content or pinned_run.content)
         pinned_query_id = pinned_run.structured_content["query_id"]
-        time.sleep(1.2)
+        time.sleep(ttl_seconds + 0.2)
         (pinned_page,) = self._mcp(("view_fetch", {
             "workspace_id": workspace_id, "view_id": pinned_view_id, "offset": 0, "page_size": 1,
         }),)
@@ -279,16 +280,20 @@ class WorkbenchGridDockerMixin:
             "sql": "SELECT 9 AS young_view_value", "expected_revision": 0,
         })
         self.assertEqual(1, young_view_update["revision"])
+        young_view_started = time.monotonic()
         young_view_run = self._http_interface("view_run", {"workspace_id": workspace_id, "view_id": young_view_id})
         young_view_query_id = young_view_run["query_id"]
         self._http_interface("view_remove", {"workspace_id": workspace_id, "view_id": young_view_id})
-        time.sleep(0.3)
         status, young_after_close = request(
             self.url + f"{self.workbench_path}/page", method="POST",
             payload={"result_delivery": "inline", "query_id": young_view_query_id, "offset": 0, "page_size": 1},
         )
-        self.assertEqual(200, status, young_after_close)
-        time.sleep(1.0)
+        self.assertEqual(
+            200, status,
+            f"{young_after_close} after {time.monotonic() - young_view_started:.3f}s since Run request "
+            f"with a {ttl_seconds}s TTL",
+        )
+        time.sleep(ttl_seconds)
         status, young_after_ttl = request(
             self.url + f"{self.workbench_path}/page", method="POST",
             payload={"result_delivery": "inline", "query_id": young_view_query_id, "offset": 0, "page_size": 1},

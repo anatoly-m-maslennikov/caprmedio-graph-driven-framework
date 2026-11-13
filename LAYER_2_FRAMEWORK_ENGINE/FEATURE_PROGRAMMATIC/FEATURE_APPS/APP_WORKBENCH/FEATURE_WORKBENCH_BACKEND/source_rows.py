@@ -1,7 +1,7 @@
-# CA-R-2723@5
-# CA-R-2726@6
-# CA-D-672@14
-# CA-M-465@24
+# CA-R-2723@6
+# CA-R-2726@9
+# CA-D-672@22
+# CA-M-465@29
 # CA-M-500@3
 # CA-M-464@15
 
@@ -9,7 +9,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 import re
@@ -140,6 +140,15 @@ class ReferenceIndex:
     paths: dict[str, set[Path]] = field(default_factory=dict)
     accepted: set[Path] = field(default_factory=set)
 
+    def paths_for(self, reference: str) -> set[Path]:
+        return self.paths.get(reference, set())
+
+    def paths_by_reference(self, references: set[str]) -> dict[str, set[Path]]:
+        return {reference: self.paths.get(reference, set()) for reference in references}
+
+    def accepted_paths(self, paths: set[Path] | None = None) -> set[Path]:
+        return set(self.accepted) if paths is None else self.accepted & paths
+
     def rebuild(self, rows: Mapping[Path, Mapping[str, Any]]) -> None:
         self.paths = {}
         for path, row in rows.items():
@@ -151,27 +160,28 @@ class ReferenceIndex:
         }
 
     def update(
-        self, before: Mapping[Path, Mapping[str, Any]], after: Mapping[Path, Mapping[str, Any]], affected: set[Path],
+        self, before: Mapping[Path, Mapping[str, Any] | None],
+        after: Callable[[Path], Mapping[str, Any] | None], affected: set[Path],
     ) -> set[Path]:
         impacted = set(affected)
         references = {
             reference
-            for rows in (before, after) for path in affected
-            if (row := rows.get(path)) is not None and (reference := _reference(row)) is not None
+            for lookup in (before.get, after) for path in affected
+            if (row := lookup(path)) is not None and (reference := _reference(row)) is not None
         }
         for reference in references:
             old = set(self.paths.get(reference, ()))
             for path in affected:
                 if _reference(before.get(path)) == reference:
                     self.paths[reference].discard(path)
-                if _reference(after.get(path)) == reference:
+                if _reference(after(path)) == reference:
                     self.paths.setdefault(reference, set()).add(path)
             current = self.paths.get(reference, set())
             if not current:
                 self.paths.pop(reference, None)
             impacted.update(old | current)
         for path in impacted:
-            row = after.get(path)
+            row = after(path)
             reference = _reference(row)
             if row is not None and (reference is None or path == min(self.paths[reference], key=_path_rank)):
                 self.accepted.add(path)

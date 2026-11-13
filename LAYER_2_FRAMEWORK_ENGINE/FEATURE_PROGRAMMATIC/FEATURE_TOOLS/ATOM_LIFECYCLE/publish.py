@@ -16,7 +16,7 @@ from ATOM_LIFECYCLE import effects, source
 from ATOM_LIFECYCLE.carrier import logical_view, render_carrier, same_authored_carrier
 from ATOM_LIFECYCLE.common import InputError, SourceChanged, read_target, result, saved, validate_candidate, write_destination
 from ATOM_LIFECYCLE.draft import _summary
-from ATOM_LIFECYCLE.placement import derive_destination, resolve_container
+from ATOM_LIFECYCLE.placement import PlacementError, derive_destination, resolve_container
 from ATOM_LIFECYCLE.status_model import canonical_status, encode_status, StatusModelError
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
@@ -29,11 +29,12 @@ def _same_pin(left, right):
 
 
 def _indexed_archive(selection, identity, reader):
-    """Read the first eligible indexed candidate, without falling back on stale data."""
+    """Read the latest eligible indexed revision, without falling back on stale data."""
     indexed = source.query_reader()
     candidates = indexed.lifecycle_archive_candidates(selection, identity)
     if not isinstance(candidates, (list, tuple)):
         raise source.SourceSelectionError('Indexed Archive candidates are invalid')
+    matching = []
     for row in candidates:
         if not isinstance(row, (list, tuple)) or len(row) != 2:
             raise source.SourceSelectionError('Indexed Archive candidate is invalid')
@@ -46,13 +47,19 @@ def _indexed_archive(selection, identity, reader):
             raise source.SourceSelectionError('Indexed Atom path is outside the selected Project')
         if not source._matches_revision(path, identity, version, None):
             continue
-        try:
-            return source._unique_candidate(reader, (path,), reference, identity, version, None)
-        except source.ArchiveNotLoadedError:
-            raise
-        except source.SourceSelectionError as exc:
-            raise InputError('relations.is_replacement_for', 'Indexed Archived replacement is stale or invalid.') from exc
-    raise source.SourceSelectionError('Replacement target is missing or ambiguous')
+        matching.append((int(version), reference, path))
+    if not matching:
+        raise source.SourceSelectionError('Replacement target is missing or ambiguous')
+    latest = max(version for version, _, _ in matching)
+    paths = tuple(path for version, _, path in matching if version == latest)
+    reference = f'{identity}@{latest}'
+    try:
+        return source._unique_candidate(reader, paths, reference, identity, str(latest), None,
+                                        retained_history=True)
+    except source.ArchiveNotLoadedError:
+        raise
+    except source.SourceSelectionError as exc:
+        raise InputError('relations.is_replacement_for', 'Indexed Archived replacement is stale or invalid.') from exc
 
 
 @trace('promotion.resolve_replacement')
@@ -89,7 +96,8 @@ def resolve_replacement(selection, atom_id):  # noqa: C901
             if is_draft:
                 continue
             ref = f'{identity}@{version}' if version else identity
-            pin = source._read_candidate(reader, path, ref, identity, version, None)
+            pin = source._read_candidate(reader, path, ref, identity, version, None,
+                                         retained_history=bool(version))
             if pin is not None:
                 (archived if version else current).append(pin)
         source._check_currentness(reader, selection, identity, candidates)
@@ -116,13 +124,7 @@ def _current_collision(selection, atom_id):
     reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
     candidates = source._candidate_paths(reader, selection, atom_id, references=(atom_id,))
     if source.query_reader() is not None:
-        try:
-            source._unique_candidate(reader, candidates, atom_id, atom_id, None, None)
-        except source.ArchiveNotLoadedError:
-            raise
-        except source.SourceSelectionError:
-            return False
-        return True
+        return any(source._matches_revision(path, atom_id, None, None) for path in candidates)
     found = [pin for path in candidates
              if source._matches_revision(path, atom_id, None, None)
              if (pin := source._read_candidate(reader, path, atom_id, atom_id, None, None)) is not None]
@@ -163,6 +165,8 @@ def _error(exc):
         return {'code': 'invalid_input', 'message': str(exc), 'field': exc.field}
     if isinstance(exc, SourceChanged):
         return {'code': 'source_changed', 'message': str(exc), 'field': None}
+    if isinstance(exc, PlacementError):
+        return {'code': 'invalid_placement', 'message': str(exc), 'field': None}
     return {'code': 'backend_failure', 'message': 'Lifecycle operation failed.', 'field': None}
 
 

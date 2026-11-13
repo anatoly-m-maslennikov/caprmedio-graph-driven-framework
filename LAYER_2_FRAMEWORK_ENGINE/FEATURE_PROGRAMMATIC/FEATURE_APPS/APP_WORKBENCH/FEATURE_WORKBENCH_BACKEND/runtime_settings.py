@@ -1,4 +1,5 @@
-# CA-D-675@14
+# CA-D-675@17
+# CA-M-500@12
 
 """Read the fixed Workbench runtime retention setting at startup."""
 
@@ -6,6 +7,12 @@ from __future__ import annotations
 
 from pathlib import Path
 import tomllib
+import sys
+
+TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
+if str(TOOLS) not in sys.path:
+    sys.path.insert(0, str(TOOLS))
+from settings_carrier import read_settings_carrier
 
 
 DEFAULT_RESULT_TTL_SECONDS = 3600
@@ -18,7 +25,7 @@ def result_ttl_seconds(root: Path) -> int:
     if not path.exists():
         return DEFAULT_RESULT_TTL_SECONDS
     try:
-        document = tomllib.loads(path.read_text(encoding="utf-8"))
+        document = read_settings_carrier(path)
     except (OSError, UnicodeError, tomllib.TOMLDecodeError) as error:
         raise ValueError("invalid Workbench runtime settings") from error
     workbench = document.get("workbench", {})
@@ -36,7 +43,7 @@ def schema_mode(root: Path) -> int:
     if not path.exists():
         return DEFAULT_SCHEMA_MODE
     try:
-        document = tomllib.loads(path.read_text(encoding="utf-8"))
+        document = read_settings_carrier(path)
     except (OSError, UnicodeError, tomllib.TOMLDecodeError) as error:
         raise ValueError("invalid Workbench runtime settings") from error
     workbench = document.get("workbench", {})

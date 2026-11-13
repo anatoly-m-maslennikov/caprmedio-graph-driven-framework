@@ -214,7 +214,9 @@ Name{:2}: [string]{:0..1};
 Required: [string]{:1};
 Child: {:0..1};
 Child{:0..1}: {:0..1};
-Required{:0}: [string]{:1};
+Forbidden{:0}: [string]{:1};
+Step.Content.Claim.Mermaid Scheme{::0..1} :: [markdown]{::1};
+Step.Content.Claim.Mermaid Scheme.*[]{::0};
 Node.**: [markdown];
 Node.**[string]{:0+};
 # Instances
@@ -223,7 +225,8 @@ PrimaryKind//$x{:1}
 ```
 """))
         self.assertEqual([], diagnostics)
-        bare, bare_explicit, implicit, explicit, bounded, impossible, required, inherited, inherited_explicit, conflict, inherited_scope, wildcard, prop_population, kind_population = records
+        (bare, bare_explicit, implicit, explicit, bounded, impossible, required, inherited, inherited_explicit,
+         forbidden, scheme, scheme_children, inherited_scope, wildcard, prop_population, kind_population) = records
         one = {"minimum": 1, "maximum": 1}
         optional = {"minimum": 0, "maximum": 1}
         self.assertEqual(optional, bare["effective_occurrence_cardinality"])
@@ -239,7 +242,13 @@ PrimaryKind//$x{:1}
         self.assertIsNone(inherited["value_format"])
         self.assertEqual(optional, inherited_explicit["effective_occurrence_cardinality"])
         self.assertIsNone(inherited_explicit["value_format"])
-        self.assertTrue(conflict["occurrence_conflict"])
+        zero = {"minimum": 0, "maximum": 0}
+        self.assertEqual(zero, forbidden["effective_occurrence_cardinality"])
+        self.assertFalse(forbidden["occurrence_conflict"])
+        self.assertEqual(optional, scheme["effective_occurrence_cardinality"])
+        self.assertEqual(one, scheme["value_cardinality"])
+        self.assertEqual("markdown", scheme["value_format"])
+        self.assertEqual(zero, scheme_children["occurrence_cardinality"])
         self.assertEqual(("recursive_dependent_values", "markdown", None),
                          (inherited_scope["selection"], inherited_scope["value_format"], inherited_scope["value_cardinality"]))
         self.assertNotIn("effective_occurrence_cardinality", inherited_scope)
@@ -358,7 +367,8 @@ Details: [string]{:1}
         unsupported = [row["expression"] for row in diagnostics if row["code"] == "cfel-expression-unsupported"]
         self.assertTrue(any(row["kind"] == "subject_expression" and row["expression"] == "Atom/(.Role := Requirement)/(.Form := Rule)" for row in records))
         self.assertIn("IF(A) THEN(B ((RUN)) C)", unsupported)
-        self.assertIn("Node >| Container: yes", unsupported)
+        self.assertTrue(any(row.get("kind") == "classification_allowed_value" and row.get("value") == "yes" for row in records))
+        self.assertNotIn("Node >| Container: yes", unsupported)
         self.assertIn("Label: 'a;b'", unsupported)
         self.assertIn("FENCED_LABELS(Atom.Content.Claim): [in (CFEL)]{:0..1}", unsupported)
         self.assertIn("A + B{:1}", unsupported)

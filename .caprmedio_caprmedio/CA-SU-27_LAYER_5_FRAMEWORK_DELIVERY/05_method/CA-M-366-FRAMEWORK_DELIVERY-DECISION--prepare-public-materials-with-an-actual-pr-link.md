@@ -15,9 +15,9 @@ tier: 4
 relations:
   method_for:
   - CA-R-1923
-status: Active
-version: 19
-updated_at: 2026-11-09 15:54:30 +0400
+status: active
+version: 20
+updated_at: '2026-11-12T17:10:04.026422+00:00'
 carrier_destination:
   file:
     name: CA-M-366-FRAMEWORK_DELIVERY-DECISION--prepare-public-materials-with-an-actual-pr-link.md
@@ -26,19 +26,16 @@ current_scope_unit: FRAMEWORK_DELIVERY
 claim_target_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 ---
-
-# Summary
+## Summary
 
 Prepare public materials with an actual PR link
 
-## Scope
+## Claim scope
 
 the selected public documentation closure.
 
 ## Claim
 
-the public-release Tool **must** prepare README, one full PR body, and short Version History bullets from the selected Version. Its one public-writing prompt produces the full PR body with distinct **What's new** and **What's fixed** sections. It discovers an existing matching PR before push and defers a new Version History hyperlink until the remote returns its actual PR URL.
+### Prose Claim
 
-## Details
-
-Version History remains a concise summary plus actual URL. The Tool completes the one fresh public suite after its initial material closure is frozen and before its first publication. If no matching PR exists, it adds that URL through one mechanical metadata-only follow-up commit and push after creation. That follow-up reopens the actual passed initial public-suite and current source/material evidence; it does not rerun the suite, request a separate review or prompt, or change any non-metadata Version/source/material binding.
+Prepare README, one full PR body and concise Version History bullets from the selected Version. Use `New` and `Fixed` in the PR body. Discover the matching open PR or create a Draft PR from the already-published branch before preparing Version History. Use its actual URL and put the new Version first. If a matching PR cannot be obtained, stop before pushing.

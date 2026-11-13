@@ -1,4 +1,5 @@
-# CA-M-509@6
+# CA-M-509@7
+# CA-M-551@2
 
 """Validate and consume the delivered relation-registry metadata asset."""
 from __future__ import annotations

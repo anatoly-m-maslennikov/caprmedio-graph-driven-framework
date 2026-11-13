@@ -1,7 +1,7 @@
-# CA-R-2724@4
-# CA-M-465@24
-# CA-M-509@1
-# CA-D-672@14
+# CA-R-2724@5
+# CA-M-465@29
+# CA-M-509@7
+# CA-D-672@22
 
 """Copy-on-write relation materialization for an incremental source batch."""
 
@@ -320,12 +320,14 @@ def materialize_delta(  # noqa: C901
     affected: set[tuple[str, str]] = set()
     changed_paths = set(changes)
     changed_facts: set[tuple] = set()
+    touched_refs: set[str] = set()
     # A carrier rename retains its reference. Remove every old source fact
     # before any replacement fact can use that reference.
     for path in changes:
         old = raw.get(path)
         if old is not None and old.get("ref") is not None and refs.get(old["ref"]) == path:
             refs.pop(old["ref"])
+            touched_refs.add(old["ref"])
         for fact in direct.pop(path, ()):
             owners = set(contributors.get(fact, ()))
             owners.discard(("atom", path))
@@ -354,13 +356,19 @@ def materialize_delta(  # noqa: C901
             if graph and new.get("ref") is not None:
                 affected.add((ATOM, new["ref"]))
                 refs[new["ref"]] = path
+                touched_refs.add(new["ref"])
             _warn_colliding_uses([new], registry.collisions)
 
-    changed_endpoints = {(ATOM, ref) for ref in set(previous_state.refs) ^ set(refs)}
+    changed_endpoints = {(ATOM, ref) for ref in touched_refs if (ref in previous_state.refs) != (ref in refs)}
     for endpoint in changed_endpoints:
         changed_facts.update(previous_state.facts_by_endpoint.get(endpoint, ()))
         changed_facts.update(facts_by_endpoint.get(endpoint, ()))
-    present = {(ATOM, ref) for ref in refs} | {(SCOPE, row["name"]) for row in scopes}
+    scope_names = {row["name"] for row in scopes}
+    present = {
+        endpoint for fact in changed_facts for endpoint in (fact[:2], fact[3:])
+        if (endpoint[0] == ATOM and endpoint[1] in refs)
+        or (endpoint[0] == SCOPE and endpoint[1] in scope_names)
+    }
     support = dict(previous_state.support)
     for fact in changed_facts:
         affected.update(_refresh_support(support, fact, registry, present, active=fact in contributors))

@@ -46,6 +46,27 @@ FORBIDDEN_OVERRIDE_KEYS = {
     "credentials",
 }
 
+sys.path.insert(0, str(CODEX_ROOT))
+from bridge import CodexBridge
+
+
+class BridgeEventDrainTests(unittest.TestCase):
+    def test_events_drain_packets_queued_during_yield(self) -> None:
+        bridge = CodexBridge.__new__(CodexBridge)
+        bridge._condition = threading.Condition()
+        bridge._events = [{"method": "item/started"}]
+        bridge.active_turn_id = "turn-1"
+        bridge.pending_requests = {}
+        stream = bridge.events()
+
+        self.assertEqual({"method": "item/started"}, next(stream))
+        message = {"method": "item/agentMessage"}
+        completed = {"method": "turn/completed", "params": {"turn": {"id": "turn-1"}}}
+        bridge._event(message)
+        bridge._event(completed)
+
+        self.assertEqual([message, completed], list(stream))
+
 
 def _bridge_server() -> Path | None:
     configured = os.environ.get("CAPRMEDIO_CODEX_BRIDGE_SERVER")

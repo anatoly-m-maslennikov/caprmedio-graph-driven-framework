@@ -1,0 +1,32 @@
+---
+atom_id: CA-R-2420
+ref_id: CA-R-2420@7-draft
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_EXECUTED_BY
+tier: 1
+status: draft
+version: 7
+updated_at: '2026-11-13T08:57:34.687078+00:00'
+carrier_destination:
+  file:
+    name: CA-R-2420@7-draft-CORE_META_MODEL-DECLARATION--define-is-executed-by-relation.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+---
+## Summary
+
+Define IS_EXECUTED_BY Relation
+
+## Claim
+
+### Formal Claim
+
+```python
+# model
+relation(source="Relation//IS_EXECUTED_BY", name="HAS_INVERSE", target="Relation//EXECUTES", reverse=True)
+```

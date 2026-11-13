@@ -17,9 +17,9 @@ relations:
   evaluation_for:
   - CA-M-509
 state:
-  status: Active
-  version: 4
-  updated_at: 2026-11-10 20:47:54 +0400
+  status: active
+  version: 5
+  updated_at: '2026-11-12T12:29:30.190837+00:00'
 destination:
   file:
     name: CA-E-804-WORKBENCH_BACKEND-EVAL_CASE--verify-relation-registry-delivery-on-every-image-rebuild.md
@@ -34,6 +34,9 @@ Verify relation registry delivery on every image rebuild
 
 ### Prose Claim
 
-Verify every supported image-build entry point, including local release, generates the relation registry before image identity/context assembly. A selected Declaration change changes asset/build identity; identical inputs yield identical bytes. Record source IDs/versions/paths/fingerprints without changing timestamp, include asset/digest in staged package/image verification, and exclude Project authority carriers from image context.
+Verify the selected relation registry reaches the image unchanged for every supported build entry point, including Local Release.
 
-A stale output regenerates; missing output or generation failure rejects the package/image rather than accepting stale metadata. Verify installed runtime consumes delivered metadata, and relevant Current Declaration change uses the same compiler to refresh Project registry/graph. MCP code/config tool registration stays separate from full Atom inventory scan. Use focused controlled build hooks plus one real selected-Project local-release check; generator success alone does not establish installed-image alignment.
+- In refresh mode, compile the registry before image assembly. A selected Declaration change changes asset and build identity. Identical inputs yield identical bytes. A compilation failure stops the build.
+- In existing mode, use the checkout registry unchanged. A missing asset stops the build. Verify this mode with the CAPRMEDIO service stopped and without a predecessor image.
+
+Verify the source IDs, Versions, paths and fingerprints in the delivered metadata. Keep Project authority carriers outside the image context. Verify the installed runtime uses the packaged registry and that a Declaration change takes effect after asset refresh and image rebuild.

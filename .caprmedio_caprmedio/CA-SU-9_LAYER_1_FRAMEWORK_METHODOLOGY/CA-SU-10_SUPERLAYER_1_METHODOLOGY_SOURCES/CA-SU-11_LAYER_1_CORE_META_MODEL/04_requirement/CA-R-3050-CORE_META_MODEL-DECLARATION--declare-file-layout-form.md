@@ -8,14 +8,15 @@ context:
   role: requirement
   form: declaration
   topics:
-    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)/(.Header.Context.Form := File Layout)
+    main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)/(.Header.Context.Form
+      := File Layout)
     dependencies:
     - CAPRMEDIO_MODEL <+ Atom.Header.Destination.File
   tier: 3
 state:
   status: active
-  version: 1
-  updated_at: '2026-11-11T18:17:52+04:00'
+  version: 2
+  updated_at: '2026-11-12T17:23:54+00:00'
 destination:
   file:
     name: CA-R-3050-CORE_META_MODEL-DECLARATION--declare-file-layout-form.md
@@ -34,7 +35,12 @@ A File Layout Claim specifies how delivered files are named, where they are plac
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.Context.Role in (Delivery)).Header.Context.Form :: File Layout;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Delivery
+
+class FileLayout(Delivery):
+    pass
+
+declare_entity(entity_class=FileLayout, entity_name='File Layout', qualification_property_path="Atom.Header.Context.Form")
 ```

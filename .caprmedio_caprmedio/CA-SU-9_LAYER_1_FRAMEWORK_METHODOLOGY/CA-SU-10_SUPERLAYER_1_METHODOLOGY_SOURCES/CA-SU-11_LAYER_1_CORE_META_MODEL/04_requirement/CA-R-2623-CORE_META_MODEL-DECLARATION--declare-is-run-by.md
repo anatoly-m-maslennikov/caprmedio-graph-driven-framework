@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_RUN_BY
 tier: 3
-status: Active
-version: 4
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 5
+updated_at: '2026-11-13T06:26:10.910372+00:00'
 carrier_destination:
   file:
     name: CA-R-2623-CORE_META_MODEL-DECLARATION--declare-is-run-by.md
@@ -25,7 +25,7 @@ Declare IS_RUN_BY
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//IS_RUN_BY <((HAS_INVERSE)) Relation//RUNS
+relation(source='Relation//IS_RUN_BY', name='HAS_INVERSE', target='Relation//RUNS', reverse=True)
 ```

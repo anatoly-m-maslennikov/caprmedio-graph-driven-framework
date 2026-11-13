@@ -1,4 +1,5 @@
-# CA-E-677@14
+# CA-E-677@30
+# CA-E-823@1
 """Real file-to-DuckDB deltas without full schema or graph work."""
 from contextlib import ExitStack
 from pathlib import Path
@@ -146,6 +147,60 @@ class IncrementalIndexingTests(unittest.TestCase):
         )["rows"])
         self.assertEqual([], self.service.lifecycle_candidates(selection, atom_ids=("CA-R-100001",)))
 
+    def test_lifecycle_candidates_follow_declared_authority_through_deltas(self):
+        authority = Path(self.declarations["ENGINE"]["authority_path"])
+        control = self.service._reader.control_root
+        selection = SimpleNamespace(root=self.root.resolve(), control_root=control)
+        atom_id = "CA-R-100002"
+        current = authority / "04_requirement" / f"{atom_id}-current.md"
+        installed = self.root / ".caprmedio_caprmedio" / "000_installed_framework" / "04_requirement" / f"{atom_id}-copy.md"
+        evidence = authority / "03_plan" / "evidence" / "04_requirement" / f"{atom_id}-evidence.md"
+        second = authority / "04_requirement" / "another" / f"{atom_id}-other.md"
+        task = authority / "03_plan" / "CA-P-100003-epic" / "CA-P-100004-task.md"
+
+        def candidates(identifier):
+            return self.service.lifecycle_candidates(selection, atom_ids=(identifier,))
+
+        def refresh(path, *, old=None, operation="create"):
+            event = self.event(path, old=old, operation=operation)
+            self.service._stop.clear()
+            watcher = unittest.mock.Mock()
+            watcher.changes.side_effect = lambda timeout: (self.service._stop.set() or [event])
+            with patch.object(self.service._reader, "_inventory_paths", side_effect=AssertionError("full scan")), \
+                    patch(BACKEND + "service.SourceWatcher", return_value=watcher), \
+                    patch(BACKEND + "service.configured_journal_root", return_value=Path(".caprmedio_caprmedio/_journal")):
+                self.service._index()
+            self.assertIsNone(self.service._failure)
+
+        for path in (current, installed, evidence):
+            write_atom(path, atom_id)
+            refresh(path)
+        self.assertEqual([[3]], self.store.run(
+            f"SELECT count(*) FROM atoms WHERE \"header.atom_id\"='{atom_id}'"
+        )["rows"])
+        self.assertEqual([(atom_id, current.resolve())], candidates(atom_id))
+
+        write_atom(task, "CA-P-100004")
+        task.write_text(task.read_text().replace('role: "Requirement"', 'role: "Plan"')
+                        .replace('form: "Definition"', 'form: "Task"'))
+        refresh(task)
+        self.assertEqual([("CA-P-100004", task.resolve())], candidates("CA-P-100004"))
+
+        write_atom(second, atom_id)
+        refresh(second)
+        self.assertEqual({(atom_id, current.resolve()), (atom_id, second.resolve())}, set(candidates(atom_id)))
+        moved = authority / "03_plan" / "evidence" / "04_requirement" / second.name
+        moved.parent.mkdir(parents=True, exist_ok=True)
+        second.rename(moved)
+        refresh(moved, old=second, operation="move")
+        self.assertEqual([(atom_id, current.resolve())], candidates(atom_id))
+        current.unlink()
+        refresh(None, old=current, operation="remove")
+        self.assertEqual([], candidates(atom_id))
+        self.assertEqual([[3]], self.store.run(
+            f"SELECT count(*) FROM atoms WHERE \"header.atom_id\"='{atom_id}'"
+        )["rows"])
+
     def test_scope_declaration_full_capture_diffs_without_replacing_projection(self):
         declaration = Path(self.declarations["ENGINE"]["declaration_path"])
         saved = self.store.run("SELECT 42 AS marker")
@@ -190,6 +245,23 @@ class IncrementalIndexingTests(unittest.TestCase):
         self.assertEqual([[0]], self.store.run(
             "SELECT count(*) FROM atoms WHERE reference = 'CA-R-100001'"
         )["rows"])
+
+    def test_delayed_directory_removal_reconciles_existing_children(self):
+        directory = self.paths["A"].parent / "batch"
+        atom = directory / "CA-R-100001.md"
+        write_atom(atom, "CA-R-100001")
+        self.service._refresh([self.event(directory, operation="create")])
+        write_atom(atom, "CA-R-100001", version=2)
+        removal = self.event(None, old=directory, operation="remove")
+        query = "SELECT \"header.version\" FROM atoms WHERE reference = 'CA-R-100001'"
+        with patch.object(self.service._reader, "_capture_full", side_effect=AssertionError("full scan")):
+            self.service._refresh([self.service._watcher_projection_event(removal)])
+            self.assertEqual([[2]], self.store.run(query)["rows"])
+            self.assertIsNone(removal["new_path"])
+
+            shutil.rmtree(directory)
+            self.service._refresh([self.service._watcher_projection_event(removal)])
+            self.assertEqual([], self.store.run(query)["rows"])
 
     def test_declaration_changes_require_new_built_assets(self):
         declaration = self.paths["relation"].with_name("CA-R-content-model.md")

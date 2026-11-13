@@ -8,6 +8,7 @@ import tomllib
 from typing import Any, Mapping
 
 from project_selection import bound_selection
+from settings_carrier import read_settings_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
@@ -28,8 +29,8 @@ def _settings(root: Path) -> Mapping[str, Any]:
     if selection is not None:
         return selection.settings
     try:
-        raw = ReadContext(roots=[str(root)], limits=dict(CEILINGS)).read(root / _SETTINGS_PATH)
-        return tomllib.loads(raw.decode("utf-8"))
+        reader = ReadContext(roots=[str(root)], limits=dict(CEILINGS))
+        return read_settings_carrier(root / _SETTINGS_PATH, read_bytes=reader.read)
     except (OSError, RuntimeError, UnicodeError, tomllib.TOMLDecodeError) as error:
         raise ProjectSettingsValueError(
             "project-settings-unavailable", "cannot read current Project Settings"
@@ -54,9 +55,22 @@ def control_root(root: Path) -> Path:
 
 def project_identity_prefix(root: Path) -> str:
     """Return the selected or canonical-carrier Project Atom prefix."""
-    prefix = _settings(root).get("artifacts", {}).get("identity", {}).get("project_prefix")
+    return project_identity(root)[0]
+
+
+def project_identity(root: Path, *, control_relative: Path | None = None) -> tuple[str, str | None]:
+    """Return the Atom prefix and the Project name from the same Settings read."""
+    settings = _settings(root)
+    prefix = settings.get("artifacts", {}).get("identity", {}).get("project_prefix")
     if not isinstance(prefix, str) or re.fullmatch(r"[A-Za-z0-9]+", prefix) is None:
         raise ProjectSettingsValueError(
             "project-settings-invalid", "artifacts.identity.project_prefix is invalid"
         )
-    return prefix
+    project = settings.get("project")
+    name = project.get("name") if isinstance(project, Mapping) else None
+    paths = settings.get("paths")
+    if control_relative is not None and (
+        not isinstance(paths, Mapping) or paths.get("control_root") != control_relative.as_posix()
+    ):
+        name = None
+    return prefix, name if isinstance(name, str) and name else None

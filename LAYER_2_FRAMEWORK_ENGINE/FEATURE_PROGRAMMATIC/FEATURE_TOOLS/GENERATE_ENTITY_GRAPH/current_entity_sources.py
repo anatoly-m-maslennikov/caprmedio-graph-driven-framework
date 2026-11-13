@@ -1,6 +1,7 @@
 """Read current Atom carriers in one source folder for the readable graph."""
 
 import hashlib
+import json
 import os
 import re
 from collections.abc import Iterator
@@ -28,6 +29,7 @@ _CANONICAL_ROLE = re.compile(r"(?:[0-9]+-)?[A-Z][A-Z0-9]*-(?P<role>[CAPRMEDO])-[
 _ATOM_FIELD = re.compile(rb"(?m)^[ \t]*(?:atom_id|'atom_id'|\"atom_id\")[ \t]*:")
 _FRONTMATTER_OPEN = re.compile(r"\A---\r?\n")
 _FRONTMATTER_CLOSE = re.compile(r"(?m)^---\r?\n")
+_MODEL_FORMS = ("Declaration", "Relation Declaration", "Relation Definition")
 
 
 def _source_paths(source_root: Path, repository: Path) -> Iterator[Path]:
@@ -85,7 +87,7 @@ def _raw_body(text: str, path: Path) -> str:
     return text[closing.end() :]
 
 
-def _read_atom(path: Path, repository: Path) -> dict[str, Any] | None:
+def _read_atom(path: Path, repository: Path, *, draft: bool = False) -> dict[str, Any] | None:
     raw = _read_bounded(path)
     parsed = _parse_atom(raw, path)
     if parsed is None:
@@ -94,7 +96,8 @@ def _read_atom(path: Path, repository: Path) -> dict[str, Any] | None:
     read_view = carrier_read_view(metadata)
     if str(read_view.get("artifact_form", "")).lower() in {"projection", "journal"}:
         return None
-    if str(read_view.get("status", "")).strip().lower() in {"draft", "archived"}:
+    status = str(read_view.get("status", "")).strip().lower()
+    if (status != "draft" if draft else status in {"draft", "archived"}):
         return None
     explicit = read_view.get("atom_id")
     if explicit is not None and not isinstance(explicit, str):
@@ -122,7 +125,9 @@ def _read_atom(path: Path, repository: Path) -> dict[str, Any] | None:
     }
 
 
-def read_current_carriers(source_root: Path, repository: Path) -> list[dict[str, Any]]:
+def read_current_carriers(
+    source_root: Path, repository: Path, *, model_draft_manifest: Path | None = None,
+) -> list[dict[str, Any]]:
     """Read current Atom evidence once, retaining parsed fields and exact bytes."""
     source_root, repository = source_root.absolute(), repository.absolute()
     carriers = []
@@ -130,7 +135,59 @@ def read_current_carriers(source_root: Path, repository: Path) -> list[dict[str,
         carrier = _read_atom(path, repository)
         if carrier is not None:
             carriers.append(carrier)
-    return carriers
+    if model_draft_manifest is None:
+        return carriers
+    return _preview_model_drafts(carriers, repository, model_draft_manifest)
+
+
+def _preview_model_drafts(
+    current: list[dict[str, Any]], repository: Path, manifest: Path,
+) -> list[dict[str, Any]]:
+    """Overlay explicitly pinned Drafts while retaining their source identity."""
+    entries = json.loads(_read_bounded(manifest))
+    if not isinstance(entries, list) or not entries:
+        raise ValueError("Model Draft manifest must contain a nonempty list")
+    by_path = {row["source"]["path"]: row for row in current_model_carriers(current)}
+    source_paths = set()
+    draft_paths = set()
+    drafts_by_id = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            raise ValueError("Model Draft manifest entries must be objects")
+        source_path = entry.get("source")
+        draft_path = entry.get("draft")
+        reference = entry.get("draft_ref")
+        if not all(isinstance(value, str) and value for value in (source_path, draft_path, reference)):
+            raise ValueError("Model Draft entries require source, draft and draft_ref")
+        source = by_path.get(source_path)
+        if source is None or source["source"]["sha256"] != entry.get("source_sha256"):
+            raise ValueError(f"{source_path}: Model Draft predecessor is absent or has changed")
+        relative = Path(draft_path)
+        if relative.is_absolute() or ".." in relative.parts or draft_path in draft_paths:
+            raise ValueError(f"{draft_path}: invalid or repeated Model Draft path")
+        path = repository / relative
+        if path.resolve(strict=True) != path or path.suffix != ".md":
+            raise ValueError(f"{draft_path}: Model Draft path must be a regular Markdown carrier")
+        draft = _read_atom(path, repository, draft=True)
+        if draft is None or not current_model_carriers([draft]):
+            raise ValueError(f"{draft_path}: expected a Model Declaration Draft")
+        atom_id = draft["source"]["atom_id"]
+        version = draft["source"]["version"]
+        expected_ref = f"{atom_id}@{version}-draft"
+        if reference != expected_ref or draft["read_view"].get("ref_id") != expected_ref:
+            raise ValueError(f"{draft_path}: Model Draft reference differs from its pin")
+        if atom_id in drafts_by_id:
+            raise ValueError(f"{reference}: another Draft of {atom_id} is already selected")
+        source_paths.add(source_path)
+        draft_paths.add(draft_path)
+        drafts_by_id[atom_id] = draft
+    source_ids = {by_path[path]["source"]["atom_id"] for path in source_paths}
+    retained = [row for row in current if row["source"]["path"] not in source_paths]
+    for row in retained:
+        atom_id = row["source"]["atom_id"]
+        if atom_id in source_ids or atom_id in drafts_by_id:
+            raise ValueError(f"{row['source']['path']}: conflicting Current source for {atom_id}")
+    return [*retained, *drafts_by_id.values()]
 
 
 def current_model_carriers(carriers: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -141,7 +198,7 @@ def current_model_carriers(carriers: list[dict[str, Any]]) -> list[dict[str, Any
         view = carrier.get("read_view")
         if not isinstance(view, dict) or not matches_named_value(view.get("content_role"), "Requirement"):
             continue
-        if any(matches_named_value(view.get("type"), name) for name in {"Declaration", "Relation Definition"}):
+        if any(matches_named_value(view.get("type"), name) for name in _MODEL_FORMS):
             selected.append(carrier)
     return selected
 

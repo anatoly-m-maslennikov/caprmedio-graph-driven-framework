@@ -1,5 +1,5 @@
-# CA-M-500@3
-# CA-D-672@14
+# CA-M-500@12
+# CA-D-672@22
 
 """Retain literal Header declaration contributions between source deltas."""
 
@@ -59,7 +59,8 @@ class SourceHeaderSchema:
             if not isinstance(path, str):
                 continue
             try:
-                active_schema.validate(row)
+                root_header = row.get("_project_root_header")
+                active_schema.validate(row if root_header is None else dict(row, header_json=root_header))
             except ValueError as error:
                 errors[path] = error
         return errors

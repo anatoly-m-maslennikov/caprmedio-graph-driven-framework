@@ -182,7 +182,7 @@ class LayoutSubjectRepairGateTests(unittest.TestCase):
             'summary': ('# Summary\nAtom rule', '# Summary\nOther rule'),
             'id': ('atom_id: MOCK-R-001', 'atom_id: MOCK-R-999'),
             'version': ('version: 1', 'version: 2'),
-            'relation': ('content_role: Requirement', 'relations: ["Other"]\ncontent_role: Requirement'),
+            'relation': ('content_role: Requirement', 'relations: {relates_to: [MOCK-R-002]}\ncontent_role: Requirement'),
             'scope': ('## Scope\nAtoms.', '## Scope\nOnly reviewed Atoms.'),
             'metadata': ('content_role: Requirement', 'content_role: "Requirement"'),
         }

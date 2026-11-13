@@ -1,0 +1,54 @@
+---
+atom_id: CA-R-1199
+ref_id: CA-R-1199@38
+container:
+  scope_unit: CA-SU-11
+role: Requirement
+form: Declaration
+topics:
+  main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//GOVERNS
+  dependencies:
+  - CAPRMEDIO_MODEL <+ CFEL <+ Relation
+  - CAPRMEDIO_MODEL <+ Atom
+  - CAPRMEDIO_MODEL <+ Entity
+  - CAPRMEDIO_MODEL <+ Atom.Content
+tier: 2
+relations:
+  depends_on:
+  - CA-R-1275
+status: archived
+version: 38
+updated_at: 2026-11-04 03:22:03 +0400
+carrier_destination:
+  file:
+    name: CA-R-1199@38-CORE_META_MODEL-DECLARATION--define-governs-subject-relation-kind.md
+    path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/099_archived
+current_scope_unit: CORE_META_MODEL
+claim_target_scope_unit: CORE_META_MODEL
+---
+## Summary
+
+Define GOVERNS Subject Relation Kind
+
+## Claim
+
+### Prose Claim
+
+#### Applicability
+the GOVERNS Subject Relation Kind.
+
+GOVERNS **means** the direct Subject Relation Kind from an Atom **to** the canonical Subject entity or instance about which the Atom governs through its applicable role-specific content.
+
+The Target is the canonical Subject about which the Atom governs through its applicable content.
+Forward `Host ((GOVERNS)) Target` and reverse `Target <((GOVERNS)) Host` are views of the same Relation fact.
+GOVERNS relates Atom to canonical Subject entity or instance.
+### Formal Claim
+
+```CFEL
+# model
+Relation//GOVERNS ((HAS_CLASSIFICATION)) Derivation == Direct;
+
+# instances
+Atom//$atom ((GOVERNS)) $governed_subject
+```
+

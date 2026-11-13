@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import re
 from typing import Any
 
 from dataclasses import replace
@@ -286,7 +287,9 @@ def _is_declaration(carrier: Record) -> bool:
 
 def _is_relation_definition(carrier: Record) -> bool:
     view = _view(carrier)
-    return matches_named_value(view.get("content_role"), "Requirement") and matches_named_value(view.get("type"), "Relation Definition")
+    return matches_named_value(view.get("content_role"), "Requirement") and any(
+        matches_named_value(view.get("type"), form) for form in ("Relation Definition", "Relation Declaration")
+    )
 
 
 def _target_kind(expression: notation.Path | notation.RelationChain) -> str | None:
@@ -330,6 +333,13 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
     def source_name(carrier: Record) -> str:
         source = carrier["source"]
         return f"{source['atom_id']}@{source['version']}"
+
+    def claim_constraints(carrier: Record) -> list[Record]:
+        constraints, claim_diagnostics = extract_claim_constraints(carrier)
+        for diagnostic in claim_diagnostics:
+            if diagnostic["code"] == "python-formal-claim-invalid":
+                raise ValueError(f"{source_name(carrier)}: {diagnostic['message']}")
+        return constraints
 
     def active(carrier: Record) -> str | None:
         subjects = carrier.get("subjects")
@@ -395,7 +405,8 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
                 pending.append((fact["source"], fact["target"], source_name(carrier), False))
         return True
 
-    def add_path(carrier: Record, subject: str, *, retained_relation_root: bool = False) -> bool:
+    def add_path(carrier: Record, subject: str, *, retained_relation_root: bool = False,
+                 native_class: bool = False) -> bool:
         try:
             expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
         except notation.SubjectNotationError as error:
@@ -434,12 +445,13 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
             diagnostics.append(f"{source_name(carrier)}: Subject facts unavailable: {error}.")
             return False
         add_node(target, label(expression, target), carrier)
-        for fact in facts:
+        for fact in (() if native_class else facts):
             if fact["kind"] == "NARROWER_THAN":
                 pending.append((fact["source"], fact["target"], source_name(carrier), False))
         return True
 
     declaration_targets: list[tuple[Record, str]] = []
+    native_classes: list[tuple[Record, str, Record]] = []
     for carrier in carriers:
         view = _view(carrier)
         if not matches_named_value(view.get("content_role"), "Requirement"):
@@ -451,6 +463,11 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
         if subject is None:
             continue
         if matches_named_value(form, "Declaration"):
+            constraints = claim_constraints(carrier)
+            native = [row for row in constraints if row.get("kind") == "native_class"]
+            if len(native) > 1:
+                diagnostics.append(f"{source_name(carrier)}: multiple native class declarations.")
+                continue
             try:
                 expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
             except notation.SubjectNotationError:
@@ -459,13 +476,17 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
             if isinstance(expression, notation.RelationChain) and add_cfel_component_endpoint(carrier, expression):
                 owners.append(carrier)
                 continue
-            if add_path(carrier, subject):
+            if add_path(carrier, subject, native_class=bool(native)):
                 owners.append(carrier)
                 try:
                     expression = notation.parse_subject_expression(subject, subject_profile="approved").expression
                     expression = namespace_local_expression(expression) or expression
                     if isinstance(expression, notation.Path) and _target_kind(expression) == "primary_node":
-                        declaration_targets.append((carrier, notation.render_subject(expression)))
+                        target = notation.render_subject(expression)
+                        if native:
+                            native_classes.append((carrier, target, native[0]))
+                        else:
+                            declaration_targets.append((carrier, target))
                 except notation.SubjectNotationError:
                     pass
             continue
@@ -503,7 +524,7 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
         return operand.value if isinstance(operand, notation.Name) else None
 
     for carrier, target in declaration_targets:
-        constraints, _ = extract_claim_constraints(carrier)
+        constraints = claim_constraints(carrier)
         for constraint in constraints:
             expression = constraint.get("expression")
             if (constraint.get("group") == "instances" or constraint.get("kind") != "relation_cardinality" or constraint.get("relation") != "NARROWER_THAN"
@@ -532,6 +553,50 @@ def compose_narrowing_graph(carriers: list[Record]) -> tuple[Record, Record]:
             pending.append((target, direct[0]["target"], source_name(carrier), True))
 
     by_identity = {node["identity"]: node for node in nodes.values()}
+    def python_name(value: str) -> str:
+        return re.sub(r"[^a-z0-9]", "", value.casefold())
+
+    def subject_name(identity: str) -> str:
+        try:
+            path = notation.parse_subject_expression(identity, subject_profile="approved").expression
+            if isinstance(path, notation.Path) and path.steps:
+                operand = path.steps[-1].operand
+                if isinstance(operand, notation.Qualification) and operand.relative_path.steps:
+                    value = operand.relative_path.steps[-1].operand
+                    if isinstance(value, notation.ValueLiteral):
+                        return value.value
+        except notation.SubjectNotationError:
+            pass
+        return terminal_name(identity) or identity
+
+    symbols: dict[str, list[str]] = {}
+    for identity in by_identity:
+        symbols.setdefault(python_name(subject_name(identity)), []).append(identity)
+    class_symbols: dict[str, list[str]] = {}
+    for _, target, declaration in native_classes:
+        class_symbols.setdefault(declaration["class_name"], []).append(target)
+    for carrier, target, declaration in native_classes:
+        if python_name(declaration["entity_name"]) != python_name(subject_name(target)):
+            diagnostics.append(f"{source_name(carrier)}: native entity name disagrees with active Subject `{target}`.")
+            continue
+        for base in declaration["bases"]:
+            matches = class_symbols.get(base)
+            exact_class = matches is not None
+            if not exact_class:
+                matches = symbols.get(python_name(base), [])
+            # The immediate qualified Topic parent disambiguates repeated Form names.
+            try:
+                parsed = notation.parse_subject_expression(target, subject_profile="approved").expression
+                if isinstance(parsed, notation.Path) and parsed.steps:
+                    parent = notation.render_subject(replace(parsed, steps=parsed.steps[:-1]))
+                    if not exact_class and parent in matches:
+                        matches = [parent]
+            except notation.SubjectNotationError:
+                pass
+            if len(matches) != 1:
+                diagnostics.append(f"{source_name(carrier)}: native base `{base}` is unresolved or ambiguous.")
+                continue
+            pending.append((target, matches[0], source_name(carrier), False))
     terminals: dict[str, list[Record]] = {}
     for node in nodes.values():
         terminal = terminal_name(node["identity"])
@@ -583,6 +648,11 @@ def _relation_definition_target(
     """Find the one direct Relation endpoint declared by a Relation Definition."""
 
     expression = namespace_local_expression(expression) or expression
+    if isinstance(expression, notation.Path):
+        legacy = re.fullmatch(r"(?:CAPRMEDIO_MODEL/)?CFEL/Relation//([A-Za-z_][A-Za-z_0-9]*)",
+                              notation.render_subject(expression))
+        if legacy is not None:
+            return f"Relation//{legacy[1]}", "relation"
     paths = expression.endpoints if isinstance(expression, notation.RelationChain) else (expression,)
     candidates = [path for path in paths if _target_kind(path) == "relation"]
     if len(candidates) != 1:

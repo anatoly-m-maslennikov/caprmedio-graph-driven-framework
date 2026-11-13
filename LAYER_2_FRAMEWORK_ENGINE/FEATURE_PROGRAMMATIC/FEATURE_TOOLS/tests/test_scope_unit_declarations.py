@@ -111,6 +111,54 @@ relation(source="Scope Unit//CHILD", name="IS_CONTAINED_BY", target="Project//de
             with self.subTest(invalid=invalid), self.assertRaises(ScopeDeclarationError):
                 parse_scope_unit_declaration(invalid.encode(), source)
 
+    def test_native_typed_scope_and_root(self) -> None:
+        root, parent, child = self.complete_tree()
+
+        def convert(source: Path, claim: str) -> str:
+            text = source.read_text(encoding="utf-8")
+            start = text.index("```CFEL\n")
+            end = text.index("\n```", start) + len("\n```")
+            return text[:start] + "```python\n" + claim + "\n```" + text[end:]
+
+        root_claim = ('from caprmedio.model import Project\n'
+                      'from caprmedio.formal_claims import declare_entity\n'
+                      'declare_entity(entity_name="demo", instance=Project(id="CA-SU-00", name="demo"))')
+        parent_claim = ('from caprmedio.model import ScopeUnit\n'
+                        'from caprmedio.formal_claims import declare_entity\n'
+                        'declare_entity(entity_name="PARENT", instance=ScopeUnit('
+                        'id="CA-SU-1", name="PARENT", label="LAYER", ordered=True, '
+                        'order_number=1, container="demo"))')
+        original = parse_scope_unit_declaration(parent.read_bytes(), parent)
+        native = convert(parent, parent_claim)
+        self.assertEqual(original, parse_scope_unit_declaration(native.encode(), parent))
+        self.assertEqual(parse_scope_unit_declaration(root.read_bytes(), root),
+                         parse_scope_unit_declaration(convert(root, root_claim).encode(), root))
+        with_level = native.replace('container="demo"', 'container="demo", structural_level=2')
+        self.assertEqual(2, parse_scope_unit_declaration(with_level.encode(), parent).structural_level)
+        invalid = (
+            parent_claim.replace('entity_name="PARENT"', 'entity_name="OTHER"'),
+            parent_claim.replace('name="PARENT"', 'name="OTHER"'),
+            parent_claim.replace('ordered=True', 'ordered=False'),
+            parent_claim.replace('order_number=1', 'order_number=True'),
+            parent_claim.replace('order_number=1', 'order_number=0'),
+            parent_claim.replace('container="demo"', 'container="../bad"'),
+            parent_claim.replace('container="demo"', 'container="demo", structural_level=-1'),
+            parent_claim.replace('id="CA-SU-1"', 'id=__import__("os")'),
+            parent_claim + '\nprint("side effect")',
+        )
+        for claim in invalid:
+            with self.subTest(claim=claim), self.assertRaises(ScopeDeclarationError):
+                parse_scope_unit_declaration(convert(parent, claim).encode(), parent)
+        with self.assertRaises(ScopeDeclarationError):
+            parse_scope_unit_declaration(convert(root, root_claim.replace("CA-SU-00", "CA-SU-01")).encode(), root)
+        from lint_python_model_claim import lint_python_model_claim
+        self.assertEqual((), lint_python_model_claim(parent_claim, declared_addresses=["Scope Unit"], relation_names=[]))
+        self.assertEqual((), lint_python_model_claim(root_claim, declared_addresses=["Project"], relation_names=[]))
+        root.write_text(convert(root, root_claim))
+        parent.write_text(native)
+        result = read_scope_unit_declarations(self.root, self.control.name)
+        self.assertEqual({"demo", "PARENT", "CHILD"}, set(result.by_name))
+
     def test_discovers_current_sources_and_derives_all_paths(self) -> None:
         root_source, parent_source, child_source = self.complete_tree()
         result = read_scope_unit_declarations(self.root, self.control.name)

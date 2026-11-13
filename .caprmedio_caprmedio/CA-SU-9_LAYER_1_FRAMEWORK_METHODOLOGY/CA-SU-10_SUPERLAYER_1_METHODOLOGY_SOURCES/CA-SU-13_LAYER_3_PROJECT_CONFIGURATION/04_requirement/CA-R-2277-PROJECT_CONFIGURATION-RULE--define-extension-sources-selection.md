@@ -8,9 +8,9 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_STRUCTURE <+ Named Selection//Extension Sources
 tier: 1
-status: Active
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 5
+updated_at: '2026-11-13T05:19:34.086915+00:00'
 carrier_destination:
   file:
     name: CA-R-2277-PROJECT_CONFIGURATION-RULE--define-extension-sources-selection.md
@@ -31,9 +31,9 @@ Extension Sources is the named Selection of immutable installed Extension source
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Named Selection//Extension Sources
+subject_path(address="Named Selection//Extension Sources")
 ```
 
 ## Details

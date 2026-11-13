@@ -1,6 +1,6 @@
 # CA-M-502@1
 # CA-D-698@2
-# CA-E-787@2
+# CA-E-787@6
 from __future__ import annotations
 
 import datetime as dt
@@ -111,6 +111,30 @@ class QueryLogTests(unittest.TestCase):
             self.log.append_async("SELECT 1", self.result)
             self.log.close()
         self.assertIn("query log failed: unavailable", errors.getvalue())
+
+    def test_bind_reads_retained_history_without_writing_and_receives_committed_appends(self) -> None:
+        now = dt.datetime(2026, 11, 5, 12, tzinfo=dt.UTC)
+        with patch.object(QueryLog, "_now", return_value=now - dt.timedelta(hours=1)):
+            retained = self.log.append("SELECT retained", self.result)
+        expired = dict(retained, log_id="expired", at=(now - dt.timedelta(hours=49)).isoformat())
+        path = self.log._hour_path(QueryLog._at(expired))
+        path.write_text(json.dumps(expired) + "\n", encoding="utf-8")
+        before = path.read_bytes()
+        received = []
+        with patch.object(QueryLog, "_now", return_value=now):
+            self.assertEqual([retained], self.log.bind(received.append))
+            self.assertEqual(before, path.read_bytes())
+            appended = self.log.append_async("SELECT new", self.result)
+            self.log.close()
+        self.assertEqual([appended], received)
+
+    def test_bind_does_not_report_failed_writes(self) -> None:
+        received = []
+        self.log.bind(received.append)
+        with patch.object(self.log, "_hourly_records", side_effect=ValueError("unavailable")), redirect_stderr(StringIO()):
+            self.log.append_async("SELECT 1", self.result)
+            self.log.close()
+        self.assertEqual([], received)
 
 
 if __name__ == "__main__":

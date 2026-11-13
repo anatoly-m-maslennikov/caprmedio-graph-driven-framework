@@ -1,5 +1,5 @@
-// CA-E-783@4
-// CA-E-786@2
+// CA-E-783@6
+// CA-E-786@6
 import { expect, test, type Page } from '@playwright/test';
 
 const url = process.env.WORKBENCH_E2E_URL!;
@@ -44,8 +44,10 @@ async function replaceSql(page: Page, value: string) {
   await page.keyboard.insertText(value);
 }
 
-async function prepare(page: Page, fixedPageSize = 2, query = sql) {
-  await page.goto(await workspaceUrl(page));
+async function prepare(page: Page, fixedPageSize = 2, query = sql, embedded = false) {
+  const target = new URL(await workspaceUrl(page));
+  if (embedded) target.searchParams.set('embedded', '1');
+  await page.goto(target.toString());
   await page.getByRole('tab', { name: 'Settings', exact: true }).click();
   await page.getByRole('radio', { name: 'Fixed' }).check();
   const pageSize = page.getByLabel('Fixed rows per page');
@@ -106,10 +108,10 @@ async function clearColumnFilter(page: Page, name: string) {
   expect(fetched.postDataJSON()?.arguments?.grid?.filters).toHaveLength(1);
 }
 
-test('keeps filtering, sorting and grouping global while paging the cached result', async ({ page }) => {
+async function verifyGlobalGrid(page: Page, embedded: boolean) {
   let runs = 0;
   page.on('request', (request) => { if (interfaceRequest(request, 'view_run')) runs += 1; });
-  await prepare(page);
+  await prepare(page, 2, sql, embedded);
   await run(page);
   const header = column(page, 'row_id');
   await expect(header.locator('.column-name')).toHaveText('row_id');
@@ -121,6 +123,12 @@ test('keeps filtering, sorting and grouping global while paging the cached resul
   expect(styles.size).toBeLessThan(Number.parseFloat(await header.locator('.column-name').evaluate((node) => getComputedStyle(node).fontSize)));
   expect(styles.opacity).toBe('0.8');
   expect(runs).toBe(1);
+
+  await filterColumn(page, 'group_name', 'alpha');
+  await expect(page.locator('.result-summary').first()).toContainText('4 rows');
+  const filterMenu = await openHeaderMenu(page, 'group_name');
+  await filterMenu.locator('.tabulator-menu-item').getByText('Clear filter', { exact: true }).click();
+  await expect(page.locator('.result-summary').first()).toContainText('12 rows');
 
   const sortedGlobally = page.waitForRequest((item) => fetchRequest(item, 2));
   const sortMenu = await openHeaderMenu(page, 'sort_value');
@@ -165,7 +173,10 @@ test('keeps filtering, sorting and grouping global while paging the cached resul
   await enter;
   await sorted;
   expect(runs).toBe(1);
-});
+}
+
+test('keeps filtering, sorting and grouping global while paging the cached standalone result', ({ page }) => verifyGlobalGrid(page, false));
+test('keeps filtering, sorting and grouping global while paging the cached embedded result', ({ page }) => verifyGlobalGrid(page, true));
 
 test('keeps another column filter when one column filter is cleared', async ({ page }) => {
   let runs = 0;

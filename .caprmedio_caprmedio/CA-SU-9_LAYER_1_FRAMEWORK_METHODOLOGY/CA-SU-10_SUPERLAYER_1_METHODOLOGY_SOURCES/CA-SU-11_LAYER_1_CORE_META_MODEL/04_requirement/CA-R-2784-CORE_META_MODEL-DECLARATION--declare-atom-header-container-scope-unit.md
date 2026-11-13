@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Container.scope_unit
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-05 22:47:24 +0400
+status: active
+version: 2
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2784-CORE_META_MODEL-DECLARATION--declare-atom-header-container-scope-unit.md
@@ -28,10 +28,17 @@ Declare Atom.Header.Container.scope_unit
 The value is the stable ID of the containing Scope Unit.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom.Header.Context.Container.scope_unit :: [string]{::0..1};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Atom.Header.Context.Container.scope_unit.*[]{::0}
+declare_entity(
+    entity_name='scope_unit',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Atom.Header.Context.Container',
+    value_cardinality=Cardinality(minimum=0, maximum=1),
+    value_format='str',
+    dependent_property_cardinality=0,
+)
 ```
 

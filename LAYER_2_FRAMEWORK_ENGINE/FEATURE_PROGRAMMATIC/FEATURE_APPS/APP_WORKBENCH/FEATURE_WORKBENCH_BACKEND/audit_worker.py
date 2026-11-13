@@ -1,8 +1,11 @@
 # CA-M-465@29
+# CA-M-549@3
+# CA-D-715@3
 """Compute source diagnostics away from the query and lifecycle response path."""
 from __future__ import annotations
 
 from contextlib import contextmanager
+from copy import deepcopy
 from dataclasses import dataclass
 from pathlib import Path
 import sys
@@ -12,7 +15,7 @@ from types import MappingProxyType
 from typing import Any
 
 from .audit_tables import TABLES, collect_issues
-from .source_placement_audit import expected_carrier
+from .source_placement_audit import carrier_read_view, expected_carrier
 
 
 @dataclass(frozen=True)
@@ -33,17 +36,44 @@ class AuditSnapshot:
     invalid: frozenset[Path]
 
     @classmethod
-    def capture(cls, reader: Any) -> AuditSnapshot:
+    def capture(cls, reader: Any, paths: set[str] | None = None) -> AuditSnapshot:
         declarations = reader._declarations
         if declarations is None:
             raise ValueError("Scope Unit declarations are unavailable for Atom audits")
+        selected = reader._source_paths if paths is None else {reader.root / path for path in paths}
+        sources = selected & reader._source_paths
+        cached_paths = set(sources)
+        references = {}
+        pending = set(sources)
+        while pending:
+            requested = set()
+            for path in pending:
+                item = reader._cached.get(path)
+                header = item[1].get("header_json") if item is not None else None
+                if not isinstance(header, dict):
+                    continue
+                try:
+                    container = carrier_read_view(header).get("container")
+                except (KeyError, TypeError, ValueError):
+                    continue
+                reference = container.get("atom") if isinstance(container, dict) else None
+                if isinstance(reference, str) and reference not in references:
+                    requested.add(reference)
+            peers_by_reference = reader._references.paths_by_reference(requested) if requested else {}
+            pending = set()
+            for reference in requested:
+                peers = tuple(sorted(peers_by_reference.get(reference, ())))
+                references[reference] = peers
+                pending.update(set(peers) - cached_paths)
+            cached_paths.update(pending)
         return cls(
-            reader.root, reader.control_root, frozenset(reader._source_paths), MappingProxyType(dict(reader._cached)),
-            MappingProxyType(dict(reader._diagnostics)), frozenset(reader._references.accepted),
-            MappingProxyType({ref: tuple(sorted(paths)) for ref, paths in reader._references.paths.items()}),
+            reader.root, reader.control_root, frozenset(sources),
+            MappingProxyType(deepcopy({path: reader._cached[path] for path in cached_paths if path in reader._cached})),
+            MappingProxyType({path: reader._diagnostics[path] for path in sources if path in reader._diagnostics}),
+            frozenset(reader._references.accepted_paths(cached_paths)), MappingProxyType(references),
             tuple(declarations.as_structure()["scope_units"]), declarations.root.name,
             reader._project_scope_id, reader.content_schema, reader._role_folders, reader._audit_model,
-            frozenset(reader._content_invalid | reader._header_invalid),
+            frozenset(path for path in sources if path in reader._content_invalid or path in reader._header_invalid),
         )
 
     def current_row(self, reference: str) -> dict[str, Any] | None:
@@ -119,6 +149,11 @@ class AuditWorker:
             if self._active_paths is not _EMPTY and self._active_paths is not None:
                 self._pending_paths = _merge_paths(self._pending_paths, self._active_paths)
             self._pending_snapshot = None
+
+    def capture_paths(self, paths: set[str] | None) -> set[str] | None:
+        """Include invalidated and queued deltas in the newest captured state."""
+        with self._condition:
+            return _merge_paths(self._pending_paths, paths)
 
     def submit(self, snapshot: AuditSnapshot, paths: set[str] | None) -> None:
         with self._condition:

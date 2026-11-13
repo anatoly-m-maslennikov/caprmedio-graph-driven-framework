@@ -1,5 +1,5 @@
 # CA-E-676@11
-# CA-E-677@14
+# CA-E-677@30
 # CA-R-2950@1
 # CA-R-2952@1
 # CA-M-465@19
@@ -8,8 +8,9 @@
 # CA-D-695@1
 # CA-D-696@1
 # CA-E-780@4
-# CA-E-781@1
+# CA-E-781@4
 # CA-M-472@1
+# CA-E-788@5
 """Service failures stop this owner rather than retrying its startup."""
 
 from contextlib import redirect_stderr

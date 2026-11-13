@@ -1,8 +1,12 @@
+# CA-E-681@7
+# CA-E-821@2
+# CA-E-681@6
 """Isolated Project proof of scoped Archive loading and deferred audits."""
 from __future__ import annotations
 
 from contextlib import asynccontextmanager
 from concurrent.futures import ThreadPoolExecutor
+from dataclasses import replace
 from pathlib import Path
 import sys
 import tempfile
@@ -27,12 +31,13 @@ from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.audit_worker import AuditSnapshot  
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.service import WorkbenchService  # noqa: E402
 from direct_gateway import startup_selection  # noqa: E402
 from generate_tool_registry import _provider_payload  # noqa: E402
-from http_paths import MCP_PATH, WORKBENCH_PATH  # noqa: E402
+from http_paths import HEALTH_PATH, MCP_PATH, WORKBENCH_PATH  # noqa: E402
 from http_server import create_app  # noqa: E402
 from lifecycle_placement_test_support import fixture_rules  # noqa: E402
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from smalltest_support import built_assets, extension_directory, source_path, write_atom, write_settings  # noqa: E402
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext  # noqa: E402
+from ATOM_LIFECYCLE.source import ArchiveNotLoadedError  # noqa: E402
 from workbench_tools import WorkbenchTools  # noqa: E402
 import tool_registry_runtime  # noqa: E402
 
@@ -107,6 +112,21 @@ class ArchiveLoadingTests(unittest.TestCase):
         self.assertEqual(loaded['loaded_archive_scopes'], self.service.load_archives(request)['loaded_archive_scopes'])
         self.assertEqual(1, sum(row[0] == 'CA-R-713@1' for row in rows(self.service)))
         self.assertFalse({'CA-M-714@1', 'CA-R-715@1', 'CA-R-718@1'} & {row[0] for row in rows(self.service)})
+
+    def test_load_scope_includes_legacy_archive_folder(self):
+        placement = replace(fixture_rules(), _archive_aliases={})
+        self.service._archive_placement = placement
+        self.service._reader._archive_placement = placement
+        legacy = self.fixture.atom('ENGINE', '04_requirement/archive',
+                                   'CA-R-719@2-old.md', 'CA-R-719', status='Archived')
+        legacy.write_text(legacy.read_text().replace('atom_id: "CA-R-719"', 'atom_id: "CA-R-719@2"')
+                          .replace('version: 1', 'version: 2'))
+        self.service.run('SELECT count(*) FROM atoms', result_delivery='inline')
+        selection = startup_selection(self.fixture.root)
+        with self.assertRaises(ArchiveNotLoadedError):
+            self.service.lifecycle_archive_candidates(selection, 'CA-R-719')
+        self.service.load_archives([{'scope_unit': 'ENGINE', 'role': 'Requirement'}])
+        self.assertIn(('CA-R-719@2', legacy), self.service.lifecycle_archive_candidates(selection, 'CA-R-719'))
 
     def test_cold_start_does_not_read_a_large_archive_inventory(self):
         for index in range(200):
@@ -234,3 +254,39 @@ class ArchiveTransportTests(unittest.IsolatedAsyncioTestCase):
             })
             self.assertFalse(query.is_error, query.structured_content)
             self.assertEqual([['CA-R-713@1']], query.structured_content['rows'])
+
+    async def test_mcp_and_health_reread_restore_selected_archive_scopes(self):
+        scopes = [
+            {'scope_unit': 'ENGINE', 'role': 'Requirement'},
+            {'scope_unit': 'OTHER', 'role': 'Method'},
+        ]
+        async with self.session() as (session, client):
+            async def assert_archives(expected_scopes, expected_rows):
+                status = await session.call_tool('workbench_status', {})
+                self.assertFalse(status.is_error, status.structured_content)
+                self.assertEqual(expected_scopes, status.structured_content['loaded_archive_scopes'])
+                query = await session.call_tool('query_run', {
+                    'sql': "SELECT reference FROM atoms WHERE status_group = 'Archived' ORDER BY reference",
+                    'result_delivery': 'inline',
+                })
+                self.assertFalse(query.is_error, query.structured_content)
+                self.assertEqual(expected_rows, query.structured_content['rows'])
+
+            await assert_archives([], [])
+            loaded = await session.call_tool('workbench_archive_load', {'scopes': scopes})
+            self.assertFalse(loaded.is_error, loaded.structured_content)
+            await assert_archives(scopes, [['CA-R-713@1']])
+
+            reread = await session.call_tool('workbench_reread', {})
+            self.assertFalse(reread.is_error, reread.structured_content)
+            self.assertEqual('ready', reread.structured_content['status'])
+            await assert_archives(scopes, [['CA-R-713@1']])
+
+            health = await client.post(f'{HEALTH_PATH}/workbench-reread', headers={'accept': 'text/html'})
+            self.assertEqual(200, health.status_code, health.text)
+            self.assertIn('Workbench is ready.', health.text)
+            await assert_archives(scopes, [['CA-R-713@1']])
+
+            restart = await session.call_tool('workbench_restart', {})
+            self.assertFalse(restart.is_error, restart.structured_content)
+            await assert_archives([], [])

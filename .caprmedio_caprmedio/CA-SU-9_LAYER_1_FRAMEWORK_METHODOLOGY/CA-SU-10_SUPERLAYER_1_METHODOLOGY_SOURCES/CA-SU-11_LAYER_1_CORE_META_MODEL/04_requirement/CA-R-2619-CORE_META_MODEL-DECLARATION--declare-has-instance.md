@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_INSTANCE
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T05:35:52.255000+00:00'
 carrier_destination:
   file:
     name: CA-R-2619-CORE_META_MODEL-DECLARATION--declare-has-instance.md
@@ -25,7 +25,7 @@ Declare HAS_INSTANCE
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//HAS_INSTANCE <((HAS_INVERSE)) Relation//INSTANCE_OF
+relation(source="Relation//HAS_INSTANCE", name="HAS_INVERSE", target="Relation//INSTANCE_OF", reverse=True)
 ```

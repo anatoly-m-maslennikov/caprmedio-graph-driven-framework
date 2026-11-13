@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_DECLARED_BY
 tier: 1
-status: Active
-version: 2
-updated_at: 2026-11-05 22:47:24 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T08:44:30.822905+00:00'
 carrier_destination:
   file:
     name: CA-R-2732-CORE_META_MODEL-DECLARATION--declare-is-declared-by.md
@@ -33,13 +33,11 @@ The Host is the qualified Declaration's governed Subject; it may be outside the 
 Forward `Host ((IS_DECLARED_BY)) Target` and reverse `Target <((IS_DECLARED_BY)) Host` are written views of that same derived fact. CA-R-1199 retains the general GOVERNS meaning. CA-R-2278 supplies the declaring ownership qualification; this Declaration retains the qualified endpoint transformation. Neither a derivation reference nor a displayed view grants permission or cardinality.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//IS_DECLARED_BY ((HAS_CLASSIFICATION)) Derivation == Derived;
-
-Relation//IS_DECLARED_BY ((IS_DERIVED_RELATION_OF)) Relation//GOVERNS;
-
+classify(address='Relation//IS_DECLARED_BY', axis='Derivation', value='Derived', notation='relation')
+relation(source='Relation//IS_DECLARED_BY', name='IS_DERIVED_RELATION_OF', target='Relation//GOVERNS')
 # instances
-$declared_subject ((IS_DECLARED_BY)) Atom/(.Header.Context.Role: Requirement)/(.Header.Context.Form in (Declaration, Relation Declaration))//$atom
+relation(source='$declared_subject', name='IS_DECLARED_BY', target='Atom/(.Header.Context.Role: Requirement)/(.Header.Context.Form in (Declaration, Relation Declaration))//$atom')
 ```
 

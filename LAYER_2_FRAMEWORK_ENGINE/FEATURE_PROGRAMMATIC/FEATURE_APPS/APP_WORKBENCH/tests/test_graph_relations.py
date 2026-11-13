@@ -1,5 +1,5 @@
-# CA-E-676@6
-# CA-E-677@12
+# CA-E-676@15
+# CA-E-677@30
 """Native graph relation projection tests."""
 
 from __future__ import annotations
@@ -75,6 +75,29 @@ class GraphRelationsTests(unittest.TestCase):
         self.store.replace([self.atom("A", [])], [self.scope("A", [])])
         self.assertEqual({}, graph_relations(self.store._connection, has_edges=True))
         self.assertEqual({}, graph_relations(self.store._connection, has_edges=False))
+        self.assertEqual([], self.store._connection.execute("SELECT * FROM relations").fetchall())
+        self.assertEqual(
+            ["VARCHAR"] * 5 + ["BOOLEAN"],
+            [row[1] for row in self.store._connection.execute("DESCRIBE relations").fetchall()],
+        )
+
+    def test_flat_relations_follow_rebuild_and_incremental_updates(self) -> None:
+        connection = self.store._connection
+        query = "SELECT * FROM relations ORDER BY source_ref, target_ref"
+        self.assertEqual([], connection.execute(query).fetchall())
+        initial = [self.atom("A", [self.edge("Atom", "A", "Atom", "B", "LINKS")])]
+        self.store.replace(initial, [], relation_types={"LINKS"})
+        self.assertEqual([("Atom", "A", "Atom", "B", "LINKS", False)], connection.execute(query).fetchall())
+        updated = [self.atom("A", [self.edge("Atom", "A", "Atom", "C", "LINKS", True)], version=2)]
+        self.assertTrue(self.store.apply(updated, [], relation_types={"LINKS"}))
+        self.assertEqual([("Atom", "A", "Atom", "C", "LINKS", True)], connection.execute(query).fetchall())
+        result = self.store.run(query)
+        self.assertEqual([["Atom", "A", "Atom", "C", "LINKS", True]], result["rows"])
+        changed_type = [self.atom("A", [self.edge("Atom", "A", "Atom", "D", "CONTAINS")], version=3)]
+        self.assertTrue(self.store.apply(changed_type, [], relation_types={"CONTAINS"}))
+        self.assertEqual([("Atom", "A", "Atom", "D", "CONTAINS", False)], connection.execute(query).fetchall())
+        self.store.replace([], [], relation_types=set())
+        self.assertEqual([], connection.execute(query).fetchall())
 
     def test_incremental_apply_updates_graph_without_reinserting_unrelated_atom(self) -> None:
         relation_types = {"CONTAINS", "IS_CONTAINED_BY", "LINKS"}

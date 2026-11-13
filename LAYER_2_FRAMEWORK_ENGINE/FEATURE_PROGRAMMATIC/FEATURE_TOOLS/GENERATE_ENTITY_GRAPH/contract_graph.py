@@ -35,7 +35,7 @@ from readable_entity_tree_data import primary_tree, read_edges, read_nodes
 Record = dict[str, Any]
 Candidate = tuple[Record, Mapping[str, Any], str | None, notation.Path | notation.RelationChain | None]
 _RMED = {"Requirement", "Method", "Evaluation", "Delivery"}
-_DECLARATION_FORMS = {"Declaration", "Relation Definition", "Entity Definition"}
+_DECLARATION_FORMS = {"Declaration", "Relation Declaration", "Relation Definition", "Entity Definition"}
 _COMPONENT_ROOTS = {"CFEL", "Carrier", "Term"}
 _SCOPE_UNIT_DECLARATION_FORM = "Scope Unit Declaration"
 _DECLARED_INSTANCE_KINDS = frozenset({"Scope Unit", "Project"})
@@ -427,6 +427,13 @@ def _metadata(entries: list[Record], relation: str) -> list[Record]:
         for clause in entry["clauses"]:
             if clause.get("kind") == "relation_alias" and clause.get("relation") == relation:
                 rows.append({"kind": "notation", "value": clause["glyph"], "source": clause["source"]})
+            if clause.get("kind") == "native_relation_declaration" and clause.get("relation") == relation:
+                args = clause["arguments"]
+                rows.append({"kind": "derivation", "value": args.get("derivation", "Direct"),
+                             "source": clause["source"]})
+                if args.get("reverse_written_alias") is not None:
+                    rows.append({"kind": "reverse_notation", "value": args["reverse_written_alias"],
+                                 "source": clause["source"]})
         blocks = [(block, _grouped_expressions(block["block"])) for block in entry["cfel_blocks"]]
         for block in entry.get("python_blocks", []):
             try:
@@ -454,6 +461,8 @@ def _relation_parts(entries: list[Record], name: str) -> Record:
     host_target, inverses, derivation_links = [], [], []
     for entry in entries:
         for clause in entry["clauses"]:
+            if clause.get("kind") in {"relation_endpoint", "relation_endpoint_pair"} and _token(clause.get("relation")) == name:
+                host_target.append(clause)
             if clause.get("kind") != "relation_cardinality":
                 continue
             relation = _token(clause.get("relation"))
@@ -461,8 +470,9 @@ def _relation_parts(entries: list[Record], name: str) -> Record:
                 host_target.append(clause)
             source = _token(clause.get("source_selector"))
             target = _token(clause.get("target_selector"))
-            if relation == "HAS_INVERSE" and source and target and name in {source, target}:
-                inverses.append({"name": target if source == name else source, "source": clause["source"]})
+            if relation in {"HAS_INVERSE", "IS_INVERSE_ALIAS_FOR"} and source and target and name in {source, target}:
+                inverses.append({"name": target if source == name else source, "source": clause["source"],
+                                 **({"relation": relation} if relation == "IS_INVERSE_ALIAS_FOR" else {})})
             if relation == "IS_DERIVED_RELATION_OF" and source == name and target:
                 derivation_links.append({"name": target, "source": clause["source"]})
     return {
@@ -476,6 +486,51 @@ def _relation_parts(entries: list[Record], name: str) -> Record:
 def _inverse_views(relations: list[Record]) -> None:
     """Expose only corroborated source-bound counterparts as derived views."""
     by_name = {row["target"]: row for row in relations if len(row["own"]) == 1}
+    declared_names = {row["target"] for row in relations}
+    inverse_owners: dict[str, set[str]] = defaultdict(set)
+    for relation in relations:
+        for inverse in relation["inverses"]:
+            inverse_owners[inverse["name"]].add(relation["target"])
+    for direct in relations:
+        if len(direct["own"]) != 1:
+            continue
+        entry = direct["own"][0]
+        native = [clause for clause in entry["clauses"]
+                  if clause.get("kind") == "native_relation_declaration"
+                  and clause.get("relation") == direct["target"]]
+        if len(native) != 1:
+            continue
+        alias = native[0]["arguments"].get("inverse_alias")
+        if (not isinstance(alias, str) or not alias or alias == direct["target"]
+                or alias in declared_names or inverse_owners.get(alias) != {direct["target"]}):
+            continue
+        classification = [item["value"] for item in direct["metadata"] if item["kind"] == "derivation"]
+        if set(classification) != {"Direct"}:
+            continue
+        endpoints = {clause["direction"]: clause for clause in direct["host_target"]
+                     if clause.get("kind") == "relation_endpoint"
+                     and clause["source"] == entry["source"]}
+        pairs = [clause for clause in direct["host_target"] if clause.get("kind") == "relation_endpoint_pair"
+                 and clause["source"] == entry["source"]]
+        if set(endpoints) == {"source", "target"}:
+            source, target = endpoints["source"], endpoints["target"]
+            reversed_endpoints = [{
+                "host": target["endpoint"], "target": source["endpoint"],
+                "targets_per_source": source.get("sources_per_target"),
+                "sources_per_target": source.get("targets_per_source"),
+            }]
+        elif pairs:
+            reversed_endpoints = [{"host": pair["target_endpoint"], "target": pair["source_endpoint"],
+                                   "targets_per_source": pair.get("sources_per_target"),
+                                   "sources_per_target": pair.get("targets_per_source")} for pair in pairs]
+        else:
+            continue
+        direct["derived_aliases"] = [{
+            "name": alias, "classification": "Derived", "direct_relation": direct["target"],
+            "source": entry["source"],
+            "meaning": entry["semantics"] or (entry["prose"] if entry["prose_claim"] else ""),
+            "endpoints": reversed_endpoints,
+        }]
     for derived in relations:
         if len(derived["own"]) != 1:
             continue
@@ -507,11 +562,26 @@ def _inverse_views(relations: list[Record]) -> None:
         meaning = direct_entry["semantics"] or (direct_entry["prose"] if direct_entry["prose_claim"] else "")
         if len(matching) != 1 or classification != ["Direct"] or not meaning.strip():
             continue
+        host_target = direct["host_target"]
+        endpoints = [{"host": clause.get("target_selector"), "target": clause.get("source_selector")}
+                     for clause in host_target if clause.get("kind") == "relation_cardinality"]
+        endpoints.extend({"host": pair["target_endpoint"], "target": pair["source_endpoint"],
+                          "targets_per_source": pair.get("sources_per_target"),
+                          "sources_per_target": pair.get("targets_per_source")}
+                         for pair in host_target if pair.get("kind") == "relation_endpoint_pair"
+                         and pair["source"] == direct_entry["source"])
+        native = {clause["direction"]: clause for clause in host_target
+                  if clause.get("kind") == "relation_endpoint" and clause["source"] == direct_entry["source"]}
+        if {"source", "target"} <= native.keys():
+            source, target = native["source"], native["target"]
+            endpoints.append({
+                "host": target["endpoint"], "target": source["endpoint"],
+                "targets_per_source": source.get("sources_per_target"),
+                "sources_per_target": source.get("targets_per_source"),
+            })
         derived["derived_view"] = {
             "classification": "Derived", "direct_relation": direct_name, "source": direct_entry["source"],
-            "meaning": meaning,
-            "endpoints": [{"host": clause.get("target_selector"), "target": clause.get("source_selector")}
-                          for clause in direct["host_target"]],
+            "meaning": meaning, "endpoints": endpoints,
         }
 
 
@@ -651,13 +721,78 @@ def compose_contract_graph(carriers: list[Record]) -> Record:
             gaps.append(_gap(carrier, "Declaration active Subject is not a declared Node, Property, Relation, or component.", subject))
             continue
         kind, identity = target
-        catalog[(kind, identity)].append(_entry(carrier, subject, identity, kind))
+        entry = _entry(carrier, subject, identity, kind)
+        native_classes = [clause for clause in entry["clauses"] if clause.get("kind") == "native_class"]
+        if native_classes:
+            from model_class_subject import model_class_target
+            if len(native_classes) != 1 or model_class_target(subject, native_classes[0].get("entity_name"), require_namespace=False) != identity:
+                gaps.append(_gap(carrier, "Native class requires a matching declared Model Entity Subject.", subject))
+                continue
+        catalog[(kind, identity)].append(entry)
         # compose_narrowing_graph has its own bounded admission filter. Pass
         # only Node/retained-component Declaration carriers so CFEL, Carrier
         # and Term Definitions remain roots in the full Subject tree. Relation
         # Definitions belong to the relation catalog, never to a tree.
         if any(matches_named_value(view.get("type"), name) for name in {"Declaration", "Entity Definition"}):
             declaration_carriers.append(carrier)
+
+    # Resolve explicitly bound Properties after the complete declaration catalog exists.
+    from cfel_claim_constraints import native_declaration
+    pending = []
+    for (kind, identity), entries in list(catalog.items()):
+        if kind != "property":
+            continue
+        for entry in list(entries):
+            blocks = entry.get("python_blocks", [])
+            if len(blocks) != 1 or entry["diagnostics"]:
+                continue
+            try:
+                declaration = native_declaration(blocks[0]["block"])
+            except ValueError:
+                continue
+            if not declaration or declaration["kind"] != "entity":
+                continue
+            args = declaration["arguments"]
+            if args.get("relation_name") != "IS_PROPERTY_OF":
+                continue
+            try:
+                explicit = notation.parse_subject_expression(args["base_path"] + "." + args["entity_name"], subject_profile="approved").expression
+                base = notation.parse_subject_expression(args["base_path"], subject_profile="approved").expression
+            except notation.SubjectNotationError:
+                continue
+            target, bearer = _target(explicit), _target(base)
+            original = _property_parts(identity)
+            if not target or target[0] != "property" or not original:
+                continue
+            if not isinstance(original[1][-1].operand, notation.Name) or original[1][-1].operand.value != args["entity_name"]:
+                continue
+            if target[1] != identity:
+                pending.append(((kind, identity), entry, target, bearer))
+
+    while pending:
+        deferred = []
+        pending_entries = {id(item[1]) for item in pending}
+        for original, entry, target, bearer in pending:
+            if (bearer not in catalog or bearer[0] not in {"primary_node", "property"}
+                    or not any(id(item) not in pending_entries for item in catalog[bearer])):
+                deferred.append((original, entry, target, bearer))
+                continue
+            catalog[original].remove(entry)
+            if not catalog[original]:
+                del catalog[original]
+            entry["target"] = target[1]
+            entry["binding"] = "native_property_base_path"
+            entry["binding_context"] = {"base_path": bearer[1], "original_target": original[1]}
+            catalog[target].append(entry)
+            pending_entries.remove(id(entry))
+        if len(deferred) == len(pending):
+            for original, entry, _, _ in deferred:
+                catalog[original].remove(entry)
+                if not catalog[original]:
+                    del catalog[original]
+                gaps.append({**entry, "message": "Native Property base_path has no declared immediate bearer."})
+            break
+        pending = deferred
 
     roots = _catalog_roots(catalog)
     instance_contexts = _scope_unit_declaration_contexts(candidates)
@@ -800,6 +935,11 @@ def _count(value: object) -> str:
 
 
 def _clause(row: Mapping[str, Any]) -> str:
+    if row.get("kind") == "relation_endpoint_pair":
+        targets = _count(row["targets_per_source"]) if row.get("targets_per_source") is not None else "omitted"
+        sources = _count(row["sources_per_target"]) if row.get("sources_per_target") is not None else "omitted"
+        return (f"Host={row['source_endpoint']}; Target={row['target_endpoint']}; "
+                f"targets per source={targets}; sources per target={sources}")
     if row.get("kind") == "relation_cardinality":
         relation = row.get("relation") or row.get("relation_notation") or "relation"
         written = row.get("written_direction", "forward")
@@ -814,8 +954,27 @@ def _clause(row: Mapping[str, Any]) -> str:
         return f"`{row.get('expression')}`; count={_count(row.get('population_cardinality'))} for each Property schema per bearer"
     if row.get("kind") == "instance_population_constraint":
         return f"`{row.get('expression')}`; count={_count(row.get('population_cardinality'))} in project population"
+    if row.get("kind") == "effective_value_fallback_chain":
+        lookup, project = row["branches"]
+        return (f"`{row['property_selector']}` when undefined, null, or empty: nearest `{lookup['lookup_property']}` "
+                f"via `{lookup['lookup_relation']}`, then `{project['project_property']}` "
+                f"from one `{project['project_entity']}`")
+    if row.get("kind") == "population_unique_constraint":
+        text = f"`{row['population_selector']}`: unique {', '.join(row['keys'])}"
+        if "status" in row:
+            text += f" for {row['status']} states with one value for {', '.join(row['single_value_paths'])}"
+        return text
+    if row.get("kind") == "population_functional_dependency":
+        groups = f"; Status Group in ({', '.join(row['status_groups'])})" if "status_groups" in row else ""
+        return f"`{row['population_selector']}`: {', '.join(row['keys'])} determines {', '.join(row['dependents'])}{groups}"
+    if row.get("kind") == "native_population_constraint":
+        return f"Population count={_count(row.get('cardinality'))}; scope={row.get('scope')}"
+    if row.get("kind") == "native_class":
+        return f"Class {row.get('class_name')} inherits {', '.join(row.get('bases', ())) }"
     if row.get("kind") == "allowed_literal":
         return f"`{row.get('property_selector')}: {row.get('literal')}`"
+    if row.get("kind") == "classification_allowed_value":
+        return f"`{row.get('subject_selector')} >| {row.get('axis')}: {row.get('value')}`"
     if row.get("kind") == "classification_condition":
         return f"`{row.get('subject_selector')} >| {row.get('axis')} {row.get('operator')} {row.get('value')}`"
     return f"`{row.get('expression')}`"
@@ -881,7 +1040,9 @@ def _render_contract_rows(lines: list[str], row: Record) -> None:
 def render_contract_graph(graph: Mapping[str, Any]) -> str:
     """Render complete source-bound Claims and bounded structured contract views."""
 
-    lines = ["# Formal Contract Graph", "", "Bounded extraction only. CFEL blocks remain authoritative source text; this view does not execute CFEL.", "", "## Coverage", ""]
+    lines = ["# Formal Contract Graph", "",
+             "Source-bound extraction of Python and CFEL Formal Claims. Authored blocks are preserved as evidence.",
+             "", "## Coverage", ""]
     lines.extend(f"- {key.replace('_', ' ')}: {value}" for key, value in graph["coverage"].items())
     lines.extend([f"- display coverage: {graph['display_coverage']}", f"- structured CFEL extraction: {graph['structured_cfel']}"])
     lines.extend([""] + _tree_lines(graph["narrowing_tree"]))
@@ -927,10 +1088,15 @@ def render_contract_graph(graph: Mapping[str, Any]) -> str:
             lines.append(f"- Derived view of `{derived['direct_relation']}` — {_source_ref(derived['source'])}; endpoints are a reversed source view, not new permissions.")
             lines.extend(f"  - `{endpoint['host']}` → `{endpoint['target']}`" for endpoint in derived["endpoints"])
             lines.extend(["  - Source meaning:", *["    " + line if line else "" for line in derived["meaning"].splitlines()]])
+        for derived in relation.get("derived_aliases", []):
+            lines.append(f"- Derived Relation `(({derived['name']}))` — {_source_ref(derived['source'])}; reverse view of the same Relation.")
+            lines.extend(f"  - `{endpoint['host']}` → `{endpoint['target']}`; targets per source={_count(endpoint['targets_per_source'])}; sources per target={_count(endpoint['sources_per_target'])}" for endpoint in derived["endpoints"])
         if relation.get("derivation_scope"):
             lines.append(f"- Derivation interpretation gap: {relation['derivation_scope']}")
-        if relation["inverses"]:
-            lines.extend(["- HAS_INVERSE bindings; this does not certify an undeclared inverse Relation:", *[f"  - `(({row['name']}))` — {_source_ref(row['source'])}" for row in relation["inverses"]]])
+        for kind in ("HAS_INVERSE", "IS_INVERSE_ALIAS_FOR"):
+            bindings = [row for row in relation["inverses"] if row.get("relation", "HAS_INVERSE") == kind]
+            if bindings:
+                lines.extend([f"- {kind} bindings; this does not certify an undeclared inverse Relation:", *[f"  - `(({row['name']}))` — {_source_ref(row['source'])}" for row in bindings]])
         if relation["derivation_links"]:
             lines.extend(["- IS_DERIVED_RELATION_OF bindings:", *[f"  - `(({row['name']}))` — {_source_ref(row['source'])}" for row in relation["derivation_links"]]])
         lines.append("")

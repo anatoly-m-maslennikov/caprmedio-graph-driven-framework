@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Inherited Formal Claims)
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Inherited
+    Formal Claims)
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+status: active
+version: 3
+updated_at: 2026-11-11 14:06:22 +0400
 carrier_destination:
   file:
     name: CA-R-2743-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-formal-claims.md
@@ -24,11 +25,30 @@ Declare Projection/(.Form := Primary Entities with Inherited Formal Claims)
 
 ## Claim
 
+### Prose Claim
+
+For each Model Entity, group its Property and Relation rules by origin.
+
+- Declared here. The Entity supplies the rule.
+- Inherited. A broader Entity supplies the applicable rule.
+- Overridden here. The Entity supplies a rule for the same Property or Relation as a broader Entity. Show both rules and their Declaration references.
+
+Distinguish Direct and Derived Relations independently of rule origin. A derived inverse shows the same fact in reverse and retains its Direct Relation and source reference.
+
 ### Formal Claim
 
-```CFEL
-# model
-Projection.Form :: Primary Entities with Inherited Formal Claims;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Projection
 
-Projection/(.Form in (Primary Entities with Inherited Formal Claims))
+
+class PrimaryEntitiesWithInheritedFormalClaims(Projection):
+    pass
+
+
+declare_entity(
+    entity_class=PrimaryEntitiesWithInheritedFormalClaims,
+    entity_name="Primary Entities with Inherited Formal Claims",
+    qualification_property_path="Projection.Form",
+)
 ```

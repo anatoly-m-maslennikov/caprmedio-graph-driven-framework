@@ -16,9 +16,9 @@ tier: 1
 relations:
   child_of:
   - CA-R-1174
-status: Active
-version: 44
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 45
+updated_at: '2026-11-12T18:18:59.524584+00:00'
 carrier_destination:
   file:
     name: CA-R-796-CORE_META_MODEL-DECLARATION--keep-tier-parent-relations-within-atom-scope.md
@@ -43,11 +43,13 @@ Forward `Host ((child_of)) Target` and reverse `Target <((child_of)) Host` are v
 child_of relates child Atom to parent Atom.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//child_of ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom//$atom ((child_of)) Atom//$atom_2;
+declare_relation(
+    relation_name='child_of',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+    target_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+)
 ```
 

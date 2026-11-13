@@ -1,8 +1,16 @@
+# CA-M-332@25
+# CA-M-422@13
+# CA-R-1880@19
+# CA-D-562@26
+# CA-D-564@20
+# CA-D-633@16
+# CA-D-561@25
+# CA-D-583@15
+# CA-D-720@1
+# CA-O-164@37
+
 """Direct local replacement workflow for the Project-owned framework release."""
 
-# CA-R-2785@4
-# CA-D-678@5
-# CA-O-164@37
 from __future__ import annotations
 
 import json
@@ -98,7 +106,12 @@ def run_local_release(
     if product == installed:
         raise LocalReleaseError("local-release-target-invalid")
 
-    previous_image = _build_predecessor(selection) if image_mode == "refresh" else None
+    try:
+        previous_image = _build_predecessor(selection)
+    except LocalReleaseError:
+        if image_mode != "existing":
+            raise
+        previous_image = None
     prior_image = previous_image or _launcher_image(selection)
     prior_project = selection.instance_id if prior_image is not None else None
 
@@ -110,11 +123,9 @@ def run_local_release(
     cleanup_note = "No proven superseded Project-owned image identity was available; none was removed."
     cleanup_pending = False
     cleanup = None
-    test_scope = "focused" if test_modules is not None else "full"
-    selected_test_modules = list(test_modules) if test_modules is not None else None
-    test_selection = (
-        ", ".join(test_modules) if test_modules is not None else "all discovered modules"
-    )
+    test_scope = "full"
+    selected_test_modules = None
+    test_selection = "all discovered modules"
     phases = (
         "validate inputs", "tests", "copy active sources", "compile product", "build package", "prepare candidate image",
         "copy product to installed framework", "install project runtime", "start mcp", "final",
@@ -193,12 +204,6 @@ def run_local_release(
                 )
                 if image_mode == "existing":
                     argv += ("--image-mode", "existing")
-                if test_modules is not None:
-                    argv += tuple(
-                        argument
-                        for module in test_modules
-                        for argument in ("--test-module", module)
-                    )
                 if default_runner:
                     temporary = _target(root, Path(".caprmedio_tmp/simple_local_release"), label="test-log")
                     temporary.mkdir(parents=True, exist_ok=True)
@@ -404,7 +409,14 @@ def run_local_release(
                     root, selection.instance_id, selection.control_relative.as_posix(),
                     candidate_image, candidate_fingerprint, cleanup_runner, cleanup=cleanup,
                 )
-                cleanup_obsolete_images(root, candidate_image, candidate_fingerprint, cleanup, cleanup_runner)
+                if prior_image == candidate_image:
+                    cleanup.notes.append("Image reused; existing rollback image retained.")
+                else:
+                    cleanup_obsolete_images(root, candidate_image, candidate_fingerprint, cleanup, cleanup_runner,
+                                            previous_image=previous_image or prior_image)
+                if prior_image is not None and previous_image is None and prior_image != candidate_image:
+                    cleanup.pending = True
+                    cleanup.notes.append("Prior image retained: readiness evidence unavailable.")
                 cleanup_pending |= cleanup.pending
                 cleanup_note = "\n".join([cleanup_note, *cleanup.notes])
                 receipt = _project_path(

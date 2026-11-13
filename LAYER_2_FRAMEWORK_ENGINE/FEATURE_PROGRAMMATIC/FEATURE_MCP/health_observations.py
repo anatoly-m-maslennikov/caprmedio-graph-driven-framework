@@ -1,3 +1,4 @@
+# CA-E-640@16
 from __future__ import annotations
 
 from collections.abc import Mapping
@@ -13,7 +14,7 @@ _PROJECT_PREFIX = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_.-]{0,127}$")
 _PROJECT_INSTANCE = re.compile(r"^[0-9a-f]{64}$")
 _TOOL_OUTCOMES = frozenset(
     """accepted applied assessed blocked canceled cancelled completed duplicate failed
-    implementation_gap input_required interrupted interrupted_pending no-op no_op partial
+    implementation_gap input_required interrupted interrupted_pending needs_input no-op no_op partial
     pending pending_recording prepared preview published publication_recovery_required queued
     recorded recording_blocked recording_pending recreation_required rejected reloaded returned
     running success uncertain unknown unchanged unavailable""".split()
@@ -50,7 +51,7 @@ def _known(value: Any, allowed: frozenset[str]) -> str:
 
 def _payload(response: Any) -> tuple[Mapping[str, Any], bool]:
     if isinstance(response, Mapping):
-        return response, bool(response.get("is_error", False))
+        return response, bool(response.get("is_error", response.get("isError", False)))
     value = getattr(response, "structured_content", None)
     returned_error = bool(getattr(response, "is_error", False))
     return (value, returned_error) if isinstance(value, Mapping) else ({}, returned_error)
@@ -80,12 +81,14 @@ def _tool_row(
     project_instance_id: Any,
 ) -> dict[str, str]:
     returned = _known(payload.get("outcome"), _TOOL_OUTCOMES)
+    if returned == "unknown":
+        returned = _known(payload.get("status"), _TOOL_OUTCOMES)
     row = {
         "observed_at": observed_at,
         "name": _safe(name, _TOOL_NAME),
         "outcome": returned
         if returned != "unknown"
-        else ("uncertain" if has_error else "returned"),
+        else ("uncertain" if has_error else "failed" if category == "returned-error" else "returned"),
         "returned_outcome": returned,
     }
     if category is not None:

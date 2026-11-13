@@ -1,3 +1,4 @@
+# CA-M-1006@7
 # CA-D-625@14
 
 """Private, read-only exact Atom source binding for lifecycle workflows."""
@@ -83,7 +84,7 @@ class SourceContext:
     summary: str | None
 
 
-def _context_candidate(selection, ref_id, atom_id, expected_version, row):
+def _context_candidate(selection, ref_id, atom_id, row):
     if not isinstance(row, (list, tuple)) or len(row) != 3:
         raise SourceSelectionError('Indexed Atom context is invalid')
     path, metadata, summary = row
@@ -99,8 +100,7 @@ def _context_candidate(selection, ref_id, atom_id, expected_version, row):
     if ('projection' in view or view.get('atom_id') != atom_id or view.get('ref_id') not in (None, atom_id)
             or type(version) is not int or version < 1
             or not isinstance(status, str) or not status.strip()
-            or status.casefold() in {'draft', 'archived'}
-            or expected_version is not None and version != expected_version):
+            or status.casefold() in {'draft', 'archived'}):
         return None
     return SourceContext(path, atom_id, ref_id, version, status, metadata, summary)
 
@@ -116,11 +116,19 @@ def select_context(selection: ProjectSelection, ref_id: str, *, expected_version
         rows = reader.lifecycle_contexts(selection, ref_id)
         if not isinstance(rows, (list, tuple)):
             raise SourceSelectionError('Indexed Atom context is invalid')
+        candidates = {}
         for row in rows:
-            candidate = _context_candidate(selection, ref_id, atom_id, expected_version, row)
+            candidate = _context_candidate(selection, ref_id, atom_id, row)
             if candidate is not None:
-                return candidate
-        raise SourceSelectionError('Atom source has no valid matching context')
+                if candidate.path in candidates and candidates[candidate.path] != candidate:
+                    raise SourceSelectionError('Atom source context is ambiguous')
+                candidates[candidate.path] = candidate
+        if len(candidates) != 1:
+            raise SourceSelectionError('Atom source context is missing or ambiguous')
+        candidate = next(iter(candidates.values()))
+        if expected_version is not None and candidate.version != expected_version:
+            raise SourceSelectionError('Expected Version is stale')
+        return candidate
     except SourceSelectionError:
         raise
     except (OSError, RuntimeError, KeyError, TypeError, ValueError) as error:
@@ -197,7 +205,7 @@ def _selector(selection: ProjectSelection, ref_id: str, expected_version: int | 
     return atom_id, qualified, draft
 
 
-def _matches_revision(path: Path, atom_id: str, qualified: str | None, draft: str | None) -> bool:
+def _carrier_revision(path: Path, atom_id: str) -> tuple[str | None, bool]:
     marker = re.match(r"(?:[1-9][0-9]*-)?" + re.escape(atom_id) + r"(?:@([1-9][0-9]*)(-draft)?)?(?=-|\.)", path.name)
     if not marker:
         raise SourceSelectionError("Malformed candidate carrier identity")
@@ -207,7 +215,26 @@ def _matches_revision(path: Path, atom_id: str, qualified: str | None, draft: st
         suffix = re.search(r"@([1-9][0-9]*)\.md$", path.name)
         if suffix:
             candidate_version = suffix.group(1)
-    return (candidate_version, bool(candidate_draft)) == (qualified, bool(draft))
+    return candidate_version, bool(candidate_draft)
+
+
+def _matches_revision(path: Path, atom_id: str, qualified: str | None, draft: str | None) -> bool:
+    return _carrier_revision(path, atom_id) == (qualified, bool(draft))
+
+
+@trace('source.select_published_revisions')
+def select_published_revisions(selection: ProjectSelection, atom_id: str) -> tuple[SourcePin, ...]:
+    """Bind all Current, Backlog and Archived revisions of one Atom."""
+    reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+    candidates = _candidate_paths(reader, selection, atom_id)
+    references = set()
+    for path in candidates:
+        version, draft = _carrier_revision(path, atom_id)
+        if not draft:
+            references.add(f"{atom_id}@{version}" if version else atom_id)
+    selected = tuple(select_sources(selection, sorted(references)).values())
+    _check_currentness(reader, selection, atom_id, candidates)
+    return selected
 
 
 def _read_candidate(reader: ReadContext, path: Path, ref_id: str,
@@ -257,23 +284,20 @@ def _check_declarations(reader, selection):
         raise SourceSelectionError("Retained Project declarations changed")
 
 
-def _unique_candidate(reader, paths, ref_id, atom_id, qualified, draft, *, expected_version=None):
+def _unique_candidate(reader, paths, ref_id, atom_id, qualified, draft, *, retained_history=False):
     if query_reader() is not None:
-        for path in paths:
-            if not _matches_revision(path, atom_id, qualified, draft):
-                continue
-            try:
-                pin = _read_candidate(reader, path, ref_id, atom_id, qualified, draft)
-            except ArchiveNotLoadedError:
-                raise
-            except (OSError, ValueError):
-                continue
-            if pin is not None and (expected_version is None or pin.version == expected_version):
-                return pin
-        raise SourceSelectionError("Atom source has no valid matching carrier")
+        matching = {path for path in paths if _matches_revision(path, atom_id, qualified, draft)}
+        if len(matching) != 1:
+            raise SourceSelectionError("Atom source is missing or ambiguous")
+        pin = _read_candidate(reader, next(iter(matching)), ref_id, atom_id, qualified, draft,
+                              retained_history=retained_history)
+        if pin is None:
+            raise SourceSelectionError("Atom source has no valid matching carrier")
+        return pin
     found = [pin for path in paths
              if _matches_revision(path, atom_id, qualified, draft)
-             if (pin := _read_candidate(reader, path, ref_id, atom_id, qualified, draft)) is not None]
+             if (pin := _read_candidate(reader, path, ref_id, atom_id, qualified, draft,
+                                        retained_history=retained_history)) is not None]
     if len(found) != 1:
         raise SourceSelectionError("Atom source is missing or ambiguous")
     return found[0]
@@ -295,7 +319,7 @@ def select_source(selection: ProjectSelection, ref_id: str, *, expected_version:
         # applicable-methodology projections, arbitrary Project files or caller paths.
         candidates = _candidate_paths(reader, selection, atom_id, references=(ref_id,))
         selected = _unique_candidate(reader, candidates, ref_id, atom_id, qualified, draft,
-                                     expected_version=expected_version)
+                                     retained_history=bool(qualified and not draft))
         if expected_version is not None and selected.version != expected_version:
             raise SourceSelectionError("Expected Version is stale")
         _check_currentness(reader, selection, atom_id, candidates)
@@ -334,15 +358,17 @@ def select_sources(selection: ProjectSelection, ref_ids: list[str]) -> dict[str,
             if len(ids) == len(selectors):
                 indexed = query_candidates(selection, atom_ids=tuple(sorted(ids)), references=tuple(ref_ids))
                 return {ref_id: _unique_candidate(reader, indexed.get(atom_id, ()), ref_id,
-                                                   atom_id, qualified, draft)
+                                                   atom_id, qualified, draft,
+                                                   retained_history=bool(qualified and not draft))
                         for ref_id, atom_id, qualified, draft in selectors}
             return {ref_id: _unique_candidate(
                         reader, query_candidates(selection, atom_ids=(atom_id,), references=(ref_id,)).get(atom_id, ()),
-                        ref_id, atom_id, qualified, draft)
+                        ref_id, atom_id, qualified, draft, retained_history=bool(qualified and not draft))
                     for ref_id, atom_id, qualified, draft in selectors}
         selection._revalidate_boundary(reader=reader)
         candidates = _inventory_paths(reader, selection, classify)
-        selected = {ref_id: _unique_candidate(reader, candidates.get(atom_id, ()), ref_id, atom_id, qualified, draft)
+        selected = {ref_id: _unique_candidate(reader, candidates.get(atom_id, ()), ref_id, atom_id, qualified,
+                                               draft, retained_history=bool(qualified and not draft))
                     for ref_id, atom_id, qualified, draft in selectors}
         if _inventory_paths(reader, selection, classify) != candidates:
             raise SourceSelectionError("Atom source candidates changed during selection")

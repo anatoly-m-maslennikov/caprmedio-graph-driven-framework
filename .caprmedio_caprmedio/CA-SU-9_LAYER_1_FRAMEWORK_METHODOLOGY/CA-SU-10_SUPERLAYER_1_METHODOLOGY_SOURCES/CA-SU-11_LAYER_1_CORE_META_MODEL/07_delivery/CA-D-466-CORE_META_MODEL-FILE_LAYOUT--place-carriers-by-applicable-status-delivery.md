@@ -6,14 +6,14 @@ container:
 role: Delivery
 form: file_layout
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom.Header.State.Status >| Status Group := Current'
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Status >| Status Group := Current
   dependencies:
   - CAPRMEDIO_MODEL <+ Entity
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Delivery)
 tier: 3
-status: Active
-version: 27
-updated_at: '2026-11-11T19:34:00+04:00'
+status: active
+version: 28
+updated_at: '2026-11-12T19:34:42.119749+00:00'
 carrier_destination:
   file:
     name: CA-D-466-CORE_META_MODEL-FILE_LAYOUT--place-carriers-by-applicable-status-delivery.md
@@ -40,8 +40,9 @@ For other Artifacts, use the most specific applicable Delivery rule. Where a qua
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.State.Status >| Status Group = Current).Header.Destination.File.Path == PATH_TEMPLATE("<container>/<status folder>");
-Atom/(.Header.State.Status := Active).Header.Destination.File.Path == PATH_TEMPLATE("<container>");
+```python
+placement_rules = (
+    {"kind": "status", "role": None, "status": "*", "base": "container", "folder": "<status folder>"},
+    {"kind": "status", "role": None, "status": "active", "base": "container", "folder": ""},
+)
 ```

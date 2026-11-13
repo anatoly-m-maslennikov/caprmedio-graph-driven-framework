@@ -15,9 +15,9 @@ relations:
   evaluation_for:
   - CA-R-1925
   - CA-M-368
-status: Active
-version: 15
-updated_at: 2026-11-09 15:54:30 +0400
+status: active
+version: 16
+updated_at: '2026-11-12T17:10:11.668804+00:00'
 carrier_destination:
   file:
     name: CA-E-615-FRAMEWORK_DELIVERY-EVAL_CASE--exercise-successful-public-release-with-mocked-remote-effects.md
@@ -26,19 +26,16 @@ current_scope_unit: FRAMEWORK_DELIVERY
 claim_target_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 ---
-
-# Summary
+## Summary
 
 Exercise successful public release with mocked remote effects
 
-## Scope
+## Claim scope
 
 the successful path of one public release.
 
 ## Claim
 
-**the Operator** **must** use a disposable end-to-end fixture with mocked remote effects and golden evidence to prove one fresh complete initial public suite, immutable push proof, an actual new Draft PR URL, mechanical insertion of that URL into the already-generated concise Version History summary, evidence reopening without another suite, follow-up push and same-PR refresh.
+### Prose Claim
 
-## Details
-
-The fixture proves contract and ordering, not that GitHub was written. It refuses guessed/nonmatching URLs, substantive summary rewrites and changed non-metadata Version/source/material bindings. It proves already-present URL no-op, an existing matching PR's conversion to Draft before body editing, no merge and no implicit replay after an uncertain push or PR result. No retired CA-O-193/CA-O-194 Step Run, typed Public Full Gate, CA-D-566 snapshot or local promotion bridge is constructed.
+Run the Public Release against a disposable Project with mocked remote effects. Cover an existing matching PR and creation of a new Draft PR. In both cases, the actual PR URL is written into Version History before committing and testing. Verify the full suite passes before the sole push of the tested SHA. Mark the same PR ready for CI only after confirming its head is that SHA. Verify no push when the PR cannot be obtained, the candidate changes, or required tests fail. An uncertain push or wrong PR head stops without replay.

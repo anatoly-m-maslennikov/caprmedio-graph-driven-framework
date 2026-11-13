@@ -1,7 +1,9 @@
 # CA-E-825
 """Exercise the Python Status Workflow through the lifecycle backend."""
 from dataclasses import replace
+from contextlib import redirect_stderr
 from datetime import datetime, timedelta
+from io import StringIO
 import json
 from pathlib import Path
 import sys
@@ -248,11 +250,14 @@ class PythonStatusWorkflowTest(unittest.TestCase):
                     source.write_bytes(withdrawn)
                 else:
                     source.write_bytes(raw + b'\nChanged source.\n')
-                outcome = self._run_status(self.target, 'Resolved')
+                stderr = StringIO()
+                with redirect_stderr(stderr):
+                    outcome = self._run_status(self.target, 'Resolved')
                 source.write_bytes(raw)
                 self.assertEqual('blocked', outcome['outcome'], outcome)
                 self.assertEqual('definition_revalidation_required', outcome['errors'][0]['code'])
                 self.assertIn(BINDING[form], outcome['errors'][0]['message'])
+                self.assertIn(outcome['errors'][0]['message'], stderr.getvalue())
                 self.assertEqual(([], []), (outcome['effects'], outcome['action_results']))
                 self.assertEqual(['CA-R-10'], [item['target']['ref_id'] for item in outcome['unrun_actions']])
                 self.assertNotIn('failed_action', outcome)

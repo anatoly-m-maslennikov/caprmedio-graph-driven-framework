@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+# CA-D-253@30
+# CA-D-306@30
+# CA-D-326@27
+# CA-D-359@30
+# CA-D-561@25
+
 """Compile an Applicable Methodology projection for local release."""
 
 from __future__ import annotations
@@ -22,6 +28,7 @@ from artifact_metadata import SETTINGS_PATH, atom_identifier
 from carrier_aliases import carrier_status_folder
 from header_yaml import header_scalar
 from project_selection import ProjectSelectionError, active_selection
+from settings_carrier import read_settings_carrier
 
 
 DEFAULT_CONTROL_ROOT = SETTINGS_PATH.parent
@@ -64,7 +71,7 @@ def configured_control_root(root: Path) -> Path:
     if not settings_path.is_file() or settings_path.is_symlink():
         raise CompileError("project-settings-missing", "Project Settings Carrier is required", path=SETTINGS_PATH.as_posix())
     try:
-        settings = tomllib.loads(settings_path.read_text(encoding="utf-8"))
+        settings = read_settings_carrier(settings_path)
     except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise CompileError("project-settings-invalid", "Project Settings Carrier must be valid UTF-8 TOML", path=SETTINGS_PATH.as_posix()) from error
     value = settings.get("paths", {}).get("control_root") if isinstance(settings.get("paths"), dict) else None
@@ -270,7 +277,7 @@ def relations_digest(frontmatter: str) -> str:
 
 def parse_toml(path: Path, code: str) -> dict[str, object]:
     try:
-        value = tomllib.loads(path.read_text(encoding="utf-8"))
+        value = read_settings_carrier(path)
     except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise CompileError(code, "Framework Settings must be valid UTF-8 TOML", path=path.as_posix()) from error
     if not isinstance(value, dict):

@@ -1,4 +1,5 @@
 import json
+from hashlib import sha256
 from pathlib import Path
 import subprocess
 import sys
@@ -8,6 +9,9 @@ import unittest
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 from ATOM_LIFECYCLE.candidate_schema import compile_candidate_schema, load_candidate_schema  # noqa: E402
+from ATOM_LIFECYCLE.validation import _validate_declared_schema  # noqa: E402
+from ATOM_LIFECYCLE.common import InputError  # noqa: E402
+from types import SimpleNamespace
 from ATOM_LIFECYCLE.role_form_schema import RoleFormSchema  # noqa: E402
 
 CORE = TOOLS.parents[2] / '.caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL'
@@ -26,6 +30,76 @@ version: 1
 
 
 class CandidateSchemaTests(unittest.TestCase):
+    def test_reviewed_atom_dependencies_callback_survives_asset_compilation(self):
+        claim = """from caprmedio.formal_claims import Cardinality, declare_entity
+from caprmedio.model import Atom
+
+def dependencies_are_distinct(atom: Atom) -> bool:
+    return len(atom.dependencies) == len(set(atom.dependencies))
+
+declare_entity(
+    entity_name="Dependencies",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Atom.Header.Context.Topics",
+    property_occurrence_cardinality=Cardinality(minimum=0, maximum=1),
+    value_format=str,
+    value_cardinality=Cardinality(minimum=0, maximum=None),
+    dependent_property_cardinality=0,
+    instance_check=dependencies_are_distinct,
+)
+"""
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / 'model'
+            root.mkdir()
+            (root / 'CA-R-1.md').write_text(source('CA-R-1', body='''## Claim
+### Formal Claim
+```CFEL
+Atom.Header.Role :: Requirement;
+Atom.Header.Form :: Declaration;
+Atom/(.Header.Role in (Requirement)).Header.Form :: Declaration;
+```
+'''))
+            target = root / 'CA-R-4001.md'
+            subject = 'CAPRMEDIO_MODEL<+Atom.Header.Context.Topics.Dependencies'
+            carrier = source('CA-R-4001', body='## Claim\n### Formal Claim\n```python\n' + claim + '```\n')
+            carrier = carrier.replace('version: 1\n', f'version: 1\ntopics:\n  main_subject: {subject}\n')
+            target.write_text(carrier)
+            asset = root.parent / 'schema.json'
+            asset.write_bytes(compile_candidate_schema(root))
+            compiled = json.loads(asset.read_bytes())
+            self.assertEqual('CA-R-4001', compiled['atom_dependencies_check']['source']['atom_id'])
+            schema = load_candidate_schema(asset)
+            model = SimpleNamespace(candidate_schema=schema)
+            view = {'role': 'Requirement', 'form': 'Declaration'}
+            duplicate = {'context': {'topics': {'dependencies': ['Scope Unit', 'Scope Unit']}}}
+            distinct = {'subjects': {'passive': {'continuant': ['Scope Unit'], 'occurrent': ['Event']}}}
+            _validate_declared_schema(model, {}, '', view, authored=True)
+            _validate_declared_schema(model, distinct, '', view, authored=True)
+            _validate_declared_schema(model, duplicate, '', view, authored=False)
+            for invalid in (duplicate, {'topics': {'dependencies': None}}):
+                with self.subTest(invalid=invalid), self.assertRaises(InputError) as caught:
+                    _validate_declared_schema(model, invalid, '', view, authored=True)
+                self.assertIn('topics.dependencies', caught.exception.requested_input)
+            pin = compiled['atom_dependencies_check']['source']
+            pin['version'] = 2
+            del compiled['digest']
+            compiled['digest'] = sha256(json.dumps(compiled, ensure_ascii=False, sort_keys=True,
+                                                   separators=(',', ':')).encode()).hexdigest()
+            asset.write_text(json.dumps(compiled))
+            with self.assertRaisesRegex(ValueError, 'Invalid reviewed Atom Dependencies check'):
+                load_candidate_schema(asset)
+            duplicate_declaration = root / 'CA-R-4002.md'
+            duplicate_declaration.write_text(carrier.replace('CA-R-4001', 'CA-R-4002'))
+            with self.assertRaisesRegex(ValueError, 'Multiple Current Declarations'):
+                compile_candidate_schema(root)
+            duplicate_declaration.unlink()
+            target.write_text(carrier.replace(subject, 'CAPRMEDIO_MODEL <+ Atom.Header.Context.Label'))
+            with self.assertRaisesRegex(ValueError, 'Atom Dependencies check requires'):
+                compile_candidate_schema(root)
+            target.write_text(carrier.replace('len(set(atom.dependencies))', '0'))
+            with self.assertRaisesRegex(ValueError, 'differs from the reviewed Python Claim'):
+                compile_candidate_schema(root)
+
     def test_cli_selects_sources_and_only_formal_cfel(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory) / 'model'

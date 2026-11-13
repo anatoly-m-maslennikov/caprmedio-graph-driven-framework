@@ -3,6 +3,7 @@
 # CA-E-683@5
 # CA-E-684@7
 # CA-D-673@14
+# CA-D-721@1
 
 from __future__ import annotations
 
@@ -30,6 +31,7 @@ from operation_error_boundary import ExplicitBlockingRuntimeFailure  # noqa: E40
 
 PROJECT_NAME = "caprmedio"
 PROJECT_PATH = f"{WORKBENCH_PATH}/{PROJECT_NAME}"
+API_PATH = f"/caprmedio/{PROJECT_NAME}/api"
 
 
 class FakeWorkbench:
@@ -78,6 +80,8 @@ class FakeWorkbench:
             }
         if name == "query_schema":
             return {"atoms": []}
+        if name == "workbench_status":
+            return {"syncing": False, "last_synced_at": None, "loaded_archive_scopes": [], "audits_pending": False, "last_audit_ms": None, "audit_error": None}
         if name == "workbench_archive_load":
             return {"loaded_archive_scopes": arguments["scopes"]}
         if name == "query_saved_list":
@@ -185,6 +189,36 @@ class WorkbenchWebTests(unittest.TestCase):
             gateway.tool_blacklist = frozenset({'workbench_archive_load'})
             self.assertEqual(400, client.post(f'{PROJECT_PATH}/archive-load', json={'scopes': scopes}).status_code)
             self.assertEqual(1, len(gateway.workbench.calls))
+
+    def test_project_api_and_legacy_routes_share_handlers_and_binding(self):
+        gateway = FakeGateway()
+        app = Starlette(routes=routes(gateway, shared=True))
+        examples = {
+            "run": {"sql": "SELECT 1"}, "check": {"sql": "SELECT 1"},
+            "page": {"query_id": "query-1", "offset": 0}, "schema": {}, "status": {},
+            "archive-load": {"scopes": [{"scope_unit": "PROJECT", "role": "Plan"}]},
+            "view-save": {"sql": "SELECT 1"}, "load": {"reference": "q_" + "0" * 32},
+            "saved-list": {},
+            "interface": {"operation": "view_create", "arguments": {"workspace_id": "ws"}},
+        }
+        with TestClient(app) as client:
+            for path, arguments in examples.items():
+                body = {**arguments, "project_root": "/project"}
+                canonical = client.post(f"{API_PATH}/{path}", json=body)
+                legacy = client.post(f"{PROJECT_PATH}/{path}", json=body)
+                self.assertEqual(200, canonical.status_code, path)
+                self.assertEqual(canonical.json(), legacy.json(), path)
+                self.assertEqual(404, client.post(f"/caprmedio/other/api/{path}", json=body).status_code)
+                self.assertEqual(400, client.post(f"{API_PATH}/{path}", json={**body, "project_root": "/invalid"}).status_code)
+
+    def test_diagnostic_failure_preserves_original_error(self):
+        gateway = FakeGateway()
+        failure = type("Failure", (), {"message": "bad query"})()
+        with patch.object(workbench_web, "report_failure", return_value=(failure, "technical diagnostic emission failed")):
+            with TestClient(Starlette(routes=routes(gateway))) as client:
+                response = client.post(f"{API_PATH}/run", json={"sql": "bad"})
+        self.assertEqual(400, response.status_code)
+        self.assertEqual({"error": "bad query", "diagnostic_error": "technical diagnostic emission failed"}, response.json())
 
     def test_archive_load_route_selects_shared_project(self):
         gateway = FakeGateway()

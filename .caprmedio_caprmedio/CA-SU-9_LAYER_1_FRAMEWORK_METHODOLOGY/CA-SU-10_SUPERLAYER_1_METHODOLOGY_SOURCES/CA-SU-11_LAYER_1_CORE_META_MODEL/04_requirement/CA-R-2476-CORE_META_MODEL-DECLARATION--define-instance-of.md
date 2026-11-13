@@ -33,15 +33,12 @@ In `X//Y`, Y INSTANCE_OF X; traversal runs from kind to instance.
 INSTANCE_OF relates instance of a declared kind to declared kind.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//INSTANCE_OF ((HAS_INVERSE)) Relation//HAS_INSTANCE;
-
-alias(Relation//INSTANCE_OF) == "//";
-
-Relation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct;
-
+relation(source='Relation//INSTANCE_OF', name='HAS_INVERSE', target='Relation//HAS_INSTANCE')
+set_value(address='alias(Relation//INSTANCE_OF)', value='"//"')
+classify(address='Relation//INSTANCE_OF', axis='Derivation', value='Direct', notation='relation')
 # instances
-$instance ((INSTANCE_OF)) $kind;
+relation(source='$instance', name='INSTANCE_OF', target='$kind')
 ```
 

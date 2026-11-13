@@ -1,3 +1,4 @@
+# CA-E-827@1
 """Lifecycle queries include retained carriers and update from file deltas."""
 from pathlib import Path
 import os
@@ -245,9 +246,12 @@ class LifecycleAtomsTests(test_incremental_indexing.IncrementalIndexingTests):
     def test_unloaded_archive_reserves_id_and_version_and_fresh_archive_is_visible(self):
         old = source_path(self.declarations, "ENGINE", "04_requirement", "archive/CA-R-999999999@7-old.md").resolve()
         write_atom(old, "CA-R-999999999", status="Archived", version=7)
+        ordinary = old.with_name("CA-R-970@2-ordinary.md")
+        write_atom(ordinary, "CA-R-970", status="Archived", version=2)
         self.service._refresh()
         selection = SimpleNamespace(root=self.root.resolve(), control_root=self.service._reader.control_root)
         self.assertEqual("CA-R-999999999", self.service.lifecycle_last_id(selection, "CA-R-"))
+        self.assertEqual("CA-R-970", self.service.lifecycle_last_id(selection, "CA-R-", ceiling=1000))
         self.assertEqual(7, self.service.lifecycle_latest_version(selection, "CA-R-999999999"))
         with self.assertRaises(ArchiveNotLoadedError):
             self.service.lifecycle_candidates(selection, atom_ids=("CA-R-999999999",))
@@ -258,6 +262,96 @@ class LifecycleAtomsTests(test_incremental_indexing.IncrementalIndexingTests):
             selection, atom_ids=("CA-R-999999998",), references=("CA-R-999999998@2",),
         ))
         self.assertEqual([], self.service.sync_status()["loaded_archive_scopes"])
+
+    def test_archive_allocation_tables_follow_membership_and_watcher_changes(self):
+        current = source_path(self.declarations, "ENGINE", "04_requirement", "CA-R-501.md").resolve()
+        old = current.parent / "archive" / "CA-R-501@4-old.md"
+        legacy = current.parent / "archive" / "CA-R-501-legacy.md"
+        unrelated = current.parent / "archive" / "CA-R-900@7-other.md"
+        write_atom(current, "CA-R-501", version=5)
+        write_atom(old, "CA-R-501", status="Archived", version=4)
+        write_atom(legacy, "CA-R-501", status="Archived", version=3)
+        write_atom(unrelated, "CA-R-900", status="Archived", version=7)
+        self.service._refresh()
+        def query(sql):
+            with self.service._store._lock:
+                return self.service._store._connection.execute(sql).fetchall()
+        self.assertIn(("CA-R-501", "4", True), query("SELECT * FROM main.archive_version_max"))
+        result = self.store.run("SELECT atom_id, max_version FROM archive_version_max WHERE atom_id = 'CA-R-501'")
+        self.assertEqual([["CA-R-501", "4"]], result["rows"])
+        self.assertNotIn("CA-R-900", {row[0] for row in query("SELECT * FROM main.archive_version_max")})
+        self.assertEqual("900", query("SELECT max_id_number FROM main.archive_role_max WHERE role_marker = 'R'")[0][0])
+        selection = SimpleNamespace(root=self.root.resolve(), control_root=self.service._reader.control_root)
+        with self.assertRaises(ArchiveNotLoadedError):
+            self.service.lifecycle_latest_version(selection, "CA-R-501")
+        moved = old.with_name("CA-R-501@6-moved.md")
+        old.rename(moved)
+        write_atom(moved, "CA-R-501", status="Archived", version=6)
+        self.service._refresh([{"operation": "move", "old_path": old.relative_to(self.root.resolve()).as_posix(), "new_path": moved.relative_to(self.root.resolve()).as_posix()}])
+        self.assertIn(("CA-R-501", "6", True), query("SELECT * FROM main.archive_version_max"))
+        legacy.unlink()
+        self.service._refresh([{"operation": "remove", "old_path": legacy.relative_to(self.root.resolve()).as_posix(), "new_path": None}])
+        self.assertEqual(6, self.service.lifecycle_latest_version(selection, "CA-R-501"))
+        unrelated.unlink()
+        self.service._refresh([{"operation": "remove", "old_path": unrelated.relative_to(self.root.resolve()).as_posix(), "new_path": None}])
+        self.assertEqual("501", query("SELECT max_id_number FROM main.archive_role_max WHERE role_marker = 'R'")[0][0])
+        current.unlink()
+        self.service._refresh([{"operation": "remove", "old_path": current.relative_to(self.root.resolve()).as_posix(), "new_path": None}])
+        self.assertNotIn("CA-R-501", {row[0] for row in query("SELECT * FROM main.archive_version_max")})
+        self.service._refresh()
+        self.assertEqual("501", query("SELECT max_id_number FROM main.archive_role_max WHERE role_marker = 'R'")[0][0])
+
+    def test_legacy_zero_padded_version_does_not_stop_filename_inventory(self):
+        current = source_path(self.declarations, "ENGINE", "04_requirement", "CA-R-504.md").resolve()
+        archive = current.parent / "archive" / "CA-R-504@02-old.md"
+        write_atom(current, "CA-R-504", version=3)
+        write_atom(archive, "CA-R-504", status="Archived", version=2)
+        self.service._refresh()
+        result = self.store.run("SELECT max_version, has_unknown_version FROM archive_version_max WHERE atom_id = 'CA-R-504'")
+        self.assertEqual([[None, True]], result["rows"])
+
+    def test_archive_summary_and_projection_publish_under_one_lock(self):
+        current = source_path(self.declarations, "ENGINE", "04_requirement", "CA-R-503.md").resolve()
+        archived = current.parent / "archive" / "CA-R-503@2-old.md"
+        write_atom(current, "CA-R-503", version=3)
+        write_atom(archived, "CA-R-503", status="Archived", version=2)
+        entered, release, queried = threading.Event(), threading.Event(), threading.Event()
+        original = self.service._reader._catalog.refresh_summaries
+        def pause_summary(ids):
+            original(ids)
+            entered.set()
+            if not release.wait(5):
+                raise TimeoutError("publication test timed out")
+        def run_query():
+            self.store.run("SELECT count(*) FROM archive_version_max")
+            queried.set()
+        with patch.object(self.service._reader._catalog, "refresh_summaries", side_effect=pause_summary):
+            refresh = threading.Thread(target=self.service._refresh)
+            refresh.start()
+            try:
+                self.assertTrue(entered.wait(5))
+                query = threading.Thread(target=run_query)
+                query.start()
+                self.assertFalse(queried.wait(0.1))
+            finally:
+                release.set()
+                refresh.join(5)
+            query.join(5)
+            self.assertTrue(queried.is_set())
+
+    def test_loaded_archive_version_uses_body_instead_of_filename(self):
+        current = source_path(self.declarations, "ENGINE", "04_requirement", "CA-R-502.md").resolve()
+        archived = current.parent / "archive" / "CA-R-502@11-old.md"
+        legacy = current.parent / "archive" / "CA-R-502-legacy.md"
+        write_atom(current, "CA-R-502", version=5)
+        write_atom(archived, "CA-R-502", status="Archived", version=3)
+        write_atom(legacy, "CA-R-502", status="Archived", version=4)
+        self.service._refresh()
+        selection = SimpleNamespace(root=self.root.resolve(), control_root=self.service._reader.control_root)
+        with self.assertRaises(ArchiveNotLoadedError):
+            self.service.lifecycle_latest_version(selection, "CA-R-502")
+        self.service.load_archives([{"scope_unit": "ENGINE", "role": "Requirement"}])
+        self.assertEqual(5, self.service.lifecycle_latest_version(selection, "CA-R-502"))
 
     def test_relation_read_flushes_own_changes_as_one_batch(self):
         path = source_path(self.declarations, "ENGINE", "04_requirement", "CA-R-101.md").resolve()

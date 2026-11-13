@@ -15,6 +15,7 @@ from validate_atoms_workers.read_io import ReadContext, ReadFailure, LimitReache
 class CarrierTests(unittest.TestCase):
     def test_valid_and_no_identity_inference(self) -> None:
         parsed = parse_carrier(b"---\nstatus: Active\n---\n# Summary\n\nHi\n", Path("/CA-R-001.md"))
+        self.assertEqual(parsed._view["status"], "Active")
         self.assertEqual(parsed.metadata, {"status": "Active"})
         self.assertNotIn("atom_id", parsed.metadata)
 

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Passive Only Subjects)
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+status: active
+version: 3
+updated_at: '2026-11-12T18:49:30.741730+00:00'
 carrier_destination:
   file:
     name: CA-R-2744-CORE_META_MODEL-DECLARATION--declare-projection-form-passive-only-subjects.md
@@ -26,9 +26,12 @@ Declare Projection/(.Form := Passive Only Subjects)
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection.Form :: Passive Only Subjects;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Projection
 
-Projection/(.Form in (Passive Only Subjects))
+class PassiveOnlySubjects(Projection):
+    pass
+
+declare_entity(entity_class=PassiveOnlySubjects, entity_name='Passive Only Subjects', qualification_property_path="Projection.Form")
 ```

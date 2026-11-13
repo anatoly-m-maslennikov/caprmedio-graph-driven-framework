@@ -1,8 +1,11 @@
+# CA-D-613@20
+
 """Concrete Git, PR and subprocess boundary for one public release."""
 
 from __future__ import annotations
 
 from collections.abc import Callable
+import json
 from pathlib import Path
 import subprocess
 import sys
@@ -79,27 +82,7 @@ def _repository(root: Path, command: Command) -> str:
     return repository
 
 
-def _upsert_pr(
-    command: Command, repository: str, version: str, description: str, pr_url: str | None
-) -> str:
-    title = f"CAPRMEDIO {version} public release"
-    if pr_url:
-        command(("gh", "pr", "ready", pr_url, "--undo", "--repo", repository))
-        command(
-            (
-                "gh",
-                "pr",
-                "edit",
-                pr_url,
-                "--repo",
-                repository,
-                "--title",
-                title,
-                "--body",
-                description,
-            )
-        )
-        return pr_url
+def _create_pr(command: Command, repository: str, description: str) -> str:
     created = command(
         (
             "gh",
@@ -113,9 +96,21 @@ def _upsert_pr(
             "--base",
             "main",
             "--title",
-            title,
+            "CAPRMEDIO public release",
             "--body",
             description,
         )
     )
     return validate_pr_url(created.stdout.strip(), repository)
+
+
+def _verify_pr(command: Command, repository: str, pr_url: str, head: str | None = None) -> bool:
+    result = command(("gh", "pr", "view", pr_url, "--repo", repository, "--json", "url,state,headRefName,baseRefName,headRefOid,isDraft"))
+    try:
+        data = json.loads(result.stdout)
+        valid = (data["url"], data["state"], data["headRefName"], data["baseRefName"]) == (pr_url, "OPEN", "amm/dev", "main")
+        if not valid or not isinstance(data["isDraft"], bool) or (head is not None and data["headRefOid"] != head):
+            raise ValueError
+    except (ValueError, TypeError, KeyError) as error:
+        raise PublicReleaseError("public-release-pr-mismatch") from error
+    return data["isDraft"]

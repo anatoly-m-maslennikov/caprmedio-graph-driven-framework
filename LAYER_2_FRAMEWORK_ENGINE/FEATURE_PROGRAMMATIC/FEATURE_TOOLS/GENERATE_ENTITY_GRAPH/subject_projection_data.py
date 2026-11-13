@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections import defaultdict
 from collections.abc import Mapping
 from dataclasses import replace
+import re
 from typing import Any
 
 import subject_notation as notation
@@ -29,7 +30,10 @@ def _detail_declarations(carriers: list[Record]) -> list[Record]:
 
     return [
         carrier for carrier in carriers
-        if matches_named_value(_view(carrier).get("content_role"), "Requirement") and matches_named_value(_view(carrier).get("type"), "Declaration")
+        if matches_named_value(_view(carrier).get("content_role"), "Requirement") and any(
+            matches_named_value(_view(carrier).get("type"), form)
+            for form in ("Declaration", "Relation Declaration")
+        )
     ]
 
 
@@ -71,13 +75,19 @@ def _property_record(row: Record) -> Record | None:
     if parts is None:
         return None
     sources, refs = _source_rows(row["own"])
+    scopes = {
+        name for entry in row["own"] for clause in entry["clauses"]
+        for name in (clause.get("applicable_entity_classes") or ())
+    }
     return {
         "identity": row["target"], "relative_name": parts[1], "origin_entity": parts[0],
         "inherited": False, "source_refs": sources, "declaration_refs": refs,
         **({"multiple_applicable": True} if len(refs) > 1 else {}),
+        **({"applicable_entity_classes": sorted(scopes)} if scopes else {}),
         "contracts": [
             clause for entry in row["own"] for clause in entry["clauses"]
-            if clause.get("kind") in {"property_constraint", "allowed_literal"}
+            if clause.get("kind") in {"property_constraint", "property_value_bound", "allowed_literal"}
+            or (clause.get("kind") == "relation_cardinality" and clause.get("relation") == "IS_ORDERED_RIGHT_BEFORE")
         ],
         "formal_claims": _formal_claims(row["own"]),
         "instance_constraints": [clause for entry in row["own"] for clause in entry["instance_clauses"]],
@@ -89,6 +99,11 @@ def _resolve_property_formats(properties: list[Record], entries: list[Record]) -
                   if clause.get("kind") == "property_constraint" and clause.get("value_format") is not None
                   and not (clause["value_format"] == "" and (clause.get("value_cardinality") or {}).get("maximum") == 0)]
     diagnostics = []
+    class_bindings = defaultdict(list)
+    for entry in entries:
+        for clause in entry.get("clauses", []):
+            if clause.get("kind") == "native_class":
+                class_bindings[clause["class_name"]].append((entry["target"], dict(clause["source"])))
     for property in properties:
         identity = property["identity"]
         matches = []
@@ -102,10 +117,51 @@ def _resolve_property_formats(properties: list[Record], entries: list[Record]) -
                        or selection in {"immediate_dependents", "immediate_dependent_values"} and suffix is not None and "." not in suffix)
             if applies:
                 matches.append(clause)
-        formats = {clause["value_format"] for clause in matches}
+        if not matches and property.get("applicable_entity_classes"):
+            # The legacy extractor does not interpret the Current double-colon
+            # recursive format. Retain its source for native scoped properties.
+            for entry in entries:
+                for block in entry["cfel_blocks"]:
+                    for match in re.finditer(
+                        r"(?m)^\s*([A-Za-z][A-Za-z0-9_. ]*)\.\*\*\s*::\s*\[([A-Za-z][A-Za-z0-9_]*)\]",
+                        block["block"],
+                    ):
+                        if identity.startswith(match[1].strip() + "."):
+                            matches.append({"value_format": match[2], "source": block["source"]})
+        resolved = []
+        unresolved = False
+        for clause in matches:
+            cls = clause.get("model_value_format")
+            if cls is None:
+                resolved.append(clause)
+                continue
+            found = class_bindings.get(cls, [])
+            if len(found) != 1:
+                diagnostics.append({"code": "unresolved_model_value_format", "message": f"Model class {cls} has {len(found)} declaring bindings for {identity}.", "sources": [dict(clause["source"]), *[source for _, source in found]]})
+                unresolved = True
+                continue
+            resolved.append({**clause, "value_format": found[0][0] + "//", "format_binding_source": found[0][1]})
+        if unresolved:
+            continue
+        matches = resolved
+        # R2632's native str replaces its legacy string for these two
+        # immediate children. Keep other native formats and source text intact.
+        authority_modes = "Project.Settings.Authority Modes"
+        authority_children = {authority_modes + ".Default Scope Unit Authority Mode",
+                              authority_modes + ".Project Authority Mode"}
+        formats = {
+            "string" if (identity in authority_children
+                         and clause.get("property_selector") == authority_modes
+                         and clause.get("selection") in {"immediate_dependents", "immediate_dependent_values"}
+                         and clause["value_format"] == "str") else clause["value_format"]
+            for clause in matches
+        }
         if len(formats) == 1:
             property["effective_value_format"] = next(iter(formats))
             property["effective_value_format_sources"] = [dict(clause["source"]) for clause in matches]
+            bindings = [dict(clause["format_binding_source"]) for clause in matches if clause.get("format_binding_source")]
+            if bindings:
+                property["effective_value_format_binding_sources"] = bindings
         elif len(formats) > 1:
             refs = sorted({_source_ref(clause["source"]) for clause in matches})
             diagnostics.append({"code": "conflicting_property_value_formats",
@@ -129,6 +185,131 @@ def _ancestors(tree: Mapping[str, Any]) -> dict[str, list[str]]:
         return list(dict.fromkeys(result))
 
     return {identity: collect(identity) for identity in nodes.values()}
+
+
+def _relation_declarations(relations: list[Record]) -> list[Record]:
+    declarations: dict[str, Record] = defaultdict(
+        lambda: {"classifications": set(), "declaration_refs": set(), "direct_relations": set()}
+    )
+
+    def add(name: str, classification: str | None, source: Mapping[str, Any] | None,
+            direct: str | None = None) -> None:
+        row = declarations[name]
+        if classification in {"Direct", "Derived"}:
+            row["classifications"].add(classification)
+        if source:
+            row["declaration_refs"].add(_source_ref(source))
+        if direct:
+            row["direct_relations"].add(direct)
+
+    for relation in relations:
+        name = relation["target"]
+        for entry in relation.get("own", []):
+            add(name, None, entry.get("source"))
+        for item in relation.get("metadata", []):
+            if item.get("kind") == "derivation" and item.get("value") in {"Direct", "Derived"}:
+                add(name, item["value"], item.get("source"))
+        if derived := relation.get("derived_view"):
+            add(name, "Derived", derived.get("source"), derived.get("direct_relation"))
+        for alias in relation.get("derived_aliases", []):
+            if isinstance(alias.get("name"), str):
+                add(alias["name"], "Derived", alias.get("source"), alias.get("direct_relation"))
+        for entry in relation.get("own", []):
+            for clause in entry.get("clauses", []):
+                if clause.get("kind") == "native_relation_declaration":
+                    inverse = clause.get("arguments", {}).get("inverse_alias")
+                    if isinstance(inverse, str):
+                        add(inverse, "Derived", clause.get("source"), name)
+    return [
+        {"name": name,
+         "derivation": next(iter(row["classifications"])) if len(row["classifications"]) == 1 else None,
+         "declaration_refs": sorted(row["declaration_refs"]),
+         "direct_relations": sorted(row["direct_relations"])}
+        for name, row in sorted(declarations.items())
+    ]
+
+
+def _relation_records(identity: str, entries: list[Record], derivations: Mapping[str, str | None],
+                      notations: Mapping[str, str]) -> list[Record]:
+    records = []
+    for entry in entries:
+        for clause in entry.get("clauses", []):
+            if clause.get("kind") != "native_class":
+                continue
+            args = clause.get("arguments", {})
+            for group, level in (("model_relation_constraints", "model"),
+                                 ("instance_relation_constraints", "instances")):
+                constraints = args.get(group, {})
+                if not isinstance(constraints, Mapping):
+                    continue
+                for name, contract in constraints.items():
+                    if not isinstance(name, str) or not isinstance(contract, Mapping):
+                        continue
+                    records.append({
+                        "relation": name, "level": level, "direction": "forward",
+                        "derivation": derivations.get(name), "origin_entity": identity,
+                        "source_refs": [dict(clause["source"])],
+                        "declaration_refs": [_source_ref(clause["source"])],
+                        "contract": dict(contract), "expression": clause.get("expression", ""),
+                    })
+        for level, clauses in (("model", entry.get("clauses", [])),
+                               ("instances", entry.get("instance_clauses", []))):
+            bindings = {clause.get("variable") for clause in clauses
+                        if clause.get("kind") == "instance_binding"
+                        and clause.get("kind_selector") == identity}
+            for clause in clauses:
+                if clause.get("kind") != "relation_cardinality":
+                    continue
+                name = clause.get("relation") or notations.get(clause.get("relation_notation"))
+                if not isinstance(name, str):
+                    continue
+                if (name in {"NARROWER_THAN", "HAS_NARROWER", "INSTANCE_OF", "HAS_INSTANCE"}
+                        and "{" not in clause.get("expression", "")):
+                    continue
+                selector = clause.get("written_source_selector", clause.get("source_selector"))
+                if not isinstance(selector, str):
+                    continue
+                selector = re.sub(r"\s*\{\s*::?\s*\d+(?:\+|\.\.\d+)?\s*\}\s*$", "", selector)
+                if level == "model":
+                    matches = selector == identity
+                else:
+                    matches = (re.fullmatch(re.escape(identity) + r"//\$[A-Za-z_]\w*", selector) is not None
+                               or (selector.startswith("$") and selector[1:] in bindings))
+                if not matches:
+                    continue
+                records.append({
+                    "relation": name, "level": level,
+                    "direction": clause.get("written_direction", "forward"),
+                    "derivation": derivations.get(name), "origin_entity": identity,
+                    "source_refs": [dict(clause["source"])],
+                    "declaration_refs": [_source_ref(clause["source"])],
+                    "contract": dict(clause), "expression": clause.get("expression", ""),
+                })
+    return records
+
+
+def _rule_groups(identity: str, rules: list[Record], ancestors: Mapping[str, list[str]], key) -> Record:
+    """Group rules without selecting between unrelated inherited declarations."""
+    grouped: Record = {"declared_here": [], "inherited": [], "overridden_here": []}
+    for rule in rules:
+        origin = rule["origin_entity"]
+        matching = [other for other in rules
+                    if key(other) == key(rule) and other["origin_entity"] != origin]
+        replaced = [other for other in matching if other["origin_entity"] in ancestors.get(origin, [])]
+        if any(origin in ancestors.get(other["origin_entity"], []) for other in matching):
+            continue
+        item = {**rule, "replaces": [
+            {"identity": old.get("identity"), "origin_entity": old["origin_entity"], "declaration_refs": old["declaration_refs"],
+             "source_refs": old["source_refs"], "contract": old.get("contract"),
+             "contracts": old.get("contracts")}
+            for old in replaced
+        ]}
+        if origin == identity:
+            group = "overridden_here" if replaced else "declared_here"
+        else:
+            group = "inherited"
+        grouped[group].append(item)
+    return grouped
 
 
 def _namespace_contexts(carriers: list[Record]) -> list[Record]:
@@ -207,16 +388,47 @@ def build_subject_projection_data(carriers: list[Record]) -> Record:
             *[row for row in contracts["components"] if row["target"] in tree_identities],
         ]
     }
+    class_names = {
+        target: {clause["class_name"] for entry in row["own"] for clause in entry["clauses"]
+                 if clause.get("kind") == "native_class"}
+        for target, row in primary_rows.items()
+    }
+    relation_declarations = _relation_declarations(contracts["relations"])
+    derivations = {row["name"]: row["derivation"] for row in relation_declarations}
+    notation_names: dict[str, set[str]] = defaultdict(set)
+    for relation in contracts["relations"]:
+        for metadata in relation.get("metadata", []):
+            if metadata.get("kind") == "notation" and isinstance(metadata.get("value"), str):
+                notation_names[metadata["value"]].add(relation["target"])
+    notations = {notation: next(iter(names)) for notation, names in notation_names.items() if len(names) == 1}
+    relations_by_origin = {
+        identity: _relation_records(identity, row["own"], derivations, notations)
+        for identity, row in primary_rows.items()
+    }
+
+    def applies(scope, identity: str) -> bool:
+        if not scope:
+            return True
+        names = set().union(*(class_names.get(path, set()) for path in [identity, *ancestors.get(identity, [])]))
+        return bool(names.intersection(scope))
+
+    def property_for_entity(property: Record, identity: str, *, inherited: bool) -> Record:
+        contracts = [clause for clause in property["contracts"] if applies(clause.get("ordering_roles"), identity)]
+        return {**property, "inherited": inherited, "contracts": contracts}
+
     entities = []
     for node in sorted(tree["nodes"], key=lambda row: row["identity"]):
         identity = node["identity"]
         own = primary_rows.get(identity, {}).get("own", [])
         sources, refs = _source_rows(own)
-        direct = [dict(property) for property in properties_by_origin.get(identity, [])]
+        direct = [property_for_entity(property, identity, inherited=False)
+                  for property in properties_by_origin.get(identity, [])
+                  if applies(property.get("applicable_entity_classes"), identity)]
         inherited = [
-            {**property, "inherited": True}
+            property_for_entity(property, identity, inherited=True)
             for ancestor in ancestors.get(identity, [])
             for property in properties_by_origin.get(ancestor, [])
+            if applies(property.get("applicable_entity_classes"), identity)
         ]
         slots: dict[str, int] = defaultdict(int)
         for property in [*direct, *inherited]:
@@ -224,14 +436,22 @@ def build_subject_projection_data(carriers: list[Record]) -> Record:
         for property in [*direct, *inherited]:
             if slots[property["relative_name"]] > 1:
                 property["multiple_applicable"] = True
+        relations = [relation for origin in [identity, *ancestors.get(identity, [])]
+                     for relation in relations_by_origin.get(origin, [])]
+        property_origins = _rule_groups(identity, [*direct, *inherited], ancestors,
+                                        lambda row: row["relative_name"])
+        relation_origins = _rule_groups(identity, relations, ancestors,
+                                        lambda row: (row["relation"], row["level"], row["direction"]))
         entities.append({
             "identity": identity, "source_refs": sources, "declaration_refs": refs,
             "ancestors": ancestors.get(identity, []), "direct_properties": direct,
             "inherited_properties": inherited, "formal_claims": _formal_claims(own),
+            "property_rule_origins": property_origins, "relation_rule_origins": relation_origins,
         })
 
     return {
         "tree": tree, "tree_provenance": tree_provenance, "namespaces": _namespace_contexts(carriers), "entities": entities,
+        "relation_declarations": relation_declarations,
         "declarations": {
             "primary_nodes": {target: row["own"] for target, row in primary_rows.items()},
             "properties": {row["target"]: row["own"] for row in property_rows},

@@ -123,6 +123,18 @@ class ContextSelectionTests(unittest.TestCase):
                 with self.assertRaises(ArchiveNotLoadedError):
                     select_context(self.selection, 'CA-P-30')
 
+    def test_competing_current_contexts_fail_even_with_expected_version(self):
+        first = self.plan_root / 'CA-P-30-first.md'
+        second = self.plan_root / 'CA-P-30-second.md'
+        metadata = self.add_plan('CA-P-30', first, {'scope_unit': 'TEST'})
+        self.reader.rows['CA-P-30'].append((second, metadata | {'version': 2}, 'Other'))
+        with bind_query_reader(self.reader):
+            for version in (None, 1, 2):
+                with self.subTest(version=version), self.assertRaisesRegex(SourceSelectionError, 'ambiguous'):
+                    select_context(self.selection, 'CA-P-30', expected_version=version)
+            self.reader.rows['CA-P-30'] = [(first, metadata, 'Same work')] * 2
+            self.assertEqual(first, select_context(self.selection, 'CA-P-30').path)
+
     def test_real_workbench_context_serves_plan_without_carrier_byte_reads(self):
         from watchdog.observers.polling import PollingObserver
         from project_selection import bind_selection

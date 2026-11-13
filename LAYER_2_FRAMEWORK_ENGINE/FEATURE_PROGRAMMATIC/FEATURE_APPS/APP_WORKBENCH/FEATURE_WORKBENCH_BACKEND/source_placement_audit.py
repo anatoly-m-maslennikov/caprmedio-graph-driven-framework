@@ -1,3 +1,6 @@
+# CA-M-549@2
+# CA-R-3067@2
+# CA-R-3068@2
 """Pure, best-effort carrier placement expectations from cached source rows."""
 from pathlib import Path, PurePosixPath
 import sys
@@ -86,6 +89,8 @@ def _expected_name(row, view, scope, status, role, form):
 
 
 def _expected(row, scopes, parents, placement, seen):
+    if "_project_root_header" in row:
+        return None, PurePosixPath(row["source_path"]).parent.as_posix()
     try:
         view = carrier_read_view(row['header_json'])
         role = row.get('role') or view.get('role')

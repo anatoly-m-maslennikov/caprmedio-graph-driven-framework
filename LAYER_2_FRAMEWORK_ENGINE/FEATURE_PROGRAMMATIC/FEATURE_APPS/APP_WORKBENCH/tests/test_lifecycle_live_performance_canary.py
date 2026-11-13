@@ -1,4 +1,5 @@
-# CA-E-826@1
+# CA-E-824@2
+# CA-E-826@3
 """Opt-in live lifecycle exercise. Review before running: this writes a temporary Scope Unit."""
 import asyncio
 from datetime import datetime

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Aspect
 tier: 3
-status: Active
-version: 4
-updated_at: 2026-11-02 18:21:51 +0400
+status: active
+version: 5
+updated_at: '2026-11-12T17:40:07+00:00'
 carrier_destination:
   file:
     name: CA-R-2543-CORE_META_MODEL-DECLARATION--declare-aspect.md
@@ -33,11 +33,14 @@ Declare Aspect
 
 ### Formal Claim
 
-```CFEL
-# model
-Aspect;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Node
 
-Aspect ((NARROWER_THAN)) Node
+class Aspect(Node):
+    pass
+
+declare_entity(entity_class=Aspect, entity_name='Aspect')
 ```
 
 ## Semantics

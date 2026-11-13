@@ -5,7 +5,7 @@ import sys
 from types import SimpleNamespace
 from unittest.mock import Mock, patch
 
-import pytest
+import unittest
 
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
@@ -14,7 +14,7 @@ from ATOM_LIFECYCLE.common import InputError, result  # noqa: E402
 from project_selection import ProjectSelection  # noqa: E402
 
 
-@pytest.fixture
+@contextmanager
 def runtime():
     selection = object.__new__(ProjectSelection)
     object.__setattr__(selection, 'root', Path('/project'))
@@ -39,11 +39,6 @@ def entry(ref, *, status=None):
     return value
 
 
-@pytest.mark.parametrize('name,entries', [
-    ('atom_lifecycle_archive', [entry('CA-R-1'), entry('CA-R-2')]),
-    ('atom_lifecycle_promote_draft', [entry('CA-R-1@1-draft', status='Active'),
-                                     entry('CA-R-2@1-draft', status='Done')]),
-])
 def test_batch_uses_one_lock_and_preserves_order(runtime, name, entries):
     selection, model, locks = runtime
     action = Mock(side_effect=lambda _s, _m, value: result(effects=[{'target': value['target']['ref_id']}]))
@@ -57,13 +52,6 @@ def test_batch_uses_one_lock_and_preserves_order(runtime, name, entries):
     assert output['remaining_targets'] == []
 
 
-@pytest.mark.parametrize('targets', [
-    [],
-    [entry('CA-R-1'), {'target': {'ref_id': 'CA-R-2', 'version': 0}}],
-    [entry('CA-R-1'), {'target': {'ref_id': 'other', 'version': 1}}],
-    [entry('CA-R-1'), entry('CA-R-2@1-draft')],
-    [entry('CA-R-1'), {'target': {'ref_id': 'CA-R-2', 'version': 1}, 'targetStatus': 'Done'}],
-])
 def test_batch_rejects_malformed_entries_before_any_effect(runtime, targets):
     selection, model, _ = runtime
     action = Mock()
@@ -119,3 +107,40 @@ def test_single_target_keeps_existing_result(runtime):
         output = backend.execute(selection, model, 'atom_lifecycle_archive', params)
     assert output == result(effects=[{'target': 'first'}])
     action.assert_called_once_with(selection, model, params)
+
+
+class BatchCases(unittest.TestCase):
+    def test_ordered_batches(self):
+        cases = [
+            ('atom_lifecycle_archive', [entry('CA-R-1'), entry('CA-R-2')]),
+            ('atom_lifecycle_promote_draft', [entry('CA-R-1@1-draft', status='Active'),
+                                             entry('CA-R-2@1-draft', status='Done')]),
+        ]
+        for name, entries in cases:
+            with self.subTest(name=name), runtime() as fixture:
+                test_batch_uses_one_lock_and_preserves_order(fixture, name, entries)
+
+    def test_malformed_batches(self):
+        cases = [
+            [],
+            [entry('CA-R-1'), {'target': {'ref_id': 'CA-R-2', 'version': 0}}],
+            [entry('CA-R-1'), {'target': {'ref_id': 'other', 'version': 1}}],
+            [entry('CA-R-1'), entry('CA-R-2@1-draft')],
+            [entry('CA-R-1'), {'target': {'ref_id': 'CA-R-2', 'version': 1}, 'targetStatus': 'Done'}],
+        ]
+        for targets in cases:
+            with self.subTest(targets=targets), runtime() as fixture:
+                test_batch_rejects_malformed_entries_before_any_effect(fixture, targets)
+
+
+def load_tests(loader, tests, pattern):
+    def run(test):
+        with runtime() as fixture:
+            test(fixture)
+
+    excluded = {'test_batch_uses_one_lock_and_preserves_order',
+                'test_batch_rejects_malformed_entries_before_any_effect'}
+    tests.addTests(unittest.FunctionTestCase(lambda test=test: run(test), description=name)
+                   for name, test in globals().items()
+                   if name.startswith('test_') and name not in excluded and callable(test))
+    return tests

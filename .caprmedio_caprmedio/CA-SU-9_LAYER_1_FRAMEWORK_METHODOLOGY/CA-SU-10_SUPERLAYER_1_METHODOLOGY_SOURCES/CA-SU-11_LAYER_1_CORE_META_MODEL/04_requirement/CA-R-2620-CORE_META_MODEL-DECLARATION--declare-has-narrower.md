@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_NARROWER
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T05:35:54.631909+00:00'
 carrier_destination:
   file:
     name: CA-R-2620-CORE_META_MODEL-DECLARATION--declare-has-narrower.md
@@ -25,7 +25,7 @@ Declare HAS_NARROWER
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//HAS_NARROWER <((HAS_INVERSE)) Relation//NARROWER_THAN
+relation(source="Relation//HAS_NARROWER", name="HAS_INVERSE", target="Relation//NARROWER_THAN", reverse=True)
 ```

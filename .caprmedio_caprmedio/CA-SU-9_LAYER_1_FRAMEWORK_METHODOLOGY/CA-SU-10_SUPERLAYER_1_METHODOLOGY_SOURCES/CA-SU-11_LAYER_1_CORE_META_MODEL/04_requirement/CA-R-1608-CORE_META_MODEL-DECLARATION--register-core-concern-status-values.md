@@ -6,14 +6,14 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern).Header.State.Status'
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern).Header.State.Status
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Concern)
   - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
 tier: 2
-status: Active
-version: 23
-updated_at: '2026-11-11T19:34:00+04:00'
+status: active
+version: 24
+updated_at: '2026-11-12T19:34:36.593311+00:00'
 carrier_destination:
   file:
     name: CA-R-1608-CORE_META_MODEL-DECLARATION--register-core-concern-status-values.md
@@ -37,11 +37,16 @@ the Core Concern Status model **must** inherit the allowed values of Atom.Header
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.Context.Role in (Concern)).Header.State.Status :: Resolved;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Concern
 
-Atom/(.Header.Context.Role in (Concern)).Header.State.Status :: Canceled;
-
-Atom/(.Header.State.Status := Resolved).Header.State.Status >| (Status Order Number == 21);
+declare_entity(
+    entity_name='Status',
+    relation_name="IS_PROPERTY_OF",
+    base_path='Atom.Header.State',
+    allowed_values=('Resolved', 'Canceled'),
+    status_order_numbers={'Resolved': 21},
+    applies_to_entity_classes=(Concern,),
+)
 ```

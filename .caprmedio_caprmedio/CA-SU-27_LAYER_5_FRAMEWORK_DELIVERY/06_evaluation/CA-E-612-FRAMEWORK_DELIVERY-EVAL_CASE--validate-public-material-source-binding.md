@@ -15,9 +15,9 @@ tier: 5
 relations:
   evaluation_for:
   - CA-M-366
-status: Active
-version: 18
-updated_at: 2026-11-09 15:54:30 +0400
+status: active
+version: 19
+updated_at: '2026-11-12T17:10:08.584172+00:00'
 carrier_destination:
   file:
     name: CA-E-612-FRAMEWORK_DELIVERY-EVAL_CASE--validate-public-material-source-binding.md
@@ -26,19 +26,16 @@ current_scope_unit: FRAMEWORK_DELIVERY
 claim_target_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 ---
-
-# Summary
+## Summary
 
 Validate public material source binding
 
-## Scope
+## Claim scope
 
 one selected public documentation closure.
 
 ## Claim
 
-**the Operator** **must** verify that README, full PR body, Version History carrier and selected Version remain the exact prepared public material bindings and reject substituted carrier, Version, document bytes or PR identity.
+### Prose Claim
 
-## Details
-
-The golden successful case contains distinct What's new and What's fixed PR sections. Adding only the actual matching PR URL to the already-generated concise Version History summary may change those metadata bytes while preserving the selected Version and all non-metadata source/material bindings. A substituted raw document byte, substantive summary rewrite, guessed or unrelated PR identity, or changed non-metadata binding is refused. This tests actual prepared material binding, not a retired CA-D-566 snapshot or a newly invented Source Proof serialization.
+Verify the README, full PR body, Version History and selected Version are the exact prepared public materials that were tested. The PR body has `New` and `Fixed` sections. The newest Version is first in Version History and has the actual matching PR URL. Reject substituted bytes, a different Version or PR, and a guessed link.

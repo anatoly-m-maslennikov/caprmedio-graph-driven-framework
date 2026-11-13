@@ -1,4 +1,4 @@
-<!-- CA-D-674@23 -->
+<!-- CA-D-674@26 -->
 <script lang="ts">
   import { tick } from 'svelte';
   let { open = false, title, initialValue = '', onsubmit, onclose }: { open?: boolean; title: string; initialValue?: string; onsubmit: (name: string) => void; onclose: () => void } = $props();

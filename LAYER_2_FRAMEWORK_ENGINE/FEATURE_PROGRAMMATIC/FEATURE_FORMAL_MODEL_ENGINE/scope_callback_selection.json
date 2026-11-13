@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "selected": {
+    "source_path": "METHODOLOGY/sources/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/CA-R-2554-CORE_META_MODEL-DECLARATION--declare-scope-unit-structural-level.md",
+    "pin": {
+      "atom_id": "CA-R-2554",
+      "version": 3,
+      "carrier_sha256": "f530d8653e4159f042c8ab8658b63d52767b2905a0a6ada53b3d25d1789838c5",
+      "claim_sha256": "786908c62264680d015c5843833a2c588304c31cc799369549fca3a0e1e6cf5f",
+      "artifact_sha256": "ee617768498fec4c15caff65e348d4e460952f7f65666a71eeb59ae5416704bc"
+    }
+  }
+}

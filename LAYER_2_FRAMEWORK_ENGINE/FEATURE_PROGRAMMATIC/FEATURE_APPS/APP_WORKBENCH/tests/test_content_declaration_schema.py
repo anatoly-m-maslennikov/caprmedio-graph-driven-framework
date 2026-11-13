@@ -1,4 +1,4 @@
-# CA-E-675@6
+# CA-E-675@14
 from __future__ import annotations
 
 from importlib.util import module_from_spec, spec_from_file_location
@@ -12,9 +12,13 @@ import yaml
 
 APP_ROOT = Path(__file__).resolve().parents[2]
 REPOSITORY_ROOT = Path(__file__).resolve().parents[5]
-sys.path[:0] = [str(APP_ROOT), str(REPOSITORY_ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS")]
+sys.path[:0] = [
+    str(APP_ROOT), str(APP_ROOT / "APP_WORKBENCH"), str(APP_ROOT.parent),
+    str(APP_ROOT.parent / "FEATURE_TOOLS"),
+]
 
 from carrier_aliases import carrier_read_view  # noqa: E402
+from FEATURE_FORMAL_MODEL_ENGINE.model_catalog import bindings_from_workbench_rows  # noqa: E402
 
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_columns import content_columns  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.content_schema import (  # noqa: E402
@@ -314,14 +318,14 @@ Keep this heading.""",
                  "## Claim\n\n### Prose Claim\n\nText.\n#### Prose heading\n\nStill prose.\n"
                  "```text\n## Fenced heading\n```\n",
         )
-        schema = compile_content_schema([*rows, requirement])
+        schema = self._compile_model_rows([*rows, requirement])
         self.assertTrue(
             {
                 "content.claim.formal_claim", "content.claim.prose_claim", "content.details",
                 "content.semantics", "content.summary",
             }.issubset(schema.names),
         )
-        self.assertEqual(compile_content_schema(rows).names, schema.names)
+        self.assertEqual(self._compile_model_rows(rows).names, schema.names)
         self.assertNotIn("content.summary.presentation_heading", schema.names)
         self.assertNotIn("content.claim.prose_claim.prose_heading", schema.names)
         self.assertNotIn("content.fenced_heading", schema.names)
@@ -337,7 +341,7 @@ Keep this heading.""",
 
     def test_prepared_header_grouping_keeps_the_real_content_schema(self) -> None:
         rows = self._current_model_rows()
-        before = compile_content_schema(rows)
+        before = self._compile_model_rows(rows)
         transform = self._prepared_reference_transform()
         prepared = []
         for row in rows:
@@ -345,14 +349,18 @@ Keep this heading.""",
             prepared.append({
                 **row,
                 "content_markdown": body,
+                "_content_bytes": body.encode("utf-8"),
                 "content_properties_json": parse_content(body, tolerate_duplicate_siblings=True),
             })
 
-        self.assertIn(
-            ".Header.Context.Role in RMED",
-            next(row["content_markdown"] for row in prepared if row["ref"] == "CA-R-2500"),
+        after = self._compile_model_rows(prepared)
+        claim_rules = [rule for rule in after.rules if rule.source.reference == "CA-R-2500"]
+        self.assertTrue(claim_rules)
+        self.assertEqual(
+            {frozenset({"Requirement", "Method", "Evaluation", "Delivery"})},
+            {rule.roles for rule in claim_rules},
         )
-        self.assertEqual(before.shape, compile_content_schema(prepared).shape)
+        self.assertEqual(before.shape, after.shape)
 
     def test_declaration_provenance_does_not_change_the_schema_shape(self) -> None:
         first = self.declaration("CA-R-1", "Atom.Content.Summary{::1}:: {::1};")
@@ -364,9 +372,15 @@ Keep this heading.""",
         self.assertNotEqual(original.asset(), replaced.asset())
 
     @staticmethod
+    def _compile_model_rows(rows: list[dict]):
+        bindings = bindings_from_workbench_rows(rows)
+        return compile_content_schema([{**row, "_model_class_bindings": bindings} for row in rows])
+
+    @staticmethod
     def _current_declaration(path: Path) -> dict:
         _opening, frontmatter, body = path.read_text(encoding="utf-8").split("---", 2)
-        header = carrier_read_view(yaml.safe_load(frontmatter))
+        metadata = yaml.safe_load(frontmatter)
+        header = carrier_read_view(metadata)
         return {
             "ref": header.get("ref_id"),
             "id": header.get("atom_id"),
@@ -376,6 +390,8 @@ Keep this heading.""",
             "form": header.get("form"),
             "status_group": "Current",
             "content_markdown": body,
+            "header_json": metadata,
+            "_content_bytes": body.encode("utf-8"),
             "content_properties_json": parse_content(body, tolerate_duplicate_siblings=True),
         }
 

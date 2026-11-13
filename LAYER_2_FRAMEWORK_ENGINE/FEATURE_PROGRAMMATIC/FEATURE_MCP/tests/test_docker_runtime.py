@@ -1,7 +1,7 @@
 """Runtime boundary tests for retained Docker MCP services."""
 
 # CA-M-504@2
-# CA-E-796@2
+# CA-E-796@4
 # CA-E-533@13
 
 import json
@@ -24,6 +24,13 @@ from runtime import Runtime  # noqa: E402
 
 class RuntimeTests(unittest.TestCase):
     image = "sha256:" + "a" * 64
+
+    def test_build_passes_timeout_to_image_manager(self):
+        runtime = Runtime(APP.parents[2])
+        with patch.object(runtime, "_image_manager") as factory:
+            factory.return_value.resolve.return_value = self.image
+            self.assertEqual(self.image, runtime.build(timeout=17))
+        factory.assert_called_once_with(create_temp=True, timeout=17)
 
     def setUp(self):
         self.temporary = APP.parents[2] / ".caprmedio_tmp/tests/docker-runtime"

@@ -1,3 +1,5 @@
+# CA-D-634@23
+
 """Render the existing typed Subject graph without admitting new model facts."""
 
 import re

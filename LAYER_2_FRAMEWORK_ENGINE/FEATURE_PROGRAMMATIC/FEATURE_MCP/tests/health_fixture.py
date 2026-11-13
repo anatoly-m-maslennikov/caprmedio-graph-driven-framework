@@ -32,7 +32,7 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
 
     async def backend_call(self, name, arguments):
         if name == "query_schema":
-            return {"outcome": "completed", "secret": arguments.get("secret"), "result": "fixture-result"}
+            return {"outcome": "completed", "secret": SECRET, "result": "fixture-result"}
         if name == "query_page":
             return {"outcome": "partial", "result": "partial-result"}
         if name == "query_load":
@@ -41,9 +41,9 @@ class HealthHTTPFixture(unittest.IsolatedAsyncioTestCase):
             raise RuntimeError(PROVIDER_DIAGNOSTIC)
         if name == "query_run":
             self.marker.write_text("slow-started")
-            await asyncio.sleep(arguments.get("delay", 0))
+            await asyncio.sleep(30)
         if name in {"workspace_list", "query_saved_list"}:
-            await asyncio.sleep(arguments.get("delay", 0))
+            await asyncio.sleep(0.02)
         return {"outcome": "completed", "worker": name}
 
     def headers(self, **extra):

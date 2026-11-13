@@ -1,6 +1,7 @@
 """Contract for the checked-in thin Project MCP bootstrap script."""
 
 import importlib.util
+import subprocess
 from pathlib import Path
 from types import SimpleNamespace
 import tempfile
@@ -40,6 +41,7 @@ class StartMcpScriptTests(unittest.TestCase):
             ]))
 
         command = run.call_args.args[0]
+        self.assertEqual(1800, run.call_args.kwargs["timeout"])
         self.assertEqual("uv", command[0])
         self.assertIn("--locked", command)
         self.assertIn("project-mcp", command)
@@ -49,6 +51,12 @@ class StartMcpScriptTests(unittest.TestCase):
         self.assertNotIn("docker", command)
         self.assertNotIn("worker", command)
         self.assertNotIn("workflow", command)
+
+    def test_launcher_timeout_is_reported(self) -> None:
+        module = self._module(SCRIPT)
+        root = APP.parents[2]
+        with patch.object(module.subprocess, "run", side_effect=subprocess.TimeoutExpired("uv", 1800)):
+            self.assertEqual(2, module.main(["--project-root", str(root), "--source-root", str(root)]))
 
     def test_deployed_bootstrap_uses_the_selected_installed_package_without_a_checkout(self) -> None:
         with tempfile.TemporaryDirectory(prefix="caprmedio-start-mcp-", ignore_cleanup_errors=True) as temporary:

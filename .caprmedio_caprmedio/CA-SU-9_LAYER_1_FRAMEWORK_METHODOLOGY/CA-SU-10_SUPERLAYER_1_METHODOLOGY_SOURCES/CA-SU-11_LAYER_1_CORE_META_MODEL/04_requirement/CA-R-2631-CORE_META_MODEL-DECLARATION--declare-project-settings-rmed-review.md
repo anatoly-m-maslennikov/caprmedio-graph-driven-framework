@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 2
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2631-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review.md
@@ -27,10 +27,18 @@ Declare Project.Settings.RMED Review
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Project.Settings.RMED Review{::0..1}:: []{::0};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Project.Settings.RMED Review.*[in (Context Headroom Fraction, Max Atoms)]{::0..2}
+declare_entity(
+    entity_name='RMED Review',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project.Settings',
+    property_occurrence_cardinality=Cardinality(minimum=0, maximum=1),
+    value_cardinality=0,
+    dependent_property_cardinality=Cardinality(minimum=0, maximum=2),
+    allowed_dependent_property_names=('Context Headroom Fraction', 'Max Atoms'),
+)
 ```
 

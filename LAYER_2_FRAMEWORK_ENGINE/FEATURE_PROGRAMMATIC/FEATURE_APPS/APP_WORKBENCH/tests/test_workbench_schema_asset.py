@@ -1,4 +1,5 @@
 # CA-E-677@23
+# CA-E-675@14
 """Both Workbench schema modes and their deterministic generated asset."""
 
 from __future__ import annotations
@@ -416,7 +417,9 @@ Atom.Header.Carrier Destination.File.Name:: {::1};
 
     def test_project_generator_uses_one_reader_capture_and_writes_exact_bytes(self) -> None:
         row = atom(header={"atom_id": "CA-R-1"})
-        reader = Mock(capture=Mock(return_value=([row], [])), model_rows=Mock(return_value=[row]))
+        draft = atom("CA-R-2", header={"atom_id": "CA-R-2"}, body="## Summary\n\nEdited Draft.\n")
+        draft["status_group"] = "Draft"
+        reader = Mock(capture=Mock(side_effect=[([row], []), ([row, draft], [])]), model_rows=Mock(return_value=[]))
         with patch(
             "APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.generate_workbench_schema.SourceReader",
             return_value=reader,
@@ -425,6 +428,7 @@ Atom.Header.Carrier Destination.File.Name:: {::1};
             second = compile_project_schema(Path("/project"))
         self.assertEqual(first, second)
         self.assertEqual(2, reader.capture.call_count)
+        self.assertEqual([], json.loads(first)["sources"])
 
 
 if __name__ == "__main__":

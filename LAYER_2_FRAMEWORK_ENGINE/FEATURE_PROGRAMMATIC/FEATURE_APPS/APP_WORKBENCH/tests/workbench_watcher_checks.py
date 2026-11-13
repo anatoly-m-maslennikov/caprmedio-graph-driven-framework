@@ -1,4 +1,4 @@
-# CA-E-780@7
+# CA-E-780@11
 """Docker watcher checks mixed into the existing Workbench E2E fixture."""
 
 from __future__ import annotations
@@ -228,7 +228,7 @@ class WorkbenchWatcherDockerMixin:
                 _process, _name, url, _stdout, _stderr = handle
                 status, schema = request(url + f"{workbench_path}/schema", method="POST", payload={})
                 self.assertEqual(200, status, schema)
-                self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_parse_issues", "atom_schema_issues", "atom_duplicate_revision_issues"}, set(schema["tables"]))
+                self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_parse_issues", "atom_schema_issues", "atom_duplicate_revision_issues", "archive_role_max", "archive_version_max", "live_runs", "query_log", "relations", "runtime_diagnostics"}, set(schema["tables"]))
                 self.assertEqual(
                     list(CHANGE_LOG_FIELDS),
                     [column["name"] for column in schema["tables"]["change_log"]],
@@ -424,7 +424,15 @@ class WorkbenchWatcherDockerMixin:
                     )
                 )
 
-                before_reread = sorted(_event_sort_key(row) for row in rows)
+                fixture_paths = {path for _, old, new in expected for path in (old, new) if path}
+
+                def fixture_events(events: list[dict[str, object]]) -> list[tuple[str, str, str, str]]:
+                    return sorted(
+                        _event_sort_key(row) for row in events
+                        if row["old_path"] in fixture_paths or row["new_path"] in fixture_paths
+                    )
+
+                before_reread = fixture_events(rows)
 
                 async def reread() -> dict[str, object]:
                     from mcp.client.session import ClientSession
@@ -439,14 +447,14 @@ class WorkbenchWatcherDockerMixin:
 
                 self.assertEqual({"service": "workbench", "status": "ready"}, asyncio.run(reread()))
                 reread_rows = wait_for_events(url, expected)
-                self.assertEqual(before_reread, sorted(_event_sort_key(row) for row in reread_rows))
+                self.assertEqual(before_reread, fixture_events(reread_rows))
                 assert_same_log(reread_rows)
 
                 stop_container(handle)
                 handle = start_container()
                 _process, _name, restarted_url, _stdout, _stderr = handle
                 restarted_rows = wait_for_events(restarted_url, expected)
-                self.assertEqual(before_reread, sorted(_event_sort_key(row) for row in restarted_rows))
+                self.assertEqual(before_reread, fixture_events(restarted_rows))
                 assert_same_log(restarted_rows)
             except Exception:
                 print("WATCHER_FAILURE_EVENTS " + json.dumps(_event_rows(workbench_state / "watcher-change-log.ndjson")))

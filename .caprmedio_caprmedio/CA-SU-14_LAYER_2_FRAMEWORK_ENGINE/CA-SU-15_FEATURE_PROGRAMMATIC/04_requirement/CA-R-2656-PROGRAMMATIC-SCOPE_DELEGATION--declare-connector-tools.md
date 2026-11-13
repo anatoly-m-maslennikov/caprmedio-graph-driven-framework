@@ -13,7 +13,7 @@ context:
 state:
   status: Active
   version: 4
-  updated_at: 2026-11-11 15:29:41 +0400
+  updated_at: '2026-11-12T15:04:13+00:00'
 destination:
   file:
     name: CA-R-2656-PROGRAMMATIC-SCOPE_DELEGATION--declare-connector-tools.md
@@ -56,7 +56,7 @@ Atom/(.Header.Context.Container.scope_unit in ("CA-SU-17"))/(.Header.Context.Rol
 
 ### Prose Claim
 
-Existing global default admissions, including existing Declaration families, remain unchanged; no additional pairs are granted. No exact Current Solution, Direct Policy, or Approach Policy Role/Form pair is selected. Analysis & Advisory / Code Synopsis remains admitted by the global default, and Plan / Work Report remains admitted only for an already admitted Task with the same Container and within the selected target boundary.
+Existing global default admissions, including existing Declaration families, remain unchanged; no additional pairs are granted. No exact Current Solution, Direct Policy, or Approach Policy Role/Form pair is selected. Plan / Work Report remains admitted only for an already admitted Task with the same Container and within the selected target boundary.
 
 For every admitted local Atom, the Header.Container-derived IS_CONTAINED_BY target must be exactly `Scope Unit//CONNECTOR_TOOLS` (`CA-SU-17`). Its HAS_ACTIVE_SUBJECT target is closed to exactly the declared model entities or declared instances resolved at these Current local main Subject addresses:
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Development <+ Architecture <+ Communication`

@@ -1,3 +1,5 @@
+# CA-M-506@8
+
 """Read gateway exclusions without loading a capability-discovery service."""
 
 from pathlib import Path

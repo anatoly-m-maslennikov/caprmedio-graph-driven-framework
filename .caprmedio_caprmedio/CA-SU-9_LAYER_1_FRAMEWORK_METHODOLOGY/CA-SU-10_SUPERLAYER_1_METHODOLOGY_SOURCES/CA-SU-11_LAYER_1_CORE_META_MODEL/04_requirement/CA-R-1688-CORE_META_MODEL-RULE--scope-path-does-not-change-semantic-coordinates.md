@@ -6,14 +6,14 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.Path
+  main_subject: CAPRMEDIO_MODEL <+ Scope Unit.Paths
 tier: 3
 relations:
   child_of:
   - CA-R-1776
-status: Active
-version: 40
-updated_at: "2026-11-11 18:46:16 +0400"
+status: active
+version: 41
+updated_at: '2026-11-12T22:48:36.180013+00:00'
 carrier_destination:
   file:
     name: CA-R-1688-CORE_META_MODEL-RULE--scope-path-does-not-change-semantic-coordinates.md
@@ -29,10 +29,4 @@ Scope path does not change semantic coordinates
 
 ### Prose Claim
 
-
-Scope paths in the current project.
-
-
-Scope path is a project-relative address containing **`>=0`** operator-labeled structural scopes ordered from broader parent **to** narrower child.
-
-the current project is ambient. Scope **may** govern ownership, applicability, **and** inheritance, but it never changes stable Artifact identity, Artifact form, Content Role, **or** Governance locus.
+A change to the physical Authority or Delivery folder coordinates alone preserves the stable identity, Form, Role, and governance locus of each affected Atom.

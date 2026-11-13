@@ -6,16 +6,17 @@ container:
 role: Delivery
 form: file_layout
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status >| Status Group := Backlog'
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status
+    >| Status Group := Backlog
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Label'
-  - 'CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status'
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Label
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.State.Status
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 tier: 3
-status: Active
-version: 28
-updated_at: '2026-11-11T19:34:00+04:00'
+status: active
+version: 29
+updated_at: '2026-11-12T19:34:44.489998+00:00'
 carrier_destination:
   file:
     name: CA-D-475-CORE_META_MODEL-FILE_LAYOUT--serialize-the-plan-backlog-directory.md
@@ -42,7 +43,6 @@ The Formal Claim supplies the shared base directory. The direct Backlog Containe
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.Context.Role := Plan)/(.Header.State.Status := Backlog).Header.Destination.File.Path == PATH_TEMPLATE("<owning scope unit>/<role folder>/<status folder>");
+```python
+placement_rules = ({"kind": "status", "role": "plan", "status": "backlog", "base": "role", "folder": "<status folder>"},)
 ```

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//ExpressionSeparator
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-05 22:47:24 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T05:28:34.204151+00:00'
 carrier_destination:
   file:
     name: CA-R-2597-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
@@ -27,9 +27,9 @@ Declare CFEL operator ;
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//ExpressionSeparator == ";"
+set_value(address='Operator//ExpressionSeparator', value='";"')
 ```
 
 ## Semantics

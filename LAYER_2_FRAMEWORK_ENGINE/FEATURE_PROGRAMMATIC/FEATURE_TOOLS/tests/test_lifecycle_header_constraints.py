@@ -1,3 +1,5 @@
+import unittest
+
 from ATOM_LIFECYCLE.header_constraints import compile_header_constraints, load_header_constraints
 
 
@@ -127,15 +129,18 @@ Atom/(.Header.Role: Concern).Header.Priority :: [string]{::1};
 
 
 def test_header_cardinality_asset_rejects_bad_bounds_and_loads_legacy_records():
-    import pytest
-
     row = {'kind': 'value', 'path': 'tags', 'selector': '', 'selected': '',
            'value': [1, 2], 'source': 'CA-R-1'}
     assert load_header_constraints([row], {'CA-R-1'}).values[0][3] == (1, 2)
     assert load_header_constraints([], {'CA-R-1'}).values == ()
     for bounds in ([2, 1], [-1, None], [1, True]):
-        with pytest.raises(ValueError):
+        with unittest.TestCase().assertRaises(ValueError):
             load_header_constraints([{**row, 'value': bounds}], {'CA-R-1'})
-    with pytest.raises(ValueError):
+    with unittest.TestCase().assertRaises(ValueError):
         compile_header_constraints([{'id': 'CA-R-1', '_content_bytes': (
             b'## Claim\n### Formal Claim\n```CFEL\nAtom.Header.Tags :: [string]{::2..1};\n```\n')}])
+
+
+def load_tests(loader, tests, pattern):
+    return unittest.TestSuite(unittest.FunctionTestCase(test) for name, test in globals().items()
+                              if name.startswith("test_") and callable(test))

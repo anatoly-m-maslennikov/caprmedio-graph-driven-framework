@@ -1,3 +1,4 @@
+# CA-M-551@2
 # CA-R-1308@27
 # CA-R-1521@34
 # CA-R-1539@25
@@ -64,13 +65,16 @@ _STATUS_ORDER = re.compile(
     r'\.Header\.State\.Status\s*>\|\s*\(\s*Status Order Number\s*==\s*(?P<order>0|[1-9][0-9]*)\s*\)$')
 
 
-def _formal_claim_blocks(body: str) -> tuple[str, ...]:
+def _formal_claim_blocks(body: str, *, model_class_bindings=None, skip_typed_model_properties=False) -> tuple[str, ...]:
     # Build-time only; loading an already compiled asset has no Workbench dependency.
-    workbench_parent = Path(__file__).resolve().parents[2] / 'FEATURE_APPS/APP_WORKBENCH'
+    programmatic = Path(__file__).resolve().parents[2]
+    if str(programmatic) not in sys.path:
+        sys.path.insert(0, str(programmatic))
+    workbench_parent = programmatic / 'FEATURE_APPS/APP_WORKBENCH'
     if str(workbench_parent) not in sys.path:
         sys.path.insert(0, str(workbench_parent))
     from FEATURE_WORKBENCH_BACKEND.declaration_cfel import formal_claim_blocks
-    return formal_claim_blocks(body)
+    return formal_claim_blocks(body, model_class_bindings=model_class_bindings, skip_typed_model_properties=skip_typed_model_properties)
 
 
 def _statements(block: str) -> list[str]:
@@ -134,7 +138,7 @@ class StatusModel:
                          if (r is None or canonical_role_name(r) == role) and (f is None or f == form))
 
 
-def compile_status_model(paths: Iterable[Path]) -> bytes:
+def compile_status_model(paths: Iterable[Path], *, model_class_bindings=None) -> bytes:
     """Compile only the supplied native current Declaration carriers."""
     sources = []
     declarations = []
@@ -152,7 +156,7 @@ def compile_status_model(paths: Iterable[Path]) -> bytes:
                 or meta.get('status') not in {'Active', 'active'}):
             raise StatusModelError(f'{path}: expected an Active Requirement Declaration with ID and version')
         sources.append({'atom_id': atom_id, 'version': version})
-        blocks = _formal_claim_blocks(carrier.body)
+        blocks = _formal_claim_blocks(carrier.body, model_class_bindings=model_class_bindings)
         if not blocks:
             raise StatusModelError(f'{path}: missing formal CFEL block')
         for block in blocks:
@@ -207,7 +211,7 @@ def _staged_declarations(root: Path) -> list[Path]:
                 or not matches_named_value(meta.get('role'), 'Requirement')
                 or not matches_named_value(meta.get('form'), 'Declaration')):
             continue
-        blocks = _formal_claim_blocks(carrier.body)
+        blocks = _formal_claim_blocks(carrier.body, skip_typed_model_properties=True)
         if any(_STATUS_TARGET.match(statement)
                for block in blocks for statement in _statements(block)):
             found.append(path)

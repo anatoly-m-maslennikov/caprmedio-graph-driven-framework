@@ -30,6 +30,303 @@ def body(*claim_lines, semantics=None):
 
 
 class ContractGraphTests(unittest.TestCase):
+    def test_content_recursion_is_general_and_ordering_is_rmed_only(self):
+        from subject_projection_data import build_subject_projection_data
+
+        roles = ("Requirement", "Method", "Evaluation", "Delivery")
+        atom = carrier("CA-R-1", "Atom", body("```CFEL", "Atom;", "```"))
+        role_rows = [carrier(f"CA-R-{index}", f"Atom/(.Header.Context.Role:={name})", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+            "from caprmedio.model import Atom", f"class {name}(Atom):", "    pass",
+            f"declare_entity(entity_class={name}, entity_name='{name}', qualification_property_path='Atom.Header.Context.Role')", "```"))
+            for index, name in enumerate((*roles, "Analysis"), start=2)]
+        legacy_prefix = "Atom/(.Header.Context.Role in RMED).Content"
+        legacy = body("```CFEL", "Atom.Content{::1} :: []{::0};", "Atom.Content.*[string]{::0+};",
+                      "Atom.Content.**[string]{::0+};", "Atom.Content.**:: [markdown];",
+                      f"{legacy_prefix}.Summary ;> {legacy_prefix}.Claim;",
+                      f"{legacy_prefix}.Semantics <; {legacy_prefix}.Claim;",
+                      f"{legacy_prefix}.Semantics ;> {legacy_prefix}.Details", "```")
+        native = body("### Formal Claim", "```python", "from caprmedio.formal_claims import Cardinality, declare_entity",
+                      "from caprmedio.model import Requirement, Method, Evaluation, Delivery",
+                      "declare_entity(entity_name='Content', relation_name='IS_PROPERTY_OF', base_path='Atom',",
+                      "  property_occurrence_cardinality=1, value_cardinality=0,",
+                      "  dependent_property_cardinality=Cardinality(minimum=0, maximum=None), dependent_property_name_format=str,",
+                      "  recursive_dependent_property_cardinality=Cardinality(minimum=0, maximum=None),",
+                      "  recursive_dependent_property_name_format=str, recursive_dependent_property_value_format='markdown',",
+                      "  ordered_dependent_property_roles=(Requirement, Method, Evaluation, Delivery),",
+                      "  ordered_dependent_property_pairs=(('Summary', 'Claim'), ('Claim', 'Semantics'), ('Semantics', 'Details')))",
+                      "```")
+        extra = carrier("CA-R-8", "Atom.Content.Extra.Nested", body("```CFEL", "Atom.Content.Extra.Nested{::1}:", "```"))
+        for claim in (legacy, native):
+            projection = build_subject_projection_data([atom, *role_rows, carrier("CA-R-7", "Atom.Content", claim), extra])
+            entries = projection["declarations"]["properties"]["Atom.Content"]
+            self.assertFalse(entries[0]["diagnostics"])
+            for name in (*roles, "Analysis"):
+                entity = next(row for row in projection["entities"] if row["identity"].endswith(f":={name})"))
+                props = {item["identity"]: item for item in entity["inherited_properties"]}
+                self.assertEqual("markdown", props["Atom.Content.Extra.Nested"]["effective_value_format"])
+                contracts = props["Atom.Content"]["contracts"]
+                self.assertTrue(any(c.get("selection") == "recursive_dependents" for c in contracts))
+                pairs = [(c["source_selector"].rsplit(".", 1)[1], c["target_selector"].rsplit(".", 1)[1])
+                         for c in contracts if c.get("relation") == "IS_ORDERED_RIGHT_BEFORE"]
+                self.assertEqual([("Summary", "Claim"), ("Claim", "Semantics"), ("Semantics", "Details")]
+                                 if name in roles else [], pairs)
+
+    def test_native_dependent_counts_match_legacy_claim(self):
+        address = "Atom.Header.Relations"
+        legacy = body("```CFEL", f"{address}{{::0..1}} :: []{{::0}};",
+                      f"{address}.*[string]{{::1+}};", f"{address}.* :: [string]{{::1+}}", "```")
+        native = body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+            "from caprmedio.formal_claims import Cardinality",
+            "declare_entity(entity_name='Relations', relation_name='IS_PROPERTY_OF', base_path='Atom.Header',",
+            "  property_occurrence_cardinality=Cardinality(minimum=0, maximum=1), value_cardinality=0,",
+            "  dependent_property_cardinality=Cardinality(minimum=1, maximum=None), dependent_property_name_format=str,",
+            "  dependent_property_value_format=str,",
+            "  dependent_property_value_cardinality=Cardinality(minimum=1, maximum=None))", "```")
+
+        def contracts(claim):
+            atom = carrier("CA-R-1", address, claim)
+            graph = compose_contract_graph([atom])
+            entry, = next(row for row in graph["entities"] if row["target"] == address)["own"]
+            self.assertFalse(entry["diagnostics"])
+
+            def format_name(value):
+                return "string" if value == "str" else value or None
+
+            return {
+                clause["selection"]: (format_name(clause.get("name_format")),
+                                      clause.get("occurrence_cardinality"),
+                                      format_name(clause.get("value_format")), clause.get("value_cardinality"))
+                for clause in entry["clauses"] if clause["kind"] == "property_constraint"
+            }
+
+        expected = contracts(legacy)
+        self.assertEqual({"property", "immediate_dependents", "immediate_dependent_values"}, expected.keys())
+        self.assertEqual(expected, contracts(native))
+
+    def test_native_order_keeps_property_scope_and_source(self):
+        from subject_projection_data import build_subject_projection_data
+
+        atom = carrier("CA-R-1", "Atom", body("```CFEL", "Atom;", "```"))
+        claim = carrier("CA-R-2", "Atom.Content.Claim", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+            "from caprmedio.model import Requirement, Method, Evaluation, Delivery",
+            "declare_entity(entity_name='Claim', relation_name='IS_PROPERTY_OF', base_path='Atom.Content',",
+            "  dependent_property_cardinality=2, allowed_dependent_property_names=('Prose Claim', 'Formal Claim'),",
+            "  ordered_dependent_property_pairs=(('Prose Claim', 'Formal Claim'),),",
+            "  applies_to_entity_classes=(Requirement, Method, Evaluation, Delivery))", "```"))
+        graph = compose_contract_graph([atom, claim])
+        prop = next(node for node in graph["entities"] if node["target"] == "Atom.Content.Claim")
+        order, = [clause for clause in prop["own"][0]["clauses"]
+                  if clause.get("relation") == "IS_ORDERED_RIGHT_BEFORE"]
+        self.assertEqual("relation_cardinality", order["kind"])
+        self.assertEqual("Atom.Content.Claim", order["bearer"])
+        self.assertEqual(("Atom.Content.Claim.Prose Claim", "Atom.Content.Claim.Formal Claim"),
+                         (order["source_selector"], order["target_selector"]))
+        self.assertEqual(("Requirement", "Method", "Evaluation", "Delivery"), order["applicable_entity_classes"])
+        self.assertEqual("CA-R-2", order["source"]["atom_id"])
+        role = carrier("CA-R-3", "Atom/(.Header.Context.Role:=Requirement)", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+            "from caprmedio.model import Atom", "class Requirement(Atom):", "    pass",
+            "declare_entity(entity_class=Requirement, entity_name='Requirement', qualification_property_path='Atom.Header.Context.Role')", "```"))
+        projection = build_subject_projection_data([atom, claim, role])
+        base = next(row for row in projection["entities"] if row["identity"] == "Atom")
+        self.assertNotIn("Atom.Content.Claim", [row["identity"] for row in base["direct_properties"]])
+        entity = next(row for row in projection["entities"] if row["identity"] == "Atom/(.Header.Context.Role:=Requirement)")
+        projected = next(row for row in entity["inherited_properties"] if row["identity"] == "Atom.Content.Claim")
+        self.assertIn(order, projected["contracts"])
+
+    def test_native_property_uses_explicit_bearer_and_preserves_written_subject(self):
+        step = "Atom/(.Header.Context.Role:=Operations)/Step"
+        topic = "CAPRMEDIO_MODEL <+ Step.Kind"
+        declarations = [
+            carrier("CA-R-1", step, body("```CFEL", f"{step};", "```")),
+            carrier("CA-R-2", "Other/Step", body("```CFEL", "Other/Step;", "```")),
+            carrier("CA-R-3", topic, body(
+                "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+                f"declare_entity(entity_name='Kind', relation_name='IS_PROPERTY_OF', base_path={step!r})",
+                "```")),
+        ]
+        graph = compose_contract_graph(declarations)
+        node, = [row for row in graph["entities"] if row["target"] == f"{step}.Kind"]
+        entry, = node["own"]
+        self.assertEqual(topic, entry["subject"])
+        self.assertEqual("CA-R-3", entry["source"]["atom_id"])
+        self.assertEqual("native_property_base_path", entry["binding"])
+        self.assertFalse(any(row["target"] in {"Step.Kind", "Other/Step.Kind"} for row in graph["entities"]))
+
+    def test_native_nested_bearers_resolve_independently_of_source_order(self):
+        def property_declaration(atom_id, subject, base, name):
+            return carrier(atom_id, subject, body(
+                "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+                f"declare_entity(entity_name={name!r}, relation_name='IS_PROPERTY_OF', base_path={base!r})",
+                "```"))
+
+        declarations = [
+            carrier("CA-R-1", "Atom", body("```CFEL", "Atom;", "```")),
+            property_declaration("CA-R-2", "Short.Header", "Atom", "Header"),
+            property_declaration("CA-R-3", "Header.Context", "Atom.Header", "Context"),
+            property_declaration("CA-R-4", "Context.Role", "Atom.Header.Context", "Role"),
+        ]
+        for rows in (declarations, list(reversed(declarations))):
+            graph = compose_contract_graph(rows)
+            targets = {entry["source"]["atom_id"]: node["target"]
+                       for node in graph["entities"] for entry in node["own"]}
+            self.assertEqual("Atom.Header.Context.Role", targets["CA-R-4"])
+
+    def test_native_python_class_inheritance_and_relation_metadata(self):
+        from current_subject_graph import compose_narrowing_graph
+
+        root = carrier("CA-R-1", "Atom", body("```CFEL", "Atom;", "```"))
+        method = carrier("CA-R-2", "Atom/(.Header.Context.Role := Method)", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+            "from caprmedio.model import Atom", "class Method(Atom):", "    pass",
+            "declare_entity(entity_class=Method, entity_name='Method', qualification_property_path='Atom.Header.Context.Role')",
+            "```"))
+        tree, _ = compose_narrowing_graph([root, method])
+        identities = {node["id"]: node["identity"] for node in tree["nodes"]}
+        self.assertIn(("Atom/(.Header.Context.Role:=Method)", "Atom"),
+                      {(identities[edge["relation_source"]], identities[edge["relation_target"]])
+                       for edge in tree["edges"]})
+        relation = carrier("CA-R-3", "Relation//CARRIES", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_relation",
+            "declare_relation(relation_name='CARRIES', source_endpoint={'level': 'instances', 'entity_paths': ('Carrier',)}, target_endpoint={'level': 'instances'}, inverse_alias='IS_CARRIED_BY', written_alias='>>')",
+            "```"))
+        clauses, diagnostics = extract_claim_constraints(relation)
+        self.assertEqual([], diagnostics)
+        self.assertEqual(2, sum(row["kind"] == "relation_endpoint" for row in clauses))
+        self.assertTrue(any(row.get("relation") == "HAS_INVERSE" for row in clauses))
+        self.assertTrue(any(row.get("glyph") == ">>" for row in clauses))
+
+    def test_native_direct_relation_preserves_the_legacy_inverse_view(self):
+        direct = carrier("CA-R-1", "Relation//CARRIES", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_relation",
+            "declare_relation(relation_name='CARRIES', source_endpoint={'level': 'instances', 'entity_paths': ('Carrier',)},",
+            "                 target_endpoint={'level': 'instances', 'ephemeral': False},",
+            "                 inverse_alias='IS_CARRIED_BY', targets_per_source=1)", "```",
+            "### Prose Claim", "The Carrier represents the object."))
+        inverse = carrier("CA-R-2", "Relation//IS_CARRIED_BY", body(
+            "### Formal Claim", "```CFEL", "Relation//IS_CARRIED_BY <((HAS_INVERSE)) Relation//CARRIES", "```"))
+        graph = compose_contract_graph([direct, inverse])
+        view = next(row["derived_view"] for row in graph["relations"] if row["target"] == "IS_CARRIED_BY")
+        endpoint, = view["endpoints"]
+        self.assertEqual({"level": "instances", "ephemeral": False}, endpoint["host"])
+        self.assertEqual(("Carrier",), endpoint["target"]["entity_paths"])
+        self.assertEqual({"minimum": 1, "maximum": 1}, endpoint["sources_per_target"])
+        self.assertEqual([], graph["missing_relation_semantics"])
+        direct_row = next(row for row in graph["relations"] if row["target"] == "CARRIES")
+        self.assertNotIn("derived_aliases", direct_row)
+
+    def test_native_inverse_without_separate_declaration_keeps_source_and_bounds(self):
+        direct = carrier("CA-R-1", "Relation//CARRIES", body(
+            "### Formal Claim", "```python",
+            "from caprmedio.formal_claims import Cardinality, declare_relation",
+            "declare_relation(relation_name='CARRIES',",
+            "  source_endpoint={'level': 'instances', 'entity_paths': ('Carrier',)},",
+            "  target_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},",
+            "  inverse_alias='IS_CARRIED_BY',",
+            "  targets_per_source=Cardinality(minimum=2, maximum=3),",
+            "  sources_per_target=Cardinality(minimum=1, maximum=5))",
+            "```", semantics="The Carrier represents the object."))
+        graph = compose_contract_graph([direct])
+        self.assertEqual(["CARRIES"], [row["target"] for row in graph["relations"]])
+        direct_row = graph["relations"][0]
+        alias, = direct_row["derived_aliases"]
+        self.assertEqual(("IS_CARRIED_BY", "Derived", "CARRIES"),
+                         (alias["name"], alias["classification"], alias["direct_relation"]))
+        self.assertEqual("CA-R-1", alias["source"]["atom_id"])
+        endpoint, = alias["endpoints"]
+        self.assertEqual(("Atom",), endpoint["host"]["entity_paths"])
+        self.assertEqual(("Carrier",), endpoint["target"]["entity_paths"])
+        self.assertEqual({"minimum": 1, "maximum": 5}, endpoint["targets_per_source"])
+        self.assertEqual({"minimum": 2, "maximum": 3}, endpoint["sources_per_target"])
+        self.assertEqual(2, len(direct_row["host_target"]))
+        self.assertIn("Derived Relation `((IS_CARRIED_BY))`", render_contract_graph(graph))
+
+    def test_ambiguous_native_inverse_does_not_create_a_derived_view(self):
+        def direct(atom_id, name):
+            return carrier(atom_id, "Relation//" + name, body(
+                "### Formal Claim", "```python",
+                "from caprmedio.formal_claims import declare_relation",
+                f"declare_relation(relation_name='{name}', source_endpoint={{'level':'instances'}},",
+                "  target_endpoint={'level':'instances'}, inverse_alias='SHARED')",
+                "```", semantics="Direct meaning."))
+        graph = compose_contract_graph([direct("CA-R-1", "FIRST"), direct("CA-R-2", "SECOND")])
+        self.assertTrue(all("derived_aliases" not in row for row in graph["relations"]))
+        declared = carrier("CA-R-3", "Relation//SHARED", body("### Prose Claim", "Other meaning."))
+        graph = compose_contract_graph([direct("CA-R-1", "FIRST"), declared])
+        self.assertTrue(all("derived_aliases" not in row for row in graph["relations"]))
+
+    def test_native_forms_with_same_local_class_name_keep_distinct_parents(self):
+        from current_subject_graph import compose_narrowing_graph
+
+        root = carrier("CA-R-1", "Atom", body("```CFEL", "Atom;", "```"))
+        carriers = [root]
+        for index, role in enumerate(("Method", "Evaluation"), 2):
+            parent = f"Atom/(.Header.Context.Role := {role})"
+            carriers.append(carrier(f"CA-R-{index}", parent, body(
+                "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+                "from caprmedio.model import Atom", f"class {role}(Atom):", "    pass",
+                f"declare_entity(entity_class={role}, entity_name='{role}')", "```")))
+            carriers.append(carrier(f"CA-R-{index + 10}", parent + "/(.Header.Context.Form := Decision)", body(
+                "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+                f"from caprmedio.model import {role}", f"class Decision({role}):", "    pass",
+                "declare_entity(entity_class=Decision, entity_name='Decision')", "```")))
+        tree, _ = compose_narrowing_graph(carriers)
+        identities = {node["id"]: node["identity"] for node in tree["nodes"]}
+        edges = {(identities[edge["relation_source"]], identities[edge["relation_target"]])
+                 for edge in tree["edges"]}
+        for role in ("Method", "Evaluation"):
+            parent = f"Atom/(.Header.Context.Role:={role})"
+            self.assertIn((parent + "/(.Header.Context.Form:=Decision)", parent), edges)
+
+    def test_native_namespace_classification_keeps_source(self):
+        row = carrier("CA-R-1", "CAPRMEDIO_MODEL", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+            "from caprmedio.model import Node", "class Model(Node):", "    pass",
+            'declare_entity(entity_class=Model, entity_name="MODEL", classifications={"Container": "yes"})',
+            "```"))
+        graph = compose_contract_graph([row])
+        namespace, = graph["namespaces"]
+        entry, = namespace["own"]
+        condition, = [clause for clause in entry["clauses"] if clause["kind"] == "classification_condition"]
+        self.assertEqual(("MODEL", "Container", "==", "yes"),
+                         tuple(condition[key] for key in ("subject_selector", "axis", "operator", "value")))
+        self.assertEqual(row["source"], condition["source"])
+        self.assertIn("MODEL >| Container == yes", render_contract_graph(graph))
+
+    def test_relation_declaration_and_scoped_property_projection(self):
+        from subject_projection_data import build_subject_projection_data
+
+        rows = [carrier("CA-R-1", "Atom", body("```CFEL", "Atom;", "```"))]
+        for index, role in enumerate(("Method", "Plan"), 2):
+            rows.append(carrier(f"CA-R-{index}", f"Atom/(.Header.Context.Role := {role})", body(
+                "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+                "from caprmedio.model import Atom", f"class {role}(Atom):", "    pass",
+                f"declare_entity(entity_class={role}, entity_name='{role}')", "```")))
+        rows.append(carrier("CA-R-6", "Atom.Content", body(
+            "### Formal Claim", "```CFEL", "Atom.Content.**:: [markdown];", "```")))
+        rows.append(carrier("CA-R-4", "Atom.Content.Semantics", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_entity",
+            "from caprmedio.model import Method",
+            "declare_entity(entity_name='Semantics', relation_name='IS_PROPERTY_OF', base_path='Atom.Content', applies_to_entity_classes=(Method,), value_cardinality=1)",
+            "```")))
+        rows.append(carrier("CA-R-5", "Relation//CARRIES", body(
+            "### Formal Claim", "```python", "from caprmedio.formal_claims import declare_relation",
+            "declare_relation(relation_name='CARRIES', source_endpoint={'level':'instances'}, target_endpoint={'level':'instances'})",
+            "```"), form="Relation Declaration"))
+        data = build_subject_projection_data(rows)
+        entities = {row["identity"]: row for row in data["entities"]}
+        method = entities["Atom/(.Header.Context.Role:=Method)"]
+        plan = entities["Atom/(.Header.Context.Role:=Plan)"]
+        self.assertIn("Content.Semantics", [row["relative_name"] for row in method["inherited_properties"]])
+        semantics = next(row for row in method["inherited_properties"] if row["relative_name"] == "Content.Semantics")
+        self.assertEqual("markdown", semantics["effective_value_format"])
+        self.assertEqual("CA-R-6", semantics["effective_value_format_sources"][0]["atom_id"])
+        self.assertNotIn("Content.Semantics", [row["relative_name"] for row in plan["inherited_properties"]])
+        self.assertIn("CARRIES", data["declarations"]["relations"])
+
     def test_python_model_claim_matches_cfel_and_retains_authored_source(self):
         cfel = carrier("CA-R-1", "Atom.Name", body("```CFEL", "# model", "Atom.Name:: [string]{::1};", "```"))
         raw = '# model\nproperty_rule(address="Atom.Name", value_format="string", values="1")\n'
@@ -52,6 +349,8 @@ class ContractGraphTests(unittest.TestCase):
         bad = carrier("CA-R-1", "Atom", body("### Formal Claim", "```python", "execute()", "```"))
         _, diagnostics = extract_claim_constraints(bad)
         self.assertEqual("python-formal-claim-invalid", diagnostics[0]["code"])
+        with self.assertRaisesRegex(ValueError, "CA-R-1@"):
+            compose_contract_graph([bad])
         prose = carrier("CA-R-2", "Atom", body("### Prose Claim", "```python", "execute()", "```"))
         workflow = carrier("CA-O-1", "Atom", body("### Formal Claim", "```python", "execute()", "```"), role="Operations")
         self.assertEqual(([], []), extract_claim_constraints(prose))
@@ -62,6 +361,26 @@ class ContractGraphTests(unittest.TestCase):
         python = carrier("CA-R-1", "Atom", body("```python", "# model",
                          'order_before(first="Atom.A", second="Atom.B")', "```"))
         self.assertEqual(extract_claim_constraints(cfel), extract_claim_constraints(python))
+
+    def test_operator_symbol_is_bound_to_its_declared_subject(self):
+        address = "CAPRMEDIO_MODEL <+ CFEL <+ Operator//Delivery"
+        cfel = carrier("CA-R-1", address, body("### Formal Claim", "```CFEL", "# model",
+                       'Operator//Delivery == ">>"', "```"))
+        python = carrier("CA-R-1", address, body("### Formal Claim", "```python", "# model",
+                         """set_value(address="Operator//Delivery", value='">>"')""", "```"))
+        clauses, diagnostics = extract_claim_constraints(cfel)
+        self.assertFalse(diagnostics)
+        self.assertEqual(extract_claim_constraints(python), (clauses, diagnostics))
+        self.assertEqual([(row["kind"], row["operator"], row["symbol"]) for row in clauses],
+                         [("operator_symbol", "Delivery", ">>")])
+        for subject, expression in ((address.replace("Delivery", "Alias"), 'Operator//Delivery == ">>"'),
+                                    (address, r'Operator//Delivery == "\q"')):
+            with self.subTest(subject=subject, expression=expression):
+                malformed = carrier("CA-R-1", subject, body("### Formal Claim", "```CFEL", "# model",
+                                    expression, "```"))
+                records, issues = extract_claim_constraints(malformed)
+                self.assertFalse(records)
+                self.assertEqual(len(issues), 1)
 
     def test_unary_relation_counts_keep_source_scope_and_no_target(self):
         graph = compose_contract_graph([

@@ -1,3 +1,5 @@
+# CA-M-549@2
+# CA-R-3066@2
 """Check parsed Atom rows against the installed, current declaration schema."""
 from __future__ import annotations
 
@@ -7,6 +9,7 @@ from collections.abc import Mapping
 from ATOM_LIFECYCLE.status_model import StatusModelError, canonical_status
 from carrier_aliases import carrier_read_view, matches_named_value
 from header_groups import header_value, path_value
+from project_root_container import is_logical_container
 
 from .header_columns import _matches_format
 from .markdown_content import content_lines, direct_markdown, source_markdown
@@ -33,7 +36,8 @@ class SourceSchemaAudit:
         return issues
 
     def _header(self, row, add):
-        metadata = row.get('header_json')
+        root_header = row.get('_project_root_header')
+        metadata = row.get('header_json') if root_header is None else root_header
         if not isinstance(metadata, dict):
             add('header', 'Header must be a mapping.')
             return None
@@ -44,11 +48,16 @@ class SourceSchemaAudit:
             return None
         self._decode_roles(view, add)
         role, form = view.get('role'), view.get('form')
-        projected = dict(row, role=role, form=form)
+        projected = dict(row, role=role, form=form, header_json=metadata)
         self._check_role_status(view, add)
         self._check_formats(metadata, projected, add)
-        for field, message, _allowed in self.schema.header_constraints.validate(view, metadata=metadata):
+        constraints = self.schema.header_constraints.validate(view, metadata=metadata)
+        for field, message, _allowed in constraints:
             add(field, message)
+        if root_header is not None and not is_logical_container(view.get('container')) and not any(
+            field == 'container' or field.startswith('container.') for field, _, _ in constraints
+        ):
+            add('container', 'Supply one Scope Unit or containing Atom.')
         return projected
 
     def _decode_roles(self, view, add):

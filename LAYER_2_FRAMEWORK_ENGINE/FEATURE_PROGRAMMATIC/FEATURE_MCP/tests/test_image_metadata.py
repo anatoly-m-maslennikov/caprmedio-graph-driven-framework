@@ -1,4 +1,6 @@
 """Functional image naming checks through the controlled Docker seam."""
+
+# CA-E-573@18
 import json
 import io
 from pathlib import Path
@@ -251,6 +253,7 @@ class ImageMetadataTests(unittest.TestCase):
 
     def test_runtime_cli_build_prints_immutable_digest(self) -> None:
         output = io.StringIO()
-        with patch.object(runtime.Runtime, "build", return_value=IMAGE), patch.object(sys, "argv", ["runtime.py", "build"]), redirect_stdout(output):
+        with patch.object(runtime.Runtime, "build", return_value=IMAGE) as build, patch.object(sys, "argv", ["runtime.py", "--build-timeout", "17", "build"]), redirect_stdout(output):
             runtime.main()
         self.assertEqual(IMAGE + "\n", output.getvalue())
+        build.assert_called_once_with(use_packaged_assets=False, timeout=17)

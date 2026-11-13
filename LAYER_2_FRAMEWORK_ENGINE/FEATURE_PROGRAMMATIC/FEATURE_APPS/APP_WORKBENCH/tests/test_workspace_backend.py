@@ -1,6 +1,6 @@
 # CA-E-684@6
 # CA-E-787@6
-# CA-E-788@1
+# CA-E-788@5
 from __future__ import annotations
 
 import datetime as dt
@@ -163,8 +163,10 @@ class WorkspaceBackendTests(unittest.TestCase):
             with self.subTest(arguments=arguments), self.assertRaisesRegex(ValueError, message):
                 self.call("view_run", workspace_id="native-a", view_id=query_view["id"], **arguments)
             self.assertEqual([[1], [2]], self.call("view_fetch", workspace_id="native-a", view_id=query_view["id"], offset=1, page_size=2)["rows"])
+        self.service._query_log._writer.submit(lambda: None).result(timeout=10)
         before_check = len(self.call("query_log_list", limit=20)["items"])
         self.call("view_check", workspace_id="native-a", view_id=query_view["id"])
+        self.service._query_log._writer.submit(lambda: None).result(timeout=10)
         self.assertEqual(before_check, len(self.call("query_log_list", limit=20)["items"]))
 
         self.call("view_update", workspace_id="native-a", view_id=query_view["id"], sql="SELECT FROM", expected_revision=1)
@@ -180,6 +182,7 @@ class WorkspaceBackendTests(unittest.TestCase):
         self.assertTrue(failed["error"])
         with self.assertRaisesRegex(ValueError, "no current result"):
             self.call("view_fetch", workspace_id="native-a", view_id=query_view["id"])
+        self.service._query_log._writer.submit(lambda: None).result(timeout=10)
         logs = self.call("query_log_list", limit=20)["items"]
         self.assertEqual("SELECT FROM", logs[0]["sql"])
         self.assertEqual("failed", logs[0]["outcome"])
@@ -196,7 +199,7 @@ class WorkspaceBackendTests(unittest.TestCase):
         )
         ordinary_failure = self.call("view_run", workspace_id="native-a", view_id=query_view["id"])
         self.assertEqual("failed", ordinary_failure["status"])
-        self.assertIn("restart required", ordinary_failure["error"])
+        self.assertEqual("query failed during execution", ordinary_failure["error"])
 
         expired_at = dt.datetime.now(dt.UTC) - dt.timedelta(days=8)
         log_path = self.service._query_log._hour_path(expired_at)

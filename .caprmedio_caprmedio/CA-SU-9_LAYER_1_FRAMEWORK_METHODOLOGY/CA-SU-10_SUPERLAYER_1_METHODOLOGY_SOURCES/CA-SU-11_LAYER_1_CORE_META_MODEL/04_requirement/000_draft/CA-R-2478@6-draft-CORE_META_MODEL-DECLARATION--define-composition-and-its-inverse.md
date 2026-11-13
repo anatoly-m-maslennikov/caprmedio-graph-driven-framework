@@ -30,17 +30,13 @@ The Target has classification `Container = yes`.
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-$part ((IS_CONTAINED_BY)) $container;
-
-Relation//CONTAINS ((IS_INVERSE_ALIAS_FOR)) Relation//IS_CONTAINED_BY;
-
-alias(Relation//IS_CONTAINED_BY) == "+>";
-
-alias(Relation//CONTAINS) == "/";
-
-Relation//IS_CONTAINED_BY ((HAS_CLASSIFICATION)) Derivation == Direct
+relation(source='$part', name='IS_CONTAINED_BY', target='$container')
+relation(source='Relation//CONTAINS', name='IS_INVERSE_ALIAS_FOR', target='Relation//IS_CONTAINED_BY')
+set_value(address='alias(Relation//IS_CONTAINED_BY)', value='"+>"')
+set_value(address='alias(Relation//CONTAINS)', value='"/"')
+classify(address='Relation//IS_CONTAINED_BY', axis='Derivation', value='Direct', notation='relation')
 ```
 
 ## Semantics

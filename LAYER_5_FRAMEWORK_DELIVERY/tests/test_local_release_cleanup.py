@@ -1,5 +1,7 @@
 """Obsolete cleanup is integrated around the native installed launcher."""
 
+# CA-E-573@18
+
 import subprocess
 from pathlib import Path
 import unittest
@@ -163,7 +165,8 @@ class LocalReleaseCleanupTests(unittest.TestCase):
             ),
         ):
             result = run_local_release(fixture.root, run_id="replace-same-fingerprint", runner=runner)
-        self.assertEqual("completed", result["outcome"], (result, docker.calls))
+        self.assertEqual("completed_with_cleanup_pending", result["outcome"], (result, docker.calls))
+        self.assertNotIn(("docker", "image", "rm", prior_image), docker.calls)
         self._assert_prior_replacement(calls, docker, identifier, prior_image)
 
     def test_failed_launcher_retains_predecessor_images(self) -> None:

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection.ID
 tier: 3
-status: Active
-version: 3
-updated_at: 2026-11-04 07:51:19 +0400
+status: active
+version: 4
+updated_at: '2026-11-13T03:54:21.584142+00:00'
 carrier_destination:
   file:
     name: CA-R-2537-CORE_META_MODEL-DECLARATION--declare-projection-id.md
@@ -26,15 +26,17 @@ Declare Projection.ID
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection.ID{::1}:: [string]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Projection.ID.*[]{::0};
-
-# instances
-DETERMINES(Projection//$projection, (.Form, .Scope Unit), (.ID));
-
-DETERMINES(Projection//$projection_2, (.ID), (.Form, .Scope Unit))
+declare_entity(
+    entity_name="ID", relation_name="IS_PROPERTY_OF", base_path="Projection",
+    property_occurrence_cardinality=1, value_format=str, value_cardinality=1,
+    dependent_property_cardinality=0,
+    population_functional_dependencies=(
+        {"keys": ("Form", "Scope Unit"), "dependents": ("ID",)},
+        {"keys": ("ID",), "dependents": ("Form", "Scope Unit")},
+    ),
+)
 ```
 

@@ -1,5 +1,7 @@
 """One current-source test image, never a running Project MCP installation."""
 
+# CA-M-409@14
+
 from __future__ import annotations
 
 from contextlib import contextmanager

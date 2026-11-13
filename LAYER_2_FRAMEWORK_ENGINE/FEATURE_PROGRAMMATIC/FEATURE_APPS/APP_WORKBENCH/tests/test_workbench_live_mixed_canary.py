@@ -1,5 +1,5 @@
-# CA-E-677@25
-# CA-E-794@3
+# CA-E-677@30
+# CA-E-794@5
 """Opt-in real-project reproduction of the mixed update/delete batch in C712."""
 
 from __future__ import annotations

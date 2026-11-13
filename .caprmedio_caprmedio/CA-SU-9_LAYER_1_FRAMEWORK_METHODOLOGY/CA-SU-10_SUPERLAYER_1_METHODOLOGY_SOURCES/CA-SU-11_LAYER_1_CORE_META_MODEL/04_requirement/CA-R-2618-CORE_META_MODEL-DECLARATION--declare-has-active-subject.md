@@ -8,15 +8,13 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//HAS_ACTIVE_SUBJECT
 tier: 3
-status: Active
-version: 3
-updated_at: 2026-11-03 23:25:51 +0400
+status: active
+version: 4
+updated_at: 2026-11-05 14:25:52 +0400
 carrier_destination:
   file:
     name: CA-R-2618-CORE_META_MODEL-DECLARATION--declare-has-active-subject.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
-current_scope_unit: CORE_META_MODEL
-claim_target_scope_unit: CORE_META_MODEL
 ---
 ## Summary
 
@@ -33,11 +31,12 @@ The Host is an Atom and the Target is the entity or instance resolved from its d
 Forward `Host ((HAS_ACTIVE_SUBJECT)) Target` and reverse `Target <((HAS_ACTIVE_SUBJECT)) Host` are written views of the same fact. Ownership cardinalities are supplied by their applicable rules; this endpoint signature does not itself create an ownership count.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//HAS_ACTIVE_SUBJECT ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom//$atom ((HAS_ACTIVE_SUBJECT)) $active_subject
+declare_relation(
+    relation_name='HAS_ACTIVE_SUBJECT',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+    target_endpoint={'level': 'model_entities_or_instances'},
+)
 ```
-

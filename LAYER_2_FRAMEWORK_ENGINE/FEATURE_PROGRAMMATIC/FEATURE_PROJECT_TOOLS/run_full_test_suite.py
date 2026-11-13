@@ -1,11 +1,14 @@
 """Run every source test module in a fresh interpreter; report skips honestly."""
 
+# CA-M-409@14
+
 from __future__ import annotations
 
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from contextlib import nullcontext
 import json
+from itertools import chain
 import os
 from pathlib import Path
 import subprocess
@@ -100,10 +103,12 @@ def run_module(
         "CAPRMEDIO_DOCKER_E2E": "1",
         "CAPRMEDIO_DOCKER_QUERY_E2E": "1",
     }
-    tools_root = root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS"
+    programmatic = root / APP.parent
+    apps = programmatic / "FEATURE_APPS"
     existing_pythonpath = environment.get("PYTHONPATH")
     environment["PYTHONPATH"] = os.pathsep.join(
-        path for path in (str(tools_root), existing_pythonpath) if path
+        path for path in (str(programmatic / "FEATURE_TOOLS"), str(programmatic), str(apps),
+                          str(apps / "APP_WORKBENCH"), existing_pythonpath) if path
     )
     print(f"Test module START: {module.relative_to(root)}", flush=True)
     try:
@@ -208,18 +213,26 @@ def _record_modules(root: Path, pending: dict) -> tuple[list[str], int, int]:
 def _run_modules(root: Path, modules: list[Path], environment: dict, integration: bool) -> int:
     failed = []
     tests = skipped = 0
+    workbench_tests = root / APP.parent / "FEATURE_APPS/APP_WORKBENCH/tests"
+    isolated = [module for module in modules if module.parent == workbench_tests and module.stem in {
+        "test_workbench_docker_e2e", "test_workbench_resource_docker_e2e",
+    }]
     with ThreadPoolExecutor(max_workers=2) as ordinary, ThreadPoolExecutor(max_workers=2) as docker:
         try:
             pending = {
                 (docker if _docker_module(root, module) else ordinary).submit(
                     run_module, root, module, environment
                 ): module
-                for module in modules
+                for module in modules if module not in isolated
             }
-            completed_failed, completed_tests, completed_skipped = _record_modules(root, pending)
-            failed.extend(completed_failed)
-            tests += completed_tests
-            skipped += completed_skipped
+            # Performance gates need an uncontended Docker daemon.
+            for batch in chain([pending], (
+                {docker.submit(run_module, root, module, environment): module} for module in isolated
+            )):
+                completed_failed, completed_tests, completed_skipped = _record_modules(root, batch)
+                failed.extend(completed_failed)
+                tests += completed_tests
+                skipped += completed_skipped
         except KeyboardInterrupt:
             for executor in (ordinary, docker):
                 executor.shutdown(wait=False, cancel_futures=True)

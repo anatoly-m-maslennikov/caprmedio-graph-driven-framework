@@ -8,12 +8,12 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_BLOCKED_BY
 tier: 1
-status: Active
-version: 2
-updated_at: 2026-11-04 16:52:59 +0400
+status: active
+version: 3
+updated_at: 2026-11-05 18:23:39 +0400
 carrier_destination:
   file:
-    name: CA-R-2762-DECLARATION--declare-is-blocked-by.md
+    name: CA-R-2762-CORE_META_MODEL-DECLARATION--declare-is-blocked-by.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 
@@ -25,18 +25,21 @@ Declare IS_BLOCKED_BY
 
 ### Prose Claim
 
-A dependent Plan may start only after each Plan it is blocked by is Done.
+A dependent Plan may start only after each Plan it is blocked by is Done. BLOCKS is the inverse alias: the prerequisite is written before the dependent.
 
 ### Formal Claim
 
-```CFEL
-# model
-Relation//IS_BLOCKED_BY ((HAS_INVERSE)) Relation//BLOCKS;
+```python
+from caprmedio.formal_claims import declare_relation
 
-Relation//IS_BLOCKED_BY ((HAS_CLASSIFICATION)) Derivation == Direct;
-
-# instances
-Atom/(.Header.Context.Role: Plan)//$dependent ((IS_BLOCKED_BY)) Atom/(.Header.Context.Role: Plan)//$prerequisite
+declare_relation(
+    relation_name="IS_BLOCKED_BY",
+    inverse_alias="BLOCKS",
+    endpoint_pairs=(
+        {"source_endpoint": {"level": "instances", "entity_paths": ("Atom/(.Header.Context.Role:=Plan)",)},
+         "target_endpoint": {"level": "instances", "entity_paths": ("Atom/(.Header.Context.Role:=Plan)",)}},
+    ),
+)
 ```
 
 ## Semantics

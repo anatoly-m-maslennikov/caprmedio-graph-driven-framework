@@ -46,7 +46,13 @@ def _scope_subject(value: str) -> str:
     if namespace == "CAPRMEDIO_STRUCTURE":
         return "structure"
     if namespace != "CAPRMEDIO_MODEL":
-        if isinstance(expression, notation.Path) and isinstance(expression.head, notation.Name) and not expression.steps:
+        if isinstance(expression, notation.Path) and isinstance(expression.head, notation.Name):
+            if expression.head.value == "CAPRMEDIO_MODEL" and expression.steps:
+                target = _contract_target(expression)
+                if target is not None and target[0] == "relation":
+                    return "model"
+            if expression.steps:
+                return "unresolved"
             if expression.head.value == "CAPRMEDIO_MODEL":
                 return "model"
             if expression.head.value == "CAPRMEDIO_STRUCTURE":

@@ -1,6 +1,7 @@
-# CA-R-2726@6
+# CA-R-2726@9
 # CA-M-500@3
-# CA-D-672@19
+# CA-D-672@22
+# CA-R-2723@6
 
 """Project transient parser records into the two public SQL tables."""
 

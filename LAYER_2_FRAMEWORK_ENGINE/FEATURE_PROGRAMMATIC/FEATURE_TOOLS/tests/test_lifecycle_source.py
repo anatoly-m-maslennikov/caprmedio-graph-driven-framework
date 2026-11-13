@@ -1,5 +1,7 @@
+# CA-E-827@1
 from pathlib import Path
 import hashlib
+import os
 import sys
 import tempfile
 import unittest
@@ -15,6 +17,8 @@ from lifecycle_placement_test_support import bind_placement, fixture_rules  # no
 from ATOM_LIFECYCLE.common import allocate_id  # noqa: E402
 from ATOM_LIFECYCLE.placement import _predecessor_status, _role_root  # noqa: E402
 from scope_unit_declarations import read_scope_unit_declarations  # noqa: E402
+from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier  # noqa: E402
+from ATOM_LIFECYCLE.draft import _summary  # noqa: E402
 
 
 class IndexedReader:
@@ -30,12 +34,23 @@ class IndexedReader:
                 and (prefix is None or atom_id.startswith(prefix))
                 and (under is None or path.is_relative_to(under))]
 
-    def lifecycle_read(self, path):
+    def lifecycle_read(self, path, *, descriptor=None):
+        if descriptor is not None:
+            return os.pread(descriptor, os.fstat(descriptor).st_size, 0)
         return path.read_bytes()
 
-    def lifecycle_last_id(self, selection, prefix):
-        return max((atom_id for atom_id, _ in self.lifecycle_candidates(selection, prefix=prefix)),
-                   key=lambda atom_id: (len(atom_id), atom_id), default=None)
+    def lifecycle_contexts(self, selection, ref_id):
+        contexts = []
+        for identity, path in self.rows:
+            if identity == ref_id:
+                carrier = parse_carrier(path.read_bytes(), path)
+                contexts.append((path, carrier.metadata, _summary(carrier.body)))
+        return contexts
+
+    def lifecycle_last_id(self, selection, prefix, *, ceiling=None):
+        ids = (atom_id for atom_id, _ in self.lifecycle_candidates(selection, prefix=prefix))
+        return max((atom_id for atom_id in ids if ceiling is None or int(atom_id[len(prefix):]) <= ceiling),
+                   key=lambda atom_id: int(atom_id[len(prefix):]), default=None)
 
     def lifecycle_declarations(self):
         return self.declarations
@@ -233,6 +248,26 @@ class SourceTest(unittest.TestCase):
         self.assertIsNone(source_module.query_reader())
         self.assertTrue(any(call[1] == 'CA-R-' for call in indexed.calls))
 
+    def test_allocate_in_project_range_with_and_without_index(self):
+        settings = self.control / 'caprmedio_project_settings.toml'
+        settings.write_text(settings.read_text().replace('project_prefix="CA"',
+                                                         'project_prefix="CA"\nautomatic_number_ceiling=100'))
+        self.selection = resolve_project(self.root)
+        current = self.carrier('CA-R-96-example.md', identity='CA-R-96')
+        archive = self.carrier('CA-R-098@1-old.md', identity='CA-R-098', status='Archived',
+                               folder=self.folder / '099_archived')
+        probe = self.carrier('CA-R-970308622-probe.md', identity='CA-R-970308622')
+        self.assertEqual('CA-R-99', allocate_id(self.selection, 'Requirement'))
+        indexed = IndexedReader(self.selection, [('CA-R-96', current), ('CA-R-098', archive),
+                                                 ('CA-R-970308622', probe)])
+        with source_module.bind_query_reader(indexed):
+            self.assertEqual('CA-R-99', allocate_id(self.selection, 'Requirement'))
+            self.assertEqual(probe, select_source(self.selection, 'CA-R-970308622').path)
+            last = self.carrier('CA-R-100-example.md', identity='CA-R-100')
+            indexed.rows.append(('CA-R-100', last))
+            with self.assertRaisesRegex(ValueError, 'reached its configured ceiling'):
+                allocate_id(self.selection, 'Requirement')
+
     def test_query_reader_rejects_outside_paths(self):
         indexed = IndexedReader(self.selection, [('CA-R-10', Path('/outside/CA-R-10-example.md'))])
         with source_module.bind_query_reader(indexed), self.assertRaises(SourceSelectionError):
@@ -260,29 +295,31 @@ class SourceTest(unittest.TestCase):
                           (('CA-R-10',), ('CA-R-10',)),
                           (('CA-R-10',), ('CA-R-10@1',))], queries)
 
-    def test_query_reader_uses_first_valid_carrier_for_each_revision(self):
-        from ATOM_LIFECYCLE.publish import resolve_replacement
-
-        invalid = self.carrier('CA-R-10-a.md', identity='CA-R-11')
-        older_current = self.carrier('CA-R-10-a2.md', version=1)
-        current = self.carrier('CA-R-10-b.md', version=2)
-        duplicate = self.carrier('CA-R-10-c.md', version=2)
-        bad_archived = self.carrier('CA-R-10@1-a.md', identity='CA-R-11', status='Archived')
-        archived = self.carrier('CA-R-10@1-b.md', status='Archived')
+    def test_query_reader_rejects_competing_carriers_before_read(self):
+        current = self.carrier('CA-R-10-a.md', version=1)
+        duplicate = self.carrier('CA-R-10-b.md', version=2)
+        archived = self.carrier('CA-R-10@1-a.md', status='Archived')
+        archived_copy = self.carrier('CA-R-10@1-b.md', status='Archived')
         draft = self.carrier('CA-R-10@3-draft-a.md', version=3, status='Draft')
+        draft_copy = self.carrier('CA-R-10@3-draft-b.md', version=3, status='Draft')
         indexed = IndexedReader(self.selection, [('CA-R-10', path) for path in
-                               (invalid, older_current, current, duplicate, bad_archived, archived, draft)])
+                               (current, duplicate, archived, archived_copy, draft, draft_copy)])
         with (source_module.bind_query_reader(indexed),
-              patch.object(type(self.selection), '_revalidate_boundary', side_effect=AssertionError('project check')),
-              patch.object(source_module, '_inventory_paths', side_effect=AssertionError('unexpected scan'))):
-            self.assertEqual(current, select_source(self.selection, 'CA-R-10', expected_version=2).path)
-            self.assertEqual(older_current, select_source(self.selection, 'CA-R-10').path)
-            selected = source_module.select_sources(self.selection, ['CA-R-10@1', 'CA-R-10@3-draft'])
-            self.assertEqual(archived, selected['CA-R-10@1'].path)
-            self.assertEqual(draft, selected['CA-R-10@3-draft'].path)
-            self.assertEqual(older_current, resolve_replacement(self.selection, 'CA-R-10').path)
-            self.assertEqual('CA-R-11', allocate_id(self.selection, 'Requirement'))
-            self.assertEqual('TEST', _role_root(self.selection, 'Requirement', 'TEST')[0]['scope_unit_name'])
+              patch.object(indexed, 'lifecycle_read', side_effect=AssertionError('unexpected read'))):
+            for ref, version in [('CA-R-10', None), ('CA-R-10', 2),
+                                 ('CA-R-10@1', None), ('CA-R-10@3-draft', None)]:
+                with self.subTest(ref=ref, version=version), self.assertRaisesRegex(SourceSelectionError, 'ambiguous'):
+                    select_source(self.selection, ref, expected_version=version)
+            with self.assertRaisesRegex(SourceSelectionError, 'ambiguous'):
+                source_module.select_sources(self.selection, ['CA-R-10@1', 'CA-R-10@3-draft'])
+
+    def test_query_reader_does_not_skip_stale_selected_carrier(self):
+        current = self.carrier('CA-R-10-a.md', identity='CA-R-11')
+        indexed = IndexedReader(self.selection, [('CA-R-10', current)])
+        with source_module.bind_query_reader(indexed), patch.object(indexed, 'lifecycle_read', wraps=indexed.lifecycle_read) as read:
+            with self.assertRaises(SourceSelectionError):
+                select_source(self.selection, 'CA-R-10')
+            self.assertEqual(1, read.call_count)
 
 
 if __name__ == '__main__':

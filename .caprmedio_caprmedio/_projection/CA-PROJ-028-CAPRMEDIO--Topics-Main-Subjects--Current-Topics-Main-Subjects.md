@@ -1,0 +1,971 @@
+---
+artifact_form: Projection
+projection_id: CA-PROJ-028
+form: topic_main_subjects
+scope_unit: CA-SU-00
+source:
+  named_selection: Named Selection//Current Topics Main Subjects
+updated_at: '2026-11-13T01:27:46+00:00'
+---
+
+# Main Subjects
+
+- <code>aspect &lt;+ product</code>
+- <code>aspects &lt;+ product</code>
+- <code>Atom/Content Role: Analysis &amp; Advisory/Type: External Analysis Report</code>
+- <code>Atom/Content Role: Analysis &amp; Advisory/Type: Rationale</code>
+- <code>Atom/Status</code>
+- <code>Bounded first-partition alignment-report evidence</code>
+- <code>Bounded first-partition design report and decision harvest</code>
+- <code>Bounded first-partition filename-migration continuation evidence</code>
+- <code>Bounded first-partition report-fix decision harvest</code>
+- <code>Bounded harvest completion timing</code>
+- <code>Bounded Task closure and next-stage rebinding reconciliation</code>
+- <code>Calibration and legacy preparation gap acceptance</code>
+- <code>CAPRMEDIO_MODEL</code>
+- <code>CAPRMEDIO_MODEL &lt;+ (Node, Node.**)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Action Run</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Actor</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Actor.Name</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Aspect</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Aspect/Engineering/Traceability</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Content</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Content.Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Content.Claim.Formal Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Content.Claim.Prose Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Content.Details</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Content.Semantics</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Content.Summary</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Governance Origin</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Container</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Container.atom</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Container.scope_unit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Label</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Role</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Tier</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Tier.Label</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Topics</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Topics.Dependencies</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Context.Topics.Main Subject</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Destination</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Destination.File</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Destination.File.Name</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Destination.File.Path</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Identity</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Identity.ID</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Identity.Ref ID</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.Relations</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Status &gt;| Status Group</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Status &gt;| Status Group := Archived</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Status &gt;| Status Group := Current</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Status &gt;| Status Group := Draft</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Status:Archived</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Status:Draft</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Updated At</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Header.State.Version</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Local Scope Unit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom.Target Scope Unit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Form := Requirement)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Form := Scope Delegation)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Form := Scope Unit Declaration)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Form := Work Report)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := "Analysis &amp; Advisory").Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := "Analysis &amp; Advisory")/(.Header.Context.Form := FPF Analysis Report)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := "Analysis and Advisory")</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := "Analysis and Advisory").Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := "Analysis and Advisory").Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := "Analysis and Advisory")/(.Header.Context.Form := Rationale)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Concern)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Concern).Header.Context.Concern</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Concern).Header.Context.Concern.Priority</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Concern).Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Concern).Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Concern).Local Scope Unit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Concern)/(.Header.Context.Form := Implementation Discrepancy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery).Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery).Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery)/(.Header.Context.Form := Approach Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery)/(.Header.Context.Form := Decision)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery)/(.Header.Context.Form := Direct Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery)/(.Header.Context.Form := File Layout)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Delivery)/(.Header.Context.Form := Solution)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation).Content.Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation).Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation).Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation)/(.Header.Context.Form := Approach Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation)/(.Header.Context.Form := Decision)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation)/(.Header.Context.Form := Direct Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Evaluation)/(.Header.Context.Form := Solution)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method).Content.Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method).Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method).Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method)/(.Header.Context.Form := Approach Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method)/(.Header.Context.Form := Decision)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method)/(.Header.Context.Form := Direct Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method)/(.Header.Context.Form := Solution)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Method)/(.Header.Context.Form := Term Definition)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations).Content.Operation</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations).Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations).Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Approach Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Decision)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Direct Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Solution)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow).Enabled Relations.Contains</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Action</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Action.Execution Kind</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Step</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Substep</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Workflow</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Workflow.Purpose</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Workflow/(.Purpose := Project)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Operations)/Workflow/(.Purpose := Runtime)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Assignee</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Content</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Content.Definition of Done</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Enabled Relations.Contains</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.Context.Label</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan.AI Agent Confidence Threshold</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan.Work Sequence Number</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.Context.Topics.Main Subject</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan).Header.State.Status &gt;| Status Group := Backlog</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form := Plan)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form := Work Report)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement).Content.Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement).Header.Context.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement).Header.State.Status</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Approach Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Constraint)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Declaration)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Demand)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Demand).Target Scope Unit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Direct Policy)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Project Goal)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Relation Declaration)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Solution)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role: Delivery).Content.Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role: Plan).Implementation Retry Limit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role: Requirement)/(.Header.Context.Form: Project Goal)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role:=Operations)/Action</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role:=Operations)/Workflow</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Atom/(.Header.Context.Role:=Plan).Header.Context.Plan.AI Agent Confidence Threshold</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/Database</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/Directory</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/Docker Image</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/File</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/File.Main Content</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/File/Markdown</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/File/Markdown/Markdown Atom Carrier</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/Git Branch</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/Git Commit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/Git Repository</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Carrier/Pull Request</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Cardinality</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format.Data Type</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format.Uniqueness Selection</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format//markdown</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format/bool</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format/datetime</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format/decimal</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format/float</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format/int</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format/scalar</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Format/string</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Operator//Alias</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Operator//Conjunction</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Operator//Disjunction</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Operator//Lookup</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation.Meaning</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation.Name</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//BLOCKS</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//CARRIES</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//child_of</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//concern_about</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//CONTAINS</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//CONTRIBUTES_TO</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//delivery_for</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//DEPENDS_ON</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//depends_on</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//DERIVED_FROM</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//evaluation_for</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//evidence_for</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//EXECUTES</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//feature_realization</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//GOVERNS</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_ACTIVE_SUBJECT</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_CLASSIFICATION</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_EVENT_AUTHOR</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_EXECUTION</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_INSTANCE</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_INVERSE</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_NARROWER</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//HAS_PROPERTY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//implementation_of</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//INSTANCE_OF</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_BLOCKED_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_CARRIED_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_CONTAINED_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_DECLARED_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_DERIVED_RELATION_OF</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_EVENT_AUTHOR_OF</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_EXECUTED_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_EXECUTION_OF</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_INVERSE_ALIAS_FOR</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_PROPERTY_OF</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_RECORDED_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_REPLACEMENT_FOR</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_RUN_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_SPECIALIZED_BY</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//IS_WORK_REPORT_FOR</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//method_for</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//NARROWER_THAN</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//PRODUCES</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//rationale_for</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//RECORDS</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//RECURSIVELY_CONTAINS</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//required_by</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//RUNS</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//SPECIALIZES</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL &lt;+ Relation//structural_parent</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL/Function//PATH_TEMPLATE</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Addition</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//AllowedValue</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Conclusion</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Condition</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Delivery</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//ExpressionSeparator</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Fallback</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//GreaterOrEqual</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//GreaterThan</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Grouping</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//ImmediateWildcard</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Inequality</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Instance</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//InstanceBinding</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//LessOrEqual</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//LessThan</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Membership</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//NamedRelationDirection</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Narrowing</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//Property</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//RecursiveWildcard</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//RelationEndpointSignature</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//SelectionExclusion</code>
+- <code>CAPRMEDIO_MODEL &lt;+ CFEL&lt;+Operator//SubjectValueSelection</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Actor/AI Agent</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Actor/AI Agent.Permissions</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Actor/Operator</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Governing Objects/Governing Configuration</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/History</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/History/Release.ID</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Projection/(.Form: Entities Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Projection/(.Form: Implementation Overview)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Projection/(.Form: Scope Unit Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Projection/(.Form: Subject Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Projection/(.Form: Terms Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Selection</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit.Children</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit.Parent</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Necessary Information Threshold</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Confidence.Semantic Resolution Threshold</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Implementation Retry Limit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Interaction</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Framework Settings.Parameter Resolution</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Operator Registry</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Structural Unit/Scope Unit/Project.Settings.Identifier</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Term//Artifact</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Term//Dependent Entity</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Continuant/Term//Property</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Occurrent/Execution</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Occurrent/Execution/Step Run</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Occurrent/Execution/Step Run.Agentic Step Execution Context</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Occurrent/Execution/Step Run.Invocation Context</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Occurrent/Execution/Workflow Run</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Object/Occurrent/Execution/Workflow Run.Implementation Retry Limit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Entity/Property</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Evaluation</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.action</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.happened_at</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.ID</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.inserted_at</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_input</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_input.id</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_input.updated_at</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_input.version</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_output</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_output.id</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_output.updated_at</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.object_output.version</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.Relations</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Event Record.Relations.HAS_EVENT_AUTHOR</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Execution</code>
+- <code>CAPRMEDIO_MODEL &lt;+ External Local Runtime</code>
+- <code>CAPRMEDIO_MODEL &lt;+ External Remote Runtime</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Internal Local Runtime</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Internal Remote Runtime</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Journal</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Model</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Named Selection</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Node</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Node &gt;| Container</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Node.**</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Node/Continuant</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Node/Occurrent</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Package</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Package.structural_level</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Package/Implementation</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Package/Project Package</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Plan</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project</code>
+- <code>CAPRMEDIO_MODEL &lt;+ PROJECT STRUCTURE</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.AI Agent Confidence Threshold</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Artifact Timestamp Timezone</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Authority Modes</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Authority Modes.Default Scope Unit Authority Mode</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Authority Modes.Project Authority Mode</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Code-Root Locators</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Confidence</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Confidence.Necessary Information Threshold</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Confidence.Semantic Resolution Threshold</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Framework Control-Root Locator</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Implementation Retry Limit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Interaction</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Interaction.Reporting Mode</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Interaction.Reporting Mode := silent</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Interaction.Reporting Mode := verbose</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Name</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.Prefix</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.RMED Review</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.RMED Review.Context Headroom Fraction</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Project.Settings.RMED Review.Max Atoms</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection.Form</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection.ID</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection.Scope Unit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection.Source</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection.Source.Atoms</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection.Source.Named Selection</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection.Updated At</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Applicable Methodology)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Canonical Signature)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Catalog)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Entity Definition and Active Subject Coverage)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Hub)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Map)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Passive Only Subjects)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Primary Entities Tree)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Primary Entities with Direct Properties)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Primary Entities with Inherited Formal Claims)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Primary Entities with Inherited Property Contracts)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Realization Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form := Subjects without Requirement Declarations)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Applicable Methodology)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Canonical Scope Signature)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Canonical Signature)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Catalog)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Direct Relation Registry)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Entities Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Realization Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Projection/(.Form:=Scope Unit Graph)</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Runtime</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.ID</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.Label</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.Name</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.order</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.order.number</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.order.ordered</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.Path</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.Paths</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.Paths.Authority</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.Paths.Delivery</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.Project Boundary Position</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Scope Unit.structural_level</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Session</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Skill</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Step Run</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Step.Content.Claim.Mermaid Scheme</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Step.Fixed Parameters</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Step.Inputs</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Step.Kind</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Step.Outputs</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Subject</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term.Name</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Artifact</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Change Content Roles</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Empty</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Entity</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//ID</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Object</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Property</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Term</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Term//Type</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Workflow Run</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Workflow.Content.Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Workflow.Content.Claim.Formal Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Workflow.Content.Claim.Mermaid Scheme</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Workflow.Content.Claim.Prose Claim</code>
+- <code>CAPRMEDIO_MODEL &lt;+ Workspace</code>
+- <code>CAPRMEDIO_MODEL/CFEL/Relation//IS_ORDERED_RIGHT_AFTER</code>
+- <code>CAPRMEDIO_STRUCTURE</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Architecture &lt;+ Communication</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Architecture &lt;+ Communication &lt;+ Interface Contracts</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Architecture &lt;+ Component Structure</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Authoring</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Authoring &lt;+ Controlled English</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Authoring &lt;+ Prompt Authoring</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Data Transformation</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Data Validation</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Schema</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Source Selection</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Decision Confidence</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Effect Authorization</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Failure Handling</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Observability</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Observability &lt;+ Logging</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Observability &lt;+ Monitoring</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Traceability</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Coverage</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Static Analysis</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Test Design</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Product</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ Text Writing Style</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ UX &lt;+ Discovery and Navigation</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Aspects &lt;+ UX &lt;+ Entry</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Action)//Implementation Retry Control</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow)//Applicable Methodology Compilation</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow)//Implementation Workflow</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow)//Release Readiness</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow)//RMEDO Conflict Resolution</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Entity/Object/Continuant/Selection//Methodology Sources</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Entity/Object/Continuant/Selection//PROJECT_LEXICOGRAPHIC</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Entity/Object/Continuant/Selection//PROJECT_PRIORITY_MODEL</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Named Selection//Extension Sources</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Project//caprmedio</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Projection//PROJECT_SCOPE_UNIT_GRAPH</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//ACTION_ENGINE</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//ADAPTERS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//ATOM_ACTIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//BATCH_SCHEDULER</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//COMMUNITY_EXTENSIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//CORE_EXTENSIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//CORE_META_MODEL</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//FIELD</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//FORMAL_MODEL_ENGINE</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//FRAMEWORK_DELIVERY</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//INSTALLED_EXTENSIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//JOURNAL_ACTIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//METHODOLOGY_SOURCES</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//OPERATOR_DOCUMENTATION</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//PROJECT_ACTIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//PROJECT_CONFIGURATION</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//PROJECT_TOOLS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//PROJECTION_ACTIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//QUEUE_ACTIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//SCHEDULERS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//SCOPE_UNIT_ACTIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//SINGLE_ACTIONS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//TOOL_WORKFLOWS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//TOOLS</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//WORKFLOW_SCHEDULER</code>
+- <code>CAPRMEDIO_STRUCTURE &lt;+ Scope Unit//WORKFLOWS</code>
+- <code>Closed-corpus candidate family register</code>
+- <code>Coalesced prepared-result assessment gap review</code>
+- <code>Compared F14 Operation carrier conformance</code>
+- <code>Compared F15 source carrier conformance</code>
+- <code>Conversation Audit</code>
+- <code>Decision Closure</code>
+- <code>Decision Realization Audit</code>
+- <code>Empirical evaluator improvement reconciliation</code>
+- <code>Entity</code>
+- <code>Entity/Aspect/Engineering/Operation/Execution Control</code>
+- <code>Entity/Aspect/Product: CAPRMEDIO Framework</code>
+- <code>Entity/Graph Syntax &gt; Format</code>
+- <code>Entity/Graph Syntax &gt; Relation</code>
+- <code>Entity/Node/Continuant/Implementation</code>
+- <code>Entity/Object/Continuant</code>
+- <code>Entity/Object/Continuant/Governing Objects/Atom/Content Role: Delivery/Type: Policy</code>
+- <code>Entity/Object/Continuant/History</code>
+- <code>Entity/Object/Continuant/Package/Project Package</code>
+- <code>Entity/Object/Continuant/Projection</code>
+- <code>Entity/Object/Continuant/Projection/Type: Applicable Methodology</code>
+- <code>Entity/Object/Continuant/Structural Unit/Scope Unit</code>
+- <code>Entity/Object/Continuant/Structural Unit/Scope Unit.ID</code>
+- <code>Entity/Object/Occurrent/Execution.Result</code>
+- <code>F01 complete saved authority and scoped-permission rollup</code>
+- <code>F01 completed-family independent assessment</code>
+- <code>F01 first authority and scoped-permission intent packet</code>
+- <code>F01 second authority and scoped-permission intent packet</code>
+- <code>F01 third authority and scoped-permission intent packet</code>
+- <code>F04 final inventory-freeze intent</code>
+- <code>F04 first loss-preserving intent packet</code>
+- <code>F04 independent completed-family review</code>
+- <code>F04 replacement and lineage reconciliation rollup</code>
+- <code>F04 second loss-preserving intent packet</code>
+- <code>F05 owning Operations Carrier Property headings</code>
+- <code>F05 settings and derived facts reconciliation</code>
+- <code>F07 complete saved-comparison rollup</code>
+- <code>F07 completed-family independent review</code>
+- <code>F07 first saved-intent packet reconciliation</code>
+- <code>F07 second saved-intent packet reconciliation</code>
+- <code>F08 completed-family independent review</code>
+- <code>F08 family reconciliation rollup</code>
+- <code>F08 final seven saved intent references</code>
+- <code>F08 first eighteen saved intent references</code>
+- <code>F08 mapping-admission Operation Carrier layout limit</code>
+- <code>F08 packet 2 local check recovery</code>
+- <code>F08 packet four reconciliation</code>
+- <code>F08 second eighteen saved intent references</code>
+- <code>F08 third eighteen saved intent references</code>
+- <code>F09 Action/Step participation and thin-handoff reconciliation</code>
+- <code>F10 compared source Carrier conformance limits</code>
+- <code>F10 complete saved-comparison rollup</code>
+- <code>F10 completed-family independent review</code>
+- <code>F10 evidence admission and truthful coverage final packet</code>
+- <code>F10 evidence admission and truthful coverage first packet</code>
+- <code>F10 evidence admission and truthful coverage packet two</code>
+- <code>F11 typed graphs and faithful projections reconciliation</code>
+- <code>F13 completed-family independent assessment</code>
+- <code>F13 final save-boundary and recovery packet</code>
+- <code>F13 first save-boundary and interruption-recovery packet</code>
+- <code>F13 saved-result family rollup</code>
+- <code>F13 second save-boundary and interruption-recovery packet</code>
+- <code>F16 legacy behavior extraction and RMED reconstruction reconciliation</code>
+- <code>F16 saved-candidate evidence read-boundary failure</code>
+- <code>F17 compared Operation carrier conformance</code>
+- <code>F17 complete family reconciliation rollup</code>
+- <code>F17 completed-family independent acceptance</code>
+- <code>F17 first intent-packet reconciliation</code>
+- <code>F17 second intent-packet reconciliation</code>
+- <code>F19 historical lifecycle and minimum-model reconciliation</code>
+- <code>Faithful presentation reconciliation</code>
+- <code>Final original-file second-partition session evidence packet</code>
+- <code>Final selected-source third-partition validation evidence</code>
+- <code>Final-partition continuation session evidence</code>
+- <code>Final-partition primary session evidence packet</code>
+- <code>Final-partition README session evidence</code>
+- <code>Final-partition session evidence packet</code>
+- <code>Final-partition Tool research session opening</code>
+- <code>Final-partition Tool-policy follow-up</code>
+- <code>Final-partition worker evidence</code>
+- <code>Final-partition worker literal-proof and ownership review evidence</code>
+- <code>Final-partition worker retirement and composed-gate evidence</code>
+- <code>Final-partition worker review and literal-proof evidence</code>
+- <code>Final-partition worker review and repair evidence</code>
+- <code>Final-partition worker review evidence</code>
+- <code>First bounded September session harvest</code>
+- <code>First final-partition worker evidence</code>
+- <code>First second-partition continuation session evidence packet</code>
+- <code>First-partition audit resolution Plan approval evidence</code>
+- <code>First-partition audit resolution start acknowledgement evidence</code>
+- <code>First-partition Core review worker evidence</code>
+- <code>First-partition filename-migration and alignment-audit evidence</code>
+- <code>First-partition opening worker bundle evidence</code>
+- <code>First-partition Principles-first audit follow-up evidence</code>
+- <code>First-partition Principles-first audit repair instruction evidence</code>
+- <code>Following bounded first-partition decision and execution-report harvest</code>
+- <code>Following bounded first-partition session harvest</code>
+- <code>Following second-partition continuation session evidence packet</code>
+- <code>Following third-partition implementation packet evidence</code>
+- <code>Following third-partition primary review evidence packet</code>
+- <code>Following third-partition primary session evidence packet</code>
+- <code>Following third-partition Scope and review evidence</code>
+- <code>Formal Model</code>
+- <code>Generic completed-work handoff gap adjudication</code>
+- <code>Historical coherent taxonomy and settings ownership reconciliation</code>
+- <code>Historical Evaluation serialization and eligibility reconciliation</code>
+- <code>Historical missing lineage and ownership evidence reconciliation</code>
+- <code>Historical session candidate/window disposition</code>
+- <code>Implementation and functional-runtime guarantee reconciliation</code>
+- <code>Implementation Locality Analysis</code>
+- <code>Journal query resource bounds</code>
+- <code>Journal raw identity validation</code>
+- <code>Journal snapshot continuation integrity</code>
+- <code>langwatch-ideas-for-caprmedio-tools-apps-mcp</code>
+- <code>Legacy GRAPH_UI Delivery Identity Mapping</code>
+- <code>Lineage Impact Analysis</code>
+- <code>MCP/Release manifest publication lifecycle adapter</code>
+- <code>Model</code>
+- <code>MODEL//CAPRMEDIO &lt;+ (View, View.id, View.sql, View.name)</code>
+- <code>MODEL//CAPRMEDIO &lt;+ (Workspace, Workspace.native_thread_id, Workspace.project_root)</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Actor/AI Agent</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Atom</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Carrier</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Execution/Step Run</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Execution/Workflow Run</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Project</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Projection</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Scope Unit</code>
+- <code>MODEL//CAPRMEDIO &lt;+ Workspace</code>
+- <code>Model::CAPRMEDIO::Continuant/Governing Objects/Atom.content</code>
+- <code>Model::CAPRMEDIO::Continuant/Governing Objects/Atom.Header.Context.Topics</code>
+- <code>Model::CAPRMEDIO::Continuant/Governing Objects/Atom/Content Role: Operations/Type: Workflow</code>
+- <code>Model::CAPRMEDIO::Continuant/Package</code>
+- <code>Model::CAPRMEDIO::Graph Syntax</code>
+- <code>Model::CAPRMEDIO::Graph Syntax.Cardinality Notation</code>
+- <code>Model::CAPRMEDIO::Graph Syntax.Format Notation</code>
+- <code>Model::CAPRMEDIO::Graph Syntax::Format</code>
+- <code>N13 Unit gate failures</code>
+- <code>Next bounded first-partition session harvest</code>
+- <code>Next second-partition continuation session evidence packet</code>
+- <code>Next subsequent second-partition continuation evidence packet</code>
+- <code>Next third-partition Concern and Skill packet evidence</code>
+- <code>Next third-partition validator and migration evidence</code>
+- <code>O052 source Carrier body headings</code>
+- <code>Other PRIMARY PYAML third-partition opening evidence</code>
+- <code>Other primary second-partition ontology challenge evidence</code>
+- <code>Other primary second-partition ontology recovery evidence</code>
+- <code>Other PRIMARY Tool-source third-partition evidence</code>
+- <code>Other-primary first-partition Python-versus-Go research evidence</code>
+- <code>Other-primary first-partition whole Python-versus-Go report evidence</code>
+- <code>P1403 complete saved-candidate reading recovery</code>
+- <code>Per-route candidate Run evidence retention</code>
+- <code>Plural research and faithful release reconciliation</code>
+- <code>Programmatic Method and Evaluation Target</code>
+- <code>Programmatic Policy Decision Reconciliation</code>
+- <code>programmatic software</code>
+- <code>Programmatic Specialization Authority Reconciliation</code>
+- <code>Project Memory</code>
+- <code>Project session metadata corpus</code>
+- <code>Project session metadata corpus/Source identity</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspect//Visual Design</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Documentation &lt;+ Traceability</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Delivery</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Delivery &lt;+ Change Readiness</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Delivery &lt;+ Packaging</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Delivery &lt;+ Reproducibility</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Architecture &lt;+ Communication</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Architecture &lt;+ Communication &lt;+ Interface Contracts</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Architecture &lt;+ Component Structure</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Authoring &lt;+ Code Authoring</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Authoring &lt;+ Code Authoring &lt;+ Python Code</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Authoring &lt;+ Prompt Authoring</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Authoring &lt;+ Query Authoring &lt;+ SQL</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Frontend Engineering</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Frontend Engineering &lt;+ Code Style</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Development &lt;+ Frontend Engineering &lt;+ Libraries and Frameworks</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Configuration</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Data Validation</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Indexing</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Output Publication</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Query Processing</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Schema</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Serialization</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Source Retrieval</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ Source Selection</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Data Handling &lt;+ State Synchronization</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Effect Authorization</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Failure Handling</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Outcome Reporting</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Recovery</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Execution Control &lt;+ Resource Limits</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Observability &lt;+ Logging</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Storage</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Storage &lt;+ Directory Layout</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Operation &lt;+ Storage &lt;+ Temporary State</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Performance &lt;+ Measurement and Profiling</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Traceability</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Traceability &lt;+ Provenance</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Coverage</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Dynamic Testing</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Dynamic Testing &lt;+ Canary Testing</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Static Analysis</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Static Analysis &lt;+ Python Code</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Test Data &lt;+ Golden Corpora</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ Engineering &lt;+ Quality &lt;+ Verification &lt;+ Test Design</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ UX &lt;+ Discovery and Navigation</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ UX &lt;+ Entry</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ UX &lt;+ Guidance</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ UX &lt;+ Interaction</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ UX &lt;+ Interaction &lt;+ Accessibility</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ UX &lt;+ Interaction &lt;+ Decision</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Aspects &lt;+ UX &lt;+ Result and Status Presentation</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//AGENTIC</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//APPS</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//CODEX_EXTENSION</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//CODEX_HOOK</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//CONNECTOR_TOOLS</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//CORE_META_MODEL</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//FRAMEWORK_ENGINE</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//MCP</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//PROGRAMMATIC</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//PROMPTS</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//SKILLS</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//WORKBENCH</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//WORKBENCH_BACKEND</code>
+- <code>PROJECT STRUCTURE//CAPRMEDIO &lt;+ Scope Unit//WORKBENCH_FRONTEND</code>
+- <code>Project/verification environment</code>
+- <code>Python 3.14 Contract Upgrade Validation</code>
+- <code>README third-partition name and lifecycle analytical Plan evidence</code>
+- <code>Release Unit deadline sufficiency</code>
+- <code>Release Version/Source publication recovery</code>
+- <code>Replacement and lineage preservation reconciliation</code>
+- <code>Saved F03 execution and rebinding intents</code>
+- <code>Scope Unit</code>
+- <code>scope_unit//FRAMEWORK_METHODOLOGY</code>
+- <code>Scoped Operator-choice gap acceptance</code>
+- <code>Sealed N9 Unit gate failure</code>
+- <code>Second final-partition worker evidence</code>
+- <code>Second-partition Actor and authority repair evidence</code>
+- <code>Second-partition Actor and structural-authority repair evidence</code>
+- <code>Second-partition following review-boundary evidence</code>
+- <code>Second-partition policy and lifecycle repair evidence</code>
+- <code>Second-partition presentation and role-reconciliation evidence</code>
+- <code>Second-partition primary session evidence packet</code>
+- <code>Second-partition review-boundary repair evidence</code>
+- <code>Second-partition worker evidence</code>
+- <code>Selected source-to-RMED handoff</code>
+- <code>Selected Workflow source and entrypoint mapping</code>
+- <code>Session evidence/event-window index</code>
+- <code>Settings before derived structure reconciliation</code>
+- <code>Shared Programmatic Evaluation Coverage Mapping</code>
+- <code>Shared Programmatic Method Finalization</code>
+- <code>Short-name screening Operation carrier</code>
+- <code>Short-name screening reconciliation</code>
+- <code>Source Reconciliation candidate reconciliation</code>
+- <code>Source Reconciliation Workflow Carrier layout</code>
+- <code>Subject</code>
+- <code>Subject/caprmedio/Action//Admit Methodology Expansion Mapping</code>
+- <code>Subject/caprmedio/Action//Aggregate the full Release Gate</code>
+- <code>Subject/caprmedio/Action//Assess Atom Update Identity</code>
+- <code>Subject/caprmedio/Action//Assess Lineage Impact</code>
+- <code>Subject/caprmedio/Action//Assess Prepared Result Conformance</code>
+- <code>Subject/caprmedio/Action//Atom Content Authoring</code>
+- <code>Subject/caprmedio/Action//Evaluator Evidence Calibration</code>
+- <code>Subject/caprmedio/Action//Finalize actual public Version History link</code>
+- <code>Subject/caprmedio/Action//Initialize first Framework runtime and project-local ca Skill</code>
+- <code>Subject/caprmedio/Action//Legacy Evidence and Provisional RMED Preparation</code>
+- <code>Subject/caprmedio/Action//Persist Atom Replacement</code>
+- <code>Subject/caprmedio/Action//Prepare bound public release materials</code>
+- <code>Subject/caprmedio/Action//Reconcile Atom Properties and Addresses</code>
+- <code>Subject/caprmedio/Action//Reconcile Unfinished Work</code>
+- <code>Subject/caprmedio/Action//Run host-capable Candidate E2E</code>
+- <code>Subject/caprmedio/Action//Screen Short Names</code>
+- <code>Subject/caprmedio/Action//Select Priority-Governed Alternative</code>
+- <code>Subject/caprmedio/Action//Validate local release inputs</code>
+- <code>Subject/CAPRMEDIO/Carrier/File</code>
+- <code>Subject/CAPRMEDIO/Carrier/File.Extension</code>
+- <code>Subject/CAPRMEDIO/Carrier/Git Commit</code>
+- <code>Subject/CAPRMEDIO/Carrier/Pull Request</code>
+- <code>Subject/caprmedio/Extension//FPF</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Output Publication</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Data Handling/Source Selection</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Extension Lifecycle</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Delivery/Git Commits</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Communication</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Development/Architecture/Component Structure</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Effect Authorization</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Execution Control/Recovery</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Transformation</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Data Validation</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Output Publication</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Parsing</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Serialization</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Retrieval</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Data Handling/Source Selection</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Effect Authorization</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Failure Handling</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Execution Control/Recovery</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Operation/Storage/Directory Layout</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Coverage</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Dynamic Testing</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Quality/Verification/Static Analysis</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Storage/Directory Layout</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Content</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Context.Tier</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Context.Topics</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.Identity.ID</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Status</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Header.State.Version Number</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Summary</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom.Type</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Concern</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Evaluation</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Operations/Type: Step</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Atom/Content Role: Plan</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Event</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Execution</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Execution.Outcome</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Provenance</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Execution/Workflow Run.Source Admission</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Governing Configuration</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/History/Journal.Record</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool.Effect Result</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Implementation/Code/Tool.Self Description</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Project</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Project.Settings</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Projection</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Catalog</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Entities Graph</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Projection/Type: Scope Unit Graph</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Runtime</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit.Path</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Scope Unit//PROJECT_CONFIGURATION</code>
+- <code>Subject/CAPRMEDIO/Graph/Node/Project Model/Selection</code>
+- <code>Subject/CAPRMEDIO/Graph/Relation</code>
+- <code>Subject/CAPRMEDIO/Graph/Relation.Target Reference</code>
+- <code>Subject/CAPRMEDIO/Graph/Relation/Type</code>
+- <code>Subject/CAPRMEDIO/Graph/Relation/Type: child_of</code>
+- <code>Subject/CAPRMEDIO/Graph/Relation/Type: structural_parent</code>
+- <code>Subject/CAPRMEDIO/Graph/Rule</code>
+- <code>Subject/caprmedio/Step//Finalize the actual public history link</code>
+- <code>Subject/caprmedio/Step//Public release/Step: discover matching main PR</code>
+- <code>Subject/caprmedio/Step//Public release/Step: prepare materials</code>
+- <code>Subject/caprmedio/Step//Public release/Step: push and upsert main PR</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: build candidate image</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: compile applicable Methodology</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: deliver active sources</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: install product and refresh Project MCP</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: retire exact prior image</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: run closed candidate Unit gate</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: run host-capable Candidate E2E</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: stage candidate package and Skill</code>
+- <code>Subject/caprmedio/Step//Release Version/Step: validate local inputs</code>
+- <code>Subject/caprmedio/Workflow//Local Release</code>
+- <code>Subject/caprmedio/Workflow//Public Release</code>
+- <code>Subject/Domain/Node/Continuant/Atom</code>
+- <code>Subject/Domain/Node/Continuant/Atom.Header.State.Status</code>
+- <code>Subject/Domain/Node/Continuant/Atom/Content Role: Operations/Type: Workflow</code>
+- <code>Subject/Domain/Node/Continuant/Selection</code>
+- <code>Subject/Engineering/Atom Lifecycle/Draft History</code>
+- <code>Subject/Graph Node/Documentation/README</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom.Header.Context.Topics</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom.Header.State.Status</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom/Content Role: Analysis &amp; Advisory</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Action//Approved Change Reversal</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Step</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Applicable Methodology Compilation</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom/Content Role: Operations/Type: Workflow//Implementation Workflow</code>
+- <code>Subject/Graph Node/Domain/Continuant/Atom/Content Role: Plan</code>
+- <code>Subject/Graph Node/Domain/Continuant/History</code>
+- <code>Subject/Graph Node/Domain/Continuant/Projection</code>
+- <code>Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology</code>
+- <code>Subject/Graph Node/Domain/Continuant/Projection/Type: Applicable Methodology.Conflict</code>
+- <code>Subject/Graph Node/Domain/Continuant/Projection/Type: Entities Graph</code>
+- <code>Subject/Graph Node/Domain/Continuant/Selection//CA-P-113 In-Scope Framework Consumers and Retrieval Cases</code>
+- <code>Subject/Graph Node/Domain/Occurrent/Execution/Step Run</code>
+- <code>Subject/Graph Node/Engineering</code>
+- <code>Subject/Graph Node/Engineering/Admission</code>
+- <code>Subject/Graph Node/Engineering/Agent Execution/Codex Adapter Dispatch</code>
+- <code>Subject/Graph Node/Engineering/Artifact Query</code>
+- <code>Subject/Graph Node/Engineering/Atom Lifecycle</code>
+- <code>Subject/Graph Node/Engineering/Atom Lifecycle/Draft History</code>
+- <code>Subject/Graph Node/Engineering/Compatibility Boundary</code>
+- <code>Subject/Graph Node/Engineering/Continuant/Carrier</code>
+- <code>Subject/Graph Node/Engineering/Continuant/Carrier/File Carrier.Filename</code>
+- <code>Subject/Graph Node/Engineering/Continuant/Tool</code>
+- <code>Subject/Graph Node/Engineering/Evaluation</code>
+- <code>Subject/Graph Node/Engineering/Evaluation Implementation</code>
+- <code>Subject/Graph Node/Engineering/Framework Package</code>
+- <code>Subject/Graph Node/Engineering/Gateway</code>
+- <code>Subject/Graph Node/Engineering/Graph Projection</code>
+- <code>Subject/Graph Node/Engineering/Image</code>
+- <code>Subject/Graph Node/Engineering/Implementation</code>
+- <code>Subject/Graph Node/Engineering/Implementation Binding</code>
+- <code>Subject/Graph Node/Engineering/Implementation Evaluation</code>
+- <code>Subject/Graph Node/Engineering/Journal Event Query</code>
+- <code>Subject/Graph Node/Engineering/Journal Event Query/Selector Value Semantics</code>
+- <code>Subject/Graph Node/Engineering/Journal Operations</code>
+- <code>Subject/Graph Node/Engineering/Manifest</code>
+- <code>Subject/Graph Node/Engineering/MCP</code>
+- <code>Subject/Graph Node/Engineering/MCP.HTTP Transport</code>
+- <code>Subject/Graph Node/Engineering/MCP.selected Workflow capability routes</code>
+- <code>Subject/Graph Node/Engineering/MCP.selected Workflow route contract</code>
+- <code>Subject/Graph Node/Engineering/MCP/additive Release manifest publication</code>
+- <code>Subject/Graph Node/Engineering/MCP/HTTP endpoint/Functional evaluation</code>
+- <code>Subject/Graph Node/Engineering/MCP/HTTP endpoint/Gateway implementation</code>
+- <code>Subject/Graph Node/Engineering/Occurrent/Runtime</code>
+- <code>Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Runtime</code>
+- <code>Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Runtime.Agent Action Adapter</code>
+- <code>Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Runtime.Agent Isolation</code>
+- <code>Subject/Graph Node/Engineering/Occurrent/Runtime/Docker Workflow Execution</code>
+- <code>Subject/Graph Node/Engineering/Operations</code>
+- <code>Subject/Graph Node/Engineering/Project Structure</code>
+- <code>Subject/Graph Node/Engineering/Prompt</code>
+- <code>Subject/Graph Node/Engineering/Release</code>
+- <code>Subject/Graph Node/Engineering/Release Testing/Executor Admission</code>
+- <code>Subject/Graph Node/Engineering/Release Version</code>
+- <code>Subject/Graph Node/Engineering/Release Version/Installed Delivery Verification</code>
+- <code>Subject/Graph Node/Engineering/Release Version/Project-Local Skill Delivery</code>
+- <code>Subject/Graph Node/Engineering/Release Version/Project-Owned Image Retention</code>
+- <code>Subject/Graph Node/Engineering/Release Version/Runtime Package Carrier</code>
+- <code>Subject/Graph Node/Engineering/Release Version/Source Compilation and Package Carriers</code>
+- <code>Subject/Graph Node/Engineering/Revert Changes</code>
+- <code>Subject/Graph Node/Engineering/Revert Changes/Admission and Result Evaluation</code>
+- <code>Subject/Graph Node/Engineering/Revert Changes/Failure and Logging Diagnostics Evaluation</code>
+- <code>Subject/Graph Node/Engineering/Runtime Failure Classification</code>
+- <code>Subject/Graph Node/Engineering/Scoped Operator-choice Applicability</code>
+- <code>Subject/Graph Node/Engineering/Validation</code>
+- <code>Subject/Graph Node/Engineering/Workflow</code>
+- <code>Subject/Graph Node/Engineering/Workflow Orchestration/Action Realization</code>
+- <code>Subject/Graph Node/Engineering/Workflow Orchestration/Independent Atom Effects Evaluation</code>
+- <code>Subject/Graph Node/Engineering/Workflow Orchestration/Run Execution Dispatch</code>
+- <code>Subject/Graph Relation</code>
+- <code>Subsequent bounded first-partition session harvest</code>
+- <code>Subsequent second-partition continuation session evidence packet</code>
+- <code>Subsequent third-partition primary review evidence packet</code>
+- <code>Terms Graph construction</code>
+- <code>Third-partition checker separation evidence</code>
+- <code>Third-partition citation and Carrier decision evidence</code>
+- <code>Third-partition earliest worker evidence</code>
+- <code>Third-partition evaluation continuation evidence</code>
+- <code>Third-partition evaluation evidence</code>
+- <code>Third-partition primary session evidence packet</code>
+- <code>Third-partition same-sample evaluator and repair evidence</code>
+- <code>Third-partition same-sample repair packet</code>
+- <code>Third-partition worker report and iteration evidence</code>
+- <code>Validation Workflow and Step Carrier conformance</code>
+- <code>Whole bounded first-partition review-report harvest</code>
+- <code>Whole final-partition testing-policy report</code>
+- <code>Whole oversized first-partition meta-model alignment report evidence</code>
+- <code>Whole second-partition primary session review report</code>
+- <code>Whole third-partition historical draft-review report</code>
+- <code>Work Execution Architecture</code>

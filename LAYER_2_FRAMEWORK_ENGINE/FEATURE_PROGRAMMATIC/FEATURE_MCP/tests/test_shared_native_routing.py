@@ -8,10 +8,12 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import httpx2
 from mcp.client.session import ClientSession
 from mcp.client.streamable_http import streamable_http_client
+from watchdog.observers.polling import PollingObserver
 
 APP = Path(__file__).resolve().parents[1]
 ROOT = APP.parents[2]
@@ -20,7 +22,7 @@ sys.path[:0] = [str(APP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
 
 from host_runtime_config import load_host_runtime_config  # noqa: E402
 from direct_gateway import DirectGateway  # noqa: E402
-from project_selection import bind_selection  # noqa: E402
+from project_selection import ProjectSelectionError, bind_selection, bound_selection  # noqa: E402
 from test_workspace_end_to_end import _ConfiguredWorkbenchTools  # noqa: E402
 from smalltest_support import extension_directory  # noqa: E402
 from http_paths import MCP_PATH  # noqa: E402
@@ -33,6 +35,9 @@ class SharedNativeRoutingTests(unittest.IsolatedAsyncioTestCase):
     """Exercise isolated native Workbench owners through one HTTP facade."""
 
     def setUp(self) -> None:
+        observer = patch("APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_watcher.NativeObserver", PollingObserver)
+        observer.start()
+        self.addCleanup(observer.stop)
         test_dir = ROOT / ".caprmedio_tmp/tests/shared-native-routing"
         test_dir.mkdir(parents=True, exist_ok=True)
         self.temporary = tempfile.TemporaryDirectory(dir=test_dir)
@@ -69,6 +74,14 @@ class SharedNativeRoutingTests(unittest.IsolatedAsyncioTestCase):
             gateway = DirectGateway(root, selection=selection)
             with bind_selection(selection):
                 gateway.workbench = _ConfiguredWorkbenchTools(root, extension_directory(ROOT))
+            consistency = gateway.workbench.project_consistency
+            def checked_consistency():
+                self.assertIs(bound_selection(root), selection)
+                other = next(path for path in self.projects_by_name.values() if path != root)
+                with self.assertRaises(ProjectSelectionError):
+                    bound_selection(other)
+                return consistency()
+            gateway.workbench.project_consistency = checked_consistency
             return gateway
         return factory
 
@@ -100,11 +113,16 @@ class SharedNativeRoutingTests(unittest.IsolatedAsyncioTestCase):
     async def test_frontdoor_routes_same_workspace_id_to_isolated_native_owners(self):
         async with self._session() as session:
             tools = {tool.name: tool for tool in (await session.list_tools()).tools}
-            self.assertEqual(34, len(tools))
+            self.assertEqual(38, len(tools))
             self.assertIn("project_root", tools["workbench_ui_probe"].input_schema["required"])
             uri = tools["workbench_ui_probe"].meta["ui"]["resourceUri"]
             resource = (await session.read_resource(uri)).contents[0]
             self.assertEqual("text/html;profile=mcp-app", resource.mime_type)
+            schemas = await asyncio.gather(*(
+                session.call_tool("query_schema", {"project_root": str(root)})
+                for root in self.projects_by_name.values()
+            ))
+            self.assertTrue(all(not response.is_error for response in schemas), schemas)
             responses = await asyncio.gather(*(
                 session.call_tool("workspace_open", {
                     "session_id": "same-id", "project_root": str(self.projects_by_name[name]),

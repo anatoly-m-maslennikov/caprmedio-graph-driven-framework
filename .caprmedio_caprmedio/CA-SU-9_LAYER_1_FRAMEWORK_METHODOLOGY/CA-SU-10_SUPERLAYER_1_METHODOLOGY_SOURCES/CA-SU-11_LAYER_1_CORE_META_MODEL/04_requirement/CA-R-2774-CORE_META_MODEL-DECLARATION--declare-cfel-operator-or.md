@@ -8,12 +8,12 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Disjunction
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-04 20:33:17 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T05:29:54.280355+00:00'
 carrier_destination:
   file:
-    name: CA-R-2774-DECLARATION--declare-cfel-operator-or.md
+    name: CA-R-2774-CORE_META_MODEL-DECLARATION--declare-cfel-operator-or.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
@@ -24,9 +24,9 @@ Declare CFEL operator OR
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//Disjunction == "OR"
+set_value(address='Operator//Disjunction', value='"OR"')
 ```
 
 ## Semantics

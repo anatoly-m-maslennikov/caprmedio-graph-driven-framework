@@ -16,6 +16,7 @@ import yaml
 
 from carrier_aliases import carrier_read_view
 from header_groups import GROUP_ORDER, GROUP_FIELDS, ROLE_FIELDS, equal_values, header_field_paths, header_path, header_value, path_value
+from project_root_container import effective_root_container_header
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 
 
@@ -61,6 +62,17 @@ def logical_view(metadata, model):
             if field in view:
                 view[field] = view[alias] = schema.role_form.decode(field, view[field])
     return view
+
+
+def effective_header(selection, metadata, raw, path):
+    root_path = getattr(selection, 'root_declaration_path', None)
+    if root_path is None or path != root_path:
+        return metadata
+    pin = selection.declaration_source_pins.get(path.relative_to(selection.root).as_posix())
+    return effective_root_container_header(
+        metadata, path=path, raw=raw, root_declaration_path=root_path,
+        root_declaration_pin=pin,
+    )
 
 
 def _remove_header_path(metadata, path):

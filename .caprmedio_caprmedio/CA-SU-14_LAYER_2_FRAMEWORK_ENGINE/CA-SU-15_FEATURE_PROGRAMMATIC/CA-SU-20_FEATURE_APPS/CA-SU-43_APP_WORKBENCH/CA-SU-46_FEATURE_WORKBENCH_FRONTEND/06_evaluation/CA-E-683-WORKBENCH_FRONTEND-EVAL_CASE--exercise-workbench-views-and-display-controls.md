@@ -22,9 +22,9 @@ relations:
   - CA-M-470
   - CA-D-674
 state:
-  status: Active
-  version: 9
-  updated_at: 2026-11-10 20:47:54 +0400
+  status: active
+  version: 11
+  updated_at: '2026-11-12T16:57:55.341412+00:00'
 destination:
   file:
     name: CA-E-683-WORKBENCH_FRONTEND-EVAL_CASE--exercise-workbench-views-and-display-controls.md
@@ -47,9 +47,9 @@ Exercise saved View links/Open Saved: preserve count, active ID, edits/results; 
 
 ## Details
 
-Browser-visible checks cover Light/Dark/System persistence and readable focus/text/dark grid; Compact only for explicit `embedded=1` and Comfortable standalone; compact header/layout/settings; independent persisted Interface/Content/whole-interface zoom and Density; separate View input/result, unsaved-close warning, five-second autosave/reload and truthful visible storage failure. Verify Query editor header/saved link, sole Hide/Show header control, and command-palette-only Open Saved dialog with native paste/Enter-no-execution/Escape-Cancel.
+Browser-visible checks cover Light/Dark/System persistence and readable focus/text/dark grid; Compact only for explicit `embedded=1` and Comfortable standalone; compact header/layout/settings; independent persisted Interface/Content/whole-interface zoom and Density; separate View input/result, unsaved-close warning, five-second autosave/reload and truthful visible storage failure. With storage blocked, verify that editing still works and a warning explains that reload or close may lose changes. Verify that the embedded marker alone keeps the same Workspace and that missing canonical Project name is a binding error. Exercise Check from Not checked to Valid, edit back to Not checked, then check invalid SQL and see Invalid while the previous rows stay visible. Verify Query editor header/saved link, sole Hide/Show header control, and command-palette-only Open Saved dialog with native paste/Enter-no-execution/Escape-Cancel.
 
-Verify read-only completion from actual dotted schema paths and Header Status quoting, hotkey hints, whole-script and selected-statement Run/Check, selected Run & Save storing only submitted SQL and Save Tab storing the full script, ordered execution and first-failure handling, saved resource IDs/URLs/legacy worksheet load, pagination/errors/newline pre-wrap and partial Run `save_error` retaining rows/query ID/prior saved identity/dirty state. Cmd+P search and Arrow Up/Ctrl+P, Arrow Down/Ctrl+N, Enter/Escape invoke the same available controls without mouse. Result header shows name over smaller muted type without changing values.
+Verify read-only completion from actual dotted schema paths and Header Status quoting, hotkey hints, whole-query Run and Check, rejection of multiple statements, Run & Save storing the exact submitted SQL and Save View preserving the full SQL text, saved resource IDs/URLs/legacy worksheet load, pagination/errors/newline pre-wrap and partial Run `save_error` retaining rows/query ID/prior saved identity/dirty state. Cmd+P search and Arrow Up/Ctrl+P, Arrow Down/Ctrl+N, Enter/Escape invoke the same available controls without mouse. Result header shows name over smaller muted type without changing values.
 
 ### Keyboard and untrusted content
 

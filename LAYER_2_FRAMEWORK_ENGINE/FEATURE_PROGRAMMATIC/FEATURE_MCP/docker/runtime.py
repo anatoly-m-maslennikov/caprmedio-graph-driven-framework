@@ -1,6 +1,8 @@
-"""Explicit Project-scoped Docker lifecycle; never creates Workflow requests."""
+# CA-M-504@4
+# CA-D-578@21
+# CA-M-409@14
 
-# CA-M-504@2
+"""Explicit Project-scoped Docker lifecycle; never creates Workflow requests."""
 
 import argparse
 import hashlib
@@ -92,12 +94,12 @@ class Runtime:
             raise ValueError("Runtime temporary root must be a project directory")
         return path
 
-    def _image_manager(self, *, create_temp=False):
+    def _image_manager(self, *, create_temp=False, timeout=600):
         try:
             from .runtime_images import ImageManager
         except ImportError:  # direct execution: docker/ is the import root
             from runtime_images import ImageManager
-        return ImageManager(SOURCE_ROOT, project_root=self.root,
+        return ImageManager(SOURCE_ROOT, project_root=self.root, timeout=timeout,
                             build_temp_root=self._project_temp_root(create=create_temp))
 
     def _ensure_launch_image(self):
@@ -109,8 +111,8 @@ class Runtime:
         self.image = self._image_manager().resolve(build_if_missing=False)
         return self.image
 
-    def build(self, *, use_packaged_assets=False):
-        self.image = self._image_manager(create_temp=True).resolve(use_packaged_assets=use_packaged_assets)
+    def build(self, *, use_packaged_assets=False, timeout=600):
+        self.image = self._image_manager(create_temp=True, timeout=timeout).resolve(use_packaged_assets=use_packaged_assets)
         return self.image
 
     def prepare(self):
@@ -233,7 +235,9 @@ def main():
         return 0 if ready else 1
     runtime = Runtime(args.project_root, image=args.image)
     if args.operation == "build":
-        print(runtime.build(use_packaged_assets=args.image_mode == "existing"))
+        if not 0 < args.build_timeout <= 600:
+            parser.error("--build-timeout must be within (0, 600]")
+        print(runtime.build(use_packaged_assets=args.image_mode == "existing", timeout=args.build_timeout))
     elif args.operation == "status":
         print(json.dumps(runtime.status()))
     elif args.operation == "logs":

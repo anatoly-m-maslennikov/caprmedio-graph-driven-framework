@@ -1,4 +1,5 @@
 import json
+import re
 import subprocess
 from pathlib import Path
 import sys
@@ -27,14 +28,25 @@ class StatusModelTests(unittest.TestCase):
             canonical_status(collision, 'Plan', 'Task', 'In Progress')
 
     def sources(self):
-        return [next(CORE.glob(f'CA-R-{number}-*.md')) for number in (2696, 1539, 1608, 1875, 3010)]
+        return [next(CORE.glob(f'CA-R-{number}-*.md')) for number in (2696, 1539, 1608, 1875)]
+
+    def cfel_base_source(self):
+        from ATOM_LIFECYCLE.status_model import _formal_claim_blocks, _statements
+
+        source = self.sources()[0].read_text()
+        statements = [statement for block in _formal_claim_blocks(source) for statement in _statements(block)]
+        self.assertTrue(statements)
+        fence = '```CFEL\n# model\n' + ';\n'.join(statements) + ';\n```'
+        converted, count = re.subn(r'```python\n.*?\n```', lambda _: fence, source, count=1, flags=re.DOTALL)
+        self.assertEqual(count, 1)
+        return converted
 
     def test_current_sources_inheritance_and_union(self):
         sources = self.sources()
         payload = compile_status_model(sources)
         asset = json.loads(payload)
         headers = [carrier_read_view(yaml.safe_load(path.read_text().split('---', 2)[1])) for path in sources]
-        self.assertEqual(11, len(asset['declarations']))
+        self.assertEqual(10, len(asset['declarations']))
         self.assertEqual({header['atom_id']: header['version'] for header in headers},
                          {source['atom_id']: source['version'] for source in asset['sources']})
         self.assertEqual(payload, compile_status_model(reversed(sources)))
@@ -46,13 +58,13 @@ class StatusModelTests(unittest.TestCase):
             self.assertEqual(base, model.allowed('Requirement', 'Declaration'))
             self.assertEqual(base | {'Backlog', 'Done', 'Canceled'}, model.allowed('Plan', 'Plan'))
             self.assertEqual(base | {'Resolved', 'Canceled'}, model.allowed('Concern', 'Issue'))
-            self.assertEqual(base | {'Done'}, model.allowed('Analysis & Advisory', 'Rationale'))
-            self.assertEqual(base, model.allowed('Analysis & Advisory', 'Other'))
-            self.assertEqual(base | {'Resolved'}, model.allowed('Analysis & Advisory', 'Code Synopsis'))
+            self.assertEqual(base | {'Done'}, model.allowed('Analysis and Advisory', 'Rationale'))
+            self.assertEqual(base, model.allowed('Analysis and Advisory', 'Other'))
+            self.assertEqual(base, model.allowed('Analysis and Advisory', 'Code Synopsis'))
             self.assertEqual(base, model.allowed('Other', 'Code Synopsis'))
 
     def test_role_and_form_domains_are_unioned(self):
-        source = self.sources()[0].read_text().replace('Atom.Header.State.Status', 'Atom.Header.Status').replace(
+        source = self.cfel_base_source().replace('Atom.Header.State.Status', 'Atom.Header.Status').replace(
             'Atom.Header.Status :: Archived',
             'Atom.Header.Status :: Archived;\nAtom/(.Header.Context.Form in (Report)).Header.State.Status :: Reviewed'
         )
@@ -65,7 +77,7 @@ class StatusModelTests(unittest.TestCase):
                              load_status_model(path).allowed('Plan', 'Report'))
 
     def test_reject_old_single_colon(self):
-        source = self.sources()[0].read_text().replace('Status :: Active', 'Status: Active')
+        source = self.cfel_base_source().replace('Status :: Active', 'Status: Active')
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'source.md'
             path.write_text(source)
@@ -74,22 +86,22 @@ class StatusModelTests(unittest.TestCase):
 
     def test_backlog_group_is_not_a_status_membership_and_malformed_refuses(self):
         sources = self.sources()
-        plan = sources[1]
-        current = plan.read_text()
-        group = ('Atom/(.Header.Context.Role := Plan)/(.Header.State.Status := Backlog)'
-                 '.Header.State.Status >| Status Group == Backlog')
+        current = sources[1].read_text()
+        group = 'status_groups={"Backlog": "Backlog"},'
         self.assertIn(group, current)
         with tempfile.TemporaryDirectory() as directory:
             path = Path(directory) / 'plan.md'
-            path.write_text(current.replace(group + ';', ''))
+            path.write_text(current.replace(group, ''))
             self.assertEqual(json.loads(compile_status_model(sources))['declarations'],
                              json.loads(compile_status_model([sources[0], path, *sources[2:]]))['declarations'])
-            for malformed in (group.replace('== Backlog', ': Backlog'),
-                              group.replace(':= Plan', ':= Concern'),
-                              group.replace('Status Group', 'Status Groups')):
+            for malformed, diagnostic in (
+                ('status_groups=None,', 'Status Groups require allowed values and one Role'),
+                ('status_groups={"Unlisted": "Backlog"},', 'Status Groups require allowed values and one Role'),
+                ('status_group={"Backlog": "Backlog"},', 'unsupported declare_entity arguments: status_group'),
+            ):
                 with self.subTest(malformed=malformed):
                     path.write_text(current.replace(group, malformed))
-                    with self.assertRaisesRegex(StatusModelError, 'unsupported Status declaration'):
+                    with self.assertRaisesRegex(ValueError, diagnostic):
                         compile_status_model([sources[0], path])
 
     def test_plan_constraints_do_not_add_status_memberships(self):
@@ -109,15 +121,17 @@ class StatusModelTests(unittest.TestCase):
             archived = sources / 'archive'
             archived.mkdir()
             (archived / self.sources()[0].name).write_text('invalid')
-            draft = self.sources()[1].read_text().replace('status: Active', 'status: Draft')
-            (sources / 'CA-R-9999-draft.md').write_text(draft)
+            _, header, body = self.sources()[1].read_text().split('---', 2)
+            metadata = yaml.safe_load(header)
+            metadata.get('state', metadata)['status'] = 'draft'
+            (sources / 'CA-R-9999-draft.md').write_text('---\n' + yaml.safe_dump(metadata) + '---' + body)
             output = root / 'asset.json'
             subprocess.run([sys.executable, str(TOOLS / 'ATOM_LIFECYCLE/status_model.py'),
                             '--model-root', str(sources), '--output', str(output)], check=True)
-            self.assertEqual(11, len(json.loads(output.read_text())['declarations']))
+            self.assertEqual(compile_status_model(self.sources()), output.read_bytes())
 
     def test_grouped_headers_comments_and_multiline_statements(self):
-        original = self.sources()[0].read_text()
+        original = self.cfel_base_source()
         _, header, body = original.split('---', 2)
         metadata = yaml.safe_load(header)
         for group, names in {
@@ -151,7 +165,7 @@ class StatusModelTests(unittest.TestCase):
 
     def test_grouped_status_paths_compile_and_staged_detection(self):
         from ATOM_LIFECYCLE.status_model import _staged_declarations
-        source = self.sources()[0].read_text()
+        source = self.cfel_base_source()
         source = source.replace('.Header.Status', '.Header.State.Status')
         source = source.replace('Atom.Header.State.Status :: Archived',
             'Atom.Header.State.Status :: Archived;\n'

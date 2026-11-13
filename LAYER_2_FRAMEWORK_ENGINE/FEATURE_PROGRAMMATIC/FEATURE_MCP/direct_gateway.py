@@ -1,5 +1,7 @@
+# CA-D-672@24
 # CA-R-3013@2
-# CA-M-506@6
+# CA-M-506@8
+# CA-M-1008@1
 # CA-M-512@2
 # CA-M-517@1
 
@@ -66,8 +68,9 @@ class DirectGateway:
         self.registry = None
         self.ready = False
         self.server = None
-        self.workbench = WorkbenchTools(self.root)
         self.health_observations = HealthObservations()
+        self.workbench = WorkbenchTools(self.root, selection=selection,
+                                        diagnostics_snapshot=self.health_observations.snapshot)
 
     async def initialize(self):
         if self.ready:
@@ -87,7 +90,8 @@ class DirectGateway:
         self.tools = tuple(tool for tool in self.registry.tools if tool.name not in self.tool_blacklist)
         if self.selection is not None:
             try:
-                consistency = await asyncio.to_thread(self.workbench.project_consistency)
+                with bind_selection(self.selection):
+                    consistency = await asyncio.to_thread(self.workbench.project_consistency)
             except Exception:
                 await self.close()
                 raise

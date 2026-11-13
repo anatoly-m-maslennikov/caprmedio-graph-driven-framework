@@ -11,12 +11,12 @@ topics:
 tier: 4
 relations:
   evaluation_for:
-  - CA-R-970308647
+  - CA-R-3065
   - CA-M-548
   - CA-D-714
-status: Active
-version: 1
-updated_at: 2026-11-11 00:16:05 +0400
+status: active
+version: 2
+updated_at: '2026-11-12T16:57:40.257563+00:00'
 author: Anatoly Maslennikov
 current_scope_unit: MCP
 destination:
@@ -24,7 +24,6 @@ destination:
     name: CA-E-820-MCP-EVAL_CASE--verify-universal-tool-specific-help-without-execution.md
     path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-21_FEATURE_MCP/06_evaluation
 ---
-
 ## Summary
 
 Verify universal tool specific help without execution
@@ -33,8 +32,4 @@ Verify universal tool specific help without execution
 
 ### Prose Claim
 
-For every admitted public MCP Tool, call with `help: true` and no normal business inputs, using the required trusted Project envelope where applicable. Assert that only that Tool's purpose and usage, parameter formats and allowed values, minimal examples, output contract and common errors are returned and that these agree with the same generated registry's schema and metadata. Verify that a newly registered provider receives help through the shared layer without a central Tool-name allowlist or duplicate handwritten help description.
-
-Instrument business validation and provider dispatch, query/query-run, Workflow execution, source writes, business gates and business Journal Run creation: all remain untouched for help, including Tools whose normal calls require inputs or would mutate data. Technical diagnostics may be recorded. Verify invalid or mismatched binding rejects without cross-Project fallback, and that global blacklist and Project exclusions prevent direct help from exposing unavailable Tools. Verify normal calls still enforce their own business validation.
-
-Send the minimal help-shaped request through each registered public MCP Tool boundary, with the required Project envelope and no business inputs; assert protocol schema acceptance and the specified response, rather than testing only the internal help handler.
+Call standard MCP `tools/list`. Verify that each admitted Tool has the description and input schema from the installed registry, including required fields for a Tool that writes source. A globally blacklisted or Project-excluded Tool is absent. Listing executes no Tool and creates no business Journal Run.

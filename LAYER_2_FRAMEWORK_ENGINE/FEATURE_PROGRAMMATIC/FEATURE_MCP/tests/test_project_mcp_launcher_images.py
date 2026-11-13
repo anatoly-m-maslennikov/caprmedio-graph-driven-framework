@@ -1,5 +1,8 @@
 """Golden contract for Project MCP image identity and admission."""
 
+# CA-E-573@18
+# CA-E-600@25
+
 from __future__ import annotations
 
 import json
@@ -17,6 +20,7 @@ DOCKER = APP / "docker"
 sys.path.insert(0, str(DOCKER))
 
 from runtime_images import ImageError, ImageManager, RELATION_REGISTRY, WORKBENCH_SCHEMA, TOOL_REGISTRY, STATUS_MODEL, CANDIDATE_SCHEMA  # noqa: E402
+from project_mcp_backend import ProjectMcpBackend  # noqa: E402
 
 
 GOLDENS = Path(__file__).parent / "launcher_golden" / "image_cases.json"
@@ -135,6 +139,35 @@ class ImageGoldenTests(unittest.TestCase):
         server.write_text("SERVER = 'two'\n", encoding="utf-8")
         after = self.manager(source, no_docker).identity()
         self.assertNotEqual(before.fingerprint, after.fingerprint)
+
+    def test_backend_refuses_checkout_changed_after_image_resolution(self) -> None:
+        source = self.source_fixture()
+        identity = self.manager(source, lambda *_a, **_k: None).identity(use_packaged_assets=True)
+
+        def executor(argv, **_kwargs):
+            if "ls" in argv:
+                return subprocess.CompletedProcess(argv, 0, IMAGE_ID + "\n", "")
+            return subprocess.CompletedProcess(argv, 0, json.dumps([{
+                "Id": IMAGE_ID, "Created": "2026-10-21T14:15:16Z", "Os": "linux",
+                "Architecture": "amd64", "Config": {"Labels": {
+                    "org.caprmedio.runtime.schema": "1",
+                    "org.caprmedio.runtime.fingerprint": identity.fingerprint,
+                    "org.opencontainers.image.version": identity.version,
+                }},
+            }]), "")
+
+        manager = self.manager(source, executor)
+        resolve = manager.resolve
+        def resolve_then_change(**kwargs):
+            image = resolve(**kwargs)
+            (source / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/server.py").write_text("changed")
+            return image
+
+        with patch("project_mcp_backend.ImageManager", return_value=manager), \
+             patch.object(manager, "resolve", side_effect=resolve_then_change):
+            with self.assertRaises(ImageError) as refused:
+                ProjectMcpBackend(build_if_missing=False).resolve_image(source, None, project_root=APP.parents[2])
+        self.assertEqual("IMAGE_REFUSED", refused.exception.code)
 
     def test_missing_or_changed_required_source_input_is_attributable(self) -> None:
         missing_source = self.fixture_root / "missing-source"

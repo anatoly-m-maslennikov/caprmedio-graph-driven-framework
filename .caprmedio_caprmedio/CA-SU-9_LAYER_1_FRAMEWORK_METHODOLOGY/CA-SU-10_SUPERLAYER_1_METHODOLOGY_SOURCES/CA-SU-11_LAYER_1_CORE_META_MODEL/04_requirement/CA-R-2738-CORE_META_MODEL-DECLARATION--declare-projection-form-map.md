@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Map)
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+status: active
+version: 3
+updated_at: '2026-11-12T18:49:18.400336+00:00'
 carrier_destination:
   file:
     name: CA-R-2738-CORE_META_MODEL-DECLARATION--declare-projection-form-map.md
@@ -26,9 +26,12 @@ Declare Projection/(.Form := Map)
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection.Form :: Map;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Projection
 
-Projection/(.Form in (Map))
+class Map(Projection):
+    pass
+
+declare_entity(entity_class=Map, entity_name='Map', qualification_property_path="Projection.Form")
 ```

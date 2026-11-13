@@ -10,9 +10,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 tier: 1
-status: Active
-version: 30
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 31
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-1019-CORE_META_MODEL-DECLARATION--register-delivery-for-relation.md
@@ -38,11 +38,13 @@ Forward `Host ((delivery_for)) Target` and reverse `Target <((delivery_for)) Hos
 delivery_for relates Delivery Atom to realized Atom.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//delivery_for ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom/(.Header.Context.Role: Delivery)//$atom ((delivery_for)) Atom//$atom_2
+declare_relation(
+    relation_name='delivery_for',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Atom/(.Header.Context.Role := Delivery)',)},
+    target_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+)
 ```
 

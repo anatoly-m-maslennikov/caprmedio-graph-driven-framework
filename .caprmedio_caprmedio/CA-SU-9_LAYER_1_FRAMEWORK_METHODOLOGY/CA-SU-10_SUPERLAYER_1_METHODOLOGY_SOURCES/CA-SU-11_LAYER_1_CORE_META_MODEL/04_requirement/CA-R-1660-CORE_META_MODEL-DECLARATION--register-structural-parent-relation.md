@@ -10,9 +10,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Scope Unit
 tier: 1
-status: Active
-version: 37
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 38
+updated_at: '2026-11-12T20:21:10.600815+00:00'
 carrier_destination:
   file:
     name: CA-R-1660-CORE_META_MODEL-DECLARATION--register-structural-parent-relation.md
@@ -38,11 +38,13 @@ Forward `Host ((structural_parent)) Target` and reverse `Target <((structural_pa
 structural_parent relates structural child to immediate structural parent.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//structural_parent ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-$child ((structural_parent)) $parent
+declare_relation(
+    relation_name='structural_parent',
+    source_endpoint={'level': 'instances'},
+    target_endpoint={'level': 'instances'},
+)
 ```
 

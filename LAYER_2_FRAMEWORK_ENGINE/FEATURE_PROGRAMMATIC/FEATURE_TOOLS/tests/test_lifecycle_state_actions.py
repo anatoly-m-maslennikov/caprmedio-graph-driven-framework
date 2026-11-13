@@ -87,6 +87,20 @@ class StateActionsTest(unittest.TestCase):
         self.assertEqual((self.root / moved['artifact']['path']).parent, self.root / other['authority_path'] / '04_requirement/archived')
         self.assertFalse(path.exists())
 
+    def test_direct_update_cannot_diverge_published_summaries(self):
+        previous = self.folder / 'archived/CA-R-10@1-RULE--example.md'
+        previous.parent.mkdir()
+        previous.write_text(self.path.read_text().replace('ref_id: CA-R-10\n', 'ref_id: CA-R-10@1\n')
+                            .replace('status: Active', 'status: Archived').replace('version: 2', 'version: 1'))
+        prior = {path: path.read_bytes() for path in (previous, self.path)}
+        targets = (self.target, {'ref_id': 'CA-R-10@1', 'version': 1})
+        for target in targets:
+            with self.subTest(target=target), self.assertRaisesRegex(InputError, 'Summary conflicts'):
+                state_actions.direct_update(self.selection, self.model, {'target': target, 'changes': {
+                    'body': '## Summary\n\nDifferent\n\n## Claim\n\nChanged\n',
+                }})
+        self.assertEqual({path: path.read_bytes() for path in prior}, prior)
+
     def test_archived_child_direct_update_uses_shared_archive_after_parent_is_archived(self):
         group, _, _ = self._contained('Operations', 'Workflow', 'Step')
         archived = state_actions.archive_workflow(self.selection, self.model,

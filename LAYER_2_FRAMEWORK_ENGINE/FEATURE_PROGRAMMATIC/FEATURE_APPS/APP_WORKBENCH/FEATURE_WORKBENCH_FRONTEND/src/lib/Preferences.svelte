@@ -1,4 +1,5 @@
-<!-- CA-M-469@8 -->
+<!-- CA-M-469@11 -->
+<!-- CA-M-470@14 -->
 <script lang="ts">
   import { onMount } from 'svelte';
   import type { ResultDisplayPreferences } from './types';
@@ -13,15 +14,16 @@
     oncommands?: (commands: PreferenceCommand[]) => void;
   } = $props();
   let theme = $state<Theme>('system'); let textZoom = $state(100); let contentZoom = $state(100); let interfaceZoom = $state(100); let density = $state<Density>('comfortable'); let warning = $state(''); let ready = false;
+  let savedDensity: Density | undefined;
   const positive = (value: unknown, maximum?: number) => Number.isInteger(value) && Number(value) > 0 && (maximum === undefined || Number(value) <= maximum);
   function apply() { document.documentElement.dataset.theme = theme; document.documentElement.dataset.density = density; document.documentElement.style.setProperty('--interface-text-scale', String(textZoom / 100)); document.documentElement.style.setProperty('--content-text-scale', String(contentZoom / 100)); document.documentElement.style.setProperty('--interface-scale', String(interfaceZoom / 100)); }
-  function save() { if (!ready) return; try { localStorage.setItem(`${storageKey}:preferences`, JSON.stringify({ theme, textZoom, contentZoom, interfaceZoom, density, resultDisplay })); warning = ''; } catch { warning = 'Browser preferences cannot be saved.'; } }
+  function save() { if (!ready) return; try { localStorage.setItem(`${storageKey}:preferences`, JSON.stringify({ theme, textZoom, contentZoom, interfaceZoom, density: savedDensity, resultDisplay })); warning = ''; } catch { warning = 'Browser preferences cannot be saved.'; } }
   function layout() { apply(); save(); onlayoutchange?.(); }
   function setTheme(value: Theme) { theme = value; layout(); }
   function setTextZoom(value: number) { textZoom = value; layout(); }
   function setContentZoom(value: number) { contentZoom = value; layout(); }
   function setInterfaceZoom(value: number) { interfaceZoom = value; layout(); }
-  function setDensity(value: Density) { density = value; layout(); }
+  function setDensity(value: Density) { density = savedDensity = value; layout(); }
   function setDisplay(next: Partial<ResultDisplayPreferences>) { onresultdisplaychange({ ...resultDisplay, ...next }); }
   function fixedInput(value: string) { const next = Number(value); if (positive(next, 1000)) setDisplay({ fixedPageSize: next }); }
   function limitInput(value: string) { const next = Number(value); if (positive(next)) setDisplay({ contentLimit: next }); }
@@ -46,7 +48,7 @@
       if (scales.includes(legacyTextZoom ?? 0)) { textZoom = legacyTextZoom!; contentZoom = legacyTextZoom!; }
       if (scales.includes(saved.contentZoom ?? 0)) contentZoom = saved.contentZoom!;
       if (scales.includes(saved.interfaceZoom ?? 0)) interfaceZoom = saved.interfaceZoom!;
-      if (saved.density === 'compact' || saved.density === 'comfortable') density = saved.density;
+      if (saved.density === 'compact' || saved.density === 'comfortable') density = savedDensity = saved.density;
       const display = saved.resultDisplay;
       if (display && (display.rowSizing === 'adaptive' || display.rowSizing === 'fixed') && positive(display.fixedPageSize, 1000) && (display.content === 'limited' || display.content === 'full') && positive(display.contentLimit)) onresultdisplaychange({ rowSizing: display.rowSizing, fixedPageSize: display.fixedPageSize, content: display.content, contentLimit: display.contentLimit });
     } catch { warning = 'Browser preferences cannot be read.'; }

@@ -1,12 +1,13 @@
 """Bound lifecycle effects read through Workbench and publish index changes."""
 import hashlib
+from contextlib import contextmanager
 import os
 import sys
 import tempfile
 from pathlib import Path
 from unittest.mock import patch
 
-import pytest
+import unittest
 
 TOOLS = Path(__file__).resolve().parents[1]
 ROOT = TOOLS.parents[2]
@@ -29,7 +30,7 @@ class Reader:
             raise RuntimeError("unavailable")
 
 
-@pytest.fixture
+@contextmanager
 def carrier_dir():
     base = ROOT / ".caprmedio_tmp/CA-P-2791/CA-P-2934/carrier-effects"
     base.mkdir(parents=True, exist_ok=True)
@@ -131,3 +132,12 @@ def test_directory_move_reads_atoms_through_workbench(carrier_dir):
     assert any(event == ("changed", None, destination / atom.name) for event in reader.events)
     assert any(event == ("changed", atom, None) for event in reader.events)
     assert all(call.args[1] != atom.name for call in direct.call_args_list)
+
+
+def load_tests(loader, tests, pattern):
+    def run(test):
+        with carrier_dir() as directory:
+            test(directory)
+
+    return unittest.TestSuite(unittest.FunctionTestCase(lambda test=test: run(test), description=test.__name__)
+                              for name, test in globals().items() if name.startswith("test_") and callable(test))

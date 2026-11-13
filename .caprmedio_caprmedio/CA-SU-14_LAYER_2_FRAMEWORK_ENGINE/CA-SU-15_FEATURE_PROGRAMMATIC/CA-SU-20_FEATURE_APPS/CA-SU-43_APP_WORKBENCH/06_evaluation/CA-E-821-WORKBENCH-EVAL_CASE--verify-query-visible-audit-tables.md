@@ -12,9 +12,9 @@ context:
   tier: 6
 relations:
   evaluation_for:
-  - CA-R-970308648
-  - CA-R-970308649
-  - CA-R-970308650
+  - CA-R-3066
+  - CA-R-3067
+  - CA-R-3068
   - CA-M-549
   - CA-D-715
 state:

@@ -19,6 +19,7 @@ import re
 
 from carrier_aliases import canonical_role_name, named_value_token
 from ATOM_LIFECYCLE.status_model import _STATUS_ORDER
+from ATOM_LIFECYCLE.placement_claim import parse_placement_claim
 
 _STATEMENT = re.compile(
     r'^Atom(?P<selectors>(?:/\(\s*\.Header\.(?:Context\.Role|State\.Status)\s*:=\s*[^()]+\))*)'
@@ -162,7 +163,7 @@ def compile_placement(rows, requirement_rows=(), declared_roles=None, required_s
 
     folders, rules, sources = {}, {}, {}
     order_statements = [(statement, row['id']) for row in requirement_rows
-                        for block in formal_claim_blocks(row['_content_bytes'].decode('utf-8'))
+                        for block in formal_claim_blocks(row['_content_bytes'].decode('utf-8'), model_class_bindings=row.get('_model_class_bindings'))
                         for statement in model_statements(block)]
     role_folders = compile_role_folders(order_statements)
     status_folders, status_numbers = {}, set()
@@ -180,7 +181,24 @@ def compile_placement(rows, requirement_rows=(), declared_roles=None, required_s
         status_numbers.add(order)
     generic_source = None
     for row in rows:
-        for block in formal_claim_blocks(row['_content_bytes'].decode('utf-8')):
+        body = row['_content_bytes'].decode('utf-8')
+        authored = parse_placement_claim(body)
+        if authored is not None:
+            for rule in authored:
+                source = row['id']
+                if rule['kind'] == 'role_root':
+                    if generic_source is not None:
+                        raise ValueError('Duplicate generic Role placement template')
+                    generic_source = source
+                    sources[source] = row
+                    continue
+                key = (None if rule['role'] is None else _name(rule['role']), rule['status'] if rule['status'] == '*' else _name(rule['status']))
+                if key in rules:
+                    raise ValueError(f'{source}: duplicate placement binding')
+                rules[key] = (rule['base'], rule['folder'], source)
+                sources[source] = row
+            continue
+        for block in formal_claim_blocks(body, model_class_bindings=row.get('_model_class_bindings')):
             for statement in model_statements(block):
                 if statement == 'Atom.Header.Destination.File.Path == PATH_TEMPLATE("<owning scope unit>/<role folder>/<placement>")':
                     if generic_source is not None:

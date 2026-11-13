@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Event Record.action
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T19:20:11.365178+00:00'
 carrier_destination:
   file:
     name: CA-R-2580-CORE_META_MODEL-DECLARATION--declare-event-record-action.md
@@ -26,16 +26,18 @@ Declare Event Record.action
 
 ### Formal Claim
 
-```CFEL
-# model
-Event Record.action{::1}:: [string]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Event Record.action.*[]{::0};
-
-Event Record.action: create;
-
-Event Record.action: update;
-
-Event Record.action: archive
+declare_entity(
+    entity_name='action',
+    relation_name="IS_PROPERTY_OF",
+    base_path='Event Record',
+    property_occurrence_cardinality=1,
+    value_format=str,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+    allowed_values=('create', 'update', 'archive'),
+)
 ```
 

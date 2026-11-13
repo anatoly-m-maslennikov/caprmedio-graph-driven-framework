@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Event Record.inserted_at
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2569-CORE_META_MODEL-DECLARATION--declare-event-record-inserted-at.md
@@ -26,10 +26,18 @@ Declare Event Record.inserted_at
 
 ### Formal Claim
 
-```CFEL
-# model
-Event Record.inserted_at{::1}:: [datetime]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
+from datetime import datetime
 
-Event Record.inserted_at.*[]{::0}
+declare_entity(
+    entity_name='inserted_at',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Event Record',
+    value_format=datetime,
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+)
 ```
 

@@ -1,6 +1,7 @@
 """The build selector uses Workbench and the compiler verifies its pins."""
 from pathlib import Path
 import json
+import re
 import sys
 import tempfile
 import unittest
@@ -9,7 +10,7 @@ from unittest.mock import patch
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 from ATOM_LIFECYCLE.candidate_schema import compile_candidate_schema  # noqa: E402
-from ATOM_LIFECYCLE.placement_sources import bootstrap_rows, inventory, pin, query_pins, validate_selection  # noqa: E402
+from ATOM_LIFECYCLE.placement_sources import bootstrap_rows, inventory, pin, query_pins, read_selected, validate_selection  # noqa: E402
 from test_lifecycle_formal_placement import RULES, carrier  # noqa: E402
 from FEATURE_WORKBENCH_BACKEND.query_store import QueryStore  # noqa: E402
 
@@ -58,6 +59,29 @@ Atom.Content.Summary:: {::1};
         self.manifest.write_text(json.dumps(selected))
         self.assertEqual(compile_candidate_schema(self.root),
                          compile_candidate_schema(self.root, self.manifest))
+
+    def test_requirement_query_selects_role_and_subject_pins(self):
+        (self.root / 'CA-R-1.md').write_text(carrier(
+            'CA-R-1', 'Requirement', 'Active', 'body', 'Atom.Header.Status'))
+        (self.root / 'CA-R-2.md').write_text(carrier(
+            'CA-R-2', 'Requirement', 'Active', 'body', 'Atom.Content.Other'))
+        extension = ROOT / '.caprmedio_tmp/workbench/extensions'
+
+        class LocalStore(QueryStore):
+            def __init__(self):
+                super().__init__(extension_directory=extension)
+
+        selected = query_pins(self.root, LocalStore, role='Requirement',
+                              subject_pattern=re.compile(r'Atom\.Header\..*'))
+        self.assertEqual([pin(inventory(self.root, 'R')[0])], selected)
+        self.assertEqual('CA-R-1.md', selected[0]['source_path'])
+        self.assertEqual(64, len(selected[0]['sha256']))
+        pattern = re.compile(r'Atom\.Header\..*')
+        self.assertEqual('CA-R-1', read_selected(
+            self.root, selected, role='Requirement', subject_pattern=pattern)[0]['id'])
+        (self.root / 'CA-R-1.md').write_text((self.root / 'CA-R-1.md').read_text() + 'changed')
+        with self.assertRaises(ValueError):
+            read_selected(self.root, selected, role='Requirement', subject_pattern=pattern)
 
     def test_compiler_reads_selected_delivery_only(self):
         selected = [pin(row) for row in bootstrap_rows(inventory(self.root))]

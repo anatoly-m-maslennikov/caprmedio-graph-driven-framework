@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings
 tier: 3
-status: Active
-version: 8
-updated_at: 2026-11-02 16:48:11 +0400
+status: active
+version: 9
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2532-CORE_META_MODEL-DECLARATION--declare-project-settings.md
@@ -26,10 +26,18 @@ Declare Project.Settings
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Project.Settings{::1}:: []{::0};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Project.Settings.*[in (Name, Prefix, AI Agent Confidence Threshold, Artifact Timestamp Timezone, Code-Root Locators, Confidence, Framework Control-Root Locator, Interaction, Authority Modes, Implementation Retry Limit, RMED Review)]{::3..11}
+declare_entity(
+    entity_name='Settings',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project',
+    property_occurrence_cardinality=1,
+    value_cardinality=0,
+    dependent_property_cardinality=Cardinality(minimum=3, maximum=11),
+    allowed_dependent_property_names=('Name', 'Prefix', 'AI Agent Confidence Threshold', 'Artifact Timestamp Timezone', 'Code-Root Locators', 'Confidence', 'Framework Control-Root Locator', 'Interaction', 'Authority Modes', 'Implementation Retry Limit', 'RMED Review'),
+)
 ```
 

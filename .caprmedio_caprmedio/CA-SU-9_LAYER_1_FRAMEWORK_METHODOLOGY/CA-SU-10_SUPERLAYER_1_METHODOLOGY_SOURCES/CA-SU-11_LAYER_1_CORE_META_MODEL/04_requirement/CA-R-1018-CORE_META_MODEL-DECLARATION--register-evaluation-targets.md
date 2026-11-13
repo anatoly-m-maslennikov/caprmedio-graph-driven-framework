@@ -15,9 +15,9 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)
   - CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
 tier: 1
-status: Active
-version: 38
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 39
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-1018-CORE_META_MODEL-DECLARATION--register-evaluation-targets.md
@@ -43,11 +43,13 @@ Forward `Host ((evaluation_for)) Target` and reverse `Target <((evaluation_for))
 evaluation_for relates Evaluation Atom to Atom whose authority is evaluated.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//evaluation_for ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom/(.Header.Context.Role: Evaluation)//$atom ((evaluation_for)) Atom//$atom_2
+declare_relation(
+    relation_name='evaluation_for',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Atom/(.Header.Context.Role := Evaluation)',)},
+    target_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+)
 ```
 

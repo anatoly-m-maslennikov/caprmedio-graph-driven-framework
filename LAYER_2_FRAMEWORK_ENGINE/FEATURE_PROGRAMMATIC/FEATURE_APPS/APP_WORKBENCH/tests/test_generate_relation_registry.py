@@ -1,4 +1,4 @@
-# CA-E-804@1
+# CA-E-804@5
 
 """Generated relation metadata uses the runtime declaration compiler."""
 

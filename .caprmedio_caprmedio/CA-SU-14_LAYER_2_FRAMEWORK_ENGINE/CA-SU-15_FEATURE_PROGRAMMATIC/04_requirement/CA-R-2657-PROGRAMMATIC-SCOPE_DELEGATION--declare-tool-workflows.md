@@ -13,7 +13,7 @@ context:
 state:
   status: Active
   version: 3
-  updated_at: 2026-11-11 15:29:41 +0400
+  updated_at: '2026-11-12T15:04:13+00:00'
 destination:
   file:
     name: CA-R-2657-PROGRAMMATIC-SCOPE_DELEGATION--declare-tool-workflows.md
@@ -55,7 +55,7 @@ Atom/(.Header.Context.Container.scope_unit in ("CA-SU-18"))/(.Header.Context.Rol
 
 ### Prose Claim
 
-Existing global default admissions, including existing Declaration families, remain unchanged; no additional pairs are granted. No exact Current Solution, Direct Policy, or Approach Policy Role/Form pair is selected. Analysis and Advisory / Code Synopsis remains admitted by the global default, and Plan / Work Report remains admitted only for an already admitted Task with the same Container and within the selected target boundary.
+Existing global default admissions, including existing Declaration families, remain unchanged; no additional pairs are granted. No exact Current Solution, Direct Policy, or Approach Policy Role/Form pair is selected. Plan / Work Report remains admitted only for an already admitted Task with the same Container and within the selected target boundary.
 
 For every admitted local Atom, the Header.Container-derived IS_CONTAINED_BY target must be exactly `Scope Unit//TOOL_WORKFLOWS` (`CA-SU-18`). Its HAS_ACTIVE_SUBJECT target is closed to exactly the declared model entities or declared instances resolved at these Current local main Subject addresses:
 - `Subject/CAPRMEDIO/Graph/Node/Aspect/Engineering/Architecture/Communication`

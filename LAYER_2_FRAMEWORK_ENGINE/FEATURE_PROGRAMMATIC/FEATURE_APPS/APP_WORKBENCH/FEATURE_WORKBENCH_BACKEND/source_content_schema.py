@@ -1,6 +1,6 @@
-# CA-R-2726@6
-# CA-M-465@24
-# CA-M-500@3
+# CA-R-2726@9
+# CA-M-465@29
+# CA-M-500@12
 # CA-D-672@14
 
 """Retain the compiled Content schema used to validate changed source Atoms."""
@@ -20,17 +20,23 @@ class SourceContentSchema:
 
     schema: ContentSchema | None = None
     _contributions: dict[str, tuple[FormalStatement, ...]] = field(default_factory=dict)
+    _rows: dict[str, Mapping[str, Any]] = field(default_factory=dict)
+    _bindings: dict[str, set[str]] = field(default_factory=dict)
 
     def reset(self) -> None:
         self.schema = None
         self._contributions.clear()
+        self._rows.clear()
+        self._bindings.clear()
 
     def rebuild(self, rows: Iterable[Mapping[str, Any]]) -> dict[str, ValueError]:
         """Compile valid rows, excluding only rows with duplicate declared headings."""
         remaining = list(rows)
         errors: dict[str, ValueError] = {}
         while True:
-            contributions = declaration_contributions(remaining)
+            from FEATURE_FORMAL_MODEL_ENGINE.model_catalog import bindings_from_workbench_rows
+            bindings = bindings_from_workbench_rows(remaining)
+            contributions = declaration_contributions({**row, "_model_class_bindings": bindings} for row in remaining)
             schema = content_schema_from_statements(
                 statement for statements in contributions.values() for statement in statements
             )
@@ -38,6 +44,8 @@ class SourceContentSchema:
             if not invalid:
                 self.schema = schema
                 self._contributions = contributions
+                self._rows = {path: row for row in remaining if (path := source_path(row)) is not None}
+                self._bindings = bindings
                 return errors
             errors.update(invalid)
             remaining = [row for row in remaining if source_path(row) not in invalid]
@@ -64,13 +72,32 @@ class SourceContentSchema:
             return True
         self.schema = schema
         self._contributions = contributions
+        for path, row in rows.items():
+            if row is None:
+                self._rows.pop(path, None)
+            else:
+                self._rows[path] = row
+        from FEATURE_FORMAL_MODEL_ENGINE.model_catalog import bindings_from_workbench_rows
+        self._bindings = bindings_from_workbench_rows(self._rows.values())
         return False
 
     def _candidate(
         self, rows: Mapping[str, Mapping[str, Any] | None],
     ) -> tuple[ContentSchema, dict[str, tuple[FormalStatement, ...]]]:
         assert self.schema is not None
-        contributions = updated_declarations(self._contributions, rows)
+        from FEATURE_FORMAL_MODEL_ENGINE.model_catalog import bindings_from_workbench_rows
+        combined = dict(self._rows)
+        for path, row in rows.items():
+            if row is None:
+                combined.pop(path, None)
+            else:
+                combined[path] = row
+        bindings = bindings_from_workbench_rows(combined.values())
+        if bindings != self._bindings:
+            contributions = declaration_contributions({**row, "_model_class_bindings": bindings} for row in combined.values())
+            schema = content_schema_from_statements(statement for items in contributions.values() for statement in items)
+            return schema, contributions
+        contributions = updated_declarations(self._contributions, {path: ({**row, "_model_class_bindings": bindings} if row is not None else None) for path, row in rows.items()})
         if contributions is self._contributions:
             return self.schema, contributions
         schema = content_schema_from_statements(

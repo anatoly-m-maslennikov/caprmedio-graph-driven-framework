@@ -56,6 +56,37 @@ class ReplacementIndexTest(unittest.TestCase):
         self.assertEqual((result.version, result.path), (12, versions[0][1]))
         self.assertEqual(reader.reads, [versions[0][1]])
 
+    def test_retained_archive_accepts_versioned_header_identity(self):
+        archive = self.carrier('CA-R-10@22-example.md', version=22, status='Archived')
+        archive.write_text(archive.read_text().replace('atom_id: CA-R-10', 'atom_id: CA-R-10@22')
+                           .replace('version: 22', 'ref_id: CA-R-10@22\nversion: 22'))
+        reader = IndexedReader(archived=[('CA-R-10@22', archive)])
+        before = archive.read_bytes()
+        result = self.resolve(reader)
+        self.assertEqual((result.atom_id, result.ref_id, result.version), ('CA-R-10', 'CA-R-10@22', 22))
+        self.assertEqual(reader.reads, [archive])
+        self.assertEqual(archive.read_bytes(), before)
+        reader.current = [archive]
+        with source.bind_query_reader(reader):
+            self.assertEqual(source.select_source(self.selection, 'CA-R-10@22').path, archive)
+            self.assertEqual(source.select_sources(self.selection, ['CA-R-10@22'])['CA-R-10@22'].path, archive)
+
+    def test_retained_archive_rejects_wrong_versioned_header(self):
+        archive = self.carrier('CA-R-10@22-example.md', version=22, status='Archived')
+        archive.write_text(archive.read_text().replace('atom_id: CA-R-10', 'atom_id: CA-R-10@21')
+                           .replace('version: 22', 'ref_id: CA-R-10@21\nversion: 22'))
+        reader = IndexedReader(archived=[('CA-R-10@22', archive)])
+        with self.assertRaisesRegex(InputError, 'Archived replacement is stale or invalid'):
+            self.resolve(reader)
+        self.assertEqual(reader.reads, [archive])
+
+    def test_unbound_retained_archive_accepts_versioned_header_identity(self):
+        archive = self.carrier('CA-R-10@22-example.md', version=22, status='Archived')
+        archive.write_text(archive.read_text().replace('atom_id: CA-R-10', 'atom_id: CA-R-10@22')
+                           .replace('version: 22', 'ref_id: CA-R-10@22\nversion: 22'))
+        result = publish.resolve_replacement(self.selection, 'CA-R-10')
+        self.assertEqual((result.atom_id, result.ref_id, result.version), ('CA-R-10', 'CA-R-10@22', 22))
+
     def test_current_takes_priority_over_archive(self):
         current = self.carrier('CA-R-10-current.md', version=13)
         reader = IndexedReader(current=[current], error=AssertionError('Archive must not be queried'))
@@ -72,21 +103,32 @@ class ReplacementIndexTest(unittest.TestCase):
         self.assertEqual(reader.reads, [stale])
         self.assertEqual(reader.archive_calls, 0)
 
-    def test_current_duplicates_keep_first_valid_selection(self):
+    def test_current_duplicates_fail_without_reads_and_block_collision(self):
         invalid = self.carrier('CA-R-10-a.md', identity='CA-R-11')
         valid = self.carrier('CA-R-10-b.md')
         reader = IndexedReader(current=[invalid, valid])
-        self.assertEqual(self.resolve(reader).path, valid)
-        self.assertEqual(reader.reads, [invalid, valid])
+        with self.assertRaisesRegex(InputError, 'Current replacement is stale or invalid'):
+            self.resolve(reader)
+        with source.bind_query_reader(reader):
+            self.assertTrue(publish._current_collision(self.selection, 'CA-R-10'))
+        self.assertEqual(reader.reads, [])
 
     def test_stale_latest_does_not_fall_back_to_older(self):
         stale = self.carrier('CA-R-10@5-first.md', identity='CA-R-11', version=5, status='Archived')
-        tied = self.carrier('CA-R-10@5-second.md', version=5, status='Archived')
         older = self.carrier('CA-R-10@4-older.md', version=4, status='Archived')
-        reader = IndexedReader(archived=[('CA-R-10@5', stale), ('CA-R-10@5', tied), ('CA-R-10@4', older)])
+        reader = IndexedReader(archived=[('CA-R-10@5', stale), ('CA-R-10@4', older)])
         with self.assertRaisesRegex(InputError, 'Archived replacement is stale or invalid'):
             self.resolve(reader)
         self.assertEqual(reader.reads, [stale])
+
+    def test_latest_archive_duplicates_fail_without_reads(self):
+        first = self.carrier('CA-R-10@5-first.md', version=5, status='Archived')
+        second = self.carrier('CA-R-10@5-second.md', version=5, status='Archived')
+        older = self.carrier('CA-R-10@4-older.md', version=4, status='Archived')
+        reader = IndexedReader(archived=[('CA-R-10@4', older), ('CA-R-10@5', first), ('CA-R-10@5', second)])
+        with self.assertRaisesRegex(InputError, 'Archived replacement is stale or invalid'):
+            self.resolve(reader)
+        self.assertEqual(reader.reads, [])
 
     def test_draft_is_never_selected(self):
         draft = self.carrier('CA-R-10@6-draft-example.md', version=6, status='Draft')

@@ -2,12 +2,13 @@
 # CA-R-1115@24
 # CA-M-512@2
 # CA-M-517@1
+# CA-M-396@17
 from __future__ import annotations
 
 # CA-M-322@13
 # CA-R-1820@9
-# CA-M-506@2
-# CA-D-673@14
+# CA-M-506@8
+# CA-D-673@18
 
 import asyncio
 from collections.abc import Awaitable
@@ -24,6 +25,7 @@ from workbench_tools import mcp_app_probe
 from host_runtime_config import (
     HostRuntimeConfig,
     HostRuntimeConfigError,
+    OutsideProjectRootError,
     _canonical_directory,
     load_host_runtime_config,
     resolve_host_project,
@@ -106,9 +108,10 @@ class SharedGateway:
             raise SharedGatewayRefusal("invalid_project_root")
         try:
             return resolve_host_project(self.config, value)
+        except OutsideProjectRootError as error:
+            raise SharedGatewayRefusal("outside_project_root") from error
         except HostRuntimeConfigError as error:
-            code = "outside_project_root" if "outside" in str(error) else "invalid_project_root"
-            raise SharedGatewayRefusal(code) from error
+            raise SharedGatewayRefusal("invalid_project_root") from error
         except ProjectSelectionError as error:
             raise SharedGatewayRefusal("invalid_project_root") from error
 

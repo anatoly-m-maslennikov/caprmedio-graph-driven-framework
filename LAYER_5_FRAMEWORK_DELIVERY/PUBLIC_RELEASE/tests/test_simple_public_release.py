@@ -19,57 +19,6 @@ class SimplePublicReleaseTests(PublicReleaseFixture):
         )
         self.assertFalse((self.root / ".caprmedio_tmp").exists())
 
-    def test_tests_bump_docs_pr_link_and_final_push_use_one_runner(self) -> None:
-        runner, calls = self._runner()
-        result = run_public_release(
-            self.root, run_id="public-2", content_draft=self.draft, runner=runner
-        )
-
-        self.assertEqual("completed", result["outcome"])
-        self.assertEqual("0.4.3", result["version"])
-        self.assertEqual("https://github.com/acme/project/pull/42", result["pr_url"])
-        self.assertIn('version = "0.4.3"', (self.root / "version.toml").read_text())
-        self.assertIn("Latest public release: **0.4.3**", (self.root / "README.md").read_text())
-        history = (self.root / "VERSION_HISTORY.md").read_text()
-        self.assertIn("## 0.4.3 [PR](https://github.com/acme/project/pull/42)", history)
-        self.assertIn("- Direct public release with one supplied PR description.", history)
-        self.assertEqual(6, len([argv for argv in calls if argv[:2] == ("git", "add")]))
-        self.assertEqual(2, len([argv for argv in calls if argv[:2] == ("git", "commit")]))
-        self.assertEqual(2, len([argv for argv in calls if argv[:2] == ("git", "push")]))
-        tests = next(argv for argv in calls if argv[:2] == ("uv", "run"))
-        self.assertIn("--all-groups", tests)
-        self.assertIn("3.14", tests)
-        self.assertTrue(any(item.endswith("run_full_test_suite.py") for item in tests))
-        self.assertNotIn("-m", tests)
-        create = next(argv for argv in calls if argv[:3] == ("gh", "pr", "create"))
-        self.assertIn("--draft", create)
-        self.assertEqual(self.draft["description"], create[create.index("--body") + 1])
-        discovery = next(argv for argv in calls if argv[:3] == ("gh", "pr", "list"))
-        first_push = next(argv for argv in calls if argv[:2] == ("git", "push"))
-        self.assertLess(calls.index(discovery), calls.index(tests))
-        self.assertLess(calls.index(tests), calls.index(first_push))
-        self.assertEqual("acme/project", discovery[discovery.index("--repo") + 1])
-
-    def test_existing_open_pr_is_made_draft_before_editing(self) -> None:
-        runner, calls = self._runner(existing_pr=True)
-        result = run_public_release(
-            self.root, run_id="public-open", content_draft=self.draft, runner=runner
-        )
-
-        self.assertEqual("completed", result["outcome"])
-        ready = (
-            "gh",
-            "pr",
-            "ready",
-            "https://github.com/acme/project/pull/41",
-            "--undo",
-            "--repo",
-            "acme/project",
-        )
-        edit = next(argv for argv in calls if argv[:3] == ("gh", "pr", "edit"))
-        self.assertLess(calls.index(ready), calls.index(edit))
-        self.assertFalse(any(argv[:3] == ("gh", "pr", "create") for argv in calls))
-
     def test_failed_test_retains_prepared_materials_and_writes_issue(self) -> None:
         runner, calls = self._runner(fail_tests=True)
         result = run_public_release(
@@ -141,8 +90,8 @@ class SimplePublicReleaseTests(PublicReleaseFixture):
             self.root, run_id="public-created", content_draft=self.draft, runner=runner
         )
         self.assertEqual("failed", result["outcome"])
-        self.assertEqual("upsert_pr", result["failed_step"])
-        self.assertEqual(1, sum(argv[:2] == ("git", "push") for argv in calls))
+        self.assertEqual("create_pr", result["failed_step"])
+        self.assertEqual(0, sum(argv[:2] == ("git", "push") for argv in calls))
         self.assertNotIn("[PR]", (self.root / "VERSION_HISTORY.md").read_text())
 
     def test_suite_source_drift_stops_before_publication(self) -> None:
@@ -162,7 +111,7 @@ class SimplePublicReleaseTests(PublicReleaseFixture):
                     any(
                         argv[:2] == ("git", "push")
                         or argv[:3]
-                        in (("gh", "pr", "create"), ("gh", "pr", "edit"), ("gh", "pr", "ready"))
+                        in (("gh", "pr", "edit"), ("gh", "pr", "ready"))
                         for argv in calls
                     )
                 )

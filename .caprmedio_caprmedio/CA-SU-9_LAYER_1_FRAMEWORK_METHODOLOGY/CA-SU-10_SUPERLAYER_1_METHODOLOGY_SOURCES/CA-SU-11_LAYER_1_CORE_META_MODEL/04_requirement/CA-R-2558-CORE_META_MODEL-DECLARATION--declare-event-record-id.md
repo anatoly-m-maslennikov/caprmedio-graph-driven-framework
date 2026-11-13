@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Event Record.ID
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T04:32:46.823926+00:00'
 carrier_destination:
   file:
     name: CA-R-2558-CORE_META_MODEL-DECLARATION--declare-event-record-id.md
@@ -26,13 +26,17 @@ Declare Event Record.ID
 
 ### Formal Claim
 
-```CFEL
-# model
-Event Record.ID{::1}:: [string]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Event Record.ID.*[]{::0};
-
-# instances
-UNIQUE(Event Record//$event_record, (.ID))
+declare_entity(
+    entity_name="ID",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Event Record",
+    property_occurrence_cardinality=1,
+    value_format=str,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+    population_unique_constraints=({"keys": ("ID",)},),
+)
 ```
-

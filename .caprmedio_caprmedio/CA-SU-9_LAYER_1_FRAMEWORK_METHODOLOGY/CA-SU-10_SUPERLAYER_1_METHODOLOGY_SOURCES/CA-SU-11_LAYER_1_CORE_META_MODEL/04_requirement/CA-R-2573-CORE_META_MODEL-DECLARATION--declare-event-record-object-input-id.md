@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Event Record.object_input.id
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2573-CORE_META_MODEL-DECLARATION--declare-event-record-object-input-id.md
@@ -26,10 +26,17 @@ Declare Event Record.object_input.id
 
 ### Formal Claim
 
-```CFEL
-# model
-Event Record.object_input.id{::1}:: [string]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Event Record.object_input.id.*[]{::0}
+declare_entity(
+    entity_name='id',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Event Record.object_input',
+    value_format=str,
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+)
 ```
 

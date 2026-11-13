@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content.Claim.Prose Claim
 tier: 3
-status: Active
-version: 4
-updated_at: "2026-11-07 17:10:31 +0400"
+status: active
+version: 5
+updated_at: '2026-11-12T19:13:08.274065+00:00'
 carrier_destination:
   file:
     name: CA-R-2722-CORE_META_MODEL-DECLARATION--declare-atom-content-claim-prose-claim.md
@@ -30,9 +30,16 @@ Declare Atom.Content.Claim.Prose Claim
 Prose Claim is a child Property of Claim. Its value is ordinary Markdown; headings within that value are not Properties unless an applicable declaration admits them.
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.Context.Role in RMED).Content.Claim.Prose Claim:: {::0..1};
+```python
+from caprmedio.formal_claims import Cardinality, declare_entity
+from caprmedio.model import Requirement, Method, Evaluation, Delivery
 
-Atom/(.Header.Context.Role in RMED).Content.Claim.Prose Claim.*[]{::0}
+declare_entity(
+    entity_name="Prose Claim",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Atom.Content.Claim",
+    value_cardinality=Cardinality(minimum=0, maximum=1),
+    dependent_property_cardinality=0,
+    applies_to_entity_classes=(Requirement, Method, Evaluation, Delivery),
+)
 ```

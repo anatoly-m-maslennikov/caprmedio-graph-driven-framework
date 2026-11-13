@@ -8,6 +8,7 @@ diagnostic rather than being guessed or silently discarded.
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 from collections.abc import Iterable, Mapping
 from pathlib import Path
@@ -22,19 +23,22 @@ _COUNT = r"(?P<minimum>0|[1-9][0-9]*)(?P<tail>\+|\.\.(?P<maximum>0|[1-9][0-9]*))
 _PROPERTY = re.compile(
     rf"^(?P<property>.+?)(?P<descendants>\.\*\*|\.\*)?"
     rf"(?:\[(?P<name_format>[^\]]*)\])?"
-    rf"\{{:{_COUNT}\}}"
-    rf"(?:\s*:\s*(?:\[(?P<value_format>[^\]]*)\])?\{{:(?P<value_minimum>0|[1-9][0-9]*)(?P<value_tail>\+|\.\.(?P<value_maximum>0|[1-9][0-9]*))?\}})?$"
+    rf"\{{::?{_COUNT}\}}"
+    rf"(?:\s*::?\s*(?:\[(?P<value_format>[^\]]*)\])?\{{::?(?P<value_minimum>0|[1-9][0-9]*)(?P<value_tail>\+|\.\.(?P<value_maximum>0|[1-9][0-9]*))?\}})?$"
 )
 _PROPERTY_VALUE = re.compile(
-    rf"^(?P<property>.+?)(?P<descendants>\.\*\*|\.\*)?\s*:\s*(?:\[(?P<value_format>[^\]]*)\])?"
-    rf"(?:\{{:{_COUNT}\}})?$"
+    rf"^(?P<property>.+?)(?P<descendants>\.\*\*|\.\*)?\s*::?\s*(?:\[(?P<value_format>[^\]]*)\])?"
+    rf"(?:\{{::?{_COUNT}\}})?$"
 )
-_NAMED_PROPERTY = re.compile(rf"^(?P<property>.+?)(?:\{{:{_COUNT}\}})?\s*:$")
+_NAMED_PROPERTY = re.compile(rf"^(?P<property>.+?)(?:\{{::?{_COUNT}\}})?\s*::?$")
 _MEMBERSHIP_QUALIFIER = re.compile(r"/\(\.[A-Za-z][A-Za-z0-9_. -]*\s+in\s+[A-Za-z][A-Za-z0-9_. -]*\)(?=\.|$)")
+_ORDERING = re.compile(r"^(?P<left>.+?)\s*(?P<operator>;>|<;)\s*(?P<right>.+)$")
+_ORDERING_ROLE = re.compile(r"^Atom/\(\.Header\.Context\.Role in (RMED|\([A-Za-z, ]+\))\)\.")
+_RMED_ROLES = ("Requirement", "Method", "Evaluation", "Delivery")
 _RELATION = re.compile(
-    rf"^(?P<source>.+?)\s*(?:\{{:(?P<forward_minimum>0|[1-9][0-9]*)(?P<forward_tail>\+|\.\.(?P<forward_maximum>0|[1-9][0-9]*))?\}}\s*)?"
+    rf"^(?P<source>.+?)\s*(?:\{{::?(?P<forward_minimum>0|[1-9][0-9]*)(?P<forward_tail>\+|\.\.(?P<forward_maximum>0|[1-9][0-9]*))?\}}\s*)?"
     rf"(?:<\(\((?P<reverse_relation>[^()]+)\)\)|\(\((?P<relation>[^()]+)\)\)|(?P<relation_notation>\+>|<\+))\s*"
-    rf"(?:\{{:(?P<reverse_minimum>0|[1-9][0-9]*)(?P<reverse_tail>\+|\.\.(?P<reverse_maximum>0|[1-9][0-9]*))?\}}\s*)?"
+    rf"(?:\{{::?(?P<reverse_minimum>0|[1-9][0-9]*)(?P<reverse_tail>\+|\.\.(?P<reverse_maximum>0|[1-9][0-9]*))?\}}\s*)?"
     rf"(?P<target>.+)$"
 )
 _GROUPED_INSTANCE_RELATION = re.compile(
@@ -43,6 +47,9 @@ _GROUPED_INSTANCE_RELATION = re.compile(
 _RELATION_WITHOUT_TARGET = re.compile(
     rf"^(?P<source>.+?)\s*\{{:(?P<forward_minimum>0|[1-9][0-9]*)(?P<forward_tail>\+|\.\.(?P<forward_maximum>0|[1-9][0-9]*))?\}}\s*"
     rf"(?:\(\((?P<relation>[^()]+)\)\)|(?P<relation_notation>\+>|<\+)|(?P<bare_relation>[A-Z][A-Z0-9_]*))$"
+)
+_ALLOWED_CLASSIFICATION_VALUE = re.compile(
+    r"^(?P<subject>[A-Za-z_][A-Za-z_0-9 .-]*)\s*>\|\s*(?P<axis>[A-Za-z_][A-Za-z_0-9 .-]*?):\s*(?P<value>[A-Za-z_][A-Za-z_0-9 .-]*)$"
 )
 _FORWARD_CLASSIFICATION = re.compile(
     r"^(?P<subject>.+?)\s*>\|\s*(?P<axis>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+)$"
@@ -56,10 +63,14 @@ _FORWARD_GROUPED_CLASSIFICATION = re.compile(
 _REVERSE_GROUPED_CLASSIFICATION = re.compile(
     r"^\(\s*(?P<axis>.+?)\s*(?P<operator>==|=)\s*(?P<value>.+?)\s*\)\s*\|<\s*(?P<subject>.+)$"
 )
-_ALLOWED_LITERAL = re.compile(r"^(?P<property>.+?)\s*:\s*(?P<literal>[^\[\]{}]+)$")
-_QUALIFIED_ALLOWED_LITERAL = re.compile(r"^(?P<property>.+\).+?)\s*:\s*(?P<literal>[^\[\]{}]+)$")
+_ALLOWED_LITERAL = re.compile(r"^(?P<property>.+?)\s*:{1,2}\s*(?P<literal>[^\[\]{}]+)$")
+_QUALIFIED_ALLOWED_LITERAL = re.compile(r"^(?P<property>.+\).+?)\s*:{1,2}\s*(?P<literal>[^\[\]{}]+)$")
+_PROPERTY_MINIMUM = re.compile(r"^(?P<property>.+?)\s*>=\s*(?P<value>-?\d+(?:\.\d+)?)$")
 _RELATION_ALIAS = re.compile(r'^alias\(\s*(?:Relation//)?(?P<name>[A-Za-z][A-Za-z0-9_]*)\s*\)\s*==\s*"(?P<glyph>[^"\r\n]+)"$')
+_OPERATOR_SYMBOL = re.compile(r'Operator//(?P<name>[A-Za-z_][A-Za-z_0-9]*)\s*==\s*(?P<symbol>"(?:[^"\\\x00-\x1f]|\\(?:["\\/bfnrt]|u[0-9a-fA-F]{4}))*")')
+_OPERATOR_SUBJECT = re.compile(r'(?:^|<\+\s*)CFEL\s*<\+\s*Operator//(?P<name>[A-Za-z_][A-Za-z_0-9]*)\s*$')
 _COUNTERPART = re.compile(r'^(?P<source>Relation//[A-Za-z][A-Za-z0-9_]*)\s*<-->\s*(?P<target>Relation//[A-Za-z][A-Za-z0-9_]*)$')
+_UNFILTERED_UNIQUE = re.compile(r"^UNIQUE\(\s*(?P<population>[A-Za-z][A-Za-z0-9_ /.-]*)//\$[A-Za-z][A-Za-z0-9_]*\s*,\s*\(\s*\.(?P<key>[A-Za-z_][A-Za-z_0-9 .-]*)\s*\)\s*\)$")
 _INSTANCE_BINDING = re.compile(r'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)$')
 _SCOPED_INSTANCE_BINDING = re.compile(r'^(?P<kind>.+)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)$')
 _INSTANCE_POPULATION = re.compile(rf'^(?P<kind>[A-Za-z][A-Za-z0-9_ /.-]*)//\$(?P<variable>[A-Za-z][A-Za-z0-9_]*)\{{:{_COUNT}\}}$')
@@ -79,7 +90,7 @@ def _count(minimum: str | None, tail: str | None, maximum: str | None) -> Record
 
 
 def _named_property_count(count: Record | None, value_count: Record | None = None) -> Record | None:
-    minimum = max(count["minimum"] if count else 0, 1 if value_count and value_count["minimum"] > 0 else 0)
+    minimum = count["minimum"] if count is not None else int(bool(value_count and value_count["minimum"] > 0))
     maximum = min(1, count["maximum"]) if count and count["maximum"] is not None else 1
     if minimum > maximum:
         return None
@@ -131,6 +142,36 @@ def _fences(body: str) -> list[tuple[int, int, int | None, str]]:
         _, _, opening, content_start, label = active
         result.append((opening, content_start, None, label))
     return result
+
+
+def _sibling_order(expression: str) -> Record | None:
+    match = _ORDERING.fullmatch(expression)
+    if match is None:
+        return None
+    left, operator, right = match.group("left", "operator", "right")
+    qualifier = _ORDERING_ROLE.match(left)
+    roles = ()
+    if qualifier is not None:
+        if not right.startswith(qualifier[0]):
+            return None
+        role_names = qualifier[1]
+        roles = _RMED_ROLES if role_names == "RMED" else tuple(name.strip() for name in role_names[1:-1].split(","))
+        if not all(roles):
+            return None
+        left = "Atom." + left[qualifier.end():]
+        right = "Atom." + right[qualifier.end():]
+    if not (_property_selector(left) and _property_selector(right)) or "." not in left or "." not in right:
+        return None
+    bearer, first = left.rsplit(".", 1)
+    other_bearer, second = right.rsplit(".", 1)
+    if bearer != other_bearer or first == second:
+        return None
+    source, target = (left, right) if operator == ";>" else (right, left)
+    return {"bearer": bearer, "relation": "IS_ORDERED_RIGHT_BEFORE", "relation_notation": operator,
+            "source_selector": source, "target_selector": target,
+            "source_cardinality": None, "target_cardinality": None,
+            "written_direction": "forward" if operator == ";>" else "reverse",
+            **({"ordering_roles": roles} if roles else {})}
 
 
 def _section_ranges(body: str, section_name: str) -> list[tuple[int, int]]:
@@ -221,7 +262,9 @@ def _split_expressions(block: str) -> list[str]:
             depth += 1
         elif character == ")":
             depth = max(0, depth - 1)
-        elif character == ";" and depth == 0:
+        elif character == ";" and depth == 0 and block[index:index + 2] != ";>" and (
+            block[index - 1:index] != "<" or block[index - 2:index] == "<<"
+        ):
             value = block[start:index].strip()
             if value:
                 values.append(value)
@@ -363,6 +406,215 @@ def python_compiler_expressions(block: str) -> list[tuple[str, str | None]]:
             for part in _split_expressions(expression)]
 
 
+def native_declaration(block: str) -> dict[str, Any] | None:
+    """Read the native declaration without executing its Python source."""
+    import sys
+    from pathlib import Path
+
+    programmatic = str(Path(__file__).resolve().parents[2])
+    if programmatic not in sys.path:
+        sys.path.insert(0, programmatic)
+    from FEATURE_FORMAL_MODEL_ENGINE.native_model_claim import parse_native_model_claim
+
+    return parse_native_model_claim(block)
+
+
+def _native_count(value: Any) -> Record | None:
+    if type(value) is int and value >= 0:
+        return {"minimum": value, "maximum": value}
+    if isinstance(value, dict) and set(value) == {"minimum", "maximum"}:
+        return value
+    return None
+
+
+def _native_constraints(declaration: Mapping[str, Any], source: Mapping[str, Any], block: str) -> list[Record]:
+    args = declaration["arguments"]
+    result: list[Record] = []
+    check = declaration.get("instance_check")
+    if check is not None:
+        scope_check = (args.get("base_path") == "Scope Unit" and args.get("entity_name") == "structural_level"
+                       and check.get("name") == "check_structural_level" and check.get("parameter_type") == "ScopeUnit")
+        if check.get("name") == "dependencies_are_distinct":
+            from FEATURE_FORMAL_MODEL_ENGINE.compiler_claim import compile_atom_dependencies_with_check
+            compile_atom_dependencies_with_check(declaration)
+        elif not (scope_check and args.get("relation_name") == "IS_PROPERTY_OF"
+                  or args.get("entity_class") == check["parameter_type"]):
+            raise ValueError("unsupported instance check")
+        result.append(_record(source, f'{check["name"]}({check["parameter"]}: {check["parameter_type"]})',
+                              "instance_check", group="instances", callback=check["name"]))
+    if declaration["kind"] == "entity" and args.get("entity_class"):
+        row = next((row for row in declaration["classes"] if row["name"] == args["entity_class"]), None)
+        if row is None:
+            raise ValueError("declared entity class is unavailable")
+        result.append(_record(source, block, "native_class", group="model",
+                              entity_name=args["entity_name"], class_name=row["name"],
+                              bases=row["bases"], qualification_property_path=args.get("qualification_property_path"),
+                              fields=row["fields"], arguments=args))
+        classifications = args.get("classifications", {})
+        if not isinstance(classifications, Mapping) or any(
+            not axis.strip() or type(value) not in (str, int, float, bool)
+            for axis, value in classifications.items()
+        ):
+            raise ValueError("classifications must map names to literal values")
+        for axis, value in classifications.items():
+            result.append(_record(source, block, "classification_condition", group="model",
+                                  subject_selector=args["entity_name"], axis=axis, operator="==", value=str(value)))
+        if args.get("qualification_property_path") == "Projection.Form" and row["bases"] == ("Projection",):
+            result.append(_record(source, block, "allowed_literal", group="model",
+                                  property_selector="Projection.Form", literal=args["entity_name"]))
+        if "instance_population_cardinality" in args:
+            result.append(_record(source, block, "native_population_constraint", group="instances",
+                                  cardinality=_native_count(args["instance_population_cardinality"]),
+                                  scope=args.get("instance_population_scope")))
+        for path, constraint in args.get("instance_property_constraints", {}).items():
+            count = _native_count(constraint.get("value_cardinality"))
+            if count is not None:
+                result.append(_record(source, block, "property_constraint", group="instances",
+                                      property_selector=f"{args['entity_name']}//$instance.{path}",
+                                      selection="values", name_format=None, occurrence_cardinality=None,
+                                      effective_occurrence_cardinality=_named_property_count(None, count),
+                                      value_format="" if count == {"minimum": 0, "maximum": 0} else None,
+                                      value_cardinality=count))
+        return result
+    if declaration["kind"] == "entity" and args.get("relation_name") == "IS_PROPERTY_OF":
+        if not isinstance(args.get("base_path"), str) or not args["base_path"]:
+            raise ValueError("Property declaration requires a base_path")
+        if forms := args.get("applies_to_forms"):
+            import json
+            role = args["applies_to_role"]
+            role = json.dumps(role) if " " in role else role
+            for form in forms:
+                selector = f"Atom/(.Header.Context.Role in ({role}))/(.Header.Context.Form in ({form})).Header.State.Status"
+                for value in args.get("allowed_values", ()):
+                    result.append(_record(source, f"{selector} :: {value}", "allowed_literal", group="model", property_selector=selector, literal=value))
+            return result
+        for rule in args.get("population_unique_constraints", ()):
+            result.append(_record(source, block, "population_unique_constraint", group="instances",
+                                  population_selector=args.get("population_entity_path", args["base_path"]),
+                                  keys=rule["keys"], **({"status": rule["status"], "single_value_paths": rule["single_value_paths"]} if "status" in rule else {})))
+        for dependency in args.get("population_functional_dependencies", ()):
+            result.append(_record(source, block, "population_functional_dependency", group="instances",
+                                  population_selector=args.get("population_entity_path", args["base_path"]),
+                                  keys=dependency["keys"], dependents=dependency["dependents"],
+                                  **({"status_groups": dependency["status_groups"]} if "status_groups" in dependency else {})))
+        selector = f"{args['base_path']}.{args['entity_name']}"
+        occurrence = _native_count(args.get("property_occurrence_cardinality"))
+        values = _native_count(args.get("value_cardinality"))
+        effective = _named_property_count(occurrence, values)
+        if not args.get("allowed_values") or occurrence is not None or values is not None or "value_format" in args:
+            result.append(_record(source, block, "property_constraint", group="model",
+                                  property_selector=selector, selection="property", name_format=None,
+                                  occurrence_cardinality=occurrence, effective_occurrence_cardinality=effective,
+                                  occurrence_conflict=effective is None, value_format=args.get("value_format"),
+                                  value_cardinality=values,
+                                  **({"model_value_format": declaration["model_value_format"]} if declaration.get("model_value_format") else {}),
+                                  applicable_entity_classes=args.get("applies_to_entity_classes")))
+        dependent_value_count = _native_count(args.get("dependent_property_value_cardinality"))
+        dependent_value_format = args.get("dependent_property_value_format")
+        if "dependent_property_cardinality" in args or (
+            "dependent_property_value_format" in args and dependent_value_count is None
+        ):
+            result.append(_record(source, block, "property_constraint", group="model",
+                                  property_selector=selector, selection="immediate_dependents",
+                                  name_format=args.get("dependent_property_name_format"),
+                                  occurrence_cardinality=_native_count(args.get("dependent_property_cardinality")),
+                                  effective_occurrence_cardinality=_native_count(args.get("dependent_property_cardinality")),
+                                  occurrence_conflict=False,
+                                  value_format=dependent_value_format if dependent_value_count is None else None,
+                                  value_cardinality=None,
+                                  allowed_names=args.get("allowed_dependent_property_names")))
+        if dependent_value_count is not None:
+            result.append(_record(source, block, "property_constraint", group="model",
+                                  property_selector=selector, selection="immediate_dependent_values",
+                                  name_format=None, occurrence_cardinality=None,
+                                  value_format=dependent_value_format, value_cardinality=dependent_value_count))
+        if "recursive_dependent_property_cardinality" in args:
+            count = _native_count(args["recursive_dependent_property_cardinality"])
+            result.append(_record(source, block, "property_constraint", group="model",
+                                  property_selector=selector, selection="recursive_dependents",
+                                  name_format=args.get("recursive_dependent_property_name_format"),
+                                  occurrence_cardinality=count, effective_occurrence_cardinality=count,
+                                  occurrence_conflict=False, value_format=None, value_cardinality=None))
+        if "recursive_dependent_property_value_format" in args:
+            result.append(_record(source, block, "property_constraint", group="model",
+                                  property_selector=selector, selection="recursive_dependent_values",
+                                  name_format=None, occurrence_cardinality=None,
+                                  value_format=args["recursive_dependent_property_value_format"], value_cardinality=None))
+        for first, second in args.get("ordered_dependent_property_pairs", ()):
+            result.append(_record(source, f"{selector}.{first} ;> {selector}.{second}", "relation_cardinality",
+                                  group="model", bearer=selector, relation="IS_ORDERED_RIGHT_BEFORE",
+                                  source_selector=f"{selector}.{first}", target_selector=f"{selector}.{second}",
+                                  source_cardinality=None, target_cardinality=None, written_direction="forward",
+                                  applicable_entity_classes=args.get("applies_to_entity_classes"),
+                                  **({"ordering_roles": args["ordered_dependent_property_roles"]}
+                                     if "ordered_dependent_property_roles" in args else {})))
+        if "minimum_value" in args:
+            minimum = args["minimum_value"]
+            if type(minimum) not in (int, float):
+                raise ValueError("minimum_value must be numeric")
+            result.append(_record(source, f"{selector} >= {minimum}", "property_value_bound",
+                                  group="model", property_selector=selector, operator=">=", value=minimum))
+        for value in args.get("allowed_values", ()):
+            result.append(_record(source, f"{selector} :: {value}", "allowed_literal",
+                                  group="model", property_selector=selector, literal=value,
+                                  applicable_entity_classes=args.get("applies_to_entity_classes")))
+        for status, order in args.get("status_order_numbers", {}).items():
+            subject = f"Atom/(.Header.State.Status := {status}).Header.State.Status"
+            result.append(_record(source, f"{subject} >| (Status Order Number == {order})",
+                                  "classification_condition", group="model", subject_selector=subject,
+                                  axis="Status Order Number", operator="==", value=str(order)))
+        for status, group in args.get("status_groups", {}).items():
+            role = args["applies_to_entity_classes"][0]
+            subject = f"Atom/(.Header.Context.Role := {role})/(.Header.State.Status := {status}).Header.State.Status"
+            result.append(_record(source, f"{subject} >| Status Group == {group}", "classification_condition", group="model", subject_selector=subject, axis="Status Group", operator="==", value=group))
+        if "maximum_value" in args:
+            result.append(_record(source, f"{selector} <= {args['maximum_value']}", "property_value_bound",
+                                  group="model", property_selector=selector, operator="<=", value=args["maximum_value"]))
+        if "fallback_chain" in args:
+            result.append(_record(source, block, "effective_value_fallback_chain", group="instances",
+                                  property_selector=selector, branches=args["fallback_chain"],
+                                  empty_values=("undefined", "null", ""), project_cardinality=1))
+        if "fallback_value" in args:
+            result.append(_record(source, f"{selector} ?== {args['fallback_value']}",
+                                  "effective_value_fallback", group="instances", property_selector=selector,
+                                  fallback_literal=args["fallback_value"], empty_values=("undefined", "null", "")))
+        if args.get("fallback_property_name"):
+            bearer = args["base_path"]
+            result.append(_record(source, f"{bearer}.{args['entity_name']} ?== {bearer}.{args['fallback_property_name']}",
+                                  "effective_value_fallback", group="instances",
+                                  property_selector=f"{bearer}.{args['entity_name']}",
+                                  fallback_property_selector=f"{bearer}.{args['fallback_property_name']}",
+                                  empty_values=("undefined", "null", "")))
+        return result
+    if declaration["kind"] == "relation":
+        name = args["relation_name"]
+        result.append(_record(source, block, "native_relation_declaration", group="model",
+                              relation=name, arguments=args))
+        for selector, direction in ((args.get("source_endpoint"), "source"), (args.get("target_endpoint"), "target")):
+            if isinstance(selector, dict):
+                result.append(_record(source, block, "relation_endpoint", group="model", relation=name,
+                                      direction=direction, endpoint=selector,
+                                      targets_per_source=_native_count(args.get("targets_per_source")),
+                                      sources_per_target=_native_count(args.get("sources_per_target"))))
+        for pair in args.get("endpoint_pairs", ()):
+            result.append(_record(source, block, "relation_endpoint_pair", group="model", relation=name,
+                                  source_endpoint=pair["source_endpoint"], target_endpoint=pair["target_endpoint"],
+                                  targets_per_source=_native_count(args.get("targets_per_source")),
+                                  sources_per_target=_native_count(args.get("sources_per_target"))))
+        if inverse := args.get("inverse_alias"):
+            instance_levels = {"instances", "model_entities_or_instances"}
+            pairs = args.get("endpoint_pairs", (args,))
+            is_inverse = all(pair[endpoint]["level"] in instance_levels for pair in pairs for endpoint in ("source_endpoint", "target_endpoint"))
+            result.append(_record(source, block, "relation_cardinality", group="model",
+                                  source_selector=f"Relation//{name if is_inverse else inverse}",
+                                  relation="HAS_INVERSE" if is_inverse else "IS_INVERSE_ALIAS_FOR",
+                                  target_selector=f"Relation//{inverse if is_inverse else name}", source_cardinality=None,
+                                  target_cardinality=None, written_direction="forward"))
+        if alias := args.get("written_alias"):
+            result.append(_record(source, block, "relation_alias", group="model", relation=name, glyph=alias))
+    return result
+
+
 def claim_fenced_blocks(carrier: Mapping[str, Any]) -> list[Record]:
     """Return every fenced Claim block with its original language label.
 
@@ -425,15 +677,43 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
     if not isinstance(source, Mapping) or not isinstance(body, str):
         return [], []
     expressions, diagnostics = _expressions(body)
+    native_records: list[Record] = []
+    from FEATURE_FORMAL_MODEL_ENGINE.compiler_claim import compiler_model_statements, has_dataclass_field_contracts
+
     for block in claim_python_blocks(carrier):
         try:
-            expressions.extend(python_compiler_expressions(block["block"]))
+            declaration = native_declaration(block["block"])
+            if declaration is None:
+                expressions.extend(python_compiler_expressions(block["block"]))
+            elif has_dataclass_field_contracts(declaration):
+                expressions.extend((statement, "model") for statement in compiler_model_statements(declaration))
+            elif "structure_paths" in declaration.get("arguments", {}):
+                expressions.extend((statement, "instances") for statement in compiler_model_statements(declaration))
+            elif "allowed_classification_values" in declaration.get("arguments", {}):
+                expressions.extend((statement, "model") for statement in compiler_model_statements(declaration))
+            elif declaration.get("arguments", {}).get("instance", {}).get("type") == "Aspect":
+                expressions.extend((statement, None) for statement in compiler_model_statements(declaration))
+            else:
+                native_records.extend(_native_constraints(declaration, source, block["block"]))
         except ValueError as error:
             diagnostics.append({"code": "python-formal-claim-invalid", "message": str(error), "source": dict(source)})
-    records: list[Record] = []
+    records: list[Record] = native_records
+    subjects = carrier.get("subjects") or {}
+    subject = subjects.get("governs") or subjects.get("active")
+    operator = _OPERATOR_SUBJECT.search(subject) if isinstance(subject, str) else None
     for expression, group in expressions:
         record_start, diagnostic_start = len(records), len(diagnostics)
         try:
+            if group == "model" and operator and (symbol := _OPERATOR_SYMBOL.fullmatch(expression)):
+                if symbol["name"] == operator["name"] and (value := json.loads(symbol["symbol"])):
+                    records.append(_record(source, expression, "operator_symbol", operator=symbol["name"], symbol=value))
+                    continue
+            uniqueness = _UNFILTERED_UNIQUE.fullmatch(expression) if group == "instances" else None
+            if uniqueness is not None:
+                records.append(_record(source, expression, "population_unique_constraint", group="instances",
+                                       population_selector=uniqueness.group("population").strip(),
+                                       keys=(uniqueness.group("key").strip(),)))
+                continue
             binder = _MODEL_BINDING.match(expression) if group == 'model' else None
             if binder is not None and expression.rstrip().endswith(')') and _balanced_parentheses(expression):
                 records.append(_record(source, expression, "model_binding", variable=binder.group("variable"),
@@ -486,6 +766,9 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                     "expression": expression,
                     "source": dict(source),
                 })
+                continue
+            if order := _sibling_order(expression):
+                records.append(_record(source, expression, "relation_cardinality", **order))
                 continue
             grouped_instance = _GROUPED_INSTANCE_RELATION.fullmatch(expression)
             if grouped_instance is not None:
@@ -565,6 +848,13 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                     target_domain="unresolved",
                 ))
                 continue
+            allowed_classification = _ALLOWED_CLASSIFICATION_VALUE.fullmatch(expression)
+            if allowed_classification is not None:
+                records.append(_record(source, expression, "classification_allowed_value",
+                                       subject_selector=allowed_classification.group("subject").strip(),
+                                       axis=allowed_classification.group("axis").strip(),
+                                       value=allowed_classification.group("value").strip()))
+                continue
             classification = (
                 _FORWARD_GROUPED_CLASSIFICATION.fullmatch(expression)
                 or _REVERSE_GROUPED_CLASSIFICATION.fullmatch(expression)
@@ -635,6 +925,13 @@ def extract_claim_constraints(carrier: Mapping[str, Any]) -> tuple[list[Record],
                     value_format=property_value.group("value_format"),
                     value_cardinality=value_count,
                 ))
+                continue
+            minimum = _PROPERTY_MINIMUM.fullmatch(expression)
+            if minimum is not None and (minimum_selector := _property_selector(minimum["property"])):
+                written_value = minimum["value"]
+                value = float(written_value) if "." in written_value else int(written_value)
+                records.append(_record(source, expression, "property_value_bound",
+                                       property_selector=minimum_selector, operator=">=", value=value))
                 continue
             allowed_literal = _ALLOWED_LITERAL.fullmatch(expression)
             literal_selector = _property_selector(allowed_literal.group("property")) if allowed_literal is not None else None

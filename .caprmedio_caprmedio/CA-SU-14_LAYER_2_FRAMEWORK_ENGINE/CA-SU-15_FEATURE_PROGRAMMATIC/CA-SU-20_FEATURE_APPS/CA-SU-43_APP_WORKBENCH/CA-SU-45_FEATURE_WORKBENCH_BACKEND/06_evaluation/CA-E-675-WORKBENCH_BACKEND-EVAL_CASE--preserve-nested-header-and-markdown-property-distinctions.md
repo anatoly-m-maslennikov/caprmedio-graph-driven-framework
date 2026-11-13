@@ -1,0 +1,63 @@
+---
+identity:
+  atom_id: CA-E-675
+  ref_id: CA-E-675
+context:
+  container:
+    scope_unit: CA-SU-45
+  role: Evaluation
+  form: Eval Case
+  topics:
+    main_subject: PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Operation
+      <+ Data Handling <+ Source Retrieval
+    dependencies:
+    - MODEL//CAPRMEDIO <+ Projection
+  tier: 5
+relations:
+  evaluation_for:
+  - CA-R-2726
+  - CA-M-464
+  - CA-D-672
+state:
+  status: active
+  version: 14
+  updated_at: '2026-11-12T12:32:30.181880+00:00'
+destination:
+  file:
+    name: CA-E-675-WORKBENCH_BACKEND-EVAL_CASE--preserve-nested-header-and-markdown-property-distinctions.md
+    path: .caprmedio_caprmedio/CA-SU-14_LAYER_2_FRAMEWORK_ENGINE/CA-SU-15_FEATURE_PROGRAMMATIC/CA-SU-20_FEATURE_APPS/CA-SU-43_APP_WORKBENCH/CA-SU-45_FEATURE_WORKBENCH_BACKEND/06_evaluation
+current_scope_unit: WORKBENCH_BACKEND
+claim_target_scope_unit: WORKBENCH_BACKEND
+author: Anatoly Maslennikov
+---
+## Summary
+
+Preserve nested Header and Markdown Property distinctions
+
+## Claim scope
+
+Current-model-guided in-memory parsing of governed carriers.
+
+## Claim
+
+### Prose Claim
+
+Parse YAML Header and actual CommonMark headings directly. Private parsed Header/Markdown retain their distinction and complete body; public Mode 1 exposes only model-declared Header/Content paths, while enabled Mode 2 exposes every observed valid Header path and declared Content columns. Names use dotted lowercase snake_case paths, never old `id`/`status`/`role` aliases; do not expose raw Header/Markdown/property/relation buckets or source bytes.
+
+## Details
+
+Verify absence/null/empty/scalar/list/map/false/zero distinctions; LF/CRLF preservation; duplicate-key rejection; nested direct versus subtree Markdown; actual headings versus declared public Content; and Prose Claim/Formal Claim/fenced-heading handling. `Header.Context.Plan` maps to `header.context.plan` without a wrapper; ambiguous flattening fails rather than merging paths. `header.relations` matches native facts once. Mode 2 observes Header paths at cold start, keeps observed empty paths and treats false/zero as values. Ordinary edits update data under the loaded schema. Unadmitted presentation headings do not become Content columns.
+
+
+### Role and Form applicability after image rebuild
+
+- Refresh the schema from Current Declarations and build an image and query valid Current and Draft fixtures for each of the eight Roles: Concern, Analysis & Advisory, Plan, Requirement, Method, Evaluation, Delivery and Operations. For each applicable Form, assert that admitted sections are available under their declared Content paths. Include Concern, Objective, Operation and Analysis & Advisory report sections; retain their text and paths without converting them into Claims.
+- Add a Role or Form Declaration or change its Content applicability in the fixture source, refresh the schema and rebuild the image, and assert that the resulting query model and columns reflect the new or changed declaration. Repeat with another applicable Role or Form to detect a fixed Role/Form list; unchanged declarations and existing query behavior remain intact.
+- Exercise explicitly declared Content paths restricted by applicable wildcards, including nested and inherited paths and multiword segments. Assert dotted lowercase snake_case column names and the correct values in both modes. A heading not admitted by an applicable Content rule remains presentation text and creates no Content column. Add and remove an explicit property declaration. Verify it changes neither schema through watcher refresh nor full reread. Rebuild the image and verify the new schema in both modes. Verify that a value-only or presentation-heading edit remains incremental. Verify that a finite name list or bracketed constraint alone never creates property paths.
+- Where more specific declarations govern Prose Claim or Formal Claim, verify their prescribed parsing and retain internal prose headings as text. Headings inside fenced blocks remain text, including heading-shaped lines; neither a wildcard nor a nested heading converts them into Content properties.
+- Run the existing invalid-source, duplicate-key, Header/Markdown distinction and Mode 1/Mode 2 cases alongside these fixtures. Invalid content stays excluded. The service reports a missing or invalid generated schema instead of compiling one from live declarations.
+
+
+### Formal model input boundary
+
+Generate Header/Content schema and canonical Relation metadata from explicit Formal Claim CFEL blocks only. Place plausible declarations in Prose Claim, Semantics, Details and comments and assert that none contributes model facts. Verify valid expressions without a `# model` marker and after intervening comments. Preserve `#` inside quoted strings. Changing only a comment must leave the effective schema/registry meaning unchanged; source provenance may still change.

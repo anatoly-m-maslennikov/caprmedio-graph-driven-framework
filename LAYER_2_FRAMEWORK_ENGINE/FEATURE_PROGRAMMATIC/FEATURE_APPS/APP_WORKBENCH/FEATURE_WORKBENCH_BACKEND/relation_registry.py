@@ -1,5 +1,5 @@
 # CA-M-465@24
-# CA-M-509@5
+# CA-M-509@7
 
 """Compile literal Current Relation declarations without evaluating CFEL."""
 
@@ -9,39 +9,20 @@ from collections import defaultdict
 from collections.abc import Mapping
 from dataclasses import dataclass
 from pathlib import Path
-import re
 import sys
 from typing import Any
 
-from .declaration_cfel import formal_claim_blocks, model_statements
 from .markdown_content import source_markdown
+from .relation_declarations import RegistryContribution, relation_declaration
 from .source_selection import first_reference_rows
 
 
-TOOLS = Path(__file__).resolve().parents[3] / "FEATURE_TOOLS"
-if str(TOOLS) not in sys.path:
-    sys.path.insert(0, str(TOOLS))
+PROGRAMMATIC = Path(__file__).resolve().parents[3]
+for directory in (PROGRAMMATIC, PROGRAMMATIC / "FEATURE_TOOLS"):
+    if str(directory) not in sys.path:
+        sys.path.insert(0, str(directory))
 
 from carrier_aliases import carrier_read_view, matches_named_value  # noqa: E402, F401
-
-
-_NAME = r"[A-Za-z_][A-Za-z_0-9]*"
-_DECLARATION = re.compile(rf"Relation//({_NAME})(?:\s+(?:<\(\(|\(\().+)?\Z", re.DOTALL)
-_INVERSE = re.compile(
-    rf"Relation//({_NAME})\s+(\(\(HAS_INVERSE\)\)|<\(\(HAS_INVERSE\)\)|<-->)\s+Relation//({_NAME})\s*;?\s*\Z"
-)
-_INVERSE_ALIAS = re.compile(
-    rf"Relation//({_NAME})\s+\(\(IS_INVERSE_ALIAS_FOR\)\)\s+Relation//({_NAME})\s*;?\s*\Z"
-)
-_CONDITIONAL = re.compile(r"\b(?:IF|THEN|ELSE|ALL|ANY|GROUP)\s*\(", re.IGNORECASE)
-_THEN = re.compile(r"\b(?:THEN|ELSE|ALL|ANY|GROUP)\s*\(", re.IGNORECASE)
-
-
-@dataclass(frozen=True)
-class RegistryContribution:
-    names: frozenset[str]
-    inverses: tuple[tuple[str, str], ...]
-    aliases: tuple[tuple[str, str], ...]
 
 
 @dataclass(frozen=True)
@@ -57,45 +38,6 @@ class RegistryCompilation:
     registry: RelationRegistry
     contributions: dict[str, RegistryContribution]
     declaration_rows: tuple[dict[str, Any], ...]
-
-
-def _unsupported_metadata(source: str) -> None:
-    print(
-        f"Workbench: {source}: conditional/grouped CFEL relation metadata is unsupported; link skipped",
-        file=sys.stderr,
-    )
-
-
-def _literal_metadata(body: str, source: str) -> RegistryContribution:
-    names: set[str] = set()
-    inverses: list[tuple[str, str]] = []
-    aliases: list[tuple[str, str]] = []
-    for block in formal_claim_blocks(body):
-        group_depth = 0
-        for statement in model_statements(block):
-            control = _CONDITIONAL.search(statement)
-            grouped = group_depth > 0 or control is not None
-            inverse = _INVERSE.fullmatch(statement)
-            alias = _INVERSE_ALIAS.fullmatch(statement)
-            if grouped:
-                if _INVERSE.search(statement) or _INVERSE_ALIAS.search(statement):
-                    _unsupported_metadata(source)
-            elif inverse is not None:
-                left, operator, right = inverse.groups()
-                names.update((left, right))
-                inverses.append((right, left) if operator.startswith("<((") else (left, right))
-            elif alias is not None:
-                aliases.append((alias.group(1), alias.group(2)))
-                names.add(alias.group(2))
-            elif (
-                "((HAS_INVERSE))" not in statement
-                and "((IS_INVERSE_ALIAS_FOR))" not in statement
-                and (declaration := _DECLARATION.fullmatch(statement))
-            ):
-                names.add(declaration.group(1))
-            if grouped:
-                group_depth = max(0, group_depth + statement.count("(") - statement.count(")"))
-    return RegistryContribution(frozenset(names), tuple(inverses), tuple(aliases))
 
 
 def _declaration_identity(row: Mapping[str, Any]) -> tuple[str, str, int] | None:
@@ -138,7 +80,7 @@ def registry_contribution(row: Mapping[str, Any]) -> RegistryContribution:
     if identity is None:
         return RegistryContribution(frozenset(), (), ())
     source, _atom_id, _version = identity
-    return _literal_metadata(source_markdown(row) or "", source)
+    return relation_declaration(source_markdown(row) or "", source)
 
 
 def _unambiguous_inverses(bindings: list[tuple[str, str]]) -> dict[str, str]:

@@ -43,6 +43,35 @@ class PlacementTest(unittest.TestCase):
                          self.place(atom_id='CA-R-096', status='Draft').name)
         self.assertEqual('CA-R-000-DECISION--example-text.md', self.place(atom_id='CA-R-000').name)
 
+    def test_effective_label_falls_back_to_form_for_empty_values(self):
+        for label in (None, ''):
+            with self.subTest(label=label):
+                self.assertEqual(self.place(), self.place(label=label))
+                self.assertEqual(
+                    'CA-P-1-TASK--example-text.md',
+                    self.place(atom_id='CA-P-1', role='Plan', form='Task', label=label).name,
+                )
+        self.assertEqual('CA-R-1-LOCAL--example-text.md', self.place(label='Local').name)
+        with self.assertRaises(PlacementError):
+            self.place(label=' ')
+
+    def test_summary_punctuation_serializes_to_ascii_kebab_case(self):
+        summaries = {
+            'Deliver DuckDB Atom, Content Property, and relation records':
+                'deliver-duckdb-atom-content-property-and-relation-records',
+            'Preserve governed Atom data and reuse native SQL.':
+                'preserve-governed-atom-data-and-reuse-native-sql',
+            'Verify installed Workbench and query_run':
+                'verify-installed-workbench-and-query-run',
+            'hello / world': 'hello-world',
+            "Follow the Operator's priorities": 'follow-the-operator-s-priorities',
+        }
+        for summary, slug in summaries.items():
+            with self.subTest(summary=summary):
+                self.assertEqual(f'CA-R-1-DECISION--{slug}.md', self.place(summary=summary).name)
+                self.assertEqual(f'CA-R-1@2-draft-DECISION--{slug}.md',
+                                 self.place(summary=summary, status='Draft').name)
+
     def test_archive_exact_predecessor_and_local_workflow_group(self):
         role = self.control / '09_operations'
         group = role / 'CA-O-9-WORKFLOW--example'
@@ -101,7 +130,9 @@ class PlacementTest(unittest.TestCase):
         with self.assertRaises(PlacementError):
             self.place(scope_unit='missing')
         with self.assertRaises(PlacementError):
-            self.place(summary='hello / world')
+            self.place(summary='hello\nworld')
+        with self.assertRaises(PlacementError):
+            self.place(summary='!!!')
         with self.assertRaises(PlacementError):
             self.place(parent=self.root / 'outside')
         self.selection.declaration_paths[0].write_text('changed')

@@ -13,8 +13,8 @@ relations:
   DERIVED_FROM:
   - CA-A-057
 status: active
-version: 26
-updated_at: '2026-11-12T09:54:14.160142+00:00'
+version: 27
+updated_at: '2026-11-12T17:12:00.434020+00:00'
 cce_version: cce_1
 cce_form: method
 llm_session_ids:
@@ -36,7 +36,7 @@ Delegate one Initiative-bound Atom mutation
 
 #### Atom Lifecycle Tools
 
-Forward the operation and inputs to the bound Project runtime. If the runtime requests a correction, return the field errors and the fields to correct to the AI Agent in the MCP response. Do not request Operator input. The next call in the same Project, client session and Tool may supply just those fields or include other input fields. Merge the new inputs with the retained inputs and validate again before any effect. A call with only `cancel: true` clears the pending operation without applying any inputs. After an effect, return a failure and its completed effects instead of continuing with a correction. Archive and Promote Draft forward an ordered batch to the same backend operations. Return the backend outcome under CA-R-1105 without replay or repair. The backend reuses the current Workbench Scope Unit projection, so a newly indexed valid Scope Unit is available without a runtime restart.
+Forward the operation and inputs to the bound Project runtime. If the runtime requests a correction, return the field errors and the fields to correct to the AI Agent in the MCP response. Do not request Operator input. Return the Run ID with the correction request. Keep the pending input in the live Project runtime so disconnecting a client does not discard it. Continue that exact Run by ID with only the requested fields or additional fields. Retain recognized valid fields, report invalid, missing and unknown fields, and validate the merged input before effects. Cancellation by ID clears a Run waiting for correction without applying inputs. After an effect, return a failure and its completed effects instead of continuing with a correction. Archive and Promote Draft forward an ordered batch to the same backend operations. Return the backend outcome under CA-R-1105 without replay or repair. The backend reuses the current Workbench Scope Unit projection, so a newly indexed valid Scope Unit is available without a runtime restart.
 
 #### Initiative-bound procedure
 

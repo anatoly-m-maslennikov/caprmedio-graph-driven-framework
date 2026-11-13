@@ -14,9 +14,9 @@ topics:
   - CAPRMEDIO_STRUCTURE <+ Entity/Object/Continuant/Selection//Extension Sources
   - CAPRMEDIO_STRUCTURE <+ Scope Unit//PROJECT_CONFIGURATION
 tier: 2
-status: Active
-version: 24
-updated_at: '2026-11-11 15:25:07 +0400'
+status: active
+version: 25
+updated_at: '2026-11-12T21:17:00.590287+00:00'
 carrier_destination:
   file:
     name: CA-R-1875-CORE_META_MODEL-DECLARATION--register-core-analysis-status-values.md
@@ -40,14 +40,19 @@ the Core Analysis and Advisory Status model **must** inherit the allowed values 
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Analysis Report)).Header.State.Status :: Done;
+```python
+from caprmedio.formal_claims import declare_entity
 
-Atom/(.Header.Context.Role in ("Analysis and Advisory"))/(.Header.Context.Form in (Rationale)).Header.State.Status :: Done
+declare_entity(
+    entity_name="Status",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Atom.Header.State",
+    applies_to_role="Analysis and Advisory",
+    applies_to_forms=("Analysis Report", "Rationale"),
+    allowed_values=("Done",),
+)
 ```
 
 ## Details
 
 this Status belongs to the Analysis and Advisory Atom itself. It does **not** define a Status transition, carrier placement, setting, or a Workflow, Step, or Action Run outcome, receipt, retry state, result, or completion state. CA-R-1727@30 defines the meanings of Draft and Done for Analysis and the meaning of its archival.
-

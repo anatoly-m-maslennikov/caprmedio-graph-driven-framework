@@ -1,3 +1,5 @@
+# CA-D-442@29
+
 """Read current Scope Unit Declaration Atoms; no declaration writing lives here."""
 
 from __future__ import annotations
@@ -7,9 +9,9 @@ import os
 from dataclasses import replace
 from pathlib import Path
 import re
-import tomllib
 from typing import Any
 
+from settings_carrier import read_settings_carrier
 from scope_declaration_parse import (
     ScopeDeclarationError,
     ScopeDelegation,
@@ -225,7 +227,7 @@ def read_scope_unit_declarations(
                     if isinstance(candidate, ScopeDelegation):
                         parent_id = parent.scope_unit_id
                         if parent_id is None:
-                            settings = tomllib.loads(reader.read(control / "caprmedio_project_settings.toml").decode("utf-8"))
+                            settings = read_settings_carrier(control / "caprmedio_project_settings.toml", read_bytes=reader.read)
                             artifacts = settings.get("artifacts")
                             identity = artifacts.get("identity") if isinstance(artifacts, dict) else None
                             prefix = identity.get("project_prefix") if isinstance(identity, dict) else None

@@ -50,6 +50,8 @@ The agreed unordered PROGRAMMATIC topology migration, governing/delivery moves a
 
 ### Dependencies and acceptance
 
+When a Scope Unit operation or an operation on its Declaration or Delegation runs, read the latest Current Scope Unit Declarations and Delegations and invoke the reviewed packaged structural-level check from CA-R-2554. Verify that the next applicable operation sees a source edit and rejects an invalid level. Keep that check at the operation boundary.
+
 Reuse historical Scope Unit audit P2403/P2406 and related Concerns without moving or relabeling completed records. Inventory current RMEDO, project_structure.toml, real places and callers before creating implementation Tasks. One Task/file, at most 15 minutes own work; split and review dependent next tasks before execution. Align source contracts before behavior changes. Functional golden tests must cover safe deletion refusal, relative bindings, intentional non-materialization, collisions and both places. Runtime tests require isolated nonproduction state/port; deployment/release and migration need separate authority.
 
 ### Stage boundary

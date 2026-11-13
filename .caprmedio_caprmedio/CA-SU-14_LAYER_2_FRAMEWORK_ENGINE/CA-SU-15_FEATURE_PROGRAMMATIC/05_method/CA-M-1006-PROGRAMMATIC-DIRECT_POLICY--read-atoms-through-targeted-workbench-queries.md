@@ -12,9 +12,9 @@ context:
   container:
     scope_unit: PROGRAMMATIC
 state:
-  version: 6
+  version: 7
   status: active
-  updated_at: '2026-11-12T03:32:52.174163+00:00'
+  updated_at: '2026-11-12T12:32:34.877803+00:00'
 destination:
   file:
     name: CA-M-1006-PROGRAMMATIC-DIRECT_POLICY--read-atoms-through-targeted-workbench-queries.md
@@ -34,4 +34,4 @@ When an operation needs exact source bytes, a single-target operation may read a
 
 ## Details
 
-For lifecycle selection, use the first valid native carrier that matches the requested Atom and, when supplied, its expected Version. Report a missing or stale selection explicitly. If the requested Archive is unloaded, report that separately. Workbench reports duplicate Current and Archived revisions through its audit. Verify the selected carrier’s expected state before a write and check the actual effects. Queries within an operation must see changes already made by that operation.
+Preserve the exact Atom ID spelling during selection. Its numeric part is one or more digits from 0 to 9, including leading zeros. For lifecycle selection, use the first valid native carrier that matches the requested Atom and, when supplied, its expected Version. Report a missing or stale selection explicitly. If the requested Archive is unloaded, report that separately. Workbench reports duplicate Current and Archived revisions through its audit. Verify the selected carrier’s expected state before a write and check the actual effects. Queries within an operation must see changes already made by that operation.

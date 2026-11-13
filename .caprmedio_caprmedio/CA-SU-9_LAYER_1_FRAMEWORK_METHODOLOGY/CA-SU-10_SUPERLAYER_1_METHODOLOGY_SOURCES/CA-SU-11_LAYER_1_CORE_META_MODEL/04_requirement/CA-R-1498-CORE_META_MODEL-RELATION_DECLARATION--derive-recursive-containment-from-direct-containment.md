@@ -10,9 +10,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation//CONTAINS
 tier: 1
-status: Active
-version: 18
-updated_at: '2026-11-11 15:37:01 +0400'
+status: active
+version: 19
+updated_at: '2026-11-13T08:13:26.277090+00:00'
 carrier_destination:
   file:
     name: CA-R-1498-CORE_META_MODEL-RELATION_DECLARATION--derive-recursive-containment-from-direct-containment.md
@@ -28,11 +28,10 @@ Derive Recursive Containment from Direct Containment
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-$container ((RECURSIVELY_CONTAINS)) $descendant;
-
-Relation//RECURSIVELY_CONTAINS ((HAS_CLASSIFICATION)) Derivation == Derived
+relation(source='$container', name='RECURSIVELY_CONTAINS', target='$descendant')
+classify(address='Relation//RECURSIVELY_CONTAINS', axis='Derivation', value='Derived', notation='relation')
 ```
 
 ## Semantics

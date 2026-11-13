@@ -8,9 +8,9 @@ form: Relation Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL/CFEL/Relation//IS_ORDERED_RIGHT_AFTER
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-05 22:47:24 +0400
+status: active
+version: 2
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2965-CORE_META_MODEL-RELATION_DECLARATION--declare-is-ordered-right-after.md
@@ -31,15 +31,21 @@ The Host and Target are declared model Properties of the same immediate bearer, 
 
 ### Formal Claim
 
-```CFEL
-# model
-$host ((IS_ORDERED_RIGHT_AFTER)) $target;
+```python
+from caprmedio.formal_claims import Cardinality, declare_relation
 
-Relation//IS_ORDERED_RIGHT_BEFORE ((IS_INVERSE_ALIAS_FOR)) Relation//IS_ORDERED_RIGHT_AFTER;
-
-alias(Relation//IS_ORDERED_RIGHT_AFTER) == "<;";
-
-alias(Relation//IS_ORDERED_RIGHT_BEFORE) == ";>"
+declare_relation(
+    relation_name='IS_ORDERED_RIGHT_AFTER',
+    source_endpoint={'level': 'model_entities', 'entity_paths': ('Atom.Header.**', 'Atom.Content.**')},
+    target_endpoint={'level': 'model_entities', 'entity_paths': ('Atom.Header.**', 'Atom.Content.**')},
+    inverse_alias='IS_ORDERED_RIGHT_BEFORE',
+    written_alias='<;',
+    reverse_written_alias=';>',
+    targets_per_source=Cardinality(minimum=0, maximum=1),
+    sources_per_target=Cardinality(minimum=0, maximum=1),
+    same_immediate_bearer=True,
+    acyclic=True,
+)
 ```
 
 ## Semantics

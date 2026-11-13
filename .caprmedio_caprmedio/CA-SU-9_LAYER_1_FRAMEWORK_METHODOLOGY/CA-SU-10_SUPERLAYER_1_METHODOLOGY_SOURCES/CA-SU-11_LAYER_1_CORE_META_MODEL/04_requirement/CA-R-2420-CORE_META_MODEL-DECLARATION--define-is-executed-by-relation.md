@@ -26,7 +26,7 @@ Define IS_EXECUTED_BY Relation
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//IS_EXECUTED_BY <((HAS_INVERSE)) Relation//EXECUTES
+relation(source="Relation//IS_EXECUTED_BY", name="HAS_INVERSE", target="Relation//EXECUTES", reverse=True)
 ```

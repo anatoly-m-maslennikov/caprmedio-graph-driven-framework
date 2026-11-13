@@ -24,6 +24,7 @@ workbench_restart workbench_reread workbench_status workbench_archive_load
 LIFECYCLE_NAMES = frozenset("""
 atom_lifecycle_create_draft atom_lifecycle_archive atom_lifecycle_change_status
 atom_lifecycle_direct_update atom_lifecycle_promote_draft atom_lifecycle_update
+lifecycle_run_list lifecycle_run_continue lifecycle_run_cancel
 """.split())
 RETIRED_NAMES = """
 atom_search find_and_fetch_artifacts find_and_fetch_journal_events

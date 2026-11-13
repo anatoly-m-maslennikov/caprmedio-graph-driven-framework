@@ -1,8 +1,11 @@
-<!-- CA-R-2776@9 -->
-<!-- CA-D-674@23 -->
-<!-- CA-M-466@6 -->
-<!-- CA-M-468@5 -->
-<!-- CA-M-469@8 -->
+<!-- CA-R-2776@10 -->
+<!-- CA-D-674@26 -->
+<!-- CA-M-466@9 -->
+<!-- CA-M-468@8 -->
+<!-- CA-M-469@11 -->
+<!-- CA-R-2727@20 -->
+<!-- CA-R-2902@9 -->
+<!-- CA-M-470@14 -->
 <script lang="ts">
   import { onMount } from 'svelte';
   import ArchiveDialog from './lib/ArchiveDialog.svelte';
@@ -24,46 +27,51 @@
   import type { ArchiveScope, CheckResult, GridState, QueryLogItem, QueryResult, ResultDisplayPreferences, SavedIdentity, SavedItem, Schema, SourceSyncStatus, ViewResult, WorkspaceState, WorkspaceView } from './lib/types';
   import { cleanAfterSave, newView, persistable, restore, storageKey, workspaceTabs } from './lib/workspace.js';
 
-  type Tab = ReturnType<typeof newView> & { busy?: boolean; error?: string; result?: QueryResult; check?: CheckResult; saved?: SavedIdentity; revision?: number; run?: ViewResult; conflict?: boolean; syncDirty?: boolean; serverSql?: string; serverRevision?: number };
+  type Check = { sql: string; result: CheckResult } | { sql: string; error: string };
+  type Tab = ReturnType<typeof newView> & { busy?: boolean; error?: string; result?: QueryResult; check?: Check; saved?: SavedIdentity; revision?: number; run?: ViewResult; conflict?: boolean; syncDirty?: boolean; serverSql?: string; serverRevision?: number };
   const props = $props<{ caller: OperationCaller; native?: NativeBootstrap }>();
   const caller = props.caller;
   const native = props.native;
+  let browserStorageUnavailable = $state(false);
+  function browserStorage<T>(operation: () => T): T | undefined {
+    if (browserStorageUnavailable) return;
+    try { return operation(); } catch { browserStorageUnavailable = true; }
+  }
   function standaloneContext() {
     const base = location.pathname.replace(/\/+$/, '');
-    const projectName = base.split('/').filter(Boolean).at(-1) ?? '';
+    const urlProject = base.split('/').filter(Boolean).at(-1) ?? '';
     const parameters = new URLSearchParams(location.search);
     const projectRoot = parameters.get('project_root');
     const explicitWorkspaceId = parameters.get('workspace');
     const embedded = parameters.get('embedded') === '1';
-    const standaloneSessionKey = `caprmedio.workbench.${projectRoot || projectName}.standalone-session`;
-    // An explicit URL is native unless it names this browser's own persisted Workspace.
-    // That exception lets an interrupted one-time unbound-draft adoption resume.
-    const persistedStandaloneId = !embedded ? localStorage.getItem(standaloneSessionKey) : null;
-    const standaloneBinding = !embedded && (!explicitWorkspaceId || explicitWorkspaceId === persistedStandaloneId);
+    const standaloneSessionKey = `caprmedio.workbench.${projectRoot || urlProject}.standalone-session`;
+    const persistedStandaloneId = browserStorage(() => localStorage.getItem(standaloneSessionKey));
+    const standaloneBinding = !explicitWorkspaceId || explicitWorkspaceId === persistedStandaloneId;
     const workspaceId = (() => {
       if (!standaloneBinding) return explicitWorkspaceId ?? undefined;
-      const existing = localStorage.getItem(standaloneSessionKey); if (existing) return existing;
-      const created = `standalone-${crypto.randomUUID()}`; localStorage.setItem(standaloneSessionKey, created); return created;
+      if (persistedStandaloneId) return persistedStandaloneId;
+      const created = `standalone-${crypto.randomUUID()}`;
+      browserStorage(() => localStorage.setItem(standaloneSessionKey, created));
+      return created;
     })();
     if (explicitWorkspaceId && explicitWorkspaceId === persistedStandaloneId) {
       parameters.delete('workspace');
       const search = parameters.toString(); history.replaceState(null, '', `${base}${search ? `?${search}` : ''}${location.hash}`);
     }
-    const namespace = storageKey(projectName, workspaceId, projectRoot ?? undefined);
+    const namespace = storageKey(urlProject, workspaceId, projectRoot ?? undefined);
     const migrationKey = `${standaloneSessionKey}.unbound-migrated`;
     return {
-      parameters, projectName, projectRoot, workspaceId, embedded, standaloneBinding, namespace,
-      legacyNamespace: storageKey(projectName, undefined, projectRoot ?? undefined), migrationKey,
+      parameters, projectRoot, workspaceId, embedded, standaloneBinding, namespace,
+      legacyNamespace: storageKey(urlProject, undefined, projectRoot ?? undefined), migrationKey,
       migrationProgressKey: `${migrationKey}.progress`,
     };
   }
   const standalone = native === undefined ? standaloneContext() : undefined;
-  const projectRoot = native?.projectRoot ?? standalone!.projectRoot;
-  const projectName = native ? native.workspace.project_name : standalone!.projectName;
+  let projectName = $state('');
   const workspaceId = native?.sessionId ?? standalone!.workspaceId;
   const embedded = native !== undefined || standalone?.embedded === true;
   const standaloneBinding = standalone?.standaloneBinding ?? false;
-  const namespace = native ? storageKey(projectName, native.sessionId, native.projectRoot) : standalone!.namespace;
+  const namespace = native ? storageKey(native.workspace.project_name, native.sessionId, native.projectRoot) : standalone!.namespace;
   const legacyNamespace = standalone?.legacyNamespace ?? '';
   const migrationKey = standalone?.migrationKey ?? '';
   const migrationProgressKey = standalone?.migrationProgressKey ?? '';
@@ -75,14 +83,18 @@
   let preferenceCommands = $state<PreferenceCommand[]>([]); let api: WorkbenchApi; let boundApi: WorkspaceApi | undefined; const syncing = new Map<string, Promise<boolean>>(); const paging = new Map<string, number>(); let pageRequest = 0;
   let resultDisplay = $state<ResultDisplayPreferences>({ rowSizing: 'adaptive', fixedPageSize: 100, content: 'limited', contentLimit: 150 }); let grid = $state<GridState>({ sort: [], filters: [] }); let gridLayoutVersion = $state(0); let adaptedGeometry = $state('');
   let active = $derived(tabs.find((tab) => tab.id === activeId)); let commands = $derived(buildCommands());
+  let check = $derived(active?.check && active.check.sql === active.sql ? active.check : undefined);
 
   const message = (error: unknown) => error instanceof Error ? error.message : 'Request failed';
   function tabById(id: string) { return tabs.find((tab) => tab.id === id); }
   function tabName(tab: Tab) { return tab.name || tab.title; }
   function updateTab(id: string, changes: Partial<Tab>) { tabs = tabs.map((tab) => tab.id === id ? { ...tab, ...changes } : tab); }
-  function persist() { if (native) return; try { localStorage.setItem(namespace, persistable(tabs, activeId)); storageError = ''; } catch { storageError = 'Browser storage is unavailable; local View drafts are not saved.'; } }
+  function persist() { if (!native && projectName) browserStorage(() => localStorage.setItem(namespace, persistable(tabs, activeId))); }
   function fail(id: string, error: unknown, conflict = false) { updateTab(id, { busy: false, error: message(error), ...(conflict ? { conflict: true } : {}) }); }
-  function edit(sql: string, cursor: number) { if (active && (active.sql !== sql || active.cursor !== cursor)) updateTab(active.id, { sql, cursor, dirty: sql !== active.savedSql, syncDirty: true, conflict: false, error: '' }); }
+  function edit(sql: string, cursor: number) {
+    if (!active || (active.sql === sql && active.cursor === cursor)) return;
+    updateTab(active.id, { sql, cursor, dirty: sql !== active.savedSql, syncDirty: true, conflict: false, error: '', ...(active.sql !== sql ? { check: undefined } : {}) });
+  }
   function formatActive() {
     const tab = active;
     if (!workspaceReady || !tab || tab.busy || savedBusy) return;
@@ -119,9 +131,17 @@
     if (current?.run?.status === 'failed') updateTab(current.id, { error: current.run.error || 'Query failed' });
     else if (current) fetchRemoteResult(current.id);
   }
+  function applyBinding(state: WorkspaceState) {
+    if (typeof state.project_name !== 'string' || !state.project_name.trim()) {
+      workspaceReady = false;
+      throw new Error('Workspace binding requires the Project name.');
+    }
+    projectName = state.project_name;
+    applyState(state);
+  }
   async function refreshWorkspace() {
     if (!boundApi) return;
-    try { applyState(await boundApi.get()); } catch (error) { storageError = message(error); }
+    try { applyBinding(await boundApi.get()); } catch (error) { storageError = message(error); }
   }
   async function migrateUnboundDraft(state: WorkspaceState, draft: ReturnType<typeof restore>) {
     if (!boundApi || !standaloneBinding || !draft || localStorage.getItem(migrationKey) === 'done') return;
@@ -149,7 +169,7 @@
         const server = await boundApi!.update(id, submitted.sql, submitted.revision, submitted.cursor);
         const latest = tabById(id);
         if (latest && (latest.sql !== submitted.sql || latest.cursor !== submitted.cursor)) {
-          updateTab(id, { revision: server.revision, run: server.result, result: undefined, check: undefined, syncDirty: true, conflict: false, serverSql: undefined, serverRevision: undefined });
+          updateTab(id, { revision: server.revision, run: server.result, check: undefined, syncDirty: true, conflict: false, serverSql: undefined, serverRevision: undefined });
         } else updateTab(id, { revision: server.revision, run: server.result, syncDirty: false, conflict: false, serverSql: undefined, serverRevision: undefined });
         return true;
       } catch (error) { fail(id, error, true); return false; }
@@ -199,32 +219,39 @@
     const current = tabById(id); if (!current) return;
     updateTab(id, { ...(cleanAfterSave(current, saved.sql) as Tab), syncDirty: false, saved, busy: false, error: '' });
   }
-  function acceptResult(id: string, changes: Pick<Tab, 'result' | 'check'>) { updateTab(id, { ...changes, busy: false, error: '' }); }
+  function acceptResult(id: string, result: QueryResult) { updateTab(id, { result, busy: false, error: '' }); }
   function reportLogWarning(id: string, warning?: string) { if (warning) updateTab(id, { error: `${tabById(id)?.error ? `${tabById(id)!.error} ` : ''}Query log warning: ${warning}` }); }
   function savedFrom(result: QueryResult): SavedIdentity | undefined {
     return result.saved_query_id && result.saved_query_url && result.kind === 'query' ? { saved_query_id: result.saved_query_id, saved_query_url: result.saved_query_url, kind: result.kind, sql: result.sql, ...(result.name ? { name: result.name } : {}) } : undefined;
   }
   async function action(kind: 'run' | 'check' | 'save', cursor = active?.cursor ?? 0, name?: string) {
     const tab = active; if (!workspaceReady || !tab || tab.busy || savedBusy) return;
-    updateTab(tab.id, { busy: true, error: '' });
+    updateTab(tab.id, { busy: true, error: '', ...(kind === 'check' ? { check: undefined } : {}) });
     if (!boundApi) { fail(tab.id, new Error('Workspace is unavailable.')); return; }
     if (!await syncBeforeRun(tab.id)) { updateTab(tab.id, { busy: false }); return; }
     const current = tabById(tab.id); if (!current) return;
-    try {
-      if (kind === 'check') acceptResult(current.id, { check: await boundApi.check(current.id, cursor) });
-      else {
-        const response = await boundApi.run(current.id, cursor, kind === 'save' ? { save: true, ...(name ? { name } : {}) } : {});
-        grid = { sort: [], filters: [] }; updateTab(current.id, { revision: response.revision, run: response, result: undefined });
-        if (response.status === 'failed') updateTab(current.id, { busy: false, error: response.error || 'Query failed' });
-        else if (response.query_id) acceptResult(current.id, { result: await boundApi.fetch(current.id, 0, resultDisplay.rowSizing === 'fixed' ? resultDisplay.fixedPageSize : 100, grid) });
-        else updateTab(current.id, { busy: false });
-        if (kind === 'save') {
-          if (response.save_error) updateTab(current.id, { error: response.save_error });
-          else if (response.saved_query_id && response.saved_query_url) acceptSaved(current.id, { saved_query_id: response.saved_query_id, saved_query_url: response.saved_query_url, kind: 'query', sql: current.sql, ...(name ? { name } : {}) });
-          await refreshSaved();
-        }
-        reportLogWarning(current.id, response.query_log_error);
+    if (kind === 'check') {
+      try {
+        const result = await boundApi.check(current.id, cursor);
+        updateTab(current.id, { busy: false, check: { sql: current.sql, result } });
+      } catch (error) {
+        if (error instanceof TypeError) fail(current.id, error);
+        else updateTab(current.id, { busy: false, check: { sql: current.sql, error: message(error) } });
       }
+      return;
+    }
+    try {
+      const response = await boundApi.run(current.id, cursor, kind === 'save' ? { save: true, ...(name ? { name } : {}) } : {});
+      grid = { sort: [], filters: [] }; updateTab(current.id, { revision: response.revision, run: response, result: undefined });
+      if (response.status === 'failed') updateTab(current.id, { busy: false, error: response.error || 'Query failed' });
+      else if (response.query_id) acceptResult(current.id, await boundApi.fetch(current.id, 0, resultDisplay.rowSizing === 'fixed' ? resultDisplay.fixedPageSize : 100, grid));
+      else updateTab(current.id, { busy: false });
+      if (kind === 'save') {
+        if (response.save_error) updateTab(current.id, { error: response.save_error });
+        else if (response.saved_query_id && response.saved_query_url) acceptSaved(current.id, { saved_query_id: response.saved_query_id, saved_query_url: response.saved_query_url, kind: 'query', sql: current.sql, ...(name ? { name } : {}) });
+        await refreshSaved();
+      }
+      reportLogWarning(current.id, response.query_log_error);
     } catch (error) { fail(current.id, error); }
   }
   function requestSave() { if (workspaceReady && active && !active.busy) nameDialog = { kind: 'save', initialValue: '' }; }
@@ -319,17 +346,24 @@
   }
   onMount(() => {
     api = new WorkbenchApi(caller);
-    if (!native) try { const recovered = restore(localStorage.getItem(namespace) ?? ''); if (recovered) { tabs = recovered.tabs as Tab[]; activeId = recovered.activeId; } } catch { storageError = 'Browser storage is unavailable; local View drafts cannot be restored.'; }
+    if (!native) {
+      const recovered = restore(browserStorage(() => localStorage.getItem(namespace)) ?? '');
+      if (recovered) { tabs = recovered.tabs as Tab[]; activeId = recovered.activeId; }
+    }
     const initialize = async () => {
-      if (native) {
-        boundApi = new WorkspaceApi(caller, native.sessionId); applyState(native.workspace);
-      } else if (!workspaceId) storageError = 'Embedded workspace URL is missing a session ID.';
-      else {
+      if (!workspaceId) { storageError = 'Workspace binding requires a Workspace ID.'; return; }
+      try {
         boundApi = new WorkspaceApi(caller, workspaceId);
-        try {
-          const state = standaloneBinding ? await boundApi.open() : await boundApi.get(); applyState(state);
-          if (standaloneBinding) { const draft = restore(localStorage.getItem(legacyNamespace) ?? ''); await migrateUnboundDraft(state, draft); }
-        } catch (error) { storageError = message(error); }
+        const state = native?.workspace ?? (standaloneBinding ? await boundApi.open() : await boundApi.get());
+        applyBinding(state);
+        if (standaloneBinding) {
+          const draft = restore(browserStorage(() => localStorage.getItem(legacyNamespace)) ?? '');
+          await migrateUnboundDraft(state, draft);
+        }
+      } catch (error) {
+        if (error instanceof DOMException && ['SecurityError', 'QuotaExceededError'].includes(error.name)) browserStorageUnavailable = true;
+        else storageError = message(error);
+        if (!projectName) return;
       }
       workspaceReady = true;
       void refreshStatus(); void api.schema().then((value) => schema = value).catch(() => {}); await refreshSaved(); const requested = standalone?.parameters.get('query'); if (requested) await openSaved(requested);
@@ -337,20 +371,23 @@
     void initialize();
     const unload = (event: BeforeUnloadEvent) => { persist(); if (tabs.some((tab) => tab.dirty)) { event.preventDefault(); event.returnValue = ''; } };
     const keys = (event: KeyboardEvent) => { if (workspaceReady && !archiveDialogOpen && event.metaKey && !event.ctrlKey && !event.altKey && event.key.toLowerCase() === 'p') { event.preventDefault(); nameDialog = null; openSavedDialog = false; commandOpen = true; } };
-    const catchUpSync = () => { if (boundApi) void flushDrafts(); };
+    const catchUpSync = () => { if (workspaceReady) void flushDrafts(); };
     window.addEventListener('beforeunload', unload); window.addEventListener('pagehide', persist); window.addEventListener('keydown', keys, true);
     window.addEventListener('focus', catchUpSync); document.addEventListener('visibilitychange', catchUpSync);
-    const timer = window.setInterval(() => { persist(); void refreshStatus(); if (boundApi) { void flushDrafts(); void refreshWorkspace(); } }, 5000);
+    const timer = window.setInterval(() => { persist(); if (workspaceReady) { void refreshStatus(); void flushDrafts(); void refreshWorkspace(); } }, 5000);
     return () => { window.clearInterval(timer); window.removeEventListener('beforeunload', unload); window.removeEventListener('pagehide', persist); window.removeEventListener('keydown', keys, true); window.removeEventListener('focus', catchUpSync); document.removeEventListener('visibilitychange', catchUpSync); };
   });
 </script>
 
-<main class="workbench"><header class="app-header"><span class="brand-mark">CA</span><span class="app-name">Workbench</span><span class="project-label">Project: {projectName}</span><div class="header-right"><SyncStatus status={syncStatus} /><div class="header-utilities" role="tablist" aria-label="Workbench views"><button class:active={view === 'settings'} type="button" role="tab" aria-selected={view === 'settings'} onclick={() => showUtility('settings')}>Settings</button><button class:active={view === 'saved'} type="button" role="tab" aria-label="Bookmarks and saved Views" title="Bookmarks and saved Views" aria-selected={view === 'saved'} onclick={() => showUtility('saved')}>Saved</button></div></div></header><section class="workspace"><div class="work-main">
+<main class="workbench"><header class="app-header"><span class="brand-mark">CA</span><span class="app-name">Workbench</span>{#if projectName}<span class="project-label">Project: {projectName}</span>{/if}<div class="header-right"><SyncStatus status={syncStatus} /><div class="header-utilities" role="tablist" aria-label="Workbench views"><button class:active={view === 'settings'} type="button" role="tab" aria-selected={view === 'settings'} onclick={() => showUtility('settings')}>Settings</button><button class:active={view === 'saved'} type="button" role="tab" aria-label="Bookmarks and saved Views" title="Bookmarks and saved Views" aria-selected={view === 'saved'} onclick={() => showUtility('saved')}>Saved</button></div></div></header><section class="workspace"><div class="work-main">
   <div class="workspace-toolbar"><div class="toolbar-main"><ViewTabs {tabs} {activeId} utility={view} ready={workspaceReady} onselect={showView} onclose={closeView} onadd={addView} onrenamerequest={requestRename} onduplicate={duplicateView} /></div><div class="toolbar-actions"><Button disabled={!workspaceReady} onclick={() => commandOpen = true}>Commands <span class="shortcut">Cmd+P</span></Button></div></div>
+  {#if browserStorageUnavailable}<p class="error" role="alert">Browser storage is unavailable. Reloading or closing Workbench may lose unsaved edits.</p>{/if}
   <Preferences storageKey={namespace} {embedded} visible={view === 'settings'} {resultDisplay} onresultdisplaychange={setResultDisplay} onlayoutchange={() => gridLayoutVersion += 1} oncommands={(items) => preferenceCommands = items} />
   {#if view === 'saved'}<SavedPanel items={savedItems} logs={logItems} busy={savedBusy} onopen={openSaved} onopenlog={openLog} />{/if}
   {#if view === 'view' && active}<section class="editor-panel"><div class="panel-heading"><button class="editor-heading" type="button" aria-expanded={!collapsed} aria-controls={`query-editor-${active.id}`} onclick={() => collapsed = !collapsed}><span>Query editor</span><span class="editor-heading-state">{collapsed ? 'Show editor' : 'Hide editor'}</span></button>{#if active.saved}<span class="saved-reference">Saved: <a href={active.saved.saved_query_url} onclick={(event) => savedLink(event, active.id)}>{active.saved.saved_query_id}</a></span>{/if}</div><div class="editor-content" id={`query-editor-${active.id}`} hidden={collapsed}>{#key active.id}<SqlEditor value={active.sql} cursor={active.cursor} disabled={!workspaceReady || active.busy} {schema} onchange={edit} onaction={(kind, cursor) => action(kind, cursor)} />{/key}</div><div class="query-actions"><Button disabled={!workspaceReady || active.busy || savedBusy} onclick={() => action('run')}>Run <span class="shortcut">Cmd+Enter</span></Button><Button disabled={!workspaceReady || active.busy || savedBusy} onclick={() => action('check')}>Check <span class="shortcut">Shift+Cmd+Enter</span></Button><Button disabled={!workspaceReady || active.busy || savedBusy} onclick={formatActive}>Format</Button><Button disabled={!workspaceReady || active.busy || savedBusy} onclick={requestSave}>Run &amp; Save</Button><Button disabled={!workspaceReady || active.busy || savedBusy} onclick={() => saveView()}>Save View</Button></div>{#if active.error}<p class="error" role="alert">{active.error}</p>{/if}</section>
-    <section class="results-panel" tabindex="-1"><div class="status-line"><span class="status-badge">{active.busy ? 'Working' : 'Ready'}</span>{#if active.check}<span class="notice">Valid: {active.check.row_count} rows, {active.check.column_count} columns.</span>{/if}</div>{#if active.result}<ResultsTable result={active.result} display={resultDisplay} {grid} layoutVersion={gridLayoutVersion} ondisplaychange={setResultDisplay} ongridchange={setGrid} oncapacity={adaptPage} /><nav class="query-actions" aria-label="Result pages"><Button disabled={active.busy || active.result.offset === 0} onclick={() => page(Math.max(0, active.result!.offset - active.result!.page_size))}>Previous</Button><Button disabled={active.busy || !active.result.has_more} onclick={() => page(active.result!.offset + active.result!.rows.length)}>Next</Button></nav>{/if}</section>{/if}
+    <section class="results-panel" tabindex="-1"><div class="status-line"><span class="status-badge">{active.busy ? 'Working' : 'Ready'}</span><span class="notice" role="status" aria-label="Query check">
+      {#if !check}Not checked{:else if 'error' in check}Invalid: {check.error}{:else if check.result.valid}Valid: {check.result.row_count} rows, {check.result.column_count} columns.{:else}Invalid{/if}
+    </span></div>{#if active.result}<ResultsTable result={active.result} display={resultDisplay} {grid} layoutVersion={gridLayoutVersion} ondisplaychange={setResultDisplay} ongridchange={setGrid} oncapacity={adaptPage} /><nav class="query-actions" aria-label="Result pages"><Button disabled={active.busy || active.result.offset === 0} onclick={() => page(Math.max(0, active.result!.offset - active.result!.page_size))}>Previous</Button><Button disabled={active.busy || !active.result.has_more} onclick={() => page(active.result!.offset + active.result!.rows.length)}>Next</Button></nav>{/if}</section>{/if}
   {#if storageError}<p class="error" role="alert">{storageError}</p>{/if}
 </div></section></main>
 <ArchiveDialog open={archiveDialogOpen} loaded={syncStatus.loaded_archive_scopes ?? []} onload={loadArchives} onclose={() => archiveDialogOpen = false} />

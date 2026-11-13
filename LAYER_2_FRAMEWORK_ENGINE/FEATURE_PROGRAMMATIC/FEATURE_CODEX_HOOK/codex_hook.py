@@ -1,4 +1,5 @@
 # CA-M-517@1
+# CA-D-706@2
 
 """Attach the native Codex session to a bound CAPRMEDIO MCP call."""
 

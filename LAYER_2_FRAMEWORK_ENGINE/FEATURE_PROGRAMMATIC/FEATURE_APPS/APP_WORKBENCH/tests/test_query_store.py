@@ -1,8 +1,9 @@
 # CA-E-751@1
 # CA-E-780@4
-# CA-E-676@11
-# CA-E-677@20
+# CA-E-676@15
+# CA-E-677@30
 # CA-M-472@1
+# CA-E-674@9
 from __future__ import annotations
 
 from contextlib import redirect_stderr
@@ -38,6 +39,14 @@ class QueryStoreTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         self.store.close()
+
+    def test_query_log_expiry_applies_to_backing_rows(self) -> None:
+        self.store._connection.execute(
+            "INSERT INTO query_log_records VALUES "
+            "('expired', current_timestamp - INTERVAL 49 HOURS, 'SELECT 1', 'success', NULL, 1, 1)"
+        )
+        self.assertEqual([[0]], self.store.run("SELECT count(*) FROM query_log_records")["rows"])
+        self.assertEqual([[0]], self.store.run("SELECT count(*) FROM query_log")["rows"])
 
     @staticmethod
     def atom(
@@ -130,6 +139,14 @@ class QueryStoreTest(unittest.TestCase):
             )]
             + [["atoms", field] for field in atom_fields]
             + [["change_log", field] for field in ("observed_at", "operation", "old_path", "new_path")]
+            + [["live_runs", field] for field in ("run_id", "session_id", "tool", "status")]
+            + [["query_log", field] for field in ("log_id", "at", "sql", "outcome", "error", "row_count", "column_count")]
+            + [["query_log_records", field] for field in ("log_id", "at", "sql", "outcome", "error", "row_count", "column_count")]
+            + [["relations", field] for field in ("source_kind", "source_ref", "target_kind", "target_ref", "relation_type", "derived")]
+            + [["runtime_diagnostics", field] for field in (
+                "observed_at", "name", "outcome", "returned_outcome", "error_category", "project_prefix",
+                "project_instance_id",
+            )]
             + [["scope_units", field] for field in SCOPE_FIELDS],
             schema,
         )
@@ -289,6 +306,24 @@ class QueryStoreTest(unittest.TestCase):
         with self.assertRaises(RuntimeError):
             self.store.run("SELECT missing FROM atoms")
         self.assertEqual([[1]], self.store.run("SELECT 1")["rows"])
+
+    def test_public_query_errors_do_not_echo_sql_or_literals(self) -> None:
+        cases = (
+            ("SELECT missing FROM atoms WHERE 'private_binder_value' = 'x'", "binding"),
+            ("SELECT 'private_parser_value' FROM", "syntax"),
+            ("SELECT CAST('private_conversion_value' AS INTEGER)", "convert"),
+        )
+        for sql, reason in cases:
+            for operation in (self.store.run, self.store.check):
+                with self.subTest(sql=sql, operation=operation.__name__):
+                    stderr = StringIO()
+                    with redirect_stderr(stderr), self.assertRaises((ValueError, QueryExecutionError)) as caught:
+                        operation(sql)
+                    message = str(caught.exception)
+                    self.assertNotIn("private_", message)
+                    self.assertNotIn(sql, message)
+                    self.assertNotIn("private_", stderr.getvalue())
+                    self.assertIn(reason, message.lower())
 
     def test_native_ctas_conversion_failure_keeps_the_owner_available(self) -> None:
         with self.assertRaisesRegex(QueryExecutionError, "Could not convert"):

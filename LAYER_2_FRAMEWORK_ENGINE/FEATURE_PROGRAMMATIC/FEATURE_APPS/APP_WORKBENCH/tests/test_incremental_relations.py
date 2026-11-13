@@ -1,5 +1,6 @@
-# CA-E-677@18
+# CA-E-677@31
 # CA-E-780@7
+# CA-E-803@3
 from __future__ import annotations
 
 from pathlib import Path
@@ -292,6 +293,22 @@ class IncrementalRelationTests(unittest.TestCase):
         self.assertEqual(0, GuardedBucket.reads)
         self.assertIs(guarded, next_state.facts_by_endpoint[endpoint])
         self.assertIs(guarded_support, next_state.support[endpoint])
+
+    def test_endpoint_presence_changes_match_full_materialization(self):
+        child = atom("CA-P-1", relation={"IS_CONTAINED_BY": ["CA-P-2"]})
+        parent = atom("CA-P-2")
+        unrelated = atom("CA-P-3")
+        initial = declarations() + [child, unrelated]
+        _, _, _, _, state, _ = materialize_delta(initial, [])
+        for sources, changes in (
+            (initial + [parent], {parent["source_path"]: parent}),
+            (initial, {parent["source_path"]: None}),
+        ):
+            rows, scopes, _, _, state, delta = materialize_delta(sources, [], state, changes)
+            expected, expected_scopes, *_ = materialize_delta(sources, [])
+            self.assertIsNotNone(delta)
+            self.assertEqual(expected, rows)
+            self.assertEqual(expected_scopes, scopes)
 
     def test_duplicate_reference_changes_use_full_membership_boundary(self):
         first = atom("CA-R-X")

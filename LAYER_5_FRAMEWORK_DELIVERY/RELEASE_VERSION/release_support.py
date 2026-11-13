@@ -1,9 +1,10 @@
-"""Filesystem and package support for the direct local-release runner."""
-
-# CA-R-2785@4
-# CA-D-678@5
-# CA-D-704@1
+# CA-D-561@25
+# CA-D-704@6
 # CA-D-720@1
+# CA-D-562@26
+# CA-D-633@16
+
+"""Filesystem and package support for the direct local-release runner."""
 
 from __future__ import annotations
 
@@ -40,6 +41,7 @@ from release_assets import (
     generate_relation_registry,
     generate_tool_registry,
     generate_workbench_schema,
+    generate_scope_callback,
 )
 
 
@@ -329,6 +331,14 @@ def _publish_image_assets(root: Path, package: Path, previous: Mapping[str, tupl
             if original is not None:
                 shutil.copy2(target, backup)
             writes.append((target, replacement, backup, original))
+        for target, _replacement, _backup, _original in writes:
+            parent = target.parent
+            if not parent.exists():
+                _project_path(root, parent.relative_to(root), label="image-asset")
+                if not parent.parent.is_dir() or parent.parent.is_symlink():
+                    raise LocalReleaseError("local-release-image-asset-unsafe")
+                parent.mkdir()
+                rollback.callback(parent.rmdir)
         for target, replacement, backup, original in writes:
             _project_path(root, target.relative_to(root), label="image-asset")
             if (_file_identity(target) if target.exists() else None) != original:
@@ -342,21 +352,16 @@ def _publish_image_assets(root: Path, package: Path, previous: Mapping[str, tupl
 
 
 def _prepare_package(root: Path, product: Path, package: Path, *,
-                     refresh_assets: bool = True, previous_image: str | None = None) -> dict[str, tuple[str, int]]:
-    excluded = frozenset({".git", ".caprmedio_tmp", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", "node_modules"})
+                     refresh_assets: bool = True, previous_image: str | None = None,
+                     scope_callback_selection=None) -> dict[str, tuple[str, int]]:
+    selection = active_selection(root)
+    excluded = frozenset({selection.control_relative.name.casefold(), ".caprmedio_runtime", ".caprmedio_tmp", ".runtime", ".git", ".pytest_cache", "__pycache__", ".mypy_cache", ".ruff_cache", ".venv", ".vite", "node_modules"})
     programmatic = root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"
-    delivery = root / "LAYER_5_FRAMEWORK_DELIVERY"
     trees = (
-        (
-            programmatic,
-            Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"),
-        ),
-        (delivery, Path("LAYER_5_FRAMEWORK_DELIVERY")),
+        (root, Path(".")),
         (product / "SUPERLAYER_1_METHODOLOGY_SOURCES", Path("METHODOLOGY/sources")),
         (product / "applicable_methodology", Path("METHODOLOGY/compiled")),
         (root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca", Path("SKILLS/ca")),
-        (root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca",
-         Path("LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca")),
     )
     sources: list[tuple[Path, Path]] = []
     inventories: list[tuple[Path, list[Path]]] = []
@@ -364,24 +369,11 @@ def _prepare_package(root: Path, product: Path, package: Path, *,
         if source.is_symlink() or not source.is_dir():
             raise LocalReleaseError("local-release-package-source-unavailable")
         members = _walk_regular_files(source, excluded_directories=excluded)
-        if source in (programmatic, delivery):
-            members = [
-                entry for entry in members
-                if "tests" not in entry.relative_to(source).parts
-                and "fixtures" not in entry.relative_to(source).parts
-                and entry.name not in {"scope_declaration_test_support.py", "scope_declaration_render.py"}
-                and (entry.suffix != ".md" or entry.name == "SKILL.md")
-            ]
         if not members:
             raise LocalReleaseError("local-release-package-source-unavailable")
         inventories.append((source, members))
         (package / destination).mkdir(parents=True, exist_ok=True)
         sources.extend((entry, destination / entry.relative_to(source)) for entry in members)
-    for name in ("pyproject.toml", "uv.lock", "version.toml"):
-        source = root / name
-        if source.is_symlink() or not source.is_file():
-            raise LocalReleaseError("local-release-package-source-unavailable")
-        sources.append((source, Path(name)))
     expected = {}
     for source, relative in sources:
         expected[relative.as_posix()] = _file_identity(source)
@@ -390,14 +382,6 @@ def _prepare_package(root: Path, product: Path, package: Path, *,
         shutil.copy2(source, destination)
     for source, members in inventories:
         current = _walk_regular_files(source, excluded_directories=excluded)
-        if source in (programmatic, delivery):
-            current = [
-                entry for entry in current
-                if "tests" not in entry.relative_to(source).parts
-                and "fixtures" not in entry.relative_to(source).parts
-                and entry.name not in {"scope_declaration_test_support.py", "scope_declaration_render.py"}
-                and (entry.suffix != ".md" or entry.name == "SKILL.md")
-            ]
         if current != members:
             raise LocalReleaseError("local-release-package-source-changed")
     for source, relative in sources:
@@ -423,7 +407,39 @@ def _prepare_package(root: Path, product: Path, package: Path, *,
         tool_registry = generate_tool_registry(package)
         for asset in (relation_registry, workbench_schema, *lifecycle_assets, tool_registry):
             expected[asset.relative_to(package).as_posix()] = _file_identity(asset)
+    if scope_callback_selection is None:
+        selection_file = package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_FORMAL_MODEL_ENGINE/scope_callback_selection.json"
+        if selection_file.exists():
+            selection = json.loads(selection_file.read_bytes())
+            if set(selection) != {"version", "selected"} or selection["version"] != 1:
+                raise LocalReleaseError("local-release-scope-callback-selection-invalid")
+            if selection["selected"] is not None:
+                selected = selection["selected"]
+                if not isinstance(selected, dict) or set(selected) != {"source_path", "pin"}:
+                    raise LocalReleaseError("local-release-scope-callback-selection-invalid")
+                scope_callback_selection = (selected["source_path"], selected["pin"], (selected["pin"],))
+    if scope_callback_selection is not None:
+        source_path, pin, release_sources = scope_callback_selection
+        source = _project_path(package, _relative(source_path, label="scope-callback-source"),
+                               label="scope-callback-source", require_exists=True)
+        asset_dir = package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_FORMAL_MODEL_ENGINE/assets"
+        if refresh_assets:
+            for name in ("scope_level_check.py", "scope_level_check.bin", "scope_level_sources.json", "scope_level_metadata.json"):
+                relative = (asset_dir / name).relative_to(package).as_posix()
+                previous_assets[relative] = expected.get(relative)
+            generated_pin = generate_scope_callback(package, source.read_bytes(), selected_pin=pin,
+                                                    release_sources=release_sources)
+        else:
+            from FEATURE_FORMAL_MODEL_ENGINE.scope_callback_asset import verify_packaged_assets
+            generated_pin = verify_packaged_assets(asset_dir, source.read_bytes(), pin=pin,
+                                                  release_sources=release_sources)
+        if generated_pin is None:
+            raise LocalReleaseError("local-release-scope-callback-unavailable")
+        asset_dir = package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_FORMAL_MODEL_ENGINE/assets"
+        for asset in _walk_regular_files(asset_dir):
+            expected[asset.relative_to(package).as_posix()] = _file_identity(asset)
     for relative in (
+        "pyproject.toml", "uv.lock", "version.toml",
         "SKILLS/ca/SKILL.md",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_SKILLS/ca/SKILL.md",
         "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/project_mcp_bootstrap.py",

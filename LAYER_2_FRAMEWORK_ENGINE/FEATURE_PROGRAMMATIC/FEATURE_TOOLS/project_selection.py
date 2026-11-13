@@ -1,3 +1,5 @@
+# CA-D-363@29
+
 """Resolve and bind one explicit Project without repository or sibling fallback.
 
 Selection is read-only.  Project Settings and the current Scope Unit
@@ -18,6 +20,7 @@ from pathlib import Path
 import re
 import stat
 import tomllib
+from settings_carrier import parse_settings_carrier, read_settings_carrier
 from types import MappingProxyType
 from typing import Any
 
@@ -60,6 +63,7 @@ class ProjectSelection:
     provenance: Mapping[str, Any] = field(default_factory=dict)
     host_root: Path | None = None
     _boundary_proof: _DeclarationBoundaryProof | None = field(default=None, repr=False, compare=False)
+    root_declaration_path: Path | None = None
 
     def __post_init__(self) -> None:
         object.__setattr__(self, "settings", _freeze(self.settings))
@@ -146,7 +150,7 @@ def _control_candidates(root: Path) -> list[Path]:
 
 def _read_toml(reader: ReadContext, path: Path) -> dict[str, Any]:
     try:
-        return tomllib.loads(reader.read(path).decode("utf-8"))
+        return read_settings_carrier(path, read_bytes=reader.read)
     except (OSError, RuntimeError, UnicodeError, ValueError) as error:
         raise ProjectSelectionError(f"Required Project carrier is unavailable or invalid: {path.name}") from error
 
@@ -211,7 +215,7 @@ def _declaration_boundary_proof(
             raise ProjectSelectionError("Declaration boundary evidence changed")
         pins[key] = digest
         try:
-            settings = tomllib.loads(raw.decode("utf-8"))
+            settings = parse_settings_carrier(raw)
             project, paths = settings.get("project"), settings.get("paths")
             name = project.get("name") if isinstance(project, dict) else None
             declared = paths.get("control_root") if isinstance(paths, dict) else None
@@ -314,6 +318,7 @@ def resolve_project(project_root: str | Path, control_root: str | Path | None = 
             declaration_paths=declarations.paths, declaration_source_pins=declarations.source_pins,
             declaration_digest=declarations.digest, provenance=provenance,
             host_root=root, _boundary_proof=boundary_proof,
+            root_declaration_path=declarations.root.source,
         )
     except ProjectSelectionError:
         raise

@@ -2,6 +2,8 @@
 
 # CA-D-705@1
 # CA-M-500@3
+# CA-D-704@6
+# CA-M-1011@3
 
 from __future__ import annotations
 
@@ -54,7 +56,6 @@ def _compile_generated_asset(source_root: Path, project_root: Path, compiler_pat
             env={},
             stdin=subprocess.DEVNULL,
             stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
             timeout=timeout,
             check=False,
         )
@@ -140,7 +141,7 @@ def verify_status_workflow_asset(source_root: Path, model_root: Path, *, timeout
         raise ValueError("lifecycle workflow files are unavailable")
     result = subprocess.run(
         [sys.executable, "-B", str(verifier), "--model-root", str(model_root)], cwd=source_root,
-        env={}, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+        env={}, stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
         timeout=timeout, check=False,
     )
     if result.returncode != 0:
@@ -178,7 +179,7 @@ for _, source, files in _release_sources(framework):
     result = subprocess.run([sys.executable, "-B", "-c", selector, str(source_root),
                              str(model)], cwd=source_root, env={},
                             stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
-                            stderr=subprocess.DEVNULL, timeout=timeout, check=False)
+                            timeout=timeout, check=False)
     if result.returncode != 0:
         raise ValueError("lifecycle source selection failed")
     return model
@@ -254,7 +255,7 @@ def compile_lifecycle_assets(source_root: Path, project_root: Path, *, timeout: 
                 command.extend(("--placement-selection", str(selection)))
             result = subprocess.run(command, cwd=source_root, env={},
                                     stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL,
-                                    stderr=subprocess.DEVNULL, timeout=timeout, check=False)
+                                    timeout=timeout, check=False)
             if result.returncode != 0 or output.is_symlink() or not output.is_file() or output.stat().st_size > max_output:
                 raise ValueError("lifecycle asset compilation failed")
             assets.append(output.read_bytes())

@@ -1,7 +1,5 @@
-# Implementation of:
-# Requirement: CA-R-3013
-# Method: CA-M-506
-# Delivery: CA-D-704
+# CA-M-506@8
+# CA-D-704@6
 
 """Import configured Provider symbols only from an installed MCP package."""
 
@@ -18,7 +16,8 @@ from tool_registry_assets import ProviderInventory, ToolRegistryAssetError
 
 @contextmanager
 def package_import_path(asset_root: Path) -> Iterator[None]:
-    paths = [asset_root, asset_root.parent / "FEATURE_TOOLS", asset_root.parent / "FEATURE_APPS"]
+    programmatic = asset_root.parent
+    paths = [asset_root, programmatic, programmatic / "FEATURE_TOOLS", programmatic / "FEATURE_APPS"]
     original = list(sys.path)
     sys.path[:0] = [str(path) for path in paths]
     try:

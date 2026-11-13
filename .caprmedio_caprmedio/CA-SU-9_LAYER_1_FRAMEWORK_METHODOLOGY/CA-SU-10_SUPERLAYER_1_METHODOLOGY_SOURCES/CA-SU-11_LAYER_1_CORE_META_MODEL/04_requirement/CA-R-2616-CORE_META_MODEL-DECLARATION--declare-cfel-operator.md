@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 16:04:42 +0400'
+status: active
+version: 3
+updated_at: '2026-11-13T05:35:36.099791+00:00'
 carrier_destination:
   file:
     name: CA-R-2616-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
@@ -18,7 +18,6 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
-
 ## Summary
 
 Declare CFEL Operator
@@ -33,9 +32,9 @@ A CFEL Operator is one declared language component with one token or bounded con
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-CFEL <+ Operator;
+composition(container="CFEL", parts=("Operator",))
 ```
 
 ## Semantics

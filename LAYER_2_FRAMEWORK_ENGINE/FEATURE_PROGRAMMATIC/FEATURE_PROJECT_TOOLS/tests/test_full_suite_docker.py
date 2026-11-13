@@ -1,5 +1,7 @@
 """Disposable integration lifecycle checks without contacting Docker."""
 
+# CA-E-573@18
+
 from contextlib import redirect_stderr, redirect_stdout
 import io
 import json

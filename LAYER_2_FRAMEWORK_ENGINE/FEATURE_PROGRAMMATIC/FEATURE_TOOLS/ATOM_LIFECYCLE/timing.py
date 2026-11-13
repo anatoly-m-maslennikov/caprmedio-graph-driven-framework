@@ -41,8 +41,9 @@ def span(step, *, tool=None, selection=None):
     logger.emit(**fields, outcome='started')
     try:
         yield state
-    except BaseException:
+    except BaseException as error:
         state['failed'] = True
+        fields['exception_class'] = type(error).__name__
         raise
     finally:
         status = 'failed' if state['failed'] else 'done'

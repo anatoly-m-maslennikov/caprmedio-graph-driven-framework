@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Operator//Alias
 tier: 3
-status: Active
-version: 3
-updated_at: 2026-11-05 22:47:24 +0400
+status: active
+version: 4
+updated_at: '2026-11-13T07:06:03.828788+00:00'
 carrier_destination:
   file:
     name: CA-R-2720-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md
@@ -31,8 +31,8 @@ Declare CFEL operator alias
 This CFEL operator binds notation metadata; an inverse alias name is not a separate Relation entity; it does not construct a literal-to-Node graph Relation or equate different Relation identities. The token follows its written name's directional reading and grants no endpoint permission, cardinality or second authored fact. In a graph expression, `Relation//NAME` references a canonical Relation model name or its declared inverse alias model name, whereas `((NAME))` invokes that Relation between endpoints.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//Alias == "alias(Relation//RELATION_NAME) == \"notation token\""
+set_value(address='Operator//Alias', value='"alias(Relation//RELATION_NAME) == \\"notation token\\""')
 ```
 

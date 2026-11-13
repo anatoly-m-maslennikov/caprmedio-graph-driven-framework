@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Inherited Property Contracts)
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Primary Entities with Inherited
+    Property Contracts)
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+status: active
+version: 3
+updated_at: '2026-11-12T18:49:28.329068+00:00'
 carrier_destination:
   file:
     name: CA-R-2742-CORE_META_MODEL-DECLARATION--declare-projection-form-primary-entities-with-inherited-property-contracts.md
@@ -26,9 +27,12 @@ Declare Projection/(.Form := Primary Entities with Inherited Property Contracts)
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection.Form :: Primary Entities with Inherited Property Contracts;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Projection
 
-Projection/(.Form in (Primary Entities with Inherited Property Contracts))
+class PrimaryEntitiesWithInheritedPropertyContracts(Projection):
+    pass
+
+declare_entity(entity_class=PrimaryEntitiesWithInheritedPropertyContracts, entity_name='Primary Entities with Inherited Property Contracts', qualification_property_path="Projection.Form")
 ```

@@ -1,7 +1,7 @@
 # CA-O-10002@2
 # CA-R-3006@9
 # CA-R-2511@11
-# CA-R-970308624@3
+# CA-R-3053@3
 
 """Bounded input checks for prepared lifecycle Atom candidates.
 
@@ -15,7 +15,7 @@ from datetime import datetime
 from pathlib import Path
 import re
 
-from ATOM_LIFECYCLE.carrier import logical_view
+from ATOM_LIFECYCLE.carrier import effective_header, logical_view
 from ATOM_LIFECYCLE.source import query_reader, select_context, select_source
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 from ATOM_LIFECYCLE.status_model import canonical_status, StatusModelError
@@ -29,7 +29,8 @@ def validate_candidate(selection, model, raw: bytes, path: Path, *, authored: bo
 
     try:
         parsed = parse_carrier(raw, path)
-        view = logical_view(parsed.metadata, model)
+        metadata = effective_header(selection, parsed.metadata, raw, path)
+        view = logical_view(metadata, model)
     except ValueError as error:
         raise InputError('carrier', 'Candidate Carrier is malformed.', format='UTF-8 Markdown with valid YAML Header') from error
 
@@ -54,7 +55,7 @@ def validate_candidate(selection, model, raw: bytes, path: Path, *, authored: bo
     if view['ref_id'] not in (atom_id, f'{atom_id}@{version}', f'{atom_id}@{version}-draft'):
         raise InputError('ref_id', 'Ref ID does not identify this Atom revision.', format='Atom ID or qualified revision')
     _validate_state(view, model)
-    _validate_declared_schema(model, parsed, view, authored)
+    _validate_declared_schema(model, metadata, parsed.body, view, authored)
     _validate_containment(selection, model, view)
     _validate_authored_work_report(selection, model, parsed, view, prefix, authored)
 
@@ -127,12 +128,12 @@ def _validate_plan_ancestors(selection, model, view):
 
 
 def _validate_state(view, model):
-    from ATOM_LIFECYCLE.common import InputError
+    from ATOM_LIFECYCLE.common import InputError, logical_container
 
-    container = view.get('container')
-    values = [container[key] for key in ('scope_unit', 'atom') if key in container] if isinstance(container, dict) else []
-    if len(values) != 1 or not isinstance(values[0], str) or not values[0].strip():
-        raise InputError('container.scope_unit', 'Supply one Scope Unit or containing Atom.', format='One nonempty reference')
+    try:
+        logical_container({}, view)
+    except InputError as error:
+        raise InputError('container.scope_unit', str(error), format='One nonempty reference') from error
     updated = view.get('updated_at')
     try:
         timestamp = datetime.fromisoformat(updated.replace('Z', '+00:00')) if isinstance(updated, str) else updated
@@ -148,15 +149,15 @@ def _validate_state(view, model):
                          allowed_values=sorted(allowed))
 
 
-def _validate_declared_schema(model, parsed, view, authored):
+def _validate_declared_schema(model, metadata, body, view, authored):
     """Apply the explicitly supplied, source-bound Workbench schema, if present."""
     from ATOM_LIFECYCLE.common import InputError
 
     schema = getattr(model, 'candidate_schema', None)
     if schema is None:
         return
-    row = {'header_json': parsed.metadata, 'role': view['role'], 'form': view['form'],
-           'content_markdown': parsed.body}
+    row = {'header_json': metadata, 'role': view['role'], 'form': view['form'],
+           'content_markdown': body}
     errors = []
     try:
         schema.validate_role_form(view['role'], view['form'])
@@ -172,7 +173,12 @@ def _validate_declared_schema(model, parsed, view, authored):
     if authored:
         errors.extend(InputError(field, message, allowed_values=allowed,
                                  format=None if allowed else 'Declared Header constraint')
-                      for field, message, allowed in schema.header_constraints.validate(view, metadata=parsed.metadata))
+                      for field, message, allowed in schema.header_constraints.validate(view, metadata=metadata))
+        if getattr(schema, 'atom_dependencies_check', False):
+            try:
+                schema.validate_atom_dependencies(metadata)
+            except ValueError as error:
+                errors.append(InputError('topics.dependencies', str(error), format='Distinct strings'))
     try:
         schema.content.validate(row)
         if authored:

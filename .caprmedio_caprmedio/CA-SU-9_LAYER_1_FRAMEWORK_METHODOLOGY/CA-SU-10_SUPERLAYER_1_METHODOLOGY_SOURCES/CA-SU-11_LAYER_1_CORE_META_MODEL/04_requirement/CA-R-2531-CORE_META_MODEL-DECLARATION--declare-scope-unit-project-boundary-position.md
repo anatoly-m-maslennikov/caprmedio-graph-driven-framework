@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Scope Unit.Project Boundary Position
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2531-CORE_META_MODEL-DECLARATION--declare-scope-unit-project-boundary-position.md
@@ -27,10 +27,18 @@ Declare Scope Unit Project Boundary Position
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Scope Unit.Project Boundary Position{::1}:: [string]{::1};
+from caprmedio.formal_claims import declare_entity
 
-Scope Unit.Project Boundary Position.*[]{::0}
+declare_entity(
+    entity_name='Project Boundary Position',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Scope Unit',
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    value_format='str',
+    dependent_property_cardinality=0,
+)
 ```
 

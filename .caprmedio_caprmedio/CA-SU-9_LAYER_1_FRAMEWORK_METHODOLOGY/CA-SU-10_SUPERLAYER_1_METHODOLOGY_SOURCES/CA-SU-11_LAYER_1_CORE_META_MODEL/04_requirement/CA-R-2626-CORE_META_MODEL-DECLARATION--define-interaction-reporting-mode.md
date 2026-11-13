@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Interaction.Reporting Mode
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 2
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2626-CORE_META_MODEL-DECLARATION--define-interaction-reporting-mode.md
@@ -27,10 +27,18 @@ Define Interaction Reporting Mode
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Project.Settings.Interaction.Reporting Mode{::1}:: [string]{::1};
+from caprmedio.formal_claims import declare_entity
 
-Project.Settings.Interaction.Reporting Mode.*[]{::0}
+declare_entity(
+    entity_name='Reporting Mode',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project.Settings.Interaction',
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    value_format='str',
+    dependent_property_cardinality=0,
+)
 ```
 

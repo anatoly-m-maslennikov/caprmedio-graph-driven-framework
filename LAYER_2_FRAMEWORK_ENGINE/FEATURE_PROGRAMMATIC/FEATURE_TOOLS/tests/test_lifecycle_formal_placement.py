@@ -9,6 +9,7 @@ TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 from ATOM_LIFECYCLE.candidate_schema import compile_candidate_schema, load_candidate_schema  # noqa: E402
 from ATOM_LIFECYCLE.placement_model import active_placement  # noqa: E402
+from lint_python_model_claim import lint_python_model_claim  # noqa: E402
 
 
 def carrier(atom_id, role, status, body, subject=None):
@@ -78,6 +79,34 @@ Atom.Content.Summary:: {::1};
     def test_duplicate_formal_binding_fails(self):
         self.delivery(RULES + '\n' + RULES.splitlines()[0])
         with self.assertRaisesRegex(ValueError, '[Dd]uplicate'):
+            self.compile()
+
+    def test_native_placement_claim_compiles_with_legacy_sources(self):
+        lines = RULES.splitlines()
+        self.delivery("\n".join(lines[:2] + lines[3:6]))
+        python = """placement_rules = (
+    {"kind": "status", "role": None, "status": "draft", "base": "role", "folder": "draft"},
+    {"kind": "status", "role": "plan", "status": "backlog", "base": "role", "folder": "Backlog"},
+)
+"""
+        path = self.root / "CA-D-748.md"
+
+        def write(source):
+            fence = "```"
+            path.write_text(carrier("CA-D-748", "Delivery", "Active",
+                f"## Claim\n### Formal Claim\n{fence}python\n{source}\n{fence}\n",
+                "CAPRMEDIO_MODEL <+ Atom.Header.State.Status"))
+
+        write(python)
+        self.assertEqual((), lint_python_model_claim(python, declared_addresses=[], relation_names=[]))
+        rules = self.compile().placement
+        self.assertEqual(("role", "Backlog"), rules.placement("Plan", "Backlog"))
+        self.assertEqual(("role", "draft"), rules.placement("Concern", "Draft"))
+        invalid = python.replace('"Backlog"', '"../Backlog"')
+        self.assertIn("Unsafe placement folder",
+                      lint_python_model_claim(invalid, declared_addresses=[], relation_names=[])[0])
+        write(invalid)
+        with self.assertRaisesRegex(ValueError, "Unsafe placement folder"):
             self.compile()
 
     def test_missing_placement_cannot_be_used_as_a_model(self):

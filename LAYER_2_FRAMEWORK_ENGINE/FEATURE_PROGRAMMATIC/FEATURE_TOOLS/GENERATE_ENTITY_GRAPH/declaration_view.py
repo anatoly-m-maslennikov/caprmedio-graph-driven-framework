@@ -1,3 +1,5 @@
+# CA-D-634@23
+
 """Render the middle-level Entities Graph declaration view.
 
 The caller supplies already-selected Relation Type and Graph Rule records. This

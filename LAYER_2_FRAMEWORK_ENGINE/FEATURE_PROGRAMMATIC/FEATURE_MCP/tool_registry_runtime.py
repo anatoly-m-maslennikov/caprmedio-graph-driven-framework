@@ -1,8 +1,10 @@
 # CA-R-3013@2
 # CA-R-1108@23
-# CA-M-506@6
+# CA-M-506@8
 # CA-M-512@2
-# CA-D-704@5
+# CA-D-704@6
+# CA-M-548@2
+# CA-D-714@2
 
 """Load only the generated MCP Tool registry and dispatch registered Providers."""
 

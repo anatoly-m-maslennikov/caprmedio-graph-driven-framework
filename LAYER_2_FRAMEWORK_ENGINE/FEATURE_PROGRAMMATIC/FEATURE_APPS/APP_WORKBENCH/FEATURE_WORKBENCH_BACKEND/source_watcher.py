@@ -1,5 +1,5 @@
-# CA-R-2950@2
-# CA-M-465@24
+# CA-R-2950@4
+# CA-M-465@29
 # CA-M-490@3
 # CA-D-695@3
 
@@ -27,18 +27,22 @@ Change = dict[str, str | None]
 
 
 class SourceWatcher:
-    """Watch one selected control root; the service owns batch handling and refresh."""
+    """Watch selected Project roots; the service owns batch handling and refresh."""
 
     def __init__(
         self, root: Path, control_root: Path,
-        *, observer_factory: Callable[[], Any] | None = None,
+        *, implementation_root: Path | None = None, observer_factory: Callable[[], Any] | None = None,
     ) -> None:
         self._root = Path(root).absolute()
         self._control_root = Path(control_root).absolute()
-        if not self._control_root.is_relative_to(self._root):
-            raise ValueError("Workbench sources must be inside the selected repository")
+        roots = (self._control_root,) if implementation_root is None else (self._control_root, implementation_root)
+        self._roots = tuple(Path(path).absolute() for path in roots)
+        self._resolved_roots = tuple(path.resolve() for path in self._roots)
         self._resolved_root = self._root.resolve()
-        self._resolved_control_root = self._control_root.resolve()
+        if any(not path.is_relative_to(self._root) for path in self._roots) or any(
+            not path.is_relative_to(self._resolved_root) for path in self._resolved_roots
+        ):
+            raise ValueError("Workbench sources must be inside the selected repository")
         self._observer_factory = observer_factory
         self._observer: Any = None
         self._changes: Queue[Change] = Queue()
@@ -51,8 +55,10 @@ class SourceWatcher:
         if factory is None:
             raise RuntimeError("watchdog runtime is unavailable")
         observer = factory()
-        root_watch = observer.schedule(_Handler(self), str(self._control_root), recursive=True)
-        self._watched_directories = {self._control_root: root_watch}
+        self._watched_directories = {
+            path: observer.schedule(_Handler(self), str(path), recursive=True)
+            for path in self._roots
+        }
         observer.start()
         self._observer = observer
 
@@ -93,20 +99,15 @@ class SourceWatcher:
         candidate = Path(path)
         if not candidate.is_absolute():
             return None
-        try:
-            relative = candidate.relative_to(self._control_root)
-            prefix = self._control_root.relative_to(self._root)
-        except ValueError:
-            try:
-                relative = candidate.resolve(strict=False).relative_to(
-                    self._resolved_control_root
-                )
-                prefix = self._resolved_control_root.relative_to(self._resolved_root)
-            except ValueError:
-                return None
-        if ".." in relative.parts:
+        if ".." in candidate.parts:
             return None
-        return (prefix / relative).as_posix()
+        if any(candidate.is_relative_to(root) for root in self._roots):
+            return candidate.relative_to(self._root).as_posix()
+        resolved = candidate.resolve(strict=False)
+        for root, resolved_root in zip(self._roots, self._resolved_roots, strict=True):
+            if resolved.is_relative_to(resolved_root):
+                return (root.relative_to(self._root) / resolved.relative_to(resolved_root)).as_posix()
+        return None
 
     def _created(self, path: str) -> None:
         if relative := self._relative(path):
@@ -117,13 +118,13 @@ class SourceWatcher:
         directory = Path(path).resolve(strict=False)
         if self._observer is None or directory in self._watched_directories:
             return
-        if directory.is_dir() and directory.is_relative_to(self._resolved_control_root):
+        if directory.is_dir() and any(directory.is_relative_to(root) for root in self._resolved_roots):
             watch = self._observer.schedule(_Handler(self), str(directory), recursive=False)
             self._watched_directories[directory] = watch
 
     def _watch_directory_tree(self, path: str) -> None:
         directory = Path(path).resolve(strict=False)
-        if not directory.is_relative_to(self._resolved_control_root):
+        if not any(directory.is_relative_to(root) for root in self._resolved_roots):
             return
         self._watch_directory(str(directory))
         if directory.is_dir():
@@ -135,7 +136,7 @@ class SourceWatcher:
         directory = Path(path).resolve(strict=False)
         for watched in [
             item for item in self._watched_directories
-            if item != self._control_root and (item == directory or item.is_relative_to(directory))
+            if item not in self._roots and (item == directory or item.is_relative_to(directory))
         ]:
             watch = self._watched_directories.pop(watched)
             if hasattr(self._observer, "unschedule"):

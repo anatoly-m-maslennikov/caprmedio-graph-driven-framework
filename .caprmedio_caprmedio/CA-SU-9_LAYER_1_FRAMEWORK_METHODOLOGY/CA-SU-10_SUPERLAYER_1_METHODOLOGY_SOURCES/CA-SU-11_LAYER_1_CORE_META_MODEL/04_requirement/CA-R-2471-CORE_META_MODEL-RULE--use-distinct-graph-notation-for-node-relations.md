@@ -8,9 +8,9 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL
 tier: 3
-status: Active
-version: 10
-updated_at: '2026-11-11 16:04:42 +0400'
+status: active
+version: 11
+updated_at: '2026-11-12T02:58:44.805499+00:00'
 carrier_destination:
   file:
     name: CA-R-2471-CORE_META_MODEL-RULE--use-distinct-graph-notation-for-node-relations.md
@@ -60,7 +60,7 @@ RMED names these Roles:
 
 ## Formal content
 
-A Formal Claim is a declared child of an ordinary RMED Claim and contains formal content in a fenced block labelled CFEL. Formal content in an ordinary RMED Claim belongs in Formal Claim. Prose Claim contains ordinary Markdown. A heading in a Markdown value does not declare a Property by itself. Unknown headings, including `##` headings, within Prose Claim remain part of that value and do not terminate it.
+A Formal Claim is a declared child of an ordinary RMED Claim and contains formal content in a fenced block whose language its declaration admits. Formal content in an ordinary RMED Claim belongs in Formal Claim. Prose Claim contains ordinary Markdown. A heading in a Markdown value does not declare a Property by itself. Unknown headings, including `##` headings, within Prose Claim remain part of that value and do not terminate it.
 
 ## Inherited Node selection
 

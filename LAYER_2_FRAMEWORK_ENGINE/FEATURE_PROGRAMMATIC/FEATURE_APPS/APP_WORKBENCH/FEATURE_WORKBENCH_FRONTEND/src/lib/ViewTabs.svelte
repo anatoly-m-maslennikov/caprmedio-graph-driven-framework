@@ -1,4 +1,5 @@
-<!-- CA-D-674@23 -->
+<!-- CA-D-674@26 -->
+<!-- CA-R-2727@20 -->
 <script lang="ts">
   import { onMount, tick } from 'svelte';
   type Tab = { id: string; title: string; name?: string; dirty: boolean };

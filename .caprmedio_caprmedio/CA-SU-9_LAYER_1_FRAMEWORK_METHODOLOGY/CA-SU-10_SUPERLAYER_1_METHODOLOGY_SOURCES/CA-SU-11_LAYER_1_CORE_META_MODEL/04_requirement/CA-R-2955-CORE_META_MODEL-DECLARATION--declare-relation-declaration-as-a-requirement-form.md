@@ -6,13 +6,14 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Relation Declaration)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form
+    := Relation Declaration)
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+status: active
+version: 3
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2955-CORE_META_MODEL-DECLARATION--declare-relation-declaration-as-a-requirement-form.md
@@ -31,9 +32,14 @@ This Form uses the Declaration contract.
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Relation Declaration;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Requirement
+
+class RelationDeclaration(Requirement):
+    pass
+
+declare_entity(entity_class=RelationDeclaration, entity_name='Relation Declaration', qualification_property_path="Atom.Header.Context.Form")
 ```
 
 ## Semantics

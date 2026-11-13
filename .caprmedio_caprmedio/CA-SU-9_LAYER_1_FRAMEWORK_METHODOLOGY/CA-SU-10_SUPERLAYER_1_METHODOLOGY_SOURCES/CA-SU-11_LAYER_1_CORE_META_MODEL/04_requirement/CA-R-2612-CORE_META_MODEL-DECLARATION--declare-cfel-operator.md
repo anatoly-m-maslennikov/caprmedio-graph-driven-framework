@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//RecursiveWildcard
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 2
+updated_at: '2026-11-13T05:29:29.795188+00:00'
 carrier_destination:
   file:
     name: CA-R-2612-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
@@ -27,9 +27,9 @@ Declare CFEL operator **
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//RecursiveWildcard == "**"
+set_value(address='Operator//RecursiveWildcard', value='"**"')
 ```
 
 ## Semantics

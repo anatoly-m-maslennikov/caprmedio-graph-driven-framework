@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//GreaterOrEqual
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 2
+updated_at: '2026-11-13T05:28:40.022263+00:00'
 carrier_destination:
   file:
     name: CA-R-2599-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
@@ -27,9 +27,9 @@ Declare CFEL operator >=
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//GreaterOrEqual == ">="
+set_value(address='Operator//GreaterOrEqual', value='">="')
 ```
 
 ## Semantics

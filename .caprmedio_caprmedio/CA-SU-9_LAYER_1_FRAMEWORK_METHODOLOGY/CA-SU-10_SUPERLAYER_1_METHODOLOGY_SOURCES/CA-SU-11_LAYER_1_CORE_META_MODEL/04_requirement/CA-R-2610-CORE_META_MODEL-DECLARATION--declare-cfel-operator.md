@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//Narrowing
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 2
+updated_at: '2026-11-13T07:05:47.237045+00:00'
 carrier_destination:
   file:
     name: CA-R-2610-CORE_META_MODEL-DECLARATION--declare-cfel-operator.md
@@ -27,9 +27,9 @@ Declare CFEL operator /
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//Narrowing == "/"
+set_value(address='Operator//Narrowing', value='"/"')
 ```
 
 ## Semantics

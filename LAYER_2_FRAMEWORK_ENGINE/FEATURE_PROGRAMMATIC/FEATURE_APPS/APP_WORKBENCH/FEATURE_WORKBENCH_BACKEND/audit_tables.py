@@ -1,8 +1,8 @@
-# CA-R-970308648@1
-# CA-R-970308649@1
-# CA-R-970308650@1
-# CA-M-549@1
-# CA-D-715@2
+# CA-R-3066@2
+# CA-R-3067@2
+# CA-R-3068@2
+# CA-M-549@2
+# CA-D-715@3
 """Query-visible diagnostics derived from the selected Atom source scan."""
 
 from __future__ import annotations

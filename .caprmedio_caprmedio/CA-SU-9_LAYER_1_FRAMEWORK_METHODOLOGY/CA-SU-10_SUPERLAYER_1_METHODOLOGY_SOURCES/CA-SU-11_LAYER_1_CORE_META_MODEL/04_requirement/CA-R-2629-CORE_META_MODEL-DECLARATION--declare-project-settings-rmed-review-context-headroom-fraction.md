@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings.RMED Review.Context Headroom Fraction
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-04 05:21:15 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T19:06:43.021656+00:00'
 carrier_destination:
   file:
     name: CA-R-2629-CORE_META_MODEL-DECLARATION--declare-project-settings-rmed-review-context-headroom-fraction.md
@@ -32,10 +32,16 @@ When present, the value is finite and strictly between zero and one.
 
 ### Formal Claim
 
-```CFEL
-# model
-Project.Settings.RMED Review.Context Headroom Fraction:: [float]{::0..1};
+```python
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Project.Settings.RMED Review.Context Headroom Fraction.*[]{::0}
+declare_entity(
+    entity_name="Context Headroom Fraction",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Project.Settings.RMED Review",
+    value_format=float,
+    value_cardinality=Cardinality(minimum=0, maximum=1),
+    dependent_property_cardinality=0,
+)
 ```
 

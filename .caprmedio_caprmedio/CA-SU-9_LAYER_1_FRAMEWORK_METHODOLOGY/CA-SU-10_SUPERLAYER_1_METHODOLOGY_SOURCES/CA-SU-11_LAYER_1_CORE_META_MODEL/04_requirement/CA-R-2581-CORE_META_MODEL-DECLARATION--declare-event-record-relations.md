@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Event Record.Relations
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T05:40:50.368516+00:00'
 carrier_destination:
   file:
     name: CA-R-2581-CORE_META_MODEL-DECLARATION--declare-event-record-relations.md
@@ -26,11 +26,10 @@ Declare Event Record.Relations
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Event Record.Relations{::1}:: []{::0};
-
+property_rule(address='Event Record.Relations', occurrences='1', value_format='', values='0')
 # instances
-Event Record.Relations.*[Relation//$relation]{::0+}
+children(address='Event Record.Relations', name_format='Relation//$relation', occurrences='0+')
 ```
 

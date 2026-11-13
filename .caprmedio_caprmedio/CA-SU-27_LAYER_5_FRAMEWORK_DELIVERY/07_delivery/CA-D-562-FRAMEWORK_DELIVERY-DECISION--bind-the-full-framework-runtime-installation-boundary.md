@@ -17,9 +17,9 @@ relations:
   delivery_for:
   - CA-R-1878
   - CA-M-332
-status: Active
-version: 25
-updated_at: 2026-11-09 15:54:30 +0400
+status: active
+version: 26
+updated_at: '2026-11-12T17:09:57.815284+00:00'
 carrier_destination:
   file:
     name: CA-D-562-FRAMEWORK_DELIVERY-DECISION--bind-the-full-framework-runtime-installation-boundary.md
@@ -27,16 +27,17 @@ carrier_destination:
 current_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 ---
-
-# Summary
+## Summary
 
 Bind the full Framework runtime-installation boundary
 
-## Scope
+## Claim scope
 
 The installed Framework, local Engine/runtime package and project-local ca Skill delivered inside CA-O-164's local release and CA-O-169's final installation and Project-MCP refresh phase. These are deliveries of the same local release, not a separate installer operation.
 
 ## Claim
+
+### Prose Claim
 
 Local Release Version **must** prepare and verify the complete local Engine/runtime package, its bound `ca` Skill, the exact compiled `LAYER_1_FRAMEWORK_METHODOLOGY/` product and the package-bound candidate Project-MCP image **before** destructive replacement of the installed Framework, runtime or project-local `ca` Skill. It then copies that verified product into `.caprmedio_caprmedio/000_CAPRMEDIO_framework/`, installs those same prepared package and Skill bytes at their governed runtime and project-local destinations, and refreshes the Project MCP using that verified image. It **must** preserve protected configuration, authoritative Project sources, existing Journal evidence and unrelated Project data. A failed or uncertain transition **must** stop with its actual observed state and no claim that a partial installation, unavailable MCP or unfinished cleanup completed successfully.
 
@@ -44,9 +45,9 @@ Local Release Version **must** prepare and verify the complete local Engine/runt
 
 ### Local delivery carriers
 
-After normal source/input/file-safety checks, the full test suite including required integration tests and canonical compilation under CA-O-164, the verified derived product is `LAYER_1_FRAMEWORK_METHODOLOGY/`; the installed Framework copy is `.caprmedio_caprmedio/000_CAPRMEDIO_framework/`. Prepare and verify the complete replacement package before clearing any installed Framework, runtime or Skill target; a preparation or verification failure leaves those installed targets untouched. Under the existing one Project installation lock required by CA-O-169, clear only replaceable delivery members at the declared destinations and copy the verified product as-is. Reopen the actual installed Framework, runtime and complete Skill deliveries against the prepared paths, bytes and modes before reporting installation success. Neither derived nor installed content becomes authoring authority. Release verification adds no separate Active Atom metadata, placement or relation validation; the full test suite and normal input, permission and file/path safety checks remain. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP.
+After normal source/input/file-safety checks, the full test suite including required integration tests and canonical compilation under CA-O-164, the verified derived product is `LAYER_1_FRAMEWORK_METHODOLOGY/`; the installed Framework copy is `.caprmedio_caprmedio/000_CAPRMEDIO_framework/`. Prepare and verify the complete replacement package before clearing any installed Framework, runtime or Skill target; a preparation or verification failure leaves those installed targets untouched. Under the existing one Project installation lock required by CA-O-169, clear only replaceable delivery members at the declared destinations and copy the verified product as-is. Verify that the copy operations succeed and the replacement runtime is healthy before reporting installation success. Neither derived nor installed content becomes authoring authority. Release verification adds no separate Active Atom metadata, placement or relation validation; the full test suite and normal input, permission and file/path safety checks remain. Required Docker integration tests build a disposable image from the current code; an old installed or running image is not a substitute, and test execution does not restart the running Project MCP.
 
-Prepare the direct local package in a component-owned, Run-specific descendant of the configured Project Temporary State root under `.caprmedio_tmp/`, following CA-M-422; staging is not a persistent installation root. It carries the complete `LAYER_2_FRAMEWORK_ENGINE/`, the product's sources and compilation at `METHODOLOGY/sources/` and `METHODOLOGY/compiled/`, the complete canonical `ca` payload at `SKILLS/ca/`, and `pyproject.toml`, `uv.lock` and `version.toml`. Install those same prepared bytes at the governed persistent Project runtime package destination outside temporary state; install its complete `SKILLS/ca/` payload at `.agents/skills/ca/` and refresh the package-bound Project MCP bootstrap. This Delivery does not introduce a new persistent MCP path. Compilation and source lineage remain governed by CA-D-561; this Delivery adds no export or binding-projection schema.
+Prepare the direct local package in a component-owned, Run-specific descendant of the configured Project Temporary State root under `.caprmedio_tmp/`, following CA-M-422; staging is not a persistent installation root. The runtime package includes the complete selected Project source package, excluding `.caprmedio_<project name>`, `.caprmedio_runtime`, `.caprmedio_tmp`, and technical transient directories such as `.git`, `.venv` and `.vite`. It carries the product's sources and compilation at `METHODOLOGY/sources/` and `METHODOLOGY/compiled/`, the complete canonical `ca` payload at `SKILLS/ca/`, and `pyproject.toml`, `uv.lock` and `version.toml`. Install those same prepared bytes at the governed persistent Project runtime package destination outside temporary state; install its complete `SKILLS/ca/` payload at `.agents/skills/ca/` and refresh the package-bound Project MCP bootstrap. This Delivery does not introduce a new persistent MCP path. Compilation and source lineage remain governed by CA-D-561; this Delivery adds no export or binding-projection schema.
 
 The prepared runtime supplies the Project-MCP launcher and Docker image inputs. Build or reuse and verify the package-bound candidate image in the same Workflow before any installed target is cleared. Final installation delivers the prepared bytes, then restarts or reuses the Project MCP with that image for CA-O-169's startup/smoke check; it does not defer image preparation until after replacement. A successful build alone does not prove a working Project MCP. This direct flow requires no candidate-snapshot manifest, retained Full Gate, selected-N execution gate, N+1 promotion, native runtime selector, state-generation proof or bootstrap image-restoration prerequisite.
 

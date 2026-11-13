@@ -53,20 +53,26 @@ class PublicReleaseFixture(unittest.TestCase):
         discovery=None,
         created_url=None,
         change_after_tests=None,
+        wrong_head=False,
+        fail_push=False,
     ):
         calls: list[tuple[str, ...]] = []
         tracked = staged = self._materials()
-        head = "fixture-head\n"
+        head = "a" * 40 + "\n"
 
         def run(argv: tuple[str, ...], cwd: Path) -> subprocess.CompletedProcess[str]:
             nonlocal tracked, staged, head
             self.assertEqual(self.root, cwd)
             calls.append(argv)
             self.snapshots.append((argv, self._materials()))
+            if argv[:2] == ("git", "show"):
+                return subprocess.CompletedProcess(argv, 0, tracked[argv[2].split(":", 1)[1]], "")
             if argv[:2] == ("git", "add"):
                 staged = self._materials()
             if argv[:2] == ("git", "commit"):
                 tracked = staged
+            if fail_push and argv[:2] == ("git", "push"):
+                return subprocess.CompletedProcess(argv, 1, "", "push uncertain")
             if fail_tests and argv[:2] == ("uv", "run"):
                 return subprocess.CompletedProcess(argv, 1, "", "tests failed")
             if change_after_tests and argv[:2] == ("uv", "run"):
@@ -98,6 +104,7 @@ class PublicReleaseFixture(unittest.TestCase):
                     if discovery is not None
                     else json.dumps([match] if existing_pr else []),
                 ),
+                ("gh", "pr", "view"): (0, json.dumps(dict(match, url=("https://github.com/acme/project/pull/41" if existing_pr else "https://github.com/acme/project/pull/42"), isDraft=True, headRefOid=("b" * 40 if wrong_head else head.strip())))),
                 ("gh", "pr", "create"): (
                     0,
                     created_url or "https://github.com/acme/project/pull/42\n",
@@ -110,59 +117,52 @@ class PublicReleaseFixture(unittest.TestCase):
 
 
 class PublicReleaseTests(PublicReleaseFixture):
-    def test_one_draft_one_suite_then_url_only_followup(self) -> None:
-        runner, calls = self._runner()
-        result = run_public_release(
-            self.root, run_id="public-123", content_draft=self.draft, runner=runner
-        )
-        self.assertEqual("completed", result["outcome"])
-        self.assertEqual(1, sum(argv[:2] == ("uv", "run") for argv in calls))
-        self.assertEqual(1, sum(argv[:3] == ("gh", "pr", "create") for argv in calls))
-        tests = next(snapshot for argv, snapshot in self.snapshots if argv[:2] == ("uv", "run"))
-        pushes = [snapshot for argv, snapshot in self.snapshots if argv[:2] == ("git", "push")]
-        self.assertEqual(2, len(pushes))
-        self.assertEqual(tests, pushes[0])
-        self.assertEqual(tests["version.toml"], pushes[1]["version.toml"])
-        self.assertEqual(tests["README.md"], pushes[1]["README.md"])
-        self.assertEqual(
-            tests["VERSION_HISTORY.md"].replace(
-                "## 0.4.3\n", "## 0.4.3 [PR](https://github.com/acme/project/pull/42)\n"
-            ),
-            pushes[1]["VERSION_HISTORY.md"],
-        )
-        create = next(argv for argv in calls if argv[:3] == ("gh", "pr", "create"))
-        self.assertEqual(self.draft["description"], create[create.index("--body") + 1])
-        self.assertFalse(any(argv[:3] == ("gh", "pr", "merge") for argv in calls))
+    def test_legacy_history_entries_are_sorted_without_losing_details(self):
+        history = self.root / "VERSION_HISTORY.md"
+        older = "## Version 0.3\n\nOld details.\n\n"
+        newer = "## Version 0.4.1\n\nNewer details.\n\n"
+        history.write_text("# Version History\n\nIntroduction.\n\n" + older + newer)
+        runner, _ = self._runner(existing_pr=True)
+        result = run_public_release(self.root, run_id="legacy", content_draft=self.draft, runner=runner)
+        self.assertEqual("completed", result["outcome"], result)
+        text = history.read_text()
+        self.assertLess(text.index("## 0.4.3"), text.index(newer))
+        self.assertLess(text.index(newer), text.index(older))
+        self.assertIn("Introduction.", text)
 
-    def test_failed_suite_stops_before_remote_writes(self) -> None:
-        runner, calls = self._runner(fail_tests=True)
-        result = run_public_release(
-            self.root, run_id="public-124", content_draft=self.draft, runner=runner
-        )
-        self.assertEqual("failed", result["outcome"])
-        self.assertEqual("tests", result["failed_step"])
-        self.assertEqual(1, sum(argv[:2] == ("uv", "run") for argv in calls))
-        self.assertFalse(
-            any(
-                argv[:2] == ("git", "push")
-                or argv[:3] in (("gh", "pr", "create"), ("gh", "pr", "edit"), ("gh", "pr", "ready"))
-                for argv in calls
-            )
-        )
+    def test_single_tested_push_for_existing_and_new_pr(self):
+        for existing in (False, True):
+            with self.subTest(existing=existing):
+                runner, calls = self._runner(existing_pr=existing)
+                result = run_public_release(self.root, run_id="public-" + str(existing), content_draft=self.draft, runner=runner)
+                self.assertEqual("completed", result["outcome"], result)
+                push = next(x for x in calls if x[:2] == ("git", "push"))
+                self.assertEqual(1, sum(x[:2] == ("git", "push") for x in calls))
+                self.assertEqual("a" * 40 + ":refs/heads/amm/dev", push[-1])
+                tests = next(i for i, x in enumerate(calls) if x[:2] == ("uv", "run"))
+                self.assertLess(tests, calls.index(push))
+                self.assertLess(calls.index(push), next(i for i, x in enumerate(calls) if x[:3] == ("gh", "pr", "ready")))
+                materials = next(snapshot for x, snapshot in self.snapshots if x[:2] == ("uv", "run"))
+                self.assertIn("[PR](" + result["pr_url"] + ")", materials["VERSION_HISTORY.md"])
+                self.assertTrue(materials["VERSION_HISTORY.md"].startswith("# Version History\n\n<!-- public-release:"))
+                (self.root / "version.toml").write_text('[framework]\nversion = "0.4.2.1"\n')
+                (self.root / "README.md").write_text("# Project\n")
+                (self.root / "VERSION_HISTORY.md").write_text("# Version History\n")
+                self.snapshots.clear()
 
-    def test_existing_actual_link_makes_finalization_a_no_op(self) -> None:
-        runner, calls = self._runner(existing_pr=True)
-        result = run_public_release(
-            self.root, run_id="public-existing-pr", content_draft=self.draft, runner=runner
-        )
-        self.assertEqual("completed", result["outcome"])
-        self.assertEqual(1, sum(argv[:2] == ("git", "commit") for argv in calls))
-        self.assertEqual(1, sum(argv[:2] == ("git", "push") for argv in calls))
-        tests = next(snapshot for argv, snapshot in self.snapshots if argv[:2] == ("uv", "run"))
-        self.assertIn(
-            "## 0.4.3 [PR](https://github.com/acme/project/pull/41)", tests["VERSION_HISTORY.md"]
-        )
-        self.assertEqual(tests, self._materials())
+    def test_failures_stop_without_push_or_retry(self):
+        for options in ({"fail_tests": True}, {"change_after_tests": "head"}, {"change_after_tests": "tracked"}, {"created_url": "https://github.com/other/project/pull/42"}, {"fail_push": True}, {"wrong_head": True}):
+            with self.subTest(options=options):
+                runner, calls = self._runner(**options)
+                result = run_public_release(self.root, run_id="failure", content_draft=self.draft, runner=runner)
+                self.assertEqual("failed", result["outcome"], result)
+                pushes = sum(x[:2] == ("git", "push") for x in calls)
+                self.assertEqual(int(bool(options.get("fail_push") or options.get("wrong_head"))), pushes)
+                self.assertFalse(any(x[:3] == ("gh", "pr", "ready") for x in calls))
+                (self.root / "version.toml").write_text('[framework]\nversion = "0.4.2.1"\n')
+                (self.root / "README.md").write_text("# Project\n")
+                (self.root / "VERSION_HISTORY.md").write_text("# Version History\n")
+                self.snapshots.clear()
 
 
 if __name__ == "__main__":

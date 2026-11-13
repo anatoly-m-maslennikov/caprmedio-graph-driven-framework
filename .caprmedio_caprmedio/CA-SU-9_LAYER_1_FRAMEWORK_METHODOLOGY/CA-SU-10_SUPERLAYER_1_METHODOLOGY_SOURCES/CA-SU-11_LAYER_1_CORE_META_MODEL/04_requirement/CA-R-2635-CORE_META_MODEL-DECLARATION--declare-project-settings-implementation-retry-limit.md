@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Implementation Retry Limit
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-04 05:21:15 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2635-CORE_META_MODEL-DECLARATION--declare-project-settings-implementation-retry-limit.md
@@ -32,10 +32,17 @@ An omitted value follows the governed default resolution. A value is an integer 
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Project.Settings.Implementation Retry Limit:: [int]{::0..1};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Project.Settings.Implementation Retry Limit.*[]{::0}
+declare_entity(
+    entity_name='Implementation Retry Limit',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project.Settings',
+    value_cardinality=Cardinality(minimum=0, maximum=1),
+    value_format='int',
+    dependent_property_cardinality=0,
+)
 ```
 

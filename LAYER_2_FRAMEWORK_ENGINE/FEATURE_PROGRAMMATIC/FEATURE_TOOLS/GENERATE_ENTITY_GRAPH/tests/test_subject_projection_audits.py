@@ -19,6 +19,14 @@ def carrier(atom_id, active, passive=(), *, role="Requirement", form="Declaratio
 
 
 class SubjectProjectionAuditTests(unittest.TestCase):
+    def test_existing_model_relation_path_survives_projection_scope(self):
+        address = "CAPRMEDIO_MODEL/CFEL/Relation//IS_ORDERED_RIGHT_AFTER"
+        selected, diagnostics = select_model_subjects([
+            carrier("CA-R-2965", address, form="Relation Declaration"),
+        ])
+        self.assertEqual(address, selected[0]["subjects"]["active"])
+        self.assertEqual([], diagnostics)
+
     def test_model_scope_excludes_structure_and_concrete_instances_but_keeps_descriptors(self):
         sources = [
             carrier("CA-R-1", "CAPRMEDIO_MODEL <+ Node", [

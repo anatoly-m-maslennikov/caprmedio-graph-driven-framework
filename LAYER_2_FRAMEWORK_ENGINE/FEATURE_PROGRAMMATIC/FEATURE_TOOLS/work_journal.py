@@ -11,7 +11,6 @@ import json
 import os
 import re
 import sys
-import tomllib
 import uuid
 from concurrent.futures import CancelledError as FutureCancelledError
 from pathlib import Path
@@ -19,6 +18,7 @@ from typing import Any, Mapping, Sequence
 from urllib.parse import quote
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+from settings_carrier import read_settings_carrier
 from VALIDATE_ATOMS.validate_atoms_workers.read_io import ReadContext, open_regular, protected
 from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 
@@ -84,7 +84,7 @@ def _read_project_settings(root: Path, control_root: str | Path | None = None) -
             os.close(descriptor)
         settings_path = project / relative / "caprmedio_project_settings.toml"
         reader = ReadContext(roots=[str(project)], limits=dict(CEILINGS))
-        settings = tomllib.loads(reader.read(settings_path).decode("utf-8"))
+        settings = read_settings_carrier(settings_path, read_bytes=reader.read)
         paths = settings.get("paths")
         if not isinstance(paths, dict):
             raise RuntimeError("Project Settings requires a paths table")

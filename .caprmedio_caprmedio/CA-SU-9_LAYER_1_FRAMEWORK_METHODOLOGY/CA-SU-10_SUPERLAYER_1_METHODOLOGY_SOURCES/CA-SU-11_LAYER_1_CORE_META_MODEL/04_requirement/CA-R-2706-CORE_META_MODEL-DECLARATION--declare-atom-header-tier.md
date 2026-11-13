@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Tier
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-04 09:19:08 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T19:06:44.073009+00:00'
 carrier_destination:
   file:
     name: CA-R-2706-CORE_META_MODEL-DECLARATION--declare-atom-header-tier.md
@@ -30,11 +30,18 @@ Atom.Header.Tier stores one integer value and an optional Tier Label; the Formal
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom.Header.Context.Tier{::1}:: [int]{::1};
+```python
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Atom.Header.Context.Tier.*[in(Label)]{::0..1};
-
-Atom.Header.Context.Tier >= -1
+declare_entity(
+    entity_name="Tier",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Atom.Header.Context",
+    property_occurrence_cardinality=1,
+    value_format=int,
+    value_cardinality=1,
+    dependent_property_cardinality=Cardinality(minimum=0, maximum=1),
+    allowed_dependent_property_names=("Label",),
+    minimum_value=-1,
+)
 ```

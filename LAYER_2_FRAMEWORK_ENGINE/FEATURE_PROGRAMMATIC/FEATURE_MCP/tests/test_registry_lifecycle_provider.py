@@ -1,3 +1,5 @@
+# CA-E-824@2
+
 """Private lifecycle provider: corrections, session isolation, and effects."""
 from contextlib import contextmanager, nullcontext
 import hashlib
@@ -16,11 +18,13 @@ MCP = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(MCP), str(MCP.parent / 'FEATURE_TOOLS')]
 from mcp.server.session import ServerSession  # noqa: E402
 from mcp.server.connection import Connection  # noqa: E402
-from registry_lifecycle_provider import LifecycleProvider, _refresh_selection as refresh_real, tool_descriptors  # noqa: E402
+from registry_lifecycle_provider import LifecycleProvider, _PROJECT_RUNS, _refresh_selection as refresh_real, tool_descriptors  # noqa: E402
 
 
 class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
+        _PROJECT_RUNS.clear()
+        self.addCleanup(_PROJECT_RUNS.clear)
         self.selection = SimpleNamespace(root=Path('/project'), instance_id='project-1', declaration_digest='initial')
         self.provider = LifecycleProvider(SimpleNamespace(selection=self.selection), object())
         refresh = patch('registry_lifecycle_provider._refresh_selection', side_effect=lambda selection: selection)
@@ -110,6 +114,8 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
 
     async def test_all_six_tools_cancel_pending_without_dispatch(self):
         for descriptor in tool_descriptors():
+            if not descriptor.name.startswith('atom_lifecycle_'):
+                continue
             with self.subTest(tool=descriptor.name):
                 self.assertEqual('boolean', descriptor.input_schema['properties']['cancel']['type'])
                 missing = {'outcome': 'needs_input', 'requested_input': {
@@ -167,6 +173,55 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual({'targets': [target]}, execute.call_args.args[3])
         self.assertEqual('no_pending_input', cancel['errors'][0]['code'])
         self.assertEqual(2, execute.call_count)
+
+    async def test_single_success_hides_workflow_ledger_but_failure_preserves_it(self):
+        name = 'atom_lifecycle_change_status'
+        request = {'target': {'ref_id': 'CA-P-1', 'version': 1}, 'targetStatus': 'Active'}
+        workflow = {'workflow_binding': {'workflow': 'CA-O-1'}, 'workflow_run_id': 'run',
+                    'action_results': [{'outcome': 'completed'}],
+                    'artifact': {'ref_id': 'CA-P-1'}, 'effects': [{'operation': 'move'}],
+                    'warnings': ['warning']}
+        success = {'outcome': 'completed', 'errors': [], **workflow}
+        failure = {'outcome': 'failed', 'errors': [{'code': 'failure'}], **workflow,
+                   'failed_action': {'target': 'CA-P-2'}, 'unrun_actions': [{'target': 'CA-P-3'}]}
+        requests = {
+            'atom_lifecycle_create_draft': {'copyFrom': 'CA-P-1'},
+            'atom_lifecycle_archive': {'target': request['target']},
+            'atom_lifecycle_change_status': request,
+            'atom_lifecycle_direct_update': {'target': request['target'], 'changes': {'tier': 2}},
+            'atom_lifecycle_promote_draft': {'target': {'ref_id': 'CA-P-1@1-draft', 'version': 1},
+                                             'targetStatus': 'Active'},
+            'atom_lifecycle_update': {'sourceCurrent': request['target'], 'changes': {'tier': 2}},
+        }
+        with patch('registry_lifecycle_provider.backend.execute', return_value=success):
+            for descriptor in tool_descriptors():
+                if not descriptor.name.startswith('atom_lifecycle_'):
+                    continue
+                with self.subTest(tool=descriptor.name):
+                    self.assertEqual({'status': 'completed'}, await self.invoke(
+                        self.a, descriptor.name, requests[descriptor.name]))
+        with patch('registry_lifecycle_provider.backend.execute', return_value=failure):
+            self.assertEqual({'status': 'failed', 'errors': failure['errors'], **workflow,
+                              'failed_action': failure['failed_action'], 'unrun_actions': failure['unrun_actions']},
+                             await self.invoke(self.a, name, request))
+
+    async def test_recursive_change_status_success_returns_action_results(self):
+        request = {'target': {'ref_id': 'CA-P-1', 'version': 1}, 'targetStatus': 'Active'}
+        workflow = {
+            'workflow_binding': {'workflow': 'CA-O-1'},
+            'workflow_run_id': 'run',
+            'action_results': [
+                {'target': {'ref_id': ref}, 'outcome': 'completed'}
+                for ref in ('CA-P-1', 'CA-P-2', 'CA-P-3')
+            ],
+            'artifact': {'ref_id': 'CA-P-1'},
+            'effects': [{'operation': 'move'}],
+            'warnings': [],
+        }
+        with patch('registry_lifecycle_provider.backend.execute',
+                   return_value={'outcome': 'completed', 'errors': [], **workflow}):
+            result = await self.invoke(self.a, 'atom_lifecycle_change_status', request)
+        self.assertEqual({'status': 'completed', **workflow}, result)
 
     async def test_batch_with_backend_stops_at_first_failure(self):
         from ATOM_LIFECYCLE import backend
@@ -254,6 +309,9 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
             {'sourceCurrent': {'ref_id': 'CA-R-1'}},
             {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2}},
             {'sourceCurrent': {'ref_id': 'CA-R-1'}, 'changes': {'summary': 'New summary'}},
+            {'copyFrom': 'CA-R-1'},
+            {'copyFrom': {'ref_id': 'CA-R-1', 'version': 1}, 'changes': {'tier': 2}},
+            {'copyFrom': 'CA-R-1@3-draft'},
         ]
         with patch('registry_lifecycle_provider.backend.execute', return_value={
                 'outcome': 'completed', 'errors': []}) as execute:
@@ -282,12 +340,36 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual({'status': 'completed'}, result)
         self.assertEqual({'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2}}, execute.call_args.args[3])
 
+    async def test_independent_copy_corrections_and_source_switch(self):
+        missing = {'outcome': 'needs_input', 'effects': [],
+                   'requested_input': {'copyFrom': {'error': 'Select a source version'}}}
+        with patch('registry_lifecycle_provider.backend.execute', side_effect=[missing, {
+                'outcome': 'completed', 'errors': []}]) as execute:
+            self.assertEqual('needs_input', (await self.invoke(self.a, self.name, {'copyFrom': 'CA-R-1'}))['status'])
+            self.assertEqual({'status': 'completed'}, await self.invoke(
+                self.a, self.name, {'copyFrom': {'version': 2}, 'tier': 3}))
+        self.assertEqual({'copyFrom': {'ref_id': 'CA-R-1', 'version': 2},
+                          'changes': {'tier': 3}}, execute.call_args.args[3])
+        with patch('registry_lifecycle_provider.backend.execute', side_effect=[missing, {
+                'outcome': 'completed', 'errors': []}]) as execute:
+            await self.invoke(self.a, self.name, {'copyFrom': 'CA-R-1', 'changes': {'tier': 3}})
+            self.assertEqual({'status': 'completed'}, await self.invoke(
+                self.a, self.name, {'sourceCurrent': 'CA-R-2'}))
+        self.assertEqual({'sourceCurrent': 'CA-R-2'}, execute.call_args.args[3])
+        with patch('registry_lifecycle_provider.backend.execute', side_effect=[missing, {
+                'outcome': 'completed', 'errors': []}]) as execute:
+            await self.invoke(self.a, self.name, {'copyFrom': 'CA-R-1', 'changes': {'tier': 3}})
+            self.assertEqual({'status': 'completed'}, await self.invoke(
+                self.a, self.name, {'copyFrom': 'CA-R-2'}))
+        self.assertEqual({'copyFrom': 'CA-R-2'}, execute.call_args.args[3])
+
     def test_create_draft_descriptor_documents_optional_source_version(self):
         descriptor = next(item for item in tool_descriptors() if item.name == self.name)
         description = descriptor.input_schema['properties']['sourceCurrent']['description']
         self.assertIn('ref_id', description)
         self.assertIn('optional', description)
         self.assertIn('version', description)
+        self.assertIn('independent Draft', descriptor.input_schema['properties']['copyFrom']['description'])
 
     async def test_changed_declarations_reject_pending_input(self):
         newer = SimpleNamespace(root=self.selection.root, instance_id=self.selection.instance_id,
@@ -411,6 +493,7 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
             ({'newAtom': 'bad'}, {'newAtom': new_atom}, 'newAtom'),
             ({'newAtom': new_atom, 'sourceCurrent': selector}, {'newAtom': new_atom}, 'sourceCurrent'),
             ({'newAtom': new_atom, 'sourceCurrent': selector}, {'sourceCurrent': selector}, 'sourceCurrent'),
+            ({'newAtom': new_atom, 'copyFrom': selector}, {'copyFrom': selector}, 'sourceCurrent'),
             ({'newAtom': new_atom, 'changes': {}}, {'newAtom': new_atom}, 'changes'),
         ]
         for initial, correction, field in cases:
@@ -499,6 +582,7 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
                 with patch('registry_lifecycle_provider.backend.execute',
                            side_effect=[missing, {'outcome': 'completed'}]) as execute:
                     result = await client.call_tool(name, {'sourceCurrent': target})
+                    self.assertIsInstance(result.structured_content.pop('run_id'), str)
                     self.assertEqual({'status': 'needs_input', 'requested_input': requested,
                                       'errors': [{'code': 'invalid_input', 'field': 'priority',
                                                   'message': 'invalid'}]}, result.structured_content)
@@ -512,7 +596,8 @@ class LifecycleProviderTests(unittest.IsolatedAsyncioTestCase):
     async def test_requires_real_session_and_optional_corrections(self):
         with self.assertRaises(ValueError):
             self.provider.prepare_arguments(self.name, {}, SimpleNamespace(session=object()))
-        self.assertTrue(all(not tool.input_schema.get('required') for tool in tool_descriptors()))
+        self.assertTrue(all(not tool.input_schema.get('required') for tool in tool_descriptors()
+                            if tool.name.startswith('atom_lifecycle_')))
 
 
 if __name__ == '__main__':
@@ -529,7 +614,7 @@ class LifecycleRegistryExposureTests(unittest.TestCase):
         all_names = {tool.name for tool in tool_descriptors()}
         admitted = {'atom_lifecycle_archive', 'atom_lifecycle_change_status', 'atom_lifecycle_create_draft',
                     'atom_lifecycle_direct_update', 'atom_lifecycle_promote_draft', 'atom_lifecycle_update'}
-        self.assertEqual(admitted, all_names)
+        self.assertEqual(admitted | {'lifecycle_run_list', 'lifecycle_run_continue', 'lifecycle_run_cancel'}, all_names)
         self.assertFalse(all_names & set(inventory.blacklist))
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -539,13 +624,15 @@ class LifecycleRegistryExposureTests(unittest.TestCase):
                 shutil.copy2(MCP / name, feature / name)
             env = dict(os.environ)
             env['PYTHONPATH'] = os.pathsep.join((str(MCP), str(MCP.parent / 'FEATURE_TOOLS'),
-                                                  str(MCP.parent / 'FEATURE_APPS')))
+                                                  str(MCP.parent / 'FEATURE_APPS'), str(MCP.parent)))
             subprocess.run([sys.executable, str(MCP / 'generate_tool_registry.py'), '--package-root', str(root)],
                            env=env, check=True, capture_output=True, text=True)
             generated = json.loads((feature / 'tool_registry.json').read_text())
         lifecycle = next(item for item in generated['providers'] if item['provider_id'] == 'lifecycle')
-        self.assertEqual(admitted, {tool['name'] for tool in lifecycle['tools']})
-        self.assertEqual(admitted, set(generated['public_tools']) & all_names)
+        self.assertEqual(all_names, {tool['name'] for tool in lifecycle['tools']})
+        self.assertEqual(all_names, set(generated['public_tools']) & all_names)
+        create = next(tool for tool in lifecycle['tools'] if tool['name'] == 'atom_lifecycle_create_draft')
+        self.assertIn('copyFrom', create['inputSchema']['properties'])
 
 
 class LifecycleHTTPTests(unittest.TestCase):

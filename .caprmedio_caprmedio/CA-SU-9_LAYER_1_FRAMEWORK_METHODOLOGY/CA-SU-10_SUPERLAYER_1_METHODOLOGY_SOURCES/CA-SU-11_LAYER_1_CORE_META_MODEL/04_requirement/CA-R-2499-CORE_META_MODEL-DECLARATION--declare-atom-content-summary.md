@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Content.Summary
 tier: 3
-status: Active
-version: 6
-updated_at: '2026-11-11T18:31:44+04:00'
+status: active
+version: 7
+updated_at: '2026-11-13T04:04:17.466607+00:00'
 carrier_destination:
   file:
     name: CA-R-2499-CORE_META_MODEL-DECLARATION--declare-atom-content-summary.md
@@ -26,18 +26,17 @@ Declare Atom.Content.Summary
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom.Content.Summary{::1}:: {::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Atom.Content.Summary.*[]{::0};
-
-# instances
-DETERMINES(
-  Atom//$atom,
-  (.Header.Identity.ID),
-  (.Content.Summary),
-  (Atom.Header.State.Status >| Status Group = Current) OR (Atom.Header.State.Status >| Status Group = Backlog) OR (Atom.Header.State.Status >| Status Group = Archived)
+declare_entity(
+    entity_name="Summary", relation_name="IS_PROPERTY_OF", base_path="Atom.Content",
+    property_occurrence_cardinality=1, value_cardinality=1, dependent_property_cardinality=0,
+    population_entity_path="Atom",
+    population_functional_dependencies=(
+        {"keys": ("Header.Identity.ID",), "dependents": ("Content.Summary",),
+         "status_groups": ("Current", "Backlog", "Archived")},
+    ),
 )
 ```
 

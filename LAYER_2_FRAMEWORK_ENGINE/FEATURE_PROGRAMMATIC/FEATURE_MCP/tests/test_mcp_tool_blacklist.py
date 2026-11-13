@@ -16,6 +16,12 @@ from project_tool_blacklist import project_tool_blacklist  # noqa: E402
 from project_selection import ProjectSelection, bind_selection  # noqa: E402
 from workbench_tools import NATIVE_TOOLS  # noqa: E402
 
+LIFECYCLE_NAMES = set("""
+atom_lifecycle_create_draft atom_lifecycle_archive atom_lifecycle_change_status
+atom_lifecycle_direct_update atom_lifecycle_promote_draft atom_lifecycle_update
+lifecycle_run_list lifecycle_run_continue lifecycle_run_cancel
+""".split())
+
 
 class MCPToolBlacklistTests(unittest.IsolatedAsyncioTestCase):
     def setUp(self):
@@ -64,7 +70,7 @@ class MCPToolBlacklistTests(unittest.IsolatedAsyncioTestCase):
                 async with ClientSession(*streams) as client:
                     await client.initialize()
                     names = {tool.name for tool in (await client.list_tools()).tools}
-                    self.assertEqual(set(NATIVE_TOOLS) - {"workbench_ui_ping", "query_run"}, names)
+                    self.assertEqual((set(NATIVE_TOOLS) | LIFECYCLE_NAMES) - {"workbench_ui_ping", "query_run"}, names)
                     response = await client.call_tool("workbench_ui_ping", {})
                     self.assertTrue(response.is_error)
                     self.assertEqual(["Unknown Tool"], response.structured_content["diagnostics"])

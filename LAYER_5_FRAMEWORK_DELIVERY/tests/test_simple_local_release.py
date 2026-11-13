@@ -1,5 +1,7 @@
 """The concrete Local release flow, without running Docker or installing packages."""
 
+# CA-E-573@19
+
 from __future__ import annotations
 
 import subprocess
@@ -391,7 +393,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                 self.assertEqual(expected_skill, {p.relative_to(packaged_skill): p.read_bytes()
                                                   for p in packaged_skill.rglob("*") if p.is_file()})
             self.assertEqual("# release source\n", (package / "LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/public_release.py").read_text())
-            self.assertFalse((package / "LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/tests").exists())
+            self.assertTrue((package / "LAYER_5_FRAMEWORK_DELIVERY/PUBLIC_RELEASE/tests/test_private.py").is_file())
             self.assertTrue((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/"
                              "FEATURE_TOOLS/GENERATE_ENTITY_GRAPH/render_entity_tree.py").is_file())
             self.assertTrue((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_APPS/"
@@ -401,17 +403,17 @@ class SimpleLocalReleaseTests(unittest.TestCase):
                 (package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_MCP/"
                  "tool_registry.json").read_text(encoding="utf-8"),
             )
-            self.assertFalse((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS").exists())
+            self.assertTrue((package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_AGENTIC/FEATURE_PROMPTS/retired.py").is_file())
             packaged_tools = package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS"
             self.assertEqual(
                 '{"schema":1}\n', (packaged_tools / "ATOM_LIFECYCLE/status_model.json").read_text(encoding="utf-8")
             )
             self.assertTrue((packaged_tools / "ATOM_LIFECYCLE/candidate_schema.json").is_file())
-            self.assertFalse((packaged_tools / "tests").exists())
-            self.assertFalse((packaged_tools / "fixtures").exists())
-            self.assertFalse((packaged_tools / "README.md").exists())
-            self.assertFalse((packaged_tools / "scope_declaration_test_support.py").exists())
-            self.assertFalse((packaged_tools / "scope_declaration_render.py").exists())
+            for relative in ("tests/test_retired.py", "fixtures/input.json", "README.md",
+                             "scope_declaration_test_support.py", "scope_declaration_render.py"):
+                self.assertTrue((packaged_tools / relative).is_file())
+            for excluded in (".caprmedio_caprmedio", ".caprmedio_runtime", ".caprmedio_tmp"):
+                self.assertFalse((package / excluded).exists())
             self.assertEqual("retained implementation skill\n", (packaged_tools / "retained/SKILL.md").read_text())
         self.assertEqual("ca skill", (self.root / ".agents/skills/ca/SKILL.md").read_text())
         self.assertIn('version = "0.4.1.1"', (self.root / "version.toml").read_text())
@@ -456,7 +458,7 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         for target in (self.product, self.installed):
             self.assertEqual(source.read_bytes(), (target / "SUPERLAYER_1_METHODOLOGY_SOURCES" / source.parent.name / "active.md").read_bytes())
 
-    def test_focused_modules_are_forwarded_and_reported(self):
+    def test_focused_request_runs_and_reports_full_suite(self):
         modules = (
             "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests/test_one.py",
             "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests/test_two.py",
@@ -471,18 +473,15 @@ class SimpleLocalReleaseTests(unittest.TestCase):
             )
 
         self.assertEqual("completed", result["outcome"])
-        self.assertEqual("focused", result["test_scope"])
-        self.assertEqual(list(modules), result["test_modules"])
+        self.assertEqual("full", result["test_scope"])
+        self.assertIsNone(result["test_modules"])
         test_command = next(argv for argv in calls if any(
             item.endswith("run_full_test_suite.py") for item in argv
         ))
-        self.assertEqual(
-            ("--test-module", modules[0], "--test-module", modules[1]),
-            test_command[-4:],
-        )
+        self.assertNotIn("--test-module", test_command)
         receipt = (self.root / result["receipt_path"]).read_text(encoding="utf-8")
-        self.assertIn("Test scope: `focused`", receipt)
-        self.assertIn("Selected test modules: " + ", ".join(modules), receipt)
+        self.assertIn("Test scope: `full`", receipt)
+        self.assertIn("Selected test modules: all discovered modules", receipt)
 
     def test_focused_test_failure_blocks_downstream_release(self):
         modules = ("LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_PROJECT_TOOLS/tests/test_failing.py",)
@@ -504,12 +503,12 @@ class SimpleLocalReleaseTests(unittest.TestCase):
         )
 
         self.assertEqual(("failed", "tests"), (result["outcome"], result["failed_step"]))
-        self.assertEqual("focused", result["test_scope"])
-        self.assertEqual(list(modules), result["test_modules"])
+        self.assertEqual("full", result["test_scope"])
+        self.assertIsNone(result["test_modules"])
         self.assertFalse(any(self._is_mcp_bootstrap(argv) for argv in calls))
         report = (self.root / result["report_path"]).read_text(encoding="utf-8")
-        self.assertIn("Test scope: `focused`", report)
-        self.assertIn("Selected test modules: " + modules[0], report)
+        self.assertIn("Test scope: `full`", report)
+        self.assertIn("Selected test modules: all discovered modules", report)
         self.assertIn("focused test failure", report)
 
     def _assert_input_refused(self, run_id):

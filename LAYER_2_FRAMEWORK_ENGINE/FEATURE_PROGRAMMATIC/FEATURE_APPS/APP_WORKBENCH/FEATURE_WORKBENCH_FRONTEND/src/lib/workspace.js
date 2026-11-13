@@ -1,5 +1,6 @@
 // @ts-nocheck
-// CA-D-674@23
+// CA-D-674@26
+// CA-M-470@14
 const empty = () => ({ id: crypto.randomUUID(), title: 'View', sql: '', savedSql: '', cursor: 0, dirty: false });
 
 export function newView(number) {
@@ -56,7 +57,7 @@ export function workspaceTabs(state, previous = []) {
     };
     const localAcknowledged = local?.sql === view.sql || (Number.isInteger(local?.revision) && local.revision >= view.revision);
     if (!local?.syncDirty) return {
-      ...remote, busy: local?.busy, error: local?.error, check: local?.check, saved: local?.saved,
+      ...remote, busy: local?.busy, error: local?.error, check: localAcknowledged ? local.check : undefined, saved: local?.saved,
       ...(localAcknowledged ? { sql: local.sql, cursor: local.cursor, dirty: local.dirty, savedSql: local.savedSql, revision: Number.isInteger(local.revision) ? local.revision : view.revision, syncDirty: false } : {}),
       ...(local?.result && local.result.query_id === view.result?.query_id ? { result: local.result } : {}),
     };

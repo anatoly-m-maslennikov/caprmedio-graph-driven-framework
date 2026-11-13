@@ -1,3 +1,4 @@
+# CA-E-675@14
 """Whole-result column visibility does not discard SQL values or later pages."""
 
 from pathlib import Path

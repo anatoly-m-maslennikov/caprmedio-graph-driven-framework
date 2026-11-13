@@ -6,18 +6,20 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan.Work Sequence Number
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan.Work
+    Sequence Number
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan.Work Sequence Number
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan).Header.Context.Plan.Work
+    Sequence Number
 tier: 3
 relations:
   child_of:
   - CA-R-2712
   - CA-R-992
-status: Active
-version: 34
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 35
+updated_at: '2026-11-13T04:25:28.411819+00:00'
 carrier_destination:
   file:
     name: CA-R-997-CORE_META_MODEL-RULE--validate-work-sequence-numbers.md
@@ -33,8 +35,4 @@ Validate Work Sequence Numbers
 
 ### Prose Claim
 
-
-supplied Work Sequence Numbers for Plans directly contained by the same Plan or sharing the same top-level Plan container.
-
-
-**every** supplied Work Sequence Number **must** be a unique positive ordinal among Plans directly contained by the same Plan **or** sharing the same top-level Plan container.
+A supplied Work Sequence Number must be a positive integer. Among Active Plans, supplied Work Sequence Numbers must be unique within the same direct Container.

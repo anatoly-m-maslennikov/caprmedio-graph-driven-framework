@@ -17,6 +17,7 @@ from ATOM_LIFECYCLE.draft import _body, _clean, _summary
 from ATOM_LIFECYCLE.common import InputError, SourceChanged, logical_container, read_target, result, saved, validate_candidate, write_destination
 from ATOM_LIFECYCLE.placement import archived_owner, derive_destination, resolve_container
 from ATOM_LIFECYCLE.plan_cascade import has_shared_plan_children, select_archive_cascade
+from ATOM_LIFECYCLE.source import select_published_revisions
 from ATOM_LIFECYCLE.status_model import canonical_status, encode_status, StatusModelError
 
 
@@ -226,6 +227,11 @@ def direct_update(selection, model, params):
         raise InputError('target', 'Direct updates of container Atoms are unsupported')
     old, old_body = _view(pin.raw, pin.path, model)
     body = _body(old_body, changes)
+    summary = _summary(body)
+    if pin.status.casefold() != 'draft' and summary != _summary(old_body):
+        for revision in select_published_revisions(selection, pin.atom_id):
+            if revision.ref_id != pin.ref_id and _summary(parse_carrier(revision.raw, revision.path).body) != summary:
+                raise InputError('summary', 'Summary conflicts with another Current, Backlog or Archived revision.')
     fields = {key: value for key, value in changes.items() if key not in {'summary', 'body', 'scope_unit'}}
     if {'scope_unit', 'container'} & changes.keys():
         fields['container'] = logical_container(changes, old)

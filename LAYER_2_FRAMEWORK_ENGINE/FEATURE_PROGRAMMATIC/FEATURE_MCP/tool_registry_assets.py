@@ -1,7 +1,5 @@
-# Implementation of:
-# Requirement: CA-R-3013
-# Method: CA-M-506
-# Delivery: CA-D-704
+# CA-M-506@8
+# CA-D-704@6
 
 """Strict asset formats for generated MCP tool registration."""
 

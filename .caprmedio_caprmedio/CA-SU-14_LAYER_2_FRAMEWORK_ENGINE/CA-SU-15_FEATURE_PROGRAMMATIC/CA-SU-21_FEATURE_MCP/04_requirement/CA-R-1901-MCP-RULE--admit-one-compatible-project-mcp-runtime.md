@@ -18,9 +18,9 @@ topics:
   - MODEL//CAPRMEDIO <+ Carrier
   - MODEL//CAPRMEDIO <+ Project.Settings
 tier: 3
-status: Active
-version: 19
-updated_at: 2026-11-11 06:09:13 +0400
+status: active
+version: 21
+updated_at: '2026-11-12T17:24:17.390745+00:00'
 carrier_destination:
   file:
     name: CA-R-1901-MCP-RULE--admit-one-compatible-project-mcp-runtime.md
@@ -33,7 +33,6 @@ relations:
   - CA-M-356
   - CA-D-594
 ---
-
 ## Summary
 
 admit one compatible Project MCP runtime
@@ -48,7 +47,7 @@ the launcher **must** start or reuse a Project MCP runtime only when its immutab
 
 ### Image and runtime admission
 
-- Compatibility is the exact deterministic manifest hash of the explicit readable `--source-root`, locked dependency inputs, Docker build inputs, and declared platform/arguments. The source root is only build closure: it is never inferred from Git, another Project, or selection; Project Atoms, installed state, credentials, and generated outputs are excluded. Labels carry the fingerprint and schema; a tag alone is not evidence.
+- Compatibility is the exact deterministic manifest hash of the explicit readable `--source-root`, locked dependency inputs, Docker build inputs, and declared platform/arguments. The source root is only build closure: it is never inferred from Git, another Project, or selection; Project Atoms, installed state, credentials and unrelated generated outputs are excluded. The selected schema, relation and Tool registries, and lifecycle assets are exact build inputs in both image modes. The selected image digest and source fingerprint must come from the same verified source snapshot. If the source changes before startup, stop without replacing or starting the runtime. Labels carry the fingerprint and schema; a tag alone is not evidence.
 - A missing packaged Dockerfile, dependency, or Engine input returns `IMAGE_INPUT_UNAVAILABLE` with safe missing-input identities and requests explicit `--source-root`; installed runtime N is preserved and no package replacement, Release, or Framework promotion occurs.
 - An explicit image must resolve to an immutable digest with matching labels. Wrong, mutable, absent, ambiguous, or fingerprint-mismatched references refuse without retagging, live replacement, or forced recreation. When no admitted image exists, `build_if_missing=true` authorizes one build; `--no-build` refuses. The build returns an immutable labelled digest and never moves or retires an existing tag/image.
 - Serialize lifecycle with one lock per selected Project identity. Reuse only a running healthy `mcp-http` runtime whose Project identity, digest/fingerprint, service identity, loopback publication, and Host/Origin-protected readiness all match; unhealthy or mismatched live state refuses without stop/restart/replacement.

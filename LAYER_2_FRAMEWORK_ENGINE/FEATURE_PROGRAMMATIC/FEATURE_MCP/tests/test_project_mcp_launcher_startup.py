@@ -46,6 +46,28 @@ class BackendImageModeTests(unittest.TestCase):
                 self.assertEqual((IMAGE_ID, FINGERPRINT), result)
                 manager.resolve.assert_called_once_with(explicit_id=None, build_if_missing=build)
                 manager.identity.assert_called_once_with(use_packaged_assets=not build)
+                manager._inspect.assert_called_once_with(IMAGE_ID, manager.identity.return_value)
+                manager._current.assert_called_once_with(manager.identity.return_value, use_packaged_assets=not build)
+
+    def test_changed_checkout_refuses_before_start(self):
+        with patch("project_mcp_backend.ImageManager") as factory:
+            manager = factory.return_value
+            manager.resolve.return_value = IMAGE_ID
+            manager.identity.return_value.fingerprint = FINGERPRINT
+            backend = ProjectMcpBackend(build_if_missing=False)
+            backend.resolve_image("source", None, project_root="project")
+            manager._current.side_effect = ImageError("IMAGE_INPUT_UNAVAILABLE", "changed")
+            with patch.object(backend, "_start") as start, self.assertRaises(ImageError):
+                backend.start(None, IMAGE_ID, FINGERPRINT, 1, 1234)
+            start.assert_not_called()
+
+    def test_fingerprint_must_match_digest_inspection(self):
+        with patch("project_mcp_backend.ImageManager") as factory:
+            manager = factory.return_value
+            manager.resolve.return_value = IMAGE_ID
+            manager._inspect.side_effect = ImageError("IMAGE_REFUSED", "mismatch")
+            with self.assertRaises(ImageError):
+                ProjectMcpBackend().resolve_image("source", None, project_root="project")
 
 
 class Backend:

@@ -10,9 +10,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 tier: 1
-status: Active
-version: 33
-updated_at: '2026-11-11 15:25:35 +0400'
+status: active
+version: 34
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-1016-CORE_META_MODEL-DECLARATION--register-rationale-for-relation.md
@@ -38,11 +38,15 @@ Forward `Host ((rationale_for)) Target` and reverse `Target <((rationale_for)) H
 rationale_for relates Rationale Analysis and Advisory Atom to explained Atom.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//rationale_for ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom/(.Header.Context.Role in (Analysis and Advisory))/(.Header.Context.Form in (Rationale))//$atom ((rationale_for)) Atom//$atom_2
+declare_relation(
+    relation_name='rationale_for',
+    source_endpoint={'level': 'instances',
+ 'entity_paths': ('Atom/(.Header.Context.Role := Analysis and '
+                  'Advisory)/(.Header.Context.Form := Rationale)',)},
+    target_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+)
 ```
 

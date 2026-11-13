@@ -11,9 +11,9 @@ context:
   container:
     scope_unit: CA-SU-14
 state:
-  status: Active
-  version: 5
-  updated_at: 2026-11-11 15:29:41 +0400
+  status: active
+  version: 7
+  updated_at: '2026-11-13T15:14:10.679677+00:00'
 destination:
   file:
     name: CA-R-2654-FRAMEWORK_ENGINE-SCOPE_DELEGATION--declare-programmatic.md
@@ -53,6 +53,7 @@ The receiving Scope Unit is PROGRAMMATIC. The admitted HAS_ACTIVE_SUBJECT target
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//MCP`;
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//PROJECT_TOOLS`;
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//TOOLS`;
+- `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//MODEL`;
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Scope Unit//TOOL_WORKFLOWS`;
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery`;
 - `PROJECT STRUCTURE//CAPRMEDIO <+ Aspects <+ Engineering <+ Delivery <+ Change Readiness`;

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Event Record.object_input
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2572-CORE_META_MODEL-DECLARATION--declare-event-record-object-input.md
@@ -26,10 +26,17 @@ Declare Event Record.object_input
 
 ### Formal Claim
 
-```CFEL
-# model
-Event Record.object_input{::0..1}:: []{::0};
+```python
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Event Record.object_input.*[in(id,version,updated_at)]{::2..3}
+declare_entity(
+    entity_name='object_input',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Event Record',
+    property_occurrence_cardinality=Cardinality(minimum=0, maximum=1),
+    value_cardinality=0,
+    dependent_property_cardinality=Cardinality(minimum=2, maximum=3),
+    allowed_dependent_property_names=('id', 'version', 'updated_at'),
+)
 ```
 

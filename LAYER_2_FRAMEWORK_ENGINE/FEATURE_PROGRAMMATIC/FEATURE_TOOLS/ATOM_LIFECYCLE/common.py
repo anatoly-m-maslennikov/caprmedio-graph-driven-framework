@@ -1,3 +1,4 @@
+# CA-M-1013@1
 # CA-O-10002@2
 # CA-D-625@14
 
@@ -105,21 +106,25 @@ def allocate_id(selection, role):
     if role not in {"Concern", "Analysis and Advisory", "Plan", "Requirement", "Method",
                     "Evaluation", "Delivery", "Operations"}:
         raise InputError("role", "Unsupported Atom Role.", format="Declared Atom Role")
-    prefix = selection.settings["artifacts"]["identity"]["project_prefix"]
+    identity = selection.settings["artifacts"]["identity"]
+    prefix = identity["project_prefix"]
+    ceiling = identity.get("automatic_number_ceiling")
+    if ceiling is not None and (type(ceiling) is not int or ceiling < 1):
+        raise ValueError("artifacts.identity.automatic_number_ceiling must be a positive integer.")
     stem = f"{prefix}-{role[0]}-"
-    reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
     indexed = query_reader()
     if indexed is not None:
-        last = indexed.lifecycle_last_id(selection, stem)
-        return f"{stem}{int(last[len(stem):]) + 1 if last else 1}"
-    selection._revalidate_boundary(reader=reader)
-    marker = re.compile(r"(?:[1-9][0-9]*-)?" + re.escape(stem) + r"([0-9]+)(?=[-.@])")
-    candidates = _matching_paths(reader, selection, marker)
-    greatest = max(
-        (int(match[1]) for path in candidates
-         if (match := marker.match(path.name))),
-        default=0,
-    )
+        last = indexed.lifecycle_last_id(selection, stem, ceiling=ceiling)
+        greatest = int(last[len(stem):]) if last else 0
+    else:
+        reader = ReadContext(roots=[str(selection.root)], limits=dict(CEILINGS))
+        selection._revalidate_boundary(reader=reader)
+        marker = re.compile(r"(?:[1-9][0-9]*-)?" + re.escape(stem) + r"([0-9]+)(?=[_.@-])")
+        numbers = (int(match[1]) for path in _matching_paths(reader, selection, marker)
+                   if (match := marker.match(path.name)))
+        greatest = max((number for number in numbers if ceiling is None or number <= ceiling), default=0)
+    if greatest == ceiling:
+        raise ValueError(f"Automatic Atom numbering for {role} reached its configured ceiling ({ceiling}).")
     return f"{stem}{greatest + 1}"
 
 

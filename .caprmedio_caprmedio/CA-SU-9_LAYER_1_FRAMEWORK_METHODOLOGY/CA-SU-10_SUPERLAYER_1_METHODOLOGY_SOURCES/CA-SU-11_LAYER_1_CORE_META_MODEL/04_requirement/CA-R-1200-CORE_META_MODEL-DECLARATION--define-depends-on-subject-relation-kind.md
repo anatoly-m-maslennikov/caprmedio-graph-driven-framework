@@ -11,16 +11,18 @@ topics:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Entity
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form := Plan)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Plan)/(.Header.Context.Form :=
+    Plan)
   - CAPRMEDIO_MODEL <+ Atom.Content
-  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form := Workflow)
+  - CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/(.Header.Context.Form
+    := Workflow)
 tier: 2
 relations:
   depends_on:
   - CA-R-1275
-status: Active
-version: 41
-updated_at: 2026-11-04 03:22:03 +0400
+status: active
+version: 42
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-1200-CORE_META_MODEL-DECLARATION--define-depends-on-subject-relation-kind.md
@@ -49,11 +51,13 @@ DEPENDS_ON relates Atom to referenced Subject entity or instance.
 mentions **in** Summary, Scope, Claim, Details, other registered body sections, tables, **and** examples count, whether the logical Claim is carried in Markdown, structured YAML, or Governing Configuration. this Relation does **not** establish Workflow control flow **or** execution order; Plan start prerequisites remain separately governed by `BLOCKS` under CA-R-1580-CORE_META_MODEL-DEFINITION--define-plan-blocking.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//DEPENDS_ON ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom//$atom ((DEPENDS_ON)) $referenced_subject
+declare_relation(
+    relation_name='DEPENDS_ON',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Atom',)},
+    target_endpoint={'level': 'model_entities_or_instances'},
+)
 ```
 

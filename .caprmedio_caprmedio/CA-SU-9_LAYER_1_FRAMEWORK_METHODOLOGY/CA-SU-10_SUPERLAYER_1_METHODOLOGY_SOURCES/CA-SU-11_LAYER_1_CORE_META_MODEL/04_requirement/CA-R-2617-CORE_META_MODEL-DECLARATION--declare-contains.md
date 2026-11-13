@@ -25,9 +25,9 @@ Declare CONTAINS
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//CONTAINS <((HAS_INVERSE)) Relation//IS_CONTAINED_BY;
+relation(source='Relation//CONTAINS', name='HAS_INVERSE', target='Relation//IS_CONTAINED_BY', reverse=True)
+set_value(address='alias(Relation//CONTAINS)', value='<+')
 
-alias(Relation//CONTAINS) == "<+"
 ```

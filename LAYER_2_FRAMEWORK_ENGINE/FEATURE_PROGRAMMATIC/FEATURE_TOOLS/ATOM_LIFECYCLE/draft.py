@@ -1,3 +1,4 @@
+# CA-R-3089@2
 # CA-O-10003@1
 # CA-O-10016@2
 # CA-D-270@27
@@ -16,7 +17,7 @@ from VALIDATE_ATOMS.validate_atoms_workers.settings import CEILINGS
 from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
 
 from ATOM_LIFECYCLE import common
-from ATOM_LIFECYCLE.carrier import logical_view, render_carrier
+from ATOM_LIFECYCLE.carrier import effective_header, logical_view, render_carrier
 from ATOM_LIFECYCLE.placement import derive_destination, resolve_container
 from ATOM_LIFECYCLE.source import ArchiveNotLoadedError, SourceSelectionError, _candidate_paths, query_reader, select_source
 
@@ -108,14 +109,14 @@ def _replacement_relations(original, supplied, predecessor):
     return merged
 
 
-def _source(selection, selector):
+def _source(selection, selector, *, field='sourceCurrent'):
     """Select Current by ID, or the requested Current/Archived Version."""
     if isinstance(selector, str):
         selector = {'ref_id': selector}
     if (not isinstance(selector, dict) or set(selector) - {'ref_id', 'version'}
             or not isinstance(selector.get('ref_id'), str) or not selector['ref_id']
             or ('version' in selector and (type(selector['version']) is not int or selector['version'] < 1))):
-        raise common.InputError('sourceCurrent', 'Supply an Atom ID and optional positive Version.',
+        raise common.InputError(field, 'Supply an Atom ID and optional positive Version.',
                                 format='Atom ID or object with ref_id and optional version')
     ref, version = selector['ref_id'], selector.get('version')
     if version is None or '@' in ref:
@@ -162,12 +163,13 @@ def _next_version(selection, pin):
 def prepare_draft(selection, model, params, *, source_pin=None):  # noqa: C901
     """Validate and prepare one Draft without effects."""
     warnings = []
-    if not isinstance(params, dict) or set(params) - {'newAtom', 'sourceCurrent', 'changes'}:
-        raise common.InputError('parameters', 'Provide newAtom or sourceCurrent and changes.', format='Workflow input object')
-    if 'newAtom' not in params and 'sourceCurrent' not in params:
-        raise common.InputError('newAtom', 'Supply new Atom properties or a sourceCurrent selector.', format='Object of Atom properties')
-    if 'newAtom' in params and 'sourceCurrent' in params:
-        raise common.InputError('sourceCurrent', 'Choose exactly one Draft source.', format='Resupply either newAtom or sourceCurrent to select the Draft source')
+    if not isinstance(params, dict) or set(params) - {'newAtom', 'sourceCurrent', 'copyFrom', 'changes'}:
+        raise common.InputError('parameters', 'Provide one Draft source and changes.', format='Workflow input object')
+    sources = {'newAtom', 'sourceCurrent', 'copyFrom'} & params.keys()
+    if not sources:
+        raise common.InputError('newAtom', 'Supply new Atom properties or a source selector.', format='Object of Atom properties')
+    if len(sources) != 1:
+        raise common.InputError('sourceCurrent', 'Choose exactly one Draft source.', format='Resupply one source selector')
     pin = None
     if 'newAtom' in params:
         if 'changes' in params:
@@ -176,10 +178,11 @@ def prepare_draft(selection, model, params, *, source_pin=None):  # noqa: C901
         view = {}
         old_body = ''
     else:
-        pin = source_pin or _source(selection, params['sourceCurrent'])
+        field = 'copyFrom' if 'copyFrom' in params else 'sourceCurrent'
+        pin = source_pin or _source(selection, params[field], field=field)
         values = _clean(params.get('changes', {}), warnings, 'changes')
         parsed = parse_carrier(pin.raw, pin.path)
-        view = logical_view(parsed.metadata, model)
+        view = logical_view(effective_header(selection, parsed.metadata, pin.raw, pin.path), model)
         old_body = parsed.body
     role, form, container, body = _required_properties(old_body, values, view)
     summary = _summary(body)
@@ -191,7 +194,7 @@ def prepare_draft(selection, model, params, *, source_pin=None):  # noqa: C901
         admitted = False
     if not admitted:
         raise common.InputError('role', 'Draft is not admitted for this Role and Form.', format='Admitted Role and Form')
-    same = pin is not None and summary == old_summary and role == view.get('role')
+    same = pin is not None and 'copyFrom' not in params and summary == old_summary and role == view.get('role')
     atom_id = pin.atom_id if same else common.allocate_id(selection, role)
     version = _next_version(selection, pin) if same else 1
     updated = datetime.now(timezone.utc).isoformat()

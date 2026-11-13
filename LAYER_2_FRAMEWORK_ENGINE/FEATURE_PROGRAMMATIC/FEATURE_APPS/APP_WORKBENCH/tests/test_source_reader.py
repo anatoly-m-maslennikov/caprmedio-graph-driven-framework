@@ -1,9 +1,10 @@
-# CA-E-750@1
-# CA-E-675@6
-# CA-E-677@19
+# CA-E-750@4
+# CA-E-675@14
+# CA-E-677@30
 from __future__ import annotations
 
 from contextlib import redirect_stderr
+from dataclasses import replace
 from io import StringIO
 from pathlib import Path
 import sys
@@ -11,6 +12,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+import yaml
 
 APP_ROOT = Path(__file__).resolve().parents[2]
 TOOLS_ROOT = APP_ROOT.parent / "FEATURE_TOOLS"
@@ -19,10 +21,15 @@ sys.path[:0] = [str(APP_ROOT), str(TOOLS_ROOT), str(TOOLS_ROOT / "VALIDATE_ATOMS
 from scope_declaration_test_support import write_scope_unit_declarations  # noqa: E402
 from scope_unit_declarations import ScopeDeclarationError  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND import source_reader as source_reader_module  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.public_rows import projected_rows  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.relations import materialize  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.markdown_content import source_markdown  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.header_columns import infer_header_schema  # noqa: E402
+from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_placement_audit import expected_carrier  # noqa: E402
 from APP_WORKBENCH.FEATURE_WORKBENCH_BACKEND.source_reader import SourceReader, _same_row  # noqa: E402
+from test_relations import declarations as relation_declarations  # noqa: E402
+from test_source_schema_audit import auditor  # noqa: E402
+from ATOM_LIFECYCLE.header_constraints import HeaderConstraints  # noqa: E402
 
 
 ATOM_COLUMNS = (
@@ -148,11 +155,90 @@ class SourceReaderTests(unittest.TestCase):
             if Path(row["source_path"]).parts[-2] in ROLES
         }
         self.assertEqual(role_paths, set(ROLES))
-        self.assertEqual(tuple(atoms[0]), ATOM_COLUMNS)
-        self.assertTrue(all(tuple(row) == ATOM_COLUMNS for row in atoms))
+        root_source = self.declarations["fixture"]["declaration_path"].relative_to(self.root).as_posix()
+        for row in atoms:
+            columns = (*ATOM_COLUMNS, "_project_root_header") if row["source_path"] == root_source else ATOM_COLUMNS
+            self.assertEqual(tuple(row), columns)
         self.assertTrue(all(row["relation_edges_json"] == [] and row["hash"] is None for row in atoms))
         self.assertTrue(all(tuple(row) == SCOPE_COLUMNS for row in scopes))
         self.assertTrue(all(row["relation_edges_json"] == [] and row["hash"] is None for row in scopes))
+
+    def test_root_container_default_changes_the_relation_and_preserves_stored_header(self) -> None:
+        root = self.declarations["fixture"]["declaration_path"]
+        relative = root.relative_to(self.root).as_posix()
+        original = root.read_text(encoding="utf-8")
+        original = original.replace("\nrole:", "\ncurrent_scope_unit: MAIN\nrole:", 1)
+        audit = auditor()
+        audit.schema = replace(audit.schema, header_constraints=HeaderConstraints(
+            (("container", "", "", "1", "CA-R-2779"),), (),
+            (("container", "", "", (1, 1, "atom", "scope_unit"), "CA-R-2779"),),
+        ))
+        legacy = self._write_atom("MAIN", "04_requirement", "legacy.md", atom_id="CA-R-999")
+        legacy.write_text(legacy.read_text().replace("\nrole:", "\ncurrent_scope_unit: MAIN\nrole:", 1))
+        non_root = self.declarations["MAIN"]["declaration_path"].relative_to(self.root).as_posix()
+
+        cases = (
+            ("", None, "CA-SU--1"),
+            ("container: {scope_unit: CA-SU--1}\n", {"scope_unit": "CA-SU--1"}, "CA-SU--1"),
+            ("container: {scope_unit: CA-SU-00}\n", {"scope_unit": "CA-SU-00"}, "fixture"),
+            ("container: null\n", None, None),
+            ("container: {scope_unit: ''}\n", {"scope_unit": ""}, None),
+            ("container: {atom: CA-R-1, scope_unit: CA-SU-00}\n",
+             {"atom": "CA-R-1", "scope_unit": "CA-SU-00"}, None),
+            ("", None, "CA-SU--1"),
+        )
+        for index, (field, stored, target) in enumerate(cases):
+            with self.subTest(field=field, index=index):
+                text = original.replace("\nrole:", f"\n{field}role:", 1)
+                root.write_text(text, encoding="utf-8")
+                if index == 0:
+                    copy = root.parent / "z_copy" / root.name
+                    copy.parent.mkdir()
+                    copy.write_text(text, encoding="utf-8")
+                    atoms, scopes = self.reader.capture()
+                    copied = next(row for row in atoms if row["source_path"] == copy.relative_to(self.root).as_posix())
+                    self.assertNotIn("_project_root_header", copied)
+                else:
+                    atoms, scopes = self.reader.capture([{"operation": "update", "new_path": relative}])
+                source = next(row for row in atoms if row["source_path"] == relative)
+                self.assertEqual("container" in source["header_json"], bool(field))
+                self.assertEqual(source["header_json"].get("container"), stored)
+                self.assertEqual(any(issue["field"] == "container" for issue in audit.issues(source)),
+                                 target is None)
+                self.assertEqual(expected_carrier(source, {}, {}.get, None), (None, self.control.name))
+                self.assertNotIn("_project_root_header", next(row for row in atoms if row["source_path"] == non_root))
+
+                rows, scope_rows = materialize(relation_declarations() + atoms, scopes)
+                projected = next(row for row in rows if row["source_path"] == relative)
+                direct = [edge["target_ref"] for edge in projected["relation_edges_json"]
+                          if edge["relation_type"] == "IS_CONTAINED_BY"]
+                self.assertEqual(direct, [] if target is None else [target])
+                self.assertIs(projected["header_json"], source["header_json"])
+                self.assertNotIn("_project_root_header", projected)
+                self.assertEqual(len(scope_rows), 3)
+                legacy_row = next(row for row in rows if row["ref"] == "CA-R-999")
+                self.assertTrue(any(edge["target_ref"] == "MAIN" for edge in legacy_row["relation_edges_json"]))
+                self.assertEqual(root.read_text(encoding="utf-8"), text)
+
+        header = infer_header_schema(atoms)
+        public_rows, _ = projected_rows(rows, scope_rows, header, self.reader.content_schema)
+        public = next(row for row in public_rows if row["filename"] == root.name
+                      and row["relative_path"] == self.control.name)
+        self.assertNotIn("header.container.scope_unit", public)
+        self.assertEqual(public["header.relations"]["IS_CONTAINED_BY"],
+                         [{"kind": "Scope Unit", "reference": "CA-SU--1", "derived": False}])
+
+        settings = self.control / "caprmedio_project_settings.toml"
+        settings_text = settings.read_text()
+        for old, new in (('name = "fixture"', 'name = "different"'),
+                         ('control_root = ".caprmedio_caprmedio"', 'control_root = ".caprmedio_other"')):
+            with self.subTest(settings=new):
+                settings.write_text(settings_text.replace(old, new))
+                atoms, _ = self.reader.capture()
+                source = next(row for row in atoms if row["source_path"] == relative)
+                self.assertNotIn("_project_root_header", source)
+                self.assertEqual(yaml.safe_load(root.read_text().split("---", 2)[1]), source["header_json"])
+                self.assertTrue(any(issue["field"] == "container" for issue in audit.issues(source)))
 
     def test_status_groups_refs_and_archive_locations(self) -> None:
         sources = {
@@ -371,6 +457,32 @@ Atom.Header.Tier:: [int]{::1};
         self.assertFalse(full.called)
         self.assertEqual(before_shape, infer_header_schema(after).shape)
         self.assertIsNotNone(self.reader.capture_delta)
+
+    def test_ordinary_delta_does_not_copy_or_enumerate_cached_rows(self) -> None:
+        sources = [
+            self._write_atom("MAIN", "04_requirement", f"ordinary-{index}.md", atom_id=f"CA-R-{710 + index}")
+            for index in range(12)
+        ]
+        self.reader.capture()
+        changed = sources[0]
+        changed.write_text(changed.read_text(encoding="utf-8").replace("version: 1", "version: 2"), encoding="utf-8")
+
+        class NoEnumeration(dict):
+            def keys(self):
+                raise AssertionError("incremental capture enumerated the cache")
+
+            def __iter__(self):
+                raise AssertionError("incremental capture enumerated the cache")
+
+            def items(self):
+                raise AssertionError("incremental capture enumerated the cache")
+
+        self.reader._cached = NoEnumeration(self.reader._cached)
+        event = {"operation": "update", "old_path": None, "new_path": changed.relative_to(self.root).as_posix()}
+        with patch.object(self.reader, "_cached_rows", side_effect=AssertionError("whole-cache rows")):
+            rows, _ = self.reader.capture([event])
+        self.assertEqual(2, next(row["version"] for row in rows if row["id"] == "CA-R-710"))
+        self.assertEqual({changed.relative_to(self.root).as_posix()}, set(self.reader.capture_delta))
 
     def test_mode_one_delta_validates_only_changed_header_rows(self) -> None:
         self._write_atom(

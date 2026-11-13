@@ -13,7 +13,7 @@ version: 7
 updated_at: 2026-11-05 19:33:47 +0400
 carrier_destination:
   file:
-    name: CA-R-2476@7-draft-RELATION_DECLARATION--define-instance-of.md
+    name: CA-R-2476@7-draft-CORE_META_MODEL-RELATION_DECLARATION--define-instance-of.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 ## Summary
@@ -32,13 +32,11 @@ For a declared Model entity `x`, `$a[<x>] ((INSTANCE_OF)) x` is a generic exampl
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-$host ((INSTANCE_OF)) $target;
-
-Relation//HAS_INSTANCE ((IS_INVERSE_ALIAS_FOR)) Relation//INSTANCE_OF;
-
-Relation//INSTANCE_OF ((HAS_CLASSIFICATION)) Derivation == Direct
+relation(source='$host', name='INSTANCE_OF', target='$target')
+relation(source='Relation//HAS_INSTANCE', name='IS_INVERSE_ALIAS_FOR', target='Relation//INSTANCE_OF')
+classify(address='Relation//INSTANCE_OF', axis='Derivation', value='Direct', notation='relation')
 ```
 
 ## Semantics

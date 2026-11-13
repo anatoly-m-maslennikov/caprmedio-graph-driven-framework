@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)
 tier: 3
-status: Active
-version: 6
-updated_at: '2026-11-11T18:56:17+04:00'
+status: active
+version: 7
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2463-CORE_META_MODEL-DECLARATION--declare-operations.md
@@ -25,11 +25,19 @@ Declare Operations
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom.Header.Context.Role :: Operations;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Atom
 
-Atom/(.Header.Context.Role := Operations) >| (Role Order Number == 9);
+class Operations(Atom):
+    pass
+
+declare_entity(
+    entity_class=Operations,
+    entity_name='Operations',
+    qualification_property_path='Atom.Header.Context.Role',
+    classifications={'Role Order Number': 9},
+)
 ```
 
 ## Semantics

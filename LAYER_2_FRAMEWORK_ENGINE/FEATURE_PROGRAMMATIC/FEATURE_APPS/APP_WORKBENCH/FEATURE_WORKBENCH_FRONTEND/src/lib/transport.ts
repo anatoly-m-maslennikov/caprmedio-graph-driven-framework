@@ -1,4 +1,5 @@
-// CA-D-674@23
+// CA-D-674@26
+// CA-D-721@1
 export interface OperationCaller {
   call<T>(name: string, arguments_: Record<string, unknown>): Promise<T>;
 }
@@ -28,7 +29,8 @@ export class HttpOperationCaller implements OperationCaller {
   }
 
   private async post<T>(path: string, body: Record<string, unknown>): Promise<T> {
-    const response = await fetch(`${this.base}/${path}`, {
+    const apiBase = this.base.replace(/^\/caprmedio\/workbench\/([^/]+)$/, '/caprmedio/$1/api');
+    const response = await fetch(`${apiBase}/${path}`, {
       method: 'POST', headers: { 'content-type': 'application/json' },
       body: JSON.stringify(this.projectRoot ? { ...body, project_root: this.projectRoot } : body),
     });

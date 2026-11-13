@@ -8,9 +8,9 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ (Node, Node.**)
 tier: 3
-status: Active
-version: 4
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 5
+updated_at: '2026-11-13T05:43:18.146686+00:00'
 carrier_destination:
   file:
     name: CA-R-2469-CORE_META_MODEL-RULE--require-one-declaration-for-each-node.md
@@ -18,7 +18,6 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
-
 ## Summary
 
 Require one Declaration for each Node
@@ -36,8 +35,8 @@ Count inherited Current Declarations and explicit local replacements after MODEL
 The count uses only the effective Current Declaration-to-Node links in that MODEL. HAS_ACTIVE_SUBJECT is the canonical Relation obtained from the dedicated active Subject field; obtaining its value from that field does not make it a derived view of another Relation.
 ### Formal Claim
 
-```CFEL
+```python
 # instances
-Atom/(.Header.Context.Role: Requirement)/(.Header.Context.Form: Declaration)//$atom ((HAS_ACTIVE_SUBJECT)){::1} (Node, Node.**)
+relation(source='Atom/(.Header.Context.Role: Requirement)/(.Header.Context.Form: Declaration)//$atom', name='HAS_ACTIVE_SUBJECT', target='(Node, Node.**)', target_count='1')
 ```
 

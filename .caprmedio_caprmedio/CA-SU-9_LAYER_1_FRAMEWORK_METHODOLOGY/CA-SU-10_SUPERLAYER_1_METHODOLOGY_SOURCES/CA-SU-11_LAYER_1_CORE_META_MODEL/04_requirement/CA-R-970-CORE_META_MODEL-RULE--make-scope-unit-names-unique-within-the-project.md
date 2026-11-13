@@ -13,10 +13,9 @@ tier: 2
 relations:
   child_of:
   - CA-R-962
-  - CA-R-2530
-status: Active
-version: 32
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 33
+updated_at: '2026-11-12T22:57:56.664282+00:00'
 carrier_destination:
   file:
     name: CA-R-970-CORE_META_MODEL-RULE--make-scope-unit-names-unique-within-the-project.md

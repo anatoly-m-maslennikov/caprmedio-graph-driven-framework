@@ -7,7 +7,13 @@ import ast
 import hashlib
 import json
 import re
+import sys
 from pathlib import Path
+
+
+_WORKBENCH_APP = str(Path(__file__).resolve().parents[1] / "FEATURE_APPS" / "APP_WORKBENCH")
+if _WORKBENCH_APP not in sys.path:
+    sys.path.insert(0, _WORKBENCH_APP)
 
 
 _COUNT = r"(?:\d+\+?|\d+\.\.\d+)"

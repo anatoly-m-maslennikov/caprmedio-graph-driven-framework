@@ -16,8 +16,8 @@ topics:
   - Subject/CAPRMEDIO/Carrier/Docker Image
 tier: 3
 status: active
-version: 18
-updated_at: '2026-11-12T09:55:15.146518+00:00'
+version: 19
+updated_at: '2026-11-12T17:06:48.238422+00:00'
 carrier_destination:
   file:
     name: CA-R-1880-FRAMEWORK_DELIVERY-RULE--preserve-the-prior-release-and-truthful-failure-recording.md
@@ -30,7 +30,7 @@ relations: {}
 
 Preserve the prior release and truthful failure recording
 
-## Scope
+## Claim scope
 
 Local/public release failure, uncertain effects and current-Project image cleanup.
 
@@ -44,7 +44,7 @@ Local Release must support rebuilding the Engine from a known-good checkout and 
 
 ## Details
 
-Preserve the current image and unrelated, other-Project or protected images. Establish current-Project ownership from actual build/launcher/start evidence containing immutable image identity and Project identity, checked against Docker inspection; a tag prefix alone is insufficient. Cleanup includes the exact prior image when eligible and reports removed, protected, in-use or unproven results. Do not force-remove containers or claim complete cleanup when ownership or use remains uncertain.
+Preserve the current image and unrelated, other-Project or protected images. Establish current-Project ownership from actual build/launcher/start evidence containing immutable image identity and Project identity, checked against Docker inspection; a tag prefix alone is insufficient. Retain the exact verified live image and one known-good prior Project image when available. Cleanup reports removed, protected, in-use or unproven results for older images. Do not force-remove containers or claim complete cleanup when ownership or use remains uncertain.
 
 A failure after a real effect reports that partial state and the failed step for manual handling. It does not claim automatic rollback, restore a retired runtime selector or replay an unknown effect. A request, test result or prepared package is not release success. Preserve source data and unrelated configuration; no failure permits broad image pruning.
 

@@ -8,9 +8,9 @@ form: Eng Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T04:48:22.388242+00:00'
 carrier_destination:
   file:
     name: CA-D-665-CORE_META_MODEL-ENG_DECISION--deliver-projections-to-markdown-files.md
@@ -26,8 +26,10 @@ Deliver Projections to Markdown files
 
 ### Formal Claim
 
-```CFEL
+```python
 # instances
-Projection//$projection >> Carrier/Markdown_file//$carrier
+deliver(
+    source="Projection//$projection",
+    carrier="Carrier/File/Markdown//$carrier",
+)
 ```
-

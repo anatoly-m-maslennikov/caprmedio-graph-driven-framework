@@ -3,6 +3,7 @@ import json
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 import sys
+from types import SimpleNamespace
 import unittest
 
 
@@ -103,6 +104,18 @@ class HealthObservationsTests(unittest.TestCase):
         self.assertEqual([], snapshot["calls"])
         self.assertNotIn("workflows", snapshot)
         self.assertIsInstance(snapshot["started_at"], str)
+
+    def test_typed_lifecycle_statuses_and_mcp_error_are_not_rpc_success(self):
+        for status in ("completed", "needs_input", "cancelled", "failed", "blocked", "partial"):
+            self.observations.record("lifecycle", {}, SimpleNamespace(
+                structured_content={"status": status, "errors": ["private"]}, is_error=False))
+        self.observations.record("error", {}, SimpleNamespace(
+            structured_content={"detail": "private"}, is_error=True))
+        rows = self.observations.snapshot()["calls"]
+        self.assertEqual(["completed", "needs_input", "cancelled", "failed", "blocked", "partial", "failed"],
+                         [row["outcome"] for row in rows])
+        self.assertEqual("returned-error", rows[-1]["error_category"])
+        self.assertNotIn("private", json.dumps(rows))
 
 
 if __name__ == "__main__":

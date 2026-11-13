@@ -15,6 +15,7 @@ test('loads only submitted Archive scopes and displays their returned coverage',
     const { operation, arguments: args } = route.request().postDataJSON();
     const json = operation === 'query_log_list' ? { items: [] } : {
       workspace_id: args.session_id ?? args.workspace_id,
+      project_name: 'Fixture Project',
       active_view_id: 'fixture-view',
       views: [{ id: 'fixture-view', sql: '', cursor_position: 0, revision: 0 }],
     };

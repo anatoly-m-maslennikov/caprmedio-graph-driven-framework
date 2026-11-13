@@ -1,4 +1,5 @@
-# CA-R-2903@7
+# CA-R-2903@8
+# CA-M-534@1
 
 """Two-day Workbench query-attempt log without result data."""
 
@@ -10,7 +11,7 @@ import json
 from pathlib import Path
 import sys
 import threading
-from typing import Any
+from typing import Any, Callable
 import uuid
 
 
@@ -27,6 +28,7 @@ class QueryLog:
         self._submit_lock = threading.Lock()
         self._writer = ThreadPoolExecutor(max_workers=1, thread_name_prefix="workbench-query-log")
         self._closed = False
+        self._on_record: Callable[[dict[str, Any]], None] | None = None
 
     @staticmethod
     def _now() -> dt.datetime:
@@ -128,6 +130,20 @@ class QueryLog:
                     handle.write(json.dumps(record, ensure_ascii=False, separators=(",", ":")) + "\n")
             except (OSError, UnicodeError) as error:
                 raise ValueError("query log is unavailable") from error
+            if self._on_record is not None:
+                self._on_record(dict(record))
+
+    def bind(self, on_record: Callable[[dict[str, Any]], None]) -> list[dict[str, Any]]:
+        """Bind a consumer and read existing records without rewriting the log."""
+        with self._lock:
+            records = []
+            if self._directory.is_dir():
+                for path in sorted(self._directory.glob("query-log-*.ndjson")):
+                    records.extend(self._read_hour(path))
+            records.extend(self._read_legacy())
+            records = self._retain(records, self._now())
+            self._on_record = on_record
+            return records
 
     def append(self, sql: str, result: dict[str, Any]) -> dict[str, Any]:
         now = self._now()

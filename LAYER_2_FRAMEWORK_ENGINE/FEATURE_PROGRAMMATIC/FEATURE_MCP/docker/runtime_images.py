@@ -7,7 +7,9 @@ are started, replaced or retired here.
 
 # CA-D-705@1
 # CA-M-500@3
-# CA-M-1011@2
+# CA-M-1011@3
+# CA-D-562@25
+# CA-D-720@1
 
 from __future__ import annotations
 

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T20:21:33.885135+00:00'
 carrier_destination:
   file:
     name: CA-R-2559-CORE_META_MODEL-DECLARATION--declare-model.md
@@ -18,7 +18,6 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
-
 ## Summary
 
 Declare MODEL
@@ -37,13 +36,19 @@ Declare MODEL
 
 ### Formal Claim
 
-```CFEL
-# model
-MODEL {::0}((IS_PROPERTY_OF));
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Node
 
-MODEL >| (Container == yes);
+class Model(Node):
+    pass
 
-MODEL ((NARROWER_THAN)) Node
+declare_entity(
+    entity_class=Model,
+    entity_name='MODEL',
+    model_relation_constraints={"IS_PROPERTY_OF": {"targets_per_source": 0}},
+    classifications={"Container": "yes"},
+)
 ```
 
 ## Semantics

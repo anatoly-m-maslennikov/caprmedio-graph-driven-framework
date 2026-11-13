@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//NamedRelationDirection
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T05:29:21.318804+00:00'
 carrier_destination:
   file:
     name: CA-R-2609-CORE_META_MODEL-DECLARATION--declare-cfel-operator-named-relation-direction.md
@@ -29,8 +29,8 @@ Declare CFEL operator named Relation direction
 `Source ((RELATION)) Target` is forward and `Target <((RELATION)) Source` is reverse writing of the same canonical Relation fact. Counts stay on written endpoints; reverse normalization swaps canonical Host/Target and count slots. The declared Relation name is matched exactly. This CFEL operator is distinct from the named graph Relation. It grants no inverse permission and creates no second stored fact.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//NamedRelationDirection == "((RELATION)) / <((RELATION))"
+set_value(address='Operator//NamedRelationDirection', value='"((RELATION)) / <((RELATION))"')
 ```
 

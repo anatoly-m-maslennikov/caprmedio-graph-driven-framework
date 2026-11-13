@@ -1,6 +1,4 @@
-# CA-M-509@1
-# CA-D-705@1
-# CA-E-804@1
+# CA-E-804@5
 
 """The canonical registry is a generated release-package input."""
 
@@ -117,10 +115,10 @@ class RelationRegistryReleaseTests(unittest.TestCase):
         observed = []
         verify = local_release._verify_package
 
-        def capture(package, expected):
+        def capture(package, expected, **kwargs):
             if package.name == "package":
                 expected_maps.append(expected)
-            return verify(package, expected)
+            return verify(package, expected, **kwargs)
 
         def resolve(**kwargs):
             if kwargs == {"use_packaged_assets": True}:

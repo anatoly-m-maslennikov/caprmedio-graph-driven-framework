@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection.Form
 tier: 3
-status: Active
-version: 3
-updated_at: 2026-11-04 07:51:19 +0400
+status: active
+version: 4
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2538-CORE_META_MODEL-DECLARATION--declare-projection-form.md
@@ -26,10 +26,18 @@ Declare Projection.Form
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Projection.Form{::1}:: [string]{::1};
+from caprmedio.formal_claims import declare_entity
 
-Projection.Form.*[]{::0}
+declare_entity(
+    entity_name='Form',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Projection',
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    value_format='str',
+    dependent_property_cardinality=0,
+)
 ```
 

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T19:19:43.082639+00:00'
 carrier_destination:
   file:
     name: CA-R-2535-CORE_META_MODEL-DECLARATION--declare-projection.md
@@ -26,11 +26,18 @@ Declare Projection
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection {::0}((IS_PROPERTY_OF));
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Continuant
 
-Projection ((NARROWER_THAN)) Continuant
+class Projection(Continuant):
+    pass
+
+declare_entity(
+    entity_class=Projection,
+    entity_name="Projection",
+    model_relation_constraints={"IS_PROPERTY_OF": {"targets_per_source": 0}},
+)
 ```
 
 ## Semantics

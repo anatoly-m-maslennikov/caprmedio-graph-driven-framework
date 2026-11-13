@@ -1,3 +1,4 @@
+# CA-M-405@14
 # CA-M-465@29
 # CA-R-1105@28
 # CA-O-10009@2
@@ -25,7 +26,7 @@ from .common import InputError, SourceChanged, logical_container, result
 from .carrier import logical_view
 from .draft import create_draft
 from .placement_model import bind_placement
-from .publish import _relations, promote_draft, update_atom
+from .publish import _error, _relations, promote_draft, update_atom
 from .source import ArchiveNotLoadedError, SourceSelectionError, _selector, query_reader, select_sources
 from .state_actions import archive_workflow, direct_update
 from .status_cascade import change_status_workflow
@@ -136,7 +137,7 @@ def _batch_run(selection, model, targets, action):
                         'source_selection_failed' if isinstance(error, SourceSelectionError) else 'source_changed')
                 outcome = result(errors=[{'code': code, 'message': str(error)}])
             else:
-                outcome = result(errors=[{'code': 'backend_failure', 'message': 'Lifecycle operation failed.'}])
+                outcome = result(errors=[_error(error)])
         effects.extend(outcome.get('effects', []))
         warnings.extend(outcome.get('warnings', []))
         target_results.append({'target': entry['target'], **outcome})
@@ -194,5 +195,5 @@ def execute(selection, model, name, params, *, pending_source=None):
         return result(errors=[{"code": code, "message": str(error)}])
     except BlockingIOError:
         return result(errors=[{"code": "project_busy", "message": "Another lifecycle write is in progress."}])
-    except (OSError, RuntimeError, ValueError):
-        return result(errors=[{"code": "backend_failure", "message": "Lifecycle operation failed."}])
+    except (OSError, RuntimeError, ValueError) as error:
+        return result(errors=[_error(error)])

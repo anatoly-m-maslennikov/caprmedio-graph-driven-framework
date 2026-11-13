@@ -1,18 +1,23 @@
+# CA-M-1008@2
 # CA-R-2902@4
 # CA-M-476@5
 # CA-D-681@9
+# CA-D-673@18
 
-"""HTTP-only links for persisted Workbench queries."""
+"""Public links for persisted Workbench queries."""
 
 from __future__ import annotations
 
 from collections.abc import Mapping
 import re
+from pathlib import Path
+import tomllib
 import uuid
 from typing import Any
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 
 from http_paths import WORKBENCH_PATH
+from settings_carrier import read_settings_carrier
 
 _LEGACY_SAVED_ID = re.compile(r"^[qw]_[0-9a-f]{32}$")
 
@@ -36,26 +41,44 @@ def project_name(selection: Any) -> str:
     return name
 
 
+def _saved_page(request: Any, selection: Any) -> str | None:
+    base_url = getattr(request, "base_url", None)
+    if base_url is not None:
+        return f"{str(base_url).rstrip('/')}{WORKBENCH_PATH}/{quote(project_name(selection), safe='')}"
+    try:
+        path = Path(selection.root) / ".caprmedio_runtime" / "caprmedio_runtime_settings.toml"
+        document = read_settings_carrier(path)
+        page = document.get("workbench", {}).get("public_url")
+        if not isinstance(page, str) or not page or any(c.isspace() or ord(c) < 32 for c in page):
+            return None
+        parsed = urlparse(page)
+        if (parsed.scheme not in {"http", "https"} or not parsed.hostname or parsed.username is not None
+                or parsed.password is not None or not parsed.path or parsed.params or parsed.query or parsed.fragment):
+            return None
+        _ = parsed.port  # Validate a supplied port.
+        return page
+    except (AttributeError, OSError, TypeError, UnicodeError, ValueError, tomllib.TOMLDecodeError):
+        return None
+
+
 def public_saved(value: Any, request: Any, selection: Any, project_root: str | None = None) -> Any:
-    """Attach public URLs only where a real HTTP request supplies its base URL."""
+    """Attach a known Workbench URL, or explain why only the saved ID is available."""
     if not isinstance(value, Mapping):
         return value
     items = value.get("items")
     if not isinstance(value.get("saved_query_id"), str) and not isinstance(items, list):
         return value
-    base_url = getattr(request, "base_url", None)
-    if base_url is None:
-        raise ValueError("Workbench public URL requires an HTTP request")
-    base = str(base_url).rstrip("/")
-    path = f"{WORKBENCH_PATH}/{quote(project_name(selection), safe='')}"
+    page = _saved_page(request, selection)
 
     def linked(item: Any) -> Any:
         if not isinstance(item, Mapping) or not isinstance(item.get("saved_query_id"), str):
             return item
+        if page is None:
+            return {**item, "saved_query_url": None, "saved_query_url_reason": "workbench_url_unknown"}
         query = {"query": item["saved_query_id"]}
         if project_root is not None:
             query["project_root"] = project_root
-        return {**item, "saved_query_url": f"{base}{path}?{urlencode(query)}"}
+        return {**item, "saved_query_url": f"{page}?{urlencode(query)}"}
 
     result = linked(value)
     if isinstance(items, list):

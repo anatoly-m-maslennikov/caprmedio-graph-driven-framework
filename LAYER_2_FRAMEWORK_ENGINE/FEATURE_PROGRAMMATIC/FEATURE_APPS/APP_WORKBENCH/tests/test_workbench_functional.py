@@ -1,6 +1,7 @@
-# CA-E-675@6
-# CA-E-676@10
-# CA-E-677@12
+# CA-E-681@7
+# CA-E-675@14
+# CA-E-676@15
+# CA-E-677@30
 from __future__ import annotations
 
 from contextlib import redirect_stderr
@@ -24,6 +25,35 @@ from smalltest_support import built_assets, extension_directory, source_path, wr
 
 
 class WorkbenchFunctionalTests(unittest.TestCase):
+    def test_queryable_runtime_observations_and_query_log(self) -> None:
+        original_sql = "SELECT 23 AS current_value"
+        self.service.set_live_runs([{
+            "run_id": "waiting", "session_id": "test-session", "tool": "update", "status": "needs_input",
+        }])
+        self.service.set_runtime_diagnostics([{
+            "observed_at": "2026-11-13T08:00:00+00:00", "name": "update",
+            "outcome": "failed", "returned_outcome": "failed", "error_category": "returned-error",
+        }])
+        self.service.check("SELECT 42")
+        self.service.run(original_sql, result_delivery="inline")
+        # Wait behind the asynchronous query log writer without polling the database.
+        self.service._query_log._writer.submit(lambda: None).result(timeout=5)
+        rows = self.service.run(
+            "SELECT live_runs.run_id, runtime_diagnostics.error_category, query_log.row_count "
+            "FROM live_runs JOIN runtime_diagnostics ON live_runs.tool = runtime_diagnostics.name "
+            "CROSS JOIN query_log WHERE query_log.sql = 'SELECT 23 AS current_value'",
+            result_delivery="inline",
+        )["rows"]
+        self.assertEqual([["waiting", "returned-error", 1]], rows)
+        self.assertEqual(0, self.service.run(
+            "SELECT count(*) FROM query_log WHERE sql = 'SELECT 42'", result_delivery="inline",
+        )["rows"][0][0])
+        self.service.set_live_runs([])
+        self.assertEqual([], self.service.run("SELECT * FROM live_runs", result_delivery="inline")["rows"])
+        tables = self.service.schema()["tables"]
+        self.assertTrue({"live_runs", "query_log", "runtime_diagnostics", "relations",
+                         "archive_role_max", "archive_version_max"} <= tables.keys())
+
     def setUp(self) -> None:
         self.temporary = tempfile.TemporaryDirectory()
         self.addCleanup(self.temporary.cleanup)

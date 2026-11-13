@@ -8,12 +8,12 @@ form: Rule
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Format
 tier: 1
-status: Active
-version: 2
-updated_at: 2026-11-04 20:33:17 +0400
+status: active
+version: 3
+updated_at: '2026-11-13T05:35:46.745468+00:00'
 carrier_destination:
   file:
-    name: CA-R-2772-RULE--cfel-format-constraint-intersection.md
+    name: CA-R-2772-CORE_META_MODEL-RULE--cfel-format-constraint-intersection.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement
 ---
 ## Summary
@@ -25,10 +25,9 @@ CFEL Format constraint intersection
 ### Prose Claim
 
 A comma inside one square-bracket value Format annotation combines constraints by intersection. Each direct value must satisfy every listed constraint. Thus `[int, 0..100]` admits integer values from 0 through 100 inclusive. An empty or incompatible intersection admits no values. Existing curly-brace occurrence and value-cardinality annotations keep their current meanings and remain independent.
-### Formal Claim
 
-```CFEL
-# model
+## Details
+
+```text
 p:: [int, 0..100]{:value count}
 ```
-

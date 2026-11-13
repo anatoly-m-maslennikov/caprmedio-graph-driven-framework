@@ -1,4 +1,6 @@
 #!/usr/bin/env -S uv run --no-project --isolated --managed-python --python 3.14 --no-env-file python -I
+# CA-M-409@14
+
 """Start or reuse one Project's Docker MCP endpoint and print its URL."""
 
 import argparse
@@ -104,7 +106,10 @@ def main(argv=None):
     environment["UV_CACHE_DIR"] = str(project / ".caprmedio_tmp" / "cache" / "uv")
     environment["PYTHONNOUSERSITE"] = "1"
     try:
-        return subprocess.run(command, check=False, env=environment).returncode
+        return subprocess.run(command, check=False, env=environment, timeout=1800).returncode
+    except subprocess.TimeoutExpired:
+        print("Project MCP launcher timed out; inspect its state before retrying.", file=os.sys.stderr)
+        return 2
     except FileNotFoundError:
         print("uv is required to run the Project MCP launcher.", file=os.sys.stderr)
         return 2

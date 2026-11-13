@@ -10,9 +10,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ CFEL <+ Relation
 tier: 1
-status: Active
-version: 32
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 33
+updated_at: '2026-11-12T20:24:07.873527+00:00'
 carrier_destination:
   file:
     name: CA-R-1022-CORE_META_MODEL-DECLARATION--register-concern-about-relation.md
@@ -43,11 +43,13 @@ Endpoint admission is an Atom Entity Definition concern, not Relation Definition
 metadata.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//concern_about ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Atom/(.Header.Context.Role: Concern)//$atom ((concern_about)) $governed
+declare_relation(
+    relation_name='concern_about',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Atom/(.Header.Context.Role:=Concern)',)},
+    target_endpoint={'level': 'model_entities_or_instances'},
+)
 ```
 

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Actor.Name
 tier: 3
-status: Active
-version: 3
-updated_at: 2026-11-04 05:21:15 +0400
+status: active
+version: 4
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2544-CORE_META_MODEL-DECLARATION--declare-actor-name.md
@@ -26,10 +26,17 @@ Declare Actor.Name
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Actor.Name:: [string]{::0..1};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Actor.Name.*[]{::0}
+declare_entity(
+    entity_name='Name',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Actor',
+    value_cardinality=Cardinality(minimum=0, maximum=1),
+    value_format='str',
+    dependent_property_cardinality=0,
+)
 ```
 

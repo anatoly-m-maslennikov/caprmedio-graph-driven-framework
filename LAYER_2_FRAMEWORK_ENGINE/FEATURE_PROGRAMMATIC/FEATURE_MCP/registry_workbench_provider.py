@@ -1,7 +1,5 @@
-# Implementation of:
-# Requirement: CA-R-3013
-# Method: CA-M-506
-# Delivery: CA-D-704
+# CA-M-1008@2
+# CA-D-673@18
 
 """Registry provider that delegates the retained Workbench frontier."""
 
@@ -36,11 +34,9 @@ class WorkbenchProvider:
 
     def present_result(self, name: str, value: dict[str, Any], context: Any) -> dict[str, Any]:
         request = getattr(context, "request", None)
-        if request is None:
-            return value
         root = context_project_root(context)
         value = public_saved(value, request, self.gateway.selection, root)
-        return public_workspace(value, request, self.gateway.selection, root) if name in {
+        return public_workspace(value, request, self.gateway.selection, root) if request is not None and name in {
             WORKSPACE_OPEN, WORKSPACE_GET,
         } else value
 

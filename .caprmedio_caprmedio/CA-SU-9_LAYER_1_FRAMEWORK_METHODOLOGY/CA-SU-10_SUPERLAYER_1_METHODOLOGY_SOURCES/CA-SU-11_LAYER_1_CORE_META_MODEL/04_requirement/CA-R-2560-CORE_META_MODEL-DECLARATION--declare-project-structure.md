@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ PROJECT STRUCTURE
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T20:21:37.628721+00:00'
 carrier_destination:
   file:
     name: CA-R-2560-CORE_META_MODEL-DECLARATION--declare-project-structure.md
@@ -18,7 +18,6 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
-
 ## Summary
 
 Declare PROJECT STRUCTURE
@@ -27,13 +26,19 @@ Declare PROJECT STRUCTURE
 
 ### Formal Claim
 
-```CFEL
-# model
-PROJECT STRUCTURE {::0}((IS_PROPERTY_OF));
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Node
 
-PROJECT STRUCTURE >| (Container == yes);
+class ProjectStructure(Node):
+    pass
 
-PROJECT STRUCTURE ((NARROWER_THAN)) Node
+declare_entity(
+    entity_class=ProjectStructure,
+    entity_name='PROJECT STRUCTURE',
+    model_relation_constraints={"IS_PROPERTY_OF": {"targets_per_source": 0}},
+    classifications={"Container": "yes"},
+)
 ```
 
 ## Semantics

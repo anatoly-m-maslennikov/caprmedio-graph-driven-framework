@@ -1,3 +1,4 @@
+# CA-D-672@24
 # CA-D-718@1
 # CA-O-10025@1
 # CA-R-2728@6
@@ -7,13 +8,13 @@
 # CA-R-2902@4
 # CA-R-2903@2
 # CA-D-681@8
-# CA-R-2782@2
+# CA-R-2782@5
 # CA-D-676@2
-# CA-R-2786@1
+# CA-R-2786@5
 # CA-M-474@1
 # CA-D-679@1
 # CA-R-2953@1
-# CA-R-2952@1
+# CA-R-2952@5
 # CA-M-491@1
 # CA-D-696@1
 
@@ -153,8 +154,10 @@ def native_tools() -> tuple[types.Tool, ...]:
 class WorkbenchTools:
     """One lazy Workbench owner per Project Gateway."""
 
-    def __init__(self, root: Path) -> None:
+    def __init__(self, root: Path, *, selection=None, diagnostics_snapshot=None) -> None:
         self.root = root
+        self._project = (selection.root, selection.instance_id) if selection is not None else None
+        self._diagnostics_snapshot = diagnostics_snapshot
         self._service: WorkbenchService | None = None
         self._lifecycle_lock = threading.RLock()
 
@@ -177,11 +180,18 @@ class WorkbenchTools:
 
     async def call(self, name: str, arguments: Any) -> dict[str, Any]:
         try:
-            return await asyncio.to_thread(self._call, name, arguments)
+            query = name in {RUN, CHECK, VIEW_RUN, VIEW_CHECK}
+            if self._project is None or not query:
+                rows = None
+            else:
+                from registry_lifecycle_provider import live_runs_snapshot
+                rows = live_runs_snapshot(self._project)
+            diagnostics = self._diagnostics_snapshot()['calls'] if query and self._diagnostics_snapshot else None
+            return await asyncio.to_thread(self._call, name, arguments, rows, diagnostics)
         except Exception as error:
             self._raise_known(error)
 
-    def _call(self, name: str, arguments: Any) -> dict[str, Any]:  # noqa: C901
+    def _call(self, name: str, arguments: Any, live_runs=None, diagnostics=None) -> dict[str, Any]:  # noqa: C901
         """Keep an owner alive for the complete synchronous Workbench operation."""
         if name in mcp_app_probe.TOOL_NAMES:
             self._empty(arguments)
@@ -193,6 +203,10 @@ class WorkbenchTools:
                       "audits_pending": False, "last_audit_ms": None, "audit_error": None}
             return {**status, **owner.sync_status()} if owner is not None else status
         with self._lifecycle_lock:
+            if live_runs is not None:
+                self._owner().set_live_runs(live_runs)
+            if diagnostics is not None:
+                self._owner().set_runtime_diagnostics(diagnostics)
             if name == ARCHIVE_LOAD:
                 scopes = self._archive_scopes(arguments)
                 return self._owner().load_archives(scopes)
@@ -236,9 +250,14 @@ class WorkbenchTools:
             if name == REREAD:
                 self._empty(arguments)
                 previous = self._owner()
+                coverage = previous.sync_status()["loaded_archive_scopes"]
                 self._service = None
                 previous.discard_derived_state()
-                self._owner().schema()
+                rebuilt = self._owner()
+                if coverage:
+                    rebuilt.load_archives(coverage)
+                else:
+                    rebuilt.schema()
                 return {"service": "workbench", "status": "ready"}
             raise ValueError("Unknown Workbench tool")
 

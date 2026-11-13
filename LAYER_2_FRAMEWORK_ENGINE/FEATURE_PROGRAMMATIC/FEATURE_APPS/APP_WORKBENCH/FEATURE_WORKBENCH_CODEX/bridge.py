@@ -126,8 +126,6 @@ class CodexBridge:
                     self._condition.wait(0.2)
                 packets = self._drain_events()
             yield from packets
-            if self.active_turn_id is None:
-                return
 
     def _drain_events(self) -> list[dict[str, Any]]:
         with self._condition:

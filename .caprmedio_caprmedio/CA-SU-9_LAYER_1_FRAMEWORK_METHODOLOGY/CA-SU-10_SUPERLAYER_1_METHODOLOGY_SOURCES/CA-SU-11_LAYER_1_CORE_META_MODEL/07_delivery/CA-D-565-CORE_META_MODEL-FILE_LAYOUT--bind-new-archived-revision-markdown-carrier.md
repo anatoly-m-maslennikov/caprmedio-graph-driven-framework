@@ -6,14 +6,14 @@ container:
 role: Delivery
 form: file_layout
 topics:
-  main_subject: 'CAPRMEDIO_MODEL <+ Atom.Header.State.Status >| Status Group := Archived'
+  main_subject: CAPRMEDIO_MODEL <+ Atom.Header.State.Status >| Status Group := Archived
   dependencies:
   - CAPRMEDIO_MODEL <+ Atom.Header.State.Status
   - CAPRMEDIO_MODEL <+ Carrier
 tier: 3
 status: active
-version: 28
-updated_at: '2026-11-11T19:34:00+04:00'
+version: 29
+updated_at: '2026-11-12T19:34:46.932588+00:00'
 carrier_destination:
   file:
     name: CA-D-565-CORE_META_MODEL-FILE_LAYOUT--bind-new-archived-revision-markdown-carrier.md
@@ -39,9 +39,8 @@ When an Atom Revision attains Archived Status, classify its single Markdown Arch
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom/(.Header.State.Status := Archived).Header.Destination.File.Path == PATH_TEMPLATE("<owning scope unit>/<role folder>/<status folder>");
+```python
+placement_rules = ({"kind": "status", "role": None, "status": "archived", "base": "role", "folder": "<status folder>"},)
 ```
 
 ## Details

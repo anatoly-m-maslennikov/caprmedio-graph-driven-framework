@@ -23,8 +23,8 @@ relations:
   - CA-D-675
 state:
   status: active
-  version: 29
-  updated_at: '2026-11-12T01:54:02.348018+00:00'
+  version: 31
+  updated_at: '2026-11-12T17:04:50.228756+00:00'
 destination:
   file:
     name: CA-E-677-WORKBENCH_BACKEND-EVAL_CASE--reconcile-source-lifecycle-changes-and-repaired-validity.md
@@ -49,7 +49,7 @@ Verify that Workbench publishes selected source changes to `atoms`, `scope_units
 
 Verify that startup selects Current, Draft, and Backlog carriers throughout the Project authority root. An explicit Archive request adds only the selected Scope Unit and Role folders. Each readable physical carrier has its own row, including duplicate Atom IDs and Versions. Only eligible Current Scope Unit Declarations and Delegations establish structure. Resolve competing model declarations independently of retaining source rows.
 
-Verify that Mode 1 uses declared Header and Content fields, and Mode 2 uses observed Header fields at cold start and declared Content fields. Both use dotted lowercase snake_case. Verify declared model changes with a rebuilt image. Source-data changes leave the installed model and registry fixed. Check native direct and derived relations and deterministic SHA-256 row hashes excluding `hash`.
+Verify that Mode 1 uses declared Header and Content fields, and Mode 2 uses observed Header fields at cold start and declared Content fields. Both use dotted lowercase snake_case. Verify declared model changes after asset refresh and image rebuild. Source-data changes leave the installed model and registry fixed. Check native direct and derived relations and deterministic SHA-256 row hashes excluding `hash`.
 
 Verify that an unreadable, unstable, or unparseable file is omitted, reported, and skipped without retry. A parseable file remains queryable when it violates the current schema. An index transaction failure or invalid Current structural declaration leaves the owner unavailable pending explicit restart. Audits report findings after source publication and compare duplicate ID and Version only for Current and loaded Archived carriers.
 
@@ -58,3 +58,5 @@ Verify that an unreadable, unstable, or unparseable file is omitted, reported, a
 Run the watcher operations on real Project and disposable sources. Include matching carriers outside declared Role directories, and exclude out-of-root paths and symlinks. Test literal Project prefixes, matching malformed files, nested Header values, and declared Content. Reconcile final rows, relation endpoints and hashes with an explicit reread using the same loaded scope coverage. Check unchanged batches, failed publication, and cleanup. Verify that these operations leave source bytes and Versions unchanged.
 
 Measure cold index, full reread and idle CPU, RAM, and elapsed time without a profiler, using the same inventory and limits. Report image identity and row counts. Keep the existing latency and throughput gates.
+
+For an ordinary Atom delta, verify that source capture, graph updates and audit preparation touch only affected paths, rows and neighbours. Detect full inventory traversal or copies even when no full rebuild runs. Keep the existing latency and throughput limits.

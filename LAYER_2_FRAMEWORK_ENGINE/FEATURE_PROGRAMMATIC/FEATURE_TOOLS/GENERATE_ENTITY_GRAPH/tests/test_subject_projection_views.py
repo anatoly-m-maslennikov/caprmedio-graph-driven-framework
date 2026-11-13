@@ -64,6 +64,45 @@ def projection(*, namespace=False):
 
 
 class SubjectProjectionViewTests(unittest.TestCase):
+    def test_native_and_legacy_authority_mode_formats_agree(self):
+        prefix = "Project.Settings.Authority Modes"
+        children = ("Default Scope Unit Authority Mode", "Project Authority Mode")
+        python_claim = claim(
+            "```python", "from caprmedio.formal_claims import declare_entity",
+            "declare_entity(entity_name='Authority Modes', relation_name='IS_PROPERTY_OF',",
+            "    base_path='Project.Settings', dependent_property_cardinality=2,",
+            "    allowed_dependent_property_names=('Default Scope Unit Authority Mode', 'Project Authority Mode'),",
+            "    dependent_property_value_format=str)", "```",
+        )
+        rows = [carrier("CA-R-1", "Project", claim("Project.")),
+                carrier("CA-R-2632", prefix, python_claim),
+                carrier("CA-R-LEGACY", prefix, claim("```CFEL", f"{prefix}.*: [string];", "```"))]
+        rows.extend(carrier(f"CA-R-{index}", f"{prefix}.{name}",
+                            claim("```CFEL", f"{prefix}.{name}: {{:1}};", "```"))
+                    for index, name in enumerate(children, 2633))
+        data = build_subject_projection_data(rows)
+        properties = next(row for row in data["entities"] if row["identity"] == "Project")["direct_properties"]
+        for name in children:
+            prop = next(row for row in properties if row["identity"] == f"{prefix}.{name}")
+            self.assertEqual("string", prop["effective_value_format"])
+            self.assertEqual({"CA-R-2632", "CA-R-LEGACY"},
+                             {source["atom_id"] for source in prop["effective_value_format_sources"]})
+        self.assertFalse(any(row.get("code") == "conflicting_property_value_formats" for row in data["diagnostics"]))
+        document = views.render_primary_projection(data, 4)
+        self.assertIn("dependent_property_value_format=str", document)
+        self.assertIn(f"{prefix}.*: [string]", document)
+
+    def test_unrelated_native_str_keeps_its_format(self):
+        data = build_subject_projection_data([
+            carrier("CA-R-1", "Node", claim("Node.")),
+            carrier("CA-R-2", "Node.Name", claim(
+                "```python", "from caprmedio.formal_claims import declare_entity",
+                "declare_entity(entity_name='Name', relation_name='IS_PROPERTY_OF',",
+                "    base_path='Node', value_format=str, value_cardinality=1)", "```")),
+        ])
+        props = next(row for row in data["entities"] if row["identity"] == "Node")["direct_properties"]
+        self.assertEqual("str", next(row for row in props if row["identity"] == "Node.Name")["effective_value_format"])
+
     def test_qualified_leaf_and_empty_structural_domain_keep_inherited_format(self):
         data = build_subject_projection_data([
             carrier("CA-R-1", "Node", claim("Node.")),

@@ -22,9 +22,9 @@ relations:
   DERIVED_FROM:
   - CA-A-053
 state:
-  status: Active
-  version: 31
-  updated_at: 2026-11-10 20:47:54 +0400
+  status: active
+  version: 32
+  updated_at: '2026-11-12T17:19:27.261834+00:00'
 destination:
   file:
     name: CA-M-284-PROGRAMMATIC-DIRECT_POLICY--read-engine-settings-through-one-shared-boundary.md
@@ -33,7 +33,6 @@ current_scope_unit: PROGRAMMATIC
 claim_target_scope_unit: PROGRAMMATIC
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Read Engine settings through one shared boundary
@@ -50,6 +49,8 @@ the actual validated values, exact selected Project, physical source path,
 raw SHA-256 Digest, **and** declared schema marker. the Reader **must not** query
 the Work Journal **or** determine logical Revision **or** currentness. the snapshot
 is derived; Project Settings is **not** a Projection.
+
+The Settings Reader and the explicit Settings Doer use one shared carrier adapter. Bind the exact authoritative settings file and keep its schema. The adapter reads that file and writes only when the dedicated write operation supplies a complete, validated document. A validation failure leaves the file unchanged.
 
 ## Details
 

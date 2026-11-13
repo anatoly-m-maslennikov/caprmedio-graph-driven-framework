@@ -12,9 +12,9 @@ tier: 5
 relations:
   evaluation_for:
   - CA-R-2446
-status: Active
-version: 15
-updated_at: 2026-11-10 20:47:54 +0400
+status: active
+version: 16
+updated_at: '2026-11-12T17:04:45.745146+00:00'
 carrier_destination:
   file:
     name: CA-E-640-MCP-EVAL_CASE--verify-mcp-health-history-truth-and-isolation.md
@@ -41,7 +41,7 @@ The changed MCP health route, bounded Gateway observer and HTML representation u
 
 - Use disposable independent Project fixtures and an isolated ASGI app or distinct nonproduction listener/state; never the production MCP port or mutable live Atoms as oracle.
 - Verify default/JSON/* Accept keeps the ready-boolean shape and 200/503 semantics; explicit HTML has the same readiness status; missing/dead generation is 503; hostile Host/Origin retains 421/403 and causes no Tool/reload effects.
-- Exercise real Gateway routing for returned, rejected, failed, partial and uncertain observations with no replay. Unknown/unobserved is explicit; a returned RPC is not a fabricated terminal result.
+- Exercise real Gateway routing for returned, rejected, failed, partial and uncertain observations with no replay. Unknown or unobserved outcomes are explicit. Verify typed lifecycle outcomes for completed, awaiting correction, canceled, failed or blocked, and partial work. A returned RPC alone does not establish successful execution.
 - Verify known Workflow identities and separate scheduler_status from actual outcome/disposition, including scheduler SUCCESS with interrupted_pending or unknown. Health reads do not poll DBOS/Docker, invoke providers, replay calls or change records.
 - Overflow both histories: at most 32 observations each, deterministic eviction, bounded fields, concurrent-call isolation, since-start scope and restart reset; make no cross-process completeness claim.
 - Inject hostile names, diagnostics, credential-like arguments and path-bearing provider exceptions. HTML must escape them and expose only admitted safe fields/error categories, with no raw arguments/results/secrets/paths/provider messages; healthy and failed views use one snapshot contract.

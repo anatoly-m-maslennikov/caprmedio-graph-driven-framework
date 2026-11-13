@@ -13,9 +13,9 @@ tier: 3
 relations:
   child_of:
   - CA-R-1718
-status: Active
-version: 38
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 39
+updated_at: '2026-11-12T20:21:08.194209+00:00'
 carrier_destination:
   file:
     name: CA-R-1654-CORE_META_MODEL-DECLARATION--register-feature-realization-relation-kind.md
@@ -41,11 +41,13 @@ Forward `Host ((feature_realization)) Target` and reverse `Target <((feature_rea
 feature_realization relates SPEC Feature Scope Unit to applicable native Realization target.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//feature_realization ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-Scope Unit//$scope_unit ((feature_realization)) $realization_target
+declare_relation(
+    relation_name='feature_realization',
+    source_endpoint={'level': 'instances', 'entity_paths': ('Scope Unit',)},
+    target_endpoint={'level': 'instances'},
+)
 ```
 

@@ -1,8 +1,11 @@
+# CA-D-442@29
+
 """Pure model and bounded CFEL parser for Scope Unit Declaration Atoms."""
 
 from __future__ import annotations
 
 from collections.abc import Iterable, Mapping
+import importlib.util
 from dataclasses import dataclass
 import json
 from pathlib import Path
@@ -191,7 +194,35 @@ def _local_subject(active: str, path: Path) -> str:
     return notation.render_subject(local)
 
 
-def _cfel(body: str, path: Path, *, allow_claim_prose: bool = False) -> list[str]:
+def _native_scope(text: str, path: Path) -> tuple[str, dict[str, Any]] | None:
+    """Use the shared static Model parser without importing Claim code."""
+    module_path = Path(__file__).resolve().parents[1] / "FEATURE_FORMAL_MODEL_ENGINE" / "native_model_claim.py"
+    spec = importlib.util.spec_from_file_location("_scope_native_model_claim", module_path)
+    if spec is None or spec.loader is None:
+        raise ScopeDeclarationError(f"{path}: native Model parser unavailable")
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    try:
+        result = module.parse_native_model_claim(text)
+    except module.NativeModelClaimError as error:
+        raise ScopeDeclarationError(f"{path}: invalid native Scope declaration: {error}") from error
+    if result is None:
+        return None
+    instance = result["arguments"].get("instance")
+    if result["kind"] != "entity" or instance is None:
+        raise ScopeDeclarationError(f"{path}: native Scope declaration requires an instance")
+    if result["imports"] != {"declare_entity": "caprmedio.formal_claims",
+                              instance["type"]: "caprmedio.model"}:
+        raise ScopeDeclarationError(f"{path}: unsupported native Scope imports")
+    fields = instance["fields"]
+    if result["arguments"]["entity_name"] != fields.get("name"):
+        raise ScopeDeclarationError(f"{path}: native Scope entity name mismatch")
+    if set(result["arguments"]) != {"entity_name", "instance"}:
+        raise ScopeDeclarationError(f"{path}: unsupported native Scope declaration arguments")
+    return instance["type"], fields
+
+
+def _cfel(body: str, path: Path, *, allow_claim_prose: bool = False) -> list[str] | tuple[str, dict[str, Any]]:
     lines = body.splitlines()
     headings = []
     fence = None
@@ -245,6 +276,9 @@ def _cfel(body: str, path: Path, *, allow_claim_prose: bool = False) -> list[str
         python = re.fullmatch(r"```python\n(?P<python>.*?)\n```", claim, re.DOTALL)
         if cfel_count != 0 or not children or python is None:
             raise ScopeDeclarationError(f"{path}: declaration requires one CFEL or Python Formal Claim")
+        native = _native_scope(python["python"], path)
+        if native is not None:
+            return native
         from python_model_claim import parse_python_model_claim
 
         try:
@@ -289,6 +323,7 @@ class ScopeUnitDeclaration:
     parent: str | None = None
     admitted_role_forms: tuple[tuple[str, str], ...] = ()
     delegations: tuple[ScopeDelegation, ...] = ()
+    structural_level: int | None = None
 
     @property
     def scope_unit_type(self) -> str:
@@ -305,6 +340,34 @@ def parse_scope_unit_declaration(raw: bytes, source: Path) -> ScopeUnitDeclarati
     atom_id, version, active, form, role = _metadata(metadata, source)
     statements = _cfel(body, source, allow_claim_prose=form == "Scope Delegation")
 
+    native = statements if isinstance(statements, tuple) else None
+    level = None
+    if native is not None:
+        kind, fields = native
+        if form != "Scope Unit Declaration":
+            raise ScopeDeclarationError(f"{source}: native Scope instance requires Scope Unit Declaration")
+        allowed = {"id", "name", "structural_level"} if kind == "Project" else {
+            "id", "name", "label", "ordered", "order_number", "container", "structural_level"
+        }
+        if set(fields) - allowed:
+            raise ScopeDeclarationError(f"{source}: unknown Scope instance field")
+        level = fields.get("structural_level")
+        if "structural_level" in fields and (type(level) is not int or level < 0):
+            raise ScopeDeclarationError(f"{source}: structural_level must be a nonnegative integer")
+        if kind == "Project":
+            if "id" in fields and fields["id"] != atom_id.split("-", 1)[0] + "-SU-00":
+                raise ScopeDeclarationError(f"{source}: invalid Project Scope Unit ID")
+            name = _safe_component(fields.get("name"), "Project Name")
+            if active is not None and active != f"Project//{name}":
+                raise ScopeDeclarationError(f"{source}: root declaration identity is contradictory")
+            return ScopeUnitDeclaration(name=name, atom_id=atom_id, version=version, source=source,
+                                        form=form, structural_level=level)
+        values = {key: fields[field] for key, field in (("ID", "id"), ("Name", "name"),
+                  ("Label", "label"), ("order.ordered", "ordered"), ("order.number", "order_number"))
+                  if field in fields}
+        name, parent = fields.get("name"), fields.get("container")
+        statements = []
+
     root = _ROOT_NAME.fullmatch(statements[0]) if len(statements) == 1 else None
     if root is not None:
         if form != "Scope Unit Declaration":
@@ -314,9 +377,10 @@ def parse_scope_unit_declaration(raw: bytes, source: Path) -> ScopeUnitDeclarati
             raise ScopeDeclarationError(f"{source}: root declaration identity is contradictory")
         return ScopeUnitDeclaration(name=name, atom_id=atom_id, version=version, source=source, form=form)
 
-    values: dict[str, str | bool | int] = {}
-    parent: str | None = None
-    name: str | None = None
+    if native is None:
+        values: dict[str, str | bool | int] = {}
+        parent: str | None = None
+        name: str | None = None
     formal_receiver: str | None = None
     pair_receivers: list[tuple[str, str]] = []
     admitted_pairs: list[tuple[str, str]] = []
@@ -397,18 +461,20 @@ def parse_scope_unit_declaration(raw: bytes, source: Path) -> ScopeUnitDeclarati
     label, local_order = values.get("Label"), values.get("order.number")
     if (declared_name != name or not isinstance(ordered, bool) or parent is None):
         raise ScopeDeclarationError(f"{source}: declaration lacks an exact ID, Name, order, or parent")
+    _safe_component(parent, "Scope Unit Container")
     scope_unit_id = _safe_component(scope_unit_id, "Scope Unit ID")
     if any(values[field] != receiver for field, receiver in pair_receivers):
         raise ScopeDeclarationError(f"{source}: admitted Role/Form pair names another Scope Unit")
     _safe_component(name, "Scope Unit Name")
     if label is not None:
         _safe_component(label, "Scope Unit Label")
-    if ordered != isinstance(local_order, int):
+    if (ordered and (type(local_order) is not int or local_order < 1)) or (not ordered and local_order is not None):
         raise ScopeDeclarationError(f"{source}: order.number is required only for ordered Scope Units")
     return ScopeUnitDeclaration(
         name=name, atom_id=atom_id, version=version, source=source, form=form, scope_unit_id=scope_unit_id,
         label=label, ordered=ordered, local_order=local_order, parent=parent,
         admitted_role_forms=tuple(admitted_pairs),
+        structural_level=level,
     )
 
 

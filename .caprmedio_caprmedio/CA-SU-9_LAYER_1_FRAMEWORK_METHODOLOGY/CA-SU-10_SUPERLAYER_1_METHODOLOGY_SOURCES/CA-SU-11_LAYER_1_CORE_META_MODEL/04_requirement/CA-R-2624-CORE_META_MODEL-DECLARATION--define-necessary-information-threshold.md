@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Necessary Information Threshold
+  main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Confidence.Necessary Information
+    Threshold
 tier: 3
-status: Active
-version: 3
-updated_at: 2026-11-04 09:36:36 +0400
+status: active
+version: 4
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2624-CORE_META_MODEL-DECLARATION--define-necessary-information-threshold.md
@@ -32,10 +33,16 @@ A present threshold value is an integer-percentage override. An absent override 
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Project.Settings.Confidence.Necessary Information Threshold:: {::0..1};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Project.Settings.Confidence.Necessary Information Threshold.*[]{::0}
+declare_entity(
+    entity_name='Necessary Information Threshold',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project.Settings.Confidence',
+    value_cardinality=Cardinality(minimum=0, maximum=1),
+    dependent_property_cardinality=0,
+)
 ```
 

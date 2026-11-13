@@ -1,5 +1,7 @@
 """Fixture-only discovery and execution of the shared full-suite entry point."""
 
+# CA-E-265@25
+
 from __future__ import annotations
 
 from concurrent.futures import ThreadPoolExecutor
@@ -158,9 +160,11 @@ class FullTestSuiteTests(unittest.TestCase):
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_E2E"])
             self.assertEqual("1", environment["CAPRMEDIO_DOCKER_QUERY_E2E"])
             self.assertEqual("actual-image", environment["CAPRMEDIO_DOCKER_QUERY_IMAGE"])
-            tools_root = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS"
+            programmatic = self.root / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"
+            apps = programmatic / "FEATURE_APPS"
             self.assertEqual(
-                os.pathsep.join((str(tools_root), "existing-pythonpath")),
+                os.pathsep.join((str(programmatic / "FEATURE_TOOLS"), str(programmatic), str(apps),
+                                 str(apps / "APP_WORKBENCH"), "existing-pythonpath")),
                 environment["PYTHONPATH"],
             )
 

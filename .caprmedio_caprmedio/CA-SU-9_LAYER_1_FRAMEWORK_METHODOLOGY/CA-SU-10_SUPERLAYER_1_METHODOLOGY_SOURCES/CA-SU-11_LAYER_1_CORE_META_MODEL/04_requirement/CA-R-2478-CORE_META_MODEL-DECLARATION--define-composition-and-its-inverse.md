@@ -29,14 +29,16 @@ Define composition and its inverse
 IS_CONTAINED_BY relates a contained declared Entity or instance to its immediate Container. The Target has classification `Container = yes`. Containment does not imply narrowing or inheritance. CONTAINS is its derived inverse: its Host and Target are the direct Target and Host, respectively. Store the direct fact once.
 ### Formal Claim
 
-```CFEL
-# model
-$part ((IS_CONTAINED_BY)) $container;
+```python
+from caprmedio.formal_claims import declare_relation
 
-Relation//IS_CONTAINED_BY ((HAS_INVERSE)) Relation//CONTAINS;
-
-alias(Relation//IS_CONTAINED_BY) == "+>";
-
-Relation//IS_CONTAINED_BY ((HAS_CLASSIFICATION)) Derivation == Direct
+declare_relation(
+    relation_name="IS_CONTAINED_BY",
+    inverse_alias="CONTAINS",
+    source_endpoint={"level": "model_entities_or_instances"},
+    target_endpoint={"level": "model_entities_or_instances"},
+    written_alias="+>",
+    reverse_written_alias="<+",
+)
 ```
 

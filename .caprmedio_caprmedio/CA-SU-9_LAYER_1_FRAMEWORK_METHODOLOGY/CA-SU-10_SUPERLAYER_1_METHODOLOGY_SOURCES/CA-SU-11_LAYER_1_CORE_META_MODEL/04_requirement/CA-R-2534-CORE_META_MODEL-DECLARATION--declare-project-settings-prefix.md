@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project.Settings.Prefix
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2534-CORE_META_MODEL-DECLARATION--declare-project-settings-prefix.md
@@ -27,10 +27,17 @@ Declare Project Settings Prefix
 
 ### Formal Claim
 
-```CFEL
-# model
-Project.Settings.Prefix{::1}:: [string]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Project.Settings.Prefix.*[]{::0}
+declare_entity(
+    entity_name='Prefix',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project.Settings',
+    value_format=str,
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+)
 ```
 

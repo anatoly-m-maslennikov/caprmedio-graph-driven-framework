@@ -13,7 +13,7 @@ version: 2
 updated_at: 2026-11-05 06:30:39 +0400
 carrier_destination:
   file:
-    name: CA-R-2720@2-draft-DECLARATION--declare-cfel-operator-alias.md
+    name: CA-R-2720@2-draft-CORE_META_MODEL-DECLARATION--declare-cfel-operator-alias.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 ## Summary
@@ -29,8 +29,8 @@ Declare CFEL operator alias
 This CFEL operator binds notation metadata; it does not construct a literal-to-Node graph Relation or equate different Relation identities. The token follows the owning Relation Declaration's directional reading and grants no endpoint permission, cardinality or second authored fact. In a graph expression, an already bound Relation participant references that Relation object as an endpoint, whereas `((NAME))` invokes that Relation between endpoints.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//Alias == "alias($r) == \"notation token\""
+set_value(address='Operator//Alias', value='"alias($r) == \\"notation token\\""')
 ```
 

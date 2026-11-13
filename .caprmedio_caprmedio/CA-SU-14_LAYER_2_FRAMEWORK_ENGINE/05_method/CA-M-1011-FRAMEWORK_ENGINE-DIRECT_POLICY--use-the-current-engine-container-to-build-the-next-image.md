@@ -12,9 +12,9 @@ context:
   container:
     scope_unit: FRAMEWORK_ENGINE
 state:
-  version: 2
+  version: 3
   status: active
-  updated_at: '2026-11-12T09:50:45.533304+00:00'
+  updated_at: '2026-11-12T12:32:38.883300+00:00'
 destination:
   file:
     name: CA-M-1011-FRAMEWORK_ENGINE-DIRECT_POLICY--use-the-current-engine-container-to-build-the-next-image.md
@@ -28,7 +28,7 @@ Use the current Engine container to build the next image
 
 ### Prose Claim
 
-When refreshing build assets, use the current ready Engine container's image to process the new checkout's staged declarations. Use the staged sources directly for the first refresh, when no predecessor image has been recorded.
+When refreshing declaration-derived build assets, use the current ready Engine container's image to query the new checkout's staged sources through Workbench. Select eligible Current Declarations by Role and declared main Subject, using their Formal Claims as the source. Do not hardcode Declaration Atom IDs. Use the staged sources directly for the first refresh, when no predecessor image has been recorded.
 
 ## Semantics
 

@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Subjects without Requirement Declarations)
+  main_subject: CAPRMEDIO_MODEL <+ Projection/(.Form := Subjects without Requirement
+    Declarations)
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+status: active
+version: 3
+updated_at: '2026-11-12T18:49:33.352385+00:00'
 carrier_destination:
   file:
     name: CA-R-2745-CORE_META_MODEL-DECLARATION--declare-projection-form-subjects-without-requirement-declarations.md
@@ -26,9 +27,12 @@ Declare Projection/(.Form := Subjects without Requirement Declarations)
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection.Form :: Subjects without Requirement Declarations;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import Projection
 
-Projection/(.Form in (Subjects without Requirement Declarations))
+class SubjectsWithoutRequirementDeclarations(Projection):
+    pass
+
+declare_entity(entity_class=SubjectsWithoutRequirementDeclarations, entity_name='Subjects without Requirement Declarations', qualification_property_path="Projection.Form")
 ```

@@ -10,10 +10,10 @@ topics:
 tier: 3
 status: Draft
 version: 6
-updated_at: '2026-11-11 05:13:50 +0400'
+updated_at: 2026-11-11 05:13:50 +0400
 carrier_destination:
   file:
-    name: CA-R-2464@6-draft-DECLARATION--declare-workflow.md
+    name: CA-R-2464@6-draft-CORE_META_MODEL-DECLARATION--declare-workflow.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 
@@ -25,22 +25,16 @@ Declare Workflow
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom/(.Header.Context.Role in (Operations))/Workflow;
-
-Workflow ((NARROWER_THAN)) Atom/(.Header.Context.Role in (Operations));
-
-Workflow.Header.Context.Form:: [in (Workflow)]{::1};
-
-Atom/(.Header.Context.Role in (Operations))/Workflow >| (Container == yes);
-
+subject_path(address='Atom/(.Header.Context.Role in (Operations))/Workflow')
+relation(source='Workflow', name='NARROWER_THAN', target='Atom/(.Header.Context.Role in (Operations))')
+allowed_values(address='Workflow.Header.Context.Form', values=('Workflow',), occurrences='1')
+classify(address='Atom/(.Header.Context.Role in (Operations))/Workflow', axis='Container', value='yes', grouped=True)
 # instances
-Workflow//$workflow{::1+}((CONTAINS)) Step//$step;
-
-Workflow//$workflow_2{::0+}((IS_RUN_BY)) Step//$step_2;
-
-Workflow//$definition {::0+}((HAS_EXECUTION)) Workflow Run//$run
+relation(source='Workflow//$workflow', name='CONTAINS', target='Step//$step', source_count='1+')
+relation(source='Workflow//$workflow_2', name='IS_RUN_BY', target='Step//$step_2', source_count='0+')
+relation(source='Workflow//$definition', name='HAS_EXECUTION', target='Workflow Run//$run', source_count='0+')
 ```
 
 ## Semantics

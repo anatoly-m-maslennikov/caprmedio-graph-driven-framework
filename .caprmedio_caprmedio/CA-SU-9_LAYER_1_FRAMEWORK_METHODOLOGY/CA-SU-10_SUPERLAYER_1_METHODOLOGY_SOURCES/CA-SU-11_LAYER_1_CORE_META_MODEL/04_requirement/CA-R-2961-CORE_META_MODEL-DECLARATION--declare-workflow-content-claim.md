@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Workflow.Content.Claim
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-05 21:06:57 +0400
+status: active
+version: 2
+updated_at: '2026-11-13T03:15:59.506677+00:00'
 carrier_destination:
   file:
     name: CA-R-2961-CORE_META_MODEL-DECLARATION--declare-workflow-content-claim.md
@@ -25,15 +25,22 @@ Declare Workflow.Content.Claim
 
 ### Formal Claim
 
-```CFEL
-# model
-Workflow.Content.Claim{::1} :: []{::0};
+```python
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Workflow.Content.Claim.*[in (Mermaid Scheme, Prose Claim, Formal Claim)]{::1..3};
-
-Workflow.Content.Claim.Mermaid Scheme ;> Workflow.Content.Claim.Prose Claim;
-
-Workflow.Content.Claim.Prose Claim ;> Workflow.Content.Claim.Formal Claim
+declare_entity(
+    entity_name="Claim",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Workflow.Content",
+    property_occurrence_cardinality=1,
+    value_cardinality=0,
+    dependent_property_cardinality=Cardinality(minimum=1, maximum=3),
+    allowed_dependent_property_names=("Mermaid Scheme", "Prose Claim", "Formal Claim"),
+    ordered_dependent_property_pairs=(
+        ("Mermaid Scheme", "Prose Claim"),
+        ("Prose Claim", "Formal Claim"),
+    ),
+)
 ```
 
 ## Semantics

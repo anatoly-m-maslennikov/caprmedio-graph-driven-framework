@@ -1,4 +1,6 @@
-"""Select and pin staged Delivery declarations for the image build."""
+# CA-M-1011@3
+
+"""Select and pin staged declarations for the image build."""
 from __future__ import annotations
 
 import contextlib
@@ -29,12 +31,14 @@ PLACEMENT_SUBJECT = re.compile(
 )
 
 
-def carrier_paths(root: Path) -> list[Path]:
-    """List eligible staged Delivery paths without reading their contents."""
+def carrier_paths(root: Path, kind: str = "D") -> list[Path]:
+    """List eligible staged declaration paths without reading their contents."""
     root = Path(root)
     if not root.is_dir():
         raise ValueError(f'{root}: staged model root is not a directory')
-    paths = sorted(root.rglob('CA-D-*.md'))
+    if kind not in ('D', 'R'):
+        raise ValueError('unsupported declaration role')
+    paths = sorted(root.rglob(f'CA-{kind}-*.md'))
 
     def core(path):
         return any(part.upper() == 'CORE_META_MODEL' or part.upper().endswith('_CORE_META_MODEL')
@@ -65,10 +69,10 @@ def read_record(root: Path, path: Path) -> dict:
     }
 
 
-def inventory(root: Path) -> list[dict]:
+def inventory(root: Path, kind: str = "D") -> list[dict]:
     """Read the eligible native carrier inventory once, in deterministic order."""
     root = Path(root)
-    return [read_record(root, path) for path in carrier_paths(root)]
+    return [read_record(root, path) for path in carrier_paths(root, kind)]
 
 
 def eligible(row: dict) -> bool:
@@ -82,7 +86,8 @@ def pin(row: dict) -> dict:
             'version': row['version'], 'sha256': row['_sha256']}
 
 
-def validate_selection(records: list[dict], selected: object, *, require_complete: bool = True) -> list[dict]:
+def validate_selection(records: list[dict], selected: object, *, require_complete: bool = True,
+                       predicate=eligible) -> list[dict]:
     """Reject stale, incomplete, duplicate or noneligible selection pins."""
     if not isinstance(selected, list):
         raise ValueError('placement selection must be a list')
@@ -97,7 +102,7 @@ def validate_selection(records: list[dict], selected: object, *, require_complet
         row = by_path[path]
         atom_id = row['id']
         filename = Path(path).name
-        if (not eligible(row) or not isinstance(atom_id, str)
+        if (not predicate(row) or not isinstance(atom_id, str)
                 or not (filename == atom_id + '.md' or filename.startswith(atom_id + '-'))
                 or row['ref_id'] != atom_id or type(row['version']) is not int or row['version'] < 1
                 or atom_id in ids or type(item['version']) is not int or item != pin(row)):
@@ -105,17 +110,29 @@ def validate_selection(records: list[dict], selected: object, *, require_complet
         seen.add(path)
         ids.add(atom_id)
         selected_rows.append(row)
-    if require_complete and seen != {row['source_path'] for row in records if eligible(row)}:
+    if require_complete and seen != {row['source_path'] for row in records if predicate(row)}:
         raise ValueError('placement selection does not cover all eligible sources')
     return sorted(selected_rows, key=lambda row: row['source_path'])
 
 
-def read_selected(root: Path, selected: object) -> list[dict]:
+def declaration_predicate(role: str, subject_pattern):
+    if role not in ('Delivery', 'Requirement') or not isinstance(subject_pattern, re.Pattern):
+        raise ValueError('invalid declaration query')
+    return lambda row: (row['status'] in ('Active', 'active')
+                        and matches_named_value(row['role'], role)
+                        and isinstance(row['subject'], str)
+                        and bool(subject_pattern.fullmatch(row['subject'].strip())))
+
+
+def read_selected(root: Path, selected: object, *, role: str = 'Delivery',
+                  subject_pattern=PLACEMENT_SUBJECT) -> list[dict]:
     """Verify pins against current files, without reading unselected carriers."""
     root = Path(root)
     if not isinstance(selected, list):
         raise ValueError('placement selection must be a list')
-    allowed = {path.relative_to(root).as_posix(): path for path in carrier_paths(root)}
+    predicate = declaration_predicate(role, subject_pattern)
+    allowed = {path.relative_to(root).as_posix(): path for path in
+               carrier_paths(root, 'D' if role == 'Delivery' else 'R')}
     seen, records = set(), []
     for item in selected:
         if not isinstance(item, dict) or set(item) != {'source_path', 'id', 'version', 'sha256'}:
@@ -125,21 +142,24 @@ def read_selected(root: Path, selected: object) -> list[dict]:
             raise ValueError(f'invalid or duplicate placement path: {path}')
         seen.add(path)
         records.append(read_record(root, allowed[path]))
-    return validate_selection(records, selected, require_complete=False)
+    return validate_selection(records, selected, require_complete=False, predicate=predicate)
 
 
 def bootstrap_rows(records: list[dict]) -> list[dict]:
     return validate_selection(records, [pin(row) for row in records if eligible(row)])
 
 
-def query_pins(root: Path, store_factory=None) -> list[dict]:
+def query_pins(root: Path, store_factory=None, *, role: str = "Delivery",
+               subject_pattern=PLACEMENT_SUBJECT) -> list[dict]:
     """Query the staged inventory through the previous image's Workbench backend."""
     from FEATURE_WORKBENCH_BACKEND.content_schema import compile_content_schema
     from FEATURE_WORKBENCH_BACKEND.header_columns import HeaderColumn, HeaderSchema
     from FEATURE_WORKBENCH_BACKEND.query_store import QueryStore
     from FEATURE_WORKBENCH_BACKEND.source_rows import atom
 
-    records = inventory(root)
+    selected_record = declaration_predicate(role, subject_pattern)
+    records = inventory(root, 'D' if role == 'Delivery' else 'R')
+
     rows = []
     for record in records:
         projection = {key: record[key] if isinstance(record[key], str) else None
@@ -155,11 +175,10 @@ def query_pins(root: Path, store_factory=None) -> list[dict]:
     try:
         store.replace(rows, [], relation_types=set(), header_schema=header,
                       content_schema=compile_content_schema([]))
-        # Regex is the same expression used by the first-build bootstrap and compiler.
-        pattern = PLACEMENT_SUBJECT.pattern.replace("'", "''")
+        pattern = subject_pattern.pattern.replace("'", "''")
         sql = ("SELECT relative_path, filename FROM atoms WHERE "
                "\"header.status\" IN ('Active', 'active') AND "
-               "\"header.role\" IN ('Delivery', 'delivery') AND "
+               f"\"header.role\" IN ('{role}', '{role.lower()}') AND "
                f"regexp_full_match(trim(\"header.subject\"), '{pattern}') "
                'ORDER BY relative_path, filename')
         result = store.run(sql, page_size=1000)
@@ -171,7 +190,7 @@ def query_pins(root: Path, store_factory=None) -> list[dict]:
             result = store.page(result['query_id'], len(paths), page_size=1000)
         by_path = {row['source_path']: row for row in records}
         selected = [pin(by_path[path]) for path in paths]
-        return [pin(row) for row in validate_selection(records, selected)]
+        return [pin(row) for row in validate_selection(records, selected, predicate=selected_record)]
     finally:
         store.close()
 

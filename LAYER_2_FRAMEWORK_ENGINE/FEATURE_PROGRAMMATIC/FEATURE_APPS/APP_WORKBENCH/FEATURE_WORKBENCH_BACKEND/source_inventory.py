@@ -1,4 +1,4 @@
-# CA-R-2723@5
+# CA-R-2723@6
 """Recognize selected Atom carriers and inventory Markdown paths."""
 
 from __future__ import annotations
@@ -69,17 +69,31 @@ def archived(parts: tuple[str, ...]) -> bool:
 
 
 def markdown_paths(root: Path, *, include_archived: bool = True) -> Iterator[Path]:
-    for directory, names, files in os.walk(root, topdown=True, followlinks=False):
-        base = Path(directory)
-        names[:] = [name for name in names if not (base / name).is_symlink()
-                    and (include_archived or not archived((name,)))]
-        for name in names:
-            if (path := base / name).suffix == ".md":
-                yield path
-        for name in files:
-            path = base / name
-            if path.suffix == ".md" and not path.is_symlink():
-                yield path
+    pending = [root]
+    while pending:
+        directory = pending.pop()
+        if directory != root and directory.is_symlink():
+            continue
+        try:
+            with os.scandir(directory) as entries:
+                for entry in entries:
+                    try:
+                        if entry.is_symlink():
+                            continue
+                        is_directory = entry.is_dir(follow_symlinks=False)
+                    except OSError:
+                        is_directory = False
+                    if is_directory and not include_archived and archived((entry.name,)):
+                        continue
+                    if not is_directory and not entry.name.endswith(".md"):
+                        continue
+                    path = directory / entry.name
+                    if is_directory:
+                        pending.append(path)
+                    if path.suffix == ".md":
+                        yield path
+        except OSError:
+            continue
 
 
 def rejected_diagnostic(path: Path, raw: bytes, root: Path, parse: Any, read_view: Any, role_folders=None) -> str | None:

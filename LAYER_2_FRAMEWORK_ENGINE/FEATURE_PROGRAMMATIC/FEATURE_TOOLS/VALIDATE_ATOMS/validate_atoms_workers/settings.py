@@ -2,9 +2,9 @@
 
 import hashlib
 from pathlib import Path
-import tomllib
 from typing import Any
 
+from settings_carrier import parse_settings_carrier
 from .read_io import ReadContext
 
 # Host safety ceilings for bootstrap reads and impossible requests, not defaults.
@@ -28,7 +28,7 @@ def load_limit_layers(request: dict[str, Any], reader: ReadContext) -> dict[str,
     layers: dict[str, dict[str, int]] = {"request": request.get("limits", {})}
     for source, key in [("instance", "framework_settings"), ("default", "default_settings")]:
         if key in request:
-            data = tomllib.loads(bound_file(reader, request[key]).decode("utf-8"))
+            data = parse_settings_carrier(bound_file(reader, request[key]))
             layers[source] = data.get("atom_validation", {})
     for layer in layers.values():
         if not isinstance(layer, dict) or set(layer) - CEILINGS.keys():

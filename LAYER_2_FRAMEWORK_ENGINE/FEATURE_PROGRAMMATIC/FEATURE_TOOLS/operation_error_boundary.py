@@ -1,3 +1,5 @@
+# CA-M-396@17
+
 """Small shared boundary for observable public-operation failures."""
 
 from __future__ import annotations

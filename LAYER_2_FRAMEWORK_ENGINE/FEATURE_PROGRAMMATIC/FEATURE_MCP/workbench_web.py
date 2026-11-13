@@ -1,11 +1,14 @@
-# CA-D-718@1
+# CA-D-718@2
+# CA-D-721@1
+# CA-M-396@17
 # CA-R-2902@2
 # CA-R-2903@2
 # CA-D-681@4
-# CA-R-2952@1
+# CA-R-2952@5
 # CA-D-696@1
 # CA-M-506@2
-# CA-D-673@14
+# CA-D-673@18
+# CA-D-674@26
 
 """Small HTTP representation of the shared Project Workbench connector."""
 
@@ -22,7 +25,7 @@ from starlette.responses import FileResponse, JSONResponse, Response, StreamingR
 from starlette.routing import BaseRoute, Mount, Route
 from starlette.staticfiles import StaticFiles
 
-from http_paths import WORKBENCH_PATH
+from http_paths import PROJECT_API_PATH, WORKBENCH_PATH
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "FEATURE_TOOLS"))
 from operation_error_boundary import ExplicitBlockingRuntimeFailure
@@ -60,11 +63,14 @@ async def _arguments(request: Request, shared: bool) -> dict[str, Any]:
 
 
 def _error(gateway: Any, request: Request, selection: Any, arguments: dict[str, Any], error: Exception) -> JSONResponse:
-    failure, _ = report_failure(
+    failure, secondary = report_failure(
         getattr(gateway, "root", None), error,
         component="MCP_HTTP", operation="workbench",
     )
-    return JSONResponse({"error": failure.message}, status_code=400)
+    payload = {"error": failure.message}
+    if secondary:
+        payload["diagnostic_error"] = secondary
+    return JSONResponse(payload, status_code=400)
 
 
 def _json_stream(value: dict[str, Any]) -> Iterator[str]:
@@ -190,14 +196,17 @@ def routes(gateway: Any, *, shared: bool = False) -> list[BaseRoute]:  # noqa: C
         except Exception as error:
             return _error(gateway, request, selection, arguments, error)
 
+    operations = [(path, operation(name)) for path, name in (
+        ("run", RUN), ("page", PAGE), ("check", CHECK), ("schema", SCHEMA), ("status", SYNC_STATUS),
+        ("archive-load", ARCHIVE_LOAD), ("view-save", SAVE_VIEW), ("load", LOAD), ("saved-list", SAVED_LIST),
+    )]
     return [
         Route(f"{WORKBENCH_PATH}/{{project_name}}", page),
         Route(f"{WORKBENCH_PATH}/{{project_name}}/interface", interface, methods=["POST"]),
-        *[Route(f"{WORKBENCH_PATH}/{{project_name}}/{path}", operation(name), methods=["POST"])
-          for path, name in (("run", RUN), ("page", PAGE), ("check", CHECK), ("schema", SCHEMA), ("status", SYNC_STATUS),
-                             ("archive-load", ARCHIVE_LOAD),
-                             ("view-save", SAVE_VIEW), ("load", LOAD),
-                             ("saved-list", SAVED_LIST))],
+        Route(f"{PROJECT_API_PATH}/interface", interface, methods=["POST"]),
+        *[Route(f"{base}/{path}", handler, methods=["POST"])
+          for path, handler in operations
+          for base in (PROJECT_API_PATH, f"{WORKBENCH_PATH}/{{project_name}}")],
         Mount(
             f"{WORKBENCH_PATH}/assets",
             app=StaticFiles(directory=_FRONTEND / "assets", check_dir=False),

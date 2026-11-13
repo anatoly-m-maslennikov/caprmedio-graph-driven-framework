@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Projection.Source.Named Selection
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T21:17:02.662445+00:00'
 carrier_destination:
   file:
     name: CA-R-2541-CORE_META_MODEL-DECLARATION--declare-projection-source-named-selection.md
@@ -26,10 +26,17 @@ Declare Projection.Source.Named Selection
 
 ### Formal Claim
 
-```CFEL
-# model
-Projection.Source.Named Selection{::1}:: [Named Selection//]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import NamedSelection
 
-Projection.Source.Named Selection.*[]{::0}
+declare_entity(
+    entity_name="Named Selection",
+    relation_name="IS_PROPERTY_OF",
+    base_path="Projection.Source",
+    property_occurrence_cardinality=1,
+    value_format=NamedSelection,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+)
 ```
-

@@ -11,9 +11,9 @@ context:
     main_subject: MODEL//CAPRMEDIO <+ Project
   tier: 3
 state:
-  status: Active
-  version: 7
-  updated_at: 2026-11-10 20:47:54 +0400
+  status: active
+  version: 8
+  updated_at: '2026-11-13T10:20:30.044400+00:00'
 destination:
   file:
     name: CA-R-2903-WORKBENCH-SOLUTION--record-workbench-query-log.md
@@ -38,6 +38,8 @@ Record Workbench Query Log
 Each actual query Run, whether successful or failed, **must** add one temporary query-log entry. A Check **must not** add a query-log entry. The entry **must** contain the original query SQL exactly, the success/fail outcome, the error when execution fails, the row count and the column count. A technical ID and timestamp are allowed.
 
 The backend and MCP **must** expose the same query-log list and fetch capability. Query-log entries **must** expire after two days (48 hours) when the log is used; no cleanup daemon is required. The log **must not** store result rows, extra schema data or a deleted-result restoration mechanism. A preview **must** limit the returned rows without changing the SQL recorded in the log.
+
+Expose retained query attempts through the read-only `query_log` table. Use the same fields and 48-hour retention as the query-log tools. Persisted attempts may become queryable after the Run response.
 
 Bookmarks and saved Views remain separate from the temporary query log and do not expire with it.
 

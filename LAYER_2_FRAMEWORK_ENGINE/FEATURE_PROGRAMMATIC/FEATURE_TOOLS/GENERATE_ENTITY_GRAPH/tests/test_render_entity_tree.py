@@ -41,12 +41,14 @@ class RenderEntityTreeTests(unittest.TestCase):
         self.snapshot.write_text('{"stale": "irrelevant old graph"}', encoding="utf-8")
         self.output = self.projection / "CA-PROJ-901-CORE--Entities-Graph--Current-Atoms.md"
 
-    def run_cli(self, output=None, source_root=None, *, view="inherency", selection="Current Atoms"):
+    def run_cli(self, output=None, source_root=None, *, view="inherency", selection="Current Atoms", stdout=False):
         command = [
             sys.executable, "-B", str(SCRIPT), str(source_root or self.source.parent),
             "--projection-id", "CA-PROJ-901", "--named-selection", selection,
             "--scope-name", "CORE", "--view", view,
         ]
+        if stdout:
+            command.append("--stdout")
         if output is not None:
             command.extend(["--output", str(output)])
         return subprocess.run(command, cwd=self.root, text=True, capture_output=True, timeout=30)
@@ -57,10 +59,10 @@ class RenderEntityTreeTests(unittest.TestCase):
     def test_stdout_and_published_markdown_use_current_atoms_and_preserve_inputs(self):
         before = self.source_bytes()
         started = dt.datetime.now(dt.UTC).replace(microsecond=0)
-        stdout = self.run_cli()
+        stdout = self.run_cli(stdout=True)
         self.assertEqual(0, stdout.returncode, stdout.stderr)
         self.assertFalse(self.output.exists())
-        published = self.run_cli(self.output)
+        published = self.run_cli()
         self.assertEqual(0, published.returncode, published.stderr)
         self.assertEqual("", published.stdout)
         document = self.output.read_text(encoding="utf-8")
@@ -91,7 +93,7 @@ class RenderEntityTreeTests(unittest.TestCase):
             ), encoding="utf-8",
         )
         before = self.source_bytes()
-        result = self.run_cli(view="declarations", selection="Relation Types and Graph Rules")
+        result = self.run_cli(view="declarations", selection="Relation Types and Graph Rules", stdout=True)
         self.assertEqual(0, result.returncode, result.stderr)
         for heading in ("## Relation Types", "## Graph Rules", "## Source limitations"):
             self.assertIn(heading, result.stdout)
@@ -107,7 +109,7 @@ class RenderEntityTreeTests(unittest.TestCase):
             ), encoding="utf-8",
         )
         before = self.source_bytes()
-        result = self.run_cli(view="model")
+        result = self.run_cli(view="model", stdout=True)
         self.assertEqual(0, result.returncode, result.stderr)
         for heading in ("## Model graph", "## Properties", "## Allowed literals", "## Constraints", "## Unsupported CFEL"):
             self.assertIn(heading, result.stdout)
@@ -166,13 +168,16 @@ class RenderEntityTreeTests(unittest.TestCase):
         self.assertNotIn("type", metadata)
 
     def test_next_run_reflects_live_subject_version_and_ignores_stale_snapshot(self):
-        first = self.run_cli(self.output)
+        first = self.run_cli()
         self.assertEqual(0, first.returncode, first.stderr)
         self.source.write_text(atom(8, "Beta.Code"), encoding="utf-8")
         before = self.source_bytes()
-        second = self.run_cli(self.output)
+        second = self.run_cli()
         self.assertEqual(0, second.returncode, second.stderr)
         document = self.output.read_text(encoding="utf-8")
+        metadata = yaml.safe_load(document.split("---\n", 2)[1])
+        self.assertEqual("CA-PROJ-901", metadata["projection_id"])
+        self.assertEqual("Named Selection//Current Atoms", metadata["source"]["named_selection"])
         self.assertIn("CA-R-9001@8", document)
         self.assertIn("Beta.Code", document)
         self.assertNotIn("Alpha.Label", document)
@@ -182,7 +187,7 @@ class RenderEntityTreeTests(unittest.TestCase):
     def test_missing_source_folder_preserves_existing_output(self):
         self.output.write_bytes(b"prior projection\n")
         before = self.source_bytes()
-        result = self.run_cli(self.output, self.root / "missing")
+        result = self.run_cli(source_root=self.root / "missing")
         self.assertEqual(1, result.returncode)
         self.assertIn("Cannot render Entities Graph", result.stderr)
         self.assertEqual(b"prior projection\n", self.output.read_bytes())
@@ -193,7 +198,7 @@ class RenderEntityTreeTests(unittest.TestCase):
         for malformed in (atom(version=0), "---\natom_id: [broken\n---\n# Source\n"):
             self.source.write_text(malformed, encoding="utf-8")
             before = self.source_bytes()
-            result = self.run_cli(self.output)
+            result = self.run_cli()
             with self.subTest(source=malformed):
                 self.assertEqual(1, result.returncode)
                 self.assertIn("Cannot render Entities Graph", result.stderr)

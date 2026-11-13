@@ -1,8 +1,8 @@
-// CA-E-683@6
+// CA-E-683@11
 // CA-E-781@2
-// CA-E-782@2
-// CA-E-783@4
-// CA-E-786@2
+// CA-E-782@4
+// CA-E-783@6
+// CA-E-786@6
 import { expect, test, type Page } from '@playwright/test';
 
 const url = process.env.WORKBENCH_E2E_URL!;
@@ -191,6 +191,41 @@ test('keeps dirty SQL through Run and Check under the Project Workbench header',
   await expect(page.locator('.panel-heading').getByText(/^Saved:/)).toBeVisible();
   await expect(editor(page)).toContainText('SELECT reference FROM atoms ORDER BY reference LIMIT 1');
   await expect(page.getByRole('tab', { name: 'View 1', exact: true })).toBeVisible();
+});
+
+test('reports Check for the current SQL while retaining earlier result rows', async ({ page }) => {
+  await page.goto(url);
+  const verdict = page.getByRole('status', { name: 'Query check' });
+  const check = page.getByRole('button', { name: /^Check/ });
+  await expect(verdict).toHaveText('Not checked');
+  await replaceSql(page, 'SELECT 7 AS earlier_result');
+  await runSql(page);
+  await expect(page.getByRole('columnheader')).toHaveText(/earlier_result/);
+  await check.click();
+  await expect(verdict).toHaveText('Valid: 1 rows, 1 columns.');
+  await replaceSql(page, 'SELECT FROM');
+  await expect(verdict).toHaveText('Not checked');
+  await check.click();
+  await expect(verdict).toContainText('Invalid:');
+  await expect(verdict).not.toContainText('Valid:');
+  await expect(page.getByRole('columnheader')).toHaveText(/earlier_result/);
+});
+
+test('clears a Check verdict when the shared Workspace updates SQL', async ({ page }) => {
+  const shared = await sharedWorkspace();
+  await page.goto(shared.workspaceUrl);
+  const verdict = page.getByRole('status', { name: 'Query check' });
+  await expect(editor(page)).toHaveText('SELECT 42 AS external_value');
+  await page.getByRole('button', { name: /^Check/ }).click();
+  await expect(verdict).toHaveText('Valid: 1 rows, 1 columns.');
+
+  const workspaceId = new URL(shared.workspaceUrl).searchParams.get('workspace');
+  await shared.call('view_update', {
+    workspace_id: workspaceId, view_id: shared.externalId, sql: 'SELECT 43 AS external_value',
+    expected_revision: shared.revision, cursor_position: 0,
+  });
+  await expect(editor(page)).toHaveText('SELECT 43 AS external_value', { timeout: 10_000 });
+  await expect(verdict).toHaveText('Not checked');
 });
 
 test('restores local View state and opens a saved View without running it', async ({ page }) => {

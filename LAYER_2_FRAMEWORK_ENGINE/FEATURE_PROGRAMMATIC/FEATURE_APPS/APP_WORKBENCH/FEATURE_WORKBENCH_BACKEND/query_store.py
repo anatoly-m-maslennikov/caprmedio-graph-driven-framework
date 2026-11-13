@@ -1,18 +1,23 @@
-# CA-R-2725@4
+# CA-R-3132@1
+# CA-R-2903@8
+# CA-M-1013@1
+# CA-R-2725@6
 # CA-R-2728@8
-# CA-R-2729@10
+# CA-R-2729@11
 # CA-R-2953@5
-# CA-M-462@11
-# CA-M-463@7
+# CA-M-462@14
+# CA-M-463@10
 # CA-M-493@2
 # CA-D-673@18
 # CA-D-697@2
 # CA-R-2950@2
-# CA-R-2724@4
+# CA-R-2724@5
 # CA-M-490@3
 # CA-D-695@3
 # CA-M-500@3
-# CA-D-672@14
+# CA-D-672@24
+# CA-D-675@17
+# CA-M-465@29
 
 """The DuckDB and DuckPGQ owner for disk-backed, paged Workbench queries."""
 
@@ -43,6 +48,18 @@ from .result_values import group_key, result_value
 from .result_view import Grid, build_page_query, ctas_source_sql, parse_grid, validate_columns
 from .query_schema import public_schema
 from .watcher_change_log import WatcherChangeLog, mirror_change_log
+
+
+def _query_failure(error: Exception) -> str:
+    import duckdb
+
+    if isinstance(error, duckdb.ParserException):
+        return "query failed: invalid SQL syntax"
+    if isinstance(error, duckdb.BinderException):
+        return "query failed: invalid column, table, or query binding"
+    if isinstance(error, duckdb.ConversionException):
+        return "query failed: Could not convert a query value"
+    return "query failed during execution"
 
 
 def _connect(extension_directory: Path | None, database_path: Path | None) -> Any:
@@ -103,6 +120,8 @@ class QueryStore:
         self._connection = _connect(extension_directory, database_path)
         self._available = True
         self._initialized = False
+        self._live_runs: tuple[tuple[str, ...], ...] = ()
+        self._diagnostic_rows: tuple[tuple[str | None, ...], ...] = ()
         self._results: dict[str, _Result] = {}
         self._projection: ProjectionSnapshot | None = None
         self._header_state = HeaderSchemaState()
@@ -126,6 +145,21 @@ class QueryStore:
             self._connection.execute(
                 "CREATE TABLE main.change_log (observed_at TIMESTAMPTZ NOT NULL, "
                 "operation VARCHAR NOT NULL, old_path VARCHAR, new_path VARCHAR)"
+            )
+            self._connection.execute(
+                "CREATE TEMP TABLE live_runs (run_id VARCHAR, session_id VARCHAR, tool VARCHAR, status VARCHAR)"
+            )
+            self._connection.execute(
+                'CREATE TEMP TABLE query_log_records (log_id VARCHAR PRIMARY KEY, "at" TIMESTAMPTZ, sql VARCHAR, '
+                "outcome VARCHAR, error VARCHAR, row_count BIGINT, column_count BIGINT)"
+            )
+            self._connection.execute(
+                'CREATE TEMP VIEW query_log AS SELECT * FROM query_log_records '
+                'WHERE "at" > current_timestamp - INTERVAL 48 HOURS'
+            )
+            self._connection.execute(
+                "CREATE TEMP TABLE runtime_diagnostics (observed_at TIMESTAMPTZ, name VARCHAR, outcome VARCHAR, "
+                "returned_outcome VARCHAR, error_category VARCHAR, project_prefix VARCHAR, project_instance_id VARCHAR)"
             )
             create_audit_tables(self._connection)
         except Exception as exc:
@@ -190,23 +224,35 @@ class QueryStore:
             ).fetchall()
         return [dict(zip(names, row)) for row in rows]
 
-    def lifecycle_last_id(self, prefix: str) -> str | None:
+    def lifecycle_last_id(self, prefix: str, *, ceiling: int | None = None, eligible=None) -> str | None:
+        suffix_start = len(prefix) + 1
+        parameters: list[str | int] = [suffix_start, prefix, suffix_start]
+        limit = ""
+        if ceiling is not None:
+            limit = "AND (length(number), number) <= (?, ?) "
+            digits = str(ceiling)
+            parameters.extend([len(digits), digits])
         with self._lock:
-            row = self._connection.execute(
-                "SELECT atom_id FROM (SELECT split_part(reference, '@', 1) AS atom_id, "
+            rows = self._connection.execute(
+                "SELECT atom_id, relative_path, filename FROM (SELECT relative_path, filename, split_part(reference, '@', 1) AS atom_id, "
                 "ltrim(substr(split_part(reference, '@', 1), ?), '0') AS number FROM main.atoms) "
                 "WHERE starts_with(atom_id, ?) AND regexp_full_match(substr(atom_id, ?), '[0-9]+') "
-                "ORDER BY length(number) DESC, number DESC, atom_id DESC LIMIT 1",
-                [len(prefix) + 1, prefix, len(prefix) + 1],
-            ).fetchone()
-            return row[0] if row is not None else None
+                f"{limit}ORDER BY length(number) DESC, number DESC, atom_id DESC",
+                parameters,
+            )
+            while row := rows.fetchone():
+                if eligible is None or eligible(row[1], row[2]):
+                    return row[0]
+            return None
 
-    def lifecycle_latest_version(self, atom_id: str) -> int | None:
+    def lifecycle_latest_version(self, atom_id: str, *, eligible=None) -> int | None:
         with self._lock:
             source = revision_query(self._connection, stable_only=False)
-            return self._connection.execute(
-                f"SELECT max(version) FROM ({source}) WHERE atom_id = ?", [atom_id],
-            ).fetchone()[0]
+            rows = self._connection.execute(
+                f"SELECT version, relative_path, filename FROM ({source}) WHERE atom_id = ? AND version IS NOT NULL", [atom_id],
+            ).fetchall()
+            return max((version for version, directory, filename in rows
+                        if eligible is None or eligible(directory, filename)), default=None)
 
     def project_consistency(self) -> dict[str, int]:
         with self._lock:
@@ -382,6 +428,47 @@ class QueryStore:
                 self._available = False
                 raise
 
+    def record_query_attempts(self, records: list[dict[str, Any]]) -> None:
+        if not records:
+            return
+        columns = ("log_id", "at", "sql", "outcome", "error", "row_count", "column_count")
+        with self._lock:
+            self._connection.execute(
+                'DELETE FROM query_log_records WHERE "at" <= current_timestamp - INTERVAL 48 HOURS'
+            )
+            self._connection.executemany(
+                "INSERT OR REPLACE INTO query_log_records VALUES (?, ?, ?, ?, ?, ?, ?)",
+                [tuple(record[key] for key in columns) for record in records],
+            )
+
+    def set_live_runs(self, rows: list[dict[str, str]]) -> None:
+        values = tuple((row["run_id"], row["session_id"], row["tool"], row["status"]) for row in rows)
+        with self._lock:
+            if values == self._live_runs:
+                return
+            self._connection.execute("DELETE FROM live_runs")
+            if values:
+                self._connection.executemany(
+                    "INSERT INTO live_runs VALUES (?, ?, ?, ?)", values,
+                )
+            self._live_runs = values
+
+    def set_runtime_diagnostics(self, rows: list[dict[str, str]]) -> None:
+        columns = ("observed_at", "name", "outcome", "returned_outcome", "error_category",
+                   "project_prefix", "project_instance_id")
+        values = tuple(tuple(row.get(key) for key in columns) for row in rows)
+        with self._lock:
+            if values == self._diagnostic_rows:
+                return
+            self._connection.execute("DELETE FROM runtime_diagnostics")
+            if values:
+                self._connection.execute(
+                    "INSERT INTO runtime_diagnostics SELECT unnest(?::TIMESTAMPTZ[]), "
+                    + ", ".join(["unnest(?::VARCHAR[])"] * (len(columns) - 1)),
+                    [list(column) for column in zip(*values, strict=True)],
+                )
+            self._diagnostic_rows = values
+
     def audit_content_rows(self, paths: set[str]) -> dict:
         """Copy projected values briefly under the database lock for background audit."""
         from .audit_tables import query_content_rows
@@ -447,13 +534,16 @@ class QueryStore:
             raise WorkbenchUnavailableError("query store unavailable; Workbench restart required")
         try:
             self._admit(sql)
+            self._connection.execute(
+                'DELETE FROM query_log_records WHERE "at" <= current_timestamp - INTERVAL 48 HOURS'
+            )
             self._verify_read_only(sql)
         except ValueError as exc:
             print(f"query failed: {exc}", file=sys.stderr)
             raise
         except Exception as exc:
-            print(f"query failed: {exc}", file=sys.stderr)
-            raise QueryExecutionError(f"query failed: {exc}") from exc
+            print(_query_failure(exc), file=sys.stderr)
+            raise QueryExecutionError(_query_failure(exc)) from exc
         try:
             relation = self._connection.sql(sql)
             if preview is not None:
@@ -463,8 +553,8 @@ class QueryStore:
                 for name, column_type in zip(relation.columns, relation.types, strict=True)
             ]
         except Exception as exc:
-            print(f"query failed: {exc}", file=sys.stderr)
-            raise QueryExecutionError(f"query failed: {exc}") from exc
+            print(_query_failure(exc), file=sys.stderr)
+            raise QueryExecutionError(_query_failure(exc)) from exc
         query_id = uuid.uuid4().hex
         table_name = f"query_{query_id}"
         table = quote_identifier(table_name)
@@ -485,8 +575,8 @@ class QueryStore:
                 self._available = False
                 print(f"query store unavailable: {exc}", file=sys.stderr)
                 raise WorkbenchUnavailableError("query store unavailable; Workbench restart required") from exc
-            print(f"query failed: {exc}", file=sys.stderr)
-            raise QueryExecutionError(f"query failed: {exc}") from exc
+            print(_query_failure(exc), file=sys.stderr)
+            raise QueryExecutionError(_query_failure(exc)) from exc
         return query_id, _Result(columns, row_count, sql, stored_columns, time.monotonic())
 
     def _read_page(

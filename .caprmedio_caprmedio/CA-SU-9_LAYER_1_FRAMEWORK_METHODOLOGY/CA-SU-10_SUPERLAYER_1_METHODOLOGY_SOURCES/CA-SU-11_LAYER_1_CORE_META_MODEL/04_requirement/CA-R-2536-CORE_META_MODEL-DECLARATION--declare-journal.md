@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Journal
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-02 00:18:22 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T23:57:56.938436+00:00'
 carrier_destination:
   file:
     name: CA-R-2536-CORE_META_MODEL-DECLARATION--declare-journal.md
@@ -18,6 +18,7 @@ carrier_destination:
 current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 ---
+
 ## Summary
 
 Declare Journal
@@ -26,18 +27,22 @@ Declare Journal
 
 ### Formal Claim
 
-```CFEL
-# model
-Journal {::0}((IS_PROPERTY_OF));
+```python
+from caprmedio.formal_claims import Cardinality, declare_entity
+from caprmedio.model import Continuant
 
-Journal >| (Container == yes);
+class Journal(Continuant):
+    pass
 
-Journal ((NARROWER_THAN)) Continuant;
-
-# instances
-Journal//$journal{::1};
-
-Journal//$journal_2 {::0+}((CONTAINS)) Event Record//$event_record;
+declare_entity(
+    entity_class=Journal,
+    entity_name="Journal",
+    model_relation_constraints={"IS_PROPERTY_OF": {"targets_per_source": 0}},
+    classifications={"Container": "yes"},
+    instance_population_cardinality=1,
+    instance_population_scope="project",
+    instance_relation_constraints={"CONTAINS": {"target_entity_paths": ("Event Record",), "targets_per_source": Cardinality(minimum=0, maximum=None)}},
+)
 ```
 
 ## Semantics

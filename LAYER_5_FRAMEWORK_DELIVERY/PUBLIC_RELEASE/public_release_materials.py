@@ -1,3 +1,5 @@
+# CA-M-366@20
+
 """Pure input and material transformations for one direct public release."""
 
 from __future__ import annotations
@@ -101,7 +103,7 @@ def matching_pr(output: str, repository: str) -> str | None:
 
 
 def prepare_documents(
-    readme: str, history: str, version: str, run_id: str, summary: list[str], pr_url: str | None
+    readme: str, history: str, version: str, run_id: str, summary: list[str], pr_url: str
 ) -> tuple[str, str]:
     marker = f"<!-- public-release:{run_id} -->"
     if marker in history:
@@ -118,18 +120,25 @@ def prepare_documents(
             raise PublicReleaseError("public-release-readme-block-invalid")
     else:
         readme = readme.rstrip() + f"\n\n{latest}\n"
-    link = f" [PR]({pr_url})" if pr_url else ""
-    history = history.rstrip() + f"\n\n{marker}\n## {version}{link}\n"
-    return readme, history + "\n".join(f"- {item.strip()}" for item in summary) + "\n"
-
-
-def finalize_history(history: str, version: str, run_id: str, pr_url: str) -> str:
-    entry = f"<!-- public-release:{run_id} -->\n## {version}"
-    linked_entry = f"{entry} [PR]({pr_url})"
-    if history.count(entry) != 1:
-        raise PublicReleaseError("public-release-history-entry-missing")
-    if linked_entry in history:
-        return history
-    if entry + "\n" not in history:
-        raise PublicReleaseError("public-release-history-entry-invalid")
-    return history.replace(entry + "\n", linked_entry + "\n", 1)
+    heading, separator, rest = history.partition("\n")
+    if not separator or not heading.startswith("# "):
+        raise PublicReleaseError("public-release-history-heading-invalid")
+    entry = f"{marker}\n## {version} [PR]({pr_url})\n" + "\n".join(f"- {item.strip()}" for item in summary) + "\n\n"
+    pattern = re.compile(r"(?m)^(?:<!-- public-release:[^\n]+ -->\n)?## (?:Version )?(\d+(?:\.\d+)+)(?=\s|$)[^\n]*\n")
+    matches = list(pattern.finditer(rest))
+    prefix = rest[:matches[0].start()] if matches else rest
+    entries = [
+        (tuple(map(int, match.group(1).split("."))), rest[match.start():matches[i + 1].start() if i + 1 < len(matches) else len(rest)])
+        for i, match in enumerate(matches)
+    ]
+    new_key = tuple(map(int, version.split(".")))
+    if any(key >= new_key for key, _ in entries):
+        raise PublicReleaseError("public-release-version-not-newest")
+    entries.append((new_key, entry))
+    entries.sort(key=lambda item: item[0], reverse=True)
+    result = heading + "\n" + prefix
+    for _, value in entries:
+        if not result.endswith("\n\n"):
+            result += "\n" if result.endswith("\n") else "\n\n"
+        result += value
+    return readme, result

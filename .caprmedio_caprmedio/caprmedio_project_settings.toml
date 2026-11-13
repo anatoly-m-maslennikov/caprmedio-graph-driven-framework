@@ -93,6 +93,8 @@ requirement = "requirement"
 
 [artifacts.identity]
 project_prefix = "CA"
+# Existing larger IDs remain valid. Automatic allocation uses this ordinary range.
+automatic_number_ceiling = 999999
 
 [artifacts.routing]
 enabled_governance_loci = ["internal", "external", "relation"]

@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Form
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 2
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2703-CORE_META_MODEL-DECLARATION--declare-atom-header-form.md
@@ -26,9 +26,16 @@ Declare Atom.Header.Form
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom.Header.Context.Form{::1}:: [string]{::1};
+```python
+from caprmedio.formal_claims import declare_entity
 
-Atom.Header.Context.Form.*[]{::0}
+declare_entity(
+    entity_name='Form',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Atom.Header.Context',
+    value_format=str,
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+)
 ```

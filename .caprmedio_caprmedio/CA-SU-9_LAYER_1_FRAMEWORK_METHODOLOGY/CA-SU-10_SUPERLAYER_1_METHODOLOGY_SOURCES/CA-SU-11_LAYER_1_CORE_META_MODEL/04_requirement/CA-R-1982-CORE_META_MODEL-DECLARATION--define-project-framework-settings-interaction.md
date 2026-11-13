@@ -11,9 +11,9 @@ tier: 3
 relations:
   child_of:
   - CA-R-1176
-status: Active
-version: 15
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 16
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-1982-CORE_META_MODEL-DECLARATION--define-project-framework-settings-interaction.md
@@ -36,11 +36,19 @@ the Interaction grouping in the Project's Framework Settings.
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Project.Settings.Interaction{::0..1}:: []{::0};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Project.Settings.Interaction.*[in (Reporting Mode)]{::1}
+declare_entity(
+    entity_name='Interaction',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project.Settings',
+    property_occurrence_cardinality=Cardinality(minimum=0, maximum=1),
+    value_cardinality=0,
+    dependent_property_cardinality=1,
+    allowed_dependent_property_names=('Reporting Mode',),
+)
 ```
 
 ## Details

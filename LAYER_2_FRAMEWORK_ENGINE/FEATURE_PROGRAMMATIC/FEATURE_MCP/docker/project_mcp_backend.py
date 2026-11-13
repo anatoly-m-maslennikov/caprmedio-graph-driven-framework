@@ -1,3 +1,7 @@
+# CA-D-578@21
+# CA-M-409@14
+# CA-R-1901@21
+
 """Docker and loopback-MCP backend for the bounded Project MCP launcher."""
 
 from __future__ import annotations
@@ -107,9 +111,15 @@ class ProjectMcpBackend:
         self.build_timeout = build_timeout
 
     def resolve_image(self, source_root, explicit_id, *, project_root):
+        self._image_evidence = None
         manager = ImageManager(source_root, timeout=self.build_timeout, project_root=project_root)
         image_id = manager.resolve(explicit_id=explicit_id, build_if_missing=self.build_if_missing)
-        return image_id, manager.identity(use_packaged_assets=not self.build_if_missing).fingerprint
+        packaged = not self.build_if_missing
+        identity = manager.identity(use_packaged_assets=packaged)
+        manager._inspect(image_id, identity)
+        manager._current(identity, use_packaged_assets=packaged)
+        self._image_evidence = (manager, identity, image_id, packaged)
+        return image_id, identity.fingerprint
 
     @staticmethod
     def _safe_instance(selection: object) -> str:
@@ -294,6 +304,13 @@ class ProjectMcpBackend:
 
     def start(self, selection, image_id, fingerprint, timeout, port):
         """Start development mode from its checked-in Compose carrier."""
+        try:
+            manager, identity, resolved_id, packaged = self._image_evidence
+        except (AttributeError, TypeError):
+            raise BackendError("IMAGE_INPUT_UNAVAILABLE") from None
+        if (image_id, fingerprint) != (resolved_id, identity.fingerprint):
+            raise BackendError("IMAGE_INPUT_UNAVAILABLE")
+        manager._current(identity, use_packaged_assets=packaged)
         self._start(selection, image_id, fingerprint, _COMPOSE, timeout, port)
 
     @staticmethod

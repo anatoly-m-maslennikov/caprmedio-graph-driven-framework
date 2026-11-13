@@ -1,6 +1,7 @@
-# CA-R-2726@6
+# CA-R-2726@9
 # CA-M-500@3
-# CA-D-672@14
+# CA-D-672@22
+# CA-M-465@29
 
 """Apply the materialized source delta to the public Workbench projection."""
 
@@ -177,7 +178,8 @@ def apply(
     if delta is None:
         next_graph = update_graph(connection, previous.graph, current.graph, atom_rows, scope_rows)
         graph_rows = len(previous.graph.references ^ next_graph.references) + sum(
-            len(previous.graph.edges[name] ^ next_graph.edges[name]) for name in next_graph.edges
+            len(previous.graph.edges.get(name, frozenset()) ^ next_graph.edges.get(name, frozenset()))
+            for name in previous.graph.edges.keys() | next_graph.edges.keys()
         )
     else:
         next_graph, graph_rows = apply_graph_delta(connection, previous.graph, delta, relation_types)

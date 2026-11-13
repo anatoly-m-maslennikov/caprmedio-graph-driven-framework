@@ -5,7 +5,9 @@ from __future__ import annotations
 import ast
 import io
 import json
+from pathlib import Path
 import re
+import sys
 import tokenize
 from collections.abc import Callable
 
@@ -167,7 +169,8 @@ def _render_layout(name: str, args: dict, node: ast.AST, ref: Callable[[str], st
 
 
 def _render(name: str, args: dict, node: ast.AST,
-            validate_reference: Callable[[str], object] | None) -> tuple[str, ...]:
+            validate_reference: Callable[[str], object] | None,
+            validate_relation_endpoint: Callable[[str, object, str], object] | None = None) -> tuple[str, ...]:
     def ref(key: str) -> str:
         return _reference(args[key], key, node, validate_reference)
 
@@ -245,6 +248,22 @@ def _render(name: str, args: dict, node: ast.AST,
         return (ref("address"),)
 
     if name == "set_value":
+        address = _text(args["address"], "address", node)
+        if re.match(r"alias\s*\(", address):
+            match = re.fullmatch(r"alias\(Relation//([A-Za-z_][A-Za-z0-9_]*)\)", address)
+            if match is None:
+                raise _error(node, "invalid Relation alias address")
+            _reference("Relation//" + match[1], "address", node, validate_reference)
+            value = args["value"]
+            if not isinstance(value, str):
+                raise _error(node, "Relation alias must be a nonempty string")
+            if value.startswith('"'):
+                try:
+                    value = json.loads(value)
+                except (ValueError, TypeError) as error:
+                    raise _error(node, "value must be a valid quoted string") from error
+            literal = json.dumps(_text(value, "Relation alias", node), ensure_ascii=False)
+            return (f"{address} == {literal}",)
         address = ref("address")
         value = args["value"]
         if type(value) is bool:
@@ -264,13 +283,20 @@ def _render(name: str, args: dict, node: ast.AST,
             raise _error(node, "value must be a string, integer, or boolean")
         return (f"{address} == {literal}",)
 
-    source = ref("source")
+    def endpoint(key):
+        if validate_relation_endpoint is None:
+            check = validate_reference
+        else:
+            check = lambda value: validate_relation_endpoint(value, args.get("name"), key)
+        return _reference(args[key], key, node, check)
+
+    source = endpoint("source")
     relation_name = _text(args["name"], "name", node)
     if relation_name != "*" and not _RELATION.fullmatch(relation_name):
         raise _error(node, "name must be a Relation name")
     source_count = _optional_count(args, "source_count", node)
     target_count = _optional_count(args, "target_count", node)
-    target = f" {ref('target')}" if args.get("target") is not None else ""
+    target = f" {endpoint('target')}" if args.get("target") is not None else ""
     if target_count and not target:
         raise _error(node, "target_count requires target")
     reverse = args.get("reverse", False)
@@ -282,6 +308,7 @@ def _render(name: str, args: dict, node: ast.AST,
 
 def parse_grouped_python_model_claim(
     text: str, *, validate_reference: Callable[[str], object] | None = None,
+    validate_relation_endpoint: Callable[[str, object, str], object] | None = None,
 ) -> tuple[tuple[str, str | None], ...]:
     """Return statements with their preceding top-level model/instances marker."""
     if not isinstance(text, str):
@@ -329,17 +356,56 @@ def parse_grouped_python_model_claim(
         if unexpected:
             raise _error(item, f"unexpected arguments: {', '.join(sorted(unexpected))}")
         group = next((label for line, label in reversed(markers) if line < item.lineno), None)
-        statements.extend((statement, group) for statement in _render(name, args, item, validate_reference))
+        statements.extend((statement, group) for statement in _render(name, args, item, validate_reference, validate_relation_endpoint))
     if not statements:
         raise PythonModelClaimError("line 1, column 1: expected a declarative function call")
     return tuple(statements)
 
 
-def parse_python_model_claim(text: str, *, validate_reference: Callable[[str], object] | None = None) -> tuple[str, ...]:
+def parse_python_model_claim(
+    text: str, *, validate_reference: Callable[[str], object] | None = None,
+    validate_relation_endpoint: Callable[[str, object, str], object] | None = None,
+) -> tuple[str, ...]:
     """Return compatible statements without evaluating the source text.
 
     The optional callback checks each address and may return False or raise
     ValueError/LookupError to reject an unknown reference.
     """
     return tuple(statement for statement, _group in
-                 parse_grouped_python_model_claim(text, validate_reference=validate_reference))
+                 parse_grouped_python_model_claim(text, validate_reference=validate_reference, validate_relation_endpoint=validate_relation_endpoint))
+
+
+def compile_python_model_claim(text: str, *, model_class_bindings=None) -> tuple[str, ...]:
+    """Read either Python declaration format for the existing schema compilers."""
+    programmatic = str(Path(__file__).resolve().parents[1])
+    if programmatic not in sys.path:
+        sys.path.insert(0, programmatic)
+    from FEATURE_FORMAL_MODEL_ENGINE.compiler_claim import (
+        compiler_model_statements, compile_atom_dependencies_with_check, compile_scope_level_with_check,
+    )
+    from FEATURE_FORMAL_MODEL_ENGINE.native_model_claim import parse_native_model_claim
+
+    native = parse_native_model_claim(text)
+    if native is None:
+        return parse_python_model_claim(text)
+    if native.get("instance_check") is not None:
+        if native["instance_check"]["name"] == "dependencies_are_distinct":
+            statements, _metadata = compile_atom_dependencies_with_check(native, model_class_bindings=model_class_bindings)
+        else:
+            statements, _metadata = compile_scope_level_with_check(native)
+        return statements
+    return compiler_model_statements(native, model_class_bindings=model_class_bindings)
+
+
+def compile_atom_dependencies_claim_with_check(text: str, *, model_class_bindings=None):
+    """Compile the explicit Atom Dependencies consumer's reviewed-callback input."""
+    programmatic = str(Path(__file__).resolve().parents[1])
+    if programmatic not in sys.path:
+        sys.path.insert(0, programmatic)
+    from FEATURE_FORMAL_MODEL_ENGINE.compiler_claim import compile_atom_dependencies_with_check
+    from FEATURE_FORMAL_MODEL_ENGINE.native_model_claim import parse_native_model_claim
+
+    native = parse_native_model_claim(text)
+    if native is None:
+        raise ValueError("Atom Dependencies requires a native declaration")
+    return compile_atom_dependencies_with_check(native, model_class_bindings=model_class_bindings)

@@ -1,6 +1,8 @@
 """Foreground services with immutable code and explicit runtime-only state."""
 
-# CA-M-504@2
+# CA-M-504@4
+# CA-M-551@2
+# CA-M-396@17
 
 import json
 import os

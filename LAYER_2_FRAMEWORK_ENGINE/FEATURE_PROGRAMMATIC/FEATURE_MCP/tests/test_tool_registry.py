@@ -1,7 +1,10 @@
+# CA-E-798@5
 # CA-E-810@3
+# CA-E-811@3
 # CA-E-812@3
 # CA-E-813@2
 # CA-E-814@1
+# CA-E-820@2
 
 """Functional registry generation and generic MCP Provider dispatch."""
 
@@ -336,6 +339,52 @@ class ToolRegistryTests(unittest.IsolatedAsyncioTestCase):
                         rejected = await client.call_tool("blocked", {})
                         self.assertTrue(rejected.is_error)
                         self.assertEqual(["Unknown Tool"], rejected.structured_content["diagnostics"])
+            finally:
+                await gateway.close()
+
+    async def test_tools_list_exposes_admitted_registry_metadata_without_execution(self) -> None:
+        source = _schema_provider_source().replace(
+            'return (types.Tool(name="demo", description="Demo", input_schema=input_schema, output_schema=output_schema),)',
+            'return tuple(types.Tool(name=name, description=name + " description", '
+            'input_schema=input_schema, output_schema=output_schema) '
+            'for name in ("demo", "blocked", "project_blocked"))',
+        ).replace(
+            'return {"ok": "invalid"}',
+            'open(__file__ + ".written", "w").write(arguments["value"])\n        return {"ok": "invalid"}',
+        )
+        self._write_provider(source)
+        registry_path = generate(self.package)
+        installed = json.loads(registry_path.read_text(encoding="utf-8"))
+        descriptor = next(t for t in installed["providers"][0]["tools"] if t["name"] == "demo")
+        root = Path(self.temporary.name).resolve()
+        control = root / ".caprmedio_fixture"
+        control.mkdir()
+        (control / "caprmedio_project_settings.toml").write_text(
+            '[paths]\ncontrol_root = ".caprmedio_fixture"\n'
+            '[project_mcp]\ntool_blacklist = ["project_blocked"]\n', encoding="utf-8",
+        )
+
+        def registry_loader(_asset: Path, selected: Path, gateway: object):
+            return self._registry(selected, gateway)
+
+        with patch("direct_gateway.load_active_registry", side_effect=registry_loader):
+            gateway = DirectGateway(root)
+            await gateway.initialize()
+            try:
+                before = {p.relative_to(control) for p in control.rglob("*")}
+                async with InMemoryTransport(gateway.build_server(), raise_exceptions=True) as streams:
+                    async with ClientSession(*streams) as client:
+                        await client.initialize()
+                        listed = (await client.list_tools()).tools
+                self.assertEqual(["demo"], [tool.name for tool in listed])
+                self.assertEqual(descriptor["description"], listed[0].description)
+                self.assertEqual(descriptor["inputSchema"]["required"], listed[0].input_schema["required"])
+                self.assertEqual(descriptor["inputSchema"]["properties"]["value"],
+                                 listed[0].input_schema["properties"]["value"])
+                self.assertIsNone(gateway.registry.bindings[0].provider)
+                self.assertEqual(0, sys.modules[self.module].calls)
+                self.assertFalse((self.feature / f"{self.module}.py.written").exists())
+                self.assertEqual(before, {p.relative_to(control) for p in control.rglob("*")})
             finally:
                 await gateway.close()
 

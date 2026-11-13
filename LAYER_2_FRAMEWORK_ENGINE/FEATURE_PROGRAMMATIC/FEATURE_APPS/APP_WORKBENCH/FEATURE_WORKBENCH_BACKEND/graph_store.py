@@ -1,7 +1,7 @@
-# CA-R-2724@4
-# CA-M-464@9
-# CA-M-465@24
-# CA-D-672@14
+# CA-R-2724@5
+# CA-M-464@18
+# CA-M-465@29
+# CA-D-672@24
 # CA-D-675@14
 
 """Trusted internal DuckPGQ mappings for the Workbench public row projection."""
@@ -176,6 +176,13 @@ def build_graph(
     if edge_definitions:
         graph_sql += " EDGE TABLES (" + ", ".join(edge_definitions) + ")"
     connection.execute(graph_sql)
+    columns = ", ".join(_EDGE_KEYS)
+    sources = [f"SELECT {columns} FROM internal.{table}" for table in state.tables.values()]
+    if not sources:
+        sources = ["SELECT NULL::VARCHAR AS source_kind, NULL::VARCHAR AS source_ref, "
+                   "NULL::VARCHAR AS target_kind, NULL::VARCHAR AS target_ref, "
+                   "NULL::VARCHAR AS relation_type, NULL::BOOLEAN AS derived WHERE FALSE"]
+    connection.execute("CREATE OR REPLACE VIEW main.relations AS " + " UNION ALL ".join(sources))
     return state
 
 

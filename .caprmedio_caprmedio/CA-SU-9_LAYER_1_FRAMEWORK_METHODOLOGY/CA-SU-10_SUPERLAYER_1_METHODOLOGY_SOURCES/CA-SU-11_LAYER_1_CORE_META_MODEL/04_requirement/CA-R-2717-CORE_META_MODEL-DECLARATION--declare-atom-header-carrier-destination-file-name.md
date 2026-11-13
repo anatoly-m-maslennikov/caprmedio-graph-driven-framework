@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Destination.File.Name
 tier: 3
-status: Active
-version: 3
-updated_at: 2026-11-04 05:21:15 +0400
+status: active
+version: 4
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2717-CORE_META_MODEL-DECLARATION--declare-atom-header-carrier-destination-file-name.md
@@ -32,10 +32,16 @@ Declare Atom.Header.Carrier Destination.File.Name
 Calculated full filename, including its extension.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom.Header.Destination.File.Name:: {::1};
+from caprmedio.formal_claims import declare_entity
 
-Atom.Header.Destination.File.Name.*[]{::0}
+declare_entity(
+    entity_name='Name',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Atom.Header.Destination.File',
+    value_cardinality=1,
+    dependent_property_cardinality=0,
+)
 ```
 

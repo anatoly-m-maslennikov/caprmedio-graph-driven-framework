@@ -11,9 +11,9 @@ context:
     main_subject: MODEL//CAPRMEDIO <+ (View, View.id, View.sql, View.name)
   tier: 3
 state:
-  status: Active
-  version: 4
-  updated_at: 2026-11-10 20:47:54 +0400
+  status: active
+  version: 5
+  updated_at: '2026-11-13T04:14:36.994022+00:00'
 destination:
   file:
     name: CA-R-2793-CORE_META_MODEL-DECLARATION--define-view.md
@@ -22,7 +22,6 @@ current_scope_unit: CORE_META_MODEL
 claim_target_scope_unit: CORE_META_MODEL
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Define View
@@ -32,12 +31,27 @@ Define View
 ### Prose Claim
 
 A View is a Workbench SQL document in one Workspace. It has one stable string ID, one complete SQL query and may have one name. A View can be edited, run, fetched, focused, renamed, removed or saved through the Workspace operations.
+
 ### Formal Claim
 
-```CFEL
-# model
-View.id{::1}:: [string]{::1};
-View.sql{::1}:: [string]{::1};
-View.name{::0..1}:: [string]{::0..1}
-```
+```python
+from dataclasses import dataclass, field
+from caprmedio.formal_claims import Cardinality, declare_entity
 
+@dataclass
+class View:
+    id: str = field(metadata={
+        "property_occurrence_cardinality": 1,
+        "value_cardinality": 1,
+    })
+    sql: str = field(metadata={
+        "property_occurrence_cardinality": 1,
+        "value_cardinality": 1,
+    })
+    name: str = field(metadata={
+        "property_occurrence_cardinality": Cardinality(minimum=0, maximum=1),
+        "value_cardinality": Cardinality(minimum=0, maximum=1),
+    })
+
+declare_entity(entity_name="View", entity_class=View)
+```

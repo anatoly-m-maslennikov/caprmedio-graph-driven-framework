@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Topics
 tier: 3
-status: Active
-version: 2
-updated_at: 2026-11-04 07:31:50 +0400
+status: active
+version: 3
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2713-CORE_META_MODEL-DECLARATION--declare-atom-header-subjects.md
@@ -26,9 +26,16 @@ Declare Atom.Header.Subjects
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom.Header.Context.Topics{::1}:: []{::0};
+```python
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Atom.Header.Context.Topics.*[in(Main Subject, Dependencies)]{::1..2}
+declare_entity(
+    entity_name='Topics',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Atom.Header.Context',
+    property_occurrence_cardinality=1,
+    value_cardinality=0,
+    dependent_property_cardinality=Cardinality(minimum=1, maximum=2),
+    allowed_dependent_property_names=('Main Subject', 'Dependencies'),
+)
 ```

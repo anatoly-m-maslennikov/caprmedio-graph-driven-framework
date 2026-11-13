@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom.Header.Context.Role
 tier: 3
-status: Active
-version: 2
-updated_at: '2026-11-11T18:56:17+04:00'
+status: active
+version: 3
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-2702-CORE_META_MODEL-DECLARATION--declare-atom-header-role.md
@@ -31,9 +31,17 @@ Role Order Number classifies the Role-qualified Atom kind in the Model. Each Rol
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom.Header.Context.Role{::1}:: [string]{::1};
+from caprmedio.formal_claims import declare_entity
 
-Atom.Header.Context.Role.*[]{::0}
+declare_entity(
+    entity_name='Role',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Atom.Header.Context',
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    value_format='str',
+    dependent_property_cardinality=0,
+)
 ```

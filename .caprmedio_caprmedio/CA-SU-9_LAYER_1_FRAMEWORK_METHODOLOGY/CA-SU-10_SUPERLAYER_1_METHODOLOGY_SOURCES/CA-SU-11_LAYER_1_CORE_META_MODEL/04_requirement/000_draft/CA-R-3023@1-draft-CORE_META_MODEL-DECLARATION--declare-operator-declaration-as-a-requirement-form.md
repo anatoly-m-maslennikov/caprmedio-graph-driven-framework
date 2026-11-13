@@ -19,7 +19,6 @@ carrier_destination:
     name: CA-R-3023@1-draft-CORE_META_MODEL-DECLARATION--declare-operator-declaration-as-a-requirement-form.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
-
 ## Summary
 
 Declare Operator Declaration as a Requirement Form
@@ -32,11 +31,10 @@ This Form uses the Declaration contract.
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom/(.Header.Context.Role in (Requirement)).Header.Context.Form :: Operator Declaration;
-
-Atom/(.Header.Context.Role in (Requirement))/(.Header.Context.Form in (Operator Declaration))
+allowed_values(address="Atom/(.Header.Context.Role in (Requirement)).Header.Context.Form", values=('Operator Declaration',))
+subject_path(address="Atom/(.Header.Context.Role in (Requirement))/(.Header.Context.Form in (Operator Declaration))")
 ```
 
 ## Semantics

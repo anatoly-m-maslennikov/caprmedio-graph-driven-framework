@@ -1,8 +1,8 @@
-# CA-R-2724@4
+# CA-R-2724@5
 # CA-M-464@9
-# CA-M-465@24
-# CA-M-509@1
-# CA-D-672@14
+# CA-M-465@29
+# CA-M-509@7
+# CA-D-672@22
 
 """Materialize authored references and literal declared inverse bindings in memory."""
 from __future__ import annotations
@@ -19,6 +19,7 @@ from .markdown_content import source_markdown
 from .relation_registry import (
     RelationRegistry, _warn_colliding_uses, carrier_read_view, compile_relation_registry,
 )
+from project_root_container import is_logical_container
 
 ATOM = "Atom"
 SCOPE = "Scope Unit"
@@ -160,7 +161,10 @@ def _atom_facts(row: dict, scope_references: Mapping[str, str], registry: Relati
 def _container(
     row: Mapping[str, Any], scope_references: Mapping[str, str],
 ) -> tuple[str | None, str | None]:
-    container = carrier_read_view(dict(row["header_json"])).get("container")
+    root_header = row.get("_project_root_header")
+    container = carrier_read_view(dict(row["header_json"] if root_header is None else root_header)).get("container")
+    if root_header is not None and not is_logical_container(container):
+        return None, None
     if isinstance(container, Mapping):
         scope = container.get("scope_unit")
         if isinstance(scope, str):
@@ -189,6 +193,7 @@ def _timestamp(value: Any) -> str | None:
 
 def _materialized_row(kind: str, source: dict, facts: tuple[tuple, ...]) -> dict | None:
     row = dict(source)
+    row.pop("_project_root_header", None)
     row["relation_edges_json"] = [_edge(fact[:-1], fact[-1]) for fact in facts]
     if kind == ATOM:
         row["updated_at"] = _timestamp(row["updated_at"])

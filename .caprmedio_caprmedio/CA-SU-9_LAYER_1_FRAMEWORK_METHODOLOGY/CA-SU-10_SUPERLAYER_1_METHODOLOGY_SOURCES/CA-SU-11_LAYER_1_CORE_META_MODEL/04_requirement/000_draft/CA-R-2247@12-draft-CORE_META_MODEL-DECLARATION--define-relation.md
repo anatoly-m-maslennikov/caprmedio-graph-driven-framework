@@ -13,7 +13,7 @@ version: 12
 updated_at: 2026-11-05 16:33:24 +0400
 carrier_destination:
   file:
-    name: CA-R-2247@12-draft-DECLARATION--define-relation.md
+    name: CA-R-2247@12-draft-CORE_META_MODEL-DECLARATION--define-relation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 ## Summary
@@ -29,16 +29,14 @@ Relation defines a reusable directed graph Relation Type with a Name and Meaning
 A canonical Relation Declaration owns shared meaning, endpoint signature and its inverse alias binding when applicable. An inverse alias reverses the written endpoints of the canonical Relation and denotes the same fact; it has no separate Relation Declaration. A qualified derived view retains its source transformation and qualification. A short notation token follows the written name's direction; it does not create a new Relation, a Node or a separate Relation ID.
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation;
-
-Relation.** {::1}((IS_PROPERTY_OF)) (Relation, Relation.**);
-(Relation, Relation.**) {::0+}((HAS_PROPERTY)) Relation.**;
-
+subject_path(address='Relation')
+relation(source='Relation.**', name='IS_PROPERTY_OF', target='(Relation, Relation.**)', source_count='1')
+relation(source='(Relation, Relation.**)', name='HAS_PROPERTY', target='Relation.**', source_count='0+')
 # instances
-$relation[<Relation>];
-$relation.** {::1}((IS_PROPERTY_OF)) ($relation, $relation.**);
-($relation, $relation.**) {::0+}((HAS_PROPERTY)) $relation.**;
+subject_path(address='$relation[<Relation>]')
+relation(source='$relation.**', name='IS_PROPERTY_OF', target='($relation, $relation.**)', source_count='1')
+relation(source='($relation, $relation.**)', name='HAS_PROPERTY', target='$relation.**', source_count='0+')
 ```
 

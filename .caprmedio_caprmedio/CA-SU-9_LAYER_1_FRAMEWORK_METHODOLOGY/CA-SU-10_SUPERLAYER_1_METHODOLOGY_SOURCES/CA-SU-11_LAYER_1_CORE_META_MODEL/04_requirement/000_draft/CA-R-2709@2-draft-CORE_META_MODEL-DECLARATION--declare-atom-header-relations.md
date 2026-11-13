@@ -13,7 +13,7 @@ version: 2
 updated_at: 2026-11-05 03:53:43 +0400
 carrier_destination:
   file:
-    name: CA-R-2709@2-draft-DECLARATION--declare-atom-header-relations.md
+    name: CA-R-2709@2-draft-CORE_META_MODEL-DECLARATION--declare-atom-header-relations.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 ## Summary
@@ -28,11 +28,9 @@ Each child name is the canonical name of a declared Relation, and each child has
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom.Header.Relations{::0..1} :: []{::0};
-
-Atom.Header.Relations.*[string]{::1+};
-
-Atom.Header.Relations.* :: [string]{::1+}
+property_rule(address='Atom.Header.Relations', occurrences='0..1', value_format='', values='0')
+children(address='Atom.Header.Relations', name_format='string', occurrences='1+')
+property_rule(address='Atom.Header.Relations.*', value_format='string', values='1+')
 ```

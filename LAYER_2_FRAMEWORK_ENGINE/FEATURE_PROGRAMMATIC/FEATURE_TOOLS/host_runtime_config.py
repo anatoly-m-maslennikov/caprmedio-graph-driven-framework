@@ -1,3 +1,6 @@
+# CA-R-2008@17
+# CA-M-396@17
+
 """Read the machine-local shared MCP host configuration."""
 
 from __future__ import annotations
@@ -8,6 +11,7 @@ import os
 from pathlib import Path
 import stat
 import tomllib
+from settings_carrier import parse_settings_carrier
 from typing import Any
 
 
@@ -24,6 +28,10 @@ _READ_LIMITS = {
 
 class HostRuntimeConfigError(ValueError):
     """The shared host configuration cannot be trusted or resolved."""
+
+
+class OutsideProjectRootError(HostRuntimeConfigError):
+    """The selected Project is outside the configured host root."""
 
 
 def _error(message: str) -> HostRuntimeConfigError:
@@ -101,7 +109,7 @@ def _exact_int(value: Any, message: str, *, minimum: int, maximum: int) -> int:
 
 def _document(raw: bytes) -> tuple[Path, int, int]:
     try:
-        value = tomllib.loads(raw.decode("utf-8"))
+        value = parse_settings_carrier(raw)
     except (UnicodeDecodeError, tomllib.TOMLDecodeError, TypeError, ValueError) as error:
         raise _error("Host runtime configuration TOML is invalid") from error
     if not isinstance(value, dict) or set(value) != {"schema_version", "shared_mcp"}:
@@ -173,9 +181,9 @@ def resolve_host_project(config: HostRuntimeConfig, project_root: Path | str):
     candidate = _canonical_directory(project_root)
     try:
         if candidate == config.projects_root or not candidate.is_relative_to(config.projects_root):
-            raise _error("Project root is outside the shared host root")
+            raise OutsideProjectRootError("Project root is outside the shared host root")
     except ValueError as error:
-        raise _error("Project root is outside the shared host root") from error
+        raise OutsideProjectRootError("Project root is outside the shared host root") from error
     try:
         from project_selection import resolve_project
     except (ImportError, ModuleNotFoundError) as error:

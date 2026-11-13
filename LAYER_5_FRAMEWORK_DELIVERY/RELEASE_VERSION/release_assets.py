@@ -1,7 +1,6 @@
 """Generate the two Workbench assets that a release package owns."""
 
-# CA-D-705@1
-# CA-M-500@3
+# CA-D-704@6
 
 from __future__ import annotations
 
@@ -39,7 +38,7 @@ def _generate_asset(
                 sys.executable, "-B", str(script), source_option, str(source_root),
                 "--output", str(output),
             ),
-            cwd=package, text=True, capture_output=True, check=False,
+            cwd=package, stdout=subprocess.DEVNULL, check=False,
         )
     except OSError as error:
         raise LocalReleaseError(unavailable) from error
@@ -98,3 +97,12 @@ def generate_tool_registry(package: Path) -> Path:
     except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
         raise LocalReleaseError("local-release-tool-registry-generation-failed") from error
     return output
+
+
+def generate_scope_callback(package: Path, raw: bytes, *, selected_pin, release_sources):
+    """Build the explicitly selected callback; no selection preserves legacy release."""
+    if selected_pin is None:
+        return None
+    from FEATURE_FORMAL_MODEL_ENGINE.scope_callback_asset import generated_assets, write_package
+    generated = generated_assets(raw, pin=selected_pin, release_sources=release_sources)
+    return write_package(package / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_FORMAL_MODEL_ENGINE/assets", generated)

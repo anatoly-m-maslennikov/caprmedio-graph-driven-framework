@@ -1,6 +1,6 @@
-# CA-E-753@2
-# CA-E-676@12
-# CA-E-683@6
+# CA-E-753@4
+# CA-E-676@15
+# CA-E-683@10
 # CA-E-780@8
 # CA-E-677@23
 # CA-E-784@2
@@ -150,7 +150,12 @@ class WorkbenchDockerE2E(
             except OSError:
                 pass
             time.sleep(0.2)
-        raise RuntimeError("Workbench MCP container did not become ready within 45 seconds")
+        cls.stdout.seek(0)
+        cls.stderr.seek(0)
+        raise RuntimeError(
+            "Workbench MCP container did not become ready within 45 seconds\n"
+            f"stdout:\n{cls.stdout.read()}\nstderr:\n{cls.stderr.read()}"
+        )
 
     @classmethod
     def _cleanup_container(cls) -> None:
@@ -246,7 +251,7 @@ class WorkbenchDockerE2E(
 
         (schema, ran, page, checked, saved, worksheet, loaded_by_id, loaded_by_url, recent,
          legacy_query, legacy_worksheet, invalid, invalid_is_error) = asyncio.run(exercise())
-        self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_parse_issues", "atom_schema_issues", "atom_duplicate_revision_issues"}, set(schema["tables"]))
+        self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_parse_issues", "atom_schema_issues", "atom_duplicate_revision_issues", "archive_role_max", "archive_version_max", "live_runs", "query_log", "relations", "runtime_diagnostics"}, set(schema["tables"]))
         status_column = next(
             column for column in schema["tables"]["atoms"] if column["name"] == "header.status"
         )
@@ -348,7 +353,7 @@ class WorkbenchDockerE2E(
         self.assertEqual({"columns": ["value"], "rows": [[123]]}, json.loads(
             (self.result_root / Path(*result_path.parts[1:])).read_text(encoding="utf-8")
         ))
-        self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_parse_issues", "atom_schema_issues", "atom_duplicate_revision_issues"}, set(schema["tables"]))
+        self.assertEqual({"atoms", "scope_units", "change_log", "atom_physical_carrier_issues", "atom_declared_carrier_issues", "atom_parse_issues", "atom_schema_issues", "atom_duplicate_revision_issues", "archive_role_max", "archive_version_max", "live_runs", "query_log", "relations", "runtime_diagnostics"}, set(schema["tables"]))
         status_column = next(
             column for column in schema["tables"]["atoms"] if column["name"] == "header.status"
         )

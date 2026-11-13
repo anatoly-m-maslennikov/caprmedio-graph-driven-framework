@@ -1,0 +1,39 @@
+---
+atom_id: CA-R-2665
+ref_id: CA-R-2665@1
+role: Requirement
+form: Scope Unit Declaration
+topics:
+  main_subject: CAPRMEDIO_STRUCTURE <+ Scope Unit//CORE_EXTENSIONS
+tier: 3
+status: archived
+version: 1
+updated_at: 2026-11-02 19:07:49 +0400
+destination:
+  file:
+    name: CA-R-2665@1-caprmedio-DEFINES_SCOPE_FOR-CORE_EXTENSIONS--declare-core-extensions.md
+    path: .caprmedio_caprmedio/04_requirement/099_archived
+---
+## Summary
+
+Declare CORE_EXTENSIONS
+
+## Claim
+
+### Formal Claim
+
+```CFEL
+# instances
+Scope Unit//CORE_EXTENSIONS.ID == "CA-SU-26";
+
+Scope Unit//CORE_EXTENSIONS.Name == "CORE_EXTENSIONS";
+
+Scope Unit//CORE_EXTENSIONS.Label == "LAYER";
+
+Scope Unit//CORE_EXTENSIONS.order.ordered == true;
+
+Scope Unit//CORE_EXTENSIONS.order.number == 4;
+
+Scope Unit//CORE_EXTENSIONS ((IS_CONTAINED_BY)) Project//caprmedio
+```
+

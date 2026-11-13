@@ -1,3 +1,5 @@
+import unittest
+
 from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -162,12 +164,14 @@ def test_composed_update_preserves_status_and_version():
             '[paths]\ncontrol_root=".caprmedio_test"\n')
         write_scope_unit_declarations(root, control_root=control, rows=[])
         selection = resolve_project(root)
-        path = control / '04_requirement/CA-R-1-RULE--example.md'
+        summary = "Follow the Operator's priorities"
+        body = f'## Summary\n\n{summary}\n'
+        path = control / '04_requirement/CA-R-1-RULE--follow-the-operator-s-priorities.md'
         path.parent.mkdir()
         path.write_text('---\nidentity:\n  atom_id: CA-R-1\n  ref_id: CA-R-1\n'
                         'context:\n  container:\n    scope_unit: TEST\n  role: Requirement\n'
                         '  form: Rule\nstate:\n  status: Active\n  version: 2\n'
-                        '  updated_at: 2026-01-01T00:00:00+00:00\n---\n## Summary\n\nExample\n')
+                        '  updated_at: 2026-01-01T00:00:00+00:00\n---\n' + body)
         model = SimpleNamespace(allowed=lambda role, form: {'Draft', 'Active', 'Archived'})
         from dataclasses import replace
         original_select = publish.source.select_source
@@ -185,14 +189,14 @@ def test_composed_update_preserves_status_and_version():
             with patch.object(publish.source, 'select_source', side_effect=check_draft):
                 failed = publish.update_atom(selection, model, {
                     'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2},
-                    'changes': {'body': '## Summary\n\nExample\n\nUpdated.\n'}})
+                    'changes': {'body': body + '\nUpdated.\n'}})
             assert failed['errors'] and failed['effects'], (failure, failed)
             assert path.exists() and 'version: 2' in path.read_text()
             assert not list(control.rglob('CA-R-1@2-*.md'))
             for saved_draft in control.rglob('CA-R-1@3-draft*.md'):
                 saved_draft.unlink()
         outcome = publish.update_atom(selection, model, {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 2},
-                                                          'changes': {'body': '## Summary\n\nExample\n\nUpdated.\n'}})
+                                                          'changes': {'body': body + '\nUpdated.\n'}})
         assert not outcome['errors'], outcome
         assert outcome['artifact']['version'] == 3
         assert outcome['artifact']['status'] == 'Active'
@@ -201,12 +205,12 @@ def test_composed_update_preserves_status_and_version():
         assert not list(control.rglob('*-draft*.md'))
         assert list(control.rglob('CA-R-1@2-*.md'))
         next_outcome = publish.update_atom(selection, model, {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 3},
-                                                               'changes': {'body': '## Summary\n\nExample\n\nUpdated again.\n'}})
+                                                               'changes': {'body': body + '\nUpdated again.\n'}})
         assert not next_outcome['errors'], next_outcome
         assert next_outcome['artifact']['status'] == 'Active'
         assert next_outcome['artifact']['version'] == 4
         request = {'sourceCurrent': {'ref_id': 'CA-R-1', 'version': 4},
-                   'changes': {'body': '## Summary\n\nExample\n\nPromotion failure.\n'}}
+                   'changes': {'body': body + '\nPromotion failure.\n'}}
         uncertain = {'operation': 'write', 'target': 'example', 'state': 'unknown'}
         with patch.object(publish, '_promote_draft', return_value={
                 'outcome': 'needs_input', 'effects': [uncertain], 'errors': [], 'warnings': ['warning'],
@@ -285,3 +289,72 @@ def test_noop_update_and_same_identity_promotion_preserve_current():
         assert result['outcome'] == 'completed', result
         assert result['artifact']['version'] == 4
         assert not other.exists() and list(control.rglob('CA-R-2@2-*.md'))
+
+
+def test_independent_copy_promotion_applies_inherited_replacement():
+    import tempfile
+    from dataclasses import replace
+    from ATOM_LIFECYCLE import backend, candidate_schema, status_model
+    from ATOM_LIFECYCLE.carrier import render_carrier
+    from lifecycle_placement_test_support import fixture_rules
+    from project_selection import resolve_project
+    from scope_declaration_test_support import write_scope_unit_declarations
+    from VALIDATE_ATOMS.validate_atoms_workers.parsing import parse_carrier
+
+    schema_path = Path(candidate_schema.__file__).with_name('candidate_schema.json')
+    status_path = Path(status_model.__file__).with_name('status_model.json')
+    schema = replace(candidate_schema.load_candidate_schema(schema_path), placement=fixture_rules())
+    model = replace(status_model.load_status_model(status_path), candidate_schema=schema)
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory).resolve()
+        control = root / '.caprmedio_test'
+        control.mkdir()
+        (control / 'caprmedio_project_settings.toml').write_text(
+            '[project]\nname="TEST"\n[artifacts.identity]\nproject_prefix="CA"\n'
+            '[paths]\ncontrol_root=".caprmedio_test"\n')
+        write_scope_unit_declarations(root, control_root=control, rows=[])
+        selection = resolve_project(root)
+        role_root = control / '04_requirement'
+        draft_dir = role_root / 'draft'
+        draft_dir.mkdir(parents=True)
+        target = role_root / 'CA-R-2-RULE--target.md'
+        target_fields = {'atom_id': 'CA-R-2', 'ref_id': 'CA-R-2', 'role': 'Requirement',
+                         'form': 'Rule', 'status': 'Active', 'version': 1,
+                         'updated_at': '2026-01-01T00:00:00+00:00',
+                         'container.scope_unit': 'TEST', 'tier': 2,
+                         'topics': {'main_subject': 'CAPRMEDIO_MODEL <+ Atom'}}
+        target.write_bytes(render_carrier(None, target_fields,
+                                          body='## Summary\n\nTarget\n\n## Claim\n\n'
+                                               '### Prose Claim\n\nTarget claim.\n'))
+        source_path = draft_dir / 'CA-R-3@1-draft-RULE--source.md'
+        source_fields = target_fields | {'atom_id': 'CA-R-3', 'ref_id': 'CA-R-3@1-draft',
+                                         'status': 'Draft',
+                                         'relations': {'IS_REPLACEMENT_FOR': ['CA-R-2']}}
+        source_path.write_bytes(render_carrier(None, source_fields,
+                                               body='## Summary\n\nSource\n\n## Claim\n\n'
+                                                    '### Prose Claim\n\nSource claim.\n'))
+        original = source_path.read_bytes()
+        created = backend.execute(selection, model, 'atom_lifecycle_create_draft', {
+            'copyFrom': 'CA-R-3@1-draft'})
+        assert created['outcome'] == 'completed', str(created)
+        copy = created['savedDraft']
+        assert copy['atom_id'] not in {'CA-R-2', 'CA-R-3'} and copy['version'] == 1
+        copy_path = root / copy['path']
+        parsed = parse_carrier(copy_path.read_bytes(), copy_path)
+        assert parsed.metadata['relations']['IS_REPLACEMENT_FOR'] == ['CA-R-2']
+        assert source_path.read_bytes() == original and target.exists()
+        promoted = backend.execute(selection, model, 'atom_lifecycle_promote_draft', {
+            'target': {'ref_id': copy['ref_id'], 'version': 1}, 'targetStatus': 'Active'})
+        assert promoted['outcome'] == 'completed', promoted
+        assert promoted['artifact']['atom_id'] == copy['atom_id']
+        assert not copy_path.exists() and source_path.read_bytes() == original
+        archives = list((role_root / 'archived').glob('CA-R-2@1-*.md'))
+        assert not target.exists() and len(archives) == 1
+        from carrier_aliases import carrier_read_view
+        archived = carrier_read_view(parse_carrier(archives[0].read_bytes(), archives[0]).metadata)
+        assert (archived['atom_id'], archived['version'], archived['status'].casefold()) == ('CA-R-2', 1, 'archived')
+
+
+def load_tests(loader, tests, pattern):
+    return unittest.TestSuite(unittest.FunctionTestCase(test) for name, test in globals().items()
+                              if name.startswith("test_") and callable(test))

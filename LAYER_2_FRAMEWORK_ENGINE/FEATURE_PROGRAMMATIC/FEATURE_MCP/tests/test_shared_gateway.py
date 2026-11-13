@@ -16,7 +16,7 @@ MCP = Path(__file__).resolve().parents[1]
 TOOLS = MCP.parent / "FEATURE_TOOLS"
 sys.path[:0] = [str(MCP), str(TOOLS), str(TOOLS / "VALIDATE_ATOMS")]
 
-from host_runtime_config import load_host_runtime_config  # noqa: E402
+from host_runtime_config import HostRuntimeConfigError, OutsideProjectRootError, load_host_runtime_config  # noqa: E402
 from mcp import types  # noqa: E402
 from mcp.client._memory import InMemoryTransport  # noqa: E402
 from mcp.client.session import ClientSession  # noqa: E402
@@ -101,6 +101,19 @@ class SharedGatewayTests(unittest.IsolatedAsyncioTestCase):
 
     def _gateway(self):
         return SharedGateway(load_host_runtime_config(self.config_path), gateway_factory=_Gateway)
+
+    async def test_project_error_codes_do_not_depend_on_message_wording(self):
+        from shared_gateway import SharedGatewayRefusal
+
+        gateway = self._gateway()
+        for error, expected in (
+            (OutsideProjectRootError("a different explanation"), "outside_project_root"),
+            (HostRuntimeConfigError("outside is mentioned here"), "invalid_project_root"),
+        ):
+            with self.subTest(error=error), patch("shared_gateway.resolve_host_project", side_effect=error):
+                with self.assertRaises(SharedGatewayRefusal) as caught:
+                    gateway._selection(str(self.roots[0]))
+                self.assertEqual(expected, caught.exception.code)
 
     async def test_lifecycle_reuses_selected_project_and_rejects_replaced_root(self):
         from shared_gateway import resolve_host_project

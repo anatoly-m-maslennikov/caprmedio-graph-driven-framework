@@ -1,5 +1,7 @@
 """Remove only verified unused Project-owned noncandidate runtime images."""
 
+# CA-D-564@20
+
 from pathlib import Path
 import re
 import subprocess
@@ -113,13 +115,25 @@ def cleanup_obsolete_images(
     fingerprint: str,
     cleanup: Cleanup,
     runner: Runner | None = None,
+    *,
+    previous_image: str | None = None,
 ) -> None:
     try:
         _discover_images(root, runner, current_image, cleanup)
     except OSError, RuntimeError, ValueError, subprocess.TimeoutExpired:
         cleanup.pending = True
         cleanup.notes.append("Runtime image discovery unavailable; unproven images retained.")
-    for image in sorted(cleanup.images - {current_image}):
+    protected = {current_image}
+    if previous_image is not None and previous_image != current_image:
+        protected.add(previous_image)
+        try:
+            if not _has_owner(image_labels(root, runner, previous_image), cleanup.owner):
+                raise ValueError("Previous image ownership unproven")
+            cleanup.notes.append(f"Image {previous_image} retained: verified Project ownership.")
+        except OSError, RuntimeError, ValueError, subprocess.TimeoutExpired:
+            cleanup.pending = True
+            cleanup.notes.append(f"Image {previous_image} retained: previous image ownership unproven.")
+    for image in sorted(cleanup.images - protected):
         try:
             _remove_image(root, runner, image, current_image, cleanup)
         except OSError, RuntimeError, ValueError, subprocess.TimeoutExpired:

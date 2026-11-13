@@ -1,3 +1,5 @@
+# CA-D-390@28
+
 """Shared metadata reads and atomic artifact writes."""
 
 from __future__ import annotations
@@ -13,6 +15,7 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
 from project_runtime import atomic_tempfile
 from project_selection import bound_selection
+from settings_carrier import read_settings_carrier
 from collections.abc import Mapping
 
 
@@ -27,7 +30,7 @@ def project_identity(root: Path) -> dict[str, dict[str, object]]:
     if not path.is_file() or path.is_symlink():
         raise ValueError(f"Project Settings Carrier is missing or invalid: {SETTINGS_PATH}")
     try:
-        settings = selection.settings if selection is not None else tomllib.loads(path.read_text(encoding="utf-8"))
+        settings = selection.settings if selection is not None else read_settings_carrier(path)
     except (OSError, UnicodeDecodeError, tomllib.TOMLDecodeError) as error:
         raise ValueError(f"invalid Project Settings: {SETTINGS_PATH}") from error
     project = settings.get("project")
@@ -76,7 +79,7 @@ def repository_root(path: Path) -> Path:
 
 def configured_timezone(root: Path) -> dt.tzinfo | None:
     selection = bound_selection(root)
-    settings = selection.settings if selection is not None else tomllib.loads((root / SETTINGS_PATH).read_text(encoding="utf-8"))
+    settings = selection.settings if selection is not None else read_settings_carrier(root / SETTINGS_PATH)
     value = settings.get("artifact_timestamps", {}).get("timezone", "local")
     return _timezone_value(value)
 

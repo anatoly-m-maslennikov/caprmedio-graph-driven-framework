@@ -1,5 +1,5 @@
-// CA-M-466@6
-// CA-M-551@1
+// CA-M-466@9
+// CA-M-551@2
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import { defineConfig } from 'vite';
 

@@ -1,10 +1,11 @@
+# CA-D-282@26
 # CA-D-283@34
 # CA-D-296@33
 # CA-D-461@33
-# CA-D-475@27
-# CA-D-466@26
-# CA-D-565@27
-# CA-D-716@3
+# CA-D-475@28
+# CA-D-466@27
+# CA-D-565@28
+# CA-D-716@4
 
 """Private derivation of a single admitted Atom's Markdown Carrier path.
 
@@ -54,9 +55,12 @@ def _token(value: str) -> str:
 
 def _slug(summary: str) -> str:
     # Refuse cases whose transliteration is not specified by CA-D-282.
-    if not isinstance(summary, str) or not summary.isascii() or not re.fullmatch(r"[A-Za-z0-9]+(?:[ -][A-Za-z0-9]+)*", summary):
+    if not isinstance(summary, str) or not summary.isascii() or not summary.isprintable():
         raise PlacementError("Unsupported Summary serialization")
-    return re.sub(r"[ -]+", "-", summary).lower()
+    slug = re.sub(r"[^A-Za-z0-9]+", "-", summary).strip("-").lower()
+    if not slug:
+        raise PlacementError("Unsupported Summary serialization")
+    return slug
 
 
 def _inside(path: Path, root: Path) -> Path:
@@ -246,7 +250,7 @@ def derive_filename(*, atom_id, version, status, role, summary, row, form=None,
         raise PlacementError("Invalid Tier")
     state = status.casefold() if isinstance(status, str) else None
     marker = atom_id + (f"@{version}-draft" if state == "draft" else "")
-    effective_label = label if label is not None else form
+    effective_label = form if label is None or label == "" else label
     if role == "Plan":
         stem = _plan_placement(marker, effective_label, target_scope, work_sequence)
     else:

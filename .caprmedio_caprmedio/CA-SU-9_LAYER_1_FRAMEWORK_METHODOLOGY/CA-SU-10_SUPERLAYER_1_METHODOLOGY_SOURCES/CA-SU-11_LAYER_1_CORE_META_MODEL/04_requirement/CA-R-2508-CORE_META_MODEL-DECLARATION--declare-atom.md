@@ -11,9 +11,9 @@ context:
     main_subject: CAPRMEDIO_MODEL <+ Atom
   tier: 3
 state:
-  status: Active
-  version: 12
-  updated_at: 2026-11-08 20:06:37 +0400
+  status: active
+  version: 13
+  updated_at: '2026-11-13T07:12:22.116291+00:00'
 destination:
   file:
     name: CA-R-2508-CORE_META_MODEL-DECLARATION--declare-atom.md
@@ -36,26 +36,18 @@ Each Atom instance's outgoing IS_CONTAINED_BY Relation targets the Atom instance
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom;
-
-Atom.*[string,in(Header,Content)]{::2};
-
-Atom ((NARROWER_THAN)) Continuant;
-
+subject_path(address='Atom')
+children(address='Atom', occurrences='2', name_format='string,in(Header,Content)')
+relation(source='Atom', name='NARROWER_THAN', target='Continuant')
 # instances
-Atom//$atom {::1}((IS_CONTAINED_BY));
-
-Atom//$atom {::1}((HAS_ACTIVE_SUBJECT));
-
-Atom//$atom {::0..1}((GOVERNS));
-
-Atom//$atom {::0+}((CONTRIBUTES_TO));
-
-Atom//$atom {::0+}((IS_REPLACEMENT_FOR));
-
-UNIQUE(Atom//$atom, (.Header.Identity.ID, .Header.State.Version));
+relation(source='Atom//$atom', name='IS_CONTAINED_BY', source_count='1')
+relation(source='Atom//$atom', name='HAS_ACTIVE_SUBJECT', source_count='1')
+relation(source='Atom//$atom', name='GOVERNS', source_count='0..1')
+relation(source='Atom//$atom', name='CONTRIBUTES_TO', source_count='0+')
+relation(source='Atom//$atom', name='IS_REPLACEMENT_FOR', source_count='0+')
+unique(population='Atom//$atom', keys=('.Header.Identity.ID', '.Header.State.Version'))
 ```
 
 ## Semantics

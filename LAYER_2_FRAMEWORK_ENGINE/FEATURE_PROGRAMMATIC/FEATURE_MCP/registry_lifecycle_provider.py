@@ -1,16 +1,22 @@
-# CA-R-1105@30
-# CA-M-167@26
+# CA-R-1105@32
+# CA-R-3016@2
+# CA-R-3080@2
+# CA-M-167@27
 # CA-O-10004@3
 
 """Private MCP adapter for the Project Atom Lifecycle backend."""
 from __future__ import annotations
 
 import asyncio
+import threading
 from copy import deepcopy
 from dataclasses import replace
 from functools import partial
 from pathlib import Path
 from weakref import WeakKeyDictionary
+from uuid import uuid4
+
+from runtime_request_context import current_request_context
 
 import anyio
 from mcp import types
@@ -27,7 +33,7 @@ _FIELDS = {'role', 'form', 'scope_unit', 'container', 'summary', 'body', 'label'
            'topics', 'relations', 'priority', 'work_sequence_number',
            'ai_agent_confidence_threshold'}
 _INPUTS = {
-    'atom_lifecycle_create_draft': {'newAtom', 'sourceCurrent', 'changes'},
+    'atom_lifecycle_create_draft': {'newAtom', 'sourceCurrent', 'copyFrom', 'changes'},
     'atom_lifecycle_archive': {'target', 'targets'},
     'atom_lifecycle_change_status': {'target', 'targetStatus'},
     'atom_lifecycle_direct_update': {'target', 'changes'},
@@ -36,7 +42,23 @@ _INPUTS = {
 }
 _EDITABLE = frozenset({'atom_lifecycle_create_draft', 'atom_lifecycle_direct_update', 'atom_lifecycle_update'})
 _SESSION = object()
-_PENDING = WeakKeyDictionary()
+_CONNECTION_IDS = WeakKeyDictionary()
+_PROJECT_RUNS = {}
+_PROJECT_RUNS_LOCK = threading.RLock()
+_RUN_TOOLS = {'lifecycle_run_list', 'lifecycle_run_continue', 'lifecycle_run_cancel'}
+
+
+def live_runs_snapshot(project, session_id=None):
+    with _PROJECT_RUNS_LOCK:
+        return [{'run_id': ident, 'session_id': run['session_id'],
+                 'tool': run['name'], 'status': run['status']}
+                for ident, run in _PROJECT_RUNS.get(project, {}).items()
+                if session_id is None or run['session_id'] == session_id]
+
+
+def _remove_run(runs, run_id):
+    with _PROJECT_RUNS_LOCK:
+        del runs[run_id]
 
 
 def _merge(original, correction):
@@ -63,27 +85,39 @@ def _correctable(name, requested):
     }
 
 
+def _draft_source_corrections(retained, arguments):
+    for field in ('sourceCurrent', 'copyFrom'):
+        old, new = retained.get(field), arguments.get(field)
+        if field == 'copyFrom':
+            old_ref = old.get('ref_id') if isinstance(old, dict) else old
+            new_ref = new.get('ref_id') if isinstance(new, dict) else new
+            if (isinstance(old_ref, str) and isinstance(new_ref, str)
+                    and old_ref.split('@', 1)[0] != new_ref.split('@', 1)[0]):
+                retained.pop('changes', None)
+        if isinstance(old, dict) and isinstance(new, dict) and 'ref_id' in new and new['ref_id'] != old.get('ref_id'):
+            retained.pop(field)
+        elif isinstance(old, str) and isinstance(new, dict) and 'ref_id' not in new:
+            retained[field] = {'ref_id': old}
+    sources = {'newAtom', 'sourceCurrent', 'copyFrom'}
+    selected = sources & arguments.keys()
+    if len(selected) == 1:
+        field = next(iter(selected))
+        changed_source_kind = bool((sources - {field}) & retained.keys())
+        for other in sources - {field}:
+            retained.pop(other, None)
+        if field == 'newAtom' or changed_source_kind:
+            retained.pop('changes', None)
+
+
 def _parameters(name, retained, arguments):
     retained = deepcopy(retained)
     if name == 'atom_lifecycle_create_draft':
-        old, new = retained.get('sourceCurrent'), arguments.get('sourceCurrent')
-        if isinstance(old, dict) and isinstance(new, dict) and 'ref_id' in new and new['ref_id'] != old.get('ref_id'):
-            retained.pop('sourceCurrent')
-        elif isinstance(old, str) and isinstance(new, dict) and 'ref_id' not in new:
-            retained['sourceCurrent'] = {'ref_id': old}
-    if (name == 'atom_lifecycle_create_draft' and 'newAtom' in retained
-            and ('sourceCurrent' in retained or 'changes' in retained)):
-        selected = {'newAtom', 'sourceCurrent'} & arguments.keys()
-        if selected == {'newAtom'}:
-            retained.pop('sourceCurrent', None)
-            retained.pop('changes', None)
-        elif selected == {'sourceCurrent'}:
-            retained.pop('newAtom', None)
+        _draft_source_corrections(retained, arguments)
     params = _merge(retained, {key: value for key, value in arguments.items() if key not in _FIELDS})
     logical = {key: value for key, value in arguments.items() if key in _FIELDS}
     if logical:
         group = ('newAtom' if name == 'atom_lifecycle_create_draft'
-                 and ('newAtom' in params or 'sourceCurrent' not in params) else 'changes')
+                 and ('newAtom' in params or not {'sourceCurrent', 'copyFrom'} & params.keys()) else 'changes')
         existing = params.get(group)
         params[group] = _merge(existing if isinstance(existing, dict) else {}, logical)
     return params
@@ -97,20 +131,6 @@ def _take_pending(name, state, arguments):
         # A new source selection must not inherit another Atom's changes or pin.
         return _parameters(name, {}, arguments), None
     return params, source
-
-
-def _cancel_pending(arguments, state):
-    cancel = arguments.pop('cancel', False)
-    if not isinstance(cancel, bool) or (cancel and arguments):
-        return {'status': 'failed', 'errors': [{'code': 'invalid_input', 'field': 'cancel',
-                 'message': 'Use cancel=true without other fields.'}]}
-    if not cancel:
-        return None
-    if state['pending'] is None:
-        return {'status': 'failed', 'errors': [{'code': 'no_pending_input', 'field': 'cancel',
-                 'message': 'No input is pending for this tool.'}]}
-    state.update(pending=None, source=None, declaration_digest=None)
-    return {'status': 'cancelled'}
 
 
 def _input_correction(name, value, params, source, state, declaration_digest):
@@ -145,7 +165,9 @@ def _result(value, *, batch=False):
                   'failed_action', 'unrun_actions')
         workflow = {key: value[key] for key in fields if key in value}
     if value.get('outcome') == 'completed' and not value.get('errors'):
-        return {'status': 'completed', **workflow}
+        if len(workflow.get('action_results', ())) > 1:
+            return {'status': 'completed', **workflow}
+        return {'status': 'completed'}
     errors = value.get('errors') or [
         {'code': 'invalid_input', 'field': field, 'message': detail.get('error')}
         for field, detail in value.get('requested_input', {}).items()
@@ -208,47 +230,133 @@ class LifecycleProvider:
         session = getattr(context, 'session', None)
         if not isinstance(session, ServerSession):
             raise ValueError('Lifecycle requires an MCP ServerSession')
-        # SDK ServerSession is request-scoped; its Connection is transport-scoped.
         connection = getattr(session, '_connection', None)
         if not isinstance(connection, Connection):
             raise ValueError('Lifecycle requires an MCP connection')
-        return {**arguments, _SESSION: connection}
+        request = current_request_context()
+        session_id = request.session_id if request else None
+        if session_id is None:
+            session_id = _CONNECTION_IDS.setdefault(connection, uuid4().hex)
+        return {**arguments, _SESSION: (session_id, request is None or request.session_id is None)}
 
     async def call(self, name, arguments):
-        if name not in _INPUTS:
+        if name not in _INPUTS and name not in _RUN_TOOLS:
             raise ValueError('Unknown lifecycle Tool')
         arguments = dict(arguments)
-        connection = arguments.pop(_SESSION)
-        projects = _PENDING.setdefault(connection, {})
-        tools = projects.setdefault(self.project, {})
-        state = tools.setdefault(name, {'lock': asyncio.Lock(), 'pending': None, 'source': None})
-        async with state['lock']:
-            cancelled = _cancel_pending(arguments, state)
-            if cancelled is not None:
-                return cancelled
-            try:
-                with span('refresh_project', tool=name, selection=self.selection):
-                    selection = await anyio.to_thread.run_sync(self._select_project)
-            except (OSError, RuntimeError, ValueError):
-                state.update(pending=None, source=None, declaration_digest=None)
-                return {'status': 'failed', 'effects': [], 'warnings': [],
-                        'errors': [{'code': 'source_selection_failed',
-                                    'message': 'Current Project declarations are unavailable or invalid.'}]}
-            if state['pending'] is not None and state['declaration_digest'] != selection.declaration_digest:
-                state.update(pending=None, source=None, declaration_digest=None)
-                return {'status': 'failed', 'effects': [], 'warnings': [],
-                        'errors': [{'code': 'source_changed',
-                                    'message': 'Project declarations changed while input was pending.'}]}
-            batch = name in {'atom_lifecycle_archive', 'atom_lifecycle_promote_draft'} and 'targets' in arguments
-            if batch:
-                state.update(pending=None, source=None, declaration_digest=None)
-            params, source = _take_pending(name, state, arguments)
+        session_id, legacy = arguments.pop(_SESSION)
+        runs = _PROJECT_RUNS.setdefault(self.project, {})
+        if name == 'lifecycle_run_list':
+            project_wide = arguments.get('project_wide', False)
+            if set(arguments) - {'project_wide'} or not isinstance(project_wide, bool):
+                return self._invalid('project_wide', 'Expected a boolean.')
+            return {'runs': live_runs_snapshot(self.project, None if project_wide else session_id)}
+        if legacy and name in _INPUTS:
+            waiting = [ident for ident, item in runs.items() if item['session_id'] == session_id
+                       and item['name'] == name and item['status'] == 'needs_input']
+            cancel = arguments.pop('cancel', False)
+            if not isinstance(cancel, bool) or (cancel and arguments):
+                return self._invalid('cancel', 'Use cancel=true without other fields.')
+            if cancel:
+                if len(waiting) != 1:
+                    return {'status': 'failed', 'errors': [{'code': 'no_pending_input', 'field': 'cancel',
+                            'message': 'No unique input is pending for this tool.'}]}
+                _remove_run(runs, waiting[0])
+                return {'status': 'cancelled'}
+            if len(waiting) == 1:
+                if 'targets' in arguments and name in {'atom_lifecycle_archive', 'atom_lifecycle_promote_draft'}:
+                    _remove_run(runs, waiting[0])
+                else:
+                    arguments = {'run_id': waiting[0], 'inputs': arguments}
+                    name = 'lifecycle_run_continue'
+        continuing = name in {'lifecycle_run_continue', 'lifecycle_run_cancel'}
+        if continuing:
+            run_id = arguments.pop('run_id', None)
+            run = runs.get(run_id) if isinstance(run_id, str) else None
+            if run is None or run['status'] != 'needs_input':
+                return self._invalid('run_id', 'Unknown, terminal, or unavailable Run.')
+            if name == 'lifecycle_run_cancel':
+                if arguments:
+                    return self._invalid(next(iter(arguments)), 'Unexpected field.')
+                _remove_run(runs, run_id)
+                return {'status': 'cancelled'}
+            corrections = arguments.pop('inputs', {})
+            if arguments or not isinstance(corrections, dict):
+                return self._invalid('inputs', 'Expected an object of correction fields.')
+            name = run['name']
+            arguments = corrections
+        else:
+            run_id = uuid4().hex
+            run = {'name': name, 'session_id': session_id, 'status': 'running',
+                   'pending': None, 'source': None, 'declaration_digest': None, 'targets': set()}
+            with _PROJECT_RUNS_LOCK:
+                runs[run_id] = run
+        unknown = set(arguments) - _INPUTS[name] - (_FIELDS if name in _EDITABLE else set())
+        valid_arguments = {k: v for k, v in arguments.items() if k not in unknown}
+        previous = {key: run[key] for key in ('pending', 'source', 'targets')}
+        params, source = _take_pending(name, run, valid_arguments)
+        targets = self._targets(name, params)
+        if any(targets & other['targets'] for ident, other in runs.items() if ident != run_id):
+            if continuing:
+                run.update(previous)
+            else:
+                _remove_run(runs, run_id)
+            return {'status': 'blocked', 'effects': [], 'warnings': [],
+                    'errors': [{'code': 'live_run_conflict', 'message': 'A live Run already targets this Atom.'}]}
+        run['targets'] = targets
+        if unknown:
+            with _PROJECT_RUNS_LOCK:
+                run.update(status='needs_input', pending=params, source=source)
+            return {'status': 'needs_input', 'run_id': run_id,
+                    'requested_input': {}, 'errors': [{'code': 'invalid_input', 'field': k,
+                    'message': 'Unknown field.'} for k in sorted(unknown)]}
+        with _PROJECT_RUNS_LOCK:
+            run['status'] = 'running'
+        try:
+            with span('refresh_project', tool=name, selection=self.selection):
+                selection = await anyio.to_thread.run_sync(self._select_project)
+        except (OSError, RuntimeError, ValueError):
+            _remove_run(runs, run_id)
+            return {'status': 'failed', 'effects': [], 'warnings': [],
+                    'errors': [{'code': 'source_selection_failed',
+                                'message': 'Current Project declarations are unavailable or invalid.'}]}
+        except BaseException:
+            _remove_run(runs, run_id)
+            raise
+        if run['declaration_digest'] is not None and run['declaration_digest'] != selection.declaration_digest:
+            _remove_run(runs, run_id)
+            return {'status': 'failed', 'effects': [], 'warnings': [],
+                    'errors': [{'code': 'source_changed',
+                                'message': 'Project declarations changed while input was pending.'}]}
+        batch = name in {'atom_lifecycle_archive', 'atom_lifecycle_promote_draft'} and 'targets' in params
+        try:
             value = await self._run(selection, name, params, source)
-            if batch:
-                return _result(value, batch=True)
-            if value.get('outcome') != 'needs_input' or value.get('effects'):
-                return _result(value)
-            return _input_correction(name, value, params, source, state, selection.declaration_digest)
+        except BaseException:
+            _remove_run(runs, run_id)
+            raise
+        if batch or value.get('outcome') != 'needs_input' or value.get('effects'):
+            _remove_run(runs, run_id)
+            return _result(value, batch=batch)
+        result = _input_correction(name, value, params, source, run, selection.declaration_digest)
+        if result['status'] == 'needs_input':
+            with _PROJECT_RUNS_LOCK:
+                run['status'] = 'needs_input'
+            result['run_id'] = run_id
+        else:
+            _remove_run(runs, run_id)
+        return result
+
+    @staticmethod
+    def _invalid(field, message):
+        return {'status': 'failed', 'errors': [{'code': 'invalid_input', 'field': field, 'message': message}]}
+
+    @staticmethod
+    def _targets(name, params):
+        selector = 'sourceCurrent' if name in {'atom_lifecycle_update', 'atom_lifecycle_create_draft'} else 'target'
+        selectors = [params.get(selector)]
+        if isinstance(params.get('targets'), list):
+            selectors.extend(item.get('target') for item in params['targets'] if isinstance(item, dict))
+        refs = [item.get('ref_id') if isinstance(item, dict) else item for item in selectors]
+        return {ref.split('@', 1)[0] for ref in refs if isinstance(ref, str) and ref}
 
     async def _run(self, selection, name, params, source):
         execute = backend.execute if source is None else partial(backend.execute, pending_source=source)
@@ -273,12 +381,15 @@ def create_provider(_root, gateway):
 def tool_descriptors():
     def properties(name, fields):
         result = {key: {} for key in sorted(fields | (_FIELDS if name in _EDITABLE else set()))}
-        result['cancel'] = {'type': 'boolean', 'description': 'Cancel this tool’s pending input without executing it.'}
+        result['cancel'] = {'type': 'boolean', 'description': 'For legacy clients, cancel the unique pending request.'}
         if name == 'atom_lifecycle_create_draft':
             result['sourceCurrent'] = {'description': 'An Atom ID string or {"ref_id": "CA-R-123", '
                                        '"version": 2}, with optional positive integer version. '
                                        'Without a version, select Current. An exact version can select '
                                        'Current, Archived or Draft.'}
+            result['copyFrom'] = {'description': 'Copy the selected Atom as an independent Draft with a new '
+                                  'Atom ID and Version 1. Select Current by ID, or give an exact Version '
+                                  'or Draft reference. Use changes for fields to update.'}
         if 'targets' in fields:
             item_properties = {'target': {'type': 'object'}}
             if name == 'atom_lifecycle_promote_draft':
@@ -293,6 +404,13 @@ def tool_descriptors():
                                 if 'targets' in fields else
                                 'Execute a Project Atom Lifecycle operation. Missing or invalid fields are returned for correction.'),
         input_schema={'type': 'object', 'properties': properties(name, fields),
-                      'additionalProperties': False},
-    ) for name, fields in _INPUTS.items())
+                      'additionalProperties': True},
+    ) for name, fields in _INPUTS.items()) + (
+        types.Tool(name='lifecycle_run_list', description='List live Runs in this session or Project.',
+                   input_schema={'type': 'object', 'properties': {'project_wide': {'type': 'boolean'}}, 'additionalProperties': False}),
+        types.Tool(name='lifecycle_run_continue', description='Continue a waiting Run by exact ID.',
+                   input_schema={'type': 'object', 'properties': {'run_id': {'type': 'string'}, 'inputs': {'type': 'object'}}, 'required': ['run_id', 'inputs'], 'additionalProperties': False}),
+        types.Tool(name='lifecycle_run_cancel', description='Cancel a waiting Run by exact ID.',
+                   input_schema={'type': 'object', 'properties': {'run_id': {'type': 'string'}}, 'required': ['run_id'], 'additionalProperties': False}),
+    )
 

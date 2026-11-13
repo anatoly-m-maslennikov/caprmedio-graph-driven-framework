@@ -144,6 +144,41 @@ class CurrentEntitySourcesTests(unittest.TestCase):
         with self.assertRaises(CarrierError):
             read_current_model_carriers(self.selected, self.repository)
 
+    def test_preview_replaces_a_pinned_current_declaration_with_two_draft_sources(self):
+        current = self.write("CA-R-9001", "Original")
+        other = self.write("CA-R-9002", "Unchanged")
+        current.write_text(current.read_text().replace("status: Active\n", "status: Active\nform: Declaration\n"))
+        draft_paths = [
+            self.write(f"CA-R-900{number}", f"Replacement {number}", version=2, status="Draft", folder="000_draft")
+            for number in (3, 4)
+        ]
+        entries = []
+        for draft in draft_paths:
+            reference = f"{draft.stem}@2-draft"
+            draft.write_text(draft.read_text().replace("status: Draft\n",
+                                                      f"status: Draft\nform: Declaration\nref_id: {reference}\n"))
+            entries.append({
+                "source": current.relative_to(self.repository).as_posix(),
+                "source_sha256": hashlib.sha256(current.read_bytes()).hexdigest(),
+                "draft": draft.relative_to(self.repository).as_posix(),
+                "draft_ref": reference,
+            })
+        manifest = self.repository / "preview.json"
+        manifest.write_text(json.dumps(entries))
+
+        baseline = read_current_carriers(self.selected, self.repository)
+        preview = read_current_carriers(self.selected, self.repository, model_draft_manifest=manifest)
+
+        self.assertEqual([current.stem, other.stem], [row["source"]["atom_id"] for row in baseline])
+        self.assertEqual([other.stem, *(draft.stem for draft in draft_paths)],
+                         [row["source"]["atom_id"] for row in preview])
+        self.assertEqual([draft.read_bytes() for draft in draft_paths], [row["raw"] for row in preview[1:]])
+        self.assertEqual(["Draft", "Draft"], [row["read_view"]["status"] for row in preview[1:]])
+        entries[0]["source_sha256"] = "stale"
+        manifest.write_text(json.dumps(entries))
+        with self.assertRaisesRegex(ValueError, "predecessor is absent or has changed"):
+            read_current_carriers(self.selected, self.repository, model_draft_manifest=manifest)
+
     def test_reader_checks_existing_file_size_ceiling_before_parsing(self):
         self.write("CA-R-9001", "Too Large")
 

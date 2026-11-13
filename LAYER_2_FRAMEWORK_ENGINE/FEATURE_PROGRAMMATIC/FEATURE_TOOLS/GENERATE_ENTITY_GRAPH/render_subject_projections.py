@@ -43,14 +43,21 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("source_folder", type=Path, help="Explicit current Atom selection; relative to the repository")
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--view", choices=VIEWS, required=True)
+    parser.add_argument("--model-draft-manifest", type=Path,
+                        help="Preview Model Drafts over their exact Current predecessors")
     args = parser.parse_args(argv)
     repository = args.repository.resolve()
     source = (repository / args.source_folder).absolute()
     try:
         if not source.resolve().is_relative_to(repository):
             raise ValueError("Source folder must be inside the selected repository")
-        carriers = read_current_carriers(source, repository)
-        sys.stdout.write(render_view(carriers, args.view))
+        carriers = read_current_carriers(
+            source, repository, model_draft_manifest=args.model_draft_manifest,
+        )
+        rendered = render_view(carriers, args.view)
+        if args.model_draft_manifest is not None:
+            sys.stdout.write("> **Draft preview.** Model declarations are selected by the supplied manifest.\n\n")
+        sys.stdout.write(rendered)
     except (OSError, ValueError, RuntimeError, KeyError, TypeError) as error:
         print(f"Cannot render Subject projection: {error}", file=sys.stderr)
         return 1

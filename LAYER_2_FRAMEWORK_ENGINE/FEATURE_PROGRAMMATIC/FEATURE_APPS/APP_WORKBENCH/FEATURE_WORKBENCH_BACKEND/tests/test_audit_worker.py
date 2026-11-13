@@ -3,6 +3,7 @@ from pathlib import Path
 import sys
 import threading
 import time
+from types import SimpleNamespace
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[3]))
@@ -41,6 +42,54 @@ class Snapshot:
 
 
 class AuditWorkerTests(unittest.TestCase):
+    def test_delta_snapshot_captures_only_selected_sources_and_parent_chain(self):
+        root = Path('/project')
+        child, parent, grandparent, unrelated = (root / name for name in ('child', 'parent', 'grandparent', 'unrelated'))
+        rows = {
+            child: {'header_json': {'container': {'atom': 'P'}}},
+            parent: {'header_json': {'container': {'atom': 'G'}}, 'status_group': 'Current'},
+            grandparent: {'header_json': {'container': {'scope_unit': 'SU'}}, 'status_group': 'Current'},
+            unrelated: {'header_json': {}},
+        }
+        batches = []
+        def paths_by_reference(refs):
+            batches.append(set(refs))
+            return {ref: {'P': {parent}, 'G': {grandparent}}.get(ref, set()) for ref in refs}
+        reader = SimpleNamespace(
+            root=root, control_root=root, _source_paths=set(rows),
+            _cached={path: (None, row) for path, row in rows.items()}, _diagnostics={},
+            _references=SimpleNamespace(
+                paths_by_reference=paths_by_reference,
+                accepted_paths=lambda paths: set(rows) & paths,
+            ),
+            _declarations=SimpleNamespace(as_structure=lambda: {'scope_units': []}, root=SimpleNamespace(name='SU')),
+            _project_scope_id='SU', content_schema=None, _role_folders=None, _audit_model=None,
+            _content_invalid=set(), _header_invalid=set(),
+        )
+        snapshot = AuditSnapshot.capture(reader, {'child', 'deleted'})
+        self.assertEqual({child}, snapshot.source_paths)
+        self.assertEqual({child, parent, grandparent}, set(snapshot.cached))
+        self.assertEqual([{'P'}, {'G'}], batches)
+        rows[parent]['status_group'] = 'Archived'
+        self.assertEqual('Current', snapshot.current_row('P')['status_group'])
+        self.assertEqual('Current', snapshot.current_row('G')['status_group'])
+
+    def test_capture_paths_includes_inflight_delta(self):
+        worker = AuditWorker(Store())
+        started, release = threading.Event(), threading.Event()
+        try:
+            worker.invalidate()
+            worker.submit(Snapshot('old', ['a'], started, release), {'a'})
+            self.assertTrue(started.wait(2))
+            worker.invalidate()
+            self.assertEqual({'a', 'b'}, worker.capture_paths({'b'}))
+            worker.submit(Snapshot('new', ['a', 'b']), {'b'})
+            release.set()
+            self.assertTrue(worker.wait(5))
+        finally:
+            release.set()
+            worker.close()
+
     def test_failure_is_visible_and_later_submissions_do_not_raise(self):
         class FailingSnapshot(Snapshot):
             def collect(self, rows, paths):

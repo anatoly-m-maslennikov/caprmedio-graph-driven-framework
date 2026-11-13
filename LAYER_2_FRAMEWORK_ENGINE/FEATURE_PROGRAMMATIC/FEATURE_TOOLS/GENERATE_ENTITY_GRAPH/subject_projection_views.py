@@ -195,6 +195,7 @@ def _render_property(lines: list[str], property: Mapping[str, Any], level: int) 
     identity = str(property.get("identity", "[missing Property identity]"))
     relative = str(property.get("relative_name", identity))
     tags = " ".join(tag for tag in ("[inherited]" if property.get("inherited") else "",
+                                    "[overridden]" if property.get("overridden") else "",
                                     "[multiple applicable declarations]" if property.get("multiple_applicable") else "") if tag)
     tags = f" {tags}" if tags else ""
     refs = _refs(property.get("declaration_refs"))
@@ -223,7 +224,8 @@ def _render_property(lines: list[str], property: Mapping[str, Any], level: int) 
 
 
 def _render_properties(lines: list[str], data: Mapping[str, Any], level: int) -> None:
-    lines.extend(["", f"## {'Direct' if level == 2 else 'Effective'} properties", ""])
+    heading = "Property declarations" if level == 4 else "Direct properties" if level == 2 else "Effective properties"
+    lines.extend(["", f"## {heading}", ""])
     shown = False
     for entity in _entities(data):
         properties = _properties(entity, level)
@@ -233,7 +235,12 @@ def _render_properties(lines: list[str], data: Mapping[str, Any], level: int) ->
         lines.extend([f"### `{entity['identity']}`", ""])
         refs = _refs(entity.get("declaration_refs"))
         lines.append("- Declaration sources: " + (", ".join(refs) if refs else "[missing Current Requirement/Form Declaration]"))
+        overridden = {old.get("identity")
+                      for rules in entity.get("property_rule_origins", {}).values()
+                      for rule in rules for old in rule.get("replaces", [])} if level == 4 else set()
         for property in properties:
+            if property.get("identity") in overridden:
+                property = {**property, "overridden": True}
             _render_property(lines, property, level)
         lines.append("")
     if not shown:
@@ -272,6 +279,68 @@ def _render_primary_claims(lines: list[str], data: Mapping[str, Any]) -> None:
         lines.append("")
 
 
+def _render_rule_origins(lines: list[str], data: Mapping[str, Any]) -> None:
+    lines.extend(["", "## Entity rule origins", ""])
+    for entity in _entities(data):
+        properties = entity.get("property_rule_origins", {})
+        relations = entity.get("relation_rule_origins", {})
+        if not any(properties.values()) and not any(relations.values()):
+            continue
+        lines.extend([f"### `{entity['identity']}`", ""])
+        for group, label in (("declared_here", "Declared here"), ("inherited", "Inherited"),
+                             ("overridden_here", "Overridden here")):
+            property_rows = properties.get(group, [])
+            relation_rows = relations.get(group, [])
+            if not property_rows and not relation_rows:
+                continue
+            lines.extend([f"#### {label}", ""])
+            for row in property_rows:
+                refs = ", ".join(_refs(row.get("declaration_refs"))) or "missing Declaration data"
+                lines.append(f"- Property `{row['identity']}` — {refs}")
+                for old in row.get("replaces", []):
+                    old_refs = ", ".join(_refs(old.get("declaration_refs"))) or "missing Declaration data"
+                    lines.append(f"  - Replaces rule from `{old['origin_entity']}` — {old_refs}")
+                    _render_contracts(lines, old, _refs(old.get("declaration_refs")))
+            for row in relation_rows:
+                refs = ", ".join(_refs(row.get("declaration_refs"))) or "missing Declaration data"
+                derivation = row.get("derivation") or "unclassified"
+                lines.append(f"- Relation `{row['relation']}` ({derivation}, {row['level']}, {row['direction']}) — {refs}")
+                if row.get("expression") and "\n" not in row["expression"]:
+                    lines.append(f"  - Rule: `{row['expression']}`")
+                elif row.get("contract"):
+                    lines.append(f"  - Contract: `{row['contract']}`")
+                if row["origin_entity"] != entity["identity"]:
+                    lines.append(f"  - Origin: `{row['origin_entity']}`")
+                for old in row.get("replaces", []):
+                    old_refs = ", ".join(_refs(old.get("declaration_refs"))) or "missing Declaration data"
+                    lines.append(f"  - Replaces rule from `{old['origin_entity']}` — {old_refs}")
+                    contract = old.get("contract")
+                    if isinstance(contract, Mapping):
+                        expression = contract.get("expression")
+                        if isinstance(expression, str) and "\n" not in expression:
+                            lines.append(f"    - Rule: `{expression}`")
+                        else:
+                            lines.append(f"    - Contract: `{contract}`")
+            lines.append("")
+
+
+def _render_relation_declarations(lines: list[str], data: Mapping[str, Any]) -> None:
+    relations = data.get("relation_declarations", [])
+    if not relations:
+        return
+    lines.extend(["", "## Relation declarations", ""])
+    for classification in ("Direct", "Derived", None):
+        group = [row for row in relations if row.get("derivation") == classification]
+        if not group:
+            continue
+        lines.extend([f"### {classification or 'Unclassified'}", ""])
+        for row in group:
+            refs = ", ".join(_refs(row.get("declaration_refs"))) or "missing Declaration data"
+            direct = ", ".join(f"`{name}`" for name in row.get("direct_relations", []))
+            lines.append(f"- `{row['name']}` — {refs}" + (f"; inverse of {direct}" if direct else ""))
+        lines.append("")
+
+
 def _render_diagnostics(lines: list[str], data: Mapping[str, Any]) -> None:
     values = [*data.get("diagnostics", []), *data["tree"].get("diagnostics", [])]
     if not values:
@@ -301,6 +370,8 @@ def render_primary_projection(data: Mapping[str, Any], level: int) -> str:
         _render_properties(lines, data, level)
     if level == 4:
         _render_primary_claims(lines, data)
+        _render_rule_origins(lines, data)
+        _render_relation_declarations(lines, data)
     _render_diagnostics(lines, data)
     return "\n".join(lines).rstrip() + "\n"
 

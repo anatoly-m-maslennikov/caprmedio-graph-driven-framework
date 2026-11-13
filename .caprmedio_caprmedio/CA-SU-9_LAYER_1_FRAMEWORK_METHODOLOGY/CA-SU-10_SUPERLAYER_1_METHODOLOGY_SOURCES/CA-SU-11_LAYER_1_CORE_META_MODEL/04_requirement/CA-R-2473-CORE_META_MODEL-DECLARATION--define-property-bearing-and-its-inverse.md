@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL <+ Relation//IS_PROPERTY_OF
 tier: 3
-status: Active
-version: 5
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 6
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-2473-CORE_META_MODEL-DECLARATION--define-property-bearing-and-its-inverse.md
@@ -35,14 +35,17 @@ In `X.Y`, Y IS_PROPERTY_OF X; traversal runs from bearer to Property.
 IS_PROPERTY_OF relates Property to immediate bearer.
 ### Formal Claim
 
-```CFEL
-# model
-$property ((IS_PROPERTY_OF)) $bearer;
+```python
+from caprmedio.formal_claims import declare_relation
 
-Relation//IS_PROPERTY_OF ((HAS_INVERSE)) Relation//HAS_PROPERTY;
-
-alias(Relation//IS_PROPERTY_OF) == ".";
-
-Relation//IS_PROPERTY_OF ((HAS_CLASSIFICATION)) Derivation == Direct
+declare_relation(
+    relation_name='IS_PROPERTY_OF',
+    source_endpoint={'level': 'model_entities_or_instances', 'dependency': 'property'},
+    target_endpoint={'level': 'model_entities_or_instances'},
+    inverse_alias='HAS_PROPERTY',
+    written_alias='.',
+    targets_per_source=1,
+    acyclic=True,
+)
 ```
 

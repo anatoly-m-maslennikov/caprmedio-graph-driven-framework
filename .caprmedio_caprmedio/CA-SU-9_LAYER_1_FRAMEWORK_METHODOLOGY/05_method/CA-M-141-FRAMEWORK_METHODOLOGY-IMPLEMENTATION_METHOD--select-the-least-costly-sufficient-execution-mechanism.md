@@ -6,15 +6,12 @@ container:
 role: Method
 form: Implementation Method
 topics:
-  main_subject: "Entity/Aspect/Engineering/Operation/Execution Control"
+  main_subject: Entity/Aspect/Engineering/Operation/Execution Control
 tier: 1
-relations:
-  child_of:
-  - CA-M-098
-  - CA-M-099
-status: Active
-version: 19
-updated_at: 2026-10-29 09:30:11 +0400
+relations: {}
+status: active
+version: 21
+updated_at: '2026-11-12T13:26:36.262684+00:00'
 carrier_destination:
   file:
     name: CA-M-141-FRAMEWORK_METHODOLOGY-IMPLEMENTATION_METHOD--select-the-least-costly-sufficient-execution-mechanism.md
@@ -35,6 +32,8 @@ Select the least costly sufficient execution mechanism
 Engineering execution-mechanism selection.
 
 ## Claim
+
+### Prose Claim
 
 For one requested operation, first establish the required outcome, applicable
 non-negotiable constraints, available source inputs, acceptance conditions,

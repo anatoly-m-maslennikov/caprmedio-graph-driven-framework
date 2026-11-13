@@ -1,5 +1,5 @@
 // @ts-nocheck
-// CA-M-468@7
+// CA-M-468@8
 export function statusCompletion(text, cursor, schema, tokenEnd) {
   const match = /"(header(?:\.[a-z0-9_]+)*\.status)"\s*=\s*'((?:[^']|'')*)$/.exec(text.slice(0, cursor));
   if (!match) return null;

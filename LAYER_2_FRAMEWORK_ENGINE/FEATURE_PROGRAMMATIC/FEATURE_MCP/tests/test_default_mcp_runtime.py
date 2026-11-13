@@ -63,7 +63,7 @@ class DefaultMCPRuntimeTests(unittest.IsolatedAsyncioTestCase):
                 self.assertFalse(gateway.ready)
                 await gateway.initialize()
                 self.assertTrue(gateway.ready)
-                self.assertEqual(35, len(gateway.tools))
+                self.assertEqual(38, len(gateway.tools))
                 await gateway.close()
                 self.assertFalse(gateway.ready)
 

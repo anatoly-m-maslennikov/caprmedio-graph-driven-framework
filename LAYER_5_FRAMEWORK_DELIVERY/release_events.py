@@ -1,5 +1,7 @@
 """Plain, nonblocking Journal recording for host release invocations."""
 
+# CA-M-347@19
+
 from collections.abc import Callable
 from pathlib import Path
 

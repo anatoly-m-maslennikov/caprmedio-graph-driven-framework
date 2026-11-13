@@ -13,10 +13,9 @@ version: 3
 updated_at: 2026-11-05 03:32:34 +0400
 carrier_destination:
   file:
-    name: CA-R-2530@3-draft-DECLARATION--declare-scope-unit-path.md
+    name: CA-R-2530@3-draft-CORE_META_MODEL-DECLARATION--declare-scope-unit-path.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
-
 ## Summary
 
 Declare Scope Unit Path
@@ -30,10 +29,18 @@ Each Scope Unit Path is exactly one string. The Project root has Path `/`. For e
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Scope Unit.Path{::1} :: [string]{::1};
+from caprmedio.formal_claims import declare_entity
 
-Scope Unit.Path.*[]{::0}
+declare_entity(
+    entity_name='Path',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Scope Unit',
+    property_occurrence_cardinality=1,
+    value_cardinality=1,
+    value_format='str',
+    dependent_property_cardinality=0,
+)
 ```
 

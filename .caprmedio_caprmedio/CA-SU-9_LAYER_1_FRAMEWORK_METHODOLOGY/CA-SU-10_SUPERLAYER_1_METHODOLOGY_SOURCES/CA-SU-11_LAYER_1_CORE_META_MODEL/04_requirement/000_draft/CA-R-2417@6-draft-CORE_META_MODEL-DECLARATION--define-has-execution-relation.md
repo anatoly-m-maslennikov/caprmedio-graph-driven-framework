@@ -13,7 +13,7 @@ version: 6
 updated_at: 2026-11-04 16:07:35 +0400
 carrier_destination:
   file:
-    name: CA-R-2417@6-draft-DECLARATION--define-has-execution-relation.md
+    name: CA-R-2417@6-draft-CORE_META_MODEL-DECLARATION--define-has-execution-relation.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 ## Summary
@@ -24,18 +24,14 @@ Define HAS_EXECUTION Relation
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Relation//HAS_EXECUTION <((HAS_INVERSE)) Relation//IS_EXECUTION_OF;
-
-Relation//HAS_EXECUTION ((HAS_CLASSIFICATION)) Derivation == Derived;
-
+relation(source='Relation//HAS_EXECUTION', name='HAS_INVERSE', target='Relation//IS_EXECUTION_OF', reverse=True)
+classify(address='Relation//HAS_EXECUTION', axis='Derivation', value='Derived', notation='relation')
 # instances
-Workflow//$workflow ((HAS_EXECUTION)) Workflow Run//$workflow_run;
-
-Step//$step ((HAS_EXECUTION)) Step Run//$step_run;
-
-Action//$action ((HAS_EXECUTION)) Action Run//$action_run
+relation(source='Workflow//$workflow', name='HAS_EXECUTION', target='Workflow Run//$workflow_run')
+relation(source='Step//$step', name='HAS_EXECUTION', target='Step Run//$step_run')
+relation(source='Action//$action', name='HAS_EXECUTION', target='Action Run//$action_run')
 ```
 
 ## Semantics

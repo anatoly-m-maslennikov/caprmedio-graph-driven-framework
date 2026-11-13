@@ -6,11 +6,12 @@ container:
 role: Requirement
 form: Rule
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form := Declaration)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Requirement)/(.Header.Context.Form
+    := Declaration)
 tier: 3
-status: Active
-version: 6
-updated_at: 2026-11-03 23:25:51 +0400
+status: active
+version: 7
+updated_at: '2026-11-13T01:37:28.860798+00:00'
 carrier_destination:
   file:
     name: CA-R-2486-CORE_META_MODEL-RULE--declare-relation-endpoints.md
@@ -26,12 +27,12 @@ Declare Relation endpoints
 
 ### Prose Claim
 
-Each graph Relation, direct or derived, has exactly one Requirement / Declaration in the selected effective MODEL. A direct Relation Declaration owns its shared meaning, allowed Host and Target signature, endpoint conditions, Direct classification and each declared inverse/counterpart binding. Each derived Relation retains its own Declaration. For a derived inverse bound by HAS_INVERSE, infer its reversed endpoints, shared meaning, Derived classification and source binding from the direct Declaration. Its Formal Claim contains the reverse written view of that HAS_INVERSE binding and its own lexical alias when one exists; do not duplicate the shared meaning on the inverse side. A qualified or other non-inverse derived view instead retains its own source relation, endpoint transformation and qualification; IS_DERIVED_RELATION_OF alone does not imply endpoint reversal or an unconditional inverse. Relation-object endpoints use qualified addresses `Relation//NAME`; the middle `((HAS_INVERSE))` is the graph Relation operator. An endpoint reference does not execute that Relation as an operator.
+Each canonical Relation and each qualified derived Relation has exactly one Requirement Declaration in the effective MODEL. The canonical Declaration owns its shared meaning, allowed Host and Target signature, endpoint conditions, Direct classification and any inverse alias binding. The inverse alias uses that Declaration as its source. Its Derived classification, reversed endpoints and lexical alias follow from the declared binding. A qualified derived Relation keeps its own Declaration for its source, endpoint transformation and qualification.
 
 A Relation endpoint is a declared model Entity or declared instance, including Carrier and CFEL descriptors. Literal values and operator glyphs are not graph endpoints. Untyped endpoint-signature variables range over this declared entity-or-instance universe and exclude literals. Typed selectors retain their declared populations and conditions. A signature constrains admissible links; it does not create links. An unresolved endpoint population is a diagnostic, not proof of an empty or valid signature. NARROWER_THAN is restricted to MODEL kinds; this rule introduces no further cross-layer endpoint restriction.
 
 `alias(Relation//RELATION_NAME) == "token"` binds one declared Relation's exact name to one nonempty notation token. It is lexical metadata, not a graph Relation between a literal and a Node, and does not equate Relation identities. A Relation has at most one authored alias. No alias means full named notation. Resolve names exactly; case folding and undeclared name synonyms are not admitted. Reject unknown names, conflicting aliases and ambiguous token bindings in the selected effective MODEL. Directional reading follows the owning Declaration; an alias does not authorize a new direction.
 
-The direct Declaration records `Relation//DIRECT ((HAS_INVERSE)) Relation//DERIVED`, equivalently `Relation//DIRECT <--> Relation//DERIVED`. A no-alias derived inverse Declaration records `Relation//DERIVED <((HAS_INVERSE)) Relation//DIRECT`, the reverse written view of that same binding fact. Each side names a distinct declared Relation. After normalizing written direction, the canonical Host is the direct source and the canonical Target is its derived inverse. Infer inverse links only from admitted direct facts by swapping endpoints. Reject a self-pair, multiple direct sources for one inverse, a derived canonical Host and conflicting counterpart bindings. A qualified non-inverse view retains the qualification and endpoint transformation in its own Declaration or its explicitly cited governing rule, and is derived only from source facts satisfying that qualification. Its source Relation keeps its general meaning; do not invent HAS_INVERSE for a qualified subset. IS_DECLARED_BY is such a view of GOVERNS qualified by the Requirement/Form Declaration ownership rule.
+The canonical Declaration records the reverse alias. `Relation//DIRECT ((HAS_INVERSE)) Relation//REVERSE` and `Relation//DIRECT <--> Relation//REVERSE` state that binding. `Relation//REVERSE ((IS_INVERSE_ALIAS_FOR)) Relation//DIRECT` states it from the alias address. Reject self-pairs, multiple canonical sources for one alias, a derived canonical Host and conflicting bindings. A qualified derived Relation keeps its qualification and endpoint transformation in its own Declaration or cited governing Rule. IS_DECLARED_BY is such a view of GOVERNS, qualified by Requirement Declaration ownership.
 
 `Host ((R)) Target` is the named forward view. `Target <((R)) Host` is reverse writing of that same fact. Normalize endpoint counts with the written endpoints. Neither reverse writing nor an inverse binding grants permission, cardinality or a second authored fact. Each direction still needs its own applicable outgoing permission and bounds. Matching and counting use exact Host, Relation, Target and model/instance selectors.

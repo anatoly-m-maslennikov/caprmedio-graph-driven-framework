@@ -15,9 +15,9 @@ relations:
   delivery_for:
   - CA-M-332
   - CA-E-573
-status: Active
-version: 19
-updated_at: 2026-11-09 15:54:30 +0400
+status: active
+version: 20
+updated_at: '2026-11-12T17:09:54.081558+00:00'
 carrier_destination:
   file:
     name: CA-D-564-FRAMEWORK_DELIVERY-DECISION--carry-project-owned-docker-image-cleanup.md
@@ -25,19 +25,20 @@ carrier_destination:
 current_scope_unit: FRAMEWORK_DELIVERY
 author: Anatoly Maslennikov
 ---
-
-# Summary
+## Summary
 
 Carry project-owned Docker image cleanup
 
-## Scope
+## Claim scope
 
 Direct Docker/MCP smoke for the installed project runtime and cleanup of superseded project-owned images.
 
 ## Claim
 
-After a green full suite and successful installed Docker/MCP smoke, delivery retains the exact admitted candidate of the current package Version and removes other eligible images only when they are positively identified as owned by the selected Project and unused by any container. It never prunes broadly, removes an unrelated image, or forces container deletion.
+### Prose Claim
+
+After a green full suite and successful installed Docker/MCP smoke, delivery retains the exact admitted candidate of the current package Version and one known-good previous Project image, when available. It removes other eligible images only when they are positively identified as owned by the selected Project and unused by any container. It never prunes broadly, removes an unrelated image, or forces container deletion.
 
 ## Details
 
-Canonical image names carry the exact framework Version, actual Docker build date in UTC and digest suffix; they never replace immutable admission or establish ownership. Ownership requires matching inspected Project identity, host Project root and control root together with positive runtime schema/fingerprint classification; a container link is insufficient. A noncandidate digest has no additional retention slot merely because its Version or fingerprint matches. Preserve other Projects' images, unknown or conflicting ownership and every container reference, including stopped containers. Report the exact kept candidate, removed IDs and retained reasons with truthful pending failures; never force, prune or retry uncertain effects. Build output alone does not prove a working runtime.
+Canonical image names carry the exact framework Version, actual Docker build date in UTC and digest suffix; they never replace immutable admission or establish ownership. Ownership requires matching inspected Project identity, host Project root and control root together with positive runtime schema/fingerprint classification; a container link is insufficient. Use actual prior runtime evidence to select the rollback image. Matching Version or fingerprint alone does not earn retention. Preserve other Projects' images, unknown or conflicting ownership and every container reference, including stopped containers. Report the exact kept candidate, removed IDs and retained reasons with truthful pending failures; never force, prune or retry uncertain effects. Build output alone does not prove a working runtime.

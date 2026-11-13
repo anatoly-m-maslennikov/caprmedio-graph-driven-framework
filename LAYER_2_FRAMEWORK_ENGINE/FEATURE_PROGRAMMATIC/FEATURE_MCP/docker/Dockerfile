@@ -1,7 +1,8 @@
 # CA-M-356@19
-# CA-M-504@2
-# CA-D-704@1
+# CA-M-504@4
+# CA-D-704@6
 # CA-D-720@1
+# CA-M-551@2
 
 FROM node:22.20.0-bookworm-slim AS workbench_frontend
 WORKDIR /frontend

@@ -3,6 +3,7 @@
 from pathlib import Path
 import sys
 import unittest
+from unittest.mock import patch
 
 
 PROGRAMMATIC = Path(__file__).resolve().parents[3]
@@ -21,6 +22,18 @@ def declaration(language, claim):
 
 
 class PythonFormalClaimTest(unittest.TestCase):
+    def test_native_property_reaches_content_compiler(self):
+        cfel = 'Atom.Content.Semantics :: [markdown]{::0..1}'
+        python = (
+            'from caprmedio.formal_claims import Cardinality, declare_entity\n'
+            'declare_entity(entity_name="Semantics", relation_name="IS_PROPERTY_OF", '
+            'base_path="Atom.Content", value_format="markdown", '
+            'value_cardinality=Cardinality(minimum=0, maximum=1))'
+        )
+        baseline = compile_content_schema([declaration('CFEL', cfel)])
+        self.assertTrue(baseline.rules)
+        self.assertEqual(baseline, compile_content_schema([declaration('python', python)]))
+
     def test_content_schema_keeps_constraints_and_source(self):
         prefix = 'Atom/(.Header.Context.Role in RMED).Content.Claim'
         cfel = (f'{prefix}{{::1}}:: []{{::0}};\n'
@@ -38,6 +51,19 @@ class PythonFormalClaimTest(unittest.TestCase):
         baseline = compile_relation_registry([declaration('CFEL', cfel)])
         self.assertEqual(baseline.inverse, {'PRECEDES': 'FOLLOWS'})
         self.assertEqual(baseline, compile_relation_registry([declaration('python', python)]))
+
+    def test_native_relation_registry_uses_endpoint_contract_without_translation(self):
+        claim = (
+            'from caprmedio.formal_claims import declare_relation\n'
+            'declare_relation(relation_name="PRECEDES", inverse_alias="FOLLOWS", '
+            'source_endpoint={"level": %r}, target_endpoint={"level": %r})'
+        )
+        with patch('python_model_claim.compile_python_model_claim', side_effect=AssertionError):
+            instances = compile_relation_registry([declaration('python', claim % ('instances', 'instances'))])
+            model = compile_relation_registry([declaration('python', claim % ('model_entities', 'model_entities'))])
+        self.assertEqual(instances.inverse, {'PRECEDES': 'FOLLOWS'})
+        self.assertEqual(model.aliases, {'FOLLOWS': 'PRECEDES'})
+        self.assertEqual(model.names, {'PRECEDES'})
 
     def test_python_example_in_prose_is_not_a_model_claim(self):
         self.assertEqual((), formal_claim_blocks('## Claim\n### Prose Claim\n```python\nprint(1)\n```\n'))

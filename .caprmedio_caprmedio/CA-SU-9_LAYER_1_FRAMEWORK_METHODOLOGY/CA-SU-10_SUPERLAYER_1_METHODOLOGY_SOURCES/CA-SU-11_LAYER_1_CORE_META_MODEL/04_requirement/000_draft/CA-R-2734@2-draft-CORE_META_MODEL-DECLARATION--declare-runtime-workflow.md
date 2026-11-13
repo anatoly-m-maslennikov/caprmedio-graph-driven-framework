@@ -6,14 +6,15 @@ container:
 role: Requirement
 form: Declaration
 topics:
-  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Workflow/(.Purpose := Runtime)
+  main_subject: CAPRMEDIO_MODEL <+ Atom/(.Header.Context.Role := Operations)/Workflow/(.Purpose
+    := Runtime)
 tier: 3
 status: Draft
 version: 2
-updated_at: '2026-11-11 14:06:22 +0400'
+updated_at: 2026-11-11 14:06:22 +0400
 carrier_destination:
   file:
-    name: CA-R-2734@2-draft-DECLARATION--declare-runtime-workflow.md
+    name: CA-R-2734@2-draft-CORE_META_MODEL-DECLARATION--declare-runtime-workflow.md
     path: .caprmedio_caprmedio/CA-SU-9_LAYER_1_FRAMEWORK_METHODOLOGY/CA-SU-10_SUPERLAYER_1_METHODOLOGY_SOURCES/CA-SU-11_LAYER_1_CORE_META_MODEL/04_requirement/000_draft
 ---
 
@@ -25,11 +26,10 @@ Declare Runtime Workflow
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Atom/(.Header.Context.Role in (Operations))/Workflow.Purpose :: Runtime;
-
-Atom/(.Header.Context.Role in (Operations))/Workflow/(.Purpose in (Runtime))
+allowed_values(address='Atom/(.Header.Context.Role in (Operations))/Workflow.Purpose', values=('Runtime',))
+subject_path(address='Atom/(.Header.Context.Role in (Operations))/Workflow/(.Purpose in (Runtime))')
 ```
 
 ## Semantics

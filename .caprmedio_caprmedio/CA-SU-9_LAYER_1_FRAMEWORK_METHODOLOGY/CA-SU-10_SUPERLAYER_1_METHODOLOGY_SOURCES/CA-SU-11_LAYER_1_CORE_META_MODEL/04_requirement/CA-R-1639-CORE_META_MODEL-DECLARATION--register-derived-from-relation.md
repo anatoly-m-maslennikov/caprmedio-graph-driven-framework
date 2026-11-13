@@ -10,9 +10,9 @@ topics:
   dependencies:
   - CAPRMEDIO_MODEL <+ Term//Artifact
 tier: 1
-status: Active
-version: 38
-updated_at: 2026-11-03 20:00:05 +0400
+status: active
+version: 39
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 carrier_destination:
   file:
     name: CA-R-1639-CORE_META_MODEL-DECLARATION--register-derived-from-relation.md
@@ -38,11 +38,13 @@ Forward `Host ((DERIVED_FROM)) Target` and reverse `Target <((DERIVED_FROM)) Hos
 DERIVED_FROM relates derived represented content version to exact source content version.
 ### Formal Claim
 
-```CFEL
-# model
-Relation//DERIVED_FROM ((HAS_CLASSIFICATION)) Derivation == Direct;
+```python
+from caprmedio.formal_claims import declare_relation
 
-# instances
-$derived_content_version ((DERIVED_FROM)) $source_content_version
+declare_relation(
+    relation_name='DERIVED_FROM',
+    source_endpoint={'level': 'instances', 'reference_form': 'represented_content_version'},
+    target_endpoint={'level': 'instances', 'reference_form': 'exact_source_content_version'},
+)
 ```
 

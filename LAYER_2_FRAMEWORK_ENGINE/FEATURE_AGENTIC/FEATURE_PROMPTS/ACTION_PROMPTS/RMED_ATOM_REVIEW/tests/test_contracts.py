@@ -134,15 +134,20 @@ class PromptContracts(unittest.TestCase):
             self.assertTrue(set(case["required_failed_checks"]).issubset(legacy_checks))
         self.assertTrue(any(not c["required_failed_checks"] for c in cases))
 
-    def test_golden_carriers_reach_real_body_checker(self):
-        tool_tests = ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC/FEATURE_TOOLS/VALIDATE_ATOMS/tests"
-        sys.path.insert(0, str(tool_tests))
-        from test_authority_checks import run_check, outcome
-        for case in json.loads((HERE / "tests/fixtures/cases.json").read_text()):
-            text = (HERE / "tests/fixtures" / case["file"]).read_text()
-            meta = yaml.safe_load(text.split("---", 2)[1])
-            checked = run_check(["CA-D-479"], meta, text.split("---", 2)[2])
-            self.assertEqual(outcome(checked, "body.sections")["outcome"], case["body_check"])
+    def test_current_rmed_claim_reaches_declared_body_checker(self):
+        programmatic = ROOT / "LAYER_2_FRAMEWORK_ENGINE/FEATURE_PROGRAMMATIC"
+        tools = programmatic / "FEATURE_TOOLS"
+        sys.path[:0] = [str(tools), str(programmatic / "FEATURE_APPS/APP_WORKBENCH")]
+        from ATOM_LIFECYCLE.candidate_schema import load_candidate_schema
+        schema = load_candidate_schema(tools / "ATOM_LIFECYCLE/candidate_schema.json")
+        body = "## Summary\nA summary.\n## Claim\n### Prose Claim\nA claim.\n"
+        for role in ("Requirement", "Method", "Evaluation", "Delivery"):
+            with self.subTest(role=role):
+                row = {"role": role, "form": None, "content_markdown": body}
+                schema.content_constraints.validate(row)
+                row["content_markdown"] = body.replace("### Prose Claim\n", "")
+                with self.assertRaisesRegex(ValueError, "claim"):
+                    schema.content_constraints.validate(row)
 
     def test_evidence_cannot_hide_missing_failed_or_blocked_checks(self):
         good = passing_evidence()

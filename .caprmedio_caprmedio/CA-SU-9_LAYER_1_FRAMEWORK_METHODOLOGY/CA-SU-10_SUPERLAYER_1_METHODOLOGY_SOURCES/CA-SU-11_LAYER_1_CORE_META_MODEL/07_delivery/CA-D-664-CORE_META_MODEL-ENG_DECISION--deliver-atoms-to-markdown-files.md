@@ -8,9 +8,9 @@ form: Eng Decision
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Atom
 tier: 3
-status: Active
-version: 8
-updated_at: 2026-11-09 00:03:55 +0400
+status: active
+version: 9
+updated_at: '2026-11-13T05:43:12.969816+00:00'
 carrier_destination:
   file:
     name: CA-D-664-CORE_META_MODEL-ENG_DECISION--deliver-atoms-to-markdown-files.md
@@ -26,7 +26,7 @@ Deliver Atoms to Markdown files
 
 ### Prose Claim
 
-The selected Carrier is the Markdown file delivering the selected Atom. Its filename includes the extension, and its location is the containing directory relative to the repository root.
+The selected Carrier is the Markdown file delivering the selected Atom. Its filename includes the extension and equals the Atom Header Destination File Name. Its location equals the Atom Header Destination File Path and is the containing directory relative to the repository root.
 
 Deliver the complete Header recursively as YAML frontmatter, preserving its declared nesting. Deliver declared Content Properties as Markdown sections.
 
@@ -34,17 +34,9 @@ For YAML, encode names and named values in lowercase words joined by single unde
 
 ### Formal Claim
 
-```CFEL
+```python
 # instances
-Atom//$atom >> Carrier//$carrier;
-
-$atom.Header >> $carrier.frontmatter;
-
-$atom.Content >> $carrier.markdown;
-
-$carrier.filename == $atom.Header.Destination.File.Name;
-
-$carrier.location == $atom.Header.Destination.File.Path
+deliver(source="Atom//$atom", carrier="Carrier//$carrier")
 ```
 
 ## Details

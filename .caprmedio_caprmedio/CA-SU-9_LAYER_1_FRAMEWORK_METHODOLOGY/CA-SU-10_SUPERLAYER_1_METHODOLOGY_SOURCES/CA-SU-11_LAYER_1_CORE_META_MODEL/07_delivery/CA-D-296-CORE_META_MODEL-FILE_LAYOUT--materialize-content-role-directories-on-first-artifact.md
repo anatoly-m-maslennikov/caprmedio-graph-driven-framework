@@ -12,9 +12,9 @@ topics:
   - CAPRMEDIO_MODEL <+ Atom
   - CAPRMEDIO_MODEL <+ Carrier/Directory
 tier: 3
-status: Active
-version: 33
-updated_at: '2026-11-11T18:56:17+04:00'
+status: active
+version: 34
+updated_at: '2026-11-12T19:34:39.244837+00:00'
 carrier_destination:
   file:
     name: CA-D-296-CORE_META_MODEL-FILE_LAYOUT--materialize-content-role-directories-on-first-artifact.md
@@ -40,7 +40,6 @@ Create the folder when the first Atom needs it. The applicable Status and Contai
 
 ### Formal Claim
 
-```CFEL
-# model
-Atom.Header.Destination.File.Path == PATH_TEMPLATE("<owning scope unit>/<role folder>/<placement>");
+```python
+placement_rules = ({"kind": "role_root"},)
 ```

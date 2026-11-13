@@ -10,6 +10,7 @@ from unittest.mock import patch
 TOOLS = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(TOOLS))
 from ATOM_LIFECYCLE import backend, effects  # noqa: E402
+from ATOM_LIFECYCLE.placement import PlacementError  # noqa: E402
 from ATOM_LIFECYCLE.timing import lifecycle_tool, span, trace  # noqa: E402
 
 SELECTION = SimpleNamespace(root=Path('/project'), settings={'artifacts': {'identity': {'project_prefix': 'CA'}}})
@@ -65,6 +66,28 @@ class LifecycleTimingTests(unittest.TestCase):
             {'filesystem.create', 'execute', 'project_refresh'},
         )
         self.assertNotIn('private', logs)
+
+    def test_backend_reports_placement_error_and_logs_its_type(self):
+        model = SimpleNamespace(candidate_schema=SimpleNamespace(placement=object()))
+        name = 'atom_lifecycle_create_draft'
+
+        @trace('placement.derive_destination')
+        def action(_selection, _model, _params):
+            raise PlacementError('Unsupported Summary serialization')
+
+        output = io.StringIO()
+        with (patch.object(backend, '_project_write_lock', return_value=nullcontext()),
+              patch.object(backend, 'bind_placement', return_value=nullcontext()),
+              patch.dict(backend.ROUTES, {name: action}), redirect_stdout(output)):
+            result = backend.execute(SELECTION, model, name, {'summary': 'private value'})
+
+        self.assertEqual(result['effects'], [])
+        self.assertEqual(result['errors'], [{'code': 'invalid_placement',
+                         'message': 'Unsupported Summary serialization', 'field': None}])
+        rows = [json.loads(line) for line in output.getvalue().splitlines()]
+        self.assertTrue(any(row['code'] == 'placement.derive_destination'
+                            and row.get('exception_class') == 'PlacementError' for row in rows))
+        self.assertNotIn('private value', output.getvalue())
 
     def test_logging_failure_does_not_change_operation_result(self):
         @lifecycle_tool

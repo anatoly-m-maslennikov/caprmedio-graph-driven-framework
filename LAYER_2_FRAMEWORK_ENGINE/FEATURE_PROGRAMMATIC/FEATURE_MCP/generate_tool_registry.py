@@ -1,6 +1,7 @@
 # CA-R-3013@2
-# CA-M-506@6
-# CA-D-704@5
+# CA-M-506@8
+# CA-D-704@6
+# CA-M-536@1
 
 """Generate the installed MCP Tool registry from one provider inventory."""
 

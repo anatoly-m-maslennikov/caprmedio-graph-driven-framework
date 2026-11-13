@@ -1,10 +1,11 @@
+# CA-M-405@14
 # CA-O-10011@4
 # CA-R-1525@25
 # CA-R-1521@34
-# CA-D-480@24
+# CA-D-480@25
 # CA-D-664@8
 # CA-D-461@33
-# CA-D-475@27
+# CA-D-475@28
 
 """Compose Current Status actions for a verified containment tree."""
 
@@ -12,6 +13,7 @@ from .timing import trace
 
 from dataclasses import dataclass, replace
 import hashlib
+import sys
 
 from .assets.change_current_status import SOURCE_SHA256, WORKFLOW_BINDING, change_current_status
 from .carrier import logical_view, render_carrier
@@ -211,6 +213,7 @@ class StatusRun:
         try:
             self.check_definition()
         except DefinitionChanged as error:
+            print(str(error), file=sys.stderr)
             self.errors.append({'code': 'definition_revalidation_required', 'message': str(error)})
             self.blocked = True
             return False

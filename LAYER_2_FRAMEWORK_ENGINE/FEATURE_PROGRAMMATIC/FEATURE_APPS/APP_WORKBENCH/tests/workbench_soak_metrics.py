@@ -104,9 +104,16 @@ def owner_inventory(service: Any) -> dict[str, Any]:
             tables = {row[0] for row in store._connection.execute(
                 "SELECT table_name FROM information_schema.tables WHERE table_schema = 'workbench_results'"
             ).fetchall()}
+            carrier_rows = store._connection.execute(
+                "SELECT path, reference, accepted FROM temp.main.workbench_reference_carriers"
+            ).fetchall()
+            filename_rows = store._connection.execute(
+                "SELECT path, atom_id, version, archived FROM temp.main.workbench_filename_catalog"
+            ).fetchall()
             results = set(store._results)
             pinned = {key for key, value in store._results.items() if value.pinned}
             managed = store._connection.execute("SELECT sum(memory_usage_bytes) FROM duckdb_memory()").fetchone()[0]
+        reference_keys = {reference for _, reference, _ in carrier_rows if reference is not None}
         state, reader = service._relation_state, service._reader
         outgoing = {} if state is None else state.outgoing
         if not set(reader._cached) <= reader._source_paths or not set(reader._failed) <= reader._source_paths:
@@ -116,12 +123,14 @@ def owner_inventory(service: Any) -> dict[str, Any]:
             "pinned_result_ids": sorted(pinned), "open_view_result_ids": sorted(_open_view_results(service)),
             "source_cache": {"cached": len(reader._cached), "failed": len(reader._failed),
                              "source_paths": len(reader._source_paths), "content_invalid": len(reader._content_invalid),
-                             "reference_keys": len(reader._references.paths),
-                             "reference_paths": sum(map(len, reader._references.paths.values())),
-                             "accepted_references": len(reader._references.accepted),
+                             "reference_keys": len(reference_keys),
+                             "reference_paths": sum(reference is not None for _, reference, _ in carrier_rows),
+                             "accepted_references": sum(accepted for _, _, accepted in carrier_rows),
+                             "filename_paths": len(filename_rows),
+                             "filename_paths_digest": _keys_digest(filename_rows),
                              "cached_paths_digest": _keys_digest(reader._cached),
                              "source_paths_digest": _keys_digest(reader._source_paths),
-                             "reference_keys_digest": _keys_digest(reader._references.paths)},
+                             "reference_keys_digest": _keys_digest(reference_keys)},
             "relation_state": {"raw_by_path": 0 if state is None else len(state.raw_by_path),
                                "refs": 0 if state is None else len(state.refs),
                                "direct_facts": 0 if state is None else len(state.direct_facts),

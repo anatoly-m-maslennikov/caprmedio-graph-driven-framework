@@ -1,4 +1,4 @@
-# CA-R-2726@6
+# CA-R-2726@9
 # CA-M-500@8
 # CA-M-509@5
 # CA-D-672@14
@@ -7,7 +7,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Iterator, Sequence
 import re
 
 from markdown_it import MarkdownIt
@@ -21,11 +21,10 @@ _COMMENTS = re.compile(rf"({_QUOTED})|#[^\r\n]*")
 _DELIMITERS = re.compile(rf"({_QUOTED})|;(?!>)")
 
 
-def formal_claim_blocks(body: str) -> tuple[str, ...]:
-    """Read model fences at Claim/Formal Claim in the compiler's statement format."""
+def formal_claim_fences(body: str) -> Iterator[tuple[str, str]]:
+    """Yield language and source for each fence at Claim/Formal Claim."""
     tokens = MarkdownIt("commonmark").parse(body)
     headings: list[tuple[int, str]] = []
-    blocks: list[str] = []
     for index, token in enumerate(tokens):
         if token.type == "heading_open":
             level = int(token.tag[1:])
@@ -33,13 +32,29 @@ def formal_claim_blocks(body: str) -> tuple[str, ...]:
                 headings.pop()
             headings.append((level, content_key(tokens[index + 1].content)))
         elif token.type == "fence" and tuple(name for _, name in headings) == ("claim", "formal_claim"):
-            language = token.info.strip().casefold()
-            if language == "cfel":
-                blocks.append(_COMMENTS.sub(lambda match: match.group(1) or "", token.content))
-            elif language == "python":
-                from python_model_claim import parse_python_model_claim
+            yield token.info.strip().casefold(), token.content
 
-                blocks.append(";\n".join(parse_python_model_claim(token.content)))
+
+def cfel_without_comments(text: str) -> str:
+    return _COMMENTS.sub(lambda match: match.group(1) or "", text)
+
+
+def formal_claim_blocks(body: str, *, model_class_bindings=None, skip_typed_model_properties=False) -> tuple[str, ...]:
+    """Read model fences at Claim/Formal Claim in the compiler's statement format."""
+    blocks: list[str] = []
+    for language, text in formal_claim_fences(body):
+        if language == "cfel":
+            blocks.append(cfel_without_comments(text))
+        elif language == "python":
+            from python_model_claim import compile_python_model_claim
+
+            if skip_typed_model_properties:
+                from FEATURE_FORMAL_MODEL_ENGINE.native_model_claim import parse_native_model_claim
+                declaration = parse_native_model_claim(text)
+                if (declaration and declaration.get("model_value_format")
+                        and declaration.get("arguments", {}).get("relation_name") == "IS_PROPERTY_OF"):
+                    continue
+            blocks.append(";\n".join(compile_python_model_claim(text, model_class_bindings=model_class_bindings)))
     return tuple(blocks)
 
 

@@ -13,9 +13,9 @@ relations:
   method_for:
   - CA-R-3013
   - CA-R-1108
-status: Active
-version: 7
-updated_at: 2026-11-11 06:09:13 +0400
+status: active
+version: 8
+updated_at: '2026-11-12T12:32:35.944897+00:00'
 carrier_destination:
   file:
     name: CA-M-506-MCP-SOLUTION--register-mcp-tools-from-installed-code-and-generated-configuration.md
@@ -23,7 +23,6 @@ carrier_destination:
 current_scope_unit: MCP
 author: Anatoly Maslennikov
 ---
-
 ## Summary
 
 Register MCP tools from installed code and generated configuration
@@ -32,7 +31,7 @@ Register MCP tools from installed code and generated configuration
 
 ### Prose Claim
 
-MCP exposure comes from installed code and configuration. Maintain an explicit code-owned provider inventory and generate a deterministic registration asset on every local release and image rebuild before startup; derive descriptions and typed schemas from provider code, never Atom content, Tool folders, Project scans, or source-Workflow manifests.
+MCP exposure comes from installed code and configuration. Maintain an explicit code-owned provider inventory and generate the deterministic registration asset in refresh mode before image assembly. In existing mode, use the checkout registration asset unchanged. Derive descriptions and typed schemas from provider code, never Atom content, Tool folders, Project scans, or source-Workflow manifests.
 
 At startup load that asset and register enabled providers/routes. A source Atom edit alone cannot change exposure; preserve Project selection, global/configured exclusions, duplicate-name checks, typed request/result validation, and public protocols. Each operation retains its own business validation; route exposure does not assert prerequisites. Native Workbench tools remain available through installed registrations, while retired adapters stay absent.
 

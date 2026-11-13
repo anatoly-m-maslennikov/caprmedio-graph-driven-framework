@@ -11,9 +11,9 @@ tier: 3
 relations:
   child_of:
   - CA-R-1176
-status: Active
-version: 16
-updated_at: 2026-11-04 05:21:15 +0400
+status: active
+version: 17
+updated_at: '2026-11-12T17:23:54+00:00'
 carrier_destination:
   file:
     name: CA-R-1979-CORE_META_MODEL-DECLARATION--define-project-framework-settings-confidence.md
@@ -36,13 +36,20 @@ the Confidence grouping in the Project's Framework Settings.
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Project.Settings.Confidence{::0..1}:: []{::0};
+from caprmedio.formal_claims import Cardinality, declare_entity
 
-Project.Settings.Confidence.*[in (Necessary Information Threshold, Semantic Resolution Threshold)]{::0..2};
-
-Project.Settings.Confidence.*:: [int]
+declare_entity(
+    entity_name='Confidence',
+    relation_name='IS_PROPERTY_OF',
+    base_path='Project.Settings',
+    property_occurrence_cardinality=Cardinality(minimum=0, maximum=1),
+    value_cardinality=0,
+    dependent_property_cardinality=Cardinality(minimum=0, maximum=2),
+    allowed_dependent_property_names=('Necessary Information Threshold', 'Semantic Resolution Threshold'),
+    dependent_property_value_format='int',
+)
 ```
 
 ## Details

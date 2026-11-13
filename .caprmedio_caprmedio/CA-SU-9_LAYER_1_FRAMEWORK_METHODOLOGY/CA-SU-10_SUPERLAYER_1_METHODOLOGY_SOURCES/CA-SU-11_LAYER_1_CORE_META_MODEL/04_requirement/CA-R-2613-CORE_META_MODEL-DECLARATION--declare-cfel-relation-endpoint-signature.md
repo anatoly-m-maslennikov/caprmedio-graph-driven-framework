@@ -8,9 +8,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ CFEL<+Operator//RelationEndpointSignature
 tier: 3
-status: Active
-version: 1
-updated_at: 2026-11-02 08:06:47 +0400
+status: active
+version: 2
+updated_at: '2026-11-13T05:29:34.070043+00:00'
 carrier_destination:
   file:
     name: CA-R-2613-CORE_META_MODEL-DECLARATION--declare-cfel-relation-endpoint-signature.md
@@ -27,9 +27,9 @@ Declare CFEL Relation endpoint signature
 
 ### Formal Claim
 
-```CFEL
+```python
 # model
-Operator//RelationEndpointSignature == "$host ((RELATION)) $target"
+set_value(address='Operator//RelationEndpointSignature', value='"$host ((RELATION)) $target"')
 ```
 
 ## Semantics

@@ -6,9 +6,9 @@ form: Declaration
 topics:
   main_subject: CAPRMEDIO_MODEL <+ Project
 tier: 3
-status: Active
-version: 6
-updated_at: "2026-11-07 15:18:44 +0400"
+status: active
+version: 7
+updated_at: '2026-11-12T12:33:04.158402+00:00'
 container:
   scope_unit: CA-SU-11
 carrier_destination:
@@ -29,22 +29,23 @@ A Project uses CAPRMEDIO's MODEL.
 
 ### Formal Claim
 
-```CFEL
-# model
-Scope Unit/Project;
+```python
+from caprmedio.formal_claims import declare_entity
+from caprmedio.model import ScopeUnit
 
-Project >| (Container == yes);
+class Project(ScopeUnit):
+    pass
 
-Project ((NARROWER_THAN)) Scope Unit;
-
-# instances
-Scope Unit/Project//$scope_unit{::1};
-
-Project//$project {::0}((IS_CONTAINED_BY)) Scope Unit//$scope_unit_2;
-
-Project//$project_2.order.ordered == false;
-
-Project//$project_3.order.number:: []{::0}
+declare_entity(
+    entity_class=Project,
+    entity_name='Project',
+    classifications={'Container': 'yes'},
+    instance_population_cardinality=1,
+    instance_population_scope='project',
+    instance_relation_constraints={'IS_CONTAINED_BY': {'target_entity_paths': ('Scope Unit',), 'targets_per_source': 0}},
+    required_instance_property_values={'order.ordered': False},
+    instance_property_constraints={'order.number': {'value_cardinality': 0}},
+)
 ```
 
 ## Semantics

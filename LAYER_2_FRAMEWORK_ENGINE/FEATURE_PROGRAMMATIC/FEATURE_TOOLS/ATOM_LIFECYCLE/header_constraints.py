@@ -81,7 +81,7 @@ def _selected(value):
 def compile_header_constraints(rows):  # noqa: C901
     records = set()
     for row in rows:
-        for block in formal_claim_blocks(row['_content_bytes'].decode('utf-8')):
+        for block in formal_claim_blocks(row['_content_bytes'].decode('utf-8'), model_class_bindings=row.get('_model_class_bindings')):
             for statement in model_statements(block):
                 if match := _PROPERTY.match(statement):
                     selector, selected, path, count = match.groups()

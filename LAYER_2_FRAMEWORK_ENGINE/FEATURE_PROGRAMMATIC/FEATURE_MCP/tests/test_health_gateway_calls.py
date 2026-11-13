@@ -22,11 +22,11 @@ class HealthGatewayCallTests(HealthHTTPFixture):
         async with self.lifespan():
             client, transport, session = await self.session()
             try:
-                returned = await session.call_tool("query_schema", {"secret": SECRET})
+                returned = await session.call_tool("query_schema", {})
                 rejected = await session.call_tool("not_registered", {})
-                partial = await session.call_tool("query_page", {})
-                unsafe = await session.call_tool("query_load", {})
-                uncertain = await session.call_tool("query_check", {})
+                partial = await session.call_tool("query_page", {"query_id": SECRET})
+                unsafe = await session.call_tool("query_load", {"reference": "018f0000-0000-7000-8000-000000000000"})
+                uncertain = await session.call_tool("query_check", {"sql": "SELECT 1"})
                 self.assertFalse(returned.is_error)
                 self.assertTrue(rejected.is_error)
                 self.assertFalse(partial.is_error)
@@ -63,9 +63,10 @@ class HealthGatewayCallTests(HealthHTTPFixture):
         async with self.lifespan():
             client, transport, session = await self.session()
             try:
-                await asyncio.gather(
-                    *(session.call_tool(name, {"delay": 0.02}) for name in ("workspace_list", "query_saved_list") * 4)
+                responses = await asyncio.gather(
+                    *(session.call_tool(name, {}) for name in ("workspace_list", "query_saved_list") * 4)
                 )
+                self.assertTrue(all(not response.is_error for response in responses), responses)
                 rows = self.app.gateway.health_observations.snapshot()["calls"]
                 self.assertEqual(8, len(rows))
                 self.assertEqual({"workspace_list", "query_saved_list"}, {row["name"] for row in rows})
@@ -76,7 +77,7 @@ class HealthGatewayCallTests(HealthHTTPFixture):
     async def test_cancelled_real_gateway_call_propagates_and_is_not_returned(self):
         async with self.lifespan():
             pending = asyncio.create_task(self.app.gateway.call(
-                None, types.CallToolRequestParams(name="query_run", arguments={"delay": 30.0})))
+                None, types.CallToolRequestParams(name="query_run", arguments={"sql": "SELECT 1"})))
             try:
                 marker = ""
                 for _ in range(50):
